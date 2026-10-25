@@ -8,6 +8,23 @@ This repository is the working research archive behind the Gravity Field Dynamic
 
 ---
 
+## Statement on open release
+
+This programme has been carried out by a single independent investigator. It has now reached a point where its open questions exceed what one researcher can responsibly pursue. The derivations require independent verification, the empirical comparisons call for scrutiny by specialists in each domain, and several lines of inquiry remain unresolved.
+
+In the spirit of open science, the complete research record is therefore released here without restriction of access. That record comprises the published preprints, the manuscripts in preparation, the validation code and the working notes from which they were developed. It is offered not as a finished body of results but as a starting point for critical examination, replication and extension by the wider research community.
+
+Engagement of every kind is welcome:
+
+- independent checks of the mathematical derivations;
+- re-analysis of the observational and experimental comparisons;
+- identification of errors, gaps or unstated assumptions;
+- collaboration on the open problems.
+
+Negative results and well-founded criticism are regarded as contributions of equal value. Correspondence may be directed to stephen@fielddynamics.org, or raised as an issue on this repository.
+
+---
+
 ## The framework in one page
 
 GFD proposes that the local gravitational frame has a definite interior geometry: the **stellated octahedron**, two interpenetrating tetrahedra of opposite orientation (**TetA** and **TetB**) sharing a common centre (the **Field Origin**). From that geometry it derives a covariant, zero-free-parameter theory of gravity that reproduces galactic rotation curves without dark matter, and it then follows the same structure into constants, particle masses, nuclear binding and atomic structure.
