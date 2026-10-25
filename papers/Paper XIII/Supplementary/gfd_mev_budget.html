@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GFD Sierpiński MeV Budget</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+:root{--bg:#060810;--bg2:#0c0e18;--bg3:#121520;--bg4:#1a1e2e;--text:#9ca3b8;--dim:#3a4060;--bright:#dce0ee;
+--gd0:#00ddb8;--gd1:#4888d8;--gd2:#e04878;--gd3:#9868e0;--gold:#e8a820;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:'JetBrains Mono',monospace;font-size:11px;display:flex;height:100vh;overflow:hidden;}
+
+.sidebar{width:200px;background:var(--bg2);border-right:1px solid var(--bg4);display:flex;flex-direction:column;flex-shrink:0;}
+.sidebar-head{padding:10px;border-bottom:1px solid var(--bg4);text-align:center;}
+.sidebar-head h2{font-family:'Playfair Display',serif;font-size:13px;color:var(--bright);}
+.sidebar-head .sub{font-size:7px;color:var(--dim);letter-spacing:0.12em;text-transform:uppercase;margin-top:2px;}
+.el-list{flex:1;overflow-y:auto;padding:2px 0;}
+.el-item{display:flex;align-items:center;padding:3px 8px;cursor:pointer;transition:all 0.1s;gap:5px;border-left:2px solid transparent;font-size:10px;}
+.el-item:hover{background:rgba(0,221,184,0.04);border-left-color:var(--dim);}
+.el-item.active{background:rgba(0,221,184,0.08);border-left-color:var(--gd0);color:var(--gd0);}
+.el-item .z{font-size:8px;color:var(--dim);width:16px;text-align:right;}
+.el-item .sym{font-weight:600;width:22px;}
+.el-item .a{color:var(--dim);flex:1;}
+.el-item .ba{text-align:right;font-size:9px;}
+
+.main-area{flex:1;display:flex;flex-direction:column;overflow:hidden;}
+.top-strip{padding:8px 14px;border-bottom:1px solid var(--bg4);display:flex;align-items:center;gap:14px;background:var(--bg2);flex-shrink:0;}
+.el-title{font-family:'Playfair Display',serif;font-size:18px;color:var(--bright);}
+.el-meta{font-size:9px;color:var(--dim);}
+.el-meta span{color:var(--text);font-weight:500;}
+
+.content{flex:1;display:flex;overflow:hidden;}
+.tri-area{flex:1;position:relative;padding:8px;}
+canvas#triCanvas{display:block;}
+
+.right-panel{width:280px;background:var(--bg2);border-left:1px solid var(--bg4);overflow-y:auto;padding:8px;flex-shrink:0;}
+.rp-section{margin-bottom:10px;}
+.rp-title{font-size:8px;color:var(--dim);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:4px;padding-bottom:3px;border-bottom:1px solid var(--bg4);}
+.rp-row{display:flex;justify-content:space-between;padding:1px 0;font-size:9px;}
+.rp-row .lbl{color:var(--dim);}
+.rp-row .val{color:var(--bright);font-weight:500;}
+.rp-row .val.c0{color:var(--gd0);}
+.rp-row .val.c1{color:var(--gd1);}
+.rp-row .val.c2{color:var(--gd2);}
+.rp-row .val.c3{color:var(--gd3);}
+
+.depth-bar{display:flex;height:14px;border-radius:2px;overflow:hidden;margin:4px 0;}
+.depth-bar div{display:flex;align-items:center;justify-content:center;font-size:7px;font-weight:600;color:#000;}
+
+.tooltip{position:absolute;pointer-events:none;opacity:0;transition:opacity 0.12s;background:var(--bg3);border:1px solid var(--bg4);border-radius:3px;padding:6px 10px;font-size:9px;z-index:10;box-shadow:0 4px 20px rgba(0,0,0,0.6);min-width:180px;}
+.tooltip.show{opacity:1;}
+</style>
+</head>
+<body>
+
+<div class="sidebar">
+  <div class="sidebar-head">
+    <h2>MeV Budget</h2>
+    <div class="sub">Sierpiński Walk × SST</div>
+  </div>
+  <div class="el-list" id="elList"></div>
+</div>
+
+<div class="main-area">
+  <div class="top-strip">
+    <div class="el-title" id="elTitle">Fe (A=56)</div>
+    <div class="el-meta" id="elMeta"></div>
+  </div>
+  <div class="content">
+    <div class="tri-area" id="triArea">
+      <canvas id="triCanvas"></canvas>
+      <div class="tooltip" id="tooltip"></div>
+    </div>
+    <div class="right-panel" id="rightPanel"></div>
+  </div>
+</div>
+
+<script>
+const K=4,D=3,M_E=0.51099895,F_ZERO=K*K+1,F_PLUS=K*K+K+1,F_MINUS=K*K-K+1,KD=K**D;
+const HBAR_C=197.3269804;
+
+function mu_sst(x){if(x<=0)return 0;return((2*x+1)-Math.sqrt(4*x+1))/(2*x);}
+const SUM64=(()=>{let s=0;for(let i=1;i<=64;i++)s+=mu_sst(i*i);return s;})();
+const SCALE=8.756*64/SUM64;
+const R0=HBAR_C/(SCALE*F_ZERO);
+
+function gateDepth(i){
+  const F=Math.floor(i/16),C=Math.floor((i%16)/4),S=i%4;
+  return(F===3?1:0)+(C===3?1:0)+(S===3?1:0);
+}
+function posAddr(i){return{F:Math.floor(i/16),C:Math.floor((i%16)/4),S:i%4};}
+
+const MAGIC=[2,8,20,28,50,82,126];
+const THRESH=MAGIC.map(M=>mu_sst(M*M));
+function getShell(i){const m=mu_sst(i*i);for(let n=0;n<THRESH.length;n++)if(m<=THRESH[n])return n+1;return THRESH.length+1;}
+
+// Precompute all 64 positions
+const POS=[];
+for(let i=0;i<64;i++){
+  const wi=i+1;
+  const gd=gateDepth(i);
+  const mu=mu_sst(wi*wi);
+  const E=SCALE*mu;
+  const sh=getShell(wi);
+  const addr=posAddr(i);
+  POS.push({idx:i,walk:wi,gd,mu,E,shell:sh,F:addr.F,C:addr.C,S:addr.S});
+}
+
+const ELEMENTS=[
+  [2,'He',4,7.074],[3,'Li',7,5.606],[4,'Be',9,6.463],[5,'B',11,6.928],
+  [6,'C',12,7.680],[7,'N',14,7.476],[8,'O',16,7.976],[9,'F',19,7.779],
+  [10,'Ne',20,8.032],[11,'Na',23,8.111],[12,'Mg',24,8.261],[13,'Al',27,8.332],
+  [14,'Si',28,8.448],[15,'P',31,8.481],[16,'S',32,8.493],[17,'Cl',35,8.520],
+  [18,'Ar',40,8.595],[19,'K',39,8.557],[20,'Ca',40,8.551],[21,'Sc',45,8.619],
+  [22,'Ti',48,8.723],[23,'V',51,8.742],[24,'Cr',52,8.776],[25,'Mn',55,8.765],
+  [26,'Fe',56,8.790],[27,'Co',59,8.768],[28,'Ni',58,8.732],[29,'Cu',63,8.752],
+  [30,'Zn',64,8.756],
+];
+
+const gdColors={0:'#00ddb8',1:'#4888d8',2:'#e04878',3:'#9868e0'};
+const gdNames=['a (gd=0)','b (gd=1)','c (gd=2)','d (gd=3)'];
+const gdLabels=['a','b','c','d'];
+
+// ═══════════════════════════════════════
+// SIDEBAR
+// ═══════════════════════════════════════
+const elList=document.getElementById('elList');
+let activeEl=null;
+
+ELEMENTS.forEach(([Z,sym,A,BA])=>{
+  const div=document.createElement('div');
+  div.className='el-item';div.dataset.z=Z;
+  div.innerHTML=`<span class="z">${Z}</span><span class="sym">${sym}</span><span class="a">A=${A}</span><span class="ba">${BA.toFixed(3)}</span>`;
+  div.addEventListener('click',()=>selectElement(Z));
+  elList.appendChild(div);
+});
+
+// ═══════════════════════════════════════
+// SIERPINSKI GEOMETRY
+// ═══════════════════════════════════════
+const canvas=document.getElementById('triCanvas');
+const ctx=canvas.getContext('2d');
+const triArea=document.getElementById('triArea');
+const tooltip=document.getElementById('tooltip');
+let W,H;const pad=16;
+let triData=[]; // {pts, center} for each subchannel
+
+function subdiv(p0,p1,p2,up){
+  const m01={x:(p0.x+p1.x)/2,y:(p0.y+p1.y)/2};
+  const m12={x:(p1.x+p2.x)/2,y:(p1.y+p2.y)/2};
+  const m02={x:(p0.x+p2.x)/2,y:(p0.y+p2.y)/2};
+  if(up)return[{pts:[p0,m01,m02],up:true},{pts:[m01,p1,m12],up:true},{pts:[m02,m12,p2],up:true},{pts:[m01,m02,m12],up:false}];
+  return[{pts:[p0,m01,m02],up:false},{pts:[m01,p1,m12],up:false},{pts:[m02,m12,p2],up:false},{pts:[m01,m02,m12],up:true}];
+}
+function ctr(pts){return{x:(pts[0].x+pts[1].x+pts[2].x)/3,y:(pts[0].y+pts[1].y+pts[2].y)/3};}
+
+function buildGeometry(){
+  const sz=Math.min(W,H)-pad*2;
+  const triH=sz*Math.sqrt(3)/2;
+  const ox=(W-sz)/2, oy=(H-triH)/2;
+  const apex={x:ox+sz/2,y:oy},bL={x:ox,y:oy+triH},bR={x:ox+sz,y:oy+triH};
+  const faces=subdiv(apex,bL,bR,true);
+  const channels=[];faces.forEach(f=>{subdiv(f.pts[0],f.pts[1],f.pts[2],f.up).forEach(c=>channels.push(c));});
+  const subs=[];channels.forEach(c=>{subdiv(c.pts[0],c.pts[1],c.pts[2],c.up).forEach(s=>subs.push(s));});
+  triData=subs.map((s,i)=>({pts:s.pts,center:ctr(s.pts),idx:i}));
+  return{faces,channels};
+}
+
+function drawTri(pts,fill,stroke,lw){
+  ctx.beginPath();ctx.moveTo(pts[0].x,pts[0].y);ctx.lineTo(pts[1].x,pts[1].y);ctx.lineTo(pts[2].x,pts[2].y);ctx.closePath();
+  if(fill){ctx.fillStyle=fill;ctx.fill();}if(stroke){ctx.strokeStyle=stroke;ctx.lineWidth=lw||0.5;ctx.stroke();}
+}
+
+function draw(el){
+  if(!el)return;
+  const [Z,sym,A,BA]=el;
+  ctx.clearRect(0,0,W,H);
+
+  // Compute B/A for this element from SST
+  let B_total=0;
+  for(let i=0;i<A;i++) B_total+=POS[i].E;
+  const ba_pred=B_total/A;
+
+  const{faces,channels}=buildGeometry();
+
+  // Draw 64 subchannels
+  triData.forEach((tri,i)=>{
+    const p=POS[i];
+    const filled=i<A;
+    if(filled){
+      const col=gdColors[p.gd];
+      const alpha=0.25+0.45*(p.mu);
+      drawTri(tri.pts,col+Math.round(alpha*255).toString(16).padStart(2,'0'),col+'99',0.8);
+
+      const c=tri.center;
+      const fontSize=W>700?8:W>500?7:6;
+      ctx.textAlign='center';ctx.textBaseline='middle';
+
+      // Line 1: uniform B/A (what each nucleon receives)
+      ctx.font=`600 ${fontSize}px "JetBrains Mono"`;
+      ctx.fillStyle='rgba(255,255,255,0.9)';
+      ctx.fillText(ba_pred.toFixed(2),c.x,c.y-fontSize*0.7);
+
+      // Line 2: μ contribution (what this position contributed to building the vortex)
+      ctx.font=`400 ${fontSize-1}px "JetBrains Mono"`;
+      ctx.fillStyle=col+'aa';
+      ctx.fillText('μ='+p.mu.toFixed(3),c.x,c.y+fontSize*0.15);
+
+      // Line 3: gate depth label
+      ctx.font=`500 ${fontSize-1}px "JetBrains Mono"`;
+      ctx.fillStyle=col+'cc';
+      ctx.fillText(gdLabels[p.gd],c.x,c.y+fontSize*1.0);
+    } else {
+      drawTri(tri.pts,'#0a0c14','#151825',0.3);
+    }
+  });
+
+  // Face outlines
+  faces.forEach((f,fi)=>{
+    drawTri(f.pts,null,'rgba(255,255,255,0.08)',1.5);
+    const c=ctr(f.pts);
+    ctx.font='600 9px "JetBrains Mono"';ctx.textAlign='center';
+    ctx.fillStyle=fi===3?'rgba(152,104,224,0.25)':'rgba(0,221,184,0.2)';
+    ctx.fillText(fi===3?'F3·gate':'F'+fi,c.x,c.y);
+  });
+
+  // Channel outlines
+  channels.forEach(ch=>drawTri(ch.pts,null,'rgba(255,255,255,0.03)',0.4));
+
+  // Fill counter + B/A
+  ctx.font='500 10px "JetBrains Mono"';ctx.textAlign='right';
+  ctx.fillStyle=A===64?'#e8a820':'#3a4060';
+  ctx.fillText(`${A}/64 · B/A=${ba_pred.toFixed(3)}`,W-pad,H-pad/2);
+}
+
+// ═══════════════════════════════════════
+// RIGHT PANEL
+// ═══════════════════════════════════════
+function updatePanel(el){
+  const [Z,sym,A,BA]=el;
+  const panel=document.getElementById('rightPanel');
+
+  // Compute vortex totals
+  const depths=[{n:0,mu:[],pos:[]},{n:0,mu:[],pos:[]},{n:0,mu:[],pos:[]},{n:0,mu:[],pos:[]}];
+  let sum_mu=0;
+  for(let i=0;i<A;i++){
+    const p=POS[i];
+    depths[p.gd].n++;
+    depths[p.gd].mu.push(p.mu);
+    depths[p.gd].pos.push(p.walk);
+    sum_mu+=p.mu;
+  }
+
+  const B_total=SCALE*sum_mu;
+  const ba_pred=B_total/A;
+  const err_keV=(ba_pred-BA)*1000;
+  const err_pct=Math.abs(err_keV/10/BA);
+
+  let html='';
+
+  // Vortex summary
+  html+=`<div class="rp-section">
+    <div class="rp-title">Vortex Power</div>
+    <div class="rp-row"><span class="lbl">Σμ (coupling built)</span><span class="val">${sum_mu.toFixed(4)}</span></div>
+    <div class="rp-row"><span class="lbl">B_total = SCALE×Σμ</span><span class="val">${B_total.toFixed(3)} MeV</span></div>
+    <div class="rp-row"><span class="lbl">Tiles filled</span><span class="val">${A}</span></div>
+    <div class="rp-row"><span class="lbl">B/A = B_total / A</span><span class="val" style="font-size:11px;color:var(--bright)">${ba_pred.toFixed(4)} MeV</span></div>
+    <div class="rp-row"><span class="lbl">B/A known</span><span class="val">${BA.toFixed(4)} MeV</span></div>
+    <div class="rp-row"><span class="lbl">Error</span><span class="val" style="color:${err_pct<1?'var(--gd0)':err_pct<3?'var(--gold)':'var(--gd2)'}">${err_keV>=0?'+':''}${err_keV.toFixed(0)} keV (${err_pct.toFixed(1)}%)</span></div>
+  </div>`;
+
+  // Explanation
+  html+=`<div class="rp-section" style="font-size:8px;color:var(--dim);line-height:1.5;padding:4px;">
+    Each tile contributes μ to build the vortex.<br>
+    The vortex distributes B_total equally:<br>
+    every nucleon receives <span style="color:var(--bright)">${ba_pred.toFixed(3)} MeV</span>.
+  </div>`;
+
+  // Coupling contribution bar (by gate depth share of Σμ)
+  const barParts=depths.map((d,g)=>{
+    const mu_sum=d.mu.reduce((s,v)=>s+v,0);
+    const pct=sum_mu>0?(mu_sum/sum_mu*100):0;
+    return pct>0?`<div style="width:${pct}%;background:${gdColors[g]}">${pct>4?pct.toFixed(0)+'%':''}</div>`:'';
+  }).join('');
+  html+=`<div class="rp-section">
+    <div class="rp-title">Coupling Contribution (Σμ share)</div>
+    <div class="depth-bar">${barParts}</div>
+  </div>`;
+
+  // Per-depth breakdown
+  html+=`<div class="rp-section"><div class="rp-title">Gate Depth Decomposition</div>`;
+  const gdCounts=[27,27,9,1];
+  depths.forEach((d,g)=>{
+    const mu_sum=d.mu.reduce((s,v)=>s+v,0);
+    const meanMu=d.n>0?mu_sum/d.n:0;
+    const meanPos=d.n>0?(d.pos.reduce((s,v)=>s+v,0)/d.n):0;
+    const muMin=d.n>0?Math.min(...d.mu):0;
+    const muMax=d.n>0?Math.max(...d.mu):0;
+    const col=`c${g}`;
+    html+=`<div style="margin:6px 0;padding:4px 6px;border-left:3px solid ${gdColors[g]};background:${gdColors[g]}08">
+      <div class="rp-row"><span class="lbl">${gdNames[g]}</span><span class="val ${col}">${d.n}/${gdCounts[g]} filled</span></div>
+      <div class="rp-row"><span class="lbl">Mean μ</span><span class="val">${meanMu.toFixed(5)}</span></div>
+      <div class="rp-row"><span class="lbl">μ range</span><span class="val">${d.n>0?muMin.toFixed(4)+' → '+muMax.toFixed(4):'—'}</span></div>
+      <div class="rp-row"><span class="lbl">Mean walk i</span><span class="val">${meanPos.toFixed(1)}</span></div>
+      <div class="rp-row"><span class="lbl">Σμ contribution</span><span class="val ${col}">${mu_sum.toFixed(3)}</span></div>
+      <div class="rp-row"><span class="lbl">% of vortex</span><span class="val">${sum_mu>0?(mu_sum/sum_mu*100).toFixed(1)+'%':'—'}</span></div>
+    </div>`;
+  });
+  html+=`</div>`;
+
+  // Shell decomposition
+  html+=`<div class="rp-section"><div class="rp-title">Shell Structure</div>`;
+  const shells=new Map();
+  for(let i=0;i<A;i++){
+    const p=POS[i];
+    const sh=p.shell;
+    if(!shells.has(sh))shells.set(sh,{n:0,mu:0});
+    const s=shells.get(sh);s.n++;s.mu+=p.mu;
+  }
+  const shellColors=['#ff6b6b','#ffa64d','#ffd43b','#69db7c','#4dabf7','#9775fa','#f783ac'];
+  [...shells.entries()].sort((a,b)=>a[0]-b[0]).forEach(([n,d])=>{
+    const col=shellColors[(n-1)%7];
+    html+=`<div class="rp-row"><span class="lbl" style="color:${col}">n=${n} (${d.n})</span><span class="val">Σμ=${d.mu.toFixed(3)} (${(d.mu/sum_mu*100).toFixed(1)}%)</span></div>`;
+  });
+  html+=`</div>`;
+
+  // Constants
+  html+=`<div class="rp-section"><div class="rp-title">Structural Constants</div>
+    <div class="rp-row"><span class="lbl">SCALE</span><span class="val">${SCALE.toFixed(4)} MeV</span></div>
+    <div class="rp-row"><span class="lbl">R₀</span><span class="val">${R0.toFixed(4)} fm</span></div>
+    <div class="rp-row"><span class="lbl">r(A)</span><span class="val">${(R0*Math.pow(A,1/3)).toFixed(3)} fm</span></div>
+    <div class="rp-row"><span class="lbl">m_π = m_e×F₋×F₊</span><span class="val">${(M_E*F_MINUS*F_PLUS).toFixed(2)} MeV</span></div>
+  </div>`;
+
+  panel.innerHTML=html;
+}
+
+// ═══════════════════════════════════════
+// TOOLTIP
+// ═══════════════════════════════════════
+canvas.addEventListener('mousemove',(e)=>{
+  if(!activeEl)return;
+  const [Z,sym,A,BA]=activeEl;
+  const rect=canvas.getBoundingClientRect();
+  const mx=e.clientX-rect.left,my=e.clientY-rect.top;
+
+  let hit=null,minD=Infinity;
+  triData.forEach((tri,i)=>{
+    if(i>=A)return;
+    const dx=tri.center.x-mx,dy=tri.center.y-my;
+    const dist=dx*dx+dy*dy;
+    if(dist<minD){minD=dist;hit=i;}
+  });
+
+  if(hit!==null&&minD<(W/8)**2){
+    const p=POS[hit];
+    const t=triData[hit];
+    const [Z2,sym2,A2,BA2]=activeEl;
+
+    // Compute B/A for this element
+    let B_tot=0;
+    for(let j=0;j<A2;j++) B_tot+=POS[j].E;
+    const ba=B_tot/A2;
+
+    // Cumulative μ up to this position
+    let mu_cum=0;
+    for(let j=0;j<=hit;j++) mu_cum+=POS[j].mu;
+
+    tooltip.innerHTML=`
+      <div style="font-weight:600;color:var(--bright)">Position ${p.walk} / ${A2}</div>
+      <div style="color:${gdColors[p.gd]}">Gate depth ${p.gd} (${gdLabels[p.gd]}) · F${p.F}.C${p.C}.S${p.S}</div>
+      <div style="margin-top:4px;padding-top:4px;border-top:1px solid #1a1e2e">
+        <div style="color:var(--bright);font-weight:600">B/A = ${ba.toFixed(4)} MeV</div>
+        <div style="color:var(--dim);font-size:8px">uniform — vortex distributes equally</div>
+      </div>
+      <div style="margin-top:4px;padding-top:4px;border-top:1px solid #1a1e2e">
+        <div style="color:${gdColors[p.gd]}">μ contribution = ${p.mu.toFixed(6)}</div>
+        <div style="color:var(--dim);font-size:8px">coupling this position contributes to vortex</div>
+        <div style="color:var(--dim)">Σμ to here: ${mu_cum.toFixed(3)} / ${SUM64.toFixed(3)}</div>
+      </div>
+      <div style="margin-top:3px;color:var(--dim)">Shell n=${p.shell}</div>
+    `;
+    tooltip.className='tooltip show';
+    const areaRect=triArea.getBoundingClientRect();
+    let tx=t.center.x+rect.left-areaRect.left+14;
+    let ty=t.center.y+rect.top-areaRect.top-30;
+    if(tx+190>areaRect.width-10)tx=t.center.x+rect.left-areaRect.left-200;
+    if(ty<5)ty=t.center.y+rect.top-areaRect.top+20;
+    tooltip.style.left=tx+'px';tooltip.style.top=ty+'px';
+  } else {
+    tooltip.className='tooltip';
+  }
+});
+canvas.addEventListener('mouseleave',()=>{tooltip.className='tooltip';});
+
+// ═══════════════════════════════════════
+// RESIZE & SELECT
+// ═══════════════════════════════════════
+function resize(){
+  const rect=triArea.getBoundingClientRect();
+  W=rect.width-16;H=rect.height-16;
+  canvas.width=W;canvas.height=H;
+  buildGeometry();
+  if(activeEl)draw(activeEl);
+}
+window.addEventListener('resize',resize);
+
+function selectElement(Z){
+  const el=ELEMENTS.find(e=>e[0]===Z);
+  if(!el)return;
+  activeEl=el;
+  document.querySelectorAll('.el-item').forEach(d=>d.classList.toggle('active',+d.dataset.z===Z));
+  const [z,sym,A,BA]=el;
+  document.getElementById('elTitle').textContent=`${sym} (A=${A})`;
+  const muA=mu_sst(A*A);
+  document.getElementById('elMeta').innerHTML=
+    `Z=<span>${z}</span> · A=<span>${A}</span> · B/A=<span>${BA.toFixed(3)}</span> MeV · μ(A²)=<span>${muA.toFixed(5)}</span>`;
+  buildGeometry();
+  draw(el);
+  updatePanel(el);
+}
+
+setTimeout(()=>{resize();selectElement(26);},50);
+</script>
+</body>
+</html>

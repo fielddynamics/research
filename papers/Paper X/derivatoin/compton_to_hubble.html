@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Compton → Hubble: The Identical Chart</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&family=Playfair+Display:wght@400;700&display=swap');
+:root{--bg:#050608;--bg2:#0a0c12;--bg3:#10131c;--cyan:#00e5cc;--gold:#e5a800;--red:#ff4455;--blue:#4a8fe5;--magenta:#c45ce5;--green:#44cc66;--text:#99a0b0;--dim:#3a4050;--bright:#e8ecf4;--brd:#1a1e2a}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'JetBrains Mono',monospace;font-size:11px;padding:1rem;min-height:100vh}
+h1{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--bright);text-align:center;letter-spacing:.03em;margin-bottom:.15rem}
+.sub{text-align:center;font-size:.5rem;color:var(--dim);letter-spacing:.22em;text-transform:uppercase;margin-bottom:1rem}
+.container{max-width:1100px;margin:0 auto}
+.panel{background:var(--bg2);border:1px solid var(--brd);border-radius:4px;padding:.9rem;margin-bottom:.7rem;position:relative;overflow:hidden}
+.panel::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--cyan),transparent);opacity:.3}
+.panel-title{font-size:.5rem;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem}
+.panel-title .dot{width:5px;height:5px;border-radius:50%;flex-shrink:0}
+.panel-title .label{font-size:.45rem;padding:1px 5px;border-radius:2px;letter-spacing:.15em}
+canvas{width:100%!important;height:280px!important}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
+@media(max-width:800px){.row{grid-template-columns:1fr}}
+.eq-box{background:var(--bg3);border:1px solid var(--brd);border-radius:3px;padding:.7rem .9rem;margin-bottom:.7rem;text-align:center;font-size:.65rem;color:var(--dim);line-height:2}
+.eq-box .eq{color:var(--cyan);font-size:.75rem}
+.eq-box .arrow{color:var(--gold);font-size:1rem;margin:0 .4rem}
+.eq-box .note{color:var(--text);font-size:.55rem;display:block;margin-top:.3rem;line-height:1.5}
+.bridge{background:linear-gradient(135deg,rgba(0,229,204,.04),rgba(229,168,0,.04));border:1px solid rgba(0,229,204,.15);border-radius:4px;padding:.8rem;margin-bottom:.7rem;text-align:center}
+.bridge h2{font-family:'Playfair Display',serif;font-size:1rem;color:var(--bright);margin-bottom:.3rem}
+.bridge p{font-size:.55rem;color:var(--text);line-height:1.8;max-width:700px;margin:0 auto}
+.bridge .key{color:var(--cyan);font-weight:500}
+.bridge .val{color:var(--gold)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem;margin-bottom:.7rem}
+@media(max-width:600px){.stats{grid-template-columns:1fr 1fr}}
+.stat{background:var(--bg2);border:1px solid var(--brd);border-radius:3px;padding:.5rem;text-align:center}
+.stat .num{font-size:1rem;color:var(--cyan);font-weight:500}
+.stat .lbl{font-size:.4rem;color:var(--dim);letter-spacing:.15em;text-transform:uppercase;margin-top:.2rem}
+.convergence{background:var(--bg2);border:1px solid var(--brd);border-radius:3px;padding:.6rem .8rem;font-size:.5rem;color:var(--dim);line-height:1.9}
+.convergence b{color:var(--cyan)}.convergence .g{color:var(--gold)}.convergence .r{color:var(--red)}.convergence .m{color:var(--magenta)}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Compton Oscillation → Hubble Scaling</h1>
+<div class="sub">The closure sawtooth and the H<sup>1−1/π</sup> envelope are the same chart at different scales</div>
+
+<div class="stats">
+<div class="stat"><div class="num">7.76×10<sup>20</sup></div><div class="lbl">ω<sub>C</sub> (rad/s) — Compton frequency</div></div>
+<div class="stat"><div class="num">3.56×10<sup>38</sup></div><div class="lbl">Cycles per Hubble time at z=0</div></div>
+<div class="stat"><div class="num">1/π</div><div class="lbl">η — boundary coupling per breath</div></div>
+<div class="stat"><div class="num">6.46</div><div class="lbl">Enhancement at z=1100</div></div>
+</div>
+
+<div class="panel">
+<div class="panel-title"><span class="dot" style="background:var(--cyan)"></span>MICROSCOPIC — Compton Sawtooth (the closure walk)<span class="label" style="background:rgba(0,229,204,.12);color:var(--cyan)">INTEGRAND</span></div>
+<canvas id="chart_micro"></canvas>
+</div>
+
+<div class="eq-box">
+<span class="eq">∫<sub>0</sub><sup>1/H</sup> (η per cycle) × ω<sub>C</sub> dt</span>
+<span class="arrow">=</span>
+<span class="eq">η × ln(H/H₀)</span>
+<span class="arrow">=</span>
+<span class="eq">(1/π) × ln(H/H₀)</span>
+<span class="note">3.56 × 10³⁸ infinitesimal attenuations per e-fold, each at η = 1/π, integrate to exactly one η per d(ln H)</span>
+</div>
+
+<div class="panel">
+<div class="panel-title"><span class="dot" style="background:var(--gold)"></span>MACROSCOPIC — H<sup>1−1/π</sup> Envelope (the CMB scaling law)<span class="label" style="background:rgba(229,168,0,.12);color:var(--gold)">INTEGRAL</span></div>
+<canvas id="chart_macro"></canvas>
+</div>
+
+<div class="row">
+<div class="panel">
+<div class="panel-title"><span class="dot" style="background:var(--magenta)"></span>COMBINED — Sawtooth × Envelope</div>
+<canvas id="chart_combined"></canvas>
+</div>
+<div class="panel">
+<div class="panel-title"><span class="dot" style="background:var(--green)"></span>CONVERGENCE — (1−2η/N)<sup>N</sup> → e<sup>−2η</sup></div>
+<canvas id="chart_converge"></canvas>
+</div>
+</div>
+
+<div class="bridge">
+<h2>They Are the Same Chart</h2>
+<p>
+The <span class="key">microscopic chart</span> shows f oscillating 13 → 21 → reset at the Compton frequency.
+Each sawtooth = one complete hexagram walk = one closure breath.
+At each breath, fraction <span class="val">η = 1/π</span> of the boundary transmits the coupling.<br><br>
+The <span class="key">macroscopic chart</span> shows the envelope of <span class="val">10<sup>40</sup></span> breaths per e-fold.
+The effective ceiling of f drops from 21 toward 13 as H increases.
+The envelope IS <span class="val">a₀ ∝ H<sup>1−1/π</sup></span>.<br><br>
+They are related by: <span class="val">e<sup>−η·ln(H/H₀)</sup> = (H₀/H)<sup>1/π</sup></span> — match at 10<sup>−16</sup> precision.
+The closure walk HTML shows the integrand. The CMB derivation shows the integral.
+</p>
+</div>
+
+<div class="convergence">
+<b>The proof in one line:</b><br>
+Per cycle: δ(ln g<sub>s</sub>) = −2η / (ω<sub>C</sub>/H) = <span class="g">infinitesimal</span><br>
+Per e-fold: N = ω<sub>C</sub>/H cycles × δ per cycle = <span class="g">−2η = −2/π</span><br>
+Beta function: β = 2 + (−2/π) = <span class="g">2(1−1/π)</span><br>
+Solution: g<sub>s</sub> ∝ H<sup>β</sup>, a₀ ∝ H<sup>1−1/π</sup><br><br>
+<b>At z = 1100:</b> S = (H₀/H)<sup>1/π</sup> = 0.0406, x = 0.183, <span class="r">Enhancement = 6.46</span> vs Planck <span class="r">6.36 ± 0.10</span>
+</div>
+</div>
+
+<script>
+const pi = Math.PI;
+const eta = 1/pi;
+const K = 4;
+
+// ──── Common chart config ────
+const baseOpts = (yLabel) => ({
+  responsive: true, maintainAspectRatio: false, animation: false,
+  plugins: {legend:{display:false}},
+  elements:{point:{radius:0},line:{borderWidth:1.5}},
+  scales:{
+    x:{type:'linear',ticks:{color:'#2a3040',font:{size:8}},grid:{color:'#0d1018'},
+       title:{display:true,color:'#2a3040',font:{size:8}}},
+    y:{ticks:{color:'#2a3040',font:{size:8}},grid:{color:'#0d1018'},
+       title:{display:true,text:yLabel,color:'#3a4050',font:{size:9}}}
+  }
+});
+
+// ──── CHART 1: MICROSCOPIC SAWTOOTH ────
+// Reproduce the closure walk sawtooth (matches coupling_channel_analysis.html)
+const cycleLens = [333, 303, 250, 215];
+const cycleColors = ['#00e5cc','#e5a800','#c45ce5','#4a8fe5'];
+const cycleBgs = ['rgba(0,229,204,.1)','rgba(229,168,0,.1)','rgba(196,92,229,.1)','rgba(74,143,229,.1)'];
+
+const microDatasets = [];
+let pos = 0;
+cycleLens.forEach((L, c) => {
+  const pts = [];
+  for (let s = 0; s < L; s++) {
+    const frac = s / (L-1);
+    const f = 13 + 8 * frac;
+    pts.push({x: pos + s, y: f});
+  }
+  microDatasets.push({data:pts, borderColor:cycleColors[c], backgroundColor:cycleBgs[c], fill:true, tension:.2});
+  pos += L;
+});
+
+const ctx1 = document.getElementById('chart_micro');
+new Chart(ctx1, {
+  type:'line', data:{datasets:microDatasets},
+  options:{...baseOpts('f(K,s)'),
+    scales:{...baseOpts('f(K,s)').scales,
+      x:{...baseOpts('').scales.x, title:{display:true,text:'π base-8 digit step',color:'#2a3040',font:{size:8}}},
+      y:{...baseOpts('').scales.y, min:12.5, max:21.5,
+         title:{display:true,text:'f(K,s)',color:'#3a4050',font:{size:9}},
+         ticks:{color:'#2a3040',font:{size:8},
+           callback:v=>{if(v===13)return'13 (core)';if(v===17)return'17 (F.O.)';if(v===21)return'21 (horizon)';return v;}}
+      }
+    }
+  }
+});
+
+// ──── CHART 2: MACROSCOPIC ENVELOPE ────
+const macroEfolds = 10.5; // go past z=1100 territory
+const macroSteps = 500;
+const envData = [];
+const treeData = [];
+const f13line = [];
+
+for (let i = 0; i <= macroSteps; i++) {
+  const ef = i * macroEfolds / macroSteps;
+  const H_r = Math.exp(ef);
+  const envelope = Math.pow(1/H_r, 1/pi);
+  const f_ceiling = 13 + 8 * envelope;
+  envData.push({x: ef, y: f_ceiling});
+  treeData.push({x: ef, y: 21}); // tree level ceiling (no correction)
+  f13line.push({x: ef, y: 13});
+}
+
+new Chart(document.getElementById('chart_macro'), {
+  type:'line',
+  data:{datasets:[
+    {data:treeData, borderColor:'rgba(255,255,255,.15)', borderDash:[4,4], borderWidth:1, fill:false},
+    {data:envData, borderColor:'#e5a800', backgroundColor:'rgba(229,168,0,.08)', fill:true, borderWidth:2, tension:.3},
+    {data:f13line, borderColor:'rgba(255,68,85,.2)', borderDash:[2,4], borderWidth:1, fill:false},
+  ]},
+  options:{...baseOpts('f effective ceiling'),
+    scales:{...baseOpts('').scales,
+      x:{...baseOpts('').scales.x,
+         title:{display:true,text:'e-folds  [ln(H/H₀)]',color:'#2a3040',font:{size:8}},
+         ticks:{color:'#2a3040',font:{size:8},
+           callback:v=>{if(Math.abs(v-10.07)<.3)return'z≈1100';return v;}}
+      },
+      y:{...baseOpts('').scales.y, min:12.5, max:22,
+         title:{display:true,text:'f ceiling  [13 + 8·(H₀/H)^{1/π}]',color:'#3a4050',font:{size:9}},
+         ticks:{color:'#2a3040',font:{size:8},
+           callback:v=>{if(v===13)return'13';if(v===17)return'17';if(v===21)return'21 (tree)';return v;}}
+      }
+    }
+  }
+});
+
+// ──── CHART 3: COMBINED (sawtooth × envelope) ────
+const combCycles = 80;
+const stepsPerCycle = 12;
+const combDatasets = [];
+const envLine = [];
+
+// Sawtooth with decaying envelope
+for (let c = 0; c < combCycles; c++) {
+  const pts = [];
+  const ef_start = c * macroEfolds / combCycles;
+  for (let s = 0; s <= stepsPerCycle; s++) {
+    const frac = s / stepsPerCycle;
+    const ef = ef_start + frac * macroEfolds / combCycles;
+    const H_r = Math.exp(ef);
+    const envelope = Math.pow(1/H_r, 1/pi);
+    const mu_local = frac; // sawtooth 0→1
+    const mu_eff = mu_local * envelope;
+    const f_eff = 13 + 8 * mu_eff;
+    pts.push({x: ef, y: f_eff});
+  }
+  const opacity = Math.max(0.15, 1 - c/combCycles);
+  combDatasets.push({
+    data:pts,
+    borderColor:`rgba(0,229,204,${opacity})`,
+    borderWidth:1,
+    fill:false,
+    tension:.1
+  });
+}
+
+// Envelope line
+for (let i = 0; i <= 200; i++) {
+  const ef = i * macroEfolds / 200;
+  const H_r = Math.exp(ef);
+  const envelope = Math.pow(1/H_r, 1/pi);
+  envLine.push({x: ef, y: 13 + 8 * envelope});
+}
+combDatasets.push({data:envLine, borderColor:'#e5a800', borderWidth:2, borderDash:[6,3], fill:false, tension:.3});
+
+new Chart(document.getElementById('chart_combined'), {
+  type:'line', data:{datasets:combDatasets},
+  options:{...baseOpts('f effective'),
+    scales:{...baseOpts('').scales,
+      x:{...baseOpts('').scales.x, title:{display:true,text:'e-folds',color:'#2a3040',font:{size:8}}},
+      y:{...baseOpts('').scales.y, min:12.5, max:22,
+         title:{display:true,text:'f(K,s) with envelope',color:'#3a4050',font:{size:9}}}
+    }
+  }
+});
+
+// ──── CHART 4: CONVERGENCE ────
+const Nvals = [5,10,20,50,100,200,500,1000,2000,5000,10000];
+const discPts = Nvals.map(N => ({x: Math.log10(N), y: Math.pow(1 - 2*eta/N, N)}));
+const contPts = [{x:Math.log10(5), y:Math.exp(-2*eta)},{x:Math.log10(10000), y:Math.exp(-2*eta)}];
+
+new Chart(document.getElementById('chart_converge'), {
+  type:'line',
+  data:{datasets:[
+    {data:discPts, borderColor:'#00e5cc', backgroundColor:'rgba(0,229,204,.3)', pointRadius:4, pointBackgroundColor:'#00e5cc', showLine:true, borderWidth:1.5, tension:.3},
+    {data:contPts, borderColor:'#ff4455', borderDash:[5,3], borderWidth:1.5, pointRadius:0, fill:false}
+  ]},
+  options:{...baseOpts('suppression per e-fold'),
+    scales:{...baseOpts('').scales,
+      x:{...baseOpts('').scales.x,
+         title:{display:true,text:'log₁₀(N cycles per e-fold)',color:'#2a3040',font:{size:8}},
+         ticks:{color:'#2a3040',font:{size:8}}},
+      y:{...baseOpts('').scales.y, min:0.48, max:0.58,
+         title:{display:true,text:'(1−2η/N)ᴺ',color:'#3a4050',font:{size:9}},
+         ticks:{color:'#2a3040',font:{size:8},
+           callback:v=>{if(Math.abs(v-0.529)<.002)return'e⁻²/π';return v.toFixed(3);}}}
+    }
+  }
+});
+</script>
+</body>
+</html>

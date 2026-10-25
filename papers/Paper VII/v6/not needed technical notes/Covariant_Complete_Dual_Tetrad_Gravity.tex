@@ -1,0 +1,283 @@
+% ============================================================================
+% Covariant-Complete Dual Tetrad Gravity
+% Supplemental Material to "Dual Tetrad Gravity And The Field Origin"
+% ============================================================================
+\documentclass[11pt]{article}
+
+\usepackage{amsmath,amssymb}
+\usepackage{bm}
+\usepackage{geometry}
+\geometry{margin=1in}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{enumitem}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue!60!black,
+    citecolor=blue!60!black,
+    urlcolor=blue!60!black
+}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.8ex plus 0.2ex minus 0.1ex}
+
+% ============================================================================
+\begin{document}
+
+\begin{center}
+{\Large\bfseries Covariant-Complete Dual Tetrad Gravity:\\[4pt] A Zero-Parameter Lagrangian from Topological Field Closure}\\[12pt]
+{\normalsize Stephen Nelson}\\
+{\small Independent Researcher}\\[8pt]
+{\small February 2026}\\[6pt]
+{\small\itshape Supplemental Material to ``Dual Tetrad Gravity And The Field Origin''}
+\end{center}
+
+\vspace{0.5cm}
+\hrule
+\vspace{0.5cm}
+
+\textbf{Summary.}\quad
+A central open question in gravitational physics is whether the coupling constants of gravity are free parameters or whether they follow from structural requirements of the field theory itself.
+The dual tetrad coupling topology answers this question affirmatively.
+Two tetrahedra with opposite orientations coupled at a shared center form the minimal structure that achieves full field closure in three spatial dimensions.
+This topology forces a finite coupling channel count, which imposes a saturation condition on the gravitational field; saturation, combined with detailed balance, uniquely determines the constitutive law $\mu(x) = x/(1+x)$; and the constitutive law integrates to a unique scalar Lagrangian through the standard AQUAL variational framework~[6].
+The result is a covariant-complete, zero-parameter scalar-tensor action whose field equations produce five quantitative predictions across gravity, cosmology, particle physics, galactic dynamics, and the CMB.
+This supplemental note presents the action, its derivation from the topology, its field equations, and its predictions in self-contained form, accompanying the manuscript ``Dual Tetrad Gravity And The Field Origin''~[7].
+
+% ============================================================================
+\section*{I.\quad The Dual Tetrad Coupling Structure}
+% ============================================================================
+
+Tetrad gravity describes the gravitational field through local frames (vierbeins) whose spatial triad defines a tetrahedron, the minimal solid in three dimensions.
+Ghost-free bimetric gravity couples two such tetrad fields through a frame transition matrix $\mathcal{S}^a_{\;b}$ and an interaction potential with five parameters $\beta_0$ through $\beta_4$~[5].
+The manuscript~[7] proves that this frame transition matrix is identically the coupled face matrix of the dual tetrad topology.
+The identification rests on three results: the triad-tetrahedron correspondence, the symmetric vielbein condition, and the compatible $(3{+}1)$ decompositions required for general covariance.
+Before presenting the action, we summarize the structural origin of the coupling topology, because the entire Lagrangian follows from it.
+
+The ADM decomposition of General Relativity imposes $k = 4$ constraint equations at each spatial point: one Hamiltonian constraint plus three momentum constraints~[1].
+Each constraint governs the gravitational coupling across one interface of a field region.
+The minimum number of such interfaces in $d$ spatial dimensions is $d + 1$, the face count of the simplex: in $d = 3$, a tetrahedron has $3 + 1 = 4$ faces.
+The ADM constraint count and the simplex face count agree because both answer the same question: how many independent coupling directions does a gravitational field region have?
+
+Why $d = 3$ and not some other dimension?
+Two tetrahedra coupled at a shared center must account for every independent direction in the embedding space; otherwise, some coupling directions are unresolved and the field cannot close.
+In $d$ dimensions, two simplices contribute $2(d+1)$ vertices, and the embedding hypercube has $2^d$ corners.
+Closure requires these to match: $2(d+1) = 2^d$.
+This equation has a unique integer solution: $d = 3$, giving $2 \times 4 = 8 = 2^3$.
+Three spatial dimensions are the unique case where dual simplicial field closure accounts for every direction in the embedding space.
+
+Having established $k = 4$, the interaction count follows.
+Two tetrahedra with opposite orientations sharing a common center form the stellated octahedron~[2].
+In this structure, the tetrahedra interpenetrate: each of the 4 vertices of one tetrahedron passes through a face of the other.
+With 4 vertices penetrating 4 faces, there are $k \times k = (3{+}1)^2 = 16$ independent coupling channels.
+This dual tetrad topology is the structure from which the Lagrangian, the acceleration scale, and the gravitational coupling are derived.
+
+\textbf{The gravitational coupling.}\quad
+The counting above determines $G$ directly:
+\begin{equation}
+G = \frac{(3+1)^2 + 1}{3(3+1) + 1} \times \alpha^{\,1 + (3+1) + (3+1)^2} \times \frac{\hbar c}{m_e^2} \;=\; \frac{17}{13}\,\alpha^{21}\,\frac{\hbar c}{m_e^2}
+\label{eq:G}
+\end{equation}
+The exponent $21 = 1 + k + k^2 = 1 + 4 + 16$ counts the total coupling depth: 1 for the interaction vertex (Field Origin) where the two tetrahedra meet, $k = 4$ for the coupling interfaces of one sector, and $k^2 = 16$ for the full bimetric interaction.
+The prefactor $17/13$ is the ratio of active coupling modes ($16$ channels $+ 1$ vertex $= 17$) to structural elements ($12$ edges $+ 1$ center $= 13$).
+Every integer is counted from the stellated octahedron; none is adjustable.
+The full counting derivation, with a term-by-term translation table mapping each integer to its GR origin, is presented in the companion note ``The Origin of Every Integer in $G$.''
+
+\textbf{Field closure and the dual tetrad topology are the same structure.}\quad
+Field closure is the physical requirement that a distributed gravitational field settle to a consistent configuration at every point.
+In the language of GR, it is what the ADM constraint equations enforce: energy and momentum must balance across every coupling interface~[1].
+The dual tetrad is the topological answer to the question: what is the minimum structure that achieves full field closure in $d = 3$ spatial dimensions?
+The answer is two $k = 4$ simplices coupled at a shared center, producing $k^2 = 16$ coupling channels.
+The topology does not merely ``require'' field closure; the topology \emph{is} field closure, the unique form that the consistency requirement takes in three-dimensional space.
+
+This identification is what connects the Lagrangian (derived in Section~III) to the topology (established above).
+The dual tetrad topology forces field closure.
+Field closure, acting on a finite channel count, forces the constitutive law $\mu(x) = x/(1+x)$ through saturation and detailed balance.
+The constitutive law integrates to a unique scalar Lagrangian $\mathcal{F}(y)$.
+The topology, the physical requirement, and the action are three descriptions of one structure.
+
+% ============================================================================
+\section*{II.\quad The Overdetermined Consistency Test}
+% ============================================================================
+
+Having established where the integers originate, we now ask: does the resulting framework capture real physical structure?
+The most stringent test available is overdetermination.
+When more constraints exist than unknowns, a solution exists \emph{only if} the constraints are mutually consistent.
+This is why GPS receivers use four satellites to fix three coordinates; the fourth is not redundant but a consistency check.
+The dual tetrad framework passes this test.
+
+Three equations from three independent domains constrain two unknowns ($r$ and $m$, the size and mass of a single tetrahedral field region):
+
+\begin{enumerate}[leftmargin=2em]
+\item \textbf{Gravitational closure:}\quad $a_0 = k^2\,Gm/r^2$\quad (where $a_0$ is the acceleration scale below which gravitational dynamics deviate from Newtonian behavior)
+\item \textbf{Cosmological horizon:}\quad $a_0 = cH/(2\pi)\sqrt{k/\pi}$\quad (from thermodynamic arguments applied to the Hubble horizon)
+\item \textbf{Quantum-electromagnetic scale:}\quad $m = \alpha\hbar/(rc)$\quad (the classical electron radius relation)
+\end{enumerate}
+
+Three equations, two unknowns.
+Most overdetermined systems have no solution at all.
+
+The system converges:
+\begin{equation*}
+r = 2.82 \times 10^{-15}\text{ m}\,,\qquad m = 9.11 \times 10^{-31}\text{ kg}
+\end{equation*}
+matching the measured electron radius ($r_e = 2.818$ fm) and electron mass ($m_e = 9.109 \times 10^{-31}$ kg) to 0.1\%, with zero adjustable parameters.
+The inputs are: $k = 4$ (simplex theorem), $G$ (Eq.~\ref{eq:G}, derived from the topology to 0.12\%), $\alpha$ (the fine-structure constant; its role in gravity is derived in the companion note ``Why the Fine-Structure Constant Governs Gravitational Coupling''), $\hbar$, $c$, and $H$ (a cosmological observable independent of particle physics).
+No particle-physics data enters as input; the electron is an \emph{output}.
+
+\textbf{Bidirectional closure.}\quad
+Starting from $m_e$, the framework derives $H = 69.92$ km/s/Mpc, matching the gravitational-wave standard siren measurement ($70.0 \pm 12$)~[3] to 0.11\%.
+Reversing the calculation, the observed $H$ recovers $m_e$ to 0.10\%.
+This round-trip consistency across particle and cosmological scales demonstrates structural correctness: a unidirectional fit cannot close bidirectionally with comparable precision.
+
+% ============================================================================
+\section*{III.\quad The Scalar-Tensor Action from Topological Field Closure}
+% ============================================================================
+
+Because the dual tetrad topology \emph{is} field closure (Section~I), it directly determines a scalar-tensor action through the following chain.
+The finite channel count ($k^2 = 16$) imposes a saturation condition on gravitational coupling: at weak field gradients, the field cannot recruit channels beyond those available, and the response flattens.
+Saturation, combined with detailed balance, determines a unique constitutive law.
+The constitutive law then integrates to a unique Lagrangian via the AQUAL variational relationship~[6].
+The result is a covariant action with disformal electromagnetic coupling in which every component (the Lagrangian, the acceleration scale, and the gravitational coupling) is derived from the topology.
+The action contains zero free parameters.
+
+\begin{equation}
+S = \int d^4x \sqrt{-g} \left[ \frac{R}{16\pi G} - \frac{a_0^2}{8\pi G}\,\mathcal{F}\!\left(\frac{|\nabla\Phi|^2}{a_0^2}\right) - \frac{1}{4}\,e^{-2\Phi/c^2} F_{\mu\nu}F^{\mu\nu} + \mathcal{L}_{\text{matter}} \right]
+\label{eq:action}
+\end{equation}
+
+Each term has a definite origin:
+\begin{itemize}[leftmargin=2em]
+\item $R/(16\pi G)$: spacetime curvature (Einstein--Hilbert), with $G$ given by Eq.~\ref{eq:G}
+\item $\mathcal{F}(y)$: gravitational saturation from field closure (derived below)
+\item $e^{-2\Phi/c^2} F_{\mu\nu}F^{\mu\nu}$: disformal electromagnetic coupling; photons propagate on the effective metric $\tilde{g}_{\mu\nu} = e^{-2\Phi/c^2}\,g_{\mu\nu}$, recovering the full GR deflection angle $\theta = 4GM/(rc^2)$ in the weak-field limit
+\item $\mathcal{L}_{\text{matter}}$: baryonic sources
+\end{itemize}
+
+\textbf{From topology to Lagrangian: the derivation chain.}\quad
+As established in Section~I, the dual tetrad topology is the structural form of field closure: gravity's requirement to define a complete, self-consistent configuration at every point.
+In the dual tetrad structure, all 16 coupling channels must be accounted for; no coupling direction may be left unresolved.
+
+Field closure imposes a saturation condition on the gravitational field.
+At strong field gradients (well above the topological scale $a_0$), all coupling channels are fully active and the field responds linearly; this is the Newtonian regime.
+At weak field gradients (well below $a_0$), the finite number of coupling channels saturates: the field cannot recruit additional channels, and the gravitational response flattens.
+The requirement that the transition between these regimes satisfy detailed balance (the rate of channel activation equals the rate of saturation) uniquely determines the constitutive law:
+\begin{equation*}
+\mu(x) = \frac{x}{1+x}
+\end{equation*}
+where $x = |\nabla\Phi|/a_0$ measures the field gradient in units of the topological scale.
+This function has the correct limits: $\mu \to 1$ (Newtonian) when $x \gg 1$, and $\mu \to x$ (saturated) when $x \ll 1$.
+
+The scalar Lagrangian $\mathcal{F}$ is then \emph{derived} by integrating this constitutive law.
+The Euler--Lagrange equation for the scalar field $\Phi$ relates the Lagrangian to the constitutive law through the condition $d\mathcal{F}/dx = x\,\mu(x)$ (the standard AQUAL variational relationship~[6]), where $y = x^2 = |\nabla\Phi|^2/a_0^2$.
+Integrating:
+\begin{equation}
+\frac{d\mathcal{F}}{dx} = \frac{x^2}{1+x} \quad\longrightarrow\quad \mathcal{F}(y) = \tfrac{1}{2}y - \sqrt{y} + \ln(1 + \sqrt{y})
+\label{eq:lagrangian}
+\end{equation}
+This integration is unique: the integration constant is fixed by $\mathcal{F}(0) = 0$, and the constitutive law admits no alternative form under the field closure boundary condition.
+The Lagrangian is the unique output of a requirement that the topology imposes.
+The full derivation of $\mu(x)$ from the stellated octahedron's coupling geometry appears in the companion note ``Why the Fine-Structure Constant Governs Gravitational Coupling,'' Section~V.
+
+\textbf{Limit checks.}\quad
+In the Newtonian regime ($y \gg 1$): $\mathcal{F}(y) \to \tfrac{1}{2}y$, recovering the standard kinetic term and reproducing GR.
+In the deep-MOND regime ($y \ll 1$): $\mathcal{F}(y) \to \sqrt{y}$, producing the modified dynamics observed in galactic rotation curves~[4].
+The logarithmic term encodes the smooth crossover between regimes.
+The action reproduces GR where GR is well-tested and produces MOND phenomenology where dark matter is otherwise required, with correct asymptotic behavior in both limits.
+
+\textbf{Field equations.}\quad
+Varying the action (Eq.~\ref{eq:action}) with respect to the scalar field and the metric produces three sets of field equations:
+\begin{enumerate}[leftmargin=2em]
+\item A \emph{modified Poisson equation} governing galactic-scale gravitational dynamics
+\item \emph{Modified Friedmann equations} governing cosmological expansion
+\item A \emph{growth equation} governing cosmological structure formation
+\end{enumerate}
+These field equations predict the CMB gravitational enhancement factor (the ratio of total gravitating mass to baryonic mass at recombination) as $1/\mu(x_{\text{rec}}) = 6.46$, matching Planck 2018's measured value of 6.40 to 1\%, with zero free parameters.
+
+\textbf{There are zero free parameters in this action.}
+The Lagrangian $\mathcal{F}$ (Eq.~\ref{eq:lagrangian}), the acceleration scale $a_0 = k^2 G m_e / r_e^2$, and the gravitational coupling $G$ are all determined by the dual tetrad structure.
+Unlike $\Lambda$CDM, which requires six fitted cosmological parameters and a dark matter component, this action is fully specified by the topology.
+
+% ============================================================================
+\section*{IV.\quad Zero-Parameter Predictions}
+% ============================================================================
+
+The action and its field equations produce the following predictions:
+
+\begin{center}
+\begin{tabular}{lp{4.2cm}p{3.5cm}c}
+\toprule
+\textbf{Quantity} & \textbf{Predicted} & \textbf{Measured} & \textbf{Deviation} \\
+\midrule
+$G$ (gravitational constant) & $6.666 \times 10^{-11}$\newline m$^3$kg$^{-1}$s$^{-2}$ & $6.674 \times 10^{-11}$ & 0.12\% \\[4pt]
+$H$ (Hubble constant) & 69.92 km/s/Mpc & $70.0 \pm 12$ & 0.11\% \\[4pt]
+$m_e$ (electron mass) & $9.11 \times 10^{-31}$ kg & $9.109 \times 10^{-31}$ & 0.10\% \\[4pt]
+$a_0$ (MOND scale) & $1.20 \times 10^{-10}$ m/s$^2$ & $1.20 \times 10^{-10}$ & 0.41\% \\[4pt]
+CMB enhancement & 6.46 & 6.40 (Planck 2018) & 1.0\% \\
+\bottomrule
+\end{tabular}
+\end{center}
+\vspace{0.3em}
+
+\noindent
+Five predictions across five domains, all with zero adjustable parameters.
+Changing the coupling exponent from 21 to 20 or 22 shifts the predicted $G$ by a factor of 137 ($= 1/\alpha$); only the counted value produces agreement.
+
+% ============================================================================
+\section*{V.\quad Structural Consistency Tests}
+% ============================================================================
+
+The framework exhibits the following structural properties, each independently testable:
+
+\begin{enumerate}[leftmargin=2em]
+\item \textbf{Overdetermined convergence:} Three independent equations from three domains converge on a single solution (Section~II). Overdetermined systems generically have no solution; convergence indicates mutual consistency of the constraints.
+
+\item \textbf{Bidirectional closure:} Deriving $H$ from $m_e$ and recovering $m_e$ from $H$, each to $\sim$0.1\%, with the same topology. A unidirectional fit cannot close bidirectionally with comparable precision.
+
+\item \textbf{Sharp selectivity:} Changing the exponent $21$ by $\pm 1$ shifts $G$ by exactly $1/\alpha = 137.036\ldots$, because $G \propto \alpha^n$. The topology determines both the exponent and the selectivity. Only the counted value produces agreement. (The full sensitivity analysis appears in the companion note, ``The Origin of Every Integer in $G$.'')
+
+\item \textbf{Correct asymptotic limits:} The Lagrangian $\mathcal{F}(y)$ reduces to the standard kinetic term ($\tfrac{1}{2}y$) in the Newtonian regime and to the MOND Lagrangian ($\sqrt{y}$) in the deep-field regime. These are structural properties of the derived Lagrangian.
+
+\item \textbf{Determined, falsifiable action:} The action (Eq.~\ref{eq:action}) is fully specified. Its field equations yield cosmological predictions (CMB enhancement to 1\%). The theory can be falsified by solving these field equations and comparing to observations. This is the standard of a covariant field theory.
+
+\item \textbf{Invertibility:} The constitutive law $\mu(x) = x/(1+x)$ is bijective: given dynamics, one can uniquely recover baryonic mass, and vice versa. In $\Lambda$CDM, the reverse map (dynamics $\to$ baryonic mass) requires assuming a dark matter halo profile with additional free parameters. This structural property is testable galaxy by galaxy.
+\end{enumerate}
+
+% ============================================================================
+\section*{VI.\quad Acknowledged Limitations}
+% ============================================================================
+
+The framework does not address:
+\begin{itemize}[leftmargin=2em]
+\item Galaxy cluster dynamics (the Bullet Cluster and residual cluster mass)
+\item The full CMB angular power spectrum shape (the enhancement factor is predicted to 1\%, but the detailed multipole structure has not been computed)
+\item The strong and weak nuclear forces
+\item The cosmological constant
+\end{itemize}
+
+\noindent
+The 0.12\% residual in $G$ exceeds the $\sim$0.05\% inter-experiment scatter, suggesting either higher-order corrections or systematic measurement effects.
+The manuscript~[7] also demonstrates that the dual tetrad topology constrains the coupling parameters of the established Hassan--Rosen bimetric action~[5]; the relationship between that bimetric formulation and the scalar-tensor action presented here is identified as a target for future work.
+
+These limits are stated in the manuscript~[7].
+The goal is clarity about what the topology explains and where the open questions lie.
+
+% ============================================================================
+\vspace{0.8cm}
+\hrule
+\vspace{0.5cm}
+
+\small
+\textbf{References}\\[4pt]
+{[1]} R.~Arnowitt, S.~Deser, and C.~W.~Misner, ``The Dynamics of General Relativity,'' Gen.\ Relativ.\ Gravit.\ \textbf{40}, 1997 (2008).\\
+{[2]} H.~S.~M.~Coxeter, \textit{Regular Polytopes}, 3rd ed.\ (Dover, 1973).\\
+{[3]} B.~P.~Abbott \textit{et al.} (LIGO/Virgo), ``A gravitational-wave standard siren measurement of the Hubble constant,'' Nature \textbf{551}, 85 (2017).\\
+{[4]} M.~Milgrom, ``A modification of the Newtonian dynamics as a possible alternative to the hidden mass hypothesis,'' Astrophys.\ J.\ \textbf{270}, 365 (1983).\\
+{[5]} S.~F.~Hassan and R.~A.~Rosen, ``Bimetric gravity from ghost-free massive gravity,'' JHEP \textbf{02}, 126 (2012).\\
+{[6]} J.~Bekenstein and M.~Milgrom, ``Does the missing mass problem signal the breakdown of Newtonian gravity?'' Astrophys.\ J.\ \textbf{286}, 7 (1984).\\
+{[7]} S.~Nelson, ``Dual Tetrad Gravity And The Field Origin'' (2026).
+Submitted for publication.
+
+\end{document}

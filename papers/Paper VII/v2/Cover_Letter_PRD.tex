@@ -1,0 +1,83 @@
+% ============================================================================
+% Cover Letter: Physical Review D Submission
+% "Dual Tetrad Gravity And The Field Origin"
+% ============================================================================
+\documentclass[11pt]{letter}
+
+\usepackage{geometry}
+\geometry{margin=1in}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, urlcolor=blue!60!black}
+\usepackage{parskip}
+
+\setlength{\parindent}{0pt}
+
+% ============================================================================
+\begin{document}
+
+\begin{letter}{Editorial Office\\Physical Review D\\American Physical Society}
+
+\opening{Dear Editors,}
+
+I submit ``Dual Tetrad Gravity And The Field Origin: Fundamental Constants from the Tetrahedral Coupling Topology'' for consideration as a Regular Article in Physical Review D.
+
+% ----------------------------------------------------------------------------
+% WHAT THE PAPER DOES
+% ----------------------------------------------------------------------------
+
+The paper asks a simple question: can the coupling topology of two tetrad fields determine the value of $G$? Tetrad gravity describes the gravitational field through local frames whose spatial triad defines a tetrahedron. Ghost-free bimetric gravity couples two such tetrads at a single interaction vertex through a potential with five free parameters $\beta_0$ through $\beta_4$. The paper proves that the Hassan--Rosen frame transition matrix is identically the coupled face matrix of this dual tetrad topology, an identification established through the triad-tetrahedron correspondence (Barbieri 1998), the symmetric vielbein condition (Deffayet--Mourad--Zahariade 2013), and the compatible $(3{+}1)$ decompositions required for general covariance (Hassan--Kocic 2018). Parity, metric exchange symmetry, and field closure under finite propagation speed then determine all five $\beta_n$, leaving zero adjustable coupling constants.
+
+% ----------------------------------------------------------------------------
+% RESULTS
+% ----------------------------------------------------------------------------
+
+From this topology and its coupling polynomial $f(k) = 1 + k + k^2$, five quantitative results follow with no free parameters:
+%
+\begin{enumerate}
+\item $G = \frac{17}{13}\,\alpha^{21}\,\frac{\hbar c}{m_e^2}$, matching the measured value to 0.12\%. Every integer traces to the bimetric Hamiltonian. The exponent 21 is sharply selective: $\pm 1$ shifts the prediction by a factor of 137.
+
+\item The force hierarchy: gravity couples through 21 levels, electromagnetism through 1, giving $\alpha^{20} \approx 10^{-43}$.
+
+\item $1/\alpha = 137.036$ from the Hamiltonian interaction states of the bimetric topology, matching the CODATA value to 0.00021\%.
+
+\item A dark matter correction factor $\mu(x) = x/(1+x)$ from detailed balance in field closure, with $a_0$ matching the empirical MOND scale to 0.41\%, explaining flat rotation curves without invisible mass.
+
+\item The electron mass from three overdetermined equations spanning gravity, cosmology, and electromagnetism, converging to 0.1\%. The system also predicts $H = 69.92$~km/s/Mpc, between the Planck and SH0ES values.
+\end{enumerate}
+
+% ----------------------------------------------------------------------------
+% FOUNDATION
+% ----------------------------------------------------------------------------
+
+The dual tetrad structure is not proposed by this paper; it is required independently by four well-cited results spanning five decades: the spinor double cover (Weinberg 1995; Geroch 1968), Ashtekar's chiral variables (1986), ghost-free bimetric gravity (Hassan--Rosen 2012), and stability analysis (Alexander, Marcian\`{o}, Smolin 2014), with over 2,300 combined citations. Each integer in $G$ is counted from this topology. None is chosen.
+
+% ----------------------------------------------------------------------------
+% SUPPLEMENTAL MATERIALS
+% ----------------------------------------------------------------------------
+
+The submission includes supplemental materials to make each step independently verifiable: a companion paper presenting the covariant scalar-tensor completion with its field equations and five falsifiable predictions; a Python validation script (\texttt{run\_all\_validations.py}) that reproduces every numerical claim from CODATA 2022 constants using only the standard library; and a public repository with 813 tests across 16 categories at \url{https://github.com/fielddynamics/dfp-gravity-field-model}.
+
+% ----------------------------------------------------------------------------
+% SCOPE
+% ----------------------------------------------------------------------------
+
+The paper is explicit about what it does not address: the cosmological constant, the nuclear forces, galaxy cluster dynamics, and the full CMB power spectrum. The 0.12\% residual in $G$, which exceeds the $\sim$0.05\% inter-experiment scatter, may indicate higher-order corrections or systematic effects. Every prediction is falsifiable through precision measurements.
+
+% ----------------------------------------------------------------------------
+% CLOSING
+% ----------------------------------------------------------------------------
+
+This work falls within PRD's scope of gravitation and alternative theories of gravity. It operates within the Hassan--Rosen bimetric framework in vielbein form and is in direct contact with active research in bimetric gravity, tetrad gravity, and modified gravitational dynamics.
+
+Thank you for your consideration.
+
+\closing{Sincerely,}
+
+Stephen Nelson\\
+Independent Researcher\\
+ORCID: 0009-0008-6190-3269\\
+stephen@fielddynamics.org
+
+\end{letter}
+\end{document}

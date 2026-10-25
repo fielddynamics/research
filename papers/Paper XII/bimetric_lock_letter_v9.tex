@@ -1,0 +1,397 @@
+\documentclass[twocolumn,showpacs,preprintnumbers,amsmath,amssymb,prd]{revtex4-2}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+
+\begin{document}
+
+\title{Dual Tetrad Covariance:\\The GFD Scalar-Tensor Action and the Hassan--Rosen Interaction Potential\\as Two Projections of a Single Geometry}
+
+\author{Stephen Nelson}
+\affiliation{Field Dynamics Research}
+
+\date{\today}
+
+\begin{abstract}
+Two covariant gravity frameworks built on the tetrad formalism have developed independently over the past decade. Gravity Field Dynamics (GFD) constructs a scalar-tensor action from the stellated octahedron whose every prefactor is fixed by the integers $K=4$ and $D=3$. Hassan--Rosen bimetric gravity identifies the unique ghost-free two-metric interaction basis but leaves five coefficients as a phenomenological search space. We show that both frameworks describe the same dual-tetrahedral geometry. The GFD coupling polynomial, evaluated at the symmetric field origin, locks the five Hassan--Rosen coefficients to $\{\beta_0, \beta_1, \beta_2, \beta_3, \beta_4\} = \{1, 0, 16, 0, 1\}$ through three exact theorems and three explicit physical axioms. The locked set passes six independent concordance checks --- expansion history, BBN, CMB enhancement, Vainshtein screening, Galileon hierarchy, and mixing angle --- without fitting the $\beta_n$ to those checks. A term-by-term correspondence between the two actions establishes that every GFD prefactor maps to a Hassan--Rosen parameter, and every Hassan--Rosen parameter maps to a geometric element of the stellated octahedron.
+\end{abstract}
+
+\maketitle
+
+% ═══════════════════════════════════════════════════════════
+% SECTION 1: THE GFD BIDIRECTIONAL COVARIANT
+% ═══════════════════════════════════════════════════════════
+
+\section{The GFD Covariant Action}
+\label{sec:gfd}
+
+Every material has a constitutive law: an equation relating the response of the medium to the force applied. A spring has Hooke's law. A wire has Ohm's law. The gravitational field, as a medium that carries waves and has structure, must have one too.
+
+Gravity Field Dynamics (GFD) derives that constitutive law from a single geometric object: the stellated octahedron, the dual completion of two interpenetrating tetrahedra. The framework is constructed on the tetrad formalism $g_{\mu\nu} = \eta_{ab}\, e^a{}_\mu\, e^b{}_\nu$ and produces a fully covariant action with zero free parameters.
+
+\subsection{The action}
+
+The GFD covariant action consists of four terms:
+\begin{equation}
+\label{eq:gfd_action}
+S = \int d^4x\,\sqrt{-g}\left[\frac{R}{16\pi G} - \frac{a_0^2}{8\pi G}\,F(y) - \frac{1}{4}\,e^{-2\Phi/c^2} F_{\mu\nu}F^{\mu\nu} + \mathcal{L}_\mathrm{matter}\right]
+\end{equation}
+where $y = |\nabla\Phi|^2/a_0^2$ is the dimensionless squared acceleration and $F(y) = y - 2\sqrt{y} + 2\ln(1+\sqrt{y})$ is the kinetic functional.
+
+Each prefactor traces to the coupling polynomial $f(K,s) = 1 + sK + K^2$ evaluated at $K = 4$ and $D = 3$. The curvature term carries $16\pi G = K^2 \cdot \pi \cdot G_\mathrm{eff}$, encoding all $K^2 = 16$ face-coupling channels. The scalar sector carries $8\pi G = 2^D \cdot \pi \cdot G_\mathrm{eff}$, encoding the $2^D = 8$ vertex-space cardinality. The electromagnetic coupling carries $1/4 = 1/K$, the tetrad leg count. No prefactor is fitted.
+
+\subsection{The constitutive law and the scalar-tensor transition}
+
+The constitutive law
+\begin{equation}
+\label{eq:constitutive}
+\mu(x) = \frac{x}{x+1}
+\end{equation}
+governs the gravitational response at every acceleration scale, where $x = g/a_0$. It is recovered by differentiating the kinetic functional: $\mu(\sqrt{y}) = dF/dy$.
+
+Varying the action yields the scalar-tensor transition
+\begin{equation}
+\label{eq:sst}
+g_s = \frac{g_t^2}{a_0 + g_t}
+\end{equation}
+relating the baryonic source acceleration $g_s$ to the total gravitational acceleration $g_t$. This quadratic field equation is bidirectional: given baryonic mass it predicts kinematics, and given observed kinematics it decodes baryonic mass through the closed-form inverse
+\begin{equation}
+\label{eq:decode}
+M_\mathrm{dec}(r) = \frac{r\,v^4}{G(a_0 r + v^2)}\,.
+\end{equation}
+
+\subsection{Observational status}
+
+The GFD action, with no fitted constants, reproduces:
+\begin{itemize}
+\item 179 SPARC galaxy rotation curves via the mass decode formula~\eqref{eq:decode},
+\item the CMB gravitational enhancement $E = 6.44$ versus the Planck observed ratio $\Omega_m/\Omega_b = 6.36 \pm 0.10$ (within $0.8\sigma$),
+\item Tully--Fisher evolution $v(z)/v(0) = [H(z)/H_0]^{0.17}$ against nine independent IFU surveys from $z=0$ to $z=3$ ($\chi^2/\mathrm{dof} = 0.04$),
+\item the Hubble constant $H_0 = 70.21$~km/s/Mpc with a $\pm 6.2\%$ geometric band containing all six major independent measurements.
+\end{itemize}
+
+This action encodes the dual-tetrahedral structure through a scalar sector coupled to a single tetrad. The question this paper addresses: what happens when the same geometry is expressed through two tetrads instead of one?
+
+% ═══════════════════════════════════════════════════════════
+% SECTION 2: THE HASSAN--ROSEN BIMETRIC COVARIANT
+% ═══════════════════════════════════════════════════════════
+
+\section{The Hassan--Rosen Bimetric Action}
+\label{sec:hr}
+
+The same tetrad formalism admits a second covariant framework: one built on two tetrads $e^a{}_\mu$ and $\tilde{e}^a{}_\mu$, each generating an independent metric. Hassan and Rosen~\cite{HassanRosen2012a,HassanRosen2012b} showed that the unique ghost-free interaction between two spin-2 fields takes the form
+
+\subsection{The bimetric action}
+
+\begin{equation}
+\label{eq:hr_action}
+S = M_g^2\!\int\!\sqrt{-g}\,R_g + M_f^2\!\int\!\sqrt{-f}\,R_f + m^2 M_g^2\!\int\!\sqrt{-g}\sum_{n=0}^{4}\beta_n\, e_n(S)
+\end{equation}
+where $S = \sqrt{g^{-1}f}$ is the frame transition matrix, $e_n(S)$ are the elementary symmetric polynomials of its eigenvalues, and $\beta_n$ are five real coefficients. The Boulware--Deser ghost constraint~\cite{BoulwareDeser1972} forces this specific polynomial basis: no other nonlinear interaction between two metrics is consistent at the quantum level. The basis is uniquely determined. The five coefficients are not.
+
+\subsection{The phenomenological search space}
+
+For twelve years, the five $\beta_n$ have been treated as phenomenological parameters. H\"og\aa s and M\"ortsell~\cite{HogasMortsell2021a,HogasMortsell2021c} established analytical and BBN constraints on the viable parameter space. Their 2025 analysis~\cite{HogasMortsell2025}, combining DESI DR2, Planck, ACT, and type Ia supernovae data in a full MCMC scan, yields a best-fit mixing angle $\theta = 6.1^\circ$ $(+1.7/-2.1)$ and $H_0 = 69.0 \pm 0.4$~km/s/Mpc. The scan covers all five $\beta_n$ plus the mixing angle and graviton mass --- a seven-parameter search space.
+
+Both GFD and Hassan--Rosen are tetrad formalisms. Both build gravity from $e^a{}_\mu$. One has derived its constants from geometry. The other has a search space. The question becomes: are they describing the same geometry?
+
+% ═══════════════════════════════════════════════════════════
+% SECTION 3: THE GEOMETRY
+% ═══════════════════════════════════════════════════════════
+
+\section{The Dual-Tetrahedral Geometry}
+\label{sec:geometry}
+
+To answer this question requires examining what each framework describes geometrically, not just algebraically. Both turn out to describe the same object.
+
+\subsection{The Hassan--Rosen dual-tetrad structure}
+
+The bimetric framework defines two tetrads $e^a{}_\mu$ and $\tilde{e}^a{}_\mu$ with opposite spatial orientations, coupled through the frame transition matrix $S = e^{-1}\tilde{e}$. The interaction potential $V(S) = \sum \beta_n\, e_n(S)$ is evaluated at this transition. At the proportional background $S = \mathbf{I}$, both sectors contribute symmetrically and the interaction energy depends only on the $\beta_n$.
+
+\subsection{The GFD stellated octahedron}
+
+GFD constructs the same structure from two tetrahedra, TetA and TetB, one inverted relative to the other, whose union is the stellated octahedron. At the Field Origin ($s = 0$ in the coupling polynomial), all eight compression vectors cancel and both tetrahedral sectors contribute symmetrically. The stellated octahedron has the $f$-vector $(8, 12, 8)$, summing to 28 geometric elements.
+
+\subsection{The identification}
+
+The correspondence is direct:
+
+\begin{table}[h]
+\centering
+\begin{tabular}{ll}
+\toprule
+\textbf{GFD} & \textbf{Hassan--Rosen} \\
+\midrule
+TetA & Primary tetrad $e^a{}_\mu$ \\
+TetB (inverted) & Secondary tetrad $\tilde{e}^a{}_\mu$ \\
+Stellated octahedron & Dual-tetrad interaction domain \\
+Octahedral intersection & Proportional background \\
+Field Origin ($s=0$) & $S = \mathbf{I}$ \\
+$f$-vector $(8,12,8) = 28$ & Five $\beta_n$ (to be determined) \\
+\bottomrule
+\end{tabular}
+\caption{Dictionary between the two tetrad formalisms.}
+\label{tab:dictionary}
+\end{table}
+
+The stellated octahedron is the coordinate-space realisation of the dual-tetrad interaction that Hassan and Rosen parameterise abstractly in five coefficients. If the geometry is the same object, the GFD prefactors should fix the Hassan--Rosen coefficients.
+
+% ═══════════════════════════════════════════════════════════
+% SECTION 4: THE LOCK
+% ═══════════════════════════════════════════════════════════
+
+\section{The Bimetric Lock}
+\label{sec:lock}
+
+With the geometric identification established, the five $\beta_n$ can be read from the stellated octahedron. Three exact algebraic theorems constrain the structure; three explicit physical axioms complete the determination.
+
+\subsection{Exact algebraic constraints}
+
+\textbf{Theorem 1} (Exchange identity). For any unimodular matrix $S$ with $\det S = 1$:
+\begin{equation}
+e_n(S^{-1}) = e_{4-n}(S)\,.
+\end{equation}
+This identity relates the elementary symmetric polynomials of $S$ and $S^{-1}$ and follows from the Cayley--Hamilton theorem.
+
+\textbf{Theorem 2} (Coefficient pairing). If the interaction potential satisfies $V(S) = V(S^{-1})$ for all unimodular $S$, then $\beta_0 = \beta_4$ and $\beta_1 = \beta_3$. On the unimodular sector, $e_0 = e_4 = 1$ are fixed endpoints while $e_1, e_2, e_3$ vary independently. Matching coefficients of the exchanged basis terms yields the pairing.
+
+\textbf{Theorem 3} (Hessian rank). The Hessian of $e_2(S)$ evaluated at $S = \mathbf{I}$ has full rank 16, with eigenvalue spectrum $+3$ ($\times 1$), $+1$ ($\times 6$), $-1$ ($\times 9$). No null directions exist in the quadratic response.
+
+\subsection{Physical axioms}
+
+\textbf{Axiom 1} (Symmetric ghost-free lock). The Hassan--Rosen construction identifies the unique ghost-free interaction basis but not the unique physical coefficient point within that basis. At the symmetric field origin, the interaction represents a balanced closure of the two metric sectors. A balanced closure excludes the exchange-non-self-dual paired sector $(e_1, e_3)$, which swaps under $S \to S^{-1}$ rather than mapping to itself. Therefore $\beta_1 = \beta_3 = 0$.
+
+Generic ghost-free bimetric theories may admit $\beta_1 = \beta_3 \neq 0$. This axiom selects the symmetric closure subclass in which no residual oriented coupling survives at the field origin.
+
+\textbf{Axiom 2} (Rank-zero normalisation). The rank-0 term in the bimetric potential is normalised to unity: $\beta_0 = K^0 = 1$. Combined with exchange symmetry, $\beta_4 = 1$. This fixes the interaction mass scale relative to the topological coupling.
+
+\textbf{Axiom 3} (Quadratic completeness). The quadratic interaction weight equals the full-rank Hessian multiplicity: $\beta_2 = 16$. Three structurally distinct representations of the same closure architecture converge on this value. The variational route counts 16 independent quadratic response directions (Theorem~3). The combinatorial route counts $4 \times 4 = 16$ face-mediated exchange channels in the medial subdivision. The algebraic route identifies $\dim\,\mathrm{Cl}(1,3) = 16$ as the natural algebraic envelope of the tetrad frame. This convergence is a feature of the construction: the quadratic interaction layer exhausts the available $K^2$ structure without deficit or redundancy.
+
+\subsection{The locked set}
+
+From Theorem~2 and Axiom~1: $\beta_1 = \beta_3 = 0$.
+From Theorem~2 and Axiom~2: $\beta_0 = \beta_4 = 1$.
+From Theorem~3 and Axiom~3: $\beta_2 = 16$.
+
+\begin{equation}
+\label{eq:lock}
+\boxed{\{\beta_0, \beta_1, \beta_2, \beta_3, \beta_4\} = \{1, 0, 16, 0, 1\}}
+\end{equation}
+
+The locked interaction potential is $V(S) = e_0(S) + 16\,e_2(S) + e_4(S)$.
+
+\subsection{Counterexample awareness}
+
+Each axiom locks one degree of freedom. Table~\ref{tab:counter} shows what is admitted when each is relaxed individually.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lll}
+\toprule
+\textbf{Axiom dropped} & \textbf{Admitted} & \textbf{Example} \\
+\midrule
+Axiom 1 (lock) & $\{a, b, c, b, a\}$ & $\{1, 3, 16, 3, 1\}$ \\
+Axiom 2 (norm.) & $\{a, 0, 16, 0, a\}$ & $\{5, 0, 16, 0, 5\}$ \\
+Axiom 3 (compl.) & $\{1, 0, c, 0, 1\}$ & $\{1, 0, 9, 0, 1\}$ \\
+All kept & Unique & $\{1, 0, 16, 0, 1\}$ \\
+\bottomrule
+\end{tabular}
+\caption{Counterexample awareness. Each row shows the family admitted by relaxing one axiom.}
+\label{tab:counter}
+\end{table}
+
+% ═══════════════════════════════════════════════════════════
+% SECTION 5: CONCORDANCE
+% ═══════════════════════════════════════════════════════════
+
+\section{Concordance}
+\label{sec:concordance}
+
+The locked set is algebraic. It must also produce a physically viable cosmology. Six concordance checks test the principal conditions that the five $\beta_n$ are meant to control.
+
+\subsection{Expansion history and BBN}
+
+At $\theta = 6.1^\circ$, the locked parameters produce a viable cosmological expansion on the finite branch (the Bianchi bracket $\beta_1 + 2\beta_2 y + \beta_3 y^2 = 32y \neq 0$ forces the finite branch automatically). The expansion rate enhancement from the second metric gives $\Delta N_\mathrm{eff} = 0.07$, well within BBN bounds ($\Delta N_\mathrm{eff} < 0.5$).
+
+\subsection{CMB concordance}
+
+The GFD constitutive law~\eqref{eq:constitutive}, combined with the tiling-corrected cosmological scaling $a_0 \propto H^{1-1/\pi}$, predicts a gravitational enhancement at recombination of $E_\mathrm{CMB} = 6.44$, compared to the Planck observed ratio $\Omega_m/\Omega_b = 6.36 \pm 0.10$. This is $0.8\sigma$ from the central value with zero fitted parameters. This test is concordance with the GFD constitutive law, not a derivation from the locked $\beta_n$ alone.
+
+\subsection{Screening and Galileon hierarchy}
+
+Orientation parity ($\beta_1 = \beta_3 = 0$) kills the cubic and quintic Galileon interactions in the decoupling limit. The quartic Galileon survives with $c_3 = \tfrac{3}{2}\beta_2 = 24$, ensuring viable Vainshtein screening consistent with the analytical constraints of H\"og\aa s and M\"ortsell~\cite{HogasMortsell2021a}.
+
+\subsection{Mixing angle}
+
+The GFD framework predicts the Planck mass ratio between the two metrics from the $f$-vector of the stellated octahedron:
+\begin{equation}
+\tan\theta = \frac{D}{v + e + f} = \frac{3}{28}\,,\qquad \theta = 6.12^\circ\,.
+\end{equation}
+The numerator $D = 3$ counts the spatial propagation directions. The denominator 28 counts the total geometric elements ($8 + 12 + 8$). H\"og\aa s and M\"ortsell~\cite{HogasMortsell2025} measure $\theta = 6.1^\circ$ $(+1.7/-2.1)$. The difference is $0.016^\circ$.
+
+\subsection{Exhaustive scan}
+
+An exhaustive scan of all integer $\beta_2$ from 1 to 30, with $\beta_1 = \beta_3 = 0$ and $\beta_0 = \beta_4 = 1$ fixed, confirms that every value produces a viable cosmology at $\theta = 6.1^\circ$. The data alone cannot distinguish $\beta_2 = 15$ from $\beta_2 = 16$ from $\beta_2 = 17$. The selection is structural: triple convergence across the variational, combinatorial, and algebraic routes (Axiom~3).
+
+\subsection{Summary}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lll}
+\toprule
+\textbf{Test} & \textbf{Result} & \textbf{Value} \\
+\midrule
+Expansion history & Pass & Viable evolution \\
+BBN ($\Delta N_\mathrm{eff}$) & Pass & $0.07 < 0.5$ \\
+CMB (GFD const.) & Pass & $6.44$ vs $6.36 \pm 0.10$ \\
+Vainshtein screening & Pass & $c_3 = 24$ \\
+Galileon hierarchy & Pass & Quartic only \\
+Mixing angle $\theta$ & Pass & $6.12^\circ$ vs $6.1^\circ$ \\
+\bottomrule
+\end{tabular}
+\caption{Concordance summary. All six checks pass without fitting the $\beta_n$ to these checks.}
+\label{tab:concordance}
+\end{table}
+
+% ═══════════════════════════════════════════════════════════
+% SECTION 6: EQUATING THE TWO COVARIANTS
+% ═══════════════════════════════════════════════════════════
+
+\section{Equating the Two Covariants}
+\label{sec:equating}
+
+The locked set passes all concordance checks. This section shows that the concordance is not coincidental: the GFD action and the locked Hassan--Rosen action produce the same field content, term by term.
+
+\subsection{The curvature sector}
+
+The GFD curvature term $R/(16\pi G)$ and the Hassan--Rosen term $M_g^2 R_g$ share the same structure. The prefactor $16\pi G$ carries $K^2 = 16$, the same integer that appears as $\beta_2 = 16$ in the locked interaction potential. The identification of the effective Planck mass $M_g$ with the topological coupling constant $1/(16\pi G)$ maps one to the other.
+
+\subsection{The scalar sector}
+
+This is where the two frameworks appear most different. GFD encodes the dual-tetrad coupling through a scalar field with kinetic functional $F(y) = y - 2\sqrt{y} + 2\ln(1+\sqrt{y})$, whose three terms correspond to the three structural levels of the coupling polynomial: $K^2$ (quadratic, face coupling), $sK$ (linear, flow between sectors), and $K^0$ (logarithmic, field origin). In the locked Hassan--Rosen action, the helicity-0 scalar mode that survives in the decoupling limit inherits its self-interaction from $\beta_2 = 16$ through the Galileon coefficient $c_3 = 24$. The GFD kinetic functional and the Hassan--Rosen Galileon sector encode the same scalar content: one as an exact energy functional, the other as an effective field theory expansion.
+
+\subsection{The interaction potential and topological coupling impedance}
+
+GFD encodes the dual-tetrad coupling in the constitutive law $\mu = x/(x+1)$, which partitions the gravitational field into TetA and TetB fractions at every acceleration. The locked Hassan--Rosen potential $V = e_0 + 16\,e_2 + e_4$ partitions the interaction into exchange-symmetric boundary terms ($e_0, e_4 = 1$) and the quadratic bulk ($16\,e_2$).
+
+At the field origin, the total interaction capacity is $f(4,0) = 1 + K^2 = 17$. The two boundary existence terms ($\beta_0 = \beta_4 = 1$) represent the irreducible overhead of maintaining the dual-tetrad boundary condition. Their ratio to the total capacity defines the topological coupling impedance:
+\begin{equation}
+\label{eq:impedance}
+\Delta\mu = \frac{2}{17} \approx 11.76\%\,.
+\end{equation}
+This is the geometric overhead required to maintain a dual-field closure at the interaction vertex, analogous to the feed-point impedance observed in self-similar antenna structures where two fractal sub-structures couple at a shared vertex.
+
+The topological coupling impedance is a structural property of the interaction vertex, located in the interior of the gravitational vortex structure. Observational rotation curve measurements sample the exterior velocity field, which integrates over this interior. The impedance is encoded in the mass decode formula~\eqref{eq:decode}, which correctly extracts baryonic mass from the exterior velocity profile using the full quadratic scalar-tensor transition~\eqref{eq:sst}.
+
+As a consistency check, the quartic Galileon screening in the decoupling limit yields $\mu(1) = 1/\varphi^2 = 0.382$, giving a dynamical impedance $(1/2 - 1/\varphi^2) = 0.118$. The two independent projections --- one from integer counting at the geometric vertex, one from the continuous field equation in the decoupling limit --- converge on the same physical bottleneck to within $0.3\%$.
+
+\subsection{The kinetic sector and mixing angle}
+
+The curvature, scalar, and interaction terms are now matched. The only remaining free parameter is the Planck mass ratio between the two metrics, parameterised by the mixing angle $\theta$.
+
+GFD predicts $\tan\theta = D/28 = 3/28$ from the $f$-vector of the stellated octahedron. Hassan--Rosen treats $\theta$ as a free kinetic parameter. The GFD prediction gives $\theta = 6.12^\circ$, matching the H\"og\aa s--M\"ortsell 2025 measurement of $6.1^\circ$ $(+1.7/-2.1)$ to within $0.016^\circ$. This completes the identification: every parameter in both actions is determined by the stellated octahedron.
+
+\subsection{The prefactor correspondence}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lll}
+\toprule
+\textbf{GFD} & \textbf{Hassan--Rosen} & \textbf{Origin} \\
+\midrule
+$16\pi G$ & $\beta_2 = 16$ & $K^2$ face channels \\
+$8\pi G$ & Scalar sector & $2^D = 8$ vertices \\
+$1/4$ & $K = 4$ faces & Tetrad leg count \\
+$\mu = x/(x+1)$ & $V = e_0 + 16e_2 + e_4$ & Partition $\leftrightarrow$ potential \\
+$\tan\theta = 3/28$ & $\theta = 6.1^\circ$ & $D/(v+e+f)$ \\
+$\Delta\mu = 2/17$ & Boundary overhead & Impedance at vertex \\
+\bottomrule
+\end{tabular}
+\caption{Complete prefactor correspondence. Every GFD constant maps to a Hassan--Rosen parameter through the stellated octahedron.}
+\label{tab:correspondence}
+\end{table}
+
+% ═══════════════════════════════════════════════════════════
+% SECTION 7: CONCLUSION
+% ═══════════════════════════════════════════════════════════
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+Two tetrad gravity programmes have developed independently. GFD derived every constant from the $D = 3$ simplex and its dual completion. Hassan--Rosen bimetric gravity identified the unique ghost-free interaction basis but left five coefficients as a phenomenological search space. The bimetric lock proves they encode the same geometry. The term-by-term equating proves they produce the same field content.
+
+The stellated octahedron is the object both programmes have been constructing from opposite ends. The five $\beta_n$ are the stellated octahedron read in the Hassan--Rosen basis. The constitutive law, the scalar-tensor transition, the interaction potential, and the mixing angle are four projections of a single tetrad geometry --- the unique dual completion of the $D = 3$ simplex selected by the uniqueness equation $2(D+1) = 2^D$.
+
+The tetrahedral structure at the foundation of both frameworks connects to a broader programme in quantum gravity. Regge calculus discretises spacetime into simplices. Ponzano--Regge and spin foam models build transition amplitudes from tetrahedra. Loop quantum gravity quantises geometry at the simplex level. The uniqueness equation $2(D+1) = 2^D$, which fixes $D = 3$ and $K = 4$, is the same selection principle that these programmes have approached from the quantum side. GFD approaches it from the classical side. The bimetric lock identifies the point where they meet.
+
+The computational derivation of the lock and the full concordance test are provided as supplementary material (see Appendix~\ref{app:supp}).
+
+\appendix
+
+\section{Supplementary material}
+\label{app:supp}
+
+Two Python scripts accompany this letter:
+
+\texttt{gfd\_structured\_derivation.py} implements the lock proof: three theorems verified computationally on general and unimodular test matrices, three axioms with counterexample awareness, the status table distinguishing exact results from physical postulates, and the topological coupling impedance derivation.
+
+\texttt{gfd\_bimetric\_concordance.py} implements the six concordance checks, the exhaustive integer scan, and diagnostic plots of $H(z)$, $y(z)$, $w_\mathrm{DE}(z)$, and the constitutive law $\mu(x)$.
+
+Both scripts require only \texttt{numpy}, \texttt{scipy}, and \texttt{matplotlib}. A referee can reproduce every numerical claim in this letter by running them.
+
+\begin{thebibliography}{20}
+
+\bibitem{HassanRosen2012a}
+S.~F.~Hassan and R.~A.~Rosen,
+\textit{Bimetric gravity from ghost-free massive gravity},
+J. High Energy Phys. \textbf{02}, 126 (2012).
+
+\bibitem{HassanRosen2012b}
+S.~F.~Hassan and R.~A.~Rosen,
+\textit{Confirmation of the secondary constraint and absence of ghost in massive gravity and bimetric gravity},
+J. High Energy Phys. \textbf{04}, 123 (2012).
+
+\bibitem{BoulwareDeser1972}
+D.~G.~Boulware and S.~Deser,
+\textit{Can gravitation have a finite range?},
+Phys. Rev. D \textbf{6}, 3368 (1972).
+
+\bibitem{HogasMortsell2021a}
+M.~H\"og\aa s and E.~M\"ortsell,
+\textit{Analytical constraints on bimetric gravity},
+arXiv:2101.08794 (2021).
+
+\bibitem{HogasMortsell2021c}
+M.~H\"og\aa s and E.~M\"ortsell,
+\textit{Constraints on bimetric gravity from Big Bang nucleosynthesis},
+J. Cosmol. Astropart. Phys. \textbf{11}, 001 (2021).
+
+\bibitem{HogasMortsell2025}
+M.~H\"og\aa s and E.~M\"ortsell,
+\textit{Bimetric cosmology with DESI DR2},
+arXiv:2507.03743 (2025).
+
+\bibitem{deRham2011}
+C.~de~Rham, G.~Gabadadze, and A.~J.~Tolley,
+\textit{Resummation of massive gravity},
+Phys. Rev. Lett. \textbf{106}, 231101 (2011).
+
+\bibitem{BekensteinMilgrom1984}
+J.~D.~Bekenstein and M.~Milgrom,
+\textit{Does the missing mass problem signal the breakdown of Newtonian gravity?},
+Astrophys. J. \textbf{286}, 7 (1984).
+
+\bibitem{Nelson2026a}
+S.~Nelson,
+\textit{The coupling polynomial of the stellated octahedron},
+Field Dynamics Research (2026). Companion letter.
+
+\bibitem{Nelson2026mnras}
+S.~Nelson,
+\textit{Decoding mass from observed rotation curves},
+submitted to MNRAS (2026).
+
+\end{thebibliography}
+
+\end{document}

@@ -1,0 +1,706 @@
+\documentclass[twocolumn]{iopjournal}
+
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage[small]{caption}
+
+\fancyhfoffset[L]{0mm}
+\setlength{\marginparwidth}{0pt}
+\setlength{\marginparsep}{0pt}
+
+% ==========================================
+% ZENODO PREPRINT HEADERS (ACTIVE)
+% ==========================================
+\renewcommand{\articletype}[1]{%
+  {\vspace*{-8mm}\noindent \Large \sf Preprint}\par
+  \vspace*{6mm}\noindent{\scriptsize \sf{\bfseries \MakeUppercase{#1}}}}
+
+\fancyhead[L]{}
+\fancyhead[R]{}
+
+% ==========================================
+% CQG SUBMISSION HEADERS (COMMENTED OUT)
+% ==========================================
+% \fancyhead[L]{{\small \sf IOP Publishing}\hspace{5mm} {\it Class. Quantum Grav.}}
+% \fancyhead[R]{S Nelson}
+
+\newcommand{\FZERO}{F_{\mathrm{ZERO}}}
+\newcommand{\FPLUS}{F_{\mathrm{PLUS}}}
+\newcommand{\FMINUS}{F_{\mathrm{MINUS}}}
+\newcommand{\BEA}{\mathrm{BE}/A}
+
+\begin{document}
+
+\articletype{Letter}
+
+\title{Nuclear shell structure and binding energies from tetrahedral packing at $K\!=\!4$}
+
+\author{Stephen Nelson}
+
+\affil{Field Dynamics Research}
+
+\begin{abstract}
+A single algebraic formula, derived from the tetrad geometry of
+general relativity, reproduces nuclear binding energies across all
+83 stable elements from hydrogen to bismuth with zero adjusted
+parameters.
+The binding energy per nucleon is
+$\BEA = C\,(f - \FZERO)$,
+where $f(K,s) = 1 + Ks + K^2$ is the coupling polynomial of the
+stellated octahedron evaluated at nuclear compression,
+$\FZERO = K^2 + 1 = 17$ is the Field Origin capacity, and the
+energy constant $C = m_e c^2\,\FZERO / K = 2.172$~MeV is fixed by
+the electron mass and the $K = 4$ topology.
+Across 82 isotopes from helium to bismuth the formula achieves
+$R^2 = 0.99$ on total binding energy, with mean error $3.9\%$
+and $98\%$ of elements within $10\%$.
+A packing algebra based on tetrahedral close-packing
+with Sierpi\'nski gate exclusion produces all seven nuclear magic
+numbers $\{2, 8, 20, 28, 50, 82, 126\}$ exactly, with $K = 4$ as the
+unique solution among all integers $2 \leq K \leq 10$.
+The nesting ceiling $K^K = 256$ predicts that no shell beyond the
+eighth can close, consistent with bismuth-209 as the heaviest
+stable isotope.
+The same polynomial, evaluated at galactic scales with a single-face
+coupling path, produces galaxy rotation curves without dark matter.
+\end{abstract}
+
+
+% ================================================================
+\section{Framework and coupling polynomial}
+% ================================================================
+
+\subsection*{The tetrad is the tetrahedron}
+
+The tetrad formulation of general relativity,
+inherited from Einstein~(1928), Cartan~(1922), and
+Weyl~(1929), describes the local gravitational frame
+as a set of four independent basis vectors at each point
+in spacetime.
+Algebraically, it is a transformation matrix.
+Geometrically, four non-coplanar vectors from a common origin
+define a tetrahedron: the simplest solid enclosing volume
+in $D = 3$ spatial dimensions, with $K = D + 1 = 4$ faces.
+The tetrad is the algebra; the tetrahedron is the geometry.
+They are two descriptions of the same local frame.
+Regge~\cite{regge1961} made the identification explicit:
+in his discretisation of general relativity, a 3-simplex
+(a tetrahedron) is the fundamental building block of space,
+and all curvature concentrates at the vertices where
+tetrahedra meet.
+
+This identification is not limited to the single-metric case.
+Hassan and Rosen~\cite{hassanrosen2012} proved that ghost-free
+bimetric gravity requires two independent tetrads,
+$e^{a}_{\mu}$ and $f^{a}_{\mu}$, coupled through an interaction
+potential. Since each tetrad is geometrically a tetrahedron,
+the theory requires two tetrahedra at every point in spacetime.
+Three further results reach the same conclusion:
+vacuum stability requires opposite orientations to cancel
+the Boulware--Deser ghost~\cite{boulwaredeser1972};
+the $SL(2,\mathbb{C})$ double cover of the Lorentz group
+assigns one chirality per chamber~\cite{weinberg1995};
+and Ashtekar's self-dual/anti-self-dual
+decomposition~\cite{ashtekar1986} assigns one chirality per
+chamber.
+Four independent arguments. Two tetrahedra.
+
+Gravity Field Dynamics (GFD)~\cite{nelson2025a} begins here.
+It takes the algebraic requirement for two interacting tetrads
+and draws the geometry: what does the interior field structure
+of a gravitational field look like when both tetrahedra are
+present?
+
+\subsection*{Two chambers, not one}
+
+Consider how gravitational fields couple to their neighbours.
+In any close-packed field lattice, each field region borders
+twelve others, the face-centred cubic (FCC) coordination
+number, established by Kepler in 1611 and proved optimal by
+Hales in 1998. These twelve neighbours press inward on the
+central field through shared boundary planes, the same way
+twelve soap bubbles pressed around a central one flatten its
+walls into planar facets.
+The twelve boundary planes are not randomly oriented.
+In FCC packing, they sort into exactly four groups of three,
+each group sharing a common normal direction.
+Four groups, four normals, four faces: a tetrahedron emerges
+from the packing geometry itself.
+
+But packing is symmetric. The twelve neighbours do not push
+from one side only; they push from all sides. The four
+face-normals of the inward-pointing tetrahedron have four
+partners pointing outward in the opposite directions.
+These outward normals define a second tetrahedron, inverted
+with respect to the first.
+The two tetrahedra interlock with opposite orientation,
+each vertex of one sitting at the centre of a face of the other.
+Their compound is the \emph{stellated octahedron}:
+8~vertices, 12~edges, 8~triangular faces.
+
+The interior of this compound has three distinct regions.
+The primary tetrahedral chamber (TetA) is the outward-facing
+field structure, the sector that couples to neighbours and
+carries the massless gravitational mode.
+The inverted chamber (TetB) is the bounded interior, the
+sector that can hold confined field content and carries the
+massive mode.
+At the geometric centre, all four body diagonals cross at a
+single point.
+This is the \emph{Field Origin}: the coupling boundary between
+the two chambers, the unique location where both tetrads are
+evaluated at the same spacetime event.
+It is the interaction vertex of bimetric
+gravity~\cite{hassanrosen2012}, given geometric location.
+
+On each face of TetA, the opposing vertex of TetB
+penetrates the surface and subdivides it into $3 + 1 = 4$
+sub-regions: three spatial corners and one central core.
+Across all four faces, this produces $4 \times 4 = K^2 = 16$
+independent coupling channels.
+These channels are the $K^2$ components of the frame
+transition matrix in bimetric gravity, now visible as
+geometric features of the stellated octahedron.
+
+\subsection*{The coupling polynomial}
+
+The tetrad equation contains three structural types. A nondegeneracy condition ($\det(e) \neq 0$): one
+binary constraint ensuring the field closes.
+A frame ($e^{a}_{\mu}$): $K = 4$ independent directions spanning
+the tangent space. A connection ($\eta_{ab}$): a $K \times K$
+matrix with $K^2 = 16$ slots encoding how every direction
+couples to every other.
+One constraint, four legs, sixteen components.
+The coupling polynomial counts these structural levels:
+\begin{equation}
+  f(K, s) = 1 + Ks + K^2\,,
+  \label{eq:poly}
+\end{equation}
+where $s \in [-1, +1]$ parameterizes the position between the
+two chambers. In the three structural regions of the stellated
+octahedron, the polynomial evaluates to three integers:
+\begin{align}
+  \FPLUS  &= f(K, {+}1) = 21 \;\;(\text{TetA})\,, \nonumber\\
+  \FZERO  &= f(K, 0)    = 17 \;\;(\text{Field Origin})\,, \nonumber\\
+  \FMINUS &= f(K, {-}1) = 13 \;\;(\text{TetB})\,.
+  \label{eq:landmarks}
+\end{align}
+These are arithmetic-locked: $(21 + 13)/2 = 17$, equally spaced
+by $K = 4$, with no freedom to adjust.
+The integer $K = 4$ is itself selected uniquely by
+$2(D{+}1) = 2^D$, whose only positive integer solution is
+$D = 3$~\cite{nelson2025a}.
+
+The constitutive law $\mu(x) = x/(x{+}1)$ is not postulated
+as in MOND phenomenology but derived as the M\"obius map of this
+polynomial~\cite{nelson2025a}, and its antiderivative yields the
+Bekenstein--Milgrom energy functional~\cite{bekenstein1984} that
+produces galaxy rotation curves.
+The Hassan--Rosen interaction potential, whose five free
+parameters $\{\beta_0,\ldots,\beta_4\}$ are conventionally
+fitted to data, is locked by the dual tetrahedral geometry to
+$\{1, 0, K, 0, 1\}$~\cite{nelson2025a}, reducing five constants
+to zero.
+The framework is covariant-complete: the polynomial, the
+constitutive law, the energy functional, and the bimetric
+parameters all follow from $K = 4$ and the stellated octahedron.
+
+\subsection*{Nuclear scales}
+
+In this letter, we apply the coupling polynomial at nuclear
+scales. TetA is the unbound gravitational field: spacetime
+itself, the ocean in which matter sits. TetB is the bounded
+interior: a cavity that can hold confined field content.
+When stellar compression packs gravity fields into the TetB
+cavity of a host field, the coupling path traverses the
+complete Field Origin, crossing $N = 2$ faces.
+The $N = 2$ constitutive law is
+\begin{equation}
+  x(1 - \mu)^2 = \mu\,,
+  \label{eq:n2}
+\end{equation}
+with the physical root
+\begin{equation}
+  \mu_2(x) = \frac{(2x + 1) - \sqrt{4x + 1}}{2x}\,.
+  \label{eq:mu2}
+\end{equation}
+The nuclear conformal map is $s_2(x) = 2\mu_2(x) - 1$,
+and the compression ratio is $x = A^2$, where $A$ is the number
+of gravity fields packed in the host cavity (the mass number).
+
+Substituting $s = s_2(A^2)$ into $f(K, s)$ and subtracting the
+Field Origin capacity gives the binding energy per field:
+\begin{equation}
+  \boxed{\;
+    \frac{\mathrm{BE}}{A} = C \cdot \bigl[\,f\!\left(K,\; s_2(A^2)\right)
+    - \FZERO\,\bigr]
+  \;}
+  \label{eq:binding}
+\end{equation}
+The coupling polynomial evaluated at the nuclear conformal map,
+minus its value at the Field Origin, is the binding energy.
+The range of $f$ from $\FMINUS = 13$ to $\FPLUS = 21$ maps to a
+binding energy range of $C \times ({-}4)$ to $C \times (+4)$~MeV,
+with zero binding at $f = \FZERO = 17$.
+
+
+% ================================================================
+\section{The energy constant}
+% ================================================================
+
+The energy constant $C$ sets the scale of nuclear binding in MeV.
+We derive it from the electron mass and the topology.
+
+The electron mass $m_e$ is the unique mass for which the gravity
+envelope radius coincides with the classical electron radius,
+derived from $K$, $G$, $\alpha$, $\hbar$, $c$, and
+$a_0$~\cite{nelson2025a}.
+The binding energy ceiling is the maximum energy the Field Origin
+can channel into packing.
+This is the electron rest energy (the vortex inversion energy
+at the envelope boundary) multiplied by the gate capacity $\FZERO$,
+distributed across $K$ active coupling channels:
+\begin{equation}
+  C = \frac{m_e c^2 \cdot \FZERO}{K}
+    = \frac{0.511 \times 17}{4}
+    = 2.172~\text{MeV}\,.
+  \label{eq:C}
+\end{equation}
+The empirical value obtained by fitting to the 82-isotope mean
+is $C_{\mathrm{fit}} = 2.16$~MeV, a discrepancy of $0.54\%$.
+The asymptotic binding ceiling is
+\begin{align}
+  C(\FPLUS {-} \FZERO) &= C \times 4 \nonumber\\
+  &= m_e c^2 \!\cdot\! \FZERO \nonumber\\
+  &= 8.687~\text{MeV}\,,
+\end{align}
+consistent with the observed peak at Fe-56 ($\BEA = 8.790$~MeV),
+whose individual element-specific binding exceeds the geometric
+mean by approximately $1.2\%$~\cite{nelson2025b}.
+
+
+% ================================================================
+\section{Binding energy validation}
+% ================================================================
+
+Equation~\eqref{eq:binding} with the derived $C$ from
+Eq.~\eqref{eq:C} is applied to 82 stable isotopes
+(He-4 through Bi-209). No parameters are adjusted.
+
+The results are tabulated in Table~\ref{tab:full}.
+Summary statistics:
+\begin{center}
+\small
+\begin{tabular}{lc}
+\toprule
+Quantity & Value \\
+\midrule
+Elements tested & 82 \\
+$R^2$ (total BE) & 0.991 \\
+Mean $|\mathrm{error}|$ (BE/A) & $3.9\%$ \\
+Within $5\%$ & 65 ($79\%$) \\
+Within $10\%$ & 80 ($98\%$) \\
+Beyond $15\%$ & 1 (He-4) \\
+Fitted parameters & 0 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The single outlier is He-4, whose binding energy per field
+($7.074$~MeV observed vs $4.853$~MeV predicted) is systematically
+underpredicted. He-4 is the first complete $K = 4$ closure
+($A = K$) and receives a geometric resonance bonus that the
+constant-$C$ formula does not capture.
+Excluding He-4, the mean error across 81 isotopes is $3.5\%$.
+
+The heavy-element end (Pb, Bi, Tl, Hg) shows a systematic
+overprediction of $6$--$10\%$, attributable to Coulomb repulsion
+among vortex-active (proton) fields, which grows as $Z^2$ and is
+not captured by the $A$-only formula.
+The Bethe-Weizs\"acker mass formula achieves comparable coverage
+with five fitted parameters.
+This formula uses zero.
+
+
+% ================================================================
+\section{The packing algebra}
+% ================================================================
+
+The binding energy formula determines \emph{how tightly} fields
+are held. The packing algebra determines \emph{how they arrange}:
+which configurations are stable, where the magic numbers fall,
+and why the shell structure has the form it does.
+
+Gravity fields packed inside the tetrahedral cavity (TetB) arrange
+in three-dimensional tetrahedral close-packing, constrained by the
+$K = 4$ channel structure of the host. The packing is recursive:
+once $K = 4$ fields fill the host channels, additional fields
+pack inside the existing residents, each of which is itself a
+complete stellated octahedron.
+At each nesting level, the Field Origin of each host is reserved
+for structural coupling to its parent (the gate). This gate is
+not available for packing.
+The gate exclusion follows the Sierpi\'nski construction:
+at each triforce level, the central sub-triangle is removed,
+leaving three outer sub-triangles for further recursion.
+
+Three functions encode the complete shell structure.
+The tetrahedral capacity is
+\begin{equation}
+  T(n) = \frac{n(n{+}1)(n{+}2)}{6}\,,
+  \label{eq:T}
+\end{equation}
+the gate exclusion is
+\begin{equation}
+  G(n) = \begin{cases}
+           0 & n < K \\[2pt]
+           (n{-}1)\,n/2 & n \geq K
+         \end{cases}\,,
+  \label{eq:G}
+\end{equation}
+and the available positions are
+\begin{equation}
+  P(n) = T(n) - G(n)\,.
+  \label{eq:P}
+\end{equation}
+The magic number at shell $n$ is
+\begin{equation}
+  \boxed{\; M(n) = 2\,P(n) \;}
+  \label{eq:magic}
+\end{equation}
+where the factor of~2 accounts for the two time-face orientations
+(spin degeneracy). The packing is subject to the nesting ceiling
+\begin{equation}
+  M(n) \leq K^K = 256\,.
+  \label{eq:ceiling}
+\end{equation}
+
+Evaluating Eqs.~\eqref{eq:T}--\eqref{eq:magic} at $K = 4$:
+
+\begin{center}
+\footnotesize
+\begin{tabular}{cccccc}
+\toprule
+$n$ & $T$ & $G$ & $P$ & $M$ & $S$ \\
+\midrule
+1 &   1 &  0 &   1 &    2 &  2 \\
+2 &   4 &  0 &   4 &    8 &  6 \\
+3 &  10 &  0 &  10 &   20 & 12 \\
+4 &  20 &  6 &  14 &   28 &  8 \\
+5 &  35 & 10 &  25 &   50 & 22 \\
+6 &  56 & 15 &  41 &   82 & 32 \\
+7 &  84 & 21 &  63 &  126 & 44 \\
+8 & 120 & 28 &  92 &  184 & 58 \\
+9 & 165 & 36 & 129 & \textbf{258} & 74 \\
+\bottomrule
+\end{tabular}
+\end{center}
+Gate exclusion ($G > 0$) begins at $n = K = 4$.
+Shell~9 requires $M(9) = 258 > K^K = 256$ and cannot close.
+
+The column $S(n) = M(n) - M(n{-}1)$ gives the shell size
+(nucleons per shell). Shell~3 has $S = 12$ and shell~4 has
+$S = 8$. This inversion ($S_3 > S_4$) is the spin-orbit effect:
+in standard nuclear physics it requires introducing the spin-orbit
+force with a fitted coupling constant.
+Here it is a theorem.
+Below $K$, shell sizes follow $n(n{+}1)$, giving $3 \times 4 = 12$
+at $n = 3$. The transition shell at $n = K$ has size $2K = 8$.
+Since $D \times K = 12 > 2K = 8$ (because $D = 3 > 2$), the
+inversion is geometrically forced.
+
+\paragraph{Uniqueness.}
+Testing all integers $2 \leq K \leq 10$, only $K = 4$ produces
+the observed magic number sequence
+$\{2, 8, 20, 28, 50, 82, 126\}$.
+$K = 3$ misses 28.
+$K = 5$ misses 20.
+The data selects the stellated octahedron uniquely.
+
+
+% ================================================================
+\section{The stability ceiling}
+% ================================================================
+
+The recursive nesting has maximum depth $K = 4$, corresponding to
+the $3 + 1$ degrees of freedom of spacetime: three spatial
+dimensions and one temporal. Each nesting level consumes one
+degree of freedom.
+The total addressable state space is $K^K = 4^4 = 256$.
+
+Shell~8 closes at $M(8) = 184 < 256$, safely within the ceiling.
+This corresponds to the predicted island of stability near
+$Z \approx 114$, $N = 126$--$184$.
+Shell~9 would require $M(9) = 258 > 256$, exceeding the ceiling
+by exactly~2 (the number of time faces).
+Shell~9 cannot close.
+Beyond this point, nuclear configurations are progressively
+unstable.
+
+Bismuth-209, the heaviest observationally stable isotope, uses
+$209/256 = 81.6\%$ of the address space.
+Fermium-258 ($A = 258 = M(9)$) decays by spontaneous fission
+with a half-life of $370\;\mu$s, consistent with complete
+exhaustion of the nesting hierarchy.
+
+
+% ================================================================
+\section{Galactic and nuclear scales from one polynomial}
+% ================================================================
+
+The coupling polynomial $f(K, s)$ governs both scales of the
+framework through a single structural parameter: $N$, the number
+of tetrahedral faces on the coupling path.
+
+At galactic scales ($N = 1$, one face crossing), the conformal map
+is $s_1(x) = (x{-}1)/(x{+}1)$ and the constitutive law
+$\mu_1(x) = x/(x{+}1)$ is the M\"obius map of the polynomial.
+Its antiderivative
+\begin{equation}
+  F(y) = y - 2\sqrt{y} + 2\ln(1 + \sqrt{y})
+\end{equation}
+is the AQUAL energy functional~\cite{bekenstein1984}, from which
+galaxy rotation curves follow without dark matter.
+At nuclear scales ($N = 2$, full Field Origin traversal), the
+conformal map shifts to $s_2(A^2) = 2\mu_2(A^2) - 1$, and the
+polynomial evaluates to
+\begin{align}
+  f\bigl(K, s_2(A^2)\bigr) &= \FMINUS + 2K\,\mu_2(A^2) \nonumber\\
+  &= 13 + 8\,\mu_2(A^2)\,.
+\end{align}
+The binding energy is $C$ times the excess above $\FZERO = 17$.
+
+The two scales share the polynomial, the three landmark values
+$(13, 17, 21)$, and the integer $K = 4$.
+They differ only in $N$.
+One face crossing for galaxies. Two for nuclei.
+The same stellated octahedron at both scales.
+
+
+% ================================================================
+\section{Discussion}
+% ================================================================
+
+\paragraph{What is established.}
+The binding energy formula Eq.~\eqref{eq:binding} with
+derived $C$ (Eq.~\ref{eq:C}) reproduces 82 isotope binding
+energies at $R^2 = 0.99$ with zero fitted parameters.
+The packing algebra Eqs.~\eqref{eq:T}--\eqref{eq:magic} produces
+all seven magic numbers exactly, with $K = 4$ as the unique
+solution. The stability ceiling $K^K = 256$ correctly predicts
+the endpoint of nuclear stability.
+The spin-orbit inversion is a geometric theorem.
+
+\paragraph{What is not established.}
+The $Z$-dependent Coulomb correction (vortex repulsion among
+proton fields) is not separated in the current formula.
+Incorporating it would require a second term proportional to
+$Z(Z{-}1)/A^{1/3}$, reducing the heavy-element overprediction.
+However, the Coulomb interaction is not additive in this
+framework: previous analysis shows that subtracting the
+standard Coulomb term \emph{degrades} the fit, suggesting
+the electromagnetic contribution is already partially encoded
+in the constitutive law~\cite{nelson2025b}.
+
+The element-specific cavity resonance structure (golden-ratio
+harmonics within TetB) produces $\sim\!5\%$ element-by-element
+variation in the effective $C$-factor. This is documented
+but not included in the present letter.
+
+\paragraph{Reproducibility.}
+A self-contained Python validation script and an interactive
+periodic table tool are available as supplementary material
+at~\cite{zenodo2025}. The script requires no external libraries
+and runs the complete 82-isotope validation in under one second.
+
+
+% ================================================================
+\section*{Acknowledgments}
+% ================================================================
+The author thanks the SPARC collaboration for public rotation
+curve data and the AME2020 collaboration for nuclear mass
+evaluations.
+
+
+% ================================================================
+\begin{thebibliography}{12}
+
+\bibitem{nelson2025a}
+S.~Nelson,
+``Gravity Field Dynamics: Covariant completion of the
+  scalar-tensor action from tetrahedral topology,''
+  \textit{submitted to Class.\ Quantum Grav.} (2025);
+  framework documentation at \texttt{docs.fielddynamics.org}.
+
+\bibitem{nelson2025b}
+S.~Nelson,
+``GFD Nuclear Enterprise Validation,''
+  Zenodo (2025), DOI: [to be assigned].
+
+\bibitem{regge1961}
+T.~Regge,
+``General relativity without coordinates,''
+  \textit{Nuovo Cimento} \textbf{19}, 558 (1961).
+
+\bibitem{hassanrosen2012}
+S.~F.~Hassan and R.~A.~Rosen,
+``Bimetric gravity from ghost-free massive gravity,''
+  \textit{J.\ High Energy Phys.} \textbf{2012}, 126 (2012).
+
+\bibitem{boulwaredeser1972}
+D.~G.~Boulware and S.~Deser,
+``Can gravitation have a finite range?''
+  \textit{Phys.\ Rev.\ D} \textbf{6}, 3368 (1972).
+
+\bibitem{weinberg1995}
+S.~Weinberg,
+\textit{The Quantum Theory of Fields}, Vol.~1
+  (Cambridge University Press, 1995).
+
+\bibitem{ashtekar1986}
+A.~Ashtekar,
+``New variables for classical and quantum gravity,''
+  \textit{Phys.\ Rev.\ Lett.} \textbf{57}, 2244 (1986).
+
+\bibitem{bekenstein1984}
+J.~D.~Bekenstein and M.~Milgrom,
+``Does the missing mass problem signal the breakdown of
+  Newtonian gravity?''
+  \textit{Astrophys.\ J.} \textbf{286}, 7 (1984).
+
+\bibitem{zenodo2025}
+S.~Nelson,
+``GFD Matter Profile: validation scripts and interactive tool,''
+  Zenodo (2025), DOI: [to be assigned].
+
+\bibitem{ame2020}
+W.~J.~Huang \textit{et al.},
+``The AME 2020 atomic mass evaluation,''
+  \textit{Chinese Phys.\ C} \textbf{45}, 030002 (2021).
+
+\bibitem{goeppert1949}
+M.~Goeppert~Mayer,
+``On closed shells in nuclei. II,''
+  \textit{Phys.\ Rev.} \textbf{75}, 1969 (1949).
+
+\end{thebibliography}
+
+
+% ================================================================
+% FULL TABLE (switch to one-column for wide table)
+% ================================================================
+\onecolumn
+
+\begin{longtable}{r l r r r r r r r r r r}
+\caption{GFD matter profile for all 83 stable elements. $A$ is the
+most abundant stable isotope mass number. Shell~$n$ from
+Eq.~\protect\eqref{eq:magic}. $\mu_2$ and $s_2$ from
+Eq.~\protect\eqref{eq:mu2}. BE/A predicted from
+Eq.~\protect\eqref{eq:binding} with $C = 2.172$~MeV. Observed
+values from AME2020~\protect\cite{ame2020}.
+$\Delta$ is the ceiling fraction $A/256$.}
+\label{tab:full} \\
+\toprule
+$Z$ & Sym & $A$ & $n$ & $P(n)$ & $M(n)$ & $\mu_2$ & $s_2$ &
+\multicolumn{2}{c}{BE/A (MeV)} & Err & $\Delta$ \\
+& & & & & & & & GFD & Obs & (\%) & (\%) \\
+\midrule
+\endfirsthead
+\toprule
+$Z$ & Sym & $A$ & $n$ & $P(n)$ & $M(n)$ & $\mu_2$ & $s_2$ &
+\multicolumn{2}{c}{BE/A (MeV)} & Err & $\Delta$ \\
+& & & & & & & & GFD & Obs & (\%) & (\%) \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+ 1 & H  &   1 & 1 &   1 &   2 & 0.382 & $-$0.236 &  0.00 &  0.00 &     & 0.4 \\
+ 2 & He &   4 & 2 &   4 &   8 & 0.779 & $+$0.559 &  4.85 &  7.07 & $-$31 & 1.6 \\
+ 3 & Li &   7 & 2 &   4 &   8 & 0.867 & $+$0.734 &  6.38 &  5.61 & $+$14 & 2.7 \\
+ 4 & Be &   9 & 3 &  10 &  20 & 0.895 & $+$0.790 &  6.86 &  6.46 & $+$6  & 3.5 \\
+ 5 & B  &  11 & 3 &  10 &  20 & 0.913 & $+$0.826 &  7.18 &  6.93 & $+$4  & 4.3 \\
+ 6 & C  &  12 & 3 &  10 &  20 & 0.920 & $+$0.840 &  7.30 &  7.68 & $-$5  & 4.7 \\
+ 7 & N  &  14 & 3 &  10 &  20 & 0.932 & $+$0.865 &  7.49 &  7.48 & $+$0  & 5.5 \\
+ 8 & O  &  16 & 3 &  10 &  20 & 0.939 & $+$0.879 &  7.63 &  7.98 & $-$4  & 6.3 \\
+ 9 & F  &  19 & 3 &  10 &  20 & 0.949 & $+$0.898 &  7.80 &  7.78 & $+$0  & 7.4 \\
+10 & Ne &  20 & 3 &  10 &  20 & 0.951 & $+$0.903 &  7.84 &  8.03 & $-$2  & 7.8 \\
+11 & Na &  23 & 4 &  14 &  28 & 0.957 & $+$0.914 &  7.94 &  8.11 & $-$2  & 9.0 \\
+12 & Mg &  24 & 4 &  14 &  28 & 0.959 & $+$0.918 &  7.97 &  8.26 & $-$4  & 9.4 \\
+13 & Al &  27 & 4 &  14 &  28 & 0.964 & $+$0.927 &  8.05 &  8.33 & $-$3  & 10.5 \\
+14 & Si &  28 & 4 &  14 &  28 & 0.965 & $+$0.930 &  8.08 &  8.45 & $-$4  & 10.9 \\
+15 & P  &  31 & 5 &  25 &  50 & 0.968 & $+$0.936 &  8.13 &  8.48 & $-$4  & 12.1 \\
+16 & S  &  32 & 5 &  25 &  50 & 0.969 & $+$0.938 &  8.15 &  8.49 & $-$4  & 12.5 \\
+17 & Cl &  35 & 5 &  25 &  50 & 0.972 & $+$0.943 &  8.19 &  8.52 & $-$4  & 13.7 \\
+18 & Ar &  40 & 5 &  25 &  50 & 0.975 & $+$0.951 &  8.26 &  8.60 & $-$4  & 15.6 \\
+19 & K  &  39 & 5 &  25 &  50 & 0.975 & $+$0.949 &  8.24 &  8.56 & $-$4  & 15.2 \\
+20 & Ca &  40 & 5 &  25 &  50 & 0.975 & $+$0.951 &  8.26 &  8.55 & $-$3  & 15.6 \\
+21 & Sc &  45 & 5 &  25 &  50 & 0.978 & $+$0.956 &  8.30 &  8.62 & $-$4  & 17.6 \\
+22 & Ti &  48 & 5 &  25 &  50 & 0.979 & $+$0.959 &  8.33 &  8.72 & $-$5  & 18.8 \\
+23 & V  &  51 & 6 &  41 &  82 & 0.981 & $+$0.961 &  8.35 &  8.74 & $-$5  & 19.9 \\
+24 & Cr &  52 & 6 &  41 &  82 & 0.981 & $+$0.962 &  8.35 &  8.78 & $-$5  & 20.3 \\
+25 & Mn &  55 & 6 &  41 &  82 & 0.982 & $+$0.964 &  8.37 &  8.77 & $-$5  & 21.5 \\
+26 & Fe &  56 & 6 &  41 &  82 & 0.982 & $+$0.965 &  8.38 &  8.79 & $-$5  & 21.9 \\
+27 & Co &  59 & 6 &  41 &  82 & 0.983 & $+$0.966 &  8.39 &  8.77 & $-$4  & 23.0 \\
+28 & Ni &  58 & 6 &  41 &  82 & 0.983 & $+$0.966 &  8.39 &  8.73 & $-$4  & 22.7 \\
+29 & Cu &  63 & 6 &  41 &  82 & 0.984 & $+$0.969 &  8.41 &  8.75 & $-$4  & 24.6 \\
+30 & Zn &  64 & 6 &  41 &  82 & 0.984 & $+$0.969 &  8.41 &  8.74 & $-$4  & 25.0 \\
+31 & Ga &  69 & 6 &  41 &  82 & 0.986 & $+$0.971 &  8.43 &  8.72 & $-$3  & 27.0 \\
+32 & Ge &  74 & 6 &  41 &  82 & 0.987 & $+$0.973 &  8.45 &  8.71 & $-$3  & 28.9 \\
+33 & As &  75 & 6 &  41 &  82 & 0.987 & $+$0.974 &  8.45 &  8.70 & $-$3  & 29.3 \\
+34 & Se &  80 & 6 &  41 &  82 & 0.988 & $+$0.975 &  8.47 &  8.71 & $-$3  & 31.3 \\
+35 & Br &  79 & 6 &  41 &  82 & 0.987 & $+$0.975 &  8.47 &  8.70 & $-$3  & 30.9 \\
+36 & Kr &  84 & 7 &  63 & 126 & 0.988 & $+$0.976 &  8.48 &  8.72 & $-$3  & 32.8 \\
+37 & Rb &  85 & 7 &  63 & 126 & 0.988 & $+$0.977 &  8.48 &  8.70 & $-$3  & 33.2 \\
+38 & Sr &  88 & 7 &  63 & 126 & 0.989 & $+$0.977 &  8.49 &  8.73 & $-$3  & 34.4 \\
+39 & Y  &  89 & 7 &  63 & 126 & 0.989 & $+$0.978 &  8.49 &  8.71 & $-$3  & 34.8 \\
+40 & Zr &  90 & 7 &  63 & 126 & 0.989 & $+$0.978 &  8.49 &  8.71 & $-$3  & 35.2 \\
+41 & Nb &  93 & 7 &  63 & 126 & 0.989 & $+$0.979 &  8.50 &  8.66 & $-$2  & 36.3 \\
+42 & Mo &  98 & 7 &  63 & 126 & 0.990 & $+$0.980 &  8.51 &  8.64 & $-$1  & 38.3 \\
+43 & Tc &  98 & 7 &  63 & 126 & 0.990 & $+$0.980 &  8.51 &  8.59 & $-$1  & 38.3 \\
+44 & Ru & 102 & 7 &  63 & 126 & 0.990 & $+$0.980 &  8.51 &  8.61 & $-$1  & 39.8 \\
+45 & Rh & 103 & 7 &  63 & 126 & 0.990 & $+$0.981 &  8.52 &  8.58 & $-$1  & 40.2 \\
+46 & Pd & 106 & 7 &  63 & 126 & 0.991 & $+$0.981 &  8.52 &  8.57 & $-$1  & 41.4 \\
+47 & Ag & 107 & 7 &  63 & 126 & 0.991 & $+$0.981 &  8.52 &  8.55 &  $0$  & 41.8 \\
+48 & Cd & 114 & 7 &  63 & 126 & 0.991 & $+$0.982 &  8.53 &  8.54 &  $0$  & 44.5 \\
+49 & In & 115 & 7 &  63 & 126 & 0.991 & $+$0.983 &  8.53 &  8.52 &  $0$  & 44.9 \\
+50 & Sn & 120 & 7 &  63 & 126 & 0.992 & $+$0.983 &  8.54 &  8.51 &  $0$  & 46.9 \\
+51 & Sb & 121 & 7 &  63 & 126 & 0.992 & $+$0.984 &  8.54 &  8.48 & $+$1  & 47.3 \\
+52 & Te & 130 & 8 &  92 & 184 & 0.992 & $+$0.985 &  8.55 &  8.47 & $+$1  & 50.8 \\
+53 & I  & 127 & 8 &  92 & 184 & 0.992 & $+$0.984 &  8.55 &  8.45 & $+$1  & 49.6 \\
+54 & Xe & 132 & 8 &  92 & 184 & 0.992 & $+$0.985 &  8.56 &  8.44 & $+$1  & 51.6 \\
+55 & Cs & 133 & 8 &  92 & 184 & 0.993 & $+$0.985 &  8.56 &  8.41 & $+$2  & 52.0 \\
+56 & Ba & 138 & 8 &  92 & 184 & 0.993 & $+$0.986 &  8.56 &  8.39 & $+$2  & 53.9 \\
+57 & La & 139 & 8 &  92 & 184 & 0.993 & $+$0.986 &  8.56 &  8.38 & $+$2  & 54.3 \\
+58 & Ce & 140 & 8 &  92 & 184 & 0.993 & $+$0.986 &  8.57 &  8.38 & $+$2  & 54.7 \\
+59 & Pr & 141 & 8 &  92 & 184 & 0.993 & $+$0.986 &  8.57 &  8.35 & $+$3  & 55.1 \\
+60 & Nd & 142 & 8 &  92 & 184 & 0.993 & $+$0.986 &  8.57 &  8.35 & $+$3  & 55.5 \\
+61 & Pm & 145 & 8 &  92 & 184 & 0.993 & $+$0.986 &  8.57 &  8.32 & $+$3  & 56.6 \\
+62 & Sm & 152 & 8 &  92 & 184 & 0.993 & $+$0.987 &  8.57 &  8.30 & $+$3  & 59.4 \\
+63 & Eu & 153 & 8 &  92 & 184 & 0.993 & $+$0.987 &  8.57 &  8.28 & $+$4  & 59.8 \\
+64 & Gd & 158 & 8 &  92 & 184 & 0.994 & $+$0.987 &  8.57 &  8.27 & $+$4  & 61.7 \\
+65 & Tb & 159 & 8 &  92 & 184 & 0.994 & $+$0.987 &  8.57 &  8.25 & $+$4  & 62.1 \\
+66 & Dy & 164 & 8 &  92 & 184 & 0.994 & $+$0.988 &  8.58 &  8.25 & $+$4  & 64.1 \\
+67 & Ho & 165 & 8 &  92 & 184 & 0.994 & $+$0.988 &  8.58 &  8.23 & $+$4  & 64.5 \\
+68 & Er & 166 & 8 &  92 & 184 & 0.994 & $+$0.988 &  8.58 &  8.23 & $+$4  & 64.8 \\
+69 & Tm & 169 & 8 &  92 & 184 & 0.994 & $+$0.988 &  8.58 &  8.21 & $+$5  & 66.0 \\
+70 & Yb & 174 & 8 &  92 & 184 & 0.994 & $+$0.989 &  8.58 &  8.20 & $+$5  & 68.0 \\
+71 & Lu & 175 & 8 &  92 & 184 & 0.994 & $+$0.989 &  8.59 &  8.19 & $+$5  & 68.4 \\
+72 & Hf & 180 & 8 &  92 & 184 & 0.994 & $+$0.989 &  8.59 &  8.18 & $+$5  & 70.3 \\
+73 & Ta & 181 & 8 &  92 & 184 & 0.994 & $+$0.989 &  8.59 &  8.17 & $+$5  & 70.7 \\
+74 & W  & 184 & 8 &  92 & 184 & 0.995 & $+$0.989 &  8.59 &  8.15 & $+$5  & 71.9 \\
+75 & Re & 187 & 9 & 129 & 258 & 0.995 & $+$0.989 &  8.59 &  8.13 & $+$6  & 73.0 \\
+76 & Os & 192 & 9 & 129 & 258 & 0.995 & $+$0.990 &  8.59 &  8.12 & $+$6  & 75.0 \\
+77 & Ir & 193 & 9 & 129 & 258 & 0.995 & $+$0.990 &  8.59 &  8.11 & $+$6  & 75.4 \\
+78 & Pt & 195 & 9 & 129 & 258 & 0.995 & $+$0.990 &  8.60 &  8.10 & $+$6  & 76.2 \\
+79 & Au & 197 & 9 & 129 & 258 & 0.995 & $+$0.990 &  8.60 &  8.08 & $+$6  & 77.0 \\
+80 & Hg & 202 & 9 & 129 & 258 & 0.995 & $+$0.990 &  8.60 &  8.06 & $+$7  & 78.9 \\
+81 & Tl & 205 & 9 & 129 & 258 & 0.995 & $+$0.990 &  8.60 &  8.05 & $+$7  & 80.1 \\
+82 & Pb & 208 & 9 & 129 & 258 & 0.995 & $+$0.990 &  8.60 &  7.87 & $+$9  & 81.3 \\
+83 & Bi & 209 & 9 & 129 & 258 & 0.995 & $+$0.990 &  8.60 &  7.85 & $+$10 & 81.6 \\
+\end{longtable}
+
+\end{document}

@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Pi Sphere Merkaba - Drawing the Structure</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #111;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+    }
+
+    #container {
+      width: 100vw;
+      height: 100vh;
+    }
+
+    #info {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: rgba(0, 0, 0, 0.8);
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 300px;
+    }
+
+    #info h2 {
+      margin-bottom: 10px;
+      color: #4af;
+    }
+
+    #info p {
+      margin: 5px 0;
+      font-size: 14px;
+    }
+
+    .highlight {
+      color: #ff0;
+      font-weight: bold;
+    }
+
+    .space {
+      color: #4CAF50;
+    }
+
+    .spacetime {
+      color: #F44336;
+    }
+
+    .merkaba {
+      color: #9C27B0;
+    }
+
+    .drain {
+      color: #FF9800;
+    }
+
+    .origin {
+      color: #00BCD4;
+    }
+
+    #controls {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+    }
+
+    button {
+      padding: 15px 30px;
+      font-size: 16px;
+      background: #333;
+      color: #fff;
+      border: 2px solid #4af;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #4af;
+      color: #000;
+    }
+
+    #path-info {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(0, 0, 0, 0.8);
+      padding: 15px;
+      border-radius: 10px;
+      max-height: 80vh;
+      overflow-y: auto;
+      font-size: 12px;
+    }
+
+    #path-info table {
+      border-collapse: collapse;
+    }
+
+    #path-info th,
+    #path-info td {
+      padding: 3px 8px;
+      text-align: center;
+    }
+
+    #path-info th {
+      border-bottom: 1px solid #444;
+    }
+
+    .current-row {
+      background: #4af;
+      color: #000;
+    }
+
+    #legend {
+      position: absolute;
+      bottom: 80px;
+      left: 20px;
+      background: rgba(0, 0, 0, 0.8);
+      padding: 10px;
+      border-radius: 5px;
+      font-size: 12px;
+    }
+
+    #legend div {
+      margin: 3px 0;
+    }
+
+    .dot {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin-right: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container"></div>
+
+  <div id="info">
+    <h2>π Sphere Merkaba</h2>
+    <p>Step: <span id="step-num" class="highlight">-</span></p>
+    <p>Digit: <span id="digit-val" class="highlight">-</span></p>
+    <p>Sum: <span id="sum-val">-</span></p>
+    <p>Position: <span id="pos-val" class="highlight">-</span></p>
+    <p id="meaning" style="margin-top:10px;"></p>
+  </div>
+
+  <div id="path-info">
+    <table>
+      <thead>
+        <tr>
+          <th>Step</th>
+          <th>Digit</th>
+          <th>Sum</th>
+          <th>Pos</th>
+        </tr>
+      </thead>
+      <tbody id="path-table"></tbody>
+    </table>
+  </div>
+
+  <div id="legend">
+    <div><span class="dot" style="background:#4CAF50;"></span> Tetra 1: 4 small = green</div>
+    <div><span class="dot" style="background:#F44336;"></span> Tetra 2: 4 small = red</div>
+    <div style="margin-top:8px; border-top:1px solid #444; padding-top:8px;">
+      <strong>4 + 4 = 8 small tetrahedra</strong><br>
+      <small>= 2k = Merkaba</small>
+    </div>
+    <div style="margin-top:8px;">
+      <span class="dot" style="background:#4CAF50;"></span> 3 = d (space)<br>
+      <span class="dot" style="background:#F44336;"></span> 4 = k (spacetime)<br>
+      <span class="dot" style="background:#9C27B0;"></span> 8 = 2k (Merkaba)<br>
+      <span class="dot" style="background:#FF9800;"></span> 5 = drain<br>
+      <span class="dot" style="background:#00BCD4;"></span> 0 = origin
+    </div>
+  </div>
+
+  <div id="controls">
+    <button id="btn-step">STEP</button>
+    <button id="btn-auto">AUTO</button>
+    <button id="btn-reset">RESET</button>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script>
+    // Pi digits
+    var piDigits = [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5, 8, 9, 7, 9, 3, 2, 3, 8, 4, 6, 2, 6, 4, 3, 3, 8, 3, 2, 7];
+
+    // Position colors
+    var posColors = {
+      0: 0x00BCD4,  // origin - cyan
+      3: 0x4CAF50,  // d=3 space - green
+      4: 0xF44336,  // k=4 spacetime - red
+      5: 0xFF9800,  // drain - orange
+      8: 0x9C27B0,  // 2k=8 merkaba - purple
+      9: 0xFFEB3B   // completion - yellow
+    };
+
+    var defaultColor = 0x666666;
+
+    // Position meanings
+    var posMeaning = {
+      0: "Origin (north pole)",
+      3: "d=3 (space)",
+      4: "k=4 (spacetime)",
+      5: "Drain (south pole)",
+      8: "2k=8 (Merkaba)",
+      9: "Completion"
+    };
+
+    // Calculate 3D positions on sphere
+    // 0 = north pole, 5 = south pole
+    // 1-4 upper ring, 6-9 lower ring
+    function getPosition3D(pos) {
+      var r = 2; // sphere radius
+      if (pos === 0) return { x: 0, y: r, z: 0 }; // north pole
+      if (pos === 5) return { x: 0, y: -r, z: 0 }; // south pole
+
+      var phi, theta;
+      if (pos >= 1 && pos <= 4) {
+        // Upper ring at latitude 30°
+        phi = Math.PI / 6; // 30 degrees from equator
+        theta = (pos - 1) * Math.PI / 2; // 0, 90, 180, 270 degrees
+      } else {
+        // Lower ring at latitude -30°
+        phi = -Math.PI / 6;
+        theta = (pos - 6) * Math.PI / 2;
+      }
+
+      return {
+        x: r * Math.cos(phi) * Math.cos(theta),
+        y: r * Math.sin(phi),
+        z: r * Math.cos(phi) * Math.sin(theta)
+      };
+    }
+
+    // Three.js setup
+    var scene, camera, renderer, controls;
+    var sphereGroup, pathGroup, markerGroup, merkabaGroup;
+    var positionMarkers = [];
+    var pathLines = [];
+    var currentStep = -1;
+    var cumSum = 0;
+    var autoInterval = null;
+
+    // Tetrahedron helper - creates a tetrahedron with given vertices
+    function createTetrahedron(v0, v1, v2, v3, color, opacity) {
+      var geo = new THREE.BufferGeometry();
+      var vertices = new Float32Array([
+        v0.x, v0.y, v0.z, v1.x, v1.y, v1.z, v2.x, v2.y, v2.z, // face 0
+        v0.x, v0.y, v0.z, v2.x, v2.y, v2.z, v3.x, v3.y, v3.z, // face 1
+        v0.x, v0.y, v0.z, v3.x, v3.y, v3.z, v1.x, v1.y, v1.z, // face 2
+        v1.x, v1.y, v1.z, v3.x, v3.y, v3.z, v2.x, v2.y, v2.z  // face 3
+      ]);
+      geo.setAttribute('position', new THREE.BufferAttribute(vertices, 3));
+      geo.computeVertexNormals();
+      var mat = new THREE.MeshBasicMaterial({
+        color: color,
+        transparent: true,
+        opacity: opacity,
+        side: THREE.DoubleSide
+      });
+      return new THREE.Mesh(geo, mat);
+    }
+
+    // Create tetrahedron edges
+    function createTetraEdges(v0, v1, v2, v3, color) {
+      var edges = [
+        [v0, v1], [v0, v2], [v0, v3],
+        [v1, v2], [v2, v3], [v3, v1]
+      ];
+      var group = new THREE.Group();
+      edges.forEach(function (e) {
+        var geo = new THREE.BufferGeometry().setFromPoints([e[0], e[1]]);
+        var mat = new THREE.LineBasicMaterial({ color: color });
+        group.add(new THREE.Line(geo, mat));
+      });
+      return group;
+    }
+
+    // Build Merkaba from 8 smaller tetrahedra (4 per large tetrahedron)
+    function createSubdividedMerkaba(scale, showSmall) {
+      var group = new THREE.Group();
+      var s = scale;
+
+      // Large tetrahedron 1 (pointing up) vertices
+      var t1_apex = new THREE.Vector3(0, s, 0);
+      var t1_b0 = new THREE.Vector3(s * 0.943, -s * 0.333, 0);
+      var t1_b1 = new THREE.Vector3(-s * 0.471, -s * 0.333, s * 0.816);
+      var t1_b2 = new THREE.Vector3(-s * 0.471, -s * 0.333, -s * 0.816);
+
+      // Large tetrahedron 2 (pointing down) vertices
+      var t2_apex = new THREE.Vector3(0, -s, 0);
+      var t2_b0 = new THREE.Vector3(-s * 0.943, s * 0.333, 0);
+      var t2_b1 = new THREE.Vector3(s * 0.471, s * 0.333, -s * 0.816);
+      var t2_b2 = new THREE.Vector3(s * 0.471, s * 0.333, s * 0.816);
+
+      // Draw large tetrahedra edges
+      group.add(createTetraEdges(t1_apex, t1_b0, t1_b1, t1_b2, 0x4CAF50)); // green - tetra 1
+      group.add(createTetraEdges(t2_apex, t2_b0, t2_b1, t2_b2, 0xF44336)); // red - tetra 2
+
+      if (showSmall) {
+        // Midpoints for tetra 1
+        var m01 = new THREE.Vector3().addVectors(t1_apex, t1_b0).multiplyScalar(0.5);
+        var m02 = new THREE.Vector3().addVectors(t1_apex, t1_b1).multiplyScalar(0.5);
+        var m03 = new THREE.Vector3().addVectors(t1_apex, t1_b2).multiplyScalar(0.5);
+        var m12 = new THREE.Vector3().addVectors(t1_b0, t1_b1).multiplyScalar(0.5);
+        var m23 = new THREE.Vector3().addVectors(t1_b1, t1_b2).multiplyScalar(0.5);
+        var m31 = new THREE.Vector3().addVectors(t1_b2, t1_b0).multiplyScalar(0.5);
+
+        // 4 small tetrahedra for tetra 1
+        // Corner at apex
+        group.add(createTetrahedron(t1_apex, m01, m02, m03, 0x4CAF50, 0.3));
+        // Corner at b0
+        group.add(createTetrahedron(t1_b0, m01, m12, m31, 0x4CAF50, 0.3));
+        // Corner at b1
+        group.add(createTetrahedron(t1_b1, m02, m12, m23, 0x4CAF50, 0.3));
+        // Corner at b2
+        group.add(createTetrahedron(t1_b2, m03, m23, m31, 0x4CAF50, 0.3));
+
+        // Midpoints for tetra 2
+        var n01 = new THREE.Vector3().addVectors(t2_apex, t2_b0).multiplyScalar(0.5);
+        var n02 = new THREE.Vector3().addVectors(t2_apex, t2_b1).multiplyScalar(0.5);
+        var n03 = new THREE.Vector3().addVectors(t2_apex, t2_b2).multiplyScalar(0.5);
+        var n12 = new THREE.Vector3().addVectors(t2_b0, t2_b1).multiplyScalar(0.5);
+        var n23 = new THREE.Vector3().addVectors(t2_b1, t2_b2).multiplyScalar(0.5);
+        var n31 = new THREE.Vector3().addVectors(t2_b2, t2_b0).multiplyScalar(0.5);
+
+        // 4 small tetrahedra for tetra 2
+        group.add(createTetrahedron(t2_apex, n01, n02, n03, 0xF44336, 0.3));
+        group.add(createTetrahedron(t2_b0, n01, n12, n31, 0xF44336, 0.3));
+        group.add(createTetrahedron(t2_b1, n02, n12, n23, 0xF44336, 0.3));
+        group.add(createTetrahedron(t2_b2, n03, n23, n31, 0xF44336, 0.3));
+      }
+
+      return group;
+    }
+
+    function init() {
+      // Scene
+      scene = new THREE.Scene();
+      scene.background = new THREE.Color(0x111111);
+
+      // Camera
+      camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 100);
+      camera.position.set(4, 3, 4);
+      camera.lookAt(0, 0, 0);
+
+      // Renderer
+      renderer = new THREE.WebGLRenderer({ antialias: true });
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      document.getElementById('container').appendChild(renderer.domElement);
+
+      // Groups
+      sphereGroup = new THREE.Group();
+      pathGroup = new THREE.Group();
+      markerGroup = new THREE.Group();
+      merkabaGroup = new THREE.Group();
+      scene.add(sphereGroup);
+      scene.add(pathGroup);
+      scene.add(markerGroup);
+      scene.add(merkabaGroup);
+
+      // Create Merkaba with 8 small tetrahedra (4 per large tetrahedron)
+      var merkaba = createSubdividedMerkaba(1.8, true);
+      merkabaGroup.add(merkaba);
+
+      // Create wireframe sphere
+      var sphereGeo = new THREE.SphereGeometry(2, 20, 20);
+      var sphereMat = new THREE.MeshBasicMaterial({
+        color: 0x333333,
+        wireframe: true,
+        transparent: true,
+        opacity: 0.15
+      });
+      var sphere = new THREE.Mesh(sphereGeo, sphereMat);
+      sphereGroup.add(sphere);
+
+      // Create position markers on sphere
+      for (var i = 0; i < 10; i++) {
+        var pos3d = getPosition3D(i);
+        var color = posColors[i] || defaultColor;
+
+        // Sphere marker
+        var markerGeo = new THREE.SphereGeometry(0.12, 16, 16);
+        var markerMat = new THREE.MeshBasicMaterial({ color: color });
+        var marker = new THREE.Mesh(markerGeo, markerMat);
+        marker.position.set(pos3d.x, pos3d.y, pos3d.z);
+        markerGroup.add(marker);
+        positionMarkers.push(marker);
+
+        // Label
+        // (Using sprite for simplicity - in production use CSS2DRenderer)
+      }
+
+      // Draw lines from center to each position (faint)
+      for (var i = 0; i < 10; i++) {
+        var pos3d = getPosition3D(i);
+        var lineGeo = new THREE.BufferGeometry().setFromPoints([
+          new THREE.Vector3(0, 0, 0),
+          new THREE.Vector3(pos3d.x, pos3d.y, pos3d.z)
+        ]);
+        var lineMat = new THREE.LineBasicMaterial({ color: 0x333333, transparent: true, opacity: 0.2 });
+        var line = new THREE.Line(lineGeo, lineMat);
+        sphereGroup.add(line);
+      }
+
+      // Connect mirror pairs with dashed lines
+      var mirrorPairs = [[0, 5], [1, 6], [2, 7], [3, 8], [4, 9]];
+      mirrorPairs.forEach(function (pair) {
+        var p1 = getPosition3D(pair[0]);
+        var p2 = getPosition3D(pair[1]);
+        var lineGeo = new THREE.BufferGeometry().setFromPoints([
+          new THREE.Vector3(p1.x, p1.y, p1.z),
+          new THREE.Vector3(p2.x, p2.y, p2.z)
+        ]);
+        var lineMat = new THREE.LineDashedMaterial({ color: 0x444444, dashSize: 0.1, gapSize: 0.1 });
+        var line = new THREE.Line(lineGeo, lineMat);
+        line.computeLineDistances();
+        sphereGroup.add(line);
+      });
+
+      // Lights
+      var ambient = new THREE.AmbientLight(0xffffff, 0.5);
+      scene.add(ambient);
+
+      // Controls - simple rotation
+      var isDragging = false;
+      var prevMouse = { x: 0, y: 0 };
+
+      renderer.domElement.addEventListener('mousedown', function (e) {
+        isDragging = true;
+        prevMouse.x = e.clientX;
+        prevMouse.y = e.clientY;
+      });
+
+      renderer.domElement.addEventListener('mousemove', function (e) {
+        if (!isDragging) return;
+        var dx = e.clientX - prevMouse.x;
+        var dy = e.clientY - prevMouse.y;
+        sphereGroup.rotation.y += dx * 0.01;
+        pathGroup.rotation.y += dx * 0.01;
+        markerGroup.rotation.y += dx * 0.01;
+        merkabaGroup.rotation.y += dx * 0.01;
+        sphereGroup.rotation.x += dy * 0.01;
+        pathGroup.rotation.x += dy * 0.01;
+        markerGroup.rotation.x += dy * 0.01;
+        merkabaGroup.rotation.x += dy * 0.01;
+        prevMouse.x = e.clientX;
+        prevMouse.y = e.clientY;
+      });
+
+      renderer.domElement.addEventListener('mouseup', function () { isDragging = false; });
+      renderer.domElement.addEventListener('mouseleave', function () { isDragging = false; });
+
+      // Button handlers
+      document.getElementById('btn-step').addEventListener('click', step);
+      document.getElementById('btn-auto').addEventListener('click', toggleAuto);
+      document.getElementById('btn-reset').addEventListener('click', reset);
+
+      // Start animation
+      animate();
+    }
+
+    function step() {
+      if (currentStep >= piDigits.length - 1) return;
+
+      currentStep++;
+      var digit = piDigits[currentStep];
+      var prevSum = cumSum;
+      cumSum += digit;
+      var position = cumSum % 10;
+      var prevPosition = prevSum % 10;
+
+      // Update info
+      document.getElementById('step-num').textContent = currentStep;
+      document.getElementById('digit-val').textContent = digit;
+      document.getElementById('sum-val').textContent = cumSum;
+      document.getElementById('pos-val').textContent = position;
+
+      var meaning = posMeaning[position] || "Position " + position;
+      document.getElementById('meaning').textContent = meaning;
+      document.getElementById('meaning').className = getColorClass(position);
+
+      // Add to table
+      var tbody = document.getElementById('path-table');
+      var prevRows = tbody.getElementsByClassName('current-row');
+      for (var i = 0; i < prevRows.length; i++) {
+        prevRows[i].classList.remove('current-row');
+      }
+      var tr = document.createElement('tr');
+      tr.className = 'current-row';
+      tr.innerHTML = '<td>' + currentStep + '</td><td>' + digit + '</td><td>' + cumSum + '</td><td style="color:' + getColorHex(position) + '">' + position + '</td>';
+      tbody.appendChild(tr);
+      tr.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+      // Draw path line from previous position to current position
+      if (currentStep > 0) {
+        var p1 = getPosition3D(prevPosition);
+        var p2 = getPosition3D(position);
+
+        var lineColor = posColors[position] || 0xffffff;
+        var lineGeo = new THREE.BufferGeometry().setFromPoints([
+          new THREE.Vector3(p1.x, p1.y, p1.z),
+          new THREE.Vector3(p2.x, p2.y, p2.z)
+        ]);
+        var lineMat = new THREE.LineBasicMaterial({ color: lineColor, linewidth: 2 });
+        var line = new THREE.Line(lineGeo, lineMat);
+        pathGroup.add(line);
+        pathLines.push(line);
+      }
+
+      // Highlight current position marker
+      for (var i = 0; i < 10; i++) {
+        var baseColor = posColors[i] || defaultColor;
+        if (i === position) {
+          positionMarkers[i].scale.set(1.5, 1.5, 1.5);
+          positionMarkers[i].material.color.setHex(0xffffff);
+        } else {
+          positionMarkers[i].scale.set(1, 1, 1);
+          positionMarkers[i].material.color.setHex(baseColor);
+        }
+      }
+    }
+
+    function getColorClass(pos) {
+      if (pos === 3) return 'space';
+      if (pos === 4) return 'spacetime';
+      if (pos === 8) return 'merkaba';
+      if (pos === 5) return 'drain';
+      if (pos === 0) return 'origin';
+      return '';
+    }
+
+    function getColorHex(pos) {
+      var colors = {
+        0: '#00BCD4',
+        3: '#4CAF50',
+        4: '#F44336',
+        5: '#FF9800',
+        8: '#9C27B0',
+        9: '#FFEB3B'
+      };
+      return colors[pos] || '#ffffff';
+    }
+
+    function toggleAuto() {
+      if (autoInterval) {
+        clearInterval(autoInterval);
+        autoInterval = null;
+        document.getElementById('btn-auto').textContent = 'AUTO';
+      } else {
+        autoInterval = setInterval(step, 1000);
+        document.getElementById('btn-auto').textContent = 'STOP';
+      }
+    }
+
+    function reset() {
+      if (autoInterval) {
+        clearInterval(autoInterval);
+        autoInterval = null;
+        document.getElementById('btn-auto').textContent = 'AUTO';
+      }
+
+      currentStep = -1;
+      cumSum = 0;
+
+      // Clear path lines
+      pathLines.forEach(function (line) {
+        pathGroup.remove(line);
+      });
+      pathLines = [];
+
+      // Reset markers
+      for (var i = 0; i < 10; i++) {
+        var baseColor = posColors[i] || defaultColor;
+        positionMarkers[i].scale.set(1, 1, 1);
+        positionMarkers[i].material.color.setHex(baseColor);
+      }
+
+      // Clear table
+      document.getElementById('path-table').innerHTML = '';
+
+      // Reset info
+      document.getElementById('step-num').textContent = '-';
+      document.getElementById('digit-val').textContent = '-';
+      document.getElementById('sum-val').textContent = '-';
+      document.getElementById('pos-val').textContent = '-';
+      document.getElementById('meaning').textContent = '';
+    }
+
+    function animate() {
+      requestAnimationFrame(animate);
+
+      // Slow auto-rotation
+      if (!autoInterval) {
+        sphereGroup.rotation.y += 0.002;
+        pathGroup.rotation.y += 0.002;
+        markerGroup.rotation.y += 0.002;
+        merkabaGroup.rotation.y += 0.002;
+      }
+
+      renderer.render(scene, camera);
+    }
+
+    // Handle resize
+    window.addEventListener('resize', function () {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+
+    init();
+  </script>
+</body>
+
+</html>

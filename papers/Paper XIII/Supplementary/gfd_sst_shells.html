@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GFD SST Shell Structure Explorer</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+:root {
+  --bg:#060810; --bg2:#0c0e18; --bg3:#121520; --bg4:#1a1e2e;
+  --text:#9ca3b8; --dim:#3a4060; --bright:#dce0ee;
+  --cyan:#00ddb8; --gold:#e8a820; --rose:#e04878; --violet:#9868e0;
+  --blue:#4080e0; --shell1:#ff6b6b; --shell2:#ffa64d; --shell3:#ffd43b;
+  --shell4:#69db7c; --shell5:#4dabf7; --shell6:#9775fa; --shell7:#f783ac;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:'JetBrains Mono',monospace;font-size:11px;display:flex;height:100vh;overflow:hidden;}
+
+.sidebar{width:220px;background:var(--bg2);border-right:1px solid var(--bg4);display:flex;flex-direction:column;flex-shrink:0;}
+.sidebar-head{padding:12px;border-bottom:1px solid var(--bg4);text-align:center;}
+.sidebar-head h2{font-family:'Playfair Display',serif;font-size:14px;color:var(--bright);letter-spacing:0.02em;}
+.sidebar-head .sub{font-size:8px;color:var(--dim);margin-top:2px;letter-spacing:0.15em;text-transform:uppercase;}
+.el-list{flex:1;overflow-y:auto;padding:4px 0;}
+.el-item{display:flex;align-items:center;padding:4px 10px;cursor:pointer;transition:all 0.1s;gap:6px;border-left:2px solid transparent;}
+.el-item:hover{background:rgba(0,221,184,0.04);border-left-color:var(--dim);}
+.el-item.active{background:rgba(0,221,184,0.08);border-left-color:var(--cyan);color:var(--cyan);}
+.el-item .z{font-size:8px;color:var(--dim);width:18px;text-align:right;}
+.el-item .sym{font-weight:600;width:24px;font-size:12px;}
+.el-item .a{font-size:9px;color:var(--dim);flex:1;}
+.el-item .ba{font-size:9px;text-align:right;}
+
+.main-area{flex:1;display:flex;flex-direction:column;overflow:hidden;}
+
+.top-strip{padding:10px 16px;border-bottom:1px solid var(--bg4);display:flex;align-items:center;gap:16px;background:var(--bg2);}
+.el-title{font-family:'Playfair Display',serif;font-size:20px;color:var(--bright);}
+.el-meta{font-size:9px;color:var(--dim);}
+.el-meta span{color:var(--text);font-weight:500;}
+
+.chart-area{flex:1;position:relative;padding:12px;}
+canvas{display:block;}
+
+.tooltip{
+  position:absolute;pointer-events:none;opacity:0;transition:opacity 0.15s;
+  background:var(--bg3);border:1px solid var(--bg4);border-radius:3px;
+  padding:6px 10px;font-size:10px;z-index:10;min-width:160px;
+  box-shadow:0 4px 20px rgba(0,0,0,0.5);
+}
+.tooltip.show{opacity:1;}
+.tooltip .tt-pos{color:var(--bright);font-weight:600;}
+.tooltip .tt-mu{color:var(--cyan);}
+.tooltip .tt-shell{font-size:9px;margin-top:2px;}
+.tooltip .tt-pred{margin-top:4px;padding-top:4px;border-top:1px solid var(--bg4);}
+.tooltip .tt-err{font-weight:600;}
+.tooltip .tt-err.good{color:var(--cyan);}
+.tooltip .tt-err.warn{color:var(--gold);}
+.tooltip .tt-err.bad{color:var(--rose);}
+
+.info-strip{padding:8px 16px;border-top:1px solid var(--bg4);background:var(--bg2);font-size:10px;overflow-x:auto;flex-shrink:0;}
+.info-strip .summary{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:6px;}
+.info-strip .block{display:flex;gap:4px;align-items:baseline;}
+.info-strip .lbl{color:var(--dim);}
+.info-strip .val{color:var(--bright);font-weight:500;}
+.info-strip .val.good{color:var(--cyan);}
+.info-strip .val.warn{color:var(--gold);}
+.shell-table{width:100%;border-collapse:collapse;font-size:9px;}
+.shell-table th{text-align:left;color:var(--dim);font-weight:400;padding:2px 6px;border-bottom:1px solid var(--bg4);font-size:8px;text-transform:uppercase;letter-spacing:0.05em;}
+.shell-table td{padding:2px 6px;border-bottom:1px solid #0e1018;}
+.shell-table .sh-color{width:4px;padding:0;}
+.shell-table .sh-bar{height:4px;border-radius:1px;}
+.shell-table tr:last-child{font-weight:600;}
+.shell-table tr:last-child td{border-top:1px solid var(--bg4);padding-top:4px;}
+
+.packing-strip{padding:8px 16px;border-bottom:1px solid var(--bg4);background:var(--bg);overflow-x:auto;display:flex;gap:6px;align-items:stretch;min-height:100px;flex-shrink:0;}
+.packing-strip .pk-head{font-size:8px;color:var(--dim);letter-spacing:0.1em;text-transform:uppercase;writing-mode:vertical-rl;text-orientation:mixed;display:flex;align-items:center;padding-right:8px;border-right:1px solid var(--bg4);flex-shrink:0;}
+.packing-strip .pk-shells{display:flex;gap:6px;flex-wrap:nowrap;flex-shrink:0;}
+.pk-cell{background:var(--bg2);border:1px solid var(--bg4);border-radius:3px;padding:6px 10px;font-size:9px;min-width:90px;text-align:center;transition:border-color 0.15s;position:relative;flex-shrink:0;}
+.pk-cell.active{border-color:var(--cyan);}
+.pk-cell.filled{opacity:1;}
+.pk-cell.partial{opacity:0.7;}
+.pk-cell.empty{opacity:0.3;}
+.pk-cell .pk-n{font-weight:700;font-size:12px;margin-bottom:3px;}
+.pk-cell .pk-line{font-size:9px;color:var(--dim);line-height:1.5;}
+.pk-cell .pk-line span{color:var(--text);font-weight:500;}
+.pk-cell .pk-magic{font-weight:700;font-size:11px;margin-top:3px;padding-top:3px;border-top:1px solid var(--bg4);}
+.pk-cell .pk-fill{font-size:9px;margin-top:2px;}
+</style>
+</head>
+<body>
+
+<div class="sidebar">
+  <div class="sidebar-head">
+    <h2>SST Shell Explorer</h2>
+    <div class="sub">f(K,s) = 1+Ks+K² &middot; K=4, D=3</div>
+  </div>
+  <div class="el-list" id="elList"></div>
+</div>
+
+<div class="main-area">
+  <div class="top-strip">
+    <div class="el-title" id="elTitle">Fe (A=56)</div>
+    <div class="el-meta" id="elMeta"></div>
+  </div>
+  <div class="packing-strip" id="packingStrip">
+    <div class="pk-head">f(K,s)<br>packing</div>
+    <div class="pk-shells" id="pkShells"></div>
+  </div>
+  <div class="chart-area" id="chartArea">
+    <canvas id="mainChart"></canvas>
+    <div class="tooltip" id="tooltip"></div>
+  </div>
+  <div class="info-strip" id="infoStrip"></div>
+</div>
+
+<script>
+// ═══════════════════════════════════════
+// GFD CONSTANTS & SST
+// ═══════════════════════════════════════
+const K=4, D=3, M_E=0.51099895;
+const F_ZERO=K*K+1, F_PLUS=K*K+K+1;
+const C_BIND=M_E*F_ZERO/K;
+
+function mu_sst(x){
+  if(x<=0)return 0;
+  return((2*x+1)-Math.sqrt(4*x+1))/(2*x);
+}
+
+// Scale from Zn
+const sum64=(()=>{let s=0;for(let i=1;i<=64;i++)s+=mu_sst(i*i);return s;})();
+const SCALE=8.756*64/sum64;
+
+// Magic closures from packing algebra
+function T(n){return n*(n+1)*(n+2)/6;}
+function G(n){return n<K?0:(n-1)*n/2;}
+function P(n){return T(n)-G(n);}
+function Mcl(n){return 2*P(n);}
+
+const MAGIC=[2,8,20,28,50,82,126];
+const SHELL_THRESH=MAGIC.map(M=>mu_sst(M*M));
+const SHELL_COLORS=['#ff6b6b','#ffa64d','#ffd43b','#69db7c','#4dabf7','#9775fa','#f783ac','#74c0fc'];
+
+function getShell(i){
+  const m=mu_sst(i*i);
+  for(let n=0;n<SHELL_THRESH.length;n++){
+    if(m<=SHELL_THRESH[n])return n+1;
+  }
+  return SHELL_THRESH.length+1;
+}
+
+function shellColor(n){return SHELL_COLORS[(n-1)%SHELL_COLORS.length];}
+
+// Elements
+const ELEMENTS=[
+  [1,'H',1,0],[2,'He',4,7.074],[3,'Li',7,5.606],[4,'Be',9,6.463],
+  [5,'B',11,6.928],[6,'C',12,7.680],[7,'N',14,7.476],[8,'O',16,7.976],
+  [9,'F',19,7.779],[10,'Ne',20,8.032],[11,'Na',23,8.111],[12,'Mg',24,8.261],
+  [13,'Al',27,8.332],[14,'Si',28,8.448],[15,'P',31,8.481],[16,'S',32,8.493],
+  [17,'Cl',35,8.520],[18,'Ar',40,8.595],[19,'K',39,8.557],[20,'Ca',40,8.551],
+  [21,'Sc',45,8.619],[22,'Ti',48,8.723],[23,'V',51,8.742],[24,'Cr',52,8.776],
+  [25,'Mn',55,8.765],[26,'Fe',56,8.790],[27,'Co',59,8.768],[28,'Ni',58,8.732],
+  [29,'Cu',63,8.752],[30,'Zn',64,8.756],
+];
+
+// Precompute SST B/A for all A
+const SST_BA={};
+for(let a=1;a<=64;a++){
+  let B=0;for(let i=1;i<=a;i++)B+=mu_sst(i*i);
+  SST_BA[a]=SCALE*B/a;
+}
+
+// ═══════════════════════════════════════
+// SIDEBAR
+// ═══════════════════════════════════════
+const elList=document.getElementById('elList');
+let activeEl=null;
+
+ELEMENTS.forEach(([Z,sym,A,BA])=>{
+  if(A<2)return;
+  const div=document.createElement('div');
+  div.className='el-item';
+  div.dataset.z=Z;
+  const pred=SST_BA[A]||0;
+  const err=BA>0?Math.abs(pred-BA)/BA*100:0;
+  const errCls=err<1?'good':err<2?'':err<5?'warn':'bad';
+  div.innerHTML=`<span class="z">${Z}</span><span class="sym">${sym}</span><span class="a">A=${A}</span><span class="ba" style="color:var(--${errCls||'text'})">${BA.toFixed(3)}</span>`;
+  div.addEventListener('click',()=>selectElement(Z));
+  elList.appendChild(div);
+});
+
+// ═══════════════════════════════════════
+// CHART
+// ═══════════════════════════════════════
+const canvas=document.getElementById('mainChart');
+const ctx=canvas.getContext('2d');
+const chartArea=document.getElementById('chartArea');
+const tooltip=document.getElementById('tooltip');
+
+let W,H;
+const mg={l:52,r:52,t:20,b:36};
+let dotPositions=[];
+
+function resize(){
+  const rect=chartArea.getBoundingClientRect();
+  W=rect.width-24; H=rect.height-24;
+  canvas.width=W; canvas.height=H;
+  if(activeEl)drawChart(activeEl);
+}
+window.addEventListener('resize',resize);
+
+function drawChart(el){
+  const [Z,sym,A,BA]=el;
+  ctx.clearRect(0,0,W,H);
+
+  const pw=W-mg.l-mg.r, ph=H-mg.t-mg.b;
+  const xMax=A+1;
+  const yMin=0.3, yMax=1.02;
+  const toX=i=>mg.l+(i/xMax)*pw;
+  const toY=v=>mg.t+(1-(v-yMin)/(yMax-yMin))*ph;
+
+  // Background gradient
+  const grad=ctx.createLinearGradient(0,0,0,H);
+  grad.addColorStop(0,'#080a14');
+  grad.addColorStop(1,'#060810');
+  ctx.fillStyle=grad;
+  ctx.fillRect(0,0,W,H);
+
+  // Grid
+  ctx.strokeStyle='#111528';ctx.lineWidth=0.5;
+  for(let y=0.4;y<=1;y+=0.1){
+    ctx.beginPath();ctx.moveTo(mg.l,toY(y));ctx.lineTo(W-mg.r,toY(y));ctx.stroke();
+  }
+  ctx.font='400 8px "JetBrains Mono"';ctx.fillStyle='#2a3050';ctx.textAlign='right';
+  for(let y=0.4;y<=1;y+=0.1) ctx.fillText(y.toFixed(1),mg.l-6,toY(y)+3);
+
+  // X axis labels
+  ctx.textAlign='center';ctx.fillStyle='#2a3050';
+  const step=A<=20?2:A<=40?4:8;
+  for(let i=0;i<=A;i+=step) ctx.fillText(i,toX(i),H-mg.b+16);
+  ctx.fillText('walk position i',mg.l+pw/2,H-4);
+
+  // Y axis label (left: μ)
+  ctx.save();ctx.translate(10,mg.t+ph/2);ctx.rotate(-Math.PI/2);
+  ctx.fillStyle='#2a3050';ctx.textAlign='center';ctx.font='400 8px "JetBrains Mono"';
+  ctx.fillText('μ_SST(i²)',0,0);ctx.restore();
+
+  // Right Y axis: MeV per position = SCALE × μ
+  ctx.font='400 8px "JetBrains Mono"';ctx.fillStyle='#2a3050';ctx.textAlign='left';
+  for(let y=0.4;y<=1;y+=0.1){
+    const mev=SCALE*y;
+    ctx.fillText(mev.toFixed(1),W-mg.r+6,toY(y)+3);
+  }
+  ctx.save();ctx.translate(W-6,mg.t+ph/2);ctx.rotate(Math.PI/2);
+  ctx.fillStyle='#2a3050';ctx.textAlign='center';ctx.font='400 8px "JetBrains Mono"';
+  ctx.fillText('MeV per position',0,0);ctx.restore();
+
+  // Shell boundary verticals + band fills
+  const shellsInElement=new Map();
+  for(let i=1;i<=A;i++){
+    const sh=getShell(i);
+    if(!shellsInElement.has(sh))shellsInElement.set(sh,{start:i,end:i,count:0});
+    const s=shellsInElement.get(sh);
+    s.end=i;s.count++;
+  }
+
+  // Shell band fills
+  shellsInElement.forEach((info,sh)=>{
+    const x1=toX(info.start-0.5);
+    const x2=toX(info.end+0.5);
+    const col=shellColor(sh);
+    ctx.fillStyle=col+'08';
+    ctx.fillRect(x1,mg.t,x2-x1,ph);
+  });
+
+  // Shell threshold horizontal lines
+  SHELL_THRESH.forEach((thresh,idx)=>{
+    if(thresh<yMin||thresh>yMax)return;
+    const y=toY(thresh);
+    // Only draw if relevant to this element
+    const mc=MAGIC[idx];
+    if(mc>A+5)return;
+    ctx.beginPath();ctx.moveTo(mg.l,y);ctx.lineTo(W-mg.r,y);
+    ctx.strokeStyle=shellColor(idx+1)+'40';ctx.lineWidth=0.5;
+    ctx.setLineDash([2,4]);ctx.stroke();ctx.setLineDash([]);
+    // Label
+    ctx.font='500 7px "JetBrains Mono"';ctx.fillStyle=shellColor(idx+1)+'80';
+    ctx.textAlign='right';
+    ctx.fillText(`n=${idx+1} (M=${mc})`,W-mg.r-4,y-3);
+  });
+
+  // Shell boundary verticals at magic closures within A
+  MAGIC.forEach((mc,idx)=>{
+    if(mc>=A||mc<1)return;
+    const x=toX(mc+0.5);
+    ctx.beginPath();ctx.moveTo(x,mg.t);ctx.lineTo(x,mg.t+ph);
+    ctx.strokeStyle=shellColor(idx+1)+'60';ctx.lineWidth=1.5;
+    ctx.setLineDash([4,3]);ctx.stroke();ctx.setLineDash([]);
+    // Shell label at top
+    ctx.font='600 9px "JetBrains Mono"';ctx.fillStyle=shellColor(idx+2);
+    ctx.textAlign='center';
+    ctx.fillText(`n=${idx+2}`,x+12,mg.t+10);
+  });
+  // Shell 1 label
+  if(A>=2){
+    ctx.font='600 9px "JetBrains Mono"';ctx.fillStyle=shellColor(1);
+    ctx.textAlign='center';ctx.fillText('n=1',toX(1),mg.t+10);
+  }
+
+  // Draw μ curve as connected line
+  ctx.beginPath();
+  ctx.strokeStyle='rgba(0,221,184,0.3)';ctx.lineWidth=1.5;
+  for(let i=1;i<=A;i++){
+    const x=toX(i),y=toY(mu_sst(i*i));
+    i===1?ctx.moveTo(x,y):ctx.lineTo(x,y);
+  }
+  ctx.stroke();
+
+  // Dots colored by shell
+  dotPositions=[];
+  for(let i=1;i<=A;i++){
+    const m=mu_sst(i*i);
+    const sh=getShell(i);
+    const x=toX(i),y=toY(m);
+    const col=shellColor(sh);
+
+    ctx.beginPath();ctx.arc(x,y,3.5,0,Math.PI*2);
+    ctx.fillStyle=col+'cc';ctx.fill();
+    ctx.strokeStyle=col;ctx.lineWidth=0.5;ctx.stroke();
+
+    dotPositions.push({i,x,y,mu:m,shell:sh});
+  }
+
+  // Mark magic closure dots larger
+  MAGIC.forEach((mc,idx)=>{
+    if(mc>A)return;
+    const m=mu_sst(mc*mc);
+    const x=toX(mc),y=toY(m);
+    ctx.beginPath();ctx.arc(x,y,6,0,Math.PI*2);
+    ctx.strokeStyle=shellColor(idx+1);ctx.lineWidth=2;ctx.stroke();
+  });
+
+  // Title in chart
+  ctx.font='600 11px "JetBrains Mono"';ctx.fillStyle='#3a4060';
+  ctx.textAlign='left';
+  ctx.fillText(`μ_SST(i²) — ${sym} (Z=${Z}, A=${A})`,mg.l+4,mg.t+ph-8);
+}
+
+// ═══════════════════════════════════════
+// TOOLTIP / HOVER
+// ═══════════════════════════════════════
+
+canvas.addEventListener('mousemove',(e)=>{
+  if(!activeEl)return;
+  const rect=canvas.getBoundingClientRect();
+  const mx=e.clientX-rect.left, my=e.clientY-rect.top;
+
+  let closest=null, minD=Infinity;
+  dotPositions.forEach(d=>{
+    const dx=d.x-mx,dy=d.y-my;
+    const dist=dx*dx+dy*dy;
+    if(dist<minD){minD=dist;closest=d;}
+  });
+
+  if(closest&&minD<400){
+    const [Z,sym,A,BA]=activeEl;
+    const pred=SST_BA[A]||0;
+    const err_keV=(pred-BA)*1000;
+    const err_pct=BA>0?Math.abs(err_keV/10/BA):0;
+    const cls=err_pct<1?'good':err_pct<3?'warn':'bad';
+
+    // Per-position contribution
+    const contrib=SCALE*closest.mu;
+
+    // Cumulative B_total up to this position
+    let B_cum=0;
+    for(let j=1;j<=closest.i;j++) B_cum+=SCALE*mu_sst(j*j);
+    const BA_at_i=B_cum/closest.i;
+
+    // Shell info
+    const mc=closest.shell<=MAGIC.length?MAGIC[closest.shell-1]:'—';
+    const thresh=closest.shell<=SHELL_THRESH.length?SHELL_THRESH[closest.shell-1]:1;
+
+    tooltip.innerHTML=`
+      <div class="tt-pos">Position ${closest.i} / ${A}</div>
+      <div class="tt-mu">μ_SST(${closest.i}²) = ${closest.mu.toFixed(6)}</div>
+      <div class="tt-shell" style="color:${shellColor(closest.shell)}">
+        Shell n=${closest.shell} · closes at M=${mc}
+      </div>
+      <div style="font-size:9px;color:var(--dim);margin-top:3px;border-top:1px solid #1a1e2e;padding-top:3px;">
+        This position: <span style="color:var(--bright)">${contrib.toFixed(4)} MeV</span><br>
+        B cumulative: <span style="color:var(--bright)">${B_cum.toFixed(3)} MeV</span><br>
+        B/A at i=${closest.i}: <span style="color:var(--cyan)">${BA_at_i.toFixed(4)} MeV</span>
+      </div>
+      <div class="tt-pred">
+        B/A (A=${A}): ${pred.toFixed(4)} MeV<br>
+        B/A known: ${BA.toFixed(4)} MeV<br>
+        <span class="tt-err ${cls}">Δ = ${err_keV>=0?'+':''}${err_keV.toFixed(0)} keV (${err_pct.toFixed(1)}%)</span>
+      </div>`;
+    tooltip.className='tooltip show';
+
+    // Position tooltip
+    const areaRect=chartArea.getBoundingClientRect();
+    let tx=closest.x+rect.left-areaRect.left+14;
+    let ty=closest.y+rect.top-areaRect.top-40;
+    if(tx+180>areaRect.width)tx=closest.x+rect.left-areaRect.left-180;
+    if(ty<0)ty=closest.y+rect.top-areaRect.top+20;
+    tooltip.style.left=tx+'px';
+    tooltip.style.top=ty+'px';
+  } else {
+    tooltip.className='tooltip';
+  }
+});
+
+canvas.addEventListener('mouseleave',()=>{tooltip.className='tooltip';});
+
+// ═══════════════════════════════════════
+// INFO STRIP
+// ═══════════════════════════════════════
+
+function updateInfo(el){
+  const [Z,sym,A,BA]=el;
+  const pred=SST_BA[A]||0;
+  const err_keV=(pred-BA)*1000;
+  const err_pct=BA>0?Math.abs(err_keV/10/BA):0;
+  const cls=err_pct<1?'good':err_pct<3?'warn':'bad';
+
+  // Build per-shell energy decomposition
+  const shellData=new Map(); // n → {count, positions, energy, mu_min, mu_max}
+  let B_total=0;
+  for(let i=1;i<=A;i++){
+    const sh=getShell(i);
+    const mu=mu_sst(i*i);
+    const E=SCALE*mu;
+    B_total+=E;
+    if(!shellData.has(sh)) shellData.set(sh,{count:0,energy:0,mu_min:mu,mu_max:mu,first:i,last:i});
+    const d=shellData.get(sh);
+    d.count++;d.energy+=E;d.last=i;
+    if(mu<d.mu_min)d.mu_min=mu;
+    if(mu>d.mu_max)d.mu_max=mu;
+  }
+
+  // Summary row
+  let html=`<div class="summary">
+    <div class="block"><span class="lbl">B_total:</span><span class="val">${B_total.toFixed(3)} MeV</span></div>
+    <div class="block"><span class="lbl">B/A pred:</span><span class="val">${pred.toFixed(4)} MeV</span></div>
+    <div class="block"><span class="lbl">B/A known:</span><span class="val">${BA.toFixed(4)} MeV</span></div>
+    <div class="block"><span class="lbl">Error:</span><span class="val ${cls}">${err_keV>=0?'+':''}${err_keV.toFixed(0)} keV (${err_pct.toFixed(1)}%)</span></div>
+    <div class="block"><span class="lbl">Scale:</span><span class="val">${SCALE.toFixed(4)}</span></div>
+  </div>`;
+
+  // Shell energy table
+  html+=`<table class="shell-table">
+    <tr><th></th><th>shell</th><th>positions</th><th>nucleons</th><th>μ range</th><th>band energy</th><th>per nucleon</th><th>% of total</th><th></th></tr>`;
+
+  const sorted=[...shellData.entries()].sort((a,b)=>a[0]-b[0]);
+  sorted.forEach(([n,d])=>{
+    const col=shellColor(n);
+    const pct=(d.energy/B_total*100);
+    const barW=Math.max(2,pct*1.5);
+    const perNucleon=d.energy/d.count;
+    html+=`<tr>
+      <td class="sh-color"><div style="width:4px;height:14px;background:${col};border-radius:1px;"></div></td>
+      <td style="color:${col};font-weight:600;">n=${n}</td>
+      <td style="color:var(--dim)">${d.first}→${d.last}</td>
+      <td style="color:var(--bright)">${d.count}</td>
+      <td style="color:var(--dim)">${d.mu_min.toFixed(4)}→${d.mu_max.toFixed(4)}</td>
+      <td style="color:var(--bright);font-weight:500;">${d.energy.toFixed(3)} MeV</td>
+      <td style="color:var(--text)">${perNucleon.toFixed(3)} MeV</td>
+      <td style="color:${col}">${pct.toFixed(1)}%</td>
+      <td><div class="sh-bar" style="width:${barW}px;background:${col};"></div></td>
+    </tr>`;
+  });
+
+  // Total row
+  const avgPerNucleon=B_total/A;
+  html+=`<tr>
+    <td></td>
+    <td style="color:var(--bright)">Total</td>
+    <td></td>
+    <td style="color:var(--bright)">${A}</td>
+    <td></td>
+    <td style="color:var(--bright)">${B_total.toFixed(3)} MeV</td>
+    <td style="color:var(--cyan)">${avgPerNucleon.toFixed(4)} MeV</td>
+    <td style="color:var(--bright)">100%</td>
+    <td></td>
+  </tr></table>`;
+
+  document.getElementById('infoStrip').innerHTML=html;
+}
+
+function updateMeta(el){
+  const [Z,sym,A,BA]=el;
+  const muA=mu_sst(A*A);
+  const invMu=1/(1-muA);
+  const meta=document.getElementById('elMeta');
+  meta.innerHTML=`Z=<span>${Z}</span> · A=<span>${A}</span> · B/A=<span>${BA.toFixed(3)}</span> MeV · μ(A²)=<span>${muA.toFixed(5)}</span> · 1/(1−μ)=<span>${invMu.toFixed(1)}</span>`;
+}
+
+// ═══════════════════════════════════════
+// PACKING ALGEBRA FROM f(K,s)
+// ═══════════════════════════════════════
+
+function updatePacking(el){
+  const [Z,sym,A,BA]=el;
+  const container=document.getElementById('pkShells');
+  let html='';
+
+  // Count nucleons in each shell
+  const shellPop=new Map();
+  for(let i=1;i<=A;i++){
+    const sh=getShell(i);
+    shellPop.set(sh,(shellPop.get(sh)||0)+1);
+  }
+  const maxShell=Math.max(getShell(A),4);
+
+  // Precompute magic closures
+  const mcs=[0];
+  for(let nn=1;nn<=7;nn++){
+    const tt=Math.floor(nn*(nn+1)*(nn+2)/6);
+    const gg=nn>=K?Math.floor((nn-1)*nn/2):0;
+    mcs.push(2*(tt-gg));
+  }
+
+  for(let n=1;n<=Math.min(maxShell+1,7);n++){
+    const t=Math.floor(n*(n+1)*(n+2)/6);
+    const g=n>=K?Math.floor((n-1)*n/2):0;
+    const p=t-g;
+    const mc=2*p;
+    const cap=mc-mcs[n-1]; // shell capacity = M(n) - M(n-1)
+    const pop=shellPop.get(n)||0;
+    const isFilled=pop>=cap;
+    const isPartial=pop>0&&pop<cap;
+    const isEmpty=pop===0;
+    const isCurrentShell=getShell(A)===n;
+    const cls=[isFilled?'filled':isPartial?'partial':'empty',isCurrentShell?'active':''].join(' ');
+    const col=shellColor(n);
+
+    html+=`<div class="pk-cell ${cls}" style="border-color:${isCurrentShell?col:''};">
+      <div class="pk-n" style="color:${col}">n = ${n}</div>
+      <div class="pk-line">T(${n}) = <span>${t}</span></div>
+      <div class="pk-line">G(${n}) = <span>${g}</span>${g>0?' <span style="color:var(--rose);font-size:7px;">n≥K</span>':''}</div>
+      <div class="pk-line">P = T−G = <span>${p}</span></div>
+      <div class="pk-magic" style="color:${col}">M = 2×${p} = ${mc}</div>
+      <div class="pk-fill" style="${pop>0?'color:'+col:'color:var(--dim)'}">filled: <span style="font-weight:600">${pop}</span> / ${cap}</div>
+    </div>`;
+  }
+
+  container.innerHTML=html;
+}
+
+// ═══════════════════════════════════════
+// SELECT
+// ═══════════════════════════════════════
+
+function selectElement(Z){
+  const el=ELEMENTS.find(e=>e[0]===Z);
+  if(!el)return;
+  activeEl=el;
+
+  document.querySelectorAll('.el-item').forEach(d=>{
+    d.classList.toggle('active',+d.dataset.z===Z);
+  });
+
+  document.getElementById('elTitle').textContent=`${el[1]} (A=${el[2]})`;
+  updateMeta(el);
+  updatePacking(el);
+  updateInfo(el);
+  drawChart(el);
+}
+
+// Init
+setTimeout(()=>{resize();selectElement(26);},50);
+</script>
+</body>
+</html>

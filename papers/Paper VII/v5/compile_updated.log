@@ -1,0 +1,519 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex.fmt)
+ restricted \write18 enabled.
+entering extended mode
+(Dual_Tetrad_Gravity_And_The_Field_Origin.tex
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-12-24>
+
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/revtex\revtex4
+-2.cls
+Document Class: revtex4-2 2022/06/05 4.2f (https://journals.aps.org/revtex/ for
+ documentation)
+ltxutil[2022/06/05 4.2f utilities package (portions licensed from W. E. Baxter 
+web at superscript.com)]
+ltxfront[2022/06/05 4.2f frontmatter package (AO,DPC,MD)]
+ltxgrid[2022/06/05 4.2f page grid package (portions licensed from W. E. Baxter 
+web at superscript.com)]
+
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/revtex\aps4-2.
+rtx)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/revtex\aps12pt
+4-2.rtx)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/textcase\textc
+ase.sty)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amssy
+mb.sty
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amsfo
+nts.sty))
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmat
+h.sty
+For additional information on amsmath, use the `?' option.
+
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstex
+t.sty
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen
+.sty))
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy
+.sty)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn
+.sty))
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/natbib\natbib.
+sty)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/revtex\revsymb
+4-2.sty))
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graph
+icx.sty
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyva
+l.sty)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graph
+ics.sty
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.
+sty)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\g
+raphics.cfg)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\p
+dftex.def)))
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/tools\bm.sty)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyper
+ref.sty
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.
+sty)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvse
+tkeys.sty)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys
+\kvdefinekeys.sty)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pd
+fescape.sty
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxc
+mds.sty)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\p
+dftexcmds.sty
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\in
+fwarerr.sty)))
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolo
+r.sty)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\namer
+ef.sty
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refco
+unt.sty)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestri
+ng\gettitlestring.sty
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvop
+tions.sty))
+
+Package nameref Warning: The definition of \label has changed! 
+(nameref)                Check your packages! 
+(nameref)                Replacing it with the kernel definition on input line 
+149.
+
+)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etool
+box.sty)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\st
+ringenc.sty)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1en
+c.def)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intc
+alc.sty)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc
+.def)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitse
+t.sty
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/bigintcalc\b
+igintcalc.sty)))
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdft
+ex.def
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck
+\rerunfilecheck.sty
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/uniquecounte
+r\uniquecounter.sty)))
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.
+sty
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\c
+olor.cfg)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathc
+olor.ltx))
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/enumitem\enumi
+tem.sty)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\bookt
+abs.sty)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/multirow\multi
+row.sty)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/float\float.st
+y)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/pgf/frontendla
+yer\tikz.sty
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer
+\pgf.sty
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\
+pgfrcs.sty
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilitie
+s\pgfutil-common.tex)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilitie
+s\pgfutil-latex.def)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilitie
+s\pgfrcs.code.tex
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/pgf\pgf.revi
+sion.tex)))
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer
+\pgfcore.sty
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/pgf/systemlaye
+r\pgfsys.sty
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemla
+yer\pgfsys.code.tex
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilitie
+s\pgfkeys.code.tex
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilitie
+s\pgfkeyslibraryfiltered.code.tex))
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemla
+yer\pgf.cfg)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemla
+yer\pgfsys-pdftex.def
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemla
+yer\pgfsys-common-pdf.def)))
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemla
+yer\pgfsyssoftpath.code.tex)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemla
+yer\pgfsysprotocol.code.tex))
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclay
+er\pgfcore.code.tex
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgf
+math.code.tex
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgf
+mathutil.code.tex)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgf
+mathparser.code.tex)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgf
+mathfunctions.code.tex)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgf
+mathfunctions.basic.code.tex)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgf
+mathfunctions.trigonometric.code.tex)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgf
+mathfunctions.random.code.tex)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgf
+mathfunctions.comparison.code.tex)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgf
+mathfunctions.base.code.tex)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgf
+mathfunctions.round.code.tex)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgf
+mathfunctions.misc.code.tex)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgf
+mathfunctions.integerarithmetics.code.tex)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgf
+mathcalc.code.tex)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgf
+mathfloat.code.tex))
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgf
+int.code.tex)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclay
+er\pgfcorepoints.code.tex)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclay
+er\pgfcorepathconstruct.code.tex)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclay
+er\pgfcorepathusage.code.tex)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclay
+er\pgfcorescopes.code.tex)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclay
+er\pgfcoregraphicstate.code.tex)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclay
+er\pgfcoretransformations.code.tex)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclay
+er\pgfcorequick.code.tex)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclay
+er\pgfcoreobjects.code.tex)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclay
+er\pgfcorepathprocessing.code.tex)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclay
+er\pgfcorearrows.code.tex)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclay
+er\pgfcoreshade.code.tex)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclay
+er\pgfcoreimage.code.tex)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclay
+er\pgfcoreexternal.code.tex)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclay
+er\pgfcorelayers.code.tex)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclay
+er\pgfcoretransparency.code.tex)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclay
+er\pgfcorepatterns.code.tex)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclay
+er\pgfcorerdf.code.tex)))
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\
+pgfmoduleshapes.code.tex)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\
+pgfmoduleplot.code.tex)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibil
+ity\pgfcomp-version-0-65.sty)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibil
+ity\pgfcomp-version-1-18.sty))
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\
+pgffor.sty
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\
+pgfkeys.sty
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilitie
+s\pgfkeys.code.tex))
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/pgf/math\pgfma
+th.sty
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgf
+math.code.tex))
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilitie
+s\pgffor.code.tex))
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontend
+layer/tikz\tikz.code.tex
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/pgf/librarie
+s\pgflibraryplothandlers.code.tex)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\
+pgfmodulematrix.code.tex)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontend
+layer/tikz/libraries\tikzlibrarytopaths.code.tex)))
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/pgf/librarie
+s\pgflibraryarrows.meta.code.tex)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontend
+layer/tikz/libraries\tikzlibrarydecorations.markings.code.tex
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontend
+layer/tikz/libraries\tikzlibrarydecorations.code.tex
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\
+pgfmoduledecorations.code.tex))
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/pgf/librarie
+s/decorations\pgflibrarydecorations.markings.code.tex))
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontend
+layer/tikz/libraries\tikzlibrarycalc.code.tex)
+
+Class revtex4-2 Warning: Repair the float package.
+
+
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3ba
+ckend-pdftex.def) (Dual_Tetrad_Gravity_And_The_Field_Origin.aux)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\su
+pp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\e
+pstopdf-base.sty
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epsto
+pdf-sys.cfg)) (Dual_Tetrad_Gravity_And_The_Field_Origin.out)
+(Dual_Tetrad_Gravity_And_The_Field_Origin.out)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.
+fd)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.
+fd)
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\\' on input line 94.
+
+[1{C:/Users/Stephen.Nelson/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
+
+Class revtex4-2 Warning: If you want your keywords to appear in your output, us
+e document class option showkeys.
+
+[2] [3] [4] [5] [6] [7] [8] [9
+pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.225 
+      ] [10]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 263.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 263.
+
+[11
+pdfTeX warning (ext4): destination with the same identifier (name{table.1}) has
+ been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.270 T
+       he simplex theorem~\cite{ziegler1995} formalizes this observation: th...
+]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 280.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 280.
+
+[12] [13] [14
+pdfTeX warning (ext4): destination with the same identifier (name{table.2}) has
+ been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.358 
+      ] [15] [16] [17
+pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.432 
+      ] [18] [19
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.519 
+      ] [20] [21] [22] [23] [24
+pdfTeX warning (ext4): destination with the same identifier (name{figure.4}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.659 T
+       he gravitational field traverses all 21 coupling levels. Each level a...
+]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 671.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 671.
+
+[25
+pdfTeX warning (ext4): destination with the same identifier (name{table.3}) has
+ been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.693 \textbf{The Physical Constraint.}
+                                       ] [26] [27] [28] [29
+pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.845 
+      ] [30] [31] [32] [33]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 933.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 933.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 942.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 942.
+
+[34] [35] [36
+pdfTeX warning (ext4): destination with the same identifier (name{table.4}) has
+ been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.1030 \subsubsection
+                     *{The origin connects everything}]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1043.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `superscript' on input line 1043.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1043.
+
+[37] [38] [39] [40] [41] [42] [43] [44] [45] [46] [47]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1347.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1347.
+
+[48] [49] [50] [51] [52] [53] [54
+pdfTeX warning (ext4): destination with the same identifier (name{figure.6}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.1510 
+        <./dark_matter_corrective_lens.png>] [55
+pdfTeX warning (ext4): destination with the same identifier (name{table.5}) has
+ been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.1525 
+       ] [56] [57]
+
+LaTeX Warning: Reference `sec:stellated' on page 58 undefined on input line 158
+1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1587.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\beta' on input line 1587.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 1587.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1587.
+
+[58] [59] [60] [61] [62] [63] [64] [65] [66] [67] [68] [69] [70]
+Underfull \hbox (badness 10000) in paragraph at lines 1896--1896
+[]$\OT1/cmr/m/n/10.95 9\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 109 \OMS/cmsy/m/
+n/10.95 ^^B
+
+Underfull \hbox (badness 10000) in paragraph at lines 1900--1900
+[]$\OT1/cmr/m/n/10.95 1\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 22 \OMS/cmsy/m/n
+/10.95 ^^B
+[71
+pdfTeX warning (ext4): destination with the same identifier (name{table.6}) has
+ been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.1906 \end{table}
+                  ] [72
+pdfTeX warning (ext4): destination with the same identifier (name{table.7}) has
+ been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.1913 
+       ] [73] [74] [75] [76
+pdfTeX warning (ext4): destination with the same identifier (name{table.8}) has
+ been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.1982 
+       ] [77] [78] [79] [80] (Dual_Tetrad_Gravity_And_The_Field_Origin.bbl)
+[81] (Dual_Tetrad_Gravity_And_The_Field_Origin.aux)
+
+LaTeX Warning: There were undefined references.
+
+ )
+(see the transcript file for additional information) <C:\Users\Stephen.Nelson\A
+ppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk> <C:\Users\S
+tephen.Nelson\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.
+pk><C:/Users/Stephen.Nelson/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
+sfonts/cm/cmbsy10.pfb><C:/Users/Stephen.Nelson/AppData/Local/Programs/MiKTeX/fo
+nts/type1/public/amsfonts/cmextra/cmbsy8.pfb><C:/Users/Stephen.Nelson/AppData/L
+ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Stephe
+n.Nelson/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pf
+b><C:/Users/Stephen.Nelson/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
+fonts/cm/cmbx6.pfb><C:/Users/Stephen.Nelson/AppData/Local/Programs/MiKTeX/fonts
+/type1/public/amsfonts/cm/cmbx8.pfb><C:/Users/Stephen.Nelson/AppData/Local/Prog
+rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Stephen.Nelson/
+AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Use
+rs/Stephen.Nelson/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
+cmmi12.pfb><C:/Users/Stephen.Nelson/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/amsfonts/cm/cmmi7.pfb><C:/Users/Stephen.Nelson/AppData/Local/Programs/MiK
+TeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Stephen.Nelson/AppData/L
+ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmib10.pfb><C:/Users/Steph
+en.Nelson/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmm
+ib8.pfb><C:/Users/Stephen.Nelson/AppData/Local/Programs/MiKTeX/fonts/type1/publ
+ic/amsfonts/cm/cmr10.pfb><C:/Users/Stephen.Nelson/AppData/Local/Programs/MiKTeX
+/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Stephen.Nelson/AppData/Loca
+l/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Stephen.Nel
+son/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/U
+sers/Stephen.Nelson/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
+m/cmr8.pfb><C:/Users/Stephen.Nelson/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/amsfonts/cm/cmsy10.pfb><C:/Users/Stephen.Nelson/AppData/Local/Programs/Mi
+KTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Stephen.Nelson/AppData/
+Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Stephe
+n.Nelson/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pf
+b><C:/Users/Stephen.Nelson/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
+fonts/cm/cmti12.pfb><C:/Users/Stephen.Nelson/AppData/Local/Programs/MiKTeX/font
+s/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/Stephen.Nelson/AppData/Local/Pr
+ograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb><C:/Users/Stephen.Nelso
+n/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb>
+<C:/Users/Stephen.Nelson/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
+nts/symbols/msbm10.pfb>
+Output written on Dual_Tetrad_Gravity_And_The_Field_Origin.pdf (81 pages, 95041
+4 bytes).
+Transcript written on Dual_Tetrad_Gravity_And_The_Field_Origin.log.

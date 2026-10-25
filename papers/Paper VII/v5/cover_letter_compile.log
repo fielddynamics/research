@@ -1,0 +1,130 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex.fmt)
+ restricted \write18 enabled.
+entering extended mode
+(cover_letter.tex
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-12-24>
+
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/base\letter.cl
+s
+Document Class: letter 2024/08/12 v1.3c Standard LaTeX document class
+
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/base\size11.cl
+o))
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geome
+try.sty
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyva
+l.sty)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex
+.sty
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.
+sty))
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geome
+try.cfg))
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmat
+h.sty
+For additional information on amsmath, use the `?' option.
+
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstex
+t.sty
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen
+.sty))
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy
+.sty)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn
+.sty))
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyper
+ref.sty
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvse
+tkeys.sty)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys
+\kvdefinekeys.sty)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pd
+fescape.sty
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxc
+mds.sty)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\p
+dftexcmds.sty
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\in
+fwarerr.sty)))
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolo
+r.sty)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\namer
+ef.sty
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refco
+unt.sty)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestri
+ng\gettitlestring.sty
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvop
+tions.sty)))
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etool
+box.sty)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\st
+ringenc.sty)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1en
+c.def)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intc
+alc.sty)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc
+.def)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty)
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitse
+t.sty
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/bigintcalc\b
+igintcalc.sty)))
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdft
+ex.def
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck
+\rerunfilecheck.sty
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/generic/uniquecounte
+r\uniquecounter.sty)))
+(C:\Users\Stephen.Nelson\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3ba
+ckend-pdftex.def) (cover_letter.aux)
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+(cover_letter.out) (cover_letter.out)
+! Missing number, treated as zero.
+<to be read again> 
+                   J
+l.21 \opening{Dear Editor,}
+                           
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   J
+l.21 \opening{Dear Editor,}
+                           
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.21 \opening{Dear Editor,}
+                           
+! Missing number, treated as zero.
+<to be read again> 
+                   J
+l.21 \opening{Dear Editor,}
+                           
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   J
+l.21 \opening{Dear Editor,}
+                           
+[1{C:/Users/Stephen.Nelson/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
+[2] [3] (cover_letter.aux) )
+(see the transcript file for additional information) <C:\Users\Stephen.Nelson\A
+ppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk><C:/Users/St
+ephen.Nelson/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx1
+0.pfb><C:/Users/Stephen.Nelson/AppData/Local/Programs/MiKTeX/fonts/type1/public
+/amsfonts/cm/cmmi10.pfb><C:/Users/Stephen.Nelson/AppData/Local/Programs/MiKTeX/
+fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Stephen.Nelson/AppData/Local
+/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Stephen.Nel
+son/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/U
+sers/Stephen.Nelson/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
+m/cmsy10.pfb><C:/Users/Stephen.Nelson/AppData/Local/Programs/MiKTeX/fonts/type1
+/public/amsfonts/cm/cmsy8.pfb><C:/Users/Stephen.Nelson/AppData/Local/Programs/M
+iKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on cover_letter.pdf (3 pages, 117217 bytes).
+Transcript written on cover_letter.log.

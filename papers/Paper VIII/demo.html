@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GFD GPU-Accelerated Topological Capacity Simulator</title>
+    <style>
+        body { margin: 0; overflow: hidden; background-color: #050505; color: white; font-family: sans-serif;}
+        #info {
+            position: absolute; top: 15px; width: 100%; text-align: center;
+            pointer-events: none; text-shadow: 0px 2px 4px rgba(0,0,0,0.8);
+        }
+        h2 { margin: 0; font-size: 1.2rem; letter-spacing: 1px;}
+        p { margin: 5px 0 0 0; font-size: 0.9rem; color: #aaaaaa; font-family: monospace;}
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lil-gui@0.18"></script>
+</head>
+<body>
+    <div id="info">
+        <h2>GFD Macroscopic Field Node Capacity: f(x)</h2>
+        <p>f(x) = (21x + 13) / (x + 1)  |  GPU Accelerated</p>
+    </div>
+
+    <script>
+        // 1. Scene Setup
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 2000);
+        camera.position.set(0, 40, 120);
+        
+        const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: "high-performance" });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(window.devicePixelRatio);
+        document.body.appendChild(renderer.domElement);
+        
+        const controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+
+        // 2. Generate Spherical Point Cloud (Monte Carlo Distribution)
+        const particleCount = 400000; // Easily handles 400k+ on GPU
+        const maxRadius = 80.0;
+        const geometry = new THREE.BufferGeometry();
+        const positions = new Float32Array(particleCount * 3);
+
+        for (let i = 0; i < particleCount; i++) {
+            // Spherical distribution
+            const r = maxRadius * Math.cbrt(Math.random()); 
+            const theta = Math.random() * 2 * Math.PI;
+            const phi = Math.acos(2 * Math.random() - 1);
+
+            positions[i * 3]     = r * Math.sin(phi) * Math.cos(theta);
+            positions[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta);
+            positions[i * 3 + 2] = r * Math.cos(phi);
+        }
+        geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
+        // 3. The Custom GPU Shader Material (The Physics Engine)
+        const gfdUniforms = {
+            uMass: { value: 6000.0 },
+            ua0: { value: 1.0 },
+            uG: { value: 1.0 },
+            uEpsilon: { value: 2.0 }, // Core softening
+            uTime: { value: 0.0 }
+        };
+
+        const gfdMaterial = new THREE.ShaderMaterial({
+            uniforms: gfdUniforms,
+            depthWrite: false,
+            blending: THREE.AdditiveBlending,
+            transparent: true,
+            vertexShader: `
+                uniform float uMass;
+                uniform float ua0;
+                uniform float uG;
+                uniform float uEpsilon;
+                
+                varying vec3 vColor;
+
+                void main() {
+                    vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
+                    gl_Position = projectionMatrix * mvPosition;
+                    
+                    // Perspective point size
+                    gl_PointSize = 150.0 / -mvPosition.z;
+
+                    // 1. Rigorous Softened Radius
+                    float r = length(position);
+                    float r_soft = sqrt(r*r + uEpsilon*uEpsilon);
+                    
+                    // 2. Exact Newtonian Acceleration
+                    float g_N = (uG * uMass) / (r_soft * r_soft);
+                    
+                    // 3. Derived True Acceleration
+                    float g_true = (g_N + sqrt(g_N * g_N + 4.0 * g_N * ua0)) / 2.0;
+                    
+                    // 4. Kinematic State
+                    float x_val = g_true / ua0;
+                    
+                    // 5. The Exact Topological Equation
+                    float f_x = (21.0 * x_val + 13.0) / (x_val + 1.0);
+                    
+                    // Normalize to [0,1]
+                    float norm_f = clamp((f_x - 13.0) / 8.0, 0.0, 1.0);
+
+                    // 6. Strict Scientific Color Mapping
+                    vec3 colorTetB = vec3(0.8, 0.05, 0.05);  // Deep Red (Floor: 13)
+                    vec3 colorOrigin = vec3(1.0, 0.7, 0.0);  // Gold (Bottleneck: 17)
+                    vec3 colorTetA = vec3(0.0, 0.8, 1.0);    // Cyan (Ceiling: 21)
+
+                    if (norm_f < 0.5) {
+                        vColor = mix(colorTetB, colorOrigin, norm_f * 2.0);
+                    } else {
+                        vColor = mix(colorOrigin, colorTetA, (norm_f - 0.5) * 2.0);
+                    }
+                }
+            `,
+            fragmentShader: `
+                varying vec3 vColor;
+                void main() {
+                    // Create a soft spherical particle instead of a harsh pixel square
+                    vec2 xy = gl_PointCoord.xy - vec2(0.5);
+                    float ll = length(xy);
+                    if(ll > 0.5) discard;
+                    
+                    // Soft Gaussian-like fade
+                    float alpha = pow((0.5 - ll) * 2.0, 1.5) * 0.4; 
+                    gl_FragColor = vec4(vColor, alpha);
+                }
+            `
+        });
+
+        const pointCloud = new THREE.Points(geometry, gfdMaterial);
+        scene.add(pointCloud);
+
+        // Add Baryonic Core Visualizer
+        const coreGeo = new THREE.SphereGeometry(1.5, 32, 32);
+        const coreMat = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.8 });
+        const coreMesh = new THREE.Mesh(coreGeo, coreMat);
+        scene.add(coreMesh);
+
+        // 4. The GUI (Live Laboratory Controls)
+        const gui = new lil.GUI({ title: 'GFD Parameters' });
+        gui.add(gfdUniforms.uMass, 'value', 100, 20000, 100).name('Baryonic Mass (M)');
+        gui.add(gfdUniforms.ua0, 'value', 0.1, 5.0, 0.1).name('Scale Limit (a0)');
+        gui.add(gfdUniforms.uEpsilon, 'value', 0.1, 10.0, 0.1).name('Core Softening (ε)');
+
+        // 5. Render Loop
+        const clock = new THREE.Clock();
+        function animate() {
+            requestAnimationFrame(animate);
+            controls.update();
+            
+            // Subtle rotation to appreciate the 3D volume
+            pointCloud.rotation.y += 0.0005;
+            pointCloud.rotation.z += 0.0002;
+            
+            gfdUniforms.uTime.value = clock.getElapsedTime();
+            renderer.render(scene, camera);
+        }
+
+        // Resize handler
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        animate();
+    </script>
+</body>
+</html>

@@ -1,0 +1,289 @@
+% ============================================================================
+% Technical Note II: The Origin of Every Integer in G
+% Counting Coupling Channels in Ghost-Free Bimetric Gravity
+% ============================================================================
+\documentclass[11pt]{article}
+
+\usepackage{amsmath,amssymb}
+\usepackage{bm}
+\usepackage{geometry}
+\geometry{margin=1in}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{array}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue!60!black,
+    citecolor=blue!60!black,
+    urlcolor=blue!60!black
+}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.8ex plus 0.2ex minus 0.1ex}
+
+% ============================================================================
+\begin{document}
+
+\begin{center}
+{\Large\bfseries The Origin of Every Integer in $G$:\\[4pt] Counting Coupling Channels in Ghost-Free Bimetric Gravity}\\[12pt]
+{\normalsize Stephen Nelson}\\
+{\small Independent Researcher}\\[8pt]
+{\small February 2026}\\[6pt]
+{\small\itshape Complementary Technical Note to ``Dual Tetrad Gravity And The Field Origin''}
+\end{center}
+
+\vspace{0.5cm}
+\hrule
+\vspace{0.5cm}
+
+\textbf{Purpose.}\quad
+The expression $G = \frac{17}{13}\,\alpha^{21}\,\frac{\hbar c}{m_e^2}$ agrees with measurement to 0.12\%.
+This note traces each integer to a specific counting question about the coupling structure of ghost-free bimetric gravity:
+%
+\begin{itemize}[nosep,leftmargin=2em]
+\item $\mathbf{4}$: ADM constraints per spatial point (1 Hamiltonian $+$ 3 momentum)
+\item $\mathbf{16}$: complete bimetric interaction channels ($4 \times 4$; equivalently, the 16 terms in the Hassan--Rosen elementary symmetric polynomials)
+\item $\mathbf{21} = 1 + 4 + 16$: total coupling depth through both metrics
+\item $\mathbf{17} = 16 + 1$: coupling channels plus the interaction vertex (Field Origin)
+\item $\mathbf{13} = 12 + 1$: spatial tetrad components ($4 \times 3$) plus non-degeneracy
+\end{itemize}
+%
+The counting uses the ADM decomposition~[3], the simplex theorem, and the Hassan--Rosen interaction potential~[4].
+
+% ============================================================================
+\section*{I.\quad What GR Already Requires}
+% ============================================================================
+
+General Relativity enforces three requirements that together determine the coupling structure.
+
+\textbf{1.\ Non-degeneracy.}\quad
+GR requires $\det(g_{\mu\nu}) \neq 0$ everywhere.
+Without this, the inverse metric is undefined, indices cannot be raised, and the field equations cannot be written.
+In the vielbein formulation, this is equivalent to $\det(e^I_\mu) \neq 0$: the four tetrad legs must span the tangent space completely~[1,2].
+This is field closure: the requirement that gravity define a complete, self-consistent geometry at every point.
+
+\textbf{2.\ Four constraints per point.}\quad
+The ADM formalism decomposes GR into 1 Hamiltonian constraint plus 3 momentum constraints at each spatial point~[3]: a total of $\mathbf{k = 4}$ constraint equations.
+The simplex theorem gives the same count from geometry: the minimum convex solid in $d = 3$ dimensions has $d + 1 = 4$ faces.
+Both counts reflect the same underlying fact: in $d$ spatial dimensions, there are $d + 1$ independent directions that a field must constrain, whether expressed as gauge freedoms in the ADM formalism or as faces of a simplex.
+The number of coupling interfaces per field region is therefore $k = 4$, determined by the dimension of space.
+
+\textbf{3.\ Ghost-free bimetric gravity requires two dynamical metrics.}\quad
+Hassan and Rosen~[4] showed that ghost-free massive gravity requires exactly two spin-2 fields.
+In vielbein form, these are two tetrads $e^I_\mu$ and $\tilde{e}^I_\mu$, coupled through an interaction potential.
+The symmetric vielbein condition~[5] ensures ghost-freedom.
+
+\textbf{Summary.}\quad
+GR requires field closure ($k = 4$ interfaces), and ghost-free massive gravity requires two such structures coupled at a shared vertex.
+The stellated octahedron~[6], two tetrahedra with opposite orientations sharing a common center, is the unique geometric realization satisfying all these requirements simultaneously, as established by four independent arguments spanning stability analysis, spinor structure, chirality, and bimetric gravity (detailed in the manuscript~[7], Section~3).
+Field closure and the $(3+1)^2$ dual tetrad are the same structure: field closure is the physical requirement, and the stellated octahedron is its unique geometric realization in $d = 3$ spatial dimensions.
+
+% ============================================================================
+\section*{II.\quad The Translation Table}
+% ============================================================================
+
+The integers in the formula for $G$ correspond to established GR concepts.
+This table makes the correspondence explicit:
+
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{>{\raggedright}p{5cm}lp{5cm}}
+\toprule
+\textbf{GR / Bimetric concept} & \textbf{Count} & \textbf{In the formula for $G$} \\
+\midrule
+Non-degeneracy at the interaction vertex (Field Origin), where the two metrics meet & 1 & The leading ``1'' in $1 + 4 + 16 = 21$ \\[6pt]
+ADM constraints per point\newline ($1$ Hamiltonian $+ 3$ momentum) & 4 & One spacetime sector: $(3+1)$ \\[6pt]
+Terms in the Hassan--Rosen\newline elementary symmetric polynomials $\sum_{n=0}^{4}\binom{4}{n} = 16$ & 16 & Full bimetric interaction: $(3+1)^2$ \\[6pt]
+Coupling channels $+$ interaction vertex (Field Origin) & 17 & Numerator: $(3+1)^2 + 1$ \\[6pt]
+Spatial projection of the tetrad interaction\newline ($4$ legs $\times$ $3$ spatial dimensions) $+$ non-degeneracy & 13 & Denominator: $3(3+1) + 1$ \\[6pt]
+Total coupling depth through both metrics & 21 & Exponent: $1 + (3+1) + (3+1)^2$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{The critical row} is the third: the Hassan--Rosen interaction potential contains exactly $\binom{4}{0} + \binom{4}{1} + \binom{4}{2} + \binom{4}{3} + \binom{4}{4} = 1 + 4 + 6 + 4 + 1 = 16$ coupling terms across its five elementary symmetric polynomials $e_n(e^{-1}\tilde{e})$.
+This is the same 16 that appears as $(3+1)^2$ in the topology.
+This equivalence is structural: 16 counts the complete interaction space of two 4-dimensional objects, whether expressed as binomial coefficients in the Hassan--Rosen potential or as vertex-through-face channels in the stellated octahedron.
+
+% ============================================================================
+\section*{III.\quad Counting the Exponent: $1 + 4 + 16 = 21$}
+% ============================================================================
+
+The exponent is a geometric series in $k = 4$ that terminates at $k^2$:
+
+\begin{center}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{clp{8cm}}
+\toprule
+\textbf{Level} & \textbf{Count} & \textbf{What is counted} \\
+\midrule
+0 & 1 & The interaction vertex (Field Origin) where TetA and TetB couple. Without this point, the two metrics are causally disconnected. \\
+1 & $k = 4$ & The four coupling interfaces of one metric sector (equivalently, the four ADM constraints, or the four faces of one tetrahedron). \\
+2 & $k^2 = 16$ & The complete bimetric interaction: each of TetB's 4 vertices threads through one of TetA's 4 faces, and vice versa. $4 \times 4 = 16$ vertex-through-face channels. \\
+\midrule
+Total & $1 + 4 + 16$ & $= 21$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{Why the series terminates.}\quad
+Ghost-free bimetric gravity operates with exactly two metrics~[4].
+A third metric would contribute $k^3 = 64$ additional channels, but no physical argument produces one.
+The geometry terminates at $k^2$ because the structure contains exactly two tetrahedra.
+The sum $1 + k + k^2$ is not an infinite series truncated for convenience; it is the complete count of a finite structure.
+
+\textbf{Each level attenuates by $\alpha$.}\quad
+The fine-structure constant $\alpha \approx 1/137$ measures the coupling strength at the interaction vertex (Field Origin).
+Electromagnetism operates at a single vertex (one charge couples to one field), engaging only level~0 of the hierarchy.
+Gravity, by contrast, must achieve field closure across the entire dual tetrad: it couples through the vertex (level~0), the four interfaces (level~1), and all 16 bimetric channels (level~2), traversing all 21 coupling levels.
+Each level attenuates by one factor of $\alpha$, so the force ratio is:
+\begin{equation*}
+\frac{F_{\text{gravity}}}{F_{\text{EM}}} \sim \frac{\alpha^{21}}{\alpha^{1}} = \alpha^{20} \approx 10^{-43}
+\end{equation*}
+This is the hierarchy problem, resolved by counting coupling depth.
+
+\textbf{Why $\alpha$?}\quad
+The fine-structure constant is the ratio of two scales that the topology determines: $\alpha = r_e / \bar{\lambda}_C$, where $r_e$ is the classical electron radius and $\bar{\lambda}_C = \hbar/(m_e c)$ is the reduced Compton wavelength.
+Each coupling level attenuates by $\alpha$ because $\alpha$ is the per-vertex coupling strength at the interaction vertex (Field Origin), set by the topology's own characteristic scales rather than an external parameter.
+(The full derivation, including the frequency interpretation and the numerical value $1/\alpha = 137.036$, appears in the companion note ``Why the Fine-Structure Constant Governs Gravitational Coupling,'' Sections~I--III, and in the manuscript~[7], Section~6.)
+
+% ============================================================================
+\section*{IV.\quad Counting the Prefactor: $17/13$}
+% ============================================================================
+
+The prefactor $17/13$ is the spacetime-to-spatial ratio of the bimetric interaction: the tetrad analog of the $3+1$ decomposition that every GR textbook applies to the metric.
+
+\textbf{The analogy.}\quad
+The electromagnetic field tensor $F_{\mu\nu}$ has $\binom{4}{2} = 6$ independent components in four-dimensional spacetime.
+Of these, $\binom{3}{2} = 3$ are purely spatial (the magnetic field).
+The ratio $6/3 = 2$ is the spacetime-to-spatial ratio for electromagnetism.
+The same logic applies to the bimetric interaction matrix.
+
+\textbf{Numerator: 17.}\quad
+The interaction between two tetrads is described by a $4 \times 4$ matrix with 16 independent components: the complete set of couplings between two four-dimensional objects.
+In the Hassan-Rosen formulation~[4], these correspond to the 16 terms across the five elementary symmetric polynomials: $\sum_{n=0}^{4}\binom{4}{n} = 16$.
+The symmetric vielbein condition~[5] requires non-degeneracy at the interaction vertex (Field Origin), $\det(e) \neq 0$, adding 1.
+The numerator counts both: $17 = 16 + 1 = (3+1)^2 + 1$.
+
+\textbf{Denominator: 13.}\quad
+The ADM $3+1$ decomposition~[3] projects each of the four tetrad legs onto three spatial dimensions: $4 \times 3 = 12$ spatial components.
+This is the spatial content of the interaction.
+The same non-degeneracy condition applies: the spatial frame must span all three dimensions, adding 1.
+The denominator counts these: $13 = 12 + 1 = 3(3+1) + 1$.
+As a cross-check, the 12 spatial components correspond to the 12 edges of the stellated octahedron (6 per tetrahedron), confirming that the geometric and algebraic counts agree.
+
+\textbf{The ratio.}\quad
+$17/13 = (k^2 + 1)/(kd + 1)$ measures the ratio of full spacetime coupling capacity to the spatial structure that carries it.
+Both numbers follow from the same $3+1$ decomposition applied to the same interaction matrix.
+Neither is adjustable.
+(The full pedagogical derivation, starting from the definition of a tetrad, appears in the companion note ``Why the Fine-Structure Constant Governs Gravitational Coupling,'' Section~IV.)
+
+% ============================================================================
+\section*{V.\quad The Sensitivity Test}
+% ============================================================================
+
+Because each coupling level attenuates by $\alpha \approx 1/137$, the formula is extremely sensitive to the exponent:
+
+\begin{center}
+\begin{tabular}{ccc}
+\toprule
+\textbf{Exponent} & \textbf{Predicted $G$\, (m$^3$kg$^{-1}$s$^{-2}$)} & \textbf{Deviation from measurement} \\
+\midrule
+20 & $9.1 \times 10^{-9}$ & $137\times$ too large \\
+\textbf{21} & $\bm{6.67 \times 10^{-11}}$ & \textbf{0.12\%} \\
+22 & $4.9 \times 10^{-13}$ & $137\times$ too small \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Adjacent integers miss by over two orders of magnitude.
+The agreement at 21 is \emph{sharply selective}.
+
+The sensitivity factor is not an arbitrary large number.
+Because $G \propto \alpha^n$, shifting the exponent by one unit multiplies $G$ by exactly $1/\alpha$:
+\begin{equation*}
+\frac{G(n)}{G(n+1)} = \frac{1}{\alpha} = 137.036\ldots
+\end{equation*}
+The topology determines both the exponent (21) and the precision with which that exponent is selected ($1/\alpha$ per unit step).
+The selectivity of the formula is itself a structural property of the counting.
+
+% ============================================================================
+\section*{VI.\quad Dimensional Uniqueness}
+% ============================================================================
+
+The formula generalizes to arbitrary spatial dimension $d$:
+\begin{equation}
+G(d) = \frac{(d+1)^2 + 1}{d(d+1) + 1} \times \alpha^{1 + (d+1) + (d+1)^2} \times \frac{\hbar c}{m_e^2}
+\label{eq:G-d}
+\end{equation}
+Setting $d = 3$ produces the observed universe.
+For the dual simplex to tile the embedding space completely, its total vertex count ($2(d+1)$) must equal the vertex count of the embedding hypercube ($2^d$); otherwise some directions in the embedding geometry are left unconstrained by field closure.
+This requirement selects $d$ uniquely:
+\begin{equation*}
+2(d+1) = 2^d
+\end{equation*}
+Only $d = 3$ satisfies this: $2 \times 4 = 8 = 2^3$.
+
+% ============================================================================
+\section*{VII.\quad Five Structural Properties of the Counting}
+% ============================================================================
+
+\begin{enumerate}[leftmargin=2em]
+\item \textbf{Provenance of every integer.}\quad
+Each number (1, 4, 16, 17, 13, 21) answers a specific counting question about the stellated octahedron.
+The target ($G$) is the \emph{output}, not the input.
+
+\item \textbf{Structural termination.}\quad
+The series $1 + k + k^2$ terminates because the structure has exactly two tetrahedra.
+It is not a truncated power series.
+It is a complete count of a finite object.
+
+\item \textbf{Extreme sensitivity.}\quad
+Perturbing the exponent by $\pm 1$ shifts $G$ by a factor of 137.
+The agreement is sharply selective.
+
+\item \textbf{$d$-generalization.}\quad
+The formula extends naturally to any spatial dimension $d$.
+Only $d = 3$ produces a viable universe, selected by the independent algebraic condition $2(d+1) = 2^d$.
+
+\item \textbf{Connection to established literature.}\quad
+The 16 coupling terms appear independently in the Hassan--Rosen elementary symmetric polynomials~[4].
+The $k = 4$ appears independently in the ADM constraint count~[3].
+These are not proposed by this framework; they are features of accepted physics that the framework \emph{counts}.
+\end{enumerate}
+
+% ============================================================================
+\section*{VIII.\quad What Is Being Claimed}
+% ============================================================================
+
+This work proposes that $G$ is a \emph{derived} constant, determined by the coupling structure that General Relativity requires for field closure, in the same sense that the speed of sound in a crystal is determined by the lattice spacing and bond strength rather than being a free parameter of nature.
+
+The gravitational constant contains the integer 21 as the exponent of $\alpha$.
+This integer counts the coupling channels of the stellated octahedron, the structure that four independent textbook arguments require for ghost-free, spin-complete, chirally-balanced gravity.
+The formula $G = \frac{17}{13}\,\alpha^{21}\,\frac{\hbar c}{m_e^2}$ predicts the measured value to 0.12\% with zero adjustable parameters.
+
+Every integer is counted from the geometry that General Relativity itself enforces.
+
+The companion technical note (``Covariant-Complete $(3+1)^2$ Gravity'') presents the scalar-tensor Lagrangian derived from the same topology, establishing that the $(3+1)^2$ framework yields a fully determined action principle with no free parameters.
+The companion note ``Why the Fine-Structure Constant Governs Gravitational Coupling'' establishes why $\alpha$ governs both forces (Sections~I--II), derives the numerical value $1/\alpha = 137.036$ from the breadth of the same coupling hierarchy counted here as depth (Section~III), derives the prefactor $17/13$ and the core equation $G\,m_e/(r_e\,c^2) = (17/13)\,\alpha^{20}$ (Section~IV), and derives the constitutive law $\mu(x) = x/(1+x)$ from the coupling geometry (Section~V).
+
+% ============================================================================
+\vspace{0.8cm}
+\hrule
+\vspace{0.5cm}
+
+\small
+\textbf{References}\\[4pt]
+{[1]} C.~W.~Misner, K.~S.~Thorne, and J.~A.~Wheeler, \textit{Gravitation} (W.~H.~Freeman, 1973).\\
+{[2]} R.~M.~Wald, \textit{General Relativity} (University of Chicago Press, 1984).\\
+{[3]} R.~Arnowitt, S.~Deser, and C.~W.~Misner, ``The Dynamics of General Relativity,'' Gen.\ Relativ.\ Gravit.\ \textbf{40}, 1997 (2008).\\
+{[4]} S.~F.~Hassan and R.~A.~Rosen, ``Bimetric gravity from ghost-free massive gravity,'' JHEP \textbf{02}, 126 (2012).\\
+{[5]} C.~Deffayet, J.~Mourad, and G.~Zahariade, ``A note on `symmetric' vielbeins,'' JHEP \textbf{03}, 086 (2013).\\
+{[6]} H.~S.~M.~Coxeter, \textit{Regular Polytopes}, 3rd ed.\ (Dover, 1973).\\
+{[7]} S.~Nelson, ``Dual Tetrad Gravity And The Field Origin'' (2026).
+Submitted for publication.
+
+\end{document}

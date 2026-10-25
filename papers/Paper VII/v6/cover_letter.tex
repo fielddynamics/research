@@ -1,0 +1,94 @@
+\documentclass[11pt]{letter}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{hyperref}
+
+\signature{Stephen Nelson\\stephen@fielddynamics.org}
+\address{%
+Stephen Nelson\\
+Field Dynamics Research\\
+Email: stephen@fielddynamics.org\\
+ORCID: 0009-0008-6190-3269
+}
+
+\begin{document}
+
+\begin{letter}{%
+Editor-in-Chief\\
+Physical Review D\\
+American Physical Society
+}
+
+\opening{Dear Editor,}
+
+I am pleased to submit for consideration the manuscript titled \textit{``Dual Tetrad Topology and the Field Origin: From Nuclear Decay to Galactic Dynamics''} for publication in Physical Review D.
+
+This paper derives a zero-parameter covariant completion of modified gravity from dual tetrad field topology, building on textbook foundations in general relativity and ghost-free bimetric gravity to show how field closure requirements determine fundamental constant relationships with no free parameters.
+
+\textbf{Primary Contribution: Zero-Parameter Covariant Completion}
+
+General relativity requires field closure ($\det(g) \neq 0$ everywhere), forcing four basis vectors at each point to span the tangent space---a tetrahedron at each field node. Hassan-Rosen ghost-free bimetric gravity couples two such tetrad fields through shared boundary conditions. When these consistency requirements are combined with finite propagation speed (LIGO: gravitational waves travel at $c$) and the simplex theorem (3-dimensional enclosure requires exactly $k = 4$ faces), field coupling closure forces a unique polynomial architecture: $f(k) = 1 + k + k^2 = 21$.
+
+This coupling polynomial is not phenomenological. The three terms represent physical coupling levels: field existence (1), propagation through vierbein faces ($k = 4$), and Hassan-Rosen bimetric channels ($k^2 = 16$). Each term corresponds to established structures in the literature---the Field Origin, the tetrad frame, and the full bimetric interaction---now unified through the constraint that field coupling must close in $(3+1)$ dimensions.
+
+The key advance is structural identification: the 16 bimetric interaction channels of the Hassan-Rosen Hamiltonian map identically to the coupled face channels of the stellated octahedron topology. This identification eliminates all free parameters. Where Hassan-Rosen bimetric gravity contains five free functions $\beta_n(\Phi)$ in its interaction potential, the dual tetrad completion contains zero---all coefficients follow from the requirement that the two tetrad fields share compatible $(3+1)$ decompositions (Hassan \& Kocic, JHEP 2018). The result is a fully covariant scalar-tensor action with no adjustable parameters.
+
+The scale-invariant foundation is established rigorously: the field normalization factor $4\pi$ emerges as $k \times \pi$ where $k=4$ is the topological integer from tetrad closure (Misner-Thorne-Wheeler, Wald), not from the geometric surface area $4\pi r^2$. Combined with the coupling ratio $17/13$ from polynomial evaluation at structural states, this yields the complete modified Poisson equation with manifestly scale-independent factors---resolving why the same equation governs gravitational fields from electron horizons ($10^{-13}$ m) to galactic clusters ($10^{21}$ m) without invoking geometric cancellations. The beta function $\beta(k) = \partial k/\partial \ln \lambda = 0$ confirms $k=4$ as a topological fixed point locked by the dimensionality of space, ensuring conformal symmetry at all scales.
+
+\textbf{Bidirectional Validation Across 36 Orders of Magnitude}
+
+The framework makes zero-parameter predictions spanning nuclear, galactic, and cosmological scales:
+
+\begin{itemize}
+\item \textbf{Nuclear physics (10$^{-15}$ m):} The neutron lifetime beam-bottle discrepancy arises from tetrahedral geometry: the bound-state suppression factor predicts 1.084\% vs observed 1.081\% (0.3\% agreement). The Standard Model predicts $\sim$0.0004\%, failing by a factor of 2800.
+
+\item \textbf{Galactic dynamics (10$^{21}$ m):} Milky Way rotation velocity predicts 225~km/s vs observed 229$\pm$5~km/s (1.6\% deviation, zero free parameters). Gaia wide binary plateau predicts 0.39~km/s vs observed 0.5$\pm$0.15~km/s.
+
+\item \textbf{Relativistic constraints:} Gravitational wave speed predicts $c$ exactly (GW170817: $|v_{gw}/c - 1| < 10^{-15}$). PPN parameter $\gamma = 1.0000$ exactly.
+\end{itemize}
+
+The same topological constant $k = 4$ constrains phenomena across 36 orders of magnitude. This bidirectional pattern---from nuclear decay ($k = 4$ simplex geometry) to galactic rotation curves (acceleration scale $a_0 \propto k^2$) to cosmological expansion (Hubble constant from field closure)---is unique to the dual tetrad framework and cannot be reproduced by standard $\Lambda$CDM or phenomenological MOND, both of which operate at restricted scale ranges with multiple fitted parameters.
+
+\textbf{Derivation of Fundamental Constants}
+
+The coupling polynomial $f(k) = 1 + k + k^2$ determines fundamental constants through its hierarchical structure. Reading the hierarchy for coupling \emph{depth}---how many levels the field traverses in closure---yields Newton's gravitational constant:
+\begin{equation*}
+G = \frac{17}{13}\alpha^{21} \frac{\hbar c}{m_e^2}
+\end{equation*}
+where 17 is the interaction capacity at the Field Origin, 13 the spatial structure in the inverted sector, and the exponent 21 the full coupling depth $f(4) = 1 + 4 + 16$. This achieves 0.12\% agreement with CODATA 2022 at tree level and 0.001\% at one loop. Reading the same hierarchy for interaction \emph{breadth}---how many independent states the field accesses---yields the fine-structure constant $1/\alpha = 137.036$ (0.00021\% agreement). Both results emerge from evaluating the polynomial at different structural levels. No parameters are fitted; no degrees of freedom remain.
+
+The resulting covariant action passes 14 independent empirical tests: gravitational wave speed (exact to $10^{-15}$), Mercury precession, lunar laser ranging constraints on $\dot{G}/G$ (stability better than $10^{-25}$ yr$^{-1}$), Gaia wide binary plateaus, galaxy rotation curves, cluster dynamics, and cosmological expansion history. Zero fitted parameters, compared to the 25+ empirically-tuned parameters of the Standard Model and $\Lambda$CDM combined~\cite{pdg2024}.
+
+\textbf{Physical Implications}
+
+The pattern across independent tests demonstrates that the missing 85\% attributed to dark matter may reflect missing structure in how we model gravitational field dynamics, not missing particles. The framework suggests that fundamental constants are topological consequences of how gravitational fields couple in $(3+1)$ dimensions, not free parameters that could have taken different values.
+
+\textbf{Computational Verification}
+
+All numerical claims are independently verifiable. The submission includes computational validation materials: Python scripts computing predictions from CODATA 2022 fundamental constants and the topological integer $k = 4$, validating all equations and empirical predictions for all 14 tests, plus figure generation and the SPARC galaxy data file for Tully-Fisher relation tests. These scripts require zero fitted parameters and use only standard libraries (numpy for numerical integration).
+
+\textbf{Significance and Scope}
+
+The manuscript is 106 pages in preprint format, reflecting the scope of derivations that span from nuclear decay ($10^{-15}$~m) to galactic dynamics ($10^{21}$~m) with complete intermediate steps. Every equation is independently verifiable using the included computational scripts.
+
+This work bridges nuclear physics, galactic dynamics, and cosmology through a single topological principle. It demonstrates that bimetric gravity, when constrained by field coupling closure, reduces to a zero-parameter theory with predictive power spanning scales from the electron Compton wavelength to the Hubble radius. The bidirectional validation pattern---same $k$, opposite directions (nuclear $\leftrightarrow$ cosmological)---provides a stringent test that fitted-parameter frameworks cannot replicate.
+
+I believe this manuscript represents a significant contribution to gravitational physics and will be of broad interest to the readership of Physical Review D. The zero-parameter covariant completion, the bidirectional validation across 36 orders of magnitude, and the derivation of fundamental constants from topology offer new perspectives on long-standing questions in the field.
+
+I confirm that this manuscript has not been published elsewhere and is not under consideration by any other journal. All authors have approved the manuscript and agree with its submission to Physical Review D.
+
+Thank you for considering this work. I look forward to your response.
+
+\noindent
+Sincerely,
+
+\vspace{2\medskipamount}
+
+\noindent
+Stephen Nelson\\
+stephen@fielddynamics.org\\
+ORCID: 0009-0008-6190-3269
+
+\end{letter}
+
+\end{document}

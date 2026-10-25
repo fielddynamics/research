@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dual Tetrad Gravity Visualization</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .left-panel {
+            width: 320px;
+            background-color: #242424;
+            padding: 30px;
+            border-right: 1px solid #404040;
+            overflow-y: auto;
+        }
+
+        .right-panel {
+            flex: 1;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        h1 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #4da6ff;
+        }
+
+        h2 {
+            font-size: 1.1em;
+            margin-bottom: 25px;
+            color: #808080;
+            font-weight: normal;
+        }
+
+        .control-group {
+            margin-bottom: 35px;
+        }
+
+        .control-label {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 10px;
+            color: #b0b0b0;
+            font-size: 0.95em;
+        }
+
+        .control-label span:first-child {
+            font-weight: 500;
+        }
+
+        .control-value {
+            color: #4da6ff;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            height: 6px;
+            background: #404040;
+            outline: none;
+            border-radius: 3px;
+            -webkit-appearance: none;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            background: #4da6ff;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: background 0.2s;
+        }
+
+        input[type="range"]::-webkit-slider-thumb:hover {
+            background: #66b3ff;
+        }
+
+        input[type="range"]::-moz-range-thumb {
+            width: 18px;
+            height: 18px;
+            background: #4da6ff;
+            cursor: pointer;
+            border-radius: 50%;
+            border: none;
+            transition: background 0.2s;
+        }
+
+        input[type="range"]::-moz-range-thumb:hover {
+            background: #66b3ff;
+        }
+
+        .chart-container {
+            flex: 1;
+            position: relative;
+            background-color: #242424;
+            border-radius: 8px;
+            padding: 20px;
+            border: 1px solid #404040;
+            min-height: 0;  /* Critical for flex children to properly size */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chart-container canvas {
+            max-height: 100%;
+            max-width: 100%;
+        }
+
+        .info-text {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #2a2a2a;
+            border-left: 3px solid #4da6ff;
+            border-radius: 4px;
+            font-size: 0.85em;
+            line-height: 1.6;
+            color: #b0b0b0;
+        }
+
+        .info-text strong {
+            color: #e0e0e0;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            font-size: 0.9em;
+        }
+
+        .legend-color {
+            width: 30px;
+            height: 3px;
+            margin-right: 10px;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="left-panel">
+        <h1>Dual Tetrad Gravity</h1>
+        <h2>Bidirectional Covariant Completion</h2>
+
+        <div class="control-group">
+            <div class="control-label">
+                <span>Distance Scale (r)</span>
+                <span class="control-value" id="distance-value">10 kpc</span>
+            </div>
+            <input type="range" id="distance-slider" min="0.1" max="100" step="0.1" value="10">
+        </div>
+
+        <div class="control-group">
+            <div class="control-label">
+                <span>Mass (M)</span>
+                <span class="control-value" id="mass-value">10¹¹ M☉</span>
+            </div>
+            <input type="range" id="mass-slider" min="8" max="13" step="0.1" value="11">
+        </div>
+
+        <div class="control-group">
+            <div class="control-label">
+                <span>Acceleration Regime</span>
+                <span class="control-value" id="accel-value">a/a₀ = 1.0</span>
+            </div>
+            <input type="range" id="accel-slider" min="0.01" max="100" step="0.01" value="1">
+        </div>
+
+        <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #404040;">
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #ff6b6b;"></div>
+                <span>Newtonian</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #4da6ff;"></div>
+                <span>Dual Tetrad (Covariant Completion)</span>
+            </div>
+        </div>
+
+        <div class="info-text">
+            <strong>Key Parameters:</strong><br>
+            • a₀ = k²Gm_e/r_e² = 1.2×10⁻¹⁰ m/s²<br>
+            • Constitutive law: μ(x) = x/(1+x)<br>
+            • Field topology: k = 4 (tetrahedral)<br>
+            • Zero free parameters<br><br>
+            <strong>Local Field Equation:</strong><br>
+            μ(g/a₀)·g = GM/r² (solved at each radius r)<br><br>
+            This is a <strong>local field theory</strong>, not action-at-a-distance. The field structure μ(x) is topological (from k=4 simplex packing), and fields propagate causally through the metric.
+        </div>
+    </div>
+
+    <div class="right-panel">
+        <div class="chart-container">
+            <canvas id="gravityChart"></canvas>
+        </div>
+    </div>
+
+    <script>
+        // Physical constants (CODATA 2022)
+        const G = 6.67430e-11;  // m^3 kg^-1 s^-2
+        const M_sun = 1.989e30;  // kg
+        const kpc_to_m = 3.086e19;  // meters
+        const m_e = 9.1093837139e-31;  // electron mass (kg)
+        const r_e = 2.8179403205e-15;  // classical electron radius (m)
+
+        // Topological acceleration scale (zero free parameters)
+        const k = 4;  // simplex number (d+1, d=3)
+        const a0 = k * k * G * m_e / (r_e * r_e);  // = 1.2e-10 m/s^2
+
+        // Get DOM elements
+        const distanceSlider = document.getElementById('distance-slider');
+        const massSlider = document.getElementById('mass-slider');
+        const accelSlider = document.getElementById('accel-slider');
+        const distanceValue = document.getElementById('distance-value');
+        const massValue = document.getElementById('mass-value');
+        const accelValue = document.getElementById('accel-value');
+
+        // Initialize chart
+        const ctx = document.getElementById('gravityChart').getContext('2d');
+        const chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: [],
+                datasets: [
+                    {
+                        label: 'Newtonian',
+                        data: [],
+                        borderColor: '#ff6b6b',
+                        backgroundColor: 'rgba(255, 107, 107, 0.1)',
+                        borderWidth: 2.5,
+                        tension: 0.4,
+                        pointRadius: 0
+                    },
+                    {
+                        label: 'Dual Tetrad',
+                        data: [],
+                        borderColor: '#4da6ff',
+                        backgroundColor: 'rgba(77, 166, 255, 0.1)',
+                        borderWidth: 2.5,
+                        tension: 0.4,
+                        pointRadius: 0
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    title: {
+                        display: true,
+                        text: 'Rotation Velocity vs Radius',
+                        color: '#e0e0e0',
+                        font: {
+                            size: 16,
+                            weight: '500'
+                        },
+                        padding: 20
+                    }
+                },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Radius (kpc)',
+                            color: '#b0b0b0',
+                            font: {
+                                size: 13
+                            }
+                        },
+                        grid: {
+                            color: '#404040'
+                        },
+                        ticks: {
+                            color: '#b0b0b0'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Velocity (km/s)',
+                            color: '#b0b0b0',
+                            font: {
+                                size: 13
+                            }
+                        },
+                        grid: {
+                            color: '#404040'
+                        },
+                        ticks: {
+                            color: '#b0b0b0'
+                        },
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Calculate Newtonian rotation velocity
+        function newtonianVelocity(r_kpc, M_solar) {
+            const r = r_kpc * kpc_to_m;
+            const M = M_solar * M_sun;
+            // v^2 = GM/r, so v = sqrt(GM/r)
+            const v = Math.sqrt(G * M / r);
+            return v / 1000;  // Convert to km/s
+        }
+
+        // Constitutive law: mu(x) = x/(1+x)
+        // Uniquely derived from k=4 simplex packing
+        function mu(x) {
+            return x / (1.0 + x);
+        }
+
+        // Solve the AQUAL field equation: mu(g/a0) * g = g_N
+        // With mu(x) = x/(1+x), this becomes: x^2/(1+x) = g_N/a0
+        // Solving the quadratic x^2 - yN*x - yN = 0:
+        //
+        // IMPORTANT: This is a LOCAL field equation evaluated at each radius r.
+        // NOT instantaneous action-at-a-distance!
+        // The field structure is topological (determined by mu(x) at each point),
+        // and fields still propagate causally at speed c through the metric.
+        function solve_x(gN_over_a0) {
+            const yN = gN_over_a0;
+            if (yN < 1e-30) return 0.0;
+            return (yN + Math.sqrt(yN * yN + 4.0 * yN)) / 2.0;
+        }
+
+        // Calculate dual tetrad rotation velocity from covariant completion
+        function dualTetradVelocity(r_kpc, M_solar, accel_ratio) {
+            const r = r_kpc * kpc_to_m;
+            const M = M_solar * M_sun;
+
+            // Newtonian acceleration at this radius (from enclosed mass)
+            const gN = G * M / (r * r);
+
+            // Solve the LOCAL field equation at this point
+            // Each radius r has its own field value g determined by:
+            // 1. The Newtonian source gN = GM/r²
+            // 2. The local constitutive response mu(g/a0)
+            // This is TOPOLOGY (local field structure), not action-at-a-distance
+            const x = solve_x(gN / (a0 * accel_ratio));
+
+            // Effective gravitational acceleration at this radius
+            const g_eff = a0 * accel_ratio * x;
+
+            // Rotation velocity: v^2 = g * r
+            const v = Math.sqrt(g_eff * r);
+            return v / 1000;  // Convert to km/s
+        }
+
+        // Update chart with current parameters
+        function updateChart() {
+            const maxRadius = parseFloat(distanceSlider.value);
+            const logMass = parseFloat(massSlider.value);
+            const accelRatio = parseFloat(accelSlider.value);
+            const M_solar = Math.pow(10, logMass);
+
+            // Generate radius points (logarithmic spacing for better visualization)
+            const numPoints = 100;
+            const radii = [];
+            const newtonianData = [];
+            const dualTetradData = [];
+
+            for (let i = 0; i < numPoints; i++) {
+                const r = (maxRadius / numPoints) * (i + 1);
+                radii.push(r.toFixed(2));
+
+                const v_N = newtonianVelocity(r, M_solar);
+                const v_DT = dualTetradVelocity(r, M_solar, accelRatio);
+
+                newtonianData.push(v_N);
+                dualTetradData.push(v_DT);
+            }
+
+            chart.data.labels = radii;
+            chart.data.datasets[0].data = newtonianData;
+            chart.data.datasets[1].data = dualTetradData;
+            chart.update('none');  // Update without animation for smooth slider interaction
+        }
+
+        // Update display values
+        function updateDisplays() {
+            const maxRadius = parseFloat(distanceSlider.value);
+            const logMass = parseFloat(massSlider.value);
+            const accelRatio = parseFloat(accelSlider.value);
+
+            distanceValue.textContent = `${maxRadius} kpc`;
+
+            const massExponent = Math.floor(logMass);
+            const massCoeff = Math.pow(10, logMass - massExponent);
+            massValue.textContent = `${massCoeff.toFixed(1)}×10${superscript(massExponent)} M☉`;
+
+            accelValue.textContent = `a/a₀ = ${accelRatio.toFixed(2)}`;
+        }
+
+        // Helper function for superscript numbers
+        function superscript(num) {
+            const superscripts = {
+                '0': '⁰', '1': '¹', '2': '²', '3': '³', '4': '⁴',
+                '5': '⁵', '6': '⁶', '7': '⁷', '8': '⁸', '9': '⁹'
+            };
+            return String(num).split('').map(d => superscripts[d] || d).join('');
+        }
+
+        // Event listeners
+        distanceSlider.addEventListener('input', () => {
+            updateDisplays();
+            updateChart();
+        });
+
+        massSlider.addEventListener('input', () => {
+            updateDisplays();
+            updateChart();
+        });
+
+        accelSlider.addEventListener('input', () => {
+            updateDisplays();
+            updateChart();
+        });
+
+        // Initial update
+        updateDisplays();
+        updateChart();
+    </script>
+</body>
+</html>

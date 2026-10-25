@@ -1,0 +1,835 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{jheppub}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{lineno}
+\linenumbers
+
+\title{\boldmath Hidden in Plain Sight Since 1928:\\
+The Gravitational Coupling Polynomial
+$f(K) = K^0 + K^1 + K^2$}
+
+\author{Stephen Nelson}
+\affiliation{Field Dynamics Research\\
+\href{mailto:contact@fielddynamics.org}{contact@fielddynamics.org}}
+
+\preprint{Zenodo: [DOI to be inserted]}
+
+\abstract{
+The tetrad equation of general relativity,
+$g_{\mu\nu} = \eta_{ab}\,e^a_\mu\,e^b_\nu$, has been in
+continuous use since Einstein wrote it in 1928. We show
+that it contains an unread polynomial. A rank-level scan
+of the equation's structural content on the local frame
+space identifies three occupied tensor ranks --- a
+closure condition (rank~0), a frame (rank~1), and a
+coupling template (rank~2) --- whose rank-dimensions sum
+to $K^0 + K^1 + K^2 = 1 + 4 + 16 = 21$, where $K = 4$ is
+the frame dimension. Two independent arguments then
+establish that $K = 4$ is the unique value compatible with
+field closure in $D = 3$ spatial dimensions: the combinatorial
+self-duality of the tetrahedron via Pascal's triangle, and
+three independent physical constraints from gravitational
+wave observations, the simplex theorem, and ghost-free
+bimetric gravity. The resulting polynomial
+$f(K,s) = 1 + sK + K^2$ evaluates to three integers ---
+21, 17, and 13 --- in its three structural states, locked
+by an algebraic identity that permits no adjustment. A
+companion letter develops the application of the
+polynomial's contact coupling at $s = 0$ to the underdetermined
+parameter space of Hassan--Rosen bimetric gravity.
+}
+
+\begin{document}
+\maketitle
+
+%--------------------------------------------------------------
+\section{An Equation Used for a Century Without Being Read}
+%--------------------------------------------------------------
+
+Tetrad formalism is one of the oldest and most widely used
+languages in gravitational physics. Einstein introduced
+the tetrad in 1928~\cite{Einstein1928} as a way to work
+with local inertial frames in curved spacetime. Since then,
+it has become indispensable across several distinct
+traditions. Regge calculus discretizes spacetime using the
+tetrahedron as its fundamental three-dimensional building
+block~\cite{Regge1961}; spinfoam models use the tetrahedral
+intertwiner as the fundamental vertex of quantum
+geometry~\cite{Rovelli}; and bimetric gravity employs two
+independent vierbein fields $e^a_\mu$ and $\tilde{e}^a_\mu$
+coupled through a shared interaction
+structure~\cite{HR2012a,Alexandrov2013}. These frameworks
+draw on different aspects of the same geometric source: the
+local frame, the tetrahedral symmetry of three-dimensional
+space, and the geometric condition that holds the structure
+complete at every point. The tetrahedron and the tetrad are not peripheral
+tools. They are at the core of how modern physics describes
+the geometry of space.
+
+A requirement common to all of these frameworks is
+\emph{field closure}: the condition that the geometric
+structure at each point is complete, non-degenerate, and
+self-consistent --- that the field holds together rather
+than collapsing. In Regge calculus, field closure means a
+simplicial complex in which every boundary face is shared
+by exactly two simplices: no open edges, no dangling
+geometry, the structure complete~\cite{Regge1961}. In loop
+quantum gravity and spinfoam models, it is the closure
+constraint $\sum_i \vec{L}_i = 0$ at each spin network
+vertex --- the Gauss law of the discrete geometry, ensuring
+that the dual polyhedron closes~\cite{Rovelli}. In tetrad
+gravity, it is $\det(e) \neq 0$: the legs of the local
+frame span the tangent space completely, and the metric is
+non-degenerate. In every case the logic is the same: the
+field either closes --- the geometry holds --- or it does
+not. Field closure is not a condition imposed from outside.
+It is the minimal requirement that the geometry be real.
+
+In the tetrad formulation of bimetric gravity, both
+vierbein fields $e^a_\mu$ and $\tilde{e}^a_\mu$ must be
+simultaneously defined at each spacetime point, and the
+ghost-free interaction potential is built from the
+transition matrix $S^a{}_b = (e^{-1}\tilde{e})^a{}_b$
+evaluated at that shared point~\cite{HR2012a,Alexandrov2013}.
+Standard bimetric treatments leave the relative spatial
+orientation of the two vierbein fields as an unconstrained
+choice. The closure condition derived in Section~3 removes
+this freedom: non-degenerate field closure requires the two
+sectors to carry opposite spatial orientations,
+$\mathrm{sgn}(\det e) = -\mathrm{sgn}(\det \tilde{e})$,
+so that each defines its own tetrahedral frame at the
+coupling point. We call the coupling state at which
+the two sectors meet --- the $s = 0$ evaluation of the
+polynomial introduced in Section~3 --- the \emph{Field
+Origin}. We call the sector containing the physical
+observer the \emph{primary sector}; its geometrically
+required partner with reversed spatial orientation is
+the \emph{dual sector}. The resulting geometry is two
+interlocked tetrahedral sectors of opposite orientation,
+connected through their shared Field Origin.
+
+At the foundation of all of this sits a single equation:
+\begin{equation}
+  g_{\mu\nu} = \eta_{ab}\,e^a_\mu\,e^b_\nu.
+  \label{eq:tetrad}
+\end{equation}
+It appears in every standard textbook on gravitational
+physics~\cite{MTW,Carroll,Rovelli} and has been treated,
+for nearly a century, as a definition: a convenient way to
+encode the spacetime metric through a locally defined
+orthonormal frame. The internal metric $\eta_{ab}$ is the
+Minkowski metric of special relativity:
+$\eta_{ab} = \mathrm{diag}(-1,+1,+1,+1)$. This is the
+Lorentzian signature of modern physics --- one timelike
+direction and three spacelike directions. It is not an
+assumption of the tetrad formalism. It is the signature of
+spacetime itself, the geometric fact from which the
+$3+1$ structure of general relativity descends. The tetrad
+$e^a_\mu$ assigns one orthonormal leg to each of these
+four directions: one timelike leg $e^0_\mu$ and three
+spacelike legs $e^i_\mu$, $i = 1,2,3$. The frame dimension
+is therefore $K = 4$ --- fixed not by choice but by the
+Lorentzian geometry of spacetime.
+
+Physicists use it, differentiate it, expand perturbation
+theory around it, and derive consequences from it. They have
+been very good at answering one particular question about it:
+how many independent components does $g_{\mu\nu}$ have?
+The answer is ten.
+
+That is the right answer to that question. But it is not
+the question this paper asks.
+
+The question here is different, and simpler: how many
+structurally distinct \emph{rank levels} does
+Eq.~\eqref{eq:tetrad} occupy on the local frame space?
+Not how many numbers fill each slot, but how many tensor
+ranks carry non-trivial content --- and what is the
+rank-dimension at each occupied level? When you ask this
+question, as we explain in the next section, the answer
+is $1 + 4 + 16 = 21$.
+
+This sum is the coupling polynomial $f(K) = 1 + K + K^2$
+evaluated at $K = 4$. It has been present in
+Eq.~\eqref{eq:tetrad} since 1928. It has not been read
+before because the standard question in tetrad gravity
+asks about components, not structural types. This paper
+reads it --- and then shows, through two independent
+arguments, that no other polynomial could have been
+hiding there.
+
+
+%--------------------------------------------------------------
+\section{Reading the Polynomial: Rank-Dimension Counting}
+%--------------------------------------------------------------
+
+Before we can count, we need to agree on what we are
+counting. There are three natural ways to measure the
+``size'' of an object in the tetrad equation, and they
+give three different answers. Choosing the wrong one
+produces a number that looks correct but carries no
+structural meaning. Choosing the right one produces the
+polynomial.
+
+The first measure is \emph{independent components}: after
+imposing all symmetries, how many free numbers characterize
+the object? For the symmetric metric $g_{\mu\nu}$, the
+answer is ten. For the tetrad $e^a_\mu$, the answer is
+sixteen, reduced to ten by local Lorentz freedom --- the
+freedom to boost and rotate the orthonormal frame
+independently at each spacetime point. These are correct answers to a question about
+physical degrees of freedom.
+
+The second measure is \emph{nonzero entries}: for the flat
+Minkowski metric $\eta_{ab} = \mathrm{diag}(-1,+1,+1,+1)$,
+the matrix has $4 \times 4 = 16$ entries in total, of which
+four are nonzero diagonal entries and twelve are zeros.
+This correctly describes a particular signature choice.
+It counts how the sixteen available pairings happen to be
+weighted in flat spacetime.
+
+The third measure is \emph{rank-dimension}: for a tensor
+of rank $r$ defined on the local frame space --- the
+four-dimensional space indexed by the frame index $a$,
+of dimension $K$ --- the rank-dimension is simply $K^r$. It does not depend on
+which entries are zero, which are equal, or which symmetry
+has been imposed. It counts how many frame-direction
+combinations the object must be defined on --- the size
+of the template itself, before any values are assigned.
+
+The polynomial asks the third question. More precisely,
+it performs a \emph{rank-level scan}: at each tensor rank
+$r = 0, 1, 2, \ldots$ on the local frame space, it asks
+whether the tetrad equation requires a non-trivial
+structural condition at that rank. If a rank is occupied
+--- if the theory demands something there --- it
+contributes $K^r$ to the sum. If a rank is unoccupied,
+it contributes nothing. We now scan the ranks.
+
+\textbf{Rank~0: The closure condition.}
+A rank-0 object on frame space is a scalar: a single
+number with no free frame index. In the vierbein
+formulation of gravity, the action takes the form
+$S = \int e\,\mathcal{L}\,d^4x$, where
+$e = \det(e^a_\mu)$ is the scalar volume measure --- the
+Jacobian that converts coordinate volume into geometric
+volume~\cite{Carroll,MTW}. The requirement $e \neq 0$
+is the statement that the rank-0 sector of the frame
+bundle is non-trivially occupied: the geometry closes
+rather than degenerates.
+
+This point deserves emphasis, because a reader may
+object that $\det(e)$ is computed from $e^a_\mu$ and
+therefore not a separate structural ingredient. But
+consider a soap bubble. The closure of the film ---
+the condition that it forms a bounded surface enclosing
+volume --- is not a separate material added to the soap.
+It is produced by the film. Yet a soap film that does
+not close is a fundamentally different object: an open
+surface, not a bubble. Closure is structurally
+independent of the film's local properties in the
+precise sense that you can specify the film everywhere
+and still fail to have closure. The same is true here.
+One can write down a tetrad $e^a_\mu$ with all sixteen
+components specified and still have $\det(e) = 0$ at a
+point. At that point the frame does not span the tangent
+space, the metric degenerates, and the equation
+$g_{\mu\nu} = \eta_{ab}\,e^a_\mu\,e^b_\nu$ describes
+no geometry. Moreover, $\det(e) \neq 0$ is not external to
+Eq.~\eqref{eq:tetrad}: the left-hand side $g_{\mu\nu}$ is
+a non-degenerate metric only when $\det(e) \neq 0$. The
+rank-0 condition is the precondition for the equation to
+mean what it says. It is the independent structural
+requirement that the geometry holds --- that the field
+closes rather than collapses. It contributes one
+structural element to the count.
+\begin{equation*}
+  \text{Rank-dimension of rank 0:}\quad K^0 = 1.
+\end{equation*}
+
+\textbf{Rank~1: The frame.}
+A rank-1 object on frame space is a vector: one free
+frame index $a$, running over $K$ values. The tetrad
+$e^a_\mu$ carries exactly one free frame index. It assigns
+a spacetime one-form to each of the $K$ frame
+directions: one timelike and three spacelike. This is
+the frame --- the set of directions the local geometry
+provides. It contributes $K$ structural elements.
+\begin{equation*}
+  \text{Rank-dimension of rank 1:}\quad K^1 = K = 4.
+\end{equation*}
+
+\textbf{Rank~2: The coupling template.}
+A rank-2 object on frame space is a matrix: two free
+frame indices $a$ and $b$, each running over $K$ values.
+The contraction $\eta_{ab}\,e^a_\mu\,e^b_\nu$ evaluates
+one term for every ordered pair $(a,b)$. There are
+$K \times K$ such pairs.
+
+This step deserves care, because it is where the standard
+component count and the rank-dimension count diverge.
+The flat Minkowski metric $\eta_{ab}$ assigns $\pm 1$
+to the four diagonal pairs and zero to the twelve
+off-diagonal pairs. It is tempting to read those zeros
+as absences --- as if only four pairings are really
+active. But that reading is wrong. The zeros are not
+absences. They are assignments of zero weight to twelve
+of the sixteen pairings. The template itself --- the
+double contraction over all ordered pairs $(a,b)$ ---
+evaluates all sixteen regardless of what values
+$\eta_{ab}$ takes. A Euclidean metric would assign $+1$
+across the same sixteen pairings. A different signature choice would distribute those sixteen
+values differently still. What is structurally
+invariant is the template: $K \times K$ frame-direction
+pairings that the coupling must be defined on.
+\begin{equation*}
+  \text{Rank-dimension of rank 2:}\quad K^2 = 16.
+\end{equation*}
+
+Summing the occupied ranks by rank-dimension:
+\begin{equation}
+  \underbrace{K^0}_{= 1,\ \text{existence}}
+  +\underbrace{K^1}_{= 4,\ \text{frame}}
+  +\underbrace{K^2}_{= 16,\ \text{pairing template}}
+  = 1 + 4 + 16 = 21.
+  \label{eq:sum}
+\end{equation}
+
+This sum is the total dimension of the graded frame algebra
+$\bigoplus_{r=0}^{2} V^{(r)}$, where $V^{(r)}$ is the
+space of rank-$r$ tensors on the $K$-dimensional frame
+space --- the same operation that yields the Euler
+characteristic when the alternating-sign convention is
+applied to a simplicial complex~\cite{Regge1961}. Summing
+dimensions across tensor ranks is not exotic; it is one of
+the most standard operations in algebra and topology.
+
+The coupling polynomial $f(K) = K^0 + K^1 + K^2$ is this
+graded dimension evaluated at $K = 4$. The polynomial counts how many
+structural levels the field must traverse before field
+closure is achieved --- before the geometry holds completely.
+We call this the \emph{coupling depth}; at $K = 4$ in
+three spatial dimensions, the coupling depth of the
+tetrad equation is 21.
+
+The scan terminates at rank~2. The tetrad equation has
+exactly three occupied ranks because a tetrad theory
+requires exactly three levels of structural description:
+whether spacetime is non-degenerate (rank~0), which
+directions exist (rank~1), and how those directions
+couple to each other (rank~2). This mirrors the standard
+decomposition in gauge field theory --- scalar sector,
+vector sector, tensor sector --- and for the same
+reason: these are the only ranks at which the field
+carries independent structural content. A rank-3 object
+would require three simultaneous free frame indices at
+each coupling event. No such object appears in
+$g_{\mu\nu} = \eta_{ab}\,e^a_\mu\,e^b_\nu$, in the
+tetrad action, or in the field equations of any metric
+or bimetric gravity theory. The equation closes at
+rank~2, and the polynomial closes with it.
+
+One clarifying note. When independent components are
+counted instead of rank-dimensions --- one for the
+scalar volume measure, ten for the tetrad after fixing
+local Lorentz freedom, ten for the symmetric metric --- the sum is
+$1 + 10 + 10 = 21$: the same number, by coincidence.
+That coincidence is worth naming because a reader might
+wonder whether both counts say the same thing. They
+do not. The independent-component count reaches 21 by
+accident, with no structural reason for the total. Only
+the rank-dimension count is a polynomial in $K$; the
+component count $1 + 10 + 10$ does not generalize to
+other values of $K$ and carries no algebraic structure.
+The polynomial emerges from the rank-dimension count.
+It does not emerge from the component count.
+
+The polynomial $f(K) = K^0 + K^1 + K^2$ was written in
+1928 as $g_{\mu\nu} = \eta_{ab}\,e^a_\mu\,e^b_\nu$.
+It has taken a century to read it.
+
+
+%--------------------------------------------------------------
+\section{Why $K = 4$: The Closure Condition}
+%--------------------------------------------------------------
+
+Section~2 presented the polynomial form with $K$ as a free
+symbol to keep the structural argument general. This section
+establishes $K = 4$ by a second, independent route: the
+combinatorial self-duality of the tetrahedron and the
+closure condition it imposes. The specific polynomial with
+values $1 + 4 + 16 = 21$ requires this.
+
+The tetrahedron is the three-dimensional simplex: the
+minimal solid that encloses a bounded region of space
+with the fewest possible faces. Its complete anatomy ---
+every vertex, edge, face, and body --- is encoded in
+row $K = 4$ of Pascal's triangle:
+\begin{equation}
+  \binom{4}{0} = 1,\quad
+  \binom{4}{1} = 4,\quad
+  \binom{4}{2} = 6,\quad
+  \binom{4}{3} = 4,\quad
+  \binom{4}{4} = 1.
+\end{equation}
+These five numbers count, in order: the empty set
+(the existence condition), vertices, edges, faces, and
+the enclosed body. They are determined entirely by $K = 4$
+and carry no free choices.
+
+Look at the row carefully: 1, 4, 6, 4, 1. It reads the
+same forwards and backwards. The second and fourth entries
+are equal --- both are 4. In geometric terms, the
+tetrahedron has the same number of vertices as it has
+faces. This is \emph{self-duality}. The dual of a
+polyhedron is built by placing a new vertex at the center
+of each face; for the tetrahedron, the result is another
+tetrahedron. Vertices and faces are structurally
+interchangeable. No other regular solid has this property.
+
+Self-duality forces the polynomial into exactly three
+terms. In Regge calculus, each Pascal entry corresponds
+to a distinct geometric stratum of the simplex ---
+vertices, edges, faces, body --- each contributing an
+independent coupling channel to the interaction
+structure~\cite{Regge1961}. If vertex and face counts
+were different --- as they are for the cube, the
+octahedron, or any other regular polyhedron --- a coupling
+formula built from Pascal's row would need separate terms
+for vertex channels and face channels, producing five
+terms in all. Because the tetrahedron is self-dual, those
+separate terms collapse into a single propagation term.
+Five Pascal entries become three polynomial terms:
+\begin{equation}
+  K^0 = 1 \quad (\text{existence}),\qquad
+  K^1 = 4 \quad (\text{propagation}),\qquad
+  K^2 = 16 \quad (\text{pair-complete interaction: every
+  ordered pair $(a,b)$ of frame directions contributing
+  one coupling channel}).
+\end{equation}
+
+Now we apply the closure condition. The two tetrad sectors
+established in Section~1 --- each carrying a tetrahedral
+frame, meeting at the Field Origin --- form the geometric
+object whose closure we must enforce. Mapping from the
+primary sector to the dual sector is a spatial orientation
+reversal: $\mathrm{sgn}(\det e)$ flips sign. We introduce
+a state parameter $s \in \{+1, 0, -1\}$ to index this
+orientation. To evaluate the polynomial in the dual sector,
+$s$ must act on each term according to the transformation
+rule for its tensor rank under spatial reflection.
+
+Section~2 established three occupied ranks.
+Their behavior under spatial reflection follows directly
+from that classification:
+\begin{itemize}
+\item \textbf{Rank-0 (scalar volume measure, $K^0 = 1$):}
+A scalar has no spatial extent or direction. It is strictly
+invariant under spatial orientation reversal. The term
+contributes $+1$ in both sectors.
+\item \textbf{Rank-1 (tetrad frame, $K^1 = K$):}
+A vector carries one free frame index and therefore
+possesses directionality. Under spatial orientation
+reversal, the spatial components of a vector flip sign.
+The term contributes $+K$ in the primary sector and
+$-K$ in the dual sector: it carries the factor $s$.
+\item \textbf{Rank-2 (coupling template, $K^2$):}
+A rank-2 tensor carries two free frame indices. Under
+spatial orientation reversal, each index contributes a
+sign flip, and $(-s)(-s) = +1$. The bilinear coupling
+template is even under parity and therefore invariant.
+The term contributes $+K^2$ in both sectors.
+\end{itemize}
+The state parameter $s$ therefore enters the polynomial
+exclusively in the linear term, by geometric necessity:
+\begin{equation}
+  f(K, s) = 1 + sK + K^2.
+  \label{eq:polynomial_s}
+\end{equation}
+This is not a parametric choice. It is the unique form
+consistent with how rank-0, rank-1, and rank-2 objects
+transform under spatial reflection. This classification
+follows the standard representation-theoretic convention
+for spatial inversion in Lorentzian spacetime: a rank-1
+object has parity $-1$ as a representation, just as a
+four-vector in quantum field theory is classified as
+parity-odd even though its timelike component is invariant
+under spatial reflection. The Lorentzian signature
+$(-1,+1,+1,+1)$ is precisely what makes the $3+1$ split
+--- and therefore the definition of spatial parity ---
+well-defined. The invariant timelike direction is the
+anchor that gives spatial orientation its meaning, not a
+counterexample to the parity assignment.
+
+For this dual-sector structure to be topologically
+closed, the dynamic range of the coupling polynomial
+across its two chambers must match the combinatorial
+content of the simplex boundary. This requirement has a
+concrete algebraic counterpart. The Hassan--Rosen
+ghost-free interaction potential is built from the
+elementary symmetric polynomials $e_n(S)$ of the frame
+transition matrix
+$S^a{}_b$~\cite{HR2012a,HR2012b,Alexandrov2013}. In the
+canonical (Hamiltonian) formulation, the physically
+independent interaction structure is carried by the $D$
+spatial eigenvalues of $S$, whose elementary symmetric
+polynomials organize the $2^D$ subsets of the spatial
+simplex boundary by
+cardinality~\cite{Alexandrov2013}. For the dynamic range
+of the coupling polynomial to encode all and only these
+subsets --- one coupling channel per boundary subset,
+with no degeneracy and no excess --- requires
+$\Delta f = 2^D$. If $\Delta f < 2^D$, boundary subsets
+share coupling channels and information is lost at the
+boundary: the closure is degenerate. If
+$\Delta f > 2^D$, coupling channels exist with no
+boundary subset to absorb them --- the potential
+contains interaction terms beyond those permitted by the
+elementary symmetric polynomial structure, which is
+precisely the condition that reintroduces the
+Boulware--Deser ghost~\cite{BD1972,HR2012b}. The unique
+condition for non-degenerate, ghost-free closure is
+therefore $\Delta f = 2^D$.
+
+The dynamic range of the polynomial across the two tetrad
+sectors is the difference between the primary and dual
+evaluations:
+\begin{equation}
+  \Delta f = f(K,+1) - f(K,-1) = (1 + K + K^2) - (1 - K + K^2) = 2K.
+  \label{eq:range}
+\end{equation}
+This follows from the polynomial form alone --- no
+assumption about the value of $K$. Note that the rank-0
+and rank-2 contributions cancel identically in the
+difference. This is not an accident: the parity
+classification established above guarantees that only the
+parity-odd sector (rank~1) distinguishes one tetrad
+sector from the other. The parity-even terms carry no
+sector-distinguishing information and therefore contribute
+nothing to the dynamic range. The full polynomial is
+nevertheless essential: it is the rank-level scan that
+establishes $K$ as the rank-dimension of the unique
+parity-odd level, and it is the parity structure of the
+complete polynomial that isolates $\Delta f = 2K$ as the
+dynamic range. Setting the dynamic
+range equal to the boundary combinatorial content:
+\begin{equation}
+  \Delta f = 2^D
+  \quad\Longrightarrow\quad
+  2K = 2^D.
+  \label{eq:closure}
+\end{equation}
+Substituting the simplex relation $K = D + 1$ ---
+the vertex count of the $D$-simplex, which equals the
+frame dimension of the tetrad in $D$ spatial dimensions
+(Confirmation~2 below establishes this identification
+independently):
+\begin{equation}
+  2(D + 1) = 2^D.
+  \label{eq:diophantine}
+\end{equation}
+This is a Diophantine equation in $D$. Checking all
+positive integers exhaustively:
+$D = 1$: $4 \neq 2$;\quad
+$D = 2$: $6 \neq 4$;\quad
+$D = 3$: $8 = 8$ \checkmark;\quad
+$D = 4$: $10 \neq 16$;\quad
+and for all $D \geq 4$ the right side grows exponentially
+while the left grows linearly, so no further solution
+exists. The equation has exactly one positive integer
+solution: $D = 3$, and therefore $K = 4$.
+
+$D = 3$ is not a physical postulate. It is the unique
+integer dimension at which the dual tetrad sector geometry
+closes. This single result fixes both the spatial simplex
+face count and the spacetime frame dimension simultaneously:
+the $D$-simplex has $K = D+1 = 4$ faces, and spacetime has
+$D+1 = 4$ dimensions --- the same $K = 4$ from the same
+$D = 3$, not two separate assumptions. With $K = 4$ fixed
+by this condition, the polynomial is fully determined:
+$f(K) = 1 + 4 + 16 = 21$. The form came from the tetrad
+equation in Section~2. The value of $K$ comes from the
+closure of the dual-sector geometry here. Together they
+give the complete polynomial with no freedom remaining.
+
+
+%--------------------------------------------------------------
+\section{Why $K = 4$: Three Physical Confirmations}
+%--------------------------------------------------------------
+
+The closure condition fixes $K = 4$ from pure geometry.
+Three independent physical facts --- each from a different
+domain of physics --- confirm it from the external world.
+Their agreement is not required by the geometry, which
+makes it a meaningful check: the universe has chosen
+the same value that the tetrahedron requires.
+
+\paragraph{Confirmation~1: Gravitational wave polarizations.}
+The LIGO--Virgo detection of GW170817~\cite{LIGO2017}
+established that exactly two tensor polarization modes
+propagate through spacetime. The number of propagating
+gravitational degrees of freedom is obtained by
+subtracting $K$ Hamiltonian constraints and $K$
+diffeomorphism constraints from the ten independent
+components of the metric. This subtraction is not
+coincidental: the $K$ basis vectors of the tetrad
+directly generate $K$ diffeomorphism freedoms through
+spacetime translations, and $K$ first-class Hamiltonian
+constraints through the local Lorentz symmetry of the
+frame~\cite{MTW,Carroll}. The result is:
+\begin{equation}
+  \text{propagating d.o.f.} = 10 - 2K.
+\end{equation}
+Setting this equal to 2 gives $K = 4$ uniquely. The
+observation that gravitational waves carry exactly two
+polarizations is equivalent to the statement that the
+local frame has exactly four legs.
+
+\paragraph{Confirmation~2: The simplex theorem.}
+In $D$ spatial dimensions, the minimum number of points
+needed to enclose a bounded region of space is $D + 1$~\cite{MTW}.
+This is a theorem, not an assumption. In three spatial
+dimensions, the minimum enclosing solid therefore has
+$K = D + 1 = 4$ vertices and, by self-duality, $K = 4$
+faces. Any coupling structure that operates in
+three-dimensional space must have $K = 4$ channels.
+This and Confirmation~1 reach $K = 4$ from entirely
+unrelated starting points; their agreement is a
+non-trivial consistency check.
+
+\paragraph{Confirmation~3: Ghost-free bimetric coupling.}
+Boulware and Deser showed~\cite{BD1972} that theories
+coupling two interacting spin-2 fields generically
+propagate an unphysical mode with negative kinetic energy,
+destabilizing the vacuum. Hassan and Rosen
+proved~\cite{HR2012a,HR2012b} that this pathology is
+eliminated if and only if the interaction potential is
+built from elementary symmetric polynomials of the frame
+transition matrix between two tetrad sectors. This
+independently establishes the dual-tetrad geometry ---
+two interacting $K = 4$ frame fields coupled through a
+shared transition matrix --- as the necessary architecture
+for ghost-free spin-2 coupling. Standard bimetric gravity
+leaves the relative orientation of the two sectors
+unconstrained; the closure condition derived in Section~3
+selects the opposite-orientation branch as the unique
+non-degenerate configuration.
+
+\paragraph{From confirmations to polynomial.}
+Each confirmation independently requires $K = 4$; together
+they confirm the complete polynomial structure. The
+existence condition ($K^0 = 1$) is the requirement that
+the coupling geometry be non-degenerate --- that the
+field close at all. Ghost-free bimetric gravity
+independently confirms that a coupling structure between
+two tetrad sectors must exist. The propagation term
+($K^1 = 4$) is the face count fixed by the simplex
+theorem and confirmed by LIGO's two-polarization
+measurement. The pair-complete interaction term
+($K^2 = 16$) is the complete frame transition: every
+face of one tetrahedral sector paired with every face
+of the other, $4 \times 4 = 16$ independent coupling
+directions --- the geometric realisation of which, at the
+dual tetrahedral boundary, is developed in the companion
+letter~\cite{Nelson2026b}. No term can be added, because the ghost-free
+interaction potential acts on the tetrahedral boundary
+--- the two-dimensional surface of faces --- as
+established in the Hassan--Rosen canonical
+analysis~\cite{Alexandrov2013}. A $K^3$ coupling would
+require a three-dimensional cell on that two-dimensional
+boundary, which does not exist. No term can be removed,
+because each one is demanded by a separate physical
+requirement. The polynomial $1 + sK + K^2$ with $K = 4$
+satisfies all three confirmations simultaneously.
+
+
+%--------------------------------------------------------------
+\section{The Arithmetic Mean Lock}
+%--------------------------------------------------------------
+
+The polynomial is now fully established: $f(K,s) = 1 + sK + K^2$
+with $K = 4$. A natural next question is how rigid this
+result is. Could the integers it produces be adjusted, even
+slightly, without breaking something?
+
+The answer is no. The two interlocked tetrahedral sectors
+established in Section~1 --- each carrying opposite spatial
+orientation, meeting at their shared Field Origin --- give
+the polynomial three natural evaluation points. The state
+parameter $s$ established in Section~3 takes three values:
+$s = +1$ in the primary sector, where the observer sits
+and the full gravitational response is active; $s = 0$ at
+the Field Origin, where both sectors meet at a single
+shared point, spatial extent collapses to zero, and the
+propagation term contributes nothing; and $s = -1$ in the
+dual sector, where the spatial orientation is reversed.
+The three evaluations are:
+\begin{equation}
+  f(4,+1) = 21, \qquad f(4,0) = 17, \qquad f(4,-1) = 13.
+  \label{eq:states}
+\end{equation}
+
+These three integers are not independent. For any polynomial
+of the form $1 + sK + K^2$, evaluating at $s = +1$, $0$,
+and $-1$ always produces three equally spaced values, with
+spacing exactly $K$. The middle value is always the
+arithmetic mean of the outer two:
+\begin{equation}
+  \frac{f(K,+1) + f(K,-1)}{2} = f(K,0)
+  \quad\Longrightarrow\quad
+  \frac{21 + 13}{2} = 17.
+  \label{eq:lock}
+\end{equation}
+This is not a coincidence specific to $K = 4$. It is an
+algebraic consequence of the polynomial's form, forced
+for any $K$.
+
+Think of the three integers as equally spaced marks on a
+ruler, with spacing $K = 4$. Moving any one of them
+requires moving all three, because they are not three
+separate numbers --- they are one polynomial evaluated
+at three points. More precisely: if the Field Origin
+value were 18 instead of 17, the equal spacing would
+break, the primary state $1 + K + K^2$ would cease to
+be the finite geometric series $\sum_{i=0}^{D-1} K^i$ for
+$D = 3$, causing the geometric series identity
+\begin{equation}
+  f(K) = \frac{K^D - 1}{K - 1}
+\end{equation}
+to fail, and the connection between the polynomial
+and the dimension of space $D = 3$ would be severed.
+The integers 21, 17, and 13 form a single rigid object.
+There are no free parameters to adjust.
+
+
+%--------------------------------------------------------------
+\section{Discussion and Conclusion}
+%--------------------------------------------------------------
+
+The tetrad equation $g_{\mu\nu} = \eta_{ab}\,e^a_\mu\,e^b_\nu$
+is one of the most-used equations in gravitational physics.
+Regge calculus builds discrete spacetime from tetrahedra.
+Bimetric gravity couples two vierbein fields through a dual
+tetrad structure~\cite{Alexandrov2013}. Spinfoam models use
+the tetrahedral intertwiner as the building block of quantum
+geometry. Every one of these formalisms has been working with
+the ingredients of the coupling polynomial. None had asked
+what those ingredients sum to when counted by rank-dimension.
+
+The answer is $K^0 + K^1 + K^2 = 1 + 4 + 16 = 21$: the
+coupling polynomial $f(K) = 1 + K + K^2$, uniquely fixed
+by the Diophantine closure condition $2(D+1) = 2^D$ at
+$D = 3$, $K = 4$, and confirmed by three independent
+physical facts. The coupling
+depth of the tetrad equation is 21. The three
+structural integers 21, 17, and 13 are locked by the
+arithmetic mean identity $(21 + 13)/2 = 17$ and form a
+single rigid object with no adjustable parameters.
+
+The polynomial evaluated at the Field Origin under contact
+coupling, $s = 0$, gives $f(K,0) = 1 + K^2 = 17$, whose
+interaction term $K^2 = 16$ constrains the weight of the
+second-order coupling in the Hassan--Rosen bimetric
+interaction potential. A companion letter~\cite{Nelson2026b}
+shows that this evaluation, combined with orientation parity
+and exchange symmetry, uniquely locks all five parameters
+of the Hassan--Rosen bimetric interaction potential to
+$\{\beta_n\} = \{1, 0, 16, 0, 1\}$, producing a testable
+prediction at the MOND transition scale.
+
+The coupling polynomial $f(K,s) = 1 + sK + K^2$ is not
+new. It is among the oldest objects in gravitational
+physics, encoded in the tetrad equation since 1928.
+Tetrad formalism, Regge calculus, spinfoam theory, and
+bimetric gravity have all been using its ingredients
+without reading the sum. The question was always there.
+This paper asks it.
+
+
+%--------------------------------------------------------------
+\acknowledgments
+%--------------------------------------------------------------
+
+The author acknowledges the tetrad gravity formalism of
+Cartan, Einstein, and Weyl; the simplicial framework of
+Regge; and the ghost-free bimetric structure of Hassan
+and Rosen. Thanks to the broader community working on
+the geometric foundations of gravitational field theory.
+
+
+%--------------------------------------------------------------
+\begin{thebibliography}{99}
+%--------------------------------------------------------------
+
+\bibitem{Einstein1928}
+A.~Einstein,
+\emph{Riemann-Geometrie mit Aufrechterhaltung des Begriffes
+des Fernparallelismus},
+Sitzungsber.\ Preuss.\ Akad.\ Wiss.\ (1928) 217.
+
+\bibitem{Regge1961}
+T.~Regge,
+\emph{General relativity without coordinates},
+Nuovo Cimento \textbf{19} (1961) 558.
+
+\bibitem{MTW}
+C.~W.~Misner, K.~S.~Thorne and J.~A.~Wheeler,
+\emph{Gravitation},
+W.~H.~Freeman, San Francisco (1973).
+
+\bibitem{Carroll}
+S.~M.~Carroll,
+\emph{Spacetime and Geometry: An Introduction to General
+Relativity},
+Addison-Wesley (2004).
+
+\bibitem{Rovelli}
+C.~Rovelli,
+\emph{Quantum Gravity},
+Cambridge University Press (2004).
+
+\bibitem{HR2012a}
+S.~F.~Hassan and R.~A.~Rosen,
+\emph{Bimetric gravity from ghost-free massive gravity},
+JHEP \textbf{02} (2012) 126.
+
+\bibitem{HR2012b}
+S.~F.~Hassan and R.~A.~Rosen,
+\emph{Confirmation of the secondary constraint and absence of
+ghost in massive gravity and bimetric gravity},
+JHEP \textbf{04} (2012) 123.
+
+\bibitem{Alexandrov2013}
+S.~Alexandrov,
+\emph{Canonical structure of tetrad bimetric gravity},
+Gen.\ Rel.\ Grav.\ \textbf{46} (2014) 1639,
+arXiv:1308.6586.
+
+\bibitem{LIGO2017}
+B.~P.~Abbott et al.\ (LIGO Scientific and Virgo
+Collaborations),
+\emph{GW170817: Observation of Gravitational Waves from a
+Binary Neutron Star Inspiral},
+Phys.\ Rev.\ Lett.\ \textbf{119} (2017) 161101.
+
+\bibitem{BD1972}
+D.~G.~Boulware and S.~Deser,
+\emph{Can gravitation have a finite range?}
+Phys.\ Rev.\ D \textbf{6} (1972) 3368.
+
+\bibitem{Nelson2026}
+S.~Nelson,
+\emph{Gravity Field Dynamics: Framework Essentials},
+Zenodo (2026), DOI:~[to be inserted].
+
+\bibitem{Nelson2026b}
+S.~Nelson,
+\emph{Gravity Field Dynamics and Bimetric Gravity: Dual
+Tetrahedral Geometry as the Origin of the Hassan--Rosen
+Interaction Parameters},
+companion letter (2026).
+
+\end{thebibliography}
+
+\end{document}

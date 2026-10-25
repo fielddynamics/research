@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GFD Sierpiński Packing — Nuclear Binding</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&family=Crimson+Pro:wght@400;600;700&display=swap');
+
+:root {
+  --bg: #08090d;
+  --bg2: #0f1118;
+  --bg3: #171a24;
+  --text: #b8bcc8;
+  --dim: #454d64;
+  --bright: #eef0f6;
+  --cyan: #00ddb8;
+  --gold: #d4a000;
+  --rose: #d04878;
+  --violet: #9060d0;
+  --blue: #4888d8;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  min-height: 100vh;
+}
+
+h1 {
+  font-family: 'Crimson Pro', serif;
+  font-size: 1.5rem;
+  color: var(--bright);
+  margin-bottom: 0.2rem;
+}
+
+.sub { font-size: 0.5rem; color: var(--dim); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 0.8rem; }
+
+.top-bar {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 0.8rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.slider-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--bg2);
+  border: 1px solid #1e2130;
+  border-radius: 3px;
+  padding: 0.4rem 0.8rem;
+}
+
+.slider-wrap label { font-size: 0.55rem; color: var(--dim); letter-spacing: 0.1em; text-transform: uppercase; }
+.slider-wrap input[type=range] { width: 300px; cursor: pointer; accent-color: var(--cyan); }
+.slider-wrap .val { font-size: 1rem; color: var(--cyan); font-weight: 600; min-width: 5em; text-align: right; }
+
+.main {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.panel {
+  background: var(--bg2);
+  border: 1px solid #1e2130;
+  border-radius: 3px;
+  padding: 0.8rem;
+}
+
+.panel h3 {
+  font-size: 0.5rem;
+  color: var(--dim);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+canvas { display: block; border-radius: 2px; }
+
+.info-grid {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 0.2rem 1rem;
+  font-size: 0.65rem;
+}
+
+.info-grid .label { color: var(--dim); text-align: right; }
+.info-grid .value { color: var(--bright); font-weight: 500; }
+.info-grid .value.good { color: var(--cyan); }
+.info-grid .value.warn { color: var(--gold); }
+.info-grid .value.bad { color: var(--rose); }
+
+.chart-wrap { width: 100%; }
+.chart-wrap canvas { width: 100%; }
+
+.legend {
+  display: flex;
+  gap: 0.8rem;
+  justify-content: center;
+  margin-top: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.5rem;
+  color: var(--dim);
+}
+
+.legend-dot { width: 8px; height: 8px; border-radius: 1px; }
+
+.table-panel {
+  max-height: 500px;
+  overflow-y: auto;
+  font-size: 0.6rem;
+  width: 320px;
+}
+
+.el-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 2px 4px;
+  border-bottom: 1px solid #12151e;
+  cursor: pointer;
+  transition: background 0.1s;
+}
+
+.el-row:hover { background: rgba(0,221,184,0.05); }
+.el-row.active { background: rgba(0,221,184,0.1); color: var(--cyan); }
+.el-row .sym { font-weight: 600; width: 2.5em; }
+.el-row .err { font-size: 0.5rem; }
+.el-row .err.good { color: var(--cyan); }
+.el-row .err.ok { color: var(--gold); }
+.el-row .err.bad { color: var(--rose); }
+</style>
+</head>
+<body>
+
+<h1>GFD Sierpiński Packing — Nuclear Binding</h1>
+<div class="sub">64-position walk · m<sub>e</sub> × f(gd) per position · A ≤ 64</div>
+
+<div class="top-bar">
+  <div class="slider-wrap">
+    <label>A</label>
+    <input type="range" id="sliderA" min="1" max="64" value="12">
+    <span class="val" id="valA">C (A=12)</span>
+  </div>
+</div>
+
+<div class="main">
+  <div>
+    <div class="panel">
+      <h3>TetB Sierpiński Packing</h3>
+      <canvas id="triCanvas" width="440" height="400"></canvas>
+      <div class="legend">
+        <div class="legend-item"><div class="legend-dot" style="background:var(--cyan)"></div>gd=0 (f=17)</div>
+        <div class="legend-item"><div class="legend-dot" style="background:var(--blue)"></div>gd=1 (f=15)</div>
+        <div class="legend-item"><div class="legend-dot" style="background:var(--rose)"></div>gd=2 (f=13)</div>
+        <div class="legend-item"><div class="legend-dot" style="background:var(--violet)"></div>gd=3 (f=11)</div>
+      </div>
+    </div>
+
+    <div class="panel" style="margin-top:0.5rem;">
+      <h3>Element Info</h3>
+      <div class="info-grid" id="infoGrid"></div>
+    </div>
+  </div>
+
+  <div>
+    <div class="panel chart-wrap">
+      <h3>B/A Curve: Prediction vs Known</h3>
+      <canvas id="chartCanvas" width="460" height="300"></canvas>
+    </div>
+
+    <div class="panel table-panel" style="margin-top:0.5rem;" id="tablePanel">
+      <h3>All Elements (A ≤ 64)</h3>
+      <div id="elTable"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ═══════════════════════════════════════
+// DATA
+// ═══════════════════════════════════════
+
+const M_E = 0.51099895;
+const F_GD = [17, 15, 13, 11];
+const GD_COUNTS = [27, 27, 9, 1];
+
+const ELEMENTS = {
+  2:['He',4,7.074], 3:['Li',7,5.606], 4:['Be',9,6.463], 5:['B',11,6.928],
+  6:['C',12,7.680], 7:['N',14,7.476], 8:['O',16,7.976], 9:['F',19,7.779],
+  10:['Ne',20,8.032], 11:['Na',23,8.111], 12:['Mg',24,8.261], 13:['Al',27,8.332],
+  14:['Si',28,8.448], 15:['P',31,8.481], 16:['S',32,8.493], 17:['Cl',35,8.520],
+  18:['Ar',40,8.595], 19:['K',39,8.557], 20:['Ca',40,8.551], 21:['Sc',45,8.619],
+  22:['Ti',48,8.723], 23:['V',51,8.742], 24:['Cr',52,8.776], 25:['Mn',55,8.765],
+  26:['Fe',56,8.790], 27:['Co',59,8.768], 28:['Ni',58,8.732], 29:['Cu',63,8.752],
+  30:['Zn',64,8.756],
+};
+
+// Reverse lookup: A → element
+const A_TO_EL = {};
+for (const [z, [sym, a, ba]] of Object.entries(ELEMENTS)) {
+  A_TO_EL[a] = { Z: +z, sym, A: a, BA: ba };
+}
+
+// ═══════════════════════════════════════
+// WALK COMPUTATION
+// ═══════════════════════════════════════
+
+function gateDepth(i) {
+  const F = Math.floor(i / 16);
+  const C = Math.floor((i % 16) / 4);
+  const S = i % 4;
+  return (F === 3 ? 1 : 0) + (C === 3 ? 1 : 0) + (S === 3 ? 1 : 0);
+}
+
+function posAddress(i) {
+  return { F: Math.floor(i / 16), C: Math.floor((i % 16) / 4), S: i % 4 };
+}
+
+function computeBA(A) {
+  let total = 0;
+  for (let i = 0; i < Math.min(A, 64); i++) {
+    total += M_E * F_GD[gateDepth(i)];
+  }
+  return total / A;
+}
+
+function getMasks(A) {
+  const m = [0, 0, 0, 0];
+  for (let i = 0; i < Math.min(A, 64); i++) m[gateDepth(i)]++;
+  return m;
+}
+
+// Precompute all predictions
+const predictions = {};
+for (let a = 1; a <= 64; a++) {
+  predictions[a] = computeBA(a);
+}
+
+// ═══════════════════════════════════════
+// SIERPIŃSKI TRIANGLE DRAWING
+// ═══════════════════════════════════════
+
+const triCanvas = document.getElementById('triCanvas');
+const triCtx = triCanvas.getContext('2d');
+const CW = 440, CH = 400;
+const pad = 20;
+
+function subdivide(p0, p1, p2, isUp) {
+  const mx01 = { x: (p0.x+p1.x)/2, y: (p0.y+p1.y)/2 };
+  const mx12 = { x: (p1.x+p2.x)/2, y: (p1.y+p2.y)/2 };
+  const mx02 = { x: (p0.x+p2.x)/2, y: (p0.y+p2.y)/2 };
+  if (isUp) {
+    return [
+      { pts: [p0, mx01, mx02], isUp: true },
+      { pts: [mx01, p1, mx12], isUp: true },
+      { pts: [mx02, mx12, p2], isUp: true },
+      { pts: [mx01, mx02, mx12], isUp: false },  // gate (inverted)
+    ];
+  } else {
+    return [
+      { pts: [p0, mx01, mx02], isUp: false },
+      { pts: [mx01, p1, mx12], isUp: false },
+      { pts: [mx02, mx12, p2], isUp: false },
+      { pts: [mx01, mx02, mx12], isUp: true },  // gate (inverted back)
+    ];
+  }
+}
+
+function buildTriangles() {
+  const triH = (CW - pad * 2) * Math.sqrt(3) / 2;
+  const top = { x: CW / 2, y: pad };
+  const bl = { x: pad, y: pad + triH };
+  const br = { x: CW - pad, y: pad + triH };
+
+  // Level 1: 4 faces
+  const faces = subdivide(top, bl, br, true);
+
+  // Level 2: 16 channels (4 per face)
+  const channels = [];
+  faces.forEach(face => {
+    const subs = subdivide(face.pts[0], face.pts[1], face.pts[2], face.isUp);
+    subs.forEach(s => channels.push({ ...s, faceIsUp: face.isUp }));
+  });
+
+  // Level 3: 64 subchannels (4 per channel)
+  const subchannels = [];
+  channels.forEach(chan => {
+    const subs = subdivide(chan.pts[0], chan.pts[1], chan.pts[2], chan.isUp);
+    subs.forEach(s => subchannels.push(s));
+  });
+
+  return { faces, channels, subchannels };
+}
+
+const allTris = buildTriangles();
+
+// Map walk index to triangle index
+// Walk: F*16 + C*4 + S → position in subchannels array
+// Subchannels are built: face0(chan0(s0,s1,s2,s3), chan1(...), ...), face1(...), ...
+// This matches F*16 + C*4 + S directly
+function walkToTriIndex(walkIdx) {
+  return walkIdx; // same order
+}
+
+const gdColors = {
+  0: { fill: 'rgba(0,221,184,0.55)', stroke: 'rgba(0,221,184,0.7)' },
+  1: { fill: 'rgba(72,136,216,0.5)', stroke: 'rgba(72,136,216,0.65)' },
+  2: { fill: 'rgba(208,72,120,0.5)', stroke: 'rgba(208,72,120,0.7)' },
+  3: { fill: 'rgba(144,96,208,0.6)', stroke: 'rgba(144,96,208,0.8)' },
+};
+
+function drawTriangle(ctx, pts, fillColor, strokeColor, lw) {
+  ctx.beginPath();
+  ctx.moveTo(pts[0].x, pts[0].y);
+  ctx.lineTo(pts[1].x, pts[1].y);
+  ctx.lineTo(pts[2].x, pts[2].y);
+  ctx.closePath();
+  if (fillColor) { ctx.fillStyle = fillColor; ctx.fill(); }
+  if (strokeColor) { ctx.strokeStyle = strokeColor; ctx.lineWidth = lw || 0.5; ctx.stroke(); }
+}
+
+function centroid(pts) {
+  return { x: (pts[0].x+pts[1].x+pts[2].x)/3, y: (pts[0].y+pts[1].y+pts[2].y)/3 };
+}
+
+function drawSierpinski(A) {
+  triCtx.clearRect(0, 0, CW, CH);
+  triCtx.fillStyle = '#08090d';
+  triCtx.fillRect(0, 0, CW, CH);
+
+  // Draw all 64 subchannels
+  allTris.subchannels.forEach((tri, idx) => {
+    const gd = gateDepth(idx);
+    const filled = idx < A;
+
+    if (filled) {
+      const colors = gdColors[gd];
+      drawTriangle(triCtx, tri.pts, colors.fill, colors.stroke, 1);
+
+      // Show coupling value
+      const c = centroid(tri.pts);
+      const val = (M_E * F_GD[gd]).toFixed(2);
+      triCtx.font = '500 7px "IBM Plex Mono"';
+      triCtx.textAlign = 'center';
+      triCtx.fillStyle = 'rgba(255,255,255,0.7)';
+      triCtx.fillText(val, c.x, c.y + 2.5);
+    } else {
+      drawTriangle(triCtx, tri.pts, 'rgba(20,22,30,0.5)', '#1a1d28', 0.3);
+    }
+  });
+
+  // Face boundaries
+  allTris.faces.forEach(face => {
+    drawTriangle(triCtx, face.pts, null, 'rgba(255,255,255,0.12)', 1.5);
+  });
+
+  // Channel boundaries
+  allTris.channels.forEach(chan => {
+    drawTriangle(triCtx, chan.pts, null, 'rgba(255,255,255,0.04)', 0.5);
+  });
+
+  // Face labels
+  const faceLabels = ['Face 0', 'Face 1', 'Face 2', 'Face 3 (GATE)'];
+  const faceColors = ['#00ddb8', '#00ddb8', '#00ddb8', '#d04878'];
+  allTris.faces.forEach((face, fi) => {
+    const c = centroid(face.pts);
+    triCtx.font = '600 8px "IBM Plex Mono"';
+    triCtx.textAlign = 'center';
+    triCtx.fillStyle = faceColors[fi];
+    triCtx.globalAlpha = 0.35;
+    triCtx.fillText(faceLabels[fi], c.x, c.y);
+    triCtx.globalAlpha = 1;
+  });
+
+  // Status
+  triCtx.font = '500 10px "IBM Plex Mono"';
+  triCtx.textAlign = 'right';
+  triCtx.fillStyle = A === 64 ? '#d4a000' : '#454d64';
+  triCtx.fillText(`${A} / 64 filled`, CW - 10, CH - 8);
+}
+
+// ═══════════════════════════════════════
+// B/A CHART
+// ═══════════════════════════════════════
+
+const chartCanvas = document.getElementById('chartCanvas');
+const chartCtx = chartCanvas.getContext('2d');
+const cW = 460, cH = 300;
+
+function drawChart(currentA) {
+  chartCtx.clearRect(0, 0, cW, cH);
+  chartCtx.fillStyle = '#0a0b10';
+  chartCtx.fillRect(0, 0, cW, cH);
+
+  const margin = { l: 45, r: 15, t: 15, b: 30 };
+  const pw = cW - margin.l - margin.r;
+  const ph = cH - margin.t - margin.b;
+
+  // Scales
+  const xMin = 0, xMax = 68;
+  const yMin = 5, yMax = 10;
+
+  function toX(a) { return margin.l + (a - xMin) / (xMax - xMin) * pw; }
+  function toY(v) { return margin.t + (1 - (v - yMin) / (yMax - yMin)) * ph; }
+
+  // Grid
+  chartCtx.strokeStyle = '#1a1d28';
+  chartCtx.lineWidth = 0.5;
+  for (let y = 5; y <= 10; y += 0.5) {
+    chartCtx.beginPath();
+    chartCtx.moveTo(margin.l, toY(y));
+    chartCtx.lineTo(cW - margin.r, toY(y));
+    chartCtx.stroke();
+  }
+
+  // Axes labels
+  chartCtx.font = '400 8px "IBM Plex Mono"';
+  chartCtx.fillStyle = '#454d64';
+  chartCtx.textAlign = 'right';
+  for (let y = 5; y <= 10; y += 1) {
+    chartCtx.fillText(y.toFixed(0), margin.l - 5, toY(y) + 3);
+  }
+  chartCtx.textAlign = 'center';
+  for (let a = 0; a <= 64; a += 16) {
+    chartCtx.fillText(a, toX(a), cH - margin.b + 15);
+  }
+
+  chartCtx.fillStyle = '#454d64';
+  chartCtx.font = '400 7px "IBM Plex Mono"';
+  chartCtx.textAlign = 'center';
+  chartCtx.fillText('A (mass number)', cW/2, cH - 3);
+
+  // Prediction curve (all A=1..64)
+  chartCtx.beginPath();
+  chartCtx.strokeStyle = 'rgba(0,221,184,0.5)';
+  chartCtx.lineWidth = 1.5;
+  for (let a = 1; a <= 64; a++) {
+    const x = toX(a);
+    const y = toY(predictions[a]);
+    if (a === 1) chartCtx.moveTo(x, y); else chartCtx.lineTo(x, y);
+  }
+  chartCtx.stroke();
+
+  // Known element points
+  for (const [z, [sym, a, ba]] of Object.entries(ELEMENTS)) {
+    if (a > 64) continue;
+    const x = toX(a);
+    const y = toY(ba);
+    chartCtx.beginPath();
+    chartCtx.arc(x, y, 3, 0, Math.PI * 2);
+    chartCtx.fillStyle = a === currentA ? '#d4a000' : 'rgba(208,72,120,0.7)';
+    chartCtx.fill();
+  }
+
+  // Current A marker on prediction
+  if (currentA >= 1 && currentA <= 64) {
+    const px = toX(currentA);
+    const py = toY(predictions[currentA]);
+    chartCtx.beginPath();
+    chartCtx.arc(px, py, 5, 0, Math.PI * 2);
+    chartCtx.strokeStyle = '#00ddb8';
+    chartCtx.lineWidth = 2;
+    chartCtx.stroke();
+
+    // Vertical line
+    chartCtx.beginPath();
+    chartCtx.moveTo(px, margin.t);
+    chartCtx.lineTo(px, cH - margin.b);
+    chartCtx.strokeStyle = 'rgba(0,221,184,0.15)';
+    chartCtx.lineWidth = 1;
+    chartCtx.stroke();
+  }
+
+  // Legend
+  chartCtx.font = '400 7px "IBM Plex Mono"';
+  chartCtx.fillStyle = 'rgba(0,221,184,0.7)';
+  chartCtx.textAlign = 'left';
+  chartCtx.fillText('— Prediction (m_e × Σf/A)', margin.l + 5, margin.t + 10);
+  chartCtx.fillStyle = 'rgba(208,72,120,0.7)';
+  chartCtx.fillText('● Known B/A', margin.l + 5, margin.t + 22);
+}
+
+// ═══════════════════════════════════════
+// INFO PANEL
+// ═══════════════════════════════════════
+
+function updateInfo(A) {
+  const el = A_TO_EL[A];
+  const pred = predictions[A];
+  const masks = getMasks(A);
+  const Btotal = pred * A;
+  const nFaces = Math.min(Math.ceil(A / 16), 4);
+
+  let rows = [
+    ['A', A],
+    ['Element', el ? `${el.sym} (Z=${el.Z})` : '—'],
+    ['Faces active', `${nFaces} / 4`],
+    ['gd=0 filled', `${masks[0]} / 27`],
+    ['gd=1 filled', `${masks[1]} / 27`],
+    ['gd=2 filled', `${masks[2]} / 9`],
+    ['gd=3 filled', `${masks[3]} / 1`],
+    ['', ''],
+    ['B_total', `${Btotal.toFixed(2)} MeV`],
+    ['B/A predicted', `${pred.toFixed(4)} MeV`],
+  ];
+
+  if (el) {
+    const err = (pred - el.BA) * 1000;
+    const pct = Math.abs(err / 10 / el.BA);
+    const cls = pct < 0.5 ? 'good' : (pct < 2 ? 'warn' : 'bad');
+    rows.push(['B/A known', `${el.BA.toFixed(4)} MeV`]);
+    rows.push(['Error', { text: `${err >= 0 ? '+' : ''}${err.toFixed(0)} keV (${pct.toFixed(2)}%)`, cls }]);
+  }
+
+  // Gate depth breakdown
+  rows.push(['', '']);
+  rows.push(['gd=0 contrib', `${(masks[0] * M_E * 17).toFixed(2)} MeV`]);
+  rows.push(['gd=1 contrib', `${(masks[1] * M_E * 15).toFixed(2)} MeV`]);
+  rows.push(['gd=2 contrib', `${(masks[2] * M_E * 13).toFixed(2)} MeV`]);
+  rows.push(['gd=3 contrib', `${(masks[3] * M_E * 11).toFixed(2)} MeV`]);
+
+  const grid = document.getElementById('infoGrid');
+  grid.innerHTML = rows.map(([label, val]) => {
+    if (typeof val === 'object') {
+      return `<div class="label">${label}</div><div class="value ${val.cls}">${val.text}</div>`;
+    }
+    return `<div class="label">${label}</div><div class="value">${val}</div>`;
+  }).join('');
+}
+
+// ═══════════════════════════════════════
+// ELEMENT TABLE
+// ═══════════════════════════════════════
+
+function buildTable(currentA) {
+  const container = document.getElementById('elTable');
+  let html = '';
+
+  // All A from 1 to 64 that have known elements
+  const entries = Object.entries(ELEMENTS)
+    .map(([z, [sym, a, ba]]) => ({ Z: +z, sym, A: a, BA: ba }))
+    .filter(e => e.A <= 64)
+    .sort((a, b) => a.A - b.A);
+
+  entries.forEach(el => {
+    const pred = predictions[el.A];
+    const err = (pred - el.BA) * 1000;
+    const pct = Math.abs(err / 10 / el.BA);
+    const cls = pct < 0.5 ? 'good' : (pct < 2 ? 'ok' : 'bad');
+    const active = el.A === currentA ? 'active' : '';
+    html += `<div class="el-row ${active}" data-a="${el.A}">
+      <span class="sym">${el.sym}</span>
+      <span>A=${el.A}</span>
+      <span>${el.BA.toFixed(3)}</span>
+      <span>${pred.toFixed(3)}</span>
+      <span class="err ${cls}">${err >= 0 ? '+' : ''}${err.toFixed(0)} keV</span>
+    </div>`;
+  });
+
+  container.innerHTML = html;
+
+  // Click handlers
+  container.querySelectorAll('.el-row').forEach(row => {
+    row.addEventListener('click', () => {
+      const a = +row.dataset.a;
+      document.getElementById('sliderA').value = a;
+      update(a);
+    });
+  });
+}
+
+// ═══════════════════════════════════════
+// UPDATE
+// ═══════════════════════════════════════
+
+function findElement(A) {
+  for (const [z, [sym, a, ba]] of Object.entries(ELEMENTS)) {
+    if (a === A) return sym;
+  }
+  return null;
+}
+
+function update(A) {
+  const el = A_TO_EL[A];
+  const label = el ? `${el.sym} (A=${A})` : `A=${A}`;
+  document.getElementById('valA').textContent = label;
+
+  drawSierpinski(A);
+  drawChart(A);
+  updateInfo(A);
+  buildTable(A);
+}
+
+// Event
+document.getElementById('sliderA').addEventListener('input', (e) => {
+  update(+e.target.value);
+});
+
+// Init
+update(12);
+</script>
+</body>
+</html>

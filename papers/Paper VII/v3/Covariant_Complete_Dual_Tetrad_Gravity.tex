@@ -1,0 +1,208 @@
+% ============================================================================
+% The Covariant Completion of Dual Tetrad Gravity
+% Supplemental Material to "Dual Tetrad Gravity And The Field Origin"
+% ============================================================================
+\documentclass[11pt]{article}
+
+\usepackage{amsmath,amssymb}
+\usepackage{bm}
+\usepackage{geometry}
+\geometry{margin=1in}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{enumitem}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue!60!black,
+    citecolor=blue!60!black,
+    urlcolor=blue!60!black
+}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.8ex plus 0.2ex minus 0.1ex}
+
+% ============================================================================
+\begin{document}
+
+\begin{center}
+{\Large\bfseries The Covariant Completion of Dual Tetrad Gravity}\\[12pt]
+{\normalsize Stephen Nelson}\\
+{\small Independent Researcher}\\[8pt]
+{\small February 2026}\\[6pt]
+{\small\itshape Supplemental Material to ``Dual Tetrad Gravity And The Field Origin''~\cite{nelson2026main}}
+\end{center}
+
+\vspace{0.5cm}
+\hrule
+\vspace{0.5cm}
+
+\textbf{Summary.}\quad
+The dual tetrad topology determines the gravitational constant $G$, the fine-structure constant $1/\alpha$, and all five $\beta_n$ coupling constants of bimetric gravity~\cite{nelson2026main}. Two companion papers extend this topology to a covariant scalar-tensor action with zero free parameters: Paper~I~\cite{paper1} derives the constitutive law $\mu(x) = x/(1+x)$ as the unique gravitational response of the $k = 4$ simplex packing, and Paper~II~\cite{paper2} embeds it in a fully relativistic action. This note presents the derivation chain and the resulting action, which operates from the electron scale to the cosmological horizon.
+
+% ============================================================================
+\section*{I.\quad The Physical Origin: Spherical Propagation Through Tetrahedral Channels}
+% ============================================================================
+
+Why does the dual tetrad topology modify gravity at weak fields? The answer lies in a geometric mismatch between how gravity propagates and how it couples.
+
+Gravity propagates \emph{spherically}. Any field emanating from a point source spreads isotropically over a surface $4\pi r^2$, producing the inverse-square law $g \propto 1/r^2$. This assumes continuous, structureless propagation: every direction is equivalent, and the field dilutes uniformly.
+
+Gravity \emph{couples} through \emph{tetrahedral channels}. The manuscript~\cite{nelson2026main} establishes that gravitational field closure requires $k = 4$ faces per region (the simplex theorem in three dimensions), confirmed independently by the tetrad basis, the ADM constraint count, and LIGO's two observed polarizations. Two such tetrahedra with opposite orientations share a single center (the Field Origin), forming the stellated octahedron with $k^2 = 16$ coupling channels.
+
+At strong field gradients, the $k = 4$ channels fully service the spherical demand. The discrete packing keeps pace with the continuous propagation, and Newton's $1/r^2$ law holds. At weak field gradients, the spherical demand exceeds what the finite channels can resolve. The tetrahedral packing saturates, and the field transmits only a fraction of the Newtonian demand. The transition occurs at a characteristic acceleration:
+\begin{equation}
+a_0 = k^2 \frac{G\, m_e}{r_e^2} = 1.22 \times 10^{-10} \text{ m/s}^2
+\label{eq:a0-top}
+\end{equation}
+where $k^2 = 16$ counts the coupling channels, and $G$, $m_e$, $r_e$ are determined by the topology~\cite{nelson2026main}. This matches the empirically observed MOND acceleration scale~\cite{milgrom1983} to 0.41\%. The scale $a_0$ is not a free parameter; it is the saturation threshold of the $k = 4$ simplex packing.
+
+% ============================================================================
+\section*{II.\quad The Constitutive Law: $\mu(x) = x/(1+x)$ from Field Closure}
+% ============================================================================
+
+Having identified why the topology modifies gravity at weak fields, we now ask: what is the functional form of the gravitational response? Paper~I~\cite{paper1} answers this question through the \emph{minimal single-channel saturating closure} (MSC) framework. The framework reflects the simplex geometry through five axioms:
+
+\begin{enumerate}[leftmargin=2em]
+\item A single occupancy variable $\varepsilon \in [0,1]$ measures the fraction of coupling capacity that is resolved. A single variable suffices because the simplex has one center.
+\item \textbf{Detailed balance}: at equilibrium, the resolution and relaxation rates are equal ($W_+ = W_-$). Gravity is conservative; no wakes, drag, or hysteresis are observed.
+\item \textbf{Linear saturation}: the available capacity enters as $(1 - \varepsilon)$. This is the natural form because all $k = 4$ faces are identical, making the capacity homogeneous.
+\item \textbf{Monomial driving}: the gravitational intensity enters as $x^n$. This is the natural form because the tetrahedral packing is symmetric, providing no preferred direction.
+\item \textbf{Constitutive identification}: the resolved fraction \emph{is} the gravitational transmissivity, $\mu(x) \equiv \varepsilon(x)$.
+\end{enumerate}
+
+From these axioms, the two transition rates are $W_+ = \kappa_+ \cdot x^n \cdot (1 - \varepsilon)$ (resolution, driven by field intensity, limited by capacity) and $W_- = \kappa_- \cdot \varepsilon$ (relaxation, proportional to resolved fraction). Setting $W_+ = W_-$ and solving:
+\begin{equation}
+\varepsilon_{\text{eq}}(x) = \frac{x^n}{K + x^n}, \qquad K \equiv \kappa_- / \kappa_+
+\label{eq:equil}
+\end{equation}
+Two results close the derivation. First, the observed deep-MOND limit (flat rotation curves, the Baryonic Tully--Fisher relation $v^4 \propto M$) requires $\mu(x)/x \to \text{const}$ as $x \to 0$. Since $\varepsilon \approx x^n/K$ for small $x$, this forces $n = 1$; any other exponent violates the observed scaling. Second, the constant $K$ appears only in the combination $Kx$, so it is absorbed into the definition of $a_0$ without introducing a new parameter. Setting $K = 1$:
+\begin{equation}
+\boxed{\mu(x) = \frac{x}{1+x}, \qquad x = \frac{|\nabla\Phi|}{a_0}}
+\label{eq:mu}
+\end{equation}
+This result is unique within the MSC framework~\cite{paper1}. The denominator $(1 + x)$ encodes the total coupling capacity at a point: the ``1'' is the Field Origin, the irreducible packing center where two $k = 4$ tetrahedra meet, and $x$ is the field-dependent response through the $k^2$ channels. The ratio $x/(1+x)$ answers the geometric question: \emph{of the total coupling capacity in the stellated octahedron, how much is tracking the Newtonian demand?}
+
+% ============================================================================
+\section*{III.\quad The Covariant Action}
+% ============================================================================
+
+The constitutive law $\mu(x) = x/(1+x)$ governs the non-relativistic gravitational response. To embed it in a fully covariant theory, Paper~II~\cite{paper2} constructs the scalar-tensor action in three steps.
+
+\textbf{Step 1: The acceleration scale from the cosmological horizon.}\quad
+The topology provides $a_0$ at the microscopic level through Eq.~\ref{eq:a0-top}. Paper~II derives the same scale independently from the cosmological horizon. The horizon at $r_H = c/H$ has a Gibbons--Hawking temperature $T_{GH} = \hbar H/(2\pi k_B c)$; by Unruh correspondence, this defines a minimum resolvable acceleration. The geometric correction $\sqrt{k/\pi}$ accounts for the same sphere-tetrahedron mismatch that $\mu(x)$ encodes locally: the tetrahedral packing ($k = 4$) discretizes what the Hubble sphere treats as continuous ($\pi$). The result is:
+\begin{equation}
+a_0 = \frac{cH}{2\pi}\,\sqrt{\frac{k}{\pi}}
+\label{eq:a0-cosmo}
+\end{equation}
+Setting the topological expression (Eq.~\ref{eq:a0-top}) equal to the cosmological expression (Eq.~\ref{eq:a0-cosmo}) yields a prediction for the Hubble constant with zero free parameters:
+\begin{equation}
+H = \frac{2\pi k^2}{c\sqrt{k/\pi}} \cdot \frac{G\,m_e}{r_e^2} = 69.92 \text{ km/s/Mpc}
+\label{eq:H}
+\end{equation}
+matching the gravitational-wave standard siren measurement~\cite{gw170817} ($70.0 \pm 12$~km/s/Mpc) to 0.11\%. Without $\mu(x)$ and its saturation scale $a_0$, there is no bridge from the topology to the Hubble constant: the constitutive law connects the microscopic structure ($G$, $m_e$, $r_e$) to cosmological expansion ($H$). This connection is bidirectional: inverting the chain recovers the electron mass from $H$ to 0.10\%~\cite{nelson2026main}.
+
+\textbf{Step 2: The scalar Lagrangian from the constitutive law.}\quad
+The standard AQUAL variational identity~\cite{bekenstein1984} requires the scalar Lagrangian $\mathcal{F}$ to satisfy $d\mathcal{F}/dx = x\,\mu(x)$. Substituting $\mu(x) = x/(1+x)$ and integrating with $y = x^2 = |\nabla\Phi|^2/a_0^2$:
+\begin{equation}
+\frac{d\mathcal{F}}{dx} = \frac{x^2}{1+x} \quad\longrightarrow\quad \mathcal{F}(y) = \tfrac{1}{2}y - \sqrt{y} + \ln(1 + \sqrt{y})
+\label{eq:lagrangian}
+\end{equation}
+The integration constant is fixed by $\mathcal{F}(0) = 0$. This Lagrangian is unique: given $\mu(x)$, no other $\mathcal{F}$ is consistent with the variational principle.
+
+\textbf{Step 3: The complete action.}\quad
+Paper~II combines the Einstein--Hilbert term, the scalar Lagrangian, and a disformal electromagnetic coupling:
+\begin{equation}
+\boxed{S = \int d^4x \sqrt{-g} \left[ \frac{R}{16\pi G} - \frac{a_0^2}{8\pi G}\,\mathcal{F}\!\left(\frac{|\nabla\Phi|^2}{a_0^2}\right) - \frac{1}{4}\,e^{-2\Phi/c^2} F_{\mu\nu}F^{\mu\nu} + \mathcal{L}_{\text{matter}} \right]}
+\label{eq:action}
+\end{equation}
+
+Each term has a definite origin in the topology:
+\begin{itemize}[leftmargin=2em]
+\item $R/(16\pi G)$: spacetime curvature (Einstein--Hilbert), with $G$ from the coupling hierarchy $f(k) = 1 + k + k^2$~\cite{nelson2026main}
+\item $\mathcal{F}(y)$: gravitational saturation, uniquely determined by $\mu(x)$ via Eq.~\ref{eq:lagrangian}
+\item $e^{-2\Phi/c^2} F_{\mu\nu}F^{\mu\nu}$: disformal electromagnetic coupling. Photons propagate on the effective metric $\tilde{g}_{\mu\nu} = e^{-2\Phi/c^2}\,g_{\mu\nu}$, recovering the full GR deflection angle $\theta = 4GM/(rc^2)$ in the weak-field limit
+\item $\mathcal{L}_{\text{matter}}$: baryonic sources
+\end{itemize}
+
+\textbf{Why this action is the dual tetrad completion.}\quad
+Without the dual tetrad topology, this action would be a generic AQUAL scalar-tensor theory with three unknowns: $G$, $a_0$, and $\mu(x)$. The topology determines all three. $G$ follows from $f(k) = 1 + k + k^2$. The saturation scale $a_0$ follows from the $k^2 = 16$ channels. The constitutive law $\mu(x) = x/(1+x)$ is the transfer function of the $k = 4$ simplex packing, with the ``1'' in the denominator tracing to the Field Origin. Strip away the topology, and three free parameters reappear. With it, every coefficient is determined. This is not merely \emph{a} covariant scalar-tensor theory; it is the covariant completion of dual tetrad gravity.
+
+\textbf{There are zero free parameters.} Unlike $\Lambda$CDM, which requires six fitted cosmological parameters and a dark matter component, this action is fully specified by the topology.
+
+% ============================================================================
+\section*{IV.\quad Predictions Across All Scales}
+% ============================================================================
+
+The constitutive law $\mu(x) = x/(1+x)$ is not a galactic-scale approximation. It is the gravitational response of the $k = 4$ simplex packing, and the packing exists at every point in the field. The action therefore generates predictions from the electron to the cosmological horizon.
+
+\textbf{At the electron scale.}\quad The topology sets $a_0 = k^2 G m_e / r_e^2$ (Eq.~\ref{eq:a0-top}). Two independent routes converge on the electron's classical radius: electromagnetic stability ($r_e = e^2/4\pi\varepsilon_0 m_e c^2 = 2.818$~fm, pure electromagnetism, no gravity) and cosmic topology ($r_e = k\sqrt{Gm_e/a_0} = 2.82$~fm, pure gravity, no electromagnetism). The convergence to 0.21\% is unique to the electron; for the muon and proton, these routes disagree by factors of $10^3$ to $10^7$~\cite{nelson2026main}.
+
+\textbf{At galactic scales.}\quad With constant $a_0$, the field equations reduce to the modified Poisson equation $\nabla \cdot [\mu(|\nabla\Phi|/a_0)\,\nabla\Phi] = 4\pi G\rho$. This produces flat rotation curves, the Baryonic Tully--Fisher relation $v^4 \propto M$, and an apparent dark matter fraction of 85\% at typical galactic radii. The deep-MOND effective gravity $g_{\text{eff}} = \sqrt{g_N \cdot a_0}$ is the geometric mean of the continuous demand ($g_N$) and the discrete capacity ($a_0$).
+
+\textbf{At the cosmological scale.}\quad Setting the topological $a_0$ (Eq.~\ref{eq:a0-top}) equal to the cosmological $a_0$ (Eq.~\ref{eq:a0-cosmo}) yields $H = 69.92$~km/s/Mpc. The connection is bidirectional: the electron mass is recoverable from $H$ to 0.10\%. As the universe expands, $H$ evolves and $a_0$ evolves with it. Paper~II~\cite{paper2} derives the cosmological scaling law from closure tiling geometry:
+\begin{equation}
+a_0(z) = \frac{cH(z)}{2\pi} \cdot \left(\frac{H_0}{H(z)}\right)^{1/\pi}
+\label{eq:a0z}
+\end{equation}
+where the exponent $1/\pi$ arises from continuous averaging over circular boundary overlaps in hexagonal closure packing. At recombination ($z \simeq 1100$), $a_0$ was substantially larger, and the enhancement factor $1/\mu(x_{\text{rec}}) = 6.46$ matches Planck 2018's measured value of 6.40 to 1\%. The same function $\mu(x) = x/(1+x)$ that produces flat rotation curves at galactic scales produces the correct baryon-to-total-matter ratio at the CMB.
+
+\vspace{0.5em}
+\noindent
+The action and its field equations produce the following zero-parameter predictions:
+
+\begin{center}
+\begin{tabular}{lp{4.2cm}p{3.5cm}c}
+\toprule
+\textbf{Quantity} & \textbf{Predicted} & \textbf{Measured} & \textbf{Deviation} \\
+\midrule
+$G$ (gravitational constant) & $6.666 \times 10^{-11}$\newline m$^3$kg$^{-1}$s$^{-2}$ & $6.674 \times 10^{-11}$ & 0.12\%$^*$ \\[4pt]
+$H$ (Hubble constant) & 69.92 km/s/Mpc & $70.0 \pm 12$ & 0.11\% \\[4pt]
+$m_e$ (electron mass) & $9.11 \times 10^{-31}$ kg & $9.109 \times 10^{-31}$ & 0.10\% \\[4pt]
+$a_0$ (MOND scale) & $1.22 \times 10^{-10}$ m/s$^2$ & $1.22 \times 10^{-10}$ & 0.41\% \\[4pt]
+CMB enhancement & 6.46 & 6.40 (Planck 2018) & 1.0\% \\
+\bottomrule
+\end{tabular}
+\end{center}
+\vspace{0.3em}
+
+\noindent
+${}^*$Tree-level deviation; the Schwinger one-loop correction $\alpha/(2\pi)$ reduces this to 0.001\% (see~\cite{nelson2026main}).
+
+% ============================================================================
+\section*{V.\quad Acknowledged Limitations}
+% ============================================================================
+
+\textbf{Open computations} (the framework applies; detailed calculations are pending):
+\begin{itemize}[leftmargin=2em]
+\item Galaxy cluster dynamics: the evolving $a_0(z)$ (Eq.~\ref{eq:a0z}) changes cluster-scale predictions relative to constant-$a_0$ MOND, and the higher early-universe $a_0$ affects the Bullet Cluster collision velocity~\cite{paper2}. Full $N$-body cluster simulations have not yet been performed.
+\item The CMB angular power spectrum: the enhancement factor is predicted to 1\% (Section~IV), but the detailed multipole structure requires a full Boltzmann code analysis that has not yet been completed.
+\end{itemize}
+
+\textbf{Outside current scope:}
+\begin{itemize}[leftmargin=2em]
+\item The strong and weak nuclear forces
+\item The cosmological constant
+\end{itemize}
+
+\noindent
+The tree-level 0.12\% residual in $G$ is identified in~\cite{nelson2026main} as the Schwinger one-loop correction $\alpha/(2\pi)$; including it reduces the residual to 0.001\%. The manuscript~\cite{nelson2026main} also demonstrates that the dual tetrad topology constrains all five coupling parameters of the established Hassan--Rosen bimetric action~\cite{hassanrosen2012}; the relationship between that bimetric formulation and the scalar-tensor action presented here is identified as a target for future work.
+
+% ============================================================================
+\vspace{0.8cm}
+\hrule
+\vspace{0.5cm}
+
+\begin{thebibliography}{8}
+\bibitem{adm2008} R.~Arnowitt, S.~Deser, and C.~W.~Misner, ``The Dynamics of General Relativity,'' Gen.\ Relativ.\ Gravit.\ \textbf{40}, 1997 (2008).
+\bibitem{gw170817} B.~P.~Abbott \textit{et al.} (LIGO/Virgo), ``A gravitational-wave standard siren measurement of the Hubble constant,'' Nature \textbf{551}, 85 (2017).
+\bibitem{milgrom1983} M.~Milgrom, ``A modification of the Newtonian dynamics as a possible alternative to the hidden mass hypothesis,'' Astrophys.\ J.\ \textbf{270}, 365 (1983).
+\bibitem{hassanrosen2012} S.~F.~Hassan and R.~A.~Rosen, ``Bimetric gravity from ghost-free massive gravity,'' JHEP \textbf{02}, 126 (2012).
+\bibitem{bekenstein1984} J.~Bekenstein and M.~Milgrom, ``Does the missing mass problem signal the breakdown of Newtonian gravity?'' Astrophys.\ J.\ \textbf{286}, 7 (1984).
+\bibitem{nelson2026main} S.~Nelson, ``Dual Tetrad Gravity And The Field Origin'' (2026). Submitted for publication.
+\bibitem{paper1} S.~Nelson, ``The Gravitational Constitutive Law: Deriving $\mu(x) = x/(1+x)$ from Closure Constraints,'' Field Dynamics Working Paper I (2026). \url{https://doi.org/10.5281/zenodo.18332595}.
+\bibitem{paper2} S.~Nelson, ``A Covariant Theory Without Dark Matter,'' Field Dynamics Working Paper II (2026). \url{https://doi.org/10.5281/zenodo.18360354}.
+\end{thebibliography}
+
+\end{document}

@@ -1,0 +1,143 @@
+\documentclass[11pt, letterpaper]{article}
+\usepackage{amsmath, amssymb, geometry}
+\geometry{margin=1in}
+
+\title{Tetrahedral Tight-Frame Formulation of Vector Fields}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+We establish an exact tetrahedral tight-frame formulation of vector fields in \(\mathbb R^3\), including exact reconstruction, an exact divergence identity, and an exact projected combinatorial form of the curl operator. The sign structure is fixed by an explicit cross-product lemma for the tetrahedral frame, yielding a projected form of Faraday's law in tetrahedral channels. This appendix proves only these operator-level identities; it does not by itself derive the bimetric lock or its coefficient set.
+\end{abstract}
+
+\section{The Frame Identities}
+We define the local tetrahedral frame by four spatial vectors in \(\mathbb{R}^3\), corresponding to the face-normal directions of a regular tetrahedron:
+\begin{align*}
+    v_1 &= (1, 1, 1), & v_2 &= (1, -1, -1), \\
+    v_3 &= (-1, 1, -1), & v_4 &= (-1, -1, 1).
+\end{align*}
+These are unnormalized face-normal directions; each satisfies \(\|v_i\|^2 = 3\).
+
+These vectors satisfy two fundamental algebraic identities. First, the zero-sum constraint:
+\begin{equation}
+    \sum_{i=1}^4 v_i = 0.
+\end{equation}
+Second, the resolution of the identity (where \(a, b \in \{x, y, z\}\) denote spatial Cartesian indices):
+\begin{equation}
+    \sum_{i=1}^4 v_i^a v_i^b = 4\delta^{ab}.
+\end{equation}
+Together, these identities establish that the set \(\{v_i\}\) forms an overcomplete tight frame for \(\mathbb{R}^3\).
+
+\section{Tight-Frame Reconstruction}
+For any arbitrary continuum vector field \(\mathbf{F}\), we define its projection onto the overcomplete tetrahedral channels as:
+\begin{equation}
+    F_i := \mathbf{F} \cdot v_i.
+\end{equation}
+Because the frame is overcomplete, the four scalar channels \(F_i\) are constrained and are not independent. Indeed,
+\begin{equation}
+    \sum_{i=1}^4 F_i
+    =
+    \mathbf{F} \cdot \sum_{i=1}^4 v_i
+    =
+    0.
+\end{equation}
+Using the resolution of the identity, the exact reconstruction of the continuum field from these directional channels is:
+\begin{equation}
+    \mathbf{F} = \frac{1}{4} \sum_{i=1}^4 F_i v_i.
+\end{equation}
+
+\section{The Divergence Identity}
+Let the directional derivative along each face normal be defined as \(\partial_i := v_i \cdot \nabla\). Summing the directional derivatives of the projected channels yields:
+\begin{equation}
+    \sum_{i=1}^4 \partial_i F_i
+    =
+    \sum_{i=1}^4 (v_i \cdot \nabla)(\mathbf{F} \cdot v_i)
+    =
+    \sum_{a,b} \left( \sum_{i=1}^4 v_i^a v_i^b \right) \partial_a F_b.
+\end{equation}
+Substituting the tight-frame identity \(\sum_{i=1}^4 v_i^a v_i^b = 4\delta^{ab}\), all cross terms vanish algebraically:
+\begin{equation}
+    \sum_{i=1}^4 \partial_i F_i = 4 \partial_a F_a = 4 \nabla \cdot \mathbf{F}.
+\end{equation}
+This demonstrates that the continuum divergence operator is exactly proportional to the sum of the directional derivatives over the four tight-frame channels.
+
+\section{Lemma: The Tetrahedral Cross-Product Identity}
+To evaluate the curl, we require the cross products of the frame vectors. For the specific tetrahedral vectors defined above, the cross product of any two distinct frame vectors resolves exactly to the difference of the remaining two vectors. Explicitly:
+\begin{align*}
+    v_1 \times v_2 &= v_3 - v_4, & v_2 \times v_3 &= v_1 - v_4, \\
+    v_1 \times v_3 &= v_4 - v_2, & v_2 \times v_4 &= v_3 - v_1, \\
+    v_1 \times v_4 &= v_2 - v_3, & v_3 \times v_4 &= v_1 - v_2.
+\end{align*}
+This system follows a strict alternating sign convention. For any distinct pair of indices \((i, j)\), let \(k\) and \(l\) be the two complementary indices to \(i,j\), ordered such that \(k<l\). The cross product is given compactly by:
+\begin{equation}
+    v_i \times v_j = \epsilon_{ijkl} (v_k - v_l),
+\end{equation}
+where \(\epsilon_{ijkl}\) is the standard four-dimensional Levi-Civita symbol (with \(\epsilon_{1234} = +1\)), and no summation over \(k,l\) is implied.
+
+\section{The Projected Curl Operator}
+Starting from the exact reconstruction of an electric field
+\begin{equation}
+    \mathbf{E} = \frac{1}{4} \sum_{j=1}^4 E_j v_j,
+\end{equation}
+we take the curl:
+\begin{equation}
+    \nabla \times \mathbf{E} = \frac{1}{4} \sum_{j=1}^4 (\nabla E_j) \times v_j.
+\end{equation}
+To isolate the operator's action on a specific tight-frame channel \(v_m\), we project the curl by taking the dot product:
+\begin{equation}
+    v_m \cdot (\nabla \times \mathbf{E}) = \frac{1}{4} \sum_{j=1}^4 v_m \cdot \big((\nabla E_j) \times v_j\big).
+\end{equation}
+Applying the scalar triple product identity
+\begin{equation}
+    A \cdot (B \times C) = (C \times A) \cdot B,
+\end{equation}
+with \(A = v_m\), \(B = \nabla E_j\), and \(C = v_j\), yields
+\begin{equation}
+    v_m \cdot \big((\nabla E_j) \times v_j\big) = (v_j \times v_m) \cdot \nabla E_j.
+\end{equation}
+Substituting this back into the projection (and noting that the \(j=m\) term drops out because \(v_m \times v_m = 0\)), we obtain:
+\begin{equation}
+    v_m \cdot (\nabla \times \mathbf{E}) = \frac{1}{4} \sum_{j \neq m} (v_j \times v_m) \cdot \nabla E_j.
+\end{equation}
+Applying the cross-product lemma, we substitute \(v_j \times v_m = \epsilon_{jmkl}(v_k - v_l)\), where \(k\) and \(l\) are the complementary indices to \(j,m\) (with no summation over \(k,l\)):
+\begin{equation}
+    v_m \cdot (\nabla \times \mathbf{E}) = \frac{1}{4} \sum_{j \neq m} \epsilon_{jmkl} (v_k - v_l) \cdot \nabla E_j.
+\end{equation}
+Recognizing that \((v_k - v_l) \cdot \nabla E_j = \partial_k E_j - \partial_l E_j\), the projected curl is expressed combinatorially in terms of directional derivatives in the tetrahedral channels:
+\begin{equation}
+    v_m \cdot (\nabla \times \mathbf{E}) = \frac{1}{4} \sum_{j \neq m} \epsilon_{jmkl} (\partial_k E_j - \partial_l E_j).
+\end{equation}
+
+\section{The Projected Faraday Law}
+Defining \(B_m := \mathbf{B} \cdot v_m\), projection of Faraday's law
+\begin{equation}
+    \nabla \times \mathbf{E} = -\partial_t \mathbf{B}
+\end{equation}
+onto the same tetrahedral channel gives the exact projected form of Faraday's law:
+\begin{equation}
+    -\partial_t B_m = \frac{1}{4} \sum_{j \neq m} \epsilon_{jmkl} (\partial_k E_j - \partial_l E_j).
+\end{equation}
+
+\section{Parity Inversion and Dual-Frame Extension}
+We define a parity-inverted companion frame by
+\begin{equation}
+    u_i = -v_i.
+\end{equation}
+This companion frame satisfies the same zero-sum and tight-frame identities as the original frame:
+\begin{equation}
+    \sum_{i=1}^4 u_i = 0, \qquad \sum_{i=1}^4 u_i^a u_i^b = 4\delta^{ab}.
+\end{equation}
+Thus $\{u_i\}$ furnishes a second overcomplete tetrahedral channel system on $\mathbb{R}^3$. Its cross-product relations are inherited from the primary frame through
+\begin{equation}
+    u_i \times u_j = v_i \times v_j = -\epsilon_{ijkl}(u_k - u_l),
+\end{equation}
+where the minus sign appears when the primary-frame identity is rewritten in the inverted $u$-frame. The pair $(v_i, u_j)$ provides a natural geometric precursor to a bipartite $4 \times 4$ channel structure. Whether this full bipartite structure is required by the interaction algebra is not addressed here; that question is treated in the companion bimetric lock derivation.
+
+\section*{Conclusion}
+This appendix develops a tetrahedral tight-frame representation of vector fields in $\mathbb{R}^3$, including reconstruction, a divergence identity, and a projected combinatorial form of the curl operator. The repeated appearance of the factor~4 reflects the four-channel tetrad structure of the frame. In the companion bimetric lock derivation, the same constant $K=4$ fixes the dimensionality of the interaction object and the associated elementary symmetric polynomial hierarchy $e_0,\dots,e_4$. This appendix is intended as geometric support for the tetrahedral channel structure, not as a standalone derivation of the bimetric lock.
+
+\end{document}

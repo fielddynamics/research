@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GFD Dynamic Field Node: Bidirectional Compression</title>
+    <style>
+        body { margin: 0; overflow: hidden; background-color: #050505; color: white; font-family: sans-serif;}
+        #info {
+            position: absolute; top: 15px; width: 100%; text-align: center;
+            pointer-events: none; text-shadow: 0px 2px 4px rgba(0,0,0,1.0);
+        }
+        h2 { margin: 0; font-size: 1.2rem; letter-spacing: 1px; color: #00ffff;}
+        p { margin: 5px 0 0 0; font-size: 0.9rem; color: #dddddd; font-family: monospace;}
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lil-gui@0.18"></script>
+</head>
+<body>
+    <div id="info">
+        <h2>GFD Microscopic Node: Matter as Compression Shift</h2>
+        <p>Vacuum = Proportional (c=0) | Matter = Non-Proportional Shift (c ≠ 0)</p>
+    </div>
+
+    <script>
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+        camera.position.set(0, 0, 6);
+        
+        const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: "high-performance" });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(window.devicePixelRatio);
+        document.body.appendChild(renderer.domElement);
+        
+        const controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+
+        // 1. Generate the Point Volume
+        const particleCount = 1000000;
+        const geometry = new THREE.BufferGeometry();
+        const positions = new Float32Array(particleCount * 3);
+
+        for (let i = 0; i < particleCount; i++) {
+            positions[i * 3]     = (Math.random() - 0.5) * 4.0;
+            positions[i * 3 + 1] = (Math.random() - 0.5) * 4.0;
+            positions[i * 3 + 2] = (Math.random() - 0.5) * 4.0;
+        }
+        geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
+        // 2. The Dynamic Shader Uniforms
+        const nodeUniforms = {
+            uTime: { value: 0.0 },
+            uCompression: { value: 0.0 },
+            uAutoPulse: { value: 1.0 } // True by default
+        };
+
+        // 3. The Shader Material
+        const nodeMaterial = new THREE.ShaderMaterial({
+            uniforms: nodeUniforms,
+            depthWrite: false,
+            blending: THREE.AdditiveBlending,
+            transparent: true,
+            vertexShader: `
+                uniform float uTime;
+                uniform float uCompression;
+                uniform float uAutoPulse;
+
+                varying vec3 vColor;
+                varying float vAlpha;
+
+                void main() {
+                    vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
+                    gl_Position = projectionMatrix * mvPosition;
+                    gl_PointSize = 12.0 / -mvPosition.z;
+
+                    // Determine the compression state
+                    float comp = uCompression;
+                    if (uAutoPulse > 0.5) {
+                        // Creates a rhythmic, non-linear heartbeat squeeze
+                        comp = sin(uTime * 3.0) * 0.6 * sin(uTime * 1.5); 
+                    }
+
+                    // Matter sources the departure from proportionality
+                    float boundA = 1.0 - comp;
+                    float boundB = 1.0 + comp;
+
+                    // The 4 Directional Planes
+                    float v1 = position.x + position.y + position.z;
+                    float v2 = position.x - position.y - position.z;
+                    float v3 = -position.x + position.y - position.z;
+                    float v4 = -position.x - position.y + position.z;
+
+                    float tetA = max(max(v1, v2), max(v3, v4));
+                    float tetB = max(max(-v1, -v2), max(-v3, -v4));
+
+                    // Evaluate dynamic chambers
+                    if (tetA <= boundA && tetB <= boundB) {
+                        // The shifting Field Origin (Gold)
+                        vColor = vec3(1.0, 0.8, 0.0);
+                        vAlpha = 0.9;
+                    } else if (tetA <= boundA) {
+                        // TetA Primary Space (Cyan)
+                        vColor = vec3(0.0, 0.6, 1.0);
+                        vAlpha = 0.5;
+                    } else if (tetB <= boundB) {
+                        // TetB Dual Space (Red)
+                        vColor = vec3(0.8, 0.05, 0.05);
+                        vAlpha = 0.5;
+                    } else {
+                        // Void
+                        vAlpha = 0.0;
+                    }
+                }
+            `,
+            fragmentShader: `
+                varying vec3 vColor;
+                varying float vAlpha;
+                void main() {
+                    if (vAlpha == 0.0) discard;
+                    vec2 xy = gl_PointCoord.xy - vec2(0.5);
+                    float ll = length(xy);
+                    if(ll > 0.5) discard;
+                    
+                    float alpha = pow((0.5 - ll) * 2.0, 1.5) * vAlpha; 
+                    gl_FragColor = vec4(vColor, alpha);
+                }
+            `
+        });
+
+        const pointCloud = new THREE.Points(geometry, nodeMaterial);
+        scene.add(pointCloud);
+
+        // 4. The Live Control Panel
+        const gui = new lil.GUI({ title: 'GFD Chamber Dynamics' });
+        gui.add(nodeUniforms.uAutoPulse, 'value', { 'On': 1.0, 'Off': 0.0 }).name('Matter Pulse');
+        gui.add(nodeUniforms.uCompression, 'value', -0.8, 0.8, 0.01).name('Manual Compression').listen();
+
+        // 5. Render Loop
+        const clock = new THREE.Clock();
+        function animate() {
+            requestAnimationFrame(animate);
+            controls.update();
+            
+            // Slowly rotate to appreciate the 3D volume
+            pointCloud.rotation.y += 0.003;
+            pointCloud.rotation.x += 0.002;
+            
+            nodeUniforms.uTime.value = clock.getElapsedTime();
+            
+            // If auto-pulse is off, ensure manual slider drives it
+            if (nodeUniforms.uAutoPulse.value === 0.0) {
+                // Keep GUI responsive to user input
+            } else {
+                // Update GUI slider to show the mathematical wave value visually
+                nodeUniforms.uCompression.value = Math.sin(nodeUniforms.uTime.value * 3.0) * 0.6 * Math.sin(nodeUniforms.uTime.value * 1.5);
+            }
+
+            renderer.render(scene, camera);
+        }
+
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        animate();
+    </script>
+</body>
+</html>
