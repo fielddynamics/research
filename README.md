@@ -4,7 +4,7 @@
 
 This repository is the working research archive behind the Gravity Field Dynamics framework and the preprints published on Zenodo. It is published **as is**: derivation notes, synthesis documents, validation scripts, paper sources, interactive visualisations and exploratory experiments, in the state they were left at the end of each research session.
 
-> **Read this first.** This is a lab notebook, not a software package. Folders were created as research threads opened, so naming is informal, some files exist in several versions (`(1)`, `-1`, `- Copy`, `v1`/`v2`), and a few threads were later superseded or abandoned. The published papers in [`papers/`](papers/) and the documentation site at **[docs.fielddynamics.org](https://docs.fielddynamics.org/)** are the curated statements of the framework. Everything else is the trail that led there. The work is independent and has not been peer reviewed.
+> **Read this first.** This is a lab notebook, not a software package. Folders were created as research threads opened, so naming is informal, some files exist in several versions (`(1)`, `-1`, `- Copy`, `v1`/`v2`), and a few threads were later superseded or abandoned. The published papers in [`papers/`](papers/) and the documentation in [`docs/`](docs/README.md) are the curated statements of the framework. Everything else is the trail that led there. The work is independent and has not been peer reviewed.
 
 ---
 
@@ -42,7 +42,7 @@ GFD proposes that the local gravitational frame has a definite interior geometry
 | Connection split | `K³ = 64 = 40 + 24`: GR's torsion-free condition keeps 40 Christoffel components and discards the 24 torsion components, which GFD identifies with TetB |
 | Gravitational constant | `G = (17/13) α²¹ ħc / m_e²` |
 
-[`llms.txt`](research/llms.txt) contains the full machine-readable derivation chain, symbol glossary and interpretation rules, and is the best single-file summary of the framework.
+For a guided explanation of each step, start with the [documentation](docs/README.md): Foundations, Gravitation, Fundamental Constants and Galactic Dynamics. [`llms.txt`](research/llms.txt) contains the full machine-readable derivation chain, symbol glossary and interpretation rules, and is the best single-file summary of the framework.
 
 ---
 
@@ -151,7 +151,13 @@ Gives the closed form F(y) = y − 2√y + 2 ln(1 + √y) for μ(x) = x/(x + 1),
 
 ## Repository map
 
-The repository has two top-level folders: [`papers/`](papers/) (above) and [`research/`](research/), which holds every research thread. The tables below describe the contents of `research/`.
+The repository has three top-level folders:
+
+| Folder | Contents |
+|---|---|
+| [`papers/`](papers/) | The published and in-preparation papers (above) |
+| [`docs/`](docs/README.md) | The framework documentation: 28 completed pages copied from the documentation site, as readable Markdown. The full site is available as a Flask app in the [fielddynamics/docs](https://github.com/fielddynamics/docs) repository |
+| [`research/`](research/) | Every research thread, described in the tables below |
 
 Most research folders follow the same pattern: a **`*_synthesis.md`** that explains the result in prose, and a **Python suite** (often named `*_20.py`, `*_enterprise_*.py` or `*_validation.py`) that checks every claim numerically and prints PASS/FAIL. Read the synthesis first, then run the suite.
 
@@ -253,7 +259,7 @@ Notes:
 
 ## Citing
 
-Please cite the relevant Zenodo preprint for any result taken from this archive. For the framework as a whole, cite the latest letters above or the documentation at [docs.fielddynamics.org](https://docs.fielddynamics.org/).
+Please cite the relevant Zenodo preprint for any result taken from this archive. For the framework as a whole, cite the latest letters above or the [documentation](docs/README.md).
 
 ## Licence
 
@@ -262,4 +268,4 @@ This repository is released under the [MIT License](LICENSE) © 2026 Stephen Nel
 ## Contact
 
 Stephen Nelson — Field Dynamics Research
-[fielddynamics.org](https://fielddynamics.org) · [docs.fielddynamics.org](https://docs.fielddynamics.org/) · stephen@fielddynamics.org
+[fielddynamics.org](https://fielddynamics.org) · [documentation](docs/README.md) · stephen@fielddynamics.org
