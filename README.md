@@ -38,27 +38,27 @@ Paper PDFs and their LaTeX sources live in [`papers/`](papers/). Two series were
 Papers I–V are single PDFs at the top of `papers/`; several dated revisions of each are kept, and the latest date is the final version. From Paper VI onward each paper has its own numbered folder with sources, revisions, validation scripts and supplementary material.
 
 **I — The Gravitational Constitutive Law (No Dark Matter Required)**
-[`2026-01_28_Nelson_DFP_Gravitational_Constitutive_Law.pdf`](papers/2026-01_28_Nelson_DFP_Gravitational_Constitutive_Law.pdf) <!-- Zenodo DOI -->
+[`2026-01_28_Nelson_DFP_Gravitational_Constitutive_Law.pdf`](papers/2026-01_28_Nelson_DFP_Gravitational_Constitutive_Law.pdf) — [doi:10.5281/zenodo.18332595](https://doi.org/10.5281/zenodo.18332595)
 Asks why MOND's interpolating function has the form it does. From the requirement that gravitational field coupling be lossless and locally evaluable, it derives μ(x) = x/(1 + x) as the unique equilibrium solution instead of a curve-fit choice.
 
 **II — A Covariant Theory Without Dark Matter**
-[`2026-01_28_Nelson_DFPII_A_Covariant_Theory_Without_Dark_Matter.pdf`](papers/2026-01_28_Nelson_DFPII_A_Covariant_Theory_Without_Dark_Matter.pdf) <!-- Zenodo DOI -->
+[`2026-01_28_Nelson_DFPII_A_Covariant_Theory_Without_Dark_Matter.pdf`](papers/2026-01_28_Nelson_DFPII_A_Covariant_Theory_Without_Dark_Matter.pdf) — [doi:10.5281/zenodo.18360354](https://doi.org/10.5281/zenodo.18360354)
 Extends Paper I to cosmological scales. Using a₀ = cH₀/2π and the geometry of tetrahedral closure packing, it derives a gravitational enhancement of 6.46 at recombination against the ≈ 6.4 that Planck's CMB peaks require, without cold dark matter.
 
 **III — The Unit of Gravity**
-[`2026-01_28_Nelson_DFPIII_The_Unit_Of_Gravity.pdf`](papers/2026-01_28_Nelson_DFPIII_The_Unit_Of_Gravity.pdf) <!-- Zenodo DOI -->
+[`2026-01_28_Nelson_DFPIII_The_Unit_Of_Gravity.pdf`](papers/2026-01_28_Nelson_DFPIII_The_Unit_Of_Gravity.pdf) — [doi:10.5281/zenodo.18362768](https://doi.org/10.5281/zenodo.18362768)
 Asks what sets the size of the gravitational field tile. An electromagnetic route and a gravitational-topology route both land on ≈ 2.82 fm, the classical electron radius, which the paper identifies as the unit of gravity.
 
 **IV — Resolving the Hubble Tension Through Tetrad Topology**
-[`2026-01_28_Nelson_DFPIV_Resolving_The_Hubble_Tension_Through_Tetrad_Topology.pdf`](papers/2026-01_28_Nelson_DFPIV_Resolving_The_Hubble_Tension_Through_Tetrad_Topology.pdf) <!-- Zenodo DOI -->
+[`2026-01_28_Nelson_DFPIV_Resolving_The_Hubble_Tension_Through_Tetrad_Topology.pdf`](papers/2026-01_28_Nelson_DFPIV_Resolving_The_Hubble_Tension_Through_Tetrad_Topology.pdf) — [doi:10.5281/zenodo.18371849](https://doi.org/10.5281/zenodo.18371849)
 Projects the flat-space MOND value H₀ = 78.9 km/s/Mpc through the k = 4 tetrad topology to obtain 69.92 km/s/Mpc, and runs the same chain in reverse to derive the electron mass from the measured Hubble constant.
 
 **V — Field Closure and the Topology of Gravity**
-[`2026-01_29_Nelson_DFPV_Field_Closure_And_The_Topology_Of_Gravity.pdf`](papers/2026-01_29_Nelson_DFPV_Field_Closure_And_The_Topology_Of_Gravity.pdf) — [Zenodo record 18419531](https://zenodo.org/records/18419531)
+[`2026-01_29_Nelson_DFPV_Field_Closure_And_The_Topology_Of_Gravity.pdf`](papers/2026-01_29_Nelson_DFPV_Field_Closure_And_The_Topology_Of_Gravity.pdf) — [doi:10.5281/zenodo.18419531](https://doi.org/10.5281/zenodo.18419531)
 Explains why the number four recurs across ADM, tetrad gravity, Loop Quantum Gravity, Regge calculus and LIGO's two polarizations, via the simplex theorem, and connects the tetrahedron of those formalisms to the Field Chamber of this framework.
 
 **VI — Deriving the Gravitational Constant from Spacetime Topology**
-[`papers/06-gravitational-constant-from-topology/`](papers/06-gravitational-constant-from-topology/) <!-- Zenodo DOI -->
+[`papers/06-gravitational-constant-from-topology/`](papers/06-gravitational-constant-from-topology/) — [doi:10.5281/zenodo.18463038](https://doi.org/10.5281/zenodo.18463038)
 Argues that spinor theory, chiral gravity, ghost-free bimetric gravity and stability analysis all require two oppositely oriented tetrahedra, and from that dual-chamber structure derives Newton's constant with no adjustable parameters. Includes an arXiv-format build and `validation/run_all_validations.py`.
 
 **VII — Dual Tetrad Topology and the Field Origin: From Nuclear Decay to Galactic Dynamics**
