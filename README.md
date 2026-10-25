@@ -31,50 +31,104 @@ GFD proposes that the local gravitational frame has a definite interior geometry
 
 ## Published papers (Zenodo)
 
-Paper PDFs and their LaTeX sources live in [`papers/`](papers/). Two series were published: the numbered **Distributed Field Processing / GFD papers I–XIII** (January–March 2026) and the shorter **tetrad letters** (March 2026 onward).
+Paper PDFs and their LaTeX sources live in [`papers/`](papers/). Two series were published: the numbered **Distributed Field Processing / GFD papers I–XIII** (January–March 2026) and the shorter **tetrad letters** (March 2026 onward). Each description below summarises the paper's own claim.
 
 ### Numbered series — Papers I–XIII (January–March 2026)
 
-Papers I–V are single PDFs at the top of `papers/`; several dated revisions of each are kept, and the latest date is the final version. From Paper VI onward each paper has its own folder with sources, revisions, validation scripts and supplementary material.
+Papers I–V are single PDFs at the top of `papers/`; several dated revisions of each are kept, and the latest date is the final version. From Paper VI onward each paper has its own numbered folder with sources, revisions, validation scripts and supplementary material.
 
-| # | Title | Where |
-|---|---|---|
-| I | Distributed Field Processing: The Gravitational Constitutive Law (No Dark Matter Required) | [`2026-01_28_Nelson_DFP_Gravitational_Constitutive_Law.pdf`](papers/2026-01_28_Nelson_DFP_Gravitational_Constitutive_Law.pdf) <!-- Zenodo DOI --> |
-| II | A Covariant Theory Without Dark Matter | [`2026-01_28_Nelson_DFPII_A_Covariant_Theory_Without_Dark_Matter.pdf`](papers/2026-01_28_Nelson_DFPII_A_Covariant_Theory_Without_Dark_Matter.pdf) <!-- Zenodo DOI --> |
-| III | The Unit of Gravity | [`2026-01_28_Nelson_DFPIII_The_Unit_Of_Gravity.pdf`](papers/2026-01_28_Nelson_DFPIII_The_Unit_Of_Gravity.pdf) <!-- Zenodo DOI --> |
-| IV | Deriving Electron Mass from the Hubble Constant — Resolving the Hubble Tension Through Tetrad Topology | [`2026-01_28_Nelson_DFPIV_Resolving_The_Hubble_Tension_Through_Tetrad_Topology.pdf`](papers/2026-01_28_Nelson_DFPIV_Resolving_The_Hubble_Tension_Through_Tetrad_Topology.pdf) <!-- Zenodo DOI --> |
-| V | Field Closure and the Topology of Gravity | [`2026-01_29_Nelson_DFPV_Field_Closure_And_The_Topology_Of_Gravity.pdf`](papers/2026-01_29_Nelson_DFPV_Field_Closure_And_The_Topology_Of_Gravity.pdf) — [Zenodo record 18419531](https://zenodo.org/records/18419531) |
-| VI | Deriving the Gravitational Constant from Spacetime Topology — The Dual Tetrahedral Field Chambers | [`papers/Paper VI/`](<papers/Paper VI/>) (arXiv-format build in `ArXiv/`, `validation/run_all_validations.py`); earlier PDFs at the top of `papers/` <!-- Zenodo DOI --> |
-| VII | Dual Tetrad Topology and the Field Origin: From Nuclear Decay to Galactic Dynamics | [`papers/Paper VII/`](<papers/Paper VII/>) (revisions `v2`–`v7`; `v7` is the latest) <!-- Zenodo DOI --> |
-| VIII | Gravity Field Dynamics and Bimetric Gravity: Dual Tetrahedral Field Chambers as the Key to the General Parameters | [`papers/Paper VIII/`](<papers/Paper VIII/>) (`Nelson_2026_GFD_and_Bimetric_Gravity_v1_1.pdf`) <!-- Zenodo DOI --> |
-| IX | Gravity Field Dynamics: Complete Field Closure from Stellated Octahedron Topology | [`papers/Paper IX/`](<papers/Paper IX/>) (with `Tests/`, `supplementary/` validation suites and I-Ching closure references) <!-- Zenodo DOI --> |
-| X | Two-Scale Kinematics from a Single Scalar-Tensor Transition: Tully–Fisher Evolution and H₀ Without Free Parameters | [`papers/Paper X/`](<papers/Paper X/>) (`sst_two_scale_jcap.pdf`) <!-- Zenodo DOI --> |
-| XI | Nuclear Shell Structure and Binding Energies from Tetrahedral Packing at K = 4 | [`papers/Paper XI/`](<papers/Paper XI/>) <!-- Zenodo DOI --> |
-| XII | Dual Tetrad Covariance: The GFD Scalar-Tensor Action and the Hassan–Rosen Interaction Potential as Two Projections of a Single Geometry | [`papers/Paper XII/`](<papers/Paper XII/>) (source only) <!-- Zenodo DOI --> |
-| XIII | Nuclear Binding Energy from the Bidirectional Scalar-Tensor Transition | [`papers/Paper XIII/`](<papers/Paper XIII/>) (working draft in [`Paper - chemistry-with-sst/`](<papers/Paper - chemistry-with-sst/>)) <!-- Zenodo DOI --> |
-| — | Topological Field Closure: A Bidirectional Derivation of the Hubble Constant and the Electron Mass | [`2026-01-26-Topological_Field_Closure_…pdf`](papers/2026-01-26-Topological_Field_Closure_A_Bidirectional_Derivation_of_the_Hubble_Constant_and_the_Electron_Mass.pdf) <!-- Zenodo DOI --> |
+**I — The Gravitational Constitutive Law (No Dark Matter Required)**
+[`2026-01_28_Nelson_DFP_Gravitational_Constitutive_Law.pdf`](papers/2026-01_28_Nelson_DFP_Gravitational_Constitutive_Law.pdf) <!-- Zenodo DOI -->
+Asks why MOND's interpolating function has the form it does. From the requirement that gravitational field coupling be lossless and locally evaluable, it derives μ(x) = x/(1 + x) as the unique equilibrium solution instead of a curve-fit choice.
 
-### Letters — March 2026 onward
+**II — A Covariant Theory Without Dark Matter**
+[`2026-01_28_Nelson_DFPII_A_Covariant_Theory_Without_Dark_Matter.pdf`](papers/2026-01_28_Nelson_DFPII_A_Covariant_Theory_Without_Dark_Matter.pdf) <!-- Zenodo DOI -->
+Extends Paper I to cosmological scales. Using a₀ = cH₀/2π and the geometry of tetrahedral closure packing, it derives a gravitational enhancement of 6.46 at recombination against the ≈ 6.4 that Planck's CMB peaks require, without cold dark matter.
 
-Short, self-contained letters that rebuild the framework from the tetrad equation alone, each with supplementary proofs and a `run_all_validations.py` that checks every number in the paper. Each folder holds `letter.tex` / `letter.pdf`, a cover letter, supplementary notes and the `iopjournal.cls` build.
+**III — The Unit of Gravity**
+[`2026-01_28_Nelson_DFPIII_The_Unit_Of_Gravity.pdf`](papers/2026-01_28_Nelson_DFPIII_The_Unit_Of_Gravity.pdf) <!-- Zenodo DOI -->
+Asks what sets the size of the gravitational field tile. An electromagnetic route and a gravitational-topology route both land on ≈ 2.82 fm, the classical electron radius, which the paper identifies as the unit of gravity.
 
-| Letter | Title | Folder |
-|---|---|---|
-| 1 | The Coordinate-Space Geometry of the Tetrad Frame | [`papers/Paper Gravity-Simple/`](<papers/Paper Gravity-Simple/>) <!-- Zenodo DOI --> |
-| — | The Gravitational Constitutive Law from the Tetrad Frame Geometry | [`papers/Paper Constitutive Law/`](<papers/Paper Constitutive Law/>) <!-- Zenodo DOI --> |
-| 2 | The Other Half of Gravity: Torsion and the Two-Chamber Structure of the Tetrad Frame | [`papers/Paper - The other half of gravity/`](<papers/Paper - The other half of gravity/>) (v1, v2) <!-- Zenodo DOI --> |
-| 3 | Gravity Field Dynamics: Field Closure of the Tetrad Frame | [`papers/Paper - holy shiznizzle it's a disc/`](<papers/Paper - holy shiznizzle it's a disc/>) <!-- Zenodo DOI --> |
-| — | The Radial Acceleration Relation from a Zero-Parameter Covariant Action (SPARC: 164 galaxies, 3284 points) | [`papers/Paper - Sparc galaxy RAR with SST quadratic/`](<papers/Paper - Sparc galaxy RAR with SST quadratic/>) <!-- Zenodo DOI --> |
+**IV — Resolving the Hubble Tension Through Tetrad Topology**
+[`2026-01_28_Nelson_DFPIV_Resolving_The_Hubble_Tension_Through_Tetrad_Topology.pdf`](papers/2026-01_28_Nelson_DFPIV_Resolving_The_Hubble_Tension_Through_Tetrad_Topology.pdf) <!-- Zenodo DOI -->
+Projects the flat-space MOND value H₀ = 78.9 km/s/Mpc through the k = 4 tetrad topology to obtain 69.92 km/s/Mpc, and runs the same chain in reverse to derive the electron mass from the measured Hubble constant.
+
+**V — Field Closure and the Topology of Gravity**
+[`2026-01_29_Nelson_DFPV_Field_Closure_And_The_Topology_Of_Gravity.pdf`](papers/2026-01_29_Nelson_DFPV_Field_Closure_And_The_Topology_Of_Gravity.pdf) — [Zenodo record 18419531](https://zenodo.org/records/18419531)
+Explains why the number four recurs across ADM, tetrad gravity, Loop Quantum Gravity, Regge calculus and LIGO's two polarizations, via the simplex theorem, and connects the tetrahedron of those formalisms to the Field Chamber of this framework.
+
+**VI — Deriving the Gravitational Constant from Spacetime Topology**
+[`papers/06-gravitational-constant-from-topology/`](papers/06-gravitational-constant-from-topology/) <!-- Zenodo DOI -->
+Argues that spinor theory, chiral gravity, ghost-free bimetric gravity and stability analysis all require two oppositely oriented tetrahedra, and from that dual-chamber structure derives Newton's constant with no adjustable parameters. Includes an arXiv-format build and `validation/run_all_validations.py`.
+
+**VII — Dual Tetrad Topology and the Field Origin: From Nuclear Decay to Galactic Dynamics**
+[`papers/07-dual-tetrad-topology-field-origin/`](papers/07-dual-tetrad-topology-field-origin/) <!-- Zenodo DOI -->
+Derives the stellated octahedron as the minimal closure topology in 3+1 dimensions and builds a covariant scalar-tensor action from it, testing predictions from the neutron-lifetime beam–bottle discrepancy to Milky Way rotation. Revisions `v2`–`v7` are kept; `v7` is the latest.
+
+**VIII — Gravity Field Dynamics and Bimetric Gravity**
+[`papers/08-gfd-and-bimetric-gravity/`](papers/08-gfd-and-bimetric-gravity/) <!-- Zenodo DOI -->
+Shows how the coupling polynomial fixes the five free Hassan–Rosen bimetric coefficients to {1, 0, 16, 0, 1}, while its continuous form gives the field equation f(x) = (21x + 13)/(x + 1) and the constitutive law.
+
+**IX — Complete Field Closure from Stellated Octahedron Topology**
+[`papers/09-complete-field-closure/`](papers/09-complete-field-closure/) <!-- Zenodo DOI -->
+Derives both the topology and the closure condition of gravity from the single equation 2(d + 1) = 2^d, whose only solution d = 3 fixes K = 4 and produces the stellated octahedron and the 3+1 split. Comes with the largest test collection (`Tests/`, `supplementary/`).
+
+**X — Two-Scale Kinematics from a Single Scalar-Tensor Transition**
+[`papers/10-two-scale-kinematics-tully-fisher-h0/`](papers/10-two-scale-kinematics-tully-fisher-h0/) <!-- Zenodo DOI -->
+Applies the same SST equation at galactic and cosmological scales to predict the redshift evolution of the baryonic Tully–Fisher relation to z = 3 and H₀ = 70.21 km/s/Mpc, with a ±6% band containing both the Planck and SH0ES values.
+
+**XI — Nuclear Shell Structure and Binding Energies from Tetrahedral Packing at K = 4**
+[`papers/11-nuclear-shells-tetrahedral-packing/`](papers/11-nuclear-shells-tetrahedral-packing/) <!-- Zenodo DOI -->
+Gives a one-line binding-energy formula from the coupling polynomial, tested across the stable elements from hydrogen to bismuth, and a tetrahedral packing algebra that produces all seven nuclear magic numbers.
+
+**XII — Dual Tetrad Covariance: The GFD Action and the Hassan–Rosen Potential as Two Projections of a Single Geometry**
+[`papers/12-dual-tetrad-covariance-hassan-rosen/`](papers/12-dual-tetrad-covariance-hassan-rosen/) (source only) <!-- Zenodo DOI -->
+Develops Paper VIII into a term-by-term correspondence between the two actions, locks the bimetric coefficients through three theorems and three axioms, and checks the result against six concordance tests (expansion history, BBN, CMB, Vainshtein screening, Galileon hierarchy, mixing angle).
+
+**XIII — Nuclear Binding Energy from the Bidirectional Scalar-Tensor Transition**
+[`papers/13-nuclear-binding-bidirectional-sst/`](papers/13-nuclear-binding-bidirectional-sst/) <!-- Zenodo DOI -->
+Uses the SST quadratic, the same equation used for galaxy rotation curves, evaluated along a 64-step walk to reproduce the seven magic numbers (including the 20 → 28 gap without spin–orbit coupling) and binding energy per nucleon from helium to lead. The earlier draft is in `working-draft/`.
+
+**Companion — Topological Field Closure: A Bidirectional Derivation of the Hubble Constant and the Electron Mass**
+[`2026-01-26-Topological_Field_Closure_…pdf`](papers/2026-01-26-Topological_Field_Closure_A_Bidirectional_Derivation_of_the_Hubble_Constant_and_the_Electron_Mass.pdf) <!-- Zenodo DOI -->
+A short paper presenting the Hubble-constant ↔ electron-mass link from Papers III–IV as a bidirectional test: forward from electron properties to H₀, and in reverse from H₀ to the electron mass.
+
+### Tetrad letters — March 2026 onward
+
+Short, self-contained letters that rebuild the framework from the tetrad equation alone. Each folder holds `letter.tex` / `letter.pdf`, a cover letter, supplementary proofs and, in most cases, a `run_all_validations.py` that checks every number in the letter.
+
+**Letter 1 — The Coordinate-Space Geometry of the Tetrad Frame**
+[`papers/letter-1-tetrad-frame-geometry/`](papers/letter-1-tetrad-frame-geometry/) <!-- Zenodo DOI -->
+Takes the four half-space inequalities of a single orthonormal tetrad and shows that their 16 sign combinations give exactly two bounded regions, which together form a stellated octahedron. No second frame is assumed; every structural constant reduces to K = 4 and D = 3.
+
+**Letter — The Gravitational Constitutive Law from the Tetrad Frame Geometry**
+[`papers/letter-constitutive-law-tetrad-geometry/`](papers/letter-constitutive-law-tetrad-geometry/) <!-- Zenodo DOI -->
+Derives the AQUAL interpolating function μ(x) = x/(x + 1) by three independent routes: the rank structure of the metric, equilibrium field closure, and the exchange symmetry between the tetrad's two bounded regions.
+
+**Letter 2 — The Other Half of Gravity: Torsion and the Two-Chamber Structure of the Tetrad Frame**
+[`papers/letter-2-other-half-of-gravity-torsion/`](papers/letter-2-other-half-of-gravity-torsion/) (`v1`, `v2`) <!-- Zenodo DOI -->
+Proves that a torsion-free connection cannot tell the two tetrahedral chambers apart, so the 24 torsion components that general relativity discards are what carry the TetA/TetB distinction. The TetB field fraction comes out as 1/(x + 1).
+
+**Letter 3 — Gravity Field Dynamics: Field Closure of the Tetrad Frame**
+[`papers/letter-3-field-closure-of-tetrad-frame/`](papers/letter-3-field-closure-of-tetrad-frame/) <!-- Zenodo DOI -->
+Shows that the torsion-free condition keeps the s = +1 projection of the coupling polynomial (40 components) and discards the s = −1 projection (24 components). Restoring them gives the full 64-component connection, which the constitutive law partitions spatially.
+
+**Letter — The Radial Acceleration Relation from a Zero-Parameter Covariant Action**
+[`papers/letter-radial-acceleration-relation-sparc/`](papers/letter-radial-acceleration-relation-sparc/) <!-- Zenodo DOI -->
+Shows that the radial acceleration relation follows kinematically from the covariant action with F(y) written out explicitly, and tests it against the SPARC database (164 galaxies, 3284 points), reaching 0.181 dex scatter with no fitted parameters.
 
 ### Manuscripts in preparation (sources only)
 
-| Title | Source |
-|---|---|
-| The Gram Matrix of the Tetrad Equation | [`papers/Paper - Lions and tigers and bears/`](<papers/Paper - Lions and tigers and bears/>) |
-| An Algebraic Origin for the Simple AQUAL Interpolation Function | [`papers/Paper - u(x) with coupling poly/gfd_phase1_letter_final.tex`](<papers/Paper - u(x) with coupling poly/gfd_phase1_letter_final.tex>) |
-| The Torsion Sector of the Tetrad Connection as the Regular Representation of S₄ | [`papers/Paper - u(x) with coupling poly/gfd_paper_b_torsion_S4.tex`](<papers/Paper - u(x) with coupling poly/gfd_paper_b_torsion_S4.tex>) |
-| The Hadamard Sign Kernel of the Tetrahedral Frame | [`papers/Paper - u(x) with coupling poly/gfd_paper_c_hadamard_tetrad.tex`](<papers/Paper - u(x) with coupling poly/gfd_paper_c_hadamard_tetrad.tex>) |
-| Closed-Form Energy Functional for the Simple Interpolating Function in AQUAL | [`papers/paper u(x) from aqual/`](<papers/paper u(x) from aqual/>) |
+**The Gram Matrix of the Tetrad Equation** — [`papers/gram-matrix-of-tetrad-equation/`](papers/gram-matrix-of-tetrad-equation/)
+Treats the tetrad equation as a Gram matrix: its two sign-related solutions give a tetrahedron, its inverse and their stellated-octahedron compound, and the affine connection splits canonically as 24 + 16 + 24 = 64.
+
+**Papers A, B and C** — [`papers/algebraic-papers-a-b-c/`](papers/algebraic-papers-a-b-c/)
+- *A — An Algebraic Origin for the Simple AQUAL Interpolation Function* (`gfd_phase1_letter_final.tex`): derives μ(x) = x/(1 + x) from the reciprocal ℤ₂ structure of the tetrad-frame sector algebra, whose parity-weighted trace is f(K, s).
+- *B — The Torsion Sector of the Tetrad Connection as the Regular Representation of S₄* (`gfd_paper_b_torsion_S4.tex`): shows that at K = 4 the 24-dimensional torsion sector carries the regular representation of S₄, and so contains the sign (parity) representation that the Christoffel sector lacks.
+- *C — The Hadamard Sign Kernel of the Tetrahedral Frame* (`gfd_paper_c_hadamard_tetrad.tex`): identifies the 4 × 4 Hadamard matrix of signal processing, the sign skeleton of the isotropic tetrad and the axis structure of the stellated octahedron as one object.
+
+**Closed-Form Energy Functional for the Simple Interpolating Function in AQUAL** — [`papers/closed-form-aqual-energy-functional/`](papers/closed-form-aqual-energy-functional/)
+Gives the closed form F(y) = y − 2√y + 2 ln(1 + √y) for μ(x) = x/(x + 1), so the AQUAL action can be written explicitly instead of only through its derivative.
 
 ---
 
@@ -166,7 +220,7 @@ Typical entry points:
 python research/gfd_enterprise_validation-v2.py           # core framework validation
 python research/gfd_fundamental_constants.py            # constants from {K, D}
 python research/gfd_algebra.py                      # algebra self-checks (silent = pass)
-python "papers/Paper Gravity-Simple/Supplementary/run_all_validations.py"
+python papers/letter-1-tetrad-frame-geometry/Supplementary/run_all_validations.py
 python "research/quantum compute/GFD oscillator v2/run_all.py"
 cd research/great-pyramid/pyramid_portal_research/python && python -m pytest tests
 ```
@@ -175,7 +229,7 @@ Notes:
 
 - Many paths contain spaces and parentheses; quote them in the shell.
 - Scripts are generally meant to be run from their own folder.
-- A few files under `research/great-pyramid/field_origin_geometry/`, `research/i-ching/` and `papers/Paper IX/Tests/` import `gravity_field_model` from the companion model repository (`dfp-gravity-field-model`) and will not run without it.
+- A few files under `research/great-pyramid/field_origin_geometry/`, `research/i-ching/` and `papers/09-complete-field-closure/Tests/` import `gravity_field_model` from the companion model repository (`dfp-gravity-field-model`) and will not run without it.
 - Trained model weights (`*.pt`), zipped code bundles and LaTeX build artefacts (`.aux`, `.log`, `.out`) are committed as they were produced.
 
 ---
