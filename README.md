@@ -208,16 +208,21 @@ Most research folders follow the same pattern: a **`*_synthesis.md`** that expla
 | [`quantum compute/`](<research/quantum compute/>) | The GFD oscillator (Kuramoto-type phase + amplitude dynamics) applied to Max-Cut, colouring, TSP, community detection and mazes; t-bit algebra; Walsh-bridge gate recognition; oscillator-based unsupervised learning. Subfolders `GFD oscillator v2/` and `Oscillator learning/` have their own READMEs |
 | [`spectral/`](research/spectral/) | Walsh–Hadamard spectral kernel (PyTorch) |
 | [`3 sweep understanding/`](<research/3 sweep understanding/>) | Closure-algebra pipeline and Walsh-spectral compute primitive syntheses |
-| [`i-ching/`](research/i-ching/) | π base-8 closure walk on the stellated octahedron, traversal and tetragram analyzers |
 | [`antenna theory/`](<research/antenna theory/>) | Resonant coupling through the Field Origin |
 
-### Speculative and exploratory threads
+### Exploratory work — [`research/exploratory/`](research/exploratory/)
 
-These folders apply the framework well outside conventional physics and are kept for completeness. They should be read as exploration, not as results.
+These threads apply the framework's structures well outside conventional physics. They are kept apart from the main research record and are offered as exploration, not as results.
 
 | Folder | Contents |
 |---|---|
-| [`great-pyramid/`](research/great-pyramid/) | A structured compendium treating the Great Pyramid as a cavity apparatus, with its own README, ~35 working notes and a Python package with tests |
+| [`great-pyramid/`](research/exploratory/great-pyramid/) | A structured compendium treating the Great Pyramid as a cavity apparatus, with its own README, ~35 working notes and a Python package with tests |
+| [`i-ching/`](research/exploratory/i-ching/) | π base-8 closure walk on the stellated octahedron, read through I-Ching trigram structure; traversal and tetragram analyzers |
+
+### Other notes
+
+| Folder | Contents |
+|---|---|
 | [`earth-365-days/`](research/earth-365-days/) | Note on the 365/360 relation |
 | [`formalisms-tetrad/`](research/formalisms-tetrad/) | Literature-search notes on tetrahedral formalisms |
 | [`temp/`](research/temp/) | Scratch work |
@@ -245,14 +250,13 @@ python research/gfd_fundamental_constants.py            # constants from {K, D}
 python research/gfd_algebra.py                      # algebra self-checks (silent = pass)
 python papers/letter-1-tetrad-frame-geometry/Supplementary/run_all_validations.py
 python "research/quantum compute/GFD oscillator v2/run_all.py"
-cd research/great-pyramid/pyramid_portal_research/python && python -m pytest tests
 ```
 
 Notes:
 
 - Many paths contain spaces and parentheses; quote them in the shell.
 - Scripts are generally meant to be run from their own folder.
-- A few files under `research/great-pyramid/field_origin_geometry/`, `research/i-ching/` and `papers/09-complete-field-closure/Tests/` import `gravity_field_model` from the companion model repository (`dfp-gravity-field-model`) and will not run without it.
+- A few files under `research/exploratory/great-pyramid/field_origin_geometry/`, `research/exploratory/i-ching/` and `papers/09-complete-field-closure/Tests/` import `gravity_field_model` from the companion model repository (`dfp-gravity-field-model`) and will not run without it.
 - Trained model weights (`*.pt`), zipped code bundles and LaTeX build artefacts (`.aux`, `.log`, `.out`) are committed as they were produced.
 
 ---
