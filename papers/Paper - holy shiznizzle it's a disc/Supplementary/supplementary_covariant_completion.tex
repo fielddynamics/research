@@ -1,0 +1,567 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb}
+\usepackage[margin=1in]{geometry}
+
+\title{Gravity Field Dynamics: Covariant Completion\\
+  of the Constitutive Law\\[6pt]
+  {\normalsize Supplementary Material for Letter~3}}
+\author{Stephen Nelson\\Field Dynamics Research\\
+  \texttt{stephen@fielddynamics.org}}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This note provides the technical derivations referenced
+in the accompanying letter.  Section~1
+derives the unique kinetic functional $F(y)$ from the
+constitutive law $\mu(x) = x/(x{+}1)$ by integration and
+polynomial long division, confirming its three-term
+structure.  Section~2 identifies every numerical prefactor
+in the Gravity Field Dynamics (GFD) action with the
+coupling polynomial $f(K,s) = 1 + sK + K^2$.  Section~3
+derives the conformal electromagnetic coupling, shows that
+$\gamma = 1$ follows from the connection structure (not
+from the coupling itself), and identifies the coupling's
+physical role as cosmological.  Section~4 varies the action and derives the
+modified field equations, the spherically symmetric static
+limit, and the PPN and gravitational-wave constraints.
+\end{abstract}
+
+% ============================================================
+\section{From constitutive law to kinetic functional}
+% ============================================================
+
+The constitutive law $\mu(x) = x/(x{+}1)$, derived from
+exchange symmetry between the two tetrad
+roots~\cite{Nelson2026b}, determines the scalar-sector
+kinetic functional through the AQUAL
+identity~\cite{BekensteinMilgrom1984}:
+\begin{equation}
+  \mu(\sqrt{y}) = \frac{dF}{dy}\,,
+  \label{eq:aqual_identity}
+\end{equation}
+where $y = |\nabla\Phi|^2/a_0^2$ is the squared
+dimensionless acceleration.  Integration yields $F$
+uniquely.
+
+\subsection*{The integration}
+
+Starting from the definition:
+\begin{equation}
+  F(y) = \int_0^y \mu(\sqrt{t})\,dt.
+  \label{eq:F_integral}
+\end{equation}
+Substitute $u = \sqrt{t}$, so $t = u^2$ and $dt = 2u\,du$.
+The limits become $u = 0$ to $u = \sqrt{y}$:
+\begin{equation}
+  F(y) = 2\int_0^{\sqrt{y}} \frac{u^2}{u + 1}\,du.
+  \label{eq:F_substituted}
+\end{equation}
+
+Perform polynomial long division on the integrand:
+\begin{equation}
+  \frac{u^2}{u + 1} = u - 1 + \frac{1}{u + 1}.
+  \label{eq:long_division}
+\end{equation}
+Verification: $(u - 1)(u + 1) + 1 = u^2 - 1 + 1 = u^2$.
+\checkmark
+
+Integrate term by term:
+\begin{align}
+  2\int_0^{\sqrt{y}} u\,du
+    &= 2\left[\tfrac{u^2}{2}\right]_0^{\sqrt{y}}
+    = y,
+    \label{eq:term_K2} \\[4pt]
+  2\int_0^{\sqrt{y}} (-1)\,du
+    &= 2\bigl[-u\bigr]_0^{\sqrt{y}}
+    = -2\sqrt{y},
+    \label{eq:term_sK} \\[4pt]
+  2\int_0^{\sqrt{y}} \frac{1}{u+1}\,du
+    &= 2\bigl[\ln(u+1)\bigr]_0^{\sqrt{y}}
+    = 2\ln(1 + \sqrt{y}).
+    \label{eq:term_K0}
+\end{align}
+The result is the unique kinetic functional:
+\begin{equation}
+  \boxed{F(y) = y - 2\sqrt{y} + 2\ln(1 + \sqrt{y}).}
+  \label{eq:F}
+\end{equation}
+
+\subsection*{Structural identification}
+
+The three quotient terms in Eq.~(\ref{eq:long_division})
+map to the three structural levels of the coupling
+polynomial $f(K,s) = 1 + sK + K^2$
+derived in Letter~2~\cite{Nelson2026b}:
+
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{lcll}
+\hline
+Quotient term & Integral & $F(y)$ term & Polynomial level \\
+\hline
+$u$ & $\int u\,du$ & $y$ & $K^2$ (face coupling) \\
+$-1$ & $\int(-1)\,du$ & $-2\sqrt{y}$
+  & $sK$ (propagation) \\
+$1/(u{+}1)$ & $\int 1/(u{+}1)\,du$
+  & $2\ln(1{+}\sqrt{y})$ & $K^0$ (field origin) \\
+\hline
+\end{tabular}
+\end{center}
+
+This identification is not pattern-matching.  The long
+division decomposes the integrand into three terms whose
+degrees match the three ranks of the tetrad equation.
+The remainder $1/(u+1)$ equals $1 - \mu(u)$: the
+logarithmic term integrates twice the TetB field fraction.
+The polynomial enters the theory through the tetrad
+structure (Letter~2) and re-emerges through the
+variational structure (this integration).  Two independent
+paths confirm the same three levels.
+
+\subsection*{Limit checks}
+
+At high acceleration ($y \gg 1$): $F(y)/y \to 1$.  The
+scalar sector reduces to a standard kinetic term.  The
+action becomes general relativity.
+
+At low acceleration ($y \ll 1$): expanding
+$\ln(1+\sqrt{y}) \approx \sqrt{y} - y/2 + y^{3/2}/3
+- \cdots$ and collecting terms gives
+$F(y) \to \tfrac{2}{3}\,y^{3/2}$.  This nonlinear kinetic
+term produces the deep-field behaviour
+$g_t \to \sqrt{g_s\,a_0}$, recovering the baryonic
+Tully-Fisher relation $M \propto v^4$.
+
+\subsection*{Derivative round-trip}
+
+Differentiating Eq.~(\ref{eq:F}):
+\begin{equation}
+  \frac{dF}{dy} = 1 - \frac{1}{\sqrt{y}}
+    + \frac{1}{\sqrt{y}(1+\sqrt{y})}
+  = 1 - \frac{1}{1+\sqrt{y}}
+  = \frac{\sqrt{y}}{1+\sqrt{y}}
+  = \mu(\sqrt{y}).
+\end{equation}
+The round-trip $\mu \to F \to dF/dy \to \mu$ closes.
+\checkmark
+
+% ============================================================
+\section{The numerical prefactors}
+% ============================================================
+
+The Gravity Field Dynamics (GFD) covariant action is
+written in terms of the standard Newtonian gravitational
+potential $\Phi$, which appears in both general relativity
+and GFD.  The potential $\Phi$ is not a new field; it is the
+same scalar potential whose gradient gives the gravitational
+acceleration.  The torsion sector's contribution enters
+through the constitutive law $\mu(x)$, which modifies the
+kinetic structure from the standard $\nabla^2\Phi$ to
+$\nabla\!\cdot[\mu\,\nabla\Phi]$.  The scalar sector of the
+action is therefore not an additional field added to general
+relativity; it is the energy functional of the
+torsion-modified gravitational response, with the torsion
+fraction $1 - \mu$ carried implicitly inside the kinetic
+function $F(y)$ derived in Section~1.
+
+The action is:
+\begin{align}
+  S_{\text{ST}} &= \int\!d^4x\,\sqrt{-g}\biggl[
+    \frac{R}{16\pi G}
+    - \frac{a_0^2}{8\pi G}\,F(y)
+    \notag\\
+    &\qquad\qquad
+    -\; \tfrac{1}{4}\,e^{-2\Phi/c^2}
+    F_{\mu\nu}F^{\mu\nu}
+    + \mathcal{L}_{\text{matter}}
+  \biggr].
+  \label{eq:action}
+\end{align}
+Every numerical prefactor traces to the coupling
+polynomial evaluated at $K = 4$ and $D = 3$.
+
+\subsection*{Term 1: $R/(16\pi G)$}
+
+The integer 16 is $K^2 = 4^2$: the number of
+face-coupling channels in the $K \times K$ connection
+matrix.  The solid angle per face is $4\pi/K = \pi$.
+The gravitational constant $G$ is the measured CODATA
+value; its internal structure in terms of the coupling
+polynomial is derived
+elsewhere~\cite{Nelson2026a,Nelson2026b}.  The prefactor
+$16\pi G = K^2 \times \pi \times G$ compresses the
+face-coupling count and the solid angle into the
+curvature term.
+
+\subsection*{Term 2: $a_0^2/(8\pi G)\,F(y)$}
+
+The integer 8 is $2^D = 2^3$: the vertex-space
+cardinality of the stellated octahedron (the number of
+vertices of the cube that circumscribes the dual
+tetrahedral pair).  The ratio of the two gravitational
+prefactors is $16/8 = 2$, distinguishing single-chamber
+($K^2$) from dual-chamber ($2^D$) quantities.
+
+\subsection*{Term 3: $\tfrac{1}{4}\,e^{-2\Phi/c^2}
+  F_{\mu\nu}F^{\mu\nu}$}
+
+The integer 4 is $K$: the number of coupling faces per
+tetrahedral chamber.  The three integers form a geometric
+sequence:
+\begin{equation}
+  16,\; 8,\; 4 \;=\; K^2,\; 2^D,\; K,
+  \qquad \text{common ratio } 2.
+  \label{eq:geometric}
+\end{equation}
+Each successive term halves the structural count, moving
+from the bilinear face coupling ($K^2$), through the
+vertex-space dual structure ($2^D$), to the single-face
+electromagnetic coupling ($K$).
+
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{llcl}
+\hline
+Action term & Prefactor & Integer & Polynomial origin \\
+\hline
+Curvature & $16\pi G$ & $K^2 = 16$
+  & Face-coupling channels \\
+Scalar sector & $8\pi G$ & $2^D = 8$
+  & Vertex-space cardinality \\
+EM coupling & $1/4$ & $K = 4$
+  & Coupling faces per chamber \\
+\hline
+\end{tabular}
+\end{center}
+
+No prefactor is fitted.  Each is a structural count
+from the stellated octahedron at $K = 4$, $D = 3$.
+
+% ============================================================
+\section{Gravitational lensing}
+% ============================================================
+
+\subsection*{Why lensing was thought to be broken}
+
+Every scalar-tensor formulation of MOND since Bekenstein
+\& Milgrom~\cite{BekensteinMilgrom1984} has faced a
+lensing deficit: the theory predicts correct rotation
+curves but too little photon deflection.
+Bekenstein~\cite{Bekenstein2004} traced this to the PPN
+parameter $\gamma$, which governs the ratio of spatial to
+temporal metric potentials.  General relativity has
+$\gamma = 1$, giving the observed deflection
+\begin{equation}
+  \theta = (1 + \gamma)\,\frac{2GM}{rc^2}
+  = \frac{4GM}{rc^2}\,.
+  \label{eq:deflection}
+\end{equation}
+In the scalar-tensor embedding of AQUAL, the modification
+of gravity is carried by a scalar field $\phi$ that is
+\textit{separate} from the metric.  This separate field
+has its own stress-energy tensor, which contains
+anisotropic stress (the
+$\partial_\mu\phi\,\partial_\nu\phi$ terms).  The
+anisotropy sources a difference between the temporal
+potential $\Phi$ and the spatial potential $\Psi$, giving
+$\gamma = \Psi/\Phi = \mu(x)$ in the quasi-static
+limit.  At the galactic rim ($x \ll 1$), $\gamma \to 0$
+and lensing drops to half the general-relativistic value.
+This deficit motivated the construction of TeVeS, which
+adds a timelike vector field to restore $\gamma = 1$ by
+disformal coupling~\cite{Bekenstein2004}.
+
+\subsection*{Why the deficit is a decomposition artefact}
+
+The lensing deficit arises from a specific
+\textit{embedding choice}: treating the constitutive
+law's contribution as a separate scalar field with its
+own stress-energy, bolted onto the 40-component
+Christoffel connection.  In that embedding, the modified
+Poisson equation is artificially decomposed as
+\begin{equation}
+  \underbrace{\nabla^2\Phi_N = 4\pi G\rho}_{\text{Newtonian (40 components)}}
+  \;+\;
+  \underbrace{\nabla\!\cdot\bigl[(\mu{-}1)\nabla\Phi\bigr]
+  = 0}_{\text{scalar supplement}},
+  \label{eq:decomposition}
+\end{equation}
+and the second equation is assigned its own
+stress-energy tensor.  The anisotropy in that tensor is
+what breaks $\gamma = 1$.
+
+GFD does not perform this decomposition.  The
+constitutive law $\mu(x)$ is not a separate field; it is
+the partition of the full 64-component affine connection,
+living inside the divergence operator.  The single
+field equation is
+\begin{equation}
+  \nabla\!\cdot\bigl[\mu(x)\,\nabla\Phi\bigr]
+  = 4\pi G\rho,
+  \label{eq:gfd_poisson}
+\end{equation}
+with one potential $\Phi$ that governs the metric:
+\begin{equation}
+  g_{00} = -(1 + 2\Phi/c^2), \qquad
+  g_{ij} = (1 - 2\Phi/c^2)\,\delta_{ij}.
+  \label{eq:metric}
+\end{equation}
+Because the same $\Phi$ appears in both components,
+$\gamma = \Psi/\Phi = 1$ at every radius and every
+acceleration.
+
+The logic is the same as in general relativity.  GR
+has one field equation ($\nabla^2\Phi = 4\pi G\rho$),
+one potential, and $\gamma = 1$.  GFD has one field
+equation ($\nabla\!\cdot[\mu\,\nabla\Phi] = 4\pi G\rho$),
+one potential, and $\gamma = 1$.  The only difference is
+\textit{what} $\Phi$ satisfies.  GR freezes $\mu$ at~1.
+GFD lets $\mu$ vary.  Neither introduces a second
+potential.
+
+\subsection*{Three frameworks compared}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{lccc}
+\hline
+  Framework & Components & Rotation & $\gamma$ \\
+\hline
+GR (Christoffel)
+  & 40 of 64 & wrong & $1$ \\
+AQUAL-in-GR ($+\,\phi$)
+  & 40 $+$ scalar & correct & $\mu(x)$ \\
+GFD (full connection)
+  & 64 of 64 & correct & $1$ \\
+\hline
+\end{tabular}
+\end{center}
+
+\noindent GR obtains $\gamma = 1$ but the wrong dynamics.
+The scalar-tensor embedding obtains the correct dynamics
+but $\gamma = \mu(x)$.  GFD obtains both: the correct
+dynamics \textit{and} $\gamma = 1$, because the
+modification lives inside the connection rather than
+beside it.
+
+\subsection*{Observational constraints}
+
+The Cassini spacecraft measured
+$\gamma - 1 = (2.1 \pm 2.3) \times
+10^{-5}$~\cite{Bertotti2003}.  In GFD, $\gamma = 1$ at
+all scales, satisfying this bound identically.
+Gravitational waves propagate at $c$ because the tensor
+sector is unmodified~\cite{Abbott2017}.
+
+\subsection*{The electromagnetic coupling}
+
+The electromagnetic sector of the
+action~(\ref{eq:action}) carries a conformal coupling
+to the scalar potential:
+\begin{equation}
+  \mathcal{L}_{\text{EM}}
+    = -\tfrac{1}{4}\,e^{-2\Phi/c^2}\,
+    F_{\mu\nu}F^{\mu\nu}.
+  \label{eq:EM}
+\end{equation}
+Because $\gamma = 1$ is already guaranteed by the
+connection-level formulation
+(Eq.~\ref{eq:gfd_poisson}--\ref{eq:metric}), the
+role of this coupling is not to repair a lensing deficit.
+A conformal rescaling of the metric leaves null geodesics
+invariant, so the coupling does not alter local photon
+trajectories, and in GFD, no alteration is needed.
+The term's physical role is cosmological: over
+cosmological distances, the evolution of the background
+potential $\Phi(z)$ modulates the electromagnetic action,
+imprinting the gravitational scalar sector onto
+photometric observables.  This produces a testable
+redshift dependence in electromagnetic scaling relations
+that is absent in the standard $\Lambda$CDM framework.
+
+% ============================================================
+\section{Variational derivation}
+% ============================================================
+
+\subsection*{The scalar field equation}
+
+Varying the action~(\ref{eq:action}) with respect to the
+scalar field $\Phi$ in the static limit, the scalar-sector
+contribution is:
+\begin{equation}
+  \frac{\delta}{\delta\Phi}\left[
+    -\frac{a_0^2}{8\pi G}\,F(y)
+  \right]
+  = -\frac{a_0^2}{8\pi G}\,\frac{dF}{dy}\,
+    \frac{\partial y}{\partial\Phi}\,.
+\end{equation}
+Since $y = |\nabla\Phi|^2/a_0^2$ and
+$dF/dy = \mu(\sqrt{y}) = \mu(|\nabla\Phi|/a_0)$,
+the functional derivative yields a divergence:
+\begin{equation}
+  -\frac{1}{4\pi G}\,
+  \nabla\!\cdot\!\bigl[
+    \mu(|\nabla\Phi|/a_0)\,\nabla\Phi
+  \bigr].
+\end{equation}
+Setting this equal to the matter source $-\rho$ (from
+varying $\mathcal{L}_{\text{matter}}$) gives the
+modified Poisson equation:
+\begin{equation}
+  \boxed{
+  \nabla\!\cdot\!\bigl[
+    \mu(|\nabla\Phi|/a_0)\,\nabla\Phi
+  \bigr] = 4\pi G\rho.}
+  \label{eq:modified_poisson}
+\end{equation}
+This is the Bekenstein--Milgrom
+equation~\cite{BekensteinMilgrom1984} with the
+constitutive law $\mu(x) = x/(x{+}1)$ fixed by the
+frame geometry rather than fitted to data.
+The electromagnetic coupling term contributes an
+additional source proportional to the EM energy density,
+which is negligible for non-relativistic matter
+distributions.
+
+\subsection*{Expansion of the modified Poisson equation}
+
+Expanding the divergence:
+\begin{equation}
+  \mu(x)\,\nabla^2\Phi
+  + (\nabla\mu)\cdot(\nabla\Phi) = 4\pi G\rho,
+  \label{eq:expanded}
+\end{equation}
+where $x = |\nabla\Phi|/a_0$.  At high acceleration
+($\mu \to 1$, $\nabla\mu \to 0$), this reduces to the
+standard Poisson equation $\nabla^2\Phi = 4\pi G\rho$.
+At low acceleration ($\mu \to 0$), the gradient term
+$(\nabla\mu)\cdot(\nabla\Phi)$ dominates, producing the
+nonlinear amplification that flattens rotation curves.
+
+\subsection*{The spherically symmetric static limit}
+
+In spherical symmetry, $|\nabla\Phi| = g_t$ (the total
+gravitational acceleration governing circular orbits) and
+the Poisson source gives $g_s = GM({<}r)/r^2$.
+Eq.~(\ref{eq:modified_poisson}) reduces to the algebraic
+relation:
+\begin{equation}
+  \mu(g_t/a_0)\,g_t = g_s.
+  \label{eq:algebraic}
+\end{equation}
+Substituting $\mu(x) = x/(x{+}1)$:
+\begin{equation}
+  \frac{g_t}{g_t + a_0}\,g_t = g_s
+  \qquad\Longrightarrow\qquad
+  \boxed{g_s = \frac{g_t^2}{a_0 + g_t}\,.}
+  \label{eq:sst}
+\end{equation}
+This is the scalar-tensor transition in the spherically
+symmetric static limit.  At high acceleration
+($g_t \gg a_0$): $g_s \to g_t$, Newtonian gravity.  At
+low acceleration ($g_t \ll a_0$):
+$g_t \to \sqrt{g_s\,a_0}$, the deep-field regime.
+
+\subsection*{PPN parameters}
+
+In the high-acceleration limit $\mu \to 1$, the kinetic
+functional $F(y)/y \to 1$ (Section~1).  The scalar sector
+becomes a standard minimally coupled kinetic term and
+decouples from the metric dynamics.  The action reduces
+to Einstein--Hilbert plus a decoupled scalar plus
+standard matter.  All post-Newtonian parameters inherit
+their general-relativistic values:
+$\beta = \gamma = 1$.  As shown in Section~3, $\gamma = 1$
+holds at all accelerations because the connection-level
+formulation produces a single metric potential.  The Cassini
+bound~\cite{Bertotti2003} is satisfied.
+
+\subsection*{Gravitational wave speed}
+
+Gravitational waves are tensor perturbations $h_{\mu\nu}$
+of the metric.  The scalar sector of the
+action~(\ref{eq:action}) modifies only the scalar
+potential $\Phi$; it does not couple to the tensor
+degrees of freedom.  The tensor sector is the unmodified
+Einstein--Hilbert term $R/(16\pi G)$, whose linearisation
+gives the standard wave equation
+$\Box\,h_{\mu\nu} = 0$.  Gravitational waves therefore
+propagate at $c$ on the background metric.  The
+multi-messenger observation of GW170817 constrains
+$|c_{\text{gw}}/c - 1| < 10^{-15}$~\cite{Abbott2017}.
+The GFD action satisfies this bound identically.
+
+\subsection*{Summary of field equations}
+
+The complete downstream structure of the GFD action in
+the non-relativistic, spherically symmetric limit:
+\begin{align}
+  &\text{Modified Poisson:} &
+    &\nabla\!\cdot\!\bigl[
+      \mu(|\nabla\Phi|/a_0)\,\nabla\Phi
+    \bigr] = 4\pi G\rho,
+    \label{eq:summary_poisson} \\[4pt]
+  &\text{SST (spherical):} &
+    &g_s = g_t^2/(a_0 + g_t),
+    \label{eq:summary_sst} \\[4pt]
+  &\text{PPN:} &
+    &\beta = \gamma = 1,
+    \label{eq:summary_ppn} \\[4pt]
+  &\text{GW speed:} &
+    &c_{\text{gw}} = c.
+    \label{eq:summary_gw}
+\end{align}
+No free functions.  No free parameters beyond $G$ and
+$a_0$.  The constitutive law $\mu(x) = x/(x{+}1)$
+determines the action; the action determines the field
+equations; the field equations recover general relativity
+at high acceleration and the empirical radial
+acceleration relation at low acceleration.
+
+% ============================================================
+
+\begin{thebibliography}{99}
+
+\bibitem{Nelson2026a}
+S.~Nelson,
+\textit{The Coordinate-Space Geometry of the Tetrad
+Frame},
+Class.\ Quantum Grav.\ (2026), submitted (CQG-115428).
+
+\bibitem{Nelson2026b}
+S.~Nelson,
+\textit{The Other Half of Gravity: Torsion and the
+Two-Chamber Structure of the Tetrad Frame},
+Class.\ Quantum Grav.\ (2026), submitted (CQG-115447).
+
+\bibitem{BekensteinMilgrom1984}
+J.~Bekenstein and M.~Milgrom,
+\textit{Does the missing mass problem signal the breakdown
+of Newtonian gravity?},
+Astrophys.\ J.\ \textbf{286} (1984) 7.
+
+\bibitem{Bekenstein2004}
+J.~D.~Bekenstein,
+\textit{Relativistic gravitation theory for the modified
+Newtonian dynamics paradigm},
+Phys.\ Rev.\ D \textbf{70} (2004) 083509.
+
+\bibitem{Bertotti2003}
+B.~Bertotti, L.~Iess and P.~Tortora,
+\textit{A test of general relativity using radio links
+with the Cassini spacecraft},
+Nature \textbf{425} (2003) 374.
+
+\bibitem{Abbott2017}
+B.~P.~Abbott \textit{et al.}\ (LIGO/Virgo and
+Fermi GBM Collaborations),
+\textit{Gravitational Waves and Gamma-Rays from a Binary
+Neutron Star Merger: GW170817 and GRB~170817A},
+Astrophys.\ J.\ Lett.\ \textbf{848} (2017) L13.
+
+\end{thebibliography}
+
+\end{document}

@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GFD Sierpinski MeV Budget</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+:root{--bg:#060810;--bg2:#0c0e18;--bg3:#121520;--bg4:#1a1e2e;--text:#9ca3b8;--dim:#3a4060;--bright:#dce0ee;
+--gd0:#00ddb8;--gd1:#4888d8;--gd2:#e04878;--gd3:#9868e0;--gold:#e8a820;
+--sec0:#00ddb8;--sec1:#4888d8;--sec2:#e04878;--sec3:#9868e0;}
+*{margin:0;padding:0;box-sizing:border-box;}
+
+/* Dark scrollbar for all scrollable areas */
+::-webkit-scrollbar{width:8px;height:8px;}
+::-webkit-scrollbar-track{background:#0a0c14;border-radius:4px;}
+::-webkit-scrollbar-thumb{background:#2a2e42;border-radius:4px;border:2px solid #0a0c14;}
+::-webkit-scrollbar-thumb:hover{background:#3a4060;}
+::-webkit-scrollbar-corner{background:#0a0c14;}
+*{scrollbar-width:thin;scrollbar-color:#2a2e42 #0a0c14;}
+
+body{background:var(--bg);color:var(--text);font-family:'JetBrains Mono',monospace;font-size:13px;display:flex;height:100vh;overflow:hidden;}
+
+.sidebar{width:240px;min-width:160px;max-width:500px;background:var(--bg2);border-right:1px solid var(--bg4);display:flex;flex-direction:column;flex-shrink:0;position:relative;}
+.sidebar-head{padding:12px;border-bottom:1px solid var(--bg4);text-align:center;}
+.sidebar-head h2{font-family:'Playfair Display',serif;font-size:15px;color:var(--bright);}
+.sidebar-head .sub{font-size:8px;color:var(--dim);letter-spacing:0.12em;text-transform:uppercase;margin-top:3px;}
+
+.search-box{padding:6px 10px;border-bottom:1px solid var(--bg4);}
+.search-box input{width:100%;background:var(--bg);border:1px solid var(--bg4);border-radius:4px;color:var(--bright);
+  font-family:'JetBrains Mono',monospace;font-size:12px;padding:6px 8px;outline:none;transition:border-color 0.15s;}
+.search-box input::placeholder{color:var(--dim);font-size:11px;}
+.search-box input:focus{border-color:var(--gd0);}
+
+.el-list{flex:1;overflow-y:auto;padding:2px 0;}
+.el-item{display:flex;align-items:center;padding:5px 10px;cursor:pointer;transition:all 0.1s;gap:6px;border-left:2px solid transparent;font-size:12px;}
+.el-item:hover{background:rgba(0,221,184,0.04);border-left-color:var(--dim);}
+.el-item.active{background:rgba(0,221,184,0.08);border-left-color:var(--gd0);color:var(--gd0);}
+.el-item.hidden{display:none;}
+.el-item .z{font-size:10px;color:var(--dim);width:20px;text-align:right;}
+.el-item .sym{font-weight:600;width:26px;}
+.el-item .a{color:var(--dim);flex:1;}
+.el-item .ba{text-align:right;font-size:11px;}
+.el-item .sec-badge{font-size:8px;padding:1px 4px;border-radius:2px;margin-left:2px;}
+
+.resize-handle{position:absolute;top:0;right:-4px;width:8px;height:100%;cursor:col-resize;z-index:20;}
+.resize-handle:hover,.resize-handle.dragging{background:var(--gd0);opacity:0.3;}
+
+.main-area{flex:1;display:flex;flex-direction:column;overflow:hidden;}
+.top-strip{padding:8px 14px;border-bottom:1px solid var(--bg4);display:flex;align-items:center;gap:14px;background:var(--bg2);flex-shrink:0;}
+.el-title{font-family:'Playfair Display',serif;font-size:20px;color:var(--bright);}
+.el-meta{font-size:11px;color:var(--dim);}
+.el-meta span{color:var(--text);font-weight:500;}
+
+.content{flex:1;display:flex;overflow:hidden;}
+.tri-area{flex:1;position:relative;padding:8px;}
+canvas#triCanvas{display:block;}
+
+.right-panel{width:300px;background:var(--bg2);border-left:1px solid var(--bg4);overflow-y:auto;padding:10px;flex-shrink:0;}
+.rp-section{margin-bottom:12px;}
+.rp-title{font-size:9px;color:var(--dim);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:5px;padding-bottom:4px;border-bottom:1px solid var(--bg4);}
+.rp-row{display:flex;justify-content:space-between;padding:2px 0;font-size:11px;}
+.rp-row .lbl{color:var(--dim);}
+.rp-row .val{color:var(--bright);font-weight:500;}
+.rp-row .val.c0{color:var(--sec0);}
+.rp-row .val.c1{color:var(--sec1);}
+.rp-row .val.c2{color:var(--sec2);}
+.rp-row .val.c3{color:var(--sec3);}
+
+.depth-bar{display:flex;height:16px;border-radius:2px;overflow:hidden;margin:4px 0;}
+.depth-bar div{display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:600;color:#000;}
+
+.tooltip{position:absolute;pointer-events:none;opacity:0;transition:opacity 0.12s;background:var(--bg3);border:1px solid var(--bg4);border-radius:3px;padding:8px 12px;font-size:11px;z-index:10;box-shadow:0 4px 20px rgba(0,0,0,0.6);min-width:220px;}
+.tooltip.show{opacity:1;}
+</style>
+</head>
+<body>
+
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-head">
+    <h2>MeV Budget</h2>
+    <div class="sub">Sierpinski Walk x SST</div>
+  </div>
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="Search (e.g. Fe, 56, Ir*)" autocomplete="off" spellcheck="false">
+  </div>
+  <div class="el-list" id="elList"></div>
+  <div class="resize-handle" id="resizeHandle"></div>
+</div>
+
+<div class="main-area">
+  <div class="top-strip">
+    <div class="el-title" id="elTitle">Fe (A=56)</div>
+    <div class="el-meta" id="elMeta"></div>
+  </div>
+  <div class="content">
+    <div class="tri-area" id="triArea">
+      <canvas id="triCanvas"></canvas>
+      <div class="tooltip" id="tooltip"></div>
+    </div>
+    <div class="right-panel" id="rightPanel"></div>
+  </div>
+</div>
+
+<script>
+// =====================================================================
+// FRAMEWORK CONSTANTS
+// =====================================================================
+const K=4, D=3, KD=Math.pow(K,D); // 64 positions per sector
+const BA_ZN=8.756; // framework energy scale (full Sector 0 walk)
+const HBAR_C=197.3269804;
+const M_E=0.51099895;
+const F_ZERO=K*K+1, F_PLUS=K*K+K+1, F_MINUS=K*K-K+1;
+
+function mu_sst(x){if(x<=0)return 0;return((2*x+1)-Math.sqrt(4*x+1))/(2*x);}
+
+const SUM64=(()=>{let s=0;for(let i=1;i<=64;i++)s+=mu_sst(i*i);return s;})();
+const SCALE=BA_ZN*64/SUM64;
+const R0=HBAR_C/(SCALE*F_ZERO);
+
+// Ceiling / envelope
+const SECTOR_DROP=(K-1)/2*((()=>{
+  let s=0;for(let i=1;i<=128;i++)s+=mu_sst(i*i);
+  return BA_ZN*(KD/128)*(s/SUM64);
+})()-BA_ZN);
+const CEIL_1=2*BA_ZN;
+const CEIL_2=CEIL_1-SECTOR_DROP;
+const CEIL_3=CEIL_2-SECTOR_DROP;
+
+function sst_curve(A){
+  if(A<1)return 0;
+  let s=0;for(let i=1;i<=A;i++)s+=mu_sst(i*i);
+  return BA_ZN*(KD/A)*(s/SUM64);
+}
+function sst_local(n){
+  if(n<1)return 0;
+  let s=0;for(let i=1;i<=n;i++)s+=mu_sst(i*i);
+  return BA_ZN*(KD/n)*(s/SUM64);
+}
+function envelope(A){
+  const vals=[sst_curve(A),CEIL_1-sst_curve(A)];
+  if(A>64)vals.push(CEIL_2-sst_local(A-64));
+  if(A>128)vals.push(CEIL_3-sst_local(A-128));
+  return Math.min(...vals);
+}
+
+// Gate depth within a 64-position sector
+function gateDepth(localIdx){
+  const F=Math.floor(localIdx/16),C=Math.floor((localIdx%16)/4),S=localIdx%4;
+  return(F===3?1:0)+(C===3?1:0)+(S===3?1:0);
+}
+function posAddr(localIdx){
+  return{F:Math.floor(localIdx/16),C:Math.floor((localIdx%16)/4),S:localIdx%4};
+}
+
+// Magic numbers and shell assignment
+const MAGIC=[2,8,20,28,50,82,126];
+const THRESH=MAGIC.map(M=>mu_sst(M*M));
+function getShell(walkPos){
+  const m=mu_sst(walkPos*walkPos);
+  for(let n=0;n<THRESH.length;n++)if(m<=THRESH[n])return n+1;
+  return THRESH.length+1;
+}
+
+// Precompute all 64 local positions (one sector)
+const LOCAL_POS=[];
+for(let i=0;i<64;i++){
+  const wi=i+1;
+  LOCAL_POS.push({
+    localIdx:i, walk:wi, gd:gateDepth(i), mu:mu_sst(wi*wi),
+    E:SCALE*mu_sst(wi*wi), shell:getShell(wi), addr:posAddr(i)
+  });
+}
+
+// Map global position (1-based, up to 256) to sector + local info
+function globalPos(gpos){
+  const sector=Math.floor((gpos-1)/64);
+  const localWalk=((gpos-1)%64)+1;
+  const localIdx=localWalk-1;
+  const lp=LOCAL_POS[localIdx];
+  return{sector,localWalk,localIdx,...lp,globalPos:gpos};
+}
+
+// Sector colors
+const secColors=['#00ddb8','#4888d8','#e04878','#9868e0'];
+const secNames=['Sector 0','Sector 1','Sector 2','Sector 3 (gate)'];
+const gdColors={0:'#00ddb8',1:'#4888d8',2:'#e04878',3:'#9868e0'};
+const gdLabels=['a','b','c','d'];
+
+// =====================================================================
+// ELEMENTS: Z, symbol, A, experimental B/A (AME2020 via PlasmaPy)
+// =====================================================================
+const ELEMENTS=[
+  [1,'H',1,0.0000],[2,'He',4,7.0739],[3,'Li',7,5.6064],[4,'Be',9,6.4627],
+  [5,'B',11,6.9277],[6,'C',12,7.6802],[7,'N',14,7.4756],[8,'O',16,7.9762],
+  [9,'F',19,7.7790],[10,'Ne',20,8.0322],[11,'Na',23,8.1115],[12,'Mg',24,8.2607],
+  [13,'Al',27,8.3316],[14,'Si',28,8.4478],[15,'P',31,8.4812],[16,'S',32,8.4931],
+  [17,'Cl',35,8.5203],[18,'Ar',40,8.5953],[19,'K',39,8.5570],[20,'Ca',40,8.5513],
+  [21,'Sc',45,8.6189],[22,'Ti',48,8.7230],[23,'V',51,8.7421],[24,'Cr',52,8.7760],
+  [25,'Mn',55,8.7650],[26,'Fe',56,8.7903],[27,'Co',59,8.7680],[28,'Ni',58,8.7321],
+  [29,'Cu',63,8.7521],[30,'Zn',64,8.7359],[31,'Ga',69,8.7246],[32,'Ge',74,8.7252],
+  [33,'As',75,8.7009],[34,'Se',80,8.7108],[35,'Br',79,8.6876],[36,'Kr',84,8.7175],
+  [37,'Rb',85,8.6974],[38,'Sr',88,8.7326],[39,'Y',89,8.7140],[40,'Zr',90,8.7100],
+  [41,'Nb',93,8.6642],[42,'Mo',98,8.6352],[43,'Tc',98,8.6100],[44,'Ru',102,8.6074],
+  [45,'Rh',103,8.5842],[46,'Pd',106,8.5800],[47,'Ag',107,8.5539],[48,'Cd',114,8.5315],
+  [49,'In',115,8.5166],[50,'Sn',120,8.5045],[51,'Sb',121,8.4821],[52,'Te',128,8.4488],
+  [53,'I',127,8.4455],[54,'Xe',132,8.4276],[55,'Cs',133,8.4100],[56,'Ba',138,8.3934],
+  [57,'La',139,8.3780],[58,'Ce',140,8.3763],[59,'Pr',141,8.3540],[60,'Nd',142,8.3460],
+  [61,'Pm',145,8.3027],[62,'Sm',152,8.2441],[63,'Eu',153,8.2287],[64,'Gd',158,8.2018],
+  [65,'Tb',159,8.1888],[66,'Dy',164,8.1587],[67,'Ho',165,8.1470],[68,'Er',166,8.1420],
+  [69,'Tm',169,8.1145],[70,'Yb',174,8.0839],[71,'Lu',175,8.0692],[72,'Hf',180,8.0350],
+  [73,'Ta',181,8.0234],[74,'W',184,8.0051],[75,'Re',187,7.9780],[76,'Os',192,7.9485],
+  [77,'Ir',193,7.9382],[78,'Pt',195,7.9266],[79,'Au',197,7.9157],[80,'Hg',202,7.8969],
+  [81,'Tl',205,7.8784],[82,'Pb',208,7.8675]
+];
+
+// =====================================================================
+// SIDEBAR
+// =====================================================================
+const elList=document.getElementById('elList');
+let activeEl=null;
+
+ELEMENTS.forEach(([Z,sym,A,BA])=>{
+  const nSectors=Math.ceil(A/64);
+  const div=document.createElement('div');
+  div.className='el-item';div.dataset.z=Z;
+  let secBadge='';
+  if(nSectors>1) secBadge=`<span class="sec-badge" style="background:${secColors[nSectors-1]}30;color:${secColors[nSectors-1]}">${nSectors}s</span>`;
+  div.innerHTML=`<span class="z">${Z}</span><span class="sym">${sym}</span><span class="a">A=${A}</span>${secBadge}<span class="ba">${BA>0?BA.toFixed(3):''}</span>`;
+  div.addEventListener('click',()=>selectElement(Z));
+  elList.appendChild(div);
+});
+
+// =====================================================================
+// SIERPINSKI GEOMETRY (4 sectors x 64 positions = 256 positions)
+// =====================================================================
+const canvas=document.getElementById('triCanvas');
+const ctx=canvas.getContext('2d');
+const triArea=document.getElementById('triArea');
+const tooltip=document.getElementById('tooltip');
+let W,H;
+const pad=16;
+let allTriData=[]; // 256 entries: {pts, center, sector, localIdx}
+let sectorOutlines=[]; // 4 sector outlines
+let faceOutlines=[]; // 16 face outlines
+
+function subdiv(p0,p1,p2,up){
+  const m01={x:(p0.x+p1.x)/2,y:(p0.y+p1.y)/2};
+  const m12={x:(p1.x+p2.x)/2,y:(p1.y+p2.y)/2};
+  const m02={x:(p0.x+p2.x)/2,y:(p0.y+p2.y)/2};
+  if(up)return[
+    {pts:[p0,m01,m02],up:true},{pts:[m01,p1,m12],up:true},
+    {pts:[m02,m12,p2],up:true},{pts:[m01,m02,m12],up:false}
+  ];
+  return[
+    {pts:[p0,m01,m02],up:false},{pts:[m01,p1,m12],up:false},
+    {pts:[m02,m12,p2],up:false},{pts:[m01,m02,m12],up:true}
+  ];
+}
+function ctr(pts){return{x:(pts[0].x+pts[1].x+pts[2].x)/3,y:(pts[0].y+pts[1].y+pts[2].y)/3};}
+
+function buildGeometry(){
+  const sz=Math.min(W,H)-pad*2;
+  const triH=sz*Math.sqrt(3)/2;
+  const ox=(W-sz)/2, oy=(H-triH)/2;
+  const apex={x:ox+sz/2,y:oy},bL={x:ox,y:oy+triH},bR={x:ox+sz,y:oy+triH};
+
+  // Level 0 -> 4 sectors
+  const sectors=subdiv(apex,bL,bR,true);
+  sectorOutlines=sectors.map(s=>s.pts);
+
+  // Level 1 -> 16 faces (4 per sector)
+  const faces=[];
+  sectors.forEach(sec=>{
+    subdiv(sec.pts[0],sec.pts[1],sec.pts[2],sec.up).forEach(f=>faces.push(f));
+  });
+  faceOutlines=faces.map(f=>f.pts);
+
+  // Level 2 -> 64 channels (4 per face)
+  const channels=[];
+  faces.forEach(f=>{
+    subdiv(f.pts[0],f.pts[1],f.pts[2],f.up).forEach(c=>channels.push(c));
+  });
+
+  // Level 3 -> 256 subchannels (4 per channel)
+  const subs=[];
+  channels.forEach(c=>{
+    subdiv(c.pts[0],c.pts[1],c.pts[2],c.up).forEach(s=>subs.push(s));
+  });
+
+  allTriData=subs.map((s,i)=>({
+    pts:s.pts, center:ctr(s.pts),
+    globalIdx:i, sector:Math.floor(i/64), localIdx:i%64
+  }));
+}
+
+function drawTri(pts,fill,stroke,lw){
+  ctx.beginPath();
+  ctx.moveTo(pts[0].x,pts[0].y);
+  ctx.lineTo(pts[1].x,pts[1].y);
+  ctx.lineTo(pts[2].x,pts[2].y);
+  ctx.closePath();
+  if(fill){ctx.fillStyle=fill;ctx.fill();}
+  if(stroke){ctx.strokeStyle=stroke;ctx.lineWidth=lw||0.5;ctx.stroke();}
+}
+
+// =====================================================================
+// DRAWING
+// =====================================================================
+function draw(el){
+  if(!el)return;
+  const [Z,sym,A,BA]=el;
+  ctx.clearRect(0,0,W,H);
+
+  const ba_pred=envelope(A);
+  const nSectors=Math.min(Math.ceil(A/64),4);
+
+  // Draw all 256 subchannels, colored by gate depth (a/b/c/d)
+  allTriData.forEach((tri)=>{
+    const sec=tri.sector;
+    const li=tri.localIdx;
+    const gpos=sec*64+li+1;
+    const filled=gpos<=A;
+
+    if(filled){
+      const lp=LOCAL_POS[li];
+      const col=gdColors[lp.gd]; // color by gate depth, not sector
+      const alpha=0.20+0.50*lp.mu;
+      const hex=Math.round(alpha*255).toString(16).padStart(2,'0');
+      drawTri(tri.pts,col+hex,col+'70',0.5);
+
+      const c=tri.center;
+      const baseFontSize=W>900?7:W>600?6:5;
+      ctx.textAlign='center';ctx.textBaseline='middle';
+
+      if(baseFontSize>=6){
+        ctx.font=`600 ${baseFontSize}px "JetBrains Mono"`;
+        ctx.fillStyle='rgba(255,255,255,0.85)';
+        ctx.fillText(ba_pred.toFixed(2),c.x,c.y-baseFontSize*0.55);
+
+        ctx.font=`400 ${baseFontSize-1}px "JetBrains Mono"`;
+        ctx.fillStyle=col+'99';
+        ctx.fillText(gdLabels[lp.gd],c.x,c.y+baseFontSize*0.35);
+      } else {
+        ctx.font=`600 ${baseFontSize}px "JetBrains Mono"`;
+        ctx.fillStyle='rgba(255,255,255,0.8)';
+        ctx.fillText(gdLabels[lp.gd],c.x,c.y);
+      }
+    } else {
+      drawTri(tri.pts,'#080a12','#111525',0.2);
+    }
+  });
+
+  // Sector outlines with labels
+  sectorOutlines.forEach((pts,si)=>{
+    const strokeCol=si===3?'rgba(152,104,224,0.35)':'rgba(255,255,255,0.15)';
+    drawTri(pts,null,strokeCol,2);
+    const c=ctr(pts);
+    ctx.font='700 11px "JetBrains Mono"';ctx.textAlign='center';
+    const filled_in_sec=Math.max(0,Math.min(64,A-si*64));
+    if(filled_in_sec>0){
+      ctx.fillStyle=si===3?'rgba(152,104,224,0.5)':'rgba(255,255,255,0.25)';
+      ctx.fillText('S'+si+(si===3?' gate':'')+' ('+filled_in_sec+'/64)',c.x,c.y);
+    } else {
+      ctx.fillStyle='rgba(255,255,255,0.06)';
+      ctx.fillText('S'+si+(si===3?' gate':''),c.x,c.y);
+    }
+  });
+
+  // Face outlines (subtle)
+  faceOutlines.forEach(pts=>drawTri(pts,null,'rgba(255,255,255,0.03)',0.3));
+
+  // Info overlay
+  ctx.font='500 10px "JetBrains Mono"';ctx.textAlign='right';
+  ctx.fillStyle=A>=208?'var(--gd2)':A===64?'#e8a820':'#3a4060';
+  const secLabel=nSectors===1?'1 sector':nSectors+' sectors';
+  ctx.fillText(A+'/'+Math.min(A,256)+' positions ('+secLabel+') | B/A='+ba_pred.toFixed(3)+' MeV',W-pad,H-pad/2);
+}
+
+// =====================================================================
+// RIGHT PANEL
+// =====================================================================
+function updatePanel(el){
+  const [Z,sym,A,BA]=el;
+  const panel=document.getElementById('rightPanel');
+  const ba_pred=envelope(A);
+  const nSectors=Math.min(Math.ceil(A/64),4);
+
+  // Per-sector breakdown
+  const sectorData=[];
+  for(let s=0;s<nSectors;s++){
+    const start=s*64;
+    const count=Math.min(64,A-start);
+    let sum_mu=0;
+    for(let j=0;j<count;j++) sum_mu+=LOCAL_POS[j].mu;
+    sectorData.push({sector:s,count,sum_mu,ba_local:sst_local(count)});
+  }
+
+  const err_keV=(ba_pred-BA)*1000;
+  const err_pct=Math.abs(err_keV/10/Math.max(BA,0.001));
+
+  let html='';
+
+  // Envelope summary
+  html+=`<div class="rp-section">
+    <div class="rp-title">Envelope Prediction</div>
+    <div class="rp-row"><span class="lbl">B/A predicted</span><span class="val" style="font-size:12px;color:var(--bright)">${ba_pred.toFixed(4)} MeV</span></div>
+    <div class="rp-row"><span class="lbl">B/A experimental</span><span class="val">${BA>0?BA.toFixed(4)+' MeV':'N/A'}</span></div>
+    <div class="rp-row"><span class="lbl">Error</span><span class="val" style="color:${err_pct<1?'var(--gd0)':err_pct<3?'var(--gold)':'var(--gd2)'}">${err_keV>=0?'+':''}${err_keV.toFixed(0)} keV (${err_pct.toFixed(2)}%)</span></div>
+    <div class="rp-row"><span class="lbl">Sectors filled</span><span class="val">${nSectors} of 4</span></div>
+    <div class="rp-row"><span class="lbl">A</span><span class="val">${A}</span></div>
+  </div>`;
+
+  // Active curves
+  html+=`<div class="rp-section"><div class="rp-title">Active Curves at A=${A}</div>`;
+  const sst1val=sst_curve(A);
+  const sst1inv=CEIL_1-sst_curve(A);
+  html+=`<div class="rp-row"><span class="lbl">SST_1 (rising)</span><span class="val c0">${sst1val.toFixed(4)}</span></div>`;
+  html+=`<div class="rp-row"><span class="lbl">SST_1^inv (CEIL=${CEIL_1.toFixed(3)})</span><span class="val c0">${sst1inv.toFixed(4)}</span></div>`;
+  if(A>64){
+    const v2=CEIL_2-sst_local(A-64);
+    html+=`<div class="rp-row"><span class="lbl">SST_2^inv (CEIL=${CEIL_2.toFixed(3)})</span><span class="val c1">${v2.toFixed(4)}</span></div>`;
+  }
+  if(A>128){
+    const v3=CEIL_3-sst_local(A-128);
+    html+=`<div class="rp-row"><span class="lbl">SST_3^inv (CEIL=${CEIL_3.toFixed(3)})</span><span class="val c2">${v3.toFixed(4)}</span></div>`;
+  }
+  html+=`<div class="rp-row" style="margin-top:4px;border-top:1px solid var(--bg4);padding-top:4px"><span class="lbl">min (envelope)</span><span class="val" style="color:var(--gold)">${ba_pred.toFixed(4)}</span></div>`;
+  html+=`</div>`;
+
+  // Per-sector breakdown
+  html+=`<div class="rp-section"><div class="rp-title">Sector Breakdown</div>`;
+  sectorData.forEach(sd=>{
+    const col=secColors[sd.sector];
+    html+=`<div style="margin:4px 0;padding:4px 6px;border-left:3px solid ${col};background:${col}08">
+      <div class="rp-row"><span class="lbl">${secNames[sd.sector]}</span><span class="val" style="color:${col}">${sd.count}/64 filled</span></div>
+      <div class="rp-row"><span class="lbl">Sum mu (local)</span><span class="val">${sd.sum_mu.toFixed(3)}</span></div>
+      <div class="rp-row"><span class="lbl">B/A (local curve)</span><span class="val">${sd.ba_local.toFixed(4)} MeV</span></div>
+    </div>`;
+  });
+  html+=`</div>`;
+
+  // Sector fill bar
+  const barParts=sectorData.map(sd=>{
+    const pct=(sd.count/A*100);
+    return pct>0?`<div style="width:${pct}%;background:${secColors[sd.sector]}">${pct>8?sd.count:''}</div>`:'';
+  }).join('');
+  html+=`<div class="rp-section">
+    <div class="rp-title">Position Distribution</div>
+    <div class="depth-bar">${barParts}</div>
+  </div>`;
+
+  // Shell decomposition (across all sectors)
+  html+=`<div class="rp-section"><div class="rp-title">Shell Structure (all sectors)</div>`;
+  const shells=new Map();
+  for(let gp=1;gp<=A;gp++){
+    const li=((gp-1)%64);
+    const lp=LOCAL_POS[li];
+    const sh=lp.shell;
+    if(!shells.has(sh))shells.set(sh,{n:0,mu:0});
+    const s=shells.get(sh);s.n++;s.mu+=lp.mu;
+  }
+  const totalMu=(()=>{let s=0;for(let gp=1;gp<=A;gp++)s+=LOCAL_POS[(gp-1)%64].mu;return s;})();
+  const shellColors=['#ff6b6b','#ffa64d','#ffd43b','#69db7c','#4dabf7','#9775fa','#f783ac'];
+  [...shells.entries()].sort((a,b)=>a[0]-b[0]).forEach(([n,d])=>{
+    const col=shellColors[(n-1)%7];
+    const cap=[2,6,12,8,22,32,44];
+    const capPerSector=n<=7?cap[n-1]:0;
+    html+=`<div class="rp-row"><span class="lbl" style="color:${col}">n=${n} (${d.n} nucleons)</span><span class="val">sum_mu=${d.mu.toFixed(3)} (${(d.mu/totalMu*100).toFixed(1)}%)</span></div>`;
+  });
+  html+=`</div>`;
+
+  // Ceiling constants
+  html+=`<div class="rp-section"><div class="rp-title">Ceiling Sequence</div>
+    <div class="rp-row"><span class="lbl">B/A(Zn)</span><span class="val">${BA_ZN.toFixed(3)} MeV</span></div>
+    <div class="rp-row"><span class="lbl">SECTOR_DROP</span><span class="val">${SECTOR_DROP.toFixed(4)} MeV</span></div>
+    <div class="rp-row"><span class="lbl">CEIL_1</span><span class="val c0">${CEIL_1.toFixed(3)} MeV</span></div>
+    <div class="rp-row"><span class="lbl">CEIL_2</span><span class="val c1">${CEIL_2.toFixed(3)} MeV</span></div>
+    <div class="rp-row"><span class="lbl">CEIL_3</span><span class="val c2">${CEIL_3.toFixed(3)} MeV</span></div>
+  </div>`;
+
+  // Structural constants
+  html+=`<div class="rp-section"><div class="rp-title">Structural Constants</div>
+    <div class="rp-row"><span class="lbl">SCALE</span><span class="val">${SCALE.toFixed(4)} MeV</span></div>
+    <div class="rp-row"><span class="lbl">R0</span><span class="val">${R0.toFixed(4)} fm</span></div>
+    <div class="rp-row"><span class="lbl">r(A)</span><span class="val">${(R0*Math.pow(A,1/3)).toFixed(3)} fm</span></div>
+    <div class="rp-row"><span class="lbl">K, D</span><span class="val">${K}, ${D}</span></div>
+    <div class="rp-row"><span class="lbl">K^D</span><span class="val">${KD}</span></div>
+    <div class="rp-row"><span class="lbl">Sum_64</span><span class="val">${SUM64.toFixed(4)}</span></div>
+  </div>`;
+
+  panel.innerHTML=html;
+}
+
+// =====================================================================
+// TOOLTIP
+// =====================================================================
+canvas.addEventListener('mousemove',(e)=>{
+  if(!activeEl)return;
+  const [Z,sym,A,BA]=activeEl;
+  const rect=canvas.getBoundingClientRect();
+  const mx=e.clientX-rect.left,my=e.clientY-rect.top;
+
+  let hit=null,minD=Infinity;
+  allTriData.forEach((tri)=>{
+    const gpos=tri.sector*64+tri.localIdx+1;
+    if(gpos>A)return;
+    const dx=tri.center.x-mx,dy=tri.center.y-my;
+    const dist=dx*dx+dy*dy;
+    if(dist<minD){minD=dist;hit=tri;}
+  });
+
+  if(hit!==null&&minD<(W/14)**2){
+    const gpos=hit.sector*64+hit.localIdx+1;
+    const lp=LOCAL_POS[hit.localIdx];
+    const ba_pred=envelope(A);
+    const col=gdColors[lp.gd]; // gate depth color
+
+    // Cumulative mu within this sector up to this local position
+    let mu_cum_local=0;
+    for(let j=0;j<=hit.localIdx;j++) mu_cum_local+=LOCAL_POS[j].mu;
+
+    const gdCounts=[27,27,9,1];
+    const gdDesc=['ordinary','gate d=1','gate d=2','gate d=3'];
+    tooltip.innerHTML=`
+      <div style="font-weight:600;color:var(--bright)">Position ${gpos} / ${A}</div>
+      <div style="color:var(--dim)">Sector ${hit.sector}, local ${hit.localIdx+1}/64 | F${lp.addr.F}.C${lp.addr.C}.S${lp.addr.S}</div>
+      <div style="color:${col};font-weight:600">Depth ${gdLabels[lp.gd]} (${gdDesc[lp.gd]}, ${gdCounts[lp.gd]} per sector)</div>
+      <div style="margin-top:4px;padding-top:4px;border-top:1px solid #1a1e2e">
+        <div style="color:var(--bright);font-weight:600">B/A = ${ba_pred.toFixed(4)} MeV</div>
+        <div style="color:var(--dim);font-size:10px">distributed equally across all ${A} nucleons</div>
+      </div>
+      <div style="margin-top:4px;padding-top:4px;border-top:1px solid #1a1e2e">
+        <div style="color:${col}">mu = ${lp.mu.toFixed(6)}</div>
+        <div style="color:var(--dim)">Sector sum_mu to here: ${mu_cum_local.toFixed(3)} / ${SUM64.toFixed(3)}</div>
+      </div>
+      <div style="margin-top:3px;color:var(--dim)">Shell n=${lp.shell}</div>
+    `;
+    tooltip.className='tooltip show';
+    const areaRect=triArea.getBoundingClientRect();
+    let tx=hit.center.x+rect.left-areaRect.left+14;
+    let ty=hit.center.y+rect.top-areaRect.top-30;
+    if(tx+210>areaRect.width-10)tx=hit.center.x+rect.left-areaRect.left-220;
+    if(ty<5)ty=hit.center.y+rect.top-areaRect.top+20;
+    tooltip.style.left=tx+'px';tooltip.style.top=ty+'px';
+  } else {
+    tooltip.className='tooltip';
+  }
+});
+canvas.addEventListener('mouseleave',()=>{tooltip.className='tooltip';});
+
+// =====================================================================
+// RESIZE & SELECT
+// =====================================================================
+function resize(){
+  const rect=triArea.getBoundingClientRect();
+  W=rect.width-16;H=rect.height-16;
+  canvas.width=W;canvas.height=H;
+  buildGeometry();
+  if(activeEl)draw(activeEl);
+}
+window.addEventListener('resize',resize);
+
+function selectElement(Z){
+  const el=ELEMENTS.find(e=>e[0]===Z);
+  if(!el)return;
+  activeEl=el;
+  document.querySelectorAll('.el-item').forEach(d=>d.classList.toggle('active',+d.dataset.z===Z));
+  const [z,sym2,A,BA]=el;
+  const nSectors=Math.min(Math.ceil(A/64),4);
+  document.getElementById('elTitle').textContent=sym2+'-'+A;
+  const ba_pred=envelope(A);
+  document.getElementById('elMeta').innerHTML=
+    'Z=<span>'+z+'</span> | A=<span>'+A+'</span> | '
+    +nSectors+' sector'+(nSectors>1?'s':'')+' | '
+    +'B/A pred=<span>'+ba_pred.toFixed(3)+'</span> | '
+    +'B/A exp=<span>'+(BA>0?BA.toFixed(3):'N/A')+'</span> MeV';
+  buildGeometry();
+  draw(el);
+  updatePanel(el);
+}
+
+// =====================================================================
+// SEARCH / FILTER
+// =====================================================================
+const searchInput=document.getElementById('searchInput');
+searchInput.addEventListener('input',()=>{
+  const raw=searchInput.value.trim().toLowerCase();
+  if(!raw){
+    document.querySelectorAll('.el-item').forEach(d=>d.classList.remove('hidden'));
+    return;
+  }
+  // Convert wildcard pattern to regex: * -> .*, ? -> .
+  const pattern=raw.replace(/[.+^${}()|[\]\\]/g,'\\$&').replace(/\*/g,'.*').replace(/\?/g,'.');
+  let re;
+  try{re=new RegExp(pattern);}catch(e){return;}
+  ELEMENTS.forEach(([Z,sym,A,BA])=>{
+    const item=elList.querySelector(`[data-z="${Z}"]`);
+    if(!item)return;
+    const haystack=(Z+' '+sym+' '+sym+'-'+A+' '+A+' '+BA.toFixed(3)).toLowerCase();
+    item.classList.toggle('hidden',!re.test(haystack));
+  });
+});
+searchInput.addEventListener('keydown',(e)=>{
+  if(e.key==='Enter'){
+    const visible=[...document.querySelectorAll('.el-item:not(.hidden)')];
+    if(visible.length===1) selectElement(+visible[0].dataset.z);
+  }
+  if(e.key==='Escape'){searchInput.value='';searchInput.dispatchEvent(new Event('input'));}
+});
+
+// =====================================================================
+// RESIZABLE SIDEBAR
+// =====================================================================
+const resizeHandle=document.getElementById('resizeHandle');
+const sidebar=document.getElementById('sidebar');
+let dragging=false;
+resizeHandle.addEventListener('mousedown',(e)=>{
+  e.preventDefault();dragging=true;
+  resizeHandle.classList.add('dragging');
+  document.body.style.cursor='col-resize';
+  document.body.style.userSelect='none';
+});
+document.addEventListener('mousemove',(e)=>{
+  if(!dragging)return;
+  const newW=Math.max(160,Math.min(500,e.clientX));
+  sidebar.style.width=newW+'px';
+  resize();
+});
+document.addEventListener('mouseup',()=>{
+  if(!dragging)return;
+  dragging=false;
+  resizeHandle.classList.remove('dragging');
+  document.body.style.cursor='';
+  document.body.style.userSelect='';
+});
+
+setTimeout(()=>{resize();selectElement(26);},50);
+</script>
+</body>
+</html>

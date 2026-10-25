@@ -1,0 +1,583 @@
+\documentclass[10pt]{article}
+
+\usepackage[margin=0.72in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+\usepackage{titlesec}
+
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setlist[itemize]{leftmargin=1.2em,itemsep=0.15em,topsep=0.25em}
+\setlist[enumerate]{leftmargin=1.4em,itemsep=0.15em,topsep=0.25em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.45em}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{definition}{Definition}
+\newtheorem{remark}{Remark}
+
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\spanop}{span}
+
+\title{An Algebraic Origin for the Simple AQUAL Interpolation Function}
+\author{Stephen Nelson\\
+\small Field Dynamics Research\\
+\small \texttt{stephen@fielddynamics.org}}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We give a short algebraic derivation of the simple AQUAL/MOND interpolation
+function~\cite{Milgrom1983,FamaeyMcGaugh2012}
+\[
+        u(x)=\frac{x}{1+x}
+\]
+from the reciprocal $\mathbb Z_2$ structure of a tetrad-frame sector algebra
+whose internal frame space $V$ has dimension $K=4$ in standard $3+1$ tetrad
+formalism. The closure-read sector space
+\[
+        \mathcal C_K=\Lambda^K V\oplus V\oplus(V\otimes V)
+\]
+has parity-weighted trace
+\[
+        f(K,s)=1+sK+K^2,
+\]
+which at $K=4$ gives the shell $(13,17,21)$.  The swap involution on the
+bilinear sector produces the ordinary affine-connection component split
+$64=40+24$ from
+$V^*\otimes V^*=\Sym^2 V^*\oplus \Lambda^2V^*$. The exchange of the two
+bilinear sectors, $\Sym^2V\leftrightarrow\Lambda^2V$, represented by
+$x\mapsto x^{-1}$, imposes a reciprocal functional symmetry together with the
+pure-sector endpoint values; within the fractional-linear class the unique
+solution is $u(x)=x/(1+x)$.  The Cayley
+coordinate $s(x)=(x-1)/(x+1)$ is the associated parity coordinate.
+Finally, the positive
+quadratic action variable $y=x^2$ gives, with $F(0)=0$, the unique primitive
+\[
+        F(y)=y-2\sqrt y+2\ln(1+\sqrt y),\qquad F'(y)=u(\sqrt y).
+\]
+The gravitational realization $x=|\nabla\Phi|/a_0$ gives the simple
+AQUAL kinetic functional. The paper proves only this algebraic/variational
+core; covariant completion, optical metrics, and numerical coupling predictions
+are excluded from the present scope.
+\end{abstract}
+
+\section{Scope of the claim}
+Among the interpolation functions considered in MOND
+phenomenology~\cite{Milgrom1983}, the simple form $u(x)=x/(1+x)$ (often
+written $\mu(x)=x/(1+x)$ in the MOND literature) has
+proven particularly successful in fitting galactic rotation curves and is
+a standard choice in recent systematic
+analyses~\cite{FamaeyMcGaugh2012}.  Its functional form is the
+standard odds-to-probability conversion for a binary partition.  The
+tetrad frame, where the bilinear sector $V\otimes V$ carries a canonical
+$\mathbb Z_2$ decomposition into symmetric and antisymmetric subspaces,
+provides a natural setting for such a partition.  In this note, we
+identify the simple interpolation function with the sector occupation law
+of this decomposition and compute the corresponding AQUAL kinetic
+primitive.
+
+The result proved here is deliberately narrow. We show that
+\[
+        u(x)=\frac{x}{1+x}
+\]
+is the unique fractional-linear occupation law satisfying the sector exchange
+constraints of the tetrad frame's bilinear $\mathbb Z_2$ partition, and that
+its AQUAL primitive is
+\[
+        F(y)=y-2\sqrt y+2\ln(1+\sqrt y).
+\]
+Here $x>0$ is an algebraic odds variable; the gravitational realization
+is a later constitutive substitution,
+\[
+        x\;\longrightarrow\;\frac{|\nabla\Phi|}{a_0},
+\]
+so that no acceleration scale is smuggled into the algebra.
+
+This note does not claim a final covariant theory, a photon optical metric, or a
+prediction of Newton's constant. Those are separate completions. The present
+claim is only the frame-algebraic origin of the simple AQUAL interpolation law
+and its kinetic primitive.
+
+\section{The tetrad frame and the closure-read sector space}
+Let $V$ denote the internal frame vector space of a tetrad/vierbein formalism;
+in ordinary $3+1$ spacetime the frame index $a$ runs over $0,1,2,3$, giving
+\[
+        K:=\dim V=4
+\]
+as the standard tetrad-frame dimension (see e.g.\ \cite{Wald1984,Hehl1976}).
+Throughout, ``tetrad'' means a nondegenerate vierbein,
+$\det(e^a{}_\mu)\neq 0$ (since
+$\det g=\det\eta\,(\det e)^2$, this is equivalent to nondegeneracy of the metric).
+
+\begin{definition}[Closure-read sector space]
+In a tetrad formulation, the metric is completed by the frame relation
+\[
+        g_{\mu\nu}=\eta_{ab}\,e^a{}_\mu\,e^b{}_\nu.
+\]
+We use \emph{closure-read} to mean the finite algebraic readout of the frame
+sectors required by this completion relation.
+
+The tetrad equation is bilinear in the frame $e$.  Reading the equation by
+frame degree gives exactly three levels: the one-dimensional orientation
+sector $\Lambda^K V$; the frame sector $V$; and the bilinear sector
+$V\otimes V$, generated by the right-hand side of the tetrad equation
+before any symmetric projection.
+A rank-three or higher sector would require trilinear or higher dependence
+on $e$, which the tetrad equation does not contain.  Therefore the
+closure-read sector space is
+\[
+        \mathcal C_K:=\Lambda^K V\oplus V\oplus (V\otimes V).
+\]
+Since
+\[
+        \dim\Lambda^K V=\binom{K}{K}=1,
+        \qquad
+        \dim V=K,
+        \qquad
+        \dim(V\otimes V)=K^2,
+\]
+the unweighted total dimension is $1+K+K^2$.
+
+Independently, the affine connection in a local frame has index form
+$\Gamma^a{}_{bc}$, with two lower frame indices, so the highest
+frame-sector read available to the connection is also bilinear.  Two
+routes, tetrad bilinearity and connection index structure, give the same
+degree-two cutoff.
+\end{definition}
+
+The term ``closure-read'' is not an additional physical postulate; it denotes
+the algebraic sector content read from the tetrad completion relation itself.
+
+\begin{definition}[Parity-weighted sector trace]
+For $s\in\{-1,0,+1\}$ define the sector-weighting operator
+\[
+        \Omega_s:=I_{\Lambda^K V}\oplus sI_V\oplus I_{V\otimes V}
+        \quad\text{on }\mathcal C_K.
+\]
+The frame vector $e^a{}_\mu$ changes sign under frame parity $e\to-e$; the
+bilinear product $e\otimes e$ does not.  The weight $s$ on the $V$ sector
+reflects this parity grading.  For even $K$ (including the tetrad case $K=4$),
+the orientation line $\Lambda^K V$ is also parity-even under $e\to-e$.  For
+general $K$, $\Omega_s$ should be read as the closure-sector weighting
+operator, not as the full exterior-algebra parity action on all degrees.
+\end{definition}
+
+\begin{theorem}[Closure-read trace]
+The parity-weighted trace of the closure-read sector space defines the
+trace polynomial
+\[
+        f(K,s):=\Tr_{\mathcal C_K}(\Omega_s)=1+sK+K^2.
+\]
+\end{theorem}
+
+\begin{proof}
+The trace is additive over direct sums. Therefore
+\[
+\Tr_{\mathcal C_K}(\Omega_s)
+=\Tr(I_{\Lambda^K V})+\Tr(sI_V)+\Tr(I_{V\otimes V})
+=1+sK+K^2.
+\]
+No geometric or physical assumption enters the count; it is finite-dimensional
+linear algebra.
+\end{proof}
+
+\begin{corollary}[The $13/17/21$ tetrad shell]
+For the standard tetrad dimension $K=4$,
+\[
+        f(4,-1)=13,
+        \qquad
+        f(4,0)=17,
+        \qquad
+        f(4,+1)=21.
+\]
+Equivalently,
+\[
+        21=4^0+4^1+4^2=1+4+16,
+\]
+\[
+        17=4^0+4^2=1+16,
+        \qquad
+        13=4^0-4^1+4^2=1-4+16.
+\]
+\end{corollary}
+
+Write $f_\pm:=f(K,\pm1)$ and $f_0:=f(K,0)$ for brevity.
+The leading $1$ is not an added scalar patch but the dimension of
+$\Lambda^K V$, the top exterior power of the $K$-frame, which is
+one-dimensional for every finite-dimensional $K$.
+The value $s=0$ is not a third parity eigenvalue but the unpolarized trace
+read obtained by averaging the two parity eigenreads $s=+1$ and $s=-1$:
+\[
+        f(K,0)=\frac{f(K,+1)+f(K,-1)}2=1+K^2.
+\]
+The role of these three values as endpoint and midpoint data of a continuous occupation
+will be made precise in Section~3 once the odds coordinate is in hand.
+
+\subsection{\texorpdfstring{Bilinear swap and the $40/24$ connection split}{Bilinear swap and the 40/24 connection split}}
+Let
+\[
+        \tau:V\otimes V\to V\otimes V,
+        \qquad
+        \tau(a\otimes b)=b\otimes a
+\]
+be the swap involution. Then $\tau^2=I$, and
+\[
+        P_+=\frac12(I+\tau),
+        \qquad
+        P_-=\frac12(I-\tau)
+\]
+are complementary projectors onto $\Sym^2V$ and $\Lambda^2V$ respectively.
+Also
+\[
+        \Tr_{V\otimes V}(\tau)=K,
+\]
+because $\tau$ fixes precisely the $K$ diagonal basis elements $e_i\otimes e_i$.
+Numerically the same polynomial can also be written as
+\[
+        f(K,s)=\dim(\Lambda^K V)+\Tr_{V\otimes V}(I+s\tau).
+\]
+Since $\Tr(\tau)=K$, this again gives $1+K^2+sK$.  This is not a second
+definition of $\Omega_s$ on $\mathcal C_K$; it is the bilinear-swap
+representation of the same trace polynomial, showing that the $sK$ term
+is equivalently encoded by the swap trace $\Tr(\tau)=K$.
+
+For the affine connection written in a local frame,
+\[
+        \Gamma^a{}_{bc}\in V\otimes V^*\otimes V^*.
+\]
+This is the frame representation of the affine connection, not the Lorentz spin
+connection $\omega_\mu{}^{ab}$. The lower-index pair decomposes canonically as
+\[
+        V^*\otimes V^*=\Sym^2V^*\oplus\Lambda^2V^*.
+\]
+Hence
+\[
+\dim\bigl(V\otimes\Sym^2V^*\bigr)=K\frac{K(K+1)}2,
+\qquad
+\dim\bigl(V\otimes\Lambda^2V^*\bigr)=K\frac{K(K-1)}2.
+\]
+At $K=4$ this gives
+\[
+        4\cdot 10=40,
+        \qquad
+        4\cdot 6=24,
+        \qquad
+        40+24=64.
+\]
+Thus the lower-index symmetric component space has dimension $40$, while the
+lower-index antisymmetric component space has dimension $24$. The
+antisymmetric sector is the representation in which torsion lives. In a coordinate
+basis $T^a{}_{bc}=2\Gamma^a{}_{[bc]}$; in an anholonomic frame, structure
+coefficients also enter, but torsion is still a $\Lambda^2V^*$-valued object.
+The $40/24$ split is not required for the derivation of $u(x)$ below; it is
+recorded here because the same $\mathbb Z_2$ bilinear grading that produces
+the connection split also produces the occupation law.
+
+The two $\mathbb Z_2$ gradings (frame parity and swap) together organize the
+$21$-dimensional sector space into four sectors:
+\[
+\begin{array}{c|c|c|c}
+\text{sector} & \text{parity} & \text{swap} & \dim \\ \hline
+\Lambda^K V\oplus\Sym^2 V & + & + & 1+\tfrac{K(K{+}1)}{2} \\[2pt]
+\Lambda^2V & + & - & \tfrac{K(K{-}1)}{2} \\[2pt]
+V & - & + & K \\[2pt]
+\text{(empty)} & - & - & 0
+\end{array}
+\]
+At $K=4$: $11+6+4+0=21$.
+
+\section{\texorpdfstring{The $\mathbb Z_2$ odds ratio and occupation law}{The Z2 odds ratio and occupation law}}
+The canonical $Z_2$ decomposition of Section~2.1 splits the bilinear sector
+into two complementary eigenspaces $\Sym^2V$ and $\Lambda^2V$.  The
+derivation uses two related but distinct $\mathbb Z_2$ actions: the
+frame-parity grading $e\to-e$, which weights the three rank levels of
+$\mathcal C_K$ and produces the trace $f(K,s)$; and the swap involution
+$\tau$ on $V\otimes V$, which splits the bilinear sector into symmetric and
+antisymmetric subspaces.  The occupation law below lives on the second.
+
+\begin{lemma}[Sector exchange constraints]
+A normalized occupation law $u(x)$ for a $\mathbb Z_2$-graded sector partition with
+sector exchange $x\mapsto x^{-1}$ must satisfy
+\[
+        u(x)+u(1/x)=1,
+        \qquad
+        u(0)=0,
+        \quad
+        u(1)=\tfrac12,
+        \quad
+        u(\infty)=1.
+\]
+The first condition is a functional symmetry: the two sector fractions
+sum to $1$ at every $x$.  The reciprocal symmetry gives $u(1)=\frac12$
+and pairs the two endpoints.  The endpoint normalization $u(0)=0$,
+$u(\infty)=1$ fixes the orientation of $x$: $x\to0$ is pure antisymmetric
+occupation and $x\to\infty$ is pure symmetric occupation.
+\end{lemma}
+
+\begin{proof}
+Sector exchange sends $u\mapsto 1-u$ and $x\mapsto 1/x$, giving
+$u(1/x)=1-u(x)$.  Setting $x=1$: $u(1)=1-u(1)$, so $u(1)=\frac12$.
+The limits $u(0)=0$ and $u(\infty)=1$ are the pure-sector boundary values.
+\end{proof}
+
+\begin{theorem}[The reciprocal partition law]
+The unique fractional-linear function satisfying the sector exchange
+constraints is
+\[
+        \boxed{u(x)=\frac{x}{1+x}}.
+\]
+\end{theorem}
+
+\begin{proof}
+A fractional-linear map $u(x)=(ax+b)/(cx+d)$ has four coefficients
+and three constraints ($u(0)=0$, $u(1)=\frac12$, $u(\infty)=1$),
+fixing it up to an overall scale.  From $u(0)=b/d=0$: $b=0$.
+From $u(\infty)=a/c=1$: $a=c$.  From $u(1)=a/(a+d)=\frac12$: $d=a$.
+Hence $u(x)=ax/(ax+a)=x/(1+x)$.  Direct verification:
+$u(1/x)=1/(1+x)=1-u(x)$.
+\end{proof}
+
+Since the sector exchange imposes a reciprocal functional symmetry together
+with the pure-sector endpoint values, $u(x)=x/(1+x)$ is forced within the
+fractional-linear class; it is not a constitutive assumption.
+
+The fractional-linear restriction is not vacuous.  The family
+$x^n/(1+x^n)$ satisfies the same exchange symmetry for every $n>0$.
+The case $n=1$ is selected by the requirement that $x$ be the sector odds
+ratio $u/(1-u)$ itself, rather than a power of it; equivalently, $n=1$ is
+the unique member of this family that is fractional-linear.  The present
+claim is therefore the uniqueness of the occupation law among
+fractional-linear maps, or equivalently, the identification of $x$ with
+the sector odds.
+
+\begin{remark}[Universality]
+If $x$ is already defined as the sector odds $u/(1-u)$, then
+$u(x)=x/(1+x)$ is the ordinary odds-to-probability identity.  The
+nontrivial content of this note is the identification of the tetrad
+bilinear $\mathbb Z_2$ split as the relevant sector partition, together
+with the minimal projective coordinate on that partition.  It is this
+identification that connects the abstract occupation law to the specific
+function used in MOND phenomenology.
+\end{remark}
+
+The parity coordinate
+\[
+        s(x):=2u(x)-1=\frac{x-1}{x+1}
+\]
+is the composition of the odds-to-probability map with the affine rescaling
+$u\mapsto 2u-1$ from $[0,1]$ to $[-1,1]$.  The Möbius form of $s(x)$ is
+therefore a consequence of the odds definition, not a separate geometric
+assumption.
+
+Substituting $s(x)$ into the trace polynomial of Section~2 gives
+$f(K,s(x))=f_-(K)+2Ku(x)$.  No new object is introduced; this is the trace
+theorem evaluated at continuous $s$.  At $K=4$, the shell values $(13,17,21)$
+are the endpoint and midpoint values: $f_-=13$ at full antisymmetric occupation ($u=0$),
+$f_+=21$ at full symmetric ($u=1$), and $f_0=17$ at the partition midpoint
+($u=\frac12$).
+
+\begin{lemma}[Uniqueness of the Cayley coordinate]
+Among fractional-linear maps $s(x)=(ax+b)/(cx+d)$ satisfying
+\[
+        s(1/x)=-s(x),\qquad s(1)=0,
+\]
+\[
+        \lim_{x\to0}s(x)=-1,
+        \qquad
+        \lim_{x\to\infty}s(x)=+1,
+\]
+the unique representative is
+\[
+        s(x)=\frac{x-1}{x+1}.
+\]
+\end{lemma}
+
+\begin{proof}
+The conditions $s(1)=0$, $s(0)=-1$, and $s(\infty)=1$ fix a fractional-linear
+map on three distinct points of the projective line. The unique such map is the
+one sending $0\mapsto -1$, $1\mapsto0$, and $\infty\mapsto1$, namely
+$(x-1)/(x+1)$. Direct substitution gives $s(1/x)=-s(x)$.
+\end{proof}
+
+Thus the sector exchange constraints and the Cayley uniqueness lemma arrive at
+the same algebraic structure by independent routes.
+
+The complementary fraction is
+\[
+        1-u(x)=\frac1{1+x}=u(1/x).
+\]
+
+One may equivalently form the sector-density operator
+\[
+        \rho_x=u(x)P_+ + [1-u(x)]P_-.
+\]
+Then
+\[
+        \rho_x+\rho_{1/x}=I
+\]
+on the bilinear sector. Define the $\rho_x$-weighted connection count
+$N_K(x):=N_-(K)+K^2u(x)$, where $N_-(K)=K^2(K-1)/2$ is the connection count
+at pure antisymmetric occupation ($u=0$).  Lifting by the upper affine-connection index gives the
+completion identity
+\[
+        N_K(x)+N_K(1/x)=K^3.
+\]
+At $K=4$,
+\[
+        N_4(x)+N_4(1/x)=64.
+\]
+This is an algebraic completion identity, not a separate physical conservation
+law.
+
+\section{The positive quadratic action variable and AQUAL primitive}
+The occupation law lives on the reciprocal odds variable $x$, and a scalar
+kinetic action is built from the positive quadratic variable
+\[
+        y=x^2.
+\]
+The variational bridge from occupation to kinetic energy,
+$F'(y)=u(\sqrt y)$, together with the normalization $F(0)=0$, gives
+\[
+        F(y)=\int_0^y \frac{\sqrt t}{1+\sqrt t}\,dt.
+\]
+With $r=\sqrt t$, $dt=2r\,dr$, this becomes
+\[
+        F(y)=2\int_0^{\sqrt y}\frac{r^2}{1+r}\,dr.
+\]
+Using
+\[
+        \frac{r^2}{1+r}=r-1+\frac1{1+r},
+\]
+one obtains
+\[
+        \boxed{F(y)=y-2\sqrt y+2\ln(1+\sqrt y)}.
+\]
+Direct differentiation verifies
+\[
+        F'(y)=\frac{\sqrt y}{1+\sqrt y}=u(\sqrt y).
+\]
+
+The function satisfies
+\[
+        F\in C^1([0,\infty))\cap C^\infty((0,\infty)),
+        \qquad
+        F(y)\sim \frac23 y^{3/2}\quad (y\to0^+).
+\]
+Thus the associated Euler-Lagrange equation is classical where the gradient is
+nonzero and is interpreted weakly across critical points, as in the usual AQUAL
+setting.  This regularity structure is standard; the weak formulation and
+elliptic regularity of the nonlinear Poisson equation are treated
+in~\cite{BM1984}.  At large $y$, $F'(y)\to1$ and the Newtonian kinetic
+term is recovered at leading order.
+
+Writing $r=\sqrt y$, the primitive takes the form $F=r^2-2r+2\ln(1+r)$.
+This three-term decomposition mirrors the three closure-read sectors: a
+quadratic bilinear term, a linear frame term, and an orientation
+normalization term.  Expanding the logarithm near $r=0$,
+\[
+        2\ln(1+r)=2r-r^2+\tfrac23 r^3+O(r^4),
+\]
+one sees that the linear terms cancel ($-2r+2r=0$) and the quadratic terms
+cancel ($r^2-r^2=0$).  The first surviving contribution is
+\[
+        F\sim\tfrac23\,r^3=\tfrac23\,y^{3/2}.
+\]
+Under the standard AQUAL gravitational realization, this is the deep-MOND
+scaling associated with the baryonic Tully-Fisher relation~\cite{Milgrom1983,FamaeyMcGaugh2012}.
+
+\subsection{Gravitational realization}
+The gravitational realization identifies the algebraic odds variable with the
+standard MOND acceleration ratio,
+\[
+        x\;\longrightarrow\;\frac{|\nabla\Phi|}{a_0},
+        \qquad
+        y=x^2\;\longrightarrow\;\frac{|\nabla\Phi|^2}{a_0^2}.
+\]
+Therefore
+\[
+        u\!\left(\frac{|\nabla\Phi|}{a_0}\right)=\frac{|\nabla\Phi|}{a_0+|\nabla\Phi|}
+\]
+and the kinetic functional is precisely
+\[
+        F\!\left(\frac{|\nabla\Phi|^2}{a_0^2}\right)
+        =\frac{|\nabla\Phi|^2}{a_0^2}
+        -\frac{2|\nabla\Phi|}{a_0}
+        +2\ln\!\left(1+\frac{|\nabla\Phi|}{a_0}\right).
+\]
+In the AQUAL variational construction of Bekenstein and Milgrom, the
+nonrelativistic scalar action
+\[
+        S_{\rm NR}[\Phi]=\int d^3x\left[-\frac{a_0^2}{8\pi G}F\left(\frac{|\nabla\Phi|^2}{a_0^2}\right)-\rho\Phi\right]
+\]
+yields
+\[
+        \nabla\cdot\left[u\left(\frac{|\nabla\Phi|}{a_0}\right)\nabla\Phi\right]
+        =4\pi G\rho.
+\]
+This last variational step is standard AQUAL machinery.  The algebraic result of
+this note is the derivation of the particular simple function $u(x)=x/(1+x)$ and
+its primitive $F$ from the reciprocal tetrad-frame sector structure.
+
+\section{Conclusion}
+In standard tetrad formalism ($K=4$), the closure-read sector space
+$\Lambda^K V\oplus V\oplus(V\otimes V)$ has parity-weighted trace
+$f(K,s)=1+sK+K^2$, giving the shell $(13,17,21)$ and, via the bilinear
+swap, the affine-connection component split $64=40+24$.  The reciprocal
+sector exchange then fixes
+\[
+        u(x)=\frac{x}{1+x}
+\]
+as the unique fractional-linear occupation law, with Cayley
+parity coordinate $s(x)=(x-1)/(x+1)$.
+The positive quadratic action variable $y=x^2$ gives the primitive
+\[
+        F(y)=y-2\sqrt y+2\ln(1+\sqrt y),
+\]
+which is the simple AQUAL kinetic functional under the gravitational realization
+$x=|\nabla\Phi|/a_0$.
+The novelty is not the AQUAL variational identity itself, but the
+identification of the simple interpolation function as the reciprocal
+partition law of the tetrad frame's bilinear sector.  The bilinear sector
+carries a natural $\mathbb Z_2$ partition into two complementary subspaces,
+$\Sym^2V$ and $\Lambda^2V$.  In this algebraic reading, the endpoint $u=1$
+corresponds to the purely symmetric lower-index sector, while $u<1$
+represents mixed symmetric/antisymmetric sector occupation.
+
+\begin{thebibliography}{9}
+\bibitem{Milgrom1983}
+M.~Milgrom,
+``A modification of the Newtonian dynamics as a possible alternative to the
+hidden mass hypothesis'',
+\emph{Astrophysical Journal} \textbf{270}, 365--370 (1983).
+
+\bibitem{BM1984}
+J.~D. Bekenstein and M.~Milgrom,
+``Does the missing mass problem signal the breakdown of Newtonian gravity?'',
+\emph{Astrophysical Journal} \textbf{286}, 7--14 (1984).
+
+\bibitem{FamaeyMcGaugh2012}
+B.~Famaey and S.~S. McGaugh,
+``Modified Newtonian dynamics (MOND): Observational phenomenology and
+relativistic extensions'',
+\emph{Living Reviews in Relativity} \textbf{15}, 10 (2012).
+
+\bibitem{Wald1984}
+R.~M. Wald,
+\emph{General Relativity}, University of Chicago Press (1984).
+
+\bibitem{Hehl1976}
+F.~W. Hehl, P.~von der Heyde, G.~D. Kerlick, and J.~M. Nester,
+``General relativity with spin and torsion: Foundations and prospects'',
+\emph{Reviews of Modern Physics} \textbf{48}, 393--416 (1976).
+
+\end{thebibliography}
+
+\end{document}

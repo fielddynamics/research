@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GFD Galactic Vortex</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Crimson+Pro:wght@400;600;700&display=swap');
+
+  :root {
+    --bg-deep: #060810;
+    --bg-panel: #0c0f1a;
+    --bg-card: #10131f;
+    --border: #1e2233;
+    --grid: #151830;
+    --text: #c8ccd8;
+    --text-dim: #5a6080;
+    --text-bright: #e8ecf4;
+    --accent: #47b8e8;
+    --accent-glow: #47b8e840;
+    --accent-dim: #47b8e815;
+    --tetb: #e87247;
+    --tetb-glow: #e8724740;
+    --tetb-dim: #e8724715;
+    --gold: #e8c547;
+    --gold-dim: #e8c54730;
+    --green: #6be847;
+    --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+    --font-serif: 'Crimson Pro', Georgia, serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg-deep);
+    color: var(--text);
+    font-family: var(--font-mono);
+    font-size: 13px;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* === HEADER === */
+  .header {
+    text-align: center;
+    padding: 32px 20px 8px;
+  }
+  .header h1 {
+    font-family: var(--font-serif);
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-bright);
+    letter-spacing: 1px;
+  }
+  .header .subtitle {
+    font-size: 11px;
+    color: var(--text-dim);
+    margin-top: 6px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  /* === DROP ZONE === */
+  .drop-zone {
+    max-width: 900px;
+    margin: 20px auto;
+    border: 2px dashed var(--border);
+    border-radius: 12px;
+    padding: 40px;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    background: var(--bg-panel);
+  }
+  .drop-zone.active {
+    border-color: var(--accent);
+    background: var(--accent-dim);
+    box-shadow: 0 0 40px var(--accent-glow);
+  }
+  .drop-zone.has-data {
+    padding: 12px;
+    border-style: solid;
+    border-color: var(--border);
+  }
+  .drop-zone .drop-label {
+    font-size: 14px;
+    color: var(--text-dim);
+    transition: color 0.3s;
+  }
+  .drop-zone.active .drop-label { color: var(--accent); }
+  .drop-zone .drop-icon {
+    font-size: 36px;
+    margin-bottom: 12px;
+    opacity: 0.3;
+  }
+  .drop-zone .drop-hint {
+    font-size: 10px;
+    color: var(--text-dim);
+    margin-top: 8px;
+    opacity: 0.5;
+  }
+  .drop-zone input[type="file"] {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  /* === CHART CONTAINER === */
+  .chart-wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px 40px;
+    display: none;
+  }
+  .chart-wrap.visible { display: block; }
+
+  .galaxy-title {
+    text-align: center;
+    font-family: var(--font-serif);
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: var(--accent);
+  }
+  .galaxy-subtitle {
+    text-align: center;
+    font-size: 10px;
+    color: var(--text-dim);
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+  }
+
+  .chart-panel {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px 16px 16px;
+    position: relative;
+  }
+
+  canvas {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+  }
+
+  /* === STATS OVERLAY === */
+  .stats-box {
+    position: absolute;
+    top: 28px;
+    left: 24px;
+    background: rgba(6, 8, 16, 0.88);
+    border: 1px solid var(--accent);
+    border-radius: 6px;
+    padding: 10px 14px;
+    font-size: 11px;
+    line-height: 1.6;
+    color: var(--text);
+    pointer-events: none;
+    z-index: 10;
+  }
+  .stats-box .stat-label { color: var(--text-dim); }
+  .stats-box .stat-value { color: var(--accent); font-weight: 500; }
+  .stats-box .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 4px 0;
+  }
+
+  /* === REGION LABELS === */
+  .region-labels {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 60px 0;
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
+  .region-labels .tetb-label { color: var(--tetb); opacity: 0.5; }
+  .region-labels .teta-label { color: var(--accent); opacity: 0.5; }
+
+  /* === EQUATION BAR === */
+  .equation-bar {
+    text-align: center;
+    padding: 12px 20px;
+    font-size: 10px;
+    color: var(--text-dim);
+    letter-spacing: 0.5px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .equation-bar span { margin: 0 10px; }
+
+  /* === DECOMPOSITION TABLE === */
+  .decomp-section {
+    max-width: 1100px;
+    margin: 0 auto 40px;
+    padding: 0 20px;
+    display: none;
+  }
+  .decomp-section.visible { display: block; }
+
+  .decomp-title {
+    font-size: 12px;
+    color: var(--text-dim);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .decomp-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 11px;
+  }
+  .decomp-table th {
+    background: var(--bg-panel);
+    color: var(--text-dim);
+    font-weight: 500;
+    padding: 6px 10px;
+    text-align: right;
+    border-bottom: 1px solid var(--border);
+    letter-spacing: 0.5px;
+  }
+  .decomp-table th:first-child { text-align: left; }
+  .decomp-table td {
+    padding: 5px 10px;
+    text-align: right;
+    border-bottom: 1px solid var(--bg-panel);
+    font-variant-numeric: tabular-nums;
+  }
+  .decomp-table td:first-child { text-align: left; color: var(--text-dim); }
+  .decomp-table tr:nth-child(even) { background: var(--bg-panel); }
+  .decomp-table .val-accent { color: var(--accent); }
+  .decomp-table .val-tetb { color: var(--tetb); }
+  .decomp-table .val-gold { color: var(--gold); }
+
+  /* === ANIMATIONS === */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .chart-wrap.visible, .decomp-section.visible {
+    animation: fadeIn 0.5s ease forwards;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>GFD Galactic Vortex</h1>
+  <div class="subtitle">TetB (subspace) &larr; Field Origin &rarr; TetA (our spacetime)</div>
+</div>
+
+<div class="drop-zone" id="dropZone">
+  <div class="drop-icon">&#9673;</div>
+  <div class="drop-label">Drop galaxy JSON here</div>
+  <div class="drop-hint">or click to browse</div>
+  <input type="file" id="fileInput" accept=".json">
+</div>
+
+<div class="chart-wrap" id="chartWrap">
+  <div class="galaxy-title" id="galaxyTitle"></div>
+  <div class="galaxy-subtitle" id="galaxySub"></div>
+  <div class="chart-panel">
+    <canvas id="vortexCanvas" width="1060" height="600"></canvas>
+    <div class="stats-box" id="statsBox"></div>
+  </div>
+  <div class="region-labels">
+    <span class="tetb-label">&#9664; TetB</span>
+    <span class="teta-label">TetA &#9654;</span>
+  </div>
+</div>
+
+<div class="equation-bar" id="eqBar">
+  <span>v&sup2;(r) = &frac12;[g<sub>N</sub>&middot;r + &radic;((g<sub>N</sub>&middot;r)&sup2; + 4&middot;g<sub>N</sub>&middot;r&sup2;&middot;a&#8320;)]</span>
+  <span>|</span>
+  <span>FO = Field Origin (x = 1)</span>
+  <span>|</span>
+  <span>Field contribution = 1/(x+1) where x = v&sup2;/(r&middot;a&#8320;)</span>
+</div>
+
+<div class="decomp-section" id="decompSection">
+  <div class="decomp-title">Vortex Decomposition</div>
+  <table class="decomp-table" id="decompTable">
+    <thead><tr>
+      <th>r (kpc)</th><th>v (km/s)</th><th>x</th><th>&mu;</th>
+      <th>f</th><th>v_TetA</th><th>v_TetB</th><th>DM/bar</th><th>M_bar (M&#9737;)</th>
+    </tr></thead>
+    <tbody id="decompBody"></tbody>
+  </table>
+</div>
+
+<script>
+// =====================================================================
+// GFD PHYSICS ENGINE
+// =====================================================================
+
+const G  = 4.3009e-3;   // kpc (km/s)^2 / M_sun
+const A0 = 3703.0;      // (km/s)^2 / kpc
+const D  = 3;
+
+function mu(x) { return x > 0 ? x / (x + 1) : 0; }
+function fieldFrac(x) { return 1 / (x + 1); }
+function xParam(r, v) { return (v * v / r) / A0; }
+
+// Mass model components
+function bulgeMass(r, M, a) {
+  return M * r * r / (r * r + a * a);
+}
+
+function diskMass(r, M, Rd) {
+  const y = r / Rd;
+  return M * (1 - (1 + y) * Math.exp(-y));
+}
+
+function totalBaryonicMass(r, model) {
+  let M = 0;
+  if (model.bulge) M += bulgeMass(r, model.bulge.M, model.bulge.a);
+  if (model.disk)  M += diskMass(r, model.disk.M, model.disk.Rd);
+  if (model.gas)   M += diskMass(r, model.gas.M, model.gas.Rd);
+  return M;
+}
+
+function gN(r, model) {
+  const M = totalBaryonicMass(r, model);
+  return G * M / (r * r);
+}
+
+function vGFD(r, model) {
+  if (r <= 0.01) return 0;
+  const gn = gN(r, model);
+  const gr = gn * r;
+  return Math.sqrt((gr + Math.sqrt(gr * gr + 4 * gn * r * r * A0)) / 2);
+}
+
+function decodeMass(r, v) {
+  return r * Math.pow(v, 4) / (G * (A0 * r + v * v));
+}
+
+// =====================================================================
+// VORTEX FIELD: the physically constrained smooth envelope
+// =====================================================================
+// The vortex field is NOT the raw observations (which have scatter).
+// It's the smoothest v(r) whose effective mass M_eff(r) = v^2*r/G
+// is monotonically non-decreasing. This is the physical constraint:
+// you can't have negative mass shells.
+//
+// Method:
+// 1. Decode M_eff from each observation
+// 2. Enforce monotonicity (pool adjacent violators)
+// 3. Smooth with a parametric model: M(r) = M_inf * r^a / (r^a + rs^a)
+// 4. From M_smooth(r), compute v_field(r) through the field equation
+
+function computeVortexField(obs, nOut, rMax) {
+  if (obs.length < 3) return [];
+
+  // Step 1: decode BARYONIC mass at each radius via inverse pipeline
+  const rs = obs.map(p => p.r);
+  const Mbars = obs.map(p => p.r * Math.pow(p.v, 4) / (G * (A0 * p.r + p.v * p.v)));
+  const weights = obs.map(p => 1.0 / ((p.err || 1) * (p.err || 1)));
+
+  // Step 2: fit parametric mass model M(r) = Mt * r^alpha / (r^alpha + rs^alpha)
+  // Three-pass refinement for maximum accuracy
+  
+  const MMax = Math.max(...Mbars);
+  const rMaxObs = rs[rs.length - 1];
+  let bestErr = Infinity, bestMt = MMax, bestRs = 5, bestAlpha = 1.5;
+  
+  function evalFit(Mt, rsFit, alpha) {
+    let err = 0;
+    const rsa = Math.pow(rsFit, alpha);
+    for (let i = 0; i < rs.length; i++) {
+      const ra = Math.pow(rs[i], alpha);
+      const Mmodel = Mt * ra / (ra + rsa);
+      const diff = Mmodel - Mbars[i];
+      err += weights[i] * diff * diff;
+    }
+    return err;
+  }
+  
+  // Pass 1: coarse scan
+  for (let mtFrac = 0.9; mtFrac <= 2.5; mtFrac += 0.1) {
+    const Mt = MMax * mtFrac;
+    for (let rsFit = 0.2; rsFit <= rMaxObs * 0.8; rsFit += 0.3) {
+      for (let alpha = 0.5; alpha <= 5.0; alpha += 0.2) {
+        const err = evalFit(Mt, rsFit, alpha);
+        if (err < bestErr) { bestErr = err; bestMt = Mt; bestRs = rsFit; bestAlpha = alpha; }
+      }
+    }
+  }
+  
+  // Pass 2: medium refinement
+  let mt0 = bestMt, rs0 = bestRs, a0 = bestAlpha;
+  for (let dmt = -0.12; dmt <= 0.12; dmt += 0.02) {
+    const Mt = mt0 * (1 + dmt);
+    for (let drs = -0.8; drs <= 0.8; drs += 0.05) {
+      const rsFit = Math.max(0.05, rs0 + drs);
+      for (let da = -0.4; da <= 0.4; da += 0.03) {
+        const alpha = Math.max(0.2, a0 + da);
+        const err = evalFit(Mt, rsFit, alpha);
+        if (err < bestErr) { bestErr = err; bestMt = Mt; bestRs = rsFit; bestAlpha = alpha; }
+      }
+    }
+  }
+
+  // Pass 3: ultra-fine
+  mt0 = bestMt; rs0 = bestRs; a0 = bestAlpha;
+  for (let dmt = -0.03; dmt <= 0.03; dmt += 0.005) {
+    const Mt = mt0 * (1 + dmt);
+    for (let drs = -0.15; drs <= 0.15; drs += 0.01) {
+      const rsFit = Math.max(0.05, rs0 + drs);
+      for (let da = -0.08; da <= 0.08; da += 0.005) {
+        const alpha = Math.max(0.2, a0 + da);
+        const err = evalFit(Mt, rsFit, alpha);
+        if (err < bestErr) { bestErr = err; bestMt = Mt; bestRs = rsFit; bestAlpha = alpha; }
+      }
+    }
+  }
+
+  // Step 3: generate the complete vortex field from core to beyond last observation
+  const result = [];
+  for (let i = 0; i < nOut; i++) {
+    const r = 0.01 + (rMax - 0.01) * (i / (nOut - 1));
+    const M = bestMt * Math.pow(r, bestAlpha) / (Math.pow(r, bestAlpha) + Math.pow(bestRs, bestAlpha));
+    if (M <= 0 || r <= 0.005) { result.push({ r, v: 0 }); continue; }
+    
+    const gn = G * M / (r * r);
+    const gr = gn * r;
+    const v = Math.sqrt((gr + Math.sqrt(gr * gr + 4 * gn * r * r * A0)) / 2);
+    result.push({ r, v });
+  }
+  return result;
+}
+
+function vTetA(r, v) {
+  const x = xParam(r, v);
+  return v * Math.sqrt(mu(x));
+}
+
+function vTetB(r, v) {
+  const x = xParam(r, v);
+  return v * Math.sqrt(fieldFrac(x));
+}
+
+// =====================================================================
+// RENDERING
+// =====================================================================
+
+let currentData = null;
+
+function renderVortex(data) {
+  currentData = data;
+  const canvas = document.getElementById('vortexCanvas');
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width;
+  const H = canvas.height;
+
+  const obs = data.observations;
+  const model = data.mass_model;
+
+  // Range: symmetric about r=0, extend slightly beyond outermost observation
+  const obsRMax = Math.max(...obs.map(o => o.r));
+  const rMax = obsRMax * 1.15;
+
+  // Observation interpolation: ONLY through actual data. No fake anchors.
+  // Starts at first observation, ends at last. This is what we measured.
+  const obsRs = obs.map(o => o.r);
+  const obsVs = obs.map(o => o.v);
+  const obsRMax2 = Math.max(...obsRs);
+  const smoothPts = monotoneInterp(obsRs, obsVs, 400, obsRMax2);
+
+  // Vortex field: the full physical configuration from core to edge
+  const vortexPts = computeVortexField(obs, 600, rMax * 1.05);
+
+  const obsVMax = Math.max(...obs.map(o => o.v + (o.err || 0)));
+  const vortexVMax = vortexPts.length > 0 ? Math.max(...vortexPts.map(p => p.v)) : 0;
+  const vMax = Math.max(obsVMax, vortexVMax) * 1.18;
+
+  // Coordinate transforms
+  const cx = W / 2;  // center x (r = 0)
+  const plotL = 50, plotR = W - 20, plotT = 20, plotB = H - 50;
+  const plotW = plotR - plotL;
+  const plotH = plotB - plotT;
+
+  function rToX(r) { return cx + (r / rMax) * (plotW / 2); }
+  function vToY(v) { return plotB - (v / vMax) * plotH; }
+
+  // Clear
+  ctx.fillStyle = '#10131f';
+  ctx.fillRect(0, 0, W, H);
+
+  // Region shading
+  ctx.fillStyle = '#47b8e806';
+  ctx.fillRect(cx, plotT, plotR - cx, plotH);
+  ctx.fillStyle = '#e8724706';
+  ctx.fillRect(plotL, plotT, cx - plotL, plotH);
+
+  // Grid
+  ctx.strokeStyle = '#151830';
+  ctx.lineWidth = 0.5;
+
+  // Horizontal grid + labels
+  ctx.font = '10px JetBrains Mono, monospace';
+  ctx.fillStyle = '#5a6080';
+  const vStep = vMax > 200 ? 50 : 25;
+  for (let v = 0; v <= vMax; v += vStep) {
+    const y = vToY(v);
+    ctx.beginPath(); ctx.moveTo(plotL, y); ctx.lineTo(plotR, y); ctx.stroke();
+    if (v > 0) {
+      ctx.textAlign = 'right';
+      ctx.fillText(v.toString(), plotL - 6, y + 3);
+    }
+  }
+
+  // Vertical grid + labels
+  const rStep = rMax > 30 ? 10 : 5;
+  for (let r = -Math.floor(rMax / rStep) * rStep; r <= rMax; r += rStep) {
+    const x = rToX(r);
+    if (x < plotL || x > plotR) continue;
+    ctx.beginPath(); ctx.moveTo(x, plotT); ctx.lineTo(x, plotB); ctx.stroke();
+    ctx.textAlign = 'center';
+    ctx.fillText(r.toString(), x, plotB + 14);
+  }
+
+  // Axis labels
+  ctx.fillStyle = '#5a6080';
+  ctx.font = '11px JetBrains Mono, monospace';
+  ctx.textAlign = 'center';
+  ctx.fillText('r  (kpc)', cx, plotB + 36);
+  ctx.save();
+  ctx.translate(14, plotT + plotH / 2);
+  ctx.rotate(-Math.PI / 2);
+  ctx.fillText('v  (km/s)', 0, 0);
+  ctx.restore();
+
+  // Field Origin line (r = 0)
+  ctx.strokeStyle = '#e8c54730';
+  ctx.lineWidth = 1.2;
+  ctx.setLineDash([6, 4]);
+  ctx.beginPath(); ctx.moveTo(cx, plotT); ctx.lineTo(cx, plotB); ctx.stroke();
+  ctx.setLineDash([]);
+
+  // Compute Field Origin radius
+  const Mtotal = data.mass || totalBaryonicMass(rMax, model);
+  const rFO = Math.sqrt(2 * G * Mtotal / A0);
+  const rH = D * rFO;
+
+  // FO and H markers
+  function drawMarker(r, label, dash, alpha) {
+    const xp = rToX(r);
+    const xn = rToX(-r);
+    if (xp > plotL && xp < plotR) {
+      ctx.strokeStyle = `rgba(71, 184, 232, ${alpha})`;
+      ctx.lineWidth = 1;
+      ctx.setLineDash(dash);
+      ctx.beginPath(); ctx.moveTo(xp, plotT); ctx.lineTo(xp, plotB); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(xn, plotT); ctx.lineTo(xn, plotB); ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.font = 'bold 10px JetBrains Mono, monospace';
+      ctx.fillStyle = `rgba(71, 184, 232, ${alpha + 0.2})`;
+      ctx.textAlign = 'center';
+      ctx.fillText(label, xp, plotT + 12);
+      ctx.globalAlpha = 0.5;
+      ctx.fillText(label, xn, plotT + 12);
+      ctx.globalAlpha = 1;
+    }
+  }
+  drawMarker(rFO, 'FO', [3, 3], 0.4);
+  if (rH < rMax) drawMarker(rH, 'H', [6, 4], 0.2);
+
+  // === VORTEX FIELD (orange) — the full physical configuration ===
+  // Computed above from parametric mass fit through the field equation.
+  // Shows the complete vortex from core to edge — what the field IS.
+
+  if (vortexPts.length > 0) {
+    // TetA glow (right)
+    ctx.strokeStyle = 'rgba(232, 114, 71, 0.10)';
+    ctx.lineWidth = 10;
+    ctx.beginPath();
+    let vfStarted = false;
+    vortexPts.forEach(p => {
+      const x = rToX(p.r), y = vToY(p.v);
+      if (isNaN(x) || isNaN(y) || x > plotR || y < plotT || p.v <= 0) return;
+      if (!vfStarted) { ctx.moveTo(x, y); vfStarted = true; } else { ctx.lineTo(x, y); }
+    });
+    ctx.stroke();
+
+    // TetB glow (left)
+    ctx.strokeStyle = 'rgba(232, 114, 71, 0.04)';
+    ctx.lineWidth = 8;
+    ctx.beginPath();
+    vfStarted = false;
+    vortexPts.forEach(p => {
+      const x = rToX(-p.r), y = vToY(p.v);
+      if (isNaN(x) || isNaN(y) || x < plotL || y < plotT || p.v <= 0) return;
+      if (!vfStarted) { ctx.moveTo(x, y); vfStarted = true; } else { ctx.lineTo(x, y); }
+    });
+    ctx.stroke();
+
+    // TetA side (right) — solid orange
+    ctx.strokeStyle = '#e87247';
+    ctx.lineWidth = 2.2;
+    ctx.globalAlpha = 0.9;
+    ctx.beginPath();
+    vfStarted = false;
+    vortexPts.forEach(p => {
+      const x = rToX(p.r), y = vToY(p.v);
+      if (isNaN(x) || isNaN(y) || x > plotR || y < plotT || p.v <= 0) return;
+      if (!vfStarted) { ctx.moveTo(x, y); vfStarted = true; } else { ctx.lineTo(x, y); }
+    });
+    ctx.stroke();
+
+    // TetB side (left) — dashed, dim orange
+    ctx.strokeStyle = '#e87247';
+    ctx.lineWidth = 1.8;
+    ctx.globalAlpha = 0.28;
+    ctx.setLineDash([8, 5]);
+    ctx.beginPath();
+    vfStarted = false;
+    vortexPts.forEach(p => {
+      const x = rToX(-p.r), y = vToY(p.v);
+      if (isNaN(x) || isNaN(y) || x < plotL || y < plotT || p.v <= 0) return;
+      if (!vfStarted) { ctx.moveTo(x, y); vfStarted = true; } else { ctx.lineTo(x, y); }
+    });
+    ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.globalAlpha = 1;
+  }
+
+  // === OBSERVATION DATA CURVE (cyan) — data range ONLY ===
+  // No extrapolation. Starts at first observation, ends at last.
+  // Only the orange vortex field shows the full configuration.
+  
+  const rFirst = obs[0].r;
+  const rLast = obs[obs.length - 1].r;
+
+  // Filter smooth points to observation range only
+  const clippedPts = smoothPts.filter(p => p.r >= rFirst && p.r <= rLast);
+
+  // TetA glow (right, within data range)
+  ctx.strokeStyle = 'rgba(71, 184, 232, 0.12)';
+  ctx.lineWidth = 8;
+  ctx.beginPath();
+  let obsStarted = false;
+  clippedPts.forEach(p => {
+    const x = rToX(p.r), y = vToY(p.v);
+    if (isNaN(x) || isNaN(y)) return;
+    if (!obsStarted) { ctx.moveTo(x, y); obsStarted = true; } else { ctx.lineTo(x, y); }
+  });
+  ctx.stroke();
+
+  // TetB glow (left, within data range)
+  ctx.strokeStyle = 'rgba(71, 184, 232, 0.04)';
+  ctx.lineWidth = 6;
+  ctx.beginPath();
+  obsStarted = false;
+  clippedPts.forEach(p => {
+    const x = rToX(-p.r), y = vToY(p.v);
+    if (isNaN(x) || isNaN(y)) return;
+    if (!obsStarted) { ctx.moveTo(x, y); obsStarted = true; } else { ctx.lineTo(x, y); }
+  });
+  ctx.stroke();
+
+  // TetA side (right) — solid cyan, data range only
+  ctx.strokeStyle = '#47b8e8';
+  ctx.lineWidth = 2.5;
+  ctx.globalAlpha = 0.95;
+  ctx.beginPath();
+  obsStarted = false;
+  clippedPts.forEach(p => {
+    const x = rToX(p.r), y = vToY(p.v);
+    if (isNaN(x) || isNaN(y)) return;
+    if (!obsStarted) { ctx.moveTo(x, y); obsStarted = true; } else { ctx.lineTo(x, y); }
+  });
+  ctx.stroke();
+
+  // TetB side (left) — dashed, dim, data range only
+  ctx.strokeStyle = '#47b8e8';
+  ctx.lineWidth = 2;
+  ctx.globalAlpha = 0.3;
+  ctx.setLineDash([8, 5]);
+  ctx.beginPath();
+  obsStarted = false;
+  clippedPts.forEach(p => {
+    const x = rToX(-p.r), y = vToY(p.v);
+    if (isNaN(x) || isNaN(y)) return;
+    if (!obsStarted) { ctx.moveTo(x, y); obsStarted = true; } else { ctx.lineTo(x, y); }
+  });
+  ctx.stroke();
+  ctx.setLineDash([]);
+  ctx.globalAlpha = 1;
+
+  // === DATA POINTS WITH ERROR BARS ===
+  obs.forEach(p => {
+    const x = rToX(p.r), y = vToY(p.v);
+    const errPx = (p.err || 0) / vMax * plotH;
+
+    // Error bar
+    ctx.strokeStyle = 'rgba(71, 184, 232, 0.5)';
+    ctx.lineWidth = 0.8;
+    ctx.beginPath();
+    ctx.moveTo(x, y - errPx); ctx.lineTo(x, y + errPx);
+    ctx.moveTo(x - 3, y - errPx); ctx.lineTo(x + 3, y - errPx);
+    ctx.moveTo(x - 3, y + errPx); ctx.lineTo(x + 3, y + errPx);
+    ctx.stroke();
+
+    // Point
+    ctx.beginPath();
+    ctx.arc(x, y, 3.5, 0, Math.PI * 2);
+    ctx.fillStyle = '#47b8e8';
+    ctx.globalAlpha = 0.85;
+    ctx.fill();
+    ctx.strokeStyle = '#0c0f1a';
+    ctx.lineWidth = 0.8;
+    ctx.stroke();
+    ctx.globalAlpha = 1;
+
+    // TetB mirror points (hollow, dim)
+    const xm = rToX(-p.r);
+    ctx.strokeStyle = 'rgba(71, 184, 232, 0.15)';
+    ctx.lineWidth = 0.6;
+    ctx.beginPath();
+    ctx.moveTo(xm, y - errPx); ctx.lineTo(xm, y + errPx);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.arc(xm, y, 2.5, 0, Math.PI * 2);
+    ctx.strokeStyle = 'rgba(71, 184, 232, 0.2)';
+    ctx.lineWidth = 0.8;
+    ctx.stroke();
+  });
+
+  // === LEGEND ===
+  const lx = plotR - 190, ly = plotB - 54;
+  ctx.fillStyle = 'rgba(6, 8, 16, 0.88)';
+  ctx.strokeStyle = '#1e2233';
+  ctx.lineWidth = 1;
+  roundRect(ctx, lx, ly, 180, 50, 4);
+  ctx.fill(); ctx.stroke();
+
+  ctx.font = '9px JetBrains Mono, monospace';
+  ctx.textAlign = 'left';
+
+  // Vortex field (orange)
+  ctx.strokeStyle = '#e87247'; ctx.lineWidth = 2;
+  ctx.beginPath(); ctx.moveTo(lx + 10, ly + 12); ctx.lineTo(lx + 30, ly + 12); ctx.stroke();
+  ctx.fillStyle = '#8890a0';
+  ctx.fillText('Vortex field', lx + 36, ly + 15);
+
+  // Observation interpolation (cyan) — data only, no extrapolation
+  ctx.strokeStyle = '#47b8e8'; ctx.lineWidth = 2;
+  ctx.beginPath(); ctx.moveTo(lx + 10, ly + 26); ctx.lineTo(lx + 30, ly + 26); ctx.stroke();
+  ctx.fillStyle = '#8890a0';
+  ctx.fillText('Obs. data', lx + 36, ly + 29);
+
+  // Data points
+  ctx.beginPath();
+  ctx.arc(lx + 15, ly + 40, 2.5, 0, Math.PI * 2);
+  ctx.fillStyle = '#47b8e8'; ctx.fill();
+  ctx.fillStyle = '#8890a0';
+  ctx.fillText('Observations', lx + 36, ly + 43);
+
+  // Compute stats
+  computeStats(data);
+  buildDecompTable(data);
+}
+
+function roundRect(ctx, x, y, w, h, r) {
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.lineTo(x + w - r, y);
+  ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+  ctx.lineTo(x + w, y + h - r);
+  ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+  ctx.lineTo(x + r, y + h);
+  ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+  ctx.lineTo(x, y + r);
+  ctx.quadraticCurveTo(x, y, x + r, y);
+  ctx.closePath();
+}
+
+function computeStats(data) {
+  const obs = data.observations;
+
+  const innerP = obs[0];
+  const outerP = obs[obs.length - 1];
+  const fInner = fieldFrac(xParam(innerP.r, innerP.v)) * 100;
+  const fOuter = fieldFrac(xParam(outerP.r, outerP.v)) * 100;
+  const fAvg = obs.reduce((s, p) => s + fieldFrac(xParam(p.r, p.v)), 0) / obs.length * 100;
+
+  // RMS against vortex field (the physical envelope)
+  const rMaxObs = Math.max(...obs.map(o => o.r));
+  const vortexPts = computeVortexField(obs, 500, rMaxObs * 1.02);
+
+  let ssq = 0, within1s = 0;
+  obs.forEach(p => {
+    // Find closest vortex field point
+    let vp = p.v;
+    let minDist = Infinity;
+    vortexPts.forEach(sp => {
+      const d = Math.abs(sp.r - p.r);
+      if (d < minDist) { minDist = d; vp = sp.v; }
+    });
+    const res = vp - p.v;
+    ssq += res * res;
+    if (Math.abs(res) <= (p.err || 999)) within1s++;
+  });
+  const rms = Math.sqrt(ssq / obs.length);
+
+  const box = document.getElementById('statsBox');
+  box.innerHTML = `
+    <div><span class="stat-label">Interior:</span> <span class="stat-value">BOOST</span></div>
+    <div><span class="stat-label">Field contribution:</span></div>
+    <div>&nbsp;&nbsp;<span class="stat-label">inner:</span> <span class="stat-value">${fInner.toFixed(0)}%</span></div>
+    <div>&nbsp;&nbsp;<span class="stat-label">outer:</span> <span class="stat-value">${fOuter.toFixed(0)}%</span></div>
+    <div>&nbsp;&nbsp;<span class="stat-label">avg:</span>&nbsp;&nbsp; <span class="stat-value">${fAvg.toFixed(0)}%</span></div>
+    <hr class="divider">
+    <div><span class="stat-label">RMS:</span> <span class="stat-value">${rms.toFixed(1)} km/s</span></div>
+    <div><span class="stat-label">1&sigma;:</span>&nbsp; <span class="stat-value">${within1s}/${obs.length}</span></div>
+  `;
+}
+
+function buildDecompTable(data) {
+  const tbody = document.getElementById('decompBody');
+  tbody.innerHTML = '';
+
+  data.observations.forEach(p => {
+    const r = p.r, v = p.v;
+    const x = xParam(r, v);
+    const m = mu(x);
+    const f = fieldFrac(x);
+    const va = vTetA(r, v);
+    const vb = vTetB(r, v);
+    const ratio = 1 / x;
+    const Mb = decodeMass(r, v);
+
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td>${r.toFixed(1)}</td>
+      <td class="val-accent">${v.toFixed(0)}</td>
+      <td>${x.toFixed(3)}</td>
+      <td>${m.toFixed(3)}</td>
+      <td class="val-tetb">${f.toFixed(3)}</td>
+      <td class="val-accent">${va.toFixed(1)}</td>
+      <td class="val-tetb">${vb.toFixed(1)}</td>
+      <td class="val-gold">${ratio.toFixed(3)}</td>
+      <td>${Mb.toExponential(2)}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+// =====================================================================
+// MONOTONE CUBIC INTERPOLATION (Fritsch-Carlson)
+// =====================================================================
+
+function monotoneInterp(xs, ys, nOut, rMax) {
+  const n = xs.length;
+  if (n < 2) return xs.map((r, i) => ({ r, v: ys[i] }));
+
+  // Compute slopes
+  const delta = [];
+  for (let i = 0; i < n - 1; i++) {
+    delta.push((ys[i + 1] - ys[i]) / (xs[i + 1] - xs[i]));
+  }
+
+  // Compute tangents (Fritsch-Carlson)
+  const m = new Array(n);
+  m[0] = delta[0];
+  m[n - 1] = delta[n - 2];
+  for (let i = 1; i < n - 1; i++) {
+    if (delta[i - 1] * delta[i] <= 0) {
+      m[i] = 0;
+    } else {
+      m[i] = (delta[i - 1] + delta[i]) / 2;
+    }
+  }
+
+  // Monotonicity enforcement
+  for (let i = 0; i < n - 1; i++) {
+    if (Math.abs(delta[i]) < 1e-30) {
+      m[i] = 0;
+      m[i + 1] = 0;
+    } else {
+      const a = m[i] / delta[i];
+      const b = m[i + 1] / delta[i];
+      const s = a * a + b * b;
+      if (s > 9) {
+        const t = 3 / Math.sqrt(s);
+        m[i] = t * a * delta[i];
+        m[i + 1] = t * b * delta[i];
+      }
+    }
+  }
+
+  // Evaluate
+  const result = [];
+  for (let j = 0; j < nOut; j++) {
+    const r = rMax * (j / (nOut - 1));
+    // Find interval
+    let i = 0;
+    while (i < n - 2 && xs[i + 1] < r) i++;
+    if (r <= xs[0]) { result.push({ r, v: xs[0] === 0 ? 0 : ys[0] * (r / xs[0]) }); continue; }
+    if (r >= xs[n - 1]) { result.push({ r, v: ys[n - 1] }); continue; }
+
+    const h = xs[i + 1] - xs[i];
+    const t = (r - xs[i]) / h;
+    const t2 = t * t;
+    const t3 = t2 * t;
+
+    const h00 = 2 * t3 - 3 * t2 + 1;
+    const h10 = t3 - 2 * t2 + t;
+    const h01 = -2 * t3 + 3 * t2;
+    const h11 = t3 - t2;
+
+    const v = h00 * ys[i] + h10 * h * m[i] + h01 * ys[i + 1] + h11 * h * m[i + 1];
+    result.push({ r, v: Math.max(0, v) });
+  }
+  return result;
+}
+
+// =====================================================================
+// FILE HANDLING
+// =====================================================================
+
+function loadJSON(text) {
+  try {
+    const data = JSON.parse(text);
+    if (!data.observations) {
+      alert('JSON must contain an "observations" array.');
+      return;
+    }
+    // mass_model is optional — the vortex comes from observations, not the model
+    if (!data.mass_model) {
+      data.mass_model = { bulge: { M: 0, a: 1 }, disk: { M: 0, Rd: 1 }, gas: { M: 0, Rd: 1 } };
+    }
+
+    // Update UI
+    document.getElementById('galaxyTitle').textContent = data.name || data.id || 'Galaxy';
+    document.getElementById('galaxySub').textContent =
+      `M = ${(data.mass || 0).toExponential(2)} M\u2609` +
+      (data.distance ? ` \u00B7 d = ${data.distance} kpc` : '') +
+      ` \u00B7 ${data.observations.length} observations`;
+
+    const dropZone = document.getElementById('dropZone');
+    dropZone.classList.add('has-data');
+    dropZone.querySelector('.drop-icon').style.display = 'none';
+    dropZone.querySelector('.drop-label').textContent = `${data.name || data.id} loaded \u2014 drop another to replace`;
+    dropZone.querySelector('.drop-hint').style.display = 'none';
+
+    document.getElementById('chartWrap').classList.add('visible');
+    document.getElementById('decompSection').classList.add('visible');
+
+    renderVortex(data);
+  } catch (e) {
+    alert('Invalid JSON: ' + e.message);
+  }
+}
+
+// Drag & drop
+const dropZone = document.getElementById('dropZone');
+
+dropZone.addEventListener('dragover', e => {
+  e.preventDefault();
+  dropZone.classList.add('active');
+});
+dropZone.addEventListener('dragleave', () => dropZone.classList.remove('active'));
+dropZone.addEventListener('drop', e => {
+  e.preventDefault();
+  dropZone.classList.remove('active');
+  const file = e.dataTransfer.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = ev => loadJSON(ev.target.result);
+    reader.readAsText(file);
+  }
+});
+
+// Click to browse
+document.getElementById('fileInput').addEventListener('change', e => {
+  const file = e.target.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = ev => loadJSON(ev.target.result);
+    reader.readAsText(file);
+  }
+});
+
+// Auto-load if milky_way.json is embedded (for demo)
+</script>
+</body>
+</html>

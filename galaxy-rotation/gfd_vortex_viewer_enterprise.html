@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GFD Galactic Vortex — Pipeline</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Crimson+Pro:wght@400;600;700&display=swap');
+  :root {
+    --bg-deep:#060810;--bg-panel:#0c0f1a;--bg-card:#10131f;
+    --border:#1e2233;--grid:#151830;--text:#c8ccd8;
+    --text-dim:#5a6080;--text-bright:#e8ecf4;--gold:#e8c547;
+    --pipe:#f0b040;--phot:#2ca02c;--dec:#47b8e8;--quiet:#5a6080;
+    --font-mono:'JetBrains Mono','Courier New',monospace;
+    --font-serif:'Crimson Pro',Georgia,serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--bg-deep);color:var(--text);font-family:var(--font-mono);font-size:13px;min-height:100vh;overflow-x:hidden;}
+  .header{text-align:center;padding:24px 20px 4px;}
+  .header h1{font-family:var(--font-serif);font-size:28px;font-weight:700;color:var(--text-bright);}
+  .header .subtitle{font-size:11px;color:var(--text-dim);margin-top:4px;letter-spacing:2px;text-transform:uppercase;}
+  .drop-hint{text-align:center;padding:10px;font-size:11px;color:var(--text-dim);border:1px dashed var(--border);border-radius:8px;max-width:600px;margin:12px auto;transition:all 0.3s;cursor:pointer;}
+  body.drag-over .drop-hint{border-color:#47b8e8;color:#47b8e8;background:rgba(71,184,232,0.05);}
+  .galaxy-tags{text-align:center;padding:6px 20px;min-height:24px;}
+  .galaxy-tag{display:inline-block;padding:3px 10px;margin:2px 4px;border-radius:4px;font-size:10px;letter-spacing:0.5px;border:1px solid;cursor:default;opacity:0.9;}
+  .galaxy-tag .remove{margin-left:6px;opacity:0.5;cursor:pointer;font-weight:bold;}
+  .galaxy-tag .remove:hover{opacity:1;}
+  .chart-wrap{max-width:1200px;margin:0 auto;padding:0 20px 8px;display:none;}
+  .chart-wrap.visible{display:block;animation:fadeIn 0.4s ease;}
+  .chart-panel{background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:16px 12px 12px;}
+  canvas{display:block;width:100%;height:auto;}
+  .equation-bar{text-align:center;padding:8px 20px;font-size:10px;color:var(--text-dim);letter-spacing:0.5px;max-width:1200px;margin:0 auto;}
+  .equation-bar span{margin:0 8px;}
+  .region-labels{display:flex;justify-content:space-between;padding:4px 60px 0;font-size:10px;letter-spacing:1px;}
+  .region-labels .tetb{color:#e87247;opacity:0.5;}
+  .region-labels .teta{color:#47b8e8;opacity:0.5;}
+  .decomp-section{max-width:1200px;margin:0 auto 30px;padding:0 20px;display:none;}
+  .decomp-section.visible{display:block;}
+  .decomp-title{font-size:12px;color:var(--text-dim);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;text-align:center;}
+  .decomp-table{width:100%;border-collapse:collapse;font-size:11px;margin-bottom:20px;}
+  .decomp-table th{background:var(--bg-panel);color:var(--text-dim);font-weight:500;padding:5px 8px;text-align:right;border-bottom:1px solid var(--border);}
+  .decomp-table th:first-child{text-align:left;}
+  .decomp-table td{padding:4px 8px;text-align:right;border-bottom:1px solid var(--bg-panel);font-variant-numeric:tabular-nums;}
+  .decomp-table td:first-child{text-align:left;color:var(--text-dim);}
+  .decomp-table tr:nth-child(even){background:var(--bg-panel);}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>GFD Galactic Vortex</h1>
+  <div class="subtitle">Bayesian Pipeline &mdash; Prior (photometric) &times; Likelihood (bridge) = Posterior (v(r))</div>
+</div>
+<div class="drop-hint" id="dropHint">Drop galaxy JSON files anywhere on the page &mdash; multiple galaxies overlay on one chart</div>
+<div class="galaxy-tags" id="galaxyTags"></div>
+<div class="chart-wrap" id="chartWrap">
+  <div class="chart-panel"><canvas id="vortexCanvas" width="1160" height="620"></canvas></div>
+  <div class="region-labels"><span class="tetb">&#9664; TetB</span><span class="teta">TetA &#9654;</span></div>
+</div>
+<div class="equation-bar">
+  <span>u(x) = x/(x+1)</span><span>|</span>
+  <span>f(x) = (21x+13)/(x+1)</span><span>|</span>
+  <span>&lambda;(r) = M<sub>dec</sub>/M<sub>bar</sub> &rarr; M<sub>true</sub> = &lambda; &middot; M<sub>bar</sub></span>
+</div>
+<div class="decomp-section" id="decompSection">
+  <div class="decomp-title">Vortex Decomposition</div>
+  <div id="decompTables"></div>
+</div>
+<script>
+// =====================================================================
+// CONSTANTS — fixed, not fitted
+// =====================================================================
+const G = 4.3009e-6;   // kpc (km/s)² / M☉
+const A0 = 3703.0;     // (km/s)² / kpc
+
+// =====================================================================
+// CONSTITUTIVE LAW & FIELD EQUATION
+// =====================================================================
+function mu(x)        { return x > 0 ? x/(x+1) : 0; }
+function fieldFrac(x) { return 1/(x+1); }
+function fPoly(x)     { return x >= 0 ? (21*x+13)/(x+1) : 13; }
+function xParam(r, v) { return (v*v/r)/A0; }
+
+// =====================================================================
+// u(x) CONSTITUTIVE LAW — g_s ↔ g_t via μ(x) = x/(x+1)
+// =====================================================================
+function sstForward(gs) {
+  if (gs <= 0) return 0;
+  return (gs + Math.sqrt(gs*gs + 4*gs*A0)) / 2;
+}
+function sstInverse(gt) {
+  if (gt <= 0) return 0;
+  return gt*gt / (A0 + gt);
+}
+
+// =====================================================================
+// f(x) FIELD EQUATION — Stellated Octahedron: f(x)·g_t = 21·g_s
+// f(x) = (21x+13)/(x+1), solved as quadratic in u = g_t/a₀
+// 21u² + (13-21β)u - 21β = 0, β = g_s/a₀
+// =====================================================================
+function feForward(gs) {
+  if (gs <= 0) return 0;
+  const beta = gs / A0;
+  const disc = (13 - 21*beta)*(13 - 21*beta) + 4*441*beta;
+  if (disc < 0) return sstForward(gs);
+  const u = ((21*beta - 13) + Math.sqrt(disc)) / 42;
+  return Math.max(u, 0) * A0;
+}
+function feInverse(gt) {
+  if (gt <= 0) return 0;
+  const x = gt / A0;
+  const fx = (21*x + 13) / (x + 1);
+  return fx * gt / 21;
+}
+function vFromMassFE(r, M) {
+  if (r <= 0 || M <= 0) return 0;
+  const gt = feForward(G*M/(r*r));
+  return Math.sqrt(gt*r);
+}
+function decodeMassFE(r, v) {
+  const gt = v*v/r;
+  const gs = feInverse(gt);
+  return gs*r*r/G;
+}
+
+// =====================================================================
+// MASS & VELOCITY
+// =====================================================================
+function totalBaryonicMass(r, model) {
+  if (!model || r <= 0) return 0;
+  let M = 0;
+  if (model.bulge) { const a2=model.bulge.a**2; M += model.bulge.M*r*r/(r*r+a2); }
+  if (model.disk) { const y=r/model.disk.Rd; M += model.disk.M*(1-(1+y)*Math.exp(-y)); }
+  if (model.gas) { const y=r/model.gas.Rd; M += model.gas.M*(1-(1+y)*Math.exp(-y)); }
+  return M;
+}
+function decodeMass(r, v) { return r*v**4/(G*(A0*r+v*v)); }
+function vFromMass(r, M) {
+  if (r <= 0 || M <= 0) return 0;
+  return Math.sqrt(sstForward(G*M/(r*r))*r);
+}
+function vPhotometric(r, mm) {
+  if (!mm || r <= 0) return 0;
+  return vFromMass(r, totalBaryonicMass(r, mm));
+}
+
+// =====================================================================
+// MONOTONE CUBIC INTERPOLATION (for smooth λ(r) and M_dec)
+// =====================================================================
+function buildSpline(xs, ys) {
+  const n = xs.length;
+  if (n < 2) return r => ys[0] || 0;
+  const delta = [];
+  for (let i=0; i<n-1; i++) delta.push((ys[i+1]-ys[i])/(xs[i+1]-xs[i]));
+  const m = new Array(n);
+  m[0] = delta[0]; m[n-1] = delta[n-2];
+  for (let i=1; i<n-1; i++) m[i] = delta[i-1]*delta[i] <= 0 ? 0 : (delta[i-1]+delta[i])/2;
+  // Monotonicity enforcement (Fritsch-Carlson)
+  for (let i=0; i<n-1; i++) {
+    if (Math.abs(delta[i]) < 1e-30) { m[i]=0; m[i+1]=0; }
+    else {
+      const a=m[i]/delta[i], b=m[i+1]/delta[i], s=a*a+b*b;
+      if (s>9) { const t=3/Math.sqrt(s); m[i]=t*a*delta[i]; m[i+1]=t*b*delta[i]; }
+    }
+  }
+  return function(r) {
+    if (r <= xs[0]) {
+      // Linear extrapolation below first point
+      return ys[0] + m[0] * (r - xs[0]);
+    }
+    if (r >= xs[n-1]) {
+      // Linear extrapolation above last point
+      return ys[n-1] + m[n-1] * (r - xs[n-1]);
+    }
+    let i = 0; while (i < n-2 && xs[i+1] < r) i++;
+    const h = xs[i+1]-xs[i], t = (r-xs[i])/h, t2=t*t, t3=t2*t;
+    return (2*t3-3*t2+1)*ys[i] + (t3-2*t2+t)*h*m[i] + (-2*t3+3*t2)*ys[i+1] + (t3-t2)*h*m[i+1];
+  };
+}
+
+// =====================================================================
+// BAYESIAN VORTEX PIPELINE
+//
+// 1. PRIOR:      M_bar(r) from photometric model
+// 2. DATA:       v_obs(r_i) from observations
+// 3. BRIDGE:     λ(r_i) = M_dec(r_i) / M_bar(r_i) at each obs
+// 4. POSTERIOR:   Smooth λ(r) via monotone cubic spline
+// 5. PREDICTION:  M_true(r) = λ(r) · M_bar(r) → SST → v(r)
+//
+// Also computes: photometric baseline, decoded mass curve
+// =====================================================================
+function computeFullPipeline(obs, massModel, nOut, rMax) {
+  const result = {
+    pipePts: [],     // Pipeline prediction (gold) — full curve r=0 to rMax
+    photPts: [],     // Photometric baseline (green dashed)
+    decodedPts: [],  // Decoded mass curve (blue thin)
+    fePipePts: [],   // Field equation pipeline (red solid)
+    fePhotPts: [],   // Field equation photometric (red dashed)
+    lambdas: [],     // λ(r_i) at observation points
+    lambdasFE: [],   // λ_fe(r_i) at observation points
+    lambdaFn: null,  // Smooth λ(r) spline
+    state: 'NO_MODEL',
+    rmsPipe: 0, rmsPhot: 0, rmsFEPhot: 0, rmsFEPipe: 0,
+    chi2Pipe: 0, chi2Phot: 0,
+    w1sPipe: 0, w2sPipe: 0, w1sPhot: 0, w2sPhot: 0,
+    lambdaMin: 1, lambdaMax: 1, lambdaSlope: 0, crossoverR: 0,
+    lambdaFEMin: 1, lambdaFEMax: 1,
+    rhoN: 0, rhoType: '', fallback: false
+  };
+
+  const obsR = obs.map(p=>p.r), obsV = obs.map(p=>p.v);
+  const obsMdec = obs.map(p=>decodeMass(p.r, p.v));
+  const rLast = obsR[obsR.length-1];
+
+  // ── DECODED MASS CURVE (kinematic truth, 0p) ────────────────
+  const mDecSpline = buildSpline(obsR, obsMdec);
+  for (let i=0; i<Math.floor(nOut*0.6); i++) {
+    const r = obsR[0] + (rLast - obsR[0]) * i / (Math.floor(nOut*0.6)-1);
+    const M = Math.max(mDecSpline(r), 0);
+    result.decodedPts.push({r, v: vFromMass(r, M)});
+  }
+
+  // Density profile from decoded mass
+  const nFit = Math.min(5, obs.length-1);
+  const rhoD = [];
+  for (let i=0; i<nFit; i++) {
+    const dr = obsR[i+1]-obsR[i]; if (dr<=0) continue;
+    const dM = (obsMdec[i+1]-obsMdec[i])/dr;
+    const rM = (obsR[i]+obsR[i+1])/2;
+    const rho = dM/(4*Math.PI*rM*rM);
+    if (rho>0) rhoD.push({r:rM, rho});
+  }
+  if (rhoD.length >= 2) {
+    let sX=0, sY=0, sXX=0, sXY=0;
+    rhoD.forEach(d => { const lx=Math.log(d.r), ly=Math.log(d.rho); sX+=lx; sY+=ly; sXX+=lx*lx; sXY+=lx*ly; });
+    const N=rhoD.length, den=N*sXX-sX*sX;
+    if (Math.abs(den) > 1e-30) result.rhoN = (N*sXY-sX*sY)/den;
+  }
+  const rn = result.rhoN;
+  if (Math.abs(rn+2)<0.3) result.rhoType='ISOTHERMAL';
+  else if (Math.abs(rn)<0.3) result.rhoType='UNIFORM';
+  else if (Math.abs(rn+1)<0.3) result.rhoType='NFW-LIKE';
+  else result.rhoType='\u03c1\u221dr^'+rn.toFixed(1);
+
+  // No mass model → decoded is the only curve
+  if (!massModel) {
+    result.pipePts = result.decodedPts.slice();
+    result.rmsPipe = 0; result.w1sPipe = obs.length; result.fallback = true;
+    return result;
+  }
+
+  // ══════════════════════════════════════════════════════════════
+  // MASS MODEL AVAILABLE — full Bayesian pipeline
+  // ══════════════════════════════════════════════════════════════
+
+  // ── STEP 1 (PRIOR): PHOTOMETRIC BASELINE (0p) ──────────────
+  for (let i=0; i<nOut; i++) {
+    const r = 0.01 + (rMax-0.01) * (i/(nOut-1));
+    result.photPts.push({r, v: vPhotometric(r, massModel)});
+  }
+  let rmsP=0, c2P=0, w1P=0, w2P=0;
+  obs.forEach(p => {
+    const vp = vPhotometric(p.r, massModel), res=vp-p.v, e=p.err||5;
+    rmsP += res**2; c2P += (res/e)**2;
+    if (Math.abs(res) <= e) w1P++; if (Math.abs(res) <= 2*e) w2P++;
+  });
+  result.rmsPhot = Math.sqrt(rmsP/obs.length);
+  result.chi2Phot = c2P; result.w1sPhot = w1P; result.w2sPhot = w2P;
+
+  // ── STEP 2 (BRIDGE): Extract λ(r_i) = M_dec / M_bar ──────
+  const lamR = [], lamV = [];
+  obs.forEach(p => {
+    const Mb = totalBaryonicMass(p.r, massModel);
+    const Md = decodeMass(p.r, p.v);
+    const lam = Mb > 0 ? Md/Mb : 1;
+    lamR.push(p.r);
+    lamV.push(lam);
+    result.lambdas.push({r: p.r, lambda: lam});
+  });
+
+  // State classification from λ profile
+  const lamAvg = lamV.reduce((s,v)=>s+v, 0) / lamV.length;
+  const nOver = lamV.filter(l => l > 1).length;
+  if (nOver > lamV.length * 0.75) result.state = 'PUMPING';
+  else if (nOver < lamV.length * 0.25) result.state = 'ABSORBING';
+  else result.state = 'TRANSITION';
+
+  // λ statistics
+  result.lambdaMin = Math.min(...lamV);
+  result.lambdaMax = Math.max(...lamV);
+
+  // Linear slope of λ(r) via least squares
+  let sr=0, sy=0, sr2=0, sry=0;
+  lamR.forEach((r,i) => { sr+=r; sy+=lamV[i]; sr2+=r*r; sry+=r*lamV[i]; });
+  const Nl=lamR.length, den=Nl*sr2-sr*sr;
+  if (Math.abs(den) > 1e-30) result.lambdaSlope = (Nl*sry-sr*sy)/den;
+
+  // Crossover radius (where λ = 1)
+  for (let i=1; i<lamV.length; i++) {
+    const a=lamV[i-1], b=lamV[i];
+    if ((a-1)*(b-1) < 0) {
+      const f = (1-a)/(b-a);
+      result.crossoverR = lamR[i-1] + f*(lamR[i]-lamR[i-1]);
+      break;
+    }
+  }
+
+  // ── STEP 3 (POSTERIOR): Smooth λ(r) spline ─────────────────
+  const lambdaFn = buildSpline(lamR, lamV);
+  result.lambdaFn = lambdaFn;
+
+  // ── STEP 4 (PREDICTION): M_true = λ(r)·M_bar → SST → v ───
+  for (let i=0; i<nOut; i++) {
+    const r = 0.01 + (rMax-0.01) * (i/(nOut-1));
+    const lam = lambdaFn(r);
+    const Mb = totalBaryonicMass(r, massModel);
+    const Mcorr = Math.max(lam, 0.001) * Mb;
+    result.pipePts.push({r, v: vFromMass(r, Mcorr)});
+  }
+
+  // Pipeline fit quality at observation points
+  let rmsT=0, c2T=0, w1T=0, w2T=0;
+  obs.forEach(p => {
+    const lam = lambdaFn(p.r);
+    const Mb = totalBaryonicMass(p.r, massModel);
+    const vp = vFromMass(p.r, Math.max(lam, 0.001) * Mb);
+    const res = vp - p.v, e = p.err || 5;
+    rmsT += res**2; c2T += (res/e)**2;
+    if (Math.abs(res) <= e) w1T++; if (Math.abs(res) <= 2*e) w2T++;
+  });
+  result.rmsPipe = Math.sqrt(rmsT/obs.length);
+  result.chi2Pipe = c2T; result.w1sPipe = w1T; result.w2sPipe = w2T;
+
+  // ── FIELD EQUATION PIPELINE: f(x) = (21x+13)/(x+1) ────────
+  // Decode with feInverse, λ_fe, forward with feForward
+  const lamRfe = [], lamVfe = [];
+  obs.forEach(p => {
+    const Mb = totalBaryonicMass(p.r, massModel);
+    const Md = decodeMassFE(p.r, p.v);
+    const lam = Mb > 0 ? Md/Mb : 1;
+    lamRfe.push(p.r); lamVfe.push(lam);
+    result.lambdasFE.push({r: p.r, lambda: lam});
+  });
+  result.lambdaFEMin = Math.min(...lamVfe);
+  result.lambdaFEMax = Math.max(...lamVfe);
+  const lambdaFEFn = buildSpline(lamRfe, lamVfe);
+
+  // FE photometric baseline
+  let rmsFEP = 0;
+  for (let i=0; i<nOut; i++) {
+    const r = 0.01 + (rMax-0.01) * (i/(nOut-1));
+    result.fePhotPts.push({r, v: vFromMassFE(r, totalBaryonicMass(r, massModel))});
+  }
+  obs.forEach(p => { rmsFEP += (vFromMassFE(p.r, totalBaryonicMass(p.r, massModel)) - p.v)**2; });
+  result.rmsFEPhot = Math.sqrt(rmsFEP/obs.length);
+
+  // FE pipeline curve
+  let rmsFET = 0;
+  for (let i=0; i<nOut; i++) {
+    const r = 0.01 + (rMax-0.01) * (i/(nOut-1));
+    const lam = lambdaFEFn(r);
+    const Mb = totalBaryonicMass(r, massModel);
+    result.fePipePts.push({r, v: vFromMassFE(r, Math.max(lam, 0.001) * Mb)});
+  }
+  obs.forEach(p => {
+    const lam = lambdaFEFn(p.r);
+    const Mb = totalBaryonicMass(p.r, massModel);
+    rmsFET += (vFromMassFE(p.r, Math.max(lam, 0.001) * Mb) - p.v)**2;
+  });
+  result.rmsFEPipe = Math.sqrt(rmsFET/obs.length);
+
+  return result;
+}
+
+// =====================================================================
+// PALETTES & STATE
+// =====================================================================
+const PALETTES = [
+  {main:'#47b8e8', glow:'rgba(71,184,232,', vortex:'#e87247', vGlow:'rgba(232,114,71,'},
+  {main:'#6be847', glow:'rgba(107,232,71,', vortex:'#e8c547', vGlow:'rgba(232,197,71,'},
+  {main:'#c76bea', glow:'rgba(199,107,234,', vortex:'#ea6b8a', vGlow:'rgba(234,107,138,'},
+  {main:'#ea9f6b', glow:'rgba(234,159,107,', vortex:'#6beacc', vGlow:'rgba(107,234,204,'},
+];
+let galaxies = [];
+
+function addGalaxy(data) {
+  if (!data.observations || !data.observations.length) { alert('Need observations'); return; }
+  if (!data.mass_model) data.mass_model = null;
+  const obs = data.observations, rMax = Math.max(...obs.map(o=>o.r));
+  const pal = PALETTES[galaxies.length % PALETTES.length];
+  const pipeline = computeFullPipeline(obs, data.mass_model, 600, rMax*1.15);
+  const fAvg = obs.reduce((s,p) => s+fieldFrac(xParam(p.r,p.v)), 0) / obs.length;
+  const fInner = fieldFrac(xParam(obs[0].r, obs[0].v));
+  const fOuter = fieldFrac(xParam(obs[obs.length-1].r, obs[obs.length-1].v));
+  const vFlat = obs.reduce((s,p) => s+p.v, 0) / obs.length;
+  const rFO = vFlat*vFlat / A0;
+  galaxies.push({data, pal, pipeline, rMax, fAvg, fInner, fOuter, rFO, vFlat});
+  refreshUI();
+}
+function removeGalaxy(idx) { galaxies.splice(idx,1); galaxies.forEach((g,i) => { g.pal=PALETTES[i%PALETTES.length]; }); refreshUI(); }
+
+function refreshUI() {
+  const el = document.getElementById('galaxyTags'); el.innerHTML = '';
+  galaxies.forEach((g,i) => {
+    const tag = document.createElement('span'); tag.className = 'galaxy-tag';
+    tag.style.borderColor = g.pal.main; tag.style.color = g.pal.main;
+    const nm = g.data.name || g.data.id || 'Galaxy '+(i+1);
+    tag.innerHTML = nm + ' <span class="remove" data-idx="'+i+'">&times;</span>';
+    el.appendChild(tag);
+  });
+  el.querySelectorAll('.remove').forEach(b => { b.addEventListener('click', function(){ removeGalaxy(+this.dataset.idx); }); });
+  const hint = document.getElementById('dropHint');
+  hint.textContent = galaxies.length
+    ? galaxies.length+' galax'+(galaxies.length===1?'y':'ies')+' loaded \u2014 drop more to overlay, click \u00d7 to remove'
+    : 'Drop galaxy JSON files anywhere on the page \u2014 multiple galaxies overlay on one chart';
+  const cw = document.getElementById('chartWrap'), ds = document.getElementById('decompSection');
+  if (galaxies.length) { cw.classList.add('visible'); ds.classList.add('visible'); drawChart(); buildTables(); }
+  else { cw.classList.remove('visible'); ds.classList.remove('visible'); }
+}
+
+// =====================================================================
+// CHART
+// =====================================================================
+function drawChart() {
+  const cvs = document.getElementById('vortexCanvas'), ctx = cvs.getContext('2d');
+  const W=cvs.width, H=cvs.height; ctx.clearRect(0, 0, W, H);
+  const pL=65, pR=W-30, pT=25, pB=H-50, pW=pR-pL, pH=pB-pT;
+
+  let gRM=0, gVM=0;
+  galaxies.forEach(g => {
+    if (g.rMax > gRM) gRM = g.rMax;
+    g.pipeline.pipePts.forEach(p => { if (p.v > gVM) gVM = p.v; });
+    if (g.pipeline.photPts) g.pipeline.photPts.forEach(p => { if (p.v > gVM) gVM = p.v; });
+    if (g.pipeline.fePipePts) g.pipeline.fePipePts.forEach(p => { if (p.v > gVM) gVM = p.v; });
+    g.data.observations.forEach(p => { if (p.v > gVM) gVM = p.v; });
+  });
+  gRM *= 1.15; gVM *= 1.18;
+
+  const rToX = r => pL+(pW/2)+(r/gRM)*(pW/2);
+  const vToY = v => pB-(v/gVM)*pH;
+
+  // Grid
+  ctx.strokeStyle = '#151830'; ctx.lineWidth = 0.5;
+  for (let v=0; v<=gVM; v+=50) { const y=vToY(v); ctx.beginPath(); ctx.moveTo(pL,y); ctx.lineTo(pR,y); ctx.stroke(); }
+  for (let r=-Math.ceil(gRM/10)*10; r<=Math.ceil(gRM/10)*10; r+=10) {
+    const x=rToX(r); if (x<pL||x>pR) continue; ctx.beginPath(); ctx.moveTo(x,pT); ctx.lineTo(x,pB); ctx.stroke();
+  }
+  // Center
+  ctx.strokeStyle = 'rgba(139,92,246,0.25)'; ctx.lineWidth = 1;
+  ctx.beginPath(); ctx.moveTo(rToX(0),pT); ctx.lineTo(rToX(0),pB); ctx.stroke();
+
+  // Labels
+  ctx.fillStyle = '#5a6080'; ctx.font = '10px JetBrains Mono,monospace';
+  for (let v=0; v<=gVM; v+=50) { ctx.textAlign='right'; ctx.fillText(v.toFixed(0), pL-6, vToY(v)+3); }
+  for (let r=-Math.ceil(gRM/10)*10; r<=Math.ceil(gRM/10)*10; r+=10) {
+    const x=rToX(r); if (x<pL+20||x>pR-10) continue; ctx.textAlign='center'; ctx.fillText(r.toFixed(0), x, pB+14);
+  }
+  ctx.textAlign='center'; ctx.fillText('r (kpc)', pL+pW/2, pB+32);
+  ctx.save(); ctx.translate(15, pT+pH/2); ctx.rotate(-Math.PI/2); ctx.textAlign='center'; ctx.fillText('v (km/s)',0,0); ctx.restore();
+
+  // === EACH GALAXY ===
+  galaxies.forEach((g, gi) => {
+    const obs=g.data.observations, pal=g.pal, pl=g.pipeline;
+
+    // PHOTOMETRIC (green dashed)
+    if (pl.photPts && pl.photPts.length > 0) {
+      ctx.strokeStyle='#2ca02c'; ctx.lineWidth=1.6; ctx.globalAlpha=0.45; ctx.setLineDash([8,5]);
+      traceCurve(ctx, pl.photPts, rToX, vToY, pL, pR, pT, 1); ctx.setLineDash([]); ctx.globalAlpha=1;
+      ctx.strokeStyle='#2ca02c'; ctx.lineWidth=1; ctx.globalAlpha=0.12; ctx.setLineDash([6,4]);
+      traceCurve(ctx, pl.photPts, rToX, vToY, pL, pR, pT, -1); ctx.setLineDash([]); ctx.globalAlpha=1;
+    }
+
+    // FIELD ORIGIN
+    if (g.rFO > 0 && g.rFO < gRM) {
+      const xF = rToX(g.rFO);
+      ctx.strokeStyle='rgba(232,197,71,0.3)'; ctx.lineWidth=0.8; ctx.setLineDash([3,3]);
+      ctx.beginPath(); ctx.moveTo(xF,pT); ctx.lineTo(xF,pB); ctx.stroke(); ctx.setLineDash([]);
+      ctx.fillStyle='rgba(232,197,71,0.5)'; ctx.font='7px JetBrains Mono,monospace';
+      ctx.textAlign='center'; ctx.fillText('FO', xF, pT+10);
+    }
+
+    // λ=1 CROSSOVER
+    if (pl.crossoverR > 0 && pl.crossoverR < gRM) {
+      const xC = rToX(pl.crossoverR);
+      ctx.strokeStyle='rgba(240,176,64,0.25)'; ctx.lineWidth=0.8; ctx.setLineDash([2,4]);
+      ctx.beginPath(); ctx.moveTo(xC,pT); ctx.lineTo(xC,pB); ctx.stroke(); ctx.setLineDash([]);
+      ctx.fillStyle='rgba(240,176,64,0.4)'; ctx.font='7px JetBrains Mono,monospace';
+      ctx.textAlign='center'; ctx.fillText('\u03bb=1', xC, pT+18);
+    }
+
+    // FIELD EQUATION PHOTOMETRIC (red dashed — f(x) baseline)
+    if (pl.fePhotPts && pl.fePhotPts.length > 0) {
+      ctx.strokeStyle='#e05050'; ctx.lineWidth=1.4; ctx.globalAlpha=0.4; ctx.setLineDash([8,5]);
+      traceCurve(ctx, pl.fePhotPts, rToX, vToY, pL, pR, pT, 1); ctx.setLineDash([]); ctx.globalAlpha=1;
+      ctx.strokeStyle='#e05050'; ctx.lineWidth=0.8; ctx.globalAlpha=0.1; ctx.setLineDash([6,4]);
+      traceCurve(ctx, pl.fePhotPts, rToX, vToY, pL, pR, pT, -1); ctx.setLineDash([]); ctx.globalAlpha=1;
+    }
+
+    // FIELD EQUATION PIPELINE (red solid — f(x) pipeline)
+    if (pl.fePipePts && pl.fePipePts.length > 0 && !pl.fallback) {
+      ctx.strokeStyle='#e05050'; ctx.lineWidth=2.4; ctx.globalAlpha=0.85;
+      traceCurve(ctx, pl.fePipePts, rToX, vToY, pL, pR, pT, 1); ctx.globalAlpha=1;
+      ctx.strokeStyle='#e05050'; ctx.lineWidth=1.2; ctx.globalAlpha=0.15; ctx.setLineDash([6,4]);
+      traceCurve(ctx, pl.fePipePts, rToX, vToY, pL, pR, pT, -1); ctx.setLineDash([]); ctx.globalAlpha=1;
+    }
+
+    // PIPELINE PREDICTION (gold — u(x) pipeline, the main curve)
+    if (pl.pipePts && pl.pipePts.length > 0 && !pl.fallback) {
+      ctx.strokeStyle='#f0b040'; ctx.lineWidth=2.8; ctx.globalAlpha=0.92;
+      traceCurve(ctx, pl.pipePts, rToX, vToY, pL, pR, pT, 1); ctx.globalAlpha=1;
+      ctx.strokeStyle='#f0b040'; ctx.lineWidth=1.4; ctx.globalAlpha=0.18; ctx.setLineDash([6,4]);
+      traceCurve(ctx, pl.pipePts, rToX, vToY, pL, pR, pT, -1); ctx.setLineDash([]); ctx.globalAlpha=1;
+    }
+
+    // DECODED MASS (thin line — kinematic truth, obs range only)
+    if (pl.decodedPts && pl.decodedPts.length > 0 && !pl.fallback) {
+      ctx.strokeStyle=pal.main; ctx.lineWidth=1.8; ctx.globalAlpha=0.55;
+      traceCurve(ctx, pl.decodedPts, rToX, vToY, pL, pR, pT, 1); ctx.globalAlpha=1;
+      ctx.strokeStyle=pal.main; ctx.lineWidth=1; ctx.globalAlpha=0.1; ctx.setLineDash([4,3]);
+      traceCurve(ctx, pl.decodedPts, rToX, vToY, pL, pR, pT, -1); ctx.setLineDash([]); ctx.globalAlpha=1;
+    }
+
+    // DATA POINTS
+    obs.forEach(p => {
+      const x=rToX(p.r), y=vToY(p.v);
+      const eP = (p.err||0)/gVM*pH;
+      if (eP > 0) {
+        ctx.strokeStyle=pal.glow+'0.4)'; ctx.lineWidth=0.8; ctx.beginPath();
+        ctx.moveTo(x,y-eP); ctx.lineTo(x,y+eP);
+        ctx.moveTo(x-2,y-eP); ctx.lineTo(x+2,y-eP);
+        ctx.moveTo(x-2,y+eP); ctx.lineTo(x+2,y+eP); ctx.stroke();
+      }
+      ctx.beginPath(); ctx.arc(x,y,3,0,Math.PI*2);
+      ctx.fillStyle=pal.main; ctx.globalAlpha=0.85; ctx.fill();
+      ctx.strokeStyle='#0c0f1a'; ctx.lineWidth=0.5; ctx.stroke(); ctx.globalAlpha=1;
+      ctx.beginPath(); ctx.arc(rToX(-p.r),y,2,0,Math.PI*2);
+      ctx.strokeStyle=pal.glow+'0.18)'; ctx.lineWidth=0.6; ctx.stroke();
+    });
+
+    // STATS BOX
+    const bx=pL+8, by=pT+8+gi*130;
+    const name = g.data.name || g.data.id || 'Galaxy '+(gi+1);
+    const boxH = pl.fallback ? 60 : 134;
+    ctx.fillStyle='rgba(6,8,16,0.88)'; ctx.strokeStyle=pal.main+'60'; ctx.lineWidth=0.8;
+    roundRect(ctx, bx, by, 280, boxH, 4); ctx.fill(); ctx.stroke();
+
+    ctx.font='bold 10px JetBrains Mono,monospace'; ctx.fillStyle=pal.main; ctx.textAlign='left';
+    ctx.fillText(name, bx+8, by+14);
+    ctx.font='9px JetBrains Mono,monospace'; ctx.fillStyle='#8890a0';
+    ctx.fillText('Field: '+(g.fInner*100).toFixed(0)+'% \u2192 '+(g.fOuter*100).toFixed(0)+'% (avg '+(g.fAvg*100).toFixed(0)+'%)', bx+8, by+28);
+
+    if (!pl.fallback) {
+      const sc = pl.state==='ABSORBING'?'#8B5CF6':pl.state==='PUMPING'?'#2ca02c':'#e8c547';
+      ctx.fillStyle=sc; ctx.fillText('\u03bb profile: '+pl.state, bx+8, by+42);
+      ctx.fillStyle='#f0b040';
+      ctx.fillText('\u03bb: '+pl.lambdaMin.toFixed(3)+' \u2192 '+pl.lambdaMax.toFixed(3)+'  slope:'+pl.lambdaSlope.toFixed(4)+'/kpc', bx+8, by+56);
+      if (pl.crossoverR > 0) {
+        ctx.fillStyle='#a8b0c0'; ctx.fillText('\u03bb=1 at r='+pl.crossoverR.toFixed(1)+' kpc (M\u2091=M\u2090)', bx+8, by+69);
+      } else {
+        ctx.fillStyle='#a8b0c0'; ctx.fillText('No crossover (\u03bb always '+(pl.lambdaMax<1?'<1':'>1')+')', bx+8, by+69);
+      }
+      ctx.fillStyle='#e8c547';
+      ctx.fillText('Core: '+pl.rhoType+' (\u03c1\u221dr^'+pl.rhoN.toFixed(1)+')', bx+8, by+82);
+      // Fit quality
+      ctx.fillStyle='#f0b040';
+      ctx.fillText('Pipe\u03bc RMS:'+pl.rmsPipe.toFixed(1)+' \u03c7\u00b2r:'+pl.chi2Pipe.toFixed(1)+' 1\u03c3:'+pl.w1sPipe+'/'+obs.length+' 2\u03c3:'+pl.w2sPipe+'/'+obs.length, bx+8, by+98);
+      ctx.fillStyle='#e05050';
+      ctx.fillText('Pipe_f RMS:'+pl.rmsFEPipe.toFixed(1)+' \u03bb_fe:'+pl.lambdaFEMin.toFixed(2)+'\u2192'+pl.lambdaFEMax.toFixed(2), bx+8, by+112);
+      ctx.fillStyle='#2ca02c';
+      ctx.fillText('Phot\u03bc RMS:'+pl.rmsPhot.toFixed(1)+'  Phot_f RMS:'+pl.rmsFEPhot.toFixed(1), bx+8, by+126);
+    } else {
+      ctx.fillStyle='#e8c547'; ctx.fillText('Core: '+(pl.rhoType||'N/A'), bx+8, by+42);
+      ctx.fillStyle='#47b8e8'; ctx.fillText('Decoded (0p)', bx+8, by+55);
+    }
+  });
+
+  // LEGEND
+  const nG=galaxies.length, hM=galaxies.some(g => !g.pipeline.fallback);
+  const legH = 14+nG*(hM?80:24);
+  const lx=pR-280, ly=pB-legH-16;
+  ctx.fillStyle='rgba(6,8,16,0.88)'; ctx.strokeStyle='#1e2233'; ctx.lineWidth=1;
+  roundRect(ctx, lx, ly, 270, legH, 4); ctx.fill(); ctx.stroke();
+  ctx.font='8px JetBrains Mono,monospace'; ctx.textAlign='left'; ctx.fillStyle='#5a6080';
+  ctx.fillText(hM ? 'u(x) PIPE / f(x) PIPE / PHOT u(x) / PHOT f(x) / DEC / OBS' : 'DECODED / OBS', lx+8, ly+10);
+
+  galaxies.forEach((g,i) => {
+    const yB=ly+20+i*(hM?80:24), nm=g.data.name||g.data.id||'Galaxy '+(i+1), pl=g.pipeline;
+    // u(x) Pipeline (gold solid)
+    ctx.strokeStyle='#f0b040'; ctx.lineWidth=2.5;
+    ctx.beginPath(); ctx.moveTo(lx+8,yB); ctx.lineTo(lx+28,yB); ctx.stroke();
+    ctx.fillStyle='#8890a0'; ctx.font='9px JetBrains Mono,monospace';
+    ctx.fillText(nm, lx+34, yB+4);
+
+    if (hM && !pl.fallback) {
+      ctx.fillStyle='#f0b040'; ctx.font='8px JetBrains Mono,monospace';
+      ctx.fillText('u(x) Pipe RMS '+pl.rmsPipe.toFixed(1)+' | \u03bb:'+pl.lambdaMin.toFixed(2)+'\u2192'+pl.lambdaMax.toFixed(2), lx+34, yB+15);
+      // f(x) Pipeline (red solid)
+      ctx.strokeStyle='#e05050'; ctx.lineWidth=2.2;
+      ctx.beginPath(); ctx.moveTo(lx+8,yB+24); ctx.lineTo(lx+28,yB+24); ctx.stroke();
+      ctx.fillStyle='#e05050';
+      ctx.fillText('f(x) Pipe RMS '+pl.rmsFEPipe.toFixed(1)+' | \u03bb_fe:'+pl.lambdaFEMin.toFixed(1)+'\u2192'+pl.lambdaFEMax.toFixed(1), lx+34, yB+27);
+      // Photometric u(x) (green dashed)
+      ctx.strokeStyle='#2ca02c'; ctx.lineWidth=1.4; ctx.setLineDash([5,3]);
+      ctx.beginPath(); ctx.moveTo(lx+8,yB+36); ctx.lineTo(lx+28,yB+36); ctx.stroke(); ctx.setLineDash([]);
+      ctx.fillStyle='#5a6080';
+      ctx.fillText('Phot u(x) RMS '+pl.rmsPhot.toFixed(1), lx+34, yB+39);
+      // Photometric f(x) (red dashed)
+      ctx.strokeStyle='#e05050'; ctx.lineWidth=1.2; ctx.setLineDash([5,3]);
+      ctx.beginPath(); ctx.moveTo(lx+8,yB+48); ctx.lineTo(lx+28,yB+48); ctx.stroke(); ctx.setLineDash([]);
+      ctx.fillStyle='#5a6080';
+      ctx.fillText('Phot f(x) RMS '+pl.rmsFEPhot.toFixed(1), lx+34, yB+51);
+      // Decoded
+      ctx.strokeStyle=g.pal.main; ctx.lineWidth=1.5; ctx.globalAlpha=0.55;
+      ctx.beginPath(); ctx.moveTo(lx+8,yB+60); ctx.lineTo(lx+28,yB+60); ctx.stroke(); ctx.globalAlpha=1;
+      ctx.fillStyle='#5a6080';
+      ctx.fillText('Decoded M\u2091(0p)', lx+34, yB+63);
+      // Obs
+      ctx.beginPath(); ctx.arc(lx+18,yB+73,2.5,0,Math.PI*2); ctx.fillStyle=g.pal.main; ctx.fill();
+      ctx.fillStyle='#5a6080'; ctx.fillText('Obs', lx+34, yB+76);
+    }
+  });
+}
+
+function traceCurve(ctx, pts, rToX, vToY, pL, pR, pT, side) {
+  ctx.beginPath(); let st=false;
+  pts.forEach(p => {
+    const x=rToX(side*p.r), y=vToY(p.v);
+    if (isNaN(x)||isNaN(y)||x<pL||x>pR||y<pT||p.v<=0) return;
+    if (!st) { ctx.moveTo(x,y); st=true; } else ctx.lineTo(x,y);
+  });
+  ctx.stroke();
+}
+function roundRect(ctx,x,y,w,h,r) {
+  ctx.beginPath(); ctx.moveTo(x+r,y); ctx.lineTo(x+w-r,y); ctx.quadraticCurveTo(x+w,y,x+w,y+r);
+  ctx.lineTo(x+w,y+h-r); ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h); ctx.lineTo(x+r,y+h);
+  ctx.quadraticCurveTo(x,y+h,x,y+h-r); ctx.lineTo(x,y+r); ctx.quadraticCurveTo(x,y,x+r,y); ctx.closePath();
+}
+
+// =====================================================================
+// DECOMPOSITION TABLES
+// =====================================================================
+function buildTables() {
+  const c = document.getElementById('decompTables'); c.innerHTML = '';
+  galaxies.forEach((g, i) => {
+    const nm=g.data.name||g.data.id||'Galaxy '+(i+1), pl=g.pipeline;
+    const hdr = document.createElement('div');
+    hdr.style.cssText = 'color:'+g.pal.main+';font-size:12px;letter-spacing:1px;margin:20px 0 4px;text-align:center;font-weight:bold;';
+    hdr.textContent = nm; c.appendChild(hdr);
+
+    if (!pl.fallback) {
+      const s = document.createElement('div');
+      s.style.cssText = 'text-align:center;font-size:10px;color:#8890a0;margin-bottom:8px;';
+      const sc = pl.state==='ABSORBING'?'#8B5CF6':pl.state==='PUMPING'?'#2ca02c':'#e8c547';
+      s.innerHTML = '<span style="color:'+sc+'">'+pl.state+'</span>'+
+        ' | <span style="color:#f0b040">u(x) Pipe RMS='+pl.rmsPipe.toFixed(2)+'</span>'+
+        ' | <span style="color:#e05050">f(x) Pipe RMS='+pl.rmsFEPipe.toFixed(2)+'</span>'+
+        ' | Phot u(x)='+pl.rmsPhot.toFixed(1)+' f(x)='+pl.rmsFEPhot.toFixed(1)+
+        ' | \u03bb_u: '+pl.lambdaMin.toFixed(3)+'\u2192'+pl.lambdaMax.toFixed(3)+
+        ' | \u03bb_fe: '+pl.lambdaFEMin.toFixed(1)+'\u2192'+pl.lambdaFEMax.toFixed(1)+
+        (pl.crossoverR > 0 ? ' | \u03bb=1 @ r='+pl.crossoverR.toFixed(1) : '');
+      c.appendChild(s);
+    }
+
+    const tbl = document.createElement('table'); tbl.className = 'decomp-table';
+    const hm = !pl.fallback;
+    let cols = '<th style="text-align:left">r</th><th>v</th><th>x</th><th>\u03bc</th><th>f(x)</th><th>v_TetA</th><th>v_TetB</th>';
+    if (hm) cols += '<th>v_phot</th><th>\u03bb_u</th><th>\u03bb_fe</th><th>M_bar</th><th>M_dec</th><th>v_pipe</th><th>\u0394v</th>';
+    else cols += '<th>M_dec</th>';
+    tbl.innerHTML = '<thead><tr>'+cols+'</tr></thead>';
+    const tbody = document.createElement('tbody');
+
+    g.data.observations.forEach((p, pi) => {
+      const r=p.r, v=p.v, x=xParam(r,v), m=mu(x), ff=fieldFrac(x), fp=fPoly(x);
+      const va=v*Math.sqrt(m), vb=v*Math.sqrt(ff), Md=decodeMass(r,v);
+      let row = '<td>'+r.toFixed(2)+'</td><td style="color:'+g.pal.main+'">'+v.toFixed(0)+'</td>'+
+        '<td>'+x.toFixed(3)+'</td><td>'+m.toFixed(3)+'</td><td>'+fp.toFixed(2)+'</td>'+
+        '<td style="color:'+g.pal.main+'">'+va.toFixed(1)+'</td><td style="color:'+g.pal.vortex+'">'+vb.toFixed(1)+'</td>';
+
+      if (hm) {
+        const Mb = totalBaryonicMass(r, g.data.mass_model);
+        const lam = Mb > 0 ? Md/Mb : 1;
+        const MdFE = decodeMassFE(r, v);
+        const lamFE = Mb > 0 ? MdFE/Mb : 1;
+        const vp = vPhotometric(r, g.data.mass_model);
+        const vpipe = vFromMass(r, Math.max(lam, 0.001) * Mb);
+        const dv = vpipe - v;
+        const e = p.err || 5;
+        const dvCol = Math.abs(dv) <= e ? '#2ca02c' : Math.abs(dv) <= 2*e ? '#e8c547' : '#e87247';
+        const lamCol = lam < 0.5 ? '#8B5CF6' : lam < 0.9 ? '#c76bea' : lam < 1.1 ? '#2ca02c' : lam < 1.5 ? '#e8c547' : '#e87247';
+        const lamFECol = lamFE < 1.0 ? '#c76bea' : lamFE < 2.0 ? '#e8c547' : lamFE < 4.0 ? '#e05050' : '#ff3030';
+        row += '<td style="color:#2ca02c">'+vp.toFixed(1)+'</td>';
+        row += '<td style="color:'+lamCol+'">'+lam.toFixed(3)+'</td>';
+        row += '<td style="color:'+lamFECol+'">'+lamFE.toFixed(2)+'</td>';
+        row += '<td>'+Mb.toExponential(2)+'</td>';
+        row += '<td>'+Md.toExponential(2)+'</td>';
+        row += '<td style="color:#f0b040">'+vpipe.toFixed(1)+'</td>';
+        row += '<td style="color:'+dvCol+'">'+(dv>0?'+':'')+dv.toFixed(1)+'</td>';
+      } else {
+        row += '<td>'+Md.toExponential(2)+'</td>';
+      }
+      const tr = document.createElement('tr'); tr.innerHTML = row; tbody.appendChild(tr);
+    });
+    tbl.appendChild(tbody); c.appendChild(tbl);
+  });
+}
+
+// =====================================================================
+// FILE HANDLING
+// =====================================================================
+function handleFiles(files) {
+  Array.from(files).forEach(file => {
+    if (!file.name.toLowerCase().endsWith('.json')) return;
+    const r = new FileReader();
+    r.onload = ev => { try { addGalaxy(JSON.parse(ev.target.result)); } catch(e) { alert('Invalid JSON: '+e.message); } };
+    r.readAsText(file);
+  });
+}
+document.addEventListener('dragover', e => { e.preventDefault(); document.body.classList.add('drag-over'); });
+document.addEventListener('dragleave', e => { if (!e.relatedTarget||!document.body.contains(e.relatedTarget)) document.body.classList.remove('drag-over'); });
+document.addEventListener('drop', e => { e.preventDefault(); document.body.classList.remove('drag-over'); if (e.dataTransfer.files.length) handleFiles(e.dataTransfer.files); });
+document.getElementById('dropHint').addEventListener('click', () => { const inp=document.createElement('input'); inp.type='file'; inp.accept='.json'; inp.multiple=true; inp.onchange=()=>handleFiles(inp.files); inp.click(); });
+</script>
+</body>
+</html>

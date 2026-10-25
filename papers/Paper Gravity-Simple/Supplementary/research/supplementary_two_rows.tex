@@ -1,0 +1,165 @@
+\documentclass[twocolumn]{iopjournal}
+
+\usepackage{amsmath,amssymb,amsfonts}
+
+\fancyhfoffset[L]{0mm}
+\setlength{\marginparwidth}{0pt}
+\setlength{\marginparsep}{0pt}
+
+% ==========================================
+% ZENODO PREPRINT HEADERS (ACTIVE)
+% ==========================================
+\renewcommand{\articletype}[1]{%
+  {\vspace*{-8mm}\noindent \Large \sf Preprint}\par
+  \vspace*{6mm}\noindent{\scriptsize \sf{\bfseries \MakeUppercase{#1}}}}
+
+\fancyhead[L]{}
+\fancyhead[R]{}
+
+\begin{document}
+
+\articletype{Companion Note}
+
+\title{Two Rows of Pascal's Triangle:\\The Subset Bijection of the Stellated Octahedron}
+
+\author{Stephen Nelson}
+
+\affil{Field Dynamics Research}
+
+\begin{abstract}
+At $D = 3$, the vertices of the stellated octahedron derived in the main letter are the eight vertices of the 3-cube, partitioned by binary parity into two regular tetrahedra. The basis elements of the exterior algebra $\Lambda^k(\mathbb{R}^3)$ are indexed by the same objects: $k$-element subsets of three coordinate axes. This shared indexing is a canonical bijection, not a numerical coincidence. The principal combinatorial data of the stellated octahedron follow as counting corollaries: $2^3 = 8$ vertices, $\binom{4}{2} = 6$ octahedral core vertices, and $\binom{4}{1} = 4$ faces per tetrahedron; the $K^2 = 16$ boundary channels are inherited from the main letter. Pascal's rule $\binom{4}{k} = \binom{3}{k} + \binom{3}{k-1}$ separately relates the spacetime and spatial algebras; the parity partition acts within the spatial algebra to produce TetA and TetB.
+\end{abstract}
+
+% ----------------------------------------------------------------------
+
+\section*{The Shared Indexing}
+
+A basis element of the exterior algebra $\Lambda^k(\mathbb{R}^D)$ is a $k$-fold wedge product $dx^{i_1} \wedge \cdots \wedge dx^{i_k}$, uniquely labelled by a $k$-element subset $\sigma \subseteq \{1, \ldots, D\}$. The number of such subsets is $\binom{D}{k}$.
+
+A vertex of the $D$-cube $\{0,1\}^D$ is a binary string $b = (b_1, \ldots, b_D)$, also uniquely labelled by a subset $\sigma \subseteq \{1, \ldots, D\}$: include axis~$i$ if and only if $b_i = 1$. The vertex has popcount $|\sigma| = k$.
+
+These two objects share the same indexing set: the power set $2^{\{1,\ldots,D\}}$. A $k$-element subset labels both a grade-$k$ basis element and a popcount-$k$ cube vertex. This is a canonical bijection.
+
+For $D = 3$, both count $2^3 = 8$ objects, graded as $\binom{3}{k} = \{1, 3, 3, 1\}$.
+
+% ----------------------------------------------------------------------
+
+\section*{The Parity Partition}
+
+The $2^D$ cube vertices split into two classes by the parity of their popcount: those with odd popcount and those with even popcount. For $D = 3$:
+
+\vspace{6pt}
+\noindent
+\begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}llcc@{}}
+\hline
+Vertex & Binary & Popcount & Parity \\
+\hline
+$v_0$ & 000 & 0 & even \\
+$v_1$ & 001 & 1 & odd \\
+$v_2$ & 010 & 1 & odd \\
+$v_3$ & 011 & 2 & even \\
+$v_4$ & 100 & 1 & odd \\
+$v_5$ & 101 & 2 & even \\
+$v_6$ & 110 & 2 & even \\
+$v_7$ & 111 & 3 & odd \\
+\hline
+\end{tabular*}
+\vspace{6pt}
+
+The four odd-parity vertices $\{001, 010, 100, 111\}$ are the vertices of a regular tetrahedron inscribed in the cube (TetA). The four even-parity vertices $\{000, 011, 101, 110\}$ are the vertices of the orientation-reversed dual tetrahedron (TetB). This is a classical result: the binary parity partition of the $D$-cube yields two regular simplices for $D = 3$.
+
+Replacing $0 \to -1$ and $1 \to +1$, the four odd-parity vertices become $(-1,-1,+1)$, $(-1,+1,-1)$, $(+1,-1,-1)$, and $(+1,+1,+1)$: the four derived tetrahedral directions $v_1, v_2, v_3, v_4$ of the main letter.
+
+The compound of TetA and TetB is the stellated octahedron. Its vertex set is the full cube $\{0,1\}^3$, partitioned by parity into the two tetrahedra.
+
+% ----------------------------------------------------------------------
+
+\section*{The Bijection}
+
+\noindent\textbf{Theorem} ($D = 3$). \textit{At $D = 3$, the canonical bijection between $k$-element subsets of $\{1,2,3\}$ and grade-$k$ basis elements of $\Lambda^\bullet(\mathbb{R}^3)$ identifies:}
+\begin{itemize}
+\item \textit{the $2^3 = 8$ cube vertices with the $2^3 = 8$ basis elements of $\Lambda^\bullet(\mathbb{R}^3)$;}
+\item \textit{the four odd-parity vertices (TetA) with the odd-grade basis elements $\Lambda^1 \oplus \Lambda^3$;}
+\item \textit{the four even-parity vertices (TetB) with the even-grade basis elements $\Lambda^0 \oplus \Lambda^2$.}
+\end{itemize}
+
+\noindent\textit{Proof.} A $k$-element subset $\sigma \subseteq \{1,2,3\}$ labels both a vertex of popcount~$k$ and a basis element of $\Lambda^k$. Popcount parity (odd or even) equals form-degree parity. At $D = 3$, the binary parity partition of the cube yields two sets of four vertices, each forming a regular tetrahedron inscribed in the cube. The odd-parity vertices are exactly TetA; the even-parity vertices are exactly TetB. Therefore TetA corresponds to the odd-grade subalgebra and TetB to the even-grade subalgebra.~$\square$
+
+% ----------------------------------------------------------------------
+
+\section*{Corollaries}
+
+The principal combinatorial data of the stellated octahedron follow from the subset bijection. Where the bijection alone does not suffice, the main letter supplies the geometric proof.
+
+\vspace{6pt}
+\noindent\textbf{Corollary 1} (Vertex count). \textit{The stellated octahedron has $2^D = 8$ vertices.}
+
+\noindent\textit{Proof.} Its vertex set is the full cube $\{0,1\}^D$. The number of subsets of $\{1,\ldots,D\}$ is $2^D$.~$\square$
+
+\vspace{6pt}
+\noindent\textbf{Corollary 2} (Face count). \textit{Each tetrahedron has $\binom{D+1}{1} = D + 1 = K = 4$ faces.}
+
+\noindent\textit{Proof.} A regular simplex in $\mathbb{R}^D$ has $D + 1$ facets. Equivalently, $\binom{D+1}{1}$ counts 1-element subsets of $\{1,\ldots,D+1\}$.~$\square$
+
+\vspace{6pt}
+\noindent\textbf{Corollary 3} (Edge count and octahedral core). \textit{Each tetrahedron has $\binom{D+1}{2} = 6$ edges. The octahedral core has $\binom{D+1}{2} = 6$ vertices.}
+
+\noindent\textit{Proof.} A simplex with $D+1$ vertices has $\binom{D+1}{2}$ edges; this is a direct subset count. The main letter proves independently that the octahedral core vertices are the midpoints of these edges, giving the same count of 6.~$\square$
+
+\vspace{6pt}
+\noindent\textbf{Corollary 4} (Boundary channels). \textit{The stellated octahedron has $K^2 = 16$ boundary channels.}
+
+\noindent\textit{Proof.} The boundary channels are the $K \times K = K^2$ sub-regions from the Sierpinski face subdivision (proved in the main letter). At $D = 3$, $K = D + 1 = 4$, giving $K^2 = 16$. This equals $2^{D+1} = 16$, an identity specific to $D = 3$.~$\square$
+
+\vspace{6pt}
+\noindent\textbf{Corollary 5} (f-vector sum). \textit{$V + E + F = K(K + D) = 28$.}
+
+\noindent\textit{Proof.} $V = 2^D = 8$, $E = 2\binom{D+1}{2} = 12$, $F = 2(D+1) = 8$. Then $V + E + F = 2^D + D(D+1) + 2(D+1) = 8 + 12 + 8 = 28 = 4 \times 7 = K(K+D)$.~$\square$
+
+% ----------------------------------------------------------------------
+
+\section*{Pascal's Rule and the Spacetime Extension}
+
+The Theorem and its corollaries operate within the spatial algebra $\Lambda^\bullet(\mathbb{R}^D)$. A separate algebraic structure arises when the time direction is included: the spacetime frame has $D + 1 = 4$ dimensions, and its exterior algebra has graded dimensions $\binom{D+1}{k} = \{1, 4, 6, 4, 1\}$. Pascal's rule decomposes each spacetime grade by whether the $(D+1)$th element (the time direction) is included or excluded:
+\begin{equation}
+\binom{D+1}{k} = \binom{D}{k} + \binom{D}{k-1}.
+\label{eq:pascal}
+\end{equation}
+The first term $\binom{D}{k}$ counts $k$-element subsets drawn from the $D$ spatial axes alone. The second term $\binom{D}{k-1}$ counts subsets that include the time axis plus $k-1$ spatial axes. This is a decomposition by inclusion of a distinguished element, which is distinct from the parity partition of the Theorem.
+
+Written out for $D = 3$:
+
+\vspace{6pt}
+\noindent
+\begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}ccccc@{}}
+\hline
+Grade $k$ & $\binom{3}{k}$ & $\binom{3}{k\!-\!1}$ & Sum & $= \binom{4}{k}$ \\
+\hline
+0 & 1 & 0 & 1 & 1 \\
+1 & 3 & 1 & 4 & 4 \\
+2 & 3 & 3 & 6 & 6 \\
+3 & 1 & 3 & 4 & 4 \\
+4 & 0 & 1 & 1 & 1 \\
+\hline
+\end{tabular*}
+\vspace{6pt}
+
+Pascal's rule decomposes the $2^{D+1} = 16$ spacetime basis elements into $2^D = 8$ spatial-only elements (the $\binom{D}{k}$ column) and $2^D = 8$ time-extended elements (the $\binom{D}{k-1}$ column). It is within the spatial-only algebra that the Theorem applies: the 8 spatial basis elements biject with the 8 cube vertices, and the parity partition splits them into the 4 vertices of TetA and the 4 vertices of TetB. The time-extended column contributes additional basis elements at each grade ($0, 1, 3, 3, 1$ respectively) but does not alter the vertex geometry; it reflects the algebraic structure introduced by the time direction.
+
+% ----------------------------------------------------------------------
+
+\section*{The Exchange Symmetry}
+
+The Hodge star on $\Lambda^k(\mathbb{R}^D)$ maps $\Lambda^k \to \Lambda^{D-k}$. For $D = 3$ (odd), this exchanges $\Lambda^0 \leftrightarrow \Lambda^3$ and $\Lambda^1 \leftrightarrow \Lambda^2$. Since $D$ is odd, $D - k$ always has opposite parity to $k$: the spatial Hodge star swaps odd-grade and even-grade basis elements. Under the Theorem, this exchanges TetA (odd parity) and TetB (even parity).
+
+The octahedral core has 6 vertices, matching $\binom{4}{2} = 6$. Under Pascal's rule, this decomposes as $\binom{3}{2} + \binom{3}{1} = 3 + 3$: three spatial-only 2-forms and three time-extended 2-forms. The octahedral core, which is geometrically the intersection of TetA and TetB, sits at the grade where this Pascal split is balanced.
+
+% ----------------------------------------------------------------------
+
+\section*{Summary}
+
+The stellated octahedron's combinatorial structure and the exterior algebra's graded structure share a common origin: the power set of $D$ coordinate axes. The canonical bijection between $k$-element subsets and grade-$k$ basis elements turns the vertex count and parity split into counting theorems; the remaining data (octahedral core, boundary channels) are inherited from the main letter's geometric proofs. The parity partition of the $D$-cube splits its vertices into TetA and TetB; the spatial Hodge star ($D$ odd) swaps odd and even grades, mirroring this exchange. Pascal's rule separately relates the spatial and spacetime algebras by decomposing each spacetime grade into spatial-only and time-extended subsets.
+
+The boundedness classification in the main letter derives the stellated octahedron from the half-space inequalities of four derived tetrahedral directions. The subset bijection here identifies the same structure from the combinatorics of the 3-cube and the exterior algebra. The main letter derives the stellated octahedron; this note provides a combinatorial identification of the same structure at $D = 3$, $K = D + 1 = 4$.
+
+\end{document}

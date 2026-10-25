@@ -1,0 +1,317 @@
+\documentclass[twocolumn]{iopjournal}
+
+\usepackage{amsmath,amssymb,amsfonts}
+
+\fancyhfoffset[L]{0mm}
+\setlength{\marginparwidth}{0pt}
+\setlength{\marginparsep}{0pt}
+
+% ==========================================
+% ZENODO PREPRINT HEADERS (ACTIVE)
+% ==========================================
+\renewcommand{\articletype}[1]{%
+  {\vspace*{-8mm}\noindent \Large \sf Preprint}\par
+  \vspace*{6mm}\noindent{\scriptsize \sf{\bfseries \MakeUppercase{#1}}}}
+
+\fancyhead[L]{}
+\fancyhead[R]{}
+
+\begin{document}
+
+\articletype{Supplementary Material}
+
+\title{Supplementary Material: The Constitutive Law\\from Equilibrium Field Closure}
+
+\author{Stephen Nelson}
+
+\affil{Field Dynamics Research}
+
+\ead{stephen@fielddynamics.org}
+
+\begin{abstract}
+The AQUAL field equation
+$\nabla \cdot [\mu(|\nabla\Phi|/a_0)\,\nabla\Phi] = 4\pi G\rho$
+requires an interpolating function $\mu(x)$ that has remained
+undetermined for forty years. We derive it from three physical
+constraints within the minimal single-channel saturating closure
+(MSC) class. At each point, the gravitational field partitions
+into a resolved fraction tracking Newtonian demand and an
+unresolved fraction at saturation. Detailed balance between
+resolution and relaxation propensities yields a unique equilibrium
+occupancy. The deep-field scaling constraint forces the driving
+exponent to unity. The result is $\mu(x) = x/(x+1)$. This
+derivation uses no coupling polynomial, no M\"{o}bius map, and
+no tensor rank counting. It requires only the AQUAL field equation
+and three empirically grounded postulates about how a
+capacity-limited field must respond to gravitational demand.
+\end{abstract}
+
+% ----------------------------------------------------------------------
+
+\section*{The Open Problem}
+
+Bekenstein and Milgrom~\cite{BekensteinMilgrom1984} showed that the
+AQUAL field equation
+\begin{equation}
+  \nabla \cdot \!\left[\mu\!\left(\frac{|\nabla\Phi|}{a_0}\right)
+  \nabla\Phi\right] = 4\pi G\rho
+  \label{eq:aqual}
+\end{equation}
+derives from an action principle and therefore conserves energy,
+momentum, and angular momentum. The interpolating function $\mu(x)$,
+where $x = |\nabla\Phi|/a_0$, must satisfy two asymptotic limits:
+\begin{align}
+  \mu(x) &\to 1 \quad \text{as } x \to \infty
+    \quad \text{(Newtonian recovery)}, \label{eq:P1} \\
+  \mu(x)/x &\to 1 \quad \text{as } x \to 0
+    \quad \text{(deep-field scaling)}. \label{eq:P2}
+\end{align}
+Infinitely many functions satisfy both
+limits~\cite{FamaeyBinney2005,Milgrom1983}. The ``simple'' form
+$x/(x+1)$, the ``standard'' form $x/\sqrt{1+x^2}$, and
+transcendental forms such as $1 - e^{-\sqrt{x}}$ all produce flat
+rotation curves. Milgrom's original framework does not select among
+them. This note closes the gap.
+
+% ----------------------------------------------------------------------
+
+\section*{Three Postulates}
+
+\paragraph{Postulate~1 (Newtonian correspondence):}
+At high accelerations ($x \gg 1$), the gravitational field is fully
+resolved and the constitutive response approaches unity:
+$\mu(x) \to 1$.
+
+\paragraph{Postulate~2 (finite encoding capacity):}
+The gravitational field possesses finite local capacity to encode
+gradients. Below a characteristic scale $a_0$, gradients become
+indistinguishable from background. In this regime ($x \ll 1$), the
+response becomes scale-invariant: $\mu(x)/x \to 1$.
+
+\paragraph{Postulate~3 (single-channel saturation):}
+The field operates as a single-channel processor with finite
+capacity. At each point, the response partitions into a resolved
+fraction $\epsilon$ (tracking Newtonian demand) and an unresolved
+fraction $1 - \epsilon$ (saturated). The equilibrium partition is
+determined by detailed balance.
+
+% ----------------------------------------------------------------------
+
+\section*{The Minimal Closure Class}
+
+The minimal single-channel saturating closure (MSC) is defined by
+five axioms, each chosen as the simplest option consistent with
+the postulates:
+
+\begin{enumerate}
+\item Single occupancy variable $\epsilon \in [0,1]$.
+\item Detailed balance: resolution and relaxation propensities
+  are equal at equilibrium.
+\item Linear saturation: the capacity factor is $(1 - \epsilon)$.
+\item Monomial driving: the driving intensity is $x^n$ with
+  $n > 0$.
+\item Constitutive identification: $\mu(x) \equiv \epsilon(x)$.
+\end{enumerate}
+
+Each axiom is the leading-order effective field theory choice.
+Multi-channel closures, nonlinear saturation, and non-monomial
+driving all introduce additional parameters that current
+observations do not require. Departures from MSC are testable
+through transition-shape residuals in rotation curve
+fits~\cite{FamaeyBinney2005}.
+
+% ----------------------------------------------------------------------
+
+\section*{Resolution and Relaxation}
+
+At each point, two opposing propensities govern the field's
+response:
+
+\paragraph{Resolution propensity:}
+\begin{equation}
+  W_+ = \kappa_+ \cdot x^n \cdot (1 - \epsilon).
+  \label{eq:Wplus}
+\end{equation}
+The factor $x^n$ drives resolution in proportion to the
+gravitational intensity. The factor $(1 - \epsilon)$ enforces
+capacity: as the channel fills, the ability to resolve more
+diminishes.
+
+\paragraph{Relaxation propensity:}
+\begin{equation}
+  W_- = \kappa_- \cdot \epsilon.
+  \label{eq:Wminus}
+\end{equation}
+First-order relaxation: resolved states equilibrate with no
+persistence mechanism.
+
+% ----------------------------------------------------------------------
+
+\section*{Deriving the Exponent}
+
+Before solving for $\epsilon$, Postulate~2 determines the
+driving exponent $n$.
+
+At equilibrium ($W_+ = W_-$), solving for $\epsilon$:
+\begin{equation}
+  \epsilon = \frac{K x^n}{1 + K x^n},
+  \label{eq:epsilon_general}
+\end{equation}
+where $K = \kappa_+/\kappa_-$. In the small-$x$ limit:
+$\epsilon \approx K x^n$, so $\mu \approx K x^n$ and
+$\mu/x \approx K x^{n-1}$.
+
+Postulate~2 requires $\mu/x \to \text{const}$ as $x \to 0$.
+This forces
+\begin{equation}
+  n = 1.
+  \label{eq:n_equals_1}
+\end{equation}
+Any $n > 1$ gives $\mu/x \to 0$ (violating deep-field scaling).
+Any $n < 1$ gives $\mu/x \to \infty$ (unbounded response). The
+exponent is uniquely selected.
+
+\paragraph{Corroborating check: flat rotation curves.}
+In spherical symmetry with $\mu(x) \sim x^n$ at small $x$:
+$x^n \cdot g = GM/r^2$, so $g^{n+1} = a_0^n \cdot GM/r^2$.
+For circular orbits $v^2 = gr$:
+$v^{2(n+1)} = a_0^n \cdot GM \cdot r^{n-1}$.
+Flat rotation curves ($v$ independent of $r$) require $n = 1$.
+The same exponent that satisfies Postulate~2 also produces the
+observed baryonic Tully-Fisher relation $v^4 = GMa_0$.
+
+% ----------------------------------------------------------------------
+
+\section*{The Unique Equilibrium}
+
+With $n = 1$ established, the equilibrium occupancy is:
+\begin{equation}
+  \epsilon = \frac{K x}{1 + K x}.
+  \label{eq:epsilon}
+\end{equation}
+
+\paragraph{Scale absorption.}
+The theory contains a single empirical scale $a_0$. The constant
+$K = \kappa_+/\kappa_-$ appears only in the combination $Kx$
+and can be absorbed by redefining $a_0 \to a_0/K$. This shifts
+the fitted value of $a_0$ but introduces no new parameter.
+Setting $K = 1$ in rescaled units:
+\begin{equation}
+  \boxed{\mu(x) = \frac{x}{x + 1}.}
+  \label{eq:constitutive}
+\end{equation}
+
+\paragraph{Verification of Postulate~1.}
+As $x \to \infty$: $\mu(x) = x/(x+1) \to 1$. Newtonian gravity
+is recovered exactly.
+
+\paragraph{Stability.}
+The equilibrium is globally attracting. Define the net rate
+$\dot{\epsilon} = W_+ - W_- = \kappa_+(x(1-\epsilon) -
+\epsilon/K)$. This is affine in $\epsilon$ with strictly negative
+slope $-\kappa_+(x + 1/K)$. The equilibrium is the unique zero
+and all trajectories converge to it.
+
+% ----------------------------------------------------------------------
+
+\section*{Relation to the Other Routes}
+
+The main paper derives $\mu(x) = x/(x+1)$ by two additional
+routes:
+
+\vspace{6pt}
+\noindent
+\begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}lp{0.37\columnwidth}@{}}
+\hline
+Route & Method \\
+\hline
+1 (companion note) & Rank-level scan of the tetrad equation
+  yields coupling polynomial; M\"{o}bius map on the state
+  parameter; normalisation by
+  range~\cite{Nelson2026polynomial} \\
+2 (this note) & AQUAL field equation, three physical
+  postulates, single-channel detailed balance \\
+3 (companion note) & Quadratic tetrad equation, two
+  parity-related roots, three boundary conditions on $\mu$
+  directly~\cite{Nelson2026mobius} \\
+\hline
+\end{tabular*}
+\vspace{6pt}
+
+Route~1 reads the algebraic content of the tetrad equation.
+Route~3 reads its solution structure. Route~2 (this note) uses
+neither: it derives the constitutive law from the field equation's
+equilibrium response under capacity saturation. The mathematics is
+two-state kinetics, not algebra or geometry. No coupling polynomial
+appears. No M\"{o}bius map is invoked. No boundary conditions on
+$\mu$ are assumed; instead, $\mu$ is identified with the equilibrium
+occupancy, and its properties follow from the balance equation.
+
+% ----------------------------------------------------------------------
+
+\section*{Summary}
+
+The AQUAL field equation requires an interpolating function
+$\mu(x)$ that has been undetermined since 1984. Within the minimal
+single-channel saturating closure class:
+
+\begin{enumerate}
+\item Postulate~2 (deep-field scaling) forces the driving exponent
+  $n = 1$.
+\item Detailed balance with linear driving and linear saturation
+  yields the equilibrium $\epsilon = x/(1+x)$.
+\item Scale absorption removes the rate ratio, leaving no free
+  parameters.
+\item Postulate~1 (Newtonian recovery) is satisfied automatically.
+\end{enumerate}
+
+The result is
+\begin{equation}
+  \mu(x) = \frac{x}{x + 1},
+\end{equation}
+the unique equilibrium response of a single-channel,
+capacity-limited gravitational field under detailed balance.
+What Milgrom~\cite{Milgrom1983} discovered empirically and Famaey
+and Binney~\cite{FamaeyBinney2005} selected by fitting is the
+unique solution within the minimal closure class consistent with
+the observed asymptotic limits.
+
+% ----------------------------------------------------------------------
+
+\begin{thebibliography}{99}
+
+\bibitem{Nelson2026geometry}
+S.~Nelson,
+\textit{The Coordinate-Space Geometry of the Tetrad Frame},
+Class.\ Quantum Grav.\ (2026), submitted.
+
+\bibitem{Nelson2026polynomial}
+S.~Nelson,
+\textit{Supplementary Material: The Constitutive Law from the
+Coupling Polynomial} (2026).
+
+\bibitem{Nelson2026mobius}
+S.~Nelson,
+\textit{Supplementary Material: The Constitutive Law from the
+Quadratic Tetrad Equation} (2026).
+
+\bibitem{BekensteinMilgrom1984}
+J.~D.~Bekenstein and M.~Milgrom,
+\textit{Does the missing mass problem signal the breakdown of
+Newtonian gravity?}
+Astrophys.\ J.\ \textbf{286} (1984) 7.
+
+\bibitem{Milgrom1983}
+M.~Milgrom,
+\textit{A modification of the Newtonian dynamics as a possible
+alternative to the hidden mass hypothesis},
+Astrophys.\ J.\ \textbf{270} (1983) 365.
+
+\bibitem{FamaeyBinney2005}
+B.~Famaey and J.~Binney,
+\textit{Modified Newtonian dynamics in the Milky Way},
+Mon.\ Not.\ R.\ Astron.\ Soc.\ \textbf{363} (2005) 603.
+
+\end{thebibliography}
+
+\end{document}

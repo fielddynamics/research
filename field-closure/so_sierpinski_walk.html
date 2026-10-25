@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>π Fires the Hexagram Faces</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600&family=Libre+Baskerville:ital,wght@0,400;1,400&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#05060a;--bg2:#0c0d14;--bg3:#13141f;--text:#b8bcc8;--dim:#404560;--bright:#eef0f8;--brd:#1a1c28;
+  --tetA:#ff4040;--tetB:#00ddb8;--cross:#ffffff;--gate:#e5a800;--gold:#e5a800}
+body{background:var(--bg);color:var(--text);font-family:'JetBrains Mono',monospace;height:100vh;display:flex;flex-direction:column;overflow:hidden}
+header{display:flex;align-items:center;justify-content:space-between;padding:8px 18px;border-bottom:1px solid var(--brd);flex-shrink:0}
+.title{font-family:'Libre Baskerville',serif;font-size:0.9rem;color:var(--bright);font-weight:400}
+.sub{font-size:0.47rem;color:var(--dim);letter-spacing:0.18em;text-transform:uppercase;margin-top:2px}
+.leg{display:flex;gap:10px;font-size:0.5rem;flex-wrap:wrap}
+.li{display:flex;align-items:center;gap:4px}
+.ld{width:9px;height:9px;border-radius:2px}
+.main{display:flex;flex:1;overflow:hidden}
+#cw{flex:1;position:relative;cursor:grab}
+#cw:active{cursor:grabbing}
+canvas{display:block}
+.hint{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);font-size:0.46rem;color:var(--dim);letter-spacing:0.15em;text-transform:uppercase;pointer-events:none}
+.side{width:248px;flex-shrink:0;border-left:1px solid var(--brd);display:flex;flex-direction:column;overflow:hidden;background:var(--bg2)}
+.panel{padding:10px 13px;border-bottom:1px solid var(--brd)}
+.pt{font-size:0.47rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--dim);margin-bottom:7px}
+.srow{display:flex;align-items:baseline;gap:6px;margin-bottom:5px}
+.snum{font-size:1.6rem;font-weight:600;color:var(--gold);line-height:1}
+.slbl{font-size:0.5rem;color:var(--dim)}
+.dbox{background:var(--bg3);border-radius:4px;padding:7px 10px;border:1px solid var(--brd);margin-bottom:5px;font-size:0.55rem;line-height:1.8}
+.dv{font-weight:700;color:var(--bright)}
+.vcard{background:var(--bg3);border-radius:4px;padding:7px 10px;border:1px solid var(--brd);display:flex;gap:8px;align-items:center}
+.vnum{font-size:1.4rem;font-weight:700;line-height:1}
+.vname{font-size:0.55rem}
+.vtet{font-size:0.46rem;color:var(--dim)}
+.pbar-wrap{margin-bottom:4px}
+.pb-top{display:flex;justify-content:space-between;font-size:0.47rem;margin-bottom:2px}
+.pbar{height:4px;background:var(--bg3);border-radius:2px;overflow:hidden}
+.pbf{height:100%;border-radius:2px;transition:width 0.12s;background:var(--gold)}
+.sg{display:grid;grid-template-columns:1fr 1fr;gap:4px}
+.sc{background:var(--bg3);border-radius:3px;padding:5px 7px;border:1px solid var(--brd)}
+.sv{font-size:0.9rem;font-weight:600;color:var(--gold)}.sl{font-size:0.44rem;color:var(--dim)}
+.ctrls{display:flex;flex-wrap:wrap;gap:4px}
+.btn{background:var(--bg3);border:1px solid var(--brd);color:var(--text);font-family:'JetBrains Mono',monospace;font-size:0.55rem;padding:4px 8px;border-radius:3px;cursor:pointer;transition:all 0.12s}
+.btn:hover{border-color:var(--gold);color:var(--gold)}
+.btn.active{background:var(--gold);color:var(--bg);border-color:var(--gold)}
+.btn.danger{border-color:#c03030;color:#c03030}.btn.danger:hover{background:#c03030;color:var(--bg)}
+.sr{display:flex;align-items:center;gap:7px;margin-top:5px}
+.sr label{font-size:0.48rem;color:var(--dim)}
+input[type=range]{flex:1;accent-color:var(--gold)}
+.log-wrap{flex:1;overflow-y:auto;padding:6px 13px;scrollbar-width:thin;scrollbar-color:var(--brd) var(--bg2)}
+.le{display:flex;gap:4px;padding:2px 0;font-size:0.51rem;border-bottom:1px solid #0c0d14;animation:fi 0.15s ease}
+@keyframes fi{from{opacity:0;transform:translateX(-3px)}to{opacity:1}}
+.ls{color:var(--dim);width:22px;flex-shrink:0}
+.ld2{color:var(--gold);width:12px;flex-shrink:0;font-weight:600}
+.lv{width:10px;font-weight:700;flex-shrink:0}
+.lh{width:28px;flex-shrink:0;font-size:0.47rem}
+.ln{flex:1;color:var(--text);font-size:0.47rem}
+.lnew{color:var(--gold);font-size:0.44rem}
+.banner{background:linear-gradient(90deg,var(--gold)22,transparent);border:1px solid var(--gold)44;border-radius:3px;padding:3px 7px;font-size:0.48rem;color:var(--gold);text-align:center;margin:2px 0}
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <div class="title">π Fires the Hexagram Faces</div>
+    <div class="sub">π base-8 → cumsum mod 8 → vertex → hexagram → Sierpinski triangle fires</div>
+  </div>
+  <div class="leg">
+    <div class="li"><div class="ld" style="background:var(--tetA)"></div><span>TetA→TetA</span></div>
+    <div class="li"><div class="ld" style="background:var(--tetB)"></div><span>TetB→TetB</span></div>
+    <div class="li"><div class="ld" style="background:var(--cross)"></div><span>Cross-chamber</span></div>
+    <div class="li"><div class="ld" style="background:var(--gold)"></div><span>Active / Origin</span></div>
+  </div>
+</header>
+<div class="main">
+  <div id="cw"><div class="hint">drag to rotate · scroll to zoom</div></div>
+  <div class="side">
+    <div class="panel">
+      <div class="pt">Step</div>
+      <div class="srow"><div class="snum" id="snum">0</div><div class="slbl">π base-8</div></div>
+      <div class="dbox">
+        <div>digit <span class="dv" id="dval">–</span> · cumsum <span class="dv" id="csum">–</span> → vertex <span class="dv" id="vval">–</span></div>
+        <div>hexagram <span class="dv" id="hval">–</span> = <span class="dv" id="hname">–</span></div>
+      </div>
+      <div class="vcard" id="vcard">
+        <div>
+          <div class="vnum" id="vnumEl">–</div>
+          <div class="vname" id="vnameEl">–</div>
+          <div class="vtet" id="vtetEl">–</div>
+        </div>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="pt">Field Closure</div>
+      <div class="pbar-wrap">
+        <div class="pb-top"><span>Hexagrams</span><span id="hCov">0/64</span></div>
+        <div class="pbar"><div class="pbf" id="hBar" style="width:0%"></div></div>
+      </div>
+      <div class="pbar-wrap">
+        <div class="pb-top"><span>Vertices</span><span id="vCov">0/8</span></div>
+        <div class="pbar"><div class="pbf" id="vBar" style="width:0%;background:var(--tetB)"></div></div>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="pt">Stats</div>
+      <div class="sg">
+        <div class="sc"><div class="sv" id="totalFired">0</div><div class="sl">total steps</div></div>
+        <div class="sc"><div class="sv" id="closureStep" style="color:var(--dim)">–</div><div class="sl">closure step</div></div>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="pt">Controls</div>
+      <div class="ctrls">
+        <button class="btn" id="bStep">Step</button>
+        <button class="btn" id="b10">+10</button>
+        <button class="btn" id="b50">+50</button>
+        <button class="btn" id="bAuto">Auto</button>
+        <button class="btn danger" id="bReset">Reset</button>
+      </div>
+      <div class="sr"><label>Speed</label><input type="range" id="speed" min="30" max="950" value="400"></div>
+    </div>
+    <div class="pt" style="padding:7px 13px 0;font-size:0.47rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--dim)">Walk Log</div>
+    <div class="log-wrap" id="log"></div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+// ── π base-8 digits ───────────────────────────────────────────────────────────
+const PI_B8=[3,1,1,0,3,7,5,5,2,4,2,1,0,2,6,4,3,0,2,1,5,1,4,2,3,0,6,3,0,5,0,5,6,0,0,6,7,0,1,6,3,2,1,1,2,2,0,1,1,1,6,0,2,1,0,5,1,4,7,6,3,0,7,2,0,0,2,0,2,7,3,7,2,4,6,1,6,6,1,1,6,3,3,1,0,4,5,0,5,1,2,0,2,0,7,4,6,1,6,1,5,0,0,2,3,3,5,7,3,7,1,2,4,3,1,5,4,7,4,6,4,7,2,2,0,6,1,5,4,6,0,1,2,6,0,5,1,5,5,7,4,4,5,7,4,2,4,1,5,6,4,7,7,4,1,1,5,2,6,6,5,5,5,2,4,3,4,1,1,0,5,7,1,1,0,2,6,6,5,3,5,4,6,1,1,3,6,3,7,5,4,3,3,6,4,2,3,0,4,1,3,5,1,5,1,4,3,3,7,5,5,3,2,6,0,5,7,7,7,2,7,1,3,3,3,6,4,0,1,5,3,3,7,5,5,7,3,4,3,4,1,5,3,7,6,6,5,5,2,1,1,4,7,7,2,2,6,5,6,4,7,6,2,2,0,2,1,3,7,0,4,5,4,3,7,7,1,4,4,4,4,5,0,3,1,4,5,0,7,5,4,7,1,0,5,5,4,7,5,6,0,4,0,0,1,7,4,5,6,1,2,0,5,4,3,5,7,6,0,2,6,3,0,6,6,4,4,4,0,6,6,0,7,0,5,2,7,2,3,4,6,4,6,4,4,2,6,1,7,7,2,4,3,7,5,1,1,1,4,7,5,3,7,4,0,6,6,2,5,3,5,1,0,7,5,6,2,4,3,5,3,3,1,3,0,3,4,3,0,5,7,1,5,2,6,1,0,1,0,2];
+
+// ── GFD constants ─────────────────────────────────────────────────────────────
+const TET_A = new Set([1,2,4,7]);
+const TET_B = new Set([0,3,5,6]);
+const TRIGRAM = ['Earth','Mountain','Water','Wind','Thunder','Fire','Lake','Heaven'];
+
+// ── Stellated octahedron geometry ─────────────────────────────────────────────
+const sv = 1/Math.sqrt(3);
+const TETA_V = [
+  new THREE.Vector3( sv, sv, sv),  // 7 Heaven
+  new THREE.Vector3( sv,-sv,-sv),  // 4 Thunder
+  new THREE.Vector3(-sv, sv,-sv),  // 2 Water
+  new THREE.Vector3(-sv,-sv, sv),  // 1 Mountain
+];
+const TETB_V = TETA_V.map(v=>v.clone().negate());
+
+// Build 64 Sierpinski sub-triangles on TetA faces
+// face i excludes TETA_V[i], giving 4 faces
+// Each face → 4 channels → 4 subchannels = 16 sub-triangles per face = 64 total
+function tetFaces(v){ return [[v[1],v[2],v[3]],[v[0],v[2],v[3]],[v[0],v[1],v[3]],[v[0],v[1],v[2]]]; }
+function subdiv(A,B,C){
+  const MAB=A.clone().add(B).multiplyScalar(0.5);
+  const MBC=B.clone().add(C).multiplyScalar(0.5);
+  const MAC=A.clone().add(C).multiplyScalar(0.5);
+  return[[A.clone(),MAB.clone(),MAC.clone()],[MAB.clone(),B.clone(),MBC.clone()],[MAC.clone(),MBC.clone(),C.clone()],[MAB.clone(),MBC.clone(),MAC.clone()]];
+}
+
+const TRIS=[]; // indexed 0-63 by hexagram = prev*8 + curr
+// We need to map hexagram index → Sierpinski triangle
+// Hexagram = (from_vertex, to_vertex), index = from*8 + to, range 0-63
+// Map to Sierpinski face space: face = floor(hex/16), chan = floor((hex%16)/4), sub = hex%4
+const faces=tetFaces(TETA_V);
+for(let fi=0;fi<4;fi++){
+  const[A,B,C]=faces[fi];
+  const chans=subdiv(A,B,C);
+  for(let ci=0;ci<4;ci++){
+    const[cA,cB,cC]=chans[ci];
+    const subs=subdiv(cA,cB,cC);
+    for(let si=0;si<4;si++){
+      const[sA,sB,sC]=subs[si];
+      const hexIdx=fi*16+ci*4+si; // hexagram 0-63
+      TRIS[hexIdx]={A:sA,B:sB,C:sC,face:fi,chan:ci,sub:si};
+    }
+  }
+}
+
+// Hexagram color by type: TetA→TetA, TetB→TetB, cross-chamber
+function hexColor(from,to){
+  const aF=TET_A.has(from),aT=TET_A.has(to);
+  if(aF&&aT) return 0xff4040;      // TetA internal
+  if(!aF&&!aT) return 0x00ddb8;   // TetB internal
+  return 0xffffff;                  // cross-chamber
+}
+function hexColorCSS(from,to){
+  const aF=TET_A.has(from),aT=TET_A.has(to);
+  if(aF&&aT) return 'var(--tetA)';
+  if(!aF&&!aT) return 'var(--tetB)';
+  return 'var(--cross)';
+}
+
+// ── Three.js ──────────────────────────────────────────────────────────────────
+const wrap=document.getElementById('cw');
+const W=()=>wrap.clientWidth,H=()=>wrap.clientHeight;
+const renderer=new THREE.WebGLRenderer({antialias:true});
+renderer.setPixelRatio(window.devicePixelRatio);
+renderer.setSize(W(),H());
+renderer.setClearColor(0x05060a,1);
+wrap.appendChild(renderer.domElement);
+const scene=new THREE.Scene();
+const camera=new THREE.PerspectiveCamera(44,W()/H(),0.1,100);
+camera.position.set(2.8,2,2.8);
+camera.lookAt(0,0,0);
+scene.add(new THREE.AmbientLight(0x334466,4));
+const pl=new THREE.PointLight(0xffffff,2.5,15);pl.position.set(3,4,3);scene.add(pl);
+const pl2=new THREE.PointLight(0x8866ff,2,15);pl2.position.set(-3,-2,3);scene.add(pl2);
+
+// Field origin
+scene.add(new THREE.Mesh(new THREE.OctahedronGeometry(0.04,0),
+  new THREE.MeshStandardMaterial({color:0xe5a800,emissive:0xe5a800,emissiveIntensity:2})));
+
+// Stellated octahedron wireframe
+function addWire(A,B,col,op){
+  const g=new THREE.BufferGeometry();
+  g.setAttribute('position',new THREE.Float32BufferAttribute([A.x,A.y,A.z,B.x,B.y,B.z],3));
+  scene.add(new THREE.Line(g,new THREE.LineBasicMaterial({color:col,opacity:op,transparent:true})));
+}
+for(let i=0;i<4;i++) for(let j=i+1;j<4;j++){
+  addWire(TETA_V[i],TETA_V[j],0xff4040,0.1);
+  addWire(TETB_V[i],TETB_V[j],0x00ddb8,0.1);
+}
+
+// 64 triangle meshes
+const triMeshes=TRIS.map((t,hi)=>{
+  const from=Math.floor(hi/8),to=hi%8;
+  const col=hexColor(from,to);
+  const geo=new THREE.BufferGeometry();
+  geo.setAttribute('position',new THREE.Float32BufferAttribute([
+    t.A.x,t.A.y,t.A.z,t.B.x,t.B.y,t.B.z,t.C.x,t.C.y,t.C.z],3));
+  geo.computeVertexNormals();
+  const mat=new THREE.MeshStandardMaterial({
+    color:col,emissive:col,emissiveIntensity:0,
+    side:THREE.DoubleSide,transparent:true,opacity:0,depthWrite:false});
+  const m=new THREE.Mesh(geo,mat);scene.add(m);return m;
+});
+
+// Edge outlines for all 64 (faint structure)
+TRIS.forEach((t,hi)=>{
+  const from=Math.floor(hi/8),to=hi%8;
+  const col=hexColor(from,to);
+  const g=new THREE.BufferGeometry();
+  g.setAttribute('position',new THREE.Float32BufferAttribute([
+    t.A.x,t.A.y,t.A.z,t.B.x,t.B.y,t.B.z,
+    t.B.x,t.B.y,t.B.z,t.C.x,t.C.y,t.C.z,
+    t.C.x,t.C.y,t.C.z,t.A.x,t.A.y,t.A.z],3));
+  scene.add(new THREE.LineSegments(g,
+    new THREE.LineBasicMaterial({color:col,opacity:0.1,transparent:true})));
+});
+
+// Address dots
+const dotSpheres=TRIS.map((t,hi)=>{
+  const from=Math.floor(hi/8),to=hi%8;
+  const col=hexColor(from,to);
+  const cen=[(t.A.x+t.B.x+t.C.x)/3,(t.A.y+t.B.y+t.C.y)/3,(t.A.z+t.B.z+t.C.z)/3];
+  const mat=new THREE.MeshStandardMaterial({color:col,emissive:col,emissiveIntensity:0.3,transparent:true,opacity:0.4});
+  const m=new THREE.Mesh(new THREE.SphereGeometry(0.015,8,8),mat);
+  m.position.set(...cen);scene.add(m);return m;
+});
+
+// Walker
+const walker=new THREE.Mesh(new THREE.SphereGeometry(0.05,12,12),
+  new THREE.MeshStandardMaterial({color:0xffffff,emissive:0xe5a800,emissiveIntensity:3}));
+walker.visible=false;scene.add(walker);
+
+// Orbit controls
+let isDrag=false,pm={x:0,y:0},rotY=0.6,rotX=0.3;
+renderer.domElement.addEventListener('mousedown',e=>{isDrag=true;pm={x:e.clientX,y:e.clientY}});
+renderer.domElement.addEventListener('touchstart',e=>{isDrag=true;pm={x:e.touches[0].clientX,y:e.touches[0].clientY}});
+window.addEventListener('mousemove',e=>{if(!isDrag)return;rotY+=(e.clientX-pm.x)*0.007;rotX+=(e.clientY-pm.y)*0.007;rotX=Math.max(-1.3,Math.min(1.3,rotX));pm={x:e.clientX,y:e.clientY};});
+window.addEventListener('touchmove',e=>{if(!isDrag)return;rotY+=(e.touches[0].clientX-pm.x)*0.007;rotX+=(e.touches[0].clientY-pm.y)*0.007;pm={x:e.touches[0].clientX,y:e.touches[0].clientY};});
+window.addEventListener('mouseup',()=>isDrag=false);
+window.addEventListener('touchend',()=>isDrag=false);
+renderer.domElement.addEventListener('wheel',e=>camera.position.multiplyScalar(1+e.deltaY*0.001));
+
+// ── Walk state ────────────────────────────────────────────────────────────────
+let step=0,cumsum=0,prevV=null;
+let hexSeen=new Set(),vSeen=new Set();
+let auto=null,closure=null,totalSteps=0;
+
+function doStep(){
+  if(step>=PI_B8.length)return;
+  const digit=PI_B8[step];
+  cumsum+=digit;
+  const vertex=cumsum%8;
+  vSeen.add(vertex);
+
+  // Hexagram = consecutive vertex pair
+  if(prevV!==null){
+    const hexIdx=prevV*8+vertex;
+    const isNew=!hexSeen.has(hexIdx);
+    hexSeen.add(hexIdx);
+    totalSteps++;
+
+    // Fire the triangle
+    const t=TRIS[hexIdx];
+    const from=prevV,to=vertex;
+    const col=hexColor(from,to);
+
+    triMeshes[hexIdx].material.opacity=0.8;
+    triMeshes[hexIdx].material.emissiveIntensity=1.2;
+    dotSpheres[hexIdx].material.opacity=1;
+    dotSpheres[hexIdx].material.emissiveIntensity=1.5;
+    dotSpheres[hexIdx].scale.setScalar(2.2);
+
+    // Walker at centroid
+    const cen=[(t.A.x+t.B.x+t.C.x)/3,(t.A.y+t.B.y+t.C.y)/3,(t.A.z+t.B.z+t.C.z)/3];
+    walker.visible=true;
+    walker.position.set(...cen);
+
+    // Fade previous
+    const prevHex=(prevV!==null&&prevV!==vertex)?null:hexIdx;
+    triMeshes.forEach((m,i)=>{
+      if(i!==hexIdx&&hexSeen.has(i)){
+        m.material.opacity=0.3;
+        m.material.emissiveIntensity=0.2;
+      }
+    });
+    dotSpheres[hexIdx].scale.setScalar(2.2);
+
+    // Closure check
+    if(hexSeen.size===64&&!closure){
+      closure=step;
+      document.getElementById('closureStep').textContent=step;
+      document.getElementById('closureStep').style.color='var(--gold)';
+      addLog(`── FIELD CLOSURE · ALL 64 HEXAGRAMS · STEP ${step} ──`,'banner');
+    }
+
+    // UI
+    document.getElementById('hval').textContent=hexIdx;
+    document.getElementById('hname').textContent=`${TRIGRAM[from].slice(0,4)}→${TRIGRAM[to].slice(0,4)}`;
+
+    // Log
+    const cc=hexColorCSS(from,to);
+    addLog(`<span class="ls">${step}</span><span class="ld2">${digit}</span><span class="lv" style="color:${cc}">${vertex}</span><span class="lh" style="color:${cc}">H${hexIdx}</span><span class="ln">${TRIGRAM[from].slice(0,5)}→${TRIGRAM[to].slice(0,5)}</span>${isNew?'<span class="lnew">★</span>':''}`,
+      'le');
+  }
+
+  // Vertex UI
+  document.getElementById('snum').textContent=step;
+  document.getElementById('dval').textContent=digit;
+  document.getElementById('csum').textContent=cumsum;
+  document.getElementById('vval').textContent=vertex;
+
+  const vn=document.getElementById('vnumEl');
+  vn.textContent=vertex;
+  vn.style.color=TET_A.has(vertex)?'var(--tetA)':'var(--tetB)';
+  document.getElementById('vnameEl').textContent=TRIGRAM[vertex];
+  document.getElementById('vtetEl').textContent=TET_A.has(vertex)?'TetA · Yang':'TetB · Yin';
+
+  const hc=hexSeen.size,vc=vSeen.size;
+  document.getElementById('hCov').textContent=`${hc}/64`;
+  document.getElementById('vCov').textContent=`${vc}/8`;
+  document.getElementById('hBar').style.width=`${hc/64*100}%`;
+  document.getElementById('vBar').style.width=`${vc/8*100}%`;
+  document.getElementById('totalFired').textContent=step;
+
+  prevV=vertex;step++;
+}
+
+function addLog(h,c){
+  const log=document.getElementById('log');
+  const e=document.createElement('div');e.className=c;e.innerHTML=h;
+  log.appendChild(e);log.scrollTop=99999;
+}
+
+function reset(){
+  stopAuto();step=0;cumsum=0;prevV=null;
+  hexSeen.clear();vSeen.clear();closure=null;totalSteps=0;
+  triMeshes.forEach(m=>{m.material.opacity=0;m.material.emissiveIntensity=0;});
+  dotSpheres.forEach(d=>{d.scale.setScalar(1);d.material.opacity=0.4;d.material.emissiveIntensity=0.3;});
+  walker.visible=false;
+  document.getElementById('snum').textContent='0';
+  ['dval','csum','vval','hval','hname','vnumEl','vnameEl','vtetEl'].forEach(id=>document.getElementById(id).textContent='–');
+  document.getElementById('hCov').textContent='0/64';document.getElementById('vCov').textContent='0/8';
+  document.getElementById('hBar').style.width='0%';document.getElementById('vBar').style.width='0%';
+  document.getElementById('totalFired').textContent='0';
+  document.getElementById('closureStep').textContent='–';document.getElementById('closureStep').style.color='var(--dim)';
+  document.getElementById('log').innerHTML='';
+}
+
+function stopAuto(){if(auto){clearInterval(auto);auto=null;}document.getElementById('bAuto').textContent='Auto';document.getElementById('bAuto').classList.remove('active');}
+function toggleAuto(){
+  if(auto){stopAuto();return;}
+  const ms=980-parseInt(document.getElementById('speed').value);
+  auto=setInterval(doStep,Math.max(20,ms));
+  document.getElementById('bAuto').textContent='Pause';document.getElementById('bAuto').classList.add('active');
+}
+document.getElementById('bStep').onclick=doStep;
+document.getElementById('b10').onclick=()=>{for(let i=0;i<10;i++)doStep();};
+document.getElementById('b50').onclick=()=>{for(let i=0;i<50;i++)doStep();};
+document.getElementById('bAuto').onclick=toggleAuto;
+document.getElementById('bReset').onclick=reset;
+document.getElementById('speed').addEventListener('input',()=>{if(auto){stopAuto();toggleAuto();}});
+
+let t=0;
+function animate(){
+  requestAnimationFrame(animate);t+=0.004;
+  if(!isDrag)rotY+=0.002;
+  scene.rotation.y=rotY;scene.rotation.x=rotX;
+  if(walker.visible){walker.scale.setScalar(1+0.2*Math.sin(t*10));walker.material.emissiveIntensity=2+Math.sin(t*8);}
+  renderer.render(scene,camera);
+}
+window.addEventListener('resize',()=>{camera.aspect=W()/H();camera.updateProjectionMatrix();renderer.setSize(W(),H());});
+animate();
+</script>
+</body>
+</html>

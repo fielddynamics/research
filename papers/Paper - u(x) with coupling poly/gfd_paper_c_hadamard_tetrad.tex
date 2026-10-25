@@ -1,0 +1,371 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=0.72in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{hyperref}
+\usepackage{booktabs}
+
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\title{The Hadamard Sign Kernel of the Tetrahedral Frame}
+\author{Stephen Nelson\\
+\small Field Dynamics Research\\
+\small\texttt{stephen@fielddynamics.org}}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+The $4\times 4$ Hadamard matrix $H_4$ appears independently in
+three literatures: as the parity-restricted Walsh-Hadamard kernel
+in signal processing, as the sign skeleton of the isotropic tetrad
+(vierbein) in general relativity, and as the axis structure of the
+stellated octahedron in discrete geometry.  This note observes that
+these three appearances are the same object.  The full
+Walsh-Hadamard transform on the cube $\mathbb Z_2^3$ is the
+$8\times 8$ matrix $H_8$.  Restricting to one tetrahedral parity
+sector ($xyz=+1$) collapses the eight Walsh characters into four,
+and the resulting evaluation matrix is $H_4$.  The Sylvester
+factorisation $H_8=H_2\otimes H_4$ encodes this decomposition.
+The three non-constant rows of $H_4$ are the spatial symmetry axes
+of the stellated octahedron and the face normals of the isotropic
+tetrahedral frame forced by spatial isotropy in $D=3$ dimensions.
+The identification requires no free parameter and holds exclusively
+at the frame dimension $K=D+1=4$.
+\end{abstract}
+
+
+\section{The cube, the transform, and the compound}
+
+The Walsh-Hadamard transform (WHT) is the discrete Fourier
+transform of the elementary abelian 2-group $\mathbb Z_2^n$.  At
+$n=3$, its domain is the cube: the eight vertices
+$\{(\pm1,\pm1,\pm1)\}$, or equivalently the 3-bit binary strings
+$\mathbb F_2^3$.  The Walsh functions are the group characters
+$\chi_S(x) = \prod_{i\in S} x_i$, indexed by subsets
+$S\subseteq\{1,2,3\}$.  The transform and the cube are
+inseparable; the WHT is defined on $\mathbb Z_2^3$ and nowhere
+else at $n=3$~\cite{Walsh,Sylvester}.  The full transform matrix
+at $n=3$ is $H_8$, an $8\times 8$ matrix acting on all eight cube
+vertices.  The $4\times 4$ matrix $H_4$ that is the subject of
+this note arises not as the full cube transform but as its
+restriction to one parity sector, as shown in Section~3.
+
+The same cube contains the stellated octahedron.  The parity
+function $p(x,y,z) = xyz$ splits the eight vertices into two sets
+of four:
+\begin{align*}
+\text{TetA}\ (p=+1)&\colon\
+(+,+,+),\ (+,-,-),\ (-,+,-),\ (-,-,+),\\
+\text{TetB}\ (p=-1)&\colon\
+(-,-,-),\ (-,+,+),\ (+,-,+),\ (+,+,-).
+\end{align*}
+Any two vertices within the same set differ in exactly two
+coordinates, giving pairwise inner product $-1$.  Four points in
+$\mathbb R^3$ with constant pairwise inner product form a regular
+tetrahedron~\cite{Coxeter}.  The compound of TetA and TetB is the
+stellated octahedron (stella octangula), inscribed in the cube on
+the same eight vertices.  This is classical discrete
+geometry~\cite{Kepler,Coxeter}.
+
+The observation of this note is that the symmetry axes of this
+compound, already present inside the cube, are the rows of the
+$4\times 4$ Hadamard matrix.
+
+
+\section{Balanced partitions and the Hadamard matrix}
+
+A balanced partition of a set of four objects into two pairs
+admits exactly three distinct configurations:
+\[
+\{1,2\}\mid\{3,4\},\qquad
+\{1,3\}\mid\{2,4\},\qquad
+\{1,4\}\mid\{2,3\}.
+\]
+This count is $\binom{4}{2}/2=3$.  Each partition can be encoded
+as a $\pm1$ vector of length four, assigning $+1$ to one pair and
+$-1$ to the other.  Together with the constant vector
+$(+1,+1,+1,+1)$, these four vectors form the rows of the
+$4\times 4$ Hadamard matrix:
+\[
+H_4 = \begin{pmatrix}
++1 & +1 & +1 & +1 \\
++1 & +1 & -1 & -1 \\
++1 & -1 & +1 & -1 \\
++1 & -1 & -1 & +1
+\end{pmatrix}.
+\]
+Orthogonality is immediate: the constant row is orthogonal to
+every balanced row (equal numbers of $+1$ and $-1$), and any two
+balanced rows agree on exactly two entries and disagree on two,
+giving inner product zero.  Therefore $H_4 H_4^T = 4I_4$.
+
+The three balanced rows are the three independent ways to split
+four objects into equal halves.  There is no fourth; the next
+partition $\{1,2,3\}\mid\{4\}$ is unbalanced and not orthogonal
+to the constant row.
+
+
+\section{The axes of the stellated octahedron}
+
+The stellated octahedron has three mutually perpendicular symmetry
+axes, connecting opposite edge-midpoints of the cube.  Each axis
+separates the four TetA vertices (equivalently, the four TetB
+vertices) into two pairs: those with $+1$ along that axis and
+those with $-1$.
+
+Explicitly, the four TetA face normals are:
+\[
+u_0 = (+,+,+),\quad
+u_1 = (+,-,-),\quad
+u_2 = (-,+,-),\quad
+u_3 = (-,-,+).
+\]
+Reading the sign of each normal along the three spatial axes
+gives, for each axis, a balanced partition of the four faces into
+two pairs:
+\begin{center}
+\begin{tabular}{lccccc}
+\toprule
+& $u_0$ & $u_1$ & $u_2$ & $u_3$ & Partition \\
+\midrule
+$x$-axis (sign of first component)
+  & $+$ & $+$ & $-$ & $-$ & $\{0,1\}\mid\{2,3\}$ \\
+$y$-axis (sign of second component)
+  & $+$ & $-$ & $+$ & $-$ & $\{0,2\}\mid\{1,3\}$ \\
+$z$-axis (sign of third component)
+  & $+$ & $-$ & $-$ & $+$ & $\{0,3\}\mid\{1,2\}$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+These are the three balanced partitions of Section~2.  Adding the
+constant row (all faces positive) recovers $H_4$ exactly.
+
+\begin{theorem}
+The three spatial symmetry axes of the stellated octahedron,
+expressed as sign patterns across the four tetrahedral face
+normals, together with the constant temporal axis, form the rows
+of $H_4$.
+\end{theorem}
+
+\begin{proof}
+The table above exhibits the identification.  Orthogonality
+follows from the balanced-partition structure of Section~2.
+\end{proof}
+
+The geometric identification has an algebraic counterpart that
+explains why $H_4$ appears inside the $H_8$ Walsh domain of the
+full cube.
+
+\begin{theorem}[Parity-restricted Walsh kernel]
+Let $T_+=\{(x,y,z)\in\{\pm1\}^3:xyz=+1\}$.  The restriction of
+the eight Walsh characters on $\mathbb Z_2^3$ to $T_+$ identifies
+complementary character pairs:
+\[
+        1\sim xyz,\qquad x\sim yz,\qquad y\sim xz,\qquad z\sim xy.
+\]
+The restricted character algebra therefore has four independent
+modes $\{1,x,y,z\}$.  Evaluating these four modes on the four
+vertices of $T_+$ gives $H_4$.
+\end{theorem}
+
+\begin{proof}
+On $T_+$, $xyz=+1$ by definition.  Multiplying both sides by any
+single variable: $yz = x$, $xz = y$, $xy = z$.  So
+$\chi_{\{i,j\}}|_{T_+} = \chi_{\{k\}}|_{T_+}$ for
+$\{i,j,k\}=\{1,2,3\}$, and
+$\chi_{\{1,2,3\}}|_{T_+} = \chi_\emptyset|_{T_+} = 1$.  The
+eight Walsh characters collapse to four.  Evaluating
+$\{1,x,y,z\}$ on the four TetA vertices $(+,+,+)$, $(+,-,-)$,
+$(-,+,-)$, $(-,-,+)$ gives the rows of $H_4$ by direct
+computation.
+\end{proof}
+
+After reordering the row and column bases so that the first factor
+is the parity character $xyz$, the Sylvester factorisation
+\[
+        H_8 \cong H_2\otimes H_4
+\]
+encodes this decomposition.  The $H_2$ factor carries the
+TetA/TetB grading ($xyz=\pm 1$), while the $H_4$ factor carries
+the frame structure within each parity sector.  This is the
+stellated octahedron's self-similar structure expressed as a tensor
+product: the same cube, the same three dimensions, decomposed into
+parity grading times frame read.
+
+
+\section{The isotropic tetrad frame}
+
+In the standard tetrad formulation of general relativity, the
+gravitational field is described by a frame field $e^a{}_\mu$ with
+$K=D+1$ internal legs~\cite{MTW}.  In $D=3$ spatial dimensions,
+$K=4$.
+
+The Lorentz signature $(-,+,+,+)$ maps null directions to the
+unit sphere $S^2$~\cite{NelsonA}.  Four unit directions on $S^2$
+that introduce no net preferred spatial direction and treat all
+directions equivalently are uniquely (up to $O(3)$) the vertices
+of a regular tetrahedron, with pairwise inner product
+$c=-1/3$~\cite{NelsonA,Coxeter}.  The face normals of this
+isotropic tetrahedral frame are, up to an overall normalisation
+factor $1/\sqrt{3}$, the four vectors $u_0,\ldots,u_3$ of the
+previous section.
+
+The sign pattern of the spatial tetrad components $e^I{}_j$ across
+the four frame legs $I\in\{0,1,2,3\}$ and three spatial directions
+$j\in\{1,2,3\}$ is therefore:
+\[
+\operatorname{sgn}(e^I{}_j) =
+\begin{pmatrix}
++ & + & + \\
++ & - & - \\
+- & + & - \\
+- & - & +
+\end{pmatrix}
+= \text{spatial block of } H_4.
+\]
+The temporal leg $e^0{}_0=1$ (with $e^0{}_j=0$) supplies the
+constant row.  The sign skeleton of the isotropic tetrahedral
+frame is $H_4$, up to the normalisation factor $1/\sqrt{3}$ on
+the spatial block.  The geometric frame is
+$e^I{}_j = u_I^j = (\pm1,\pm1,\pm1)/\sqrt{3}$; its sign kernel
+is $H_4$.
+
+\begin{corollary}
+The parity-restricted Walsh-Hadamard kernel has the same sign
+structure as the change of basis from coordinate axes to the
+isotropic tetrahedral frame.  The FWHT kernel and the tetrahedral
+tetrad frame therefore share the same Hadamard sign skeleton, up
+to ordering, transpose, and normalisation.
+\end{corollary}
+
+
+\section{Uniqueness at $D=3$}
+
+The identification rests on three coincidences that hold
+simultaneously only at $D=3$.
+
+\textbf{The simplex has $K=D+1$ faces.}  At $D=3$, $K=4$.  The
+four faces admit exactly $\binom{4}{2}/2=3=D$ independent balanced
+partitions, matching the spatial dimension.  At $K=3$ ($D=2$):
+$\binom{3}{2}/2=3/2$, not an integer.  At $K=5$ ($D=4$):
+$\binom{5}{2}/2=5\neq 4=D$.  Only at $K=4$ does the
+balanced-partition count equal the spatial dimension.
+
+\textbf{The cube dimension matches the simplex face count.}  The
+cube $\mathbb Z_2^D$ has $2^D$ vertices.  Two tetrahedra have
+$2K=2(D+1)$ vertices.  These are equal only when
+$2(D+1)=2^D$, which holds at $D=3$ and no other positive
+integer~\cite{NelsonA}.
+
+\textbf{The Hadamard matrix exists at order $K$.}  A necessary
+condition for a real $\pm1$ Hadamard matrix of order $K>2$ is
+$K\equiv 0\pmod{4}$~\cite{Hadamard}.  At $K=4$ this is satisfied.
+At $K=3$ or $K=5$ no such matrix exists.
+
+\begin{proposition}
+$K=4$ is the unique frame dimension at which the stellated
+octahedron axes form a Hadamard matrix matching the spatial
+dimension.
+\end{proposition}
+
+
+\section{Discussion}
+
+The content of this note is an observation, not a construction.
+The Walsh-Hadamard transform has been used in signal processing
+since Walsh (1923) and Hadamard (1893).  The stellated octahedron
+has been studied since Kepler (1611).  The isotropic tetrahedral
+frame is a standard object in tetrad
+gravity~\cite{MTW,Hehl1976}.  Each appears in a mature literature
+with extensive bibliography.  What has not appeared, to the
+author's knowledge, is the identification of these three objects as
+the same $4\times 4$ matrix.
+
+The identification has a structural consequence.  The WHT is the
+native Fourier analysis of the cube $\mathbb Z_2^3$.  The
+stellated octahedron is the parity structure of the same cube.
+The tetrad frame is the gravitational frame on the same four
+directions.  All three inhabit the same eight-vertex geometry,
+and $H_4$ is their shared algebraic expression.
+
+The parity-restricted kernel has four modes: three spatial
+characters $\{x,y,z\}$ and one constant scalar mode $\{1\}$.
+The restricted Walsh read on one tetrahedral sector therefore has
+a natural $3+1$ organisation: three nonconstant spatial characters
+and one constant scalar mode.  The same $3+1$ structure appears in
+the tetrahedral face decomposition (one uniform-sign face and
+three mixed-sign faces~\cite{NelsonA}) and in the Lorentz
+signature $(-,+,+,+)$.  Whether these three instances of $3+1$
+are independent observations or manifestations of a single
+structural fact is left as an open question.
+
+In the companion notes~\cite{NelsonA,NelsonB}, the occupation law
+$u(x)=x/(1+x)$ was derived from the sector partition of the
+bilinear frame space, and the torsion sector was shown to carry the
+regular representation of $S_4$.  The present identification places
+both results on the Walsh-Hadamard domain: the sector partition is
+a Walsh eigenspace decomposition, and the $S_4$ action is the
+permutation group of the Hadamard rows.  The transform that signal
+processing uses to analyse Boolean functions is the same transform
+that gravity uses to read its frame.
+
+
+\begin{thebibliography}{99}
+
+\bibitem{Walsh}
+J.~L. Walsh,
+``A closed set of normal orthogonal functions,''
+\emph{Amer.\ J.\ Math.} \textbf{45}, 5--24 (1923).
+
+\bibitem{Sylvester}
+J.~J. Sylvester,
+``Thoughts on inverse orthogonal matrices\ldots,''
+\emph{Phil.\ Mag.} \textbf{34}, 461--475 (1867).
+
+\bibitem{Coxeter}
+H.~S.~M. Coxeter,
+\emph{Regular Polytopes},
+3rd ed., Dover (1973).
+
+\bibitem{Kepler}
+J. Kepler,
+\emph{Harmonices Mundi}, Linz (1619).
+[The stella octangula appears in Book~II.]
+
+\bibitem{MTW}
+C.~W. Misner, K.~S. Thorne, and J.~A. Wheeler,
+\emph{Gravitation},
+W.~H. Freeman (1973).
+
+\bibitem{Hehl1976}
+F.~W. Hehl, P.~von der Heyde, G.~D. Kerlick, and J.~M. Nester,
+``General relativity with spin and torsion: Foundations and
+prospects,''
+\emph{Rev.\ Mod.\ Phys.} \textbf{48}, 393--416 (1976).
+
+\bibitem{Hadamard}
+J. Hadamard,
+``R\'esolution d'une question relative aux d\'eterminants,''
+\emph{Bull.\ Sci.\ Math.} \textbf{17}, 240--246 (1893).
+
+\bibitem{NelsonA}
+S.~Nelson,
+``An algebraic origin for the simple AQUAL interpolation
+function,''
+submitted (2026).
+
+\bibitem{NelsonB}
+S.~Nelson,
+``The torsion sector of the tetrad connection as the regular
+representation of $S_4$,''
+submitted (2026).
+
+\end{thebibliography}
+
+\end{document}

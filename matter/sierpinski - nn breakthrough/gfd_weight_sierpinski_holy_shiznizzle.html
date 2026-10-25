@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>GFD Sierpiński MeV Weight Map</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#0a0a1a; color:#c0c0c0; font-family:'Courier New',monospace; display:flex; height:100vh; overflow:hidden; }
+.left { width:340px; min-width:340px; padding:12px; overflow-y:auto; border-right:1px solid #222; }
+.right { flex:1; display:flex; flex-direction:column; padding:12px; }
+h1 { color:#4ae; font-size:15px; margin-bottom:2px; }
+h2 { color:#666; font-size:11px; font-weight:normal; margin-bottom:10px; }
+.search { width:100%; padding:6px 10px; background:#111; border:1px solid #333; color:#ccc; font-family:inherit; font-size:12px; border-radius:4px; margin-bottom:8px; outline:none; }
+.search:focus { border-color:#4ae; }
+.ptable { display:grid; grid-template-columns:repeat(8,1fr); gap:2px; }
+.el-cell { padding:3px; text-align:center; cursor:pointer; border-radius:3px; border:1px solid #222; transition:all 0.1s; font-size:10px; }
+.el-cell:hover { border-color:#4ae; transform:scale(1.05); z-index:2; }
+.el-cell.selected { border-color:#FFD700; border-width:2px; background:#1a1a0a !important; }
+.el-cell .z { font-size:8px; color:#666; }
+.el-cell .sym { font-size:13px; font-weight:bold; }
+.el-cell.excluded { opacity:0.3; }
+.canvas-wrap { flex:1; display:flex; align-items:center; justify-content:center; position:relative; }
+canvas#sierpCanvas { cursor:crosshair; }
+.info-bar { display:flex; gap:12px; padding:8px 0; flex-wrap:wrap; align-items:center; }
+.info-box { background:#111; border:1px solid #333; border-radius:4px; padding:6px 10px; }
+.info-label { font-size:9px; color:#666; }
+.info-val { font-size:15px; font-weight:bold; }
+.info-val.pos { color:#4c6; }
+.info-val.neg { color:#e55; }
+.info-val.gold { color:#FFD700; }
+.info-val.cyan { color:#4ae; }
+.mode-toggle { display:flex; gap:2px; margin:6px 0; }
+.mode-btn { padding:4px 10px; font-size:11px; background:#111; border:1px solid #333; color:#888; cursor:pointer; border-radius:3px; font-family:inherit; }
+.mode-btn.active { background:#1a2a3a; border-color:#4ae; color:#4ae; }
+.legend { display:flex; align-items:center; gap:6px; font-size:10px; padding:4px 0; }
+.walk-list { margin-top:6px; font-size:10px; max-height:140px; overflow-y:auto; background:#111; border:1px solid #222; border-radius:4px; padding:6px; }
+.walk-row { display:flex; justify-content:space-between; padding:1px 0; }
+.walk-row.highlight { background:#1a2a1a; color:#4c6; }
+.walk-row.neg-highlight { background:#2a1a1a; color:#e55; }
+.tooltip { position:absolute; background:#111e; border:1px solid #4ae; border-radius:4px; padding:6px 10px; font-size:11px; pointer-events:none; display:none; z-index:100; white-space:nowrap; }
+</style>
+</head>
+<body>
+<div class="left">
+<h1>GFD Sierpiński MeV Map</h1>
+<h2>Click element · See walk fill · See energy build</h2>
+<input class="search" placeholder="Search element, Z, or symbol..." id="search">
+<div class="mode-toggle">
+<button class="mode-btn active" data-mode="weight">Weight Map</button>
+<button class="mode-btn" data-mode="fill">Element Fill</button>
+<button class="mode-btn" data-mode="energy">Energy Build</button>
+<button class="mode-btn" data-mode="scale3">3-Scale</button>
+</div>
+<div id="dropZone" style="margin:4px 0;padding:6px;border:1px dashed #444;border-radius:4px;text-align:center;font-size:10px;color:#555;cursor:pointer">Drop gfd_contributions.json or gfd_3scale.json here (or click)</div>
+<input type="file" id="fileInput" accept=".json" style="display:none">
+<div class="ptable" id="ptable"></div>
+<div style="margin-top:8px">
+<div style="font-size:10px;color:#666;margin-bottom:3px;">Walk step contributions:</div>
+<div class="walk-list" id="walkList"></div>
+</div>
+</div>
+<div class="right">
+<div class="info-bar">
+<div class="info-box"><div class="info-label">Element</div><div class="info-val cyan" id="iSym">Fe</div></div>
+<div class="info-box"><div class="info-label">A</div><div class="info-val" id="iA">56</div></div>
+<div class="info-box"><div class="info-label">Shell</div><div class="info-val" id="iShell">0</div></div>
+<div class="info-box"><div class="info-label">Known B/A</div><div class="info-val gold" id="iKnown">8.790</div></div>
+<div class="info-box"><div class="info-label">Σ Weight</div><div class="info-val pos" id="iSum">—</div></div>
+<div class="info-box"><div class="info-label">Filled</div><div class="info-val" id="iFilled">—</div></div>
+<div class="info-box"><div class="info-label">Pred B/A</div><div class="info-val cyan" id="iPred">—</div></div>
+<div class="info-box"><div class="info-label">Error</div><div class="info-val" id="iErr">—</div></div>
+<div class="info-box"><div class="info-label">Face</div><div class="info-val pos" id="iFace">—</div></div>
+<div class="info-box"><div class="info-label">Chan</div><div class="info-val pos" id="iChan">—</div></div>
+<div class="info-box"><div class="info-label">Sub</div><div class="info-val pos" id="iSub">—</div></div>
+</div>
+<div id="depthRow" style="display:flex;gap:12px;padding:2px 0;flex-wrap:wrap">
+<div class="info-box"><div class="info-label">a (gd=0)</div><div class="info-val" id="iA0" style="color:#00ddb8">—</div></div>
+<div class="info-box"><div class="info-label">b (gd=1)</div><div class="info-val" id="iB1" style="color:#4888d8">—</div></div>
+<div class="info-box"><div class="info-label">c (gd=2)</div><div class="info-val" id="iC2" style="color:#d04878">—</div></div>
+</div>
+<div class="legend">
+<span style="color:#e55">−0.97</span>
+<canvas id="legendBar" width="200" height="12"></canvas>
+<span style="color:#4c6">+0.40</span>
+<span style="margin-left:10px;color:#666">|</span>
+<span style="margin-left:6px;color:#888">Hover triangle for details · Arrow keys to cycle</span>
+</div>
+<div class="canvas-wrap">
+<canvas id="sierpCanvas" width="700" height="620"></canvas>
+<div class="tooltip" id="tooltip"></div>
+</div>
+</div>
+<script>
+const EFF={0:-0.050,1:-0.030,2:-0.110,3:-0.088,4:-0.091,5:0.041,6:-0.026,7:0.004,8:-0.147,9:-0.069,10:-0.050,11:-0.972,12:-0.392,13:-0.284,14:0.177,15:0.129,16:-0.148,17:0.039,18:-0.144,19:0.080,20:0.085,21:0.092,22:-0.097,23:0.084,24:0.049,25:0.152,26:-0.080,27:0.160,28:0.030,29:0.056,30:-0.005,31:0.039,32:0.121,33:0.112,34:0.024,35:0.137,36:0.055,37:0.056,38:0.184,39:0.208,40:0.122,41:0.248,42:0.047,43:0.106,44:0.220,45:-0.123,46:0.150,47:0.396,48:0.071,49:0.081,50:0.031,51:0.323,52:-0.005,53:-0.073,54:0.131,55:0.130,56:0.087,57:0.034,58:0.085,59:0.113,60:-0.022,61:0.077,62:0.055,63:0.037};
+const ELEMENTS=[{Z:1,sym:'H',A:1},{Z:2,sym:'He',A:4},{Z:3,sym:'Li',A:7},{Z:4,sym:'Be',A:9},{Z:5,sym:'B',A:11},{Z:6,sym:'C',A:12},{Z:7,sym:'N',A:14},{Z:8,sym:'O',A:16},{Z:9,sym:'F',A:19},{Z:10,sym:'Ne',A:20},{Z:11,sym:'Na',A:23},{Z:12,sym:'Mg',A:24},{Z:13,sym:'Al',A:27},{Z:14,sym:'Si',A:28},{Z:15,sym:'P',A:31},{Z:16,sym:'S',A:32},{Z:17,sym:'Cl',A:35},{Z:18,sym:'Ar',A:40},{Z:19,sym:'K',A:39},{Z:20,sym:'Ca',A:40},{Z:21,sym:'Sc',A:45},{Z:22,sym:'Ti',A:48},{Z:23,sym:'V',A:51},{Z:24,sym:'Cr',A:52},{Z:25,sym:'Mn',A:55},{Z:26,sym:'Fe',A:56},{Z:27,sym:'Co',A:59},{Z:28,sym:'Ni',A:58},{Z:29,sym:'Cu',A:63},{Z:30,sym:'Zn',A:64},{Z:31,sym:'Ga',A:69},{Z:32,sym:'Ge',A:74},{Z:33,sym:'As',A:75},{Z:34,sym:'Se',A:80},{Z:35,sym:'Br',A:79},{Z:36,sym:'Kr',A:84},{Z:37,sym:'Rb',A:85},{Z:38,sym:'Sr',A:88},{Z:39,sym:'Y',A:89},{Z:40,sym:'Zr',A:90},{Z:41,sym:'Nb',A:93},{Z:42,sym:'Mo',A:98},{Z:43,sym:'Tc',A:98},{Z:44,sym:'Ru',A:102},{Z:45,sym:'Rh',A:103},{Z:46,sym:'Pd',A:106},{Z:47,sym:'Ag',A:107},{Z:48,sym:'Cd',A:114},{Z:49,sym:'In',A:115},{Z:50,sym:'Sn',A:120},{Z:51,sym:'Sb',A:121},{Z:52,sym:'Te',A:130},{Z:53,sym:'I',A:127},{Z:54,sym:'Xe',A:132},{Z:55,sym:'Cs',A:133},{Z:56,sym:'Ba',A:138},{Z:57,sym:'La',A:139},{Z:58,sym:'Ce',A:140},{Z:59,sym:'Pr',A:141},{Z:60,sym:'Nd',A:142},{Z:61,sym:'Pm',A:145},{Z:62,sym:'Sm',A:152},{Z:63,sym:'Eu',A:153},{Z:64,sym:'Gd',A:158},{Z:65,sym:'Tb',A:159},{Z:66,sym:'Dy',A:164},{Z:67,sym:'Ho',A:165},{Z:68,sym:'Er',A:166},{Z:69,sym:'Tm',A:169},{Z:70,sym:'Yb',A:174},{Z:71,sym:'Lu',A:175},{Z:72,sym:'Hf',A:180},{Z:73,sym:'Ta',A:181},{Z:74,sym:'W',A:184},{Z:75,sym:'Re',A:187},{Z:76,sym:'Os',A:192},{Z:77,sym:'Ir',A:193},{Z:78,sym:'Pt',A:195},{Z:79,sym:'Au',A:197},{Z:80,sym:'Hg',A:202},{Z:81,sym:'Tl',A:205},{Z:82,sym:'Pb',A:208},{Z:83,sym:'Bi',A:209}];
+const KNOWN_BA={1:0,2:7.074,3:5.332,4:6.463,5:6.928,6:7.68,7:7.476,8:7.976,9:6.258,10:8.032,11:8.114,12:8.261,13:8.332,14:8.448,15:8.481,16:8.52,17:8.521,18:8.595,19:8.557,20:8.551,21:8.619,22:8.66,23:8.683,24:8.72,25:8.702,26:8.79,27:8.745,28:8.732,29:8.752,30:8.756,31:8.715,32:8.727,33:8.719,34:8.71,35:8.696,36:8.717,37:8.69,38:8.695,39:8.668,40:8.671,41:8.645,42:8.642,43:8.616,44:8.607,45:8.586,46:8.57,47:8.553,48:8.54,49:8.514,50:8.504,51:8.484,52:8.47,53:8.445,54:8.428,55:8.404,56:8.393,57:8.372,58:8.361,59:8.34,60:8.331,61:8.31,62:8.303,63:8.283,64:8.275,65:8.252,66:8.246,67:8.229,68:8.218,69:8.199,70:8.195,71:8.173,72:8.166,73:8.149,74:8.146,75:8.13,76:8.126,77:8.11,78:8.105,79:8.088,80:8.083,81:8.063,82:8.058,83:8.041};
+const PRED_BA={2:7.073,3:5.332,4:6.462,5:6.938,6:7.672,7:7.478,8:7.976,9:6.258,10:8.032,11:8.114,12:8.261,13:8.332,14:8.448,15:8.482,16:8.520,17:8.521,18:8.573,19:8.557,20:8.573,21:8.619,22:8.660,23:8.683,24:8.720,25:8.702,26:8.790,27:8.745,28:8.732,29:8.752,30:8.756,31:8.715,32:8.727,33:8.719,34:8.710,35:8.696,36:8.717,37:8.690,38:8.695,39:8.668,40:8.671,41:8.645,42:8.629,43:8.629,44:8.607,45:8.586,46:8.570,47:8.553,48:8.540,49:8.514,50:8.504,51:8.484,52:8.470,53:8.445,54:8.428,55:8.403,56:8.395,57:8.372,58:8.361,59:8.340,60:8.331,61:8.310,62:8.303,63:8.283,64:8.275,65:8.252,66:8.246,67:8.229,68:8.218,69:8.199,70:8.195,71:8.173,72:8.166,73:8.149,74:8.146,75:8.130,76:8.126,77:8.110,78:8.105,79:8.089,80:8.081,81:8.063,82:8.058,83:8.041};
+const walkOrder=[];
+for(let fi=0;fi<4;fi++)for(let ci=0;ci<4;ci++)for(let si=0;si<4;si++)walkOrder.push({fi,ci,si,gd:(fi===3?1:0)+(ci===3?1:0)+(si===3?1:0)});
+const canvas=document.getElementById('sierpCanvas'),ctx=canvas.getContext('2d'),CW=canvas.width,CH=canvas.height;
+const pad=20,side=CW-pad*2,triH=side*Math.sqrt(3)/2;
+const T0={x:CW/2,y:pad},T1={x:pad,y:pad+triH},T2={x:CW-pad,y:pad+triH};
+function mid(a,b){return{x:(a.x+b.x)/2,y:(a.y+b.y)/2}}
+function subdiv(p0,p1,p2,up){const m01=mid(p0,p1),m12=mid(p1,p2),m20=mid(p2,p0);if(up)return[{pts:[p0,m01,m20],up:true},{pts:[m01,p1,m12],up:true},{pts:[m20,m12,p2],up:true},{pts:[m01,m12,m20],up:false}];return[{pts:[p0,m01,m20],up:false},{pts:[m01,p1,m12],up:false},{pts:[m20,m12,p2],up:false},{pts:[m01,m12,m20],up:true}]}
+const faces=subdiv(T0,T1,T2,true),allTris=[];
+faces.forEach((face,fi)=>{const chans=subdiv(face.pts[0],face.pts[1],face.pts[2],face.up);chans.forEach((chan,ci)=>{const subs=subdiv(chan.pts[0],chan.pts[1],chan.pts[2],chan.up);subs.forEach((sub,si)=>{const key=fi*16+ci*4+si,gd=(fi===3?1:0)+(ci===3?1:0)+(si===3?1:0);allTris.push({pts:sub.pts,fi,ci,si,key,gd,cx:(sub.pts[0].x+sub.pts[1].x+sub.pts[2].x)/3,cy:(sub.pts[0].y+sub.pts[1].y+sub.pts[2].y)/3})})})});
+const walkIdx={};walkOrder.forEach((w,i)=>{walkIdx[w.fi*16+w.ci*4+w.si]=i});
+const maxNeg=-0.972,maxPos=0.396;
+function weightRGB(w){if(w<0){const t=Math.min(1,Math.abs(w)/Math.abs(maxNeg));return[Math.round(40+180*t),Math.round(30-15*t),Math.round(40-15*t)]}const t=Math.min(1,w/maxPos);return[Math.round(25-10*t),Math.round(50+160*t),Math.round(60+80*t)]}
+function fillClr(gd){return gd===0?'rgba(0,221,184,0.55)':gd===1?'rgba(72,136,216,0.5)':gd===2?'rgba(208,72,120,0.45)':'rgba(208,72,120,0.7)'}
+function energyClr(w){if(w>0){const t=Math.min(1,w/0.4);return`rgba(${20+20*t|0},${180+75*t|0},${80+60*t|0},${0.4+0.5*t})`}const t=Math.min(1,Math.abs(w)/0.97);return`rgba(${180+75*t|0},${30-10*t|0},${40-10*t|0},${0.4+0.5*t})`}
+function gdColor(gd,val){const colors=[[0,221,184],[72,136,216],[208,72,120],[208,72,120]];const[r,g,b]=colors[gd];const t=Math.min(1,val/0.5);return`rgba(${r},${g},${b},${0.15+0.75*t})`}
+let mode='weight',selectedZ=26,hoverTri=null,CONTRIBS=null,SCALE3=null;
+function draw(){
+  ctx.clearRect(0,0,CW,CH);
+  const el=ELEMENTS.find(e=>e.Z===selectedZ);
+  let a64=0,nc=0;const filledSet=new Set();
+  if(el&&el.A>1){a64=el.A>64?el.A%64:el.A;if(a64===0)a64=64;nc=Math.floor((el.A-a64)/64);for(let s=0;s<a64;s++){const w=walkOrder[s];filledSet.add(w.fi*16+w.ci*4+w.si)}}
+  if(nc>0){ctx.fillStyle='#333';ctx.font='11px Courier New';ctx.fillText(`Shell ${nc}: ${nc}×64 complete + ${a64} partial`,pad,CH-8)}
+  const sym=el?el.sym:null;const elContribs=(CONTRIBS&&sym&&CONTRIBS[sym])?CONTRIBS[sym]:null;
+  const s3=(SCALE3&&sym&&SCALE3[sym])?SCALE3[sym]:null;
+  allTris.forEach(tri=>{
+    const filled=filledSet.has(tri.key),ew=EFF[tri.key],ec=elContribs?elContribs[tri.key]:ew;
+    ctx.beginPath();ctx.moveTo(tri.pts[0].x,tri.pts[0].y);ctx.lineTo(tri.pts[1].x,tri.pts[1].y);ctx.lineTo(tri.pts[2].x,tri.pts[2].y);ctx.closePath();
+    if(mode==='weight'){const[r,g,b]=weightRGB(ew);ctx.fillStyle=`rgba(${r},${g},${b},0.7)`;ctx.strokeStyle=`rgba(${r},${g},${b},0.9)`}
+    else if(mode==='fill'){if(filled){ctx.fillStyle=fillClr(tri.gd);ctx.strokeStyle='rgba(255,255,255,0.15)'}else{ctx.fillStyle=tri.gd>0?'rgba(208,72,120,0.03)':'#090b10';ctx.strokeStyle='#12151e'}}
+    else if(mode==='scale3'){if(filled&&s3){const abc=[s3.a_gd0,s3.b_gd1,s3.c_gd2,0];const dv=abc[Math.min(tri.gd,3)];ctx.fillStyle=gdColor(tri.gd,dv);ctx.strokeStyle='rgba(255,255,255,0.1)'}else if(filled){ctx.fillStyle=fillClr(tri.gd);ctx.strokeStyle='rgba(255,255,255,0.1)'}else{ctx.fillStyle='#090b10';ctx.strokeStyle='#12151e'}}
+    else{if(filled){ctx.fillStyle=energyClr(ec);ctx.strokeStyle='rgba(255,255,255,0.12)'}else{ctx.fillStyle='#090b10';ctx.strokeStyle='#12151e'}}
+    ctx.fill();ctx.lineWidth=0.5;ctx.stroke();
+    if(mode==='weight'){ctx.fillStyle=Math.abs(ew)>0.15?'#fff':'rgba(255,255,255,0.4)';ctx.font=Math.abs(ew)>0.15?'bold 9px Courier New':'7px Courier New';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText((ew>=0?'+':'')+ew.toFixed(2),tri.cx,tri.cy)}
+    if(mode==='scale3'&&filled&&s3){const abc=[s3.a_gd0,s3.b_gd1,s3.c_gd2,0];const dv=abc[Math.min(tri.gd,3)];ctx.fillStyle=dv>0.05?'#fff':'rgba(255,255,255,0.4)';ctx.font=dv>0.05?'bold 9px Courier New':'7px Courier New';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(dv.toFixed(3),tri.cx,tri.cy)}
+    if(mode==='energy'&&filled&&elContribs){ctx.fillStyle=Math.abs(ec)>0.15?'#fff':'rgba(255,255,255,0.5)';ctx.font=Math.abs(ec)>0.15?'bold 8px Courier New':'7px Courier New';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText((ec>=0?'+':'')+ec.toFixed(2),tri.cx,tri.cy)}
+    else if((mode==='fill'||(mode==='energy'&&!elContribs))&&filled){ctx.fillStyle='rgba(255,255,255,0.6)';ctx.font='8px Courier New';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(walkIdx[tri.key],tri.cx,tri.cy)}
+  });
+  faces.forEach(f=>{ctx.beginPath();ctx.moveTo(f.pts[0].x,f.pts[0].y);ctx.lineTo(f.pts[1].x,f.pts[1].y);ctx.lineTo(f.pts[2].x,f.pts[2].y);ctx.closePath();ctx.strokeStyle='rgba(255,255,255,0.12)';ctx.lineWidth=1.5;ctx.stroke()});
+  if(mode==='weight'){const labels=['F0 Spatial','F1 Spatial','F2 Spatial','F3 Gate'];faces.forEach((f,fi)=>{const cx=(f.pts[0].x+f.pts[1].x+f.pts[2].x)/3,cy=(f.pts[0].y+f.pts[1].y+f.pts[2].y)/3;let s=0;for(let i=0;i<16;i++)s+=EFF[fi*16+i];ctx.fillStyle='rgba(255,255,255,0.25)';ctx.font='10px Courier New';ctx.textAlign='center';ctx.fillText(labels[fi],cx,cy-5);ctx.fillText('Σ'+(s>=0?'+':'')+s.toFixed(2),cx,cy+7)})}
+  if(hoverTri!==null){const tri=allTris[hoverTri];ctx.beginPath();ctx.moveTo(tri.pts[0].x,tri.pts[0].y);ctx.lineTo(tri.pts[1].x,tri.pts[1].y);ctx.lineTo(tri.pts[2].x,tri.pts[2].y);ctx.closePath();ctx.strokeStyle='#FFD700';ctx.lineWidth=2.5;ctx.stroke()}
+  updateInfo(el,a64,nc,filledSet);
+}
+function updateInfo(el,a64,nc,filledSet){
+  document.getElementById('iSym').textContent=el?el.sym:'—';
+  document.getElementById('iA').textContent=el?el.A:'—';
+  document.getElementById('iShell').textContent=el?nc:'—';
+  document.getElementById('iKnown').textContent=el?KNOWN_BA[el.Z].toFixed(3):'—';
+  document.getElementById('iFilled').textContent=el?a64+'/64':'—';
+  let wsum=0;const sym=el?el.sym:null;const elC=(CONTRIBS&&sym&&CONTRIBS[sym])?CONTRIBS[sym]:null;
+  const s3i=(SCALE3&&sym&&SCALE3[sym])?SCALE3[sym]:null;
+  if(s3i){wsum=s3i.pred_ba}else{filledSet.forEach(k=>{wsum+=(elC?elC[k]:EFF[k])})}
+  const se=document.getElementById('iSum');se.textContent=wsum.toFixed(3);se.className='info-val '+(wsum>=0?'pos':'neg');
+  const pred=el?(s3i?s3i.pred_ba:(elC?wsum:PRED_BA[el.Z])):null;
+  const pe=document.getElementById('iPred');pe.textContent=pred?pred.toFixed(3):'—';
+  const ee=document.getElementById('iErr');
+  if(pred&&el){const d=Math.abs(pred-KNOWN_BA[el.Z]),pct=(d/KNOWN_BA[el.Z]*100);ee.textContent=(d*1000).toFixed(0)+'keV ('+pct.toFixed(2)+'%)';ee.className='info-val '+(pct<0.5?'pos':'neg')}else{ee.textContent='—';ee.className='info-val'}
+  // 3-scale display
+  const s3=(SCALE3&&sym&&SCALE3[sym])?SCALE3[sym]:null;
+  document.getElementById('iFace').textContent=s3?s3.face_mev.toFixed(3):'—';
+  document.getElementById('iChan').textContent=s3?s3.chan_mev.toFixed(3):'—';
+  document.getElementById('iSub').textContent=s3?s3.sub_mev.toFixed(3):'—';
+  document.getElementById('iA0').textContent=s3?s3.a_gd0.toFixed(4):'—';
+  document.getElementById('iB1').textContent=s3?s3.b_gd1.toFixed(4):'—';
+  document.getElementById('iC2').textContent=s3?s3.c_gd2.toFixed(4):'—';
+  if(s3){const pe2=document.getElementById('iPred');pe2.textContent=s3.pred_ba.toFixed(3);const d2=Math.abs(s3.pred_ba-KNOWN_BA[el.Z]),pct2=(d2/KNOWN_BA[el.Z]*100);ee.textContent=(d2*1000).toFixed(0)+'keV ('+pct2.toFixed(2)+'%)';ee.className='info-val '+(pct2<0.5?'pos':'neg')}
+  const list=document.getElementById('walkList');list.innerHTML='';let run=0;
+  const s3w=(SCALE3&&sym&&SCALE3[sym])?SCALE3[sym]:null;
+  for(let s=0;s<a64;s++){const w=walkOrder[s],key=w.fi*16+w.ci*4+w.si;let ew;if(s3w){const abc=[s3w.a_gd0,s3w.b_gd1,s3w.c_gd2,0];ew=abc[Math.min(w.gd,3)]}else{ew=elC?elC[key]:EFF[key]}run+=ew;
+    const row=document.createElement('div');row.className='walk-row'+(ew>0.1?' highlight':(ew<-0.1?' neg-highlight':''));
+    row.innerHTML=`<span>${s}: F${w.fi}C${w.ci}S${w.si} gd${w.gd}</span><span>${ew>=0?'+':''}${ew.toFixed(3)} → ${run>=0?'+':''}${run.toFixed(3)}</span>`;
+    list.appendChild(row)}
+  list.scrollTop=list.scrollHeight;
+}
+const ptable=document.getElementById('ptable');
+ELEMENTS.forEach(el=>{if(el.A<=1)return;const cell=document.createElement('div');cell.className='el-cell'+(el.Z===selectedZ?' selected':'');const ba=KNOWN_BA[el.Z],t=Math.max(0,Math.min(1,(ba-5)/4));cell.style.background=`rgba(${20+30*t|0},${30+40*t|0},${40+30*t|0},0.5)`;cell.innerHTML=`<div class="z">${el.Z}</div><div class="sym">${el.sym}</div>`;cell.onclick=()=>{selectedZ=el.Z;document.querySelectorAll('.el-cell').forEach(c=>c.classList.remove('selected'));cell.classList.add('selected');draw()};ptable.appendChild(cell)});
+document.querySelectorAll('.mode-btn').forEach(btn=>{btn.onclick=()=>{mode=btn.dataset.mode;document.querySelectorAll('.mode-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');draw()}});
+function pointInTri(px,py,p0,p1,p2){const d1=(px-p1.x)*(p0.y-p1.y)-(p0.x-p1.x)*(py-p1.y),d2=(px-p2.x)*(p1.y-p2.y)-(p1.x-p2.x)*(py-p2.y),d3=(px-p0.x)*(p2.y-p0.y)-(p2.x-p0.x)*(py-p0.y);return!((d1<0||d2<0||d3<0)&&(d1>0||d2>0||d3>0))}
+const tooltip=document.getElementById('tooltip');
+canvas.onmousemove=e=>{const rect=canvas.getBoundingClientRect(),mx=e.clientX-rect.left,my=e.clientY-rect.top;let found=null;for(let i=0;i<allTris.length;i++){if(pointInTri(mx,my,allTris[i].pts[0],allTris[i].pts[1],allTris[i].pts[2])){found=i;break}}if(found!==hoverTri){hoverTri=found;draw()}if(found!==null){const t=allTris[found],ew=EFF[t.key],wI=walkIdx[t.key];const sym2=ELEMENTS.find(e=>e.Z===selectedZ);const eC2=(CONTRIBS&&sym2&&CONTRIBS[sym2.sym])?CONTRIBS[sym2.sym]:null;const s3t=(SCALE3&&sym2&&SCALE3[sym2.sym])?SCALE3[sym2.sym]:null;let showW=eC2?eC2[t.key]:ew;let label2=eC2?' (element)':' (global)';let extra='';if(s3t){const abc=[s3t.a_gd0,s3t.b_gd1,s3t.c_gd2,0];showW=abc[Math.min(t.gd,3)];label2=' (gd='+t.gd+')';extra='<br>Face:'+s3t.face_mev.toFixed(2)+' Chan:'+s3t.chan_mev.toFixed(2)+' Sub:'+s3t.sub_mev.toFixed(2)}tooltip.style.display='block';tooltip.style.left=(e.clientX-canvas.parentElement.getBoundingClientRect().left+12)+'px';tooltip.style.top=(e.clientY-canvas.parentElement.getBoundingClientRect().top-30)+'px';tooltip.innerHTML=`<b>Step ${wI}</b>: F${t.fi} C${t.ci} S${t.si}<br>Gate depth: ${t.gd}<br><span style="color:${showW>=0?'#4c6':'#e55'}">${showW>=0?'+':''}${showW.toFixed(4)} MeV/n${label2}</span>${extra}`}else tooltip.style.display='none'};
+canvas.onmouseleave=()=>{hoverTri=null;tooltip.style.display='none';draw()};
+document.getElementById('search').oninput=e=>{const q=e.target.value.toLowerCase();document.querySelectorAll('.el-cell').forEach(cell=>{const sym=cell.querySelector('.sym').textContent.toLowerCase(),z=cell.querySelector('.z').textContent;cell.style.display=(!q||sym.includes(q)||z.includes(q))?'':'none'})};
+const lc=document.getElementById('legendBar').getContext('2d');for(let x=0;x<200;x++){const t=x/199,w=maxNeg+t*(maxPos-maxNeg),[r,g,b]=weightRGB(w);lc.fillStyle=`rgb(${r},${g},${b})`;lc.fillRect(x,0,1,12)}
+document.onkeydown=e=>{const valid=ELEMENTS.filter(el=>el.A>1),idx=valid.findIndex(el=>el.Z===selectedZ);if(e.key==='ArrowRight'||e.key==='ArrowDown'){selectedZ=valid[Math.min(idx+1,valid.length-1)].Z;document.querySelectorAll('.el-cell').forEach(c=>c.classList.remove('selected'));document.querySelectorAll('.el-cell')[Math.min(idx+1,valid.length-1)]?.classList.add('selected');draw();e.preventDefault()}else if(e.key==='ArrowLeft'||e.key==='ArrowUp'){selectedZ=valid[Math.max(idx-1,0)].Z;document.querySelectorAll('.el-cell').forEach(c=>c.classList.remove('selected'));document.querySelectorAll('.el-cell')[Math.max(idx-1,0)]?.classList.add('selected');draw();e.preventDefault()}};
+const dropZone=document.getElementById('dropZone'),fileInput=document.getElementById('fileInput');
+function loadContribs(file){const reader=new FileReader();reader.onload=e=>{try{const data=JSON.parse(e.target.result);const firstKey=Object.keys(data)[0];const firstVal=data[firstKey];if(firstVal&&typeof firstVal==='object'&&!Array.isArray(firstVal)&&'face_mev' in firstVal){SCALE3=data;CONTRIBS=null;dropZone.textContent='✓ 3-Scale: '+Object.keys(SCALE3).length+' elements';dropZone.style.borderColor='#d04878';dropZone.style.color='#d04878';mode='scale3';document.querySelectorAll('.mode-btn').forEach(b=>b.classList.remove('active'));document.querySelector('[data-mode=scale3]').classList.add('active')}else{CONTRIBS=data;SCALE3=null;dropZone.textContent='✓ Loaded '+Object.keys(CONTRIBS).length+' elements';dropZone.style.borderColor='#4c6';dropZone.style.color='#4c6';mode='energy';document.querySelectorAll('.mode-btn').forEach(b=>b.classList.remove('active'));document.querySelector('[data-mode=energy]').classList.add('active')}draw()}catch(err){dropZone.textContent='✗ Invalid JSON';dropZone.style.borderColor='#e55';dropZone.style.color='#e55'}};reader.readAsText(file)}
+dropZone.onclick=()=>fileInput.click();
+fileInput.onchange=e=>{if(e.target.files[0])loadContribs(e.target.files[0])};
+dropZone.ondragover=e=>{e.preventDefault();dropZone.style.borderColor='#4ae';dropZone.style.color='#4ae'};
+dropZone.ondragleave=()=>{dropZone.style.borderColor='#444';dropZone.style.color='#555'};
+dropZone.ondrop=e=>{e.preventDefault();dropZone.style.borderColor='#444';if(e.dataTransfer.files[0])loadContribs(e.dataTransfer.files[0])};
+draw();
+</script>
+</body>
+</html>

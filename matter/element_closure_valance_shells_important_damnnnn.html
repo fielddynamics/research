@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GFD Element Closure Map — 83 Stable Elements</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&family=Crimson+Pro:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg: #06070b;
+  --bg2: #0c0e15;
+  --bg3: #12151e;
+  --bg4: #181c28;
+  --text: #b0b4c4;
+  --dim: #404860;
+  --bright: #e8ecf4;
+  --cyan: #00ddb8;
+  --gold: #d4a000;
+  --rose: #d04878;
+  --violet: #9060d0;
+  --blue: #4888d8;
+  --green: #38b868;
+  --score21: #d4a000;
+  --score20: #00ddb8;
+  --score19: #4888d8;
+  --score18: #404860;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  min-height: 100vh;
+}
+
+header {
+  text-align: center;
+  padding: 1.2rem 1rem 0.6rem;
+  border-bottom: 1px solid #141828;
+}
+
+header h1 {
+  font-family: 'Crimson Pro', serif;
+  font-size: 1.5rem;
+  color: var(--bright);
+  letter-spacing: 0.02em;
+  font-weight: 600;
+}
+
+header .sub {
+  font-size: 0.5rem;
+  color: var(--dim);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-top: 0.2rem;
+}
+
+.app {
+  display: flex;
+  height: calc(100vh - 80px);
+}
+
+/* ─── Periodic Table Sidebar ─── */
+.periodic-sidebar {
+  width: 340px;
+  min-width: 340px;
+  border-right: 1px solid #141828;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.periodic-sidebar .search-bar {
+  padding: 0.5rem;
+  border-bottom: 1px solid #141828;
+}
+
+.periodic-sidebar input {
+  width: 100%;
+  background: var(--bg3);
+  border: 1px solid #1e2236;
+  color: var(--bright);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.65rem;
+  padding: 0.35rem 0.5rem;
+  border-radius: 2px;
+  outline: none;
+}
+
+.periodic-sidebar input:focus { border-color: var(--cyan); }
+.periodic-sidebar input::placeholder { color: var(--dim); }
+
+.element-grid {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0.4rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  align-content: flex-start;
+}
+
+.element-cell {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.12s;
+  border: 1px solid transparent;
+  position: relative;
+}
+
+.element-cell:hover { border-color: var(--cyan); transform: scale(1.08); z-index: 2; }
+.element-cell.selected { border-color: var(--gold); background: rgba(212,160,0,0.08) !important; }
+
+.element-cell .z { font-size: 0.4rem; color: var(--dim); line-height: 1; }
+.element-cell .sym { font-size: 0.7rem; font-weight: 600; line-height: 1.1; }
+.element-cell .score-dot {
+  width: 4px; height: 4px; border-radius: 50%;
+  margin-top: 1px;
+}
+
+/* ─── Main Detail Panel ─── */
+.detail-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.detail-header {
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid #141828;
+}
+
+.detail-header .big-sym {
+  font-family: 'Crimson Pro', serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 0.85;
+}
+
+.detail-header .meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.detail-header .meta .name {
+  font-size: 0.9rem;
+  color: var(--bright);
+  font-weight: 500;
+}
+
+.detail-header .meta .nums {
+  font-size: 0.6rem;
+  color: var(--dim);
+  letter-spacing: 0.08em;
+}
+
+.detail-header .score-badge {
+  margin-left: auto;
+  text-align: center;
+  padding: 0.5rem 0.8rem;
+  border-radius: 3px;
+  border: 1px solid;
+}
+
+.detail-header .score-badge .score-num {
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.detail-header .score-badge .score-label {
+  font-size: 0.45rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-top: 0.15rem;
+}
+
+.panels-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.panel {
+  background: var(--bg2);
+  border: 1px solid #161a28;
+  border-radius: 3px;
+  padding: 0.7rem;
+  flex: 1;
+  min-width: 200px;
+}
+
+.panel h4 {
+  font-size: 0.5rem;
+  color: var(--dim);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid #12151e;
+}
+
+.panel .row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.2rem 0;
+  font-size: 0.6rem;
+}
+
+.panel .row .label { color: var(--dim); }
+.panel .row .val { color: var(--cyan); font-weight: 500; }
+.panel .row .val.gold { color: var(--gold); }
+.panel .row .val.rose { color: var(--rose); }
+
+.panel .bar-row {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.15rem 0;
+  font-size: 0.55rem;
+}
+
+.panel .bar {
+  flex: 1;
+  height: 6px;
+  background: var(--bg);
+  border-radius: 1px;
+  overflow: hidden;
+}
+
+.panel .bar-fill {
+  height: 100%;
+  border-radius: 1px;
+  transition: width 0.3s;
+}
+
+/* ─── Sierpinski Canvas ─── */
+.sierpinski-wrap {
+  background: var(--bg2);
+  border: 1px solid #161a28;
+  border-radius: 3px;
+  padding: 0.7rem;
+}
+
+.sierpinski-wrap h4 {
+  font-size: 0.5rem;
+  color: var(--dim);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.sierpinski-wrap canvas {
+  display: block;
+  margin: 0 auto;
+}
+
+/* ─── Cycle detail ─── */
+.cycle-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3px;
+  margin-top: 0.4rem;
+}
+
+.cycle-cell {
+  text-align: center;
+  padding: 0.3rem 0.15rem;
+  border-radius: 2px;
+  font-size: 0.5rem;
+  border: 1px solid transparent;
+}
+
+.cycle-cell .idx { color: var(--dim); font-size: 0.4rem; }
+.cycle-cell .cnt { font-weight: 600; font-size: 0.7rem; }
+
+/* ─── Magic badge ─── */
+.magic-badge {
+  display: inline-block;
+  background: rgba(212,160,0,0.12);
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-size: 0.5rem;
+  padding: 0.15rem 0.4rem;
+  border-radius: 2px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.tag {
+  display: inline-block;
+  font-size: 0.45rem;
+  padding: 0.1rem 0.3rem;
+  border-radius: 2px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-right: 0.2rem;
+  margin-bottom: 0.15rem;
+}
+
+/* scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: #1e2236; border-radius: 2px; }
+
+/* ─── Graph Overlay ─── */
+.graph-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(6,7,11,0.92);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(6px);
+}
+
+.graph-overlay.visible { display: flex; }
+
+.graph-container {
+  background: var(--bg2);
+  border: 1px solid #1e2236;
+  border-radius: 6px;
+  padding: 1.5rem;
+  max-width: 1050px;
+  width: 95%;
+  position: relative;
+}
+
+.graph-container h3 {
+  font-family: 'Crimson Pro', serif;
+  font-size: 1.2rem;
+  color: var(--bright);
+  text-align: center;
+  margin-bottom: 0.2rem;
+}
+
+.graph-container .graph-sub {
+  text-align: center;
+  font-size: 0.5rem;
+  color: var(--dim);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.graph-container canvas {
+  display: block;
+  margin: 0 auto;
+}
+
+.graph-close {
+  position: absolute;
+  top: 0.8rem;
+  right: 1rem;
+  background: none;
+  border: 1px solid var(--dim);
+  color: var(--dim);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.6rem;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+  border-radius: 2px;
+  letter-spacing: 0.1em;
+}
+
+.graph-close:hover { border-color: var(--rose); color: var(--rose); }
+
+.graph-stats {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 0.8rem;
+}
+
+.graph-stats .stat {
+  text-align: center;
+}
+
+.graph-stats .stat-val {
+  font-family: 'Crimson Pro', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.graph-stats .stat-label {
+  font-size: 0.45rem;
+  color: var(--dim);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: 0.1rem;
+}
+
+.graph-legend {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 0.6rem;
+}
+
+.graph-legend .leg {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.5rem;
+  color: var(--dim);
+  letter-spacing: 0.08em;
+}
+
+.graph-legend .leg-dot {
+  width: 10px;
+  height: 3px;
+  border-radius: 1px;
+}
+
+.toggle-graph-btn {
+  background: var(--bg3);
+  border: 1px solid #252838;
+  color: var(--dim);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.55rem;
+  padding: 0.3rem 0.8rem;
+  cursor: pointer;
+  border-radius: 2px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: 0.4rem;
+  transition: all 0.15s;
+}
+
+.toggle-graph-btn:hover { border-color: var(--cyan); color: var(--cyan); }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>GFD Element Closure Map</h1>
+  <div class="sub">Walk-order Sierpiński fill &middot; 83 stable elements &middot; 3-cycle field closure at n/4</div>
+  <button class="toggle-graph-btn" onclick="toggleGraph()">▸ B/A Binding Curve</button>
+</header>
+
+<div class="graph-overlay" id="graphOverlay" onclick="if(event.target===this)toggleGraph()">
+  <div class="graph-container">
+    <button class="graph-close" onclick="toggleGraph()">ESC · CLOSE</button>
+    <h3>Binding Energy per Nucleon</h3>
+    <div class="graph-sub">GFD closure model vs experimental &middot; B/A = score × 3/7 × (A−1)/A</div>
+    <canvas id="graphCanvas" width="960" height="420"></canvas>
+    <div class="graph-legend">
+      <div class="leg"><div class="leg-dot" style="background:var(--cyan)"></div>GFD closure</div>
+      <div class="leg"><div class="leg-dot" style="background:var(--dim)"></div>Experimental</div>
+      <div class="leg"><div class="leg-dot" style="background:var(--gold)"></div>Magic number</div>
+      <div class="leg"><div class="leg-dot" style="background:var(--rose)"></div>Perfect closure (21/21)</div>
+    </div>
+    <div class="graph-stats" id="graphStats"></div>
+  </div>
+</div>
+
+<div class="app">
+  <div class="periodic-sidebar">
+    <div class="search-bar">
+      <input type="text" id="search" placeholder="Search element, Z, or symbol...">
+    </div>
+    <div class="element-grid" id="elementGrid"></div>
+  </div>
+  <div class="detail-panel" id="detailPanel">
+    <div style="color:var(--dim);text-align:center;padding-top:4rem;font-size:0.7rem;">
+      Select an element from the left panel
+    </div>
+  </div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════════
+// DATA
+// ═══════════════════════════════════════════════════════════
+
+const ELEMENTS = [
+  {Z:1,sym:"H",name:"Hydrogen",A:1},{Z:2,sym:"He",name:"Helium",A:4},
+  {Z:3,sym:"Li",name:"Lithium",A:7},{Z:4,sym:"Be",name:"Beryllium",A:9},
+  {Z:5,sym:"B",name:"Boron",A:11},{Z:6,sym:"C",name:"Carbon",A:12},
+  {Z:7,sym:"N",name:"Nitrogen",A:14},{Z:8,sym:"O",name:"Oxygen",A:16},
+  {Z:9,sym:"F",name:"Fluorine",A:19},{Z:10,sym:"Ne",name:"Neon",A:20},
+  {Z:11,sym:"Na",name:"Sodium",A:23},{Z:12,sym:"Mg",name:"Magnesium",A:24},
+  {Z:13,sym:"Al",name:"Aluminium",A:27},{Z:14,sym:"Si",name:"Silicon",A:28},
+  {Z:15,sym:"P",name:"Phosphorus",A:31},{Z:16,sym:"S",name:"Sulfur",A:32},
+  {Z:17,sym:"Cl",name:"Chlorine",A:35},{Z:18,sym:"Ar",name:"Argon",A:40},
+  {Z:19,sym:"K",name:"Potassium",A:39},{Z:20,sym:"Ca",name:"Calcium",A:40},
+  {Z:21,sym:"Sc",name:"Scandium",A:45},{Z:22,sym:"Ti",name:"Titanium",A:48},
+  {Z:23,sym:"V",name:"Vanadium",A:51},{Z:24,sym:"Cr",name:"Chromium",A:52},
+  {Z:25,sym:"Mn",name:"Manganese",A:55},{Z:26,sym:"Fe",name:"Iron",A:56},
+  {Z:27,sym:"Co",name:"Cobalt",A:59},{Z:28,sym:"Ni",name:"Nickel",A:58},
+  {Z:29,sym:"Cu",name:"Copper",A:63},{Z:30,sym:"Zn",name:"Zinc",A:64},
+  {Z:31,sym:"Ga",name:"Gallium",A:69},{Z:32,sym:"Ge",name:"Germanium",A:74},
+  {Z:33,sym:"As",name:"Arsenic",A:75},{Z:34,sym:"Se",name:"Selenium",A:80},
+  {Z:35,sym:"Br",name:"Bromine",A:79},{Z:36,sym:"Kr",name:"Krypton",A:84},
+  {Z:37,sym:"Rb",name:"Rubidium",A:85},{Z:38,sym:"Sr",name:"Strontium",A:88},
+  {Z:39,sym:"Y",name:"Yttrium",A:89},{Z:40,sym:"Zr",name:"Zirconium",A:90},
+  {Z:41,sym:"Nb",name:"Niobium",A:93},{Z:42,sym:"Mo",name:"Molybdenum",A:98},
+  {Z:43,sym:"Tc",name:"Technetium",A:98},{Z:44,sym:"Ru",name:"Ruthenium",A:102},
+  {Z:45,sym:"Rh",name:"Rhodium",A:103},{Z:46,sym:"Pd",name:"Palladium",A:106},
+  {Z:47,sym:"Ag",name:"Silver",A:107},{Z:48,sym:"Cd",name:"Cadmium",A:114},
+  {Z:49,sym:"In",name:"Indium",A:115},{Z:50,sym:"Sn",name:"Tin",A:120},
+  {Z:51,sym:"Sb",name:"Antimony",A:121},{Z:52,sym:"Te",name:"Tellurium",A:130},
+  {Z:53,sym:"I",name:"Iodine",A:127},{Z:54,sym:"Xe",name:"Xenon",A:132},
+  {Z:55,sym:"Cs",name:"Caesium",A:133},{Z:56,sym:"Ba",name:"Barium",A:138},
+  {Z:57,sym:"La",name:"Lanthanum",A:139},{Z:58,sym:"Ce",name:"Cerium",A:140},
+  {Z:59,sym:"Pr",name:"Praseodymium",A:141},{Z:60,sym:"Nd",name:"Neodymium",A:142},
+  {Z:61,sym:"Pm",name:"Promethium",A:145},{Z:62,sym:"Sm",name:"Samarium",A:152},
+  {Z:63,sym:"Eu",name:"Europium",A:153},{Z:64,sym:"Gd",name:"Gadolinium",A:158},
+  {Z:65,sym:"Tb",name:"Terbium",A:159},{Z:66,sym:"Dy",name:"Dysprosium",A:164},
+  {Z:67,sym:"Ho",name:"Holmium",A:165},{Z:68,sym:"Er",name:"Erbium",A:166},
+  {Z:69,sym:"Tm",name:"Thulium",A:169},{Z:70,sym:"Yb",name:"Ytterbium",A:174},
+  {Z:71,sym:"Lu",name:"Lutetium",A:175},{Z:72,sym:"Hf",name:"Hafnium",A:180},
+  {Z:73,sym:"Ta",name:"Tantalum",A:181},{Z:74,sym:"W",name:"Tungsten",A:184},
+  {Z:75,sym:"Re",name:"Rhenium",A:187},{Z:76,sym:"Os",name:"Osmium",A:192},
+  {Z:77,sym:"Ir",name:"Iridium",A:193},{Z:78,sym:"Pt",name:"Platinum",A:195},
+  {Z:79,sym:"Au",name:"Gold",A:197},{Z:80,sym:"Hg",name:"Mercury",A:202},
+  {Z:81,sym:"Tl",name:"Thallium",A:205},{Z:82,sym:"Pb",name:"Lead",A:208},
+  {Z:83,sym:"Bi",name:"Bismuth",A:209}
+];
+
+const MAGIC_A = new Set([2, 8, 20, 28, 50, 82, 126, 184]);
+const NOBLE_Z = new Set([2, 10, 18, 36, 54]);
+
+// Known B/A (MeV/nucleon)
+const KNOWN_BA = {
+  1:0.000,2:7.074,3:5.332,4:6.463,5:6.928,6:7.680,7:7.476,8:7.976,9:6.258,10:8.032,
+  11:8.114,12:8.261,13:8.332,14:8.448,15:8.481,16:8.520,17:8.521,18:8.595,19:8.557,20:8.551,
+  21:8.619,22:8.660,23:8.683,24:8.720,25:8.702,26:8.790,27:8.745,28:8.732,29:8.752,30:8.756,
+  31:8.715,32:8.727,33:8.719,34:8.710,35:8.696,36:8.717,37:8.690,38:8.695,39:8.668,40:8.671,
+  41:8.645,42:8.642,43:8.616,44:8.607,45:8.586,46:8.570,47:8.553,48:8.540,49:8.514,50:8.504,
+  51:8.484,52:8.470,53:8.445,54:8.428,55:8.404,56:8.393,57:8.372,58:8.361,59:8.340,60:8.331,
+  61:8.310,62:8.303,63:8.283,64:8.275,65:8.252,66:8.246,67:8.229,68:8.218,69:8.199,70:8.195,
+  71:8.173,72:8.166,73:8.149,74:8.146,75:8.130,76:8.126,77:8.110,78:8.105,79:8.088,80:8.083,
+  81:8.063,82:8.058,83:8.041
+};
+
+function computeBindingEnergy(A, Z, score) {
+  // Pure closure: B/A = score × D/(D+K) × (A-1)/A
+  // D/(D+K) = 3/7 — the tetrahedral coupling fraction
+  // (A-1)/A = pair counting (first nucleon has nothing to bind to)
+  // score = walk closure (18-21)
+  // At Fe (A=56, score=21): 21 × 3/7 × 55/56 = 8.84 MeV/A
+  const D = 3, K = 4;
+  const couplingFrac = D / (D + K); // = 3/7
+  const pairFrac = A > 1 ? (A - 1) / A : 0;
+  const BA = score * couplingFrac * pairFrac;
+  return { BA, couplingFrac, pairFrac };
+}
+
+// ═══════════════════════════════════════════════════════════
+// WALK ENGINE
+// ═══════════════════════════════════════════════════════════
+
+// Build 64-step walk order: corners[0,1,2] then gate[3] at each level
+const walkOrder = [];
+for (let fi = 0; fi < 4; fi++)
+  for (let ci = 0; ci < 4; ci++)
+    for (let si = 0; si < 4; si++)
+      walkOrder.push({fi, ci, si, gd: (fi===3?1:0)+(ci===3?1:0)+(si===3?1:0)});
+
+function computeClosure(A) {
+  let a64 = A > 64 ? A % 64 : A;
+  if (a64 === 0) a64 = 64;
+
+  // Fill face state: (fi,ci) → count of subs filled
+  const state = {};
+  for (let fi=0;fi<4;fi++) for (let ci=0;ci<4;ci++) state[fi*4+ci] = 0;
+  for (let s = 0; s < a64; s++) {
+    const w = walkOrder[s];
+    state[w.fi*4+w.ci]++;
+  }
+
+  // Cycle 1: faces occupied
+  const faceContent = [0,0,0,0];
+  for (let fi=0;fi<4;fi++) for (let ci=0;ci<4;ci++) faceContent[fi] += state[fi*4+ci];
+  const nFaces = faceContent.filter(x=>x>0).length;
+
+  // Cycle 2: channels per face
+  const chanOcc = [0,0,0,0];
+  for (let fi=0;fi<4;fi++) {
+    for (let ci=0;ci<4;ci++) if (state[fi*4+ci]>0) chanOcc[fi]++;
+  }
+
+  // Cycle 3: sub count per channel
+  const subCounts = [];
+  for (let fi=0;fi<4;fi++) for (let ci=0;ci<4;ci++) subCounts.push(state[fi*4+ci]);
+
+  const isLm = n => n===0||n===2||n===4;
+  const c1Lm = isLm(nFaces);
+  const c2Lm = chanOcc.filter(isLm).length;
+  const c3Lm = subCounts.filter(isLm).length;
+  const score = (c1Lm?1:0) + c2Lm + c3Lm;
+
+  // Walk position trace
+  const lastStep = a64 > 0 ? walkOrder[a64-1] : null;
+  const gateDepthLast = lastStep ? lastStep.gd : 0;
+
+  // Gate depth distribution
+  let gd0=0,gd1=0,gd2=0,gd3=0;
+  for (let s=0;s<a64;s++) {
+    const g = walkOrder[s].gd;
+    if(g===0) gd0++; else if(g===1) gd1++; else if(g===2) gd2++; else gd3++;
+  }
+
+  return {
+    a64, state, nFaces, faceContent, chanOcc, subCounts,
+    c1Lm, c2Lm, c3Lm, score,
+    lastStep, gateDepthLast,
+    gd: [gd0,gd1,gd2,gd3]
+  };
+}
+
+function scoreColor(s) {
+  if (s >= 21) return 'var(--gold)';
+  if (s >= 20) return 'var(--cyan)';
+  if (s >= 19) return 'var(--blue)';
+  return 'var(--dim)';
+}
+
+function scoreBg(s) {
+  if (s >= 21) return 'rgba(212,160,0,0.08)';
+  if (s >= 20) return 'rgba(0,221,184,0.06)';
+  if (s >= 19) return 'rgba(72,136,216,0.05)';
+  return 'var(--bg3)';
+}
+
+// ═══════════════════════════════════════════════════════════
+// SIERPINSKI DRAWING
+// ═══════════════════════════════════════════════════════════
+
+function drawSierpinski(canvas, a64) {
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height;
+  ctx.clearRect(0,0,W,H);
+
+  const pad = 12;
+  const side = W - pad*2;
+  const th = side * Math.sqrt(3)/2;
+  const T0 = {x:W/2, y:pad+4};
+  const T1 = {x:pad, y:pad+4+th};
+  const T2 = {x:W-pad, y:pad+4+th};
+
+  function mid(a,b){return {x:(a.x+b.x)/2,y:(a.y+b.y)/2};}
+  function subdiv(p0,p1,p2,up){
+    const m01=mid(p0,p1),m12=mid(p1,p2),m20=mid(p2,p0);
+    if(up) return [
+      {pts:[p0,m01,m20],up:true,role:'corner'},
+      {pts:[m01,p1,m12],up:true,role:'corner'},
+      {pts:[m20,m12,p2],up:true,role:'corner'},
+      {pts:[m01,m12,m20],up:false,role:'gate'}
+    ]; else return [
+      {pts:[p0,m01,m20],up:false,role:'corner'},
+      {pts:[m01,p1,m12],up:false,role:'corner'},
+      {pts:[m20,m12,p2],up:false,role:'corner'},
+      {pts:[m01,m12,m20],up:true,role:'gate'}
+    ];
+  }
+
+  const faces = subdiv(T0,T1,T2,true);
+  let allTris = [];
+  faces.forEach((face,fi) => {
+    const chans = subdiv(face.pts[0],face.pts[1],face.pts[2],face.up);
+    chans.forEach((chan,ci) => {
+      const subs = subdiv(chan.pts[0],chan.pts[1],chan.pts[2],chan.up);
+      subs.forEach((sub,si) => {
+        allTris.push({pts:sub.pts, fi, ci, si,
+          gd:(fi===3?1:0)+(ci===3?1:0)+(si===3?1:0)});
+      });
+    });
+  });
+
+  // Map walk order to triangle indices
+  const triMap = {};
+  allTris.forEach((t,idx) => { triMap[t.fi*16+t.ci*4+t.si] = idx; });
+
+  // Draw
+  const filledSet = new Set();
+  for (let s=0; s<a64; s++) {
+    const w = walkOrder[s];
+    filledSet.add(w.fi*16+w.ci*4+w.si);
+  }
+
+  allTris.forEach((tri) => {
+    const key = tri.fi*16+tri.ci*4+tri.si;
+    const filled = filledSet.has(key);
+    ctx.beginPath();
+    ctx.moveTo(tri.pts[0].x, tri.pts[0].y);
+    ctx.lineTo(tri.pts[1].x, tri.pts[1].y);
+    ctx.lineTo(tri.pts[2].x, tri.pts[2].y);
+    ctx.closePath();
+
+    if (filled) {
+      if (tri.gd===0) { ctx.fillStyle='rgba(0,221,184,0.5)'; ctx.strokeStyle='rgba(0,221,184,0.6)'; }
+      else if (tri.gd===1) { ctx.fillStyle='rgba(72,136,216,0.45)'; ctx.strokeStyle='rgba(72,136,216,0.5)'; }
+      else if (tri.gd===2) { ctx.fillStyle='rgba(208,72,120,0.4)'; ctx.strokeStyle='rgba(208,72,120,0.5)'; }
+      else { ctx.fillStyle='rgba(208,72,120,0.65)'; ctx.strokeStyle='rgba(208,72,120,0.8)'; }
+    } else {
+      ctx.fillStyle = tri.gd > 0 ? 'rgba(208,72,120,0.03)' : '#090b10';
+      ctx.strokeStyle = '#12151e';
+    }
+    ctx.fill();
+    ctx.lineWidth = 0.5;
+    ctx.stroke();
+  });
+
+  // Face boundaries
+  faces.forEach(f => {
+    ctx.beginPath();
+    ctx.moveTo(f.pts[0].x,f.pts[0].y);
+    ctx.lineTo(f.pts[1].x,f.pts[1].y);
+    ctx.lineTo(f.pts[2].x,f.pts[2].y);
+    ctx.closePath();
+    ctx.strokeStyle='rgba(255,255,255,0.1)';
+    ctx.lineWidth=1.5;
+    ctx.stroke();
+  });
+}
+
+// ═══════════════════════════════════════════════════════════
+// BUILD ELEMENT GRID
+// ═══════════════════════════════════════════════════════════
+
+let selectedZ = null;
+const grid = document.getElementById('elementGrid');
+
+function buildGrid(filter) {
+  grid.innerHTML = '';
+  const filt = (filter||'').toLowerCase();
+  
+  ELEMENTS.forEach(el => {
+    if (filt && !el.sym.toLowerCase().includes(filt) && 
+        !el.name.toLowerCase().includes(filt) && 
+        !String(el.Z).includes(filt)) return;
+    
+    const cl = computeClosure(el.A);
+    const cell = document.createElement('div');
+    cell.className = 'element-cell' + (selectedZ === el.Z ? ' selected' : '');
+    cell.style.background = scoreBg(cl.score);
+    
+    const sc = scoreColor(cl.score);
+    cell.innerHTML = `
+      <span class="z">${el.Z}</span>
+      <span class="sym" style="color:${sc}">${el.sym}</span>
+      <span class="score-dot" style="background:${sc}"></span>
+    `;
+    
+    if (MAGIC_A.has(el.A)) {
+      cell.style.boxShadow = 'inset 0 0 0 1px rgba(212,160,0,0.3)';
+    }
+    
+    cell.addEventListener('click', () => selectElement(el.Z));
+    grid.appendChild(cell);
+  });
+}
+
+document.getElementById('search').addEventListener('input', e => buildGrid(e.target.value));
+
+// ═══════════════════════════════════════════════════════════
+// DETAIL VIEW
+// ═══════════════════════════════════════════════════════════
+
+function selectElement(Z) {
+  selectedZ = Z;
+  buildGrid(document.getElementById('search').value);
+  
+  const el = ELEMENTS.find(e => e.Z === Z);
+  const cl = computeClosure(el.A);
+  const dp = document.getElementById('detailPanel');
+  const sc = scoreColor(cl.score);
+  const isMagic = MAGIC_A.has(el.A);
+  const isNoble = NOBLE_Z.has(el.Z);
+  
+  // Binding energy
+  const be = computeBindingEnergy(el.A, el.Z, cl.score);
+  const knownBA = KNOWN_BA[el.Z] || 0;
+  const deltaBA = knownBA > 0 ? be.BA - knownBA : null;
+  
+  // Cycle completion labels
+  const c1Str = cl.c1Lm ? '★' : '·';
+  const lmName = n => n===0?'F⁻':n===2?'F⁰':n===4?'F⁺':n;
+  
+  // Closure cycle (face position in walk)
+  const walkCycle = Math.floor(cl.a64 / 64 * 3);
+  const facesComplete = Math.floor(cl.a64 / 16);
+  const chansInFace = Math.floor((cl.a64 % 16) / 4);
+  const subsInChan = cl.a64 % 4;
+  
+  // Address of last filled
+  const lastAddr = cl.lastStep ? `F${cl.lastStep.fi}.C${cl.lastStep.ci}.S${cl.lastStep.si}` : '—';
+  
+  // Shell info
+  const nShells = el.A > 64 ? Math.floor((el.A-1)/64) : 0;
+  
+  // Tags
+  let tags = '';
+  if (isMagic) tags += `<span class="magic-badge">★ Magic Number A=${el.A}</span> `;
+  if (isNoble) tags += `<span class="tag" style="background:rgba(0,221,184,0.1);border:1px solid var(--cyan);color:var(--cyan);">Noble Gas</span>`;
+  if (cl.score === 21) tags += `<span class="tag" style="background:rgba(212,160,0,0.1);border:1px solid var(--gold);color:var(--gold);">Perfect Closure</span>`;
+  if (el.Z >= 21 && el.Z <= 30) tags += `<span class="tag" style="background:rgba(72,136,216,0.1);border:1px solid var(--blue);color:var(--blue);">3d Transition</span>`;
+  if (el.Z >= 39 && el.Z <= 48) tags += `<span class="tag" style="background:rgba(72,136,216,0.1);border:1px solid var(--blue);color:var(--blue);">4d Transition</span>`;
+  if (el.Z >= 71 && el.Z <= 80) tags += `<span class="tag" style="background:rgba(72,136,216,0.1);border:1px solid var(--blue);color:var(--blue);">5d Transition</span>`;
+  if (el.Z >= 57 && el.Z <= 70) tags += `<span class="tag" style="background:rgba(144,96,208,0.1);border:1px solid var(--violet);color:var(--violet);">Lanthanide</span>`;
+  
+  // Delta color
+  const deltaColor = deltaBA === null ? 'var(--dim)' : Math.abs(deltaBA) < 0.5 ? 'var(--green)' : Math.abs(deltaBA) < 1.5 ? 'var(--gold)' : 'var(--rose)';
+  const deltaStr = deltaBA !== null ? `${deltaBA >= 0 ? '+' : ''}${deltaBA.toFixed(3)}` : '—';
+  
+  dp.innerHTML = `
+    <div class="detail-header">
+      <div class="big-sym" style="color:${sc}">${el.sym}</div>
+      <div class="meta">
+        <span class="name">${el.name}</span>
+        <span class="nums">Z = ${el.Z} &nbsp;·&nbsp; A = ${el.A} &nbsp;·&nbsp; A mod 64 = ${cl.a64} &nbsp;·&nbsp; Shell ${nShells}</span>
+        <div style="margin-top:0.3rem">${tags}</div>
+      </div>
+      <div style="margin-left:auto;display:flex;gap:0.6rem;align-items:flex-start;">
+        <div style="text-align:center;padding:0.4rem 0.7rem;border-radius:3px;border:1px solid #1e2236;background:var(--bg3);">
+          <div style="font-family:'Crimson Pro',serif;font-size:2rem;font-weight:700;color:var(--bright);line-height:1;">${be.BA.toFixed(2)}</div>
+          <div style="font-size:0.45rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--dim);margin-top:0.1rem;">MeV/A (closure)</div>
+          <div style="font-size:0.55rem;color:${deltaColor};margin-top:0.15rem;">Δ = ${deltaStr}</div>
+        </div>
+        <div style="text-align:center;padding:0.4rem 0.7rem;border-radius:3px;border:1px solid #1e2236;background:var(--bg3);">
+          <div style="font-family:'Crimson Pro',serif;font-size:2rem;font-weight:700;color:var(--dim);line-height:1;">${knownBA.toFixed(2)}</div>
+          <div style="font-size:0.45rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--dim);margin-top:0.1rem;">MeV/A (known)</div>
+        </div>
+        <div class="score-badge" style="border-color:${sc};background:${scoreBg(cl.score)}">
+          <div class="score-num" style="color:${sc}">${cl.score}</div>
+          <div class="score-label" style="color:${sc}">/21 closure</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="panels-row">
+      <div class="panel" style="max-width:280px;">
+        <h4>Sierpiński Walk Position</h4>
+        <canvas id="sierpCanvas" width="260" height="235"></canvas>
+      </div>
+      
+      <div class="panel" style="min-width:260px;">
+        <h4>3-Cycle Closure Breakdown</h4>
+        <div class="row"><span class="label">Cycle 1 · Faces occupied</span><span class="val">${cl.nFaces}/4 ${c1Str} ${lmName(cl.nFaces)}</span></div>
+        <div class="bar-row">
+          <span style="color:var(--dim);width:50px;">C1</span>
+          <div class="bar"><div class="bar-fill" style="width:${cl.nFaces*25}%;background:${cl.c1Lm?'var(--cyan)':'var(--dim)'}"></div></div>
+          <span style="color:${cl.c1Lm?'var(--cyan)':'var(--dim)'}">${cl.c1Lm?'+1':'0'}</span>
+        </div>
+        
+        <div class="row" style="margin-top:0.3rem"><span class="label">Cycle 2 · Channels at landmark</span><span class="val">${cl.c2Lm}/4</span></div>
+        <div class="bar-row">
+          <span style="color:var(--dim);width:50px;">C2</span>
+          <div class="bar"><div class="bar-fill" style="width:${cl.c2Lm*25}%;background:var(--blue)"></div></div>
+          <span style="color:var(--blue)">+${cl.c2Lm}</span>
+        </div>
+        
+        <div class="row" style="margin-top:0.3rem"><span class="label">Cycle 3 · Subchannels at landmark</span><span class="val">${cl.c3Lm}/16</span></div>
+        <div class="bar-row">
+          <span style="color:var(--dim);width:50px;">C3</span>
+          <div class="bar"><div class="bar-fill" style="width:${cl.c3Lm*100/16}%;background:var(--violet)"></div></div>
+          <span style="color:var(--violet)">+${cl.c3Lm}</span>
+        </div>
+        
+        <div style="margin-top:0.6rem;padding-top:0.4rem;border-top:1px solid #12151e;">
+          <div class="row"><span class="label">Total score</span><span class="val" style="color:${sc};font-size:0.8rem;">${cl.score} / 21</span></div>
+          <div class="row"><span class="label">= 1·C1 + 4·C2 + 16·C3</span><span class="val" style="font-size:0.55rem;">1·${cl.c1Lm?1:0} + ${cl.c2Lm} + ${cl.c3Lm}</span></div>
+        </div>
+      </div>
+      
+      <div class="panel">
+        <h4>Walk Topology</h4>
+        <div class="row"><span class="label">Walk position (A mod 64)</span><span class="val">${cl.a64}</span></div>
+        <div class="row"><span class="label">Last address</span><span class="val">${lastAddr}</span></div>
+        <div class="row"><span class="label">Last gate depth</span><span class="val ${cl.gateDepthLast>0?'rose':''}">${cl.gateDepthLast}</span></div>
+        <div class="row"><span class="label">Faces complete</span><span class="val">${facesComplete}/4</span></div>
+        <div class="row"><span class="label">Channels in current face</span><span class="val">${chansInFace}/4</span></div>
+        <div class="row"><span class="label">Subs in current channel</span><span class="val">${subsInChan}/4</span></div>
+        
+        <div style="margin-top:0.5rem;padding-top:0.4rem;border-top:1px solid #12151e;">
+          <h4 style="margin-top:0">Gate Depth Profile</h4>
+          <div class="bar-row"><span style="color:var(--cyan);width:60px;">Depth 0</span><div class="bar"><div class="bar-fill" style="width:${cl.gd[0]*100/64}%;background:var(--cyan)"></div></div><span style="width:20px;text-align:right">${cl.gd[0]}</span></div>
+          <div class="bar-row"><span style="color:var(--blue);width:60px;">Depth 1</span><div class="bar"><div class="bar-fill" style="width:${cl.gd[1]*100/64}%;background:var(--blue)"></div></div><span style="width:20px;text-align:right">${cl.gd[1]}</span></div>
+          <div class="bar-row"><span style="color:var(--rose);width:60px;">Depth 2</span><div class="bar"><div class="bar-fill" style="width:${cl.gd[2]*100/64}%;background:var(--rose)"></div></div><span style="width:20px;text-align:right">${cl.gd[2]}</span></div>
+          <div class="bar-row"><span style="color:var(--rose);width:60px;">Depth 3</span><div class="bar"><div class="bar-fill" style="width:${cl.gd[3]*100/64}%;background:var(--rose)"></div></div><span style="width:20px;text-align:right">${cl.gd[3]}</span></div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="panels-row">
+      <div class="panel">
+        <h4>16-Channel Face State (per face × channel → sub count)</h4>
+        <div class="cycle-grid">
+          ${[0,1,2,3].map(fi => [0,1,2,3].map(ci => {
+            const cnt = cl.state[fi*4+ci];
+            const isGate = fi===3||ci===3;
+            const isLandmark = cnt===0||cnt===2||cnt===4;
+            const bg = cnt===0?'var(--bg)': isLandmark?(isGate?'rgba(208,72,120,0.15)':'rgba(0,221,184,0.12)'):'rgba(72,136,216,0.08)';
+            const col = isLandmark?(cnt===0?'var(--dim)':'var(--cyan)'):'var(--text)';
+            const bdr = isLandmark&&cnt>0?'1px solid rgba(0,221,184,0.3)':'1px solid #12151e';
+            return `<div class="cycle-cell" style="background:${bg};border:${bdr};">
+              <div class="idx" style="color:${isGate?'var(--rose)':'var(--dim)'}">F${fi}.C${ci}</div>
+              <div class="cnt" style="color:${col}">${cnt}/4</div>
+            </div>`;
+          }).join('')).join('')}
+        </div>
+        <div style="margin-top:0.4rem;font-size:0.45rem;color:var(--dim);text-align:center;">
+          Landmark channels (0, 2, or 4 subs): highlighted &middot; Gate-involved: rose index
+        </div>
+      </div>
+      
+      <div class="panel">
+        <h4>Channel Occupation per Face (Cycle 2)</h4>
+        ${[0,1,2,3].map(fi => {
+          const occ = cl.chanOcc[fi];
+          const isGateFace = fi===3;
+          const isLm = occ===0||occ===2||occ===4;
+          const col = isLm ? 'var(--cyan)' : 'var(--text)';
+          const fcol = isGateFace ? 'var(--rose)' : 'var(--dim)';
+          return `<div class="bar-row">
+            <span style="color:${fcol};width:50px;">${isGateFace?'⬥ F3':'▸ F'+fi}</span>
+            <div class="bar"><div class="bar-fill" style="width:${occ*25}%;background:${isGateFace?'var(--rose)':'var(--cyan)'}"></div></div>
+            <span style="color:${col};width:35px;text-align:right;">${occ}/4 ${isLm?lmName(occ):''}</span>
+          </div>`;
+        }).join('')}
+        
+        <div style="margin-top:0.6rem;padding-top:0.4rem;border-top:1px solid #12151e;">
+          <h4 style="margin-top:0;">Face Content (Cycle 1)</h4>
+          ${[0,1,2,3].map(fi => {
+            const fc = cl.faceContent[fi];
+            const isGateFace = fi===3;
+            const pct = fc*100/16;
+            return `<div class="bar-row">
+              <span style="color:${isGateFace?'var(--rose)':'var(--dim)'};width:50px;">${isGateFace?'⬥ F3':'▸ F'+fi}</span>
+              <div class="bar"><div class="bar-fill" style="width:${pct}%;background:${isGateFace?'var(--rose)':'var(--cyan)'}"></div></div>
+              <span style="width:35px;text-align:right;">${fc}/16</span>
+            </div>`;
+          }).join('')}
+        </div>
+      </div>
+    </div>
+  `;
+  
+  // Draw Sierpinski
+  setTimeout(() => {
+    const c = document.getElementById('sierpCanvas');
+    if (c) drawSierpinski(c, cl.a64);
+    if (graphVisible) drawGraph();
+  }, 10);
+}
+
+// ═══════════════════════════════════════════════════════════
+// GRAPH OVERLAY
+// ═══════════════════════════════════════════════════════════
+
+let graphVisible = false;
+
+function toggleGraph() {
+  graphVisible = !graphVisible;
+  const overlay = document.getElementById('graphOverlay');
+  if (graphVisible) {
+    overlay.classList.add('visible');
+    drawGraph();
+  } else {
+    overlay.classList.remove('visible');
+  }
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && graphVisible) toggleGraph();
+});
+
+function drawGraph() {
+  const canvas = document.getElementById('graphCanvas');
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height;
+  ctx.clearRect(0, 0, W, H);
+  
+  // Background
+  ctx.fillStyle = '#080a10';
+  ctx.fillRect(0, 0, W, H);
+  
+  // Margins
+  const ml = 55, mr = 20, mt = 20, mb = 50;
+  const pw = W - ml - mr, ph = H - mt - mb;
+  
+  // Compute all B/A values
+  const data = ELEMENTS.map(el => {
+    const cl = computeClosure(el.A);
+    const be = computeBindingEnergy(el.A, el.Z, cl.score);
+    const known = KNOWN_BA[el.Z] || 0;
+    return { ...el, score: cl.score, ba_gfd: be.BA, ba_known: known, delta: be.BA - known };
+  });
+  
+  // Axes
+  const maxA = 220, minBA = 0, maxBA = 10;
+  
+  function px(A) { return ml + (A / maxA) * pw; }
+  function py(ba) { return mt + (1 - (ba - minBA) / (maxBA - minBA)) * ph; }
+  
+  // Grid lines
+  ctx.strokeStyle = '#141828';
+  ctx.lineWidth = 0.5;
+  for (let ba = 0; ba <= 10; ba += 2) {
+    ctx.beginPath();
+    ctx.moveTo(ml, py(ba));
+    ctx.lineTo(ml + pw, py(ba));
+    ctx.stroke();
+    
+    ctx.fillStyle = '#303850';
+    ctx.font = '9px "IBM Plex Mono"';
+    ctx.textAlign = 'right';
+    ctx.fillText(ba.toFixed(0), ml - 8, py(ba) + 3);
+  }
+  
+  for (let a = 0; a <= 210; a += 50) {
+    ctx.beginPath();
+    ctx.moveTo(px(a), mt);
+    ctx.lineTo(px(a), mt + ph);
+    ctx.stroke();
+    
+    ctx.fillStyle = '#303850';
+    ctx.textAlign = 'center';
+    ctx.fillText(a, px(a), mt + ph + 16);
+  }
+  
+  // Axis labels
+  ctx.fillStyle = '#505870';
+  ctx.font = '500 9px "IBM Plex Mono"';
+  ctx.textAlign = 'center';
+  ctx.fillText('Mass Number A', ml + pw/2, H - 8);
+  
+  ctx.save();
+  ctx.translate(14, mt + ph/2);
+  ctx.rotate(-Math.PI/2);
+  ctx.fillText('B/A (MeV/nucleon)', 0, 0);
+  ctx.restore();
+  
+  // Shell boundaries
+  [64, 128, 192].forEach(a => {
+    ctx.strokeStyle = 'rgba(212,160,0,0.15)';
+    ctx.lineWidth = 1;
+    ctx.setLineDash([4, 4]);
+    ctx.beginPath();
+    ctx.moveTo(px(a), mt);
+    ctx.lineTo(px(a), mt + ph);
+    ctx.stroke();
+    ctx.setLineDash([]);
+    
+    ctx.fillStyle = 'rgba(212,160,0,0.3)';
+    ctx.font = '8px "IBM Plex Mono"';
+    ctx.textAlign = 'center';
+    ctx.fillText('Shell', px(a), mt + 12);
+  });
+  
+  // Draw known curve (dim, behind)
+  ctx.beginPath();
+  ctx.strokeStyle = '#353d54';
+  ctx.lineWidth = 1.5;
+  let first = true;
+  data.forEach(d => {
+    if (d.ba_known <= 0) return;
+    const x = px(d.A), y = py(d.ba_known);
+    if (first) { ctx.moveTo(x, y); first = false; }
+    else ctx.lineTo(x, y);
+  });
+  ctx.stroke();
+  
+  // Draw known points
+  data.forEach(d => {
+    if (d.ba_known <= 0) return;
+    const x = px(d.A), y = py(d.ba_known);
+    ctx.beginPath();
+    ctx.arc(x, y, 2, 0, Math.PI*2);
+    ctx.fillStyle = '#353d54';
+    ctx.fill();
+  });
+  
+  // Draw GFD curve
+  ctx.beginPath();
+  ctx.strokeStyle = '#00ddb8';
+  ctx.lineWidth = 1.5;
+  first = true;
+  data.forEach(d => {
+    if (d.ba_gfd <= 0) return;
+    const x = px(d.A), y = py(d.ba_gfd);
+    if (first) { ctx.moveTo(x, y); first = false; }
+    else ctx.lineTo(x, y);
+  });
+  ctx.stroke();
+  
+  // Draw GFD points with special markers
+  data.forEach(d => {
+    if (d.ba_gfd <= 0) return;
+    const x = px(d.A), y = py(d.ba_gfd);
+    
+    let color = '#00ddb8';
+    let r = 2.5;
+    
+    if (d.score === 21) { color = '#d04878'; r = 4; }
+    else if (MAGIC_A.has(d.A)) { color = '#d4a000'; r = 3.5; }
+    
+    ctx.beginPath();
+    ctx.arc(x, y, r, 0, Math.PI*2);
+    ctx.fillStyle = color;
+    ctx.fill();
+    
+    // Label magic numbers and perfect closure
+    if (MAGIC_A.has(d.A) || d.score === 21) {
+      ctx.fillStyle = color;
+      ctx.font = '500 7px "IBM Plex Mono"';
+      ctx.textAlign = 'center';
+      ctx.fillText(d.sym, x, y - r - 3);
+    }
+  });
+  
+  // Highlight selected element
+  if (selectedZ) {
+    const sel = data.find(d => d.Z === selectedZ);
+    if (sel && sel.ba_gfd > 0) {
+      const x = px(sel.A), y = py(sel.ba_gfd);
+      ctx.beginPath();
+      ctx.arc(x, y, 7, 0, Math.PI*2);
+      ctx.strokeStyle = '#ffffff';
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+      
+      ctx.fillStyle = '#ffffff';
+      ctx.font = '600 9px "IBM Plex Mono"';
+      ctx.textAlign = 'center';
+      ctx.fillText(sel.sym, x, y - 10);
+    }
+  }
+  
+  // Compute stats
+  let sumAbsErr = 0, sumSqErr = 0, maxErr = 0, count = 0;
+  data.forEach(d => {
+    if (d.ba_known > 0 && d.ba_gfd > 0) {
+      const err = Math.abs(d.delta);
+      sumAbsErr += err;
+      sumSqErr += err * err;
+      if (err > maxErr) maxErr = err;
+      count++;
+    }
+  });
+  
+  const mae = sumAbsErr / count;
+  const rmse = Math.sqrt(sumSqErr / count);
+  
+  // Score-grouped averages
+  const scoreGroups = {};
+  data.forEach(d => {
+    if (!scoreGroups[d.score]) scoreGroups[d.score] = { sum: 0, count: 0 };
+    if (d.ba_known > 0) {
+      scoreGroups[d.score].sum += Math.abs(d.delta);
+      scoreGroups[d.score].count++;
+    }
+  });
+  
+  const statsDiv = document.getElementById('graphStats');
+  statsDiv.innerHTML = `
+    <div class="stat">
+      <div class="stat-val" style="color:var(--cyan)">${mae.toFixed(3)}</div>
+      <div class="stat-label">MAE (MeV/n)</div>
+    </div>
+    <div class="stat">
+      <div class="stat-val" style="color:var(--blue)">${rmse.toFixed(3)}</div>
+      <div class="stat-label">RMSE (MeV/n)</div>
+    </div>
+    <div class="stat">
+      <div class="stat-val" style="color:var(--rose)">${maxErr.toFixed(3)}</div>
+      <div class="stat-label">Max Error</div>
+    </div>
+    <div class="stat">
+      <div class="stat-val" style="color:var(--bright)">${count}</div>
+      <div class="stat-label">Elements</div>
+    </div>
+    ${Object.keys(scoreGroups).sort((a,b)=>b-a).map(s => {
+      const g = scoreGroups[s];
+      const avg = g.count > 0 ? (g.sum/g.count).toFixed(3) : '—';
+      const col = s == 21 ? 'var(--gold)' : s == 20 ? 'var(--cyan)' : s == 19 ? 'var(--blue)' : 'var(--dim)';
+      return `<div class="stat">
+        <div class="stat-val" style="color:${col}">${avg}</div>
+        <div class="stat-label">Score ${s} MAE</div>
+      </div>`;
+    }).join('')}
+  `;
+}
+
+// ═══════════════════════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════════════════════
+
+buildGrid();
+selectElement(26); // Start with Iron
+</script>
+</body>
+</html>

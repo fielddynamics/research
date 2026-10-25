@@ -1,0 +1,170 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath, amssymb, amsthm, bm}
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\title{The Torsion Module on a $K=4$ Tetrad Frame \\
+       is the Regular Representation of $S_4$}
+\author{Stephen Nelson \\[2pt]
+        \small Field Dynamics Research \\
+        \small\texttt{stephen@fielddynamics.org}}
+\date{May 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+On any $K=4$ frame, including the orthonormal tetrad of general relativity, the index space $V = \mathbb{R}^4$ carries a defining permutation representation of $S_4$. We show by direct character computation that the antisymmetric (torsion) sector of an affine connection on such a frame, viewed as an $S_4$-module under permutation of frame indices, is isomorphic to the regular representation $\mathbb{R}[S_4]$. The proof requires only the standard $40+24$ decomposition of the affine connection and one character calculation; it is independent of any dynamical or metric assumption. As a corollary, the torsion-free convention $\Gamma^i_{[jk]} = 0$ of standard general relativity deletes a module canonically isomorphic to $\mathbb{R}[S_4]$.
+\end{abstract}
+
+\section{Setup}
+
+Let $V = \mathbb{R}^4$ be a four-dimensional real vector space with a fixed ordered basis $(f_1, f_2, f_3, f_4)$. The symmetric group $S_4$ acts on $V$ by permuting basis vectors:
+\[
+\sigma \cdot f_i \;=\; f_{\sigma(i)}, \qquad \sigma \in S_4.
+\]
+This is the \emph{defining permutation representation}; as an $S_4$-module it decomposes as $V \cong \mathbf{1} \oplus \mathrm{std}$, with $\mathbf{1}$ the trivial line spanned by $f_1 + f_2 + f_3 + f_4$ and $\mathrm{std}$ the three-dimensional standard representation.
+
+An affine connection on a frame indexed by $V$ has components $\Gamma^{i}_{jk}$ with $i, j, k \in \{1, 2, 3, 4\}$, lying in the tensor space $V \otimes V^* \otimes V^*$. The decomposition into symmetric and antisymmetric parts in the lower pair commutes with the $S_4$ action on basis labels, so both summands of
+\begin{equation}
+V \otimes V^* \otimes V^* \;=\; \underbrace{V \otimes \mathrm{Sym}^2 V^*}_{\text{40 components}} \;\oplus\; \underbrace{V \otimes \Lambda^2 V^*}_{\text{24 components}}
+\label{eq:40plus24}
+\end{equation}
+are $S_4$-submodules. The first summand is the Christoffel sector (symmetric in lower indices); the second is the torsion sector $T^{i}_{jk} = \Gamma^{i}_{[jk]}$. Dimensions follow from $\dim V = K = 4$, $\dim \mathrm{Sym}^2 V^* = K(K{+}1)/2 = 10$, and $\dim \Lambda^2 V^* = K(K{-}1)/2 = 6$, giving $4 \cdot 10 = 40$ symmetric and $4 \cdot 6 = 24$ antisymmetric components. The decomposition \eqref{eq:40plus24} is standard \cite[App.~J]{Wald1984}.
+
+Since $V$ carries the standard $S_4$-invariant inner product (the one fixing the basis), $V \cong V^*$ as $S_4$-modules. We identify them and write $\Lambda^2 V$ for $\Lambda^2 V^*$.
+
+\section{Theorem}
+
+\begin{theorem}\label{thm:main}
+$V \otimes \Lambda^2 V \;\cong\; \mathbb{R}[S_4]$ as $S_4$-modules.
+\end{theorem}
+
+\begin{proof}
+We compute the character $\chi_{V \otimes \Lambda^2 V}$ on the five conjugacy classes of $S_4$ and identify it with the character of the regular representation.
+
+\paragraph{Character of $V$.}
+For a permutation representation, the character of $\sigma$ equals the number of basis vectors fixed by $\sigma$:
+\begin{center}
+\begin{tabular}{c|ccccc}
+class      & $e$ & $(ab)$ & $(ab)(cd)$ & $(abc)$ & $(abcd)$ \\
+class size & 1   & 6      & 3          & 8       & 6        \\ \hline
+$\chi_V$   & 4   & 2      & 0          & 1       & 0
+\end{tabular}
+\end{center}
+
+\paragraph{Character of $\Lambda^2 V$.}
+For any representation,
+\begin{equation}
+\chi_{\Lambda^2 V}(\sigma) \;=\; \tfrac{1}{2}\!\left[\chi_V(\sigma)^2 \;-\; \chi_V(\sigma^2)\right]
+\label{eq:lambda2-character}
+\end{equation}
+\cite[\S 2.1, Prop.~2.1]{Serre1977}. We compute $\sigma^2$ for one representative per class:
+\[
+e^2 = e, \qquad (12)^2 = e, \qquad \big((12)(34)\big)^{\!2} = e,
+\]
+\[
+(123)^2 = (132) \;\text{(a $3$-cycle)}, \qquad (1234)^2 = (13)(24) \;\text{(a double transposition)}.
+\]
+The square stays within $S_4$ and falls in a definite conjugacy class in each case. Reading $\chi_V(\sigma^2)$ from the table above:
+\begin{center}
+\begin{tabular}{c|ccccc}
+                       & $e$ & $(ab)$ & $(ab)(cd)$ & $(abc)$ & $(abcd)$ \\ \hline
+$\chi_V(\sigma)$       & 4   & 2      & 0          & 1       & 0        \\
+$\chi_V(\sigma^2)$     & 4   & 4      & 4          & 1       & 0        \\
+$\chi_{\Lambda^2 V}$   & 6   & 0      & $-2$       & 0       & 0
+\end{tabular}
+\end{center}
+The value $\chi_{\Lambda^2 V}(e) = 6 = \binom{4}{2}$ confirms $\dim \Lambda^2 V = 6$.
+
+\paragraph{Character of the tensor product.}
+The character of a tensor product is the product of characters:
+\begin{center}
+\begin{tabular}{c|ccccc}
+                                & $e$        & $(ab)$ & $(ab)(cd)$ & $(abc)$ & $(abcd)$ \\ \hline
+$\chi_V$                        & 4          & 2      & 0          & 1       & 0        \\
+$\chi_{\Lambda^2 V}$            & 6          & 0      & $-2$       & 0       & 0        \\ \hline
+$\chi_{V \otimes \Lambda^2 V}$  & $\bm{24}$  & 0      & 0          & 0       & 0
+\end{tabular}
+\end{center}
+
+\paragraph{Identification with the regular representation.}
+The regular representation $\mathbb{R}[S_4]$ has character
+\begin{equation}
+\chi_{\mathrm{reg}}(\sigma) \;=\; |S_4|\cdot \delta_{\sigma, e} \;=\; 24 \cdot \delta_{\sigma, e}
+\label{eq:reg-character}
+\end{equation}
+\cite[\S 2.4, Prop.~5]{Serre1977}. The character of $V \otimes \Lambda^2 V$ matches $\chi_{\mathrm{reg}}$ on every conjugacy class. Since representations of finite groups over a field of characteristic zero are determined up to isomorphism by their characters \cite[\S 2.3, Cor.~2]{Serre1977}, we conclude
+\[
+V \otimes \Lambda^2 V \;\cong\; \mathbb{R}[S_4]
+\]
+as $S_4$-modules. \qedhere
+\end{proof}
+
+\section{Corollary: irreducible decomposition}
+
+\begin{corollary}\label{cor:decomp}
+The torsion module decomposes into $S_4$-irreducibles as
+\begin{equation}
+V \otimes \Lambda^2 V \;\cong\; \mathbf{1} \;\oplus\; \mathrm{sgn} \;\oplus\; 2\,[2,2] \;\oplus\; 3\,\mathrm{std} \;\oplus\; 3\,(\mathrm{sgn} \otimes \mathrm{std}),
+\label{eq:irrep-decomp}
+\end{equation}
+where the multiplicity of each irreducible equals its dimension.
+\end{corollary}
+
+\begin{proof}
+The five irreducible representations of $S_4$ are: the trivial $\mathbf{1}$ (dim $1$), the sign $\mathrm{sgn}$ (dim $1$), the partition-$(2,2)$ representation $[2,2]$ (dim $2$), the standard $\mathrm{std}$ (dim $3$), and $\mathrm{sgn} \otimes \mathrm{std}$ (dim $3$) \cite[\S 2.3]{FultonHarris}. The defining property of the regular representation is that each irreducible $\rho$ appears with multiplicity equal to $\dim \rho$ \cite[\S 2.4, Cor.~1]{Serre1977}. Substituting yields \eqref{eq:irrep-decomp}; the dimension count $1\cdot 1 + 1\cdot 1 + 2\cdot 2 + 3\cdot 3 + 3\cdot 3 = 24$ checks. \qedhere
+\end{proof}
+
+\section{Remarks}
+
+\begin{remark}[On the dimensional coincidence]
+The numerical identity $\dim(V \otimes \Lambda^2 V) = K \cdot \binom{K}{2} = K!$, equivalently $K^2(K-1)/2 = K!$, has integer solutions only at $K \in \{2, 4\}$. At $K = 4$ this dimensional match is realized by an actual isomorphism of $S_K$-modules, by Theorem~\ref{thm:main}. At $K \geq 3$ with $K \neq 4$ the dimensions of $V \otimes \Lambda^2 V$ and $\mathbb{R}[S_K]$ disagree, so the regular-representation identification is unique to $K = 4$ in the range relevant to four-dimensional frame geometry.
+\end{remark}
+
+\begin{remark}[On the metric and the physical symmetry]
+Theorem~\ref{thm:main} is a statement about the index space $V = \mathbb{R}^4$ as an $S_4$-module under basis permutations. It does not assume that any metric on the frame is invariant under all of $S_4$. In a Lorentzian tetrad of signature $(-,+,+,+)$, the metric $\eta = \mathrm{diag}(-1, 1, 1, 1)$ is preserved only by the subgroup $S_3 \subset S_4$ permuting the spatial legs; in a Euclidean frame, the full $S_4$ preserves the metric. In either case the decomposition \eqref{eq:irrep-decomp} of the torsion module is intrinsic to the index combinatorics and is well-defined independent of the metric.
+\end{remark}
+
+\begin{remark}[On the torsion-free convention]
+Standard general relativity, in either the metric or the Palatini formulation, imposes
+\[
+\Gamma^{i}_{[jk]} \;=\; 0
+\]
+as a convention; see \cite[\S 3.1]{Wald1984} or \cite[Box~10.1]{MTW}. By Theorem~\ref{thm:main}, the module deleted by this convention is canonically isomorphic to the regular representation $\mathbb{R}[S_4]$ under permutation of frame indices. This is a structural identification, not a claim that the convention is incorrect; whether the deleted module carries physical content is a separate question, not addressed here.
+\end{remark}
+
+\begin{remark}[On scope and what this proof does not establish]
+Theorem~\ref{thm:main} concerns only the antisymmetric sector $V \otimes \Lambda^2 V$. The symmetric (Christoffel) sector $V \otimes \mathrm{Sym}^2 V$ has dimension $40$ and is not isomorphic to any single $S_4$-regular-representation copy; its irreducible decomposition is a separate calculation. No claim about Christoffel structure, dynamics, or field equations is made.
+\end{remark}
+
+\begin{thebibliography}{9}
+
+\bibitem{Serre1977}
+J.-P.\ Serre, \emph{Linear Representations of Finite Groups},
+Graduate Texts in Mathematics \textbf{42}, Springer, New York, 1977.
+
+\bibitem{FultonHarris}
+W.\ Fulton and J.\ Harris, \emph{Representation Theory: A First Course},
+Graduate Texts in Mathematics \textbf{129}, Springer, New York, 1991.
+
+\bibitem{Wald1984}
+R.\ M.\ Wald, \emph{General Relativity},
+University of Chicago Press, Chicago, 1984.
+
+\bibitem{MTW}
+C.\ W.\ Misner, K.\ S.\ Thorne, and J.\ A.\ Wheeler, \emph{Gravitation},
+W.\ H.\ Freeman, San Francisco, 1973.
+
+\end{thebibliography}
+
+\end{document}

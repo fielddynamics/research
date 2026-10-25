@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TetA / TetB Roll Ratio — Full Scale</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0a0a14;color:#e8e8e8;display:flex;justify-content:center;padding:1.5rem 1rem;}
+.wrap{max-width:780px;width:100%;}
+h1{font-size:20px;font-weight:500;margin-bottom:4px;}
+.sub{font-size:13px;color:#888;margin-bottom:1.2rem;line-height:1.5;}
+.slider-row{display:flex;gap:12px;align-items:center;margin-bottom:6px;flex-wrap:wrap;}
+.slider-row label{font-size:14px;color:#999;min-width:90px;}
+.slider-row input[type=range]{flex:1;min-width:120px;accent-color:#7F77DD;height:6px;}
+.slider-row span{font-size:14px;font-weight:500;min-width:60px;}
+.regime{font-size:12px;color:#7F77DD;margin-bottom:14px;padding-left:102px;}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;margin-bottom:12px;}
+.card{background:#141420;border-radius:8px;padding:8px 12px;border:1px solid #222;}
+.card .lbl{font-size:11px;color:#666;}
+.card .val{font-size:16px;font-weight:500;word-break:break-all;}
+.blue{color:#378ADD;} .red{color:#E24B4A;} .purple{color:#7F77DD;}
+.btns{display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap;}
+.btns button{background:transparent;border:1px solid #444;color:#ccc;font-family:inherit;font-size:12px;padding:5px 10px;border-radius:6px;cursor:pointer;transition:all 0.15s;}
+.btns button:hover{border-color:#7F77DD;color:#7F77DD;}
+.btns button.active{border-color:#7F77DD;background:#7F77DD22;color:#7F77DD;}
+.views{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:8px;}
+@media(max-width:550px){.views{grid-template-columns:1fr;}}
+.view-box{border-radius:12px;border:1px solid #222;background:#0e0e1a;position:relative;overflow:hidden;}
+.view-box svg{width:100%;display:block;}
+.view-label{position:absolute;top:8px;left:10px;font-size:11px;color:#666;pointer-events:none;}
+.legend{display:flex;gap:14px;margin-top:8px;font-size:11px;color:#666;flex-wrap:wrap;}
+.legend span{display:flex;align-items:center;gap:4px;}
+.dot{width:8px;height:8px;border-radius:50%;display:inline-block;}
+.line{width:10px;height:3px;display:inline-block;}
+.scale-bar{position:absolute;bottom:8px;left:10px;right:10px;font-size:10px;color:#555;}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>TetA / TetB roll ratio — full scale</h1>
+<p class="sub">Log-scale slider spans deep MOND (x ≪ 1) to solar system Newtonian (x ~ 10⁸). Left panel: true proportions. Right panel: TetB magnified to see the rolling geometry.</p>
+
+<div class="slider-row">
+  <label>log₁₀(x)</label>
+  <input type="range" min="-2" max="10" step="0.01" value="0" id="logSlider" />
+  <span id="xDisp">x = 1.00</span>
+</div>
+<div class="regime" id="regime">MOND crossover (x = 1)</div>
+
+<div class="cards">
+  <div class="card"><div class="lbl">TetA fraction μ(x)</div><div class="val blue" id="muVal">0.500000</div></div>
+  <div class="card"><div class="lbl">TetB fraction 1−μ</div><div class="val red" id="omVal">0.500000</div></div>
+  <div class="card"><div class="lbl">Roll ratio x = μ/(1−μ)</div><div class="val purple" id="rlVal">1.000</div></div>
+  <div class="card"><div class="lbl">TetB as error tolerance</div><div class="val red" id="errVal">5.00 × 10⁻¹</div></div>
+  <div class="card"><div class="lbl">Cusps (if integer ratio)</div><div class="val" id="csVal">1</div></div>
+</div>
+
+<div class="btns">
+  <button onclick="setLog(-2)">x = 0.01</button>
+  <button onclick="setLog(-1)">x = 0.1</button>
+  <button onclick="setLog(0)">x = 1</button>
+  <button onclick="setLog(Math.log10(4))">x = 4 (K)</button>
+  <button onclick="setLog(1)">x = 10</button>
+  <button onclick="setLog(3)">x = 10³</button>
+  <button onclick="setLog(5)">Sun surface</button>
+  <button onclick="setLog(8)">Solar system</button>
+  <button onclick="setLog(10)">Lab gravity</button>
+  <button id="btnPlay">Play</button>
+  <button id="btnReset">Reset</button>
+</div>
+
+<div class="views">
+  <!-- TRUE SCALE -->
+  <div class="view-box">
+    <div class="view-label">True scale</div>
+    <svg id="svTrue" viewBox="0 0 340 340">
+      <circle id="tA1" fill="none" stroke="#378ADD" stroke-width="1.5"/>
+      <circle id="tB1" fill="none" stroke="#E24B4A" stroke-width="1.5"/>
+      <path id="trace1" fill="none" stroke="#7F77DD" stroke-width="1" opacity="0.25"/>
+      <path id="anim1" fill="none" stroke="#7F77DD" stroke-width="2"/>
+      <circle id="dot1" r="4" fill="#639922"/>
+      <circle cx="170" cy="170" r="2" fill="#888"/>
+      <text x="170" id="lA1" text-anchor="middle" fill="#378ADD" font-size="12">TetA</text>
+      <text id="lB1" text-anchor="middle" fill="#E24B4A" font-size="11"></text>
+      <!-- TetB invisible marker -->
+      <text id="tinyNote" text-anchor="middle" fill="#E24B4A" font-size="11" opacity="0"></text>
+    </svg>
+  </div>
+  <!-- MAGNIFIED TETB -->
+  <div class="view-box">
+    <div class="view-label">TetB magnified</div>
+    <svg id="svZoom" viewBox="0 0 340 340">
+      <circle id="tA2" fill="none" stroke="#378ADD" stroke-width="1.5" stroke-dasharray="3,2" opacity="0.3"/>
+      <circle id="tB2" fill="none" stroke="#E24B4A" stroke-width="2"/>
+      <path id="trace2" fill="none" stroke="#7F77DD" stroke-width="1" opacity="0.25"/>
+      <path id="anim2" fill="none" stroke="#7F77DD" stroke-width="2"/>
+      <line id="arm2" stroke="#639922" stroke-width="1" stroke-dasharray="3,2" opacity="0.5"/>
+      <circle id="dot2" r="4" fill="#639922"/>
+      <text id="lB2" text-anchor="middle" fill="#E24B4A" font-size="12">TetB</text>
+      <text id="magLabel" x="170" y="330" text-anchor="middle" fill="#555" font-size="11"></text>
+    </svg>
+  </div>
+</div>
+
+<div class="legend">
+  <span><span class="dot" style="background:#378ADD;"></span> TetA (fixed, radius μ)</span>
+  <span><span class="dot" style="background:#E24B4A;"></span> TetB (rolling, radius 1−μ)</span>
+  <span><span class="line" style="background:#7F77DD;"></span> Roulette trace</span>
+  <span><span class="dot" style="background:#639922;"></span> Tracing point</span>
+</div>
+</div>
+
+<script>
+var CX1=170,CY1=170,SC1=140;
+var CX2=170,CY2=170,SC2=120;
+var logx=0,x=1,playing=false,t=0,tp1=[],tp2=[];
+
+function mu(v){return v/(v+1);}
+
+function epi(t,R,r){
+  var s=R+r;
+  return[s*Math.cos(t)-r*Math.cos(s*t/r),s*Math.sin(t)-r*Math.sin(s*t/r)];
+}
+function rcenter(t,R,r){
+  var s=R+r;
+  return[s*Math.cos(t),s*Math.sin(t)];
+}
+
+function fmtSci(v){
+  if(v>=0.01&&v<1000) return v.toPrecision(3);
+  var e=Math.floor(Math.log10(Math.abs(v)));
+  var m=v/Math.pow(10,e);
+  var sup=e.toString().split('').map(function(c){
+    if(c==='-') return '⁻';
+    return '⁰¹²³⁴⁵⁶⁷⁸⁹'[parseInt(c)];
+  }).join('');
+  return m.toFixed(2)+' × 10'+sup;
+}
+
+function regimeText(lx){
+  if(lx<-1) return 'Deep MOND — TetB dominates, flat rotation curves';
+  if(lx<0.3) return 'MOND transition — TetA ≈ TetB, maximum coupling';
+  if(lx<2) return 'Intermediate — TetB shrinking, dark matter "appears"';
+  if(lx<4) return 'Weak Newtonian — TetB is a small correction';
+  if(lx<6) return 'Solar surface — TetB ≈ 10⁻⁵, GR error negligible';
+  if(lx<9) return 'Solar system — TetB ≈ 10⁻⁸, the "flat Earth" regime';
+  return 'Laboratory — TetB ≈ 10⁻¹⁰, completely invisible to GR';
+}
+
+function updateLabels(){
+  var m=mu(x),om=1-m,rr=x;
+  document.getElementById('xDisp').textContent='x = '+fmtSci(x);
+  document.getElementById('muVal').textContent= m>0.999999?'1 − '+fmtSci(om):m.toPrecision(6);
+  document.getElementById('omVal').textContent=fmtSci(om);
+  document.getElementById('rlVal').textContent=fmtSci(rr);
+  document.getElementById('errVal').textContent=fmtSci(om);
+  var near=Math.round(rr);
+  document.getElementById('csVal').textContent=(rr<50&&Math.abs(rr-near)<0.08&&near>0)?near.toString():'—';
+  document.getElementById('regime').textContent=regimeText(logx);
+}
+
+function curvePath(R,r,sc,cx,cy){
+  var pts=[],nrev=Math.max(Math.round(x),1);
+  if(nrev>20)nrev=20;
+  var total=2*Math.PI*nrev,steps=nrev*200;
+  for(var i=0;i<=steps;i++){
+    var tt=i/steps*total,p=epi(tt,R,r);
+    pts.push((i===0?'M':'L')+(cx+p[0]*sc).toFixed(1)+','+(cy-p[1]*sc).toFixed(1));
+  }
+  return pts.join(' ');
+}
+
+function draw(){
+  var m=mu(x),om=1-m,R=m,r=om;
+
+  // === TRUE SCALE (left) ===
+  // Scale so TetA fills the view
+  var trueR=R*SC1;
+  var trueRb=r*SC1;
+
+  var a1=document.getElementById('tA1');
+  a1.setAttribute('cx',CX1);a1.setAttribute('cy',CY1);a1.setAttribute('r',Math.max(trueR,0.5).toFixed(1));
+
+  var c1=rcenter(t,R,r);
+  var b1=document.getElementById('tB1');
+  var bx1=CX1+c1[0]*SC1, by1=CY1-c1[1]*SC1;
+  b1.setAttribute('cx',bx1.toFixed(1));b1.setAttribute('cy',by1.toFixed(1));
+  b1.setAttribute('r',Math.max(trueRb,0.3).toFixed(1));
+  b1.setAttribute('stroke-width', trueRb<1?'0.5':'1.5');
+
+  if(x<=20){
+    document.getElementById('trace1').setAttribute('d',curvePath(R,r,SC1,CX1,CY1));
+  } else {
+    document.getElementById('trace1').setAttribute('d','');
+  }
+
+  var ep1=epi(t,R,r);
+  var d1x=CX1+ep1[0]*SC1, d1y=CY1-ep1[1]*SC1;
+  document.getElementById('dot1').setAttribute('cx',d1x.toFixed(1));
+  document.getElementById('dot1').setAttribute('cy',d1y.toFixed(1));
+  document.getElementById('dot1').setAttribute('r', trueRb<2?'2':'4');
+
+  document.getElementById('lA1').setAttribute('y',CY1-trueR-8);
+
+  // animated trace
+  if(tp1.length>1){
+    var d='M'+tp1[0];for(var i=1;i<tp1.length;i++) d+='L'+tp1[i];
+    document.getElementById('anim1').setAttribute('d',d);
+  } else document.getElementById('anim1').setAttribute('d','');
+
+  // tiny note when TetB invisible
+  var tn=document.getElementById('tinyNote');
+  if(trueRb<2){
+    tn.setAttribute('x',CX1);tn.setAttribute('y',CY1+trueR+20);
+    tn.setAttribute('opacity','1');
+    tn.textContent='TetB radius: '+fmtSci(om)+' (see magnified →)';
+  } else {
+    tn.setAttribute('opacity','0');
+  }
+
+  // === MAGNIFIED (right) — scale TetB to fill view ===
+  var magFactor=SC2/Math.max(r,1e-12);
+  var magRb=r*magFactor; // always SC2
+  var magRa=R*magFactor;
+
+  // TetA as huge dashed arc (only show a small piece)
+  var a2=document.getElementById('tA2');
+  a2.setAttribute('cx',CX2);a2.setAttribute('cy',CY2);
+  a2.setAttribute('r',Math.min(magRa,5000).toFixed(0));
+  a2.setAttribute('opacity', magRa>2000?'0.15':'0.3');
+
+  var c2=rcenter(t,R,r);
+  var b2=document.getElementById('tB2');
+  var bx2=CX2+c2[0]*magFactor, by2=CY2-c2[1]*magFactor;
+  // Keep TetB centered in view
+  var offx=CX2-bx2, offy=CY2-by2;
+  bx2=CX2;by2=CY2;
+  b2.setAttribute('cx',bx2.toFixed(1));b2.setAttribute('cy',by2.toFixed(1));
+  b2.setAttribute('r',magRb.toFixed(1));
+
+  // Tracing point in magnified view (relative to TetB center)
+  var ep2=epi(t,R,r);
+  var d2x=CX2+(ep2[0])*magFactor+offx;
+  var d2y=CY2-(ep2[1])*magFactor+offy;
+  document.getElementById('dot2').setAttribute('cx',d2x.toFixed(1));
+  document.getElementById('dot2').setAttribute('cy',d2y.toFixed(1));
+
+  document.getElementById('arm2').setAttribute('x1',bx2.toFixed(1));
+  document.getElementById('arm2').setAttribute('y1',by2.toFixed(1));
+  document.getElementById('arm2').setAttribute('x2',d2x.toFixed(1));
+  document.getElementById('arm2').setAttribute('y2',d2y.toFixed(1));
+
+  document.getElementById('lB2').setAttribute('x',bx2.toFixed(1));
+  document.getElementById('lB2').setAttribute('y',(by2-magRb-8).toFixed(1));
+
+  // magnified trace
+  if(tp2.length>1){
+    var d='M'+tp2[0];for(var i=1;i<tp2.length;i++) d+='L'+tp2[i];
+    document.getElementById('anim2').setAttribute('d',d);
+  } else document.getElementById('anim2').setAttribute('d','');
+
+  // magnification label
+  var magPow=magFactor/SC1;
+  document.getElementById('magLabel').textContent=magPow>1.5?'Magnified '+fmtSci(magPow)+'×':'1:1 scale';
+
+  // TetA curve in magnified
+  if(x<=20){
+    document.getElementById('trace2').setAttribute('d',curvePath(R,r,magFactor,CX2+offx,CY2+offy));
+  } else {
+    // at high x the roulette is essentially a tiny circle around TetA's surface
+    document.getElementById('trace2').setAttribute('d','');
+  }
+}
+
+document.getElementById('logSlider').addEventListener('input',function(){
+  logx=parseFloat(this.value);
+  x=Math.pow(10,logx);
+  tp1=[];tp2=[];t=0;updateLabels();draw();
+});
+
+document.getElementById('btnPlay').addEventListener('click',function(){
+  playing=!playing;this.textContent=playing?'Pause':'Play';
+  if(playing)animate();
+});
+document.getElementById('btnReset').addEventListener('click',function(){
+  t=0;tp1=[];tp2=[];playing=false;
+  document.getElementById('btnPlay').textContent='Play';draw();
+});
+
+function setLog(lv){
+  logx=lv;x=Math.pow(10,logx);
+  document.getElementById('logSlider').value=lv;
+  tp1=[];tp2=[];t=0;updateLabels();draw();
+}
+
+function animate(){
+  if(!playing)return;
+  t+=0.025;
+  var m=mu(x),om=1-m,R=m,r=om;
+  var ep=epi(t,R,r);
+
+  // true scale trace
+  var tx1=CX1+ep[0]*SC1, ty1=CY1-ep[1]*SC1;
+  tp1.push(tx1.toFixed(1)+','+ty1.toFixed(1));
+  if(tp1.length>5000)tp1.shift();
+
+  // magnified trace
+  var magFactor=SC2/Math.max(r,1e-12);
+  var c2=rcenter(t,R,r);
+  var offx=CX2-(CX2+c2[0]*magFactor);
+  var offy=CY2-(CY2-c2[1]*magFactor);
+  var tx2=CX2+ep[0]*magFactor+offx;
+  var ty2=CY2-ep[1]*magFactor+offy;
+  tp2.push(tx2.toFixed(1)+','+ty2.toFixed(1));
+  if(tp2.length>5000)tp2.shift();
+
+  draw();
+  requestAnimationFrame(animate);
+}
+
+updateLabels();draw();
+</script>
+</body>
+</html>

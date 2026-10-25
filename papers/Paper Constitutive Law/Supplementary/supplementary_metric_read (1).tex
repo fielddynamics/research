@@ -1,0 +1,401 @@
+\documentclass[twocolumn]{iopjournal}
+
+\usepackage{amsmath,amssymb,amsfonts}
+
+\fancyhfoffset[L]{0mm}
+\setlength{\marginparwidth}{0pt}
+\setlength{\marginparsep}{0pt}
+
+% ==========================================
+% ZENODO PREPRINT HEADERS (ACTIVE)
+% ==========================================
+\renewcommand{\articletype}[1]{%
+  {\vspace*{-8mm}\noindent \Large \sf Preprint}\par
+  \vspace*{6mm}\noindent{\scriptsize \sf{\bfseries \MakeUppercase{#1}}}}
+
+\fancyhead[L]{}
+\fancyhead[R]{}
+
+\begin{document}
+
+\articletype{Supplementary Material}
+
+\title{Supplementary Material: The Constitutive Law\\
+Read from the Metric}
+
+\author{Stephen Nelson}
+
+\affil{Field Dynamics Research}
+
+\ead{stephen@fielddynamics.org}
+
+\begin{abstract}
+This note derives the gravitational constitutive law from the
+metric and the tetrad equation through a sequence of four
+operations: reading numbers from
+$\eta_{ab} = \mathrm{diag}(-1,+1,+1,+1)$, noting the degree
+of the tetrad equation, performing arithmetic, and applying
+algebra. The metric is $4 \times 4$ ($K = 4$) with three
+positive eigenvalues ($D = 3$). The tetrad equation is degree~2
+(two roots). These numbers satisfy $2(D+1) = 2^D$; $D = 3$ is
+the minimum spatial dimensionality for which this closure relation
+can hold, and in fact its only positive integer solution. The tetrad equation contains
+three structural ingredients whose graded dimension is
+$K^0 + K^1 + K^2 = 1 + 4 + 16 = 21$. Parity interpolation
+on the three states makes the polynomial linear in its state
+parameter. Normalising the resulting fractional linear
+composition by the polynomial's range yields
+$\mu(x) = x/(x+1)$. Two companion supplements derive the same
+function by independent methods: one from equilibrium field
+closure, the other from boundary conditions on the quadratic
+tetrad equation. The convergence of three routes with no shared
+method on a single function is the subject of the main letter.
+\end{abstract}
+
+% ----------------------------------------------------------------------
+
+\section*{Read}
+
+The internal metric of the tetrad formalism is
+\begin{equation}
+  \eta_{ab} = \mathrm{diag}(-1,+1,+1,+1).
+  \label{eq:eta}
+\end{equation}
+Three numbers are read directly from this object:
+
+\paragraph{$K = 4$.} The matrix is $4 \times 4$. The frame
+index $a$ runs over four values. This is the frame dimension.
+
+\paragraph{$D = 3$.} The matrix has three positive eigenvalues
+and one negative. The count of positive eigenvalues is the
+spatial dimension.
+
+\paragraph{$n = 2$.} The tetrad equation
+$g_{\mu\nu} = \eta_{ab}\, e^a{}_\mu\, e^b{}_\nu$ contains $e$
+twice on the right-hand side: it is degree~2 in $e$. A degree-2
+equation has two roots. In the spatial sector, the two roots are
+parity-related tetrahedra~\cite{Nelson2026scheme}. The count
+$n = 2$ is the degree of the equation, visible by inspection.
+
+$K = 4$ and $D = 3$ are read directly from the metric. The
+count $n = 2$ is read from the quadratic degree of the tetrad
+equation and geometrically realised as the two parity-related
+bounded regions established in the supplementary
+construction~\cite{Nelson2026scheme}.
+
+% ----------------------------------------------------------------------
+
+\section*{Arithmetic}
+
+From $K = 4$, $D = 3$, and $n = 2$, form two expressions:
+
+\begin{align}
+  \text{Left:} \quad n(D + 1) &= 2(3 + 1) = 8, \label{eq:left} \\
+  \text{Right:} \quad n^D &= 2^3 = 8. \label{eq:right}
+\end{align}
+
+They are equal. This is arithmetic, not a postulate.
+
+The left side counts faces: two roots, each carrying a $D$-simplex
+with $D + 1 = K$ faces. The right side counts vertices: $D$ binary
+axes, each admitting two orientations, giving $2^D$ sign
+combinations. The main letter~\cite{Nelson2026geometry} proved
+that these are the half-space intersections of the four derived
+directions, and that the tetrad equation produces exactly two
+bounded tetrahedral regions, TetA and TetB, each with $K = 4$
+faces. Ghost-free bimetric gravity likewise requires exactly two
+dynamical tetrad fields, each with $K = 4$ frame
+legs~\cite{HR2012a}. The supplementary isotropy
+proof~\cite{Nelson2026signature} establishes that the four spatial
+legs of the tetrad are the four face normals of a regular
+tetrahedron: frame legs and tetrahedral faces are the same four
+directions. The same counts therefore appear in both
+contexts: $2K = 8$ as the doubled frame count, and $K^2 = 16$ as
+the number of frame-index pairings $(a,b)$ in the $4 \times 4$
+coupling structure. Their recurrence across the metric
+reading, the derived geometry, and the published bimetric framework
+confirms that these integers are not arbitrary.
+
+The equality $2(D+1) = 2^D$ is a Diophantine equation in $D$.
+Checking whether any other positive integer satisfies it:
+
+\vspace{4pt}
+\noindent
+\begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}cccc@{}}
+\hline
+$D$ & $2(D+1)$ & $2^D$ & Equal? \\
+\hline
+1 & 4 & 2 & No \\
+2 & 6 & 4 & No \\
+\textbf{3} & \textbf{8} & \textbf{8} & \textbf{Yes} \\
+4 & 10 & 16 & No \\
+5 & 12 & 32 & No \\
+\hline
+\end{tabular*}
+\vspace{4pt}
+
+\noindent $D = 3$ is the minimum spatial dimensionality at which
+the closure relation can hold: $D = 1$ and $D = 2$ are
+insufficient, $D = 3$ succeeds, and the exponential side
+thereafter outgrows the linear side strictly, so $D = 3$ is also
+the unique positive integer solution.
+
+% ----------------------------------------------------------------------
+
+\section*{Verification}
+
+The two integers $K = 4$ and $D = 3$ recover the principal
+dimensional and combinatorial properties of $g_{\mu\nu}$ shown
+below by arithmetic alone:
+
+\vspace{4pt}
+\noindent
+\begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}lcc@{}}
+\hline
+Property & $K, D$ & Known \\
+\hline
+Matrix size & $K \times K = 4 \times 4$ & $g_{\mu\nu}$: $\mu,\nu = 0..3$ \\
+Signature & $(-) + (+)^D$ & $(-,+,+,+)$ \\
+Independent entries & $K(K\!+\!1)/2 = 10$ & Symmetric $4 \times 4$ \\
+Total entries & $K^2 = 16$ & $4 \times 4$ \\
+Spatial block & $D \times D = 3 \times 3$ & $g_{ij}$ \\
+Frame legs & $K = 4$ & $e^a{}_\mu,\; a\!=\!0..3$ \\
+Spacetime dimension & $D + 1 = 4$ & $3 + 1$ \\
+Vertices of compound & $2^D = 8$ & Cube corners \\
+Faces of compound & $2K = 8$ & Octahedron faces \\
+f-vector sum & $K(K\!+\!D) = 28$ & $V + E + F$ \\
+\hline
+\end{tabular*}
+\vspace{4pt}
+
+\noindent Every entry matches. Two integers recover the
+dimensional and combinatorial structure displayed above.
+
+% ----------------------------------------------------------------------
+
+\section*{The Polynomial}
+
+The tetrad equation contains three structural ingredients on the
+$K$-dimensional frame space. A scalar closure condition
+$\det(e) \neq 0$ with no free frame index (rank~0, dimension
+$K^0 = 1$). A frame $e^a{}_\mu$ with one free frame index
+(rank~1, dimension $K^1 = K = 4$). A bilinear coupling
+$\eta_{ab}\, e^a\, e^b$ with two free frame indices (rank~2,
+dimension $K^2 = 16$). No rank-3 object appears in the equation
+or its field equations~\cite{MTW}. Taking the graded dimension
+of a rank-$r$ frame-space ingredient to be $K^r$, the natural
+three-term encoding is:
+\begin{equation}
+  f(K) = K^0 + K^1 + K^2 = 1 + 4 + 16 = 21.
+  \label{eq:poly}
+\end{equation}
+This is the finite geometric series $(K^3 - 1)/(K - 1) =
+63/3 = 21$.
+
+Under spatial parity $P: e^i \to -e^i$, a rank-$r$ tensor on the
+frame space transforms with sign $(-1)^r$~\cite{MTW}. Rank~0
+($(-1)^0 = +1$) and rank~2 ($(-1)^2 = +1$) are parity-even.
+Rank~1 ($(-1)^1 = -1$) is parity-odd. Accordingly, the
+parity-varying contribution is assigned to the rank-1 term:
+\begin{equation}
+  f(K, s) = 1 + sK + K^2.
+  \label{eq:poly_s}
+\end{equation}
+
+Evaluating at the two roots ($s = \pm 1$) and their midpoint
+($s = 0$):
+\begin{equation}
+  f(4,+1) = 21, \qquad f(4,0) = 17, \qquad f(4,-1) = 13.
+\end{equation}
+
+The range of the polynomial is:
+\begin{equation}
+  \Delta f = 21 - 13 = 2K = 8 = 2^D.
+  \label{eq:range}
+\end{equation}
+This is the closure condition $2(D+1) = 2^D$ read as the
+dynamic range of the polynomial. The same equation that makes
+$D = 3$ unique also sets the normalisation denominator.
+
+% ----------------------------------------------------------------------
+
+\section*{The Constitutive Law}
+
+The stellated octahedron has exactly three structural components,
+each proved in the main letter and its
+supplements~\cite{Nelson2026geometry,Nelson2026scheme}: TetA (one
+bounded region, identity component of $O(3)$), TetB (the other
+bounded region, parity component), and the octahedral core (the
+intersection TetA~$\cap$~TetB, with six vertices at the
+tetrahedral edge midpoints). These three components are the three
+geometric states of the structure. The state parameter $s$ labels
+them: $s = +1$ for TetA, $s = -1$ for TetB, $s = 0$ for the
+octahedral core. Three components, three states. Not chosen;
+counted.
+
+The polynomial $f(K,s) = 1 + sK + K^2$ is linear in $s$.
+This linearity follows from interpolation on three points with
+odd symmetry: $s$ takes values $\{+1, 0, -1\}$, the parity-odd
+requirement sets the $s$-dependent part to zero at $s = 0$, and
+the endpoint values are $\pm K$. The unique polynomial of degree
+$\leq 2$ passing through $(-1, -K)$, $(0, 0)$, $(+1, +K)$ is
+$Ks$. Linear, by interpolation uniqueness, not by minimality
+assumption.
+
+The geometry has three components, so the fundamental theorem of
+projective geometry applies: three distinct points on the
+projective line uniquely determine a fractional linear map. Three
+constraints fix the M\"{o}bius map $s(x)$
+making the state parameter continuous in $x = g/a_0$: $s \to
++1$ as $x \to \infty$, $s = 0$ at $x = 1$ (a normalisation
+convention defining $a_0$), and $s \to -1$ as $x \to 0$. Among
+fractional linear maps satisfying these three conditions, the
+unique solution is $s(x) = (x-1)/(x+1)$. The fractional linear
+class is not selected but forced: the map $s(x)$ must be rational,
+to preserve the polynomial's algebraic structure under composition,
+and bijective, so that a single acceleration $x$ decodes to exactly
+one geometric state $s$ and vice versa. A rational bijection on the
+projective line is necessarily fractional linear; this is a
+classification theorem of projective geometry, not a modelling
+choice~\cite{Hartshorne1977}.
+This forcing is confirmed by closure under inversion:
+$\mu = x/(x+1)$ inverts to $x = \mu/(1-\mu)$, which is again
+fractional linear, with no increase in algebraic degree. Transcendental or higher-degree rational
+alternatives generally forfeit the same exact fractional-linear
+closure under composition and inversion. This exact invertibility
+is also what permits closed-form decoding from observed kinematics
+to baryonic mass, rather than numerical root-finding.
+
+Because $f(K,s)$ is linear in $s$ and $s(x)$ is fractional
+linear, the composition $f(x)$ is fractional linear.
+Normalising a fractional linear function preserves the form.
+The constitutive law inherits its rational structure from the
+polynomial's linearity in $s$.
+
+Composing:
+\begin{equation}
+  f(x) = 1 + \frac{x - 1}{x + 1} \cdot 4 + 16
+       = \frac{21x + 13}{x + 1}.
+\end{equation}
+
+Normalising by the range $\Delta f = 8$:
+\begin{equation}
+  \mu(x) = \frac{f(x) - 13}{8} = \frac{x}{x + 1}.
+  \label{eq:mu}
+\end{equation}
+
+The ``1'' in the denominator corresponds to the rank-0 closure
+term $K^0 = 1$, consistent with the metric's single timelike
+direction. The normalisation denominator is
+$2K = 2^D = 8$: the closure condition itself.
+
+% ----------------------------------------------------------------------
+
+\section*{The Complete Chain}
+
+\begin{equation*}
+  \boxed{\eta_{ab} = \mathrm{diag}(-1,+1,+1,+1)}
+\end{equation*}
+\vspace{-6pt}
+\begin{equation*}
+  \downarrow\; \textsc{read + degree}
+\end{equation*}
+\vspace{-6pt}
+\begin{equation*}
+  \boxed{K = 4, \quad D = 3, \quad n = 2}
+\end{equation*}
+\vspace{-6pt}
+\begin{equation*}
+  \downarrow\; \textsc{arithmetic}
+\end{equation*}
+\vspace{-6pt}
+\begin{equation*}
+  \boxed{2(3+1) = 2^3 = 8 \quad \checkmark \quad
+  \text{threshold and unique solution}}
+\end{equation*}
+\vspace{-6pt}
+\begin{equation*}
+  \downarrow\; \textsc{arithmetic}
+\end{equation*}
+\vspace{-6pt}
+\begin{equation*}
+  \boxed{f = 1 + 4 + 16 = 21}
+\end{equation*}
+\vspace{-6pt}
+\begin{equation*}
+  \downarrow\; \textsc{parity} \to \text{interpolation} \to
+  \text{linear in } s \to \textsc{m\"{o}bius} \to
+  \textsc{normalise}
+\end{equation*}
+\vspace{-6pt}
+\begin{equation*}
+  \boxed{\mu(x) = \frac{x}{x+1}}
+\end{equation*}
+
+\vspace{6pt}
+Every step is either direct reading, arithmetic,
+representation-theoretic classification, or algebraic
+normalisation. No empirical fit enters the derivation. The
+fractional linear form of the constitutive law is inherited
+from the polynomial's linearity in $s$, which is itself fixed
+by interpolation uniqueness on the three parity states.
+
+The function $\mu(x) = x/(x+1)$ was identified empirically by
+Milgrom~\cite{Milgrom1983} and selected by fitting by
+Famaey and Binney~\cite{FamaeyBinney2005}. The present note
+obtains it from metric data and the quadratic tetrad structure
+through graded rank counting, parity interpolation, and rational
+normalisation. Two companion supplements obtain the same
+function by independent methods: one from equilibrium field
+closure, the other from boundary conditions on the quadratic
+tetrad equation. The main letter presents all three routes and
+their convergence.
+
+% ----------------------------------------------------------------------
+
+\begin{thebibliography}{99}
+
+\bibitem{Nelson2026geometry}
+S.~Nelson,
+\textit{The Coordinate-Space Geometry of the Tetrad Frame},
+Class.\ Quantum Grav.\ (2026), submitted.
+
+\bibitem{Nelson2026scheme}
+S.~Nelson,
+\textit{Supplementary Material: The Tetrad Scheme and the Two
+Bounded Regions} (2026).
+
+\bibitem{Nelson2026signature}
+S.~Nelson,
+\textit{Supplementary Material: From the Lorentz Signature to the
+Tetrahedral Frame} (2026).
+
+\bibitem{MTW}
+C.~W.~Misner, K.~S.~Thorne and J.~A.~Wheeler,
+\textit{Gravitation}
+(W.~H.~Freeman, San Francisco, 1973).
+
+\bibitem{Hartshorne1977}
+R.~Hartshorne,
+\textit{Algebraic Geometry}
+(Springer, New York, 1977).
+
+\bibitem{Milgrom1983}
+M.~Milgrom,
+\textit{A modification of the Newtonian dynamics as a possible
+alternative to the hidden mass hypothesis},
+Astrophys.\ J.\ \textbf{270} (1983) 365.
+
+\bibitem{FamaeyBinney2005}
+B.~Famaey and J.~Binney,
+\textit{Modified Newtonian dynamics in the Milky Way},
+Mon.\ Not.\ R.\ Astron.\ Soc.\ \textbf{363} (2005) 603.
+
+\bibitem{HR2012a}
+S.~F.~Hassan and R.~A.~Rosen,
+\textit{Bimetric gravity from ghost-free massive gravity},
+JHEP \textbf{02} (2012) 126.
+
+\end{thebibliography}
+
+\end{document}

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TetA / TetB Roll Ratio Roulette</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0a0a14;color:#e8e8e8;display:flex;justify-content:center;padding:2rem 1rem;}
+.wrap{max-width:700px;width:100%;}
+h1{font-size:20px;font-weight:500;margin-bottom:4px;}
+.sub{font-size:13px;color:#888;margin-bottom:1.5rem;}
+.slider-row{display:flex;gap:12px;align-items:center;margin-bottom:12px;flex-wrap:wrap;}
+.slider-row label{font-size:14px;color:#999;min-width:90px;}
+.slider-row input[type=range]{flex:1;min-width:120px;accent-color:#7F77DD;height:6px;}
+.slider-row span{font-size:14px;font-weight:500;min-width:40px;}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:8px;margin-bottom:12px;}
+.card{background:#141420;border-radius:8px;padding:8px 12px;border:1px solid #222;}
+.card .lbl{font-size:11px;color:#666;}
+.card .val{font-size:18px;font-weight:500;}
+.blue{color:#378ADD;} .red{color:#E24B4A;}
+.btns{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;}
+.btns button{background:transparent;border:1px solid #444;color:#ccc;font-family:inherit;font-size:13px;padding:6px 14px;border-radius:6px;cursor:pointer;transition:all 0.15s;}
+.btns button:hover{border-color:#7F77DD;color:#7F77DD;}
+svg{width:100%;border-radius:12px;border:1px solid #222;background:#0e0e1a;}
+.legend{display:flex;gap:16px;margin-top:8px;font-size:12px;color:#888;flex-wrap:wrap;}
+.legend span{display:flex;align-items:center;gap:4px;}
+.dot{width:10px;height:10px;border-radius:50%;display:inline-block;}
+.line{width:10px;height:3px;display:inline-block;}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>TetA / TetB roll ratio roulette</h1>
+<p class="sub">TetA (fixed, radius μ) and TetB (rolling, radius 1−μ). Roll ratio = x = g/a₀.</p>
+
+<div class="slider-row">
+  <label>x = g / a₀</label>
+  <input type="range" min="0.1" max="10" step="0.01" value="1" id="xSlider" />
+  <span id="xVal">1.00</span>
+</div>
+
+<div class="cards">
+  <div class="card"><div class="lbl">TetA radius (μ)</div><div class="val blue" id="muVal">0.500</div></div>
+  <div class="card"><div class="lbl">TetB radius (1−μ)</div><div class="val red" id="omVal">0.500</div></div>
+  <div class="card"><div class="lbl">Roll ratio μ/(1−μ)</div><div class="val" id="rlVal">1.000</div></div>
+  <div class="card"><div class="lbl">Cusps (if integer)</div><div class="val" id="csVal">1</div></div>
+</div>
+
+<div class="btns">
+  <button id="btnPlay">Play</button>
+  <button id="btnReset">Reset</button>
+  <button onclick="setX(1)">x = 1 (equal)</button>
+  <button onclick="setX(2)">x = 2</button>
+  <button onclick="setX(3)">x = 3</button>
+  <button onclick="setX(4)">x = 4 (K)</button>
+  <button onclick="setX(1.618)">x = φ</button>
+</div>
+
+<svg id="sv" viewBox="0 0 600 400">
+  <circle id="tetA" fill="none" stroke="#378ADD" stroke-width="2"/>
+  <circle id="tetB" fill="none" stroke="#E24B4A" stroke-width="2"/>
+  <path id="traceFull" fill="none" stroke="#7F77DD" stroke-width="1" opacity="0.2"/>
+  <path id="traceAnim" fill="none" stroke="#7F77DD" stroke-width="2.5"/>
+  <line id="dashLine" stroke="#E24B4A" stroke-width="1" stroke-dasharray="4,3" opacity="0.4"/>
+  <line id="armLine" stroke="#639922" stroke-width="1.5" stroke-dasharray="3,2" opacity="0.5"/>
+  <circle id="contactDot" r="3" fill="#888"/>
+  <circle id="traceDot" r="5" fill="#639922"/>
+  <circle cx="300" cy="200" r="2.5" fill="#888"/>
+  <text x="300" y="170" text-anchor="middle" fill="#378ADD" font-size="13" id="labelA">TetA</text>
+  <text id="labelB" text-anchor="middle" fill="#E24B4A" font-size="13">TetB</text>
+</svg>
+
+<div class="legend">
+  <span><span class="dot" style="background:#378ADD;"></span> TetA (fixed)</span>
+  <span><span class="dot" style="background:#E24B4A;"></span> TetB (rolling)</span>
+  <span><span class="line" style="background:#7F77DD;"></span> Roulette trace</span>
+  <span><span class="dot" style="background:#639922;"></span> Tracing point</span>
+</div>
+</div>
+
+<script>
+var CX=300,CY=200,SC=120;
+var x=1,playing=false,t=0,tracePoints=[];
+
+function mu(v){return v/(v+1);}
+
+function epi(t,R,r){
+  var s=R+r;
+  return[s*Math.cos(t)-r*Math.cos(s*t/r),s*Math.sin(t)-r*Math.sin(s*t/r)];
+}
+
+function rc(t,R,r){
+  var s=R+r;
+  return[s*Math.cos(t),s*Math.sin(t)];
+}
+
+function tx(v){return CX+v*SC;}
+function ty(v){return CY-v*SC;}
+
+function fullCurvePath(R,r){
+  var pts=[];
+  var nrev=Math.max(Math.round(x),Math.ceil(x));
+  if(nrev<1)nrev=1;
+  if(nrev>12)nrev=12;
+  var total=2*Math.PI*nrev;
+  var steps=nrev*300;
+  for(var i=0;i<=steps;i++){
+    var tt=i/steps*total;
+    var p=epi(tt,R,r);
+    pts.push((i===0?'M':'L')+tx(p[0]).toFixed(1)+','+ty(p[1]).toFixed(1));
+  }
+  return pts.join(' ');
+}
+
+function updateLabels(){
+  var m=mu(x);
+  var om=1-m;
+  var rr=m/om;
+  document.getElementById('xVal').textContent=x.toFixed(2);
+  document.getElementById('muVal').textContent=m.toFixed(3);
+  document.getElementById('omVal').textContent=om.toFixed(3);
+  document.getElementById('rlVal').textContent=rr.toFixed(3);
+  var near=Math.round(rr);
+  document.getElementById('csVal').textContent=(Math.abs(rr-near)<0.05&&near>0)?near.toString():'—';
+}
+
+function draw(){
+  var m=mu(x),om=1-m;
+  var R=m,r=om;
+
+  var tA=document.getElementById('tetA');
+  tA.setAttribute('cx',CX);tA.setAttribute('cy',CY);tA.setAttribute('r',(R*SC).toFixed(1));
+
+  var center=rc(t,R,r);
+  var tB=document.getElementById('tetB');
+  tB.setAttribute('cx',tx(center[0]).toFixed(1));
+  tB.setAttribute('cy',ty(center[1]).toFixed(1));
+  tB.setAttribute('r',(r*SC).toFixed(1));
+
+  document.getElementById('traceFull').setAttribute('d',fullCurvePath(R,r));
+
+  if(tracePoints.length>1){
+    var d='M'+tracePoints[0];
+    for(var i=1;i<tracePoints.length;i++) d+='L'+tracePoints[i];
+    document.getElementById('traceAnim').setAttribute('d',d);
+  } else {
+    document.getElementById('traceAnim').setAttribute('d','');
+  }
+
+  var cp=[R*Math.cos(t),R*Math.sin(t)];
+  document.getElementById('contactDot').setAttribute('cx',tx(cp[0]).toFixed(1));
+  document.getElementById('contactDot').setAttribute('cy',ty(cp[1]).toFixed(1));
+
+  var tp=epi(t,R,r);
+  document.getElementById('traceDot').setAttribute('cx',tx(tp[0]).toFixed(1));
+  document.getElementById('traceDot').setAttribute('cy',ty(tp[1]).toFixed(1));
+
+  document.getElementById('dashLine').setAttribute('x1',CX);
+  document.getElementById('dashLine').setAttribute('y1',CY);
+  document.getElementById('dashLine').setAttribute('x2',tx(center[0]).toFixed(1));
+  document.getElementById('dashLine').setAttribute('y2',ty(center[1]).toFixed(1));
+
+  document.getElementById('armLine').setAttribute('x1',tx(center[0]).toFixed(1));
+  document.getElementById('armLine').setAttribute('y1',ty(center[1]).toFixed(1));
+  document.getElementById('armLine').setAttribute('x2',tx(tp[0]).toFixed(1));
+  document.getElementById('armLine').setAttribute('y2',ty(tp[1]).toFixed(1));
+
+  document.getElementById('labelA').setAttribute('y',CY-R*SC-10);
+  document.getElementById('labelB').setAttribute('x',tx(center[0]).toFixed(1));
+  document.getElementById('labelB').setAttribute('y',(ty(center[1])-r*SC-10).toFixed(1));
+}
+
+document.getElementById('xSlider').addEventListener('input',function(){
+  x=parseFloat(this.value);tracePoints=[];t=0;updateLabels();draw();
+});
+
+document.getElementById('btnPlay').addEventListener('click',function(){
+  playing=!playing;
+  this.textContent=playing?'Pause':'Play';
+  if(playing)animate();
+});
+document.getElementById('btnReset').addEventListener('click',function(){
+  t=0;tracePoints=[];playing=false;
+  document.getElementById('btnPlay').textContent='Play';
+  draw();
+});
+
+function setX(v){
+  x=v;document.getElementById('xSlider').value=v;
+  tracePoints=[];t=0;updateLabels();draw();
+}
+
+function animate(){
+  if(!playing)return;
+  t+=0.025;
+  var m=mu(x),om=1-m;
+  var tp=epi(t,m,om);
+  tracePoints.push(tx(tp[0]).toFixed(1)+','+ty(tp[1]).toFixed(1));
+  if(tracePoints.length>5000)tracePoints.shift();
+  draw();
+  requestAnimationFrame(animate);
+}
+
+updateLabels();draw();
+</script>
+</body>
+</html>

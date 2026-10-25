@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TetB Chamber — 64 Channel Closure Walk</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&family=Crimson+Pro:wght@400;600;700&display=swap');
+
+:root {
+  --bg: #08090d;
+  --bg2: #0f1118;
+  --bg3: #171a24;
+  --text: #b8bcc8;
+  --dim: #454d64;
+  --bright: #eef0f6;
+  --cyan: #00ddb8;
+  --gold: #d4a000;
+  --rose: #d04878;
+  --violet: #9060d0;
+  --blue: #4888d8;
+  --green: #38b868;
+  --gate-glow: rgba(208, 72, 120, 0.25);
+  --spatial-glow: rgba(0, 221, 184, 0.12);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  min-height: 100vh;
+}
+
+h1 {
+  font-family: 'Crimson Pro', serif;
+  font-size: 1.6rem;
+  color: var(--bright);
+  letter-spacing: 0.02em;
+  margin-bottom: 0.2rem;
+}
+
+.sub {
+  font-size: 0.5rem;
+  color: var(--dim);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.controls {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.8rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.controls button {
+  background: var(--bg2);
+  border: 1px solid #252838;
+  color: var(--dim);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.55rem;
+  padding: 0.3rem 0.6rem;
+  cursor: pointer;
+  border-radius: 2px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: all 0.15s;
+}
+
+.controls button:hover { border-color: var(--cyan); color: var(--cyan); }
+.controls button.active { background: rgba(0,221,184,0.08); border-color: var(--cyan); color: var(--cyan); }
+
+.main-layout {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1100px;
+}
+
+.canvas-wrap {
+  background: var(--bg2);
+  border: 1px solid #1e2130;
+  border-radius: 3px;
+  padding: 0.6rem;
+}
+
+.canvas-wrap h3 {
+  font-size: 0.5rem;
+  color: var(--dim);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 0.4rem;
+}
+
+canvas { display: block; border-radius: 2px; }
+
+.side-panel {
+  background: var(--bg2);
+  border: 1px solid #1e2130;
+  border-radius: 3px;
+  padding: 0.7rem;
+  width: 260px;
+  font-size: 0.6rem;
+  max-height: 620px;
+  overflow-y: auto;
+}
+
+.side-panel h4 {
+  font-size: 0.5rem;
+  color: var(--dim);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+
+.step-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 2px 0;
+  border-bottom: 1px solid #12151e;
+  color: var(--dim);
+  font-size: 0.55rem;
+}
+
+.step-row.active { color: var(--cyan); background: rgba(0,221,184,0.05); }
+.step-row .gate-marker { color: var(--rose); }
+.step-row .spatial-marker { color: var(--cyan); }
+
+.slider-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.8rem;
+  background: var(--bg2);
+  border: 1px solid #1e2130;
+  border-radius: 3px;
+  padding: 0.5rem 0.8rem;
+}
+
+.slider-wrap label {
+  font-size: 0.55rem;
+  color: var(--dim);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.slider-wrap input[type=range] {
+  flex: 1;
+  cursor: pointer;
+  accent-color: var(--cyan);
+}
+
+.slider-wrap .val {
+  font-size: 0.8rem;
+  color: var(--cyan);
+  font-weight: 600;
+  min-width: 3em;
+  text-align: right;
+}
+
+.legend {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.5rem;
+  color: var(--dim);
+  letter-spacing: 0.08em;
+}
+
+.legend-dot { width: 7px; height: 7px; border-radius: 1px; }
+
+.info {
+  max-width: 700px;
+  margin-top: 0.8rem;
+  background: var(--bg3);
+  border: 1px solid #1e2130;
+  border-radius: 3px;
+  padding: 0.6rem 0.8rem;
+  font-size: 0.55rem;
+  color: var(--dim);
+  line-height: 1.7;
+  text-align: center;
+}
+.info b { color: var(--cyan); }
+.info .r { color: var(--rose); }
+</style>
+</head>
+<body>
+
+<h1>TetB Chamber — 64 Channel Closure Walk</h1>
+<div class="sub">Sierpiński projection of 4 faces × 4 channels × 4 subchannels &middot; Hamming-addressed traversal</div>
+
+<div class="legend">
+  <div class="legend-item"><div class="legend-dot" style="background:var(--cyan)"></div>Spatial (corner)</div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--rose)"></div>Gate (center)</div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--violet)"></div>Active step</div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--gold)"></div>Cycle boundary</div>
+</div>
+
+<div class="controls">
+  <button class="active" onclick="setMode('manual')">Manual Step</button>
+  <button onclick="setMode('cycle1')">Cycle 1: Faces</button>
+  <button onclick="setMode('cycle2')">Cycle 2: Channels</button>
+  <button onclick="setMode('cycle3')">Cycle 3: Subchannels</button>
+  <button onclick="setMode('full')">Full Walk (π)</button>
+  <button onclick="resetWalk()">Reset</button>
+</div>
+
+<div class="slider-wrap">
+  <label>Walk Step</label>
+  <input type="range" id="stepSlider" min="0" max="64" value="0">
+  <span class="val" id="stepVal">0 / 64</span>
+</div>
+
+<div class="main-layout">
+  <div class="canvas-wrap">
+    <h3>TetB Chamber — 64 Subchannels</h3>
+    <canvas id="mainCanvas" width="560" height="500"></canvas>
+  </div>
+  
+  <div class="side-panel" id="sidePanel">
+    <h4>Walk Trace</h4>
+    <div id="walkLog"></div>
+  </div>
+</div>
+
+<div class="info" id="infoBox">
+  <b>Manual mode:</b> Drag the slider to step through the 64 subchannel closures. Each subchannel is addressed by its position in the Sierpiński hierarchy: <b>Face → Channel → Subchannel</b>. Gate triangles (center, inverted) are marked in <span class="r">rose</span>. The walk evaluates <b>n/4</b> at every cycle.
+</div>
+
+<script>
+const canvas = document.getElementById('mainCanvas');
+const ctx = canvas.getContext('2d');
+const CW = 560, CH = 500;
+
+const K = 4;
+const pad = 30;
+const triH = (CW - pad*2) * Math.sqrt(3) / 2;
+const topY = pad + 20;
+
+// Top-level triangle vertices
+const T0 = {x: CW/2, y: topY};
+const T1 = {x: pad, y: topY + triH};
+const T2 = {x: CW - pad, y: topY + triH};
+
+// ========== GEOMETRY: Build all 64 triangles with hierarchy info ==========
+
+const allTriangles = []; // Each: {pts, level, isUp, path, isGate, faceIdx, chanIdx, subIdx}
+
+function midpoint(a, b) { return {x:(a.x+b.x)/2, y:(a.y+b.y)/2}; }
+
+function subdivide(p0, p1, p2, isUp) {
+  const m01 = midpoint(p0, p1);
+  const m12 = midpoint(p1, p2);
+  const m20 = midpoint(p2, p0);
+  
+  if (isUp) {
+    return [
+      {pts: [p0, m01, m20], isUp: true, role: 'corner', idx: 0},    // top corner
+      {pts: [m01, p1, m12], isUp: true, role: 'corner', idx: 1},    // bottom-left corner
+      {pts: [m20, m12, p2], isUp: true, role: 'corner', idx: 2},    // bottom-right corner
+      {pts: [m01, m12, m20], isUp: false, role: 'gate', idx: 3},    // center (inverted) = GATE
+    ];
+  } else {
+    return [
+      {pts: [p0, m01, m20], isUp: false, role: 'corner', idx: 0},
+      {pts: [m01, p1, m12], isUp: false, role: 'corner', idx: 1},
+      {pts: [m20, m12, p2], isUp: false, role: 'corner', idx: 2},
+      {pts: [m01, m12, m20], isUp: true, role: 'gate', idx: 3},     // center (inverted) = GATE
+    ];
+  }
+}
+
+// Level 1: 4 faces
+const level1 = subdivide(T0, T1, T2, true);
+
+level1.forEach((face, fi) => {
+  // Level 2: 4 channels per face
+  const level2 = subdivide(face.pts[0], face.pts[1], face.pts[2], face.isUp);
+  
+  level2.forEach((chan, ci) => {
+    // Level 3: 4 subchannels per channel
+    const level3 = subdivide(chan.pts[0], chan.pts[1], chan.pts[2], chan.isUp);
+    
+    level3.forEach((sub, si) => {
+      allTriangles.push({
+        pts: sub.pts,
+        isUp: sub.isUp,
+        faceIdx: fi,
+        chanIdx: ci,
+        subIdx: si,
+        faceRole: face.role,
+        chanRole: chan.role,
+        subRole: sub.role,
+        isGateAtAnyLevel: face.role === 'gate' || chan.role === 'gate' || sub.role === 'gate',
+        gateDepth: (face.role === 'gate' ? 1 : 0) + (chan.role === 'gate' ? 1 : 0) + (sub.role === 'gate' ? 1 : 0),
+        address: `F${fi}.C${ci}.S${si}`,
+        label: `${fi}${ci}${si}`
+      });
+    });
+  });
+});
+
+// ========== WALK ORDER ==========
+// The topologically correct walk order follows the Hamming structure:
+// At each level: 3 corners (spatial, H=1,2) before the gate (H=3)
+// This means corners before center at every cycle
+
+// Build walk order: Cycle 1 (faces), Cycle 2 (channels), Cycle 3 (subchannels)
+// Order within each level: corners [0,1,2] then gate [3]
+
+const walkOrder = [];
+
+// The Hamming walk: at each level, visit corners first, gate last
+// Face order: 3 spatial corners, then gate face
+const faceOrder = [0, 1, 2, 3]; // corners 0,1,2 then gate 3
+
+faceOrder.forEach(fi => {
+  const chanOrder = [0, 1, 2, 3]; // corners then gate within each face
+  chanOrder.forEach(ci => {
+    const subOrder = [0, 1, 2, 3]; // corners then gate within each channel
+    subOrder.forEach(si => {
+      const idx = allTriangles.findIndex(t => t.faceIdx === fi && t.chanIdx === ci && t.subIdx === si);
+      if (idx >= 0) walkOrder.push(idx);
+    });
+  });
+});
+
+// ========== DRAWING ==========
+
+function centroid(pts) {
+  return {
+    x: (pts[0].x + pts[1].x + pts[2].x) / 3,
+    y: (pts[0].y + pts[1].y + pts[2].y) / 3
+  };
+}
+
+function drawTriangle(tri, fillColor, strokeColor, strokeWidth) {
+  ctx.beginPath();
+  ctx.moveTo(tri.pts[0].x, tri.pts[0].y);
+  ctx.lineTo(tri.pts[1].x, tri.pts[1].y);
+  ctx.lineTo(tri.pts[2].x, tri.pts[2].y);
+  ctx.closePath();
+  if (fillColor) { ctx.fillStyle = fillColor; ctx.fill(); }
+  if (strokeColor) { ctx.strokeStyle = strokeColor; ctx.lineWidth = strokeWidth || 1; ctx.stroke(); }
+}
+
+function getTriColor(tri, stepIdx, activeStep) {
+  const isActive = stepIdx < activeStep;
+  const isCurrent = stepIdx === activeStep - 1;
+  
+  if (isCurrent) {
+    return { fill: 'rgba(144, 96, 208, 0.7)', stroke: '#c090ff', width: 2 };
+  }
+  
+  if (!isActive) {
+    // Unfilled — show faint structure
+    if (tri.subRole === 'gate') return { fill: 'rgba(208,72,120,0.04)', stroke: '#161a24', width: 0.5 };
+    if (tri.chanRole === 'gate') return { fill: 'rgba(208,72,120,0.03)', stroke: '#161a24', width: 0.5 };
+    if (tri.faceRole === 'gate') return { fill: 'rgba(208,72,120,0.02)', stroke: '#161a24', width: 0.5 };
+    return { fill: '#0b0d12', stroke: '#161a24', width: 0.5 };
+  }
+  
+  // Filled — color by gate depth
+  if (tri.gateDepth === 0) {
+    // Pure spatial path (no gates at any level)
+    return { fill: 'rgba(0,221,184,0.45)', stroke: 'rgba(0,221,184,0.6)', width: 1 };
+  } else if (tri.gateDepth === 1) {
+    // One gate in the path
+    return { fill: 'rgba(72,136,216,0.4)', stroke: 'rgba(72,136,216,0.5)', width: 1 };
+  } else if (tri.gateDepth === 2) {
+    // Two gates
+    return { fill: 'rgba(208,72,120,0.35)', stroke: 'rgba(208,72,120,0.5)', width: 1 };
+  } else {
+    // Triple gate (gate at every level)
+    return { fill: 'rgba(208,72,120,0.6)', stroke: 'rgba(208,72,120,0.8)', width: 1.5 };
+  }
+}
+
+function draw(activeStep) {
+  ctx.clearRect(0, 0, CW, CH);
+  
+  // Background
+  ctx.fillStyle = '#08090d';
+  ctx.fillRect(0, 0, CW, CH);
+  
+  // Draw all 64 triangles
+  walkOrder.forEach((triIdx, stepIdx) => {
+    const tri = allTriangles[triIdx];
+    const colors = getTriColor(tri, stepIdx, activeStep);
+    drawTriangle(tri, colors.fill, colors.stroke, colors.width);
+  });
+  
+  // Draw level-1 boundaries (face boundaries) — thicker
+  level1.forEach((face, fi) => {
+    ctx.beginPath();
+    ctx.moveTo(face.pts[0].x, face.pts[0].y);
+    ctx.lineTo(face.pts[1].x, face.pts[1].y);
+    ctx.lineTo(face.pts[2].x, face.pts[2].y);
+    ctx.closePath();
+    ctx.strokeStyle = 'rgba(255,255,255,0.12)';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+  });
+  
+  // Draw level-2 boundaries (channel boundaries) — medium
+  level1.forEach((face) => {
+    const chans = subdivide(face.pts[0], face.pts[1], face.pts[2], face.isUp);
+    chans.forEach(chan => {
+      ctx.beginPath();
+      ctx.moveTo(chan.pts[0].x, chan.pts[0].y);
+      ctx.lineTo(chan.pts[1].x, chan.pts[1].y);
+      ctx.lineTo(chan.pts[2].x, chan.pts[2].y);
+      ctx.closePath();
+      ctx.strokeStyle = 'rgba(255,255,255,0.05)';
+      ctx.lineWidth = 1;
+      ctx.stroke();
+    });
+  });
+  
+  // Labels for the 4 faces
+  const faceLabels = ['Face 0 (top)', 'Face 1 (left)', 'Face 2 (right)', 'Face 3 (GATE)'];
+  const faceColors = ['#00ddb8', '#00ddb8', '#00ddb8', '#d04878'];
+  level1.forEach((face, fi) => {
+    const c = centroid(face.pts);
+    ctx.font = '500 9px "IBM Plex Mono"';
+    ctx.textAlign = 'center';
+    ctx.fillStyle = faceColors[fi];
+    ctx.globalAlpha = 0.5;
+    ctx.fillText(faceLabels[fi], c.x, c.y - 2);
+    ctx.globalAlpha = 1;
+  });
+  
+  // Cycle progress indicators
+  const cycle1 = Math.min(activeStep, 64);
+  const facesComplete = Math.floor(cycle1 / 16);
+  const chansInFace = Math.floor((cycle1 % 16) / 4);
+  const subsInChan = cycle1 % 4;
+  
+  ctx.font = '500 10px "IBM Plex Mono"';
+  ctx.textAlign = 'left';
+  ctx.fillStyle = '#454d64';
+  
+  const by = CH - 15;
+  ctx.fillStyle = '#00ddb8';
+  ctx.fillText(`Cycle 1 (Face): ${facesComplete}/4`, 15, by - 30);
+  ctx.fillStyle = '#4888d8';
+  ctx.fillText(`Cycle 2 (Channel): ${chansInFace}/4`, 15, by - 15);
+  ctx.fillStyle = '#9060d0';
+  ctx.fillText(`Cycle 3 (Sub): ${subsInChan}/4`, 15, by);
+  
+  ctx.textAlign = 'right';
+  ctx.fillStyle = activeStep === 64 ? '#d4a000' : '#454d64';
+  ctx.font = '600 11px "IBM Plex Mono"';
+  ctx.fillText(`${activeStep} / 64 closed`, CW - 15, by);
+  
+  if (activeStep === 64) {
+    ctx.fillStyle = 'rgba(212,160,0,0.8)';
+    ctx.font = '700 14px "Crimson Pro"';
+    ctx.textAlign = 'center';
+    ctx.fillText('FIELD CLOSURE COMPLETE', CW/2, by - 5);
+  }
+  
+  // Top-right: current address
+  if (activeStep > 0 && activeStep <= 64) {
+    const curTriIdx = walkOrder[activeStep - 1];
+    const curTri = allTriangles[curTriIdx];
+    ctx.textAlign = 'right';
+    ctx.font = '400 9px "IBM Plex Mono"';
+    ctx.fillStyle = '#9060d0';
+    ctx.fillText(`Current: ${curTri.address}`, CW - 15, 25);
+    ctx.fillStyle = '#454d64';
+    ctx.fillText(`Gate depth: ${curTri.gateDepth}`, CW - 15, 38);
+  }
+}
+
+// ========== WALK LOG ==========
+
+function updateLog(activeStep) {
+  const log = document.getElementById('walkLog');
+  let html = '';
+  
+  let prevFace = -1, prevChan = -1;
+  
+  walkOrder.forEach((triIdx, stepIdx) => {
+    const tri = allTriangles[triIdx];
+    const isActive = stepIdx < activeStep;
+    const isCurrent = stepIdx === activeStep - 1;
+    
+    // Cycle boundary markers
+    if (tri.faceIdx !== prevFace) {
+      const fLabel = tri.faceRole === 'gate' ? '⬥ GATE FACE' : `▸ Face ${tri.faceIdx}`;
+      const fColor = tri.faceRole === 'gate' ? 'var(--rose)' : 'var(--cyan)';
+      html += `<div style="color:${fColor};font-size:0.5rem;padding:4px 0 1px;font-weight:600;letter-spacing:0.12em;">${fLabel}</div>`;
+      prevFace = tri.faceIdx;
+      prevChan = -1;
+    }
+    if (tri.chanIdx !== prevChan) {
+      const cLabel = tri.chanRole === 'gate' ? '  ⬥ gate ch' : `  ▸ ch ${tri.chanIdx}`;
+      const cColor = tri.chanRole === 'gate' ? 'rgba(208,72,120,0.6)' : 'rgba(72,136,216,0.6)';
+      html += `<div style="color:${cColor};font-size:0.45rem;padding:2px 0 0 8px;">${cLabel}</div>`;
+      prevChan = tri.chanIdx;
+    }
+    
+    const marker = tri.subRole === 'gate' ? '<span class="gate-marker">⬥</span>' : '<span class="spatial-marker">▸</span>';
+    const cls = isCurrent ? 'step-row active' : 'step-row';
+    const opacity = isActive ? '1' : '0.3';
+    
+    html += `<div class="${cls}" style="opacity:${opacity};padding-left:16px;">
+      <span>${marker} ${tri.address}</span>
+      <span style="color:${tri.gateDepth > 0 ? 'var(--rose)' : 'var(--cyan)'}">${tri.gateDepth > 0 ? 'G'+tri.gateDepth : '—'}</span>
+    </div>`;
+  });
+  
+  log.innerHTML = html;
+  
+  // Scroll to current
+  const activeRows = log.querySelectorAll('.active');
+  if (activeRows.length > 0) {
+    activeRows[0].scrollIntoView({block: 'center', behavior: 'smooth'});
+  }
+}
+
+// ========== INTERACTION ==========
+
+const slider = document.getElementById('stepSlider');
+const stepVal = document.getElementById('stepVal');
+let currentMode = 'manual';
+let animFrame = null;
+let animStep = 0;
+
+function render(step) {
+  draw(step);
+  updateLog(step);
+  stepVal.textContent = `${step} / 64`;
+  slider.value = step;
+}
+
+slider.addEventListener('input', () => {
+  if (animFrame) { cancelAnimationFrame(animFrame); animFrame = null; }
+  const step = parseInt(slider.value);
+  render(step);
+});
+
+function setMode(mode) {
+  document.querySelectorAll('.controls button').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+  currentMode = mode;
+  
+  if (animFrame) { cancelAnimationFrame(animFrame); animFrame = null; }
+  
+  const infoBox = document.getElementById('infoBox');
+  
+  switch(mode) {
+    case 'manual':
+      infoBox.innerHTML = '<b>Manual mode:</b> Drag the slider to step through the 64 subchannel closures. Each subchannel is addressed by Face.Channel.Subchannel. Gate triangles (inverted center) are marked in <span class="r">rose</span>. The walk evaluates <b>n/4</b> at every cycle.';
+      break;
+    case 'cycle1':
+      infoBox.innerHTML = '<b>Cycle 1 — Face Level:</b> The first 4 steps resolve which of the 4 tetrahedral faces. 3 spatial corners fill first, then the <span class="r">gate face</span> (center, inverted). Each face contains 16 subchannels. At this cycle, <b>f = 13 + 8·(n/4)</b> where n counts faces.';
+      animateRange(0, 16, 300);
+      break;
+    case 'cycle2':
+      infoBox.innerHTML = '<b>Cycle 2 — Channel Level:</b> Within each face, 4 channels resolve. Same pattern: 3 spatial corners, then <span class="r">gate channel</span>. Each channel contains 4 subchannels. At this cycle, <b>f = 13 + 8·(n/4)</b> where n counts channels per face.';
+      animateRange(0, 48, 120);
+      break;
+    case 'cycle3':
+      infoBox.innerHTML = '<b>Cycle 3 — Subchannel Level:</b> Within each channel, 4 subchannels resolve. 3 spatial corners, then <span class="r">sub-gate</span>. This completes all 64 states. Same polynomial: <b>f = 13 + 8·(n/4)</b>. The tetrahedron is the same at every scale.';
+      animateRange(0, 64, 80);
+      break;
+    case 'full':
+      infoBox.innerHTML = '<b>Full closure walk:</b> All 64 subchannels filled in topological order. The walk reads <b>corners before gates</b> at every level — spatial structure resolves before the Field Origin is traversed. Gate depth 0 = pure spatial (cyan). Depth 1 = one gate crossing (blue). Depth 2 = two gates (rose). Depth 3 = <span class="r">triple gate</span> — the deepest point of TetB.';
+      animateRange(0, 64, 60);
+      break;
+  }
+}
+
+function animateRange(start, end, delay) {
+  animStep = start;
+  render(animStep);
+  
+  function tick() {
+    animStep++;
+    render(animStep);
+    if (animStep < end) {
+      animFrame = setTimeout(tick, delay);
+    }
+  }
+  animFrame = setTimeout(tick, delay);
+}
+
+function resetWalk() {
+  if (animFrame) { clearTimeout(animFrame); animFrame = null; }
+  render(0);
+  document.querySelectorAll('.controls button').forEach(b => b.classList.remove('active'));
+  document.querySelector('.controls button').classList.add('active');
+  currentMode = 'manual';
+}
+
+// Initial render
+render(0);
+</script>
+</body>
+</html>

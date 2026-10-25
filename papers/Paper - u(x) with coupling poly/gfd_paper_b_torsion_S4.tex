@@ -1,0 +1,458 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=0.72in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{hyperref}
+\usepackage{booktabs}
+
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\Sym}{\operatorname{Sym}}
+
+\title{The Torsion Sector of the Tetrad Connection\\
+as the Regular Representation of $S_4$}
+\author{Stephen Nelson\\
+\small Field Dynamics Research\\
+\small\texttt{stephen@fielddynamics.org}}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+The affine connection on the standard tetrad frame has $K^3=64$
+independent components, of which 40 are symmetric and 24 are
+antisymmetric in the lower index pair.  General relativity's torsion-free condition removes the
+associated 24-dimensional torsion sector.
+This note shows that, at the physical frame dimension $K=4$,
+the torsion sector $V\otimes\Lambda^2V^*$, equivalently
+$V\otimes\Lambda^2V$ under the self-duality of the permutation
+representation, carries the regular
+representation of the symmetric group $S_4$ acting by
+permutation of the four frame legs.  The regular representation
+is the richest possible finite-group module: it contains every
+irreducible $S_4$-representation at full multiplicity.  Among the
+five $S_4$ irreps, the sign representation (the unique scalar
+parity detector) appears with multiplicity one in the torsion
+sector and multiplicity zero in the Christoffel sector.  General
+relativity's torsion-free condition therefore removes the only
+scalar mechanism for distinguishing even from odd frame
+permutations.  The identification holds
+at $K=4$ and at the degenerate $K=2$; at every other frame
+dimension the torsion count $K^2(K-1)/2$ does not equal $K!$.
+\end{abstract}
+
+
+\section{The torsion question}
+
+The vielbein formulation of general relativity describes the
+gravitational field through a frame field $e^a{}_\mu$ with $K=4$
+internal frame legs~\cite{Wald1984,Hehl1976}.  The affine
+connection $\Gamma^a{}_{bc}$ on this frame carries three frame
+indices and therefore has $K^3=64$ independent components.  Under
+exchange of the lower index pair, these components divide into two
+families: 40 in the lower-index symmetric sector, corresponding to
+the torsion-free connection, and 24 in the lower-index
+antisymmetric sector, sampled by the torsion
+tensor~\cite{Hehl1976}.
+
+Einstein formulated general relativity in 1915 with the assumption
+that the connection is symmetric in its lower indices, setting all
+24 torsion components to zero.  Cartan~\cite{Cartan1922} showed in
+1922 that the mathematical framework accommodates torsion naturally,
+and Hehl and collaborators~\cite{Hehl1976} developed the full
+Einstein-Cartan theory, in which the 24 torsion components couple
+to the spin density of matter.  The resulting theory reproduces
+every prediction of general relativity in vacuum and differs only
+inside extremely dense spinning matter.
+
+The torsion sector has been studied extensively under the continuous
+Lorentz group.  Its decomposition into irreducible Lorentz
+representations (vector, axial vector, and tensor parts, with
+$4+4+16=24$ components) is standard~\cite{Hehl1976}.  What has
+received less attention is the discrete symmetry structure of the
+torsion sector under the permutation group of the frame legs
+themselves.  The four legs of the tetrad can be permuted in $4!=24$
+ways, and the symmetric group $S_4$ acts naturally on any tensor
+built from the frame space $V$.  The question addressed here is
+whether this action reveals additional algebraic structure in the
+torsion sector, beyond what the continuous Lorentz decomposition
+provides.
+
+The answer, as I show below, is that it does.  The $S_4$ action on
+the torsion sector $V\otimes\Lambda^2V^*$ (equivalently
+$V\otimes\Lambda^2V$ as an $S_4$-module) has a particularly clean
+character: it is the regular representation of $S_4$.  This is the
+strongest possible finite-group structure a $|G|$-dimensional space
+can carry; it contains every irreducible representation at full
+multiplicity.  The result holds at $K=4$ and at the
+degenerate case $K=2$; it fails at every other positive integer,
+because the numerical coincidence $K^2(K-1)/2=K!$ is satisfied
+only at these two values.  The physical spacetime dimension is
+therefore distinguished, within the tetrad formalism, as the unique
+nontrivial dimension where the torsion sector exhausts the full
+permutation structure of the frame.
+
+In what follows, Section~2 recalls the $S_4$ action on the frame
+space and its exterior powers, Section~3 computes the character of
+the induced representation on $V\otimes\Lambda^2V^*$, Section~4
+establishes the regular-representation identification, and
+Section~5 shows that the sign representation lives exclusively in
+the torsion sector.  The notation is standard: $V$ is a real $K$-dimensional
+vector space, $S_4$ acts by permutation of a chosen basis, and
+characters are traces of representation matrices.
+
+
+\section{The frame permutation group}
+
+The connection $\Gamma^a{}_{bc}$ carries three indices from the set
+$\{0,1,2,3\}$.  Any tensor whose indices run over a set of size
+$K$ inherits a canonical $S_K$ action by permutation of the index
+labels.  This action exists prior to and independently of any inner
+product on $V$; the Lorentz group $O(1,3)$ arises only after the
+inner product $\eta$ is imposed, restricting $GL(4)$ to its
+$\eta$-preserving subgroup.
+
+The $S_4$ representation theory computed here describes the
+index-permutation module of the torsion component space.  Adding
+$\eta$ breaks $S_4$ to the subgroup that preserves the signature
+pattern (essentially $S_1\times S_3$, permuting the three
+spacelike legs while fixing the timelike leg), but the
+representation-theoretic content of the full $S_4$ action remains
+as the pre-metric algebraic structure of the frame.  The Lorentz
+decomposition of torsion into vector, axial vector, and tensor
+parts ($4+4+16$) is a post-$\eta$ decomposition of the same
+24-dimensional component space.  The regular representation found
+below is a pre-$\eta$ index-permutation structure on that space.
+The relationship between these two decompositions is left open.
+
+The character $\chi_V(\sigma)$ used throughout this note counts
+fixed frame labels; it does not evaluate any inner product.  The
+computation is therefore independent of whether the frame carries
+Lorentzian, Euclidean, or no signature at all.
+
+Let $\{e_0,e_1,e_2,e_3\}$ be a basis for the four-dimensional
+frame space $V$.  The symmetric group $S_4$ acts on $V$ by
+permuting these basis vectors: for $\sigma\in S_4$,
+\[
+        \sigma\cdot e_a = e_{\sigma(a)}.
+\]
+This is the defining (or natural) representation of $S_4$ on $V$.
+Its character is the number of fixed points:
+\[
+        \chi_V(\sigma) = |\{a : \sigma(a)=a\}|.
+\]
+
+The action extends to tensor products and exterior powers by
+linearity.  On the exterior square $\Lambda^2V$, whose basis
+elements are the antisymmetric wedge products $e_i\wedge e_j$
+$(i<j)$, the group acts by
+\[
+        \sigma\cdot(e_i\wedge e_j)
+        = e_{\sigma(i)}\wedge e_{\sigma(j)}.
+\]
+The character of this representation is given by the standard
+formula~\cite{FultonHarris}
+\[
+        \chi_{\Lambda^2V}(\sigma)
+        = \frac{\chi_V(\sigma)^2 - \chi_V(\sigma^2)}{2}.
+\]
+
+The torsion sector of the connection is the tensor product
+$V\otimes\Lambda^2V^*$.  For the permutation representation of
+$S_4$, the natural representation is self-dual ($V^*\cong V$ as
+$S_4$-modules), so the character computation may be carried out
+equivalently on $V\otimes\Lambda^2V$ without changing the result.
+The dimension is $K\times K(K-1)/2 = 4\times 6 = 24$.  Each
+torsion component $T^a{}_{[bc]}$ is indexed by one frame label $a$
+from the set $\{0,1,2,3\}$ and one antisymmetric pair $[bc]$ from
+the $\binom{4}{2}=6$ unordered pairs.  This is the incidence
+structure of a combinatorial tetrahedron: four vertices connected
+by six edges, giving $4\times 6=24$ vertex-edge incidences.  The
+same count gives $|S_4|=4!=24$, which is why the regular
+representation fits exactly into this component space.
+
+The $S_4$ action on this space is the tensor
+product of the two actions above, with character
+\[
+        \chi_{V\otimes\Lambda^2V}(\sigma)
+        = \chi_V(\sigma)\cdot\chi_{\Lambda^2V}(\sigma).
+\]
+
+
+\section{The character computation}
+
+The group $S_4$ has five conjugacy classes, distinguished by cycle
+type.  For each class, one computes $\chi_V$, then $\chi_V$ of the
+squared element $\sigma^2$, then $\chi_{\Lambda^2V}$, and finally
+the product.
+
+\begin{center}
+\begin{tabular}{lccccc}
+\toprule
+Cycle type & Size & $\chi_V(\sigma)$ & $\chi_V(\sigma^2)$
+           & $\chi_{\Lambda^2V}(\sigma)$
+           & $\chi_{V\otimes\Lambda^2V}(\sigma)$ \\
+\midrule
+$(1^4)$: identity         & 1  & 4 & 4 & 6  & 24 \\
+$(2,1^2)$: transpositions & 6  & 2 & 4 & 0  & 0  \\
+$(3,1)$: 3-cycles         & 8  & 1 & 1 & 0  & 0  \\
+$(4)$: 4-cycles           & 6  & 0 & 0 & 0  & 0  \\
+$(2^2)$: double transpos. & 3  & 0 & 4 & $-2$ & 0  \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The entries are computed as follows.
+
+\textbf{Identity.}  All four legs are fixed, so $\chi_V(e)=4$.
+Then $\chi_V(e^2)=4$ and $\chi_{\Lambda^2V}(e)=(16-4)/2=6$.
+Product: $4\times 6=24$.
+
+\textbf{Transpositions.}  A transposition fixes two legs,
+so $\chi_V=2$.  Its square is the identity, so $\chi_V(\sigma^2)=4$.
+Then $\chi_{\Lambda^2V}=(4-4)/2=0$.  Product: $2\times 0=0$.
+
+\textbf{3-cycles.}  A 3-cycle fixes one leg, so $\chi_V=1$.
+Its square is another 3-cycle (same conjugacy class), so
+$\chi_V(\sigma^2)=1$.  Then $\chi_{\Lambda^2V}=(1-1)/2=0$.
+Product: $1\times 0=0$.
+
+\textbf{4-cycles.}  A 4-cycle fixes no legs, so $\chi_V=0$.
+Its square is a double transposition, so $\chi_V(\sigma^2)=0$.
+Then $\chi_{\Lambda^2V}=(0-0)/2=0$.  Product: $0\times 0=0$.
+
+\textbf{Double transpositions.}  No legs are fixed, so $\chi_V=0$.
+The square of a double transposition is the identity, so
+$\chi_V(\sigma^2)=4$.  Then $\chi_{\Lambda^2V}=(0-4)/2=-2$.
+Product: $0\times(-2)=0$.
+
+
+\section{The regular representation}
+
+\begin{theorem}
+Let $V$ be the four-dimensional permutation representation of $S_4$.
+Then the $S_4$-module $V\otimes\Lambda^2V^*$, equivalently
+$V\otimes\Lambda^2V$ under the natural self-duality of the
+permutation representation, is isomorphic to the regular
+representation of $S_4$.
+\end{theorem}
+
+\begin{proof}
+A representation whose character equals $|G|$ on the identity and
+vanishes on every other group element is, by definition, the
+regular representation~\cite{FultonHarris,Serre}.  The table in
+Section~3 shows $\chi(e)=24=|S_4|$ and $\chi(\sigma)=0$ for all
+$\sigma\neq e$.
+\end{proof}
+
+The regular representation is the richest finite-group module
+of its dimension.  It decomposes into irreducible representations
+as
+\[
+        \text{reg} = \bigoplus_\rho \dim(\rho)\cdot\rho,
+\]
+where the sum runs over all irreducible representations $\rho$ of
+$S_4$, each appearing with multiplicity equal to its own
+dimension.  The irreducible representations of $S_4$ have
+dimensions $\{1,1,2,3,3\}$, and the decomposition is confirmed by
+\[
+        1^2 + 1^2 + 2^2 + 3^2 + 3^2 = 1+1+4+9+9 = 24.
+\]
+General relativity's torsion-free condition therefore does not
+merely remove 24 components from the connection.  It removes a
+complete copy of the $S_4$ group algebra, containing every type of
+frame-permutation symmetry at full multiplicity.
+
+
+\section{The sign representation and root-blindness}
+
+Among the five irreducible representations of $S_4$, two are
+one-dimensional: the trivial representation, which assigns $+1$ to
+every permutation, and the sign representation, which assigns $+1$
+to even permutations and $-1$ to odd.  The sign representation is
+the unique one-dimensional module that detects frame-orientation
+reversal: it is the scalar parity channel of the permutation group.
+
+The regular representation contains every irrep at full
+multiplicity, so the torsion sector carries one copy of the sign
+representation.  The Christoffel sector, by contrast, carries zero
+copies.  This can be verified by computing the inner product of the
+Christoffel character $(40,8,1,0,0)$ with the sign character
+$(1,-1,1,-1,1)$:
+\[
+        \langle\chi_{\rm Chris},\chi_{\rm sign}\rangle
+        =\frac{1}{24}\bigl[
+        1{\cdot}40{\cdot}1
+        +6{\cdot}8{\cdot}(-1)
+        +8{\cdot}1{\cdot}1
+        +6{\cdot}0{\cdot}(-1)
+        +3{\cdot}0{\cdot}1
+        \bigr]
+        =\frac{40-48+8}{24}=0.
+\]
+The sign representation is entirely absent from the Christoffel
+sector.  It lives exclusively in the torsion.
+
+This result gives a representation-theoretic formulation of
+root-blindness.  The torsion-free connection, built from the
+40-dimensional Christoffel sector alone, has no scalar mechanism
+for distinguishing even from odd frame permutations.  The single
+copy of the sign representation that would provide such a mechanism
+sits in the 24-dimensional torsion sector, which general
+relativity's torsion-free condition removes.  In this precise $S_4$-module sense, root-blindness is
+not merely an interpretive gloss on the quadratic structure of
+the metric; it is the absence of the sign representation from the
+Christoffel module.
+
+
+\section{The uniqueness of $K=4$}
+
+\begin{proposition}
+The numerical identity $K^2(K-1)/2 = K!$ holds for positive
+integers only at $K\in\{2,4\}$.
+\end{proposition}
+
+\begin{proof}
+Dividing both sides by $K>0$ gives $K(K-1)/2 = (K-1)!$.  For
+$K\geq 3$, the left side grows as $O(K^2)$ while the right side
+grows as $O((K-1)!)$, which eventually dominates.  Direct
+computation:
+\begin{center}
+\begin{tabular}{ccc}
+\toprule
+$K$ & $K^2(K-1)/2$ & $K!$ \\
+\midrule
+1 & 0 & 1 \\
+2 & 2 & 2 \\
+3 & 9 & 6 \\
+4 & 24 & 24 \\
+5 & 50 & 120 \\
+6 & 90 & 720 \\
+\bottomrule
+\end{tabular}
+\end{center}
+For $K=1$, the left side vanishes while $K!=1$, so no solution
+occurs.  For $K\geq 5$, $K! > K^2(K-1)/2$ strictly, since
+$(K-1)! > K(K-1)/2$ for $K\geq 5$.  The case $K=2$ is the trivial
+two-dimensional frame.  The case $K=4$ is the standard tetrad.
+\end{proof}
+
+The regular-representation identification is therefore not a
+generic property of frame spaces in arbitrary dimension.  It is
+specific to the physical spacetime dimension $K=4$.  At $K=3$, the
+torsion sector has 9 components but $|S_3|=6$; the regular
+representation does not fit.  At $K=5$, the torsion has 50
+components but $|S_5|=120$; again, no match.  The result presented
+here is an arithmetical fact about four-dimensional tetrad frames
+with no nondegenerate higher-dimensional analogue.
+
+
+\section{Discussion}
+
+The main observation of this note is that the torsion sector of the
+four-dimensional tetrad connection carries algebraic structure that
+has not been visible in the standard Lorentz decomposition.  The
+$S_4$ regular representation is the strongest possible finite-group
+module of dimension 24: it contains every irreducible
+representation at full multiplicity.
+
+The Einstein-Cartan programme has traditionally motivated torsion
+through its coupling to the spin density of
+matter~\cite{Hehl1976}.  The present result offers a complementary
+perspective: the torsion sector is not merely a collection of
+antisymmetric connection components, but the complete permutation
+algebra of the four frame legs.  Setting torsion to zero is
+therefore equivalent, in the $S_4$ language, to discarding the
+entire regular representation of the frame permutation group.
+
+The irrep decomposition reveals an asymmetry between the two
+connection sectors that is not apparent from dimension counting
+alone.  The Christoffel sector $V\otimes\Sym^2V$ has character
+$\chi_{\rm Chris}=\chi_V\cdot\chi_{\Sym^2V}=(40,8,1,0,0)$ and
+decomposes under $S_4$ as
+\[
+        4\cdot\mathbf{1}
+        \oplus 3\cdot V_2
+        \oplus 7\cdot V_3
+        \oplus 3\cdot (V_3\otimes\mathrm{sgn}),
+\]
+with zero copies of the sign representation.  Here $V_2$ denotes
+the two-dimensional irreducible representation and $V_3$ the
+three-dimensional standard representation.  The torsion sector
+(24 components), being the regular representation, contains one
+copy of every irrep, including the sign.  The sign representation
+is the unique one-dimensional $S_4$-module that distinguishes even
+from odd frame permutations.  Its complete absence from the
+Christoffel sector means that the torsion-free connection lacks the
+scalar parity channel of the frame permutation group.
+
+In the companion note~\cite{PhaseA}, the reciprocal partition law
+$u(x)=x/(1+x)$ was derived from the $\mathbb Z_2$ exchange
+symmetry of the bilinear sector $V\otimes V=\Sym^2V\oplus
+\Lambda^2V$.  The present result identifies the torsion sector as
+the unique carrier of the sign representation within the full
+64-component connection.  Without the torsion, the connection has
+no scalar sign channel for detecting even/odd frame-permutation
+parity.  With torsion included, the sign representation supplies
+exactly this missing scalar parity channel.
+The occupation law $u(x)$ from the companion note acts on the
+$\Sym^2V/\Lambda^2V$ partition; the present note shows that the
+scalar frame-parity channel associated with the antisymmetric side
+resides exclusively in the torsion sector that general relativity
+removes.
+
+Several directions remain open.  The regular representation
+decomposes into the five irreducible $S_4$ types of dimensions
+$1,1,2,3,3$, appearing with multiplicities $1,1,2,3,3$
+respectively.  How this finite-group decomposition interfaces with
+the standard Lorentz decomposition $4+4+16$ remains to be worked
+out.  The explicit isomorphism between $V\otimes\Lambda^2V^*$ and
+$\mathbb R[S_4]$, and the tensor-component realisation of the
+$S_4$ irrep structure, also remain to be constructed.  These
+questions are left for future work.
+
+
+\begin{thebibliography}{9}
+
+\bibitem{Wald1984}
+R.~M. Wald,
+\emph{General Relativity},
+University of Chicago Press (1984).
+
+\bibitem{Hehl1976}
+F.~W. Hehl, P.~von der Heyde, G.~D. Kerlick, and J.~M. Nester,
+``General relativity with spin and torsion: Foundations and
+prospects'',
+\emph{Rev.\ Mod.\ Phys.} \textbf{48}, 393--416 (1976).
+
+\bibitem{Cartan1922}
+\'E.~Cartan,
+``Sur une g\'en\'eralisation de la notion de courbure de Riemann
+et les espaces \`a torsion'',
+\emph{C.\ R.\ Acad.\ Sci.\ Paris} \textbf{174}, 593--595 (1922).
+
+\bibitem{FultonHarris}
+W.~Fulton and J.~Harris,
+\emph{Representation Theory: A First Course},
+Springer (1991).
+
+\bibitem{Serre}
+J.-P.~Serre,
+\emph{Linear Representations of Finite Groups},
+Springer (1977).
+
+\bibitem{PhaseA}
+S.~Nelson,
+``An algebraic origin for the simple AQUAL interpolation
+function'',
+submitted (2026).
+
+\end{thebibliography}
+
+\end{document}

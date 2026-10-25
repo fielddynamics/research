@@ -1,0 +1,552 @@
+\documentclass[twocolumn]{iopjournal}
+
+\usepackage{amsmath,amssymb,amsfonts}
+
+\fancyhfoffset[L]{0mm}
+\setlength{\marginparwidth}{0pt}
+\setlength{\marginparsep}{0pt}
+
+% ==========================================
+% ZENODO PREPRINT HEADERS (ACTIVE)
+% ==========================================
+\renewcommand{\articletype}[1]{%
+  {\vspace*{-8mm}\noindent \Large \sf Preprint}\par
+  \vspace*{6mm}\noindent{\scriptsize \sf{\bfseries \MakeUppercase{#1}}}}
+
+\fancyhead[L]{}
+\fancyhead[R]{}
+
+\begin{document}
+
+\articletype{Letter}
+
+\title{The Other Half of Gravity:\\
+Torsion and the Two-Chamber Structure of the Tetrad Frame}
+
+\author{Stephen Nelson}
+
+\affil{Field Dynamics Research}
+
+\ead{stephen@fielddynamics.org}
+
+\begin{abstract}
+The connection on the tetrad frame has $K^3 = 64$
+independent components. General relativity's zero-torsion
+condition removes 24 of them, the antisymmetric sector,
+retaining 40~Christoffel symbols determined by the metric. The
+companion letter~\cite{Nelson2026a} proved that the tetrad
+equation produces two bounded tetrahedral regions related by
+spatial parity: TetA (the identity component) and TetB (the
+parity component). The present letter proves that a torsion-free
+connection cannot distinguish TetA from TetB (Lemma, Section~2):
+the torsion sector is the necessary carrier of the two-chamber
+distinction, and the zero-torsion condition collapses it. The
+exchange-symmetric partition
+derived in Supplementary Note~1 uniquely determines the TetB
+field fraction as $1/(x{+}1)$, where
+$x = g/a_0$ is the dimensionless acceleration. A coupling
+polynomial $f(K,s) = 1 + sK + K^2$ organises
+the full count structure and yields the torsion identity
+$24 = D \times 2K$ exclusively at $K = 4$ (Section~5). The ratio
+of the removed to the retained field response is $1/x$, which is
+algebraically identical to the dark-to-baryon mass ratio of the
+cold dark matter framework.
+\end{abstract}
+
+% ==================================================================
+
+\section{The torsion question}
+
+The vielbein formulation of general relativity describes the
+gravitational field through a frame field $e^a{}_\mu$ with
+$K = 4$ legs~\cite{MTW}. The affine connection
+$\Gamma^I{}_{JK}$ on this frame carries three frame indices and
+therefore has $K^3 = 64$ independent components. Under exchange
+of the lower index pair, these components divide into two
+families: 40 that are symmetric under the exchange, and 24 that
+are antisymmetric. The symmetric components are the Christoffel
+symbols, fully determined by the metric and its first
+derivatives. The antisymmetric components are the
+torsion~\cite{Hehl1976}.
+
+In 1915, Einstein formulated general relativity with the
+assumption that the connection is symmetric in its lower
+indices, setting all 24 torsion components to zero. This was
+recognised early as a simplifying choice rather than a geometric
+necessity. Cartan~\cite{Cartan1922} showed in 1922 that the
+mathematical framework
+accommodates torsion naturally, and Hehl and
+collaborators~\cite{Hehl1976} developed the full Einstein-Cartan
+theory, in which the 24 torsion components couple to the spin
+density of matter. The resulting theory reproduces every
+prediction of general relativity in vacuum and differs only
+inside extremely dense spinning matter.
+
+Yet the geometric identity of the 24 components, what they
+represent in the structure of the tetrad frame, beyond their
+index antisymmetry, has remained an open question. The
+companion letter~\cite{Nelson2026a} provides the tools to
+answer it. That letter proved that the tetrad equation
+$g_{\mu\nu} = \eta_{ab}\,e^a{}_\mu\,e^b{}_\nu$ produces two
+bounded tetrahedral regions in its spatial sector, related by
+spatial parity $P: e^i \to -e^i$. The identity component gives
+TetA; the parity component gives TetB. Their union is the
+stellated octahedron.
+
+The present letter identifies the 24 torsion components with
+TetB, derives the fraction of the gravitational field response
+they carry, and traces the consequences of their removal.
+
+% ==================================================================
+
+\section{The parity identification}
+
+The argument requires two established results and one lemma
+that connects them.
+
+The first result is geometric. The companion
+letter~\cite{Nelson2026a} proved that spatial parity
+decomposes the tetrad equation's spatial sector into two bounded
+regions: TetA, which is the identity component under
+$P: e^i \to -e^i$, and TetB, which is the parity component.
+The identification of vielbein legs with oriented tetrahedral
+faces is established in that companion letter and is used here
+only as prior geometric input.
+
+The second result is algebraic and entirely standard. The affine
+connection $\Gamma^I{}_{JK}$ decomposes under exchange of the
+lower index pair $(J \leftrightarrow K)$ into two sectors: the
+40~symmetric components, which are invariant under the exchange,
+and the 24~antisymmetric components, which reverse
+sign~\cite{MTW,Hehl1976}. The symmetric sector is the identity
+sector under index exchange; the antisymmetric sector is the
+parity sector.
+
+The following lemma connects the two decompositions.
+
+\medskip
+\noindent\textbf{Lemma.} \textit{A torsion-free connection
+cannot distinguish TetA from TetB.}
+
+\medskip\noindent\textit{Proof.}
+A torsion-free connection is uniquely determined by the metric
+and its first derivatives (the fundamental theorem of Riemannian
+geometry~\cite{MTW}). The metric
+$g_{\mu\nu} = \eta_{ab}\,e^a{}_\mu\,e^b{}_\nu$ is bilinear in
+the frame field. Under the spatial parity
+$P: e^i \to -e^i$ that exchanges TetA and TetB, both factors
+acquire a sign flip; the two signs cancel, leaving $g_{\mu\nu}$
+invariant. The metric is therefore invariant under
+$\text{TetA} \leftrightarrow \text{TetB}$. A torsion-free
+connection, being fully determined by this invariant metric,
+inherits that invariance: it treats TetA and TetB
+identically.\hfill$\square$
+
+\medskip
+\noindent\textit{Corollary.} The torsion sector is the
+necessary carrier of the TetA/TetB distinction at the
+connection level. Without torsion, the connection is built
+entirely from the parity-invariant metric and cannot encode
+which of the two tetrahedral chambers a given field response
+belongs to. Setting torsion to zero does not merely reduce the
+number of connection components from 64 to 40; it collapses the
+two-chamber structure of the tetrad geometry into a single
+effective sector.
+
+The torsion-free specialisation
+$\Gamma^I{}_{[JK]} = 0$ therefore sets to zero the only sector
+of the connection that can carry the TetA/TetB distinction. In
+the partition language developed below, this means attributing
+the full field response to a single effective sector.
+
+% ==================================================================
+
+\section{The TetB field fraction}
+
+Because TetA and TetB together exhaust the bounded structure of
+the tetrad equation, the gravitational field response at each
+point in space partitions between them. Let $\mu(x)$ denote the
+fraction of the total field response carried by TetA at
+dimensionless acceleration $x = g/a_0$, so that $1 - \mu(x)$ is
+the fraction carried by TetB. The two fractions sum to unity
+because $\mu$ measures the relative partition between the two
+coupled sectors, not the absolute field strength. In the
+weak-field regime relevant to galactic dynamics, the connection
+components that govern test-particle motion reduce to gradients
+of the Newtonian potential, so the field-response partition acts
+directly on the gravitational acceleration.
+
+Spatial parity exchanges TetA and TetB. Under this exchange the
+acceleration ratio inverts and the two fractions swap, imposing
+the functional equation $\mu(1/x) = 1 - \mu(x)$. Supplementary
+Note~1 proves that this exchange symmetry, combined with the
+requirement that the partition be a rational bijection on the
+projective line (a classification theorem of
+Hartshorne~\cite{Hartshorne1977}), uniquely determines the TetA
+and TetB fractions:
+\begin{align}
+  \text{TetA:} \quad & \mu(x) = \frac{x}{x + 1},
+  \label{eq:mu} \\[4pt]
+  \text{TetB:} \quad & 1 - \mu(x) = \frac{1}{x + 1}.
+  \label{eq:tetb}
+\end{align}
+The derivation uses no field equation, no coupling polynomial,
+and no fitting. It requires only the parity relation between
+TetA and TetB proved in the companion letter together with the
+rational-bijection classification stated above.
+
+Setting torsion to zero removes TetB from the connection. In the
+partition language, this sets $1 - \mu = 0$ and therefore
+$\mu = 1$: the full gravitational field response is attributed to
+TetA alone. The exchange symmetry proves that $\mu \neq 1$. The
+field response absent from the torsion-free branch is
+\begin{equation}
+  \Delta\mu(x) = \frac{1}{x + 1}.
+  \label{eq:delta_mu}
+\end{equation}
+
+The consequences of this removal depend on the acceleration
+regime. At high acceleration ($x \gg 1$), the TetB fraction is
+negligible: $\Delta\mu \approx 0$, and general relativity is
+accurate. At the parity midpoint ($x = 1$), TetA and TetB
+contribute equally: $\mu = 1/2$ and $\Delta\mu = 1/2$, so that
+the torsion-free branch does not capture half of the
+gravitational field
+response. At low acceleration ($x \ll 1$), the TetB fraction
+approaches unity: $\Delta\mu \approx 1$, and the torsion-free
+branch does not capture nearly any of it.
+
+\medskip
+\begin{center}
+\begin{tabular}{lccc}
+\hline
+Regime & $x$ & $\mu$ (retained) & $\Delta\mu$ (removed) \\
+\hline
+Strong field  & $\gg 1$ & $\approx 1$ & $\approx 0$ \\
+Transition    & $= 1$   & $1/2$       & $1/2$ \\
+Weak field    & $\ll 1$ & $\approx 0$ & $\approx 1$ \\
+\hline
+\end{tabular}
+\end{center}
+
+% ==================================================================
+
+\section{The dark-to-baryon ratio}
+
+The cold dark matter framework accounts for the discrepancy
+between observed gravitational fields and baryonic predictions
+by introducing an invisible mass component. Its decomposition of
+the observed field is~\cite{NFW1996}:
+\begin{equation}
+  g_{\mathrm{obs}} = g_{\mathrm{baryon}} + g_{\mathrm{DM}},
+  \label{eq:cdm_decomp}
+\end{equation}
+where $g_{\mathrm{DM}}$ is the residual: whatever the
+observed field contains beyond the baryonic contribution. This
+is the definition of the dark matter component.
+
+In the partition language developed above, the baryonic
+contribution is the TetA share of the observed field,
+$g_{\mathrm{baryon}} = \mu\,g_{\mathrm{obs}}$, and the residual
+is the TetB share,
+$g_{\mathrm{DM}} = (1 - \mu)\,g_{\mathrm{obs}}$. The ratio of
+the residual to the baryonic contribution is therefore:
+\begin{equation}
+  \frac{g_{\mathrm{DM}}}{g_{\mathrm{baryon}}}
+  = \frac{1 - \mu}{\mu}
+  = \frac{1/(x+1)}{x/(x+1)}
+  = \frac{1}{x}.
+  \label{eq:ratio}
+\end{equation}
+This is an algebraic identity of the partition, not an empirical
+fit. The cold dark matter framework defines its invisible
+component as the residual after subtracting the Newtonian
+contribution. The exchange-symmetric partition derived in
+Section~3 determines that residual as $1/(x+1)$. Because the
+effective mass at radius $r$ is $M = gr^2/G$ for any
+acceleration $g$, the acceleration ratio at each shell is
+identically the enclosed-mass ratio. The resulting
+dark-to-baryon mass ratio,
+\begin{equation}
+  \boxed{\frac{M_{\mathrm{DM}}}{M_{\mathrm{baryon}}} = \frac{1}{x},}
+  \label{eq:dm_ratio}
+\end{equation}
+follows from four lines of algebra with no halo profile and no
+free parameters. To be explicit: the ratio $1/x$ is not an
+independent quantity. It is the direct consequence of the
+constitutive partition $\mu(x) = x/(x+1)$ derived in Section~3.
+Wherever TetA carries a fraction $\mu$ of the field, TetB
+carries $1 - \mu$, and their ratio is $(1 - \mu)/\mu = 1/x$.
+The cold dark matter framework requires a multi-parameter halo
+profile, fitted separately for each galaxy, to obtain this
+ratio. The exchange-symmetric partition of the two tetrahedral
+chambers reduces it to the single function $1/x$, with no free
+parameters. The torsion-sector field fraction and the
+cold-dark-matter residual are algebraically identical under the
+exchange-symmetric partition: both reduce to $1/(x{+}1)$, with
+the corresponding dark-to-baryon ratio $1/x$.
+
+% ==================================================================
+
+\section{The coupling polynomial}
+
+The parity identification in Sections~2--4 relies on the
+decomposition of the connection into 40~symmetric and
+24~antisymmetric components, which is textbook. A natural
+question is why these particular numbers arise. The answer is
+that both, together with every other standard count of the
+tetrad formalism, are polynomial functions of a single integer
+$K = 4$.
+
+The tetrad equation contains three structural ingredients at
+ranks~0, 1, and~2 on the frame space, with graded dimensions
+$K^0 = 1$, $K^1 = K$, and $K^2$. The companion
+letter~\cite{Nelson2026a} established the ordered three-region
+structure TetA, the interaction vertex, and TetB. The present
+letter encodes those three regions by the state label
+$s \in \{+1,\,0,\,-1\}$.
+
+The identification of vielbein legs with oriented tetrahedral
+faces is proved in that companion letter and is used here only
+as prior input for the structural labelling. Since the rank-1
+contribution is parity-odd while the rank-0 and rank-2
+contributions are parity-even, the state label $s$ modulates
+only the linear term, yielding the coupling polynomial:
+\begin{equation}
+  f(K, s) = 1 + sK + K^2.
+  \label{eq:poly}
+\end{equation}
+At $K = 4$, the three evaluations are $f = 21$, $17$, and $13$
+for $s = +1$, $0$, and $-1$ respectively, with a coupling range
+of $\Delta f = 2K = 8$. At the interaction vertex ($s = 0$),
+which is the non-oriented coupling locus where TetA and TetB
+meet, the parity-odd directional contribution is absent.
+
+The polynomial organises the full count structure of the tetrad
+formalism. In the broader framework developed in the companion
+letter, the three evaluations $\{21,\,17,\,13\}$ are not merely
+bookkeeping values but coupling-depth reads of the three
+structural states; the present letter establishes the polynomial
+and its concordances, with the fuller physical interpretation
+developed there.
+
+The standard symmetric and antisymmetric counts of the
+connection follow from $K$ alone:
+\begin{align}
+  \text{Christoffel:}\quad
+    & K \times \frac{K(K{+}1)}{2} = 40,
+    \label{eq:chris} \\[4pt]
+  \text{Torsion:}\quad
+    & K \times \frac{K(K{-}1)}{2} = 24.
+    \label{eq:tors}
+\end{align}
+The torsion count admits an additional polynomial factorisation
+that connects it to the coupling range.
+
+\medskip
+\noindent\textbf{Theorem.} \textit{Under the closure relation
+$D = K - 1$, the torsion count
+$K \times K(K{-}1)/2$ equals the product $D \times 2K$ if and
+only if $K = 4$.}
+
+\medskip\noindent\textit{Proof.}
+Set the two expressions equal and divide by $K > 0$:
+$K(K{-}1)/2 = 2D$. Substitute $D = K - 1$:
+$K(K{-}1)/2 = 2(K{-}1)$. For $K \neq 1$, divide by $(K{-}1)$:
+\begin{equation}
+  \frac{K}{2} = 2 \qquad \Longrightarrow \qquad K = 4.
+  \qquad\square
+  \label{eq:thm}
+\end{equation}
+
+The 24 torsion components that carry the TetB field fraction
+therefore admit the factorisation $D \times \Delta f = 3 \times
+8$: the product of the spatial dimension and the coupling range.
+This factorisation holds at no other positive integer.
+
+Once the standard tetrad counts are specified, they admit a
+unified polynomial organisation in $K$:
+
+\medskip
+\begin{center}
+\begin{tabular}{lrl}
+\hline
+\multicolumn{3}{l}{\textit{Standard tetrad counts}} \\
+\hline
+Scalar closure    & 1  & $K^0$ \\
+Vielbein legs     & 4  & $K$ \\
+Metric entries    & 16 & $K^2$ \\
+Symmetric metric  & 10 & $K(K{+}1)/2$ \\
+Antisym.\ pairs   & 6  & $K(K{-}1)/2$ \\
+Connection        & 64 & $K^3$ \\
+Christoffel       & 40 & $K \!\times\! K(K{+}1)/2$ \\
+Torsion           & 24 & $K \!\times\! K(K{-}1)/2$ \\
+\hline
+\multicolumn{3}{l}{\textit{Polynomial evaluations (this letter)}} \\
+\hline
+TetA depth ($s{=}{+}1$) & 21 & $1 + K + K^2$ \\
+Core depth ($s{=}0$)     & 17 & $1 + K^2$ \\
+TetB depth ($s{=}{-}1$)  & 13 & $1 - K + K^2$ \\
+Coupling range           & 8  & $2K$ \\
+\hline
+\end{tabular}
+\end{center}
+\medskip
+
+\noindent
+The polynomial separates state-invariant structure from
+state-sensitive structure: the scalar closure term $K^0$ and the
+bilinear coupling term $K^2$ persist across all three structural
+states, while only the rank-1 contribution changes with $s$. The
+polynomial therefore provides a compressed classifier and
+projection rule for the frame construction: $s = 0$ isolates the
+parity-even core, while $f(K,{+}1) - f(K,{-}1) = 2K$ extracts
+the orientation-carrying sector.
+
+% ==================================================================
+
+\section{Discussion}
+
+This letter rests on two independent arguments. The first is the
+parity identification (Sections~2--4): the torsion sector is the
+necessary carrier of the TetA/TetB distinction, the
+exchange-symmetric partition derived in the
+supplementary note gives the TetB fraction as
+$1/(x{+}1)$, and the dark-to-baryon ratio follows algebraically.
+This argument requires only the companion geometry and textbook
+general relativity. The second is the polynomial organisation
+(Section~5): the coupling polynomial generates the standard
+counts, and the torsion identity links the antisymmetric count to
+the coupling range at $K = 4$. A challenge to one argument does
+not affect the other. Just as the metric and Christoffel
+symbols are kinematic objects determined by the tetrad equation
+without reference to an action principle, the TetA/TetB
+partition is determined by its parity structure; the result
+therefore holds independently of the specific gravitational
+dynamics chosen.
+
+Einstein-Cartan theory retains the 24~torsion components and
+couples them to the spin density of
+matter~\cite{Hehl1976}. In the present framework, retaining the
+torsion means retaining TetB in the connection and preserving
+the full field partition $\mu(x) = x/(x{+}1)$. Cartan's
+instinct that torsion belongs in the geometry finds a new
+motivation here: the torsion sector carries the field response
+of the second tetrahedral chamber, without which the connection
+describes only half of the gravitational field at the parity
+midpoint.
+
+At high acceleration ($x \gg 1$), the torsion correction
+$\Delta\mu = 1/(x{+}1)$ is negligible. General relativity's
+predictions in the strong-field regime (solar system
+dynamics, binary pulsar timing, gravitational wave propagation)
+are unaffected. The torsion fraction becomes significant
+only at accelerations of order $a_0$ and below, which is
+precisely where the cold dark matter framework introduces its
+invisible component. The same saturation resolves a longstanding
+internal tension in that framework: because the TetB field
+fraction $1/(x{+}1)$ is bounded above by unity, the
+corresponding field acceleration never exceeds $a_0$, forcing a
+finite central density rather than the divergent cusp that an
+NFW profile requires~\cite{NFW1996}.
+
+The function $\mu(x) = x/(x+1)$ was identified empirically by
+Milgrom~\cite{Milgrom1983} as an interpolating function for
+galactic dynamics and selected by fitting by Famaey and
+Binney~\cite{FamaeyBinney2005}. The present derivation obtains
+it from the exchange symmetry of the two parity-related bounded
+regions of the tetrad equation, without fitting and without
+reference to galactic data.
+
+The bimetric gravity programme~\cite{HR2012a} independently
+features $2K = 8$ as the total vielbein count of two interacting
+tetrad fields and a $K \times K$ interaction structure, giving
+$K^2 = 16$ at $K = 4$. The closure condition
+$2(D{+}1) = 2^D$ with $D = K - 1$ exhibits a striking
+concordance across three layers of the tetrad formalism: at the
+geometric level, it selects the stellated octahedron as the
+unique closure geometry~\cite{Nelson2026a}; at the algebraic
+level, it produces the numerical coincidence $K^3 = K^D$; and
+at the connection-theoretic level, it is the unique value at
+which the torsion count admits the polynomial factorisation
+$D \times 2K$.
+
+The torsion sector carries the gravitational field response of
+the second tetrahedral chamber. The torsion-free specialisation
+adopted in 1915 does not carry it.
+
+% ==================================================================
+
+\section{Data and reproducibility}
+
+The exchange-symmetry derivation of the TetB field fraction is
+provided as a supplementary note
+(\texttt{supplementary\_tetb\_fraction.pdf}). A self-contained
+validation script (\texttt{run\_all\_validations.py}) verifies
+every claim in both this letter and its
+companion~\cite{Nelson2026a}, requiring only NumPy, SciPy,
+and SymPy. Sections~1--12 of the script verify the geometric
+claims of the companion letter; Section~13 verifies the
+Lemma of the present letter by confirming $P^T \eta\, P = \eta$
+for all component sectors ($g_{00}$, $g_{0i}$, $g_{ij}$);
+Section~14 verifies the algebraic identity chain from the
+exchange symmetry through the dark-to-baryon ratio, using
+symbolic computation with zero numerical tolerances
+(52/52~claims passed).
+
+% ==================================================================
+
+\begin{thebibliography}{99}
+
+\bibitem{MTW}
+C.~W.~Misner, K.~S.~Thorne and J.~A.~Wheeler,
+\textit{Gravitation}
+(W.~H.~Freeman, San Francisco, 1973).
+
+\bibitem{Hehl1976}
+F.~W.~Hehl, P.~von~der~Heyde, G.~D.~Kerlick and
+J.~M.~Nester,
+\textit{General relativity with spin and torsion: Foundations
+and prospects},
+Rev.\ Mod.\ Phys.\ \textbf{48} (1976) 393.
+
+\bibitem{Nelson2026a}
+S.~Nelson,
+\textit{The Coordinate-Space Geometry of the Tetrad Frame},
+Class.\ Quantum Grav.\ (2026), submitted (CQG-115428).
+
+\bibitem{Cartan1922}
+E.~Cartan,
+\textit{Sur une g\'en\'eralisation de la notion de courbure de
+Riemann et les espaces \`a torsion},
+C.~R.\ Acad.\ Sci.\ Paris \textbf{174} (1922) 593.
+
+\bibitem{Hartshorne1977}
+R.~Hartshorne,
+\textit{Algebraic Geometry}
+(Springer, New York, 1977).
+
+\bibitem{NFW1996}
+J.~F.~Navarro, C.~S.~Frenk and S.~D.~M.~White,
+\textit{The structure of cold dark matter halos},
+Astrophys.\ J.\ \textbf{462} (1996) 563.
+
+\bibitem{Milgrom1983}
+M.~Milgrom,
+\textit{A modification of the Newtonian dynamics as a possible
+alternative to the hidden mass hypothesis},
+Astrophys.\ J.\ \textbf{270} (1983) 365.
+
+\bibitem{FamaeyBinney2005}
+B.~Famaey and J.~Binney,
+\textit{Modified Newtonian dynamics in the Milky Way},
+Mon.\ Not.\ R.\ Astron.\ Soc.\ \textbf{363} (2005) 603.
+
+\bibitem{HR2012a}
+S.~F.~Hassan and R.~A.~Rosen,
+\textit{Bimetric gravity from ghost-free massive gravity},
+JHEP \textbf{02} (2012) 126.
+
+\end{thebibliography}
+
+\end{document}

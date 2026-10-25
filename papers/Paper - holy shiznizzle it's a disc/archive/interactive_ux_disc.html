@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Galactic Vortex: The Tetrad Partition</title>
+    <style>
+        body { margin: 0; overflow: hidden; background-color: #05050a; color: #c9d1d9; font-family: sans-serif; }
+        #ui { position: absolute; top: 20px; left: 20px; pointer-events: none; background: rgba(0,0,0,0.7); padding: 15px; border-radius: 8px; border: 1px solid #30363d;}
+        h1 { margin: 0 0 10px 0; font-size: 1.2rem; font-weight: normal; color: #fff;}
+        p { margin: 5px 0; font-size: 0.9rem; }
+        .legend-a { color: #58a6ff; font-weight: bold; }
+        .legend-b { color: #ff7b72; font-weight: bold; }
+        .legend-core { color: #ffffff; font-weight: bold; }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+    <div id="ui">
+        <h1>The Galactic Vortex</h1>
+        <p class="legend-a">■ TetA (Christoffel / Baryons): Inner Bulge</p>
+        <p class="legend-b">■ TetB (Torsion / "Dark Matter"): Outer Disk</p>
+        <p class="legend-core">○ MOND Transition (x = 1)</p>
+        <p>Radial distance = 1/&radic;x</p>
+    </div>
+
+    <script>
+        const scene = new THREE.Scene();
+        scene.fog = new THREE.FogExp2(0x05050a, 0.05);
+
+        const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 1000);
+        camera.position.set(0, 3, 7);
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        // Add a subtle glow/bloom effect approximation via blending
+        renderer.setClearColor(0x05050a, 1);
+        document.body.appendChild(renderer.domElement);
+
+        const controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.autoRotate = true; // Slowly revolve the galaxy
+        controls.autoRotateSpeed = 1.0;
+        controls.target.set(0, 0.5, 0);
+
+        // Lighting
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
+        scene.add(ambientLight);
+        const centerLight = new THREE.PointLight(0x58a6ff, 2, 10);
+        centerLight.position.set(0, 1, 0);
+        scene.add(centerLight);
+
+        // Geometry Generation
+        const segmentsR = 150;
+        const segmentsT = 150;
+        const Rmax = 5;
+
+        const ptsA = [], ptsB = [];
+        const indices = [];
+
+        // Assume Newtonian baseline for mapping: x = (1/r)^2  =>  x = 1 / r^2
+        for (let i = 0; i <= segmentsR; i++) {
+            const r = (i / segmentsR) * Rmax;
+            
+            for (let j = 0; j <= segmentsT; j++) {
+                const theta = (j / segmentsT) * Math.PI * 2;
+                const X = r * Math.cos(theta);
+                const Z = r * Math.sin(theta);
+
+                let mu = 1; // Center limit
+                let invMu = 0; // Center limit
+
+                if (r > 0) {
+                    const x_val = 1 / (r * r); 
+                    mu = x_val / (x_val + 1);     // TetA fraction
+                    invMu = 1 / (x_val + 1);      // TetB fraction
+                }
+
+                ptsA.push(X, mu, Z);
+                ptsB.push(X, invMu, Z);
+            }
+        }
+
+        for (let i = 0; i < segmentsR; i++) {
+            for (let j = 0; j < segmentsT; j++) {
+                const a = i * (segmentsT + 1) + j;
+                const b = a + (segmentsT + 1);
+                const c = a + 1;
+                const d = b + 1;
+                indices.push(a, b, d);
+                indices.push(a, d, c);
+            }
+        }
+
+        const geoA = new THREE.BufferGeometry();
+        geoA.setAttribute('position', new THREE.Float32BufferAttribute(ptsA, 3));
+        geoA.setIndex(indices);
+        geoA.computeVertexNormals();
+
+        const geoB = new THREE.BufferGeometry();
+        geoB.setAttribute('position', new THREE.Float32BufferAttribute(ptsB, 3));
+        geoB.setIndex(indices);
+        geoB.computeVertexNormals();
+
+        // Materials
+        const matA = new THREE.MeshPhongMaterial({ 
+            color: 0x58a6ff, 
+            transparent: true, opacity: 0.85, 
+            side: THREE.DoubleSide, shininess: 80 
+        });
+        const matB = new THREE.MeshPhongMaterial({ 
+            color: 0xff4444, 
+            transparent: true, opacity: 0.75, 
+            side: THREE.DoubleSide, shininess: 40 
+        });
+
+        scene.add(new THREE.Mesh(geoA, matA));
+        scene.add(new THREE.Mesh(geoB, matB));
+
+        // The MOND Transition Ring (r = 1)
+        const ringGeo = new THREE.BufferGeometry();
+        const ringPts = [];
+        for(let i=0; i<=100; i++) {
+            const t = (i/100) * Math.PI * 2;
+            ringPts.push(Math.cos(t), 0.502, Math.sin(t));
+        }
+        ringGeo.setAttribute('position', new THREE.Float32BufferAttribute(ringPts, 3));
+        const ringMat = new THREE.LineBasicMaterial({ color: 0xffffff, linewidth: 2 });
+        scene.add(new THREE.Line(ringGeo, ringMat));
+
+        // Helical Torsion Vortex Lines on TetB
+        const numArms = 8;
+        for (let arm = 0; arm < numArms; arm++) {
+            const spiralPts = [];
+            const offset = (arm / numArms) * Math.PI * 2;
+            for (let r = 0.05; r <= Rmax; r += 0.05) {
+                const theta = offset - (r * 2.5); // Twisting backward like trailing galactic arms
+                const X = r * Math.cos(theta);
+                const Z = r * Math.sin(theta);
+                const x_val = 1 / (r * r);
+                const invMu = 1 / (x_val + 1);
+                spiralPts.push(X, invMu + 0.02, Z); // Hover slightly above the red sheet
+            }
+            const spiralGeo = new THREE.BufferGeometry();
+            spiralGeo.setAttribute('position', new THREE.Float32BufferAttribute(spiralPts, 3));
+            const spiralMat = new THREE.LineBasicMaterial({ color: 0xffaa00, transparent: true, opacity: 0.6 });
+            scene.add(new THREE.Line(spiralGeo, spiralMat));
+        }
+
+        // Animation Loop
+        function animate() {
+            requestAnimationFrame(animate);
+            controls.update();
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        // Resize handler
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+    </script>
+</body>
+</html>

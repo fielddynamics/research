@@ -1,0 +1,440 @@
+\documentclass[twocolumn]{iopjournal}
+
+\usepackage{amsmath,amssymb,amsfonts}
+
+\fancyhfoffset[L]{0mm}
+\setlength{\marginparwidth}{0pt}
+\setlength{\marginparsep}{0pt}
+
+% ==========================================
+% ZENODO PREPRINT HEADERS (ACTIVE)
+% ==========================================
+\renewcommand{\articletype}[1]{%
+  {\vspace*{-8mm}\noindent \Large \sf Preprint}\par
+  \vspace*{6mm}\noindent{\scriptsize \sf{\bfseries \MakeUppercase{#1}}}}
+
+\fancyhead[L]{}
+\fancyhead[R]{}
+
+\begin{document}
+
+\articletype{Letter}
+
+\title{The Spatial Structure of the Gravitational Partition}
+
+\author{Stephen Nelson}
+
+\affil{Field Dynamics Research}
+
+\ead{stephen@fielddynamics.org}
+
+\begin{abstract}
+The companion letter~\cite{Nelson2026b} derived the
+exchange-symmetric partition $\mu(x) = x/(x{+}1)$ between the
+two tetrahedral chambers of the closed frame, where
+$x = g/a_0$ is the dimensionless acceleration.  That derivation
+was algebraic: it determined the partition function but not its
+spatial form.  This letter presents the spatial structure.
+Evaluated radially about the field axis, the partition produces
+a continuously graded field whose inner throat is
+Christoffel-dominated ($\mu \to 1$), whose outer disk is
+torsion-dominated ($\mu \to 0$), and whose crossover ring at
+$x = 1$ is the MOND transition scale $a_0$.  The
+24~torsion components organise into eight spiral channels
+(the $2K = 8$ null directions of the closed frame), each
+carrying three transverse rotation planes ($D = 3$).  The
+chiral holonomy of these channels, computed in the
+supplementary note, defines a rotation axis and forces the
+field geometry to be planar.  The radial acceleration relation
+$g_{\mathrm{bar}} = g_{\mathrm{obs}}^2/(g_{\mathrm{obs}} +
+a_0)$ follows directly from the partition with no free
+parameters.  The perceived separation of baryonic and dark
+components is an artefact of projecting a 64-component
+connection onto a 40-component subspace.
+\end{abstract}
+
+% ==================================================================
+
+\section{The partition in space}
+
+The companion letter~\cite{Nelson2026b} proved that the
+exchange symmetry between TetA and TetB, combined with
+rational bijectivity, uniquely determines the partition of
+the gravitational field response between the two tetrahedral
+chambers:
+\begin{align}
+  \text{TetA:} \quad & \mu(x) = \frac{x}{x + 1},
+  \label{eq:mu} \\[4pt]
+  \text{TetB:} \quad & 1 - \mu(x) = \frac{1}{x + 1},
+  \label{eq:tetb}
+\end{align}
+where $x = g/a_0$ is the dimensionless acceleration.  The
+derivation used no field equation and no fitting.  It required
+only the parity relation between TetA and
+TetB~\cite{Nelson2026a} together with the rational-bijection
+classification on the projective line.  The present letter does
+not re-derive this result.  It takes the function as given and
+asks: what does this partition look like when it is evaluated
+radially and revolved about a field axis?
+
+The answer is Figure~\ref{fig1}.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{fig1_tetrad_partition}
+\caption{The tetrad partition rendered as a diagnostic
+decomposition.  The two surfaces are not separate physical
+fields but the complementary partition functions $\mu(x)$
+and $1 - \mu(x)$ displayed simultaneously over the same
+radial domain.  Blue: the TetA field fraction (the
+Christoffel sector retained by general relativity).  Red:
+the TetB field fraction (the torsion sector removed by the
+zero-torsion condition).  At every radius,
+blue~$+$~red~$= 1$.  The white ring marks the crossover at
+$x = 1$, where both chambers contribute equally
+($\mu = 1/2$).  Eight spiral arms alternate between TetA
+(blue) and TetB (amber), corresponding to the $2K = 8$ null
+directions of the closed frame.}
+\label{fig1}
+\end{figure}
+
+The vertical axis in Figure~\ref{fig1} is the field fraction,
+not a physical height.  The blue spike at centre is TetA
+carrying nearly the entire field response.  The red plateau at
+large radius is TetB carrying nearly all of it.  Between them,
+the white ring marks the handover.  The textbook decomposition
+of the full connection into Christoffel plus contorsion
+corresponds, at the level of field magnitudes, to the
+partition into $\mu$ and
+$1 - \mu$~\cite{Nelson2026b}.  Figure~\ref{fig1} is that
+decomposition rendered spatially.
+
+The white ring sits at $x = 1$, where $\mu = 1/2$.  This is
+the locus where both chambers contribute equally to the
+field response.  Inside the ring, the Christoffel sector
+dominates: general relativity is accurate and Keplerian
+decline holds.  Outside the ring, the torsion sector
+dominates: the field response that general relativity
+discards becomes the majority.  This crossover is the MOND
+transition scale $a_0$~\cite{Milgrom1983}.  It is not a
+fitted parameter.  It is the geometric midpoint of the
+exchange-symmetric partition, the point where the odds ratio
+$\Omega = \mu/(1-\mu)$ equals unity.
+
+The companion letter~\cite{Nelson2026b} presented the three
+acceleration regimes in tabular form: strong field
+($x \gg 1$, $\mu \approx 1$), transition ($x = 1$,
+$\mu = 1/2$), and weak field ($x \ll 1$, $\mu \approx 0$).
+Figure~\ref{fig1} gives those three regimes spatial identity:
+the throat, the ring, and the disk.
+
+The radial acceleration
+relation~\cite{McGaugh2016,Li2018} is this partition,
+rendered as geometry rather than as a scatter plot.  The blue
+spike is the baryonic bulge.  The red disk is what standard
+cosmological analysis attributes to an invisible mass
+component.  They sum to one everywhere.
+
+% ==================================================================
+
+\section{The continuous field}
+
+Figure~\ref{fig1} is explanatory: it separates the partition
+into two complementary surfaces so that the reader can see
+where each chamber dominates.  That separation is what a
+torsion-free observer infers, one component they can account
+for and one they cannot.  Figure~\ref{fig2} is ontological:
+it shows the physical field as it is.  The gravitational field
+is not two objects.  It is one.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{fig2_tetrad_vortex}
+\caption{The same partition rendered as one continuous
+gravitational field.  A single surface whose colour encodes
+the shift from TetA/Christoffel dominance (blue, inner
+throat) to TetB/torsion dominance (red, outer disk).  The
+MOND crossover ring (white) sits at $\mu = 1/2$.  The same
+eight spiral channels from Figure~\ref{fig1} ride on one
+surface, distinguished by colour alone.  There is no
+boundary between regimes.  This is the physical geometry;
+Figure~\ref{fig1} is its diagnostic decomposition.}
+\label{fig2}
+\end{figure}
+
+The gravitational field is a single object with $K^3 = 64$
+independent connection
+components~\cite{Nelson2026b,Hehl1976}.  General relativity's
+torsion-free condition projects this onto the 40~symmetric
+components (Christoffel), discarding the 24~antisymmetric
+components (torsion).  Figure~\ref{fig2} restores them.  The
+result is one continuous surface with no separation, no
+boundary, and no two-component model.
+
+The shape is a steep inner throat opening into a flat extended
+disk.  The throat is blue: high acceleration,
+Christoffel-dominated.  The disk is red: low acceleration,
+torsion-dominated.  The transition between them is smooth and
+continuous.  This is the generic morphology of a spiral
+galaxy~\cite{FamaeyMcGaugh2012}: a bright central bulge
+surrounded by an extended disk.
+
+The colour gradient in Figure~\ref{fig2} is not a rendering
+choice.  It is governed by the logistic equation that the
+partition satisfies~\cite{Nelson2026b}:
+\begin{equation}
+  x\,\frac{d\mu}{dx} = \mu(1 - \mu).
+  \label{eq:logistic}
+\end{equation}
+Under the substitution $t = \ln x$, this becomes
+$d\mu/dt = \mu(1-\mu)$: the canonical two-sector transition
+law.  The product $\mu(1-\mu)$ on the right-hand side measures
+the simultaneous presence of both tetrahedral chambers at a
+given radius.  It is the continuous analogue of the octahedral
+interaction core, the $s = 0$ state of the coupling
+polynomial~\cite{Nelson2026b}.  The equation states that the
+partition can shift only where both chambers contribute, which
+is to say, only where the interaction core is active.  At the
+deep centre, one chamber dominates and the partition is frozen.
+At the rim, the same.  The transition peaks at the MOND ring
+because that is where the core is fully realised:
+$\mu(1 - \mu) = 1/4$.
+
+The supplementary note to this letter establishes the
+geometric origin of this constraint: every transition between
+a TetA and a TetB null direction crosses a face of the
+octahedral core, generating the chiral rotation that forces
+the field into a disk.  The logistic equation is the
+continuous, radial expression of that discrete crossing
+requirement.
+
+The perceived separation of baryonic and dark components in
+Figure~\ref{fig1} is therefore an artefact.  It is the
+projection of a single 64-component field onto a 40-component
+subspace.  The observed gravitational discrepancy at galactic
+scales is not in dispute: both the cold dark matter framework
+and the present partition reproduce the radial acceleration
+relation and the function $\mu(x) = x/(x{+}1)$.  They differ
+on what the discrepancy represents.  The cold dark matter
+framework interprets it as an invisible mass component, which,
+having no geometric structure, distributes as a spherical
+halo.  The closed tetrad frame identifies it as the field
+response of the second tetrahedral chamber, carried by the
+24~torsion components.  This response is not mass.  It is
+topology.  Its spatial distribution is not fitted but
+determined: the logistic equation~(\ref{eq:logistic}) governs
+the radial profile, and the result is the continuously graded
+disk of Figure~\ref{fig2}.
+
+% ==================================================================
+
+\section{The eight-channel structure}
+
+Figures~\ref{fig1} and~\ref{fig2} both display eight spiral
+arms, four coloured blue (TetA) and four amber (TetB),
+alternating around the disk.  This section identifies what they
+are and why they force the field into a disk rather than a
+sphere.
+
+The companion letter~\cite{Nelson2026b} proved (Section~5,
+Theorem) that the 24~torsion components admit the
+factorisation
+\begin{equation}
+  24 \;=\; \underbrace{8}_{\text{null directions}}
+        \;\times\; \underbrace{3}_{\text{rotation planes}}
+  \;=\; 2K \times D
+  \label{eq:24}
+\end{equation}
+exclusively at $K = 4$.  In the companion letter's polynomial
+language, $2K$ is the coupling range
+$\Delta f = f(K,{+}1) - f(K,{-}1)$.  The algebraic identity
+was established there.  The supplementary note to the present
+letter identifies the two factors geometrically.  The
+factorisation $8 \times 3$ is not one of several ways to
+decompose 24; it is the unique decomposition in which one
+factor is the vertex count of the closed frame and the other
+is the spatial dimension.
+
+The factor $2K = 8$ is the count of null directions of the
+closed frame: the eight vertices of the stellated
+octahedron~\cite{Nelson2026a}, equivalently the eight vertices
+of the cube dual to the octahedral core.  Each face of the
+octahedral core carries an attached tetrahedron whose apex is
+one of these eight vertices.  The base face, shared with the
+octahedron, is the propagation face of the corresponding
+sub-vortex.  The three lateral faces are the three transverse
+rotation planes.  The eight spiral arms in
+Figures~\ref{fig1}--\ref{fig2} are these eight null directions
+projected onto the disk.  Four belong to TetA.  Four belong to
+TetB.  They alternate because adjacent faces of the octahedral
+core always carry opposite chirality.
+
+The supplementary note proves that parallel transport through
+all eight null directions produces trivial holonomy when the
+TetA/TetB chirality distinction is ignored, but nontrivial
+holonomy when it is respected.  All twelve Hamiltonian cycles
+on the cube graph were computed.  In the uniform case (all
+rotations $+\theta$), all twelve yield the identity.  In the
+chiral case (rotation sign determined by the source vertex's
+sub-frame), all twelve yield nontrivial rotations: six at
+$135^{\circ}$ and six at $155.8^{\circ}$.  The nontrivial
+holonomy defines a rotation axis.  The field geometry is
+planar, perpendicular to this axis.  Because the eight
+channels all carry transport through the common field origin
+with a consistent rotational sense, the holonomy does not
+merely select an axis but organises the field into a
+rotationally coherent disk orthogonal to it.  This is why the
+partition forms a disk and not a sphere.  The axis is not imposed by
+hand.  It emerges from the chirality of the closed frame.
+
+The kinematic consequence follows directly from the partition.
+At dimensionless acceleration $x = g_{\mathrm{obs}}/a_0$, the
+baryonic acceleration is
+$g_{\mathrm{bar}} = \mu\,g_{\mathrm{obs}}$, giving
+\begin{equation}
+  g_{\mathrm{bar}} =
+  \frac{g_{\mathrm{obs}}^2}{g_{\mathrm{obs}} + a_0}.
+  \label{eq:rar}
+\end{equation}
+At high acceleration ($x \gg 1$):
+$g_{\mathrm{bar}} \approx g_{\mathrm{obs}}$, Keplerian
+decline, general relativity is accurate.  At low acceleration
+($x \ll 1$):
+$g_{\mathrm{bar}} \approx g_{\mathrm{obs}}^2/a_0$, flat
+rotation curves.  The radial acceleration relation established
+empirically by McGaugh, Lelli \&
+Schombert~\cite{McGaugh2016}, with 0.057~dex scatter across
+175~individual galaxies~\cite{Li2018} and no credible
+variation in $a_0$, is reproduced by Eq.~(\ref{eq:rar}) with
+no free parameters.  The full 179-galaxy rotation curve
+analysis is presented in a companion
+paper~\cite{Nelson2026c}.
+
+% ==================================================================
+
+\section{What the partition resolves}
+
+The spatial partition developed in Sections~1--3 makes three
+observational predictions that distinguish it from the cold
+dark matter framework.
+
+\textit{Disk geometry.}  The cold dark matter framework
+distributes the invisible component as a spherical halo
+because structureless mass has no preferred
+direction~\cite{NFW1996}.  The closed tetrad frame distributes
+it as a disk because the chiral holonomy of the eight-channel
+structure defines an axis (supplementary note).  Observed
+spiral galaxies are disks.  This is a zero-parameter geometric
+prediction.
+
+\textit{Bounded central density.}  The TetB field fraction
+$1/(x{+}1)$ is bounded above by unity for all $x$.  The
+torsion-sector field acceleration never exceeds $a_0$.  The NFW
+profile diverges as $r \to 0$~\cite{NFW1996}.  The partition's
+boundedness resolves the cusp-core tension without baryonic
+feedback or self-interacting dark matter.  The resolution is
+algebraic: $1/(x{+}1) < 1$ is a property of the constitutive
+law, not of any galaxy model.
+
+\textit{No new particles.}  The gravitational discrepancy is
+not mass.  It is the field response of the second tetrahedral
+chamber, carried by the 24~torsion components that the
+zero-torsion condition removes from the connection.  The
+missing component is not in the matter sector.  It is in the
+connection.
+
+An alternative relativistic approach to the MOND phenomenology
+has been developed by Skordis \&
+Z\l{}o\'{s}nik~\cite{SkordisZlosnik2021}, who introduce
+additional vector and scalar fields to obtain a theory
+compatible with the cosmic microwave background power spectrum.
+The present framework adds no fields.  It restores the
+24~connection components that general relativity's zero-torsion
+condition removes, recovering the complete geometry of the
+tetrad frame.
+
+The torsion-free specialisation adopted in 1915 discards the
+24~antisymmetric components of the affine connection.  The
+field response they carry is precisely what, in their absence,
+must be attributed to invisible mass.
+
+% ==================================================================
+
+\section{Data and reproducibility}
+
+The chiral holonomy computation is provided as a supplementary
+note (\texttt{supplementary\_chiral\_holonomy.pdf}).  A
+self-contained verification script
+(\texttt{holonomy\_verify.py}, approximately forty lines of
+Python using NumPy) reproduces the holonomy of all twelve
+Hamiltonian cycles on the cube graph for both uniform and
+chiral transport.  Interactive renderings of
+Figures~\ref{fig1} and~\ref{fig2} are provided as
+supplementary HTML files permitting rotation, zoom, and
+background toggling.
+
+% ==================================================================
+
+\begin{thebibliography}{99}
+
+\bibitem{Nelson2026a}
+S.~Nelson,
+\textit{The Coordinate-Space Geometry of the Tetrad Frame},
+Class.\ Quantum Grav.\ (2026), submitted (CQG-115428).
+
+\bibitem{Nelson2026b}
+S.~Nelson,
+\textit{The Other Half of Gravity: Torsion and the
+Two-Chamber Structure of the Tetrad Frame},
+Class.\ Quantum Grav.\ (2026), submitted (CQG-115447).
+
+\bibitem{Nelson2026c}
+S.~Nelson,
+\textit{Mass Decoding from the Scalar-Tensor Transition},
+Mon.\ Not.\ R.\ Astron.\ Soc.\ (2026), submitted.
+
+\bibitem{McGaugh2016}
+S.~S.~McGaugh, F.~Lelli and J.~M.~Schombert,
+\textit{Radial Acceleration Relation in Rotationally
+Supported Galaxies},
+Phys.\ Rev.\ Lett.\ \textbf{117} (2016) 201101.
+
+\bibitem{Li2018}
+P.~Li, F.~Lelli, S.~McGaugh and J.~Schombert,
+\textit{Fitting the radial acceleration relation to
+individual SPARC galaxies},
+Astron.\ Astrophys.\ \textbf{615} (2018) A3.
+
+\bibitem{Milgrom1983}
+M.~Milgrom,
+\textit{A modification of the Newtonian dynamics as a
+possible alternative to the hidden mass hypothesis},
+Astrophys.\ J.\ \textbf{270} (1983) 365.
+
+\bibitem{FamaeyMcGaugh2012}
+B.~Famaey and S.~S.~McGaugh,
+\textit{Modified Newtonian Dynamics (MOND): Observational
+Phenomenology and Relativistic Extensions},
+Living Rev.\ Relativity \textbf{15} (2012) 10.
+
+\bibitem{Hehl1976}
+F.~W.~Hehl, P.~von~der~Heyde, G.~D.~Kerlick and
+J.~M.~Nester,
+\textit{General relativity with spin and torsion:
+Foundations and prospects},
+Rev.\ Mod.\ Phys.\ \textbf{48} (1976) 393.
+
+\bibitem{NFW1996}
+J.~F.~Navarro, C.~S.~Frenk and S.~D.~M.~White,
+\textit{The structure of cold dark matter halos},
+Astrophys.\ J.\ \textbf{462} (1996) 563.
+
+\bibitem{SkordisZlosnik2021}
+C.~Skordis and T.~Z\l{}o\'{s}nik,
+\textit{New Relativistic Theory for Modified Newtonian
+Dynamics},
+Phys.\ Rev.\ Lett.\ \textbf{127} (2021) 161302.
+
+\end{thebibliography}
+
+\end{document}

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stellated Octahedron with Core Slider</title>
+    <style>
+        body { margin: 0; overflow: hidden; background-color: #050505; color: #fff; font-family: sans-serif; }
+        #ui { position: absolute; top: 20px; left: 20px; width: 280px; pointer-events: auto; background: rgba(0,0,0,0.8); padding: 15px; border-radius: 8px; border: 1px solid #333;}
+        h1 { margin: 0 0 10px 0; font-size: 1.2rem; font-weight: normal; }
+        p { margin: 5px 0; font-size: 0.9rem; color: #ccc; }
+        .legend-a { color: #58a6ff; font-weight: bold; }
+        .legend-b { color: #ff7b72; font-weight: bold; }
+        .legend-core { color: #ffd700; font-weight: bold; }
+        .legend-cube { color: #ffffff; font-weight: bold; }
+        
+        .slider-container { margin-top: 15px; }
+        label { font-size: 0.9rem; color: #aaa; }
+        input[type=range] { width: 100%; margin-top: 5px; cursor: pointer; }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+    <div id="ui">
+        <h1>Tetrad Scheme Geometry</h1>
+        <p class="legend-cube">▢ Bounding Cube (8 Vertices)</p>
+        <p class="legend-a">▲ TetA: Identity Component (Blue)</p>
+        <p class="legend-b">▼ TetB: Parity Component (Red)</p>
+        <p class="legend-core">◆ Core: Interaction Vertex (Gold)</p>
+        
+        <div class="slider-container">
+            <label for="opacitySlider">Outer Tetrad Opacity: <span id="opValue">0.75</span></label>
+            <input type="range" id="opacitySlider" min="0" max="1" step="0.01" value="0.75">
+        </div>
+    </div>
+
+    <script>
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
+        camera.position.set(4, 3, 5);
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        const controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.autoRotate = true;
+        controls.autoRotateSpeed = 1.0;
+
+        // Lighting
+        scene.add(new THREE.AmbientLight(0xffffff, 0.5));
+        const dirLight = new THREE.DirectionalLight(0xffffff, 0.8);
+        dirLight.position.set(5, 10, 7);
+        scene.add(dirLight);
+
+        // 1. The Bounding Cube Wireframe
+        const cubeGeo = new THREE.BoxGeometry(2, 2, 2);
+        const cubeEdges = new THREE.EdgesGeometry(cubeGeo);
+        const cubeMat = new THREE.LineBasicMaterial({ color: 0xffffff, linewidth: 2, transparent: true, opacity: 0.2 });
+        const cubeWireframe = new THREE.LineSegments(cubeEdges, cubeMat);
+        scene.add(cubeWireframe);
+
+        // 2. The Core Octahedron (Gold) - Radius 1 fits exactly in the center of the tetrahedra
+        const geoCore = new THREE.OctahedronGeometry(1);
+        const matCore = new THREE.MeshPhongMaterial({
+            color: 0xffd700,
+            side: THREE.DoubleSide,
+            flatShading: true,
+            shininess: 90
+        });
+        const meshCore = new THREE.Mesh(geoCore, matCore);
+        scene.add(meshCore);
+
+        // 3. TetA (Blue)
+        const verticesA = new Float32Array([
+             1,  1,  1,   // 0
+             1, -1, -1,   // 1
+            -1,  1, -1,   // 2
+            -1, -1,  1    // 3
+        ]);
+        const indicesA = [
+            0, 1, 2,  
+            0, 2, 3,  
+            0, 3, 1,  
+            1, 3, 2   
+        ];
+        const geoA = new THREE.BufferGeometry();
+        geoA.setAttribute('position', new THREE.BufferAttribute(verticesA, 3));
+        geoA.setIndex(indicesA);
+        geoA.computeVertexNormals();
+
+        const matA = new THREE.MeshPhongMaterial({ 
+            color: 0x2196f3, 
+            side: THREE.DoubleSide, 
+            transparent: true, 
+            opacity: 0.75,
+            depthWrite: false, // Prevents transparent faces from occluding the core incorrectly
+            flatShading: true
+        });
+        scene.add(new THREE.Mesh(geoA, matA));
+
+        // 4. TetB (Red)
+        const verticesB = new Float32Array([
+            -1, -1, -1,   // 0
+            -1,  1,  1,   // 1
+             1, -1,  1,   // 2
+             1,  1, -1    // 3
+        ]);
+        const indicesB = [
+            0, 2, 1,  
+            0, 3, 2,  
+            0, 1, 3,  
+            1, 2, 3   
+        ];
+        const geoB = new THREE.BufferGeometry();
+        geoB.setAttribute('position', new THREE.BufferAttribute(verticesB, 3));
+        geoB.setIndex(indicesB);
+        geoB.computeVertexNormals();
+
+        const matB = new THREE.MeshPhongMaterial({ 
+            color: 0xf44336, 
+            side: THREE.DoubleSide, 
+            transparent: true, 
+            opacity: 0.75,
+            depthWrite: false,
+            flatShading: true
+        });
+        scene.add(new THREE.Mesh(geoB, matB));
+
+        // 5. Slider Logic
+        const slider = document.getElementById('opacitySlider');
+        const opValue = document.getElementById('opValue');
+        
+        slider.addEventListener('input', (e) => {
+            const val = parseFloat(e.target.value);
+            opValue.innerText = val.toFixed(2);
+            
+            // Update materials
+            matA.opacity = val;
+            matA.transparent = val < 1.0;
+            matA.depthWrite = val === 1.0;
+            
+            matB.opacity = val;
+            matB.transparent = val < 1.0;
+            matB.depthWrite = val === 1.0;
+        });
+
+        // Animation Loop
+        function animate() {
+            requestAnimationFrame(animate);
+            controls.update();
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        // Responsive Resizing
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+    </script>
+</body>
+</html>

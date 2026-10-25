@@ -1,0 +1,317 @@
+\documentclass[twocolumn]{iopjournal}
+
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{amsthm}
+
+\fancyhfoffset[L]{0mm}
+\setlength{\marginparwidth}{0pt}
+\setlength{\marginparsep}{0pt}
+
+% ==========================================
+% ZENODO PREPRINT HEADERS (ACTIVE)
+% ==========================================
+\renewcommand{\articletype}[1]{%
+  {\vspace*{-8mm}\noindent \Large \sf Preprint}\par
+  \vspace*{6mm}\noindent{\scriptsize \sf{\bfseries \MakeUppercase{#1}}}}
+
+\fancyhead[L]{}
+\fancyhead[R]{}
+
+% Theorem environments
+\newtheorem{lemma}{Lemma}
+\newtheorem{theorem}[lemma]{Theorem}
+\newtheorem{corollary}[lemma]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[lemma]{Definition}
+\newtheorem{remark}[lemma]{Remark}
+
+\begin{document}
+
+\articletype{Supplementary Material}
+
+\title{The Constitutive Law from Exchange Symmetry}
+
+\author{Stephen Nelson}
+
+\affil{Field Dynamics Research}
+
+\ead{stephen@fielddynamics.org}
+
+\begin{abstract}
+The tetrad equation produces two parity-related bounded regions,
+TetA and TetB, whose spatial geometry is the stellated
+octahedron (Supplementary Proof~A).  Any constitutive response
+$\mu(x)$ measuring the TetA fraction at acceleration $x$ must
+satisfy a duality: exchanging TetA and TetB sends $x \to 1/x$
+and $\mu \to 1 - \mu$.  Defining the odds ratio
+$\Omega = \mu/(1 - \mu)$, this duality becomes
+$\Omega(1/x) = 1/\Omega(x)$.  The inversion $x \mapsto 1/x$
+exchanges $0$ and $\infty$, so the natural compactified domain
+is the projective line $\mathbb{P}^1$.  We require $\Omega$ to
+be an automorphism of this symmetry space; by the standard
+classification $\mathrm{Aut}(\mathbb{P}^1) =
+\mathrm{PGL}_2$~\cite{Hartshorne1977}, every such map is
+fractional linear.  Within this class, the exchange symmetry
+and the endpoint condition $\mu(0) = 0$ together force
+$\Omega(x) = x$, from which $\mu(x) = x/(x+1)$ follows by
+algebraic normalisation.  The midpoint value $\mu(1) = 1/2$ is
+not assumed; it is a derived consequence.
+\end{abstract}
+
+% ==================================================================
+
+\section*{The exchange symmetry}
+
+The tetrad equation
+$g_{\mu\nu} = \eta_{ab}\, e^a{}_\mu\, e^b{}_\nu$ is quadratic
+in the frame field~$e$.  In the spatial sector, it therefore
+admits two roots related by spatial parity
+$P: e^i \to -e^i$.  The accompanying Supplementary Proof~A
+(\textit{The Spatial Geometry of the Lorentz Tetrad})
+establishes that each root realises a regular tetrahedron ---
+the identity component TetA and the parity component TetB ---
+and that their compound is the stellated
+octahedron~\cite{Kepler1619}.
+
+\begin{definition}[Constitutive response]
+\label{def:response}
+Let $x = g/a_0$ be the dimensionless acceleration ratio.
+Define $\mu(x) \in [0,1]$ as the fraction of the total field
+capacity carried by TetA at acceleration $x$, so that
+$1 - \mu(x)$ is the fraction carried by TetB.
+\end{definition}
+
+\noindent
+Spatial parity exchanges TetA and TetB.  Under this exchange,
+the acceleration ratio inverts ($x \to 1/x$) and the two
+fractions swap:
+
+\begin{definition}[Exchange symmetry]
+\label{def:exchange}
+The constitutive response satisfies the duality condition
+\begin{equation}
+  \mu(1/x) = 1 - \mu(x).
+  \label{eq:duality}
+\end{equation}
+Two endpoint conditions follow from the definitions of the
+TetA and TetB fractions:
+$\mu(0) = 0$ (at zero acceleration, TetA is empty) and
+$\mu(x) \to 1$ as $x \to \infty$ (at large acceleration,
+TetA saturates).
+\end{definition}
+
+% ==================================================================
+
+\section*{The odds ratio}
+
+\begin{definition}[Odds ratio]
+\label{def:odds}
+The odds ratio between TetA and TetB is
+\begin{equation}
+  \Omega(x) = \frac{\mu(x)}{1 - \mu(x)}.
+  \label{eq:odds}
+\end{equation}
+This measures how many times more capacity TetA carries than
+TetB at acceleration $x$.
+\end{definition}
+
+\begin{lemma}[Odds-ratio duality]
+\label{lem:odds_duality}
+Under the exchange symmetry~\eqref{eq:duality}, the odds ratio
+satisfies $\Omega(1/x) = 1/\Omega(x)$.
+\end{lemma}
+
+\begin{proof}
+\begin{align}
+  \Omega(1/x)
+  &= \frac{\mu(1/x)}{1 - \mu(1/x)}
+   = \frac{1 - \mu(x)}{\mu(x)} \notag \\
+  &= \frac{1}{\Omega(x)}.
+\end{align}
+\hfill$\square$
+\end{proof}
+
+\noindent
+The endpoint conditions translate to:
+\begin{equation}
+  \Omega(0) = 0, \qquad \Omega(x) \to \infty
+  \text{ as } x \to \infty.
+  \label{eq:odds_endpoints}
+\end{equation}
+
+\begin{lemma}[Symmetry domain]
+\label{lem:domain}
+The exchange $x \mapsto 1/x$ sends $0 \mapsto \infty$ and
+$\infty \mapsto 0$.  The natural compactified domain on which
+this involution acts is the projective line $\mathbb{P}^1$.
+\end{lemma}
+
+\begin{definition}[Structural axiom]
+\label{def:axiom}
+We require the odds map $\Omega$ to be an automorphism of the
+algebraic symmetry domain $\mathbb{P}^1$.  That is,
+$\Omega \in \mathrm{Aut}(\mathbb{P}^1)$.  This is the minimal
+algebraically closed class containing the exchange involution
+$x \mapsto 1/x$ and stable under composition and inversion.
+\end{definition}
+
+\begin{lemma}[Classification of $\mathrm{Aut}(\mathbb{P}^1)$]
+\label{lem:classification}
+Over $\mathbb{R}$,
+$\mathrm{Aut}(\mathbb{P}^1) = \mathrm{PGL}_2(\mathbb{R})$.
+Every such automorphism is fractional
+linear~\cite{Hartshorne1977}:
+\begin{equation}
+  \Omega(x) = \frac{ax + b}{cx + d}, \qquad ad - bc \neq 0.
+  \label{eq:mobius_general}
+\end{equation}
+\end{lemma}
+
+% ==================================================================
+
+\section*{Main result}
+
+\begin{theorem}[Forced odds ratio]
+\label{thm:forced}
+Let $\Omega: \mathbb{P}^1 \to \mathbb{P}^1$ be a rational
+bijection satisfying $\Omega(1/x) = 1/\Omega(x)$ and
+$\Omega(0) = 0$.  Then
+\begin{equation}
+  \boxed{\Omega(x) = x.}
+  \label{eq:odds_result}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+By Lemma~\ref{lem:classification},
+$\Omega(x) = (ax+b)/(cx+d)$.
+The endpoint condition $\Omega(0) = b/d = 0$ requires $b = 0$.
+The map reduces to $\Omega(x) = ax/(cx + d)$.
+
+Substituting into the exchange condition
+$\Omega(1/x) = 1/\Omega(x)$:
+\begin{equation}
+  \frac{a}{c + dx} = \frac{cx + d}{ax}.
+  \label{eq:exchange_sub}
+\end{equation}
+Cross-multiplying: $a^2 x = (c + dx)(cx + d)
+= cd\,x^2 + (c^2 + d^2)\,x + cd$.  Comparing coefficients:
+\begin{equation}
+  cd = 0, \qquad a^2 = c^2 + d^2.
+  \label{eq:coefficients}
+\end{equation}
+From $cd = 0$, either $c = 0$ or $d = 0$.
+
+If $d = 0$: $\Omega(x) = ax/(cx) = a/c$, a constant.  This is
+not bijective.  Rejected.
+
+If $c = 0$: $\Omega(x) = (a/d)\,x$, and
+equation~\eqref{eq:coefficients} gives $(a/d)^2 = 1$.  Since
+$\Omega$ is an odds ratio, $\Omega(x) \geq 0$ for $x \geq 0$,
+so $a/d = +1$.
+\hfill$\square$
+\end{proof}
+
+\noindent
+The odds ratio between TetA and TetB is the acceleration ratio
+itself.  This is not assumed; it is the unique element of
+$\mathrm{Aut}(\mathbb{P}^1)$ satisfying the exchange symmetry
+and the endpoint condition.  The result is a uniqueness theorem
+within the automorphism group of the projective symmetry space,
+not a claim about arbitrary constitutive functions.
+
+% ==================================================================
+
+\section*{Corollaries}
+
+\begin{corollary}[Constitutive law]
+\label{cor:mu}
+From $\Omega(x) = x$, inverting the
+definition~\eqref{eq:odds}:
+\begin{equation}
+  \boxed{\mu(x) = \frac{x}{x + 1}.}
+  \label{eq:mu}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+$\mu = \Omega/(1 + \Omega) = x/(1 + x)$.
+\hfill$\square$
+\end{proof}
+
+\begin{corollary}[Midpoint value]
+\label{cor:midpoint}
+$\mu(1) = 1/2$.  At the parity midpoint, TetA and TetB
+contribute equally.
+\end{corollary}
+
+\begin{proof}
+$\mu(1) = 1/(1 + 1) = 1/2$.  This is a consequence of the
+exchange symmetry, not an independent condition.
+\hfill$\square$
+\end{proof}
+
+% ==================================================================
+
+\section*{Remarks}
+
+\begin{remark}[Complement symmetry is the starting point]
+\label{rem:complement}
+The identity $\mu(x) + \mu(1/x) = 1$ was not assumed as a
+separate condition.  It is the duality
+condition~\eqref{eq:duality}, which was the starting point of
+the derivation.
+\end{remark}
+
+\begin{remark}[Screening identity is algebraic]
+\label{rem:screening}
+The screening identity $x(1 - \mu) = \mu$ is not imposed.  It
+is the odds-ratio identification $\mu/(1-\mu) = x$ rearranged:
+multiply both sides by $(1-\mu)$ to obtain $\mu = x(1-\mu)$.
+This is an algebraic identity of equation~\eqref{eq:mu}, not an
+independent physical postulate.
+\end{remark}
+
+\begin{remark}[What this derivation does not use]
+\label{rem:independence}
+This derivation uses no coupling polynomial, no rank counting,
+no field equation, and no equilibrium postulates.  It requires
+only the exchange symmetry between the two parity-related roots
+of the tetrad equation and the classification of
+$\mathrm{Aut}(\mathbb{P}^1)$.  The function
+$\mu(x) = x/(x+1)$ was identified empirically by
+Milgrom~\cite{Milgrom1983} and selected by fitting by Famaey
+and Binney~\cite{FamaeyBinney2005}.  The present derivation
+obtains it as a uniqueness theorem: given equivariance within
+the automorphism group of the projective symmetry space, no
+other constitutive law is possible.
+\end{remark}
+
+% ==================================================================
+
+\begin{thebibliography}{9}
+
+\bibitem{Kepler1619}
+J.~Kepler,
+\textit{Harmonices Mundi}
+(Linz, 1619).
+
+\bibitem{Hartshorne1977}
+R.~Hartshorne,
+\textit{Algebraic Geometry}
+(Springer, New York, 1977).
+
+\bibitem{Milgrom1983}
+M.~Milgrom,
+\textit{A modification of the Newtonian dynamics as a possible
+alternative to the hidden mass hypothesis},
+Astrophys.\ J.\ \textbf{270} (1983) 365.
+
+\bibitem{FamaeyBinney2005}
+B.~Famaey and J.~Binney,
+\textit{Modified Newtonian dynamics in the Milky Way},
+Mon.\ Not.\ R.\ Astron.\ Soc.\ \textbf{363} (2005) 603.
+
+\end{thebibliography}
+
+\end{document}

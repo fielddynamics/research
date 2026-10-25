@@ -1,0 +1,328 @@
+\documentclass[twocolumn]{iopjournal}
+
+\usepackage{amsmath,amssymb,amsfonts}
+
+\fancyhfoffset[L]{0mm}
+\setlength{\marginparwidth}{0pt}
+\setlength{\marginparsep}{0pt}
+
+% ==========================================
+% ZENODO PREPRINT HEADERS (ACTIVE)
+% ==========================================
+\renewcommand{\articletype}[1]{%
+  {\vspace*{-8mm}\noindent \Large \sf Preprint}\par
+  \vspace*{6mm}\noindent{\scriptsize \sf{\bfseries \MakeUppercase{#1}}}}
+
+\fancyhead[L]{}
+\fancyhead[R]{}
+
+\begin{document}
+
+\articletype{Supplementary Material}
+
+\title{Supplementary Material: The Constitutive Law\\
+from Exchange Symmetry}
+
+\author{Stephen Nelson}
+
+\affil{Field Dynamics Research}
+
+\ead{stephen@fielddynamics.org}
+
+\begin{abstract}
+The tetrad equation produces two parity-related bounded regions,
+TetA and TetB, proved in the main
+letter~\cite{Nelson2026geometry}. Any constitutive response
+$\mu(x)$ measuring the TetA fraction at acceleration $x$ must
+satisfy a duality: exchanging TetA and TetB sends $x \to 1/x$
+and $\mu \to 1 - \mu$. Defining the odds ratio
+$\Omega = \mu/(1 - \mu)$, this duality becomes
+$\Omega(1/x) = 1/\Omega(x)$. The map $\Omega$ must be rational
+(to preserve the tetrad equation's algebraic structure) and
+bijective (for deterministic decoding); a rational bijection
+is necessarily fractional linear~\cite{Hartshorne1977}. Within
+this class, the exchange symmetry and the endpoint condition
+$\mu(0) = 0$ together force $\Omega(x) = x$, from which
+$\mu(x) = x/(x+1)$ follows by algebraic normalisation. The
+midpoint value $\mu(1) = 1/2$ is not assumed; it is a derived
+consequence. This derivation uses no coupling polynomial, no
+rank counting, no field equation, and no equilibrium postulates.
+It requires only the exchange symmetry between the two
+parity-related roots of the tetrad equation.
+\end{abstract}
+
+% ----------------------------------------------------------------------
+
+\section*{Exchange Symmetry}
+
+The main letter~\cite{Nelson2026geometry} and its
+supplement~\cite{Nelson2026scheme} prove that the tetrad
+equation $g_{\mu\nu} = \eta_{ab}\, e^a{}_\mu\, e^b{}_\nu$
+produces exactly two bounded tetrahedral regions in its spatial
+sector, related by spatial parity $P: e^i \to -e^i$. The
+identity component gives TetA; the parity component gives TetB.
+Their union is the stellated octahedron.
+
+Let $x = g/a_0$ be the dimensionless acceleration ratio. Define
+$\mu(x) \in [0,1]$ as the fraction of the total field capacity
+carried by TetA at acceleration $x$, so that $1 - \mu(x)$ is
+the fraction carried by TetB.
+
+Spatial parity exchanges TetA and TetB. Under this exchange,
+the acceleration ratio inverts ($x \to 1/x$) and the two
+fractions swap. The constitutive response must therefore satisfy
+the duality condition:
+\begin{equation}
+  \mu(1/x) = 1 - \mu(x).
+  \label{eq:duality}
+\end{equation}
+This is the exchange symmetry of the stellated octahedron
+expressed as a functional equation on $\mu$.
+
+% ----------------------------------------------------------------------
+
+\section*{Endpoint Conditions}
+
+Two endpoint conditions follow from the definitions of the
+TetA and TetB fractions:
+
+\paragraph{$\mu(0) = 0$.} At zero acceleration, the TetA
+fraction vanishes. The field sits entirely in TetB.
+
+\paragraph{$\mu(x) \to 1$ as $x \to \infty$.} At arbitrarily
+large acceleration, the TetA fraction saturates.
+
+These are structural definitions: $\mu = 0$ means TetB alone,
+$\mu = 1$ means TetA alone.
+
+% ----------------------------------------------------------------------
+
+\section*{The Odds Ratio}
+
+Define the odds ratio between TetA and TetB:
+\begin{equation}
+  \Omega(x) = \frac{\mu(x)}{1 - \mu(x)}.
+  \label{eq:odds}
+\end{equation}
+This measures how many times more capacity TetA carries than
+TetB at acceleration $x$. Under the exchange symmetry
+Eq.~\eqref{eq:duality}:
+\begin{align}
+  \Omega(1/x)
+  &= \frac{\mu(1/x)}{1 - \mu(1/x)}
+   = \frac{1 - \mu(x)}{\mu(x)} \notag \\
+  &= \frac{1}{\Omega(x)}.
+  \label{eq:odds_duality}
+\end{align}
+The odds ratio inverts when the acceleration inverts. This is the
+exchange symmetry in its simplest algebraic form.
+
+The endpoint conditions translate to:
+\begin{equation}
+  \Omega(0) = 0, \qquad \Omega(x) \to \infty
+  \text{ as } x \to \infty.
+  \label{eq:odds_endpoints}
+\end{equation}
+
+% ----------------------------------------------------------------------
+
+\section*{Rational Bijectivity}
+
+The map $\Omega(x)$ must be rational, to preserve the algebraic
+structure of the tetrad equation under composition, and bijective,
+so that a single acceleration $x$ corresponds to exactly one odds
+ratio and vice versa. A rational bijection on the projective line
+is necessarily fractional linear; this is a classification theorem
+of projective geometry~\cite{Hartshorne1977}. The general form is:
+\begin{equation}
+  \Omega(x) = \frac{ax + b}{cx + d}.
+  \label{eq:mobius_general}
+\end{equation}
+
+% ----------------------------------------------------------------------
+
+\section*{The Unique Map}
+
+\paragraph{Proposition.} \textit{Let $\Omega(x) = (ax+b)/(cx+d)$
+be a rational bijection satisfying $\Omega(1/x) = 1/\Omega(x)$
+and $\Omega(0) = 0$. Then $\Omega(x) = x$.}
+
+\paragraph{Proof.}
+The endpoint condition $\Omega(0) = b/d = 0$ requires $b = 0$.
+The map reduces to $\Omega(x) = ax/(cx + d)$.
+
+Substituting into the exchange condition
+$\Omega(1/x) = 1/\Omega(x)$:
+\begin{equation}
+  \frac{a}{c + dx} = \frac{cx + d}{ax}.
+  \label{eq:exchange_sub}
+\end{equation}
+Cross-multiplying: $a^2 x = (c + dx)(cx + d)$. Expanding
+the right side and comparing coefficients of $x^2$, $x^1$,
+and $x^0$:
+\begin{align}
+  x^2: \quad & 0 = cd, \label{eq:x2} \\
+  x^1: \quad & a^2 = c^2 + d^2, \label{eq:x1} \\
+  x^0: \quad & 0 = cd. \label{eq:x0}
+\end{align}
+From Eq.~\eqref{eq:x2}, either $c = 0$ or $d = 0$.
+
+If $d = 0$: $\Omega(x) = ax/(cx) = a/c$, a constant. This is
+not bijective. Rejected.
+
+If $c = 0$: $\Omega(x) = ax/d$, and Eq.~\eqref{eq:x1} gives
+$a^2 = d^2$, so $a = \pm d$. Since $\Omega(x) > 0$ for $x > 0$,
+we require $a/d > 0$, giving $a = d$. Therefore:
+\begin{equation}
+  \boxed{\Omega(x) = x.}
+  \label{eq:odds_result}
+\end{equation}
+
+The odds ratio between TetA and TetB is the acceleration ratio
+itself. This is not assumed. It is the unique rational bijection
+satisfying the exchange symmetry and the endpoint condition.
+\hfill $\square$
+
+% ----------------------------------------------------------------------
+
+\section*{The Constitutive Law}
+
+From $\Omega(x) = x$, inverting the definition
+Eq.~\eqref{eq:odds}:
+\begin{equation}
+  \mu = \frac{\Omega}{1 + \Omega} = \frac{x}{1 + x}.
+  \label{eq:mu}
+\end{equation}
+\begin{equation}
+  \boxed{\mu(x) = \frac{x}{x + 1}.}
+\end{equation}
+
+\paragraph{Derived consequences (not inputs).}
+The midpoint value $\mu(1) = 1/2$ was not assumed. It follows:
+\begin{equation*}
+  \mu(1) = \frac{1}{1 + 1} = \frac{1}{2}.
+\end{equation*}
+At the parity midpoint, TetA and TetB contribute equally. This
+is a consequence of the exchange symmetry, not an independent
+condition.
+
+The complement symmetry $\mu(x) + \mu(1/x) = 1$ was not
+assumed. It is the duality condition Eq.~\eqref{eq:duality},
+which was the starting point.
+
+The screening identity $x(1 - \mu) = \mu$ is not imposed. It
+is the odds-ratio identification $\mu/(1-\mu) = x$ rearranged:
+multiply both sides by $(1-\mu)$ to obtain $\mu = x(1-\mu)$.
+This is an algebraic identity of Eq.~\eqref{eq:mu}.
+
+% ----------------------------------------------------------------------
+
+\section*{Relation to the Other Routes}
+
+The main paper derives $\mu(x) = x/(x+1)$ by two additional
+routes:
+
+\vspace{6pt}
+\noindent
+\begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}lp{0.37\columnwidth}@{}}
+\hline
+Route & Method \\
+\hline
+1 (companion note) & Graded rank counting of the tetrad
+  equation yields coupling polynomial; parity interpolation
+  and rational normalisation produce
+  $\mu$~\cite{Nelson2026metric} \\
+2 (companion note) & AQUAL field equation, three physical
+  postulates, single-channel detailed
+  balance~\cite{Nelson2026equilibrium} \\
+3 (this note) & Exchange symmetry of the two parity-related
+  roots; odds ratio identified with acceleration ratio by
+  rational bijectivity \\
+\hline
+\end{tabular*}
+\vspace{6pt}
+
+Route~1 reads the algebraic content of the tetrad equation.
+Route~2 reads the field's equilibrium response. Route~3 (this
+note) reads the geometry's duality. No two routes share their
+method:
+
+\begin{itemize}
+\item Route~1 uses the coupling polynomial. This note does not.
+\item Route~2 uses the AQUAL field equation. This note does not.
+\item This note uses the odds ratio. Routes~1 and~2 do not.
+\end{itemize}
+
+All three arrive at the same function. The main letter presents
+the convergence of the three routes.
+
+% ----------------------------------------------------------------------
+
+\section*{Summary}
+
+The tetrad equation has two parity-related spatial roots. Their
+exchange symmetry requires $\mu(1/x) = 1 - \mu(x)$. Defining
+the odds ratio $\Omega = \mu/(1-\mu)$, this becomes
+$\Omega(1/x) = 1/\Omega(x)$. Rational bijectivity restricts
+$\Omega$ to the fractional linear class. The endpoint condition
+$\Omega(0) = 0$ sets the numerator constant to zero. The
+exchange identity then forces $cd = 0$ and $a^2 = d^2$, with
+the bijective branch giving $c = 0$ and $a = d$. The result is:
+\begin{equation}
+  \Omega(x) = x, \qquad \mu(x) = \frac{x}{x + 1}.
+\end{equation}
+The odds ratio between the two tetrahedral sectors is the
+acceleration ratio itself. The constitutive law is its
+normalisation. The midpoint value $\mu(1) = 1/2$ is derived,
+not assumed.
+
+This function was identified empirically by
+Milgrom~\cite{Milgrom1983} and selected by fitting by
+Famaey and Binney~\cite{FamaeyBinney2005}. The present
+derivation obtains it from the exchange symmetry of the
+two parity-related roots of the equation that defines the
+gravitational field.
+
+% ----------------------------------------------------------------------
+
+\begin{thebibliography}{99}
+
+\bibitem{Nelson2026geometry}
+S.~Nelson,
+\textit{The Coordinate-Space Geometry of the Tetrad Frame},
+Class.\ Quantum Grav.\ (2026), submitted.
+
+\bibitem{Nelson2026scheme}
+S.~Nelson,
+\textit{Supplementary Material: The Tetrad Scheme and the Two
+Bounded Regions} (2026).
+
+\bibitem{Nelson2026metric}
+S.~Nelson,
+\textit{Supplementary Material: The Constitutive Law Read from
+the Metric} (2026).
+
+\bibitem{Nelson2026equilibrium}
+S.~Nelson,
+\textit{Supplementary Material: The Constitutive Law from
+Equilibrium Field Closure} (2026).
+
+\bibitem{Hartshorne1977}
+R.~Hartshorne,
+\textit{Algebraic Geometry}
+(Springer, New York, 1977).
+
+\bibitem{Milgrom1983}
+M.~Milgrom,
+\textit{A modification of the Newtonian dynamics as a possible
+alternative to the hidden mass hypothesis},
+Astrophys.\ J.\ \textbf{270} (1983) 365.
+
+\bibitem{FamaeyBinney2005}
+B.~Famaey and J.~Binney,
+\textit{Modified Newtonian dynamics in the Milky Way},
+Mon.\ Not.\ R.\ Astron.\ Soc.\ \textbf{363} (2005) 603.
+
+\end{thebibliography}
+
+\end{document}

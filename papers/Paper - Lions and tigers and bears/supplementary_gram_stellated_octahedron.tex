@@ -1,0 +1,522 @@
+\documentclass[twocolumn]{iopjournal}
+
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{amsthm}
+
+\fancyhfoffset[L]{0mm}
+\setlength{\marginparwidth}{0pt}
+\setlength{\marginparsep}{0pt}
+
+% ==========================================
+% ZENODO PREPRINT HEADERS (ACTIVE)
+% ==========================================
+\renewcommand{\articletype}[1]{%
+  {\vspace*{-8mm}\noindent \Large \sf Preprint}\par
+  \vspace*{6mm}\noindent{\scriptsize \sf{\bfseries \MakeUppercase{#1}}}}
+
+\fancyhead[L]{}
+\fancyhead[R]{}
+
+% Theorem environments
+\newtheorem{lemma}{Lemma}
+\newtheorem{theorem}[lemma]{Theorem}
+\theoremstyle{definition}
+\newtheorem{definition}[lemma]{Definition}
+
+\begin{document}
+
+\articletype{Supplementary Material}
+
+\title{The Gram Matrix of the Tetrad Equation}
+
+\author{Stephen Nelson}
+
+\affil{Field Dynamics Research}
+
+\ead{stephen@fielddynamics.org}
+
+\begin{abstract}
+The tetrad equation $g_{\mu\nu} = \eta_{ab}\,e^a{}_\mu\,e^b{}_\nu$
+defines the metric as a Gram matrix of the frame field.  This note
+examines the Gram matrix as a mathematical object.  The equation is
+even in the spatial frame: if $M_1$ is a solution, so is $-M_1$.  Two
+solutions generate three Gram products --- self-coupling, self-coupling
+of the inverted root, and cross-coupling --- whose properties follow
+from matrix multiplication alone.  Reading the columns of the two
+solutions as coordinates in $\mathbb{R}^3$ identifies the first with
+a regular tetrahedron, the second with the inverted tetrahedron, and
+their compound with a stellated octahedron.  Each $K \times K$ slice
+of the affine connection decomposes canonically into $6 + 4 + 6 = 16$
+entries; across $K = 4$ slices, the full connection decomposes as
+$24 + 16 + 24 = 64$.  The torsion-free condition retains
+$16 + 24 = 40$ and leaves 24 unretained.  The 40-component
+torsion-free connection is not isomorphic to the full 64-component
+connection: a tetrahedron is not a stellated octahedron.
+Every step is a computation; every intermediate result is verifiable
+with pencil and paper.
+\end{abstract}
+
+% ==================================================================
+
+\section*{Premise}
+
+The tetrad equation
+\begin{equation}
+  g_{\mu\nu} = \eta_{ab}\,e^a{}_\mu\,e^b{}_\nu
+  \label{eq:tetrad}
+\end{equation}
+is quadratic in the frame field $e^a{}_\mu$: the metric depends on the
+product of two copies of $e$.  In the spatial sector, the parity
+$e^i{}_\mu \to -e^i{}_\mu$ sends both copies to their negatives; the
+product is invariant.  The equation is therefore even in the spatial
+frame: if $M_1$ is a solution, so is $M_2 = -M_1$.  The solution set
+therefore contains both members of the parity pair; restricting to one
+is a projection that requires independent justification.
+The torsion-free condition
+$\Gamma^\lambda_{\mu\nu} = \Gamma^\lambda_{\nu\mu}$, adopted in
+general relativity in 1915,
+provides that restriction at the connection level: it retains the
+symmetric part of the lower index pair and discards the antisymmetric
+part.  The vanishing of the antisymmetric components is a sufficient
+condition for the Levi-Civita theorem~\cite{LeviCivita1917}, not a consequence of it.
+
+This note examines what the tetrad equation contains before the
+restriction is applied.  The method is to compute the Gram matrix that
+the tetrad equation defines and to read its structure.  The results
+follow from linear algebra.  No gravitational dynamics, field equations,
+or physical assumptions beyond the tetrad equation itself are required.
+
+% ==================================================================
+
+\section*{Part I: The three Gram products}
+
+This section is self-contained.  It requires only the tetrad equation
+and matrix multiplication.
+
+% ------------------------------------------------------------------
+
+\subsection*{Definitions}
+
+\begin{definition}[Gram matrix of the frame]
+\label{def:gram}
+Let $M$ denote the $D \times K$ matrix whose rows are the $D = 3$
+spatial components of the $K = 4$ frame vectors.  The specific frame is
+uniquely fixed by the Lorentz signature~\cite{Nelson2026a}.  The tetrad
+equation~(\ref{eq:tetrad}) restricted to the spatial sector states
+that the metric is the Gram matrix of the frame:
+\begin{equation}
+  G = M^T M.
+  \label{eq:gram}
+\end{equation}
+$G$ is a $K \times K$ matrix.  Its entry
+$G_{IJ} = \sum_{a=1}^{D} M_{aI}\,M_{aJ}$ is the inner product of frame
+vector~$I$ with frame vector~$J$.
+\end{definition}
+
+\begin{definition}[Two solutions]
+\label{def:roots}
+Because Eq.~(\ref{eq:gram}) is quadratic in $M$, if $M_1$ is a
+solution then $M_2 = -M_1$ is also a solution (spatial parity:
+$e^i{}_\mu \to -e^i{}_\mu$, $i = 1,2,3$).  Both solutions satisfy the
+same equation with the same metric.  (Time reversal acts on the temporal
+leg, which is not included in the spatial matrix $M$; the two spatial
+solutions form the complete parity pair.)  From two solutions, three
+Gram products can be formed:
+\begin{equation}
+  G_{M_1 M_1} = M_1^T M_1, \quad
+  G_{M_2 M_2} = M_2^T M_2, \quad
+  G_{M_1 M_2} = M_1^T M_2.
+  \label{eq:three_products}
+\end{equation}
+The transposed product $G_{M_2 M_1} = M_2^T M_1 = (-M_1)^T M_1
+= -M_1^T M_1 = G_{M_1 M_2}$, so there are exactly three distinct
+products.
+\end{definition}
+
+% ------------------------------------------------------------------
+
+\subsection*{Lemmas}
+
+\begin{lemma}[Root-blindness]
+\label{lem:root_blind}
+$G_{M_1 M_1} = G_{M_2 M_2}$.  The self-coupling Gram matrix is
+identical for both solutions.
+\end{lemma}
+
+\begin{proof}
+\begin{equation}
+  G_{M_2 M_2} = M_2^T M_2 = (-M_1)^T(-M_1)
+  = M_1^T M_1 = G_{M_1 M_1}. \qquad\square
+  \label{eq:root_blind}
+\end{equation}
+\end{proof}
+
+\noindent
+The metric cannot distinguish the two roots.  It is a property of
+matrix multiplication: the product $M^T M$ is even in $M$.  We call a
+quantity \textit{root-blind} when it takes the same value on both
+solutions.
+
+\begin{lemma}[Cross-coupling sign reversal]
+\label{lem:cross}
+$G_{M_1 M_2} = -G_{M_1 M_1}$.  The cross-coupling Gram matrix negates
+every entry of the self-coupling.
+\end{lemma}
+
+\begin{proof}
+\begin{equation}
+  G_{M_1 M_2} = M_1^T M_2 = M_1^T(-M_1)
+  = -M_1^T M_1 = -G_{M_1 M_1}. \qquad\square
+  \label{eq:cross}
+\end{equation}
+\end{proof}
+
+\noindent
+The self-coupling is root-blind; the cross-coupling is
+\textit{root-resolving}: it is the only Gram product whose value
+distinguishes $M_1$ from $M_2$.
+
+\begin{lemma}[Explicit Gram matrix]
+\label{lem:explicit}
+For the regular tetrahedral frame in $D = 3$, the Gram matrix has
+diagonal entries $D$ and off-diagonal entries $-1$:
+\begin{equation}
+  G_{IJ} = \begin{cases}
+    D & \text{if } I = J, \\
+    -1 & \text{if } I \neq J.
+  \end{cases}
+  \label{eq:explicit_G}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+The frame vectors uniquely fixed by the Lorentz
+signature~\cite{Nelson2026a} are the columns of
+\begin{equation}
+  M_1 = \begin{pmatrix}
+    +1 & +1 & -1 & -1 \\
+    +1 & -1 & +1 & -1 \\
+    +1 & -1 & -1 & +1
+  \end{pmatrix}.
+  \label{eq:M1}
+\end{equation}
+Each column is a frame vector with components $\pm 1$ in the three
+spatial directions.  Compute $G = M_1^T M_1$ entry by entry.
+The diagonal: $G_{II} = \sum_{a=1}^{3}(\pm 1)^2 = 3 = D$.  The
+off-diagonal: for columns~1 and~2, the three component products are
+$(+1)(+1) + (+1)(-1) + (+1)(-1) = 1 - 1 - 1 = -1$.  For columns~1
+and~3: $(+1)(-1) + (+1)(+1) + (+1)(-1) = -1 + 1 - 1 = -1$.  In each
+case, exactly one of the three spatial components agrees in sign and two
+disagree, giving $G_{IJ} = -1$.  The same holds for all six off-diagonal
+pairs, as can be verified column by column from~(\ref{eq:M1}).
+\hfill$\square$
+\end{proof}
+
+\noindent
+By Lemma~\ref{lem:root_blind}, $G_{M_2 M_2} = G_{M_1 M_1}$.  By
+Lemma~\ref{lem:cross}, $G_{M_1 M_2} = -G_{M_1 M_1}$.  All three Gram
+products are now determined:
+\begin{equation}
+  G_{M_1 M_1} = \begin{pmatrix}
+    3 & -1 & -1 & -1 \\
+    -1 & 3 & -1 & -1 \\
+    -1 & -1 & 3 & -1 \\
+    -1 & -1 & -1 & 3
+  \end{pmatrix},\quad
+  G_{M_2 M_2} = G_{M_1 M_1},\quad
+  G_{M_1 M_2} = \begin{pmatrix}
+    -3 & 1 & 1 & 1 \\
+    1 & -3 & 1 & 1 \\
+    1 & 1 & -3 & 1 \\
+    1 & 1 & 1 & -3
+  \end{pmatrix}.
+  \label{eq:three_grams_explicit}
+\end{equation}
+Both $G_{M_1 M_1}$ and $G_{M_1 M_2}$ are symmetric matrices; the sign
+of every entry is reversed.
+
+\begin{lemma}[Orthogonal invariance]
+\label{lem:orthogonal}
+The three Gram products are invariant under $O(D)$.  If $M$ is replaced
+by $RM$ for any orthogonal matrix $R$ ($R^T R = \mathbb{I}$), then
+\begin{equation}
+  (RM)^T(RM) = M^T R^T R\,M = M^T M.
+  \label{eq:orthogonal_inv}
+\end{equation}
+The same identity holds for each of $G_{M_1 M_1}$, $G_{M_2 M_2}$, and
+$G_{M_1 M_2}$: replacing $(M_1, M_2)$ with $(RM_1, RM_2)$ leaves all
+three products unchanged.
+\end{lemma}
+
+\begin{proof}
+$(RM_1)^T(RM_1) = M_1^T R^T R\,M_1 = M_1^T M_1$.
+$(RM_2)^T(RM_2) = M_2^T R^T R\,M_2 = M_2^T M_2$.
+$(RM_1)^T(RM_2) = M_1^T R^T R\,M_2 = M_1^T M_2$.
+\hfill$\square$
+\end{proof}
+
+\noindent
+The three Gram products are invariant under orthogonal changes of
+representative and therefore constitute the complete
+orthogonal-invariant matrix content of the parity pair $(M_1, M_2)$.
+
+\begin{lemma}[Eigenstructure]
+\label{lem:eigen}
+The Gram matrix~(\ref{eq:three_grams_explicit}) has exactly two distinct
+eigenvalues:
+\begin{enumerate}
+\item[(a)] Eigenvalue $0$ with multiplicity $1$ and eigenvector
+  $(1,1,1,1)$.
+\item[(b)] Eigenvalue $D + 1 = 4$ with multiplicity $D = 3$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(a)~Sum the entries in any row: $3 + (-1) + (-1) + (-1) = 0$.  Every
+row sums to zero.  Therefore $G \cdot (1,1,1,1)^T = (0,0,0,0)^T$, and
+$(1,1,1,1)$ is an eigenvector with eigenvalue~$0$.  The four frame
+vectors sum to zero: $\sum_{I=1}^{K} M_{aI} = 0$ for each spatial
+component~$a$.  This is closure: the columns of $M$ are linearly
+dependent, with the all-ones vector spanning the null space.
+
+(b)~Write $G = (D+1)\,\mathbb{I} - J$, where $\mathbb{I}$ is the
+$K \times K$ identity and $J$ is the $K \times K$ all-ones matrix.  The
+matrix $J$ has eigenvalue $K = 4$ with eigenvector $(1,1,1,1)$ and
+eigenvalue $0$ with multiplicity $K - 1 = 3$.  Therefore, on the
+$(K-1)$-dimensional subspace orthogonal to $(1,1,1,1)$:
+$G = (D+1)\,\mathbb{I} - 0 = (D+1)\,\mathbb{I}$, giving eigenvalue
+$D + 1 = 4$ with multiplicity~$3$.
+
+Check: $\mathrm{tr}(G) = 4 \times 3 = 12$.  Sum of eigenvalues:
+$0 + 3 \times 4 = 12$.  $\checkmark$ \hfill$\square$
+\end{proof}
+
+\noindent
+The dimension $D = 3$ enters the construction of $M$ as the number of
+spatial components; it reappears in the eigenvalue multiplicity as a
+consistency check, confirming that the Gram matrix faithfully encodes the
+spatial dimension of the frame.
+
+% ==================================================================
+
+\section*{Part II: Geometric identification}
+
+By Lemma~\ref{lem:orthogonal}, the three Gram products depend only on
+the orthogonal class of the chosen parity pair.  We therefore fix the
+canonical representatives $M_1$ and $M_2 = -M_1$ and identify the
+geometry they realize.
+
+The canonical representatives are:
+\begin{equation}
+  M_1 = \begin{pmatrix}
+    +1 & +1 & -1 & -1 \\
+    +1 & -1 & +1 & -1 \\
+    +1 & -1 & -1 & +1
+  \end{pmatrix},\quad
+  M_2 = \begin{pmatrix}
+    -1 & -1 & +1 & +1 \\
+    -1 & +1 & -1 & +1 \\
+    -1 & +1 & +1 & -1
+  \end{pmatrix}.
+  \label{eq:M1M2}
+\end{equation}
+The inversion matrix
+\begin{equation}
+  I_{\mathrm{inv}} = \begin{pmatrix}
+    -1 & 0 & 0 \\
+    0 & -1 & 0 \\
+    0 & 0 & -1
+  \end{pmatrix}
+  \label{eq:Iinv}
+\end{equation}
+satisfies $M_2 = I_{\mathrm{inv}}\,M_1 = -M_1$: multiplying every
+entry of $M_1$ by $-1$ produces $M_2$.  This is verifiable by
+inspection of~(\ref{eq:M1M2}).
+
+The columns of $M_1$ and $M_2 = -M_1$ are disjoint: no column appears
+in both matrices.  Together, the eight columns exhaust the $2^3 = 8$
+sign combinations $(\pm 1,\,\pm 1,\,\pm 1)$ --- the complete vertex
+set of a cube of side~2.  By Lemma~\ref{lem:explicit}, the four
+columns of each matrix have constant pairwise inner product
+$G_{IJ} = -1$ for all $I \neq J$.  Four vectors in
+$\mathbb{R}^3$ with constant pairwise inner product form a regular
+tetrahedron, unique up to rotation~\cite{Coxeter1973}.  The four
+columns of $M_2 = I_{\mathrm{inv}}\,M_1 = -M_1$ form the inverted
+tetrahedron.  This compound of two dual tetrahedra inscribed in a cube
+is the stellated octahedron~\cite{Kepler1619,Cromwell1997}:
+\begin{equation}
+  S = \begin{bmatrix} M_1 & M_2 \end{bmatrix}.
+  \label{eq:stellated}
+\end{equation}
+
+Following the coordinate-space identification established
+in~\cite{Nelson2026a}, we denote the first tetrahedron as TetA (the
+columns of $M_1$, the identity component under spatial parity) and the
+second as TetB (the columns of $M_2 = -M_1$, the parity component).
+
+% ==================================================================
+
+\section*{Part III: The index grid}
+
+The affine connection $\Gamma^\lambda_{\mu\nu}$ has three indices.
+Fixing the upper index $\lambda$ yields a $K \times K$ matrix in the
+lower pair $(\mu,\nu)$; we call this matrix a \textit{slice}.  There
+are $K = 4$ slices, one for each value of $\lambda$.
+
+Consider the $(\mu,\nu)$ index pair for a single slice.  Label the
+four indices $\{t,x,y,z\}$.  The full $4 \times 4$ matrix of pairs is:
+\begin{equation}
+  \begin{array}{c|cccc}
+    & t & x & y & z \\
+    \hline
+    t & tt & tx & ty & tz \\
+    x & xt & xx & xy & xz \\
+    y & yt & yx & yy & yz \\
+    z & zt & zx & zy & zz
+  \end{array}
+  \label{eq:grid}
+\end{equation}
+Each $K \times K$ slice decomposes canonically into three sectors:
+$K = 4$ diagonal entries, $K(K{-}1)/2 = 6$ strict upper-triangle
+entries ($\mu < \nu$), and $K(K{-}1)/2 = 6$ strict lower-triangle
+entries ($\mu > \nu$).  Total: $4 + 6 + 6 = 16 = K^2$.
+Across $K = 4$ slices, the full affine connection decomposes as:
+\begin{equation}
+  \underbrace{4 \times 6}_{24}
+  \;+\;
+  \underbrace{4 \times 4}_{16}
+  \;+\;
+  \underbrace{4 \times 6}_{24}
+  \;=\; 64.
+  \label{eq:connection_decomp}
+\end{equation}
+
+The torsion-free condition
+$\Gamma^\lambda_{\mu\nu} = \Gamma^\lambda_{\nu\mu}$ identifies each
+lower-triangle entry with its upper-triangle mirror.  This retains the
+16-component diagonal sector together with one 24-component off-diagonal
+sector, giving $16 + 24 = 40$, and leaves the complementary
+24-component sector unretained.
+
+In the tetrad formulation, the connection $\Gamma^\lambda_{\mu\nu}$
+is a function of the frame $M$, and its symmetric part, the
+Christoffel connection, depends only on the metric $g = M^T M$,
+which is root-blind by Lemma~\ref{lem:root_blind}.  The antisymmetric
+part is the complement and carries the root-resolving content of
+Lemma~\ref{lem:cross}.  The torsion-free projection produces the
+40-component sector (16 shared plus 24 retained TetA) and discards
+the complementary 24-component TetB sector.
+
+% ==================================================================
+
+\section*{Part IV: The non-isomorphism}
+
+\begin{theorem}[Torsion-free projection discards TetB]
+\label{thm:noniso}
+In the tetrad formulation, the torsion-free condition
+$\Gamma^\lambda_{\mu\nu} = \Gamma^\lambda_{\nu\mu}$ retains the
+16-component shared sector together with the 24-component TetA
+sector, and discards the complementary 24-component TetB sector.
+The torsion-free connection is therefore a projection of the full
+64-component two-root affine connection, not an equivalent
+rewriting of it.
+\end{theorem}
+
+\begin{proof}
+By Lemma~\ref{lem:root_blind}, the metric $g = M^T M$ is root-blind,
+so the Christoffel sector built from $g$ is root-blind.  By
+Part~III, the torsion-free projection retains exactly the diagonal
+sector together with one strict triangular sector, giving
+$16 + 24 = 40$ components.  By Lemma~\ref{lem:cross}, complementary
+root-resolving content exists and is nonzero.  By the Part~II
+identification of the two root branches as TetA and TetB, the
+retained 24-component sector is TetA and the complementary
+discarded 24-component sector is TetB.  Hence the torsion-free
+construction is a projection of the full $24 + 16 + 24 = 64$
+two-root connection:
+\begin{equation}
+  \boxed{16 + 24 = 40 \;\neq\; 64 = 24 + 16 + 24.}
+  \label{eq:noniso}
+\end{equation}
+\hfill$\square$
+\end{proof}
+
+% ==================================================================
+
+\section*{Summary}
+
+\vspace{6pt}
+\noindent
+{\footnotesize
+\begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}lll@{}}
+\hline
+Result & Proves & Requires \\
+\hline
+\multicolumn{3}{l}{\textit{Part I: The three Gram products}} \\
+Lemma 1 & Root-blindness & Def.\ of $G = M^T M$ \\
+Lemma 2 & Cross-coupling sign & Def.\ of $G_{M_1 M_2}$ \\
+Lemma 3 & Explicit $G$ & $M$ from~\cite{Nelson2026a} \\
+Lemma 4 & Orthogonal invariance & Def.\ of $G = M^T M$ \\
+Lemma 5 & Eigenstructure & Lemma 3 \\[4pt]
+\multicolumn{3}{l}{\textit{Part II: Geometric identification}} \\
+Tetrahedron & $G_{IJ} = -1$ $\Rightarrow$ reg.\ tet. & Lemma 3, Coxeter \\
+Inversion & $M_2 = I_{\mathrm{inv}}\,M_1$ & Def.\ 2 \\
+Compound & $S = [M_1 \mid M_2]$ = stell.\ oct. & Kepler~\cite{Kepler1619} \\[4pt]
+\multicolumn{3}{l}{\textit{Part III: The index grid}} \\
+Grid & $6 + 4 + 6 = 16$ per slice & Matrix structure \\
+Decomp. & $24 + 16 + 24 = 64$ & $\times\,K = 4$ slices \\
+Torsion-free & $16 + 24 = 40$ retained & $\Gamma^\lambda_{\mu\nu} = \Gamma^\lambda_{\nu\mu}$ \\[4pt]
+\multicolumn{3}{l}{\textit{Part IV: The non-isomorphism}} \\
+Thm.\ 1 & Retains shared + TetA, drops TetB & Parts I--III \\
+\hline
+\end{tabular*}}
+\vspace{6pt}
+
+\noindent
+The tetrad equation is even in the spatial frame: solutions come in
+parity pairs.  Two roots produce three Gram products, displayed as
+matrices in Part~I.  The three products are orthogonal-invariant
+(Lemma~4): any choice of representative from each parity component
+produces the same matrices.  Part~II chooses canonical representatives
+and identifies the two roots with two tetrahedra whose compound is a
+stellated octahedron.  Part~III decomposes the full connection as
+$24 + 16 + 24 = 64$; the torsion-free condition retains $16 + 24 = 40$
+and leaves 24 unretained.
+Part~IV concludes that the torsion-free projection retains the shared
+sector together with TetA and discards the complementary TetB sector.
+Equivalently, $16 + 24 = 40 \neq 64 = 24 + 16 + 24$, so the
+torsion-free construction does not preserve the full compound
+structure defined by the tetrad equation.
+
+% ==================================================================
+
+\begin{thebibliography}{99}
+
+\bibitem{Nelson2026a}
+S.~Nelson,
+\textit{The Coordinate-Space Geometry of the Tetrad Frame},
+Field Dynamics Research (2026), submitted.
+
+\bibitem{LeviCivita1917}
+T.~Levi-Civita,
+\textit{Nozione di parallelismo in una variet\`{a} qualunque e
+conseguente specificazione geometrica della curvatura Riemanniana},
+Rend.\ Circ.\ Mat.\ Palermo \textbf{42} (1917) 173.
+
+\bibitem{Kepler1619}
+J.~Kepler,
+\textit{Harmonices Mundi} (1619).
+
+\bibitem{Cromwell1997}
+P.~R.~Cromwell,
+\textit{Polyhedra}
+(Cambridge University Press, Cambridge, 1997).
+
+\bibitem{Coxeter1973}
+H.~S.~M.~Coxeter,
+\textit{Regular Polytopes},
+3rd ed.\ (Dover, New York, 1973).
+
+\end{thebibliography}
+
+\end{document}

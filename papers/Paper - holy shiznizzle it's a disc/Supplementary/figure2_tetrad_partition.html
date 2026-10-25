@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>The Tetrad Partition</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            font-family: 'Helvetica Neue', sans-serif;
+            transition: background-color 0.5s;
+        }
+        body.dark { background-color: #05050a; }
+        body.light { background-color: #f0f0f0; }
+
+        /* -- Info panel -- */
+        #ui {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            pointer-events: auto;
+            padding: 20px;
+            border-radius: 8px;
+            transition: all 0.5s;
+            max-width: 420px;
+        }
+        body.dark #ui {
+            background: rgba(0,0,0,0.7);
+            border: 1px solid #30363d;
+            color: #c9d1d9;
+        }
+        body.light #ui {
+            background: rgba(255,255,255,0.85);
+            border: 1px solid #d0d0d0;
+            color: #333;
+        }
+        #ui .panel-body {
+            overflow: hidden;
+            max-height: 500px;
+            transition: max-height 0.3s ease, opacity 0.3s ease;
+            opacity: 1;
+        }
+        #ui.collapsed .panel-body { max-height: 0; opacity: 0; }
+        #ui.collapsed { padding: 12px 20px; }
+        @media (max-width: 600px) {
+            #ui { max-width: 280px; padding: 12px; font-size: 0.8rem; }
+            #ui h1 { font-size: 1rem; }
+        }
+
+        h1 { margin: 0 0 10px 0; font-size: 1.2rem; font-weight: 500; }
+        body.dark h1 { color: #fff; }
+        body.light h1 { color: #111; }
+        p { margin: 5px 0; font-size: 0.9rem; }
+
+        .desc {
+            font-size: 0.85rem;
+            line-height: 1.5;
+            margin-bottom: 10px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(128,128,128,0.3);
+        }
+        .legend-a { color: #4488ff; font-weight: bold; }
+        .legend-b { color: #ff5555; font-weight: bold; }
+        .legend-core { font-weight: bold; }
+        body.dark .legend-core { color: #ffffff; }
+        body.light .legend-core { color: #333; }
+        .note {
+            font-size: 0.8rem;
+            opacity: 0.6;
+            margin-top: 10px;
+            line-height: 1.4;
+        }
+
+        #hide-btn {
+            font-size: 0.7rem;
+            padding: 3px 10px;
+            margin-left: 10px;
+            background: rgba(128,128,128,0.3);
+            border: 1px solid rgba(128,128,128,0.5);
+            color: inherit;
+            border-radius: 4px;
+            cursor: pointer;
+            vertical-align: middle;
+        }
+        #hide-btn:hover { background: rgba(128,128,128,0.5); }
+
+        /* -- Theme toggle -- */
+        #toggle-wrap {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 10;
+        }
+        #toggle-btn {
+            background: rgba(128,128,128,0.3);
+            border: 1px solid rgba(128,128,128,0.5);
+            color: #aaa;
+            padding: 8px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: 'Helvetica Neue', sans-serif;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+        }
+        #toggle-btn:hover { background: rgba(128,128,128,0.5); color: #fff; }
+        body.light #toggle-btn { color: #555; }
+        body.light #toggle-btn:hover { color: #000; }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body class="dark">
+
+    <!-- Info panel -->
+    <div id="ui">
+        <h1>The Tetrad Partition
+            <button id="hide-btn" onclick="event.stopPropagation();
+                document.getElementById('ui').classList.toggle('collapsed');
+                this.textContent = this.textContent === 'Hide' ? 'Show' : 'Hide';">Hide</button>
+        </h1>
+        <div class="panel-body">
+            <p class="desc">
+                Two surfaces of revolution over the radial domain of a
+                gravitationally bound system. Height = partition fraction:
+                what share of the total field response each root carries
+                at each radius.
+            </p>
+            <p class="legend-a">TetA (s = +1) - Blue, Y = mu - retained by GR</p>
+            <p class="legend-b">TetB (s = -1) - Red, Y = 1-mu - removed by torsion-free condition</p>
+            <p class="legend-core">MOND Transition (x = 1, mu = 1/2)</p>
+            <p class="note">
+                The tetrad equation admits two algebraically distinct
+                roots, TetA and TetB, related by spatial parity. Both
+                satisfy the same equation with the same metric; neither
+                can be discarded. The constitutive law mu + (1 - mu) = 1
+                makes the two surfaces perfectly anti-symmetric: exact
+                mirrors, summing to a constant at every radius. The
+                physical content is their relationship to each other,
+                not their coordinate orientation. Rotate freely.
+            </p>
+        </div>
+    </div>
+
+    <!-- Theme toggle -->
+    <div id="toggle-wrap">
+        <button id="toggle-btn" onclick="toggleTheme()">Light</button>
+    </div>
+
+    <script>
+        // ==========================================================
+        // Theme
+        // ==========================================================
+        let isDark = true;
+        const darkBg  = 0x05050a;
+        const lightBg = 0xf0f0f0;
+
+        function toggleTheme() {
+            isDark = !isDark;
+            document.body.className = isDark ? 'dark' : 'light';
+            renderer.setClearColor(isDark ? darkBg : lightBg, 1);
+            scene.fog = new THREE.FogExp2(isDark ? darkBg : lightBg, 0.02);
+            document.getElementById('toggle-btn').textContent =
+                isDark ? 'Light' : 'Dark';
+        }
+
+        // ==========================================================
+        // Scene
+        // ==========================================================
+        const scene = new THREE.Scene();
+        scene.fog = new THREE.FogExp2(darkBg, 0.02);
+
+        // ==========================================================
+        // Camera
+        //
+        // camera.up = (0, -1, 0) inverts the vertical convention so
+        // that the observer looks at the underside of the partition.
+        // This is a coordinate convention only. The geometric
+        // relationship between TetA (Y = mu) and TetB (Y = 1 - mu)
+        // is intrinsic: mu + (1 - mu) = 1 everywhere. No choice of
+        // orientation changes which root carries which fraction at
+        // any radius.
+        // ==========================================================
+        const camera = new THREE.PerspectiveCamera(
+            50, window.innerWidth / window.innerHeight, 0.1, 1000);
+        camera.position.set(11.7, -1.6, -6.2);
+        camera.up.set(0, -1, 0);
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        renderer.setClearColor(darkBg, 1);
+        document.body.appendChild(renderer.domElement);
+
+        // Orbit controls with full polar rotation enabled.
+        const controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableDamping  = true;
+        controls.autoRotate     = true;
+        controls.autoRotateSpeed = 0.5;
+        controls.target.set(0, 0.5, 0);
+        controls.minPolarAngle  = 0;
+        controls.maxPolarAngle  = Math.PI;
+
+        // ==========================================================
+        // Lighting - neutral white, no colour bias
+        // ==========================================================
+        scene.add(new THREE.AmbientLight(0xffffff, 0.5));
+
+        const topLight = new THREE.DirectionalLight(0xffffff, 0.8);
+        topLight.position.set(2, 4, 3);
+        scene.add(topLight);
+
+        const bottomLight = new THREE.DirectionalLight(0xffffff, 0.4);
+        bottomLight.position.set(-2, -4, -3);
+        scene.add(bottomLight);
+
+        // ==========================================================
+        // Partition surfaces
+        //
+        // Both surfaces face upward (positive Y). Height equals the
+        // field fraction carried by that root at each radius.
+        //
+        //   Blue (TetA, s = +1):  Y = mu(x)     = x/(x+1)
+        //   Red  (TetB, s = -1):  Y = 1 - mu(x) = 1/(x+1)
+        //
+        // where x = 1/r^2 is the dimensionless acceleration
+        // (Letter 2, Eq. 5-6; Letter 3, Eq. 3-4).
+        //
+        // The surfaces cross at x = 1 (r = 1) where both = 0.5.
+        // mu + (1 - mu) = 1 at every radius.
+        // ==========================================================
+        const segR = 150, segT = 150, Rmax = 5;
+        const ptsA = [], ptsB = [], indices = [];
+
+        for (let i = 0; i <= segR; i++) {
+            const r = (i / segR) * Rmax;
+            for (let j = 0; j <= segT; j++) {
+                const theta = (j / segT) * Math.PI * 2;
+                const X = r * Math.cos(theta);
+                const Z = r * Math.sin(theta);
+                let mu = 1, invMu = 0;
+                if (r > 0) {
+                    const x = 1 / (r * r);
+                    mu    = x / (x + 1);
+                    invMu = 1 / (x + 1);
+                }
+                ptsA.push(X, mu, Z);
+                ptsB.push(X, invMu, Z);
+            }
+        }
+
+        // Triangle index buffer shared by both surfaces.
+        for (let i = 0; i < segR; i++) {
+            for (let j = 0; j < segT; j++) {
+                const a = i * (segT + 1) + j;
+                const b = a + (segT + 1);
+                const c = a + 1;
+                const d = b + 1;
+                indices.push(a, b, d, a, d, c);
+            }
+        }
+
+        function makeSurface(pts, color, opacity) {
+            const geo = new THREE.BufferGeometry();
+            geo.setAttribute('position',
+                new THREE.Float32BufferAttribute(pts, 3));
+            geo.setIndex(indices);
+            geo.computeVertexNormals();
+            return new THREE.Mesh(geo, new THREE.MeshPhongMaterial({
+                color, transparent: true, opacity,
+                side: THREE.DoubleSide, shininess: 60
+            }));
+        }
+
+        scene.add(makeSurface(ptsA, 0x4488ff, 0.85));  // TetA - blue
+        scene.add(makeSurface(ptsB, 0xff4444, 0.75));  // TetB - red
+
+        // ==========================================================
+        // MOND ring at r = 1, Y = 0.5
+        //
+        // The crossing locus where both roots contribute equally
+        // (Letter 3, Section 2: "the crossover at x = 1").
+        // Rendered as a thin torus for visibility (WebGL caps
+        // line width at 1px on most hardware).
+        // ==========================================================
+        const ringGeo = new THREE.TorusGeometry(1, 0.015, 16, 120);
+        const ringMat = new THREE.MeshBasicMaterial({ color: 0xffffff });
+        const ring = new THREE.Mesh(ringGeo, ringMat);
+        ring.rotation.x = Math.PI / 2;
+        ring.position.y = 0.5;
+        scene.add(ring);
+
+        // ==========================================================
+        // Spiral arms
+        //
+        // Visual tracers on the partition surfaces, added to aid
+        // three-dimensional perception of the surface geometry.
+        // The spirals are not derived from the constitutive law;
+        // only the surfaces carry physical content.
+        // 8 continuous lines from centre to rim, riding just below
+        // the lower surface at each radius. Alternating blue and
+        // orange for visual separation.
+        //
+        // Handedness: camera.up = (0,-1,0) flips the image
+        // vertically. offset + r*twistRate in code, combined with
+        // the vertical flip, produces trailing spiral arms as
+        // viewed: curving behind the direction of rotation.
+        // ==========================================================
+        const numArms  = 8;
+        const twistRate = 2.5;
+
+        for (let arm = 0; arm < numArms; arm++) {
+            const offset = (arm / numArms) * Math.PI * 2;
+            const pts = [];
+
+            for (let r = 0.05; r <= Rmax; r += 0.04) {
+                const theta = offset + r * twistRate;
+                const x     = 1 / (r * r);
+                const mu    = x / (x + 1);
+                const invMu = 1 / (x + 1);
+                pts.push(
+                    r * Math.cos(theta),
+                    Math.min(mu, invMu) - 0.02,
+                    r * Math.sin(theta));
+            }
+
+            const geo = new THREE.BufferGeometry();
+            geo.setAttribute('position',
+                new THREE.Float32BufferAttribute(pts, 3));
+            scene.add(new THREE.Line(geo,
+                new THREE.LineBasicMaterial({
+                    color: (arm % 2 === 0) ? 0x88bbff : 0xffaa44,
+                    transparent: true,
+                    opacity: 0.6
+                })));
+        }
+
+        // ==========================================================
+        // Animation loop
+        // ==========================================================
+        function animate() {
+            requestAnimationFrame(animate);
+            controls.update();
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+    </script>
+</body>
+</html>

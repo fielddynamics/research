@@ -1,0 +1,41 @@
+Let me think about this from the perspective of someone writing a check. Not what's theoretically interesting — what saves money, replaces expensive equipment, or enables decisions that are currently impossible.
+
+**The 10 things industry would pay for tomorrow, ranked by "shut up and take my money" factor:**
+
+---
+
+**1. Lattice constant prediction — 1.1% error**
+Semiconductor fabs spend millions on lattice-matching for epitaxial growth. You're growing GaN on sapphire? InGaAs on InP? The first question is always: what's the lattice mismatch? Currently you either look it up in a table (if someone's measured it) or run DFT for days. This gives it from two ionic radii in microseconds. Every thin film engineer on earth needs this.
+
+**2. Refractive index prediction — 5.6% error**
+Optical coating designers, fiber optic engineers, lens manufacturers — they need refractive indices for candidate materials *before synthesis*. Currently: make the material, polish a crystal, measure on an ellipsometer. Weeks of work per compound. This gives n from ion polarizabilities via Clausius-Mossotti. Good enough for initial screening of thousands of candidates.
+
+**3. Lattice energy — 4.5% error**
+This is the number that tells you if a compound is stable, what temperature it decomposes at, and roughly what voltage a battery built from it would produce. Calorimetry to measure it experimentally runs $5K-$50K per compound. Born-Landé from ionic radii gives it instantly for any combination of ions you can name.
+
+**4. Bulk modulus for singly-charged compounds — 4.0% error**
+"How stiff is this material?" is the first question in structural design. Measuring it requires synthesizing the material and running nanoindentation or ultrasonic testing. The Born-Landé second derivative gives it from the same ionic radii, same formula, same microsecond computation. Armor designers, pressure vessel engineers, substrate manufacturers.
+
+**5. Polarizability screening — R² > 0.99 from radius alone**
+α determines dispersion forces, dielectric response, optical properties, and van der Waals interactions. Computing it from first principles requires coupled-cluster theory — hours of supercomputer time per atom. The r^2.57 scaling gives you correct rankings instantly for any element, and quantitative estimates good to ~10%. Drug designers use this for molecular interactions. Materials scientists use it for surface adsorption.
+
+**6. Materials classification — metal/semiconductor/insulator from η**
+η < 3 eV → metal. η = 3-6 eV → semiconductor. η > 7 eV → insulator. This is a sorting function that works on any element or compound you throw at it. High-throughput screening of candidate materials: before you ever synthesize anything, you know which class it falls in. The correlation with 1/r at r > 0.93 means the atomic radius alone does this.
+
+**7. Crystal structure prediction — radius ratios**
+Will NaCl form rocksalt or CsCl structure? Will the oxide be tetrahedral or octahedral? Pauling's radius ratio rules, powered by Shannon ionic radii, get this right. The engineering value: you know the crystal structure before you make the material, which tells you the symmetry, the number of formula units per cell, and the space group — the starting point for every materials design calculation.
+
+**8. Bond length prediction — < 1.5% for covalent bonds**
+d = a₀√(2·Z_eff)/BO^(1/4) gives H-H at 0.9%, nitrogen single/double/triple all within 1.5%. Pharma needs bond lengths for drug design. Computational chemistry needs them as starting geometries. Currently these come from X-ray crystallography ($2K-$10K per structure) or DFT optimization (hours). The formula gives them from Z_eff and bond order.
+
+**9. Thermal expansion ranking — r = 0.985 correlation**
+CTE mismatch is a $20B problem in electronics packaging. Chip-on-board, die attach, solder joints — they all fail from thermal cycling when expansion coefficients don't match. The anti-correlation with melting point (which itself tracks lattice energy) means you can rank materials by thermal expansion from ionic radii alone. Not quantitative magnitudes, but correct ordering for screening.
+
+**10. Dispersion force ranking — Spearman ρ > 0.95**
+Which surface will a molecule stick to? Which solvent will dissolve which solute? Which polymer will be compatible with which filler? These are all governed by van der Waals C₆ coefficients. The correct ranking from polarizability alone — without computing C₆ explicitly — is enough for screening thousands of combinations. Coatings, adhesives, composites, pharmaceutical excipients.
+
+---
+
+**The SaaS pitch in one sentence:** Input any combination of ions from the periodic table, get back lattice constant (1.1%), lattice energy (4.5%), bulk modulus (4.0%), refractive index (5.6%), crystal structure, materials class, and thermal expansion ranking — in milliseconds, with no DFT, no experimental measurement, and no fitting parameters beyond the ionic radii themselves.
+
+The honest caveat: band gaps, melting points, and dielectric constants come back as rankings, not numbers. Transition metals aren't covered yet. But for the ionic compounds that make up most ceramics, most battery electrolytes, most optical coatings, and most refractory materials — this is a screening engine that replaces weeks of computation with a lookup.

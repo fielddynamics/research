@@ -1,0 +1,311 @@
+\documentclass[twocolumn]{iopjournal}
+
+\usepackage{amsmath,amssymb,amsfonts}
+
+\fancyhfoffset[L]{0mm}
+\setlength{\marginparwidth}{0pt}
+\setlength{\marginparsep}{0pt}
+
+% ==========================================
+% ZENODO PREPRINT HEADERS (ACTIVE)
+% ==========================================
+\renewcommand{\articletype}[1]{%
+  {\vspace*{-8mm}\noindent \Large \sf Preprint}\par
+  \vspace*{6mm}\noindent{\scriptsize \sf{\bfseries \MakeUppercase{#1}}}}
+
+\fancyhead[L]{}
+\fancyhead[R]{}
+
+\begin{document}
+
+\articletype{Supplementary Material}
+
+\title{Supplementary Material: The TetB Field Fraction\\
+from Exchange Symmetry}
+
+\author{Stephen Nelson}
+
+\affil{Field Dynamics Research}
+
+\ead{stephen@fielddynamics.org}
+
+\begin{abstract}
+The companion letter~\cite{Nelson2026a} proved that the tetrad
+equation produces two bounded regions related by spatial parity:
+TetA (the identity component) and TetB (the parity component).
+This note derives the fraction of the total gravitational field
+response carried by each sector. The exchange symmetry between
+TetA and TetB, combined with rational bijectivity on the
+projective line, uniquely determines the TetA fraction as
+$\mu(x) = x/(x+1)$ and the TetB fraction as
+$1 - \mu(x) = 1/(x+1)$, where $x = g/a_0$ is the
+dimensionless acceleration. The derivation uses no field
+equation, no coupling polynomial, and no equilibrium
+postulates. It requires only the parity relation between the
+two bounded regions of the tetrad equation together with the
+rational-bijection classification on the projective line.
+\end{abstract}
+
+% ==================================================================
+
+\section*{The two sectors}
+
+The companion letter~\cite{Nelson2026a} proves that the
+spatial sector of the tetrad equation
+$g_{\mu\nu} = \eta_{ab}\,e^a{}_\mu\,e^b{}_\nu$ produces
+exactly two bounded tetrahedral regions. Under spatial parity
+$P: e^i \to -e^i$, the identity component gives TetA and the
+parity component gives TetB. Their union is the stellated
+octahedron. The tetrad equation is quadratic in the frame
+field: TetA and TetB are its two roots in the parity
+direction, and the metric
+$g_{\mu\nu} = \eta_{ab}\,e^a{}_\mu\,e^b{}_\nu$ is the
+quadratic form common to both.
+
+Because TetA and TetB together constitute the two bounded
+regions of the tetrad equation, the gravitational field
+response at each point partitions between them. Let $\mu(x)$
+denote the fraction of the total field response carried by
+TetA at dimensionless acceleration $x = g/a_0$, so that
+$1 - \mu(x)$ is the fraction carried by TetB. The two fractions
+sum to
+unity because $\mu$ measures the relative partition, not the
+absolute field strength.
+
+% ==================================================================
+
+\section*{The exchange symmetry}
+
+Spatial parity exchanges TetA and TetB, swapping the two
+fractions: if $\mu$ is the TetA fraction before the exchange,
+then $1 - \mu$ is the TetA fraction after it.
+
+The natural variable for a two-sector partition is the odds
+ratio between TetA and TetB:
+\begin{equation}
+  \Omega = \frac{\mu}{1 - \mu}
+  = \frac{\text{TetA fraction}}{\text{TetB fraction}}.
+  \label{eq:odds}
+\end{equation}
+Under exchange, the numerator and denominator swap, so
+$\Omega \to 1/\Omega$ by construction. This inversion is
+algebraic, requiring no assumption about how the acceleration
+transforms.
+
+Two endpoint conditions follow from the partition definitions:
+\begin{itemize}
+\item $\mu(0) = 0$: at zero acceleration, the field sits
+  entirely in TetB. Equivalently, $\Omega(0) = 0$.
+\item $\mu(x) \to 1$ as $x \to \infty$: at large
+  acceleration, the field sits entirely in TetA. Equivalently,
+  $\Omega \to \infty$.
+\end{itemize}
+
+The dimensionless acceleration $x = g/a_0$ is constructed from
+the metric, which is determined by the 40~symmetric
+(Christoffel) components of the connection; these are the TetA
+sector~\cite{Nelson2026a}. The variable $x$ therefore measures
+TetA-sector dominance: $x > 1$ where TetA dominates, $x < 1$
+where TetB dominates, and $x = 1$ at the parity midpoint.
+Since $x$ is intrinsically a TetA-sector quantity, exchange
+inverts it to $1/x$; combined with $\Omega \to 1/\Omega$, the
+full exchange symmetry requires $\Omega(1/x) = 1/\Omega(x)$.
+
+% ==================================================================
+
+\section*{Classification}
+
+The map $\Omega(x)$ must be rational, to preserve the
+algebraic structure of the tetrad equation, and bijective,
+so that a single acceleration determines a unique partition.
+Rationality is inherited from the polynomial character of the
+tetrad equation itself; bijectivity is the physical requirement
+that the field be uniquely decodable from the observed
+acceleration.
+A rational bijection on the projective line is necessarily
+fractional linear~\cite{Hartshorne1977}:
+\begin{equation}
+  \Omega(x) = \frac{ax + b}{cx + d}.
+  \label{eq:mobius}
+\end{equation}
+
+% ==================================================================
+
+\section*{The unique solution}
+
+\paragraph{Proposition.} \textit{Let
+$\Omega(x) = (ax+b)/(cx+d)$ be a rational bijection
+satisfying $\Omega(1/x) = 1/\Omega(x)$ and $\Omega(0) = 0$.
+Then $\Omega(x) = x$.}
+
+\paragraph{Proof.}
+The endpoint condition $\Omega(0) = b/d = 0$ requires $b = 0$.
+The map reduces to $\Omega(x) = ax/(cx + d)$.
+
+Substituting into $\Omega(1/x) = 1/\Omega(x)$ and
+cross-multiplying gives $a^2 x = (c + dx)(cx + d)$.
+Comparing coefficients of $x^2$, $x^1$, and $x^0$:
+\begin{align}
+  x^2: \quad & cd = 0, \label{eq:x2} \\
+  x^1: \quad & a^2 = c^2 + d^2, \label{eq:x1} \\
+  x^0: \quad & cd = 0. \label{eq:x0}
+\end{align}
+If $d = 0$: $\Omega = a/c$, a constant, which is not
+bijective. Rejected.
+
+If $c = 0$: $a^2 = d^2$, so $a = \pm d$. The branch
+$a = -d$ gives $\Omega(x) = -x$, which is incompatible
+with $\Omega > 0$ for $x > 0$. Therefore $a = d$ and
+\begin{equation}
+  \Omega(x) = x.
+  \label{eq:omega_result}
+\end{equation}
+\hfill$\square$
+
+% ==================================================================
+
+\section*{The TetA and TetB fractions}
+
+From $\Omega(x) = x$, the TetA fraction follows by
+normalisation:
+\begin{equation}
+  \mu(x) = \frac{\Omega}{1 + \Omega} = \frac{x}{x + 1}.
+  \label{eq:mu}
+\end{equation}
+The TetB fraction is the complement:
+\begin{equation}
+  \boxed{1 - \mu(x) = \frac{1}{x + 1}.}
+  \label{eq:tetb_result}
+\end{equation}
+This is the fraction of the total gravitational field
+response carried by TetB, the parity component of the
+tetrad equation, at dimensionless acceleration $x$.
+
+At large acceleration ($x \gg 1$), the TetB fraction
+vanishes: the field response is carried almost entirely by
+TetA. At the parity midpoint ($x = 1$), TetA and TetB
+contribute equally: $\mu = 1/2$, $1 - \mu = 1/2$. At low
+acceleration ($x \ll 1$), the TetB fraction approaches
+unity: the field response is carried almost entirely by TetB.
+
+% ==================================================================
+
+\section*{Consequences for the connection}
+
+The companion letter~\cite{Nelson2026a} establishes that
+TetA is the identity component and TetB is the parity
+component under spatial parity $P: e^i \to -e^i$. The
+affine connection $\Gamma^I{}_{JK}$ decomposes under index
+exchange $(J \leftrightarrow K)$ into 40~symmetric components
+(Christoffel) and 24~antisymmetric components (torsion).
+
+A torsion-free connection is uniquely determined by the metric
+and its first derivatives. The metric
+$g_{\mu\nu} = \eta_{ab}\,e^a{}_\mu\,e^b{}_\nu$ is bilinear
+in the frame field; under $P: e^i \to -e^i$, both factors
+acquire a sign flip and the two signs cancel, leaving the
+metric invariant under TetA$\,\leftrightarrow\,$TetB exchange.
+A torsion-free connection, built entirely from this invariant
+metric, therefore cannot distinguish TetA from TetB. This
+root-blindness is a structural property of the quadratic map
+$\phi: e \mapsto \eta(e,e)$: the image of a 2-to-1 map does
+not resolve which pre-image produced it. TetA and TetB are
+geometrically distinct regions~\cite{Nelson2026a}; their
+indistinguishability under the torsion-free connection reflects
+the character of $\phi$, not a physical equivalence of the two
+roots. The
+torsion sector is the necessary carrier of the TetA/TetB
+distinction at the connection level.
+
+General relativity's zero-torsion condition
+$\Gamma^I{}_{[JK]} = 0$ removes this carrier from the
+connection. In the partition language of this note,
+this sets $1 - \mu = 0$ and therefore $\mu = 1$: the full
+field response is attributed to a single effective sector.
+
+The exchange symmetry proves that $\mu \neq 1$. The TetB
+fraction is $1/(x+1)$, not zero. The field response that
+general relativity removes from the connection is:
+\begin{equation}
+  \Delta\mu(x) = \frac{1}{x + 1}.
+  \label{eq:delta_mu}
+\end{equation}
+
+% ==================================================================
+
+\section*{The dark-to-baryon ratio}
+
+If the TetB field response is interpreted as a mass
+contribution (as the cold dark matter framework does), the
+ratio of the removed response to the retained response is:
+\begin{equation}
+  \frac{\Delta\mu}{\mu}
+  = \frac{1/(x+1)}{x/(x+1)}
+  = \frac{1}{x}.
+  \label{eq:ratio}
+\end{equation}
+This is an algebraic identity of the constitutive law. It
+does not depend on any galaxy model, halo profile, or
+observational data.
+
+The cold dark matter framework decomposes the observed
+gravitational field as $g_{\mathrm{obs}} = g_{\mathrm{baryon}}
++ g_{\mathrm{DM}}$. By definition,
+$g_{\mathrm{baryon}} = \mu \cdot g_{\mathrm{obs}}$ and
+$g_{\mathrm{DM}} = (1 - \mu) \cdot g_{\mathrm{obs}}$.
+Therefore:
+\begin{equation}
+  \frac{g_{\mathrm{DM}}}{g_{\mathrm{baryon}}}
+  = \frac{1 - \mu}{\mu}
+  = \frac{1}{x}.
+  \label{eq:cdm_ratio}
+\end{equation}
+The dark-to-baryon mass ratio that the cold dark matter
+framework fits with a multi-parameter halo profile reduces
+to $1/x$: the reciprocal of the dimensionless acceleration.
+This follows from the exchange symmetry of the two
+parity-related sectors of the tetrad equation, with no free
+parameters and no halo model.
+
+% ==================================================================
+
+\section*{Summary}
+
+The tetrad equation produces two bounded regions related by
+spatial parity: TetA (identity) and TetB (parity). The
+exchange symmetry, together with rational bijectivity, uniquely
+determines the partition of the gravitational field response
+between them:
+\begin{align}
+  \text{TetA:} \quad & \mu(x) = \frac{x}{x + 1},
+  \label{eq:sum_mu} \\[4pt]
+  \text{TetB:} \quad & 1 - \mu(x) = \frac{1}{x + 1}.
+  \label{eq:sum_tetb}
+\end{align}
+The torsion sector of the affine connection is the necessary
+carrier of the TetA/TetB distinction: a torsion-free connection,
+built from the parity-invariant metric alone, cannot distinguish
+the two chambers. General relativity's zero-torsion condition
+removes this carrier. The removed fraction is
+$\Delta\mu = 1/(x+1)$, and the resulting dark-to-baryon
+ratio is $1/x$. The torsion-sector field fraction and the
+cold-dark-matter residual are algebraically identical under the
+exchange-symmetric partition.
+
+% ==================================================================
+
+\begin{thebibliography}{99}
+
+\bibitem{Nelson2026a}
+S.~Nelson,
+\textit{The Coordinate-Space Geometry of the Tetrad Frame},
+Class.\ Quantum Grav.\ (2026), submitted (CQG-115428).
+
+\bibitem{Hartshorne1977}
+R.~Hartshorne,
+\textit{Algebraic Geometry}
+(Springer, New York, 1977).
+
+\end{thebibliography}
+
+\end{document}

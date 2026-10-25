@@ -1,0 +1,394 @@
+\documentclass[twocolumn]{iopjournal}
+
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{amsthm}
+
+\fancyhfoffset[L]{0mm}
+\setlength{\marginparwidth}{0pt}
+\setlength{\marginparsep}{0pt}
+
+% ==========================================
+% ZENODO PREPRINT HEADERS (ACTIVE)
+% ==========================================
+\renewcommand{\articletype}[1]{%
+  {\vspace*{-8mm}\noindent \Large \sf Preprint}\par
+  \vspace*{6mm}\noindent{\scriptsize \sf{\bfseries \MakeUppercase{#1}}}}
+
+\fancyhead[L]{}
+\fancyhead[R]{}
+
+% Theorem environments
+\newtheorem{lemma}{Lemma}
+\newtheorem{theorem}[lemma]{Theorem}
+\newtheorem{corollary}[lemma]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[lemma]{Definition}
+\newtheorem{remark}[lemma]{Remark}
+
+\begin{document}
+
+\articletype{Supplementary Material}
+
+\title{The Spatial Geometry of the Lorentz Tetrad}
+
+\author{Stephen Nelson}
+
+\affil{Field Dynamics Research}
+
+\ead{stephen@fielddynamics.org}
+
+\begin{abstract}
+A Lorentz tetrad is a 4-indexed object with signature
+$\eta_{ab} = \mathrm{diag}(-1,+1,+1,+1)$; its index set carries the
+natural action of $S_4$.  We classify its spatial realizations in
+$\mathbb{R}^3$ under three conditions: common norm, balanced
+closure, and $S_4$-invariance of the Gram matrix.  The centerpiece
+is an orbit lemma: $S_4$-invariant $4 \times 4$ matrices form a
+two-dimensional space spanned by the identity $I$ and the all-ones
+matrix $J$.  The three conditions then pin both coefficients,
+forcing the Gram matrix to $G = c^2 I - (c^2/3)(J - I)$.
+Geometric identification gives the regular tetrahedron with
+circumradius $c$, unique up to $O(3)$.  The canonical $\{-1,+1\}$
+sign matrix, spatial parity, the cube $\{-1,+1\}^3$, and Kepler's
+stella octangula~\cite{Kepler1619,Cromwell1997} follow as
+corollaries.
+\end{abstract}
+
+% ==================================================================
+
+\section*{The Lorentz tetrad}
+
+A Lorentz tetrad is a 4-indexed object with index set
+$\{0, 1, 2, 3\}$, where index 0 carries signature $-1$ and
+indices $1, 2, 3$ carry signature $+1$ under the Lorentz metric
+\begin{equation}
+  \eta_{ab} = \mathrm{diag}(-1,+1,+1,+1).
+  \label{eq:lorentz}
+\end{equation}
+The indexing is part of the object's definition: $S_4$ acts on
+$\{0,1,2,3\}$, and this action carries canonically to any indexed
+$4$-tuple realization of the tetrad.  The $S_4$ action is on the
+index set as a set; the signature $\eta$ itself has stabilizer
+$S_3 \subset S_4$.  The Lorentz signature fixes the indexed sign
+pattern on the four components.
+
+A \emph{spatial realization} of the tetrad is a $4$-tuple
+$V = (v_0, v_1, v_2, v_3)$ with $v_a \in \mathbb{R}^3$, indexed by
+$\{0, 1, 2, 3\}$.  We identify three conditions F1--F3 on such a
+realization --- common Euclidean norm on the single diagonal
+orbit, balanced closure, and $S_4$-invariance of the Gram matrix
+--- and classify those realizations that satisfy all three.  The
+classification shows that they are unique up to the orthogonal
+group.
+
+% ==================================================================
+
+\section*{Realization conditions}
+
+\begin{definition}[Spatial realization satisfying F1--F3]
+\label{def:equiv}
+A spatial realization $V = (v_0, v_1, v_2, v_3) \in (\mathbb{R}^3)^4$
+of the Lorentz tetrad satisfies \emph{conditions F1--F3}
+if:
+
+\textup{(F1)}~\emph{Common norm}:\quad $|v_a| = c$ for all $a$,
+with $c > 0$ fixed.
+
+\textup{(F2)}~\emph{Balanced closure}:\quad
+$\sum_{a=0}^{3} v_a = 0$.
+
+\textup{(F3)}~\emph{$S_4$-invariance of the Gram matrix}:\quad the
+Gram matrix $G_{ab} = v_a \cdot v_b$ satisfies
+$P_\sigma G P_\sigma^T = G$ for every $\sigma \in S_4$, where
+$P_\sigma$ is the permutation matrix of $\sigma$.
+\end{definition}
+
+\noindent
+Condition F1 records the common Euclidean norm on the single
+diagonal orbit.
+Condition F2 excludes the rank-one degenerate realization
+$v_0 = v_1 = v_2 = v_3$, which satisfies F1 and F3 but collapses
+all four components to a single vector.  Condition F3 is the invariance
+of the Gram matrix under the $S_4$ action on the index set
+$\{0,1,2,3\}$; it produces the two-parameter commutant of
+Lemma~\ref{lem:commutant}.
+
+\noindent
+Under F1, F2, and F3 the forced Gram matrix has rank three with
+kernel $\mathrm{span}\{(1,1,1,1)\}$ (Cor.~\ref{cor:rank}).
+
+% ==================================================================
+
+\section*{The commutant lemma}
+
+The algebraic heart of the classification is a single
+orbit-counting fact about $S_4$-invariant $4 \times 4$ matrices.
+
+\begin{lemma}[Commutant of the permutation representation of $S_4$]
+\label{lem:commutant}
+Let $\rho: S_4 \to GL_4(\mathbb{R})$ be the permutation
+representation on $\mathbb{R}^4$.  A matrix $G \in M_4(\mathbb{R})$
+satisfies $\rho(\sigma)\,G\,\rho(\sigma)^T = G$ for all
+$\sigma \in S_4$ if and only if
+\begin{equation}
+  G = \alpha\,I + \beta\,J,
+  \label{eq:commutant}
+\end{equation}
+for some scalars $\alpha, \beta \in \mathbb{R}$, where $I$ is the
+$4 \times 4$ identity and $J$ is the $4 \times 4$ all-ones matrix.
+\end{lemma}
+
+\begin{proof}
+The condition $\rho(\sigma)\,G\,\rho(\sigma)^T = G$ is equivalent
+to $G_{\sigma(a)\sigma(b)} = G_{ab}$ for every $\sigma \in S_4$ and
+every pair $(a, b) \in \{0, 1, 2, 3\}^2$.  Thus $G_{ab}$ is constant
+on the orbits of the natural $S_4$ action on ordered pairs.  This
+action has exactly two orbits: the diagonal pairs $\{(a,a) : a \in
+\{0,1,2,3\}\}$, and the off-diagonal pairs $\{(a,b) : a \neq b\}$
+(the latter is a single orbit because $S_4$ is $2$-transitive on
+$\{0,1,2,3\}$).  Hence $G_{aa}$ takes a single value on the diagonal
+and $G_{ab}$ takes a single value off the diagonal.  Writing these
+as $\alpha + \beta$ and $\beta$ respectively gives
+$G = \alpha I + \beta J$.  Conversely, any matrix of this form
+commutes with every permutation matrix, so both directions hold.
+\hfill$\square$
+\end{proof}
+
+\noindent
+Writing $G = \alpha I + \beta J$ is equivalent to writing
+$G = (\alpha + \beta)I + \beta(J - I)$: the diagonal and off-diagonal
+entries of $G$ are each a single constant, namely $G_{aa} =
+\alpha + \beta$ and $G_{ab} = \beta$ for $a \neq b$.
+
+% ==================================================================
+
+\section*{Main result}
+
+\begin{theorem}[Forced Gram matrix]
+\label{thm:forced}
+Let $V$ be a spatial realization of the Lorentz tetrad
+satisfying F1--F3 with common norm $c$.  Then the Gram matrix of $V$ is
+\begin{equation}
+  G = c^2 I - \frac{c^2}{3}(J - I),
+  \label{eq:forced_gram}
+\end{equation}
+equivalently $G_{aa} = c^2$ and $G_{ab} = -c^2/3$ for $a \neq b$.
+\end{theorem}
+
+\begin{proof}
+By F3 and Lemma~\ref{lem:commutant}, $G = \alpha I + \beta J$ for
+some scalars $\alpha, \beta$.  Reading off diagonal and off-diagonal
+entries,
+\[
+  G_{aa} = \alpha + \beta \quad (a = b), \qquad
+  G_{ab} = \beta \quad (a \neq b).
+\]
+By F1, $G_{aa} = c^2$, so $\alpha + \beta = c^2$.
+
+By F2,
+\begin{equation}
+  0 = \left|\sum_{a} v_a\right|^2
+    = \sum_{a,b} G_{ab}
+    = 4 c^2 + 12 \beta,
+  \label{eq:closure_beta}
+\end{equation}
+where the last equality uses four diagonal entries of value $c^2$
+and twelve off-diagonal entries of value $\beta$.  Hence
+$\beta = -c^2/3$, and $\alpha = c^2 - \beta = 4c^2/3$.  Substituting,
+$G = (4c^2/3)I - (c^2/3)J = c^2 I - (c^2/3)(J - I)$.
+\hfill$\square$
+\end{proof}
+
+% ==================================================================
+
+\section*{Corollaries}
+
+\begin{corollary}[Rank and spectrum]
+\label{cor:rank}
+The forced Gram matrix~(\ref{eq:forced_gram}) has spectrum
+$\{0, \tfrac{4c^2}{3}, \tfrac{4c^2}{3}, \tfrac{4c^2}{3}\}$ and rank
+three.  The null eigenvector is $(1,1,1,1)$; the eigenvalue $4c^2/3$
+has multiplicity three on its orthogonal complement.
+\end{corollary}
+
+\begin{proof}
+$J$ has spectrum $\{4, 0, 0, 0\}$ with eigenvector $(1,1,1,1)$ for
+$\lambda = 4$.  From~(\ref{eq:forced_gram}),
+$G = (4c^2/3)I - (c^2/3)J$, so the eigenvalues of $G$ are
+$4c^2/3 - (c^2/3)\lambda_J$ for each eigenvalue $\lambda_J$ of $J$:
+$4c^2/3 - (c^2/3)(4) = 0$ on $(1,1,1,1)$, and $4c^2/3$ on the
+orthogonal complement.  Rank three follows.
+\hfill$\square$
+\end{proof}
+
+\begin{corollary}[Regular tetrahedron]
+\label{cor:tet}
+A spatial realization $V$ satisfying F1--F3 is the vertex set of a regular
+tetrahedron with circumradius $c$ and edge length $c\sqrt{8/3}$,
+unique up to $O(3)$.
+\end{corollary}
+
+\begin{proof}
+All six pairwise squared distances are equal:
+\begin{equation}
+  |v_a - v_b|^2 = G_{aa} + G_{bb} - 2 G_{ab}
+                = 2c^2 + \frac{2c^2}{3} = \frac{8c^2}{3}.
+  \label{eq:edge}
+\end{equation}
+Four equidistant points in $\mathbb{R}^3$ are the vertices of a
+regular tetrahedron~\cite[\S3.7]{Coxeter1973}.  By
+Corollary~\ref{cor:rank} the Gram matrix has rank three, so any two
+realizations with the Gram
+matrix~(\ref{eq:forced_gram}) differ by an element of
+$O(3)$~\cite[Thm.~7.3.11]{HornJohnson2013}.
+\hfill$\square$
+\end{proof}
+
+\begin{corollary}[Canonical $\{-1,+1\}$ representative]
+\label{cor:canonical}
+With $c = \sqrt{3}$, the columns of
+\begin{equation}
+  M = \begin{pmatrix}
+    +1 & +1 & -1 & -1 \\
+    +1 & -1 & +1 & -1 \\
+    +1 & -1 & -1 & +1
+  \end{pmatrix}
+  \label{eq:M}
+\end{equation}
+are a spatial realization satisfying F1--F3: $|v_a|^2 = 3$ and $v_a \cdot v_b = -1$
+for $a \neq b$, matching~(\ref{eq:forced_gram}) at $c^2 = 3$.  By
+Corollary~\ref{cor:tet}, every realization satisfying F1--F3 with $c = \sqrt{3}$
+is $O(3)$-equivalent to $M$.
+\end{corollary}
+
+\begin{proof}
+Each column has entries in $\{-1,+1\}$, so $|v_a|^2 = 3$.  Each pair
+of columns agrees in exactly one of three coordinates (by inspection
+of~(\ref{eq:M})), giving $v_a \cdot v_b = 1 - 1 - 1 = -1$.  The
+Gram matrix is therefore the $c^2 = 3$ case
+of~(\ref{eq:forced_gram}).
+\hfill$\square$
+\end{proof}
+
+% ==================================================================
+
+\section*{Parity completion and the stella octangula}
+
+\begin{corollary}[Cube as parity completion]
+\label{cor:cube}
+Let $V = \{v_0, v_1, v_2, v_3\}$ be the canonical representative of
+Corollary~\ref{cor:canonical}, and let $P(V) = \{-v_0, -v_1, -v_2,
+-v_3\}$.  Then $V \cup P(V)$ is the vertex set of the cube
+$\{-1,+1\}^3$.
+\end{corollary}
+
+\begin{proof}
+The columns of $M$ have sign patterns
+$(+,+,+), (+,-,-), (-,+,-), (-,-,+)$.  Their negatives have sign
+patterns $(-,-,-), (-,+,+), (+,-,+), (+,+,-)$.  These eight triples
+are pairwise distinct and exhaust the $2^3 = 8$ elements of
+$\{-1,+1\}^3$.
+\hfill$\square$
+\end{proof}
+
+\begin{theorem}[Stella octangula]
+\label{thm:stella}
+The union $V \cup P(V)$ of Corollary~\ref{cor:cube}, viewed as the
+compound of the two regular tetrahedra with vertex sets $V$ and
+$P(V)$, is Kepler's stella
+octangula~\cite{Kepler1619,Cromwell1997}.
+\end{theorem}
+
+\begin{proof}
+Both $V$ and $P(V)$ have Gram matrix~(\ref{eq:forced_gram})
+(negation preserves inner products), so each is a regular
+tetrahedron by Corollary~\ref{cor:tet}.  They are antipodal and
+share a center at the origin.  By Corollary~\ref{cor:cube} they are
+inscribed in $\{-1,+1\}^3$.  The compound of two dual regular
+tetrahedra inscribed in a cube is Kepler's stella
+octangula~\cite{Kepler1619,Cromwell1997}.
+\hfill$\square$
+\end{proof}
+
+% ==================================================================
+
+\section*{Remarks}
+
+\begin{remark}[Inevitability from two parameters]
+\label{rem:two_params}
+The algebraic heart of the classification is that
+$S_4$-equivariance (F3) reduces the Gram matrix from a generic
+symmetric object (10 parameters) to an element of a two-dimensional
+commutant spanned by $I$ and $J$ (Lemma~\ref{lem:commutant}).
+Common norm (F1) fixes one parameter; balanced closure (F2) fixes
+the other.  The regular tetrahedron is the unique configuration
+consistent with these three conditions.  Everything downstream ---
+the edge length, the rank of $G$, the sign representative, the
+cube, the stella octangula --- is bookkeeping.
+\end{remark}
+
+\begin{remark}[What each condition does]
+\label{rem:roles}
+F1 and F2 are constraints that pin scalar coefficients in the
+commutant; F3 is the structural condition that produces the
+commutant in the first place.  Without F3, the Gram matrix is a
+generic $4 \times 4$ symmetric matrix (10 parameters) and common
+norm plus closure leave eight degrees of freedom ---
+insufficient to force any geometric configuration.  F3 is the
+load-bearing condition for uniqueness.
+\end{remark}
+
+\begin{remark}[Invariance forbids slot-dependent magnitudes]
+\label{rem:perturbation}
+$S_4$-invariance of the Gram matrix forbids slot-specific diagonal
+data in a spatial realization.  Consider, for contrast, a
+hypothetical Gram matrix with diagonal $(1.03, 1, 1, 1)$: the
+transposition $0 \leftrightarrow 1$ sends this to the matrix with
+diagonal $(1, 1.03, 1, 1)$, which is not the same matrix.  The
+perturbed assignment is therefore a different, symmetry-broken
+Gram matrix, not an alternative realization of the same tetrad.
+Under F3, the diagonal entries of the Gram matrix lie in a single
+orbit of the $S_4$ action, forcing all four to take the common
+value $G_{aa} = c^2$.  Invariance rules out any slot-dependent
+perturbation without appeal to the specific numerical value of
+$c$; the normalization $c$ itself is fixed separately by F1.
+\end{remark}
+
+\begin{remark}[Conditions are structural, not arbitrary]
+\label{rem:structural}
+General relativity fixes the tetrad's indexed Lorentz structure;
+F1--F3 are the corresponding spatial realization conditions.  F1
+fixes the common diagonal norm, F2 fixes the balanced closure
+relation, and F3 fixes the $S_4$-invariant Gram structure.
+Theorem~\ref{thm:forced} then forces the regular tetrahedron,
+with parity completion yielding the cube and Kepler's stella
+octangula~\cite{Kepler1619,Cromwell1997}.
+\end{remark}
+
+% ==================================================================
+
+\begin{thebibliography}{9}
+
+\bibitem{Kepler1619}
+J.~Kepler,
+\textit{Harmonices Mundi}
+(Linz, 1619).
+
+\bibitem{Coxeter1973}
+H.~S.~M.~Coxeter,
+\textit{Regular Polytopes},
+3rd ed.\ (Dover, New York, 1973).
+
+\bibitem{Cromwell1997}
+P.~R.~Cromwell,
+\textit{Polyhedra}
+(Cambridge University Press, Cambridge, 1997).
+
+\bibitem{HornJohnson2013}
+R.~A.~Horn and C.~R.~Johnson,
+\textit{Matrix Analysis},
+2nd ed.\ (Cambridge University Press, Cambridge, 2013).
+
+\end{thebibliography}
+
+\end{document}

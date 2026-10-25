@@ -1,0 +1,380 @@
+\documentclass[twocolumn]{iopjournal}
+
+\usepackage{amsmath,amssymb,amsfonts}
+
+\fancyhfoffset[L]{0mm}
+\setlength{\marginparwidth}{0pt}
+\setlength{\marginparsep}{0pt}
+
+% ==========================================
+% ZENODO PREPRINT HEADERS (ACTIVE)
+% ==========================================
+\renewcommand{\articletype}[1]{%
+  {\vspace*{-8mm}\noindent \Large \sf Preprint}\par
+  \vspace*{6mm}\noindent{\scriptsize \sf{\bfseries \MakeUppercase{#1}}}}
+
+\fancyhead[L]{}
+\fancyhead[R]{}
+
+\begin{document}
+
+\articletype{Supplementary Material}
+
+\title{Supplementary Material: Chiral Holonomy\\
+of the Closed Tetrad Frame}
+
+\author{Stephen Nelson}
+
+\affil{Field Dynamics Research}
+
+\ead{stephen@fielddynamics.org}
+
+\begin{abstract}
+The companion letter~\cite{Nelson2026b} proved that the
+24~torsion components of the $K = 4$ tetrad connection
+admit the factorisation $24 = D \times 2K = 3 \times 8$,
+exclusively at $K = 4$.  This note identifies the two
+factors with the geometry of the closed frame: $2K = 8$
+is the count of null directions~\cite{Nelson2026a}
+(vertices of the stellated octahedron) and $D = 3$ is
+the count of transverse rotation planes per direction.  The parity
+distinction between TetA and TetB, established
+in~\cite{Nelson2026b} at the partition level, resolves at
+the component level into opposite chirality: the
+dualized torsion vector reverses sign between the two
+sub-frames.  A direct computation of parallel transport
+around all twelve Hamiltonian cycles of the cube graph
+shows that uniform transport (ignoring chirality)
+produces trivial holonomy, while chiral transport
+(respecting the TetA/TetB sign distinction) produces
+nontrivial holonomy in every case.  The chirality
+carried by the torsion sector is therefore the mechanism
+that generates rotational closure of the gravitational
+field.
+\end{abstract}
+
+% ==================================================================
+
+\section*{The two factors}
+
+The companion letter~\cite{Nelson2026b} proved
+(Section~5, Theorem) that the torsion count
+$K \times K(K{-}1)/2 = 24$ admits the factorisation
+$D \times 2K$ exclusively at $K = 4$, where $D = K - 1$.
+The algebraic identity was established there.  This
+section identifies what the two factors refer to in the
+geometry of the closed frame.
+
+The stellated octahedron~\cite{Nelson2026a} has
+$2K = 8$ vertices: four from TetA (the identity
+component) and four from TetB (the parity component).
+In Cartesian coordinates, these are
+$(\pm 1/\sqrt{3},\, \pm 1/\sqrt{3},\, \pm 1/\sqrt{3})$
+--- the eight vertices of the cube dual to the
+octahedral core.  Each vertex lies on the celestial
+sphere $S^2$ and defines a null direction of the
+frame~\cite{Nelson2026a}.
+The factor $2K$ in the torsion factorisation is the
+count of null directions of the closed frame.
+
+The cube has four body diagonals (antipodal pairs).
+Each vertex belongs to exactly one diagonal and is
+therefore transverse to the remaining three.  Each
+transverse body diagonal defines a rotation plane
+perpendicular to it; three transverse diagonals
+therefore give three independent rotation planes, one
+per spatial dimension.  The factor $D$ in
+the torsion factorisation is the count of transverse
+rotation planes per null direction.
+
+The $24$~torsion components therefore correspond to
+the set of (null direction, rotation plane) pairs:
+\begin{equation}
+  24 \;=\; \underbrace{8}_{\text{null directions}}
+        \;\times\; \underbrace{3}_{\text{rotation planes}}
+  \;=\; 2K \times D.
+  \label{eq:24}
+\end{equation}
+
+% ==================================================================
+
+\section*{The chirality split}
+
+The companion letter~\cite{Nelson2026b} proved that
+TetA is the identity component and TetB is the parity
+component under $P: e^i \to -e^i$.  The
+Lemma and Proposition of that letter establish that the
+torsion sector is the necessary carrier of the TetA/TetB
+distinction: a torsion-free connection, built from the
+parity-invariant metric alone, cannot resolve the two
+roots.
+
+At the level of individual torsion components, the
+parity distinction manifests as opposite chirality.
+In the closed-frame geometry, the octahedral core has
+eight faces, each carrying an attached tetrahedron
+whose apex is one of the eight cube vertices (null
+directions).  Each attached tetrahedron has four faces:
+one base face (shared with the octahedron, the
+propagation face) and three lateral faces.  The three
+lateral faces at each null direction are the three
+transverse rotation planes identified in the previous
+section.  For each null direction, the three torsion
+components can be collected into a dualized spatial
+rotation vector using the Levi-Civita symbol:
+\begin{equation}
+  \tau^I{}_a = \tfrac{1}{2}\,
+    \varepsilon_{abc}\, T^I{}_{bc}.
+  \label{eq:dual}
+\end{equation}
+This $\tau^I{}_a$ is a spatial 3-vector: one component
+per lateral face, one per transverse rotation plane.
+
+Under the orientation reversal that exchanges TetA and
+TetB, the Levi-Civita symbol reverses sign:
+$\varepsilon^{\text{B}}_{abc} =
+-\varepsilon^{\text{A}}_{abc}$, because the spatial
+triad reverses handedness.  Therefore:
+\begin{equation}
+  \tau^I{}_a\big|_{\text{TetB}}
+  = -\,\tau^I{}_a\big|_{\text{TetA}}.
+  \label{eq:flip}
+\end{equation}
+The four TetA null directions carry rotation vectors
+with chirality~$(+)$.  The four TetB null directions
+carry rotation vectors with chirality~$(-)$.  The
+24~components split as $12^{+} + 12^{-}$.
+
+% ==================================================================
+
+\section*{The holonomy computation}
+
+The eight null directions form a bipartite graph: every
+cube edge connects a TetA vertex to a TetB vertex
+(flipping one coordinate bit changes the popcount
+parity).  Each vertex has three neighbours, all in the
+opposite sub-frame.  The angular separation across each
+edge is $\arccos(1/3) \approx 70.53^{\circ}$.
+
+A closed transport path through all eight directions
+follows a Hamiltonian cycle on this graph, alternating
+sub-frames at every step: $\text{A} \to \text{B} \to
+\text{A} \to \text{B} \to \cdots$ (eight steps).
+At each step from vertex~$v_i$ to vertex~$v_j$, the
+frame rotates by angle
+$\theta = \arccos(v_i \cdot v_j)$ about the axis
+$\hat{n} = (v_i \times v_j)/|v_i \times v_j|$.  The
+chirality of the source vertex determines the sign:
+$+\theta$ from TetA, $-\theta$ from TetB.
+
+This sign assignment is not a convention; it is a
+consequence of the chirality split established in the
+previous section.  The torsion at a TetA vertex
+carries chirality~$(+)$; the torsion at a TetB vertex
+carries chirality~$(-)$.  Unlike curvature, which
+contributes to holonomy at second order in the loop
+area, torsion contributes at first order in the path
+length~\cite{Hehl1976}.  The rotation accumulated at
+each step therefore inherits the sign of the source
+vertex's torsion directly.
+
+\medskip
+\noindent\textbf{Proposition.}
+\textit{Let $H_{\mathrm{uniform}}$ denote the holonomy
+of a Hamiltonian cycle on the cube graph with rotation
+angle $+\theta$ at every step, and let
+$H_{\mathrm{chiral}}$ denote the holonomy of the same
+cycle with the sign of $\theta$ determined by the source
+chirality ($+$ for TetA, $-$ for TetB).  Then:}
+
+\begin{itemize}
+\item[(a)] \textit{$H_{\mathrm{uniform}} = \mathbf{1}$
+for all twelve Hamiltonian cycles of the cube.}
+\item[(b)] \textit{$H_{\mathrm{chiral}} \neq \mathbf{1}$
+for all twelve Hamiltonian cycles of the cube.}
+\end{itemize}
+
+\medskip\noindent\textit{Proof.}
+The cube graph on eight vertices admits exactly twelve
+Hamiltonian cycles (up to starting vertex).  Both claims
+are verified by direct computation: at each step, the
+$3 \times 3$ rotation matrix is constructed via
+Rodrigues' formula,
+\begin{equation}
+  R(\hat{n}, \alpha) = I + \sin\alpha\,[\hat{n}]_{\times}
+  + (1 - \cos\alpha)\,[\hat{n}]_{\times}^2,
+  \label{eq:rodrigues}
+\end{equation}
+where $\alpha = \pm\theta$ and $[\hat{n}]_{\times}$ is
+the skew-symmetric matrix of $\hat{n}$.  The eight
+matrices are multiplied in path order.
+
+For part~(a): all twelve products yield the
+$3 \times 3$ identity matrix to machine precision.  The
+exact cancellation is a consequence of the octahedral
+symmetry of the cube: uniform rotation at each step
+respects the full symmetry group.
+
+For part~(b): the sign alternation breaks the octahedral
+symmetry.  The positive and negative rotations act about
+\emph{different} axes (each axis $v_i \times v_j$
+depends on both endpoints), so reversing the sign at
+alternating steps does not invert those steps but
+produces a qualitatively different composition.
+
+All twelve chiral products yield nontrivial rotations:
+six cycles produce a net rotation of $135^{\circ}$
+$(= 3\pi/4)$ and six produce $155.8^{\circ}$
+$(\approx 7\pi/8)$.  The two classes correspond to the
+two orientation classes of Hamiltonian cycles on the
+cube.
+
+As an explicit example, the cycle
+$v_1 \!\to\! v_6 \!\to\! v_3 \!\to\! v_5 \!\to\! v_4
+\!\to\! v_7 \!\to\! v_2 \!\to\! v_8 \!\to\! v_1$
+(with vertex labelling as in~\cite{Nelson2026a}) gives
+$H_{\mathrm{uniform}} = \mathbf{1}$ and
+$H_{\mathrm{chiral}} = R(\hat{m},\, 135^{\circ})$, a
+rotation by $135^{\circ}$ about the axis $\hat{m}$.
+\hfill$\square$
+
+\medskip
+A self-contained verification script (approximately
+forty lines of Python using NumPy) is provided as
+supplementary code.
+
+% ==================================================================
+
+\section*{The vortex}
+
+The holonomy per cycle is a rotation by a fixed angle
+$\Theta \neq 0$ about a fixed axis.  In the
+closed-frame geometry, the eight null directions (cube
+vertices) are connected through the octahedral core:
+every transition from one null direction to the next
+crosses a face of the core octahedron.  The field
+origin~$\mathcal{O}$, as the centroid of the
+octahedron, lies on every such crossing path.  The
+transport therefore passes through~$\mathcal{O}$ at
+every $\text{TetA} \leftrightarrow \text{TetB}$
+transition.  A path that advances through a common
+point while rotating by a constant angle per cycle is
+helical.
+
+The rotation axis defines a preferred spatial direction.
+A nontrivial element of $\mathrm{SO}(3)$ has a
+one-dimensional fixed subspace (the rotation axis) and a
+unique two-dimensional invariant subspace (the plane
+perpendicular to it); these are the only invariant
+subspaces.  Transport organised by such a
+rotation therefore accumulates in the perpendicular plane.
+Conversely, the uniform case (Proposition, part~1) gives
+identity holonomy for all twelve cycles: no axis is
+selected, and spherical symmetry is preserved.  The
+chiral case breaks that symmetry by selecting exactly one
+rotation plane.  The closure geometry is
+planar---perpendicular to the holonomy axis---not
+spherically symmetric.  The holonomy angles computed
+above ($135^{\circ}$, $155.8^{\circ}$) represent the
+torsion sector at full strength: the asymptotic regime
+where $1 - \mu \approx 1$.  The constitutive law
+modulates this strength radially.  At the galactic
+centre, $x \to \infty$ and $1 - \mu \to 0$; the torsion
+fraction is asymptotically suppressed and the Christoffel
+sector dominates.  The chiral holonomy is therefore
+active at the rim and suppressed at the centre.  The
+result is a spherically symmetric Christoffel-dominated
+throat transitioning smoothly into a planar
+torsion-dominated disk---exactly the bulge-to-disk
+structure rendered in the main letter's Figure~1.  The
+global coherence of the disk axis follows from the
+smoothness of the connection: on a non-singular manifold
+the affine connection parallel-transports frames
+continuously from point to point, so where the torsion
+sector is active its holonomy axis varies smoothly rather
+than randomising into disconnected domains.
+
+This planarity is a qualitative prediction that
+distinguishes the present framework from the cold dark
+matter interpretation.  The observed gravitational
+discrepancy at galactic scales is not in dispute: both
+frameworks reproduce the radial acceleration relation
+and the function $\mu(x) = x/(x{+}1)$.  They differ on
+what the discrepancy represents.  The cold dark matter
+framework interprets it as an invisible mass component,
+typically modelled with approximately spherical
+halos.  The closed tetrad frame identifies it
+as the field response of the second tetrahedral
+chamber (TetB), carried by the 24~torsion components.
+This response is not mass; it is topology.  Its spatial
+distribution is not fitted but determined: the chiral
+holonomy defines an axis, and the resulting geometry is
+a disk.  Observed spiral galaxies are disks.
+
+The constitutive law $\mu(x) = x/(x{+}1)$, derived from
+the exchange symmetry in~\cite{Nelson2026b}, is the
+radial profile of the vortex: TetA-dominated
+($\mu \to 1$) at the inner throat, TetB-dominated
+($\mu \to 0$) at the outer rim, with the transition at
+$x = 1$.  The constitutive law determines the algebraic
+partition.  The chiral holonomy determines the spatial
+geometry.  Together they define the complete
+gravitational field.
+
+% ==================================================================
+
+\section*{Summary}
+
+\vspace{6pt}
+\noindent
+{\footnotesize
+\begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}lll@{}}
+\hline
+ & Letter [2] & This note \\
+\hline
+$24 = D \times 2K$ & algebraic identity & geometric identification \\
+$2K = 8$ & coupling range & null directions \\
+$D = 3$ & spatial dimension & transverse planes \\
+Chirality & parity of partition & sign of $\tau^I{}_a$ \\
+Holonomy & (not addressed) & computed, nontrivial \\
+Geometry & (not addressed) & vortex with axis \\
+\hline
+\end{tabular*}}
+\vspace{6pt}
+
+The 24~torsion components that~\cite{Nelson2026b}
+identified as the carrier of TetB organise into
+eight null directions, each carrying three transverse
+rotation planes.  Their parity-resolved chirality
+breaks the exact holonomy cancellation of the
+directional scaffold, forcing the field to close as a
+vortex.  The constitutive law $\mu(x) = x/(x{+}1)$,
+already derived in~\cite{Nelson2026b}, is the radial
+profile of this vortex.
+
+% ==================================================================
+
+\begin{thebibliography}{99}
+
+\bibitem{Nelson2026a}
+S.~Nelson,
+\textit{The Coordinate-Space Geometry of the Tetrad
+Frame},
+Class.\ Quantum Grav.\ (2026), submitted (CQG-115428).
+
+\bibitem{Nelson2026b}
+S.~Nelson,
+\textit{The Other Half of Gravity: Torsion and the
+Two-Chamber Structure of the Tetrad Frame},
+Class.\ Quantum Grav.\ (2026), submitted (CQG-115447).
+
+\bibitem{Hehl1976}
+F.~W.~Hehl, P.~von~der~Heyde, G.~D.~Kerlick and
+J.~M.~Nester,
+\textit{General relativity with spin and torsion:
+Foundations and prospects},
+Rev.\ Mod.\ Phys.\ \textbf{48} (1976) 393.
+
+\end{thebibliography}
+
+\end{document}

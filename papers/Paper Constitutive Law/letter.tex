@@ -1,0 +1,502 @@
+\documentclass[twocolumn]{iopjournal}
+
+\usepackage{amsmath,amssymb,amsfonts}
+
+\fancyhfoffset[L]{0mm}
+\setlength{\marginparwidth}{0pt}
+\setlength{\marginparsep}{0pt}
+
+% ==========================================
+% ZENODO PREPRINT HEADERS (ACTIVE)
+% ==========================================
+\renewcommand{\articletype}[1]{%
+  {\vspace*{-8mm}\noindent \Large \sf Preprint}\par
+  \vspace*{6mm}\noindent{\scriptsize \sf{\bfseries \MakeUppercase{#1}}}}
+
+\fancyhead[L]{}
+\fancyhead[R]{}
+
+\begin{document}
+
+\articletype{Letter}
+
+\title{The Gravitational Constitutive Law\\
+from the Tetrad Frame Geometry}
+
+\author{Stephen Nelson}
+
+\affil{Field Dynamics Research}
+
+\ead{stephen@fielddynamics.org}
+
+\begin{abstract}
+The AQUAL field equation requires an interpolating function
+$\mu(x)$ whose form has remained undetermined since Milgrom's
+original formulation in 1983. We derive it through three
+methodologically distinct routes. The first reads the graded
+rank structure of the metric and tetrad equation. The second
+derives the function from equilibrium field closure within the
+AQUAL framework. The third, resting on the companion
+letter~[Nelson 2026a], expresses the exchange symmetry of the
+tetrad equation's two parity-related bounded regions as a
+functional equation on the odds ratio
+$\Omega = \mu/(1-\mu)$, forcing $\Omega(x) = x$ and therefore
+$\mu(x) = x/(x+1)$. All three routes, through different
+mathematics, identify the same algebraic fact: the capacity
+ratio between the two tetrahedral sectors equals the
+dimensionless acceleration. The constitutive law is the
+odds-to-fraction normalisation of that ratio. Its consequences
+include the complement symmetry $\mu(x) + \mu(1/x) = 1$ and
+the baryonic Tully-Fisher relation as a theorem.
+\end{abstract}
+
+% ==================================================================
+
+\section{The open problem}
+
+In 1983, Milgrom~\cite{Milgrom1983} showed that the dynamics of
+galaxies at low acceleration can be captured by a single
+modification to the Poisson equation, provided an interpolating
+function $\mu(x)$ mediates between the Newtonian regime at high
+acceleration and a scale-invariant regime at low acceleration.
+Bekenstein and Milgrom~\cite{BekensteinMilgrom1984} subsequently
+embedded this modification in the AQUAL field equation,
+\begin{equation}
+  \nabla \cdot \!\left[\mu\!\left(\frac{|\nabla\Phi|}{a_0}\right)
+  \nabla\Phi\right] = 4\pi G\rho,
+  \label{eq:aqual}
+\end{equation}
+which derives from an action principle and therefore conserves
+energy, momentum, and angular momentum. The function $\mu(x)$,
+where $x = |\nabla\Phi|/a_0$, must approach unity at large $x$
+to recover Newtonian gravity and must scale linearly with $x$
+as $x \to 0$ to produce flat rotation curves.
+
+Infinitely many functions satisfy both limits. Among the
+candidates explored in the literature, the ``simple'' form
+$x/(x+1)$~\cite{FamaeyBinney2005}, the ``standard'' form
+$x/\sqrt{1+x^2}$~\cite{Milgrom1983}, and transcendental forms
+such as $1 - e^{-\sqrt{x}}$ all produce acceptable rotation
+curves. Famaey and Binney~\cite{FamaeyBinney2005} showed that
+the simple form provides the best fit to the Milky Way terminal
+velocity curve, but selection by fitting is not derivation. A
+derivation of $\mu$ from first principles has remained open for
+four decades.
+
+The present letter derives it. The derivation rests on the
+coordinate-space geometry of the tetrad frame established in
+the companion letter~\cite{Nelson2026a}, which proved that the
+tetrad equation $g_{\mu\nu} = \eta_{ab}\,e^a{}_\mu\,e^b{}_\nu$
+produces two parity-related bounded tetrahedral regions whose
+union is a stellated octahedron. The exchange symmetry between
+those two regions provides one of three routes to the
+constitutive law developed here.
+
+% ==================================================================
+
+\section{The law}
+
+The gravitational constitutive law is
+\begin{equation}
+  \boxed{\mu(x) = \frac{x}{x + 1}.}
+  \label{eq:law}
+\end{equation}
+It is the unique function consistent with the exchange symmetry
+of the two parity-related sectors of the tetrad equation, under
+rational bijectivity on the projective line, as proved in
+Section~\ref{sec:route3} and the accompanying
+Supplementary Note~3.
+
+Three distinct derivational routes, beginning from different
+starting points and using different operative mathematics,
+produce this function. All three ultimately identify the same
+ratio law, $\mu/(1-\mu) = x$, from which $\mu = x/(x+1)$
+follows by normalisation. Throughout, TetA and TetB denote
+two local tetrad sectors in the sense of an
+interacting-vielbein decomposition~\cite{HR2012a}; the three
+routes can be read respectively as a vielbein-structural
+derivation, an AQUAL response derivation, and an
+exchange-symmetry derivation of the same constitutive law.
+The following three sections present them in turn.
+
+% ==================================================================
+
+\section{From the metric}
+\label{sec:route1}
+
+The internal metric of the tetrad formalism,
+$\eta_{ab} = \mathrm{diag}(-1,+1,+1,+1)$, contains two numbers
+readable by inspection: the frame dimension $K = 4$ (the matrix
+is $4 \times 4$) and the spatial dimension $D = 3$ (three
+positive eigenvalues). Because the tetrad equation is degree~2
+in $e$, a third number follows: the root count $n = 2$, whose
+geometric realisation as two parity-related bounded regions is
+established in the companion letter~\cite{Nelson2026a}.
+
+These three numbers satisfy a closure relation. Two simplices
+with $D + 1$ faces each contribute $2(D+1)$ faces; $D$ binary
+spatial axes contribute $2^D$ sign combinations. At $D = 3$
+the two counts are equal:
+\begin{equation}
+  2(D + 1) = 2^D = 8.
+  \label{eq:closure}
+\end{equation}
+This equality holds at $D = 3$ as the minimum threshold and
+admits no other positive integer solution, since $2^D$ grows
+exponentially while $2(D+1)$ grows linearly. The same doubled
+count $2K = 8$ appears independently in ghost-free bimetric
+gravity~\cite{HR2012a} as the total frame count of two
+dynamical tetrad fields, and $K^2 = 16$ as the dimension of
+their interaction matrix. The companion
+letter~\cite{Nelson2026a} establishes that the four spatial
+legs of the tetrad are the four face normals of a regular
+tetrahedron under $SO(3)$ isotropy, so frame legs and
+tetrahedral faces are the same four directions.
+
+From the same two integers, the tetrad equation's graded
+structure can be read. A scalar closure condition
+$\det(e) \neq 0$ carries rank~0 on the frame space
+(dimension $K^0 = 1$). The frame $e^a{}_\mu$ carries rank~1
+(dimension $K^1 = 4$). The bilinear coupling
+$\eta_{ab}\,e^a\,e^b$ carries rank~2 (dimension $K^2 = 16$).
+Taking the graded dimension of a rank-$r$ ingredient to be
+$K^r$, the natural three-term encoding is the coupling
+polynomial:
+\begin{equation}
+  f(K) = 1 + 4 + 16 = 21.
+  \label{eq:poly}
+\end{equation}
+The three ranks contribute independently: the field closure
+condition carries no frame index, the frame carries one, and
+the bilinear coupling carries two, so their dimensions sum
+rather than multiply.
+
+Under spatial parity, a rank-$r$ tensor transforms with sign
+$(-1)^r$~\cite{MTW}, so ranks~0 and~2 are even while rank~1
+is odd. Because the stellated octahedron has exactly three
+structural components (TetA, the octahedral core, and TetB),
+these define a natural three-state parity coordinate
+$s \in \{+1,\,0,\,-1\}$, with TetA and TetB as the
+parity-opposite extrema and the octahedral core as the
+symmetric midpoint. The parity-odd contribution enters only
+the rank-1 term, and interpolation on three points with odd
+symmetry fixes this contribution uniquely as $Ks$:
+\begin{equation}
+  f(K,s) = 1 + sK + K^2.
+  \label{eq:poly_s}
+\end{equation}
+The polynomial evaluates to $f = 21$ at TetA ($s = +1$),
+$f = 17$ at the octahedral core ($s = 0$), and $f = 13$ at
+TetB ($s = -1$), with range $\Delta f = 2K = 8$.
+
+To make the discrete state parameter continuous in the
+acceleration ratio $x = g/a_0$, a map $s(x)$ is needed. The
+map must be rational, to preserve the polynomial's algebraic
+structure, and bijective, so that each acceleration corresponds
+to exactly one geometric state. A rational bijection on the
+projective line is necessarily fractional
+linear~\cite{Hartshorne1977}. Three boundary conditions ($s
+\to +1$ as $x \to \infty$; $s = 0$ at $x = 1$; $s \to -1$ as
+$x \to 0$) determine the unique map $s(x) = (x-1)/(x+1)$.
+Composing with the polynomial and normalising by the range
+$\Delta f = 8$ yields $\mu(x) = x/(x+1)$.
+
+The full derivation, including the Diophantine verification
+table and the consistency check that $K$ and $D$ recover
+the principal dimensional and combinatorial properties of
+$g_{\mu\nu}$, appears in Supplementary Note~1. This route uses no field
+equation and no equilibrium postulates; it reads the
+constitutive law from the algebraic content of the metric
+and the tetrad equation.
+
+% ==================================================================
+
+\section{From equilibrium}
+\label{sec:route2}
+
+The second derivation begins from the AQUAL field equation
+itself, which provides the Lagrangian context for modified
+dynamics. Because the local tetrad field has four active
+coupling ports (the $K = 4$ face directions), the field
+response is finitely partitioned across four channels; this
+finite partition is what makes a non-trivial TetA/TetB
+equilibrium possible.
+That capacity partitions between the two coupled sectors at the single interaction
+vertex where TetA and TetB meet. The partition reaches
+equilibrium when the throughput toward TetA balances the
+throughput toward TetB.
+
+At each point, let $\epsilon$ denote the TetA fraction of the
+total capacity, so that $1 - \epsilon$ is the TetB fraction.
+Two opposing throughputs govern the partition. The
+TetA-directed throughput scales as $x^n(1 - \epsilon)$:
+stronger acceleration and more available TetB capacity both
+push the partition toward TetA. The TetB-directed throughput
+scales as $\epsilon$: the larger the TetA fraction, the
+stronger the restoring tendency. At equilibrium, these balance
+to give
+$\epsilon = Kx^n / (1 + Kx^n)$, with $K = \kappa_+/\kappa_-$
+the rate ratio. In the small-$x$ limit, $\mu \approx Kx^n$,
+so the deep-field scaling $\mu/x \to \text{const}$ requires
+$n = 1$. This is the same exponent that produces flat rotation
+curves and the baryonic Tully-Fisher relation $v^4 = GMa_0$.
+
+With $n = 1$ established, the equilibrium TetA fraction becomes
+$\epsilon = Kx/(1 + Kx)$. The rate ratio $K$ appears only in
+the combination $Kx$ and can be absorbed by redefining
+$a_0 \to a_0/K$; this is a reparametrisation of the
+acceleration scale, not a new degree of freedom. The derivation
+therefore fixes the functional form of $\mu$ while leaving the
+absolute value of the crossover scale to observation. In
+rescaled units,
+\begin{equation}
+  \mu(x) = \frac{x}{x + 1}.
+  \label{eq:mu_eq}
+\end{equation}
+The equilibrium is globally attracting, with strictly negative
+slope in the net rate as a function of $\epsilon$.
+
+The full derivation, including stability analysis and the
+corroborating rotation-curve check, appears in
+Supplementary Note~2. This route does not
+require the coupling polynomial, rank counting, or the
+exchange-symmetry derivation; it reads the constitutive law
+from the field's equilibrium partition between the two sectors.
+
+% ==================================================================
+
+\section{From exchange symmetry}
+\label{sec:route3}
+
+The companion letter~\cite{Nelson2026a} proved that the spatial
+sector of the tetrad equation produces exactly two bounded
+tetrahedral regions, TetA and TetB, related by spatial parity.
+The two sectors couple at the interaction vertex (the
+octahedral core where TetA and TetB meet), and the
+gravitational field response at each point partitions between
+them. The share of that response carried by each sector is its
+field capacity at that point.
+Let $\mu(x)$ denote the fraction of total field capacity carried
+by TetA at dimensionless acceleration $x = g/a_0$, so that
+$1 - \mu(x)$ is the fraction carried by TetB. Spatial parity
+exchanges the two sectors, inverting the acceleration ratio and
+swapping the fractions:
+\begin{equation}
+  \mu(1/x) = 1 - \mu(x).
+  \label{eq:duality}
+\end{equation}
+The two fractions sum to unity because $\mu$ measures the
+relative partition between the two coupled sectors, not the
+absolute field strength at a point.
+
+The natural variable for a two-sector partition is the odds
+ratio $\Omega = \mu/(1-\mu)$, which measures how many times
+more capacity TetA carries than TetB. Under the exchange
+symmetry, this ratio inverts when the acceleration inverts:
+\begin{equation}
+  \Omega(1/x) = \frac{1}{\Omega(x)}.
+  \label{eq:odds_duality}
+\end{equation}
+The endpoint conditions are $\Omega(0) = 0$ (the TetB limit as
+$x \to 0$) and $\Omega \to \infty$ as $x \to \infty$
+(the TetA limit at large acceleration).
+
+The map $\Omega(x)$ must be rational, to preserve the algebraic
+structure of the tetrad equation, and bijective, so that a
+single acceleration decodes to exactly one capacity ratio. A
+rational bijection on the projective line is necessarily
+fractional linear~\cite{Hartshorne1977}, giving the general
+form $\Omega(x) = (ax + b)/(cx + d)$. The endpoint condition
+$\Omega(0) = 0$ requires $b = 0$, reducing the map to
+$\Omega(x) = ax/(cx + d)$. Substituting into the exchange
+condition $\Omega(1/x) = 1/\Omega(x)$ and cross-multiplying
+gives $a^2 x = (c + dx)(cx + d)$. Comparing coefficients of
+$x^2$, $x$, and $x^0$ yields $cd = 0$ and $a^2 = c^2 + d^2$.
+If $d = 0$, then $\Omega = a/c$ is a constant, which is not
+bijective. If $c = 0$, then $a^2 = d^2$, so $a = \pm d$.
+The branch $a = -d$ gives $\Omega(x) = -x$, which is
+incompatible with $\Omega > 0$ for $x > 0$; therefore $a = d$
+and
+\begin{equation}
+  \Omega(x) = x.
+  \label{eq:odds_result}
+\end{equation}
+The odds ratio between TetA and TetB is the acceleration ratio
+itself. From this, the constitutive law follows by
+normalisation:
+\begin{equation}
+  \mu(x) = \frac{\Omega}{1 + \Omega} = \frac{x}{x + 1}.
+  \label{eq:mu_exchange}
+\end{equation}
+
+Two properties often treated as independent conditions are in
+fact derived consequences. The midpoint value $\mu(1) = 1/2$
+follows directly: at the acceleration scale $a_0$, the two
+sectors contribute equally, as the exchange symmetry requires.
+The complement symmetry $\mu(x) + \mu(1/x) = 1$ is the
+duality condition~\eqref{eq:duality} itself, which was the
+starting point of the derivation rather than an additional
+assumption.
+
+The full derivation, including the explicit coefficient
+comparison and the screening identity, appears in
+Supplementary Note~3.
+
+% ==================================================================
+
+\section{Why they agree}
+
+Three derivations using different mathematics arrive at the
+same function. That convergence has a simple explanation: each
+route, through its own formalism, discovers the same algebraic
+fact.
+
+In Route~1, the polynomial normalisation $(f - 13)/(21 - f)$
+evaluates to $x$ when $f = (21x + 13)/(x+1)$; here $(f - 13)$
+measures coupling depth above the TetB floor while $(21 - f)$
+measures depth below the TetA ceiling, so their ratio is the
+same inter-sector odds that Routes~2 and~3 identify directly.
+In Route~2,
+the equilibrium condition $\epsilon/(1-\epsilon) = x$ is the
+definition of the odds ratio. In Route~3, the exchange symmetry
+directly produces $\Omega(x) = x$. All three identify the
+capacity ratio between TetA and TetB with the dimensionless
+acceleration. The constitutive law is the odds-to-fraction
+normalisation of that ratio (the logistic map
+$\mu = \Omega/(1+\Omega)$):
+\begin{equation}
+  \frac{\mu}{1 - \mu} = x
+  \qquad \Longrightarrow \qquad
+  \mu = \frac{x}{x + 1}.
+  \label{eq:convergence}
+\end{equation}
+
+The routes are methodologically distinct: Route~1 uses the coupling
+polynomial, Route~2 uses the AQUAL field equation, and Route~3
+uses the odds ratio. No two share the same primary derivational
+mechanism. Their convergence
+reflects the fact that a single physical quantity, the
+TetA-to-TetB capacity ratio, is accessible through the
+algebraic structure of the metric, through the field's
+equilibrium kinetics, and through the geometry's exchange
+symmetry.
+
+% ==================================================================
+
+\section{Consequences}
+\label{sec:consequences}
+
+The constitutive law carries several consequences that have
+previously been observed empirically but can now be traced to
+the TetA/TetB capacity structure derived in the three routes.
+
+\paragraph{Complement symmetry.}
+The relation $\mu(x) + \mu(1/x) = 1$ states that whatever
+fraction of field capacity TetA carries at acceleration $x$,
+TetB carries at $1/x$. This property was noted by
+Milgrom~\cite{Milgrom1983} as a structurally significant
+feature of the simple interpolating function. In the present
+derivation it is not a property the function happens to
+possess; it is the exchange symmetry of the two tetrahedral
+sectors, which was the starting point of Route~3.
+
+\paragraph{Baryonic Tully-Fisher relation.}
+In the deep-field regime ($x \ll 1$), the constitutive law
+reduces to $\mu \approx x$, which corresponds to the
+TetB-dominated sector. In spherical symmetry, this limit gives
+$v^4 = GMa_0$: the baryonic Tully-Fisher
+relation~\cite{McGaugh2000}. One of the strongest empirical
+regularities in extragalactic astronomy follows from the
+deep-field limit of the constitutive law, which is itself
+the TetB sector of the tetrad geometry.
+
+% ==================================================================
+
+\section{Discussion}
+
+The present letter derives the functional form of $\mu$. It
+does not derive the value of $a_0$. The acceleration scale
+enters as an empirical input that defines the boundary between
+the TetA-dominated and TetB-dominated regimes; determining it
+from the framework's structural constants is the subject of
+ongoing work.
+
+The integers $\{21,\,17,\,13\}$ that appear in Route~1 as the
+three evaluation states of the coupling polynomial are developed
+in the companion geometry letter~\cite{Nelson2026a}. At the
+octahedral core ($s = 0$), the parity-odd rank-1 term
+contributes zero, leaving 17 as the coupling depth carried by
+the parity-even structure alone. The
+constitutive law itself requires none of them: Route~3
+derives it from exchange symmetry alone, and Route~2 derives
+it from equilibrium kinetics with no reference to the tetrad
+geometry. Route~1 contributes what the other two cannot: it
+connects the constitutive law to the metric's dimensional
+structure and explains why $K = 4$ and $D = 3$ appear in the
+polynomial. Each route carries a distinct explanatory role.
+
+The constitutive law $\mu(x) = x/(x+1)$ applies wherever the
+AQUAL field equation applies: to any gravitating system in
+which the acceleration passes through the scale $a_0$. Its
+primary observational arena is galaxy rotation curves, where
+it was first identified empirically by
+Milgrom~\cite{Milgrom1983} and confirmed by Famaey and
+Binney~\cite{FamaeyBinney2005} through fitting to the Milky
+Way terminal velocity curve.
+
+The function that has been empirical for forty years now has
+a derivation. It is the odds-to-fraction normalisation of
+the TetA-to-TetB capacity ratio, recovered through exchange
+symmetry, equilibrium closure, and the graded structure of the
+metric.
+
+% ==================================================================
+
+\begin{thebibliography}{99}
+
+\bibitem{Milgrom1983}
+M.~Milgrom,
+\textit{A modification of the Newtonian dynamics as a possible
+alternative to the hidden mass hypothesis},
+Astrophys.\ J.\ \textbf{270} (1983) 365.
+
+\bibitem{BekensteinMilgrom1984}
+J.~D.~Bekenstein and M.~Milgrom,
+\textit{Does the missing mass problem signal the breakdown of
+Newtonian gravity?}
+Astrophys.\ J.\ \textbf{286} (1984) 7.
+
+\bibitem{FamaeyBinney2005}
+B.~Famaey and J.~Binney,
+\textit{Modified Newtonian dynamics in the Milky Way},
+Mon.\ Not.\ R.\ Astron.\ Soc.\ \textbf{363} (2005) 603.
+
+\bibitem{Nelson2026a}
+S.~Nelson,
+\textit{The Coordinate-Space Geometry of the Tetrad Frame},
+Class.\ Quantum Grav.\ (2026), submitted (CQG-115428).
+
+\bibitem{MTW}
+C.~W.~Misner, K.~S.~Thorne and J.~A.~Wheeler,
+\textit{Gravitation}
+(W.~H.~Freeman, San Francisco, 1973).
+
+\bibitem{Hartshorne1977}
+R.~Hartshorne,
+\textit{Algebraic Geometry}
+(Springer, New York, 1977).
+
+\bibitem{HR2012a}
+S.~F.~Hassan and R.~A.~Rosen,
+\textit{Bimetric gravity from ghost-free massive gravity},
+JHEP \textbf{02} (2012) 126.
+
+\bibitem{McGaugh2000}
+S.~S.~McGaugh, J.~M.~Schombert, G.~D.~Bothun and
+W.~J.~G.~de~Blok,
+\textit{The baryonic Tully-Fisher relation},
+Astrophys.\ J.\ \textbf{533} (2000) L99.
+
+\end{thebibliography}
+
+\end{document}

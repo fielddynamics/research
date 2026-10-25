@@ -1,0 +1,138 @@
+\documentclass[twocolumn]{iopjournal}
+
+\usepackage{amsmath,amssymb,amsfonts}
+
+\fancyhfoffset[L]{0mm}
+\setlength{\marginparwidth}{0pt}
+\setlength{\marginparsep}{0pt}
+
+% ==========================================
+% ZENODO PREPRINT HEADERS (ACTIVE)
+% ==========================================
+\renewcommand{\articletype}[1]{%
+  {\vspace*{-8mm}\noindent \Large \sf Preprint}\par
+  \vspace*{6mm}\noindent{\scriptsize \sf{\bfseries \MakeUppercase{#1}}}}
+
+\fancyhead[L]{}
+\fancyhead[R]{}
+
+\begin{document}
+
+\articletype{Supplementary Material}
+
+\title{Supplementary Material: The Tetrad Scheme\\and the Two Bounded Regions}
+
+\author{Stephen Nelson}
+
+\affil{Field Dynamics Research}
+
+\begin{abstract}
+The main letter derives the stellated octahedron from the half-space inequalities of four derived tetrahedral directions (Route~1). This note provides a second, independent route to the same result (Route~2). The defining equation of the tetrad, $g_{\mu\nu} = \eta_{ab}\, e^a{}_\mu\, e^b{}_\nu$, is quadratic in the tetrad. Its solution space (scheme) in the spatial sector has exactly two connected components, related by spatial parity. Each component carries a regular tetrahedron with a $3+1$ face decomposition. The compound of the two components is the stellated octahedron. This argument uses no half-space bounding, no recession cones, and no sign-combination enumeration.
+\end{abstract}
+
+% ----------------------------------------------------------------------
+
+\section*{The Tetrad Equation Is Quadratic}
+
+The tetrad $e^a{}_\mu$ is defined by the relation
+\begin{equation}
+g_{\mu\nu} = \eta_{ab}\, e^a{}_\mu\, e^b{}_\nu,
+\end{equation}
+which is quadratic in $e$. If $e^a{}_\mu$ is a solution, then so is $\Lambda^a{}_b\, e^b{}_\mu$ for any $\Lambda \in O(1,3)$, because $O(1,3)$ preserves $\eta_{ab}$ by definition. The full solution space at any point is therefore the orbit of a single tetrad under the Lorentz group $O(1,3)$.
+
+This solution space is what algebraic geometry calls the \emph{scheme} of the equation~\cite{Grothendieck1960,Hartshorne1977}: the set of all solutions, considered as a geometric object in its own right, without selecting a preferred root.
+
+% ----------------------------------------------------------------------
+
+\section*{The Spatial Scheme Has Two Components}
+
+The Lorentz group $O(1,3)$ has four connected components~\cite{Wald1984}, distinguished by two discrete operations:
+\begin{itemize}
+\item spatial parity $P$: $e^0 \to e^0$, $e^i \to -e^i$ ($i = 1,2,3$),
+\item time reversal $T$: $e^0 \to -e^0$, $e^i \to e^i$.
+\end{itemize}
+The four components are $SO^+(1,3)$, $P \cdot SO^+(1,3)$, $T \cdot SO^+(1,3)$, and $PT \cdot SO^+(1,3)$.
+
+The main letter's construction uses only the spatial legs of the tetrad: the four derived directions $v_1, v_2, v_3, v_4$ are linear combinations of $e^1, e^2, e^3$. Time reversal $T$ acts only on $e^0$ and leaves the spatial legs unchanged. Therefore $T$ and $PT$ act identically to $I$ and $P$ respectively on the spatial sector.
+
+The spatial scheme thus has exactly two distinct components:
+\begin{itemize}
+\item the identity component $SO(3)$, which rotates the four derived directions rigidly,
+\item the parity component $P \cdot SO(3)$, which negates all three spatial legs.
+\end{itemize}
+
+The continuous part, $SO(3)$, rotates the four derived directions rigidly and produces no new geometry. The discrete part, $P$, sends every $v_i \to -v_i$, producing a second set of four unit vectors with the same pairwise inner product $c = -1/3$. Four points in $\mathbb{R}^3$ with constant pairwise inner product form the vertices of a regular tetrahedron; their convex hull is a bounded solid. The identity component gives TetA. The parity component gives TetB.
+
+% ----------------------------------------------------------------------
+
+\section*{Both Components Are Necessarily Present}
+
+The scheme of a polynomial equation contains all its roots by definition. The quadratic structure of the tetrad equation and the two-component structure of the spatial Lorentz group together guarantee that both TetA and TetB exist in the solution space. There is no consistent way to retain one component and discard the other: both satisfy the same defining equation with the same metric.
+
+The textbook convention of selecting one signature orientation, $(-,+,+,+)$ or $(+,-,-,-)$, corresponds to working within a single connected component. This is a valid computational choice, but it is a projection of the full scheme onto one component. The scheme itself contains both.
+
+% ----------------------------------------------------------------------
+
+\section*{Each Component Carries a $3+1$ Decomposition}
+
+The four face normals of TetA, expressed as sign patterns on the three spatial axes, are:
+\begin{equation}
+(+,+,+), \quad (+,-,-), \quad (-,+,-), \quad (-,-,+).
+\end{equation}
+One face normal has uniform sign: $(+,+,+)$. Three face normals have mixed signs. This is a $3+1$ partition of the four faces into one temporal and three spatial.
+
+Under spatial parity $P$, the face normals of TetB are:
+\begin{equation}
+(-,-,-), \quad (-,+,+), \quad (+,-,+), \quad (+,+,-).
+\end{equation}
+Again, one face normal has uniform sign: $(-,-,-)$. Three have mixed signs. TetB carries its own $3+1$ decomposition.
+
+The stellated octahedron therefore recovers both orientations of the Lorentz signature, one in each tetrahedron, related by spatial parity. The $3+1$ structure that enters the construction as the input signature reappears in the output geometry, independently in both bounded regions.
+
+% ----------------------------------------------------------------------
+
+\section*{Summary}
+
+The main letter derives the stellated octahedron by classifying the sixteen half-space sign combinations and proving exactly two yield bounded regions (Route~1). The present note derives the same result from the quadratic structure of the tetrad equation (Route~2):
+
+\vspace{6pt}
+\noindent
+{\footnotesize
+\begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}lll@{}}
+\hline
+ & Route 1 (letter) & Route 2 (this note) \\
+\hline
+Input & half-space inequalities & tetrad eqn.\ $g = \eta\, e\, e$ \\
+Method & recession cone test & scheme of quad.\ eqn. \\
+Key fact & $\sum v_i = 0$ (normals & $O(1,3)$ has two \\
+ & sum to zero) & spatial components \\
+Output & 2 of 16 bounded & 2 components of \\
+ & & spatial scheme \\
+\hline
+\end{tabular*}}
+\vspace{6pt}
+
+Both routes arrive at the same stellated octahedron with the same $3+1$ face decomposition in each tetrahedron. Neither route assumes the other. A rejection of one leaves the other intact. The loop between signature and geometry is closed: TetA's face normals decompose as one uniform-positive $(+,+,+)$ and three mixed-sign, recovering the $(-,+,+,+)$ convention; TetB's decompose as one uniform-negative $(-,-,-)$ and three mixed-sign, recovering the $(+,-,-,-)$ convention. Both orientation choices of the Lorentz signature are present in the output geometry.
+
+% ----------------------------------------------------------------------
+
+\begin{thebibliography}{99}
+
+\bibitem{Grothendieck1960}
+A.~Grothendieck and J.~Dieudonn\'{e},
+\textit{\'{E}l\'{e}ments de g\'{e}om\'{e}trie alg\'{e}brique~I}
+(Springer, Berlin, 1971; originally Publ.\ Math.\ IH\'{E}S, 1960).
+
+\bibitem{Hartshorne1977}
+R.~Hartshorne,
+\textit{Algebraic Geometry}
+(Springer, New York, 1977).
+
+\bibitem{Wald1984}
+R.~M.~Wald,
+\textit{General Relativity}
+(University of Chicago Press, Chicago, 1984).
+
+\end{thebibliography}
+
+\end{document}

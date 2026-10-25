@@ -1,0 +1,271 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage[margin=1in]{geometry}
+\usepackage{authblk}
+
+\newtheorem{theorem}{Theorem}
+
+\title{Closed-Form Energy Functional for the Simple Interpolating
+Function in AQUAL}
+\author{Stephen Nelson}
+\affil{Field Dynamics Research \\ \texttt{stephen@fielddynamics.org}}
+\date{April 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+The AQUAL framework of Bekenstein and Milgrom requires a kinetic
+functional $F(y)$, with $y = |\nabla\Phi|^2/a_0^2$, whose derivative
+with respect to $y$ is the interpolating function $\mu$. For the
+simple interpolating function $\mu(x) = x/(x+1)$, widely adopted in
+MOND rotation-curve fits, $F$ has historically been carried
+implicitly through its derivative. We give the closed form
+$F(y) = y - 2\sqrt{y} + 2\ln(1 + \sqrt{y})$, derived by elementary
+integration and verified independently by differentiation. The
+result has three terms with distinct asymptotic roles: the
+polynomial $y$ dominates at high acceleration and recovers
+Newtonian behaviour, the logarithm dominates at low acceleration
+and produces deep-MOND scaling, and the square root provides smooth
+crossover with no piecewise patching. The closed form is suitable
+for direct use in action-level calculations where implicit
+formulations of $F$ are not workable.
+\end{abstract}
+
+\section{Setting}
+
+The AQUAL Lagrangian density of Bekenstein and
+Milgrom~\cite{BekensteinMilgrom1984} is
+\begin{equation}
+  \mathcal{L}_{\text{AQUAL}}
+  = -\frac{a_0^2}{8\pi G}\, F(y) + \rho\,\Phi,
+  \qquad
+  y = \frac{|\nabla\Phi|^2}{a_0^2},
+\end{equation}
+where $a_0$ is the MOND acceleration scale of
+Milgrom~\cite{Milgrom1983}. Variation with respect to $\Phi$ yields
+the modified Poisson equation
+\begin{equation}
+  \nabla \cdot \left[\mu\!\left(\frac{|\nabla\Phi|}{a_0}\right)
+  \nabla\Phi \right] = 4\pi G\rho,
+\end{equation}
+in which the interpolating function $\mu$ is fixed by the AQUAL
+identity
+\begin{equation}
+  \mu(\sqrt{y}) = \frac{dF}{dy}.
+  \label{eq:aqual_identity}
+\end{equation}
+
+The framework determines $\mu$ from $F$ by differentiation and $F$
+from $\mu$ by integration, but the choice of either is left to the
+user. Empirically, the simple interpolating
+function~\cite{FamaeyMcGaugh2012}
+\begin{equation}
+  \mu(x) = \frac{x}{x+1}
+  \label{eq:simple_mu}
+\end{equation}
+provides good fits to galaxy rotation curves across a wide range of
+masses. No closed form for the corresponding $F(y)$ appears in
+the published literature; this note supplies it.
+
+\section{Theorem}
+
+\begin{theorem}
+\label{thm:closed_form}
+Let $\mu(x) = x/(x+1)$ and define $F(y)$ by the AQUAL
+identity~\eqref{eq:aqual_identity} with boundary condition
+$F(0) = 0$. Then
+\begin{equation}
+  \boxed{F(y) = y - 2\sqrt{y} + 2\ln(1 + \sqrt{y}).}
+  \label{eq:F_closed_form}
+\end{equation}
+\end{theorem}
+
+\section{Proof}
+
+The AQUAL identity~\eqref{eq:aqual_identity} together with
+$F(0) = 0$ gives
+\begin{equation}
+  F(y) = \int_0^y \mu(\sqrt{t})\, dt
+       = \int_0^y \frac{\sqrt{t}}{\sqrt{t} + 1}\, dt.
+  \label{eq:integral_setup}
+\end{equation}
+
+Substitute $u = \sqrt{t}$, so that $t = u^2$ and $dt = 2u\, du$.
+The limits transform as $t: 0 \to y$ becomes $u: 0 \to \sqrt{y}$.
+Equation~\eqref{eq:integral_setup} becomes
+\begin{equation}
+  F(y) = \int_0^{\sqrt{y}} \frac{u}{u+1}\,(2u)\, du
+       = 2\int_0^{\sqrt{y}} \frac{u^2}{u+1}\, du.
+  \label{eq:after_sub}
+\end{equation}
+
+Apply the algebraic identity
+\begin{equation}
+  \frac{u^2}{u+1} = \frac{(u^2 - 1) + 1}{u+1}
+                  = (u - 1) + \frac{1}{u+1},
+  \label{eq:long_division}
+\end{equation}
+which follows from $u^2 - 1 = (u-1)(u+1)$. Substituting
+into~\eqref{eq:after_sub}:
+\begin{equation}
+  F(y) = 2\int_0^{\sqrt{y}}
+         \left[(u - 1) + \frac{1}{u+1}\right] du.
+\end{equation}
+
+Integrate term by term using the elementary antiderivatives
+$\int u\, du = u^2/2$, $\int du = u$, and
+$\int (u+1)^{-1}\, du = \ln(u+1)$:
+\begin{equation}
+  F(y) = 2\left[\frac{u^2}{2} - u + \ln(u+1)\right]_0^{\sqrt{y}}.
+\end{equation}
+
+Evaluate at the upper limit $u = \sqrt{y}$:
+\begin{equation}
+  \frac{(\sqrt{y})^2}{2} - \sqrt{y} + \ln(\sqrt{y} + 1)
+  = \frac{y}{2} - \sqrt{y} + \ln(1 + \sqrt{y}),
+\end{equation}
+and at the lower limit $u = 0$ each term vanishes
+($0 - 0 + \ln 1 = 0$). Therefore
+\begin{equation}
+  F(y) = 2 \cdot \left[\frac{y}{2} - \sqrt{y} + \ln(1 + \sqrt{y})\right]
+       = y - 2\sqrt{y} + 2\ln(1 + \sqrt{y}). \qed
+\end{equation}
+
+\section{Verification by differentiation}
+
+We verify Theorem~\ref{thm:closed_form} independently by
+differentiating~\eqref{eq:F_closed_form} and recovering
+$\mu(\sqrt{y})$. To keep all intermediate expressions regular at
+$y = 0$, we work in the natural variable $u = \sqrt{y}$ used in
+Section~3, with $y = u^2$ and $dy = 2u\, du$.
+
+In $u$-coordinates the closed form~\eqref{eq:F_closed_form} reads
+\begin{equation}
+  F = u^2 - 2u + 2\ln(1 + u).
+\end{equation}
+
+Differentiating with respect to $u$ gives a sum of three regular
+terms:
+\begin{equation}
+  \frac{dF}{du} = 2u - 2 + \frac{2}{1 + u}.
+\end{equation}
+
+Combining over the common denominator $(1+u)$:
+\begin{equation}
+  \frac{dF}{du}
+  = \frac{2u(1+u) - 2(1+u) + 2}{1+u}
+  = \frac{2u + 2u^2 - 2 - 2u + 2}{1+u}
+  = \frac{2u^2}{1+u}.
+\end{equation}
+
+For $u > 0$, apply the chain rule
+$dF/dy = (dF/du)/(dy/du) = (dF/du)/(2u)$:
+\begin{equation}
+  \frac{dF}{dy}
+  = \frac{1}{2u} \cdot \frac{2u^2}{1+u}
+  = \frac{u}{1+u}
+  = \frac{\sqrt{y}}{1 + \sqrt{y}}
+  = \mu(\sqrt{y}). \quad \checkmark
+\end{equation}
+
+The recovered $\mu$ matches the input~\eqref{eq:simple_mu}. The
+integration of Section~3 and the differentiation here are mutual
+inverses on $u > 0$, as required by the fundamental theorem of
+calculus. Since the reduced expression $u/(1+u)$ is regular at
+$u = 0$, it follows that $\mu(\sqrt{y}) = \sqrt{y}/(1 + \sqrt{y})$
+on all $y \geq 0$, with $\mu(0) = 0$ recovered by direct
+substitution.
+
+\section{Asymptotic limits}
+
+\paragraph{High-acceleration regime ($y \gg 1$).}
+The leading term is $F(y) \to y$, the corresponding response is
+$\mu \to 1$, and the modified Poisson equation reduces to the
+Newtonian $\nabla^2\Phi = 4\pi G\rho$, recovering the Newtonian
+limit in this regime.
+
+\paragraph{Low-acceleration regime ($y \ll 1$).}
+Expand $\ln(1 + \sqrt{y})$ in its Taylor series about $\sqrt{y} = 0$:
+\begin{equation}
+  \ln(1 + \sqrt{y}) = \sqrt{y} - \frac{y}{2}
+                    + \frac{y^{3/2}}{3} - \frac{y^2}{4} + O(y^{5/2}).
+\end{equation}
+Substituting into~\eqref{eq:F_closed_form}:
+\begin{equation}
+  F(y) = y - 2\sqrt{y} + 2\sqrt{y} - y + \frac{2 y^{3/2}}{3}
+       - \frac{y^2}{2} + O(y^{5/2})
+       = \frac{2}{3}\, y^{3/2} + O(y^2).
+\end{equation}
+The leading behaviour $F(y) \sim (2/3)\, y^{3/2}$ is the deep-MOND
+form~\cite{BekensteinMilgrom1984}, which produces the asymptotic
+relation $g_t \to \sqrt{g_s a_0}$ between source acceleration $g_s$
+and total acceleration $g_t$, and the baryonic Tully-Fisher relation
+$M \propto v^4$.
+
+\paragraph{Crossover.}
+The transition between the two regimes is smooth. The logarithmic
+term $2\ln(1 + \sqrt{y})$ is finite and continuous for all
+$y \geq 0$, with $F$ and all its derivatives well-defined for
+$y > 0$, in particular across the crossover scale $y \sim 1$. No
+patching of two asymptotic forms is required.
+
+\section{Note on the three-term structure}
+
+The three terms of~\eqref{eq:F_closed_form} carry distinct
+asymptotic roles. At high $y$, the polynomial $y$ dominates and
+recovers the Newtonian limit. At low $y$, the polynomial,
+square-root, and logarithmic terms enter into the Taylor
+cancellation shown in Section~5: the linear and square-root orders
+cancel among all three terms, leaving the deep-MOND $y^{3/2}$
+scaling as the surviving leading term. The coefficients $1$, $2$,
+$2$ and the appearance of exactly three terms are not adjusted;
+they are forced by the integration of the input
+$\mu(x) = x/(x+1)$.
+
+A structural interpretation of these three terms in the context of
+a derivation of $\mu$ from underlying topology is developed
+in~\cite{Nelson2026letter}. The closed form~\eqref{eq:F_closed_form}
+serves any AQUAL-class theory that adopts $\mu(x) = x/(x+1)$ as
+its constitutive law.
+
+\section{Conclusion}
+
+The closed-form energy functional
+\begin{equation*}
+  F(y) = y - 2\sqrt{y} + 2\ln(1 + \sqrt{y})
+\end{equation*}
+follows by elementary integration from the simple interpolating
+function $\mu(x) = x/(x+1)$. The result is suitable for
+action-level calculations in AQUAL-class theories wherever an
+explicit form of $F$ is required.
+
+\begin{thebibliography}{9}
+
+\bibitem{Milgrom1983}
+M.~Milgrom,
+\textit{A modification of the Newtonian dynamics as a possible
+alternative to the hidden mass hypothesis},
+Astrophys.\ J.\ \textbf{270} (1983) 365.
+
+\bibitem{BekensteinMilgrom1984}
+J.~Bekenstein and M.~Milgrom,
+\textit{Does the missing mass problem signal the breakdown of
+Newtonian gravity?},
+Astrophys.\ J.\ \textbf{286} (1984) 7.
+
+\bibitem{FamaeyMcGaugh2012}
+B.~Famaey and S.~S.~McGaugh,
+\textit{Modified Newtonian Dynamics (MOND): Observational
+Phenomenology and Relativistic Extensions},
+Living Rev.\ Relativ.\ \textbf{15} (2012) 10.
+
+\bibitem{Nelson2026letter}
+S.~Nelson,
+\textit{The Constitutive Law from the Tetrad Frame},
+Field Dynamics Research (2026), in preparation.
+
+\end{thebibliography}
+
+\end{document}
