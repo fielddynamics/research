@@ -10,7 +10,7 @@ This repository is the working research archive behind the Gravity Field Dynamic
 
 ## Statement on open release
 
-This programme has been carried out by a single independent investigator. It has now reached a point where its open questions exceed what one researcher can responsibly pursue. The derivations require independent verification, the empirical comparisons call for scrutiny by specialists in each domain, and several lines of inquiry remain unresolved.
+This programme has been carried out by a single independent investigator, Stephen Nelson of Field Dynamics Research. It has now reached a point where its open questions exceed what one researcher can responsibly pursue. The derivations require independent verification, the empirical comparisons call for scrutiny by specialists in each domain, and several lines of inquiry remain unresolved.
 
 In the spirit of open science, the complete research record is therefore released here without restriction of access. That record comprises the published preprints, the manuscripts in preparation, the validation code and the working notes from which they were developed. It is offered not as a finished body of results but as a starting point for critical examination, replication and extension by the wider research community.
 
@@ -255,7 +255,9 @@ Notes:
 
 Please cite the relevant Zenodo preprint for any result taken from this archive. For the framework as a whole, cite the latest letters above or the documentation at [docs.fielddynamics.org](https://docs.fielddynamics.org/).
 
-No open-source licence file is included. For reuse beyond citation and reading, contact the author.
+## Licence
+
+This repository is released under the [MIT License](LICENSE) © 2026 Stephen Nelson, Field Dynamics Research. The code, notes and paper sources may be used, modified and redistributed, provided the copyright and licence notice are retained. Papers deposited on Zenodo also carry the licence shown on their Zenodo records.
 
 ## Contact
 
