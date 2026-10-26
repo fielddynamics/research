@@ -44,8 +44,7 @@ GFD proposes that the local gravitational frame has a definite interior geometry
 | Dimension selection | `2(D + 1) = 2^D  ⇒  D = 3`, `K = D + 1 = 4` |
 | Tetrad | `g_μν = η_ab e^a_μ e^b_ν` — the 2⁴ sign combinations of the spatial frame give exactly two bounded regions (TetA, TetB) |
 | Coupling polynomial | `f(K, s) = 1 + sK + K²` → at K = 4: **21** (TetA, s = +1), **17** (origin, s = 0), **13** (TetB, s = −1) |
-| Field equation | `f(x) = (21x + 13)/(x + 1)`, with `x = g_t / a₀` |
-| Constitutive law | `μ(x) = (f(x) − 13)/8 = x/(x + 1)` — the "simple" AQUAL/MOND interpolating function, derived rather than fitted |
+| Constitutive law | `μ(x) = x/(x + 1)`, with `x = g_t / a₀` — the "simple" AQUAL/MOND interpolating function, derived rather than fitted |
 | Scalar–tensor transition (SST) | `g_s = g_t² / (a₀ + g_t)`, inverted as `g_t = (g_s + √(g_s² + 4 g_s a₀))/2` |
 | Kinetic functional | `F(y) = y − 2√y + 2 ln(1 + √y)`, with `dF/dy = μ(√y)` |
 | Covariant action | `S = ∫ d⁴x √−g [ R/16πG − (a₀²/8πG) F(y) − ¼ e^{−2Φ/c²} F_μν F^μν + L_m ]` — prefactors 16 = K², 8 = 2^D, 4 = K |
@@ -94,7 +93,7 @@ Derives the stellated octahedron as the minimal closure topology in 3+1 dimensio
 
 **VIII — Gravity Field Dynamics and Bimetric Gravity**
 [`papers/08-gfd-and-bimetric-gravity/`](papers/08-gfd-and-bimetric-gravity/) <!-- Zenodo DOI -->
-Shows how the coupling polynomial fixes the five free Hassan–Rosen bimetric coefficients to {1, 0, 16, 0, 1}, while its continuous form gives the field equation f(x) = (21x + 13)/(x + 1) and the constitutive law.
+Shows how the coupling polynomial fixes the five free Hassan–Rosen bimetric coefficients to {1, 0, 16, 0, 1}, while its continuous form, normalised, gives the constitutive law μ(x) = x/(x + 1).
 
 **IX — Complete Field Closure from Stellated Octahedron Topology**
 [`papers/09-complete-field-closure/`](papers/09-complete-field-closure/) <!-- Zenodo DOI -->
