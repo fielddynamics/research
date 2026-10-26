@@ -22,14 +22,14 @@ This repository is the working research archive behind the Gravity Field Dynamic
 
 This programme has been carried out by a single independent investigator, Stephen Nelson of Field Dynamics Research. It has now reached a stage at which it will benefit most from the engagement of a wider community. The core derivations are in place and have been tested against observational data; the natural next steps are independent verification of the derivations, scrutiny of the empirical comparisons by specialists in each domain, and the development of the several promising lines of inquiry that the work has opened.
 
-In the spirit of open science, the complete research record is therefore released here without restriction of access. That record comprises the published preprints, the manuscripts in preparation, the validation code and the working notes from which they were developed. It is offered not as a finished body of results but as a starting point for critical examination, replication and extension by the wider research community.
+In the spirit of open science, the complete research record is therefore released here without restriction of access. That record comprises the published preprints, the manuscripts in preparation, the validation code and the working notes from which they were developed. It is offered as a foundation for critical examination, replication and extension by the wider research community.
 
 Engagement of every kind is welcome:
 
 - independent checks of the mathematical derivations;
 - re-analysis of the observational and experimental comparisons;
 - identification of errors, gaps or unstated assumptions;
-- collaboration on the open problems.
+- collaboration on extending the framework into new domains.
 
 Negative results and well-founded criticism are regarded as contributions of equal value. Correspondence may be directed to stephen@fielddynamics.org, or raised as an issue on this repository.
 
