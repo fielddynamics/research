@@ -92,7 +92,7 @@ pyramid_portal_research/
 |---|---|
 | `04.1_subsystem_overview.md` | Full chamber-by-chamber table. Each subsystem mapped to algebraic function. |
 | `04.2_kings_chamber_vertex.md` | King's Chamber dimensions encode K² = 25 via space diagonal 25 = 10² + 20² + (5√5)². Feynman vertex. |
-| `04.3_coffer_alpha_step.md` | V_coffer / V_KC ≈ α to 0.77% (Petrie data). Coffer = primitive Coulomb edge α. |
+| `04.3_coffer_alpha_step.md` | V_coffer / V_KC ≈ α to 0.1% on Petrie data (floor-to-ceiling height; ±0.4%; 2.3% with wall height). Coffer = primitive Coulomb edge α (conjecture). |
 | `04.4_relieving_chambers_pentachoron.md` | Five relieving chambers = 5 vertices of K_5. Inter-chamber Coulomb couplings = 20 directed edges. |
 | `04.5_grand_gallery_kernel.md` | 7-corbel phase ramp. Cumulative phase = 21 units of 2π/7. Realizes three-sweep spectral kernel. |
 | `04.6_antechamber_Z3_filter.md` | Three portcullis grooves. Z_3 character projector. |
@@ -123,7 +123,7 @@ pyramid_portal_research/
 | File | Content |
 |---|---|
 | `07.1_acoustic_Z21_spectrum.md` | 21-mode comb at the King's Chamber 21-band. Z_7 and Z_3 subgroup structure. Measurable. |
-| `07.2_coffer_volume_test.md` | Status: lands at 0.77% on Petrie measurements. Refined-measurement protocol. |
+| `07.2_coffer_volume_test.md` | Status: 0.1% on Petrie measurements, convention-dependent. Refined-measurement protocol. |
 | `07.3_relieving_chamber_volumes.md` | Prediction: ∑V_i ≈ 81 c³ across 5 chambers. Falsifiable. |
 | `07.4_magnetic_shielding_test.md` | μ-metal in KC kills portal channel. Direct cavity-QED test. |
 | `07.5_geomagnetic_storm_correlation.md` | K-index correlation with anomalous apparatus behavior. |

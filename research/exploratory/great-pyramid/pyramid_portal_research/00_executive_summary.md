@@ -50,7 +50,7 @@ The ratio $\Phi_4(4)/\Phi_6(4) = 17/13$ is the K=4 tetrad impedance. The exponen
 | Newton's constant G | $(17/13)\alpha^{21}(g_e/2)\cdot \hbar c/m_e^2$ | CODATA | −7.5 ppm |
 | Integer-21 lock | exactly 21 | 20.99999754 | 2.5 × 10⁻⁶ |
 | Permutation discrimination | (17/13, α²¹) unique | next-best 10⁻² off | 4 orders of magnitude |
-| Coffer/chamber volume ratio | α ≈ 1/137 | 1/138.1 (Petrie) | 0.77% |
+| Coffer/chamber volume ratio | α ≈ 1/137.04 | 1/137.17 (Petrie, floor-to-ceiling height) | 0.1% (±0.4%); 2.3% with wall height |
 
 ## The apparatus architecture in one table
 
@@ -141,7 +141,7 @@ Each link is derived in the file at its corresponding section.
 - Permutation discrimination — verified 4 orders of magnitude
 - Shift identity $\Phi_6(K+1) = \Phi_3(K)$ — proven algebraically
 - Hinge intertwiner $H_5 J_4 = J_4 H_4 = 21 J_4$ — proven algebraically
-- Coffer/chamber volume ratio — matches α to 0.77% on Petrie data
+- Coffer/chamber volume ratio — matches α to 0.1% on Petrie data (floor-to-ceiling height; ±0.4% uncertainty; 2.3% off with wall height)
 - WRT invariant $\tau_{21}(\Sigma(2,3,5))$ — computed, decomposes by $\mathbb Z_3 \times \mathbb Z_7$ matching apparatus
 - Strong-coupling parameter $g\sqrt N / \gamma$ — computed at $4 \times 10^7$
 

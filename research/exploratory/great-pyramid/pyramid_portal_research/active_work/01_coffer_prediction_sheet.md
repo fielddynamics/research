@@ -1,5 +1,7 @@
 # Active Work 01 — Coffer Volume Prediction Sheet
 
+> **Correction (October 2026).** This working sheet uses a coffer exterior height of 41.13 in; Petrie's value is 41.31 in (§156). With the correct height and Petrie's measured chamber volume (floor to ceiling), the chamber-to-coffer ratio is 137.17, which is +0.10% from 1/α, not 138.1 (0.8%). The ratio is 140.2 with the base-of-walls chamber height. The figures below are kept as the original working record; see `04.3` and `99_appendices/E_petrie_measurements.md` for the corrected analysis.
+
 **Status:** Active — proposal-ready
 **Purpose:** Convert §07.2 from "framework prediction within Petrie's error bars" to a sharp, fundable, falsifiable measurement.
 **Reading time:** 6 minutes

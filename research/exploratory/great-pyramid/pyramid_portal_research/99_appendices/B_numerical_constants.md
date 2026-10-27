@@ -90,24 +90,25 @@ vs. CODATA $G = 6.67430(15) \times 10^{-11}$: **deviation $-7.5$ ppm**.
 | Volume | $1000\sqrt 5$ c³ | $2236.07$ c³ | $321.0$ m³ |
 | Space diagonal² | $L^2 + W^2 + H^2$ | $625$ c² $= 25^2$ | – |
 
-Petrie's measured King's Chamber (1883), §54:
-- Length: 412.06 inches = 10.466 m (-0.06% from prediction)
-- Width: 206.04 inches = 5.234 m (-0.04% from prediction)
-- Height: 230.09 inches = 5.844 m (-0.17% from prediction)
-- Volume: 320.4 m³ (-0.19% from prediction)
+Petrie's measured King's Chamber (1883), reduced means §155 (length E–W, width N–S):
+- Length: 412.24 ± 0.12 inches = 10.471 m (−0.09% from 20 cubits of 20.632 in)
+- Width: 206.12 ± 0.12 inches = 5.235 m (−0.11% from 10 cubits)
+- Height, floor to ceiling: 230.09 ± 0.15 inches = 5.844 m (−0.25% from $5\sqrt5$ cubits); base of walls to ceiling 235.20 in
+- Volume, floor to ceiling: 19.551 × 10⁶ in³ = 320.4 m³
 
 ## Coffer (granite box in KC)
 
-Petrie measurements:
+Petrie measurements (§156), long axis north–south:
 - Length: 89.62 inches = 2.276 m
 - Width: 38.50 inches = 0.978 m
-- Height: 41.13 inches = 1.045 m
-- External volume: 141,890 in³ = 2.325 m³
+- Height: 41.31 inches = 1.049 m (varies 41.14–41.50)
+- External volume: 142,535 in³ = 2.336 m³ = 16.23 c³
+- Internal capacity: 72,000 ± 60 in³ (about half the exterior)
 
-Framework prediction:
-$$V_\text{coffer} = \alpha \cdot V_\text{KC} = (1/137.036) \cdot 321.0 \text{ m}^3 \approx 2.342 \text{ m}^3$$
+Framework prediction, using the measured chamber volume:
+$$V_\text{coffer} = \alpha \cdot V_\text{KC} = 19\,550\,960 / 137.036 \text{ in}^3 = 142\,670 \text{ in}^3 \;(2.338 \text{ m}^3)$$
 
-Ratio: 2.325 / 2.342 = 0.9928 (**0.7% deviation**).
+Ratio measured/predicted: 142,535 / 142,670 = 0.9991 (**0.1% deviation**; $V_\text{KC}/V_\text{coffer} = 137.17$). With the base-of-walls chamber height the ratio is 140.2 (+2.3%); see `04.3`. Earlier figures here (0.7%) used an incorrect coffer height of 41.13 in.
 
 ## Strong-coupling parameters (per [05.3](../05_cavity_QED_operation/05.3_strong_coupling_calculation.md))
 
