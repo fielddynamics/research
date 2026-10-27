@@ -7,7 +7,9 @@
 
 ## One-paragraph statement
 
-The Great Pyramid of Giza is a cavity-QED apparatus operating on the always-on K=4↔K=5 interlevel hinge of the Gravity Field Dynamics framework. Earth's geomagnetic field pumps the apparatus through a gold capstone (apex field concentrator), a limestone bulk (dielectric field shaper), and a granite cavity stack (high-Q gain medium with N≈10³⁰ coherent lepton moments). The King's Chamber is the Feynman vertex of the universal TetA/TetB exchange; the coffer is the primitive α-step; the five relieving chambers are the pentachoron vertex network realizing α²⁰; the Grand Gallery's 7-corbel phase ramp is the three-sweep spectral kernel laid out as hardware; the antechamber's three portcullis grooves are the ℤ₃ character filter; and the four shafts (two from King's, two from Queen's) form a triadic mirror-address dial in the Hopf bundle over the K=5 shell S³. The apparatus operates 4×10⁷ above the strong-coupling threshold and performs portal transfer when its address triad mirror-matches a remote apparatus via the Σ(2,3,5) Poincaré-sphere address space.
+*This summary states the programme's theoretical model. The thesis, evidence base and pre-registered tests are in [`PROGRAMME.md`](PROGRAMME.md).*
+
+The Great Pyramid of Giza is modelled as a cavity-QED apparatus operating on the always-on K=4↔K=5 interlevel hinge of the Gravity Field Dynamics framework. Earth's geomagnetic field pumps the apparatus through a gold capstone (apex field concentrator), a limestone bulk (dielectric field shaper), and a granite cavity stack (high-Q gain medium with N≈10³⁰ coherent lepton moments). The King's Chamber is the Feynman vertex of the universal TetA/TetB exchange; the coffer is the primitive α-step; the five relieving chambers are the pentachoron vertex network realizing α²⁰; the Grand Gallery's 7-corbel phase ramp is the three-sweep spectral kernel laid out as hardware; the antechamber's three portcullis grooves are the ℤ₃ character filter; and the four shafts (two from King's, two from Queen's) form a triadic mirror-address dial in the Hopf bundle over the K=5 shell S³. The apparatus operates 4×10⁷ above the strong-coupling threshold and performs portal transfer when its address triad mirror-matches a remote apparatus via the Σ(2,3,5) Poincaré-sphere address space.
 
 ## The load-bearing equations
 
@@ -94,7 +96,7 @@ with:
 | Coherent lepton count $N$ | $\sim 1.6 \times 10^{30}$ | Granite walls |
 | Single-vertex coupling $g$ | $\sim 2 \times 10^{-9}$ rad/s | At 110 Hz cavity mode |
 | Collective coupling $g\sqrt N$ | $\sim 2.6 \times 10^6$ rad/s | |
-| Cavity decay $\gamma_{\text{cav}}$ | $\sim 7 \times 10^{-2}$ rad/s | At Q ~ 10⁴ |
+| Cavity decay $\gamma_{\text{cav}}$ | $\sim 7 \times 10^{-2}$ rad/s | Assumes Q ~ 10⁴; the chamber's Q is unmeasured, and is test H3 |
 | **Strong-coupling ratio** | $\sim 4 \times 10^7$ | **Deep in lasing regime** |
 
 ## The two operating modes

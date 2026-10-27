@@ -6,5 +6,5 @@ This material is speculative. It is not part of the framework's published claims
 
 | Folder | Contents |
 |---|---|
-| [`great-pyramid/`](great-pyramid/) | A compendium treating the Great Pyramid of Giza as a cavity apparatus, with its own README, working notes and a Python package with tests |
+| [`great-pyramid/`](great-pyramid/) | The Giza Field-Resonator Programme: the Great Pyramid as a field-coupled resonant structure energised by a gilded capstone. Start with the [programme definition](great-pyramid/pyramid_portal_research/PROGRAMME.md) (thesis, evidence base, pre-registered tests H1–H9, work packages); the compendium, working notes and a Python package with tests follow |
 | [`i-ching/`](i-ching/) | The π base-8 closure walk on the stellated octahedron, read through I-Ching trigram structure, with traversal and tetragram analyzers |

@@ -1,9 +1,9 @@
-# Great Pyramid Portal Research
+# The Giza Field-Resonator Programme
 
-**Author:** Master Stephen Nelson, Field Dynamics Research
-**Project:** Documentation of the Great Pyramid as a cavity-QED apparatus for the K=4↔K=5 universal vertex
+**Principal investigator:** Stephen Nelson, Field Dynamics Research
+**Project:** The Great Pyramid as a field-coupled resonant structure, energised by a gilded capstone, analysed through the K=4↔K=5 vertex of Gravity Field Dynamics
 **Framework:** Gravity Field Dynamics (GFD)
-**Status:** Working research compendium
+**Status:** Research programme. **Start with [`PROGRAMME.md`](PROGRAMME.md)**, the programme definition document: thesis, evidence base, prior work, pre-registered hypotheses H1–H9, work packages and phasing. The files below are its technical basis.
 
 ---
 
@@ -20,7 +20,8 @@ Files are grouped into nine sections proceeding from framework foundations throu
 ```
 pyramid_portal_research/
 ├── README.md                          [this file: index and reading guide]
-├── 00_executive_summary.md            [one-document distillation]
+├── PROGRAMME.md                       [programme definition: thesis, evidence, hypotheses, work packages]
+├── 00_executive_summary.md            [one-document distillation of the theory]
 ├── 01_framework_foundations/          [the GFD algebraic spine]
 ├── 02_gravity_derivation/             [α_G = (17/13)α²¹(g_e/2) — the equation]
 ├── 03_portal_topology/                [K=4→K=5, Hopf, A_5, Σ(2,3,5), SU(2)_19]
@@ -35,7 +36,7 @@ pyramid_portal_research/
 ## Reading order
 
 **For a working overview**, read in this order:
-1. `00_executive_summary.md`
+1. `PROGRAMME.md`, then `00_executive_summary.md`
 2. `01_framework_foundations/01.1_cyclotomic_algebra.md` and `01.4_shift_identity_proof.md`
 3. `02_gravity_derivation/02.1_gravity_equation.md` and `02.2_g_factor_breakthrough.md`
 4. `06_master_equations/06.1_universal_vertex_operator.md` and `06.2_portal_operator.md`
@@ -91,7 +92,7 @@ pyramid_portal_research/
 | File | Content |
 |---|---|
 | `04.1_subsystem_overview.md` | Full chamber-by-chamber table. Each subsystem mapped to algebraic function. |
-| `04.2_kings_chamber_vertex.md` | King's Chamber dimensions encode K² = 25 via space diagonal 25 = 10² + 20² + (5√5)². Feynman vertex. |
+| `04.2_kings_chamber_vertex.md` | All-granite chamber, 20 × 10 × 5√5 cubits; space diagonal √(20² + 10² + (5√5)²) = 25 = K² at K=5 (3-4-5 triangle). Feynman vertex. |
 | `04.3_coffer_alpha_step.md` | V_coffer / V_KC ≈ α to 0.1% on Petrie data (floor-to-ceiling height; ±0.4%; 2.3% with wall height). Coffer = primitive Coulomb edge α (conjecture). |
 | `04.4_relieving_chambers_pentachoron.md` | Five relieving chambers = 5 vertices of K_5. Inter-chamber Coulomb couplings = 20 directed edges. |
 | `04.5_grand_gallery_kernel.md` | 7-corbel phase ramp. Cumulative phase = 21 units of 2π/7. Realizes three-sweep spectral kernel. |
@@ -124,7 +125,7 @@ pyramid_portal_research/
 |---|---|
 | `07.1_acoustic_Z21_spectrum.md` | 21-mode comb at the King's Chamber 21-band. Z_7 and Z_3 subgroup structure. Measurable. |
 | `07.2_coffer_volume_test.md` | Status: 0.1% on Petrie measurements, convention-dependent. Refined-measurement protocol. |
-| `07.3_relieving_chamber_volumes.md` | Prediction: ∑V_i ≈ 81 c³ across 5 chambers. Falsifiable. |
+| `07.3_relieving_chamber_volumes.md` | Naive prediction ∑V_i ≈ 81 c³ fails by ~10× on existing dimensions; needs a new formulation before WP1 measures the volumes. |
 | `07.4_magnetic_shielding_test.md` | μ-metal in KC kills portal channel. Direct cavity-QED test. |
 | `07.5_geomagnetic_storm_correlation.md` | K-index correlation with anomalous apparatus behavior. |
 | `07.6_capstone_restoration.md` | Restoring gold cap restores full pump enhancement. |
@@ -180,4 +181,4 @@ This pyramid project is the engineering application of the same framework to one
 
 ---
 
-*Last updated: 2026-05-12*
+*Last updated: 2026-10-27*
