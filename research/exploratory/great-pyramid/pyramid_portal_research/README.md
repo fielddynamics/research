@@ -21,6 +21,7 @@ Files are grouped into nine sections proceeding from framework foundations throu
 pyramid_portal_research/
 ├── README.md                          [this file: index and reading guide]
 ├── PROGRAMME.md                       [programme definition: thesis, evidence, hypotheses, work packages]
+├── FIELD_ORIGIN_KINGS_CHAMBER.md      [how the GFD Field Origin is realised at the King's Chamber]
 ├── 00_executive_summary.md            [one-document distillation of the theory]
 ├── 01_framework_foundations/          [the GFD algebraic spine]
 ├── 02_gravity_derivation/             [α_G = (17/13)α²¹(g_e/2) — the equation]
@@ -36,7 +37,7 @@ pyramid_portal_research/
 ## Reading order
 
 **For a working overview**, read in this order:
-1. `PROGRAMME.md`, then `00_executive_summary.md`
+1. `PROGRAMME.md`, then `FIELD_ORIGIN_KINGS_CHAMBER.md`, then `00_executive_summary.md`
 2. `01_framework_foundations/01.1_cyclotomic_algebra.md` and `01.4_shift_identity_proof.md`
 3. `02_gravity_derivation/02.1_gravity_equation.md` and `02.2_g_factor_breakthrough.md`
 4. `06_master_equations/06.1_universal_vertex_operator.md` and `06.2_portal_operator.md`

@@ -17,6 +17,8 @@ The Great Pyramid of Khufu was designed as a **field-coupled resonant structure*
 
 GFD supplies the quantitative structure: which proportions should appear, which frequencies should dominate, and how strongly the structure should couple. The programme's purpose is to turn this thesis into measurements that can be made non-invasively, with predictions fixed in advance, so that each result either strengthens the foundation or redirects it.
 
+The central argument, how the GFD Field Origin is realised at the King's Chamber from the measured architecture, is set out in [`FIELD_ORIGIN_KINGS_CHAMBER.md`](FIELD_ORIGIN_KINGS_CHAMBER.md).
+
 ## 2. Evidence base
 
 The programme builds on the following established observations. Each entry is a documented fact about the monument; the interpretation in the right-hand column is the programme's.
@@ -25,6 +27,7 @@ The programme builds on the following established observations. Each entry is a 
 |---|---|---|---|
 | E1 | **Gilded capstones were part of royal pyramid practice.** Reliefs on Sahure's causeway, about two generations after Khufu, show a gilded pyramidion being brought to the pyramid. Gold traces are reported on Queen Udjebten's pyramidion. | Hawass & Verner, *MDAIK* 52 (1996); Verner (2001) | A conductive metal apex is historically grounded, not invented |
 | E2 | **The King's Chamber is built entirely of granite.** It has 100 granite wall blocks, a granite floor and nine granite roof beams; everywhere else the builders used limestone. | Petrie (1883) §51–55 | The one all-granite room is a deliberate material choice. Granite is quartz-bearing, and quartz is piezoelectric |
+| E3a | **The chamber sits on the pyramid's half-section plane.** Its floor (1691.4–1693.7 in above the base) is at the level where the horizontal section is exactly half the base area (1691.7 ± 1.8 in). | Petrie §148 | The structure's own equal-partition (μ = ½) plane, the defining property of the Field Origin |
 | E3 | **The chamber has exact geometry.** Its proportions are 20 : 10 : 5√5 royal cubits, with end-wall diagonal 15 and space diagonal 25 (a 3-4-5 triangle). | Petrie §155; `04.2` | An integer diagonal requires the irrational height √5. The proportions are designed, not incidental |
 | E4 | **The coffer-to-chamber volume ratio is 137.17,** within 0.1% of 1/α = 137.036 (±0.4% measurement uncertainty, floor-to-ceiling height). The coffer's interior is half its exterior. | Petrie §155–156; `04.3` | A dimensionless match to the fine-structure constant inside the resonator |
 | E5 | **The pyramid is aligned to true north** to within an average of 3′38″ of arc. | Dash (2015 survey) | An alignment precision far beyond what a tomb requires; it sets a defined axis for field coupling |
