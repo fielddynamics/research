@@ -66,7 +66,6 @@ def test_b2_capture_area_and_power_scale(b_result):
     assert 1.5 * footprint < b_result.b2_capture_area_m2 < 3.0 * footprint
     assert 1e-7 < b_result.b2_current_fair_A < 5e-7
     assert 5e-4 < b_result.b2_power_bound_fair_W < 2e-3
-    assert 1.0 < b_result.b2_power_bound_storm_W < 20.0
 
 
 def test_b2_apex_enhancement_exceeds_unity(b_result):

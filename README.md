@@ -225,7 +225,7 @@ These threads apply the framework's structures well outside conventional physics
 
 | Folder | Contents |
 |---|---|
-| [`great-pyramid/`](research/exploratory/great-pyramid/) | A structured compendium treating the Great Pyramid as a cavity apparatus, with its own README, ~35 working notes and a Python package with tests |
+| [`great-pyramid/`](research/exploratory/great-pyramid/) | **The Giza Field-Resonator Programme.** It applies GFD's scale invariance to the Great Pyramid: an apex body's local Field Origin lies at z*/h = 1 − 1/√2, and the King's Chamber floor sits on it to 0.8 in (Petrie's measurements; derived from the GFD action and confirmed by a field model). Start with the [findings](research/exploratory/great-pyramid/pyramid_portal_research/README.md#key-findings) and the [programme definition](research/exploratory/great-pyramid/pyramid_portal_research/PROGRAMME.md); a compendium, working notes and a tested Python package follow |
 | [`i-ching/`](research/exploratory/i-ching/) | π base-8 closure walk on the stellated octahedron, read through I-Ching trigram structure; traversal and tetragram analyzers |
 
 ### Other notes

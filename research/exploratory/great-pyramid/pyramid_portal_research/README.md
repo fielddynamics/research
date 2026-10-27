@@ -7,6 +7,21 @@
 
 ---
 
+## Key findings
+
+| # | Finding | Basis | Where |
+|---|---|---|---|
+| 1 | **The pyramid has a local Field Origin, and the King's Chamber sits on it.** Under GFD's scale invariance, an apex body's local Field Origin (s = 0, f = 17, μ = ½) lies at z*/h = 1 − 1/√2. For the Great Pyramid that is 1691.8 ± 2.1 in; the chamber floor is at 1692.6 in (0.33σ). | Theorem, plus Petrie's measured height and floor level | `01.6` |
+| 2 | **The areal closure law follows from the GFD action.** The closure current is the Noether current of the scalar sector's shift symmetry, J = μ∇Φ/4πG. The divergence theorem gives μ_B = Φ_section/Φ_base, which is areal for an axially uniform field. | Derivation; verified symbolically and numerically | `01.7` |
+| 3 | **The field model confirms the location.** The closure current threading the pyramid (terrestrial field plus self-gravity) has its half-flux plane 0.82 in from the chamber floor. This passes the pre-registered ±3 in test, with a uniformity margin of ~30. | Phase 0 field model | `phase0/P0.1` |
+| 4 | **The chamber's architecture carries the Field Origin's structure.** It has a dual-square floor; mirror-opposite shafts; a coffer whose interior equals its bulk; a diagonal plus coffer of 26 = Φ₄(5); a chamber-to-coffer volume ratio of 137.17 (1/α, +0.1%); and it is the only all-granite room. | Petrie (1883), survey record | `FIELD_ORIGIN_KINGS_CHAMBER.md`, `04.2`, `04.3` |
+| 5 | **A capstone-equipped structure carries a continuous atmospheric current.** It draws 0.22 μA from apex to ground, gathered from 1.1 × 10⁵ m². The working requirement for operation is electrical continuity, not power. The electric pump energises the structure but does not set the Field Origin's location. | Phase 0 field model | `phase0/P0.1`, `08.4` |
+| 6 | **A gilded capstone is historically grounded.** Sahure's causeway reliefs, about two generations after Khufu, show a gilded pyramidion. | Hawass & Verner (1996) | `05.2`, `PROGRAMME.md` |
+
+Open items are the measurements of the programme (H1–H9): the chamber's acoustic spectrum and Q, a laser survey, the conductive path from apex to bedrock, and field monitoring in the chamber.
+
+The Python package carries the verification: `python -m pytest python/tests` runs the tests, including `test_local_field_origin.py`, `test_areal_closure.py` and `test_phase0_field_model.py`.
+
 ## Scope
 
 This project documents the current understanding of the Great Pyramid of Giza as an engineered physics apparatus, derived from the Gravity Field Dynamics (GFD) framework's algebraic spine. The pyramid is treated as a cavity-QED-style boundary apparatus that operates on the always-on TetA/TetB interaction vertex of physics, with Earth's geomagnetic field as the pump.

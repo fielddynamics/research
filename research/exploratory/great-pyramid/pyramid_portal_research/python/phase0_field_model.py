@@ -257,7 +257,6 @@ class StudyB:
     b2_capture_area_m2: float
     b2_current_fair_A: float
     b2_power_bound_fair_W: float
-    b2_power_bound_storm_W: float
 
 
 def study_b(dr: float = 2.0) -> StudyB:
@@ -294,10 +293,7 @@ def study_b(dr: float = 2.0) -> StudyB:
     # Upper bound on extractable power: current times the potential the apex
     # would float to if insulated (~E0 h), with a matched load (factor 1/4).
     P_fair = 0.25 * I_fair * E0_FAIR * H_M
-    # Dust storm: E ~ 10 kV/m; current density scales roughly with E (ohmic air).
-    E_storm = 1.0e4
-    P_storm = P_fair * (E_storm / E0_FAIR) ** 2
-    return StudyB(zh, zh - ZSTAR_FRAC * H_M, enhancement, capture, I_fair, P_fair, P_storm)
+    return StudyB(zh, zh - ZSTAR_FRAC * H_M, enhancement, capture, I_fair, P_fair)
 
 
 def showcase() -> None:
@@ -323,8 +319,8 @@ def showcase() -> None:
           f"(grid-limited)")
     print(f"     capture area {b.b2_capture_area_m2:.3e} m^2; "
           f"fair-weather current {b.b2_current_fair_A:.2e} A")
-    print(f"     extractable power bound: fair weather {b.b2_power_bound_fair_W:.2e} W, "
-          f"dust storm (10 kV/m) {b.b2_power_bound_storm_W:.2e} W")
+    print(f"     continuous apex-to-ground current {b.b2_current_fair_A * 1e6:.2f} uA; "
+          f"power bound {b.b2_power_bound_fair_W:.2e} W")
 
 
 if __name__ == "__main__":

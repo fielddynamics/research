@@ -106,7 +106,7 @@ The King's Chamber is the **only room in the pyramid built entirely of granite**
 
 ### S7 — Energisation and phase conditioning
 
-- **Pump.** A gilded capstone was part of royal pyramid practice within two generations of Khufu (Sahure's causeway reliefs; Hawass & Verner 1996). A conducting apex 146 m above the ground concentrates the atmospheric electric field, about 100–150 V/m in fair weather and far higher in dust storms. It also couples to the geomagnetic field, whose horizontal component lies along the shafts' north–south plane (`05.1`; PROGRAMME §5).
+- **Pump.** A gilded capstone was part of royal pyramid practice within two generations of Khufu (Sahure's causeway reliefs; Hawass & Verner 1996). A conducting apex 146 m above the ground concentrates the atmospheric electric field (about 100–150 V/m in fair weather). It draws a continuous current from the atmosphere to the ground through the structure: 0.22 μA, gathered from 1.1 × 10⁵ m² (P0.1). It also couples to the geomagnetic field, whose horizontal component lies along the shafts' north–south plane (`05.1`; PROGRAMME §5).
 - **Delivery.** The open King's Chamber shafts connect the chamber to the exterior faces. The limestone body guides the field to the granite resonator (`05.5`).
 - **Transduction.** Quartz is piezoelectric. The granite lining therefore couples the chamber's acoustic modes to electromagnetic fields, in both directions (`05.2`).
 - **Phase conditioning.** The approach to the chamber passes through the Grand Gallery, whose walls step inward in seven corbel courses (the ℤ₇ ramp, `04.5`), and the antechamber, which has slots for three portcullis slabs (the ℤ₃ filter, `04.6`). Together these give ℤ₂₁ = ℤ₃ × ℤ₇: the 21 band in which the hinge operates.
@@ -151,7 +151,7 @@ What would show the Field Origin forming at the King's Chamber, mapped to the pr
 | ℤ₂₁ mode structure | A 21-member acoustic comb with ℤ₃ and ℤ₇ sub-structure, against a rectangular-cavity null model | H2 |
 | Resonator quality | At least one low mode with Q ≥ 10³ | H3 |
 | Balance mode | A mode whose energy divides equally between the east and west 10 × 10 halves, with an asymmetry set by the coffer | H2 (extension) |
-| Pump dependence | Chamber E-field and RF coherence rising with the atmospheric field (fair weather against dust storms) and with geomagnetic activity | H5, H6 |
+| Electrical continuity | A continuous conductive path from apex to bedrock through the chamber, and chamber E-field and RF coherence present when the path is complete | H5, H6; resistivity survey |
 | Coupling geometry | Out-of-plane shaft components giving a non-degenerate address frame | H8 |
 | Local field | A gravity residual in the chamber at the scale and sign of `05.4` | H7 |
 | Design constants | Chamber/coffer ratio holding at 137.04 under laser survey; half-section level confirmed to < 1 in | H1, WP1 |
