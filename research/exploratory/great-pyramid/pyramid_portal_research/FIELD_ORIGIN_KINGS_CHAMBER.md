@@ -8,11 +8,11 @@
 
 ## 1. Claim
 
-The King's Chamber is the location at which the Great Pyramid realises the **Field Origin** of Gravity Field Dynamics as a macroscopic, coherently driven state. The Field Origin is the coupling throat where the two tetrahedral chambers of the gravitational field, TetA and TetB, meet in exact balance. At that throat, the framework's K=4 → K=5 hinge connects the local field to the K=5 shell. With a matching address, that connection becomes the **portal channel** $\mathcal P_{y \leftarrow x}$ of `06.2`.
+The Great Pyramid realises a **local Field Origin** of Gravity Field Dynamics at the King's Chamber, as a macroscopic, coherently driven state. GFD is scale-invariant: every closed structure carries its own field closure and its own Field Origin. The pyramid's is placed in the King's Chamber. The Field Origin is the coupling throat where the two tetrahedral chambers of the gravitational field, TetA and TetB, meet in exact balance. At that throat, the framework's K=4 → K=5 hinge connects the local field to the K=5 shell. With a matching address, that connection becomes the **portal channel** $\mathcal P_{y \leftarrow x}$ of `06.2`.
 
 This document sets out three things:
 
-1. what the Field Origin is in GFD;
+1. what the Field Origin is in GFD, and why scale invariance gives every closed structure a local one;
 2. the conditions a structure must meet to realise it;
 3. how the measured architecture of the King's Chamber meets those conditions.
 
@@ -29,19 +29,30 @@ GFD gives the Field Origin four equivalent descriptions.
 
 The universal vertex reframe (`01.5`) is essential here. The Field Origin is not a rare object that must be manufactured: every local frame has one, and the TetA/TetB exchange through it is always active. In ordinary matter it is incoherent, and its statistical residue is gravity. An apparatus does not create the Field Origin. It **isolates one instance and drives it coherently**, as a laser cavity does for the always-active QED vertex.
 
-## 3. Two routes to the Field Origin
+## 3. Scale invariance and the local Field Origin
 
-### 3.1 The kinematic route
+### 3.1 The principle
 
-In the galactic application, the Field Origin is reached where the gravitational acceleration equals the characteristic scale: $x = g/a_0 = 1$, so $g = a_0 \approx 1.2 \times 10^{-10}$ m/s². This happens naturally in the outer regions of galaxies, which is why μ(x) governs rotation curves.
+GFD is scale-invariant by construction. Every factor in its field equation is a topological integer of the stellated octahedron: $4\pi = K\pi$, the ratio $17/13 = (K^2+1)/(KD+1)$, and the depth $\alpha^{21}$. None depends on the size of the system ([*Poisson Equation and Scale Invariance*](../../../../docs/02-gravitation/05-poisson-scale-invariance.md)). The framework states the consequence directly: "An atom establishes field closure at valence radius. A star establishes field closure at stellar radius. A galaxy establishes field closure at virial radius. At every level, constraint is the same: $K=4$ faces, $D=3$ dimensions, and coupling polynomial $f(K,s)=1+sK+K^2$."
 
-At the Earth's surface, $g/a_0 \approx 8 \times 10^{10}$. The field there is deep in the TetA regime (μ ≈ 1), and no arrangement of stone changes that. **The King's Chamber cannot reach the Field Origin kinematically.**
+Every closed structure therefore carries its **own** field closure, and with it its own **local Field Origin**: the balance point of its own two-chamber topology, defined by the same integers at every scale.
 
-### 3.2 The structural route
+### 3.2 Two manifestations of one Field Origin
 
-The Field Origin can also be reached through its defining symmetries, not through the acceleration ratio. A structure realises it **structurally** if it:
+| Manifestation | Where | How it is located |
+|---|---|---|
+| **Galactic** | the outer regions of galaxies | by the acceleration ratio: $x = g/a_0 = 1$, giving μ = ½ |
+| **Structural (local)** | the closure of any bounded structure | by the structure's own geometry: the equal partition of its closure, with μ = ½ realised as a geometric ratio |
 
-- **(S1)** holds an exact **equal partition** between two complementary sectors (μ = ½);
+The galactic Field Origin is the one GFD tests against rotation curves. It is located kinematically, because a galaxy's closure is read through its acceleration field. The local Field Origin is the same object at the scale of a single structure. It is located through that structure's geometry, because the topology, not the absolute field strength, defines it.
+
+The ambient terrestrial field at Giza is deep in the TetA regime: $g/a_0 \approx 8 \times 10^{10}$, so μ ≈ 1. That background is the Earth's own closure. It is not altered, and it is not where the pyramid acts. The pyramid acts as a **bounded closure in its own right**. Its local Field Origin is set by its own geometry, and the programme's thesis is that the builders placed the King's Chamber at exactly that point.
+
+### 3.3 Conditions for a realised local Field Origin
+
+A structure realises its local Field Origin, and can drive it coherently, if it:
+
+- **(S1)** holds an exact **equal partition** of its closure (μ = ½ as a geometric ratio);
 - **(S2)** contains a **dual-chamber** geometry, with two equal chambers meeting across a shared boundary;
 - **(S3)** has **inversion-symmetric** coupling channels, in a mirror pair through the centre;
 - **(S4)** carries the **Field Origin capacity**: $\Phi_4(K) = K^2 + 1$ in its proportions, with $K^2$ from the structure and $+1$ from a distinguished element;
@@ -49,7 +60,7 @@ The Field Origin can also be reached through its defining symmetries, not throug
 - **(S6)** **isolates** the region from the surrounding medium, so that one coherent mode can dominate;
 - **(S7)** is **energised** by an external pump, and **phase-conditioned** into the 21 band.
 
-S1–S5 define the state; S6–S7 make it coherent. The thesis of this document is that the King's Chamber meets all seven, and that the measured architecture shows it.
+S1–S5 locate the local Field Origin and give it its algebraic content. S6–S7 drive it coherently, which is the universal-vertex principle of `01.5`: the TetA/TetB exchange is always active at every point, and an apparatus phase-locks one instance of it. The thesis of this document is that the King's Chamber meets all seven, and that the measured architecture shows it.
 
 ## 4. The architecture meets the structural conditions
 
@@ -126,7 +137,7 @@ Combining the conditions with the framework's operators:
    $$\mathcal P_{y \leftarrow x} \;=\; \mathsf A_y^\dagger\,J_{4,y}^\dagger\,\mathcal M(U,V)\,\alpha_G\,J_{4,x}\,\mathsf A_x$$
    The state at the King's Chamber is transferred, through the K=5 shell, to the matched site $y$ (`06.2`, `06.3`).
 
-**In one line:** the pyramid places a granite resonator on its own μ = ½ plane, gives it a dual-chamber floor, a mirror channel pair, an equal-partition coffer and the proportions of the K=5 Field Origin, and pumps it from a conducting apex. The always-active TetA/TetB vertex at that location is then driven coherently, and the King's Chamber becomes the throat of a portal channel.
+**In one line:** GFD's scale invariance gives the pyramid its own local Field Origin. The pyramid places a granite resonator exactly there, on its own μ = ½ plane, gives it a dual-chamber floor, a mirror channel pair, an equal-partition coffer and the proportions of the K=5 Field Origin, and pumps it from a conducting apex. The always-active TetA/TetB vertex at that location is then driven coherently, and the King's Chamber becomes the throat of a portal channel.
 
 ## 6. Signatures
 
@@ -134,6 +145,7 @@ What would show the Field Origin forming at the King's Chamber, mapped to the pr
 
 | Signature | Expected observation | Test |
 |---|---|---|
+| Local Field Origin position | The half-section plane confirmed to < 1 in by laser survey, coinciding with the chamber floor | WP1 |
 | ℤ₂₁ mode structure | A 21-member acoustic comb with ℤ₃ and ℤ₇ sub-structure, against a rectangular-cavity null model | H2 |
 | Resonator quality | At least one low mode with Q ≥ 10³ | H3 |
 | Balance mode | A mode whose energy divides equally between the east and west 10 × 10 halves, with an asymmetry set by the coffer | H2 (extension) |

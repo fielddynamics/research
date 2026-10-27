@@ -8,7 +8,7 @@
 
 ## 1. Thesis
 
-The Great Pyramid of Khufu was designed as a **field-coupled resonant structure**. Its components are proposed to work as one system:
+The Great Pyramid of Khufu was designed as a **field-coupled resonant structure** that realises a **local Field Origin** of Gravity Field Dynamics at the King's Chamber. GFD is scale-invariant: its field equation is built from topological integers that do not depend on size, so every closed structure carries its own field closure and its own Field Origin. The pyramid places its own at the King's Chamber, on the structure's equal-partition plane, and drives it coherently. Its components are proposed to work as one system:
 
 - **Gilded capstone:** a field concentrator at the apex, coupling the structure to the natural electric and magnetic fields of the Earth–atmosphere system.
 - **Limestone body:** a dielectric that shapes and guides those fields.
