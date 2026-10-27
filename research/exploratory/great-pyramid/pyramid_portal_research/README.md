@@ -68,6 +68,7 @@ pyramid_portal_research/
 | `01.4_shift_identity_proof.md` | Φ_6(K+1) = Φ_3(K). The interlevel coupling ladder. 21 as the shared rung at K=4↔K=5. |
 | `01.5_universal_vertex_reframe.md` | TetA/TetB exchange as background physics. Gravity = spontaneous emission. Portal = stimulated emission. |
 | `01.6_local_field_origin_theorem.md` | Local Field Origin of a bounded closure under areal closure (P1): z*/h = 1 − 1/√2, scale-invariant. Great Pyramid: 1691.8 ± 2.1 in vs King's Chamber floor 1692.6 in (0.33σ). Verified in `python/local_field_origin.py`. |
+| `01.7_areal_closure_from_action.md` | P1 derived from the GFD action: closure current = Noether current of the shift symmetry, J = μ∇Φ/4πG; divergence theorem gives μ_B = Φ_section/Φ_base. Requires the driven field to be axially uniform to ~0.1%, a testable prediction. Verified in `python/areal_closure.py`. |
 
 ### Section 02 — Gravity derivation
 
