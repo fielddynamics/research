@@ -31,7 +31,8 @@ pyramid_portal_research/
 ├── 06_master_equations/               [the operators in full]
 ├── 07_predictions_and_tests/          [falsifiable signatures]
 ├── 08_open_questions/                 [forks still requiring derivation]
-└── 99_appendices/                     [notation, constants, references]
+├── 99_appendices/                     [notation, constants, references]
+└── phase0/                            [Phase 0 results: P0.1 field model (closure uniformity confirmed; pump power)]
 ```
 
 ## Reading order
