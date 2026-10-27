@@ -66,6 +66,8 @@ S1–S5 locate the local Field Origin and give it its algebraic content. S6–S7
 
 ### S1 — Equal partition, at two scales
 
+*The formal derivation is in [`01_framework_foundations/01.6_local_field_origin_theorem.md`](01_framework_foundations/01.6_local_field_origin_theorem.md). Under one stated postulate, areal closure (P1), the local Field Origin of any apex body lies at $z^*/h = 1 - 1/\sqrt2$. For the Great Pyramid that is 1691.8 ± 2.1 in, against the measured chamber floor of 1692.6 in (0.33σ).*
+
 **At the scale of the pyramid.** The King's Chamber floor lies at **1691.4–1693.7 ± 0.6 in** above the base. The level at which the pyramid's horizontal section is exactly **half the area of the base** is **1691.7 ± 1.8 in**. Petrie concluded that "the design of the level of the King's Chamber was the halving of the vertical area of the Pyramid" (§148).
 
 The chamber therefore sits on the one horizontal plane that divides the pyramid's vertical section into two equal areas: the triangle above and the trapezium below. Height and area are measured independently and agree to within a few inches. This is the structure's own μ = ½ plane, and the chamber is built on it.

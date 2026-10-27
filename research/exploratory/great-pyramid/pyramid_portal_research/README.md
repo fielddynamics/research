@@ -67,6 +67,7 @@ pyramid_portal_research/
 | `01.3_graded_identity_operator.md` | I_s = P_0 + sP_1 + P_2 for s ∈ {+1, 0, -1}. Three-sweep spectral kernel. Det-trace identity. |
 | `01.4_shift_identity_proof.md` | Φ_6(K+1) = Φ_3(K). The interlevel coupling ladder. 21 as the shared rung at K=4↔K=5. |
 | `01.5_universal_vertex_reframe.md` | TetA/TetB exchange as background physics. Gravity = spontaneous emission. Portal = stimulated emission. |
+| `01.6_local_field_origin_theorem.md` | Local Field Origin of a bounded closure under areal closure (P1): z*/h = 1 − 1/√2, scale-invariant. Great Pyramid: 1691.8 ± 2.1 in vs King's Chamber floor 1692.6 in (0.33σ). Verified in `python/local_field_origin.py`. |
 
 ### Section 02 — Gravity derivation
 
