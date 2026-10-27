@@ -10,7 +10,7 @@ In disc galaxies, the gravitational acceleration inferred from stellar and gas o
 
 Gravity Field Dynamics proposes that the form of that function is not a free choice. It starts from the tetrad, the local orthonormal frame on which general relativity's coupling to matter depends. The spatial sector of a single tetrad bounds exactly two parity-related regions, which together form a stellated octahedron, and the exchange symmetry between them fixes the interpolating function as μ(x) = x/(x + 1). Embedded in a covariant action, this yields the curve in the figure. Nothing in that curve is adjusted to the galaxies: the functional form is taken from the geometry, and the acceleration scale a₀ = 1.2 × 10⁻¹⁰ m/s² at its conventional value. Its agreement with the standard empirical fit, to within 0.0003 dex in scatter, is the result that motivates the rest of this archive.
 
-The same geometric structure is then followed further: to the gravitational constant, the electron mass and the Hubble constant; to nuclear binding energies and the magic numbers; and to the relation between GFD and ghost-free bimetric gravity. Those extensions are more speculative than the galactic result. They are presented here, with their derivations and validation code, so that each can be examined on its own merits.
+The same geometric structure is then followed further: to the gravitational constant, the electron mass and the Hubble constant; to nuclear binding energies and the magic numbers; and to the relation between GFD and ghost-free bimetric gravity. Those extensions are more exploratory than the galactic result. They are presented here, with their derivations and validation code, so that each can be examined on its own merits.
 
 This repository is the working research archive behind the Gravity Field Dynamics framework and the preprints published on Zenodo. It is published **as is**: derivation notes, synthesis documents, validation scripts, paper sources, interactive visualisations and exploratory experiments, in the state they were left at the end of each research session.
 
@@ -221,7 +221,7 @@ Most research folders follow the same pattern: a **`*_synthesis.md`** that expla
 
 ### Exploratory work — [`research/exploratory/`](research/exploratory/)
 
-These threads apply the framework's structures well outside conventional physics. They are kept apart from the main research record and are offered as exploration, not as results.
+These programmes carry the framework's structures into new domains. They are kept alongside the main research record as exploratory work, and each states its own results and open measurements.
 
 | Folder | Contents |
 |---|---|
