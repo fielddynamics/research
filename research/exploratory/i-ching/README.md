@@ -10,6 +10,8 @@ Leibniz saw that the *I Ching* counts. This folder asks a further question: **wh
 
 Gravity Field Dynamics derives a single geometric object as the local structure of the gravitational field: the stellated octahedron, two regular tetrahedra of opposite orientation (TetA and TetB) inscribed in a cube and sharing a centre, the Field Origin. Its eight vertices are the eight points of three-bit binary space. The notes and code collected here show that the classical organisation of the trigrams, including their division into a family of two parents and six children and their arrangement into opposing pairs, reproduces the geometry of that object exactly.
 
+> **The source paper.** The material in this folder began as a section of Paper IX, *Complete Field Closure from Stellated Octahedron Topology*. The full manuscript, including that section ("Historical Correspondence"), is preserved here as [`Nelson_2026_GFD_Complete_Field_Closure_from_Stellated_Octahedron_Topology.pdf`](Nelson_2026_GFD_Complete_Field_Closure_from_Stellated_Octahedron_Topology.pdf). The version deposited on Zenodo ([`papers/09-complete-field-closure/`](../../../papers/09-complete-field-closure/)) omits the I Ching section, so that the published argument rests on the topology and the closure condition alone. The historical correspondence is offered here as independent corroboration, for readers who wish to examine it, and its checks are retained as Section 13 of [`run_all_validations_with_i-ching-intact.py`](run_all_validations_with_i-ching-intact.py).
+
 ## 1. The trigrams are the vertices of the cube
 
 A trigram is three lines, each broken (yin, 0) or unbroken (yang, 1). Reading the lines from the bottom up as three binary digits places each trigram at a vertex of a cube, one bit per spatial axis. The correspondence is a bijection between the eight trigrams and the group $\mathbb Z_2^3$.
@@ -92,7 +94,7 @@ Two observations help place the results.
 | [`traversal_analyzer.py`](traversal_analyzer.py), [`tetragram_analyzer.py`](tetragram_analyzer.py) | Analysis engines: a step-by-step ledger of the walk (faces, orbits, macro-cycles, chamber crossings) and its resolution into the 32 corner and central sub-channels of the eight faces |
 | [`coupling_channel_analysis.html`](coupling_channel_analysis.html) | Interactive chart of the coupling-polynomial sawtooth over four closure cycles |
 | [`element_closure_is_iching.html`](element_closure_is_iching.html) | Interactive map of the closure walk applied to the 83 stable elements and their binding curve |
-| [`Nelson_2026_GFD_Complete_Field_Closure_from_Stellated_Octahedron_Topology.pdf`](Nelson_2026_GFD_Complete_Field_Closure_from_Stellated_Octahedron_Topology.pdf) | The version of Paper IX that retains its I Ching section; the published version is in [`papers/09-complete-field-closure/`](../../../papers/09-complete-field-closure/) |
+| [`Nelson_2026_GFD_Complete_Field_Closure_from_Stellated_Octahedron_Topology.pdf`](Nelson_2026_GFD_Complete_Field_Closure_from_Stellated_Octahedron_Topology.pdf) | The full manuscript of Paper IX, including the I Ching section ("Historical Correspondence") omitted from the version deposited on Zenodo; the published version is in [`papers/09-complete-field-closure/`](../../../papers/09-complete-field-closure/) |
 | [`ichingyching/`](ichingyching/) | An earlier copy of the synthesis and proof script |
 
 **Reproduce:**
