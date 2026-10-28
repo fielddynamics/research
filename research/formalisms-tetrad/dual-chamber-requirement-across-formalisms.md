@@ -1,179 +1,189 @@
-# The Dual-Chamber Requirement Across Gravitational Formalisms
+# The Dual-Chamber Structure Across Gravitational Formalisms
 
-### A validated review of tetrad gravity, bimetric gravity, loop quantum gravity, spinor theory and stability analysis, read against the GFD stellated octahedron
+### Tetrad gravity, bimetric gravity, loop quantum gravity, spinor theory and stability analysis, read against the GFD stellated octahedron
 
-*Field Dynamics Research, working note. Revised October 2026 from an AI-assisted literature summary. Every claim below has been checked against the primary literature and labelled accordingly.*
+*Field Dynamics Research, working note, October 2026.*
 
 ---
 
 ## Abstract
 
-Gravity Field Dynamics (GFD) holds that the local unit of the gravitational field is not one tetrahedral chamber but two interpenetrating chambers of opposite orientation, TetA and TetB. Together they form the stellated octahedron, coupled at a single central Field Origin. The GFD documentation supports this with five arguments drawn from established formalisms: tetrad gravity, bimetric gravity, loop quantum gravity, spinor theory and stability analysis.
+Gravity Field Dynamics (GFD) holds that the local unit of the gravitational field is not one tetrahedral chamber but two interpenetrating chambers of opposite orientation, TetA and TetB. Together they form the stellated octahedron, coupled at a single central Field Origin.
 
-This note checks each argument against its sources. The finding is consistent across all five. **Each formalism does contain a genuine twofold structure**: two chiralities, two metrics, self-dual and anti-self-dual sectors, the double cover of the Lorentz group. In several cases, however, the original summary overstated what the formalism *requires*, or attributed a result to the wrong author. Those points are corrected below. The geometric part of the framework, the parity partition of the cube into two regular tetrahedra, is verified exactly.
+This note surveys five established formalisms in which a twofold structure appears:
 
-The fair conclusion is that the five formalisms are *consistent with* the dual-chamber reading and supply its motivation. The identification of their twofold structures with a single geometric object is GFD's own thesis, not something the formalisms establish on their own.
+- the two chiralities of spinor matter coupled through the tetrad;
+- the two metrics of any consistent theory of a massive graviton;
+- the self-dual and anti-self-dual halves of the Lorentz algebra;
+- the double cover $SL(2,\mathbb C)$ of the Lorentz group;
+- the stability conditions of massive gravity.
 
-## 1. Method and validation key
+For each, it states what the formalism establishes and how GFD connects it to the stellated octahedron. It then sets out what GFD derives that the formalisms assume, the open questions the comparison raises, and the predictions that distinguish the dual-chamber reading.
 
-Each claim is assigned one of four labels:
+The formalisms are consistent with the dual-chamber picture and motivate it. GFD's distinctive claim is stronger: that the twofold structure each formalism exhibits in its own language is one geometric object, derived from a single tetrad.
 
-| Label | Meaning |
-|---|---|
-| **Verified** | The claim is correct as stated and supported by the cited source. |
-| **Qualified** | The core claim is correct, but the original wording overstated it; the precise statement is given. |
-| **Corrected** | The original claim was wrong in a specific respect (attribution, date or content); the correction is given. |
-| **GFD reading** | An interpretation belonging to the framework, not a result of the source formalism. |
+## 1. The premise
 
-## 2. The premise
+A single regular tetrahedron has a definite orientation; its apex points one way. A field built from one such chamber would distinguish orientations at the most local level, whereas gravity couples to mass-energy without regard to spatial orientation. GFD therefore takes the local frame to carry a second chamber of opposite orientation, which restores inversion symmetry ([`04-dual-tetrahedron-field-origin.md`](../../docs/01-foundations/04-dual-tetrahedron-field-origin.md)).
 
-A single regular tetrahedron has a definite orientation: its apex points one way. A field built from one such chamber would distinguish orientations at the most local level, whereas gravity couples to mass-energy without regard to spatial orientation. GFD concludes that the local frame needs a second chamber of opposite orientation, which restores inversion symmetry.
+## 2. Five formalisms with a twofold structure
 
-*Status: **GFD reading**.* The premise is the framework's starting point, stated in [`docs/01-foundations/04-dual-tetrahedron-field-origin.md`](../../docs/01-foundations/04-dual-tetrahedron-field-origin.md). The sections that follow test the supporting arguments.
+### 2.1 Tetrad gravity and spinor matter
 
-## 3. The five formalisms
+In metric general relativity the basic variable is $g_{\mu\nu}$. Spinor fields cannot be coupled to the metric alone, because they transform under the local Lorentz group rather than under general coordinate transformations. Coupling them requires two things:
+- the tetrad (vierbein) $e^a{}_\mu$, four orthonormal vector fields relating the curved manifold to a local Minkowski frame;
+- the spin connection $\omega^{ab}{}_\mu$ built from it.
 
-### 3.1 Tetrad gravity and fermion coupling
+This construction is due to Weyl (1929) and Fock (1929); the spin connection is also known as the Fock–Ivanenko coefficients. The surrounding history:
+- **Cartan (1922)** had introduced torsion, the antisymmetric part of the connection.
+- **Einstein (1928)** used tetrads in his teleparallel (*Fernparallelismus*) programme for a unified field theory.
 
-**What the formalism establishes.** In metric general relativity the basic variable is $g_{\mu\nu}$. Spinor fields cannot be coupled to the metric alone, because spinors transform under the local Lorentz group, not under general coordinate transformations. Coupling them requires the tetrad (vierbein) $e^a{}_\mu$, four orthonormal vector fields relating the curved manifold to a local Minkowski frame, together with the spin connection $\omega^{ab}{}_\mu$ built from it. The Dirac field carries both chiralities, which are separated by the projectors $\tfrac12(1 \pm \gamma^5)$.
+The Dirac field carries both chiralities, separated by the projectors $\tfrac12(1 \pm \gamma^5)$. The tetrad itself is a single frame. Its role is to make the coupling of both chiral halves of matter possible.
 
-**What the original summary claimed.** That "a single tetrad must support both chiralities", and that Einstein (1928), Cartan (1922) and Weyl (1929) together established the spinor coupling.
+**In GFD.** The two chiralities correspond to the two oppositely oriented chambers. Letter 2 makes this concrete. The tetrad equation $g_{\mu\nu} = \eta_{ab}\, e^a{}_\mu e^b{}_\nu$ is quadratic in the frame, so it admits two roots related by spatial parity. These are TetA and TetB, and the metric cannot distinguish them.
 
-**Validation: Corrected (attribution) and Qualified (content).**
-- **Attribution.** The coupling of the Dirac equation to curved spacetime through the tetrad and spin connection is due to **Weyl (1929)** and **Fock (1929)**; the spin connection is also known as the Fock–Ivanenko coefficients.
-  - **Cartan (1922)** introduced torsion, the antisymmetric part of the connection, and later the moving-frame (*repère mobile*) formalism.
-  - **Einstein (1928)** used tetrads in his teleparallel (*Fernparallelismus*) programme for a unified field theory, not for fermion coupling.
-- **Content.** The tetrad is a single frame; it does not itself contain two chambers. What is true is that the matter coupled through it, the Dirac field, has two chiral halves, and the tetrad is what makes coupling them possible.
+### 2.2 Bimetric gravity
 
-**GFD reading.** The two chiralities correspond to the two oppositely oriented chambers.
-
-### 3.2 Bimetric gravity and the Boulware–Deser ghost
-
-**What the formalism establishes.**
-- **Boulware and Deser (1972)** showed that generic nonlinear theories of a massive graviton propagate a sixth degree of freedom with negative energy, the Boulware–Deser (BD) ghost.
-- **de Rham, Gabadadze and Tolley (2011)** constructed a nonlinear massive gravity, now called dRGT, whose potential removes it.
-- **Hassan and Rosen (2011–2012)** proved the absence of the ghost and extended the theory to a bimetric one in which the second metric $f_{\mu\nu}$ is itself dynamical. The interaction is built from the matrix square root $\sqrt{g^{-1}f}$.
-- **Hinterbichler and Rosen (2012)** gave the vielbein formulation, in which the two metrics become two interacting tetrads.
+- **The ghost.** Boulware and Deser (1972) showed that generic nonlinear theories of a massive graviton propagate a sixth degree of freedom with negative energy, the Boulware–Deser (BD) ghost.
+- **Ghost-free massive gravity.** de Rham, Gabadadze and Tolley (2011) constructed a nonlinear massive gravity whose potential removes it. Any Lorentz-invariant graviton mass term requires a second metric. In this theory, dRGT, that metric is a fixed reference metric.
+- **Bimetric gravity.** Hassan and Rosen (2012) proved the absence of the ghost and extended the theory to one in which the second metric $f_{\mu\nu}$ is itself dynamical. The interaction is built from the matrix square root $\sqrt{g^{-1}f}$, through five coefficients $\beta_0, \dots, \beta_4$.
+- **The vielbein form.** Hinterbichler and Rosen (2012) gave the vielbein formulation, in which the two metrics become two interacting tetrads.
 
 The bimetric theory propagates seven degrees of freedom: two of a massless and five of a massive spin-2 field.
 
-**What the original summary claimed.** That ghost-freedom *requires* two interacting tetrads, and that "a single chamber field has a ghost mode".
+**In GFD.** The two interacting tetrads are the two chambers. Paper XII ([`12-dual-tetrad-covariance-hassan-rosen/`](../../papers/12-dual-tetrad-covariance-hassan-rosen/)) develops a term-by-term correspondence between the GFD action and the Hassan–Rosen potential. It fixes the coefficients as $\beta = \{1, 0, 16, 0, 1\}$, which are palindromic under the exchange TetA ↔ TetB and determined by $K = 4$ alone.
 
-**Validation: Qualified.**
-- **Correct:** any Lorentz-invariant mass term for the graviton needs a second metric. In dRGT that metric is a fixed reference metric; in Hassan–Rosen bimetric gravity it is dynamical. Two metrics are therefore present in every consistent theory of a massive graviton, and in the vielbein form these are two tetrads.
-- **Overstated:** ghost-freedom is achieved by the specific form of the potential, not by the presence of a second dynamical metric as such. dRGT, with one dynamical metric and a fixed reference metric, is already ghost-free. Nor does the ghost arise in massless general relativity, which has a single metric and is stable.
+### 2.3 Loop quantum gravity and the Ashtekar variables
 
-**GFD reading.** The two interacting tetrads are the two chambers, and the stellated octahedron is the geometric picture of their coupling.
+**The connection and its two halves.** Ashtekar (1986) reformulated canonical general relativity in terms of a connection $A^i{}_a$ and a conjugate densitised triad $E^a{}_i$. This brought the constraints into polynomial form and the theory close to a Yang–Mills phase space. The connection is the self-dual part of the spin connection. Over the complex numbers, the Lorentz algebra splits into self-dual and anti-self-dual halves:
 
-### 3.3 Loop quantum gravity and the Ashtekar variables
+$$\mathfrak{so}(3,1)_{\mathbb C} \cong \mathfrak{su}(2)_{\mathbb C} \oplus \mathfrak{su}(2)_{\mathbb C}.$$
 
-**What the formalism establishes.**
-- **The Ashtekar variables.** Ashtekar (1986) reformulated canonical general relativity in terms of a connection $A^i{}_a$ and a conjugate densitised triad $E^a{}_i$. This turned the constraints into polynomial form and brought the theory close to a Yang–Mills phase space. The connection used is the *self-dual* part of the spin connection: the complexified Lorentz algebra splits into self-dual and anti-self-dual halves, $\mathfrak{so}(3,1)_{\mathbb C} \cong \mathfrak{su}(2)_{\mathbb C} \oplus \mathfrak{su}(2)_{\mathbb C}$.
-- **The real connection used today.** Modern loop quantum gravity uses the real Ashtekar–Barbero connection (Barbero 1995) with the Barbero–Immirzi parameter (Immirzi 1997).
-- **Discreteness.** Rovelli and Smolin (1995) showed that area and volume operators have discrete spectra. Spin-network nodes carry quanta of volume and links carry quanta of area.
-- **The quantum tetrahedron.** A four-valent node corresponds semiclassically to a quantum tetrahedron (Barbieri 1998; Baez and Barrett 1999). Gauge invariance at the node imposes the closure constraint: the area vectors of the faces sum to zero. More generally, an $n$-valent node describes a polyhedron with $n$ faces, by Minkowski's theorem (Bianchi, Doná and Speziale 2011).
+The original formulation works with one half, and reality conditions recover real general relativity. Modern loop quantum gravity uses the real Ashtekar–Barbero connection (Barbero 1995) with the Barbero–Immirzi parameter (Immirzi 1997).
 
-**What the original summary claimed.** That LQG "requires" both self-dual and anti-self-dual sectors, and that the closure constraint is "field closure".
+**Discreteness and the quantum tetrahedron.**
+- Rovelli and Smolin (1995) showed that area and volume operators have discrete spectra: spin-network nodes carry quanta of volume and links carry quanta of area.
+- A four-valent node corresponds semiclassically to a quantum tetrahedron (Barbieri 1998; Baez and Barrett 1999).
+- Gauge invariance at the node imposes the closure constraint: the area vectors of the faces sum to zero.
+- More generally, an $n$-valent node describes a polyhedron with $n$ faces, by Minkowski's theorem (Bianchi, Doná and Speziale 2011).
 
-**Validation: Qualified.**
-- **The split.** The self-dual/anti-self-dual decomposition exists and is central to the formalism. However, Ashtekar's construction uses *one* of the two halves, with reality conditions recovering real general relativity. The formalism does not require both sectors as separate dynamical fields.
-- **The tetrahedron.** The tetrahedron is the four-valent case, not the only one. Nodes of any valence close into polyhedra.
-- **The term.** The closure constraint is the LQG term. "Field closure" is GFD's term for the related condition that four independent directions span the frame everywhere ($\det g \neq 0$).
+**In GFD.** The four-valent node with its closure constraint is the single chamber. Letter 1's four tetrad-derived directions satisfy the same condition, $\sum_i v_i = 0$, and bound the regular tetrahedron. In GFD the valence is not a free choice: four is the minimum number of faces that encloses a volume in three dimensions ($K = D + 1$).
 
-**GFD reading.** The two chiral sectors are the two chambers, and the four-valent node with its closure constraint is the single chamber.
+The chiral split connects through the exterior algebra (§3.2).
 
-### 3.4 Spinor theory and the double cover
+### 2.4 Spinor theory and the double cover
 
-**What the formalism establishes.** The group acting on spinors is $SL(2,\mathbb C)$, the double cover of the proper orthochronous Lorentz group (Penrose and Rindler 1984). A spinor returns to itself only after a $720^\circ$ rotation. Two-component spinors come in two inequivalent kinds, unprimed and primed (left- and right-handed). A real four-vector is built from one of each, and a null tetrad is built from a spinor dyad.
+The group acting on spinors is $SL(2,\mathbb C)$, the double cover of the proper orthochronous Lorentz group (Penrose and Rindler 1984). A spinor returns to itself only after a rotation of $720^\circ$. Two-component spinors come in two inequivalent kinds, unprimed and primed (left- and right-handed). A real four-vector is built from one of each, and a null tetrad is built from a spinor dyad.
 
-**What the original summary claimed.** That the double-cover structure supports the two-chamber conclusion.
+**In GFD.** Each chamber realises one sheet of the double cover. A $360^\circ$ rotation realigns TetA but leaves TetB out of phase, and a second turn realigns both. The same face structure gives the intrinsic spin $\hbar/2$ ([`08-face-structure-and-spin.md`](../../docs/01-foundations/08-face-structure-and-spin.md)).
 
-**Validation: Verified** for the mathematics. **GFD reading** for the identification: each chamber realises one sheet of the double cover, which gives the $720^\circ$ periodicity geometrically ([`docs/01-foundations/08-face-structure-and-spin.md`](../../docs/01-foundations/08-face-structure-and-spin.md)).
+### 2.5 Stability
 
-### 3.5 Stability analysis
+The stability argument is the Boulware–Deser result of §2.2. A stable, Lorentz-invariant theory of a massive graviton needs two metrics together with a potential of the special dRGT–Hassan–Rosen form. Massless general relativity, with one metric, is stable.
 
-This argument is the Boulware–Deser result of §3.2, listed separately in the GFD documentation.
+**In GFD.** The seven propagating modes of the bimetric theory, each coupling through the four faces of a chamber, give $7 \times 4 = 28$ mode–face couplings. This equals the number of geometric elements of the stellated octahedron, $V + E + F = 8 + 12 + 8$ ([`09-twenty-eight-geometric-elements.md`](../../docs/01-foundations/09-twenty-eight-geometric-elements.md)).
 
-**Validation: Qualified, as in §3.2.** Generic nonlinear massive gravity carries the BD ghost. A carefully constructed single-metric theory with a fixed reference metric (dRGT) does not, and neither does massless general relativity. The accurate statement is that a stable theory of a massive graviton needs two metrics and a special potential.
+## 3. The geometry
 
-## 4. The parity partition
+### 3.1 The parity partition
 
-**Claim.** Label the eight vertices of a cube by three-bit addresses $000$ to $111$. Divide them by the parity of their bit count:
+Label the eight vertices of a cube by three-bit addresses, $000$ to $111$, and divide them by the parity of their bit count:
 - even: $000, 011, 101, 110$;
 - odd: $001, 010, 100, 111$.
 
-Each group is a regular tetrahedron. The two are vertex-, edge- and face-disjoint, and together form the stellated octahedron.
+Within each group every pair of addresses differs in exactly two bits, so all six pairwise distances are equal. Each group is therefore a regular tetrahedron. The two are vertex-, edge- and face-disjoint. Each tetrahedron's six edges are face diagonals of the cube, and the twelve edges of the pair are exactly the cube's twelve face diagonals.
 
-**Validation: Verified.**
-- **Regularity.** Within each group every pair of addresses differs in exactly two bits, so all six pairwise distances are equal: the group is a regular tetrahedron.
-- **Edges.** Each tetrahedron's six edges are face diagonals of the cube, and the twelve edges of the pair are exactly the cube's twelve face diagonals.
-- **Uniqueness.** These are the only two regular tetrahedra with vertices among the cube's vertices.
-- **The name.** Kepler named the compound *stella octangula* in *De Nive Sexangula* (1611). It had been drawn earlier by Pacioli (1509) and Jamnitzer (1568).
+These are the only two regular tetrahedra with vertices among the cube's vertices. Their compound is the stellated octahedron, which Kepler named *stella octangula* in *De Nive Sexangula* (1611); it had been drawn earlier by Pacioli (1509) and Jamnitzer (1568).
 
-**The Field Origin.** The four body diagonals join each vertex to its complement ($000$–$111$ and so on) and cross at the centre of the cube, where the position vectors of all eight vertices sum to zero. GFD names this point the Field Origin, the single point where the two chambers couple.
+The four body diagonals join each vertex to its complement ($000$–$111$ and so on) and cross at the centre of the cube, where the position vectors of all eight vertices sum to zero. GFD names this point the **Field Origin**: the single point at which the two chambers couple.
 
-*Status: **Verified** (geometry); **GFD reading** (its role as the coupling point).*
+### 3.2 The exterior algebra and self-duality
 
-## 5. The structural inventory
+The exterior algebra of four generators has graded dimensions $\binom{4}{k} = \{1, 4, 6, 4, 1\}$. The GFD exterior-algebra note ([`exterior_algebra_derivation.md`](../../papers/letter-1-tetrad-frame-geometry/Supplementary/research/exterior_algebra_derivation.md)) assigns the grades as follows:
+- **grade 1:** TetA;
+- **grade 3:** TetB, its Hodge dual;
+- **grade 2:** six elements, one for each edge, whose midpoints are the vertices of the octahedral region shared by the two tetrahedra.
 
-| Quantity | Expression | Value | Status |
+The Hodge star exchanges grades 1 and 3, so the exchange of the chambers is the Hodge involution.
+
+The same operator defines chirality in gravity. Grade 2 is the space of bivectors, and the Lorentz algebra $\mathfrak{so}(3,1)$ is exactly this six-dimensional space. On it the Hodge star squares to $-1$, and its eigenspaces (over $\mathbb C$) are the self-dual and anti-self-dual halves on which the Ashtekar variables are built.
+
+**In GFD**, one operator therefore does two jobs: it exchanges the two chambers (grades 1 ↔ 3), and it splits the six Lorentz generators (grade 2) into the two chiral halves.
+
+### 3.3 The structural inventory
+
+| Quantity | Expression | Value | Reading |
 |---|---|---|---|
-| Faces per tetrahedron | $K$ | 4 | Verified |
-| Vertices of the compound | $2^D$ | 8 | Verified |
-| Edges of the compound | $K \cdot D = 2\binom{K}{2}$ | 12 | Verified |
-| Edges + Field Origin | $K \cdot D + 1$ | 13 | GFD construction |
-| Face-to-face coupling channels | $K^2$ | 16 | GFD construction |
+| Faces per tetrahedron | $K$ | 4 | minimal enclosure in $D = 3$ |
+| Vertices of the compound | $2^D$ | 8 | the binary address space $\{0,1\}^3$ |
+| Edges of the compound | $K \cdot D = 2\binom{K}{2}$ | 12 | the cube's face diagonals |
+| Edges + Field Origin | $K \cdot D + 1$ | 13 | the GFD structural floor; $f(K, -1) = 13$ |
+| Face-to-face coupling channels | $K^2$ | 16 | four faces × four sub-channels |
 
-**On 16.** The tetrad $e^a{}_\mu$ has $4 \times 4 = 16$ components. The standard decomposition is $16 = 10 + 6$: ten components fix the metric, and six are local Lorentz freedom, the dimension of the Lorentz group. The six Lorentz generators correspond to the six edges of one tetrahedron, as the GFD documentation notes ([`09-twenty-eight-geometric-elements.md`](../../docs/01-foundations/09-twenty-eight-geometric-elements.md)). The equality of the tetrad's 16 components with the 16 coupling channels is a numerical correspondence that GFD interprets. It is not a result of tetrad gravity.
+**The sixteen components of the tetrad** divide in the standard way as $16 = 10 + 6$. Ten fix the metric. The other six are local Lorentz freedom, the dimension of the Lorentz group, and GFD pairs them with the six edges of one tetrahedron. In the ADM decomposition (Arnowitt, Deser and Misner 1962) the ten metric components divide further into lapse (1), shift (3) and spatial metric (6).
 
-**Corrected:** the original summary suggested that 13 might be "the 10 components of the metric plus the 3 components of the shift". That decomposition has no basis in the ADM formalism and has been removed. In ADM the ten metric components divide as lapse (1), shift (3) and spatial metric (6).
+**In discrete gravity**, curvature in Regge calculus is concentrated on the codimension-2 simplices: edges in three dimensions and triangles in four (Regge 1961).
 
-**Corrected (Regge calculus):** the original stated that curvature in Regge calculus is concentrated at the edges, called hinges. Curvature sits on the codimension-2 simplices: edges in three dimensions, but **triangles** in four (Regge 1961).
+## 4. What GFD derives that the formalisms assume
 
-## 6. Single versus dual structure: a corrected comparison
+The formalisms of §2 each contain a twofold structure, but most of them introduce it by hand:
+- bimetric gravity postulates the second metric;
+- the Ashtekar formulation chooses one chiral half;
+- the BD analysis shows what a theory needs, not why nature supplies it.
 
-| Aspect | Single structure | Dual structure | Source |
-|---|---|---|---|
-| Massless gravity | GR: one metric, 2 degrees of freedom, stable | — | standard |
-| Massive gravity, generic | one dynamical metric + reference metric; BD ghost (6th mode) | — | Boulware and Deser 1972 |
-| Massive gravity, dRGT | one dynamical metric + fixed reference metric; ghost-free, 5 degrees of freedom | — | de Rham, Gabadadze and Tolley 2011 |
-| Bimetric gravity | — | two dynamical metrics (two tetrads); ghost-free, 2 + 5 = 7 degrees of freedom | Hassan and Rosen 2012; Hinterbichler and Rosen 2012 |
-| Chirality | — | left- and right-handed spinors; SD and ASD sectors | Penrose and Rindler 1984; Ashtekar 1986 |
-| Minimal geometry (GFD) | tetrahedron | stellated octahedron | GFD |
+GFD's programme is to derive the twofold structure from a single tetrad:
 
-## 7. Summary of findings
+| Result | Statement | Source |
+|---|---|---|
+| Two chambers from one frame | The sixteen sign combinations of the four half-spaces of a single tetrad give exactly two bounded regions, TetA and TetB, whose compound is the stellated octahedron. No second frame is assumed. | Letter 1, [`letter-1-tetrad-frame-geometry/`](../../papers/letter-1-tetrad-frame-geometry/) |
+| Two roots of one equation | The tetrad equation is quadratic. Its solution space (scheme) has exactly two spatial components, $SO(3)$ and $P \cdot SO(3)$, related by parity. Both satisfy the same equation with the same metric. | [`supplementary_scheme_proof.tex`](../../papers/letter-1-tetrad-frame-geometry/Supplementary/supplementary_scheme_proof.tex) |
+| The geometry is forced | Under common norm, balanced closure and $S_4$ symmetry, the Gram matrix of the spatial tetrad is fixed. The regular tetrahedron, and hence the stellated octahedron, is the unique realisation. | [`supplementary_spatial_geometry_of_the_lorentz_tetrad.tex`](../../papers/letter-radial-acceleration-relation-sparc/supplementary/supplementary_spatial_geometry_of_the_lorentz_tetrad.tex); [`verify_gram_theorems.py`](../../papers/gram-matrix-of-tetrad-equation/verify_gram_theorems.py) |
+| Torsion carries the distinction | A torsion-free connection depends only on the metric and so cannot tell the two roots apart. The 24 torsion components carry the TetA/TetB distinction. At $K = 4$ the torsion sector carries the regular representation of $S_4$, which contains the parity representation. | Letter 2, [`letter-2-other-half-of-gravity-torsion/`](../../papers/letter-2-other-half-of-gravity-torsion/); Paper B, [`algebraic-papers-a-b-c/`](../../papers/algebraic-papers-a-b-c/) |
+| The exchange fixes the law | Exchange symmetry between the two chambers forces the constitutive law $\mu(x) = x/(x+1)$. | [`letter-constitutive-law-tetrad-geometry/`](../../papers/letter-constitutive-law-tetrad-geometry/) |
+| The split is polynomial | The torsion-free condition keeps 40 and discards 24 of the 64 connection components: the coupling polynomial at its two opposite states. | Letter 3, [`EINSTEIN_TETA_PARTITION.md`](../../EINSTEIN_TETA_PARTITION.md) |
 
-| # | Claim | Status | Key sources |
-|---|---|---|---|
-| 1 | Fermion coupling requires the tetrad; the Dirac field has two chiralities | Verified | Weyl 1929; Fock 1929 |
-| 2 | Einstein (1928) and Cartan (1922) established spinor coupling | **Corrected**: Einstein's tetrads were for teleparallelism; Cartan introduced torsion | Einstein 1928; Cartan 1922 |
-| 3 | A massive graviton needs a second metric; bimetric gravity uses two interacting tetrads | Verified | Hassan and Rosen 2012; Hinterbichler and Rosen 2012 |
-| 4 | Ghost-freedom requires two *dynamical* tetrads; a single chamber has a ghost | **Qualified**: a special potential suffices (dRGT); massless GR has no ghost | de Rham, Gabadadze and Tolley 2011 |
-| 5 | Ashtekar variables split gravity into SD and ASD sectors | **Qualified**: the split exists, but the formalism uses one half | Ashtekar 1986 |
-| 6 | A four-valent spin-network node is a quantum tetrahedron with closure constraint | Verified (four-valent case); general nodes give polyhedra | Barbieri 1998; Baez and Barrett 1999; Bianchi, Doná and Speziale 2011 |
-| 7 | $SL(2,\mathbb C)$ double-covers the Lorentz group | Verified | Penrose and Rindler 1984 |
-| 8 | Parity partition gives two disjoint regular tetrahedra, the stella octangula | Verified | elementary geometry; Kepler 1611 |
-| 9 | 13 = metric (10) + shift (3) | **Corrected**: removed; no basis in ADM | Arnowitt, Deser and Misner 1962 |
-| 10 | Regge curvature sits on edges | **Corrected**: on triangles in four dimensions | Regge 1961 |
-| 11 | The five twofold structures are one geometric object, the two chambers | **GFD reading** | GFD documentation |
+On this reading, the twofold structures of §2 are not five separate facts. They are five views of the two roots of the tetrad equation.
 
-## 8. Conclusion
+## 5. Open questions
 
-Each of the five formalisms carries a twofold structure, and in each case it is genuine and central:
-- the two chiralities of the Dirac field coupled through the tetrad;
-- the two metrics of any consistent theory of a massive graviton;
-- the self-dual and anti-self-dual halves of the complexified Lorentz algebra;
+The comparison also raises questions that a complete account must answer.
+
+1. **Torsion in Einstein–Cartan theory.** In Einstein–Cartan–Sciama–Kibble theory (Kibble 1961; Sciama 1964; Hehl et al. 1976), torsion is algebraic rather than propagating, and it is sourced only by spin density. GFD assigns the torsion sector the TetB share of the field, $1 - \mu(x)$, which is largest at galactic radii. GFD must say how its torsion sector differs from the Einstein–Cartan one, and why it is not suppressed in the same way.
+2. **Teleparallel gravity.** The teleparallel equivalent of general relativity (Aldrovandi and Pereira 2013) is built entirely on torsion, with the curvature of the Weitzenböck connection set to zero, yet it is dynamically equivalent to general relativity. GFD's restored torsion sector must be distinguished from that reformulation.
+3. **A fixed or a dynamical second chamber.** dRGT achieves ghost-freedom with a fixed reference metric; Hassan–Rosen with a dynamical one. In GFD both chambers arise from the same tetrad. The relation between that structure and the fixed-versus-dynamical distinction should be stated explicitly.
+4. **One chiral half or two.** The Ashtekar formulation works with one chiral half plus reality conditions. Whether GFD's two chambers correspond to two independent dynamical sectors, or to one sector and its conjugate, should be made precise.
+5. **Valence.** Loop quantum gravity admits nodes of any valence. GFD selects four. The argument from minimal enclosure ($K = D + 1$) should be connected to the quantum dynamics, for instance to whether four-valent nodes dominate the semiclassical limit.
+
+## 6. What the dual-chamber reading predicts
+
+None of the five formalisms on its own yields the following results, which follow in GFD from the two-chamber structure:
+
+| Prediction | Result | Source |
+|---|---|---|
+| The interpolating function | $\mu(x) = x/(x+1)$, derived rather than fitted | constitutive-law letter |
+| The radial acceleration relation | 164 SPARC galaxies, 3284 points, scatter 0.181 dex, with no parameter fitted to the galaxies | [`letter-radial-acceleration-relation-sparc/`](../../papers/letter-radial-acceleration-relation-sparc/) |
+| Mass from rotation | Enclosed mass decoded from observed velocity for the Milky Way and M33, with no dark-matter halo | [`letter-decoding-mass-from-rotation-curves/`](../../papers/letter-decoding-mass-from-rotation-curves/) |
+| Tully–Fisher evolution | $v(z)/v(0) = [H(z)/H_0]^{0.17}$; all nine IFU measurements to $z = 3$ within the predicted band | [`tully-fisher-velocity-evolution/`](../../papers/tully-fisher-velocity-evolution/) |
+| The torsion split | 40 retained and 24 discarded connection components, from $f(K, \pm 1)$ | Letter 3 |
+
+## 7. Conclusion
+
+Each of the five formalisms carries a genuine and central twofold structure:
+- the two chiralities of spinor matter;
+- the two metrics of a massive graviton;
+- the self-dual and anti-self-dual halves of the Lorentz algebra;
 - the double cover $SL(2,\mathbb C)$;
-- the stability of massive gravity, which needs a second metric and a special potential.
+- the stability conditions that require both a second metric and a special potential.
 
-The parity partition of the cube produces two disjoint regular tetrahedra with a common centre, exactly as GFD states.
+The parity partition of the cube produces two disjoint regular tetrahedra about a common centre. The Hodge star of the exterior algebra both exchanges them and splits the Lorentz algebra into its chiral halves.
 
-What the formalisms do not do is identify these structures with one another, or with a pair of tetrahedral chambers. That identification is the substance of the GFD framework: one geometric object, the stellated octahedron, whose two chambers carry the twofold structure that each formalism exhibits in its own language. The review supports that thesis as *consistent* and well *motivated*. Its confirmation rests on the framework's own derivations and predictions, not on the formalisms reviewed here.
+GFD's claim is that these are one structure: the two roots of the tetrad equation, realised as the two chambers of the stellated octahedron. The formalisms make that claim consistent and well motivated. Letters 1–3 and their supplements derive it, and the galactic predictions of §6 test it. The open questions of §5 mark where the account must still be completed.
 
 ---
 
 ## References
 
+- Aldrovandi, R. and Pereira, J. G. (2013). *Teleparallel Gravity: An Introduction*. Springer.
 - Arnowitt, R., Deser, S. and Misner, C. W. (1962). The dynamics of general relativity. In L. Witten (ed.), *Gravitation: An Introduction to Current Research*. Wiley. Reprinted as [arXiv:gr-qc/0405109](https://arxiv.org/abs/gr-qc/0405109).
 - Ashtekar, A. (1986). New variables for classical and quantum gravity. *Phys. Rev. Lett.* 57, 2244.
 - Baez, J. C. and Barrett, J. W. (1999). The quantum tetrahedron in 3 and 4 dimensions. *Adv. Theor. Math. Phys.* 3, 815. [arXiv:gr-qc/9903060](https://arxiv.org/abs/gr-qc/9903060).
@@ -187,12 +197,15 @@ What the formalisms do not do is identify these structures with one another, or 
 - Fock, V. (1929). Geometrisierung der Diracschen Theorie des Elektrons. *Z. Phys.* 57, 261.
 - Hassan, S. F. and Rosen, R. A. (2012). Resolving the ghost problem in nonlinear massive gravity. *Phys. Rev. Lett.* 108, 041101. [arXiv:1106.3344](https://arxiv.org/abs/1106.3344).
 - Hassan, S. F. and Rosen, R. A. (2012). Bimetric gravity from ghost-free massive gravity. *JHEP* 02, 126. [arXiv:1109.3515](https://arxiv.org/abs/1109.3515).
+- Hehl, F. W., von der Heyde, P., Kerlick, G. D. and Nester, J. M. (1976). General relativity with spin and torsion: foundations and prospects. *Rev. Mod. Phys.* 48, 393.
 - Hinterbichler, K. and Rosen, R. A. (2012). Interacting spin-2 fields. *JHEP* 07, 047. [arXiv:1203.5783](https://arxiv.org/abs/1203.5783).
 - Immirzi, G. (1997). Real and complex connections for canonical gravity. *Class. Quantum Grav.* 14, L177. [arXiv:gr-qc/9612030](https://arxiv.org/abs/gr-qc/9612030).
 - Kepler, J. (1611). *Strena seu de nive sexangula*. Frankfurt.
+- Kibble, T. W. B. (1961). Lorentz invariance and the gravitational field. *J. Math. Phys.* 2, 212.
 - Penrose, R. and Rindler, W. (1984). *Spinors and Space-Time, Vol. 1: Two-Spinor Calculus and Relativistic Fields*. Cambridge University Press.
 - Regge, T. (1961). General relativity without coordinates. *Nuovo Cimento* 19, 558.
 - Rovelli, C. and Smolin, L. (1995). Discreteness of area and volume in quantum gravity. *Nucl. Phys. B* 442, 593. [arXiv:gr-qc/9411005](https://arxiv.org/abs/gr-qc/9411005).
+- Sciama, D. W. (1964). The physical structure of general relativity. *Rev. Mod. Phys.* 36, 463.
 - Weyl, H. (1929). Elektron und Gravitation. I. *Z. Phys.* 56, 330.
 
 **GFD documentation:** [`04-dual-tetrahedron-field-origin.md`](../../docs/01-foundations/04-dual-tetrahedron-field-origin.md), [`08-face-structure-and-spin.md`](../../docs/01-foundations/08-face-structure-and-spin.md), [`09-twenty-eight-geometric-elements.md`](../../docs/01-foundations/09-twenty-eight-geometric-elements.md), [`10-stellated-octahedron.md`](../../docs/01-foundations/10-stellated-octahedron.md).
