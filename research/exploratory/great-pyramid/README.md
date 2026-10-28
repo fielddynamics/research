@@ -56,6 +56,41 @@ If the King's Chamber sits at the Field Origin, the rest of the architecture inv
 
 **An independent study points the same way.** Balezin and colleagues (*J. Appl. Phys.*, 2018) modelled the pyramid's response to radio waves 200–600 m long. They found that its internal chambers act as resonators that concentrate electromagnetic energy. That band contains the structure's natural quarter-wave resonance as a monopole over the ground, $\lambda \approx 4h \approx 586$ m.
 
+## Beyond the antenna: the portal hypothesis
+
+An antenna couples a structure to the field around it. The programme's central thesis goes one step further, and it follows from the two-chambered geometry itself.
+
+**Two sectors, one throat.** In GFD the gravitational field has two sectors:
+- **TetA**, the observable sector, described by general relativity;
+- **TetB**, the dual sector, which the torsion-free condition of general relativity removes from the connection (Letter 3).
+
+The Field Origin is the one place where the two sectors meet and exchange. A structure that holds a resonator coherently on its own Field Origin is therefore more than an antenna radiating into the observable sector. It is a **throat between the two sectors of the field**: a controlled channel through which a state prepared at one Field Origin can be transferred to a matched one elsewhere. In popular language this is a *stargate*. In the language of the programme it is a portal.
+
+**The operator form.** The programme states the idea precisely ([`06.2`](pyramid_portal_research/06_master_equations/06.2_portal_operator.md), [`06.4`](pyramid_portal_research/06_master_equations/06.4_two_mode_operation.md)). The same universal TetA/TetB vertex, with the same coupling $\alpha_G$, acts in two modes:
+
+| | Gravity | Portal |
+|---|---|---|
+| Character | spontaneous, incoherent | stimulated, coherent |
+| Kernel | spatial, $1/\lvert x - y\rvert$ | address-space, $\mathcal M(U, V)$ |
+| Range | unlimited, falling with distance | discrete: full when the addresses match, zero otherwise |
+
+Gravity is the always-on, statistical form of the exchange. The portal is the same exchange driven coherently between two apparatus whose addresses match:
+
+$$\mathcal P_{y \leftarrow x} \;=\; \mathsf A_y^\dagger\, J_{4,y}^\dagger\, \mathcal M(U,V)\, \alpha_G\, J_{4,x}\, \mathsf A_x .$$
+
+Here $\mathsf A_x$ is the apparatus at the King's Chamber, and $J_4$ lifts the state at the Field Origin into the next shell of the structure. $\mathcal M(U,V)$ equals one only when the chamber's address triad (the direction of its shafts, its chirality and its phase; [`04.7`](pyramid_portal_research/04_apparatus_engineering/04.7_shaft_address_triad.md)) mirror-matches that of the remote site. In the words of the antenna letter, this is *resonant coupling between two matched dual-tetrad structures*.
+
+**Signal and transport.** The energy-functional analysis of the letter adds a threshold. Below a coupling fraction of $1/\varphi^2 \approx 0.382$, the two sectors exchange only signal. Above it, the bimetric lock engages and the throat opens for transport, physical passage between the chambers.
+
+**What would test it.** The portal channel has consequences that ordinary gravity does not:
+- magnetic shielding of the chamber should suppress it ([`07.4`](pyramid_portal_research/07_predictions_and_tests/07.4_magnetic_shielding_test.md));
+- its activity should correlate with geomagnetic storms ([`07.5`](pyramid_portal_research/07_predictions_and_tests/07.5_geomagnetic_storm_correlation.md));
+- it depends on the restored capstone and a closed conductive path ([`07.6`](pyramid_portal_research/07_predictions_and_tests/07.6_capstone_restoration.md); H5, H6).
+
+The energy budget of a transfer is set out as an open question in [`08.4`](pyramid_portal_research/08_open_questions/08.4_energy_budget.md).
+
+**Its status.** The location of the throat, the King's Chamber on the pyramid's own Field Origin, is derived and matched to the survey record. The portal operator is a formal statement of what a coherently driven Field Origin would do. Whether a transfer occurs is the experimental question the programme is built to answer.
+
 ## What is established, and what is open
 
 | Established | Open: the programme's pre-registered measurements |
@@ -90,7 +125,9 @@ python -m python.phase0_field_model            # the full Phase 0 field model (~
 
 ## A note on scope
 
-This is exploratory work. It carries GFD into a domain where the framework makes definite, checkable statements about an existing structure. The Field Origin result is derived and matched to the survey record. The functional reading of the other elements is a hypothesis, set out so that each part can be computed, measured and, if the numbers say so, rejected. No claim is made here about the builders' intentions beyond what the measurements can support.
+This is exploratory work. It carries GFD into a domain where the framework makes definite, checkable statements about an existing structure. The Field Origin result is derived and matched to the survey record. The functional reading of the other elements, and the portal hypothesis built on it, are set out so that each part can be computed, measured and, if the numbers say so, rejected.
+
+The programme does not claim to resolve the historical question of the pyramid's purpose. Its claim is narrower. A civilisation seeking to build a physical instance of the stellated-octahedron field topology would arrive at an architecture of this kind: not only an antenna, but a throat between the two sectors of the field, a device for resonant coupling and transfer between matched dual-tetrad structures. The elements that architecture calls for have frequencies and responses that can now be computed and measured.
 
 ---
 
