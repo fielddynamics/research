@@ -177,7 +177,7 @@ Shows that the torsion-free condition keeps the s = +1 projection of the couplin
 Shows that the radial acceleration relation follows kinematically from the covariant action with F(y) written out explicitly, and tests it against the SPARC database (164 galaxies, 3284 points), reaching 0.181 dex scatter with no fitted parameters.
 
 **Letter — Decoding Mass from Observed Rotation Curves**
-[`papers/letter-decoding-mass-from-rotation-curves/`](papers/letter-decoding-mass-from-rotation-curves/) (prepared for *MNRAS*) <!-- Zenodo DOI -->
+[`papers/letter-decoding-mass-from-rotation-curves/`](papers/letter-decoding-mass-from-rotation-curves/) — [doi:10.5281/zenodo.18721752](https://doi.org/10.5281/zenodo.18721752)
 Runs the field equations in reverse: the same algebraically invertible relations that give rotation velocity from mass give enclosed mass from observed velocity. Applied to the Milky Way and M33, with no fitted gravitational parameters (only G and a₀), the decoded mass profiles match independently inferred baryonic mass to within a factor of order unity, with no dark-matter halo. Includes an arXiv build, Supplemental Material with the uniqueness argument, and `run_all_validations.py`.
 
 ### Manuscripts in preparation (sources only)
