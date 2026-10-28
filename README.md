@@ -277,8 +277,7 @@ These programmes carry the framework's structures into new domains. They are kep
 |---|---|
 | [`earth-365-days/`](research/earth-365-days/) | Note on the 365/360 relation |
 | [`formalisms-tetrad/`](research/formalisms-tetrad/) | The dual-chamber structure across tetrad, bimetric, loop-quantum, spinor and stability formalisms, read against GFD |
-| [`temp/`](research/temp/) | Scratch work |
-| [`trash-bin/`](research/trash-bin/) | Material kept only to track the course of the research and flagged as likely not reliable; not to be cited (currently the early neural-network binding experiments) |
+| [`trash-bin/`](research/trash-bin/) | Material kept only to track the course of the research and flagged as likely not reliable; not to be cited (the early neural-network binding experiments and the former `temp/` scratch folder) |
 
 ### External reference material
 
