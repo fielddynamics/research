@@ -249,7 +249,7 @@ Most research folders follow the same pattern: a **`*_synthesis.md`** that expla
 | [`proton/`](research/proton/) | Proton–electron mass ratio proof chain |
 | [`photonic/`](research/photonic/) | Photon equations, "light substrate" suites and teaching notes |
 | [`nuclear/`](research/nuclear/), [`nuclear-triforce/`](research/nuclear-triforce/) | Nuclear binding from the constitutive law; intersection with the face suite |
-| [`matter/`](research/matter/) | Nuclear binding (Bethe–Weizsäcker coefficients, 3-scale model, Sierpiński walk), electron configurations, particle properties; includes the neural-network experiments (`sierpinski - nn breakthrough/`) that led to the closed-form binding formula |
+| [`matter/`](research/matter/) | Nuclear binding (Bethe–Weizsäcker coefficients, 3-scale model, Sierpiński walk), electron configurations, particle properties |
 | [`valance-shells-nailed/`](research/valance-shells-nailed/) | Electron configuration / Madelung rule from the coupling polynomial |
 | [`atomic-properties/`](research/atomic-properties/), [`atom-vortex-horizon/`](research/atom-vortex-horizon/) | Overdetermined atomic predictions; the vortex horizon picture of the atom |
 
@@ -276,8 +276,9 @@ These programmes carry the framework's structures into new domains. They are kep
 | Folder | Contents |
 |---|---|
 | [`earth-365-days/`](research/earth-365-days/) | Note on the 365/360 relation |
-| [`formalisms-tetrad/`](research/formalisms-tetrad/) | Literature-search notes on tetrahedral formalisms |
+| [`formalisms-tetrad/`](research/formalisms-tetrad/) | The dual-chamber structure across tetrad, bimetric, loop-quantum, spinor and stability formalisms, read against GFD |
 | [`temp/`](research/temp/) | Scratch work |
+| [`trash-bin/`](research/trash-bin/) | Material kept only to track the course of the research and flagged as likely not reliable; not to be cited (currently the early neural-network binding experiments) |
 
 ### External reference material
 
