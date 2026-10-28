@@ -12,6 +12,8 @@ Gravity Field Dynamics proposes that the form of that function is not a free cho
 
 The same geometric structure is then followed further: to the gravitational constant, the electron mass and the Hubble constant; to nuclear binding energies and the magic numbers; and to the relation between GFD and ghost-free bimetric gravity. Those extensions are more exploratory than the galactic result. They are presented here, with their derivations and validation code, so that each can be examined on its own merits.
 
+> **Featured: [Einstein's equation as the TetA partition](EINSTEIN_TETA_PARTITION.md).** A summary of Letter 3, *Field Closure of the Tetrad Frame*, with its two-panel figure. It shows that general relativity is the GFD field equation with the constitutive law fixed at μ = 1, and that the gap opened by releasing μ is the TetB share of the field, conventionally attributed to dark matter.
+
 This repository is the working research archive behind the Gravity Field Dynamics framework and the preprints published on Zenodo. It is published **as is**: derivation notes, synthesis documents, validation scripts, paper sources, interactive visualisations and exploratory experiments, in the state they were left at the end of each research session.
 
 > **Read this first.** This is a lab notebook, not a software package. Folders were created as research threads opened, so naming is informal, some files exist in several versions (`(1)`, `-1`, `- Copy`, `v1`/`v2`), and a few threads were later superseded or abandoned. The published papers in [`papers/`](papers/) and the documentation in [`docs/`](docs/README.md) are the curated statements of the framework. Everything else is the trail that led there. The work is independent and has not been peer reviewed.
