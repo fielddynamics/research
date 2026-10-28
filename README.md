@@ -148,7 +148,7 @@ Shows that the radial acceleration relation follows kinematically from the covar
 ### Manuscripts in preparation (sources only)
 
 **The Gram Matrix of the Tetrad Equation** — [`papers/gram-matrix-of-tetrad-equation/`](papers/gram-matrix-of-tetrad-equation/)
-Treats the tetrad equation as a Gram matrix: its two sign-related solutions give a tetrahedron, its inverse and their stellated-octahedron compound, and the affine connection splits canonically as 24 + 16 + 24 = 64.
+Treats the tetrad equation as a Gram matrix, $G = M^TM$. Its two sign-related solutions give root-blind self-coupling and sign-reversing cross-coupling; their columns form a tetrahedron, its inverse and their stellated-octahedron compound. The affine connection splits canonically as 24 + 16 + 24 = 64, and the torsion-free projection retains 40 and discards the TetB sector. The companion *forced Gram-matrix theorem* (supplement to the radial acceleration relation letter) proves the regular tetrahedron, and hence the stellated octahedron, is the unique spatial realisation of the Lorentz tetrad under common norm, closure and $S_4$-invariance. Both are verified by [`verify_gram_theorems.py`](papers/gram-matrix-of-tetrad-equation/verify_gram_theorems.py) (32 checks).
 
 **Papers A, B and C** — [`papers/algebraic-papers-a-b-c/`](papers/algebraic-papers-a-b-c/)
 - *A — An Algebraic Origin for the Simple AQUAL Interpolation Function* (`gfd_phase1_letter_final.tex`): derives μ(x) = x/(1 + x) from the reciprocal ℤ₂ structure of the tetrad-frame sector algebra, whose parity-weighted trace is f(K, s).

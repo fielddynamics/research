@@ -88,12 +88,62 @@ The three frameworks can be compared by what they keep on each side of the field
 
 Cold dark matter adds an invisible component to the matter side. GFD completes the geometric side, and the matter sector is unchanged. In the letter's words, the gravitational discrepancy "is not mass. It is the field response of the second tetrahedral chamber, carried by the 24 torsion components that the zero-torsion condition removes from the connection."
 
-## Further structure in the working notes
+## The Gram-matrix theorems
 
-The working notes that accompany the figure ([`synthesis_einstein_gram_matrix.md`](papers/letter-3-field-closure-of-tetrad-frame/Einstiens%20tetA%20gap/synthesis_einstein_gram_matrix.md)) develop two further results. They are discovery-stage and not yet part of a submitted paper.
+The geometry on which the letter rests is established by two formal proofs. Each is exact linear algebra, and both are verified by [`verify_gram_theorems.py`](papers/gram-matrix-of-tetrad-equation/verify_gram_theorems.py) (32 of 32 checks pass).
 
-- **Two complete chambers sharing a diagonal.** TetA and TetB are each complete 40-component structures: the diagonal plus one triangle of each face matrix. They share the 16 diagonal components, so $40 + 40 - 16 = 64$. General relativity has all of TetA, including the shared diagonal, and lacks TetB's 24 off-diagonal components.
-- **The Gram matrix.** For the stellated octahedron's face normals, the Gram matrix of each tetrahedron with itself is the same for both roots ($G_{AA} = G_{BB}$). The cross-coupling between them is its negative ($G_{AB} = -G_{AA}$). Every row sums to zero (the faces close), and the eigenvalue 4 has multiplicity 3 (three spatial dimensions). These features correspond term by term to $K^2$, $sK$ and $K^0$ in the coupling polynomial.
+**1. The forced Gram matrix** (*The Spatial Geometry of the Lorentz Tetrad*, [supplementary note](papers/letter-radial-acceleration-relation-sparc/supplementary/supplementary_spatial_geometry_of_the_lorentz_tetrad.tex) to the radial acceleration relation letter).
+
+Let $V = (v_0, v_1, v_2, v_3)$ be a spatial realisation of the Lorentz tetrad, four vectors in $\mathbb R^3$ indexed by the tetrad's index set, satisfying three conditions:
+
+- **(F1) common norm:** $|v_a| = c$ for every $a$;
+- **(F2) balanced closure:** $\sum_a v_a = 0$;
+- **(F3) $S_4$-invariance of the Gram matrix** $G_{ab} = v_a \cdot v_b$ under permutations of the index set.
+
+Then the Gram matrix is forced:
+
+$$G = c^2 I - \frac{c^2}{3}(J - I).$$
+
+The proof turns on one lemma. The $S_4$-invariant $4 \times 4$ matrices form a two-dimensional space spanned by the identity $I$ and the all-ones matrix $J$, because $S_4$ acts 2-transitively on the index set. F1 and F2 then fix both coefficients. Without F3, a symmetric $4 \times 4$ matrix has ten free parameters; with it, two; with F1 and F2, none.
+
+Everything else follows as a corollary:
+
+- the spectrum is $\{0, \tfrac{4c^2}{3}, \tfrac{4c^2}{3}, \tfrac{4c^2}{3}\}$, of rank three;
+- the configuration is a regular tetrahedron, unique up to $O(3)$;
+- its canonical representative is the $\{-1,+1\}$ sign matrix;
+- its parity completion is the cube $\{-1,+1\}^3$;
+- the compound of the two tetrahedra is Kepler's stella octangula.
+
+**The stellated octahedron is therefore not chosen: given F1–F3, it is the unique spatial realisation of the tetrad.**
+
+**2. The Gram matrix of the tetrad equation** (*The Gram Matrix of the Tetrad Equation*, [`papers/gram-matrix-of-tetrad-equation/`](papers/gram-matrix-of-tetrad-equation/)).
+
+The tetrad equation states that the metric is the Gram matrix of the frame, $G = M^T M$. Because this is even in $M$, both $M_1$ and $M_2 = -M_1$ are solutions. Exactly three Gram products can be formed from them, and their properties follow from matrix multiplication alone:
+
+| Result | Statement | Meaning |
+|---|---|---|
+| Root-blindness | $M_2^T M_2 = M_1^T M_1$ | the metric cannot distinguish the two roots |
+| Cross-coupling sign reversal | $M_1^T M_2 = -M_1^T M_1$ | the only root-resolving product |
+| Explicit form and spectrum | $G = (D+1)I - J$; eigenvalues $\{0, 4, 4, 4\}$ | the faces close (null vector $(1,1,1,1)$); three spatial dimensions |
+| Orthogonal invariance | all three products are $O(D)$-invariant | the content is independent of representative |
+
+The columns of $M_1$ and $M_2$ together exhaust the vertices of the cube: two regular tetrahedra whose compound is the stellated octahedron.
+
+**Theorem (torsion-free projection discards TetB).** Each $K \times K$ slice of the connection decomposes canonically as $6 + 4 + 6$, so the full connection decomposes as $24 + 16 + 24 = 64$. The Christoffel sector depends only on the root-blind metric. The torsion-free condition therefore retains the 16-component shared sector together with the 24-component TetA sector, and discards the complementary 24-component TetB sector:
+
+$$16 + 24 = 40 \;\neq\; 64 = 24 + 16 + 24.$$
+
+The torsion-free connection is a projection of the two-root connection, not an equivalent rewriting of it.
+
+**Correspondence with the coupling polynomial.** The structural features of the Gram matrix match the three terms of $f(K,s) = 1 + sK + K^2$:
+
+- $K^2 = 16$: the entries of $G$, with root-blind self-coupling;
+- $sK$: the sign-reversing cross-coupling;
+- $K^0 = 1$: the null eigenvalue, closure of the faces.
+
+The torsion split per slice, 10 and 6, equals both the transposition operator's eigenspace dimensions and $(f(K,\pm1) - 1)/2$.
+
+The working notes accompanying the figure ([`synthesis_einstein_gram_matrix.md`](papers/letter-3-field-closure-of-tetrad-frame/Einstiens%20tetA%20gap/synthesis_einstein_gram_matrix.md)) add a complementary reading: TetA and TetB as two complete 40-component structures sharing the 16-component diagonal, $40 + 40 - 16 = 64$.
 
 ## Consequences
 
