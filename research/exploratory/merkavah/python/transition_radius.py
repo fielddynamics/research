@@ -1,5 +1,5 @@
 """
-The field chariot of a bounded mass: its GFD transition sphere.
+The GFD transition radius of an isolated mass.
 
 For an isolated mass M, the Newtonian field g = GM/r^2 falls to the
 acceleration scale a0 at the transition radius
@@ -9,8 +9,9 @@ acceleration scale a0 at the transition radius
 where x = g/a0 = 1, mu = 1/2, s = 0 and f = 17: the Field Origin state,
 at which TetA and TetB carry equal shares. Inside r_t the TetA share
 dominates; outside it the TetB share does. r_t scales as M^(1/2) and
-the construction is the same at every mass: the scale-invariant
-statement of the merkavah thesis (CORE_THINKING.md, Proposition 2).
+the construction is the same at every mass. For a body embedded in a
+stronger field (a human on Earth) the surface is not realised, and r_t
+is not claimed as the size of its merkavah (CORE_THINKING.md, sec. 3.2).
 
 Run:  python transition_radius.py
 """

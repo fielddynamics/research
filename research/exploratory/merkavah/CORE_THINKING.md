@@ -15,7 +15,7 @@ In the photonic-substrate reading of GFD, **light is the fundamental merkavah**:
 
 We live in a lattice of light.
 
-A human being is therefore a bound configuration of trapped light within that lattice. Like every mass, a human has a gravity field, and that gravity field is a merkavah: **a two-chambered vehicle that carries the body, composed of photonic merkavot**, nested within the Earth's merkavah, the Sun's and the galaxy's.
+A human being is therefore a bound configuration of trapped light within that lattice. Like every mass, a human has a gravity field, and that gravity field is a merkavah: **a two-chambered vehicle that carries the body, composed of photonic merkavot**, nested within the Earth's merkavah, the Sun's and the galaxy's. Its form follows from the framework; its size does not yet (§3.2).
 
 The texts arrive at the same picture from their side:
 - light precedes the luminaries and matter (Genesis 1; *Ḥagigah* 12a);
@@ -61,29 +61,35 @@ A human body is about $10^{28}$ bound vortices of trapped light (nucleons and el
 
 It is a **vehicle** in the plain sense of the word. In the road-and-car language of the photonic notes, a mass does not move through an inert background. It carries its own organised field with it, and that field couples it to everything else. The body rides in its merkavah.
 
-### 3.2 Its size
+### 3.2 Its size: what can and cannot be said
 
-Around an isolated mass $M$, the field falls to the acceleration scale $a_0$ at the transition radius
+The merkavah of a gravity field is defined by its *form*, which is the same at every scale. Its *size* is a separate question, and the framework does not yet answer it for a human.
 
-$$r_t = \sqrt{GM/a_0}.$$
+One length can be computed. Around an **isolated** mass $M$, the field falls to the acceleration scale $a_0$ at the transition radius
 
-On that surface $\mu = \tfrac12$, $s = 0$ and $f = 17$: the Field Origin state, where TetA and TetB carry equal shares. This balance surface is the boundary of a body's merkavah. Inside it the TetA chamber dominates; beyond it the TetB chamber does. The construction is the same at every scale, and the radius grows as $M^{1/2}$:
+$$r_t = \sqrt{GM/a_0},$$
+
+where $\mu = \tfrac12$, $s = 0$ and $f = 17$: the Field Origin state. For a 70 kg body, $r_t = 6.24$ m. It is tempting to call this the size of a human merkavah, and an earlier draft of this note did. **That is a stretch, for three reasons:**
+
+1. **No human is isolated.** On Earth's surface a person sits in a field of $x \approx 8 \times 10^{10}$. The total field never falls to $a_0$ within 6.24 m, so the balance surface is not realised.
+2. **Nothing observable marks it.** The human's own field at 6.24 m is $1.2 \times 10^{-10}$ m/s², about $10^{-11}$ of the Earth's field at that point. There is no measurement that would locate it.
+3. **The radius belongs to the field's *strength*, not its form.** $r_t$ is set by $a_0$, the gravitational coupling window. In the photonic reading, the merkavah of a gravity field is the 64-fold composite of photonic merkavot (§2). Its extent is fixed by how that composite is organised, which the framework has not yet derived.
+
+What $r_t$ does show is the scale invariance itself: the same construction, at every mass, with a radius growing as $M^{1/2}$.
 
 | Body | $r_t = \sqrt{GM/a_0}$ | $r_t / R_{\text{body}}$ | $x = g/a_0$ at the body's surface |
 |---|---|---|---|
 | electron | 0.71 fm | 0.25 | 0.064 |
 | proton | 30.5 fm | 36 | $1.3 \times 10^3$ |
-| **human (70 kg)** | **6.24 m** | **24** | 596 |
-| Great Pyramid | 57 km | 780 | $6.1 \times 10^5$ |
+| human (70 kg), if isolated | 6.24 m | 24 | 596 |
+| Great Pyramid, if isolated | 57 km | 780 | $6.1 \times 10^5$ |
 | Earth | 12.2 AU | $2.9 \times 10^5$ | $8.2 \times 10^{10}$ |
 | Sun | 7000 AU | $1.5 \times 10^6$ | $2.3 \times 10^{12}$ |
 | Milky Way (baryons) | 8.4 kpc | 0.56 | 0.31 |
 
 (The human radius uses the sphere of equal volume, 0.26 m; the Milky Way's uses a characteristic radius of 15 kpc. With $a_0$ computed from the electron, $a_0 = K^2 G m_e / r_e^2$, the electron's radius is exactly $r_e/K$, which is an identity of that route.)
 
-**A human's merkavah is about 12.5 metres across**, roughly 24 times the size of the body it carries.
-
-The table also sorts bodies into two classes. The electron and the galaxy, the smallest and the largest bound structures, are the only ones whose balance surface lies inside them, so each holds the complete range from TetA to TetB within itself. A proton, a human, the Earth and the Sun all sit wholly in the TetA region of their own merkavah.
+The balance surface is physically realised only where a body's own field dominates its surroundings out to $a_0$. That is true of galaxies, whose outer discs are the TetB regime of flat rotation curves. The table also shows that the electron and the galaxy, the smallest and largest bound structures, are the only bodies whose balance surface lies inside them. The size of a human merkavah, as distinct from its form, is left open (D6).
 
 ### 3.3 Nested merkavot
 
@@ -147,6 +153,7 @@ Added to [`PLAN.md`](PLAN.md) §4.
 - **D2 — nested merkavot.** Treat the external field explicitly. Find what a sub-closure keeps of its own two-chamber structure inside a stronger ambient field, and whether form (D1) carries it where field strength does not.
 - **D3 — the photon, stated operationally.** Everything here rests on the photon being the elementary merkavah. PLAN Phase 3 moves first. It should set out what the photon's two chambers correspond to physically (its two helicities, its two transverse polarisations), what the 64-fold composition predicts that standard physics does not, and what observation would count against it.
 - **D4 — continuity in living bodies.** In the pyramid, form locates and electrical continuity energises. Identify the continuous current paths of a living body and what they would be expected to do. This is a hypothesis to examine.
+- **D6 — the size of a human merkavah.** Derive the extent of a gravity field's merkavah from the organisation of its photonic composite, rather than from $a_0$. Until then, no size is claimed.
 - **D5 — depth of the hierarchy.** Count the 64-fold levels from the photon to a human. This needs a stated size or energy for the level-0 photon. Because any count can be fitted by choosing the unit, the unit must be fixed before counting.
 
 ## 7. What this note does not claim
