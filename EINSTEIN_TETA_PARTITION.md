@@ -90,7 +90,7 @@ Cold dark matter adds an invisible component to the matter side. GFD completes t
 
 ## The Gram-matrix theorems
 
-The geometry on which the letter rests is established by two formal proofs. Each is exact linear algebra, and each is checked computationally (see [Verification](#verification) below).
+The geometry on which the letter rests is established by three formal proofs. Each is exact linear algebra, and each is checked computationally (see [Verification](#verification) below).
 
 **1. The forced Gram matrix** (*The Spatial Geometry of the Lorentz Tetrad*, [supplementary note](papers/letter-radial-acceleration-relation-sparc/supplementary/supplementary_spatial_geometry_of_the_lorentz_tetrad.tex) to the radial acceleration relation letter).
 
@@ -143,6 +143,16 @@ The torsion-free connection is a projection of the two-root connection, not an e
 
 The torsion split per slice, 10 and 6, equals both the transposition operator's eigenspace dimensions and $(f(K,\pm1) - 1)/2$.
 
+**3. The coupling polynomial generates the 40/24 split** (*The Coupling Polynomial Generates the 40/24 Split*, [supplementary proof](papers/letter-3-field-closure-of-tetrad-frame/Supplementary/proof_polynomial_40_24.tex) to Letter 3).
+
+The proof derives the torsion-free split directly from $f(K,s)$ evaluated at its two opposite states:
+
+$$\text{kept per face} = \frac{f(K,+1) - 1}{2} = 10, \qquad \text{discarded per face} = \frac{f(K,-1) - 1}{2} = 6,$$
+
+giving $40 + 24 = 64$ across the $K$ faces. The $K$ diagonal entries of each slice are root-blind and shared, and lie in the retained sector, consistent with the Gram decomposition $24 + 16 + 24$. The $\pm K$ that separates 10 from 6 is the parity-odd $sK$ term. The surplus of kept over discarded is $K$ per face and $K^2 = 16$ in total. Restoring the discarded $s = -1$ projection returns $K^2$ components per face and the full $K^3 = 64$ connection: field closure.
+
+The identity has an independent reading in representation theory. The symmetric and antisymmetric subspaces of a $K \times K$ slice have dimensions $(K^2 + sK)/2$, where $s = \pm 1$ is the eigenvalue of index exchange. Since $f(K,s) - 1 = K^2 + sK$, the coupling polynomial at $s = \pm 1$ is exactly this character count, with the sign entering as it does in the polynomial.
+
 The working notes accompanying the figure ([`synthesis_einstein_gram_matrix.md`](papers/letter-3-field-closure-of-tetrad-frame/Einstiens%20tetA%20gap/synthesis_einstein_gram_matrix.md)) add a complementary reading: TetA and TetB as two complete 40-component structures sharing the 16-component diagonal, $40 + 40 - 16 = 64$.
 
 ### Verification
@@ -153,7 +163,7 @@ Every claim above is checked by script. The tetrad series ships a `run_all_valid
 |---|---|---|
 | [Letter 1 `run_all_validations.py`](papers/letter-1-tetrad-frame-geometry/Supplementary/run_all_validations.py) | 29 / 29 | the four tetrahedral normals, closure $\sum v_a = 0$, exactly two bounded chambers (TetA, TetB), octahedral core, stellated-octahedron counts |
 | [Letter 2 `run_all_validations.py`](papers/letter-2-other-half-of-gravity-torsion/v2/Supplementary/run_all_validations.py) | 52 / 52 | Letter 1's geometry, metric parity invariance (root-blindness at the level of the metric), torsion = TetB, and $\Delta\mu = 1/(x+1)$ = the CDM residual |
-| [Letter 3 `run_all_validations.py`](papers/letter-3-field-closure-of-tetrad-frame/Supplementary/run_all_validations.py) | 52 / 52 | $K^3 = 64$, the per-slice split 10 + 6, totals 40 + 24, the polynomial identity $(f(K,\pm1)-1)/2 = 10, 6$, the partition $\mu + (1-\mu) = 1$ and the radial acceleration relation |
+| [Letter 3 `run_all_validations.py`](papers/letter-3-field-closure-of-tetrad-frame/Supplementary/run_all_validations.py) | 52 / 52 | $K^3 = 64$, the per-slice split 10 + 6, totals 40 + 24, the polynomial identity $(f(K,\pm1)-1)/2 = 10, 6$ (the claims of [`proof_polynomial_40_24.tex`](papers/letter-3-field-closure-of-tetrad-frame/Supplementary/proof_polynomial_40_24.tex)), the partition $\mu + (1-\mu) = 1$ and the radial acceleration relation |
 | [`verify_gram_theorems.py`](papers/gram-matrix-of-tetrad-equation/verify_gram_theorems.py) | 32 / 32 | the Gram matrices themselves: the $S_4$ commutant (dimension 2), the forced coefficients, spectrum, $O(3)$ uniqueness, cube completion, root-blindness $G_{22} = G_{11}$, cross-coupling $G_{12} = -G_{11}$, and the transposition eigenspaces 10 / 6 |
 
 Together, 165 checks pass with no failures. The working notes also record three exploratory suites (`test_grothendieck_frame.py`, `test_tetA_carries_mu.py`, `test_polynomial_is_matrix.py`, 168 tests) that were not committed to this archive; the scripts above reproduce the results they cover.
