@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 400" width="760" height="400">
+<rect width="760" height="400" fill="#fbf7ef"/>
+<polygon points="40.00,300.49 320.00,300.49 180.00,58.00" fill="#b91c1c" fill-opacity="1" stroke="none" stroke-width="1.5"/>
+<polygon points="115.00,182.58 245.00,182.58 180.00,70.00" fill="#d4a017" fill-opacity="1" stroke="#b91c1c" stroke-width="3"/>
+<polygon points="50.00,295.17 180.00,295.17 115.00,182.58" fill="#d4a017" fill-opacity="1" stroke="#b91c1c" stroke-width="3"/>
+<polygon points="180.00,295.17 310.00,295.17 245.00,182.58" fill="#d4a017" fill-opacity="1" stroke="#b91c1c" stroke-width="3"/>
+<text x="180.0" y="340.2" font-family="Georgia, serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#1f2937">Mitsuuroko — the Hōjō three scales</text>
+<text x="180.0" y="361.2" font-family="Georgia, serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#1f2937">three triangles, the centre left open</text>
+<polygon points="515.00,182.58 645.00,182.58 580.00,70.00" fill="#e0f2fe" fill-opacity="1" stroke="#1f2937" stroke-width="1.5"/>
+<polygon points="450.00,295.17 580.00,295.17 515.00,182.58" fill="#e0f2fe" fill-opacity="1" stroke="#1f2937" stroke-width="1.5"/>
+<polygon points="580.00,295.17 710.00,295.17 645.00,182.58" fill="#e0f2fe" fill-opacity="1" stroke="#1f2937" stroke-width="1.5"/>
+<polygon points="515.00,182.58 645.00,182.58 580.00,295.17" fill="#fde68a" fill-opacity="1" stroke="#1f2937" stroke-width="2"/>
+<text x="580.0" y="139.8" font-family="Georgia, serif" font-size="13" text-anchor="middle" font-weight="normal" fill="#1f2937">corner</text>
+<text x="515.0" y="252.4" font-family="Georgia, serif" font-size="13" text-anchor="middle" font-weight="normal" fill="#1f2937">corner</text>
+<text x="645.0" y="252.4" font-family="Georgia, serif" font-size="13" text-anchor="middle" font-weight="normal" fill="#1f2937">corner</text>
+<text x="580.0" y="204.0" font-family="Georgia, serif" font-size="13" text-anchor="middle" font-weight="bold" fill="#1f2937">core</text>
+<text x="580.0" y="219.0" font-family="Georgia, serif" font-size="10" text-anchor="middle" font-weight="normal" fill="#1f2937">Field Origin</text>
+<text x="580.0" y="340.2" font-family="Georgia, serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#1f2937">A face of TetA, pierced by TetB</text>
+<text x="580.0" y="361.2" font-family="Georgia, serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#1f2937">3 corner channels + 1 inverted core</text>
+</svg>

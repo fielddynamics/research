@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 420" width="760" height="420">
+<rect width="760" height="420" fill="#fbf7ef"/>
+<polygon points="155.00,120.62 225.00,120.62 190.00,60.00" fill="#d4a017" fill-opacity="1" stroke="#1f2937" stroke-width="1.2"/>
+<polygon points="120.00,181.24 190.00,181.24 155.00,120.62" fill="#d4a017" fill-opacity="1" stroke="#1f2937" stroke-width="1.2"/>
+<polygon points="190.00,181.24 260.00,181.24 225.00,120.62" fill="#d4a017" fill-opacity="1" stroke="#1f2937" stroke-width="1.2"/>
+<polygon points="155.00,120.62 225.00,120.62 190.00,181.24" fill="#b91c1c" fill-opacity="1" stroke="#1f2937" stroke-width="1.2"/>
+<polygon points="85.00,241.87 155.00,241.87 120.00,181.24" fill="#d4a017" fill-opacity="1" stroke="#1f2937" stroke-width="1.2"/>
+<polygon points="155.00,241.87 225.00,241.87 190.00,181.24" fill="#d4a017" fill-opacity="1" stroke="#1f2937" stroke-width="1.2"/>
+<polygon points="225.00,241.87 295.00,241.87 260.00,181.24" fill="#d4a017" fill-opacity="1" stroke="#1f2937" stroke-width="1.2"/>
+<polygon points="120.00,181.24 190.00,181.24 155.00,241.87" fill="#b91c1c" fill-opacity="1" stroke="#1f2937" stroke-width="1.2"/>
+<polygon points="190.00,181.24 260.00,181.24 225.00,241.87" fill="#b91c1c" fill-opacity="1" stroke="#1f2937" stroke-width="1.2"/>
+<polygon points="50.00,302.49 120.00,302.49 85.00,241.87" fill="#d4a017" fill-opacity="1" stroke="#1f2937" stroke-width="1.2"/>
+<polygon points="120.00,302.49 190.00,302.49 155.00,241.87" fill="#d4a017" fill-opacity="1" stroke="#1f2937" stroke-width="1.2"/>
+<polygon points="190.00,302.49 260.00,302.49 225.00,241.87" fill="#d4a017" fill-opacity="1" stroke="#1f2937" stroke-width="1.2"/>
+<polygon points="260.00,302.49 330.00,302.49 295.00,241.87" fill="#d4a017" fill-opacity="1" stroke="#1f2937" stroke-width="1.2"/>
+<polygon points="85.00,241.87 155.00,241.87 120.00,302.49" fill="#b91c1c" fill-opacity="1" stroke="#1f2937" stroke-width="1.2"/>
+<polygon points="155.00,241.87 225.00,241.87 190.00,302.49" fill="#b91c1c" fill-opacity="1" stroke="#1f2937" stroke-width="1.2"/>
+<polygon points="225.00,241.87 295.00,241.87 260.00,302.49" fill="#b91c1c" fill-opacity="1" stroke="#1f2937" stroke-width="1.2"/>
+<text x="190.0" y="344.5" font-family="Georgia, serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#1f2937">Uroko field, side 4: 16 scales</text>
+<text x="190.0" y="365.5" font-family="Georgia, serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#1f2937">10 point up (gold) · 6 point down (red) — every cell kept</text>
+<polygon points="535.00,120.62 605.00,120.62 570.00,60.00" fill="#d4a017" fill-opacity="1" stroke="#1f2937" stroke-width="1.2"/>
+<polygon points="500.00,181.24 570.00,181.24 535.00,120.62" fill="#d4a017" fill-opacity="1" stroke="#1f2937" stroke-width="1.2"/>
+<polygon points="570.00,181.24 640.00,181.24 605.00,120.62" fill="#d4a017" fill-opacity="1" stroke="#1f2937" stroke-width="1.2"/>
+<polygon points="535.00,120.62 605.00,120.62 570.00,181.24" fill="#fbf7ef" fill-opacity="1" stroke="#1f2937" stroke-width="1.2"/>
+<polygon points="465.00,241.87 535.00,241.87 500.00,181.24" fill="#d4a017" fill-opacity="1" stroke="#1f2937" stroke-width="1.2"/>
+<polygon points="535.00,241.87 605.00,241.87 570.00,181.24" fill="#fbf7ef" fill-opacity="1" stroke="#1f2937" stroke-width="1.2"/>
+<polygon points="605.00,241.87 675.00,241.87 640.00,181.24" fill="#d4a017" fill-opacity="1" stroke="#1f2937" stroke-width="1.2"/>
+<polygon points="500.00,181.24 570.00,181.24 535.00,241.87" fill="#fbf7ef" fill-opacity="1" stroke="#1f2937" stroke-width="1.2"/>
+<polygon points="570.00,181.24 640.00,181.24 605.00,241.87" fill="#fbf7ef" fill-opacity="1" stroke="#1f2937" stroke-width="1.2"/>
+<polygon points="430.00,302.49 500.00,302.49 465.00,241.87" fill="#d4a017" fill-opacity="1" stroke="#1f2937" stroke-width="1.2"/>
+<polygon points="500.00,302.49 570.00,302.49 535.00,241.87" fill="#d4a017" fill-opacity="1" stroke="#1f2937" stroke-width="1.2"/>
+<polygon points="570.00,302.49 640.00,302.49 605.00,241.87" fill="#d4a017" fill-opacity="1" stroke="#1f2937" stroke-width="1.2"/>
+<polygon points="640.00,302.49 710.00,302.49 675.00,241.87" fill="#d4a017" fill-opacity="1" stroke="#1f2937" stroke-width="1.2"/>
+<polygon points="465.00,241.87 535.00,241.87 500.00,302.49" fill="#fbf7ef" fill-opacity="1" stroke="#1f2937" stroke-width="1.2"/>
+<polygon points="535.00,241.87 605.00,241.87 570.00,302.49" fill="#fbf7ef" fill-opacity="1" stroke="#1f2937" stroke-width="1.2"/>
+<polygon points="605.00,241.87 675.00,241.87 640.00,302.49" fill="#fbf7ef" fill-opacity="1" stroke="#1f2937" stroke-width="1.2"/>
+<text x="570.0" y="344.5" font-family="Georgia, serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#1f2937">Sierpinski, two levels</text>
+<text x="570.0" y="365.5" font-family="Georgia, serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#1f2937">9 kept · 7 removed — the centre thrown away</text>
+</svg>
