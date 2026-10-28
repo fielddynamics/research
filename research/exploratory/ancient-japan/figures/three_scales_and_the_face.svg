@@ -13,8 +13,8 @@
 <text x="580.0" y="139.8" font-family="Georgia, serif" font-size="13" text-anchor="middle" font-weight="normal" fill="#1f2937">corner</text>
 <text x="515.0" y="252.4" font-family="Georgia, serif" font-size="13" text-anchor="middle" font-weight="normal" fill="#1f2937">corner</text>
 <text x="645.0" y="252.4" font-family="Georgia, serif" font-size="13" text-anchor="middle" font-weight="normal" fill="#1f2937">corner</text>
-<text x="580.0" y="204.0" font-family="Georgia, serif" font-size="13" text-anchor="middle" font-weight="bold" fill="#1f2937">core</text>
-<text x="580.0" y="219.0" font-family="Georgia, serif" font-size="10" text-anchor="middle" font-weight="normal" fill="#1f2937">Field Origin</text>
+<text x="580.0" y="204.0" font-family="Georgia, serif" font-size="13" text-anchor="middle" font-weight="bold" fill="#1f2937">coupling</text>
+<text x="580.0" y="219.0" font-family="Georgia, serif" font-size="10" text-anchor="middle" font-weight="normal" fill="#1f2937">channel</text>
 <text x="580.0" y="340.2" font-family="Georgia, serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#1f2937">A face of TetA, pierced by TetB</text>
-<text x="580.0" y="361.2" font-family="Georgia, serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#1f2937">3 corner channels + 1 inverted core</text>
+<text x="580.0" y="361.2" font-family="Georgia, serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#1f2937">3 corner channels + 1 inverted coupling channel</text>
 </svg>

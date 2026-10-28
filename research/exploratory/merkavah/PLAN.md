@@ -29,7 +29,7 @@ All of the following is fixed by $K = 4$ and $D = 3$ and stated in the documenta
 | Vertices | $2^D = 8$ | the cube $\{0,1\}^3$, split by parity into two groups of 4 |
 | Edges | $K \cdot D = 12$ | 6 per chamber; **these are the 12 face diagonals of the cube** (verified) |
 | Body diagonals | $K = 4$ | coupling axes through the Field Origin |
-| Field Origin | 1 | centre; the octahedral core $\text{TetA} \cap \text{TetB}$ |
+| Field Origin | 1 | the centre, where the four body diagonals cross: the coupling point of the two chambers (distinct from the shared octahedral region $\text{TetA} \cap \text{TetB}$) |
 | Total elements | $28 = V + E + F = K(K + D)$ | |
 | Polynomial states | $f(K,s) = 1 + sK + K^2$ | 21, 17, 13 |
 | Exchange | bidirectional | TetA ↔ TetB through the Field Origin; the SST is invertible |

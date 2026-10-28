@@ -21,7 +21,7 @@ As with the Merkavah programme, the study is comparative and structural. It make
 
 All of the following is stated in the documentation before any motif is examined:
 
-- **The face subdivision.** When TetB's vertex passes through a face of TetA along a body diagonal, it meets the face at its centroid. The face splits into four equal triangles: **three outer corner channels and one central inverted core**. The three corners are shared with the sibling faces and carry spatial coupling. The central triangle is unique to its face and couples through the Field Origin to the opposite chamber. This is the $3 + 1$ of the spacetime decomposition ([`08-face-structure-and-spin.md`](../../../docs/01-foundations/08-face-structure-and-spin.md)).
+- **The face subdivision.** When TetB's vertex passes through a face of TetA along a body diagonal, it meets the face at its centroid. The face splits into four equal triangles: **three outer corner channels and one central inverted coupling channel**. The three corners are shared with the sibling faces and carry spatial coupling. The central triangle is unique to its face and couples through the Field Origin to the opposite chamber. This is the $3 + 1$ of the spacetime decomposition ([`08-face-structure-and-spin.md`](../../../docs/01-foundations/08-face-structure-and-spin.md)).
 - **The channel count.** Four faces × four sub-channels = $K^2 = 16$.
 - **The recursion.** Three levels of subdivision give $4^3 = K^D = 64$ sub-channels ([`the_photonic_substrate_enterprise_full_thinking.md`](../../photonic/the_photonic_substrate_enterprise_full_thinking.md)).
 - **Full subdivision versus the Sierpinski triangle.** The two must be distinguished, because the distinction is the programme's sharpest test.

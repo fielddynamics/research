@@ -42,15 +42,15 @@ A second protective pattern belongs here too, because it comes back later. The *
 
 Now leave Kamakura for a moment.
 
-GFD starts from the tetrad, the local frame of four directions on which general relativity builds its coupling to matter. The four directions bound exactly two regions of space: a tetrahedron, called TetA, and its mirror image, TetB. The two interpenetrate to form a stellated octahedron, Kepler's *stella octangula*. Their shared heart, where both are present at once, is a small octahedron, the Field Origin.
+GFD starts from the tetrad, the local frame of four directions on which general relativity builds its coupling to matter. The four directions bound exactly two regions of space: a tetrahedron, called TetA, and its mirror image, TetB. The two interpenetrate to form a stellated octahedron, Kepler's *stella octangula*. At its exact centre, where the four body diagonals cross, is the Field Origin: the single coupling point where the two chambers meet and exchange.
 
 Look at a single face of TetA. The opposite tetrahedron does not stop short of it. A point of TetB pushes straight through the face along a body diagonal and emerges at the face's centre. Where it passes, it cuts the face into four equal triangles:
 - **three corner triangles**, pointing the same way as the face, each shared with the neighbouring faces of TetA. GFD reads these as the three spatial channels;
-- **one central triangle**, pointing the other way, unique to its face. GFD reads it as the coupling channel through which TetA exchanges with TetB, and hence as the time direction of the 3 + 1.
+- **one central triangle**, pointing the other way, unique to its face. GFD reads it as the coupling channel: it leads along the body diagonal, through the Field Origin at the centre, to the partner face of the opposite chamber. It is the time direction of the 3 + 1.
 
-The central triangle is not empty. It is precisely where the other chamber passes through. On the inner side it is a face of the octahedral Field Origin, and on the outer side it is the base of TetB's emerging point. (A computation confirms that exactly one quarter of the face, the central triangle, lies inside TetB.) It points the other way because it belongs to the mirror-image chamber.
+The central triangle is not empty. It is precisely where the other chamber passes through: it is the base of TetB's emerging point. (A computation confirms that exactly one quarter of the face, the central triangle, lies inside TetB.) It points the other way because it belongs to the mirror-image chamber. It is not itself the Field Origin; it is the port that opens onto it. Behind it, along the body diagonal, lies the centre of the whole figure, the one point through which every face's coupling channel passes.
 
-That is the *mitsuuroko*: three triangles pointing one way, and a fourth, inverted, at the centre, which looks like an absence and is in fact a window onto the other side.
+That is the *mitsuuroko*: three triangles pointing one way, and a fourth, inverted, at the centre, which looks like an absence and is in fact the doorway to the other side.
 
 ## The second scale
 
@@ -97,7 +97,7 @@ It would be easy to say too much here, so the limits come first.
 - **The first-step figure is universal.** It is the simplest way a triangle can close upon itself, and many cultures found it. The Anagni floor is the control that keeps the comparison honest.
 - **The Triforce is reception, not evidence.** It is a fine thing, but it is evidence only of how good the shape is.
 
-What the comparison does show is narrower, and more interesting for being exact. On every face of the stellated octahedron, the opposite chamber cuts the same figure as the Hōjō crest: three triangles and an inverted fourth that opens onto the Field Origin. The figure's natural continuation, the scale field that keeps every cell and colours it by orientation, partitions a side-four field into **10 and 6**. That is the same arithmetic that partitions each slice of the gravitational connection into its kept and discarded halves, and that GFD's polynomial produces at its two opposite states. The Sierpinski continuation does not: it gives 9 and 7.
+What the comparison does show is narrower, and more interesting for being exact. On every face of the stellated octahedron, the opposite chamber cuts the same figure as the Hōjō crest: three triangles and an inverted fourth, the coupling channel that leads through the Field Origin to the opposite chamber. The figure's natural continuation, the scale field that keeps every cell and colours it by orientation, partitions a side-four field into **10 and 6**. That is the same arithmetic that partitions each slice of the gravitational connection into its kept and discarded halves, and that GFD's polynomial produces at its two opposite states. The Sierpinski continuation does not: it gives 9 and 7.
 
 The question the research plan sets for the archives follows directly. It is a question of depth: does any dated Japanese object subdivide the centre too, keeping it as a cell of its own, or is the scale field a plain lattice that only happens to keep it? Either answer will be recorded.
 
