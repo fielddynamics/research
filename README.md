@@ -269,7 +269,7 @@ These programmes carry the framework's structures into new domains. They are kep
 | Folder | Contents |
 |---|---|
 | [`great-pyramid/`](research/exploratory/great-pyramid/) | **The Giza Field-Resonator Programme.** It applies GFD's scale invariance to the Great Pyramid: an apex body's local Field Origin lies at z*/h = 1 − 1/√2, and the King's Chamber floor sits on it to 0.8 in (Petrie's measurements; derived from the GFD action and confirmed by a field model). Start with the [findings](research/exploratory/great-pyramid/pyramid_portal_research/README.md#key-findings) and the [programme definition](research/exploratory/great-pyramid/pyramid_portal_research/PROGRAMME.md); a compendium, working notes and a tested Python package follow |
-| [`i-ching/`](research/exploratory/i-ching/) | π base-8 closure walk on the stellated octahedron, read through I-Ching trigram structure; traversal and tetragram analyzers |
+| [`i-ching/`](research/exploratory/i-ching/) | The I Ching and the stellated octahedron: trigrams as cube vertices, the trigram family as the TetA/TetB partition, Fu Xi opposites as body diagonals; the π base-8 hexagram walk and the BBP bridge |
 
 ### Other notes
 
