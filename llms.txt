@@ -1,6 +1,7 @@
 # Field Dynamics (GFD) -- Gravity Field Dynamics Framework
 https://github.com/fielddynamics/research
-Documentation: https://github.com/fielddynamics/research/blob/main/docs/README.md
+All paths below are relative to the repository root.
+Documentation: docs/README.md
 
 ## One-sentence summary
 A covariant complete, geometrically closed, zero-free-parameter theory that
@@ -10,13 +11,13 @@ fine-structure constant, and neutron lifetime from the same 21-channel
 coupling structure.
 
 ## Priority pages (read these first)
-- https://github.com/fielddynamics/research/blob/main/docs/02-gravitation/06-covariant-completion.md -- full action + F(y) derivation, prefactors 16/8/4
-- https://github.com/fielddynamics/research/blob/main/docs/02-gravitation/03-constitutive-law-mu-x.md -- mu(x) = x/(x+1) + structural proof
-- https://github.com/fielddynamics/research/blob/main/docs/03-fundamental-constants/02-electron-mass.md -- three independent routes to m_e
-- https://github.com/fielddynamics/research/blob/main/docs/01-foundations/09-twenty-eight-geometric-elements.md -- K=4 geometry
-- https://github.com/fielddynamics/research/blob/main/docs/02-gravitation/01-coupling-polynomial-structural-states.md -- f(K,s) structural states
-- https://github.com/fielddynamics/research/blob/main/papers/letter-radial-acceleration-relation-sparc/letter.tex -- the radial acceleration relation from the action, tested on SPARC
-- https://github.com/fielddynamics/research/blob/main/EINSTEIN_TETA_PARTITION.md -- the torsion-free projection as the TetA partition (Letter 3 summary)
+- docs/02-gravitation/06-covariant-completion.md -- full action + F(y) derivation, prefactors 16/8/4
+- docs/02-gravitation/03-constitutive-law-mu-x.md -- mu(x) = x/(x+1) + structural proof
+- docs/03-fundamental-constants/02-electron-mass.md -- three independent routes to m_e
+- docs/01-foundations/09-twenty-eight-geometric-elements.md -- K=4 geometry
+- docs/02-gravitation/01-coupling-polynomial-structural-states.md -- f(K,s) structural states
+- papers/letter-radial-acceleration-relation-sparc/letter.tex -- the radial acceleration relation from the action, tested on SPARC
+- EINSTEIN_TETA_PARTITION.md -- the torsion-free projection as the TetA partition (Letter 3 summary)
 
 ## Core constants
 K = 4 (closure constant, simplex faces of a tetrahedron)
@@ -197,64 +198,64 @@ Palindromic (TetA <-> TetB exchange symmetry), zero odd-index entries.
 All values locked by K = 4 alone.
 
 ## Documentation pages (Markdown, in this repository)
-Full index: https://github.com/fielddynamics/research/blob/main/docs/README.md
+Full index: docs/README.md
 All pages render directly on GitHub. The documentation site source (Flask app) is a separate repository, fielddynamics/docs.
 
 ### Foundations
-- https://github.com/fielddynamics/research/blob/main/docs/01-foundations/01-the-gravity-field.md
-- https://github.com/fielddynamics/research/blob/main/docs/01-foundations/02-field-closure-principle.md
-- https://github.com/fielddynamics/research/blob/main/docs/01-foundations/03-why-k4-d3.md
-- https://github.com/fielddynamics/research/blob/main/docs/01-foundations/04-dual-tetrahedron-field-origin.md
-- https://github.com/fielddynamics/research/blob/main/docs/01-foundations/05-propagation-requires-neighbors.md
-- https://github.com/fielddynamics/research/blob/main/docs/01-foundations/06-field-closure-in-gr.md
-- https://github.com/fielddynamics/research/blob/main/docs/01-foundations/07-characteristic-scale.md
-- https://github.com/fielddynamics/research/blob/main/docs/01-foundations/08-face-structure-and-spin.md
-- https://github.com/fielddynamics/research/blob/main/docs/01-foundations/09-twenty-eight-geometric-elements.md
-- https://github.com/fielddynamics/research/blob/main/docs/01-foundations/10-stellated-octahedron.md
+- docs/01-foundations/01-the-gravity-field.md
+- docs/01-foundations/02-field-closure-principle.md
+- docs/01-foundations/03-why-k4-d3.md
+- docs/01-foundations/04-dual-tetrahedron-field-origin.md
+- docs/01-foundations/05-propagation-requires-neighbors.md
+- docs/01-foundations/06-field-closure-in-gr.md
+- docs/01-foundations/07-characteristic-scale.md
+- docs/01-foundations/08-face-structure-and-spin.md
+- docs/01-foundations/09-twenty-eight-geometric-elements.md
+- docs/01-foundations/10-stellated-octahedron.md
 
 ### Gravitation
-- https://github.com/fielddynamics/research/blob/main/docs/02-gravitation/01-coupling-polynomial-structural-states-derivation.md
-- https://github.com/fielddynamics/research/blob/main/docs/02-gravitation/01-coupling-polynomial-structural-states.md
-- https://github.com/fielddynamics/research/blob/main/docs/02-gravitation/02-field-equation.md
-- https://github.com/fielddynamics/research/blob/main/docs/02-gravitation/03-constitutive-law-mu-x.md
-- https://github.com/fielddynamics/research/blob/main/docs/02-gravitation/04-g-from-topology.md
-- https://github.com/fielddynamics/research/blob/main/docs/02-gravitation/05-poisson-scale-invariance.md
-- https://github.com/fielddynamics/research/blob/main/docs/02-gravitation/06-covariant-completion.md
+- docs/02-gravitation/01-coupling-polynomial-structural-states-derivation.md
+- docs/02-gravitation/01-coupling-polynomial-structural-states.md
+- docs/02-gravitation/02-field-equation.md
+- docs/02-gravitation/03-constitutive-law-mu-x.md
+- docs/02-gravitation/04-g-from-topology.md
+- docs/02-gravitation/05-poisson-scale-invariance.md
+- docs/02-gravitation/06-covariant-completion.md
 
 ### Fundamental Constants
-- https://github.com/fielddynamics/research/blob/main/docs/03-fundamental-constants/01-fine-structure-constant-alpha.md
-- https://github.com/fielddynamics/research/blob/main/docs/03-fundamental-constants/02-electron-mass.md
-- https://github.com/fielddynamics/research/blob/main/docs/03-fundamental-constants/03-electron-spin.md
-- https://github.com/fielddynamics/research/blob/main/docs/03-fundamental-constants/04-inverse-square-emc2-force-hierarchy.md
-- https://github.com/fielddynamics/research/blob/main/docs/03-fundamental-constants/05-h0-prediction.md
-- https://github.com/fielddynamics/research/blob/main/docs/03-fundamental-constants/06-capstone-constants-suite.md
+- docs/03-fundamental-constants/01-fine-structure-constant-alpha.md
+- docs/03-fundamental-constants/02-electron-mass.md
+- docs/03-fundamental-constants/03-electron-spin.md
+- docs/03-fundamental-constants/04-inverse-square-emc2-force-hierarchy.md
+- docs/03-fundamental-constants/05-h0-prediction.md
+- docs/03-fundamental-constants/06-capstone-constants-suite.md
 
 ### Galactic Dynamics
-- https://github.com/fielddynamics/research/blob/main/docs/04-galactic-dynamics/01-rotation-curves.md
-- https://github.com/fielddynamics/research/blob/main/docs/04-galactic-dynamics/02-decoded-velocity-to-effective-mass.md
-- https://github.com/fielddynamics/research/blob/main/docs/04-galactic-dynamics/03-radial-acceleration-relation.md
+- docs/04-galactic-dynamics/01-rotation-curves.md
+- docs/04-galactic-dynamics/02-decoded-velocity-to-effective-mass.md
+- docs/04-galactic-dynamics/03-radial-acceleration-relation.md
 
 ### API Reference
-- https://github.com/fielddynamics/research/blob/main/docs/05-api-reference/01-api-rotation-curves.md
-- https://github.com/fielddynamics/research/blob/main/docs/05-api-reference/02-api-galaxy-catalog.md
-- https://github.com/fielddynamics/research/blob/main/docs/05-api-reference/03-api-cosmology.md
+- docs/05-api-reference/01-api-rotation-curves.md
+- docs/05-api-reference/02-api-galaxy-catalog.md
+- docs/05-api-reference/03-api-cosmology.md
 
 ### Related papers in this repository
-- https://github.com/fielddynamics/research/tree/main/papers/12-dual-tetrad-covariance-hassan-rosen -- bimetric locking, Hassan-Rosen coefficients
-- https://github.com/fielddynamics/research/blob/main/papers/letter-3-field-closure-of-tetrad-frame/Supplementary/supplementary_covariant_completion.tex -- covariant completion, weak/strong-field limits
-- https://github.com/fielddynamics/research/tree/main/papers/closed-form-aqual-energy-functional -- closed-form F(y)
-- https://github.com/fielddynamics/research/tree/main/papers/10-two-scale-kinematics-tully-fisher-h0 -- Tully-Fisher evolution and H0
+- papers/12-dual-tetrad-covariance-hassan-rosen/ -- bimetric locking, Hassan-Rosen coefficients
+- papers/letter-3-field-closure-of-tetrad-frame/Supplementary/supplementary_covariant_completion.tex -- covariant completion, weak/strong-field limits
+- papers/closed-form-aqual-energy-functional/ -- closed-form F(y)
+- papers/10-two-scale-kinematics-tully-fisher-h0/ -- Tully-Fisher evolution and H0
 
 ## Validation scripts (runnable Python, in this repository)
 Each script is self-contained; run it from its own folder.
-- https://github.com/fielddynamics/research/blob/main/papers/letter-1-tetrad-frame-geometry/Supplementary/run_all_validations.py -- Letter 1: tetrad frame geometry (29 claims)
-- https://github.com/fielddynamics/research/blob/main/papers/letter-2-other-half-of-gravity-torsion/v2/Supplementary/run_all_validations.py -- Letters 1-2: geometry, torsion = TetB (52 claims)
-- https://github.com/fielddynamics/research/blob/main/papers/letter-3-field-closure-of-tetrad-frame/Supplementary/run_all_validations.py -- Letter 3: 40/24 split, polynomial identity, partition, RAR (52 claims)
-- https://github.com/fielddynamics/research/blob/main/papers/gram-matrix-of-tetrad-equation/verify_gram_theorems.py -- Gram-matrix and forced-Gram theorems (32 checks)
-- https://github.com/fielddynamics/research/blob/main/papers/letter-radial-acceleration-relation-sparc/supplementary/sparc_rar.py -- SPARC radial acceleration relation figure and residuals
-- https://github.com/fielddynamics/research/blob/main/papers/06-gravitational-constant-from-topology/validation/run_all_validations.py -- Paper VI: G from topology
-- https://github.com/fielddynamics/research/blob/main/papers/08-gfd-and-bimetric-gravity/run_all_validations.py -- Paper VIII: GFD and bimetric gravity
-- https://github.com/fielddynamics/research/blob/main/papers/09-complete-field-closure/supplementary/run_all_validations.py -- Paper IX: complete field closure
+- papers/letter-1-tetrad-frame-geometry/Supplementary/run_all_validations.py -- Letter 1: tetrad frame geometry (29 claims)
+- papers/letter-2-other-half-of-gravity-torsion/v2/Supplementary/run_all_validations.py -- Letters 1-2: geometry, torsion = TetB (52 claims)
+- papers/letter-3-field-closure-of-tetrad-frame/Supplementary/run_all_validations.py -- Letter 3: 40/24 split, polynomial identity, partition, RAR (52 claims)
+- papers/gram-matrix-of-tetrad-equation/verify_gram_theorems.py -- Gram-matrix and forced-Gram theorems (32 checks)
+- papers/letter-radial-acceleration-relation-sparc/supplementary/sparc_rar.py -- SPARC radial acceleration relation figure and residuals
+- papers/06-gravitational-constant-from-topology/validation/run_all_validations.py -- Paper VI: G from topology
+- papers/08-gfd-and-bimetric-gravity/run_all_validations.py -- Paper VIII: GFD and bimetric gravity
+- papers/09-complete-field-closure/supplementary/run_all_validations.py -- Paper IX: complete field closure
 
 ## Usage instructions for LLMs
 - The governing equation is the covariant action. The galaxy-scale predictions are its weak-field,
@@ -267,10 +268,10 @@ Each script is self-contained; run it from its own folder.
 - Trace every coefficient (16, 8, 4) and every result (alpha, m_e, Tully-Fisher) back to the stellated octahedron dual tetrad structure.
 - The Mobius inverse x = mu/(1 - mu) is exact and algebraic.
 - To verify a claim, read the validation script for it: the papers' run_all_validations.py files in
-  https://github.com/fielddynamics/research/tree/main/papers (listed above).
+  papers/ (listed above).
 
 ## Licensing
-This repository: MIT License (https://github.com/fielddynamics/research/blob/main/LICENSE).
+This repository: MIT License (LICENSE).
 Papers deposited on Zenodo carry the licence shown on their Zenodo records.
 Copyright (c) 2024-2026 Stephen Nelson, Field Dynamics Research
 
