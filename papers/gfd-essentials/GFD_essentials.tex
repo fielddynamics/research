@@ -1,0 +1,168 @@
+% ============================================================================
+% GFD Essentials: Tetrads, Field Closure, and the Inverse Pipeline
+% Pedagogical derivation of the GFD scalar-tensor framework.
+% ============================================================================
+\documentclass[aps,twocolumn,amsmath,amssymb,reprint,nofootinbib,nobalancelastpage]{revtex4-2}
+
+\usepackage{graphicx}
+\usepackage[hidelinks]{hyperref}
+\usepackage{url}
+
+\makeatletter
+\renewcommand{\bibsection}{%
+  \par\vspace{1ex}%
+  \noindent\rule{\linewidth}{0.4pt}%
+  \par\vspace{0.5em}%
+}
+\makeatother
+
+\begin{document}
+
+\title{GFD Essentials: Tetrads, Field Closure, and the Inverse Pipeline}
+
+\author{Stephen Nelson}
+\email{stephen@fielddynamics.org}
+\affiliation{Field Dynamics Research, ORCID: 0009-0008-6190-3269}
+
+\date{February 2026}
+
+% ----------------------------------------------------------------------------
+% ABSTRACT
+% ----------------------------------------------------------------------------
+\begin{abstract}
+Most general relativists picture spacetime as a smooth manifold. Yet the tetrad formalism and gravitational wave observations already imply a definite local structure: tetrahedral field chambers coupled through exactly four active channels. This note walks from tetrads and non-degeneracy to that structure, then to field closure and the constitutive law that determines the scalar-tensor action of Gravity Field Dynamics \cite{Nelson2026}. The framework comprises the standard Poisson equation and the spherical limit of the scalar-tensor theory (SST), in which the constitutive law fixes the kinetic term. The inverse pipeline uses the SST and Poisson to decode observed velocity to effective mass $M_{\mathrm{dec}}(r)$, not Poisson alone. The aim is to close the gap between ``what every GR textbook already implies'' and the effective mass $M_{\mathrm{dec}}(r)$ and the vortex picture.
+\end{abstract}
+
+\maketitle
+
+\emph{Note to the reader.} Every result in Section~\ref{sec:tetrads} is drawn from the cited tetrad, bimetric, and topology literature. Section~\ref{sec:action} derives the kinetic function of the scalar-tensor action from the constitutive law derived from field-closure postulates \cite{Nelson2026}. The aim is to show how these established foundations lead naturally to Gravity Field Dynamics.
+
+% ----------------------------------------------------------------------------
+% 1. WHERE YOU ALREADY ARE: TETRADS TO FIELD CLOSURE
+% ----------------------------------------------------------------------------
+\section{Where you already are: tetrads to field closure}
+\label{sec:tetrads}
+
+To see where Gravity Field Dynamics comes from, start with what you already accept. The metric decomposes as $g_{\mu\nu} = \eta_{ab} e^a_\mu e^b_\nu$ (\cite{mtw1973}, \cite{wald1984}); the four basis vectors $e^a_\mu$ at each point are the tetrad, the unique local Minkowski frame satisfying the equivalence principle.
+
+LIGO adds one more fact. Gravitational waves propagate at $c$, so the field at one point influences its neighbours. The wave equation $\partial^2 h/\partial t^2 = c^2 \nabla^2 h$ means the Laplacian compares the field at a point to its immediate neighbours. The gravitational field therefore consists of locally coupled degrees of freedom. For that field to be well-defined, the local frame cannot have gaps or collapses. Mathematically that is the non-degeneracy condition $\det(g_{\mu\nu}) \neq 0$, or in tetrad language $\det(e^a_\mu) \neq 0$. So at every point the four basis vectors must be linearly independent and span the tangent space: four independent directions, no more, no less.
+
+In three spatial dimensions the minimal solid enclosing volume is the tetrahedron: $d+1=4$ faces (\cite{ziegler1995}). This is the geometry behind the tetrad ($k=4$ basis vectors), the ADM constraint count ($1+3=4$), and the tetrahedral coordination of condensed matter (\cite{barbieri1998}). Each local frame in GR is a tetrahedral field chamber with four coupling faces. We use this throughout.
+
+A concrete picture helps. When these tetrahedral chambers pack together in three-dimensional space, each interior chamber shares faces with exactly four neighbours. Of the 12 geometric nearest neighbours that touch each interior chamber (the sphere-packing coordination number), only four are open coupling channels, the four faces that transmit the field state; the remaining eight contacts are topologically closed. This count is the geometric consequence of putting tetrahedra into 3D space while satisfying $\det(e)\neq 0$ everywhere. The same geometry appears in condensed matter: each water molecule hydrogen-bonds to four neighbours, not twelve, because only four bonds close the local coordination shell. The gravitational field's local topology works the same way. A natural question is how flat coupling faces arise inside a spherically symmetric field. Soap foam makes this visible: when two bubbles meet, each enforces its own closure, and the contact creates a flat membrane, the coupling face. When four bubbles meet in three dimensions, the junction is tetrahedral; Plateau's laws require this as the minimal stable configuration~(\cite{taylor1976}).
+
+A single tetrahedral orientation, however, is unstable: stability analysis shows it produces a ghost mode with negative kinetic energy (\cite{alexander2014}). Ghost-free bimetric gravity removes the ghost by introducing a second tetrad with opposite orientation (\cite{hassan2012}). Spinors and the chiral structure of gravity and matter also require two sectors in the standard formulation (\cite{weinberg1995},\cite{geroch1968},\cite{ashtekar1986}). So we need two tetrahedra, not one. The only geometry that fits is two interpenetrating tetrahedra sharing a common centre, the stellated octahedron. That centre is the Field Origin, where the two sectors couple.
+
+The metric must remain non-degenerate, $\det(g) \neq 0$. In the tetrad picture that means every point maintains a closed tetrahedral frame that couples consistently to its four neighbours. That ongoing process is field closure.
+
+% ----------------------------------------------------------------------------
+% 2. FROM FIELD CLOSURE TO THE SCALAR-TENSOR ACTION
+% ----------------------------------------------------------------------------
+\section{From field closure to the scalar-tensor action}
+\label{sec:action}
+
+Section~\ref{sec:tetrads} established field closure: the continuous enforcement of a non-degenerate tetrahedral frame at every point. Field-closure postulates uniquely fix the constitutive law (the full derivation is given in \cite{Nelson2026}, Supplemental Material, Sec.~I). Three postulates determine it: (A1) local closure at the field boundary; (A2) lossless transmission; (A3) a single calibration scale $a_0$. Under these, $\mu(x) = x/(1+x)$ with $x = g_{\mathrm{t}}/a_0$ is the unique solution. The constant in the denominator is fixed by sector symmetry in the bimetric theory: the two metric sectors enter symmetrically (\cite{hassan2012}), so $\mu(x) + \mu(1/x) = 1$; for $\mu(x) = x/(n+x)$ that holds if and only if $n = 1$.
+
+The constitutive law tells you how the gravitational field responds at every acceleration. To do physics with it---predict orbits, lensing, cosmological evolution---you need a covariant theory in which this response fixes the kinetic term in the action. The route is the same as in any branch of physics where you know the response and need the energy.
+
+\subsection{From response to energy}
+\label{subsec:lagrangian}
+
+The constitutive law $\mu$ is the field's response function. The kinetic term $F$ in the scalar-tensor action is obtained by direct integration:
+\[
+\frac{dF}{dy} = \mu(\sqrt{y}) = \frac{\sqrt{y}}{1+\sqrt{y}},
+\]
+where $y = |\nabla\Phi|^2/a_0^2$. Integrating yields the unique kinetic function
+\begin{equation}
+F(y) = y - 2\sqrt{y} + 2\ln(1+\sqrt{y}).
+\label{eq:kinetic}
+\end{equation}
+This matches the form required by the bimetric interaction potential and the field-closure postulates.
+
+\subsection{Limit checks}
+\label{subsec:limits}
+
+Two regimes confirm the kinetic function behaves correctly.
+
+\emph{High acceleration} ($y \gg 1$, i.e.\ $|\nabla\Phi| \gg a_0$): the $\sqrt{y}$ and $\ln$ terms become negligible compared to $y$, so $F(y) \to y$. This is the standard kinetic term for a scalar field: ordinary gravity, Newtonian regime. The constitutive law gives $\mu \to 1$ and the field responds linearly.
+
+\emph{Low acceleration} ($y \ll 1$, i.e.\ $|\nabla\Phi| \ll a_0$): the leading term is $\tfrac{2}{3}y^{3/2}$. This nonlinear kinetic term produces the deep-MOND behaviour $g_{\mathrm{t}} \to \sqrt{g_{\mathrm{s}}\,a_0}$, where rotation curves flatten. The field's response is no longer proportional to the source; it amplifies weak fields.
+
+The logarithmic term $\ln(1+\sqrt{y})$ handles the crossover between these regimes smoothly.
+
+\subsection{The complete action}
+\label{subsec:complete}
+
+The kinetic function $F$ slots into a standard scalar-tensor framework. The complete action has four terms:
+\begin{equation}
+\begin{split}
+S_{\mathrm{ST}} = \int d^4x \sqrt{-g} \bigg[ \frac{R}{16\pi G} - \frac{a_0^2}{8\pi G}\,F(y) \\
+\quad - \frac{1}{4}e^{-2\Phi/c^2} F_{\mu\nu}F^{\mu\nu} + \mathcal{L}_{\mathrm{matter}} \bigg].
+\end{split}
+\label{eq:action}
+\end{equation}
+Each term has one job:
+
+\begin{itemize}
+\item $R/(16\pi G)$\,---\,\textbf{Einstein--Hilbert.} Standard general relativity. Governs the metric: the shape of spacetime. Present in every metric theory of gravity.
+\item $-\,a_0^2/(8\pi G)\,F(y)$\,---\,\textbf{Scalar sector.} The kinetic function $F$ is fixed by the constitutive law; it governs how the scalar field $\Phi$ responds to matter. At high acceleration it reduces to the standard kinetic term; at low acceleration it produces the amplification that flattens rotation curves. No free functions remain.
+\item $-\tfrac{1}{4}\,e^{-2\Phi/c^2}\,F_{\mu\nu}F^{\mu\nu}$\,---\,\textbf{Electromagnetic coupling.} Photons see an effective metric modified by $e^{-2\Phi/c^2}$. This disformal coupling recovers the full gravitational lensing deflection $\theta = 4GM/(rc^2)$: the factor of two beyond the Newtonian value that GR predicts and observations confirm. Without this term, lensing would be half the observed value.
+\item $\mathcal{L}_{\mathrm{matter}}$\,---\,\textbf{Matter.} Ordinary matter, minimally coupled to the metric. Stars, gas, dust: everything on the right-hand side of Einstein's equations.
+\end{itemize}
+
+\subsection{From the action to the two field equations}
+\label{subsec:spherical}
+
+Vary this action with respect to $\Phi$ in the spherically symmetric, static limit. The scalar field equation separates into two parts. The source term is the standard Poisson equation,
+\begin{equation}
+\nabla^2\Phi = 4\pi G\,\rho,
+\end{equation}
+with $G$ the Newtonian gravitational constant (CODATA). The equation introduces no free parameters beyond $G$. The response term is the algebraic transition from the SST,
+\begin{equation}
+g_{\mathrm{s}} = \frac{g_{\mathrm{t}}^2}{a_0 + g_{\mathrm{t}}},
+\label{eq:transition}
+\end{equation}
+relating the source acceleration $g_{\mathrm{s}}$ (from Poisson) to the total acceleration $g_{\mathrm{t}}$ that governs circular orbits. At high acceleration, $g_{\mathrm{t}} \to g_{\mathrm{s}}$ (Newtonian); at low acceleration, $g_{\mathrm{t}} \to \sqrt{g_{\mathrm{s}}\,a_0}$.
+
+These two field equations, the Poisson equation and the SST transition, define the Gravity Field Dynamics framework \cite{Nelson2026}. They are the spherical limit of the action derived above, not independent postulates. The framework rests on these two equations and the constants $G$ and $a_0$; both are fixed by independent measurement, not by fit, and no other gravitational parameters are introduced. The inverse pipeline uses both: the inverse SST transition (observed $v \to g_{\mathrm{t}} \to g_{\mathrm{s}}$) and then Poisson ($g_{\mathrm{s}} \to M_{\mathrm{dec}}$). From them, the effective mass $M_{\mathrm{dec}}(r)$ follows as described in Section~\ref{sec:inverse}.
+
+% ----------------------------------------------------------------------------
+% 3. THE INVERSE PIPELINE AND EFFECTIVE MASS
+% ----------------------------------------------------------------------------
+\section{The inverse pipeline and effective mass}
+\label{sec:inverse}
+
+Because both relations are algebraic in the spherical case, they can be inverted. From observed $v(r)$, kinematics gives $g_{\mathrm{t}} = v^2/r$. The inverse SST transition gives $g_{\mathrm{s}} = g_{\mathrm{t}}^2/(a_0 + g_{\mathrm{t}})$; the Poisson equation then gives the effective mass at radius $r$. So the decode uses the SST (spherical limit) and Poisson together, not Poisson alone. The result is the single closed-form expression:
+\begin{equation}
+M_{\mathrm{dec}}(r) = \frac{r\,v^4}{G\,(a_0\,r + v^2)}.
+\label{eq:Mdec}
+\end{equation}
+
+The quantity $M_{\mathrm{dec}}(r)$ is the \textbf{effective mass}: the mass-equivalent of the gravitational field strength at radius $r$ as experienced by an exterior observer (the mass that would produce this field through the SST and Poisson equations). It is decoded from observed velocity using the inverse SST transition and Poisson; without the SST step, one would get only the Newtonian $M = v^2 r/G$. It is defined only over the range where observed velocity data exist; the pipeline returns $M_{\mathrm{dec}}(r)$ at radii where $v(r)$ is measured or interpolated. Comparison to baryonic mass is the diagnostic. The rotation curve and the effective mass profile are two views of the same field: measure one, you infer the other.
+
+Given only the observed radii and velocities and the two constants $G$ (CODATA) and $a_0 = 1.2\times10^{-10}$~m/s$^2$ (standard value; \cite{Milgrom83}), the pipeline runs without a mass model. From a mass distribution you get the rotation curve (forward); from the observed rotation curve you get the effective mass profile (inverse). Nelson \cite{Nelson2026} applies this equation to the Milky Way and M33. The decoded effective mass lands near the independently inferred baryonic mass to within a factor of order unity, with no dark matter halo. At the outermost measured radii the decoded effective mass remains many sigma below the $\Lambda$CDM enclosed mass. The velocity curves can look similar across frameworks; the mass implications are radically different.
+
+% ----------------------------------------------------------------------------
+% 4. WHEN EFFECTIVE AND PHOTOMETRIC MASS DIFFER: THE VORTEX PICTURE
+% ----------------------------------------------------------------------------
+\section{When effective and photometric mass differ: the vortex picture}
+\label{sec:vortex}
+
+In some galaxies the effective mass decoded from velocity falls below the photometric baryonic mass. That outcome is expected rather than anomalous. In general relativity, spacetimes with nontrivial topology (e.g.\ Ellis drainhole solutions \cite{Ellis73}, Einstein--Rosen bridges \cite{Einstein35}) permit an exterior gravitational field that is not uniquely determined by the exterior matter distribution. The interior geometry can sustain or modify the field that governs the rotation; baryons in the exterior trace the resulting dynamics but do not uniquely set their strength. A mismatch between tracer-inferred mass and effective field strength is therefore generic when the topology includes an interior that contributes to the observed dynamics.
+
+Because the inverse pipeline decodes effective mass from observed velocity with no mass model, the difference between photometric and velocity-decoded mass is well defined at each radius: $\Delta M_{\mathrm{eff}}(r) = M_{\mathrm{phot}}(r) - M_{\mathrm{dec}}(r)$. That difference measures the gap between exterior baryonic mass and the effective mass inferred from the field, i.e.\ the additional field strength sustained by the interior topology. $\Delta M_{\mathrm{eff}}(r)$ follows from the kinematics; it quantifies the gravitational power output sustained by the interior topology. The relationship is analogous to a fluid vortex: tracers follow the flow but do not determine the power output of the drain beneath. When the interior is quiet, the effective mass matches the baryons; when it is active, the mass deficit quantifies the topological contribution. That picture ties the tetrahedral interior chamber and Field Origin to the astrophysical result: the interior is the throat; the exterior is where we measure rotation; the inverse pipeline returns the same equation in both regimes.
+
+% ----------------------------------------------------------------------------
+% 5. SUMMARY
+% ----------------------------------------------------------------------------
+\section{Summary}
+\label{sec:summary}
+
+One path runs from tetrads to the inverse pipeline with no missing steps. (1) GR uses tetrads; LIGO shows the field propagates and is locally coupled. (2) Non-degeneracy $\det(e)\neq 0$ implies four independent directions in 3D, hence a tetrahedral chamber. (3) Packing forces $k=4$ active channels; eight contacts are closed. (4) Stability and spinors require two tetrahedra, giving the stellated octahedron and the Field Origin. (5) Field closure is the continuous enforcement of a closed tetrahedral frame and consistent coupling. (6) Field-closure postulates and sector symmetry uniquely fix $\mu(x)=x/(1+x)$; the constitutive law integrates to the kinetic function $F(y)$. (7) The scalar-tensor action assembles Einstein--Hilbert, scalar sector, electromagnetic coupling, and matter. (8) The spherical static limit gives Poisson and the SST transition. (9) The inverse uses the SST and Poisson to decode observed $v(r)$ to $M_{\mathrm{dec}}(r) = r v^4 / (G(a_0 r + v^2))$, not Poisson alone. (10) When decoded and photometric mass differ, $\Delta M_{\mathrm{eff}}(r)$ measures the power output of the interior topology.
+
+% ----------------------------------------------------------------------------
+% REFERENCES
+% ----------------------------------------------------------------------------
+\bibliography{GFD_essentials}
+
+\end{document}
