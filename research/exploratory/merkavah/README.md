@@ -5,7 +5,7 @@ Exploratory work. A comparative structural study of the *merkavah*, the chariot 
 | Document | Contents |
 |---|---|
 | [`PLAN.md`](PLAN.md) | The research plan: sources in three layers (Ezekiel; rabbinic and mystical literature, Maimonides and *Sefer Yetzirah*; reception history), the correspondence register, method and controls, phases |
-| [`CORE_THINKING.md`](CORE_THINKING.md) | Every closure a merkavah. Under GFD's scale invariance every bounded closure carries the same two-chambered structure: the *form chariot* of a body's geometry and the *field chariot* of radius $r_t = \sqrt{GM/a_0}$ (6.24 m for a 70 kg human), set beside "the patriarchs are the chariot" and *Sefer Yetzirah*'s world–year–man structure |
+| [`CORE_THINKING.md`](CORE_THINKING.md) | A merkavah of merkavot. In the photonic-substrate reading of GFD, the photon is the elementary merkavah, gravity is how light packs (64 photonic merkavot per gravity field, the form a fixed point of the tiling), and matter is trapped light. A human's gravity field is a merkavah, a vehicle about 12.5 m across, composed of photonic merkavot and nested within the Earth's. Set beside light before the luminaries, Ezekiel's chariot of light, the garments of light and "the patriarchs are the chariot" |
 | [`python/`](python/) | `transition_radius.py`, the field-chariot radii from the electron to the galaxy, with tests |
 
 Strongest lead so far: *Sefer Yetzirah* 5 assigns the twelve simple letters to "twelve diagonal boundaries" of space. The twelve edges of the stellated octahedron are exactly the twelve face diagonals of the cube (PLAN.md, C1).

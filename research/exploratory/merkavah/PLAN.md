@@ -102,7 +102,7 @@ Each candidate is classified before testing:
 | C9 | Chariot = the structure beneath nature | Maimonides, MT YT 2:11, 4:10; *Guide* intro, 3:1–7 | GFD's claim that the stellated octahedron underlies physical law | Framing | Not a correspondence. It sets the register of the study. |
 | C10 | Ezekiel 10:14 changes the ox to a cherub | Ezek 10 | None expected | Control | Any correspondence built on the four face identities must survive the variant, or be dropped. |
 
-Four further entries (C11–C14), on scale invariance and the human chariot, are set out in [`CORE_THINKING.md`](CORE_THINKING.md) §6: one structure across world, year and man in *Sefer Yetzirah*; "the patriarchs are the chariot" (*Bereshit Rabbah* 47); the twelve simple letters in the world and in man, as a control on C1; and the chariot as a vehicle submitted to its rider.
+Seven further entries (C11–C17), on light and the human merkavah, are set out in [`CORE_THINKING.md`](CORE_THINKING.md) §5: one structure across world, year and man in *Sefer Yetzirah*; "the patriarchs are the chariot" (*Bereshit Rabbah* 47); the twelve simple letters in the world and in man, as a control on C1; the chariot as a vehicle submitted to its rider; light made before the luminaries (Genesis 1; *Ḥagigah* 12a); the chariot described wholly in light (Ezekiel 1); and the garments of light (*Bereshit Rabbah* 20:12).
 
 Features with no GFD counterpart are recorded rather than discarded: the eyes on the rims, the expanse, the throne and human likeness, *ḥashmal*, the 32 paths, the 231 gates and the seven palaces. A credible correspondence register shows what does not fit.
 
@@ -122,8 +122,8 @@ Features with no GFD counterpart are recorded rather than discarded: the eyes on
 | **0. Sources** | Source register; verse tables for Ezekiel 1 and 10 and *Sefer Yetzirah* 1, 2 and 5 with Hebrew key terms (*ḥayyot*, *ofanim*, *ratzo va-shov*, *alakhson*, *gevulim*); commentators for C1 and C6 | `00_sources/SOURCES.md` |
 | **1. Geometry** | `merkavah_geometry.py` with tests: the §2 inventory; the 12 edges as cube face diagonals; the hexagram projection along a body diagonal; the $S_3$ axis permutations and the six directions; $4 \times 4$ channel counts | `python/` + tests |
 | **2. Register** | Correspondence register C1–C10 with criteria, class, competing readings and outcome; the look-elsewhere computation | `01_correspondences/REGISTER.md` |
-| **3. The photon** | State "the photon is a stellated octahedron" operationally from the exterior-algebra note: what corresponds to the two polarisations and the two chambers, what is predicted, what would count against it | `02_photon/PHOTON_STRUCTURE.md` |
-| **2b. Scale** | Every closure a merkavah: the form chariot (P1 generalised to non-apex bodies, the human case) and the field chariot ($r_t = \sqrt{GM/a_0}$, from the electron to the galaxy); embedding in an external field | [`CORE_THINKING.md`](CORE_THINKING.md); `python/transition_radius.py` (started) |
+| **3. The photon (moves first)** | State "the photon is a stellated octahedron" operationally from the exterior-algebra note: what corresponds to the two polarisations and the two chambers, what is predicted, what would count against it | `02_photon/PHOTON_STRUCTURE.md` |
+| **2b. The human merkavah** | A merkavah of merkavot: the photon as the elementary merkavah, the 64-fold hierarchy, the human gravity field as a vehicle of photonic merkavot ($r_t = \sqrt{GM/a_0}$ = 6.24 m), nesting, and the body's own Field Origin | [`CORE_THINKING.md`](CORE_THINKING.md); `python/transition_radius.py` (started) |
 | **4. Synthesis** | One document: what corresponds exactly, what corresponds structurally, what is interpretive, what does not fit | `MERKAVAH_SYNTHESIS.md`, linked from the exploratory README |
 
 The strongest single item is **C1**, so Phases 0–2 begin there. It is a textual claim about twelve *diagonal* boundaries, it has a long and contested interpretive history, and the GFD geometry offers a reading in which the word is meant literally.
@@ -140,7 +140,7 @@ The strongest single item is **C1**, so Phases 0–2 begin there. It is a textua
 research/exploratory/merkavah/
 ├── README.md                    programme summary and findings (after Phase 2)
 ├── PLAN.md                      this document
-├── CORE_THINKING.md             every closure a merkavah: form and field chariots
+├── CORE_THINKING.md             a merkavah of merkavot: light, the hierarchy, the human vehicle
 ├── 00_sources/SOURCES.md
 ├── 01_correspondences/REGISTER.md
 ├── 02_photon/PHOTON_STRUCTURE.md
