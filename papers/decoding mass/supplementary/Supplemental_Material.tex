@@ -1,0 +1,66 @@
+% ============================================================================
+% Supplemental Material: GFD Letter (derivation, uniqueness, robustness)
+% Accompanies: Gravity Field Dynamics: Decoding mass from observed rotation curves
+% ============================================================================
+\documentclass[aps,amsmath,amssymb,reprint,nofootinbib]{revtex4-2}
+
+\usepackage[hidelinks]{hyperref}
+
+% Single clean rule above references (same as letter.tex); refs in column 1 only on page 2
+\makeatletter
+\renewcommand{\bibsection}{%
+  \par\vspace{1ex}%
+  \noindent\rule{\linewidth}{0.4pt}%
+  \par\vspace{0.5em}%
+}
+\let\@oldthebibliography\thebibliography
+\let\@oldendthebibliography\endthebibliography
+\renewcommand{\thebibliography}[1]{\begin{minipage}[t]{\columnwidth}\@oldthebibliography{#1}}
+\renewcommand{\endthebibliography}{\@oldendthebibliography\end{minipage}}
+\makeatother
+
+\begin{document}
+
+\title{Supplemental Material: Gravity Field Dynamics: Decoding mass from observed rotation curves}
+
+\author{Stephen Nelson}
+\email{stephen@fielddynamics.org}
+\affiliation{Field Dynamics Research, ORCID: 0009-0008-6190-3269}
+
+\date{February 2026}
+
+\maketitle
+
+\noindent\textbf{Capsule Summary.}
+This document establishes the uniqueness of the constitutive law under field-closure postulates, states the relation of the Letter equations to the parent covariant theory, and provides sensitivity analysis for the kinematic inversion.
+
+\section{Uniqueness of the constitutive law}
+\label{sec:uniqueness}
+
+The main Letter uses the relation $\mu(x) = x/(1+x)$ with $x = g_{\mathrm{t}}/a_0$, which in form coincides with the ``simple'' MOND interpolating function used in many rotation-curve fits. The important distinction is one of status, not shape. In phenomenological MOND, $\mu$ is typically chosen from a family of interpolating functions. Here it is not an ansatz: it is uniquely fixed by field-closure postulates at the boundary $\Sigma$.
+
+Three postulates determine the constitutive response: (A1) local closure at the field boundary (equations close without external degrees of freedom); (A2) lossless transmission (no extra dissipation channel); (A3) a single calibration scale ($a_0$). Under these postulates, $\mu(x) = x/(1+x)$ is the unique solution. Other forms (e.g.\ $\mu = x/\sqrt{1+x^2}$, the ``standard'' MOND interpolant) correspond to different closure assumptions and remain testable against data. So $\mu$ is not a fitted choice; it is the unique form under these postulates.
+
+A second route to the same result uses detailed balance and symmetry at the closure boundary. The field partitions into a resolved fraction $\varepsilon$ (transmitted) and an unresolved fraction $1 - \varepsilon$ (saturated). At equilibrium, the resolution rate scales as $x(1-\varepsilon)$ and the relaxation rate as $\varepsilon$; balancing them gives $\varepsilon = x/(1+x)$, so $\mu(x) \equiv \varepsilon(x) = x/(1+x)$.
+
+It remains to fix the constant in the denominator. In the ghost-free bimetric theory, the two metric sectors enter the interaction potential symmetrically \cite{hassan2012}. The interaction vertex --- where both metrics couple at a single spacetime event --- contributes an additive structural constant to the constitutive law. If the constitutive law respects this sector symmetry so that the resolved and unresolved fractions are complementary under exchange, $\mu(x) + \mu(1/x) = 1$ with $x = g_{\mathrm{t}}/a_0$, then for the one-parameter family $\mu(x) = x/(n+x)$, this holds if and only if $n = 1$.
+
+Our constitutive law therefore coincides with the commonly used ``simple'' MOND interpolant, but here it is uniquely determined by field-closure postulates rather than chosen. The claim is: unique under postulates A1, A2, and A3. This result explains retrospectively why the ``simple'' interpolant performs well in rotation-curve fits.
+
+\section{Relation to covariant theory}
+\label{sec:limit}
+
+The two equations used in the Letter (Poisson and algebraic transition) are the spherically symmetric limit of a covariant scalar-tensor theory constructed within the tetrad formulation of general relativity and ghost-free bimetric gravity (\cite{mtw1973,wald1984}, \cite{hassan2012}). In that theory, the kinetic function $F$ in the scalar-tensor action (Letter Eq.\ 2) is fixed by the constitutive law: $\mu(\sqrt{y}) = dF/dy$ with $y = |\nabla\Phi|^2/a_0^2$, yielding $F(y) = y - 2\sqrt{y} + 2\ln(1+\sqrt{y})$. No free parameters beyond $G$ and $a_0$ enter the spherically symmetric limit. The full covariant derivation, including the coupling structure between the two metric sectors and the determination of $F$ from the bimetric action, will be presented in a dedicated paper. In this Letter the content under evaluation is the two field equations and the inverse pipeline they define.
+
+\section{Uncertainty and robustness}
+\label{sec:robustness}
+
+The inverse pipeline uses $M_{\mathrm{dec}}(r) = r v^4 / (G(a_0 r + v^2))$. The $v^4$ factor amplifies measurement noise in the observed velocity. To reduce point-to-point scatter without changing the large-scale profile, a single fixed Gaussian smoothing (width equal to 6.2\% of the radial span) is applied to the observed velocities before decoding. The value 6.2\% is fixed identically for every galaxy and is not tuned per object.
+
+How sensitive are the decoded mass profiles to this choice? Pipeline runs with smoothing fraction 4\%, 6.2\%, and 10\% give: for the Milky Way at 25 kpc, $M_{\mathrm{dec}}$ in the range $\sim 6.34\times10^{10}$ to $\sim 6.95\times10^{10}\,M_\odot$ (range about $+9.6\%$); at 50 kpc, $\sim 5.80\times10^{10}$ to $\sim 6.10\times10^{10}\,M_\odot$ (range about $+5.2\%$). For M33 at 17 kpc, $M_{\mathrm{dec}}$ runs from $\sim 1.35\times10^{10}$ to $\sim 1.39\times10^{10}\,M_\odot$ (range about $-3.1\%$). Varying the smoothing fraction from 4\% to 10\% therefore shifts the decoded masses by $\le 10\%$ (MW) and $\le 3\%$ (M33) at the reference radii. The decoded mass profiles and their comparison to baryonic mass are stable over this range.
+
+At the outermost measured radii, where velocity uncertainties are largest, the decoded effective mass remains $6.4\sigma$ (MW, 50 kpc) and $17.2\sigma$ (M33, 17 kpc) below the $\Lambda$CDM enclosed mass. The main conclusion (effective mass consistent with baryonic mass and far below the $\Lambda$CDM mass budget) is thus robust to the smoothing choice and is not an artifact of the 6.2\% value.
+
+\bibliography{../letter}
+
+\end{document}

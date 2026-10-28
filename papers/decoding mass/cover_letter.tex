@@ -1,0 +1,40 @@
+% ============================================================================
+% Cover letter: Gravity Field Dynamics (Letter submission, MNRAS)
+% ============================================================================
+\documentclass[11pt]{letter}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{url}
+
+% Left-align closing and signature (letter class can center them otherwise)
+\setlength{\longindentation}{0pt}
+\setlength{\indentedwidth}{\textwidth}
+
+\signature{Stephen Nelson\\Field Dynamics Research\\ORCID: 0009-0008-6190-3269\\stephen@fielddynamics.org}
+\address{Stephen Nelson\\Field Dynamics Research\\stephen@fielddynamics.org}
+
+\begin{document}
+
+\begin{letter}{The Editor\\Monthly Notices of the Royal Astronomical Society}
+
+\opening{Dear Editor,}
+
+I am writing to submit the enclosed manuscript, ``Gravity Field Dynamics: Decoding mass from observed rotation curves,'' for consideration as a Letter in MNRAS.
+
+The manuscript presents a closed-form kinematic inversion: given an observed rotation curve and two constants ($G$ and $a_0$), the formula $M_{\mathrm{dec}}(r) = r\,v^4 / [G(a_0\,r + v^2)]$ returns the effective enclosed mass at each radius, with no mass model, no mass-to-light ratio, and no dark matter halo parameters. The inversion is algebraically exact, introduces zero free parameters, and can be applied to any galaxy with a measured rotation curve.
+
+I apply this pipeline to four galaxies: the Milky Way, M33, NGC~3198, and CamB. For the Milky Way and M33, the velocity-decoded effective mass is consistent with independently inferred baryonic mass within a factor of order unity, while $\Lambda$CDM requires several times more mass in halos to match the same velocities. For CamB, where the decoded mass falls below the photometric value, the difference is operationally well defined and is interpreted within the framework as a contribution from nontrivial spacetime topology. The same equation, the same $G$, and the same $a_0$ are used throughout; no gravitational parameters are fitted to any galaxy.
+
+This is not another modified-gravity model that predicts rotation curves from an assumed mass distribution. It is a kinematic tool that inverts the problem: from observed velocity alone, the equations yield an effective mass profile. Standard approaches require a mass model to obtain mass from rotation; here the same equations run both ways. The inverse pipeline is the primary empirical content.
+
+The two field equations (Poisson and an algebraic transition relation) are introduced as the spherically symmetric limit of a covariant scalar-tensor theory constructed within the tetrad formulation of general relativity and ghost-free bimetric gravity. In this Letter they are presented and evaluated as an axiomatic kinematic framework; the full covariant derivation is deferred to a dedicated paper. Supplemental Material accompanies the manuscript and provides a uniqueness proof for the constitutive law, the relation to the parent covariant theory, and a robustness analysis of the kinematic inversion.
+
+A Letter is appropriate because the claim is narrow (algebraically invertible field equations, zero free parameters, mass from velocity alone), immediately testable (e.g.\ via the SPARC catalog of 175 galaxies with uniform photometry and measured rotation curves), and best communicated in a short format. The empirical result and its testability do not depend on the longer theoretical treatment.
+
+All rotation curve data are from the published literature. Code to regenerate all figures is provided with the submission. I confirm that this work is original, has not been published before, and is not being considered for publication elsewhere.
+
+\closing{Sincerely,}
+
+\end{letter}
+
+\end{document}

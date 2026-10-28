@@ -1,0 +1,63 @@
+\begin{thebibliography}{}
+\makeatletter
+\relax
+\def\mn@urlcharsother{\let\do\@makeother \do\$\do\&\do\#\do\^\do\_\do\%\do\~}
+\def\mn@doi{\begingroup\mn@urlcharsother \@ifnextchar [ {\mn@doi@}
+  {\mn@doi@[]}}
+\def\mn@doi@[#1]#2{\def\@tempa{#1}\ifx\@tempa\@empty \href
+  {http://dx.doi.org/#2} {doi:#2}\else \href {http://dx.doi.org/#2} {#1}\fi
+  \endgroup}
+\def\mn@eprint#1#2{\mn@eprint@#1:#2::\@nil}
+\def\mn@eprint@arXiv#1{\href {http://arxiv.org/abs/#1} {{\tt arXiv:#1}}}
+\def\mn@eprint@dblp#1{\href {http://dblp.uni-trier.de/rec/bibtex/#1.xml}
+  {dblp:#1}}
+\def\mn@eprint@#1:#2:#3:#4\@nil{\def\@tempa {#1}\def\@tempb {#2}\def\@tempc
+  {#3}\ifx \@tempc \@empty \let \@tempc \@tempb \let \@tempb \@tempa \fi \ifx
+  \@tempb \@empty \def\@tempb {arXiv}\fi \@ifundefined
+  {mn@eprint@\@tempb}{\@tempb:\@tempc}{\expandafter \expandafter \csname
+  mn@eprint@\@tempb\endcsname \expandafter{\@tempc}}}
+
+\bibitem[\protect\citeauthoryear{{Begeman}, {Broeils}  \& {Sanders}}{{Begeman}
+  et~al.}{1991}]{Begeman91}
+{Begeman} K.~G.,  {Broeils} A.~H.,   {Sanders} R.~H.,  1991, \mn@doi [MNRAS]
+  {10.1093/mnras/249.3.523}, 249, 523
+
+\bibitem[\protect\citeauthoryear{{Corbelli} \& {Salucci}}{{Corbelli} \&
+  {Salucci}}{2000}]{Corbelli00}
+{Corbelli} E.,  {Salucci} P.,  2000, \mn@doi [MNRAS]
+  {10.1046/j.1365-8711.2000.03075.x}, 311, 441
+
+\bibitem[\protect\citeauthoryear{{Einstein} \& {Rosen}}{{Einstein} \&
+  {Rosen}}{1935}]{Einstein35}
+{Einstein} A.,  {Rosen} N.,  1935, \mn@doi [Phys. Rev.]
+  {10.1103/PhysRev.48.73}, 48, 73
+
+\bibitem[\protect\citeauthoryear{{Ellis}}{{Ellis}}{1973}]{Ellis73}
+{Ellis} H.~G.,  1973, \mn@doi [J. Math. Phys.] {10.1063/1.1666161}, 14, 104
+
+\bibitem[\protect\citeauthoryear{{Hassan} \& {Rosen}}{{Hassan} \&
+  {Rosen}}{2012}]{hassan2012}
+{Hassan} S.~F.,  {Rosen} R.~A.,  2012, JHEP, 02, 126
+
+\bibitem[\protect\citeauthoryear{{Lelli}, {McGaugh}  \& {Schombert}}{{Lelli}
+  et~al.}{2016}]{Lelli16}
+{Lelli} F.,  {McGaugh} S.~S.,   {Schombert} J.~M.,  2016, \mn@doi [AJ]
+  {10.3847/0004-6256/152/6/157}, 152, 157
+
+\bibitem[\protect\citeauthoryear{{McMillan}}{{McMillan}}{2017}]{McMillan17}
+{McMillan} P.~J.,  2017, \mn@doi [MNRAS] {10.1093/mnras/stw2759}, 465, 76
+
+\bibitem[\protect\citeauthoryear{{Milgrom}}{{Milgrom}}{1983}]{Milgrom83}
+{Milgrom} M.,  1983, \mn@doi [ApJ] {10.1086/161130}, 270, 365
+
+\bibitem[\protect\citeauthoryear{{Misner}, {Thorne}  \& {Wheeler}}{{Misner}
+  et~al.}{1973}]{mtw1973}
+{Misner} C.~W.,  {Thorne} K.~S.,   {Wheeler} J.~A.,  1973, Gravitation.
+W. H. Freeman, San Francisco
+
+\bibitem[\protect\citeauthoryear{{Wald}}{{Wald}}{1984}]{wald1984}
+{Wald} R.~M.,  1984, General Relativity.
+University of Chicago Press, Chicago
+
+\makeatother
+\end{thebibliography}
