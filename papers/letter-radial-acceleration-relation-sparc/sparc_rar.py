@@ -100,7 +100,20 @@ def mcgaugh_rar(g_bar: np.ndarray, g_dagger: float = A0_MS2) -> np.ndarray:
 def main(quality_max: int = 2,
          workers: int = 16,
          out_png: str = "sparc_rar.png",
-         out_csv: str = "sparc_rar.csv"):
+         out_csv: str = "sparc_rar.csv",
+         from_csv: str | None = None):
+
+    if from_csv:
+        # Offline reproduction from the bundled (galaxy, g_bar, g_obs) table.
+        rows = []
+        with open(from_csv, newline="") as f:
+            for r in csv.DictReader(f):
+                rows.append((r["galaxy"], float(r["g_bar_ms2"]), float(r["g_obs_ms2"])))
+        gb = np.array([r[1] for r in rows])
+        go = np.array([r[2] for r in rows])
+        galaxies = sorted({r[0] for r in rows})
+        print(f"points: {len(gb)} from {len(galaxies)} galaxies (read from {from_csv})")
+        return _analyse_and_plot(gb, go, galaxies, quality_max, out_png)
 
     sess = requests.Session()
 
@@ -140,6 +153,11 @@ def main(quality_max: int = 2,
         w.writerow(["galaxy", "g_bar_ms2", "g_obs_ms2"])
         w.writerows(rows)
     print(f"wrote {out_csv}")
+
+    return _analyse_and_plot(gb, go, galaxies, quality_max, out_png)
+
+
+def _analyse_and_plot(gb, go, galaxies, quality_max, out_png):
 
     # Residuals against both theory curves (dex)
     log_go  = np.log10(go)
@@ -234,9 +252,13 @@ if __name__ == "__main__":
     ap.add_argument("--workers",     type=int, default=16)
     ap.add_argument("--out-png",     default="sparc_rar.png")
     ap.add_argument("--out-csv",     default="sparc_rar.csv")
+    ap.add_argument("--from-csv",    default=None,
+                    help="skip the API and reproduce offline from a saved table, "
+                         "e.g. supplementary/sparc_rar.csv")
     # parse_known_args so Jupyter's  -f kernel.json  is ignored under %run
     args, _unknown = ap.parse_known_args()
     main(quality_max=args.quality_max,
          workers=args.workers,
          out_png=args.out_png,
-         out_csv=args.out_csv)
+         out_csv=args.out_csv,
+         from_csv=args.from_csv)

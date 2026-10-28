@@ -2,17 +2,48 @@
 
 **Gravity Field Dynamics (GFD)** · Stephen Nelson · [Field Dynamics Research](https://fielddynamics.org) · stephen@fielddynamics.org
 
-![The radial acceleration relation for 164 SPARC galaxies, with the GFD field equation and the McGaugh et al. (2016) empirical fit, and residual histograms for both](papers/letter-radial-acceleration-relation-sparc/sparc_rar.png)
+**One covariant action, with no parameter fitted to galaxies, reproduces the radial acceleration relation of the SPARC database: 3284 rotation-curve points in 164 galaxies, with a scatter of σ = 0.181 dex, within 0.0003 dex of the best one-parameter empirical fit.** Its interpolating function, μ(x) = x/(x + 1), is not chosen. It follows from the exchange symmetry between the two parity-related roots of the tetrad equation, which together form a stellated octahedron.
 
-***Figure.** Left: observed against baryonic gravitational acceleration for 3284 rotation-curve points in 164 SPARC galaxies (quality Q ≤ 2). The dashed line is the Newtonian expectation. The solid red curve is the prediction of the GFD covariant action in its weak-field, static, spherical limit, g<sub>obs</sub> = ½[g<sub>bar</sub> + √(g<sub>bar</sub>² + 4a₀g<sub>bar</sub>)]; the dotted orange curve, almost indistinguishable from it, is the one-parameter empirical fit of McGaugh, Lelli & Schombert (2016). Right: residuals for both curves. GFD: mean −0.027 dex, σ = 0.181 dex. Empirical fit: mean −0.022 dex, σ = 0.182 dex. From [The Radial Acceleration Relation from a Zero-Parameter Covariant Action](papers/letter-radial-acceleration-relation-sparc/); reproduce with [`sparc_rar.py`](papers/letter-radial-acceleration-relation-sparc/sparc_rar.py).*
+![The radial acceleration relation for 164 SPARC galaxies, with the GFD prediction and the McGaugh et al. (2016) empirical fit, and residual histograms for both](papers/letter-radial-acceleration-relation-sparc/sparc_rar.png)
 
-In disc galaxies, the gravitational acceleration inferred from stellar and gas orbits follows the acceleration predicted from visible matter alone along a single, remarkably tight curve. It tracks it closely at high accelerations and departs from it systematically below roughly 10⁻¹⁰ m/s². This radial acceleration relation is one of the sharpest regularities in extragalactic astronomy. In the standard cosmological model it must emerge from the detailed assembly of dark-matter haloes. In modified-gravity approaches it is reproduced by an interpolating function whose form has, since Milgrom's 1983 proposal, been chosen to fit the data rather than derived.
+***Figure.** Left: observed against baryonic gravitational acceleration for 3284 rotation-curve points in 164 SPARC galaxies (quality Q ≤ 2). Dashed: the Newtonian expectation. Solid red: the GFD covariant action in its weak-field, static, spherical limit, g<sub>obs</sub> = ½[g<sub>bar</sub> + √(g<sub>bar</sub>² + 4a₀g<sub>bar</sub>)]. Dotted orange, almost indistinguishable: the one-parameter empirical fit of McGaugh, Lelli & Schombert (2016). Right: residuals. GFD: mean −0.027 dex, σ = 0.181 dex. Empirical fit: mean −0.022 dex, σ = 0.182 dex. From [The Radial Acceleration Relation from a Zero-Parameter Covariant Action](papers/letter-radial-acceleration-relation-sparc/).*
 
-Gravity Field Dynamics proposes that the form of that function is not a free choice. It starts from the tetrad, the local orthonormal frame on which general relativity's coupling to matter depends. The spatial sector of a single tetrad bounds exactly two parity-related regions, which together form a stellated octahedron, and the exchange symmetry between them fixes the interpolating function as μ(x) = x/(x + 1). Embedded in a covariant action, this yields the curve in the figure. Nothing in that curve is adjusted to the galaxies: the functional form is taken from the geometry, and the acceleration scale a₀ = 1.2 × 10⁻¹⁰ m/s² at its conventional value. Its agreement with the standard empirical fit, to within 0.0003 dex in scatter, is the result that motivates the rest of this archive.
+**What is not adjusted.** No galaxy-by-galaxy parameters, no halo profiles or concentrations, no fitted interpolating function. The only inputs are the SPARC baryonic rotation-curve components at the survey's standard stellar mass-to-light ratios (Υ<sub>disk</sub> = 0.5, Υ<sub>bulge</sub> = 0.7 at 3.6 μm) and the acceleration scale a₀ = 1.2 × 10⁻¹⁰ m/s² at its conventional value.
 
-The same geometric structure is then followed further: to the gravitational constant, the electron mass and the Hubble constant; to nuclear binding energies and the magic numbers; and to the relation between GFD and ghost-free bimetric gravity. Those extensions are more exploratory than the galactic result. They are presented here, with their derivations and validation code, so that each can be examined on its own merits.
+**Reproduce the figure in one command** (offline, from the bundled data table):
 
-> **Featured: [Einstein's equation as the TetA partition](EINSTEIN_TETA_PARTITION.md).** A summary of Letter 3, *Field Closure of the Tetrad Frame*, with its two-panel figure. It shows that general relativity is the GFD field equation with the constitutive law fixed at μ = 1, and that the gap opened by releasing μ is the TetB share of the field, conventionally attributed to dark matter.
+```bash
+cd papers/letter-radial-acceleration-relation-sparc
+python sparc_rar.py --from-csv supplementary/sparc_rar.csv
+```
+
+## Why this is worth a look
+
+| Claim | Status | How to check |
+|---|---|---|
+| The radial acceleration relation follows from a covariant action with no parameter fitted to galaxies | Primary result | [`sparc_rar.py`](papers/letter-radial-acceleration-relation-sparc/sparc_rar.py) |
+| The geometry is forced: under common norm, closure and S₄ symmetry the stellated octahedron is the unique spatial realisation of the tetrad, and μ(x) = x/(x + 1) is the unique law with exchange symmetry | Formal proofs | [`verify_gram_theorems.py`](papers/gram-matrix-of-tetrad-equation/verify_gram_theorems.py); [exchange-symmetry proof](<papers/letter-radial-acceleration-relation-sparc/supplementary/supplementary_constitutive_law_exchange_symmetry (1).tex>) |
+| Einstein's equation is the TetA partition (μ = 1): the torsion-free condition keeps 40 and discards 24 of the 64 connection components, a split generated by f(K, ±1) | Letter 3 and supplementary proofs | [`EINSTEIN_TETA_PARTITION.md`](EINSTEIN_TETA_PARTITION.md); [Letter 3 validation](papers/letter-3-field-closure-of-tetrad-frame/Supplementary/run_all_validations.py) |
+| G, mₑ, α and H₀ follow from the same integers {13, 17, 21} | Derived; more exploratory | [`docs/03-fundamental-constants/`](docs/03-fundamental-constants/); [Paper VI validation](papers/06-gravitational-constant-from-topology/validation/run_all_validations.py) |
+
+**The argument in four lines** (full table in [The framework in one page](#the-framework-in-one-page); machine-readable chain in [`llms.txt`](llms.txt)):
+
+```text
+Uniqueness:        2(D + 1) = 2^D        ⇒  D = 3, K = 4
+Polynomial:        f(K, s) = 1 + sK + K²  →  {21, 17, 13}  (TetA, Field Origin, TetB)
+Constitutive law:  μ(x) = x/(x + 1)          derived from exchange symmetry, not fitted
+Action prefactors: 16 = K², 8 = 2^D, 4 = K
+```
+
+**For readers coming from MOND.** μ(x) = x/(x + 1) is MOND's "simple" interpolating function, so on the radial acceleration relation GFD's prediction coincides with that variant. The difference lies in the status of the function and in what surrounds it. Here μ is derived rather than selected, and it sits inside a covariant action whose further consequences (the torsion sector, the constants, the Hubble scale) can be tested independently.
+
+## Context
+
+The radial acceleration relation is one of the sharpest regularities in extragalactic astronomy. In the standard cosmological model it must emerge from the assembly of dark-matter haloes. In modified-gravity approaches it is reproduced by an interpolating function whose form has, since Milgrom's 1983 proposal, been chosen to fit the data. GFD proposes that the form is fixed by the tetrad, the local orthonormal frame through which general relativity couples to matter. The spatial sector of a single tetrad bounds exactly two parity-related regions, and the exchange symmetry between them leaves one admissible function.
+
+The same structure is then followed further: to the gravitational constant, the electron mass and the Hubble constant; to nuclear binding energies and the magic numbers; and to the relation between GFD and ghost-free bimetric gravity. These extensions are more exploratory than the galactic result. They are presented with their derivations and validation code so that each can be examined on its own merits.
+
+> **Featured: [Einstein's equation as the TetA partition](EINSTEIN_TETA_PARTITION.md).** A summary of Letter 3, *Field Closure of the Tetrad Frame*. The torsion-free condition retains 40 and discards 24 of the 64 connection components, a split generated by the same coupling polynomial. General relativity is the GFD field equation with μ fixed at 1, and the gap opened by releasing μ is the TetB share of the field, conventionally attributed to dark matter.
 
 This repository is the working research archive behind the Gravity Field Dynamics framework and the preprints published on Zenodo. It is published **as is**: derivation notes, synthesis documents, validation scripts, paper sources, interactive visualisations and exploratory experiments, in the state they were left at the end of each research session.
 
@@ -253,7 +284,19 @@ pip install numpy scipy mpmath matplotlib pytest
 pip install torch        # spectral kernel, neural-network experiments, some oscillator work
 ```
 
-Typical entry points:
+**Canonical validation suite.** These scripts check the curated claims, and each runs standalone from its own folder:
+
+| Script | Checks |
+|---|---|
+| [`papers/letter-radial-acceleration-relation-sparc/sparc_rar.py`](papers/letter-radial-acceleration-relation-sparc/sparc_rar.py) `--from-csv supplementary/sparc_rar.csv` | SPARC radial acceleration relation: figure, mean and scatter |
+| [`papers/letter-1-tetrad-frame-geometry/Supplementary/run_all_validations.py`](papers/letter-1-tetrad-frame-geometry/Supplementary/run_all_validations.py) | Letter 1: tetrad frame geometry (29 claims) |
+| [`papers/letter-2-other-half-of-gravity-torsion/v2/Supplementary/run_all_validations.py`](papers/letter-2-other-half-of-gravity-torsion/v2/Supplementary/run_all_validations.py) | Letters 1–2: geometry, torsion = TetB (52 claims) |
+| [`papers/letter-3-field-closure-of-tetrad-frame/Supplementary/run_all_validations.py`](papers/letter-3-field-closure-of-tetrad-frame/Supplementary/run_all_validations.py) | Letter 3: 40/24 split, polynomial identity, partition (52 claims) |
+| [`papers/gram-matrix-of-tetrad-equation/verify_gram_theorems.py`](papers/gram-matrix-of-tetrad-equation/verify_gram_theorems.py) | Gram-matrix and forced-Gram theorems (32 checks) |
+
+Everything under [`research/`](research/), and in particular [`research/exploratory/`](research/exploratory/), is working material rather than part of the canonical suite.
+
+Other entry points:
 
 ```bash
 python research/gfd_enterprise_validation-v2.py           # core framework validation
