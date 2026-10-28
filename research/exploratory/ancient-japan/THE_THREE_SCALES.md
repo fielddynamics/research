@@ -58,7 +58,7 @@ So far this is a resemblance between two simple figures. Three triangles around 
 
 The interesting question is what happens at the **second** step, because there two traditions part ways.
 
-- **The Sierpinski way.** Throw the centre away and subdivide only what is left. This is the famous fractal of Wacław Sierpiński (1915), and it is what the Italian floors anticipate: at the second step, 9 triangles are kept and 7 removed. The centre is treated as a hole, at every scale.
+- **The Sierpinski way.** Throw the centre away and subdivide only what is left. This is the famous fractal of Wacław Sierpiński (1915), and it is what the Italian floors anticipate: at the second step, 9 triangles are kept and 7 removed. The centre is treated as a hole, at every scale. The first hole is the big inverted triangle in the middle; once removed it is never subdivided, so even the small upward triangle that would sit at its centre is gone. The second step only cuts three smaller holes from the three triangles that remain.
 - **The scale-pattern way.** Keep every cell, and simply colour the triangles by which way they point. That is the Japanese *uroko* field. Nothing is removed. The inverted triangles are present at every scale, as the second colour.
 
 A triangle divided into a field of side four holds sixteen scales:
