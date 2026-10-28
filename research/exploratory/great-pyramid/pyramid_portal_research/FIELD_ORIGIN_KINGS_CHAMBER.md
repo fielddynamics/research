@@ -175,4 +175,4 @@ These are the theoretical work packages that stand between the architecture docu
 - W. M. F. Petrie, *The Pyramids and Temples of Gizeh* (1883), §51–55, §148, §155–156 and ch. 7 ([online text](https://www.ronaldbirdsall.com/gizeh/petrie/c21.html)).
 - Shaft positions: [Star shaft (Wikipedia)](https://en.wikipedia.org/wiki/Star_shaft).
 - Gilded pyramidia: [Pyramid of Sahure (Wikipedia)](https://en.wikipedia.org/wiki/Pyramid_of_Sahure).
-- GFD: [`research/llms.txt`](../../../llms.txt) and [`docs/`](../../../../docs/README.md).
+- GFD: [`llms.txt`](../../../../llms.txt) and [`docs/`](../../../../docs/README.md).

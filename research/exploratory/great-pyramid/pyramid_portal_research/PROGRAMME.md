@@ -2,7 +2,7 @@
 
 **Programme definition document — version 1.0 (October 2026)**
 **Principal investigator:** Stephen Nelson, Field Dynamics Research
-**Theoretical basis:** Gravity Field Dynamics (GFD), [`research/llms.txt`](../../../llms.txt) and [`docs/`](../../../../docs/README.md)
+**Theoretical basis:** Gravity Field Dynamics (GFD), [`llms.txt`](../../../../llms.txt) and [`docs/`](../../../../docs/README.md)
 
 ---
 

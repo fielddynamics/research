@@ -53,7 +53,7 @@ GFD proposes that the local gravitational frame has a definite interior geometry
 | Connection split | `K³ = 64 = 40 + 24`: GR's torsion-free condition keeps 40 Christoffel components and discards the 24 torsion components, which GFD identifies with TetB |
 | Gravitational constant | `G = (17/13) α²¹ ħc / m_e²` |
 
-For a guided explanation of each step, start with the [documentation](docs/README.md): Foundations, Gravitation, Fundamental Constants and Galactic Dynamics. [`llms.txt`](research/llms.txt) contains the full machine-readable derivation chain, symbol glossary and interpretation rules, and is the best single-file summary of the framework.
+For a guided explanation of each step, start with the [documentation](docs/README.md): Foundations, Gravitation, Fundamental Constants and Galactic Dynamics. [`llms.txt`](llms.txt) contains the full machine-readable derivation chain, symbol glossary and interpretation rules, and is the best single-file summary of the framework.
 
 ---
 
@@ -176,7 +176,7 @@ Most research folders follow the same pattern: a **`*_synthesis.md`** that expla
 
 | File | What it is |
 |---|---|
-| [`llms.txt`](research/llms.txt) | Machine-readable specification of the framework: equations, dependency chain, glossary |
+| [`llms.txt`](llms.txt) | Machine-readable specification of the framework: equations, dependency chain, glossary |
 | [`gfd_algebra.py`](research/gfd_algebra.py) | Every algebraic object used in the RAR letter and its supplementary proofs, with self-checks |
 | [`gfd_enterprise_validation-v2.py`](research/gfd_enterprise_validation-v2.py) | The main end-to-end validation: stellated octahedron from `2(D+1) = 2^D`, coupling polynomial, constitutive law, gauge structure (v1 kept for reference) |
 | [`gfd_fundamental_constants.py`](research/gfd_fundamental_constants.py) | Capstone suite: G, α, θ_W, H₀ and field-equation prefactors derived from {K, D} |
