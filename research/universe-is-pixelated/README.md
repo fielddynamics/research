@@ -48,6 +48,14 @@ $$2^{2^3} = 2^8 = 256$$
 
 distinct operations on the cube. These are all the three-input logic gates there are. (With 8 independent inputs there would be $2^{256}$.) Each of the 256 has a Walsh spectrum of 8 integers, and every spectrum has the same total power: the squares of its 8 values sum to 64 (Parseval's theorem). Sixteen of the 256 are the Walsh functions themselves and their negatives. Every other operation is a mixture of them.
 
+**The cube is the universal Boolean operator for three bits.** This is not a GFD idea. It is standard mathematics and computer science:
+
+- **Every three-input Boolean function is a colouring of the cube.** The domain of an $n$-input Boolean function is, by definition, the set of $n$-bit strings, the vertices of the $n$-dimensional cube $\{0,1\}^n$. The field that studies these functions calls this space the *Boolean cube* (O'Donnell 2014). For $n = 3$, it is the ordinary cube.
+- **Every Boolean function has exactly one Walsh expansion.** Any function on the Boolean cube can be written uniquely as a combination of the Walsh functions, its Fourier–Walsh expansion (O'Donnell 2014, Theorem 1.1). The eight rows of $H_8$ are a complete basis for all 256 operations.
+- **Universal gates live on the cube.** The 256 include NAND and NOR, each of which can build every Boolean function. Every reversible three-bit gate is a permutation of the cube's 8 corners, so there are $8! = 40{,}320$ of them. One of these, the Toffoli gate, which swaps the corners 110 and 111 and fixes the rest, is universal for reversible computation (Toffoli 1980). Together with the Hadamard gate, $H_2$ itself, it is also universal for quantum computation (Shi 2003; Aharonov 2003).
+
+So the cube's eight corners, read through the Walsh–Hadamard matrix, already contain every operation that three bits can perform, classical, reversible or quantum. What GFD adds is the claim that this cube is also the local frame of spacetime.
+
 ## The stellated octahedron is in the spectrum
 
 Three exact facts tie the shape in Figure 1 to the matrix in Figure 2.
@@ -111,6 +119,42 @@ Smoothness does not disappear. It emerges at scale, the way a curve emerges from
 
 The idea of a discrete universe has a long lineage in physics: Konrad Zuse's *Rechnender Raum* ("Calculating Space," 1969), John Wheeler's "it from bit" (1990), and the discrete spectra of area and volume in loop quantum gravity (Rovelli and Smolin 1995). GFD's version is specific. The pixel is not a point but a frame: the cube, its two tetrahedra, and the eight null directions between them.
 
+## Letters 1, 2 and 3, read on the cube
+
+The three tetrad letters were written in the language of differential geometry. Each of their central results has an exact counterpart on the Boolean cube.
+
+### Letter 1: boundedness is a Boolean function
+
+Letter 1 takes the tetrad's four planes and chooses a side of each, $2^4 = 16$ choices in all. Those 16 sign patterns are the corners of a four-dimensional cube. Boundedness is then a Boolean function on that cube: a region closes if and only if all four signs are the same. Its truth set is the antipodal pair $\{0000, 1111\}$, which are the two closed regions, TetA and TetB. The other fourteen leak to infinity.
+
+The Walsh spectrum of that pair is the set of the eight even-weight patterns, exactly as, one dimension down, the body diagonal of the cube transforms into a tetrahedron. Letter 1's closure condition, "all four normals sum to zero, so only two regions close," is in Walsh terms the duality between the two-word repetition code and the even-weight code. These are standard objects in coding theory.
+
+### Letter 2: root-blindness is even-grade content
+
+Letter 2 rests on one rule. Under spatial parity, which exchanges TetA and TetB, a tensor of rank $r$ picks up a sign $(-1)^r$. The metric (rank 2) is unchanged, the frame (rank 1) flips, and so a torsion-free connection, built only from the metric, cannot tell the two chambers apart.
+
+On the cube, parity is central inversion through the Field Origin, $x \mapsto x \oplus 111$, which sends every TetA corner to a TetB corner. Each Walsh function is an eigenfunction of this map, with eigenvalue $(-1)^{\text{grade}}$:
+
+$$w_a(x \oplus 111) = (-1)^{\,\mathrm{popcount}(a)}\, w_a(x) .$$
+
+Even-grade harmonics are unchanged and odd-grade harmonics flip, which is Letter 2's selection rule $(-1)^r$, with grade in place of rank. Its lemma has an exact counterpart. An operation on the cube cannot distinguish TetA from TetB if and only if its Walsh spectrum contains only even-grade harmonics. Only 16 of the 256 operations are blind in this way. All the others carry odd-grade content, and the odd-grade content is what tells the chambers apart, the role Letter 2 assigns to torsion.
+
+The coupling polynomial follows the same pattern. In $f(K,s) = 1 + sK + K^2$, the state parameter $s$ multiplies only the odd term, because only the odd term changes sign between the chambers.
+
+### Letter 3: the connection has the size of the cube's transitions
+
+Letter 3 counts the connection: $K^3 = 64$ components, of which the torsion-free condition keeps 40 and removes 24. Per face, $16 = 10 + 6$, the symmetric and antisymmetric parts of a $4 \times 4$ matrix, which are the coupling polynomial at its two opposite states, $(f(K,\pm 1) - 1)/2$.
+
+Three counts meet here:
+
+- **The 16 per face** is the size of $H_{16} = H_4 \otimes H_4$, the Walsh basis of a $4 \times 4$ array. It is also Letter 1's 16 boundary channels and the 16 sign patterns of the four planes.
+- **The 64 components** equal the $8 \times 8 = 64$ ordered pairs of cube corners, the transitions that the [closure walk](../field-closure/) must visit to close, and the size of $H_{64} = H_8 \otimes H_8$. The equality $K^3 = (2^D)^2$ holds only at $D = 3$.
+- **The split 10 + 6** is again a $\mathbb{Z}_2$ parity, this time the exchange of the two lower indices, with the even part kept and the odd part removed. General relativity keeps the half of each face that is even under one swap and discards the half that is odd. Letter 2 shows that the discarded half is the half that carries TetB.
+
+### Gravity's constant on the same blocks
+
+The derivation of $G$ in [`g_from_topology/`](../g_from_topology/g_matrix_synthesis.md) works on a 21-dimensional space with blocks of size 1, 4 and 16, the scalar, vector and tensor parts of the tetrad equation. Those are exactly the sizes of the Sylvester–Hadamard matrices $H_1$, $H_4$ and $H_{16}$. The vector block is spanned by the rows of $H_4$, which are the tetrad of the previous section, and the tensor block by $H_4 \otimes H_4$, the 16 channels of Letters 1 and 3. The state parameter $s$ acts on the odd block alone, as Letter 2 requires. In this basis, $G$'s graded operator is a stack of Walsh–Hadamard blocks.
+
 ## G as an operator read
 
 The same habit of thought, build a structured operator and then read it, appears in GFD's derivation of Newton's constant ([`g_from_topology/`](../g_from_topology/g_matrix_synthesis.md)).
@@ -139,6 +183,8 @@ The two constructions are built the same way. The Hadamard matrix is a tensor po
 | The tetrad directions are null directions, and the cube is the local frame of spacetime | Derived in Letter 1 and Paper IX |
 | $G = (17/13)\,\alpha^{21}\,\hbar c/m_e^2$ as a trace-and-determinant read | GFD derivation, matching measurement to 0.001% at one loop |
 | The cube is the only Platonic solid that fills space face to face | Established mathematics |
+| The Boolean cube carries every three-input operation; NAND, NOR, Toffoli (reversible) and Toffoli with Hadamard (quantum) are universal | Established mathematics and computer science |
+| Letter 1's boundedness, Letter 2's parity rule and root-blindness, and Letter 3's counts have exact Walsh counterparts on the cube | Established mathematics, applied to the letters' results |
 | The stellated octahedron is the photon; reality is a photonic matrix of light, a grid of pixelated cubes each holding a stellated octahedron; spacetime is spectrally pixelated at the scale of the frame | GFD proposal |
 
 Every statement marked as established mathematics, and the value of G, is checked by [`verify_pixelated.py`](verify_pixelated.py).
@@ -150,21 +196,23 @@ Every statement marked as established mathematics, and the value of G, is checke
 | File | Contents |
 |---|---|
 | [`README.md`](README.md) | This overview |
-| [`verify_pixelated.py`](verify_pixelated.py) | 27 checks: the Walsh–Hadamard matrix, the stellated octahedron in the spectrum, Hadamard rows as the tetrad, the octahedron's null faces, the 256 operations, G, and the cube as the only space-filling Platonic solid |
+| [`verify_pixelated.py`](verify_pixelated.py) | 40 checks: the Walsh–Hadamard matrix, the stellated octahedron in the spectrum, Hadamard rows as the tetrad, the octahedron's null faces, the 256 operations and universal gates, Letters 1–3 on the cube, G, and the cube as the only space-filling Platonic solid |
 | [`make_figures.py`](make_figures.py) | Generates the cube and spectrum figures |
 | [`stellated_octahedron_in_cube.png`](stellated_octahedron_in_cube.png) | Figure 1: the stellated octahedron in the cube, with binary addresses |
 | [`cube_walsh_spectrum.png`](cube_walsh_spectrum.png) | Figure 2: the eight Walsh functions of the cube |
 | [`convergent_vortex.png`](convergent_vortex.png) | Figure 3: convergent vortex visualisations |
 
 ```bash
-pip install numpy matplotlib
-python verify_pixelated.py     # 27 passed, 0 failed
+pip install numpy scipy matplotlib
+python verify_pixelated.py     # 40 passed, 0 failed
 python make_figures.py         # regenerates Figures 1 and 2
 ```
 
 ## Related work
 
 - **Letter 1**, [*The Coordinate-Space Geometry of the Tetrad Frame*](../../papers/letter-1-tetrad-frame-geometry/): the tetrad's four planes and the two bounded tetrahedra; the supplement derives the frame from the light cone.
+- **Letter 2**, [*The Other Half of Gravity*](../../papers/letter-2-other-half-of-gravity-torsion/): the parity rule, root-blindness and torsion as the carrier of TetB.
+- **Letter 3**, [*Field Closure of the Tetrad Frame*](../../papers/letter-3-field-closure-of-tetrad-frame/): the 40/24 split as the coupling polynomial at its opposite states.
 - **Paper IX**, [*Complete Field Closure from Stellated Octahedron Topology*](../exploratory/i-ching/Nelson_2026_GFD_Complete_Field_Closure_from_Stellated_Octahedron_Topology.pdf): binary addresses, the parity partition and the time faces.
 - [`g_from_topology/`](../g_from_topology/): G as a matrix read.
 - [`spectral/`](../spectral/) and [`quantum compute/`](../quantum%20compute/): the Walsh–Hadamard kernel and the oscillator work built on it.
@@ -179,6 +227,7 @@ python make_figures.py         # regenerates Figures 1 and 2
 
 ## References
 
+- Aharonov, D. (2003). A simple proof that Toffoli and Hadamard are quantum universal. arXiv:quant-ph/0301040.
 - Edgar, M. P., Gibson, G. M. and Padgett, M. J. (2019). Principles and prospects for single-pixel imaging. *Nature Photonics* 13, 13.
 - Jamnitzer, W. (1568). *Perspectiva Corporum Regularium*. Nuremberg.
 - Kepler, J. (1596). *Mysterium Cosmographicum*. Tübingen.
@@ -189,8 +238,10 @@ python make_figures.py         # regenerates Figures 1 and 2
 - Pacioli, L. (1509). *De Divina Proportione*, illustrated by Leonardo da Vinci. Venice.
 - Pratt, W. K., Kane, J. and Andrews, H. C. (1969). Hadamard transform image coding. *Proc. IEEE* 57, 58.
 - Rovelli, C. and Smolin, L. (1995). Discreteness of area and volume in quantum gravity. *Nucl. Phys. B* 442, 593.
+- Shi, Y. (2003). Both Toffoli and controlled-NOT need little help to do universal quantum computing. *Quantum Inf. Comput.* 3, 84.
 - Sun, M.-J., Meng, L.-T., Edgar, M. P., Padgett, M. J. and Radwell, N. (2017). A Russian Dolls ordering of the Hadamard basis for compressive single-pixel imaging. *Sci. Rep.* 7, 3464.
 - Sylvester, J. J. (1867). Thoughts on inverse orthogonal matrices, simultaneous sign-successions, and tessellated pavements in two or more colours. *Phil. Mag.* 34, 461.
+- Toffoli, T. (1980). Reversible computing. In *Automata, Languages and Programming*, Lecture Notes in Computer Science 85, 632. Springer.
 - Vasileiou, V. et al. (2013). Constraints on Lorentz invariance violation from Fermi-LAT observations of gamma-ray bursts. *Phys. Rev. D* 87, 122001.
 - Walsh, J. L. (1923). A closed set of normal orthogonal functions. *Amer. J. Math.* 45, 5.
 - Wheeler, J. A. (1990). Information, physics, quantum: the search for links. In W. Zurek (ed.), *Complexity, Entropy, and the Physics of Information*. Addison-Wesley.

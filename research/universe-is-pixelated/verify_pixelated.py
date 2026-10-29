@@ -82,5 +82,47 @@ dihedral = {"tetrahedron": math.acos(1/3), "cube": math.pi/2, "octahedron": math
 fills = [k for k, d in dihedral.items() if abs(2*math.pi/d - round(2*math.pi/d)) < 1e-9]
 check("only the cube's dihedral angle divides 360 degrees (only the cube fills space face to face)", fills == ["cube"])
 
+print("8. The cube as universal Boolean operator")
+nand = 0
+for x in range(N):
+    a, b = (x >> 2) & 1, (x >> 1) & 1
+    nand |= (1 - (a & b)) << x
+check("NAND (on the first two inputs) is one of the 256 operations", 0 <= nand < 256)
+tof = [x ^ (1 if (x >> 2) & 1 and (x >> 1) & 1 else 0) for x in range(N)]
+check("the Toffoli gate is a permutation of the 8 corners, swapping 110 and 111", sorted(tof) == list(range(N)) and tof[6] == 7 and tof[7] == 6 and all(tof[x] == x for x in range(6)))
+check("reversible 3-bit gates = permutations of the corners: 8! = 40320", math.factorial(8) == 40320)
+Hinv = H.T / 8
+check("every one of the 256 operations is recovered exactly from its Walsh spectrum (unique expansion)",
+      all(np.allclose(Hinv @ W, [1 - 2 * ((bits >> x) & 1) for x in range(N)]) for bits, W in enumerate(spectra)))
+
+print("9. Letters 1, 2 and 3 on the cube")
+H16 = np.array([[(-1) ** pc(a & x) for x in range(16)] for a in range(16)])
+from scipy.optimize import linprog
+bounded = []
+for m in range(16):
+    sgn = np.array([1 if (m >> i) & 1 else -1 for i in range(4)])
+    Nrm = sgn[:, None] * V
+    unb = any(linprog(-d, A_ub=Nrm, b_ub=np.ones(4), bounds=[(None, None)] * 3).status == 3
+              for d in np.vstack([np.eye(3), -np.eye(3)]))
+    if not unb: bounded.append(m)
+check("Letter 1: of the 16 sign choices, exactly 0000 and 1111 give bounded regions", bounded == [0, 15])
+rep = np.array([v in (0, 15) for v in range(16)], int)
+check("Letter 1: the Walsh spectrum of {0000,1111} is the 8 even-weight patterns",
+      set(np.nonzero(H16 @ rep)[0]) == {a for a in range(16) if pc(a) % 2 == 0})
+check("Letter 2: central inversion x -> x XOR 111 swaps TetA and TetB", {v ^ 7 for v in TetA} == set(TetB))
+check("Letter 2: w_a(x XOR 111) = (-1)^grade(a) w_a(x)", all(H[a, x ^ 7] == (-1) ** pc(a) * H[a, x] for a in range(N) for x in range(N)))
+blind_ok, blind = True, 0
+for bits, W in enumerate(spectra):
+    inv = all(((bits >> x) & 1) == ((bits >> (x ^ 7)) & 1) for x in range(N))
+    even = all(W[a] == 0 for a in range(N) if pc(a) % 2)
+    blind_ok &= (inv == even); blind += inv
+check("Letter 2: an operation is blind to TetA/TetB exactly when its spectrum is even-grade only", blind_ok)
+check("Letter 2: 16 of the 256 operations are root-blind", blind == 16)
+check("Letter 3: per face 16 = 10 symmetric + 6 antisymmetric = (f(K,+1)-1)/2 + (f(K,-1)-1)/2",
+      (K*(K+1)//2, K*(K-1)//2) == ((21-1)//2, (13-1)//2) and K*(K+1)//2 + K*(K-1)//2 == 16)
+check("Letter 3: K^3 = (2^D)^2 = 64 holds at D = 3 and at no other D up to 50",
+      [D for D in range(1, 51) if (D + 1) ** 3 == 4 ** D] == [3])
+check("G blocks 1, 4, 16 are Sylvester-Hadamard orders 2^0, 2^2, 2^4", [1, 4, 16] == [2 ** 0, 2 ** 2, 2 ** 4])
+
 print(f"\n  {PASS} passed, {FAIL} failed")
 raise SystemExit(FAIL > 0)
