@@ -102,6 +102,20 @@ The GFD formulation tracks the independent radii somewhat better than Slater's r
 
 **What this means.** As it stands, the chain's predictive content enters through Clementi's screening constants. The vortex picture organises the results coherently, but the step that would make them GFD's own is deriving $Z_{\mathrm{eff}}$, or the screening, from $K = 4$, $D = 3$ geometry. That is the programme's central open target.
 
+## A pre-registered screening test
+
+To test whether GFD can supply the screening itself, a candidate rule was fixed and committed before it was evaluated ([`PREREGISTRATION_screening.md`](PREREGISTRATION_screening.md)). The rule applies the constitutive law to screening: electron $j$ screens electron $i$ by $s_{ij} = \mu(r_i/r_j) = r_i/(r_i + r_j)$, with every shell's charge and radius solved self-consistently. It has no fitted parameter.
+
+| Pre-registered criterion | Result | Verdict |
+|---|---|---|
+| Mean error of outermost $Z_{\mathrm{eff}}$ vs Clementi, below 10% | 10.5% (Slater's rules 7.1%) | fail |
+| Covalent-radius deviation below Slater's rules (0.272) | 0.194 | pass |
+| Rank correlation with Clementi $Z_{\mathrm{eff}}$, at least 0.95 | 0.991 | pass |
+
+**The rule fails the pre-registered test**, narrowly. Its effective charges run systematically low because equal-radius electrons screen each other by $\tfrac12$, more than the standard 0.35.
+
+One secondary observation, not pre-registered, is worth recording. Against independent covalent radii, the rule's parameter-free radii follow the measured shape more closely than Slater's rules and more closely than radii built from Clementi's own $Z_{\mathrm{eff}}$ (0.194, against 0.272 and 0.221), and this ordering survives 96.8% of bootstrap resamples against Clementi. Because it was not the primary test and the sample is small, it is a lead for a pre-registered extension to heavier elements, not a result.
+
 ## Limitations
 
 The suites are explicit about where the radius stops being sufficient.
@@ -118,6 +132,7 @@ The suites are explicit about where the radius stops being sufficient.
 python gfd_vortex_overdetermined_20.py     # 20/20: atomic properties
 python gfd_vortex_enterprise_20.py         # 20/20: compound properties
 python baseline_comparison.py              # GFD against standard baselines
+python screening_from_mu.py                # the pre-registered screening test
 python ../atom-vortex-horizon/gfd_vortex_horizon_20.py       # 20/20: the vortex picture
 python ../atom-vortex-horizon/gfd_vortex_horizon_ext_20.py   # 20/20: extended horizon
 ```
@@ -131,6 +146,8 @@ All four suites were run for this README and pass (80/80). A second atomic suite
 | [`gfd_overdetermined_synthesis.md`](gfd_overdetermined_synthesis.md) | Full synthesis of the overdetermined programme: every section, the industrial pipeline, results and gaps |
 | [`gfd_vortex_overdetermined_20.py`](gfd_vortex_overdetermined_20.py) | Atomic-property suite, sections K–O |
 | [`gfd_vortex_enterprise_20.py`](gfd_vortex_enterprise_20.py) | Compound-property suite, sections U–Y |
+| [`PREREGISTRATION_screening.md`](PREREGISTRATION_screening.md) | A parameter-free screening rule from $\mu(x)$, fixed before evaluation, with its outcome |
+| [`screening_from_mu.py`](screening_from_mu.py) | Evaluates the pre-registered rule against the fixed criteria, plus a labelled secondary analysis |
 | [`baseline_comparison.py`](baseline_comparison.py) | Scores the GFD results against Slater's rules, independent covalent radii, $r^3$ baselines, a hold-out test and a look-elsewhere test |
 | [`data/atomic_reference.csv`](data/atomic_reference.csv) | All reference values in one file, with [`data/SOURCES.md`](data/SOURCES.md) giving the source of each column |
 
