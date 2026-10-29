@@ -76,5 +76,11 @@ G1 = G0 * (1 + alpha / (2 * math.pi))
 check(f"G tree = {G0:.4e}, within 0.13% of CODATA 6.6743e-11", abs(G0 / 6.67430e-11 - 1) < 1.3e-3)
 check(f"G one-loop = {G1:.5e}, within 0.01% of CODATA", abs(G1 / 6.67430e-11 - 1) < 1e-4)
 
+print("7. The grid")
+dihedral = {"tetrahedron": math.acos(1/3), "cube": math.pi/2, "octahedron": math.acos(-1/3),
+            "dodecahedron": math.acos(-1/math.sqrt(5)), "icosahedron": math.acos(-math.sqrt(5)/3)}
+fills = [k for k, d in dihedral.items() if abs(2*math.pi/d - round(2*math.pi/d)) < 1e-9]
+check("only the cube's dihedral angle divides 360 degrees (only the cube fills space face to face)", fills == ["cube"])
+
 print(f"\n  {PASS} passed, {FAIL} failed")
 raise SystemExit(FAIL > 0)

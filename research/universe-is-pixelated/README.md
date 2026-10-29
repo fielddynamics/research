@@ -16,14 +16,14 @@ This folder asks which of the two belongs to the local structure of spacetime. I
 
 ## A shape with a long history
 
-The stellated octahedron has fascinated geometers for five centuries.
+The stellated octahedron has fascinated geometers for more than five centuries.
 
-- **The Renaissance.** Luca Pacioli included it in *De Divina Proportione* (1509), illustrated by Leonardo da Vinci, under the name *octocedron elevatum*, the "elevated octahedron." Pacioli described it as 24 equal triangles enclosing an inner octahedron "visible only to the imagination." Wenzel Jamnitzer engraved it again in *Perspectiva Corporum Regularium* (1568). It had already appeared in stone three centuries earlier, carved into the Sahib Ata caravanserai in Anatolia.
-- **Kepler.** Johannes Kepler named it the *stella octangula*, the eight-pointed star, in *Harmonices Mundi* (1619). There he introduced stellation, the extension of a polyhedron's faces until they meet again. Kepler had spent his career looking for the geometry beneath the cosmos. In *Mysterium Cosmographicum* (1596) he nested the Platonic solids between the orbits of the planets, and in *De Nive Sexangula* (1611) he asked why every snowflake has six points.
+- **The Renaissance.** Luca Pacioli included it in *De Divina Proportione* (1509), illustrated by Leonardo da Vinci, where Leonardo drew it twice, solid and hollow, as the *Octocedron Elevatus*, the "elevated octahedron." Pacioli described it as 24 equal triangles enclosing an inner octahedron "visible only to the imagination." Wenzel Jamnitzer engraved it again in *Perspectiva Corporum Regularium* (1568). It had already appeared in stone three centuries earlier, carved into the Sahib Ata caravanserai in Anatolia.
+- **Kepler.** Johannes Kepler gave it the name *stella octangula*, the eight-pointed star. He discussed it in his essay on the snowflake, *De Nive Sexangula* (1611), and again in *Harmonices Mundi* (1619), where he set out stellation: extending the faces of a polyhedron until they meet again. The stella octangula is what you get by stellating the octahedron, and it is the octahedron's only stellation. Kepler had spent his career looking for the geometry beneath the cosmos. In *Mysterium Cosmographicum* (1596) he nested the Platonic solids between the orbits of the planets, and in the snowflake essay he asked why every snowflake has six points, and how spheres pack together.
 
 Part of the appeal was Platonic. In the *Timaeus*, Plato assigned his solids to the elements: the tetrahedron to fire, the octahedron to air, the cube to earth. The stellated octahedron holds all three at once. Two tetrahedra interpenetrate, an octahedron sits at their heart where they overlap, and the cube encloses them, its eight corners exactly the eight points of the star. For anyone who believed the world was built from geometry, this was a single figure in which several of the elements locked together.
 
-It is also the simplest possible compound of regular solids: two copies of the most basic polyhedron, related by a reflection through the centre. Letter 1 shows that this is precisely the shape the tetrad of general relativity draws in space.
+It is also the simplest of the five regular polyhedral compounds, and the only one made of just two solids: two copies of the most basic polyhedron, related by a reflection through the centre. Letter 1 shows that this is precisely the shape the tetrad of general relativity draws in space.
 
 ## The cube is a binary computer
 
@@ -42,7 +42,7 @@ Doing this for all eight labels and all eight corners gives an $8 \times 8$ tabl
 
 ![The eight Walsh functions of the cube](cube_walsh_spectrum.png)
 
-**How many operations?** Your understanding is right about the number, with one adjustment about the inputs. The cube has **3 inputs**, one bit per axis. Those 3 bits give $2^3 = 8$ corners, which are the 8 rows of a truth table. A Boolean operation assigns an output bit to each corner, so there are
+**How many operations?** The cube is often said to give $2^8$ operations. The count is right, but the inputs are three, not eight. The cube has **3 inputs**, one bit per axis. Those 3 bits give $2^3 = 8$ corners, which are the 8 rows of a truth table. A Boolean operation assigns an output bit to each corner, so there are
 
 $$2^{2^3} = 2^8 = 256$$
 
@@ -66,7 +66,7 @@ In frequency space, then, a tetrahedron becomes the line from 000 to 111, and th
 
 $$(1,1,1),\quad (1,-1,-1),\quad (-1,1,-1),\quad (-1,-1,1),$$
 
-which are exactly the four tetrad directions $v_1, \dots, v_4$ of Letter 1. They sum to zero, the closure condition, and meet at the tetrahedral angle, $\cos\theta = -1/3$. It is a classical result that a regular simplex can be placed on the corners of a cube precisely when a Hadamard matrix of the next order exists. In three dimensions that order is 4. The tetrad of general relativity, written in ±1 form, is a Hadamard matrix.
+which are exactly the four tetrad directions $v_1, \dots, v_4$ of Letter 1. They sum to zero, the closure condition, and meet at the tetrahedral angle, $\cos\theta = -1/3$. This is a general rule: an $n$-dimensional cube contains a regular simplex among its corners if and only if a Hadamard matrix of order $n + 1$ exists. Deleting a column of the Hadamard matrix gives the simplex, and adding a constant column to the simplex gives back the matrix. In three dimensions that order is 4. The tetrad of general relativity, written in ±1 form, is a Hadamard matrix.
 
 ## The octahedron and the light cone
 
@@ -74,17 +74,29 @@ Letter 1's supplement starts from the light cone. In a frame with signature $(-,
 
 Now look at the gold octahedron at the centre of Figure 1. It is the region where $|v_i| \le 1$ for all four directions at once, the overlap of TetA and TetB. Its eight faces point to the eight corners of the cube, which are exactly the eight directions $\pm v_1, \dots, \pm v_4$ of the two tetrads. **The octahedron is the solid bounded by the eight null directions.** It is the sphere of light rays, made discrete: eight facets instead of a smooth sphere, one facet for each null direction the frame contains.
 
-GFD's photonic notes take the next step. They propose that **the photon is the stellated octahedron itself**: the whole figure, both chambers, TetA and TetB, coupled through the Field Origin, with the octahedral core where they overlap. The eight null directions that bound the core are the eight points of the star, so the photon's geometry is the geometry of its own directions of travel. On this reading light is the pixel of spacetime, and that gravity is many such pixels organised into a lattice (see [`photonic/`](../photonic/the-pixel-and-the-lattice.md)). The visualisations below were made in that spirit. Eight cones converge on the centre, one along each of the eight null directions, through the faces of the octahedron. The ten-cone version adds a pair along a single axis.
+GFD's photonic notes take the next step. They propose that **the photon is the stellated octahedron itself**: the whole figure, both chambers, TetA and TetB, coupled through the Field Origin, with the octahedral core where they overlap. The eight null directions that bound the core are the eight points of the star, so the photon's geometry is the geometry of its own directions of travel. On this reading light is the pixel of spacetime, and gravity is many such pixels organised into a lattice (see [`photonic/`](../photonic/the-pixel-and-the-lattice.md)). The visualisations below were made in that spirit. Eight cones converge on the centre, one along each of the eight null directions, through the faces of the octahedron. The ten-cone version adds a pair along a single axis.
 
 ![Convergent vortex visualisations: eight cones converging on the centre through the faces of the octahedron, and the ten-cone variant](convergent_vortex.png)
 
 *Left: the convergent octahedral vortex, eight cones meeting at the Field Origin inside the octahedron. Centre and right: the ten-cone variant inside the stellated octahedron, seen from two angles.*
 
+## A photonic matrix of light
+
+Put the pieces together and GFD's picture of reality is a **photonic matrix of light**.
+
+Space is a grid of pixelated cubes. Each cube holds a stellated octahedron, and each stellated octahedron is a photon: two tetrahedral chambers coupled through the Field Origin, with its eight points along the eight null directions. Reality, on this reading, is a grid of stellated octahedrons, a lattice of photons, and everything else is built from how that grid is organised:
+
+- **Empty space** is the grid in its unbound state, the photons coupled one way to their surroundings.
+- **Gravity** is the organisation of the grid around a source, the share of the field carried by each chamber varying with field strength according to the constitutive law.
+- **Matter** is the grid locally bound: fields driven through the Field Origin and held there (see [`bound-gravity-and-packing/`](../bound-gravity-and-packing/)).
+
+One geometric fact makes the grid possible. Of the five Platonic solids, the cube is the only one that fills space face to face, with no gaps and no overlaps. A grid of cubes, each holding its stellated octahedron, therefore fills space completely.
+
 ## Why "pixelated"
 
 The choice between Fourier and Walsh is not a matter of taste. It is set by symmetry.
 
-Sine waves are the natural harmonics of continuous symmetry: a line, a circle, a string that can be shifted by any amount. Walsh functions are the natural harmonics of binary symmetry: a space of switches that can be flipped (Walsh 1923). Engineers learned this in practice. Hadamard transforms were among the first methods for compressing digital images (Pratt, Kane and Andrews 1969), and single-pixel cameras today reconstruct whole images from a sequence of Hadamard patterns (Duarte et al. 2008).
+Sine waves are the natural harmonics of continuous symmetry: a line, a circle, a string that can be shifted by any amount. Walsh functions are the natural harmonics of binary symmetry: a space of switches that can be flipped (Walsh 1923). Engineers learned this in practice. The Hadamard transform was among the first transforms used to compress digital images (Pratt, Kane and Andrews 1969). Single-pixel cameras, which record a whole scene with one light detector, commonly illuminate it with a sequence of Hadamard patterns and rebuild the image from the responses (Sun et al. 2017; Edgar, Gibson and Padgett 2019).
 
 The argument of this folder follows from that:
 
@@ -93,10 +105,11 @@ The argument of this folder follows from that:
 3. **The stellated octahedron is built into that spectrum.** It is the parity harmonic, it is the bipartition of the cube's modes, and its transform is the time axis.
 4. **The stellated octahedron is built from the eight null directions.** Its eight points lie along them, and its octahedral core is bounded by them. On GFD's reading, the stellated octahedron is the photon.
 5. **So, at the scale of the frame, the field is spectrally pixelated.** Its natural basis is a set of on/off patterns, not smooth waves.
+6. **Reality is a photonic matrix of light.** Cubes fill space, each holding a stellated octahedron, a photon; the universe is a grid of them.
 
-Smoothness does not disappear. It emerges at scale, the way a curve emerges from pixels when you step back. The [field closure walk](../field-closure/) is an example inside GFD: binary steps around the cube's eight corners assemble a series that converges to π, the circle recovered from switches.
+Smoothness does not disappear. It emerges at scale, the way a curve emerges from pixels when you step back. The [field closure](../field-closure/) work gives an example inside GFD: reading the tetrahedron's face normals, which are ±1 vectors on the cube, through the three axes assembles a series term for term identical to the Bailey–Borwein–Plouffe formula for π. The circle is recovered from switches.
 
-The idea of a discrete universe has a long lineage in physics: Konrad Zuse's *Rechnender Raum* ("Calculating Space," 1969), John Wheeler's "it from bit" (1990), and the discrete spectra of area and volume in loop quantum gravity (Rovelli and Smolin 1995). GFD's version is specific. The pixel is not a point on a grid but a frame: the cube, its two tetrahedra, and the eight null directions between them.
+The idea of a discrete universe has a long lineage in physics: Konrad Zuse's *Rechnender Raum* ("Calculating Space," 1969), John Wheeler's "it from bit" (1990), and the discrete spectra of area and volume in loop quantum gravity (Rovelli and Smolin 1995). GFD's version is specific. The pixel is not a point but a frame: the cube, its two tetrahedra, and the eight null directions between them.
 
 ## G as an operator read
 
@@ -125,18 +138,19 @@ The two constructions are built the same way. The Hadamard matrix is a tensor po
 | The tetrad directions are Hadamard rows, and the octahedron is bounded by the eight directions of the two tetrads | Established mathematics |
 | The tetrad directions are null directions, and the cube is the local frame of spacetime | Derived in Letter 1 and Paper IX |
 | $G = (17/13)\,\alpha^{21}\,\hbar c/m_e^2$ as a trace-and-determinant read | GFD derivation, matching measurement to 0.001% at one loop |
-| The stellated octahedron is the photon; spacetime is spectrally pixelated at the scale of the frame | GFD proposal |
+| The cube is the only Platonic solid that fills space face to face | Established mathematics |
+| The stellated octahedron is the photon; reality is a photonic matrix of light, a grid of pixelated cubes each holding a stellated octahedron; spacetime is spectrally pixelated at the scale of the frame | GFD proposal |
 
-Every mathematical statement in the first three rows, and the value of G, is checked by [`verify_pixelated.py`](verify_pixelated.py).
+Every statement marked as established mathematics, and the value of G, is checked by [`verify_pixelated.py`](verify_pixelated.py).
 
-**The open question that matters most.** Any discrete picture of spacetime has to respect Lorentz invariance, which has been tested to extraordinary precision. Fermi observations of gamma-ray bursts push any linear energy-dependent delay in the arrival of photons beyond the Planck energy (Vasileiou et al. 2013). A naive grid of points would fail that test. GFD's pixel is not a grid of points: it is a frame attached to every event, built from null directions, and it is Lorentz-covariant by construction. Showing that its Walsh-type structure leaves the propagation of light unchanged at observable energies is the test this proposal has to pass.
+**The open question that matters most.** Any discrete picture of spacetime has to respect Lorentz invariance, which has been tested to extraordinary precision. Fermi observations of the gamma-ray burst GRB 090510 place any linear energy-dependent delay in the arrival of photons beyond 7.6 times the Planck energy (Vasileiou et al. 2013). A fixed grid of points laid over space would be expected to fail that test. GFD's grid is meant differently: each cube is the local frame at an event, built from null directions and defined in that event's own Lorentz frame, not a lattice laid over a background. Showing that its Walsh-type structure leaves the propagation of light unchanged at observable energies is the test this proposal has to pass.
 
 ## Contents
 
 | File | Contents |
 |---|---|
 | [`README.md`](README.md) | This overview |
-| [`verify_pixelated.py`](verify_pixelated.py) | 26 checks: the Walsh–Hadamard matrix, the stellated octahedron in the spectrum, Hadamard rows as the tetrad, the octahedron's null faces, the 256 operations, and G |
+| [`verify_pixelated.py`](verify_pixelated.py) | 27 checks: the Walsh–Hadamard matrix, the stellated octahedron in the spectrum, Hadamard rows as the tetrad, the octahedron's null faces, the 256 operations, G, and the cube as the only space-filling Platonic solid |
 | [`make_figures.py`](make_figures.py) | Generates the cube and spectrum figures |
 | [`stellated_octahedron_in_cube.png`](stellated_octahedron_in_cube.png) | Figure 1: the stellated octahedron in the cube, with binary addresses |
 | [`cube_walsh_spectrum.png`](cube_walsh_spectrum.png) | Figure 2: the eight Walsh functions of the cube |
@@ -144,7 +158,7 @@ Every mathematical statement in the first three rows, and the value of G, is che
 
 ```bash
 pip install numpy matplotlib
-python verify_pixelated.py     # 26 passed, 0 failed
+python verify_pixelated.py     # 27 passed, 0 failed
 python make_figures.py         # regenerates Figures 1 and 2
 ```
 
@@ -165,18 +179,20 @@ python make_figures.py         # regenerates Figures 1 and 2
 
 ## References
 
-- Duarte, M. F. et al. (2008). Single-pixel imaging via compressive sampling. *IEEE Signal Process. Mag.* 25(2), 83.
+- Edgar, M. P., Gibson, G. M. and Padgett, M. J. (2019). Principles and prospects for single-pixel imaging. *Nature Photonics* 13, 13.
 - Jamnitzer, W. (1568). *Perspectiva Corporum Regularium*. Nuremberg.
 - Kepler, J. (1596). *Mysterium Cosmographicum*. Tübingen.
 - Kepler, J. (1611). *Strena seu de Nive Sexangula*. Frankfurt.
 - Kepler, J. (1619). *Harmonices Mundi*. Linz.
 - O'Donnell, R. (2014). *Analysis of Boolean Functions*. Cambridge University Press.
+- Hadamard matrices and simplices in hypercubes: [Complex Projective 4-Space, "Subsumptions of regular polytopes"](https://cp4space.hatsya.com/2020/10/01/subsumptions-of-regular-polytopes) (2020).
 - Pacioli, L. (1509). *De Divina Proportione*, illustrated by Leonardo da Vinci. Venice.
 - Pratt, W. K., Kane, J. and Andrews, H. C. (1969). Hadamard transform image coding. *Proc. IEEE* 57, 58.
 - Rovelli, C. and Smolin, L. (1995). Discreteness of area and volume in quantum gravity. *Nucl. Phys. B* 442, 593.
-- Sylvester, J. J. (1867). Thoughts on inverse orthogonal matrices. *Phil. Mag.* 34, 461.
+- Sun, M.-J., Meng, L.-T., Edgar, M. P., Padgett, M. J. and Radwell, N. (2017). A Russian Dolls ordering of the Hadamard basis for compressive single-pixel imaging. *Sci. Rep.* 7, 3464.
+- Sylvester, J. J. (1867). Thoughts on inverse orthogonal matrices, simultaneous sign-successions, and tessellated pavements in two or more colours. *Phil. Mag.* 34, 461.
 - Vasileiou, V. et al. (2013). Constraints on Lorentz invariance violation from Fermi-LAT observations of gamma-ray bursts. *Phys. Rev. D* 87, 122001.
 - Walsh, J. L. (1923). A closed set of normal orthogonal functions. *Amer. J. Math.* 45, 5.
 - Wheeler, J. A. (1990). Information, physics, quantum: the search for links. In W. Zurek (ed.), *Complexity, Entropy, and the Physics of Information*. Addison-Wesley.
 - Zuse, K. (1969). *Rechnender Raum*. Vieweg.
-- History of the stellated octahedron: [Wikipedia, "Stellated octahedron"](https://en.wikipedia.org/wiki/Stellated_octahedron); [Matemáticas Visuales, "Stella octangula (adapted from Leonardo da Vinci)"](https://www.matematicasvisuales.com/english/html/history/leonardo/stellatedoctahedron.html).
+- History of the stellated octahedron: [Wikipedia, "Stellated octahedron"](https://en.wikipedia.org/wiki/Stellated_octahedron); [MathWorld, "Stella Octangula"](https://mathworld.wolfram.com/StellaOctangula.html); [Matemáticas Visuales, "Stella octangula (adapted from Leonardo da Vinci)"](https://www.matematicasvisuales.com/english/html/history/leonardo/stellatedoctahedron.html).
