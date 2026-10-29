@@ -20,7 +20,7 @@ The companion folder [`atom-vortex-horizon/`](../atom-vortex-horizon/) (40 tests
 
 - **Same equation, two scales.** The galactic relation $v^4 = GM\,(v^2/r + a_0)$ and the atomic relation $v^4 = (kZe^2/m_e)\,(v^2/r + a_{0v})$ have the same form. Only the coupling constant and the transition acceleration differ.
 - **The atomic transition scale.** At the Bohr radius, the Coulomb acceleration $ke^2/(m_e a_0^2)$ and the centripetal acceleration $v_{\mathrm{Bohr}}^2/a_0$ are equal. Both are $\alpha^3 m_e c^3/\hbar \approx 9.04 \times 10^{22}$ m/s². GFD identifies this as the atomic counterpart $a_{0v}$ of the galactic scale $a_0$.
-- **The radius.** The outermost tile sits at $r = n^2 a_0 / Z_{\mathrm{eff}}$, with $n$ the shell number and $Z_{\mathrm{eff}}$ the net vortex flux reaching it. This reproduces measured atomic radii for $Z = 1$–20 to better than 2%.
+- **The radius.** The outermost tile sits at $r = n^2 a_0 / Z_{\mathrm{eff}}$, with $n$ the shell number and $Z_{\mathrm{eff}}$ the net vortex flux reaching it. With Clementi's $Z_{\mathrm{eff}}$ this matches Clementi's calculated radii for $Z = 1$–20 to about 1%. That agreement holds largely by construction (see *Baselines* below): Clementi's radii are the maxima of Slater-type orbitals, which lie at exactly $n^2 a_0/Z_{\mathrm{eff}}$.
 
 ## Method
 
@@ -33,7 +33,7 @@ Each property is computed from the radius, or from quantities that follow from i
   Net vortex flux Z_eff  (Clementi screening)
        │
        ▼
-  Vortex radius r = n² a₀ / Z_eff ─────────────── < 2% (Z = 1–20)
+  Vortex radius r = n² a₀ / Z_eff ─────────────── ≈ 1% vs Clementi radii (by construction)
        │
        ├──→ Polarizability α ∝ r^2.57 ──────────── R² > 0.99
        │         ├──→ Refractive index (Clausius–Mossotti) ── 5.6%
@@ -82,6 +82,26 @@ The compound suite also verifies a set of correct orderings: band gaps (fluoride
 
 Two results are identities rather than fits. The Bohr magneton equals the circulation moment of the ground-state vortex, and the Coulomb and centripetal accelerations at the Bohr radius coincide. Both hold within the Bohr model by construction; GFD's contribution is to read them as properties of the vortex.
 
+## Baselines: what the vortex formulation adds
+
+[`baseline_comparison.py`](baseline_comparison.py) scores each GFD result against standard alternatives, using reference data collected in [`data/atomic_reference.csv`](data/atomic_reference.csv) with sources in [`data/SOURCES.md`](data/SOURCES.md).
+
+**Radii.** The suites compare $r = n^2 a_0/Z_{\mathrm{eff}}$ with Clementi's calculated radii. For a Slater-type orbital the radial density peaks at $r = n/\zeta = n^2 a_0/Z_{\mathrm{eff}}$, and Clementi's radii are defined as that peak, so the 1% agreement is a consistency check, not an independent prediction. Against an independent, empirical radius scale (the covalent radii of Cordero et al. 2008), with one scale factor fitted for each model:
+
+| Model | Typical deviation (log-RMS) | Rank correlation |
+|---|---|---|
+| $n^2 a_0/Z_{\mathrm{eff}}$ with Clementi's $Z_{\mathrm{eff}}$ (GFD) | 0.24 | 0.955 |
+| Slater's rules (1930), effective $n^*$ | 0.29 | 0.961 |
+| Slater's rules, integer $n$ | 0.32 | 0.961 |
+
+The GFD formulation tracks the independent radii somewhat better than Slater's rules. That advantage comes from Clementi's self-consistent-field screening, which the formula takes as input.
+
+**Polarisability.** A power law in the radius, $\alpha = 4.49\,r^{2.57}$ (two fitted parameters), describes all twenty elements with a typical deviation of 14%. A classical $\alpha = r^3$ with no fitted parameter fails badly; a fitted $s\,r^3$ gives 29%. In a hold-out test, fitting on $Z = 1$–10 and predicting $Z = 11$–20, the power law gives 21% against 45% for $s\,r^3$. The relation is real and predictive, but it would hold for any accurate radius; it is not specific to GFD.
+
+**The H–H bond.** $a_0\sqrt 2 = 74.84$ pm is 0.94% from the measured 74.14 pm. Of 129 comparably simple expressions $a_0\,(p/q)^k$ ($p, q \le 8$; $k = 1, \tfrac12, \tfrac13$), two come as close, and $a_0 \cdot 7/5$ is closer. The result is distinctive but not unique, so it carries weight only together with the threshold argument ($x = K$) that selects it.
+
+**What this means.** As it stands, the chain's predictive content enters through Clementi's screening constants. The vortex picture organises the results coherently, but the step that would make them GFD's own is deriving $Z_{\mathrm{eff}}$, or the screening, from $K = 4$, $D = 3$ geometry. That is the programme's central open target.
+
 ## Limitations
 
 The suites are explicit about where the radius stops being sufficient.
@@ -97,6 +117,7 @@ The suites are explicit about where the radius stops being sufficient.
 ```bash
 python gfd_vortex_overdetermined_20.py     # 20/20: atomic properties
 python gfd_vortex_enterprise_20.py         # 20/20: compound properties
+python baseline_comparison.py              # GFD against standard baselines
 python ../atom-vortex-horizon/gfd_vortex_horizon_20.py       # 20/20: the vortex picture
 python ../atom-vortex-horizon/gfd_vortex_horizon_ext_20.py   # 20/20: extended horizon
 ```
@@ -110,6 +131,8 @@ All four suites were run for this README and pass (80/80). A second atomic suite
 | [`gfd_overdetermined_synthesis.md`](gfd_overdetermined_synthesis.md) | Full synthesis of the overdetermined programme: every section, the industrial pipeline, results and gaps |
 | [`gfd_vortex_overdetermined_20.py`](gfd_vortex_overdetermined_20.py) | Atomic-property suite, sections K–O |
 | [`gfd_vortex_enterprise_20.py`](gfd_vortex_enterprise_20.py) | Compound-property suite, sections U–Y |
+| [`baseline_comparison.py`](baseline_comparison.py) | Scores the GFD results against Slater's rules, independent covalent radii, $r^3$ baselines, a hold-out test and a look-elsewhere test |
+| [`data/atomic_reference.csv`](data/atomic_reference.csv) | All reference values in one file, with [`data/SOURCES.md`](data/SOURCES.md) giving the source of each column |
 
 ## Context within the GFD programme
 
@@ -131,9 +154,12 @@ The atomic results sit among the programme's broader claims, each developed else
 
 - Born, M. and Landé, A. (1918). Über die absolute Berechnung der Kristalleigenschaften mit Hilfe Bohrscher Atommodelle. *Sitzungsber. Preuss. Akad. Wiss.*, 1048.
 - Clementi, E. and Raimondi, D. L. (1963). Atomic screening constants from SCF functions. *J. Chem. Phys.* 38, 2686.
+- Cordero, B. et al. (2008). Covalent radii revisited. *Dalton Trans.*, 2832.
 - Clementi, E., Raimondi, D. L. and Reinhardt, W. P. (1967). Atomic screening constants from SCF functions. II. *J. Chem. Phys.* 47, 1300.
 - Meyer, L. (1870). Die Natur der chemischen Elemente als Function ihrer Atomgewichte. *Ann. Chem. Pharm.* Suppl. 7, 354.
 - Mulliken, R. S. (1934). A new electroaffinity scale. *J. Chem. Phys.* 2, 782.
 - Parr, R. G. and Pearson, R. G. (1983). Absolute hardness: companion parameter to absolute electronegativity. *J. Am. Chem. Soc.* 105, 7512.
 - Pearson, R. G. (1963). Hard and soft acids and bases. *J. Am. Chem. Soc.* 85, 3533.
+- Schwerdtfeger, P. and Nagle, J. K. (2019). 2018 Table of static dipole polarizabilities of the neutral elements in the periodic table. *Mol. Phys.* 117, 1200.
 - Shannon, R. D. (1976). Revised effective ionic radii. *Acta Cryst.* A32, 751.
+- Slater, J. C. (1930). Atomic shielding constants. *Phys. Rev.* 36, 57.
