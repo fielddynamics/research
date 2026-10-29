@@ -23,4 +23,4 @@ Added for the second pre-registered screening test ([`PREREGISTRATION_bound_scre
 |---|---|---|
 | `outer_orbital`, `zeff_clementi` | Effective nuclear charge of the outermost orbital (4s for Sc–Zn, 4p for Ga–Kr) | Clementi and Raimondi (1963), as tabulated for Z = 1–36 in University of Lethbridge Chem 3830 lecture notes ("Electronic Configuration 2"). Every Z = 1–20 entry of that table matches `atomic_reference.csv` exactly, which identifies it as the Clementi–Raimondi set. |
 | `r_covalent_cordero_pm` | Covalent radius | Cordero et al. (2008), as tabulated in LibreTexts *A3: Covalent Radii*. For Mn, Fe and Co, Cordero lists low-spin and high-spin values (139/161, 132/152, 126/150 pm); the tabulated value is their mean (150, 142, 138 pm), and that is the value used. |
-| `configuration` | Ground-state electron configuration | NIST Atomic Spectra Database (standard; matches `KNOWN_CONFIGS_RAW` in `valance-shells-nailed/gfd_electron_config.py`) |
+| `configuration` | Ground-state electron configuration | NIST Atomic Spectra Database (standard; matches `KNOWN_CONFIGS_RAW` in `electron-configurations/gfd_electron_config.py`) |

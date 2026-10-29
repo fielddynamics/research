@@ -253,7 +253,7 @@ Most research folders follow the same pattern: a **`*_synthesis.md`** that expla
 | [`photonic/`](research/photonic/) | Photon equations, "light substrate" suites and teaching notes |
 | [`nuclear/`](research/nuclear/), [`nuclear-triforce/`](research/nuclear-triforce/) | Nuclear binding from the constitutive law; intersection with the face suite |
 | [`matter/`](research/matter/) | Nuclear binding (Bethe–Weizsäcker coefficients, 3-scale model, Sierpiński walk), electron configurations, particle properties |
-| [`valance-shells-nailed/`](research/valance-shells-nailed/) | Electron configuration / Madelung rule from the coupling polynomial |
+| [`electron-configurations/`](research/electron-configurations/) | Electron configurations: sub-shell capacities, Madelung order and the transition-metal exceptions from the coupling polynomial |
 | [`atomic-properties/`](research/atomic-properties/), [`atom-vortex-horizon/`](research/atom-vortex-horizon/) | Overdetermined atomic predictions; the vortex horizon picture of the atom |
 
 ### Computation and signal processing

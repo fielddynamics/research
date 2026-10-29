@@ -194,7 +194,7 @@ The atomic results sit among the programme's broader claims, each developed else
 | Three spatial dimensions selected by $2(D+1) = 2^D$ | [`field-closure/`](../field-closure/), Paper IX |
 | Nuclear magic numbers and binding energies from tetrahedral packing | Papers XI and XIII; [`bound-gravity-and-packing/`](../bound-gravity-and-packing/) |
 | The same law governing galaxies and atoms | this folder and [`atom-vortex-horizon/`](../atom-vortex-horizon/) |
-| The electron as an illuminated tile; shell capacity $2n^2$ | this folder; [`valance-shells-nailed/`](../valance-shells-nailed/) |
+| The electron as an illuminated tile; shell capacity $2n^2$ | this folder; [`electron-configurations/`](../electron-configurations/) |
 | The fine-structure constant and the cosmological constant from $K = 4$ | exploratory notes, not validated here |
 
 ---
