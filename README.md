@@ -231,7 +231,7 @@ Most research folders follow the same pattern: a **`*_synthesis.md`** that expla
 | [`cdm/`](research/cdm/) | Translation of the cold-dark-matter halo into the TetB interior of the field |
 | [`cmb/`](research/cmb/) | CMB gravitational enhancement, Compton-to-Hubble chain, velocity exponent |
 | [`g_from_topology/`](research/g_from_topology/) | G as a matrix read; one-loop (Schwinger) correction to G |
-| [`field-closure/`](research/field-closure/) | Derivation chain GR → coupling polynomial; why the closure walk produces π |
+| [`field-closure/`](research/field-closure/) | Where the research began: why a gravitational field must close, the accounting closure demands, the field closure pipeline, and the closure walk |
 | [`bbp and pi field closure stepping/`](<research/bbp and pi field closure stepping/>) | The BBP π formula read as field closure |
 | [`bound-gravity-and-packing/`](research/bound-gravity-and-packing/) | How a gravity field becomes matter: one field, two states, driven by stellar compression |
 | [`quantum gravity/`](<research/quantum gravity/>) | Contact with Regge / LQG / spin-foam programs; two-state Hilbert space of the octahedral core |
