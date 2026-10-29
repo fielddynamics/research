@@ -110,11 +110,10 @@ All four suites were run for this README and pass (80/80). A second atomic suite
 | [`gfd_overdetermined_synthesis.md`](gfd_overdetermined_synthesis.md) | Full synthesis of the overdetermined programme: every section, the industrial pipeline, results and gaps |
 | [`gfd_vortex_overdetermined_20.py`](gfd_vortex_overdetermined_20.py) | Atomic-property suite, sections K–O |
 | [`gfd_vortex_enterprise_20.py`](gfd_vortex_enterprise_20.py) | Compound-property suite, sections U–Y |
-| [`what we have.txt`](what%20we%20have.txt) | Working notes summarising the wider GFD programme (see below) |
 
 ## Context within the GFD programme
 
-The working notes in this folder place the atomic results among the programme's broader claims. Each is developed elsewhere in the archive:
+The atomic results sit among the programme's broader claims, each developed elsewhere in the archive:
 
 | Claim | Where it is developed |
 |---|---|

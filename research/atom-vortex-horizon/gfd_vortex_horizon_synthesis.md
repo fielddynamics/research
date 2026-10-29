@@ -51,7 +51,7 @@ The Bohr acceleration — the centripetal acceleration of the ground-state elect
 
 > a_Bohr = v_Bohr² / a₀ = (αc)² / a₀
 
-These are *the same number*. It's an algebraic identity. Both equal α⁴mₑc³/ℏ ≈ 9.044 × 10²² m/s².
+These are *the same number*. It's an algebraic identity. Both equal α³mₑc³/ℏ ≈ 9.044 × 10²² m/s².
 
 This means the transition acceleration of the atomic vortex is the Bohr acceleration:
 
