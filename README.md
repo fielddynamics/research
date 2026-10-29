@@ -2,6 +2,8 @@
 
 **Gravity Field Dynamics (GFD)** · Stephen Nelson · [Field Dynamics Research](https://fielddynamics.org) · stephen@fielddynamics.org
 
+`gravity` `theoretical-physics` `general-relativity` `modified-gravity` `astrophysics` `cosmology` `galaxy-rotation-curves` `dark-matter` `tetrad` `scientific-computing` `open-science` `sparc`
+
 **One covariant action, with no parameter fitted to galaxies, reproduces the radial acceleration relation of the SPARC database: 3284 rotation-curve points in 164 galaxies, with a scatter of σ = 0.181 dex, within 0.0003 dex of the best one-parameter empirical fit.** Its interpolating function, μ(x) = x/(x + 1), is not chosen. It follows from the exchange symmetry between the two parity-related roots of the tetrad equation, which together form a stellated octahedron.
 
 ![The radial acceleration relation for 164 SPARC galaxies, with the GFD prediction and the McGaugh et al. (2016) empirical fit, and residual histograms for both](papers/letter-radial-acceleration-relation-sparc/sparc_rar.png)
