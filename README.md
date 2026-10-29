@@ -233,7 +233,7 @@ Most research folders follow the same pattern: a **`*_synthesis.md`** that expla
 | [`g_from_topology/`](research/g_from_topology/) | G as a matrix read; one-loop (Schwinger) correction to G |
 | [`field-closure/`](research/field-closure/) | Derivation chain GR → coupling polynomial; why the closure walk produces π |
 | [`bbp and pi field closure stepping/`](<research/bbp and pi field closure stepping/>) | The BBP π formula read as field closure |
-| [`bound-gravity-and-packing/`](research/bound-gravity-and-packing/) | Gravity field packing, one field in two states |
+| [`bound-gravity-and-packing/`](research/bound-gravity-and-packing/) | How a gravity field becomes matter: one field, two states, driven by stellar compression |
 | [`quantum gravity/`](<research/quantum gravity/>) | Contact with Regge / LQG / spin-foam programs; two-state Hilbert space of the octahedral core |
 | [`deep-structure/`](research/deep-structure/) | Number-theoretic and topological structure of K = 4 |
 | [`polynomial coupling fn/`](<research/polynomial coupling fn/>) | Structural analysis of `f(K, s)`, Sierpiński structure, prime sieve |

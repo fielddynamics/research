@@ -1,185 +1,174 @@
-# GFD Gravity Field Packing — Synthesis
+# Bound and Unbound: How a Gravity Field Becomes Matter
 
-## One Field, Two States, Zero Parameters in the Distinction
+### One field, two states — a synthesis of the GFD gravity-field packing suite
 
-**Framework:** Gravitational Field Dynamics (GFD)  
-**Geometry:** K = 4, D = 3 (stellated octahedron, uniqueness theorem 2(D+1) = 2^D)  
-**Tests:** 20/20 passed  
-**File:** `gfd_gravity_field_packing_20.py`
+*Field Dynamics Research · Gravity Field Dynamics (GFD), $K = 4$, $D = 3$*
+*Test suite: [`gfd_gravity_field_packing_20.py`](gfd_gravity_field_packing_20.py), 20 of 20 passing · Related papers: VII, XI and XIII*
 
 ---
 
-## The Central Claim
+## The idea in one paragraph
 
-There is one field: the gravity field. It exists in two physical states.
+In Gravity Field Dynamics there is only one field, the gravity field, and every gravity field has the same two-chambered geometry: the stellated octahedron, with its chambers TetA and TetB coupled at a central Field Origin. What distinguishes empty space from a grain of sand is not a different substance but a different **state** of the same field.
 
-**Unbound.** Gravity fields packed at K = 4 on TetA. This is space — the ocean. Unbound fields screen each other in one direction:
+- **Unbound.** A field whose TetB chamber is empty is unbound. Unbound fields make up the long-range gravitational background, the mesh on which everything else sits.
+- **Bound.** A field that has been pushed through its Field Origin, so that its TetB chamber is occupied, is bound. Bound fields are what we call matter.
 
-$$x(1 - \mu) = \mu \quad \Rightarrow \quad \mu = \frac{x}{x+1}$$
+This note explains how a field passes from one state to the other, why a bound field stays bound, what does the pushing, and what the nuclear data say about it.
 
-This governs galactic dynamics. The Milgrom regime. An unbound field has nothing holding it in place.
+## 1. The unbound field: a one-way coupling
 
-**Bound.** A field pushed through the Field Origin (f = 17, x = 1) crosses onto TetB and gets stuck. The packing geometry traps it. Other bound fields compress it from every direction. The compression is bidirectional:
+An unbound gravity field couples to the matter around it in one direction only. It responds to a source but is not held by anything.
 
-$$x(1 - \mu)^2 = \mu$$
+Let $x = g/a_0$ be the strength of the field in units of the acceleration scale $a_0$, and let $\mu$ be the fraction of the field's coupling capacity in use. In a one-way coupling, the response draws on whatever capacity remains, so the balance condition is
 
-This governs nuclear binding. The compression creates a vortex that spirals outward into (3+1) spacetime — the electric field. That bound envelope with its vortex IS matter.
+$$x\,(1 - \mu) = \mu \qquad\Longrightarrow\qquad \mu(x) = \frac{x}{x+1}.$$
 
-Both states coexist in our (3+1) spacetime. The unbound field is everywhere. Matter is bound gravity fields sitting in it.
+This is the GFD constitutive law. It governs galaxies: at high field strength $\mu \to 1$ and Newtonian gravity is recovered, while at low field strength $\mu \to x$ and rotation curves flatten. In Paper VII's language, a field in this state corresponds to the massless spin-2 mode of bimetric gravity. Its TetB chamber is empty, and it carries no localised energy. It is the stage, not an actor.
 
-**There is no N = 1 or N = 2.** There is no parameter that selects the exponent. The exponent tells you which state the field is in: 1 for unbound (one-directional screening in the ocean), 2 for bound (bidirectional compression from being stuck). A gravity field can't pack on TetA — nothing holds it there. Only when it crosses through the Field Origin and lands on TetB is it trapped, compressed from all sides, and the exponent becomes 2.
+## 2. The gate
 
----
+Every gravity field has one special state: the Field Origin, where $x = 1$ and the coupling polynomial $f(K,s) = 1 + sK + K^2$ takes its central value $f = 17$. The capacity function $f(x) = (21x + 13)/(x+1)$ reaches 17 at exactly one point, $x = 1$. There is one gate, and only one.
 
-## What the 20 Tests Found
+A field that is pushed through the gate does not simply pass to the other side. Its TetB chamber becomes occupied, and it changes state. In Paper VII's language, it now corresponds to the massive spin-2 mode, whose nonlinear self-coupling confines it into a localised configuration. That is the same idea Wheeler had in 1955 when he showed that general relativity permits *geons*, configurations of pure field energy held together by their own gravity. GFD calls a bound field of this kind a **Field Atom**.
 
-### A. The Gate (Tests 1–4)
+## 3. Why a bound field stays bound: the echo
 
-The Field Origin at f(1) = 17 is the unique crossing point — the one-way door from the ocean into the nucleus.
+The unbound law describes a one-way conversation: the field answers its source. A bound field is in a different situation. It is its own source. Paper XIII states the condition precisely:
+
+1. In a bound pair, a fraction $\mu$ of the coupling capacity is used in one direction.
+2. The remaining $(1 - \mu)$ carries the return coupling.
+3. Self-consistency requires that the return coupling, acting as the effective source, reproduces exactly the $\mu$ it started from.
+
+The field's own echo must regenerate the field. Substituting the return coupling for the source gives
+
+$$x\,(1 - \mu)^2 = \mu .$$
+
+The exponent is 2 because the coupling runs in two directions: out and back, compressed from both sides. **It is not an adjustable parameter.** It counts directions. A field in the one-way state obeys the law with exponent 1; a field that has crossed the gate and closed on itself obeys the law with exponent 2. There is no intermediate case, because a coupling cannot be one-and-a-half-directional.
+
+**The golden ratio marks the crossing.** At the gate ($x = 1$), the bound law becomes $(1-\mu)^2 = \mu$. Writing $\nu = 1 - \mu$, this is $\nu^2 + \nu = 1$, so $\nu = 1/\varphi$ and $\mu = 1/\varphi^2 \approx 0.382$, where $\varphi$ is the golden ratio. The unbound law gives $\mu = \tfrac12$ at the same point. The two states differ by 31% at the gate itself, which makes the distinction observable in principle.
+
+## 4. What does the pushing: stellar compression
+
+Something has to drive fields through the gate. In GFD the first crossing is hydrogen: a single field, $A = 1$, sitting at the gate with no surplus binding. Everything heavier is built by compression.
+
+This is where GFD meets one of the best-established results in astrophysics. The chemical elements heavier than hydrogen and helium were forged inside stars, by fusion in their cores and by the explosive and neutron-capture processes of stellar deaths (Burbidge, Burbidge, Fowler and Hoyle 1957). GFD reads that history geometrically. Stellar compression packs gravity fields into the TetB cavity of a host field. Paper XI identifies the compression ratio with the square of the number of packed fields,
+
+$$x = A^2,$$
+
+where $A$ is the mass number.
+
+**The bicycle pump.** Compression gets harder with every stroke. Under the bound law, the unfilled capacity falls off as
+
+$$1 - \mu \;\approx\; \frac{1}{\sqrt x} \;=\; \frac1A,$$
+
+so each additional field adds less than the last. The unbound law would saturate far faster, as $1/A^2$, leaving almost no structure beyond the lightest nuclei. The bound law keeps real curvature across the whole periodic table:
+
+| Nucleus | $A$ | Compression $x = A^2$ | Capacity in use $\mu$ | Unfilled $1 - \mu$ |
+|---|---|---|---|---|
+| Hydrogen | 1 | 1 | 0.382 (the gate) | 0.618 |
+| Helium-4 | 4 | 16 | 0.779 | 0.221 |
+| Carbon-12 | 12 | 144 | 0.920 | 0.080 |
+| Iron-56 | 56 | 3,136 | 0.982 | 0.018 |
+| Lead-208 | 208 | 43,264 | 0.995 | 0.005 |
+
+**The binding curve.** For all but the lightest nuclei, the bound law gives a simple form for the binding energy per nucleon:
+
+$$\frac{BE}{A} \;\approx\; C\,K\left(\frac{A-1}{A}\right)^2 .$$
+
+Here $(A-1)/A$ is the fraction of fields beyond the first crossing (hydrogen contributes nothing), and the square comes from the two-directional compression. Paper XI fixes the energy constant from the electron mass and the topology, $C = 17\,m_e c^2/K = 2.172$ MeV.
+
+Expanding the formula, $BE/A \approx CK\,(1 - 2/A + 1/A^2)$. The coefficients are locked together in the ratio $1 : -2 : +1$. They are a consequence of the law, not fitted.
+
+Against measured binding energies (AME2020):
+
+| Nucleus | Predicted $BE/A$ (MeV) | Measured (MeV) | Difference |
+|---|---|---|---|
+| Helium-4 | 4.89 | 7.07 | −31% |
+| Carbon-12 | 7.30 | 7.68 | −5% |
+| Oxygen-16 | 7.64 | 7.98 | −4% |
+| Iron-56 | 8.38 | 8.79 | −5% |
+| Lead-208 | 8.60 | 7.87 | +9% |
+
+The formula captures the rise and saturation of the binding curve across the middle of the periodic table with no free parameter. Its two departures are both informative:
+- **Helium-4** binds far more tightly than the formula predicts. It is the first complete tetrahedral unit ($A = K = 4$), and the suite finds its binding constant 47% above the mean: a closure resonance.
+- **The heaviest nuclei** are over-predicted. That is the signature of electric repulsion growing with $Z^2$, which a single constant cannot capture (§5).
+
+The full treatment, with sector crossings and shell structure, is in Paper XIII.
+
+## 5. The vortex: why bound matter is charged
+
+In the GFD picture, the two-directional compression of a bound field produces a vortex that spirals outward into ordinary spacetime, and that vortex is the electric field. The bound envelope together with its vortex is matter.
+
+The suite tests the consequences of this reading against the data:
 
 | Test | Finding |
-|------|---------|
-| A1 | f(x) = 17 has exactly one solution: x = 1. One gate, one crossing. Both numerator and denominator of the solution equal K. |
-| A2 | All nuclei are deep in TetB territory. He-4 (x = 16) is already 88% of the way from the gate to the TetB ceiling. Fe-56 is 99.9%. Bi-209 is 100.0%. These fields are not near the gate — they are deeply stuck. |
-| A3 | Hydrogen is one field at the gate: A = 1, x = 1, BE/A = 0. The entire crossing energy becomes rest mass. Every other nucleus has positive surplus binding. |
-| A4 | At the gate, the bound compression equation produces the golden ratio: ν² + ν = 1 → ν = 1/φ → μ = 1/φ². This is not imported — it is produced by bidirectional compression at the crossing point. The unbound law gives μ = 1/2 at x = 1. No golden ratio. |
+|---|---|
+| Coulomb inseparability | Subtracting the standard Coulomb term from the binding energies makes the fit *worse* (the spread of the binding constant rises by 37%). On the GFD reading, the electric repulsion is part of the same compression that binds, not a separate correction. |
+| Repulsion tracks $Z^2/A$ | The residuals of the bound law correlate with $Z^2/A$ ($r \approx -0.72$): more charge, less effective binding. |
+| Neutron ballast | The neutron-to-proton ratio of stable nuclei rises steadily with $Z$ ($r > 0.9$). More vortices repel more strongly and need more neutral fields to hold the envelope together. |
+| Helium-4 closure | Helium-4's binding constant stands 47% above the mean: the first complete tetrahedral unit. |
 
-**The capacity function f(x) = (21x + 13)/(x + 1) acts as a depth gauge.** At x = A², it reads how deep the bound fields sit in TetB:
+The rise of the neutron-to-proton ratio is standard nuclear physics, where it is attributed to Coulomb repulsion. GFD gives it a geometric reading.
 
-| Nucleus | A | x = A² | f(x) | Depth into TetB |
-|---------|---|--------|------|-----------------|
-| Hydrogen | 1 | 1 | 17.000 | 0% (at the gate) |
-| Helium | 4 | 16 | 20.529 | 88% |
-| Neon | 20 | 400 | 20.980 | 99.5% |
-| Iron | 56 | 3,136 | 20.997 | 99.9% |
-| Bismuth | 209 | 43,681 | 21.000 | 100.0% |
+The same picture accounts for electrons. The vortex of a bound field illuminates surrounding unbound fields: $Z$ vortices light $Z$ fields, and charge neutrality follows from the geometry.
 
----
+## 6. How bound fields pack
 
-### B. Stuck (Tests 5–9)
+The structure of the packing carries further signatures:
 
-Once a field crosses the gate onto TetB, it's trapped. The bidirectional compression has a distinctive signature: slow saturation.
+- **The magic numbers.** All seven nuclear magic numbers, 2, 8, 20, 28, 50, 82 and 126, follow from $K = 4$ alone, and no other value of $K$ from 2 to 10 reproduces them (Papers XI and XIII).
+- **The 20 → 28 gap.** In standard nuclear physics this gap requires a spin–orbit force (Mayer 1949; Haxel, Jensen and Suess 1949). In GFD it arises from a change in the packing geometry at the fourth shell.
+- **The end of stability.** The packing has a finite address space, $K^K = 256$ positions. Paper XIII locates the end of stability more precisely: three ordinary sectors of $K^D = 64$ positions each, plus the gate sector, place the boundary at $3 \times 64 + 16 = 208$, which is lead-208, the heaviest stable nucleus. Bismuth-209, long counted as stable, does decay, with a half-life of about $2 \times 10^{19}$ years (de Marcillac et al. 2003).
 
-**The key discriminant.** The two states saturate at different rates:
+## 7. From nucleus to object
 
-- **Unbound:** 1 − μ ~ 1/x = 1/A². By A = 10, the geometry is 99% saturated. No shape left.
-- **Bound:** 1 − μ ~ 1/√x = 1/A. Even at A = 56 (iron), 1.8% remains unsaturated. The geometry has real curvature across the entire periodic table.
+A bound field is a Field Atom. Many of them together form a **Field Object**, which Paper VII describes through the example of an asteroid: some $10^{33}$ bound envelopes, each closing at its own Field Origin, together forming a single gravitational entity defined by the relations among its parts. Paper VII compares it to a chord in music. Change one note and the chord changes; remove part of it and it becomes a different chord.
 
-| Test | Finding |
-|------|---------|
-| B5 | Saturation rate confirmed: (1 − μ\_bound(A²)) × A → 1.0 as A grows. Each new packed field contributes diminishing returns proportional to 1/A, not 1/A². |
-| B6 | The asymptotic form K · ((A−1)/A)² matches K · s\_bound(A²) to < 1% for all A ≥ 7. The binding per nucleon is proportional to the **square** of the fraction of fields beyond the first crossing. Squared because the compression is bidirectional. |
-| B7 | Dynamic range from Li-7 to Ca-40: bound law spans 29%, unbound spans 4%. The unbound law has nothing left to work with. The bound law tracks the steep rise in observed binding. |
-| B8 | Light nuclei RMS (A = 7–19): bound = 0.38 MeV, unbound = 1.25 MeV. The bound law is 3× more accurate where the binding curve has its steepest shape. |
-| B9 | Sensitivity ratio dμ\_bound/dμ\_unbound ≈ A/2. At A = 56, the bound law is 28× more sensitive to adding one more field than the unbound law. The unbound law says iron is indistinguishable from bismuth. The bound law says they're different — and the data agrees. |
+> "The unbound envelopes, TetB chambers empty, form the mesh: the stage. The bound envelopes, TetB chambers occupied through stellar compression, move through that mesh: the actors. Atoms, asteroids, stars, and galaxies are not objects that 'have' gravitational fields. They *are* bound gravity field configurations." — Paper VII
 
-**The asymptotic form deserves emphasis.** For A ≥ 7, the bound law gives:
+## 8. An honest scorecard
 
-$$\frac{BE}{A} \approx C \cdot K \cdot \left(\frac{A-1}{A}\right)^2$$
+| Question | Answer |
+|---|---|
+| Does the bound law fit better than the unbound law where the binding curve has shape? | Yes. For light nuclei ($A = 7$–19) the root-mean-square error is 0.38 MeV for the bound law against 1.25 MeV for the unbound law. |
+| Does it beat a simple empirical fit? | Not quite. A two-parameter fit $c_0 + c_1/A$ reaches 0.379 MeV against the bound law's 0.388 MeV, with one parameter. The bound law achieves 97% of the accuracy with half the parameters and a physical mechanism. |
+| Where does it fail? | Every nucleus from hafnium to bismuth is over-predicted, because electric repulsion grows with $Z^2$ and a single constant cannot follow it. |
+| How many free parameters? | The suite fits one constant, $C \approx 2.156$ MeV, in six of its twenty tests. Paper XI fixes it from the electron mass, $C = 17\,m_e c^2/4 = 2.172$ MeV, within 0.7% of the fitted value, which leaves no free parameter. |
+| What would falsify it? | Two predictions differ between the states: $\mu = 1/\varphi^2$ against $\tfrac12$ at the gate, and $1/A$ against $1/A^2$ saturation. If nuclear binding were shown to saturate as $1/A^2$, the packing picture would fail. |
 
-This is a one-parameter formula (C ≈ 2.156) that says: the binding energy per nucleon equals a constant times the square of (A−1)/A. The physical meaning of (A−1)/A is the fraction of bound fields beyond the first crossing (hydrogen contributes zero surplus). The squaring comes from bidirectional compression. The unbound law would give (1 − 2/A²) instead — linear depletion, no squaring, no (A−1)/A structure.
+## 9. The twenty tests
 
-The Taylor expansion makes the prediction explicit:
+| Section | Tests | What they establish |
+|---|---|---|
+| **A. The gate** | A1–A4 | $x = 1$ is the unique crossing; nuclei sit far beyond it; hydrogen is the first crossing with zero surplus binding; the bound law gives $\mu = 1/\varphi^2$ at the gate |
+| **B. Held** | B5–B9 | saturation as $1/A$, not $1/A^2$; the asymptotic form $K((A-1)/A)^2$ to better than 1% for $A \ge 7$; seven times the dynamic range of the unbound law from lithium to calcium; three times the accuracy for light nuclei; diminishing returns that grow with $A$ |
+| **C. The vortex** | C10–C13 | Coulomb inseparability; repulsion tracking $Z^2/A$; neutron ballast; the helium-4 closure |
+| **D. The packing** | D14–D17 | the seven magic numbers from $K = 4$; the $K^K = 256$ ceiling; the locked coefficients $1 : -2 : +1$; the shell inversion without spin–orbit coupling |
+| **E. Adversarial** | E18–E20 | competition with a two-parameter fit; the documented failure for heavy nuclei; the falsifiable predictions |
 
-$$\frac{BE}{A} \approx CK - \frac{2CK}{A} + \frac{CK}{A^2}$$
+```bash
+cd research/bound-gravity-and-packing
+python gfd_gravity_field_packing_20.py      # 20/20
+```
 
-The coefficients are **linked**: c₁/c₀ = −2 exactly, c₂/c₀ = +1 exactly. These are not fitted — they fall from the compression law. A trivial unconstrained model would have independent coefficients.
+## A note on the exponent
 
----
-
-### C. The Vortex (Tests 10–13)
-
-Bound fields on TetB create a vortex — the electric field. This is not analogous to electromagnetism. It IS electromagnetism. The vortex is the observable signature of being stuck.
-
-| Test | Finding |
-|------|---------|
-| C10 | **Coulomb inseparability.** Subtracting the Bethe-Weizsäcker Coulomb term degrades the C-factor CV by 37%. The electromagnetic interaction is not separable from the geometric binding because the vortex is created by the same bidirectional compression that binds. |
-| C11 | **Vortex repulsion pattern.** The C-factor residual correlates with Z²/A at r = −0.72. More vortices → more repulsion → lower effective binding. This pattern is visible because the bound law preserves the dynamic range to see it. |
-| C12 | **Neutron ballast.** N/Z increases with Z at r > 0.9. More vortices repel harder, requiring more non-vortex fields (neutrons) to maintain the compression envelope. The valley of stability is a geometric consequence. |
-| C13 | **He-4 closure anomaly.** He-4 (A = K = 4) is the first complete tetrahedral unit on TetB. Its C-factor is 47% above the mean — an unmistakable geometric resonance. |
+An earlier version of this suite scanned the exponent in $x(1-\mu)^n = \mu$ continuously, from $n = 1$ to $n = 3$, looking for the best fit. That framing treated the exponent as a dial, and it has been withdrawn. The exponent is the number of directions in which the coupling runs. It is 1 for a field answering a source, and 2 for a field that has crossed the gate and must regenerate itself. Nothing in between is physical.
 
 ---
 
-### D. The Packing (Tests 14–17)
+## References
 
-The structure of how fields pack on TetB: shell closures, the address space ceiling, and the coefficient relationships from the compression law.
+- Burbidge, E. M., Burbidge, G. R., Fowler, W. A. and Hoyle, F. (1957). Synthesis of the elements in stars. *Rev. Mod. Phys.* 29, 547.
+- de Marcillac, P., Coron, N., Dambier, G., Leblanc, J. and Moalic, J.-P. (2003). Experimental detection of α-particles from the radioactive decay of natural bismuth. *Nature* 422, 876.
+- Hassan, S. F. and Rosen, R. A. (2012). Bimetric gravity from ghost-free massive gravity. *JHEP* 02, 126.
+- Haxel, O., Jensen, J. H. D. and Suess, H. E. (1949). On the "magic numbers" in nuclear structure. *Phys. Rev.* 75, 1766.
+- Mayer, M. G. (1949). On closed shells in nuclei. II. *Phys. Rev.* 75, 1969.
+- Wang, M., Huang, W. J., Kondev, F. G., Audi, G. and Naimi, S. (2021). The AME 2020 atomic mass evaluation (II). *Chinese Phys. C* 45, 030003.
+- Wheeler, J. A. (1955). Geons. *Phys. Rev.* 97, 511.
 
-| Test | Finding |
-|------|---------|
-| D14 | All 7 magic numbers {2, 8, 20, 28, 50, 82, 126} from K = 4 alone. No other K in {2,...,10} works. Zero free parameters. |
-| D15 | K^K = 256 packing ceiling. Bi-209 (A = 209) uses 81.6% of the TetB address space. No stable nucleus exceeds 256. |
-| D16 | The coefficient relationships c₁/c₀ = −2 and c₂/c₀ = +1 are exact consequences of the compression law. They are tested, not fitted. |
-| D17 | Shell 3 (size 12) > Shell 4 (size 8). In standard nuclear physics, this requires importing a spin-orbit force. In GFD, it's forced by the K-transition at n = 4 — a change in packing geometry, not an additional interaction. |
-
----
-
-### E. Adversarial (Tests 18–20)
-
-Honest challenges to the picture.
-
-| Test | Finding |
-|------|---------|
-| E18 | **Honest competition.** A trivial 2-parameter model BE/A = c₀ + c₁/A gets RMS = 0.379 MeV. The bound law with 1 parameter gets 0.388 MeV. The 2-param model wins on raw fit quality. But the bound law achieves 97% of the same accuracy with half the parameters and a physical mechanism. The shortfall is < 3%. |
-| E19 | **Honest failure.** Heavy elements (A > 180) are systematically overpredicted. Every element from hafnium to bismuth has a positive residual. This is because the vortex repulsion grows with Z² and a single constant C cannot capture Z-dependent effects. The failure is documented, not hidden. |
-| E20 | **Falsifiability.** The bound and unbound laws make distinguishable predictions: μ = 1/φ² vs μ = 1/2 at x = 1 (a 30.9% gap), and 1/A vs 1/A² depletion from the ceiling. If observations established 1/A² scaling in nuclear binding, the packing picture would be falsified. |
-
----
-
-## What This Suite Does NOT Contain
-
-**No N = 1 or N = 2.** There is no parameter N. There are two physical states of one field. The exponent is not selected from a menu — it is the physics of the state.
-
-**No exponent scanning.** The earlier suite (gfd_bound_vs_unbound_20.py) included a test scanning x(1−μ)^n = μ for n = 1 to 3 and finding the optimal basin. That test treated the exponent as a dial. It was wrong. You don't get to ask "what if compression were 1.7-directional?" Either the field is unbound (exponent 1) or it crossed the gate and is stuck (exponent 2). This suite replaces that framing.
-
-**No "two tetrahedra both participating."** The exponent 2 is not "both tetrahedra contributing." TetA is the ocean — the field's home before crossing. TetB is where the packing happens. The exponent 2 is bidirectional compression ON TetB — the field is squeezed from every direction because it's trapped.
-
----
-
-## The Complete Physical Picture
-
-1. **Space** is an ocean of unbound gravity fields packed at K = 4 on TetA. The ocean screens in one direction: μ = x/(x+1). This governs galactic dynamics.
-
-2. A perturbation pushes a field through the **Field Origin** (f = 17, x = 1, μ = 1/φ²). The field crosses from TetA onto TetB.
-
-3. **Once on TetB, the field is stuck.** The packing geometry traps it. Other bound fields compress it from every direction. The compression is bidirectional: x(1 − μ)² = μ.
-
-4. The first crossing creates **hydrogen** (A = 1, BE/A = 0). Stellar compression pushes more fields through — the bicycle pump — creating heavier nuclei up to the K^K = 256 ceiling.
-
-5. The bidirectional compression creates a **vortex** spiraling outward into (3+1) spacetime. That vortex IS the electric field. The bound envelope with its vortex IS matter.
-
-6. The vortex **illuminates** surrounding unbound fields on TetA — electrons. Z vortices light Z unbound fields. Charge neutrality is geometric.
-
-7. Both states — unbound ocean and bound matter — coexist in our (3+1) spacetime. The difference is not where they are. The difference is whether the field crossed the gate and got stuck.
-
----
-
-## Summary Table
-
-| Test | Type | Params | Result |
-|------|------|--------|--------|
-| A1. Unique gate | Algebraic | 0 | x = 1 is the only crossing |
-| A2. Deep in TetB | Empirical | 0 | All nuclei > 88% depth |
-| A3. Hydrogen first crossing | Empirical | 0 | A = 1, BE/A = 0 |
-| A4. Golden ratio at gate | Algebraic | 0 | μ = 1/φ² from ν² + ν = 1 |
-| B5. Saturation rate 1/A | Algebraic | 0 | (1−μ)·A → 1 confirmed |
-| B6. Asymptotic ((A−1)/A)² | Algebraic | 0 | < 1% error for A ≥ 7 |
-| B7. Dynamic range 29% vs 4% | Empirical | 0 | Bound 7× more range |
-| B8. Light nuclei RMS | Empirical | 1 (C) | 0.38 vs 1.25 MeV |
-| B9. Diminishing returns | Algebraic | 0 | Ratio ≈ A/2, growing |
-| C10. Coulomb inseparable | Empirical | 0 | 37% degradation on removal |
-| C11. Vortex r = −0.72 | Empirical | 1 (C) | Z²/A tracks C-residual |
-| C12. Neutron ballast | Empirical | 0 | N/Z vs Z: r > 0.9 |
-| C13. He-4 closure | Empirical | 1 (C) | 47% C-factor excess |
-| D14. Magic numbers | Algebraic | 0 | 7/7 exact from K = 4 |
-| D15. K^K = 256 ceiling | Empirical | 0 | Bi-209 at 81.6% |
-| D16. Coefficient c₁/c₀ = −2 | Algebraic | 1 (C) | Exact from compression law |
-| D17. Shell inversion | Algebraic | 0 | Shell 3 > Shell 4 |
-| E18. Honest competition | Adversarial | 1 (C) | < 3% shortfall vs 2-param |
-| E19. Honest failure | Adversarial | 1 (C) | Heavy elements overpredicted |
-| E20. Falsifiability | Structural | 0 | 30.9% gap, 1/A vs 1/A² |
-
-**Total free parameters across all 20 tests: 1** (the constant C ≈ 2.156, used in 6 of 20 tests).
-
----
-
-*GFD Gravity Field Packing Validation v1.0 — 20/20 tests passing*
+**GFD papers:**
+- Paper VII, [`07-dual-tetrad-topology-field-origin/`](../../papers/07-dual-tetrad-topology-field-origin/): unbound and bound envelopes, Field Atoms and Field Objects.
+- Paper XI, [`11-nuclear-shells-tetrahedral-packing/`](../../papers/11-nuclear-shells-tetrahedral-packing/): stellar compression into the TetB cavity, $x = A^2$, the energy constant.
+- Paper XIII, [`13-nuclear-binding-bidirectional-sst/`](../../papers/13-nuclear-binding-bidirectional-sst/): the self-consistent (bidirectional) law, the binding curve, the end of stability at lead-208.
