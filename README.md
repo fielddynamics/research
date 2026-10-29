@@ -238,7 +238,7 @@ Most research folders follow the same pattern: a **`*_synthesis.md`** that expla
 | [`deep-structure/`](research/deep-structure/) | Number-theoretic and topological structure of K = 4 |
 | [`polynomial coupling fn/`](<research/polynomial coupling fn/>) | Structural analysis of `f(K, s)`, Sierpiński structure, prime sieve |
 | [`faces/`](research/faces/) | "Enterprise Triforce" 40-test face-structure suite |
-| [`hawking/`](research/hawking/) | Singularities, information and holography: four consequences of restoring the 24 torsion components, with the exact GFD identities and what each requires |
+| [`hawking/`](research/hawking/) | Singularities, information and holography: where black holes sit on the TetA/TetB partition, the Raychaudhuri equation for the full 64-component connection, and the information, renormalisation and holography identities; with a verification script (16 checks) |
 
 ### Particles, nuclei and atoms
 
