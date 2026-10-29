@@ -2,6 +2,8 @@
 
 Mathematical validation suite for **Distributed Field Processing VI: Deriving the Gravitational Constant from Spacetime Topology**.
 
+`gravitational-constant` `fine-structure-constant` `topology` `tetrad` `theoretical-physics` `numerical-validation`
+
 ## Overview
 
 This Python script independently validates all mathematical derivations from Paper VI, providing numerical verification of the theoretical results with zero free parameters.

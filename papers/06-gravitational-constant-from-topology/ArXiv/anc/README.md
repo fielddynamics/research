@@ -2,6 +2,8 @@
 
 Supplementary materials for: **Deriving the Gravitational Constant from Spacetime Topology**
 
+`gravitational-constant` `fine-structure-constant` `topology` `tetrad` `theoretical-physics` `numerical-validation`
+
 ## Overview
 
 This folder contains ancillary files for Paper VI:

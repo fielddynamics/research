@@ -1,5 +1,7 @@
 # Exploratory work
 
+`exploratory-research` `interdisciplinary` `stellated-octahedron` `archaeoastronomy` `i-ching` `great-pyramid`
+
 The folders here apply the structures of Gravity Field Dynamics (the stellated octahedron, the coupling polynomial and the closure walk) to subjects outside conventional physics. They are kept separate from the main research record in [`../`](../) and from the papers in [`../../papers/`](../../papers/).
 
 This is exploratory work: research programmes that carry the framework into new domains. It sits alongside the published papers rather than among them. Where a programme has reached derived and tested results, as the Great Pyramid programme has, they are stated in its own documents, together with the measurements still to be made.

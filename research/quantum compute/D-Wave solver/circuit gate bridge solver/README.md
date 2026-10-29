@@ -1,5 +1,7 @@
 # GFD Gate Bridge
 
+`walsh-hadamard-transform` `boolean-functions` `logic-gates` `phase-oscillators` `kuramoto-model`
+
 Boolean gate recognition via Walsh-Hadamard bridges and the GFD
 oscillator. An engineering resource documenting how the universal
 grade decomposition of Boolean functions connects to phase-oscillator

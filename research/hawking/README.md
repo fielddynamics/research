@@ -2,6 +2,8 @@
 
 *Black holes, information and the 24 forgotten components of gravity · Gravity Field Dynamics (GFD) · Field Dynamics Research*
 
+`black-holes` `information-paradox` `hawking-radiation` `raychaudhuri-equation` `torsion` `einstein-cartan` `holography`
+
 ---
 
 Folklore says a goldfish remembers for three seconds. Every lap of the bowl is a new world, and nothing it has seen survives. (Real goldfish do better. Trained to press a lever for food at a set hour, they learn the schedule, and they keep what they learn for months.)

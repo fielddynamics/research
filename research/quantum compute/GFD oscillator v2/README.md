@@ -2,6 +2,8 @@
 
 **One oscillator. One coupling. Five NP-hard problems.**
 
+`kuramoto-model` `combinatorial-optimization` `max-cut` `graph-coloring` `traveling-salesman` `community-detection` `shortest-path`
+
 A universal computation engine based on the Gravity Field Dynamics framework.
 The same equation — `K·sin(φⱼ − φᵢ)` — solves Max-Cut, graph coloring, TSP,
 community detection, and shortest path through self-regulating depth adaptation.

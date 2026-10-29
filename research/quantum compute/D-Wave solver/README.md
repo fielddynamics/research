@@ -2,6 +2,8 @@
 
 **One oscillator. One readout. Five NP-hard problems.**
 
+`kuramoto-model` `phase-oscillators` `combinatorial-optimization` `np-hard` `max-cut` `graph-coloring` `ising-model` `qubo`
+
 The oscillator produces coordinates. The coordinates ARE the answer.
 
 ## The Core Idea

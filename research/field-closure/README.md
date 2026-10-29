@@ -2,6 +2,8 @@
 
 *A bubble, not a film · Gravity Field Dynamics (GFD) · Field Dynamics Research*
 
+`field-closure` `tetrad` `coupling-polynomial` `stellated-octahedron` `general-relativity` `bbp-formula` `pi`
+
 ---
 
 Dip a wire loop in soapy water and lift it out. A film stretches across the loop, shimmering and perfectly real, but it holds nothing. It has no inside and no outside. Blow gently and it bellies outward. Then, at one particular instant, it pinches off, seals itself, and becomes a bubble.

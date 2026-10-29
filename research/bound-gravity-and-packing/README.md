@@ -2,6 +2,8 @@
 
 *How a gravity field becomes matter · Gravity Field Dynamics (GFD) · Field Dynamics Research*
 
+`nuclear-physics` `nuclear-binding-energy` `magic-numbers` `nuclear-shell-model` `stellar-nucleosynthesis` `geons` `gravity`
+
 ---
 
 What separates empty space from a grain of sand?

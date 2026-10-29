@@ -1,5 +1,7 @@
 # Trash bin
 
+`research-log` `archive`
+
 Material in this folder is **kept for the record but flagged as likely not reliable**. It is retained only to track the course the research took: the experiments, dead ends and intermediate steps that came before the current results. It should not be cited or relied on as a statement of the framework.
 
 For the curated statements of Gravity Field Dynamics, see the papers in [`papers/`](../../papers/) and the documentation in [`docs/`](../../docs/README.md).

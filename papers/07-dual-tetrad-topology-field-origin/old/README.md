@@ -5,6 +5,8 @@
 Author: Stephen Nelson
 Date: February 2026
 
+`tetrad` `bimetric-gravity` `modified-gravity` `gravitational-constant` `nuclear-physics` `galaxy-rotation-curves` `theoretical-physics`
+
 ---
 
 ## Abstract

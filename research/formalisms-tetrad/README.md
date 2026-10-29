@@ -2,6 +2,8 @@
 
 *The twofold structure of gravity across five formalisms · Gravity Field Dynamics (GFD) · Field Dynamics Research*
 
+`tetrad` `bimetric-gravity` `loop-quantum-gravity` `ashtekar-variables` `spinors` `torsion` `general-relativity`
+
 ---
 
 Look closely at almost any serious theory of gravity and something appears in pairs.

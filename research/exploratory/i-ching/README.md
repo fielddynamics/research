@@ -2,6 +2,8 @@
 
 *Exploratory programme, Gravity Field Dynamics (GFD) · Field Dynamics Research*
 
+`i-ching` `trigrams` `hexagrams` `binary` `combinatorics` `history-of-mathematics` `stellated-octahedron`
+
 ---
 
 On 1 April 1703, Gottfried Wilhelm Leibniz received a letter from Peking. Its author, the Jesuit mathematician Joachim Bouvet, enclosed a woodcut of the 64 hexagrams of the *I Ching* in the arrangement attributed to the legendary sage Fu Xi. Leibniz had been developing binary arithmetic for two decades. In the diagram he recognised his own numbers, 0 to 63, written in broken and unbroken lines. Within a week he sent his *Explication de l'arithmétique binaire* to the Paris Academy, citing the hexagrams as an ancient anticipation of the binary system.

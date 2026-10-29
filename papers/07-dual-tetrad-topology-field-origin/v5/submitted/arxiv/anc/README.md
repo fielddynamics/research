@@ -5,6 +5,8 @@
 **Author:** Stephen Nelson
 **Contact:** stephen@fielddynamics.org
 
+`tetrad` `bimetric-gravity` `modified-gravity` `gravitational-constant` `nuclear-physics` `galaxy-rotation-curves` `theoretical-physics`
+
 ---
 
 ## Overview

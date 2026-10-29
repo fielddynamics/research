@@ -2,6 +2,8 @@
 
 **Three primitives. Three universal kernels. Three jobs.**
 
+`kuramoto-model` `ising-model` `qubo` `walsh-hadamard-transform` `boolean-functions` `optimization`
+
 This package contains the verified working implementations of:
 
 1. **GFD Oscillator** — universal coupling-matrix optimizer (Ising / QUBO ground-state search).

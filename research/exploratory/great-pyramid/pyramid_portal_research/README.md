@@ -5,6 +5,8 @@
 **Framework:** Gravity Field Dynamics (GFD)
 **Status:** Research programme. **Start with [`PROGRAMME.md`](PROGRAMME.md)**, the programme definition document: thesis, evidence base, prior work, pre-registered hypotheses H1–H9, work packages and phasing. The files below are its technical basis.
 
+`great-pyramid` `giza` `archaeoastronomy` `acoustics` `resonance` `antenna-theory` `piezoelectricity` `stellated-octahedron` `research-programme`
+
 ---
 
 ## Key findings

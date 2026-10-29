@@ -2,6 +2,8 @@
 
 *The cosmic microwave background and the depth of the early universe · Gravity Field Dynamics (GFD) · Field Dynamics Research*
 
+`cosmic-microwave-background` `cosmology` `recombination` `dark-matter` `hubble-parameter` `tully-fisher-relation` `modified-gravity`
+
 ---
 
 Three hundred and eighty thousand years after the Big Bang, the universe became transparent. Before that moment it was a glowing plasma of light and charged matter, too dense for light to travel far. After it, hydrogen formed, the fog cleared, and the light of that instant set off across space. It is still arriving. Stretched by thirteen billion years of expansion into microwaves, it fills the sky as the cosmic microwave background (CMB), the oldest light there is.

@@ -4,6 +4,8 @@
 
 *Stephen Nelson · Field Dynamics Research · February 2026*
 
+`tully-fisher-relation` `galaxy-kinematics` `high-redshift-galaxies` `ifu-spectroscopy` `hubble-constant` `hubble-tension` `modified-gravity` `cosmology`
+
 ---
 
 **Distant galaxies spin faster.** For a fixed mass, a spiral galaxy seen ten billion years in the past rotates about a fifth faster than one nearby. Two decades of integral-field (IFU) surveys have measured this, across five survey programmes and six independent analyses.

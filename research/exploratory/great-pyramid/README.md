@@ -2,6 +2,8 @@
 
 *Exploratory programme, Gravity Field Dynamics (GFD) · Field Dynamics Research*
 
+`great-pyramid` `giza` `archaeoastronomy` `acoustics` `resonance` `antenna-theory` `piezoelectricity` `stellated-octahedron`
+
 ---
 
 > "The design of the level of the King's Chamber was the halving of the vertical area of the Pyramid."
