@@ -72,29 +72,37 @@ so each additional field adds less than the last. The unbound law would saturate
 | Iron-56 | 56 | 3,136 | 0.982 | 0.018 |
 | Lead-208 | 208 | 43,264 | 0.995 | 0.005 |
 
-**The binding curve.** For all but the lightest nuclei, the bound law gives a simple form for the binding energy per nucleon:
+**The rising curve.** For all but the lightest nuclei, the bound law gives a simple closed form for the binding energy per nucleon:
 
 $$\frac{BE}{A} \;\approx\; C\,K\left(\frac{A-1}{A}\right)^2 .$$
 
-Here $(A-1)/A$ is the fraction of fields beyond the first crossing (hydrogen contributes nothing), and the square comes from the two-directional compression. Paper XI fixes the energy constant from the electron mass and the topology, $C = 17\,m_e c^2/K = 2.172$ MeV.
+Here $(A-1)/A$ is the fraction of fields beyond the first crossing (hydrogen contributes nothing), and the square comes from the two-directional compression. Paper XI fixes the energy constant from the electron mass and the topology, $C = 17\,m_e c^2/K = 2.172$ MeV. Expanding, $BE/A \approx CK\,(1 - 2/A + 1/A^2)$: the coefficients are locked in the ratio $1 : -2 : +1$ by the law itself.
 
-Expanding the formula, $BE/A \approx CK\,(1 - 2/A + 1/A^2)$. The coefficients are locked together in the ratio $1 : -2 : +1$. They are a consequence of the law, not fitted.
+This form describes the **rise** of the binding curve: from carbon to iron it is within about 5% of the measured values. On its own, though, it keeps climbing towards its ceiling $CK$. It has no way to turn over, so past iron it increasingly over-predicts, reaching +9% at lead.
 
-Against measured binding energies (AME2020):
+**The full curve: sector crossings.** The turnover does not need a new mechanism. Paper XIII keeps the same self-consistent law and adds the structure the fields pack into. Each nucleon $i$ contributes $\mu_{\mathrm{SST}}(i^2)$, and the fields fill a hierarchy of sectors, each holding $K^D = 64$ positions.
+- **Inside a sector**, binding per nucleon rises as the sector fills. The first sector is complete at zinc-64.
+- **At each sector boundary**, the coupling profile reflects, and binding per nucleon descends from a ceiling. The ceiling is set by the same law, evaluated at its own half-split point, $\mu_{\mathrm{SST}}(2) = \tfrac12$.
+- **Past iron**, the declining binding is the cost of crossing sector boundaries at $A = 64$ (zinc), 128 (tellurium) and 192 (osmium). It is not a separate force.
 
-| Nucleus | Predicted $BE/A$ (MeV) | Measured (MeV) | Difference |
+The energy scale is calibrated once, at zinc-64, where the first sector closes. Against measured binding energies (AME2020), evaluated from the atomic masses:
+
+| Nucleus | Closed form (MeV) | Sector crossings, Paper XIII (MeV) | Measured (MeV) |
 |---|---|---|---|
-| Helium-4 | 4.89 | 7.07 | −31% |
-| Carbon-12 | 7.30 | 7.68 | −5% |
-| Oxygen-16 | 7.64 | 7.98 | −4% |
-| Iron-56 | 8.38 | 8.79 | −5% |
-| Lead-208 | 8.60 | 7.87 | +9% |
+| Helium-4 | 4.89 | 5.82 | 7.07 |
+| Carbon-12 | 7.30 | 7.43 | 7.68 |
+| Iron-56 | 8.38 | 8.69 | 8.79 |
+| Zinc-64 | 8.42 | 8.76 | 8.74 |
+| Tin-120 | 8.54 | 8.45 | 8.50 |
+| Tellurium-128 | 8.55 | 8.39 | 8.45 |
+| Osmium-192 | 8.60 | 8.14 | 7.95 |
+| Lead-208 | 8.60 | 8.11 | 7.87 |
 
-The formula captures the rise and saturation of the binding curve across the middle of the periodic table with no free parameter. Its two departures are both informative:
-- **Helium-4** binds far more tightly than the formula predicts. It is the first complete tetrahedral unit ($A = K = 4$), and the suite finds its binding constant 47% above the mean: a closure resonance.
-- **The heaviest nuclei** are over-predicted. That is the signature of electric repulsion growing with $Z^2$, which a single constant cannot capture (§5).
+Over the 81 stable isotopes from helium to lead, the sector-crossing curve has a mean absolute error of 0.12 MeV. Above $A = 64$ the error falls to 0.08 MeV. The same self-consistent law gives both the rise and the fall of the binding curve.
 
-The full treatment, with sector crossings and shell structure, is in Paper XIII.
+Two departures remain, and both point at structure:
+- **Helium-4** binds far more tightly than either form predicts. It is the first complete tetrahedral unit ($A = K = 4$), and the suite finds its binding constant 47% above the mean: a closure resonance.
+- **Lead-208** sits 0.24 MeV (3%) below the sector-crossing curve. This residual drifts upward steadily through the third sector, from about 0.01 MeV at samarium to 0.24 MeV at lead. That is where the electric repulsion of §5 is the natural candidate, since it grows with $Z^2$. Paper XIII defers the fine structure, including shell-closure oscillations, to a longer treatment.
 
 ## 5. The vortex: why bound matter is charged
 
@@ -133,7 +141,7 @@ A bound field is a Field Atom. Many of them together form a **Field Object**, wh
 |---|---|
 | Does the bound law fit better than the unbound law where the binding curve has shape? | Yes. For light nuclei ($A = 7$–19) the root-mean-square error is 0.38 MeV for the bound law against 1.25 MeV for the unbound law. |
 | Does it beat a simple empirical fit? | Not quite. A two-parameter fit $c_0 + c_1/A$ reaches 0.379 MeV against the bound law's 0.388 MeV, with one parameter. The bound law achieves 97% of the accuracy with half the parameters and a physical mechanism. |
-| Where does it fail? | Every nucleus from hafnium to bismuth is over-predicted, because electric repulsion grows with $Z^2$ and a single constant cannot follow it. |
+| Does it track the heavy elements? | The closed form alone does not. It has no turnover and over-predicts every nucleus from hafnium to bismuth. With Paper XIII's sector crossings, the same law follows the decline past iron to lead with a mean error of 0.08 MeV above $A = 64$. A residual of up to 0.24 MeV builds through the third sector, consistent with electric repulsion growing as $Z^2$. |
 | How many free parameters? | The suite fits one constant, $C \approx 2.156$ MeV, in six of its twenty tests. Paper XI fixes it from the electron mass, $C = 17\,m_e c^2/4 = 2.172$ MeV, within 0.7% of the fitted value, which leaves no free parameter. |
 | What would falsify it? | Two predictions differ between the states: $\mu = 1/\varphi^2$ against $\tfrac12$ at the gate, and $1/A$ against $1/A^2$ saturation. If nuclear binding were shown to saturate as $1/A^2$, the packing picture would fail. |
 
@@ -145,7 +153,7 @@ A bound field is a Field Atom. Many of them together form a **Field Object**, wh
 | **B. Held** | B5–B9 | saturation as $1/A$, not $1/A^2$; the asymptotic form $K((A-1)/A)^2$ to better than 1% for $A \ge 7$; seven times the dynamic range of the unbound law from lithium to calcium; three times the accuracy for light nuclei; diminishing returns that grow with $A$ |
 | **C. The vortex** | C10–C13 | Coulomb inseparability; repulsion tracking $Z^2/A$; neutron ballast; the helium-4 closure |
 | **D. The packing** | D14–D17 | the seven magic numbers from $K = 4$; the $K^K = 256$ ceiling; the locked coefficients $1 : -2 : +1$; the shell inversion without spin–orbit coupling |
-| **E. Adversarial** | E18–E20 | competition with a two-parameter fit; the documented failure for heavy nuclei; the falsifiable predictions |
+| **E. Adversarial** | E18–E20 | competition with a two-parameter fit; the closed form's over-prediction for heavy nuclei, which Paper XIII's sector crossings resolve; the falsifiable predictions |
 
 ```bash
 cd research/bound-gravity-and-packing
@@ -171,4 +179,4 @@ An earlier version of this suite scanned the exponent in $x(1-\mu)^n = \mu$ cont
 **GFD papers:**
 - Paper VII, [`07-dual-tetrad-topology-field-origin/`](../../papers/07-dual-tetrad-topology-field-origin/): unbound and bound envelopes, Field Atoms and Field Objects.
 - Paper XI, [`11-nuclear-shells-tetrahedral-packing/`](../../papers/11-nuclear-shells-tetrahedral-packing/): stellar compression into the TetB cavity, $x = A^2$, the energy constant.
-- Paper XIII, [`13-nuclear-binding-bidirectional-sst/`](../../papers/13-nuclear-binding-bidirectional-sst/): the self-consistent (bidirectional) law, the binding curve, the end of stability at lead-208.
+- Paper XIII, [`13-nuclear-binding-bidirectional-sst/`](../../papers/13-nuclear-binding-bidirectional-sst/): the self-consistent (bidirectional) law, the binding curve from helium to lead through sector crossings, the end of stability at lead-208.
