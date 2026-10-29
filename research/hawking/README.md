@@ -14,6 +14,37 @@ A universe like that spends energy only to forget. It would carry a firewall on 
 
 Quantum mechanics forbids this. Its evolution is unitary: information can be scrambled beyond practical recovery, but never destroyed. That is the black-hole information paradox, and fifty years later it remains one of the deepest tensions between gravity and quantum theory.
 
+## A book that loses its chapters
+
+The goldfish forgets in moments. The universe of the paradox forgets in a way that is stranger and, for anything built over time, more destructive. Think of information the way a language builds it:
+
+| In a book | In the universe |
+|---|---|
+| characters | elementary particles |
+| words | atoms |
+| sentences | molecules |
+| paragraphs | cells, minerals, weather |
+| chapters | organisms, planets, stars |
+| the story | the history that links them |
+
+A book's meaning does not live in its letters. It lives in their arrangement, and above all in the relations between levels. A word means what it means because of the sentence around it. A sentence on page three hundred lands because of a chapter you read on page forty. The deeper a story goes, the more of it is carried by these long-range references: the callback, the foreshadowing, the character whose choice only makes sense in light of what happened two hundred pages earlier.
+
+Now imagine reading that book and finding that, partway through, chapters have begun to disappear. They have not been torn out and left on the floor, where in principle you could gather them up. They have simply ceased to exist. What remains is not a shorter story but a broken one. Every later sentence that refers back to a vanished chapter now points at nothing. Names arrive without introduction. Consequences arrive without causes. The surviving text is still made of perfectly good words, yet read as a whole it has turned into noise.
+
+That is the precise sense in which Hawking radiation looks thermal. The radiation that leaves a black hole is not random in itself. In the standard picture it is entangled with partners that fell inside, the way a sentence is bound to the chapter it refers back to. If the interior, and everything that fell into it, is erased when the black hole evaporates, the radiation is left full of references to chapters that no longer exist. Its correlations point at nothing, and a state that began as a coherent story ends as featureless heat. A pure state has become a mixed one. That is the violation of unitarity, told as a book.
+
+**Losing chapters is not the same as scrambling them.** Shred a book, or burn it, and the information is not destroyed. It is dispersed into fragments, smoke, ash and light, and in principle, if hopelessly in practice, the text could be reconstructed. Physics permits scrambling; this is the sense in which burning a book preserves its information. It does not permit deletion. The paradox is whether a black hole is a shredder or a deleter.
+
+**Why a deleting universe caps its own complexity.** In a universe that deletes, every story is provisional. Structure can be built, but any of it that crosses a horizon removes its chapters from the record, and everything downstream that depended on them loses its meaning. Complexity could never accumulate past the point where its material falls through. There would be a ceiling on how long and how deep a coherent story the universe could ever tell. That is the firewall on information complexity, and the goldfish in the bowl is its emblem.
+
+**The answer, if there is one, will look like recovery.** A unitary black hole behaves like a reader handed the book one scrambled fragment at a time. For the first half of the black hole's life, the fragments in the radiation look like noise, because their partners are still inside. Past the halfway point (the Page time) they begin to fit together, and by the end the whole text has been returned. This rise and fall of the radiation's entropy is the Page curve. Recovering it is the test every proposed resolution has to pass.
+
+### The other side of the page
+
+GFD's proposal fits the book image closely. Every page has two sides. The tetrad equation has two roots, TetA and TetB, related by parity, and the metric cannot tell them apart: it reads only the front of each sheet. General relativity, by imposing the torsion-free condition, bound the book with the front sides alone. It kept the 40 components that the metric determines and discarded the 24 that carry the distinction between the roots.
+
+On this reading, nothing in the book was ever deleted. The chapters that seem to vanish into a black hole are written on the backs of the pages, in the torsion sector, a part of the field that a front-side-only theory cannot read. Restore the 24 components, and the reader can turn the pages over.
+
 ## Where gravity keeps its memory
 
 Gravity Field Dynamics offers a structural answer: general relativity forgot to keep the memory.
