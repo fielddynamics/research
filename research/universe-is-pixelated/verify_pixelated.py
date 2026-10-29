@@ -124,5 +124,23 @@ check("Letter 3: K^3 = (2^D)^2 = 64 holds at D = 3 and at no other D up to 50",
       [D for D in range(1, 51) if (D + 1) ** 3 == 4 ** D] == [3])
 check("G blocks 1, 4, 16 are Sylvester-Hadamard orders 2^0, 2^2, 2^4", [1, 4, 16] == [2 ** 0, 2 ** 2, 2 ** 4])
 
+print("10. The octahedral node (Python port of OctahedralResonance.cs)")
+import contextlib, io, os, sys as _sys
+_sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import octahedral_node as on
+def _wh(v): return [sum(on.H[k][c] * v[k] for k in range(8)) / 8 for c in range(8)]
+grade = [0, 1, 1, 1, 2, 2, 2, 3]
+nd = on.OctahedralNode(); nd.inject((1, -1, 1)); nd.tick()
+inp = [sum((1, -1, 1)[d] * on.SIGNS[k][d] for d in range(3)) for k in range(8)]
+nz = lambda v: {grade[c] for c, x in enumerate(_wh(v)) if abs(x) > 1e-9}
+check("input projection carries grade 1 only", nz(inp) == {1})
+check("forward pass adds grades 0 and 2", nz(nd.forward_mix) == {0, 1, 2})
+check("backward pass adds grade 3: one oscillation fills the whole Walsh spectrum", nz(nd.backward_mix) == {0, 1, 2, 3})
+with contextlib.redirect_stdout(io.StringIO()):
+    res, _ = on.run()
+for key in ("analyser 256", "XOR single tick", "3-bit parity single tick", "16 gates single tick", "full adder sum", "full adder carry"):
+    a, b = res[key]
+    check(f"node: {key} = {a}/{b}", a == b)
+
 print(f"\n  {PASS} passed, {FAIL} failed")
 raise SystemExit(FAIL > 0)

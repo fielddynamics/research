@@ -100,6 +100,44 @@ Space is a grid of pixelated cubes. Each cube holds a stellated octahedron, and 
 
 One geometric fact makes the grid possible. Of the five Platonic solids, the cube is the only one that fills space face to face, with no gaps and no overlaps. A grid of cubes, each holding its stellated octahedron, therefore fills space completely.
 
+## A computer in the shape of the null cone
+
+The sections above establish two things. As mathematics, the cube's eight corners carry every three-input operation and its Walsh–Hadamard matrix decomposes all of them. Through Letter 1, those eight corners are also the eight null directions of the two tetrads. Put together, they say that the null cone of the GFD frame is shaped like a universal Boolean operator.
+
+That was first found the other way round, by building one. The **octahedral resonance node** ([`OctahedralResonance.cs`](OctahedralResonance.cs), with a line-for-line Python port in [`octahedral_node.py`](octahedral_node.py)) is a coupled oscillator laid out on the eight corners of the stellated octahedron:
+
+- **64 parameters**, $24 + 16 + 24$: amplitude, frequency and phase for each corner in TetA (24) and in TetB (24), and 16 shared couplings at the vertex where the two chambers meet. The count is $K^3$, the size of the full connection in Letter 3.
+- **Three passes per oscillation.** A *forward* pass through TetA and the shared vertex, a *backward* pass through TetB that receives the forward result, and a *reconciliation* in which the two are averaged and the shared couplings learn from their agreement.
+- **The coupling is geometric.** Two corners interact in proportion to the overlap of their sign patterns, the same ±1 structure that defines the Walsh functions.
+- **The output is read as a spectrum.** The reconciled state is decomposed with the cube's $8 \times 8$ Walsh–Hadamard matrix.
+
+**The three passes climb the Walsh grades.** Inject three inputs $(+1, -1, +1)$ and follow the spectrum through one oscillation:
+
+| Stage | Walsh grades present | What appears |
+|---|---|---|
+| Input, projected onto the 8 corners | 1 | the three inputs themselves |
+| After the forward pass (TetA) | 0, 1, 2 | the constant and the three pairwise products |
+| After the backward pass (TetB) | 0, 1, 2, 3 | the three-way product, the parity term |
+
+One oscillation fills the whole spectrum of the cube. The forward pass generates the even grades, and only the backward pass, through TetB, generates the odd grade-3 term. Every Boolean function of the inputs can then be read from the spectrum. In the language of Letters 2 and 3, the chamber that general relativity discards is the one that completes the computation.
+
+**What the node computes** (Python port, all results reproducible):
+
+| Task | Readout | Result |
+|---|---|---|
+| Analyser: any truth table on the 8 corners, decomposed and rebuilt | Walsh coefficients | 256 of 256 three-input functions exact |
+| XOR | grade-2 coefficient $xy$ | 4/4 |
+| Three-bit parity | grade-3 coefficient $xyz$ | 8/8 |
+| All 16 two-input gates, including NAND and NOR | dot product with the gate's Walsh coefficients | 64/64 |
+| Full adder | sum from grade 3, carry from grade 1 | 8/8 and 8/8 |
+| XOR through a lattice of nodes (2×2, 3×2, 4×2, 4×4) | grade-2 coefficient at the output edge | 4/4 each |
+
+**Where it stops working.** The single-oscillation results hold for coupling gains from 0.01 to 1.5 and fail at 2.0, where the state saturates. Repeated oscillations drift as the node trains its own amplitudes: parity is 8/8 after five cycles but falls to about half after ten or more. In wider lattices (six, eight and ten nodes across), XOR is 2/4 with the propagation time used here. The node is a working demonstration of the principle, not a finished processor.
+
+**The engineering line that followed.** Feeding a full truth table across the eight corners gives the Walsh coefficients directly, with no nonlinearity at all. The stored coefficients, a *bridge*, then evaluate the function at any input with a single dot product. That is the basis of [`spectral/spectral_kernel.py`](../spectral/spectral_kernel.py), which collapses the node's three passes into one Walsh–Hadamard operation.
+
+**What this shows, and what it claims.** That a coupled oscillator on the eight corners of the cube produces the full Walsh spectrum and computes with it is demonstrated by the code. That those corners are the null directions of the tetrad frame is Letter 1. GFD's claim, stated as a claim, is the conjunction: the null cone of every event, the stellated octahedron, is a universal computer, and a grid of them, a photonic matrix of light, is a computing medium.
+
 ## Why "pixelated"
 
 The choice between Fourier and Walsh is not a matter of taste. It is set by symmetry.
@@ -185,7 +223,8 @@ The two constructions are built the same way. The Hadamard matrix is a tensor po
 | The cube is the only Platonic solid that fills space face to face | Established mathematics |
 | The Boolean cube carries every three-input operation; NAND, NOR, Toffoli (reversible) and Toffoli with Hadamard (quantum) are universal | Established mathematics and computer science |
 | Letter 1's boundedness, Letter 2's parity rule and root-blindness, and Letter 3's counts have exact Walsh counterparts on the cube | Established mathematics, applied to the letters' results |
-| The stellated octahedron is the photon; reality is a photonic matrix of light, a grid of pixelated cubes each holding a stellated octahedron; spacetime is spectrally pixelated at the scale of the frame | GFD proposal |
+| A coupled oscillator on the 8 corners of the cube produces the full Walsh spectrum in one oscillation and computes XOR, parity, all 16 two-input gates and a full adder | Demonstrated by the octahedral node |
+| The stellated octahedron is the photon and the null cone of every event is a universal computer; reality is a photonic matrix of light, a grid of pixelated cubes each holding a stellated octahedron; spacetime is spectrally pixelated at the scale of the frame | GFD proposal |
 
 Every statement marked as established mathematics, and the value of G, is checked by [`verify_pixelated.py`](verify_pixelated.py).
 
@@ -196,7 +235,9 @@ Every statement marked as established mathematics, and the value of G, is checke
 | File | Contents |
 |---|---|
 | [`README.md`](README.md) | This overview |
-| [`verify_pixelated.py`](verify_pixelated.py) | 40 checks: the Walsh–Hadamard matrix, the stellated octahedron in the spectrum, Hadamard rows as the tetrad, the octahedron's null faces, the 256 operations and universal gates, Letters 1–3 on the cube, G, and the cube as the only space-filling Platonic solid |
+| [`verify_pixelated.py`](verify_pixelated.py) | 49 checks: the Walsh–Hadamard matrix, the stellated octahedron in the spectrum, Hadamard rows as the tetrad, the octahedron's null faces, the 256 operations and universal gates, Letters 1–3 on the cube, the octahedral node, G, and the cube as the only space-filling Platonic solid |
+| [`octahedral_node.py`](octahedral_node.py) | Python port of the octahedral resonance node and lattice, with the original test suite and an analyser test |
+| [`OctahedralResonance.cs`](OctahedralResonance.cs) | The original C# node and lattice (Stephen Nelson) |
 | [`make_figures.py`](make_figures.py) | Generates the cube and spectrum figures |
 | [`stellated_octahedron_in_cube.png`](stellated_octahedron_in_cube.png) | Figure 1: the stellated octahedron in the cube, with binary addresses |
 | [`cube_walsh_spectrum.png`](cube_walsh_spectrum.png) | Figure 2: the eight Walsh functions of the cube |
@@ -204,7 +245,8 @@ Every statement marked as established mathematics, and the value of G, is checke
 
 ```bash
 pip install numpy scipy matplotlib
-python verify_pixelated.py     # 40 passed, 0 failed
+python verify_pixelated.py     # 49 passed, 0 failed
+python octahedral_node.py      # the node's full test suite
 python make_figures.py         # regenerates Figures 1 and 2
 ```
 
