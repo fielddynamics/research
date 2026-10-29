@@ -60,3 +60,25 @@ Slater's rules (1930): same group 0.35 (0.30 within 1s), next shell in 0.85, dee
 4. **Radii.** Against Cordero covalent radii, with one scale factor fitted per model, the log-RMS deviation over the non-noble elements of $Z = 1$–36 is **lower than Slater's rules**.
 
 The rule passes only if all four hold. Whatever the outcome, it is reported in the README. If the rule fails, variants may be explored, but they will be labelled exploratory and will not be presented as predictions.
+
+---
+
+## Outcome (added after evaluation)
+
+Evaluated by [`screening_bound.py`](screening_bound.py) after this document was committed (commit `1e17231`).
+
+| Criterion | Threshold | Result | Verdict |
+|---|---|---|---|
+| 1. Mean error, Z = 1–20 | below 10% | 37.9% (Slater 7.1%) | **fail** |
+| 2. Mean error, Z = 21–36 | below 10% and below Slater | 100.0% (Slater 27.0%) | **fail** |
+| 3. Rank correlation, Z = 1–36 | at least 0.95 | 0.898 | **fail** |
+| 4. Covalent-radius log-RMS, non-noble Z = 1–36 | below Slater | 0.265 (Slater 0.264) | **fail** |
+
+**The rule fails decisively, on all four criteria.** The cause is the shape of the bound-state law at large argument. For an electron deep inside, $\mu_2(x) \approx 1 - 1/\sqrt{x}$, which approaches full screening only slowly. Core electrons therefore screen too weakly, and every outer effective charge is too high: by 30% at lithium, 92% at sodium and about 100% across the transition metals.
+
+**Secondary analyses (pre-registered, not part of pass/fail).**
+
+- **B′, $x = (r_i/r_j)^2$.** Mean error 6.0% on Z = 1–20, 14.0% on Z = 21–36 (Slater 27.0%), rank correlation 0.935, radius log-RMS 0.265. At large separation $\mu_2(x^2) \to x/(1+x)$, the unbound law, so B′ differs from the first rule mainly at equal radii (0.382 instead of 0.5). That improves the first 20 elements but not the transition metals; on the primary criteria it would also have failed (criteria 2 and 3).
+- **Spin-state sensitivity.** With Cordero's low-spin radii for Mn, Fe and Co, the bound rule's radius log-RMS is 0.262 against Slater's 0.270; with high-spin radii, 0.270 against 0.260. Criterion 4 is a tie in every version.
+
+**Context, not pre-registered.** The first rule ($s = \mu(r_i/r_j)$, unchanged from pre-registration 1) was also run on the new elements. It reaches 9.4% mean error on Z = 21–36, against Slater's 27.0%, with rank correlation 0.984 over Z = 1–36 and radius log-RMS 0.187 against Slater's 0.264 (radii from Clementi's own $Z_{\mathrm{eff}}$: 0.183). It was not pre-registered for these elements, so this is not a prediction. It does make the first rule, not the bound form, the candidate for the next pre-registered test, on Z = 37–54, which no rule has yet been evaluated against.

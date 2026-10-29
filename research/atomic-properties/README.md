@@ -102,7 +102,9 @@ The GFD formulation tracks the independent radii somewhat better than Slater's r
 
 **What this means.** As it stands, the chain's predictive content enters through Clementi's screening constants. The vortex picture organises the results coherently, but the step that would make them GFD's own is deriving $Z_{\mathrm{eff}}$, or the screening, from $K = 4$, $D = 3$ geometry. That is the programme's central open target.
 
-## A pre-registered screening test
+## Pre-registered screening tests
+
+### Test 1: the unbound law
 
 To test whether GFD can supply the screening itself, a candidate rule was fixed and committed before it was evaluated ([`PREREGISTRATION_screening.md`](PREREGISTRATION_screening.md)). The rule applies the constitutive law to screening: electron $j$ screens electron $i$ by $s_{ij} = \mu(r_i/r_j) = r_i/(r_i + r_j)$, with every shell's charge and radius solved self-consistently. It has no fitted parameter.
 
@@ -116,6 +118,32 @@ To test whether GFD can supply the screening itself, a candidate rule was fixed 
 
 One secondary observation, not pre-registered, is worth recording. Against independent covalent radii, the rule's parameter-free radii follow the measured shape more closely than Slater's rules and more closely than radii built from Clementi's own $Z_{\mathrm{eff}}$ (0.194, against 0.272 and 0.221), and this ordering survives 96.8% of bootstrap resamples against Clementi. Because it was not the primary test and the sample is small, it is a lead for a pre-registered extension to heavier elements, not a result.
 
+### Test 2: the bound-state law, with out-of-sample elements
+
+GFD's nuclear papers (Papers 11 and XIII) use the constitutive law in two forms: one-directional, $\mu = x/(1+x)$, for unbound systems such as galaxies, and self-consistent, $x(1-\mu)^2 = \mu$, for bound systems such as nuclei, where every partner is both source and response. Electrons in an atom are bound, so the second form is the natural candidate. It was pre-registered with no other change, $s_{ij} = \mu_2(r_i/r_j)$, and tested on $Z = 1$–20 and on 16 new elements, $Z = 21$–36 (scandium to krypton, including the Cr and Cu configurations), which no rule had been evaluated against ([`PREREGISTRATION_bound_screening.md`](PREREGISTRATION_bound_screening.md)).
+
+| Pre-registered criterion | Result | Verdict |
+|---|---|---|
+| Mean error vs Clementi, Z = 1–20, below 10% | 37.9% (Slater 7.1%) | fail |
+| Mean error, Z = 21–36, below 10% and below Slater | 100.0% (Slater 27.0%) | fail |
+| Rank correlation, Z = 1–36, at least 0.95 | 0.898 | fail |
+| Covalent-radius deviation, Z = 1–36, below Slater | 0.265 (Slater 0.264) | fail |
+
+**The bound-state form fails decisively.** At large argument $\mu_2(x) \approx 1 - 1/\sqrt{x}$, so a core electron screens an outer one too weakly, and every outer effective charge comes out too high. With Paper XIII's position-to-acceleration mapping, $x = (r_i/r_j)^2$ (a pre-registered secondary), the error falls to 6.0% on the first 20 elements but remains 14.0% on the transition metals.
+
+The run also gave the first rule, unchanged, its first out-of-sample exposure, although not under pre-registration. On scandium to krypton it is within 9.4% of Clementi's self-consistent-field values on average, where Slater's rules are 27.0% off, and its radii follow the covalent radii about as closely as radii built from Clementi's own $Z_{\mathrm{eff}}$ (log-RMS 0.187 against 0.183; Slater 0.264).
+
+| Rule, no fitted parameters | Mean error Z = 1–20 | Mean error Z = 21–36 | Rank correlation Z = 1–36 | Radius log-RMS |
+|---|---|---|---|---|
+| $\mu(r_i/r_j)$, unbound (test 1) | 10.5% | 9.4%\* | 0.984\* | 0.187\* |
+| $\mu_2(r_i/r_j)$, bound (test 2) | 37.9% | 100.0% | 0.898 | 0.265 |
+| $\mu_2((r_i/r_j)^2)$, bound, squared | 6.0% | 14.0% | 0.935 | 0.265 |
+| Slater's rules (1930) | 7.1% | 27.0% | — | 0.264 |
+
+\* Not pre-registered for these elements.
+
+The unbound rule is therefore the candidate for a third pre-registered test, on $Z = 37$–54, the next set of elements no rule has seen. On the evidence so far, the screening between electrons follows the one-directional form of the law, not the bound form that governs nuclear binding.
+
 ## Limitations
 
 The suites are explicit about where the radius stops being sufficient.
@@ -124,7 +152,7 @@ The suites are explicit about where the radius stops being sufficient.
 - **Lattice dynamics.** The static dielectric constant is overestimated by about 67%, because it depends on ionic displacement in the lattice, which a sum of polarisabilities cannot capture.
 - **Doubly charged ions.** Born–Landé overestimates the bulk modulus of MgO and CaO by 66–70%.
 - **Quantitative melting points and band gaps.** Both are ranked correctly, but magnitudes are off by about 20%. They depend on liquid-phase entropy and on band structure, which a ground-state radius does not contain.
-- **Coverage.** Validation spans $Z = 1$–20 and ionic compounds. Transition metals, covalent networks and metallic alloys remain untested.
+- **Coverage.** The property suites span $Z = 1$–20 and ionic compounds; the screening tests extend to $Z = 36$. Transition-metal properties, covalent networks and metallic alloys remain untested.
 
 ## Running the tests
 
@@ -132,7 +160,8 @@ The suites are explicit about where the radius stops being sufficient.
 python gfd_vortex_overdetermined_20.py     # 20/20: atomic properties
 python gfd_vortex_enterprise_20.py         # 20/20: compound properties
 python baseline_comparison.py              # GFD against standard baselines
-python screening_from_mu.py                # the pre-registered screening test
+python screening_from_mu.py                # pre-registered screening test 1
+python screening_bound.py                  # pre-registered screening test 2 (Z = 1-36)
 python ../atom-vortex-horizon/gfd_vortex_horizon_20.py       # 20/20: the vortex picture
 python ../atom-vortex-horizon/gfd_vortex_horizon_ext_20.py   # 20/20: extended horizon
 ```
@@ -148,8 +177,11 @@ All four suites were run for this README and pass (80/80). A second atomic suite
 | [`gfd_vortex_enterprise_20.py`](gfd_vortex_enterprise_20.py) | Compound-property suite, sections U–Y |
 | [`PREREGISTRATION_screening.md`](PREREGISTRATION_screening.md) | A parameter-free screening rule from $\mu(x)$, fixed before evaluation, with its outcome |
 | [`screening_from_mu.py`](screening_from_mu.py) | Evaluates the pre-registered rule against the fixed criteria, plus a labelled secondary analysis |
+| [`PREREGISTRATION_bound_screening.md`](PREREGISTRATION_bound_screening.md) | Screening from the bound-state law, tested out of sample on $Z = 21$–36, with its outcome |
+| [`screening_bound.py`](screening_bound.py) | Evaluates test 2, its pre-registered secondaries, and the test 1 rule on the new elements |
 | [`baseline_comparison.py`](baseline_comparison.py) | Scores the GFD results against Slater's rules, independent covalent radii, $r^3$ baselines, a hold-out test and a look-elsewhere test |
 | [`data/atomic_reference.csv`](data/atomic_reference.csv) | All reference values in one file, with [`data/SOURCES.md`](data/SOURCES.md) giving the source of each column |
+| [`data/atomic_reference_21_36.csv`](data/atomic_reference_21_36.csv) | Clementi $Z_{\mathrm{eff}}$, covalent radii and configurations for $Z = 21$–36 |
 
 ## Context within the GFD programme
 
