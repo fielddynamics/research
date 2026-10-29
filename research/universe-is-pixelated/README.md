@@ -132,7 +132,20 @@ One oscillation fills the whole spectrum of the cube. The forward pass generates
 | Full adder | sum from grade 3, carry from grade 1 | 8/8 and 8/8 |
 | XOR through a lattice of nodes (2×2, 3×2, 4×2, 4×4) | grade-2 coefficient at the output edge | 4/4 each |
 
-**Where it stops working.** The single-oscillation results hold for coupling gains from 0.01 to 1.5 and fail at 2.0, where the state saturates. Repeated oscillations drift as the node trains its own amplitudes: parity is 8/8 after five cycles but falls to about half after ten or more. In wider lattices (six, eight and ten nodes across), XOR is 2/4 with the propagation time used here. The node is a working demonstration of the principle, not a finished processor.
+**A standing wave has to be read as one.** The node's chambers are oscillators, so its state at any instant is the input-driven signal riding on a carrier wave. Two things decide whether the computation survives over many oscillations:
+
+- **The readout.** A snapshot samples the carrier at an arbitrary phase. Averaging the Walsh coefficients over one full period ($2\pi / (\omega\,\Delta t) \approx 63$ ticks) cancels the carrier and leaves the standing signal.
+- **The closure rule.** In the original code, each chamber relaxes its amplitude toward $\sqrt{\text{mean energy}}$. Because the energy grows with the amplitude, the rule feeds back on itself: amplitudes and outward couplings climb to their clamp of 5.0, and the mixed signals clip on about 800 of 1,000 cycles, which destroys the information. Saturating the same rule with the constitutive law, so the target is $r/(1+r)$ with $r = \sqrt{\text{mean energy}}$, and holding the outward coupling at its unit fixed point, removes the runaway. The amplitude then settles at about 0.62, a true standing wave.
+
+| Cycles | Original rule, snapshot | Original rule, period average | Bounded closure, period average |
+|---|---|---|---|
+| 10 | parity 4/8 | parity 7/8 | parity 8/8, XOR 4/4 |
+| 100 | parity 4/8 | parity 4/8 | parity 8/8, XOR 4/4 |
+| 1,000 | parity 4/8 | parity 3/8 | parity 8/8, XOR 4/4 |
+
+With the closure bounded and the wave read over a period, the node holds parity, XOR and the full adder exactly for at least 1,000 oscillations, with no clipping. The standing-wave picture holds; the earlier breakdown came from the self-training rule and the snapshot readout. One limit remains open: in lattices wider than four nodes, the output signal is too weak to separate XOR in these runs, so propagation across many nodes is still to be solved.
+
+**Why both chambers are needed.** Paper C, [*The Hadamard Sign Kernel of the Tetrahedral Frame*](../../papers/algebraic-papers-a-b-c/gfd_paper_c_hadamard_tetrad.tex), gives the algebraic reason. On one tetrahedron alone ($xyz = +1$), the eight Walsh characters collapse in pairs, $1 \sim xyz$, $x \sim yz$, $y \sim xz$, $z \sim xy$, leaving four modes whose evaluation matrix is $H_4$, the tetrad's sign kernel. A single chamber therefore cannot tell the parity term from the constant. The factorisation $H_8 = H_2 \otimes H_4$ separates the two jobs: $H_2$ carries the TetA/TetB grading and $H_4$ carries the frame within each chamber. Parity, the grade-3 term, needs the $H_2$ factor, meaning both chambers. The node shows the same thing dynamically: the grade-3 term appears only in the backward pass.
 
 **The engineering line that followed.** Feeding a full truth table across the eight corners gives the Walsh coefficients directly, with no nonlinearity at all. The stored coefficients, a *bridge*, then evaluate the function at any input with a single dot product. That is the basis of [`spectral/spectral_kernel.py`](../spectral/spectral_kernel.py), which collapses the node's three passes into one Walsh–Hadamard operation.
 
@@ -223,7 +236,7 @@ The two constructions are built the same way. The Hadamard matrix is a tensor po
 | The cube is the only Platonic solid that fills space face to face | Established mathematics |
 | The Boolean cube carries every three-input operation; NAND, NOR, Toffoli (reversible) and Toffoli with Hadamard (quantum) are universal | Established mathematics and computer science |
 | Letter 1's boundedness, Letter 2's parity rule and root-blindness, and Letter 3's counts have exact Walsh counterparts on the cube | Established mathematics, applied to the letters' results |
-| A coupled oscillator on the 8 corners of the cube produces the full Walsh spectrum in one oscillation and computes XOR, parity, all 16 two-input gates and a full adder | Demonstrated by the octahedral node |
+| A coupled oscillator on the 8 corners of the cube produces the full Walsh spectrum in one oscillation and computes XOR, parity, all 16 two-input gates and a full adder; with its closure bounded by $\mu(x)$ and read over one period, the standing wave holds parity and XOR for at least 1,000 oscillations | Demonstrated by the octahedral node |
 | The stellated octahedron is the photon and the null cone of every event is a universal computer; reality is a photonic matrix of light, a grid of pixelated cubes each holding a stellated octahedron; spacetime is spectrally pixelated at the scale of the frame | GFD proposal |
 
 Every statement marked as established mathematics, and the value of G, is checked by [`verify_pixelated.py`](verify_pixelated.py).
@@ -235,8 +248,8 @@ Every statement marked as established mathematics, and the value of G, is checke
 | File | Contents |
 |---|---|
 | [`README.md`](README.md) | This overview |
-| [`verify_pixelated.py`](verify_pixelated.py) | 49 checks: the Walsh–Hadamard matrix, the stellated octahedron in the spectrum, Hadamard rows as the tetrad, the octahedron's null faces, the 256 operations and universal gates, Letters 1–3 on the cube, the octahedral node, G, and the cube as the only space-filling Platonic solid |
-| [`octahedral_node.py`](octahedral_node.py) | Python port of the octahedral resonance node and lattice, with the original test suite and an analyser test |
+| [`verify_pixelated.py`](verify_pixelated.py) | 52 checks: the Walsh–Hadamard matrix, the stellated octahedron in the spectrum, Hadamard rows as the tetrad, the octahedron's null faces, the 256 operations and universal gates, Letters 1–3 on the cube, the octahedral node, G, and the cube as the only space-filling Platonic solid |
+| [`octahedral_node.py`](octahedral_node.py) | Python port of the octahedral resonance node and lattice, with the original test suite, an analyser test, and the standing-wave test (closure bounded by $\mu(x)$, readout averaged over one period) |
 | [`OctahedralResonance.cs`](OctahedralResonance.cs) | The original C# node and lattice (Stephen Nelson) |
 | [`make_figures.py`](make_figures.py) | Generates the cube and spectrum figures |
 | [`stellated_octahedron_in_cube.png`](stellated_octahedron_in_cube.png) | Figure 1: the stellated octahedron in the cube, with binary addresses |
@@ -245,7 +258,7 @@ Every statement marked as established mathematics, and the value of G, is checke
 
 ```bash
 pip install numpy scipy matplotlib
-python verify_pixelated.py     # 49 passed, 0 failed
+python verify_pixelated.py     # 52 passed, 0 failed
 python octahedral_node.py      # the node's full test suite
 python make_figures.py         # regenerates Figures 1 and 2
 ```
@@ -254,6 +267,7 @@ python make_figures.py         # regenerates Figures 1 and 2
 
 - **Letter 1**, [*The Coordinate-Space Geometry of the Tetrad Frame*](../../papers/letter-1-tetrad-frame-geometry/): the tetrad's four planes and the two bounded tetrahedra; the supplement derives the frame from the light cone.
 - **Letter 2**, [*The Other Half of Gravity*](../../papers/letter-2-other-half-of-gravity-torsion/): the parity rule, root-blindness and torsion as the carrier of TetB.
+- **Paper C**, [*The Hadamard Sign Kernel of the Tetrahedral Frame*](../../papers/algebraic-papers-a-b-c/gfd_paper_c_hadamard_tetrad.tex): $H_4$ as the parity-restricted Walsh kernel, the tetrad's sign skeleton and the axes of the stellated octahedron; $H_8 = H_2 \otimes H_4$.
 - **Letter 3**, [*Field Closure of the Tetrad Frame*](../../papers/letter-3-field-closure-of-tetrad-frame/): the 40/24 split as the coupling polynomial at its opposite states.
 - **Paper IX**, [*Complete Field Closure from Stellated Octahedron Topology*](../exploratory/i-ching/Nelson_2026_GFD_Complete_Field_Closure_from_Stellated_Octahedron_Topology.pdf): binary addresses, the parity partition and the time faces.
 - [`g_from_topology/`](../g_from_topology/): G as a matrix read.

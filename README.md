@@ -241,7 +241,7 @@ Most research folders follow the same pattern: a **`*_synthesis.md`** that expla
 | [`polynomial coupling fn/`](<research/polynomial coupling fn/>) | Structural analysis of `f(K, s)`, Sierpiński structure, prime sieve |
 | [`faces/`](research/faces/) | "Enterprise Triforce" 40-test face-structure suite |
 | [`hawking/`](research/hawking/) | Singularities, information and holography: where black holes sit on the TetA/TetB partition, the Raychaudhuri equation for the full 64-component connection, and the information, renormalisation and holography identities; with a verification script (16 checks) |
-| [`universe-is-pixelated/`](research/universe-is-pixelated/) | The universe is pixelated: the stellated octahedron as the Walsh spectrum of the binary cube, the tetrad as a Hadamard matrix, the octahedron bounded by the eight null directions, and G as an operator read; reality as a photonic matrix of light; Letters 1–3 read on the cube; the octahedral resonance node, a coupled oscillator that computes on the null cone; with a verification script (49 checks) |
+| [`universe-is-pixelated/`](research/universe-is-pixelated/) | The universe is pixelated: the stellated octahedron as the Walsh spectrum of the binary cube, the tetrad as a Hadamard matrix, the octahedron bounded by the eight null directions, and G as an operator read; reality as a photonic matrix of light; Letters 1–3 read on the cube; the octahedral resonance node, a coupled oscillator that computes on the null cone; with a verification script (52 checks) |
 
 ### Particles, nuclei and atoms
 

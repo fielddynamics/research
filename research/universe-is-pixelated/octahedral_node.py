@@ -57,7 +57,7 @@ def _finite(v):
 
 
 class OctahedralNode:
-    def __init__(self, node_id=0):
+    def __init__(self, node_id=0, standing=False):
         self.id = node_id
         self.time = 0.0
         self.cycle = 0
@@ -90,6 +90,11 @@ class OctahedralNode:
         self.vertex_gain = 0.2
         self.damping = 0.9          # declared in the C# source, not used by Tick()
         self.pair_links = []
+        # standing=True: closure relaxation saturated by the constitutive law
+        # mu(x) = x/(x+1), with the outward coupling held at its unit fixed point.
+        # The original rule (standing=False) targets sqrt(mean energy), which feeds
+        # back on itself and drives amplitudes and couplings to their clamps.
+        self.standing = standing
 
     param_count = 24 + 16 + 24
 
@@ -139,11 +144,15 @@ class OctahedralNode:
             agreement = clamp(fwd * bwd, -10, 10)
             self.coupling_in[k] += self.closure_rate * sign(agreement) * (1.0 - abs(self.coupling_in[k]))
             self.coupling_in[k] = clamp(self.coupling_in[k], 0.01, 5.0)
-            target_out = min(math.sqrt(max((self.energy_a + self.energy_b) / (2 * N), 1e-12)), 5.0)
+            if self.standing:
+                target_out = 1.0
+            else:
+                target_out = min(math.sqrt(max((self.energy_a + self.energy_b) / (2 * N), 1e-12)), 5.0)
             self.coupling_out[k] += self.closure_rate * (target_out - self.coupling_out[k])
             self.coupling_out[k] = clamp(self.coupling_out[k], 0.01, 5.0)
         mean_e = (self.energy_a + self.energy_b) / (2 * N)
-        target_amp = min(math.sqrt(max(mean_e, 1e-12)), 5.0)
+        r = math.sqrt(max(mean_e, 1e-12))
+        target_amp = r / (1.0 + r) if self.standing else min(r, 5.0)
         for k in range(N):
             self.amp_a[k] = clamp(self.amp_a[k] + self.closure_rate * (target_amp - self.amp_a[k]), 0.01, 5.0)
             self.amp_b[k] = clamp(self.amp_b[k] + self.closure_rate * (target_amp - self.amp_b[k]), 0.01, 5.0)
@@ -166,9 +175,9 @@ class PairConnection:
 class OctahedralLattice:
     DIRS = [(+1, 0), (-1, 0), (0, +1), (0, -1)]   # right, left, down, up
 
-    def __init__(self, width, height, gain=0.8, damping=0.5):
+    def __init__(self, width, height, gain=0.8, damping=0.5, standing=False):
         self.width, self.height, self.tick_count = width, height, 0
-        self.grid = [[OctahedralNode(x * height + y) for y in range(height)] for x in range(width)]
+        self.grid = [[OctahedralNode(x * height + y, standing) for y in range(height)] for x in range(width)]
         for col in self.grid:
             for node in col:
                 node.vertex_gain, node.damping = gain, damping
@@ -269,6 +278,37 @@ def run():
             ok += sign(node.coeffs[7]) == p3_exp[i]
         print(f"  {nc:3d} cycles: {ok}/8 parity correct")
         results[f"parity {nc} cycles"] = (ok, 8)
+
+    print("\nTEST 3b: The standing wave, read over one period")
+    print("  closure bounded by mu(x)=x/(x+1); readout = Walsh coefficients averaged over the last period")
+    period = int(round(2 * math.pi / 0.1))
+    for nc in (1, 10, 100, 1000):
+        ok_par = ok_xor = 0
+        for i in range(8):
+            node = OctahedralNode(0, standing=True); acc = 0.0; avg = min(period, nc)
+            for t in range(nc):
+                node.inject(p3_in[i]); node.tick()
+                if t >= nc - avg:
+                    acc += node.coeffs[7]
+            ok_par += sign(acc) == p3_exp[i]
+        for i in range(4):
+            node = OctahedralNode(0, standing=True); acc = 0.0; avg = min(period, nc)
+            for t in range(nc):
+                node.inject(xor_in[i]); node.tick()
+                if t >= nc - avg:
+                    acc += node.coeffs[4]
+            ok_xor += -sign(acc) == xor_exp[i]
+        print(f"  {nc:4d} cycles: parity {ok_par}/8, XOR {ok_xor}/4   (amplitude settles at {node.amp_a[0]:.3f})")
+        results[f"standing parity {nc} cycles"] = (ok_par, 8)
+        results[f"standing XOR {nc} cycles"] = (ok_xor, 4)
+    node = OctahedralNode(0)
+    clips = 0
+    for t in range(1000):
+        node.inject(p3_in[7]); node.tick()
+        clips += any(abs(v) >= 50 for v in node.forward_mix + node.backward_mix)
+    print(f"  original closure rule, 1000 cycles: amplitude {node.amp_a[0]:.2f}, coupling_out {node.coupling_out[0]:.2f}, "
+          f"clipped on {clips} of 1000 cycles")
+    results["original rule clipped cycles"] = (clips, 1000)
 
     print("\nTEST 4: All 16 two-input Boolean functions (single tick)")
     fnames = ["FALSE", "AND", "A>B", "A", "B>A", "B", "XOR", "OR",

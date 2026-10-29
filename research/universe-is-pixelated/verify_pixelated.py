@@ -138,9 +138,11 @@ check("forward pass adds grades 0 and 2", nz(nd.forward_mix) == {0, 1, 2})
 check("backward pass adds grade 3: one oscillation fills the whole Walsh spectrum", nz(nd.backward_mix) == {0, 1, 2, 3})
 with contextlib.redirect_stdout(io.StringIO()):
     res, _ = on.run()
-for key in ("analyser 256", "XOR single tick", "3-bit parity single tick", "16 gates single tick", "full adder sum", "full adder carry"):
+for key in ("analyser 256", "XOR single tick", "3-bit parity single tick", "16 gates single tick", "full adder sum", "full adder carry",
+            "standing parity 1000 cycles", "standing XOR 1000 cycles"):
     a, b = res[key]
     check(f"node: {key} = {a}/{b}", a == b)
+check("original closure rule runs away: amplitudes reach the clamp and the mixes clip", res["original rule clipped cycles"][0] > 500)
 
 print(f"\n  {PASS} passed, {FAIL} failed")
 raise SystemExit(FAIL > 0)
