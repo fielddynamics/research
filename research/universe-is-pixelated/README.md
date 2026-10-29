@@ -74,7 +74,7 @@ Letter 1's supplement starts from the light cone. In a frame with signature $(-,
 
 Now look at the gold octahedron at the centre of Figure 1. It is the region where $|v_i| \le 1$ for all four directions at once, the overlap of TetA and TetB. Its eight faces point to the eight corners of the cube, which are exactly the eight directions $\pm v_1, \dots, \pm v_4$ of the two tetrads. **The octahedron is the solid bounded by the eight null directions.** It is the sphere of light rays, made discrete: eight facets instead of a smooth sphere, one facet for each null direction the frame contains.
 
-GFD's photonic notes take the next step and propose that this structure is the photon: that light is the pixel of spacetime, and that gravity is many such pixels organised into a lattice (see [`photonic/`](../photonic/the-pixel-and-the-lattice.md)). The visualisations below were made in that spirit. Eight cones converge on the centre, one along each of the eight null directions, through the faces of the octahedron. The ten-cone version adds a pair along a single axis.
+GFD's photonic notes take the next step. They propose that the photon is this octahedral core *of the stellated octahedron*: the central region as it exists inside the compound, where TetA and TetB overlap and couple through the Field Origin, not an octahedron standing on its own. The core is a photon only together with the two chambers that bound it. On this reading light is the pixel of spacetime, and that gravity is many such pixels organised into a lattice (see [`photonic/`](../photonic/the-pixel-and-the-lattice.md)). The visualisations below were made in that spirit. Eight cones converge on the centre, one along each of the eight null directions, through the faces of the octahedron. The ten-cone version adds a pair along a single axis.
 
 ![Convergent vortex visualisations: eight cones converging on the centre through the faces of the octahedron, and the ten-cone variant](convergent_vortex.png)
 
@@ -91,7 +91,7 @@ The argument of this folder follows from that:
 1. **The local frame is a cube with binary corners.** The tetrad's directions are the corners of a cube (Letter 1), labelled by three bits (Paper IX).
 2. **The harmonics of a binary cube are Walsh functions.** This is a theorem: the Walsh functions are the characters of the group of three-bit strings.
 3. **The stellated octahedron is built into that spectrum.** It is the parity harmonic, it is the bipartition of the cube's modes, and its transform is the time axis.
-4. **The octahedral core is bounded by the eight null directions.** On GFD's reading, it is the photon.
+4. **The octahedral core of the stellated octahedron is bounded by the eight null directions.** On GFD's reading, that core, held between the two chambers, is the photon.
 5. **So, at the scale of the frame, the field is spectrally pixelated.** Its natural basis is a set of on/off patterns, not smooth waves.
 
 Smoothness does not disappear. It emerges at scale, the way a curve emerges from pixels when you step back. The [field closure walk](../field-closure/) is an example inside GFD: binary steps around the cube's eight corners assemble a series that converges to π, the circle recovered from switches.
@@ -125,7 +125,7 @@ The two constructions are built the same way. The Hadamard matrix is a tensor po
 | The tetrad directions are Hadamard rows, and the octahedron is bounded by the eight directions of the two tetrads | Established mathematics |
 | The tetrad directions are null directions, and the cube is the local frame of spacetime | Derived in Letter 1 and Paper IX |
 | $G = (17/13)\,\alpha^{21}\,\hbar c/m_e^2$ as a trace-and-determinant read | GFD derivation, matching measurement to 0.001% at one loop |
-| The octahedral core is the photon, and spacetime is spectrally pixelated at the scale of the frame | GFD proposal |
+| The octahedral core of the stellated octahedron, where TetA and TetB overlap, is the photon; spacetime is spectrally pixelated at the scale of the frame | GFD proposal |
 
 Every mathematical statement in the first three rows, and the value of G, is checked by [`verify_pixelated.py`](verify_pixelated.py).
 
@@ -154,7 +154,7 @@ python make_figures.py         # regenerates Figures 1 and 2
 - **Paper IX**, [*Complete Field Closure from Stellated Octahedron Topology*](../exploratory/i-ching/Nelson_2026_GFD_Complete_Field_Closure_from_Stellated_Octahedron_Topology.pdf): binary addresses, the parity partition and the time faces.
 - [`g_from_topology/`](../g_from_topology/): G as a matrix read.
 - [`spectral/`](../spectral/) and [`quantum compute/`](../quantum%20compute/): the Walsh–Hadamard kernel and the oscillator work built on it.
-- [`photonic/`](../photonic/): the photon as the pixel of spacetime.
+- [`photonic/`](../photonic/): the photon as the octahedral core of the stellated octahedron, the pixel of spacetime.
 - [`field-closure/`](../field-closure/): the closure walk, and π from binary steps.
 
 ---
