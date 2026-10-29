@@ -32,19 +32,29 @@ Every gravity field has one special state: the Field Origin, where $x = 1$ and t
 
 A field that is pushed through the gate does not simply pass to the other side. Its TetB chamber becomes occupied, and it changes state. In Paper VII's language, it now corresponds to the massive spin-2 mode, whose nonlinear self-coupling confines it into a localised configuration. That is the same idea Wheeler had in 1955 when he showed that general relativity permits *geons*, configurations of pure field energy held together by their own gravity. GFD calls a bound field of this kind a **Field Atom**.
 
-## 3. Why a bound field stays bound: the echo
+## 3. Why a bound field stays bound
 
-The unbound law describes a one-way conversation: the field answers its source. A bound field is in a different situation. It is its own source. Paper XIII states the condition precisely:
+The reason is an asymmetry at the gate. **Getting into TetB takes compression. Once inside, the field expands.**
 
-1. In a bound pair, a fraction $\mu$ of the coupling capacity is used in one direction.
-2. The remaining $(1 - \mu)$ carries the return coupling.
-3. Self-consistency requires that the return coupling, acting as the effective source, reproduces exactly the $\mu$ it started from.
+- **Going in.** A field reaches the TetB side only by being compressed through the Field Origin. Nothing pulls it through. It has to be pushed.
+- **Inside.** On the TetB side the field does the opposite: it expands, pressing outward against the gate it came through.
+- **Retention.** To leave, the field would have to be compressed back through the gate, against its own expansion. So the expansion that follows the crossing is what holds the field in.
 
-The field's own echo must regenerate the field. Substituting the return coupling for the source gives
+The gate acts like a one-way valve. Compression opens it from the outside, and expansion seals it from the inside.
+
+**The law that follows.** An unbound field feels only one of these pressures: the field responds to a source, and the balance is $x(1-\mu) = \mu$. A bound field sits between two. Compression acts inward, expansion acts outward, and the state must balance both at once. Paper XIII writes this as a self-consistency condition:
+
+1. A fraction $\mu$ of the coupling capacity is used in one direction.
+2. The remaining $(1-\mu)$ carries the return coupling, the field pressing back.
+3. The return coupling, acting as the effective source, must reproduce exactly the $\mu$ it started from.
+
+Substituting the return coupling for the source gives
 
 $$x\,(1 - \mu)^2 = \mu .$$
 
-The exponent is 2 because the coupling runs in two directions: out and back, compressed from both sides. **It is not an adjustable parameter.** It counts directions. A field in the one-way state obeys the law with exponent 1; a field that has crossed the gate and closed on itself obeys the law with exponent 2. There is no intermediate case, because a coupling cannot be one-and-a-half-directional.
+The exponent is 2 because two directions are in play: inward compression and outward expansion. **It is not an adjustable parameter.** It counts directions. A field responding to a source obeys the law with exponent 1. A field held between compression and its own expansion obeys the law with exponent 2. A coupling cannot be one-and-a-half-directional, so there is no case in between.
+
+**When retention fails: decay.** Retention holds only while the TetB side has room to expand into. As more fields are packed in, that room is used up. If TetB becomes so densely packed that the fields inside can no longer expand, the seal weakens and the configuration can release fields back through the gate. That is decay. On the GFD reading, this is why stability ends: the packing reaches the gate sector at lead-208, and beyond it every nucleus decays (§6).
 
 **The golden ratio marks the crossing.** At the gate ($x = 1$), the bound law becomes $(1-\mu)^2 = \mu$. Writing $\nu = 1 - \mu$, this is $\nu^2 + \nu = 1$, so $\nu = 1/\varphi$ and $\mu = 1/\varphi^2 \approx 0.382$, where $\varphi$ is the golden ratio. The unbound law gives $\mu = \tfrac12$ at the same point. The two states differ by 31% at the gate itself, which makes the distinction observable in principle.
 
@@ -127,7 +137,7 @@ The structure of the packing carries further signatures:
 
 - **The magic numbers.** All seven nuclear magic numbers, 2, 8, 20, 28, 50, 82 and 126, follow from $K = 4$ alone, and no other value of $K$ from 2 to 10 reproduces them (Papers XI and XIII).
 - **The 20 → 28 gap.** In standard nuclear physics this gap requires a spin–orbit force (Mayer 1949; Haxel, Jensen and Suess 1949). In GFD it arises from a change in the packing geometry at the fourth shell.
-- **The end of stability.** The packing has a finite address space, $K^K = 256$ positions. Paper XIII locates the end of stability more precisely: three ordinary sectors of $K^D = 64$ positions each, plus the gate sector, place the boundary at $3 \times 64 + 16 = 208$, which is lead-208, the heaviest stable nucleus. Bismuth-209, long counted as stable, does decay, with a half-life of about $2 \times 10^{19}$ years (de Marcillac et al. 2003).
+- **The end of stability.** The packing has a finite address space, $K^K = 256$ positions. Paper XIII locates the end of stability more precisely: three ordinary sectors of $K^D = 64$ positions each, plus the gate sector, place the boundary at $3 \times 64 + 16 = 208$, which is lead-208, the heaviest stable nucleus. Past that point the TetB side is packed too tightly to retain its fields (§3), and nuclei decay. Bismuth-209, long counted as stable, does decay, with a half-life of about $2 \times 10^{19}$ years (de Marcillac et al. 2003).
 
 ## 7. From nucleus to object
 
