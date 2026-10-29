@@ -23,8 +23,13 @@ generatively to all 83 elements (Z = 1-83):
 Variant B also allows ns -> (n-2)f transfers, since the synthesis phrases the
 rule as "from s to d/f".
 
-A look-elsewhere test then asks how often a random landmark set, with as many
-resonant occupancies as the tiers mark, would do as well.
+Further sections:
+  - tier ablation: the rule with tier 1 alone (empty, half-filled, full);
+  - an upper bound: elements that start from the same Madelung occupancy but
+    end in different measured configurations, which no rule that sees only
+    the occupancy can all get right;
+  - a look-elsewhere test: how often random landmark sets of the same size
+    do as well.
 
     python promotion_rule_check.py
 """
@@ -135,26 +140,60 @@ def main():
                 print(f"      {SYM[Z]:2} predicted {g.config_to_string(predict(Z, sf, max_k=mk))[-22:]:>22}"
                       f"   observed {g.KNOWN_CONFIGS_RAW[Z][-22:]:>22}")
 
-    # Look-elsewhere: random resonant sets of the same size per shell
-    def resonant_set(cap):
-        return {ne for ne in range(cap + 1) if default_tier(ne, cap) < 99}
-    d_res, f_res = resonant_set(10), resonant_set(14)
-    print(f"\n  Resonant occupancies: d {sorted(d_res)} ({len(d_res)}/11), "
-          f"f {sorted(f_res)} ({len(f_res)}/15)")
-    base_right = score(False, max_k=1)[0]
-    random.seed(7)
-    trials, as_good = 5000, 0
-    for _ in range(trials):
-        rd = set(random.sample(range(11), len(d_res)))
-        rf = set(random.sample(range(15), len(f_res)))
-        def tf(ne, cap, rd=rd, rf=rf):
-            return 1 if ne in (rd if cap == 10 else rf) else 99
-        as_good += score(False, tf, max_k=1)[0] >= base_right
-    print(f"  Random resonant sets of the same size ({trials} trials), variant S:")
-    print(f"    fraction scoring >= {base_right}/83: {as_good / trials:.3f}")
+    # Tier ablation: which tier produces the false promotions?
+    def tier1_only(ne, cap):
+        t = default_tier(ne, cap)
+        return t if t == 1 else 99
+    print("\n  Tier ablation (variant S logic)")
+    for label, tf, mk in (("tier 1 only, one electron", tier1_only, 1),
+                          ("tier 1 only, up to two electrons", tier1_only, 2)):
+        right, fp, fx, ms = score(False, tf, max_k=mk)
+        print(f"    {label:34} {right}/83   fixed: {names(fx)}   false: {names(fp)}")
+
+    # Bound for any rule that sees only the open-shell occupancy
+    from collections import defaultdict
+    groups = defaultdict(lambda: defaultdict(list))
+    for Z in range(1, 84):
+        mad, obs = clean(g.fill_madelung(Z)), clean(g.parse_config_string(g.KNOWN_CONFIGS_RAW[Z]))
+        ns = max(n for (n, l) in mad if l == 0)
+        if ns - 1 < 3:
+            continue
+        s, d, f = mad.get((ns, 0), 0), mad.get((ns - 1, 2), 0), mad.get((ns - 2, 3), 0)
+        key = (s, d, "closed" if f in (0, 14) else f)
+        change = obs.get((ns - 1, 2), 0) - d
+        groups[key][change].append(SYM[Z])
+    unavoidable = 0
+    print("\n  Same Madelung occupancy, different measured outcome")
+    for (s, d, f), outs in sorted(groups.items(), key=str):
+        if len(outs) > 1:
+            n_all = sum(len(v) for v in outs.values())
+            unavoidable += n_all - max(len(v) for v in outs.values())
+            txt = "   ".join(f"{'keeps' if c == 0 else f'd{c:+d}'}: {', '.join(v)}" for c, v in outs.items())
+            print(f"    d{d} s{s}:  {txt}")
+    print(f"    unavoidable errors for any occupancy-only rule: {unavoidable}"
+          f"  ->  best possible {83 - unavoidable}/83")
+
+    # Look-elsewhere: random landmark sets of the same size per shell
+    def chance(tier_fn, label, trials=5000, seed=7):
+        res = {cap: {ne for ne in range(cap + 1) if tier_fn(ne, cap) < 99} for cap in (10, 14)}
+        target = score(False, tier_fn, max_k=1)[0]
+        rng = random.Random(seed)
+        hits = 0
+        for _ in range(trials):
+            rd = set(rng.sample(range(11), len(res[10])))
+            rf = set(rng.sample(range(15), len(res[14])))
+            def tf(ne, cap, rd=rd, rf=rf):
+                return 1 if ne in (rd if cap == 10 else rf) else 99
+            hits += score(False, tf, max_k=1)[0] >= target
+        print(f"    {label:22} d {sorted(res[10])}, f {sorted(res[14])}: "
+              f"{target}/83; random sets of the same size reach it in {hits / trials:.3f}")
+        return hits / trials
+    print(f"\n  Look-elsewhere test ({5000} random landmark sets, one-electron rule)")
+    p_all = chance(default_tier, "all three tiers")
+    p_t1 = chance(tier1_only, "tier 1 only")
     return dict(madelung=mad_right, variant_s=score(False, max_k=1), variant_a=score(False),
                 variant_b=score(True),
-                p_random=as_good / trials)
+                p_random=p_all, p_random_tier1=p_t1)
 
 
 if __name__ == "__main__":
