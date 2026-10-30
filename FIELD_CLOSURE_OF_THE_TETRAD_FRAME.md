@@ -76,6 +76,16 @@ Each disc is a **surface of revolution**: a single curve, spun one full turn abo
 
 4. **Mark where they cross.** The two curves meet at $r = 1$, at height $\tfrac12$. Spun around the axis, that crossing point becomes a circle of radius $r_M$: the white ring. Inside it the blue dome is higher, and outside it the red bowl is higher.
 
+**Two sheets of one quadratic, but not a Riemann surface.** A picture of two roots drawn as two sheets invites comparison with a Riemann surface, the object complex analysis uses for a multi-valued function such as $\sqrt{z}$. The comparison is closer than it looks. The two heights are the two roots of a single quadratic,
+
+$$t^2 - t + \mu(1-\mu) = 0, \qquad t = \mu \;\text{ or }\; 1 - \mu ,$$
+
+whose roots sum to one and multiply to $\mu(1-\mu)$, the core activity that peaks on the ring. Its discriminant is
+
+$$1 - 4\mu(1-\mu) = (1 - 2\mu)^2 = \left(\frac{x - 1}{x + 1}\right)^2 ,$$
+
+which vanishes only at $x = 1$: the roots coincide exactly on the white ring. On a Riemann surface, a point where the discriminant vanishes is a *branch point*, where the two sheets join and exchange. Here the discriminant is a perfect square, so there is no branching: the two roots remain separate single-valued functions, $x/(x+1)$ and $1/(x+1)$, and the two sheets cross on the ring without merging. The figure is therefore two surfaces of revolution, one per root, meeting along the circle where the quadratic has a double root.
+
 The spiral lines drawn on the surfaces are visual guides that help the eye follow their curvature in three dimensions. They are not derived from the constitutive law. Only the heights of the surfaces carry physical content.
 
 The figure shows the simplest case, a single central mass. For a real galaxy, with its mass spread through a bulge and a disk, the acceleration profile $g(r)$ comes from that mass distribution instead of $GM/r^2$. The shares at each radius are then $\mu(x)$ and $1 - \mu(x)$ with the galaxy's own $x(r)$. The shapes stretch or sharpen, but the dome, the bowl and the ring at $x = 1$ remain.
