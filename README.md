@@ -234,7 +234,7 @@ Most research folders follow the same pattern: a **`*_synthesis.md`** that expla
 | [`galaxy-rotation/`](research/galaxy-rotation/) | Rotation-curve pipeline, interior/exterior synthesis, mass decoding, vortex viewers |
 | [`cdm/`](research/cdm/) | Translation of the cold-dark-matter halo into the TetB interior of the field |
 | [`cmb/`](research/cmb/) | The oldest light: the recombination enhancement of 6.46 from packed closure boundaries, one law across two epochs, and the 0.17 velocity exponent |
-| [`g_from_topology/`](research/g_from_topology/) | G as a matrix read; one-loop (Schwinger) correction to G |
+| [`g_from_topology/`](research/g_from_topology/) | G as a matrix read; one-loop (Schwinger) correction to G; look-elsewhere test; *What Is Gravity?*, an open question |
 | [`field-closure/`](research/field-closure/) | Where the research began: why a gravitational field must close, the accounting closure demands, the field closure pipeline, and the closure walk |
 | [`bbp and pi field closure stepping/`](<research/bbp and pi field closure stepping/>) | The BBP π formula read as field closure |
 | [`bound-gravity-and-packing/`](research/bound-gravity-and-packing/) | How a gravity field becomes matter: one field, two states, driven by stellar compression |

@@ -224,6 +224,8 @@ That is $6.6665 \times 10^{-11}$ at tree level, and $6.6742 \times 10^{-11}$ wit
 
 The two constructions are built the same way. The Hadamard matrix is a tensor power of one small block, $H_2^{\otimes 3}$. GFD's graded space is a sum of tensor powers of the four-dimensional frame, $V^{\otimes 0} \oplus V^{\otimes 1} \oplus V^{\otimes 2}$. The gradings differ: the cube's Walsh functions grade as $1, 3, 3, 1$ by bit count, while the tetrad's ranks grade as $1, 4, 16$. In both cases, though, the physics is a reading of a ±1-structured operator assembled from the geometry of the frame.
 
+**What, then, is gravity?** If G is a read, a natural question is whether gravity is the read of a cube or of a stellated octahedron. One answer, framed as an open question in [*What Is Gravity?*](../g_from_topology/what_is_gravity.md), is that it is neither alone. A single read exerts no force; what pulls is the difference between the reads of neighbouring cells, the connection between frames, whose 64 components are the $8 \times 8$ transitions between the corners of neighbouring cubes. The stellated octahedron would set the strength of that exchange, through the 21-level read behind $\alpha^{21}$, and the cube's parity, the $H_2$ in $H_8 = H_2 \otimes H_4$, would complete it with the second chamber. The note sets this beside four other readings in the archive and lists what remains to be derived.
+
 ## What is established, and what is proposed
 
 | Statement | Status |
