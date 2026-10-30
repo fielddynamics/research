@@ -131,7 +131,7 @@ python gfd_compton_to_hubble.py              # enhancement from the microscopic 
 
 ## Related work
 
-- **Paper II**, [*A Covariant Theory Without Dark Matter*](../../papers/2026-01_28_Nelson_DFPII_A_Covariant_Theory_Without_Dark_Matter.pdf) ([doi:10.5281/zenodo.18360354](https://doi.org/10.5281/zenodo.18360354)): the published cosmological extension and the enhancement of 6.46.
+- **Paper II**, [*A Covariant Theory Without Dark Matter*](../../papers/02-covariant-theory-without-dark-matter/2026-01_28_Nelson_DFPII_A_Covariant_Theory_Without_Dark_Matter.pdf) ([doi:10.5281/zenodo.18360354](https://doi.org/10.5281/zenodo.18360354)): the published cosmological extension and the enhancement of 6.46.
 - [*Tully–Fisher Velocity Evolution*](../../papers/tully-fisher-velocity-evolution/): the 0.17 exponent tested against integral-field surveys to redshift 3.
 - [`field-closure/`](../field-closure/): why a gravitational field must close, the idea the packed-bubble argument builds on.
 
