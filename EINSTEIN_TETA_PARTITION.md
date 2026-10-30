@@ -16,6 +16,66 @@ Paper, sources and supplementary material: [`papers/letter-3-field-closure-of-te
 
 ---
 
+## Introduction: why general relativity works locally, but not everywhere
+
+### A root cannot simply be removed
+
+Take the parabola $y = x^2$ and solve it for $x$:
+
+$$x = \pm\sqrt{y}.$$
+
+The equation has two roots, and it does not prefer either. Now keep only one, $x = +\sqrt{y}$. On the right-hand half of the parabola the result is exact: every point computed lies on the curve, and any experiment confined to $x > 0$ confirms it perfectly. The left-hand half has gone. For every point with $x < 0$, the kept root gives the wrong answer, a point of the wrong sign, not an approximate one. And nothing measured on the right-hand half gives any warning that half the curve is missing. The same error appears in the familiar slip $\sqrt{x^2} = x$, which holds for half the number line and fails on the other half; the correct identity is $\sqrt{x^2} = |x|$.
+
+The loss can be stated exactly. A quadratic is fixed by its two roots *together*. For $x^2 - a = 0$, Vieta's formulas give
+
+$$r_1 + r_2 = 0, \qquad r_1 r_2 = -a .$$
+
+Keep one root and both relations fail: the sum becomes $\sqrt a$ and the product $+a$. What survives is everything that each root satisfies alone. What is lost is everything that depends on how the two roots relate to each other. A single root solves a different equation, $x - \sqrt{a} = 0$, a linear one.
+
+Algebraic geometry makes the same point formally. The *scheme* of an equation is its complete solution set, treated as one geometric object, with no root preferred (Grothendieck). The scheme of $x^2 = a$ consists of two points. Selecting one of them is a projection of the scheme onto a component, not a statement about the equation.
+
+### The tetrad equation is quadratic in the same way
+
+General relativity in tetrad form defines the metric from the frame:
+
+$$g_{\mu\nu} = \eta_{ab}\, e^a{}_\mu\, e^b{}_\nu ,$$
+
+which is quadratic in the frame $e$, just as $y = x^2$ is quadratic in $x$. The [scheme proof](papers/letter-1-tetrad-frame-geometry/Supplementary/supplementary_scheme_proof.tex) supplementary to Letter 1 shows that, on the spatial legs from which the tetrahedral directions are built, its solution set has exactly two components. They are related by spatial parity, and they carry the two tetrahedra, TetA and TetB. The correspondence with the parabola is exact:
+
+| The parabola $y = x^2$ | The tetrad equation $g = M^{T} M$ |
+|---|---|
+| Two roots, $+\sqrt{y}$ and $-\sqrt{y}$ | Two frames, $M_1$ (TetA) and $M_2 = -M_1$ (TetB) |
+| Both give the same $y$: $(-x)^2 = x^2$ | Both give the same metric: $M_2^{T} M_2 = M_1^{T} M_1$ (root-blindness) |
+| The product of the roots, $r_1 r_2 = -a$ | The cross-coupling, $M_1^{T} M_2 = -M_1^{T} M_1$ |
+| Keeping $+\sqrt{y}$ is exact on the right-hand half and wrong on the left | Keeping one frame is exact where TetA carries the field and wrong where TetB does |
+
+The third row is the decisive one. In both cases the only quantity that tells the roots apart is the one that combines them, and it carries the same minus sign. General relativity keeps one frame, and its torsion-free condition removes the 24 connection components (the torsion) that carry the cross-coupling. Both steps are consistent on their own terms. Together they remove every trace of the second root, and the removal conceals itself: Einstein's equations are written in the metric, which is identical for both roots, just as knowing $y$ on the parabola tells you nothing about the sign of $x$. No test formulated in the metric alone can reveal that anything has been set aside.
+
+### Locally exact, globally incomplete
+
+In Gravity Field Dynamics both roots are present, and the constitutive law divides the field between them: TetA carries $\mu(x) = x/(x+1)$ and TetB carries $1 - \mu(x) = 1/(x+1)$, where $x = g/a_0$ is the acceleration in units of the transition scale.
+
+- **In the solar system**, $x \sim 10^8$. TetB carries about one part in $10^8$ of the field, and keeping one root costs nothing measurable. This is the right-hand half of the parabola, sampled far from the origin. General relativity's local tests, from the perihelion of Mercury to gravitational waves, all lie here, and all confirm it.
+- **In a galaxy**, the field spans the whole partition. TetA dominates the core, the two shares are equal on the ring $x = 1$, and TetB dominates the rim. Here the kept root is not slightly off. At $x = 0.1$ the observed acceleration is $1/\mu = 11$ times the baryonic one, and general relativity, holding only the TetA root, attributes the difference to unseen mass.
+
+The analogy differs in one respect. On the parabola the two roots occupy separate halves of the curve; in GFD both are present everywhere, and their shares change continuously with acceleration. The logic is the same: discarding a root is exact wherever the other root contributes nothing, and fails wherever it contributes.
+
+### A precedent: Dirac's second root
+
+The relativistic energy relation $E^2 = p^2c^2 + m^2c^4$ is also quadratic, with roots $E = \pm\sqrt{p^2c^2 + m^2c^4}$. The negative root looked unphysical, and the natural move was to drop it. Dirac kept it, and by 1931 had predicted a particle with the electron's mass and opposite charge. Anderson found the positron in cosmic rays in 1932. The discarded root was half of the physics.
+
+### The standard view, and the reply
+
+In the standard reading, the two frames differ by an improper Lorentz transformation. Because they give the same metric, the restriction to one component, the proper orthochronous group $SO^+(1,3)$ and one signature orientation, is treated as a convention without physical content. GFD's reply has three parts:
+
+1. **It is a choice, not a gauge identity.** Parity is not in the continuous local Lorentz group. It connects disjoint components of the solution set, so no gauge transformation turns one root into the other.
+2. **Invisible to the metric is not invisible to nature.** The metric cannot distinguish the two orientations, but nature can: the weak interaction violates parity (Wu et al. 1957).
+3. **A root-sensitive sector exists.** The cross-coupling, carried by torsion, depends on the relation between the roots, and it is precisely the sector the torsion-free condition removes.
+
+Whether the restored root carries the galactic share of the field is GFD's claim, tested against the radial acceleration relation in Letter 3 and the [SPARC letter](papers/letter-radial-acceleration-relation-sparc/). The algebraic point stands independently of that test: the tetrad equation has two roots, and an equation with one of its roots removed is a different equation.
+
+---
+
 ## Overview
 
 General relativity describes the gravitational connection by its Christoffel symbols: the 40 components of the affine connection that remain once the torsion-free condition $\Gamma^\lambda_{\mu\nu} = \Gamma^\lambda_{\nu\mu}$ is imposed. A connection on a four-dimensional frame has $K^3 = 64$ components. Letter 3 asks what the 24 components removed by that condition represent. It concludes that they are not spare degrees of freedom: they are the second root of the tetrad equation, and restoring them completes the gravitational field.
@@ -32,13 +92,13 @@ Letter 3 rests on an algebraic observation established in the tetrad scheme proo
 
 **3. No equation of metric gravity can select between them.** Both components produce the same metric. This is the root-blindness lemma of the Gram-matrix note, $M_2^T M_2 = M_1^T M_1$, and it holds identically. Einstein's field equations are written in the metric alone, so they contain no term that distinguishes one component from the other. In the words of the scheme proof, "there is no consistent way to retain one component and discard the other: both satisfy the same defining equation with the same metric."
 
-**4. The selection is therefore a convention.** The textbook formulation fixes one orientation, restricting the local frame group to its identity component and one signature orientation, $(-,+,+,+)$ or $(+,-,-,-)$. Nothing in the defining equation imposes this restriction. The scheme proof calls it what it is: "a valid computational choice, but it is a projection of the full scheme onto one component." The choice is arbitrary in the exact algebraic sense: it is not determined by any equation of the theory, and it selects among solutions that the theory treats identically. The analogue is solving $x^2 = a$ and keeping only the positive root. That is harmless as long as nothing depends on the sign, and it loses information as soon as something does.
+**4. The selection is therefore a convention.** The textbook formulation fixes one orientation, restricting the local frame group to its identity component and one signature orientation, $(-,+,+,+)$ or $(+,-,-,-)$. Nothing in the defining equation imposes this restriction. The scheme proof calls it what it is: "a valid computational choice, but it is a projection of the full scheme onto one component." The choice is arbitrary in the exact algebraic sense: it is not determined by any equation of the theory, and it selects among solutions that the theory treats identically. It is the parabola of the introduction: keeping $+\sqrt{y}$ is exact for every quantity that each root satisfies alone, and wrong for every quantity that depends on how the two roots relate.
 
 **5. Something does depend on it, and that sector is removed too.** Exactly one Gram product resolves the two roots, the cross-coupling $M_1^T M_2 = -M_1^T M_1$. In the connection, the corresponding root-sensitive content is the antisymmetric part, the torsion. The torsion-free condition removes exactly that sector, 24 of the 64 components. The two conventions therefore act together: root selection at the level of the frame, and torsion-freedom at the level of the connection. Each is consistent on its own terms, and together they remove every trace of the second root. The projection also conceals itself. The metric cannot see the discarded root, so no test formulated in the metric alone could reveal that anything had been set aside.
 
 **Two independent routes agree.** The scheme argument (Route 2) uses no half-space bounding, recession cones or sign enumeration. Letter 1's direct construction (Route 1) classifies the sixteen half-space intersections and finds exactly two bounded. Neither route assumes the other, and both arrive at the same two chambers, each carrying its own $3+1$ face decomposition: TetA's uniform-sign normal $(+,+,+)$ recovers one signature orientation, and TetB's $(-,-,-)$ recovers the other. Both orientations of the Lorentz signature are present in the geometry, and general relativity keeps one.
 
-In the standard reading, the restriction to one component is a gauge or orientation convention without physical content. GFD's contention, developed in Letters 2 and 3, is that the convention does carry content. The discarded root is the TetB chamber, its field share is $1 - \mu(x)$, and that share is negligible in the solar system and dominant at galactic radii. On this reading, Einstein's equation is exact on the root it keeps. Letter 3 restores the other.
+The discarded root is the TetB chamber. Its field share is $1 - \mu(x)$, negligible in the solar system and dominant at galactic radii. Einstein's equation is exact on the root it keeps. Letter 3 restores the other.
 
 ## The torsion-free projection
 
@@ -197,5 +257,12 @@ The letter draws three consequences that distinguish the restored connection fro
 ## Reference
 
 S. Nelson, *Gravity Field Dynamics: Field Closure of the Tetrad Frame*, Field Dynamics Research (2026), preprint. Letter 3 of the tetrad series; companion to Letter 1, *The Coordinate-Space Geometry of the Tetrad Frame*, and Letter 2, *The Other Half of Gravity: Torsion and the Two-Chamber Structure of the Tetrad Frame*. Source, figures and supplementary notes: [`papers/letter-3-field-closure-of-tetrad-frame/`](papers/letter-3-field-closure-of-tetrad-frame/).
+
+Works cited in the introduction:
+
+- Grothendieck, A. and Dieudonné, J. (1960). *Éléments de géométrie algébrique I*. Publ. Math. IHÉS 4.
+- Dirac, P. A. M. (1931). Quantised singularities in the electromagnetic field. *Proc. R. Soc. Lond. A* 133, 60.
+- Anderson, C. D. (1933). The positive electron. *Phys. Rev.* 43, 491.
+- Wu, C. S., Ambler, E., Hayward, R. W., Hoppes, D. D. and Hudson, R. P. (1957). Experimental test of parity conservation in beta decay. *Phys. Rev.* 105, 1413.
 
 Related: [the published papers and letters](README.md#published-papers-zenodo) · [the documentation](docs/README.md) · [the radial acceleration relation letter](papers/letter-radial-acceleration-relation-sparc/)
