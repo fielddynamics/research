@@ -124,9 +124,15 @@ Galaxies are different. A galaxy spans the whole figure, from a core where the b
 
 Two notes keep the tour honest. First, the Sun does not sit in empty space: the Milky Way's own field at the Sun's position is already about $1.7\,a_0$, so the solar system's outskirts are never isolated, a point Paper I treats as the external field effect. Second, the region beyond a few thousand AU is being tested now, with wide binary stars observed by Gaia, and the published analyses currently disagree (Chae 2023; Banik et al. 2024).
 
-### Why galaxies have a core and a disk
+### The galaxy profile comes by default
 
-Every bound system has its strongest acceleration at the centre and weaker acceleration outward. Because $\mu$ rises monotonically with $x$, the partition sorts every galaxy the same way: a concentrated interior where TetA dominates, an extended exterior where TetB dominates, and a boundary between them on the ring. Neither surface produces that structure alone; TetA alone is a steady decline, and TetB alone is a flat plateau. Letter 3 reads the familiar bulge-and-disk shape as the closed partition $\mu + (1 - \mu) = 1$ made visible, with the boundary set by $x = 1$ whatever the galaxy's mass.
+Nothing in Figure 2 was shaped to resemble a galaxy. The profile is what the split of $\mu(x)$ between TetA and TetB produces on its own, for any bound system.
+
+Every bound system has its strongest acceleration at the centre and weaker acceleration outward; for any concentrated mass this follows from Gauss's law. Because $\mu$ rises monotonically with $x$, the partition then sorts every system the same way: a concentrated interior where TetA carries the field, an extended exterior where TetB carries it, and a boundary between them on the ring at $x = 1$, whatever the system's mass. The round symmetry needs no assumption either. The law depends only on the strength of the acceleration, not its direction, so each share is the same at every angle around the centre. Neither surface produces the structure alone: TetA alone is a steady decline, and TetB alone is a flat plateau. The interior, the exterior and the ring between them are the closed partition $\mu + (1 - \mu) = 1$ made visible.
+
+This is the structure astronomers find in real galaxies. Visible matter accounts for the motions of stars and gas in the inner regions, where the acceleration exceeds $a_0$, and falls short in the outer regions, where it is below $a_0$ (McGaugh 2004). When rotation curves are split into a disk contribution and a dark-halo contribution, the two trade dominance smoothly, with no visible seam between them. Van Albada and Sancisi (1986) named this the *disk–halo conspiracy*. In a dark-matter picture it is a coincidence that each galaxy's halo must reproduce. In the partition it is no coincidence: the inner and outer shares are two halves of one closed quantity, so they cannot fail to hand over smoothly, and the handover is centred on $x = 1$ in every galaxy.
+
+The ring sits where the acceleration equals $a_0$. In the Milky Way, whose rotation speed is about 230 km/s, that is near 14 kpc from the centre, beyond the Sun's orbit at 8 kpc. The TetA-dominated interior therefore contains the bulge and most of the stellar disk, and the TetB-dominated exterior is the outer disk and beyond, the region conventionally assigned to the dark halo.
 
 The same formula settles the behaviour at the very centre. The TetB share $1/(x+1)$ never exceeds one, so the acceleration it carries, $(1-\mu)\,g = a_0\,x/(x+1)$, never exceeds $a_0$. Cold-dark-matter halos of the standard Navarro–Frenk–White form have densities that rise without limit toward the centre, a long-standing tension with the flat cores observed in many galaxies. The partition has no such divergence, and it needs no extra physics to avoid one.
 
@@ -185,7 +191,7 @@ The distinction GFD draws is between adding something and restoring something. D
 | The tetrad equation has two roots that give the same metric, so a torsion-free connection cannot distinguish them | Exact algebra (Letter 2, Gram-matrix note) |
 | The partition $\mu = x/(x+1)$ reproduces the radial acceleration relation and gives $F(y)$, GR at high acceleration and Tully–Fisher at low | Exact consequences of the law, verified |
 | The 24 removed components are the second root, and they carry the field share $1 - \mu$ attributed elsewhere to dark matter | The GFD claim of Letter 3 |
-| Disk-and-bulge morphology and cored centres follow from the closed partition | GFD prediction, qualitative; a quantitative test against galaxy images is open |
+| A TetA-dominated interior, a TetB-dominated exterior and a seamless handover at $x = 1$ follow from the closed partition, as observed in the disk–halo transition of real galaxies; centres stay cored | Consequence of the partition; the GFD-specific reading is the claim of Letter 3 |
 
 ---
 
@@ -206,9 +212,11 @@ The script checks every numerical claim in Letter 3 (52 of 52 pass): the 64 = 40
 - Bekenstein, J. and Milgrom, M. (1984). Does the missing mass problem signal the breakdown of Newtonian gravity? *Astrophys. J.* 286, 7.
 - Chae, K.-H. (2023). Breakdown of the Newton–Einstein standard gravity at low acceleration in internal dynamics of wide binary stars. *Astrophys. J.* 952, 128.
 - Hehl, F. W., von der Heyde, P., Kerlick, G. D. and Nester, J. M. (1976). General relativity with spin and torsion: foundations and prospects. *Rev. Mod. Phys.* 48, 393.
+- McGaugh, S. S. (2004). The mass discrepancy–acceleration relation: disk mass and the dark matter distribution. *Astrophys. J.* 609, 652.
 - McGaugh, S. S., Lelli, F. and Schombert, J. M. (2016). Radial acceleration relation in rotationally supported galaxies. *Phys. Rev. Lett.* 117, 201101.
 - Milgrom, M. (1983). A modification of the Newtonian dynamics as a possible alternative to the hidden mass hypothesis. *Astrophys. J.* 270, 365.
 - Navarro, J. F., Frenk, C. S. and White, S. D. M. (1996). The structure of cold dark matter halos. *Astrophys. J.* 462, 563.
 - Skordis, C. and Złośnik, T. (2021). New relativistic theory for modified Newtonian dynamics. *Phys. Rev. Lett.* 127, 161302.
+- van Albada, T. S. and Sancisi, R. (1986). Dark matter in spiral galaxies. *Phil. Trans. R. Soc. Lond. A* 320, 447.
 
 Related: [Einstein's Equation as the TetA Partition](EINSTEIN_TETA_PARTITION.md) · [the published papers and letters](README.md#published-papers-zenodo)
