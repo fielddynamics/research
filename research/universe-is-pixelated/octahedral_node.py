@@ -27,6 +27,10 @@ N = 8
 SIGNS = [(+1, +1, +1), (+1, +1, -1), (+1, -1, +1), (+1, -1, -1),
          (-1, +1, +1), (-1, +1, -1), (-1, -1, +1), (-1, -1, -1)]
 PARITY = [+1, -1, -1, +1, -1, +1, +1, -1]
+# TetA is the xyz = +1 tetrahedron in every convention used in this archive.
+# The C# source maps bit 1 -> -1, so TetA has even-popcount indices here;
+# Letter 1 and the README map bit 1 -> +1, which gives the same corners the
+# odd-popcount addresses {001, 010, 100, 111}.
 TETA_IDX = [0, 3, 5, 6]          # as in the C# source
 TETB_IDX = [1, 2, 4, 7]
 
