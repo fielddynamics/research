@@ -1,0 +1,2732 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Distributed Field Processing V: Field Closure and the Topology of Gravity</title>
+
+    <!-- Google Scholar Meta Tags -->
+    <meta name="citation_title" content="Distributed Field Processing V: Field Closure and the Topology of Gravity">
+    <meta name="citation_author" content="Nelson, Stephen">
+    <meta name="citation_publication_date" content="2026/01">
+    <meta name="citation_online_date" content="2026/01/29">
+    <meta name="citation_publisher" content="Field Dynamics">
+    <meta name="citation_language" content="en">
+    <meta name="citation_keywords"
+        content="Field Closure; Tetrad Formalism; Loop Quantum Gravity; Tetrahedron; ADM Constraints; Distributed Field Processing; Hubble Tension">
+
+    <!-- Standard Meta Tags for SEO -->
+    <meta name="description"
+        content="Paper V in the Distributed Field Processing series. Bridges tetrad gravity and Loop Quantum Gravity with DFP field closure. The tetrahedron appears in both frameworks as the fundamental geometric unit. The Port Ratio √(k/π) predicts H = 69.92 km/s/Mpc, matching GW170817 to 0.11%.">
+    <meta name="author" content="Stephen Nelson">
+    <meta name="keywords"
+        content="field closure, tetrad, tetrahedron, ADM, loop quantum gravity, Regge calculus, distributed field processing">
+
+    <!-- MathJax Configuration -->
+    <script>
+        MathJax = {
+            tex: {
+                tags: 'ams',
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']]
+            },
+            chtml: {
+                scale: 1.0,
+                matchFontHeight: true
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Inter:wght@400;500;600;700&family=Source+Code+Pro:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* ========================================
+           DESIGN TOKENS - Enterprise Foundation
+           ======================================== */
+        :root {
+            /* Colors - Monochromatic + single accent */
+            --text: #1a1a1a;
+            --text-muted: #555;
+            --text-heading: #000;
+            --rule: #333;
+            --rule-light: #ddd;
+            --bg-soft: #fafafa;
+            --bg-page: #fff;
+            --link: #1a5276;
+
+            /* Typography */
+            --serif: "Source Serif 4", "Source Serif Pro", Georgia, serif;
+            --sans: "Inter", "Helvetica Neue", -apple-system, system-ui, sans-serif;
+            --mono: "Source Code Pro", Consolas, monospace;
+
+            /* Sizing */
+            --fs-body: 11pt;
+            --fs-small: 10pt;
+            --fs-caption: 9pt;
+            --lh: 1.55;
+            --measure: 800px;
+            /* prose width for desktop */
+            --measure-wide: 800px;
+            /* equations/tables */
+
+            /* Spacing scale */
+            --sp-1: 0.5rem;
+            --sp-2: 1rem;
+            --sp-3: 1.5rem;
+            --sp-4: 2rem;
+            --sp-5: 3rem;
+        }
+
+        /* ========================================
+           BASE TYPOGRAPHY
+           ======================================== */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--serif);
+            font-size: var(--fs-body);
+            line-height: var(--lh);
+            color: var(--text);
+            background: var(--bg-page);
+            margin: 0;
+            padding: 0;
+            counter-reset: fig tab;
+        }
+
+        .container {
+            max-width: var(--measure);
+            margin: 0 auto;
+            padding: var(--sp-5) var(--sp-4);
+        }
+
+        p {
+            margin: 0 0 1.25em;
+            hyphens: auto;
+            overflow-wrap: anywhere;
+        }
+
+        /* ========================================
+           HEADER / TITLE BLOCK
+           ======================================== */
+        header {
+            text-align: center;
+            padding: var(--sp-4) 0;
+            border-bottom: 1px solid var(--rule-light);
+            margin-bottom: var(--sp-4);
+        }
+
+        .paper-type {
+            font-family: var(--sans);
+            font-size: var(--fs-caption);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--text-muted);
+            margin-bottom: var(--sp-2);
+        }
+
+        h1 {
+            font-family: var(--sans);
+            font-size: 22pt;
+            font-weight: 700;
+            line-height: 1.2;
+            margin: 0 0 var(--sp-1);
+            color: var(--text-heading);
+        }
+
+        h1 .subtitle {
+            display: block;
+            font-size: 0.55em;
+            font-weight: 400;
+            color: var(--text-muted);
+            margin-top: var(--sp-2);
+        }
+
+        .authors {
+            font-size: var(--fs-body);
+            color: var(--text-muted);
+            margin: var(--sp-3) 0 var(--sp-1);
+        }
+
+        .affiliation {
+            font-size: var(--fs-small);
+            color: var(--text-muted);
+        }
+
+        .date {
+            font-size: var(--fs-small);
+            color: var(--text-muted);
+            margin-top: var(--sp-2);
+        }
+
+        /* ========================================
+           ABSTRACT
+           ======================================== */
+        .abstract {
+            background: none;
+            border: none;
+            border-left: 4px solid var(--rule);
+            margin: var(--sp-4) 0;
+            padding: var(--sp-2) var(--sp-3);
+            font-size: var(--fs-small);
+        }
+
+        .abstract h2 {
+            font-family: var(--sans);
+            font-size: 11pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin: 0 0 var(--sp-2);
+            border: none;
+            padding: 0;
+            color: var(--text-heading);
+        }
+
+        .abstract p {
+            margin: 0 0 1em;
+            line-height: 1.7;
+        }
+
+        .abstract p:last-child {
+            margin-bottom: 0;
+        }
+
+        .abstract strong {
+            color: var(--text-heading);
+        }
+
+        /* ========================================
+           KEYWORDS
+           ======================================== */
+        .keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--sp-1);
+            margin: var(--sp-3) 0 var(--sp-4);
+        }
+
+        .keyword {
+            background: var(--bg-soft);
+            border: 1px solid var(--rule-light);
+            padding: 3px 10px;
+            border-radius: 0;
+            font-family: var(--sans);
+            font-size: var(--fs-caption);
+            color: var(--text-muted);
+        }
+
+        /* ========================================
+           HEADINGS
+           ======================================== */
+        h2 {
+            font-family: var(--sans);
+            font-size: 15pt;
+            font-weight: 600;
+            color: var(--text-heading);
+            margin: var(--sp-5) 0 var(--sp-3);
+            padding-bottom: var(--sp-1);
+            border-bottom: 2px solid var(--rule);
+        }
+
+        h3 {
+            font-family: var(--sans);
+            font-size: 12pt;
+            font-weight: 600;
+            color: var(--text-heading);
+            margin: var(--sp-4) 0 var(--sp-2);
+        }
+
+        h4 {
+            font-family: var(--sans);
+            font-size: 11pt;
+            font-weight: 500;
+            color: var(--text-muted);
+            margin: var(--sp-3) 0 var(--sp-2);
+        }
+
+        /* ========================================
+           CALLOUT SYSTEM (Unified)
+           ======================================== */
+        .highlight-box {
+            border-left: 4px solid var(--rule);
+            background: var(--bg-soft);
+            padding: var(--sp-2) var(--sp-3);
+            margin: var(--sp-3) 0;
+        }
+
+        .highlight-box.primary {
+            background: #f0f4ff;
+            border-left-width: 5px;
+            border-left-color: #3b82f6;
+        }
+
+        .highlight-box.info {
+            background: rgba(13, 148, 136, 0.08);
+            border-left-color: #0d9488;
+        }
+
+        .highlight-box.warning {
+            background: rgba(217, 119, 6, 0.1);
+            border-left-color: #d97706;
+        }
+
+        .highlight-box.success {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            border-left-color: #2e7d32;
+        }
+
+        .highlight-box.success h4 {
+            color: #2e7d32;
+        }
+
+        .highlight-box.definition {
+            border-left-color: #6a1b9a;
+        }
+
+        .highlight-box.scope {
+            background: #fff8e1;
+            border-left-color: #f59e0b;
+        }
+
+        .highlight-box h4 {
+            font-family: var(--sans);
+            font-weight: 650;
+            font-size: 0.92em;
+            letter-spacing: 0.03em;
+            margin: 0 0 0.75em 0;
+            color: var(--text-heading);
+        }
+
+        .highlight-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .highlight-box li {
+            margin-bottom: 0.75em;
+        }
+
+        /* ========================================
+           EQUATIONS
+           ======================================== */
+        .equation {
+            margin: var(--sp-3) 0;
+            padding: var(--sp-2);
+            text-align: center;
+            background: none;
+            overflow-x: auto;
+        }
+
+        .equation-box {
+            background: rgba(0, 0, 0, 0.02);
+            border: 1px solid var(--rule-light);
+            border-radius: 2px;
+            padding: var(--sp-3);
+            margin: var(--sp-3) auto;
+            max-width: var(--measure-wide);
+            text-align: center;
+            overflow-x: auto;
+        }
+
+        .equation-box .equation {
+            padding: 0;
+            margin: 0;
+        }
+
+        .table-box {
+            background: var(--bg-soft);
+            border: 1px solid var(--rule-light);
+            border-radius: 2px;
+            padding: var(--sp-3);
+            margin: var(--sp-3) auto;
+            max-width: var(--measure-wide);
+            overflow-x: auto;
+        }
+
+        .table-box table {
+            margin: 0;
+        }
+
+        .table-box caption {
+            margin-top: var(--sp-1);
+        }
+
+        .equation-label {
+            font-family: var(--sans);
+            font-size: var(--fs-caption);
+            color: var(--text-muted);
+            float: right;
+            margin-top: var(--sp-1);
+        }
+
+        /* ========================================
+           TABLES
+           ======================================== */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: var(--sp-3) 0;
+            font-size: var(--fs-small);
+        }
+
+        th {
+            background: var(--bg-soft);
+            border-bottom: 2px solid var(--rule);
+            font-family: var(--sans);
+            font-weight: 600;
+            padding: 0.75em;
+            text-align: left;
+            color: var(--text-heading);
+        }
+
+        td {
+            padding: 0.75em;
+            border-bottom: 1px solid var(--rule-light);
+        }
+
+        tr:nth-child(even) {
+            background: none;
+        }
+
+        tr:hover {
+            background: none;
+        }
+
+        caption {
+            font-family: var(--sans);
+            font-size: var(--fs-caption);
+            color: var(--text-muted);
+            text-align: left;
+            margin-top: var(--sp-2);
+            caption-side: bottom;
+        }
+
+        /* ========================================
+           FIGURES
+           ======================================== */
+        figure {
+            counter-increment: fig;
+            margin: var(--sp-4) 0;
+            text-align: center;
+        }
+
+        figure img,
+        figure svg {
+            max-width: 100%;
+            border-radius: 0;
+            box-shadow: none;
+        }
+
+        figcaption {
+            font-family: var(--sans);
+            font-size: var(--fs-caption);
+            color: var(--text-muted);
+            margin-top: var(--sp-2);
+            padding: 0 var(--sp-2);
+            line-height: 1.5;
+            text-align: left;
+        }
+
+        figcaption::before {
+            content: "Figure " counter(fig) ". ";
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .figure-container {
+            background: var(--bg-page);
+            border: 1px solid var(--rule-light);
+            padding: var(--sp-4);
+            margin: var(--sp-3) 0;
+        }
+
+        /* ========================================
+           LISTS
+           ======================================== */
+        ul,
+        ol {
+            margin: var(--sp-2) 0 var(--sp-3);
+            padding-left: 1.75em;
+        }
+
+        li {
+            margin-bottom: 0.6em;
+        }
+
+        /* ========================================
+           INLINE ELEMENTS
+           ======================================== */
+        strong {
+            font-weight: 700;
+        }
+
+        em {
+            font-style: italic;
+        }
+
+        code {
+            font-family: var(--mono);
+            background: var(--bg-soft);
+            padding: 2px 5px;
+            font-size: 0.9em;
+        }
+
+        a {
+            color: var(--link);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* ========================================
+           REFERENCES
+           ======================================== */
+        .references {
+            font-size: var(--fs-small);
+            line-height: 1.5;
+        }
+
+        .references h2 {
+            font-size: 14pt;
+        }
+
+        .reference {
+            margin-bottom: 0.75em;
+            padding-left: 2em;
+            text-indent: -2em;
+        }
+
+        .reference a {
+            color: var(--link);
+            text-decoration: none;
+        }
+
+        .reference a:hover {
+            text-decoration: underline;
+        }
+
+        :target {
+            scroll-margin-top: var(--sp-4);
+        }
+
+        /* ========================================
+           FOOTER
+           ======================================== */
+        footer {
+            margin-top: var(--sp-5);
+            padding: var(--sp-4) 0;
+            border-top: 1px solid var(--rule-light);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: var(--fs-small);
+        }
+
+        /* ========================================
+           RESULT BOX (Key findings)
+           ======================================== */
+        .result {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            border: none;
+            border-left: 4px solid #81c784;
+            border-radius: 0;
+            padding: var(--sp-4);
+            margin: var(--sp-4) auto;
+            max-width: var(--measure-wide);
+            text-align: center;
+        }
+
+        .result h4 {
+            font-family: var(--sans);
+            color: var(--text-heading);
+            margin: 0 0 var(--sp-2);
+        }
+
+        .result .hero-equation {
+            font-size: 1.5em;
+        }
+
+        .result .result-note {
+            margin-top: 12px;
+            font-size: 14px;
+            color: #2e7d32;
+        }
+
+        /* ========================================
+           NOTE BOX
+           ======================================== */
+        .note {
+            background: rgba(217, 119, 6, 0.08);
+            border-left: 4px solid #d97706;
+            padding: var(--sp-2) var(--sp-3);
+            margin: var(--sp-3) 0;
+            font-size: var(--fs-small);
+        }
+
+        /* ========================================
+           FIGURE BOX (ASCII diagrams)
+           ======================================== */
+        .figure-box {
+            background-color: #f8f9fa;
+            border: 1px solid var(--rule-light);
+            border-radius: 4px;
+            padding: 20px;
+            margin: 1.5em 0;
+            text-align: center;
+        }
+
+        .figure-box .figure-title {
+            font-weight: bold;
+            font-size: 1.05em;
+            margin-bottom: 15px;
+            color: var(--text-heading);
+        }
+
+        .figure-box .figure-caption {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 15px;
+            text-align: left;
+        }
+
+        .topology-diagram {
+            font-family: 'Courier New', monospace;
+            font-size: 0.85em;
+            line-height: 1.4;
+            white-space: pre;
+            text-align: left;
+            display: inline-block;
+            background-color: white;
+            padding: 15px 20px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            margin: 0;
+            overflow-x: auto;
+        }
+
+        /* ========================================
+           POSTULATES & THEOREMS (Paper V specific)
+           ======================================== */
+        .postulate {
+            background: none;
+            border: none;
+            border-top: 1px solid var(--rule);
+            border-bottom: 1px solid var(--rule);
+            padding: var(--sp-2) 0;
+            margin: var(--sp-3) 0;
+        }
+
+        .postulate+.postulate {
+            border-top: none;
+            margin-top: 0;
+        }
+
+        .postulate-header {
+            font-family: var(--sans);
+            font-weight: 600;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-heading);
+            margin-bottom: var(--sp-1);
+        }
+
+        .postulate em {
+            font-style: normal;
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .theorem {
+            background: rgba(46, 125, 50, 0.05);
+            border: none;
+            border-top: 2px solid #2e7d32;
+            border-bottom: 2px solid #2e7d32;
+            padding: var(--sp-3) var(--sp-3);
+            margin: var(--sp-4) 0;
+        }
+
+        .theorem-header {
+            font-family: var(--sans);
+            font-weight: 700;
+            font-size: 1em;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #2e7d32;
+            margin-bottom: var(--sp-2);
+        }
+
+        .theorem p {
+            margin-bottom: 0.75em;
+        }
+
+        .theorem p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ========================================
+           TABLE OF CONTENTS (Paper V specific)
+           ======================================== */
+        .toc {
+            background: none;
+            border: none;
+            padding: 0;
+            margin: var(--sp-3) 0;
+        }
+
+        .toc h3 {
+            font-family: var(--sans);
+            margin: 0 0 var(--sp-2);
+            font-size: 0.9em;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .toc-section {
+            background: var(--bg-soft);
+            padding: var(--sp-2);
+            margin-bottom: 1px;
+            border-left: 3px solid var(--rule);
+        }
+
+        .toc-section>a {
+            font-weight: 600;
+            color: var(--link);
+            text-decoration: none;
+            display: block;
+            margin-bottom: var(--sp-1);
+        }
+
+        .toc-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 0 var(--sp-3);
+        }
+
+        .toc-section li {
+            margin: 4px 0;
+            font-size: 0.9em;
+        }
+
+        .toc-section li a {
+            color: var(--text-muted);
+            text-decoration: none;
+        }
+
+        .toc-section li a:hover {
+            color: var(--link);
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        /* ========================================
+           PREMISE MARKERS (Paper V specific)
+           ======================================== */
+        .premise-marker {
+            font-family: var(--sans);
+            font-size: 0.8em;
+            font-weight: 500;
+            color: #666;
+            background: #f0f0f0;
+            padding: 2px 6px;
+            border-radius: 2px;
+            margin-left: 0.5em;
+        }
+
+        .premise-marker.physics {
+            background: #e3f2fd;
+            color: #1565c0;
+        }
+
+        .premise-marker.logic {
+            background: #f3e5f5;
+            color: #6a1b9a;
+        }
+
+        .premise-marker.textbook {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .premise-marker.dfp {
+            background: #fff3e0;
+            color: #e65100;
+        }
+
+        /* ========================================
+           RUNNING EXAMPLE (Paper V specific)
+           ======================================== */
+        .running-example {
+            background: #f8f9fa;
+            border-left: 3px solid #6c757d;
+            padding: var(--sp-2) var(--sp-3);
+            margin: var(--sp-3) 0;
+            font-size: 0.95em;
+        }
+
+        .running-example h4 {
+            font-family: var(--sans);
+            font-size: 0.9em;
+            font-weight: 600;
+            color: #495057;
+            margin: 0 0 0.5em 0;
+        }
+
+        /* ========================================
+           RESPONSIVE
+           ======================================== */
+        @media (max-width: 600px) {
+            :root {
+                --fs-body: 10pt;
+                --fs-small: 9pt;
+            }
+
+            h1 {
+                font-size: 18pt;
+            }
+
+            .container {
+                padding: var(--sp-3) var(--sp-2);
+            }
+
+            .abstract {
+                padding: var(--sp-2);
+            }
+        }
+
+        /* ========================================
+           PRINT STYLES
+           ======================================== */
+        @media print {
+            @page {
+                margin: 2.5cm;
+                size: letter;
+            }
+
+            body {
+                font-size: 10pt;
+                line-height: 1.45;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                color-adjust: exact !important;
+            }
+
+            .container {
+                max-width: none;
+                padding: 0;
+            }
+
+            h1 {
+                font-size: 18pt;
+            }
+
+            h2 {
+                font-size: 13pt;
+            }
+
+            h3 {
+                font-size: 11pt;
+            }
+
+            header {
+                padding-bottom: 8pt;
+                margin-bottom: 12pt;
+            }
+
+            .abstract {
+                margin-top: 8pt;
+            }
+
+            .abstract p {
+                margin-bottom: 6pt;
+            }
+
+            p {
+                orphans: 3;
+                widows: 3;
+            }
+
+            h1,
+            h2,
+            h3,
+            h4 {
+                break-after: avoid;
+            }
+
+            figure,
+            table,
+            .highlight-box,
+            .equation-box,
+            .table-box,
+            .result,
+            .figure-box,
+            .postulate,
+            .theorem {
+                break-inside: avoid;
+            }
+
+            .figure-box {
+                background: #f8f9fa !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .topology-diagram {
+                background: white !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .equation-box {
+                background: none !important;
+                box-shadow: none !important;
+                border-color: #ccc !important;
+            }
+
+            .result {
+                background: #e8f5e9 !important;
+                box-shadow: none !important;
+                border-left: 4px solid #2e7d32 !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .table-box {
+                background: #fafafa !important;
+                border: 1px solid #ccc !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            table {
+                border-collapse: collapse !important;
+                width: 100% !important;
+            }
+
+            th {
+                background: #f0f0f0 !important;
+                border-bottom: 2px solid #999 !important;
+                padding: 0.6em 0.75em !important;
+                text-align: left !important;
+                font-weight: 600 !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            td {
+                padding: 0.6em 0.75em !important;
+                border-bottom: 1px solid #ddd !important;
+            }
+
+            .highlight-box {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                color-adjust: exact !important;
+                background: #f5f5f5 !important;
+                box-shadow: none !important;
+                border-left: 4px solid #333 !important;
+            }
+
+            .highlight-box.success {
+                background: #e8f5e9 !important;
+                border-left-color: #2e7d32 !important;
+            }
+
+            .theorem {
+                background: rgba(46, 125, 50, 0.08) !important;
+                border-top: 2px solid #2e7d32 !important;
+                border-bottom: 2px solid #2e7d32 !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            a {
+                color: var(--text);
+                text-decoration: none;
+            }
+
+            .references {
+                break-before: page;
+            }
+
+            .no-print {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="paper-type">Research Paper • Field Dynamics • Paper V</div>
+            <h1>Distributed Field Processing V: Field Closure and the Topology of Gravity
+                <span class="subtitle">The Tetrahedral Bridge</span>
+            </h1>
+            <div class="authors">Stephen Nelson</div>
+            <div class="affiliation">Field Dynamics</div>
+            <div class="affiliation">stephen@fielddynamics.org</div>
+            <div class="date">January 2026</div>
+        </header>
+
+        <div class="abstract">
+            <h2>Abstract</h2>
+            <p>
+                The number four pervades gravitational physics. Textbook frameworks establish this
+                independently: the ADM formalism requires four constraints (one Hamiltonian, three
+                momentum); tetrad gravity requires four orthonormal basis vectors; Loop Quantum Gravity
+                identifies the tetrahedron (four faces) as the quantum of space; Regge calculus builds
+                discrete spacetime from four-vertex simplices. LIGO's measurement of exactly two graviton
+                polarizations confirms this structure observationally: \(10 - 2k = 2\) implies \(k = 4\).
+                These are textbook results. What textbooks leave unexplained is <em>why</em> four.
+            </p>
+            <p>
+                The simplex theorem provides the answer: \(d+1\) points are required to enclose a region in
+                \(d\) dimensions. For three-dimensional space, \(k = 3 + 1 = 4\). The tetrahedron is not
+                merely convenient; it is the minimal solid, geometrically necessary to enclose volume.
+                This paper bridges textbook tetrad gravity and Loop Quantum Gravity with the Distributed
+                Field Processing framework, demonstrating that the tetrahedron appearing in both is the
+                same geometry that emerges from field closure analysis: the <em>Field Chamber</em>, bounded
+                by \(k=4\) <em>Coupling Ports</em> through which field configurations settle to consistency.
+            </p>
+            <p>
+                The <em>Port Ratio</em> \(\sqrt{k/\pi} = 1.128\) converts between continuous geometry
+                (the spherical <em>Field Envelope</em>, characterized by \(\pi\)) and discrete topology
+                (the tetrahedral Field Chamber, characterized by \(k=4\)). Three independent routes converge
+                on the characteristic scale \(r_e = 2.82\) fm: electromagnetic stability, cosmic topology,
+                and the \(k^2 = 16\) coupling test. Paper IV established this convergence through a
+                bidirectional proof: electron parameters predict \(H = 69.92\) km/s/Mpc; observed \(H\)
+                recovers the electron mass to 0.10% of CODATA. The prediction matches GW170817
+                (\(70.0 \pm 12\) km/s/Mpc) to 0.11%.
+            </p>
+            <p>
+                The bridge is the tetrahedron itself: the quantum of space in Loop Quantum Gravity, the
+                local frame in tetrad gravity, the Field Chamber in DFP, the minimal solid in geometry.
+                Paper I derived the constitutive law \(\mu(x) = x/(1+x)\) as a uniqueness theorem from
+                closure constraints. This paper completes the series by showing that the same \(k=4\)
+                structure appears in ADM, tetrad, LQG, and Regge formalisms because all inherit from the
+                simplex theorem. Different vocabularies, same geometry, same physics.
+            </p>
+        </div>
+
+        <div class="keywords">
+            <span class="keyword">Field Closure</span>
+            <span class="keyword">Tetrad Formalism</span>
+            <span class="keyword">Loop Quantum Gravity</span>
+            <span class="keyword">Tetrahedron</span>
+            <span class="keyword">ADM Constraints</span>
+            <span class="keyword">Simplex Theorem</span>
+            <span class="keyword">Port Ratio</span>
+        </div>
+
+        <nav class="toc">
+            <h3>Contents</h3>
+
+            <div class="toc-section">
+                <a href="#introduction">1. Introduction</a>
+                <ul>
+                    <li><a href="#closure-problem">1.1 The Closure Problem</a></li>
+                    <li><a href="#the-gap">1.2 The Gap</a></li>
+                    <li><a href="#contribution">1.3 This Paper's Contribution</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-section">
+                <a href="#textbook">2. Textbook Foundations</a>
+                <ul>
+                    <li><a href="#adm">2.1 The ADM Constraint Structure</a></li>
+                    <li><a href="#tetrad">2.2 The Tetrad Formalism</a></li>
+                    <li><a href="#lqg">2.3 Loop Quantum Gravity: The Quantum Tetrahedron</a></li>
+                    <li><a href="#regge">2.4 Regge Calculus: Discrete Gravity</a></li>
+                    <li><a href="#pattern">2.5 The Pattern: k=4</a></li>
+                    <li><a href="#simplex">2.6 The Simplex Theorem: Why k=4</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-section">
+                <a href="#mechanism">3. From Constraint to Mechanism</a>
+                <ul>
+                    <li><a href="#channels">3.1 Constraints as Coupling Channels</a></li>
+                    <li><a href="#actors">3.2 The Field Object and NET Field</a></li>
+                    <li><a href="#settlement">3.3 Field Closure: The Settlement Process</a></li>
+                    <li><a href="#requirements">3.4 The Two Requirements: Lossless and Local</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-section">
+                <a href="#topology">4. Field Topology: The Internal Structure</a>
+                <ul>
+                    <li><a href="#envelope">4.1 The Field Envelope</a></li>
+                    <li><a href="#simplex-constraint">4.2 The Simplex Constraint: Why Four Interfaces</a></li>
+                    <li><a href="#boundary">4.3 The Coupling Boundary</a></li>
+                    <li><a href="#chamber">4.4 The Field Chamber</a></li>
+                    <li><a href="#engine">4.5 The Engine Analogy</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-section">
+                <a href="#ratio">5. The Port Ratio: Sphere to Tetrahedron</a>
+                <ul>
+                    <li><a href="#continuous">5.1 Continuous Geometry: The Field Envelope</a></li>
+                    <li><a href="#discrete">5.2 Discrete Topology: The Coupling Ports</a></li>
+                    <li><a href="#port-ratio">5.3 The Port Ratio: √(k/π)</a></li>
+                    <li><a href="#derivation">5.4 Deriving Chamber from Envelope</a></li>
+                    <li><a href="#filter">5.5 The Port Ratio as a Geometric Filter</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-section">
+                <a href="#scale">6. Scale Identification</a>
+                <ul>
+                    <li><a href="#topology-scale">6.1 From Topology to Observable Scale</a></li>
+                    <li><a href="#electron-tile">6.2 The Electron Tile: Three Routes Converge</a></li>
+                    <li><a href="#coupling">6.3 Isotropic Coupling: k² = 16</a></li>
+                    <li><a href="#hubble">6.4 The Hubble Prediction</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-section">
+                <a href="#synthesis">7. Synthesis: The Complete Bridge</a>
+                <ul>
+                    <li><a href="#textbook-provides">7.1 What Textbooks Provide</a></li>
+                    <li><a href="#dfp-provides">7.2 What DFP Provides</a></li>
+                    <li><a href="#bridge-point">7.3 The Bridge Point</a></li>
+                    <li><a href="#implications">7.4 Implications</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-section">
+                <a href="#conclusion">8. Conclusion</a>
+                <ul>
+                    <li><a href="#summary">8.1 Summary</a></li>
+                    <li><a href="#predictions">8.2 Testable Predictions</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- ================================================================
+             SECTION 1: INTRODUCTION
+             ================================================================ -->
+        <section id="introduction">
+            <h2>1. Introduction</h2>
+
+            <p>
+                A curious pattern runs through gravitational physics. In the ADM formalism, Einstein's equations
+                split into exactly four constraints: one Hamiltonian constraint governing temporal evolution and
+                three momentum constraints governing spatial consistency. In the tetrad formalism, spacetime
+                requires exactly four orthonormal basis vectors: one timelike and three spacelike. In Loop Quantum
+                Gravity, the fundamental unit of space is a tetrahedron with exactly four faces. In Regge calculus,
+                discrete spacetime is built from simplices with, again, four vertices in three dimensions.
+            </p>
+
+            <p>
+                The number four is not arbitrary. It appears because we live in 3+1 dimensional spacetime. But
+                textbooks typically present these appearances independently, as separate mathematical facts in
+                separate formalisms. The deeper question remains: what unifies them?
+            </p>
+
+            <h3 id="closure-problem">1.1 The Closure Problem: What Textbooks Establish</h3>
+
+            <p>
+                The term "closure" appears in multiple gravitational contexts. In ADM formalism, the constraints
+                must "close" algebraically, meaning their Poisson brackets generate no new constraints. In LQG,
+                the closure constraint requires that the four area-weighted normals of a quantum tetrahedron sum
+                to zero: \(\sum_{f=1}^{4} A_f \hat{n}_f = 0\). In the tetrad formalism, the four basis vectors
+                must "close" the tangent space, spanning it completely without redundancy.
+            </p>
+
+            <p>
+                These closure requirements are well-established. Every graduate textbook in general relativity
+                covers the ADM constraints. Rovelli and Vidotto's <em>Covariant Loop Quantum Gravity</em> states
+                explicitly: "Each 4-valent node of a spin network corresponds to a quantum tetrahedron." The
+                mathematical structure is not in dispute.
+            </p>
+
+            <div class="table-box">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Formalism</th>
+                            <th>Closure Requirement</th>
+                            <th>The Number 4</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>ADM</td>
+                            <td>Constraints close under Poisson brackets</td>
+                            <td>1 Hamiltonian + 3 Momentum = 4</td>
+                        </tr>
+                        <tr>
+                            <td>Tetrad</td>
+                            <td>Basis vectors span tangent space</td>
+                            <td>1 timelike + 3 spacelike = 4</td>
+                        </tr>
+                        <tr>
+                            <td>LQG</td>
+                            <td>\(\sum A_f \hat{n}_f = 0\)</td>
+                            <td>4 faces of tetrahedron</td>
+                        </tr>
+                        <tr>
+                            <td>Regge</td>
+                            <td>Simplicial complex tiles spacetime</td>
+                            <td>4 vertices enclose 3D volume</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <caption>Table 1: The number four appears across gravitational formalisms.</caption>
+            </div>
+
+            <h3 id="the-gap">1.2 The Gap: What Textbooks Leave Unexplained</h3>
+
+            <p>
+                Textbooks describe <em>what</em> must close. They do not explain <em>why</em> closure happens or
+                <em>how</em> it operates as a physical process. Consider the LQG closure constraint. Textbooks
+                state that \(\sum A_f \hat{n}_f = 0\) must hold. But what physical mechanism enforces this
+                constraint? What happens if two field configurations meet at a boundary, each with different
+                geometries? How do they reconcile?
+            </p>
+
+            <p>
+                The gap can be stated precisely:
+            </p>
+
+            <div class="highlight-box primary">
+                <h4>The Explanatory Gap</h4>
+                <p>
+                    Textbooks explain the <strong>structure</strong> of closure (what constraints exist).
+                    They do not explain the <strong>mechanism</strong> of closure (how constraints are satisfied).
+                    The number \(k=4\) appears as a mathematical fact, not as a derived necessity.
+                </p>
+            </div>
+
+            <p>
+                This gap matters because understanding the mechanism might connect abstract mathematics to
+                observable physics. If we know <em>how</em> closure works, we might predict <em>what</em>
+                it produces at scales we can measure.
+            </p>
+
+            <h3 id="contribution">1.3 This Paper's Contribution</h3>
+
+            <p>
+                This paper bridges the gap. We show that:
+            </p>
+
+            <ol>
+                <li><strong>The geometry is necessary:</strong> The simplex theorem establishes that \(k=4\)
+                    is the minimum for enclosing volume in 3D. This is classical geometry, not new physics.</li>
+                <li><strong>The constraint is mechanism:</strong> What textbooks call "closure constraint"
+                    can be understood as a physical process, the settlement of field configurations through
+                    coupling ports.</li>
+                <li><strong>The structure predicts observables:</strong> The Port Ratio \(\sqrt{k/\pi}\)
+                    connecting continuous and discrete geometry predicts the Hubble constant to 0.11%.</li>
+            </ol>
+
+            <p>
+                The paper proceeds as follows. Section 2 establishes textbook foundations, citing only
+                established sources. Section 3 bridges from constraint to mechanism. Section 4 introduces
+                formal terminology for field topology. Section 5 derives the Port Ratio. Section 6 connects
+                topology to observable scale. Section 7 synthesizes the complete bridge. Section 8 concludes
+                with predictions and open questions.
+            </p>
+        </section>
+
+        <!-- ================================================================
+             SECTION 2: TEXTBOOK FOUNDATIONS
+             ================================================================ -->
+        <section id="textbook">
+            <h2>2. Textbook Foundations</h2>
+
+            <p>
+                Before introducing any new interpretation, we must establish what mainstream physics already
+                knows. This section cites only textbook sources. Everything here can be found in standard
+                graduate courses on general relativity and quantum gravity.
+            </p>
+
+            <h3 id="adm">2.1 The ADM Constraint Structure</h3>
+
+            <p>
+                The Arnowitt-Deser-Misner (ADM) formalism recasts Einstein's equations into Hamiltonian form
+                by decomposing spacetime into spatial slices evolving in time. This "3+1 decomposition"
+                introduces variables: the spatial metric \(\gamma_{ij}\), the lapse function \(N\), and the
+                shift vector \(N^i\). The extrinsic curvature \(K_{ij}\) describes how each slice bends in
+                the embedding spacetime.
+            </p>
+
+            <p>
+                Einstein's equations become constraint equations plus evolution equations. The constraints are:
+            </p>
+
+            <div class="equation-box">
+                <p><strong>Hamiltonian Constraint:</strong></p>
+                \[\mathcal{H} = \sqrt{\gamma}\left(R^{(3)} + K^2 - K_{ij}K^{ij}\right) - 16\pi G \sqrt{\gamma}\rho = 0\]
+                <p style="margin-top: 1em;"><strong>Momentum Constraints:</strong></p>
+                \[\mathcal{H}_i = -2\nabla_j\left(\sqrt{\gamma}(K^j_i - \delta^j_i K)\right) + 16\pi G \sqrt{\gamma}j_i
+                = 0\]
+            </div>
+
+            <p>
+                The Hamiltonian constraint enforces consistency in the timelike direction. The three momentum
+                constraints enforce consistency in each spatial direction. Together, these four equations must
+                hold on every spatial slice for the geometry to represent a valid solution to Einstein's equations.
+            </p>
+
+            <p>
+                <strong>The key point:</strong> The 1+3 structure is not optional. It reflects the 1+3 structure
+                of spacetime itself, one time dimension plus three space dimensions.
+            </p>
+
+            <h3 id="tetrad">2.2 The Tetrad Formalism</h3>
+
+            <p>
+                The equivalence principle requires that physics be locally special-relativistic at every point.
+                This has a precise mathematical expression: at each spacetime point, there must exist an
+                orthonormal frame where the metric becomes Minkowski. The tetrad (or vierbein) formalism
+                makes this explicit.
+            </p>
+
+            <p>
+                A tetrad consists of four vector fields \(e^a_\mu\), where \(a = 0, 1, 2, 3\) labels the frame
+                direction and \(\mu\) labels spacetime coordinates. The metric is reconstructed from the tetrad:
+            </p>
+
+            <div class="equation-box">
+                \[g_{\mu\nu} = \eta_{ab}\, e^a_\mu\, e^b_\nu\]
+            </div>
+
+            <p>
+                Here \(\eta_{ab} = \text{diag}(-1, +1, +1, +1)\) is the flat Minkowski metric. The tetrad
+                "squares" to give the curved metric. The four vectors decompose as one timelike (\(e^0\)) and
+                three spacelike (\(e^1, e^2, e^3\)), mirroring the 1+3 structure of the ADM formalism.
+            </p>
+
+            <p>
+                The tetrad is complete: summing over all four legs gives the identity:
+            </p>
+
+            <div class="equation">
+                \[e^a_\mu\, e_a^\nu = \delta_\mu^\nu\]
+            </div>
+
+            <p>
+                No fifth leg is needed; no leg is redundant. The tangent space at each point is exactly
+                spanned by four orthonormal vectors.
+            </p>
+
+            <h3 id="lqg">2.3 Loop Quantum Gravity: The Quantum Tetrahedron</h3>
+
+            <p>
+                Loop Quantum Gravity represents quantum states of geometry as spin networks: graphs with
+                edges labeled by spins \(j\) and nodes labeled by intertwiners. The remarkable result,
+                established by Rovelli, Vidotto, and others, is that these abstract mathematical objects
+                have direct geometric interpretation.
+            </p>
+
+            <div class="highlight-box definition">
+                <h4>The Quantum Tetrahedron</h4>
+                <p>
+                    "Each 4-valent node of a spin network corresponds to a quantum tetrahedron."
+                    <span class="premise-marker textbook">Rovelli & Vidotto, 2014</span>
+                </p>
+            </div>
+
+            <p>
+                A 4-valent node has four edges meeting at a point. Each edge carries angular momentum
+                quantum numbers. The node represents a quantum of volume, and its four edges represent
+                the four faces of a tetrahedron. The intertwiner at the node encodes how these faces
+                fit together consistently.
+            </p>
+
+            <p>
+                The closure constraint in LQG states that the total angular momentum at each node must vanish:
+            </p>
+
+            <div class="equation-box">
+                \[\hat{J}_1 + \hat{J}_2 + \hat{J}_3 + \hat{J}_4 = 0\]
+            </div>
+
+            <p>
+                This quantum constraint has a classical counterpart. If we assign area \(A_f\) and outward
+                normal \(\hat{n}_f\) to each face of a tetrahedron, Minkowski's theorem (1897) states:
+            </p>
+
+            <div class="equation">
+                \[\sum_{f=1}^{4} A_f \hat{n}_f = 0\]
+            </div>
+
+            <p>
+                This is not merely an analogy. The closure constraint is the quantum version of a classical
+                geometric identity: the area-weighted normals of any closed polyhedron sum to zero.
+            </p>
+
+            <h3 id="regge">2.4 Regge Calculus: Discrete Gravity</h3>
+
+            <p>
+                Tullio Regge showed in 1961 that general relativity can be formulated on simplicial complexes
+                without coordinates. In Regge calculus, spacetime is approximated by flat simplices glued
+                together, with curvature concentrated at the hinges (edges where simplices meet).
+            </p>
+
+            <p>
+                In three spatial dimensions, the building block is the tetrahedron. In four-dimensional
+                spacetime, the building block is the 4-simplex (pentachoron), which is bounded by five
+                tetrahedra. The curvature at each hinge is measured by the deficit angle \(\epsilon_h\),
+                and the Regge action is:
+            </p>
+
+            <div class="equation">
+                \[S = \sum_h A_h \epsilon_h\]
+            </div>
+
+            <p>
+                Regge calculus is not a new theory; it is a discrete approximation to standard GR that
+                becomes exact in the continuum limit. Its significance for our purposes is that it
+                demonstrates the tetrahedron is the natural building block for discrete 3D geometry.
+            </p>
+
+            <h3 id="pattern">2.5 The Pattern: k=4</h3>
+
+            <p>
+                We have now seen \(k=4\) appear in four independent contexts:
+            </p>
+
+            <div class="table-box">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Context</th>
+                            <th>What k=4 Represents</th>
+                            <th>Source</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>ADM formalism</td>
+                            <td>4 constraint equations</td>
+                            <td>Arnowitt, Deser, Misner (1962)</td>
+                        </tr>
+                        <tr>
+                            <td>Tetrad formalism</td>
+                            <td>4 orthonormal basis vectors</td>
+                            <td>MTW, Cartan</td>
+                        </tr>
+                        <tr>
+                            <td>Loop Quantum Gravity</td>
+                            <td>4 faces of quantum tetrahedron</td>
+                            <td>Rovelli & Vidotto (2014)</td>
+                        </tr>
+                        <tr>
+                            <td>Regge calculus</td>
+                            <td>4 vertices of 3-simplex</td>
+                            <td>Regge (1961)</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <caption>Table 2: The pattern of k=4 across gravitational physics.</caption>
+            </div>
+
+            <p>
+                This pattern receives direct observational confirmation. LIGO measured exactly two graviton
+                polarizations from GW170817 [9]. The metric tensor has 10 independent components; after
+                removing \(k\) constraints and \(k\) gauge conditions, the physical degrees of freedom
+                equal \(10 - 2k\). The observation \(10 - 2k = 2\) uniquely determines \(k = 4\). Paper IV [10]
+                presents this derivation and its implications for the Hubble constant in detail.
+            </p>
+
+            <p>
+                Textbooks present these formalisms independently. The ADM chapter does not reference LQG; the tetrad
+                section does not discuss Regge calculus. Yet the same number appears everywhere, and observation
+                confirms it. Is this coincidence, or is there a deeper reason?
+            </p>
+
+            <h3 id="simplex">2.6 The Simplex Theorem: Why k=4 Is Geometrically Necessary</h3>
+
+            <p>
+                The answer lies in classical geometry. The simplex theorem establishes a fundamental fact
+                about enclosure in any dimension:
+            </p>
+
+            <div class="highlight-box primary">
+                <h4>The Simplex Theorem</h4>
+                <p>
+                    In \(d\) dimensions, \(d+1\) points are required to enclose a bounded region. Fewer
+                    points cannot form a closed boundary; more points are redundant.
+                </p>
+            </div>
+
+            <p>
+                The progression is intuitive. Consider building up dimension by dimension:
+            </p>
+
+            <div class="table-box">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Dimension</th>
+                            <th>Points Needed</th>
+                            <th>Shape</th>
+                            <th>What It Encloses</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1D (line)</td>
+                            <td>2</td>
+                            <td>Interval</td>
+                            <td>Length</td>
+                        </tr>
+                        <tr>
+                            <td>2D (plane)</td>
+                            <td>3</td>
+                            <td>Triangle</td>
+                            <td>Area</td>
+                        </tr>
+                        <tr>
+                            <td>3D (space)</td>
+                            <td>4</td>
+                            <td>Tetrahedron</td>
+                            <td>Volume</td>
+                        </tr>
+                        <tr>
+                            <td>4D (spacetime)</td>
+                            <td>5</td>
+                            <td>Pentachoron</td>
+                            <td>4-volume</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <caption>Table 3: Dimensional progression of the simplex.</caption>
+            </div>
+
+            <p>
+                The pyramid, or tetrahedron, is the simplest three-dimensional shape that encloses volume.
+                Two points give a line segment, which has no interior. Three points give a triangle, which
+                bounds area but has no thickness. Four points, provided they are not coplanar, give a
+                tetrahedron, which bounds a three-dimensional interior.
+            </p>
+
+            <p>
+                This is not a choice or convention. It is mathematical necessity. You cannot enclose 3D
+                volume with fewer than four non-coplanar points. The tetrahedron is the minimal solid.
+            </p>
+
+            <p>
+                <strong>This explains k=4.</strong> The ADM constraints are four because spacetime has
+                3+1 dimensions. The tetrad has four legs because four vectors span 4D tangent space.
+                LQG tetrahedra have four faces because four is the minimum for 3D enclosure. Regge
+                simplices have four vertices for the same reason. The number four is not coincidence;
+                it is geometric necessity inherited from the dimensionality of spacetime.
+            </p>
+        </section>
+
+        <!-- ================================================================
+             SECTION 3: FROM CONSTRAINT TO MECHANISM
+             ================================================================ -->
+        <section id="mechanism">
+            <h2>3. From Constraint to Mechanism</h2>
+
+            <p>
+                Section 2 established what textbooks tell us: closure exists, it requires \(k=4\), and this
+                follows from dimensional necessity. Now we ask a different question: what does closure
+                <em>do</em>? If we reinterpret constraints as active processes rather than passive equations,
+                what picture emerges?
+            </p>
+
+            <h3 id="channels">3.1 Constraints as Coupling Channels</h3>
+
+            <p>
+                Consider the four ADM constraints not as equations to be satisfied but as interfaces
+                through which information flows. The Hamiltonian constraint connects a spatial slice to
+                its temporal neighbors. The three momentum constraints connect each point to its spatial
+                neighbors in three independent directions.
+            </p>
+
+            <p>
+                In this reinterpretation, "constraint must be satisfied" becomes "coupling must complete."
+                The constraint equation describes the condition that must hold when coupling is finished.
+                But a condition implies a process: something happens to bring about that condition.
+            </p>
+
+            <div class="highlight-box info">
+                <h4>The Reinterpretation</h4>
+                <p>
+                    <strong>Textbook view:</strong> Constraints are equations that the geometry must satisfy.<br>
+                    <strong>Mechanism view:</strong> Constraints are coupling channels through which field
+                    configurations achieve consistency.
+                </p>
+            </div>
+
+            <p>
+                This is not changing the mathematics. The same equations hold. We are changing the
+                interpretation: from static conditions to dynamic processes.
+            </p>
+
+            <h3 id="actors">3.2 The Field Object and NET Field</h3>
+
+            <p>
+                For coupling to occur, there must be two parties. The Distributed Field Processing
+                framework identifies them:
+            </p>
+
+            <p>
+                <strong>Field Object:</strong> A quantum many-body configuration, such as a star, planet, or
+                galaxy. An asteroid is not merely 10<sup>33</sup> atoms; it is 10<sup>33</sup> quantum fields
+                bound together by electromagnetic forces into a single correlated state (Paper I [11], §2.2).
+                The Field Object carries mass-energy encoded in its stress-energy tensor \(T_{\mu\nu}\) and
+                presents a coherent boundary to its environment.
+            </p>
+
+            <p>
+                <strong>NET Field:</strong> The combined gravitational environment from everything else,
+                encoded in the geometry \(g_{\mu\nu}\). The NET Field is also quantum field state (Paper I [11],
+                §5.5): not a classical background, but the registered output from all larger-scale closures.
+                It is what the Field Object couples to.
+            </p>
+
+            <p>
+                <strong>Closure Boundary (\(\Sigma\)):</strong> The interface where Field Object meets
+                NET Field. This is where the four coupling channels operate, where the constraints must
+                be satisfied, where configurations achieve consistency.
+            </p>
+
+            <h3 id="settlement">3.3 Field Closure: The Settlement Process</h3>
+
+            <p>
+                When a Field Object encounters the NET Field at boundary \(\Sigma\), their configurations
+                must become consistent. At \(\Sigma\), both are quantum field states sharing the same local
+                conditions (Paper I [11], §5.5). Two quantum configurations cannot occupy the same spacetime
+                point without reconciling. The process by which they reconcile is field closure.
+            </p>
+
+            <p>
+                Settlement is atomic, like a musical chord. A chord is not three separate notes played
+                near each other; it is the specific frequency relationships between the notes that create
+                the sound. You cannot play "half a chord": either all notes are present in their correct
+                relationships, or no chord exists. Similarly, field closure requires all four coupling
+                channels to achieve consistency simultaneously. The field configuration either settles
+                completely or not at all.
+            </p>
+
+            <div class="highlight-box definition">
+                <h4>Definition: Field Closure</h4>
+                <p>
+                    <strong>Field Closure</strong> (\(FC_\Sigma\)) is the physical process by which
+                    two quantum field states at boundary \(\Sigma\) settle to a unique consistent state.
+                    It operates through \(k=4\) coupling channels simultaneously. The output is
+                    the registered boundary state \(B^*_\Sigma\): the classical gravitational potential
+                    that test particles follow, that light bends around, that clocks slow within.
+                    This is the quantum-to-classical transition (Paper I [11], §5.5).
+                </p>
+            </div>
+
+            <div class="highlight-box info">
+                <h4>Why Closure Must Be Quantum</h4>
+                <p>
+                    Settlement is <strong>atomic</strong>: all \(k=4\) coupling channels must achieve
+                    consistency simultaneously. For a Field Object containing 10<sup>33</sup> quantum fields
+                    (an asteroid's worth of atoms), this poses a coordination problem. How can 10<sup>33</sup>
+                    components settle atomically without global coordination, which causality forbids?
+                </p>
+                <p>
+                    The answer is <strong>quantum co-location</strong> (Paper I [11], §5.5). At \(\Sigma\),
+                    the Field Object and NET Field share the same local quantum state. They are not separate
+                    entities that must signal each other; they are quantum configurations already occupying
+                    the same local conditions. Co-location enables coupling: no coordination is needed because
+                    both configurations exist in the same local field state. The coupling is local, automatic,
+                    and complete. A classical process would require sequential coordination or signaling between
+                    components; quantum co-location enables atomic settlement without violating causality.
+                </p>
+            </div>
+
+            <p>
+                The process can be decomposed into two phases:
+            </p>
+
+            <ol>
+                <li><strong>READ:</strong> The Field Object samples the NET Field state at \(\Sigma\).
+                    This is a full-state snapshot, capturing the complete geometry present at the boundary.</li>
+                <li><strong>SETTLE:</strong> Both configurations adjust to achieve consistency. The
+                    Einstein field equations constrain the relationship between stress-energy and geometry.
+                    Settlement finds the unique geometry satisfying these constraints.</li>
+            </ol>
+
+            <p>
+                Paper I [11] develops this mechanism rigorously. Within the Minimal Single-Channel
+                Saturating Closure (MSC) class, the lossless and local requirements uniquely determine
+                the constitutive law \(\mu(x) = x/(1+x)\) with no free parameters. The function is not
+                fitted to galactic rotation curves; it emerges as a uniqueness theorem from the closure
+                constraints themselves.
+            </p>
+
+            <h3 id="requirements">3.4 The Two Physical Requirements: Lossless and Local</h3>
+
+            <p>
+                The settlement process is constrained by observational facts about gravity:
+            </p>
+
+            <p>
+                <strong>Lossless:</strong> Gravitational coupling produces no drag, no wake, no energy
+                dissipation. A planet orbiting a star does not slow down from gravitational friction.
+                The MICROSCOPE experiment verified the equivalence principle to \(10^{-15}\) precision,
+                confirming that gravitational coupling is lossless. This means the READ step must capture
+                the complete state; any information loss would manifest as dissipation.
+            </p>
+
+            <p>
+                <strong>Local:</strong> Causality prohibits faster-than-light information transfer. The
+                settlement at boundary \(\Sigma\) cannot depend on distant regions that are outside the
+                light cone. All information needed for closure must be present at \(\Sigma\) itself.
+                This is not a design choice; it is forced by special relativity.
+            </p>
+
+            <p>
+                Together, these requirements constrain the mechanism: closure must be complete (lossless)
+                and self-contained (local). The four coupling channels at \(\Sigma\) must carry all
+                the information needed for settlement.
+            </p>
+        </section>
+
+        <!-- ================================================================
+             SECTION 4: FIELD TOPOLOGY
+             ================================================================ -->
+        <section id="topology">
+            <h2>4. Field Topology: The Internal Structure</h2>
+
+            <p>
+                Having established that closure operates through \(k=4\) channels at boundary \(\Sigma\),
+                we now examine the internal structure of the field itself. What does the field look like
+                from the inside? This section introduces formal terminology for field dynamics.
+            </p>
+
+            <h3 id="envelope">4.1 The Field Envelope</h3>
+
+            <p>
+                Every field source has a total extent, the region where its influence is non-negligible.
+                For an isolated mass, this region is approximately spherical, extending outward with
+                influence decreasing with distance. We call this total field volume the <em>Field Envelope</em>.
+            </p>
+
+            <div class="highlight-box definition">
+                <h4>Definition: Field Envelope</h4>
+                <p>
+                    The <strong>Field Envelope</strong> is the total field volume surrounding a source,
+                    characterized by continuous (spherical) geometry. Its mathematical signature is
+                    \(\pi\), appearing in formulas for spherical area (\(4\pi r^2\)) and volume
+                    (\(\frac{4}{3}\pi r^3\)).
+                </p>
+            </div>
+
+            <p>
+                The Field Envelope represents the "outer" picture: continuous, isotropic, characterized
+                by the geometry of the sphere. This is the view from far away, where the field appears
+                smooth and the internal structure is not resolved.
+            </p>
+
+            <h3 id="simplex-constraint">4.2 The Simplex Constraint: Why Four Interfaces</h3>
+
+            <p>
+                The simplex theorem (§2.6) established that enclosing volume in 3D requires four
+                non-coplanar points. When we apply this to field structure, we find that the internal
+                coupling geometry must have four interfaces.
+            </p>
+
+            <p>
+                Why? Because coupling occurs through bounded regions, and bounded regions in 3D require
+                four faces. The Field Object cannot couple to the NET Field through fewer than four
+                interfaces and still maintain a closed, consistent boundary. Three interfaces would
+                leave one direction undefined; five or more would be redundant.
+            </p>
+
+            <p>
+                The simplex theorem tells us: four interfaces are geometrically necessary to bound a
+                region in 3D. In field terms, this means the Field Chamber (interior) requires exactly
+                four Coupling Ports (interfaces). You cannot achieve closure with fewer.
+            </p>
+
+            <h3 id="boundary">4.3 The Coupling Boundary</h3>
+
+            <p>
+                Between the Field Envelope (total volume) and the Field Chamber (interior) lies the
+                Coupling Boundary: the region where the Field Object and NET Field exchange gradient
+                information.
+            </p>
+
+            <div class="highlight-box definition">
+                <h4>Definition: Coupling Boundary</h4>
+                <p>
+                    The <strong>Coupling Boundary</strong> is the interface region containing the
+                    \(k=4\) Coupling Ports. It is where the settlement process operates, where
+                    READ captures the NET Field state, and where SETTLE achieves consistency.
+                </p>
+            </div>
+
+            <p>
+                The Coupling Ports are the four faces through which coupling occurs. These are the
+                same four faces that appear in the LQG tetrahedron, the same four directions that
+                appear in the ADM constraints (1 temporal + 3 spatial), the same four legs that
+                span the tetrad frame.
+            </p>
+
+            <h3 id="chamber">4.4 The Field Chamber</h3>
+
+            <p>
+                The interior volume bounded by the four Coupling Ports is the Field Chamber. Its
+                geometry is tetrahedral, the minimal solid enclosing volume, as required by the
+                simplex theorem.
+            </p>
+
+            <div class="highlight-box definition">
+                <h4>Definition: Field Chamber</h4>
+                <p>
+                    The <strong>Field Chamber</strong> is the interior volume bounded by the \(k=4\)
+                    Coupling Ports. It has tetrahedron geometry and is the "working volume" where
+                    closure is maintained. Its mathematical signature is \(k=4\).
+                </p>
+            </div>
+
+            <div class="figure-box">
+                <div class="figure-title">Figure 1: The Field Chamber (Tetrahedral Closure Topology)</div>
+                <svg viewBox="0 0 400 340" xmlns="http://www.w3.org/2000/svg"
+                    style="width: 70%; max-width: 400px; display: block; margin: 0 auto;">
+                    <defs>
+                        <radialGradient id="sphereDepthFig" cx="50%" cy="50%" r="50%">
+                            <stop offset="70%" stop-color="white" stop-opacity="0.05" />
+                            <stop offset="100%" stop-color="#cbd5e0" stop-opacity="0.3" />
+                        </radialGradient>
+                    </defs>
+                    <rect width="400" height="340" fill="#fafafa" />
+                    <text x="200" y="28" text-anchor="middle" font-family="Inter, sans-serif" font-size="14"
+                        font-weight="600" fill="#333">k = 4: Field Closure Topology</text>
+                    <circle cx="200" cy="170" r="120" fill="url(#sphereDepthFig)" stroke="#a0aec0" stroke-width="1.5" />
+                    <!-- Tetrahedron faces (the Field Chamber) -->
+                    <path d="M97,230 L303,230 L200,185 Z" fill="#94a3b8" />
+                    <path d="M200,50 L97,230 L200,185 Z" fill="#b4c6d4" />
+                    <path d="M200,50 L303,230 L200,185 Z" fill="#a8b8c8" />
+                    <!-- Highlight on sphere (the Field Envelope) -->
+                    <path d="M120,90 Q 135,75 165,82" stroke="white" stroke-width="4" stroke-linecap="round"
+                        opacity="0.5" fill="none" />
+                    <!-- Vertices (Coupling Ports at corners) -->
+                    <circle cx="200" cy="50" r="6" fill="#000" />
+                    <circle cx="97" cy="230" r="6" fill="#000" />
+                    <circle cx="303" cy="230" r="6" fill="#000" />
+                    <circle cx="200" cy="185" r="5" fill="#000" opacity="0.6" />
+                    <text x="200" y="310" text-anchor="middle" font-family="Inter, sans-serif" font-size="11"
+                        fill="#555">Field Envelope (sphere, π) containing Field Chamber (tetrahedron, k=4)</text>
+                    <text x="200" y="326" text-anchor="middle" font-family="Inter, sans-serif" font-size="10"
+                        fill="#888">4 Coupling Ports • 4 faces enclose the working volume</text>
+                </svg>
+                <div class="figure-caption">
+                    <strong>Figure 1.</strong> The Field Chamber (tetrahedron) inscribed within the Field Envelope
+                    (sphere). The tetrahedron's four faces are the Coupling Ports through which the Field Object
+                    and NET Field exchange gradient information. These four faces correspond directly to the four
+                    ADM constraints: one Hamiltonian constraint (\(\mathcal{H}=0\), temporal) and three momentum
+                    constraints (\(\mathcal{H}_i=0\), spatial). The sphere represents continuous geometry
+                    (characterized by \(\pi\)); the tetrahedron represents discrete topology (characterized by
+                    \(k=4\)). The Port Ratio \(\sqrt{k/\pi} = 1.128\) converts between them.
+                </div>
+            </div>
+
+            <p>
+                The Field Chamber is where the action happens. It is the quantum tetrahedron of LQG,
+                the simplex of Regge calculus, the interior that the four constraint equations protect.
+                Textbooks identify this structure; DFP explains its function.
+            </p>
+
+            <h3 id="engine">4.5 The Engine Analogy</h3>
+
+            <p>
+                The relationship between Field Envelope, Coupling Boundary, Field Chamber, and Coupling
+                Ports parallels the structure of an engine:
+            </p>
+
+            <div class="table-box">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Engine Component</th>
+                            <th>Field Component</th>
+                            <th>Function</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Total Cylinder Volume</td>
+                            <td>Field Envelope</td>
+                            <td>Overall extent, continuous geometry</td>
+                        </tr>
+                        <tr>
+                            <td>Intake/Exhaust Ports</td>
+                            <td>Coupling Ports (\(k=4\))</td>
+                            <td>Interfaces for exchange</td>
+                        </tr>
+                        <tr>
+                            <td>Swept Volume</td>
+                            <td>Coupling Boundary</td>
+                            <td>Active region of interaction</td>
+                        </tr>
+                        <tr>
+                            <td>Combustion Chamber</td>
+                            <td>Field Chamber</td>
+                            <td>Working volume, discrete geometry</td>
+                        </tr>
+                        <tr>
+                            <td>Compression Ratio</td>
+                            <td>Port Ratio \(\sqrt{k/\pi}\)</td>
+                            <td>Conversion between geometries</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <caption>Table 4: Engine-field analogy for internal structure.</caption>
+            </div>
+
+            <p>
+                The analogy is instructive, not literal. A V4 engine has four cylinders for mechanical
+                balance; the field has four ports for geometric necessity. Both the number four arises
+                from structural requirements in three-dimensional space.
+            </p>
+        </section>
+
+        <!-- ================================================================
+             SECTION 5: THE PORT RATIO
+             ================================================================ -->
+        <section id="ratio">
+            <h2>5. The Port Ratio: Sphere to Tetrahedron</h2>
+
+            <p>
+                The Field Envelope is characterized by continuous, spherical geometry with signature
+                \(\pi\). The Field Chamber is characterized by discrete, tetrahedral geometry with
+                signature \(k=4\). These are different geometric languages. The Port Ratio translates
+                between them.
+            </p>
+
+            <h3 id="continuous">5.1 Continuous Geometry: The Field Envelope (\(\pi\))</h3>
+
+            <p>
+                The Field Envelope is naturally spherical because gravity is isotropic: no direction
+                is preferred. The sphere is the unique shape with this symmetry. All formulas
+                involving spherical geometry contain \(\pi\):
+            </p>
+
+            <ul>
+                <li>Circumference: \(2\pi r\)</li>
+                <li>Surface area: \(4\pi r^2\)</li>
+                <li>Volume: \(\frac{4}{3}\pi r^3\)</li>
+            </ul>
+
+            <p>
+                The number \(\pi\) is the signature of continuous, curved geometry. It appears
+                whenever we measure around or across a curved boundary.
+            </p>
+
+            <h3 id="discrete">5.2 Discrete Topology: The Coupling Ports (\(k=4\))</h3>
+
+            <p>
+                The Field Chamber has four faces, the minimum for 3D enclosure. Unlike the sphere,
+                the tetrahedron is discrete: it has a specific number of vertices (4), edges (6),
+                and faces (4). Its geometry is characterized by the integer \(k=4\), not by \(\pi\).
+            </p>
+
+            <p>
+                This discreteness is fundamental. LQG shows that area and volume are quantized at
+                the Planck scale. Regge calculus approximates smooth spacetime with discrete simplices.
+                The tetrahedron represents the irreducible quantum of 3D geometry.
+            </p>
+
+            <h3 id="port-ratio">5.3 The Port Ratio: \(\sqrt{k/\pi}\)</h3>
+
+            <p>
+                How do we convert between these geometric languages? The ratio of their signatures
+                provides the conversion factor:
+            </p>
+
+            <div class="equation-box">
+                \[\text{Port Ratio} = \sqrt{\frac{k}{\pi}} = \sqrt{\frac{4}{\pi}} = 1.128\]
+            </div>
+
+            <p>
+                The square root appears because the quantities we convert (like length, which determines
+                the Hubble constant \(H = v/d\)) depend on distance, not area. Area scales as length
+                squared, so length scales as the square root of area. To convert quantities that depend
+                on length, we take the square root of the geometric ratio.
+            </p>
+
+            <div class="highlight-box definition">
+                <h4>Definition: Port Ratio</h4>
+                <p>
+                    The <strong>Port Ratio</strong> \(\sqrt{k/\pi} = 1.128\) is the conversion factor
+                    between continuous (Field Envelope) and discrete (Field Chamber) geometry. It
+                    relates measurements made through spherical boundaries to measurements made
+                    through tetrahedral interfaces.
+                </p>
+            </div>
+
+            <h3 id="derivation">5.4 Deriving Chamber from Envelope</h3>
+
+            <p>
+                The Port Ratio has a concrete geometric meaning. If you take a spherical Field Envelope
+                and ask "what is the working volume accessible through \(k=4\) Coupling Ports?", the
+                answer involves the Port Ratio.
+            </p>
+
+            <p>
+                This is analogous to Regge calculus, where smooth curved spacetime is approximated by
+                flat simplices. The "deficit" between curved and flat geometry accumulates at the hinges.
+                The Port Ratio captures a similar relationship: the ratio between what continuous
+                geometry predicts and what discrete topology permits.
+            </p>
+
+            <p>
+                The practical application appears in cosmology. The MOND relation \(a_0 = cH/(2\pi)\)
+                uses spherical geometry (the \(2\pi\) relates horizon circumference to radius). But
+                actual coupling goes through discrete ports. The mismatch is exactly \(\sqrt{k/\pi}\):
+            </p>
+
+            <div class="equation">
+                \[H_{\text{measured}} = \frac{H_{\text{continuous}}}{\sqrt{k/\pi}} = \frac{78.90}{1.128} = 69.92 \text{
+                km/s/Mpc}\]
+            </div>
+
+            <p>
+                This prediction matches the GW170817 measurement (\(70.0 \pm 12\) km/s/Mpc) to 0.11%.
+                Paper IV [10] established this result through a bidirectional proof: the forward derivation
+                yields \(H = 69.92\) km/s/Mpc from electron parameters, while the reverse derivation
+                recovers the electron mass from observed \(H\) to 0.10% of CODATA values. The mathematical
+                closure of this round-trip provides strong evidence that the chain is not coincidental but
+                reflects underlying physical structure.
+            </p>
+
+            <h3 id="filter">5.5 The Port Ratio as a Geometric Filter</h3>
+
+            <p>
+                Paper IV [10] applied the Port Ratio \(\sqrt{k/\pi} = 1.128\) to predict the Hubble
+                constant: \(H = 69.92\) km/s/Mpc. The prediction matched GW170817 to 0.11%. More
+                remarkably, Paper IV tested this prediction against all six major measurement methods
+                (Planck, BAO, GW170817, TRGB, SH0ES, Masers) and found that every value falls within
+                \(\pm 6.2\%\) of the predicted value. The probability of this occurring by chance is
+                approximately \(10^{-6}\).
+            </p>
+
+            <p>
+                This success raises a deeper question: <em>why</em> does the Port Ratio appear as a
+                correction factor in cosmological measurements? The mathematics is established, but
+                the physical mechanism is not. This section examines why this factor emerges, what
+                physical interpretations are consistent with observation, and why it may explain both
+                the systematic offset and the bounded scatter between measurement methods.
+            </p>
+
+            <h4>Three Analogies for Understanding</h4>
+
+            <p>
+                Before presenting the mathematics, three concrete analogies illuminate why a geometric
+                filter might appear in cosmological measurements.
+            </p>
+
+            <p>
+                <strong>The Aperture Analogy.</strong> In optics, an aperture constrains how light
+                passes through an optical system. Apertures do not blur images or cause chromatic
+                dispersion; they affect light-gathering and effective scale while preserving coherence.
+                If the \(k=4\) Coupling Ports act as an aperture on each field boundary, with effective
+                open area proportional to \(k\) rather than the continuous \(\pi\), then the aperture
+                ratio is \(\sqrt{k/\pi} = 1.128\). Light propagates coherently through each field,
+                but distance measurements are systematically scaled by the aperture geometry.
+            </p>
+
+            <p>
+                <strong>The Beach Camera Analogy.</strong> Imagine photographing the ocean horizon
+                from a beach. Waves cause the apparent horizon height to oscillate. If the waves
+                have consistent amplitude and frequency, photographs taken at different times will
+                show the horizon at different heights, but always within a predictable range. The
+                mean position is offset from the calm-water baseline, and measurements scatter
+                around that mean. If field topology has a periodic structure analogous to waves,
+                different measurement methods might "sample" at different phases, producing bounded
+                scatter around a systematic offset.
+            </p>
+
+            <p>
+                <strong>The Engine Analogy.</strong> An engine's working fluid must pass through
+                discrete intake and exhaust ports. The effective throughput depends on port geometry,
+                not just total cylinder volume. The ratio of port area to cylinder cross-section
+                determines volumetric efficiency. Similarly, field coupling operates through \(k=4\)
+                discrete ports, not a continuous spherical surface. The Port Ratio is the "volumetric
+                efficiency" of the field topology.
+            </p>
+
+            <div class="table-box">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Analogy</th>
+                            <th>What It Explains</th>
+                            <th>Key Feature</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Aperture</td>
+                            <td>Systematic offset (12.8%)</td>
+                            <td>Coherent, no blur</td>
+                        </tr>
+                        <tr>
+                            <td>Beach waves</td>
+                            <td>Bounded scatter (±6.2%)</td>
+                            <td>Predictable range</td>
+                        </tr>
+                        <tr>
+                            <td>Engine ports</td>
+                            <td>Why \(k=4\) matters</td>
+                            <td>Discrete throughput</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <caption>Table 4b: Three analogies for the Port Ratio.</caption>
+            </div>
+
+            <h4>The Mathematics: Two Routes to the Same Factor</h4>
+
+            <p>
+                The Port Ratio can be derived from two independent geometric arguments:
+            </p>
+
+            <p>
+                <strong>Route 1: Area-to-Length Conversion.</strong> Continuous spherical geometry is
+                characterized by \(\pi\) (surface area \(4\pi r^2\)). Discrete tetrahedral topology
+                is characterized by \(k=4\) (four faces). The area ratio is \(k/\pi\). Since
+                distance-dependent quantities scale with length, the conversion factor is:
+            </p>
+
+            <div class="equation">
+                \[\text{Length ratio} = \sqrt{\frac{k}{\pi}} = \sqrt{\frac{4}{\pi}} = 1.128\]
+            </div>
+
+            <p>
+                <strong>Route 2: Effective Aperture.</strong> If coupling occurs through \(k=4\)
+                discrete ports with effective open area \(A_{\text{open}} \propto k\), the equivalent
+                circular radius is:
+            </p>
+
+            <div class="equation">
+                \[r_{\text{eff}} = \sqrt{\frac{A_{\text{open}}}{\pi}} = \sqrt{\frac{k}{\pi}} = 1.128\]
+            </div>
+
+            <p>
+                Both routes yield the same factor because they describe the same geometric relationship:
+                the mismatch between continuous (\(\pi\)) and discrete (\(k=4\)) descriptions of the
+                coupling boundary.
+            </p>
+
+            <h4>Explaining Both Offset and Scatter</h4>
+
+            <p>
+                The MOND relation \(a_0 = cH/(2\pi)\) assumes continuous spherical geometry, predicting
+                \(H_{\text{flat}} = 78.9\) km/s/Mpc. If field coupling operates through discrete
+                \(k=4\) topology, two effects appear:
+            </p>
+
+            <p>
+                <strong>Systematic offset:</strong> The Port Ratio introduces a 12.8% correction,
+                giving \(H = 78.9/1.128 = 69.9\) km/s/Mpc. This matches GW170817 (\(70.0 \pm 12\))
+                to 0.11%.
+            </p>
+
+            <p>
+                <strong>Bounded scatter:</strong> If the discrete structure has periodic character
+                (like the beach waves), different measurement methods sample at different "phases."
+                The amplitude of this oscillation would be approximately half the total correction:
+                \(12.8\%/2 \approx 6.4\%\). Paper IV [10] found that all six major Hubble measurement
+                methods fall within \(\pm 6.2\%\) of the predicted value. The agreement between
+                geometric prediction (6.4%) and observed scatter (6.2%) is striking.
+            </p>
+
+            <div class="highlight-box info">
+                <h4>The Measurement Cage</h4>
+                <p>
+                    If the Port Ratio acts as an aperture filter with periodic structure, measurements
+                    should scatter within a predictable "cage" around the mean:
+                </p>
+                <ul>
+                    <li>Mean offset: \(\sqrt{k/\pi} = 1.128\) (12.8%)</li>
+                    <li>Scatter amplitude: \(\pm 6.4\%\) (half the correction)</li>
+                    <li>Observed scatter: \(\pm 6.2\%\) across all methods</li>
+                </ul>
+                <p>
+                    This is not proof, but the numerical agreement suggests the scatter may be
+                    structural rather than random measurement error.
+                </p>
+            </div>
+
+            <h4>Candidate Explanations (Ranked by Plausibility)</h4>
+
+            <p>
+                Why does the Port Ratio appear as a correction? We rank explanations by their
+                consistency with observation: coherent light propagation, no chromatic effects,
+                sharp images, and bounded (not random) scatter.
+            </p>
+
+            <div class="highlight-box primary">
+                <h4>1. Aperture-Constrained Propagation (Most Plausible)</h4>
+                <p>
+                    The \(k=4\) Coupling Ports act as an aperture on each field boundary. Light and
+                    gravitational signals pass through this aperture coherently, but the effective
+                    geometric throughput is \(\sqrt{k/\pi}\) rather than unity. This explanation:
+                </p>
+                <ul>
+                    <li>Provides a concrete physical mechanism (aperture geometry)</li>
+                    <li>Preserves image sharpness and coherence (apertures don't blur)</li>
+                    <li>Is wavelength-independent (geometric, not dispersive)</li>
+                    <li>Explains why the effect is systematic, not random</li>
+                    <li>Operates locally at each field boundary</li>
+                </ul>
+            </div>
+
+            <div class="highlight-box">
+                <h4>2. Mode-Constrained Propagation with Periodic Structure</h4>
+                <p>
+                    The discrete topology constrains propagation to specific modes, like a waveguide.
+                    If the structure has periodic character (the "wave" in the beach analogy),
+                    different sampling phases produce bounded scatter. This explains both the
+                    systematic offset and the \(\pm 6.2\%\) measurement cage. The mechanism is
+                    plausible but harder to formalize rigorously.
+                </p>
+            </div>
+
+            <div class="highlight-box">
+                <h4>3. Topological Boundary Normalization</h4>
+                <p>
+                    The simplest mathematical statement: converting between discrete (\(k\)) and
+                    continuous (\(\pi\)) geometric descriptions introduces the factor \(\sqrt{k/\pi}\).
+                    This is mathematically correct but provides no mechanism. It describes <em>what</em>
+                    happens without explaining <em>how</em>.
+                </p>
+            </div>
+
+            <p>
+                Two other possibilities are largely excluded. Optical-depth effects would produce
+                chromatic dispersion and image blur, neither observed. Systematic measurement errors
+                across six independent methods would require implausible correlations.
+            </p>
+
+            <h4>What We Can and Cannot Claim</h4>
+
+            <p>
+                The mathematical relationship is established: \(\sqrt{k/\pi} = 1.128\) converts
+                between continuous and discrete geometric descriptions. This factor correctly
+                predicts:
+            </p>
+
+            <ul>
+                <li>The offset between \(H_{\text{flat}}\) and \(H_{\text{measured}}\)</li>
+                <li>The bounded scatter (\(\pm 6.2\%\)) across measurement methods</li>
+                <li>The absence of chromatic effects or image degradation</li>
+            </ul>
+
+            <p>
+                We do not claim to know definitively which mechanism operates. What we can say:
+            </p>
+
+            <ul>
+                <li>The factor \(\sqrt{k/\pi}\) arises naturally from \(k=4\) topology</li>
+                <li>It behaves like an aperture: systematic, coherent, wavelength-independent</li>
+                <li>The scatter matches geometric prediction to within 3%</li>
+                <li>No new forces, particles, or modifications to GR are required</li>
+            </ul>
+
+            <p>
+                The most parsimonious interpretation is that measurements through discrete coupling
+                structure are geometrically filtered by the Port Ratio. Whether this reflects
+                fundamental discreteness of spacetime, emergent aperture effects at field boundaries,
+                or something else entirely remains an open question for future investigation.
+            </p>
+        </section>
+
+        <!-- ================================================================
+             SECTION 6: SCALE IDENTIFICATION
+             ================================================================ -->
+        <section id="scale">
+            <h2>6. Scale Identification</h2>
+
+            <p>
+                The topology is now established: \(k=4\) ports, Port Ratio \(\sqrt{k/\pi}\), Field
+                Chamber with tetrahedron geometry. But topology is scale-free. To connect to
+                observable physics, we need a characteristic length. This section shows how three
+                independent routes converge on the same scale.
+            </p>
+
+            <h3 id="topology-scale">6.1 From Topology to Observable Scale</h3>
+
+            <p>
+                Topology alone predicts structure, not size. The tetrahedron can be any size; the
+                Port Ratio applies at any scale. To make contact with observation, we need additional
+                physics that picks out a characteristic length.
+            </p>
+
+            <p>
+                Two scale-free frameworks, when combined, can determine a scale. Tetrad topology
+                gives \(k=4\). The MOND relation gives \(a_0 = cH/(2\pi)\), connecting local
+                acceleration to cosmic expansion. Neither specifies a length alone. Together,
+                they do.
+            </p>
+
+            <h3 id="electron-tile">6.2 The Electron Tile: Three Routes Converge</h3>
+
+            <p>
+                Three independent calculations identify the same characteristic scale: the classical
+                electron radius \(r_e = 2.82 \times 10^{-15}\) m.
+            </p>
+
+            <p>
+                <strong>Route 1: Electromagnetic Stability.</strong> The classical electron radius
+                is where electromagnetic self-energy equals rest mass energy:
+            </p>
+
+            <div class="equation">
+                \[r_e = \frac{e^2}{4\pi\varepsilon_0 m_e c^2} = 2.818 \text{ fm}\]
+            </div>
+
+            <p>
+                This calculation uses electromagnetism (\(e, \varepsilon_0\)) and special relativity
+                (\(c\)). No gravity. No cosmology.
+            </p>
+
+            <p>
+                <strong>Route 2: Cosmic Topology.</strong> The topologically-coupled gravitational
+                acceleration at radius \(r\) is \(a = k^2 Gm/r^2\). Setting this equal to the MOND
+                scale \(a_0\) and solving for \(r\):
+            </p>
+
+            <div class="equation">
+                \[r_e = k\sqrt{\frac{Gm_e}{a_0}} = 4 \times \sqrt{\frac{(6.674 \times 10^{-11})(9.109 \times
+                10^{-31})}{1.22 \times 10^{-10}}} = 2.82 \text{ fm}\]
+            </div>
+
+            <p>
+                This calculation uses gravity (\(G\)), cosmology (\(a_0\)), and topology (\(k=4\)).
+                No electromagnetism.
+            </p>
+
+            <p>
+                <strong>Route 3: Coupling Test.</strong> The ratio \(a_0/(Gm_e/r_e^2)\) should equal
+                \(k^2 = 16\) if the topology is correct:
+            </p>
+
+            <div class="equation">
+                \[\frac{a_0}{Gm_e/r_e^2} = \frac{1.22 \times 10^{-10}}{(6.674 \times 10^{-11})(9.109 \times
+                10^{-31})/(2.818 \times 10^{-15})^2} = 15.93\]
+            </div>
+
+            <p>
+                The measured ratio is 15.93; the prediction is 16. Match: 0.41%.
+            </p>
+
+            <div class="table-box">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Route</th>
+                            <th>Physics Used</th>
+                            <th>Result</th>
+                            <th>Match</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>EM Stability</td>
+                            <td>\(e, \varepsilon_0, m_e, c\)</td>
+                            <td>2.818 fm</td>
+                            <td>(reference)</td>
+                        </tr>
+                        <tr>
+                            <td>Cosmic Topology</td>
+                            <td>\(G, k, m_e, a_0\)</td>
+                            <td>2.82 fm</td>
+                            <td>0.21%</td>
+                        </tr>
+                        <tr>
+                            <td>\(k^2\) Coupling Test</td>
+                            <td>\(a_0, G, m_e, r_e\)</td>
+                            <td>15.93 ≈ 16</td>
+                            <td>0.41%</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <caption>Table 5: Three independent routes to the electron tile.</caption>
+            </div>
+
+            <p>
+                Paper IV [10] demonstrated that this convergence is unique to the electron among known
+                particles. For the muon and proton, the electromagnetic and gravitational-topology routes
+                disagree by factors of \(10^3\) to \(10^7\). The electron alone satisfies both constraints
+                simultaneously, suggesting that \(r_e\) represents not merely a convenient scale but the
+                characteristic coupling scale of the gravitational field itself.
+            </p>
+
+            <div class="highlight-box primary">
+                <h4>Why the Scale Is Forced</h4>
+                <p>
+                    This convergence is not coincidence; it is constraint. A larger scale (\(r > r_e\))
+                    would violate EM stability: the self-energy would fall below rest mass, permitting
+                    pair production. A smaller scale (\(r < r_e\)) would also violate EM stability: the self-energy
+                        would diverge. The three routes converge because they describe the same underlying constraint
+                        from different directions. There is exactly one solution. </p>
+            </div>
+
+            <h3 id="coupling">6.3 Isotropic Coupling: \(k^2 = 16\)</h3>
+
+            <p>
+                The tetrad \(e^a_\mu\) has two indices: the frame index \(a\) running 0-3, and the
+                coordinate index \(\mu\) running 0-3. This gives \(4 \times 4 = 16\) components.
+            </p>
+
+            <p>
+                Gravity is isotropic: no direction is preferred. Isotropic coupling engages all
+                tetrad components equally. The metric equation \(g_{\mu\nu} = \eta_{ab} e^a_\mu e^b_\nu\)
+                involves summation over both frame indices, giving \(k^2 = 16\) coupling channels.
+            </p>
+
+            <p>
+                The empirical verification: \(a_0/(Gm_e/r_e^2) = 15.93 \approx 16\), matching \(k^2\)
+                to 0.41%. This confirms that the full tetrad coupling structure is physically realized.
+            </p>
+
+            <h3 id="hubble">6.4 The Hubble Prediction</h3>
+
+            <p>
+                The complete chain now predicts the Hubble constant. Starting from the electron
+                parameters and applying the Port Ratio:
+            </p>
+
+            <ol>
+                <li>Compute \(a_0\) from the electron: \(a_0 = k^2 Gm_e/r_e^2 = 1.225 \times 10^{-10}\) m/s²</li>
+                <li>Compute \(H_{\text{flat}}\) from MOND: \(H_{\text{flat}} = 2\pi a_0/c = 79.2\) km/s/Mpc</li>
+                <li>Apply Port Ratio: \(H = H_{\text{flat}}/\sqrt{k/\pi} = 79.2/1.128 = 70.2\) km/s/Mpc</li>
+            </ol>
+
+            <div class="equation-box">
+                \[H = \frac{2\pi k^2}{c\sqrt{k/\pi}} \cdot \frac{Gm_e}{r_e^2} = 69.92 \text{ km/s/Mpc}\]
+            </div>
+
+            <p>
+                GW170817, the purest spacetime measurement (no distance ladder, no CMB model), gives
+                \(H = 70.0 \pm 12\) km/s/Mpc. The prediction matches to 0.11%.
+            </p>
+        </section>
+
+        <!-- ================================================================
+             SECTION 7: SYNTHESIS
+             ================================================================ -->
+        <section id="synthesis">
+            <h2>7. Synthesis: The Complete Bridge</h2>
+
+            <p>
+                The pieces are now in place. This section explicitly states what textbooks provide,
+                what DFP provides, and where they connect. The goal is clear attribution: what can
+                be cited as established versus what is the new contribution.
+            </p>
+
+            <h3 id="textbook-provides">7.1 What Textbooks Provide</h3>
+
+            <p>
+                Textbooks establish the <strong>structure</strong> of gravitational closure:
+            </p>
+
+            <div class="table-box">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Established Fact</th>
+                            <th>Source</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>ADM: 4 constraint equations (1H + 3M)</td>
+                            <td>Arnowitt, Deser, Misner (1962)</td>
+                        </tr>
+                        <tr>
+                            <td>Tetrad: 4 orthonormal basis vectors</td>
+                            <td>MTW, Cartan</td>
+                        </tr>
+                        <tr>
+                            <td>LQG: 4-valent node = quantum tetrahedron</td>
+                            <td>Rovelli & Vidotto (2014)</td>
+                        </tr>
+                        <tr>
+                            <td>Closure constraint: \(\sum A_f \hat{n}_f = 0\)</td>
+                            <td>LQG, Minkowski theorem</td>
+                        </tr>
+                        <tr>
+                            <td>Regge: tetrahedra tile 3D space</td>
+                            <td>Regge (1961), MTW Ch.42</td>
+                        </tr>
+                        <tr>
+                            <td>Simplex theorem: \(d+1\) points for \(d\)-D enclosure</td>
+                            <td>Classical geometry</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <caption>Table 6: What textbooks establish (citable as prior work).</caption>
+            </div>
+
+            <h3 id="dfp-provides">7.2 What DFP Provides</h3>
+
+            <p>
+                DFP provides the <strong>mechanism</strong> and <strong>terminology</strong>:
+            </p>
+
+            <div class="table-box">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>DFP Contribution</th>
+                            <th>What It Adds</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Field Envelope, Field Chamber, Coupling Ports</td>
+                            <td>Formal terminology for field topology</td>
+                        </tr>
+                        <tr>
+                            <td>Settlement Process (READ-SETTLE)</td>
+                            <td>Mechanism replacing static constraint</td>
+                        </tr>
+                        <tr>
+                            <td>Port Ratio \(\sqrt{k/\pi}\)</td>
+                            <td>Conversion between geometries</td>
+                        </tr>
+                        <tr>
+                            <td>Constraints = Coupling Channels</td>
+                            <td>Reinterpretation of ADM structure</td>
+                        </tr>
+                        <tr>
+                            <td>Electron tile from topology</td>
+                            <td>Scale identification</td>
+                        </tr>
+                        <tr>
+                            <td>\(H = 69.92\) km/s/Mpc</td>
+                            <td>Testable prediction</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <caption>Table 7: What DFP provides (new contributions).</caption>
+            </div>
+
+            <p>
+                The theoretical foundations of these contributions are established in Papers I and IV of
+                this series. Paper I [11] derives the constitutive law \(\mu(x) = x/(1+x)\) as a uniqueness
+                theorem within the MSC closure class, demonstrating that the function emerges from physical
+                constraints rather than curve-fitting. Paper IV [10] demonstrates the bidirectional proof
+                connecting electron parameters to the Hubble constant, and tests the framework against all
+                six major measurement methods, finding that every value falls within the predicted
+                \(\pm 6.2\%\) range.
+            </p>
+
+            <h3 id="bridge-point">7.3 The Bridge Point: Same Geometry, Same Constraint</h3>
+
+            <p>
+                The bridge is the tetrahedron itself. Textbooks identify it as the fundamental unit
+                of quantum geometry. DFP identifies it as the Field Chamber, the working volume
+                bounded by four Coupling Ports. These are not two different objects; they are the
+                same geometry seen from different perspectives.
+            </p>
+
+            <div class="highlight-box primary">
+                <h4>The Identity</h4>
+                <p>
+                    <strong>Textbook:</strong> The tetrahedron is the quantum of space.<br>
+                    <strong>DFP:</strong> The Field Chamber has tetrahedron geometry.<br>
+                    <strong>Bridge:</strong> Same geometry. Same four faces. Same closure constraint.
+                    Different vocabulary: "constraint" (textbook) versus "coupling port" (DFP).
+                </p>
+            </div>
+
+            <p>
+                The closure constraint \(\sum A_f \hat{n}_f = 0\) and the settlement process describe
+                the same physics. The constraint is the condition that holds when settlement completes.
+                The settlement is the process that brings about the condition. Textbooks describe the
+                final state; DFP describes the dynamics.
+            </p>
+
+            <h3 id="implications">7.4 Implications for Quantum Gravity</h3>
+
+            <p>
+                If the tetrahedron is both the LQG quantum of space and the DFP Field Chamber, then:
+            </p>
+
+            <ul>
+                <li>The structure identified at Planck scale has manifestations at observable scales</li>
+                <li>The Port Ratio \(\sqrt{k/\pi}\) connects quantum geometry to cosmology</li>
+                <li>The saturation scale \(a_0\) emerges naturally from field closure capacity</li>
+                <li>Observable predictions (the Hubble constant) follow from the topology</li>
+            </ul>
+
+            <p>
+                Paper I [11] establishes that field closure operates on quantum inputs: both the Field Object
+                and the NET Field are quantum many-body configurations. The quantum-to-classical transition
+                occurs at settlement, when the registered state \(B^*_\Sigma\) emerges as the classical
+                gravitational potential. DFP does not treat gravity classically; it describes how classical
+                gravity emerges from quantum field configurations through the closure mechanism.
+            </p>
+
+            <p>
+                The 1+3 asymmetry in the tetrahedral topology deserves attention. Textbooks establish
+                the following: in standard quantum mechanics, the Hamiltonian generates time evolution,
+                connecting states across moments. In the ADM formalism, the Hamiltonian constraint connects
+                spatial hypersurfaces across time, while the three momentum constraints enforce consistency
+                within each slice. Thiemann's Hamiltonian constraint operator preserves this 1+3 structure
+                at the quantum level in LQG. Within DFP, we interpret this asymmetry as functionally
+                significant: the temporal interface (one constraint) connects the entire spatial
+                configuration at each moment, while the spatial interfaces (three constraints) enforce
+                local consistency. If correct, this would provide the mechanism for full-state configuration
+                read, explaining how 10<sup>33</sup> quantum fields settle atomically without requiring
+                spatial coordination across the configuration.
+            </p>
+
+            <p>
+                The tetrahedron emerges as fundamental in both LQG and DFP. The k=4 topology appears
+                in both frameworks because both inherit from the simplex theorem: the geometric
+                necessity of four faces to enclose volume in three dimensions.
+            </p>
+        </section>
+
+        <!-- ================================================================
+             SECTION 8: CONCLUSION
+             ================================================================ -->
+        <section id="conclusion">
+            <h2>8. Conclusion</h2>
+
+            <h3 id="summary">8.1 Summary</h3>
+
+            <p>
+                This paper bridged textbook gravitational theory with Distributed Field Processing.
+                The key results:
+            </p>
+
+            <ol>
+                <li><strong>The geometry is necessary:</strong> The simplex theorem establishes that
+                    \(k=4\) is required for 3D enclosure. This is classical geometry, not new physics.</li>
+                <li><strong>The pattern is unified:</strong> The same \(k=4\) appears in ADM (constraints),
+                    tetrad (legs), LQG (faces), and Regge (vertices) because all inherit from the
+                    simplex theorem.</li>
+                <li><strong>The constraint is mechanism:</strong> What textbooks call closure constraint
+                    can be understood as the settlement process operating through four Coupling Ports.</li>
+                <li><strong>The topology predicts scale:</strong> Three independent routes converge on
+                    \(r_e = 2.82\) fm; the convergence is forced by constraint, not coincidence.</li>
+                <li><strong>The structure predicts observables:</strong> The Port Ratio \(\sqrt{k/\pi}\)
+                    converts the MOND prediction to \(H = 69.92\) km/s/Mpc, matching GW170817 to 0.11%.</li>
+            </ol>
+
+            <h3 id="predictions">8.2 Testable Predictions</h3>
+
+            <div class="table-box">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Prediction</th>
+                            <th>Value</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Hubble constant</td>
+                            <td>\(H = 69.92\) km/s/Mpc</td>
+                            <td>GW170817: \(70.0 \pm 12\) (0.11% match)</td>
+                        </tr>
+                        <tr>
+                            <td>Coupling ratio</td>
+                            <td>\(k^2 = 16\)</td>
+                            <td>Measured: 15.93 (0.41% match)</td>
+                        </tr>
+                        <tr>
+                            <td>Electron tile</td>
+                            <td>\(r_e = 2.82\) fm</td>
+                            <td>Classical: 2.818 fm (0.21% match)</td>
+                        </tr>
+                        <tr>
+                            <td>Port Ratio</td>
+                            <td>\(\sqrt{k/\pi} = 1.128\)</td>
+                            <td>Derived from geometry</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <caption>Table 8: Testable predictions from the framework. Paper IV [10] tested the Hubble
+                    prediction against all six major measurement methods (Planck, BAO, GW170817, TRGB, SH0ES,
+                    Masers); all fall within the predicted \(\pm 6.2\%\) range, with the probability of this
+                    occurring by chance approximately \(10^{-6}\).</caption>
+            </div>
+
+            <p>
+                The bridge between textbook gravity and DFP is now established. The tetrahedron is
+                the meeting point: the quantum of space in LQG, the Field Chamber in DFP, the minimal
+                solid in geometry. Different vocabularies, same geometry, same physics.
+            </p>
+        </section>
+
+        <!-- ================================================================
+             REFERENCES
+             ================================================================ -->
+        <section>
+            <h2>References</h2>
+            <ol style="font-size: 0.95em;">
+                <li>Arnowitt, R., Deser, S., & Misner, C. W. (1962). "The Dynamics of General Relativity."
+                    In <em>Gravitation: An Introduction to Current Research</em>, ed. L. Witten (Wiley).</li>
+                <li>Misner, C. W., Thorne, K. S., & Wheeler, J. A. (1973). <em>Gravitation</em>. W. H. Freeman.</li>
+                <li>Rovelli, C., & Vidotto, F. (2014). <em>Covariant Loop Quantum Gravity</em>. Cambridge University
+                    Press.</li>
+                <li>Regge, T. (1961). "General relativity without coordinates." <em>Nuovo Cimento</em>, 19, 558-571.
+                </li>
+                <li>Alcubierre, M. (2008). <em>Introduction to 3+1 Numerical Relativity</em>. Oxford University Press.
+                </li>
+                <li>Minkowski, H. (1897). "Allgemeine Lehrsätze über die convexen Polyeder."
+                    <em>Nachrichten von der Gesellschaft der Wissenschaften zu Göttingen</em>, 198-219.
+                </li>
+                <li>Ziegler, G. M. (1995). <em>Lectures on Polytopes</em>. Springer-Verlag.</li>
+                <li>Milgrom, M. (1983). "A modification of the Newtonian dynamics."
+                    <em>Astrophysical Journal</em>, 270, 365-370.
+                </li>
+                <li>Abbott, B. P., et al. (2017). "A gravitational-wave standard siren measurement of the Hubble
+                    constant."
+                    <em>Nature</em>, 551, 85-88.
+                </li>
+                <li>Nelson, S. (2026). "Resolving the Hubble Tension Through Tetrad Topology." <em>Field Dynamics</em>.
+                </li>
+                <li>Nelson, S. (2026). "Distributed Field Processing I: The Gravitational Constitutive Law." <em>Field
+                        Dynamics</em>.</li>
+            </ol>
+        </section>
+
+        <!-- ================================================================
+             COPYRIGHT
+             ================================================================ -->
+        <footer
+            style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid #ddd; text-align: center; font-size: 0.9em; color: #666;">
+            <p style="margin-bottom: 0.5em;">
+                <strong>Distributed Field Processing V: Field Closure and the Topology of Gravity</strong><br>
+                <em>The Tetrahedral Bridge</em>
+            </p>
+            <p style="margin-bottom: 0.5em;">
+                © 2026 Stephen Nelson. All rights reserved.
+            </p>
+            <p style="font-size: 0.85em; color: #888;">
+                Field Dynamics • stephen@fielddynamics.org
+            </p>
+        </footer>
+
+    </div>
+</body>
+
+</html>

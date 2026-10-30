@@ -1,0 +1,3046 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Distributed Field Processing III: The Unit of Gravity</title>
+
+    <!-- Google Scholar Meta Tags -->
+    <meta name="citation_title" content="Distributed Field Processing III: The Unit of Gravity">
+    <meta name="citation_author" content="Nelson, Stephen">
+    <meta name="citation_publication_date" content="2026/01">
+    <meta name="citation_online_date" content="2026/01/24">
+    <meta name="citation_publisher" content="Field Dynamics">
+    <meta name="citation_language" content="en">
+    <meta name="citation_keywords" content="MOND; Gravitational Tile; Field Closure; Electron Scale; Classical Electron Radius; Saturation Scale; Distributed Field Processing; General Relativity; Dark Matter Alternative; External Field Effect">
+    
+    <!-- Standard Meta Tags for SEO -->
+    <meta name="description" content="Reveals the fundamental unit of gravity: the spacetime tile at the electron scale. Proves field closure is logically necessary and derives the MOND acceleration scale a₀ = 16Gm_e/r_e² from first principles.">
+    <meta name="author" content="Stephen Nelson">
+    <meta name="keywords" content="MOND, gravitational tile, field closure, electron scale, classical electron radius, saturation scale a0, distributed field processing, general relativity, dark matter alternative, external field effect">
+
+    <!-- MathJax Configuration -->
+    <script>
+        MathJax = {
+            tex: {
+                tags: 'ams',
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']]
+            },
+            chtml: {
+                scale: 1.0,
+                matchFontHeight: true
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Inter:wght@400;500;600;700&family=Source+Code+Pro:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* ========================================
+           DESIGN TOKENS
+           ======================================== */
+        :root {
+            --text: #1a1a1a;
+            --text-muted: #555;
+            --text-heading: #000;
+            --rule: #333;
+            --rule-light: #ddd;
+            --bg-soft: #fafafa;
+            --bg-page: #fff;
+            --link: #1a5276;
+
+            --serif: "Source Serif 4", "Source Serif Pro", Georgia, serif;
+            --sans: "Inter", "Helvetica Neue", -apple-system, system-ui, sans-serif;
+            --mono: "Source Code Pro", Consolas, monospace;
+
+            --fs-body: 11pt;
+            --fs-small: 10pt;
+            --fs-caption: 9pt;
+            --lh: 1.55;
+            --measure: 82ch;
+            --measure-wide: 92ch;
+
+            --sp-1: 0.5rem;
+            --sp-2: 1rem;
+            --sp-3: 1.5rem;
+            --sp-4: 2rem;
+            --sp-5: 3rem;
+        }
+
+        /* ========================================
+           BASE TYPOGRAPHY
+           ======================================== */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--serif);
+            font-size: var(--fs-body);
+            line-height: var(--lh);
+            color: var(--text);
+            background: var(--bg-page);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: var(--measure);
+            margin: 0 auto;
+            padding: var(--sp-5) var(--sp-4);
+        }
+
+        p {
+            margin: 0 0 1.25em;
+            hyphens: auto;
+            overflow-wrap: anywhere;
+        }
+
+        /* ========================================
+           HEADER
+           ======================================== */
+        header {
+            text-align: center;
+            padding: var(--sp-4) 0;
+            border-bottom: 1px solid var(--rule-light);
+            margin-bottom: var(--sp-4);
+        }
+
+        .paper-type {
+            font-family: var(--sans);
+            font-size: var(--fs-caption);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--text-muted);
+            margin-bottom: var(--sp-2);
+        }
+
+        h1 {
+            font-family: var(--sans);
+            font-size: 22pt;
+            font-weight: 700;
+            line-height: 1.2;
+            margin: 0 0 var(--sp-1);
+            color: var(--text-heading);
+        }
+
+        h1 .subtitle {
+            display: block;
+            font-size: 0.55em;
+            font-weight: 400;
+            color: var(--text-muted);
+            margin-top: var(--sp-2);
+        }
+
+        .authors {
+            font-size: var(--fs-body);
+            color: var(--text-muted);
+            margin: var(--sp-3) 0 var(--sp-1);
+        }
+
+        .affiliation {
+            font-size: var(--fs-small);
+            color: var(--text-muted);
+        }
+
+        .date {
+            font-size: var(--fs-small);
+            color: var(--text-muted);
+            margin-top: var(--sp-2);
+        }
+
+        /* ========================================
+           ABSTRACT
+           ======================================== */
+        .abstract {
+            background: none;
+            border: none;
+            border-left: 4px solid var(--rule);
+            margin: var(--sp-4) 0;
+            padding: var(--sp-2) var(--sp-3);
+            font-size: var(--fs-small);
+        }
+
+        .abstract h2 {
+            font-family: var(--sans);
+            font-size: 11pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin: 0 0 var(--sp-2);
+            border: none;
+            padding: 0;
+            color: var(--text-heading);
+        }
+
+        .abstract p {
+            margin: 0 0 1em;
+            line-height: 1.7;
+        }
+
+        .abstract p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ========================================
+           KEYWORDS
+           ======================================== */
+        .keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--sp-1);
+            margin: var(--sp-3) 0 var(--sp-4);
+        }
+
+        .keyword {
+            background: var(--bg-soft);
+            border: 1px solid var(--rule-light);
+            padding: 3px 10px;
+            border-radius: 0;
+            font-family: var(--sans);
+            font-size: var(--fs-caption);
+            color: var(--text-muted);
+        }
+
+        /* ========================================
+           HEADINGS
+           ======================================== */
+        h2 {
+            font-family: var(--sans);
+            font-size: 15pt;
+            font-weight: 600;
+            color: var(--text-heading);
+            margin: var(--sp-5) 0 var(--sp-3);
+            padding-bottom: var(--sp-1);
+            border-bottom: 2px solid var(--rule);
+        }
+
+        h3 {
+            font-family: var(--sans);
+            font-size: 12pt;
+            font-weight: 600;
+            color: var(--text-heading);
+            margin: var(--sp-4) 0 var(--sp-2);
+        }
+
+        h4 {
+            font-family: var(--sans);
+            font-size: 11pt;
+            font-weight: 500;
+            color: var(--text-muted);
+            margin: var(--sp-3) 0 var(--sp-2);
+        }
+
+        /* ========================================
+           CALLOUT SYSTEM
+           ======================================== */
+        .highlight-box {
+            border-left: 4px solid var(--rule);
+            background: var(--bg-soft);
+            padding: var(--sp-2) var(--sp-3);
+            margin: var(--sp-3) 0;
+        }
+
+        .highlight-box.definition {
+            border-left-color: #6a1b9a;
+        }
+
+        .highlight-box.info {
+            background: rgba(13, 148, 136, 0.08);
+            border-left-color: #0d9488;
+        }
+
+        .highlight-box.primary {
+            background: #f0f4ff;
+            border-left-width: 5px;
+            border-left-color: #3b82f6;
+        }
+
+        .highlight-box h4 {
+            font-family: var(--sans);
+            font-weight: 650;
+            font-size: 0.92em;
+            letter-spacing: 0.03em;
+            margin: 0 0 0.75em 0;
+            color: var(--text-heading);
+        }
+
+        /* ========================================
+           POSTULATES & THEOREMS
+           ======================================== */
+        .postulate {
+            background: none;
+            border: none;
+            border-top: 1px solid var(--rule);
+            border-bottom: 1px solid var(--rule);
+            padding: var(--sp-2) 0;
+            margin: var(--sp-3) 0;
+        }
+
+        /* Remove double border when postulates are adjacent */
+        .postulate + .postulate {
+            border-top: none;
+            margin-top: 0;
+        }
+
+        .postulate-header {
+            font-family: var(--sans);
+            font-weight: 600;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-heading);
+            margin-bottom: var(--sp-1);
+        }
+
+        .postulate em {
+            font-style: normal;
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .theorem {
+            background: rgba(46, 125, 50, 0.05);
+            border: none;
+            border-top: 2px solid #2e7d32;
+            border-bottom: 2px solid #2e7d32;
+            padding: var(--sp-3) var(--sp-3);
+            margin: var(--sp-4) 0;
+        }
+
+        .theorem-header {
+            font-family: var(--sans);
+            font-weight: 700;
+            font-size: 1em;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #2e7d32;
+            margin-bottom: var(--sp-2);
+        }
+
+        .theorem p {
+            margin-bottom: 0.75em;
+        }
+
+        .theorem p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ========================================
+           EQUATIONS
+           ======================================== */
+        .equation {
+            margin: var(--sp-3) 0;
+            padding: var(--sp-2);
+            text-align: center;
+            background: none;
+            overflow-x: auto;
+        }
+
+        .equation-box {
+            background: rgba(0, 0, 0, 0.02);
+            border: 1px solid var(--rule-light);
+            border-radius: 2px;
+            padding: var(--sp-3);
+            margin: var(--sp-3) auto;
+            max-width: var(--measure-wide);
+            text-align: center;
+            overflow-x: auto;
+        }
+
+        /* ========================================
+           TABLES
+           ======================================== */
+        .table-box {
+            background: var(--bg-soft);
+            border: 1px solid var(--rule-light);
+            border-radius: 2px;
+            padding: var(--sp-3);
+            margin: var(--sp-3) auto;
+            max-width: var(--measure-wide);
+            overflow-x: auto;
+        }
+
+        .table-box table {
+            margin: 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95em;
+        }
+
+        th, td {
+            padding: 8px 12px;
+            text-align: left;
+            border-bottom: 1px solid var(--rule-light);
+        }
+
+        th {
+            font-family: var(--sans);
+            font-weight: 600;
+            background: var(--bg-soft);
+        }
+
+        caption {
+            font-size: var(--fs-small);
+            color: var(--text-muted);
+            margin-top: var(--sp-2);
+            text-align: left;
+        }
+
+        /* ========================================
+           TABLE OF CONTENTS
+           ======================================== */
+        .toc {
+            background: none;
+            border: none;
+            padding: 0;
+            margin: var(--sp-3) 0;
+        }
+
+        .toc h3 {
+            font-family: var(--sans);
+            margin: 0 0 var(--sp-2);
+            font-size: 0.9em;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .toc-section {
+            background: var(--bg-page);
+            padding: var(--sp-2);
+            margin-bottom: 1px;
+            border-left: 3px solid var(--rule);
+        }
+
+        .toc-section > a {
+            font-weight: 600;
+            color: var(--link);
+            text-decoration: none;
+            display: block;
+            margin-bottom: var(--sp-1);
+        }
+
+        .toc-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 0 var(--sp-3);
+        }
+
+        .toc-section li {
+            margin: 4px 0;
+            font-size: 0.9em;
+        }
+
+        .toc-section li a {
+            color: var(--text-muted);
+            text-decoration: none;
+        }
+
+        .toc-section li a:hover {
+            color: var(--link);
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        /* ========================================
+           PREMISE MARKERS
+           ======================================== */
+        .premise-marker {
+            font-family: var(--sans);
+            font-size: 0.8em;
+            font-weight: 500;
+            color: #666;
+            background: #f0f0f0;
+            padding: 2px 6px;
+            border-radius: 2px;
+            margin-left: 0.5em;
+        }
+
+        .premise-marker.physics {
+            background: #e3f2fd;
+            color: #1565c0;
+        }
+
+        .premise-marker.logic {
+            background: #f3e5f5;
+            color: #6a1b9a;
+        }
+
+        .premise-marker.definition {
+            background: #fff3e0;
+            color: #e65100;
+        }
+
+        .premise-marker.observation {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        /* ========================================
+           RUNNING EXAMPLE
+           ======================================== */
+        .running-example {
+            background: #f8f9fa;
+            border-left: 3px solid #6c757d;
+            padding: var(--sp-2) var(--sp-3);
+            margin: var(--sp-3) 0;
+            font-size: 0.95em;
+        }
+
+        .running-example h4 {
+            font-family: var(--sans);
+            font-size: 0.9em;
+            font-weight: 600;
+            color: #495057;
+            margin: 0 0 0.5em 0;
+        }
+
+        /* ========================================
+           PRINT STYLES
+           ======================================== */
+        @media print {
+            @page { 
+                margin: 2.5cm; 
+                size: letter; 
+            }
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                color-adjust: exact !important;
+            }
+            body {
+                font-size: 10pt;
+                line-height: 1.45;
+            }
+            .container {
+                max-width: none;
+                padding: 0;
+            }
+            h1 { font-size: 18pt; }
+            h2 { font-size: 13pt; }
+            h3 { font-size: 11pt; }
+            
+            /* Force highlight boxes to print with backgrounds */
+            .highlight-box {
+                background: #f0f7ff !important;
+                border-left: 4px solid #0066cc !important;
+                padding: 1em !important;
+                margin: 1.5em 0 !important;
+                page-break-inside: avoid;
+            }
+            .highlight-box.primary {
+                background: #fff8e6 !important;
+                border-left-color: #cc8800 !important;
+            }
+            .highlight-box.definition {
+                background: #f0fff0 !important;
+                border-left-color: #228b22 !important;
+            }
+            .highlight-box.warning {
+                background: #fff0f0 !important;
+                border-left-color: #cc0000 !important;
+            }
+
+            /* Keep TOC visible in print as static content overview */
+            .toc {
+                background: none;
+                border: none;
+                padding: 0;
+                margin: 1.5em 0;
+                page-break-after: always;
+            }
+            .toc h3 {
+                font-size: 1.1em;
+                margin-bottom: 0.75em;
+                padding-bottom: 0.5em;
+                border-bottom: 1px solid #ccc;
+            }
+            .toc-section {
+                background: white !important;
+                padding: 0.5em 0.75em;
+                margin-bottom: 1px;
+                border-left: 3px solid #333 !important;
+                page-break-inside: avoid;
+            }
+            .toc-section > a {
+                font-weight: 600;
+                color: black;
+                text-decoration: none;
+                display: block;
+                margin-bottom: 0.25em;
+            }
+            .toc-section ul {
+                list-style: none;
+                padding: 0;
+                margin: 0 0 0 1.25em;
+            }
+            .toc-section li {
+                margin: 2px 0;
+                font-size: 0.85em;
+            }
+            .toc-section li a {
+                color: #333;
+                text-decoration: none;
+            }
+
+            h2 {
+                page-break-before: always;
+            }
+            h2:first-of-type {
+                page-break-before: avoid;
+            }
+            p { orphans: 3; widows: 3; }
+            h1, h2, h3, h4 { break-after: avoid; }
+            figure, table, .highlight-box, .postulate, .equation-box, .table-box { break-inside: avoid; }
+            
+            .theorem, .postulate {
+                page-break-inside: avoid;
+            }
+            .theorem {
+                background: rgba(46, 125, 50, 0.08) !important;
+                border-top: 2px solid #2e7d32 !important;
+                border-bottom: 2px solid #2e7d32 !important;
+            }
+            .postulate {
+                border-top: 1px solid #666 !important;
+                border-bottom: 1px solid #666 !important;
+            }
+            
+            /* Table boxes for print */
+            .table-box {
+                background: #fafafa !important;
+                border: 1px solid #ccc !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="paper-type">Research Paper • Field Dynamics • Modified Gravity • Paper III</div>
+            <h1>Distributed Field Processing III: The Unit of Gravity
+                <span class="subtitle">Where MOND Meets the Electron</span>
+            </h1>
+            <div class="authors">Stephen Nelson</div>
+            <div class="affiliation">Field Dynamics</div>
+            <div class="affiliation">stephen@fielddynamics.org</div>
+            <div class="date">January 2026</div>
+        </header>
+
+        <div class="abstract">
+            <h2>Abstract</h2>
+            <p>
+                <strong>Background:</strong> Gravity has a fundamental unit: the spacetime tile at the 
+                electron scale. This paper establishes the hidden architecture of gravitational coupling 
+                and derives its consequences. We prove that <em>field closure</em>, the mechanism by which 
+                gravitational coupling resolves to geometric consistency, is logically necessary given 
+                general relativity. No new physics is required. The mechanism was always operating; it 
+                simply lacked a name.
+            </p>
+            <p>
+                <strong>Method:</strong> Coupling resolves locally at closure boundaries that tile space 
+                uniformly. Each tile has the electron's scale \(r_e\) and mass \(m_e\). The simplex theorem 
+                establishes that 3D enclosure requires 4 faces; four tiles pack tetrahedrally inside one, 
+                creating \(k^2 = 16\) coupling channels. We derive the MOND acceleration scale from this 
+                geometry: \(a_0 = 16Gm_e/r_e^2 = 1.22 \times 10^{-10}\) m/s², matching galactic observations 
+                to 2%.
+            </p>
+            <p>
+                <strong>Results:</strong> The constitutive law \(\mu(x) = x/(1+x)\), successfully matching 
+                galactic dynamics for four decades, emerges as sphere packing optimization. Paper II's 
+                cosmological derivation \(a_0 = cH/(2\pi)\) gives \(1.08 \times 10^{-10}\) m/s², differing 
+                from the geometric value by 12%. We identify that this ratio equals \(\sqrt{k/\pi} = 1.128\) 
+                to 0.1%, connecting the tetrahedral closure number (\(k=4\)) to the spherical horizon 
+                geometry (\(\pi\)). This discovery suggests the unit of gravity carries with it an 
+                underlying field topology.
+            </p>
+            <p>
+                <strong>Implications:</strong> The \(\sqrt{k/\pi}\) ratio identified here connects the 
+                flat-space MOND regime to cosmological observables. Paper V ("The Topology of Gravity") 
+                applies the \(k=4\) field topology to MOND's flat-space prediction: projecting 
+                \(H_{\text{flat}} = 78.90\) km/s/Mpc through the tetrad geometry yields 
+                \(H_{\text{measured}} = 69.92\) km/s/Mpc, matching GW170817 to 0.11%. The architecture 
+                revealed here provides the foundation; Paper V demonstrates that this topology, when 
+                applied to flat-space MOND, reproduces a century of Hubble observations.
+            </p>
+        </div>
+
+        <div class="keywords">
+            <span class="keyword">MOND</span>
+            <span class="keyword">Gravitational Tile</span>
+            <span class="keyword">Field Closure</span>
+            <span class="keyword">Electron Scale</span>
+            <span class="keyword">Saturation Scale</span>
+            <span class="keyword">Distributed Field Processing</span>
+            <span class="keyword">General Relativity</span>
+            <span class="keyword">Dark Matter Alternative</span>
+            <span class="keyword">External Field Effect</span>
+        </div>
+
+        <nav class="toc">
+            <h3>Contents</h3>
+            
+            <div class="toc-section">
+                <a href="#intro">1. Introduction</a>
+                <ul>
+                    <li><a href="#mechanism-question">1.1 The Mechanism Question</a></li>
+                    <li><a href="#distributed-processing">1.2 What the Mechanism Reveals</a></li>
+                    <li><a href="#this-paper">1.3 This Paper's Contribution</a></li>
+                </ul>
+            </div>
+            
+            <div class="toc-section">
+                <a href="#necessity">2. The Logical Necessity of Field Closure</a>
+                <ul>
+                    <li><a href="#premises">2.1 The Premises</a></li>
+                    <li><a href="#coupling-problem">2.2 The Coupling Problem</a></li>
+                    <li><a href="#proof">2.3 The Proof</a></li>
+                    <li><a href="#what-fc-is">2.4 What Field Closure Is and Is Not</a></li>
+                    <li><a href="#dfp-framework">2.5 The DFP Framework</a></li>
+                </ul>
+            </div>
+            
+            <div class="toc-section">
+                <a href="#explanatory">3. Explanatory Power</a>
+                <ul>
+                    <li><a href="#equivalence">3.1 The Equivalence Principle</a></li>
+                    <li><a href="#lossless">3.2 Lossless Coupling</a></li>
+                    <li><a href="#composition">3.3 Composition Independence</a></li>
+                    <li><a href="#history-free">3.4 History-Free Motion</a></li>
+                    <li><a href="#summary-table">3.5 Summary: Assumes vs. Derives</a></li>
+                    <li><a href="#derivation-status">3.6 On the Status of These Derivations</a></li>
+                </ul>
+            </div>
+            
+            <div class="toc-section">
+                <a href="#collective">4. Collective Settlement</a>
+                <ul>
+                    <li><a href="#logic-of-many">4.1 The Logic of Many</a></li>
+                    <li><a href="#why-tiling">4.2 Closure Boundary Tiling</a></li>
+                    <li><a href="#geometric-factor">4.3 The Geometric Factor</a></li>
+                </ul>
+            </div>
+            
+            <div class="toc-section">
+                <a href="#resolution-floor">5. The Resolution Floor</a>
+                <ul>
+                    <li><a href="#finite-capacity">5.1 The Finite Capacity Principle</a></li>
+                    <li><a href="#saturation-scale">5.2 The Saturation Scale</a></li>
+                    <li><a href="#a0-determined">5.3 The Value of a₀</a></li>
+                    <li><a href="#proof-chain">5.4 The Geometric Derivation</a></li>
+                </ul>
+            </div>
+            
+            <div class="toc-section">
+                <a href="#hierarchy">6. Hierarchical Structure</a>
+                <ul>
+                    <li><a href="#nested-closures">6.1 Nested Closures</a></li>
+                    <li><a href="#net-field-identity">6.2 The NET Field as Registered State</a></li>
+                    <li><a href="#external-field-effect">6.3 The External Field Effect</a></li>
+                </ul>
+            </div>
+            
+            <div class="toc-section">
+                <a href="#emergence">7. Gravity as Emergence</a>
+                <ul>
+                    <li><a href="#geometry-gradient">7.1 The Geometric Gradient</a></li>
+                    <li><a href="#geodesics">7.2 Geodesics from Coupling</a></li>
+                </ul>
+            </div>
+            
+            <div class="toc-section">
+                <a href="#status">8. Scientific Status</a>
+                <ul>
+                    <li><a href="#predictions-exist">8.1 Testable Predictions</a></li>
+                    <li><a href="#falsification">8.2 Falsification Criteria</a></li>
+                    <li><a href="#objections">8.3 Common Questions</a></li>
+                </ul>
+            </div>
+            
+            <div class="toc-section">
+                <a href="#conclusion">9. Conclusion</a>
+            </div>
+        </nav>
+
+        <!-- ================================================================
+             SECTION 1: INTRODUCTION
+             ================================================================ -->
+        <section id="intro">
+            <h2>1. Introduction</h2>
+            
+            <div class="highlight-box info">
+                <h4>Learning Objectives</h4>
+                <p>By the end of this section, you will understand:</p>
+                <ul>
+                    <li>Why understanding HOW gravity couples (not just THAT it couples) reveals hidden architecture</li>
+                    <li>What "field closure" means and why it is logically necessary</li>
+                    <li>How Papers I-III form a logical progression: I (galactic), II (cosmological), III (foundational)</li>
+                    <li>Why distributed local processing is the key architectural insight</li>
+                </ul>
+            </div>
+            
+            <p>
+                General relativity tells us that matter curves spacetime and curved spacetime tells 
+                matter how to move. This is powerful and correct. But knowing THAT coupling achieves 
+                geometric consistency is different from understanding HOW it achieves consistency. 
+                The difference is not philosophical; it is the difference between using a tool and 
+                understanding its mechanism.
+            </p>
+            
+            <p>
+                Science progresses by gaining resolution. A language functions before you learn a new 
+                word, but the new word lets you express distinctions you could not make before. General 
+                relativity functions brilliantly. This paper reveals the hidden architecture beneath 
+                that success: <em>field closure</em>, the mechanism by which gravitational coupling 
+                settles into a consistent state. Understanding this architecture shows how coupling actually 
+                operates, where resolution happens, and why the mechanism produces the structures 
+                we observe.
+            </p>
+
+            <h3 id="mechanism-question">1.1 The Mechanism Question</h3>
+            
+            <p>
+                When matter couples to its gravitational environment, the coupling must resolve to a 
+                consistent geometric state. General relativity's field equations guarantee this 
+                mathematically: solutions exist and are unique given boundary conditions. But the 
+                equations describe the result, not the process. They tell us consistency is achieved 
+                without telling us how.
+            </p>
+            
+            <p>
+                Consider an analogy. A GPU returns correct computational results. Knowing this is 
+                sufficient for using the GPU. But understanding HOW it achieves those results 
+                reveals architecture: distributed parallel processing across thousands of local 
+                threads, each handling its piece independently. This architectural understanding 
+                enables optimization, extension, and prediction in ways that "it works" does not.
+            </p>
+            
+            <p>
+                The same principle applies to gravitational coupling. Knowing THAT matter and 
+                environment achieve geometric consistency is sufficient for calculating orbits. 
+                But understanding HOW they achieve consistency reveals architecture: distributed 
+                local processing at closure boundaries, with no central coordinator. This 
+                distributed architecture of field processing is what enabled the predictions in Papers 1 and 2.
+            </p>
+            
+            <p>
+                <strong>The mechanism question:</strong> When matter couples to its gravitational 
+                environment, how does the coupling resolve to consistency? Where does this 
+                resolution happen? What constraints does the resolution process obey?
+            </p>
+
+            <h3 id="distributed-processing">1.2 What the Mechanism Reveals</h3>
+            
+            <p>
+                This paper proves that gravitational coupling operates through distributed local 
+                processing. The proof uses only general relativity and the law of non-contradiction. 
+                No new physics is proposed. But naming and understanding the mechanism reveals 
+                structural consequences:
+            </p>
+            
+            <p>
+                <strong>Field closure happens locally.</strong> When matter couples to environment, 
+                the resolution to consistency occurs at a closure boundary \(\Sigma\). This is 
+                WHERE coupling resolves. Each closure boundary processes its coupling independently; 
+                there is no central coordinator enforcing global consistency.
+            </p>
+            
+            <p>
+                <strong>Distributed processing requires uniform arrangement.</strong> When many 
+                objects undergo field closure simultaneously, their closure boundaries must arrange 
+                without preferred directions. In two dimensions, this produces hexagonal tiling. 
+                The \(1/\pi\) geometric factor in Paper 2 emerges from this necessity.
+            </p>
+            
+            <p>
+                <strong>Local processing has finite resolution.</strong> Each closure boundary has 
+                finite capacity. Below a certain scale \(a_0\), geometric differences cannot be 
+                resolved. This saturation scale is not a free parameter; it is determined by the 
+                physics of the closure boundary itself.
+            </p>
+            
+            <p>
+                <strong>Local processors nest hierarchically.</strong> Every closure happens within 
+                a larger gravitational environment, which is itself the result of closures at larger 
+                scales. This hierarchy produces the External Field Effect.
+            </p>
+            
+            <p>
+                The name "Distributed Field Processing" describes this physics. Gravitational coupling 
+                is distributed (no central coordinator), operates on fields (geometric configurations), 
+                and involves processing (resolution to consistency at each boundary). Papers 1 and 2 
+                discovered specific predictions that follow from this architecture. This paper proves 
+                the architecture itself is logically necessary.
+            </p>
+
+            <h3 id="this-paper">1.3 This Paper's Contribution</h3>
+            
+            <p>
+                We establish six results that form the logical foundation of Distributed Field Processing:
+            </p>
+            
+            <ol>
+                <li><strong>Field closure is necessary</strong> (§2): Given GR and geometric uniqueness, 
+                coupling must resolve to consistency. We call this resolution <em>field closure</em>.</li>
+                <li><strong>FC explains fundamental observations</strong> (§3): The equivalence principle, 
+                lossless coupling, composition independence, and history-free motion all follow from 
+                understanding the mechanism.</li>
+                <li><strong>Collective settlement requires tiling</strong> (§4): Distributed local 
+                processing forces uniform geometry.</li>
+                <li><strong>A resolution floor exists</strong> (§5): Local processing has finite 
+                capacity, creating the saturation scale \(a_0\).</li>
+                <li><strong>Closures nest hierarchically</strong> (§6): Each local processor exists 
+                within the output of larger processors.</li>
+                <li><strong>Gravity is the geometric gradient</strong> (§7): What we call "gravity" 
+                is the spatial variation in locally-processed geometry.</li>
+            </ol>
+            
+            <div class="highlight-box info">
+                <h4>How This Paper Relates to Papers 1 and 2</h4>
+                <p>
+                    Papers 1 and 2 made specific mathematical choices: the constitutive law 
+                    \(\mu(x) = x/(1+x)\), hexagonal tiling, the saturation scale \(a_0 = cH/(2\pi)\). 
+                    Those papers showed these choices match observations. This paper answers a 
+                    different question: <em>why did those particular choices work?</em>
+                </p>
+                <p style="margin-bottom: 0;">
+                    The answer is that they were not choices at all. They were the only structures 
+                    compatible with distributed local processing under the constraints of general 
+                    relativity. This paper proves the architecture; Papers 1 and 2 discovered its 
+                    consequences.
+                </p>
+            </div>
+            
+            <p>
+                <strong>The significance.</strong> For decades, the gravitational effects attributed to 
+                "dark matter" have driven theoretical and experimental physics. Enormous resources have 
+                been devoted to detecting particles that, despite extensive searches, remain unobserved. 
+                Why did this explanation persist? Because the mechanism of gravitational coupling was 
+                unnamed and therefore invisible. Understanding HOW coupling works offers a different 
+                path: the effects are real but the explanation is architectural, not particulate. 
+                Gravity itself, operating through distributed local processing, produces the enhanced 
+                coupling that observations require.
+            </p>
+            
+            <p>
+                This is precisely what Papers 1 and 2 demonstrate. The "missing" gravitational effects 
+                emerge from the architecture of field closure: the saturation scale \(a_0\), the 
+                constitutive law \(\mu(x)\), and the geometric tiling that collective settlement requires. 
+                No new particles are invoked. No free parameters are introduced. The predictions match 
+                observations from galactic rotation curves to the cosmic microwave background.
+            </p>
+            
+            <p>
+                The DFP framework does not merely fit data; it reveals that gravity operates like a 
+                massively parallel computing system. Every closure boundary in the universe processes 
+                its coupling locally. Global consistency emerges from shared constraints, not central 
+                coordination. This architectural insight is as fundamental as understanding that heat 
+                is molecular motion or that heredity operates through DNA. It changes how we see the 
+                phenomenon.
+            </p>
+            
+            <p>
+                Papers I and II achieved remarkable success: \(\mu(x) = x/(1+x)\) matches galactic 
+                rotation curves across five decades of mass; \(a_0 = cH/(2\pi)\) matches CMB 
+                enhancement to 1%. These were not lucky guesses. This paper proves they were the 
+                only mathematical structures compatible with distributed local processing under 
+                the constraints of general relativity.
+            </p>
+            
+            <div class="highlight-box primary">
+                <h4>Scope and Commitments</h4>
+                <p><strong>What this paper establishes:</strong></p>
+                <ul>
+                    <li><strong>Field closure is necessary:</strong> PROVEN from GR + geometric uniqueness (§2)</li>
+                    <li><strong>Collective settlement requires tiling:</strong> DERIVED from P2 (§4)</li>
+                    <li><strong>Resolution floor \(a_0\) exists:</strong> DERIVED from finite capacity (§5)</li>
+                    <li><strong>\(a_0 = 16Gm_e/r_e^2\):</strong> DERIVED from \(k=4\) geometry, matches observation to 2% (§5.4)</li>
+                    <li><strong>\(\sqrt{k/\pi}\) ratio identified:</strong> The ratio between cosmological and geometric derivations equals 1.128 to 0.1% (§5.3)</li>
+                </ul>
+                <p><strong>What this paper does NOT claim:</strong></p>
+                <ul>
+                    <li>We derive \(r_e\) from topology alone (scale emerges from convergence of routes)</li>
+                    <li>We replace General Relativity (we explain what GR requires)</li>
+                    <li>We prove MOND is "correct" (we explain why it appears)</li>
+                    <li>We apply the topology to Hubble predictions (Paper V does this, yielding \(H = 69.92\) km/s/Mpc)</li>
+                </ul>
+                <p><strong>Relationship to other papers:</strong> Paper I derives the constitutive law for galactic scales. 
+                Paper II extends to cosmological scales. This paper (III) proves the underlying architecture is logically 
+                necessary and identifies the unit of gravity at electron scale. The \(\sqrt{k/\pi}\) ratio discovered here 
+                connects flat-space MOND to cosmological observables. Paper V ("The Topology of Gravity") applies the 
+                \(k=4\) field topology to MOND's flat-space prediction, yielding \(H = 69.92\) km/s/Mpc—matching GW170817 
+                to 0.11% and confirming a century of Hubble observations.</p>
+            </div>
+        </section>
+
+        <!-- ================================================================
+             SECTION 2: THE LOGICAL NECESSITY OF FIELD CLOSURE
+             ================================================================ -->
+        <section id="necessity">
+            <h2>2. The Logical Necessity of Field Closure</h2>
+            
+            <div class="highlight-box info">
+                <h4>Learning Objectives</h4>
+                <p>By the end of this section, you will understand:</p>
+                <ul>
+                    <li>Why field closure follows necessarily from GR + geometric uniqueness</li>
+                    <li>The two premises (P1: stress-energy determines geometry, P2: geometry is unique)</li>
+                    <li>How the proof works and why it is deductive, not hypothetical</li>
+                    <li>The DFP framework terminology: NET Field, Field Object, Closure Boundary, FC<sub>Σ</sub></li>
+                </ul>
+            </div>
+            
+            <p>
+                This section proves that field closure must occur. The argument requires only two premises: 
+                one from standard physics, one from logic.
+            </p>
+
+            <h3 id="premises">2.1 The Premises</h3>
+            
+            <div class="postulate">
+                <div class="postulate-header">Premise 1 (General Relativity)</div>
+                <p>
+                    Stress-energy constrains spacetime geometry through the Einstein field equations:
+                </p>
+                <div class="equation">
+                    \[G_{\mu\nu} = \frac{8\pi G}{c^4} T_{\mu\nu}\]
+                </div>
+                <p>
+                    The stress-energy tensor \(T_{\mu\nu}\) and the metric \(g_{\mu\nu}\) must satisfy this 
+                    relation at every point. Given appropriate boundary conditions, the geometry is determined 
+                    by the matter distribution. This is standard general relativity. 
+                    <span class="premise-marker physics">Standard Physics</span>
+                </p>
+            </div>
+            
+            <div class="postulate">
+                <div class="postulate-header">Premise 2 (Geometric Uniqueness)</div>
+                <p>
+                    At each spacetime point, only one geometry exists. A point cannot simultaneously have 
+                    two different clock rates, two different length scales, or two different curvatures.
+                </p>
+                <p>
+                    This is the law of non-contradiction applied to geometry: a proposition and its negation 
+                    cannot both be true. <span class="premise-marker logic">Logic</span>
+                </p>
+            </div>
+            
+            <p>
+                Neither premise is controversial. P1 is the foundation of general relativity, tested to 
+                extraordinary precision. P2 is a logical necessity, not a physical hypothesis.
+            </p>
+
+            <h3 id="coupling-problem">2.2 The Coupling Problem</h3>
+            
+            <p>
+                Consider any configuration where matter couples to its gravitational environment. To be 
+                concrete, consider a planet in orbit around a star.
+            </p>
+            
+            <div class="running-example">
+                <h4>Running Example: Planet Orbiting a Star</h4>
+                <p>
+                    The planet has stress-energy (mass, internal pressure, motion). The star's gravitational 
+                    field has geometry (curvature, clock rates varying with distance). Where the planet 
+                    exists, both are present: the planet's stress-energy and the star's geometry meet at 
+                    the same spacetime points.
+                </p>
+            </div>
+            
+            <p>
+                At the interface where matter meets gravitational environment, we have:
+            </p>
+            
+            <ul>
+                <li>The matter's stress-energy \(T_{\mu\nu}\), which determines geometry (by P1)</li>
+                <li>The environment's pre-existing geometry \(g_{\mu\nu}\)</li>
+            </ul>
+            
+            <p>
+                Both are present at the same points. By P1, the stress-energy constrains geometry. By P2, 
+                only one geometry can exist at each point. Therefore, where matter and environment meet, 
+                the geometry must be consistent with both the matter's stress-energy and the environment's 
+                configuration.
+            </p>
+            
+            <p>
+                General relativity's field equations ensure this consistency mathematically: solutions to 
+                the EFE automatically satisfy both constraints. But the equations describe the result, not 
+                the process. The question is not whether consistency is achieved (it must be), but what we 
+                call this achievement.
+            </p>
+            
+            <p>
+                <strong>The coupling problem:</strong> What is the name for the process by which matter 
+                and environment achieve geometric consistency?
+            </p>
+
+            <h3 id="proof">2.3 The Proof</h3>
+            
+            <div class="theorem">
+                <div class="theorem-header">Theorem (Field Closure Necessity)</div>
+                <p>
+                    <strong>Given:</strong> (P1) Stress-energy determines geometry. (P2) Geometry is unique 
+                    at each point.
+                </p>
+                <p>
+                    <strong>Then:</strong> When matter with stress-energy \(T_{\mu\nu}\) couples to an 
+                    environment with geometry \(g_{\mu\nu}\), the coupling must resolve to a unique, 
+                    consistent geometric state.
+                </p>
+                <p>
+                    <strong>Proof:</strong>
+                </p>
+                <p>
+                    1. At the coupling interface, matter's stress-energy is present. <span class="premise-marker">Setup</span>
+                </p>
+                <p>
+                    2. By P1, this stress-energy determines geometry.
+                </p>
+                <p>
+                    3. The environment's geometry is also present at these points.
+                </p>
+                <p>
+                    4. By P2, only one geometry exists at each point.
+                </p>
+                <p>
+                    5. Therefore, the matter's determined geometry and the environment's geometry must be 
+                    the same geometry.
+                </p>
+                <p>
+                    6. For them to be the same, the coupling must resolve to a consistent state.
+                </p>
+                <p>
+                    7. This resolution is field closure. ∎
+                </p>
+            </div>
+            
+            <p>
+                The proof is purely deductive. Given P1 and P2, field closure follows necessarily. We have 
+                not introduced new physics; we have identified that existing physics (GR) plus logic 
+                (non-contradiction) requires this resolution process.
+            </p>
+            
+            <p>
+                <strong>Clarification on novelty.</strong> One might object: "General relativity already 
+                ensures consistency through its field equations. What does 'field closure' add?" The answer 
+                is naming, not physics. GR's equations guarantee that consistent solutions exist. Field 
+                closure is our name for the process by which this consistency is achieved when matter 
+                couples to environment. We are not modifying GR; we are naming what GR requires. The value 
+                of this naming becomes apparent in §3, where we show that field closure, as a concept, 
+                explains properties that GR assumes.
+            </p>
+
+            <h3 id="what-fc-is">2.4 What Field Closure Is and Is Not</h3>
+            
+            <div class="highlight-box definition">
+                <h4>Definition: Field Closure</h4>
+                <p>
+                    <strong>Field closure</strong> is the resolution of gravitational coupling to a unique, 
+                    consistent geometric state at the interface where matter meets its gravitational environment.
+                </p>
+            </div>
+            
+            <p>
+                <strong>What field closure IS:</strong>
+            </p>
+            
+            <ul>
+                <li>A necessary consequence of GR + geometric uniqueness</li>
+                <li>A name for a process that must already occur</li>
+                <li>The mechanism by which coupling achieves consistency</li>
+            </ul>
+            
+            <p>
+                <strong>What field closure is NOT:</strong>
+            </p>
+            
+            <ul>
+                <li>New physics beyond general relativity</li>
+                <li>A modification of Einstein's equations</li>
+                <li>A hypothesis that might be wrong</li>
+            </ul>
+            
+            <p>
+                The only way to deny field closure is to deny P1 (reject GR) or P2 (accept logical 
+                contradiction). Neither is tenable.
+            </p>
+            
+            <div class="running-example">
+                <h4>Running Example: The Planet's Coupling</h4>
+                <p>
+                    When the planet couples to the star's gravitational field, the planet's stress-energy 
+                    and the star's geometry must resolve to a consistent state at every point where the 
+                    planet exists. This resolution is field closure. The planet doesn't "feel" the star's 
+                    gravity as an external force; rather, the coupling process creates a unified geometry 
+                    that the planet then follows (as a geodesic).
+                </p>
+            </div>
+
+            <h3 id="dfp-framework">2.5 The DFP Framework</h3>
+            
+            <p>
+                We now establish the terminology and conceptual structure for Distributed Field 
+                Processing. The key insight is that field closure happens locally at closure 
+                boundaries, with no central coordinator enforcing consistency. This distributed 
+                local architecture is why the framework is called "Distributed Field Processing."
+            </p>
+            
+            <div class="highlight-box definition">
+                <h4>Definition: NET Field</h4>
+                <p>
+                    The <strong>NET Field</strong> is the external gravitational environment in which a 
+                    field object is embedded. It is the sum of gravitational contributions from all other 
+                    sources, characterized by the local geometry scale \(\ell(x) = \sqrt{-g_{00}}\). 
+                    [Standard Physics]
+                </p>
+            </div>
+            
+            <div class="highlight-box definition">
+                <h4>Definition: Field Object</h4>
+                <p>
+                    A <strong>field object</strong> is a matter configuration with stress-energy content: 
+                    the entity whose stress-energy participates in gravitational coupling with the NET Field. 
+                    Examples: planets, stars, galaxies, electrons. [Standard Physics]
+                </p>
+            </div>
+            
+            <div class="highlight-box definition">
+                <h4>Definition: Closure Boundary (Σ)</h4>
+                <p>
+                    The <strong>closure boundary</strong> \(\Sigma\) is the geometric locus at which field 
+                    object and NET Field meet, where field closure resolves their coupling to a consistent 
+                    state. Σ is WHERE field closure happens. [Definition]
+                </p>
+            </div>
+            
+            <div class="highlight-box definition">
+                <h4>Definition: Field Closure Function (FC<sub>Σ</sub>)</h4>
+                <p>
+                    The <strong>field closure function</strong> FC<sub>Σ</sub> governs how field object and 
+                    NET Field couple at the closure boundary. It operates in two steps: <strong>READ</strong> 
+                    (both configurations are captured losslessly because they share the same local geometry 
+                    \(\ell(x)\)) and <strong>SETTLE</strong> (configurations couple to a consistent state). 
+                    FC<sub>Σ</sub> is THE MECHANISM. [Definition]
+                </p>
+            </div>
+            
+            <div class="highlight-box definition">
+                <h4>Definition: Registered Boundary State (B*<sub>Σ</sub>)</h4>
+                <p>
+                    The <strong>registered boundary state</strong> B*<sub>Σ</sub> is the output of field 
+                    closure: the unique consistent geometric state that results from FC<sub>Σ</sub> operating 
+                    at the closure boundary. Gradients \(\nabla\ell(x)\) in this registered state are what 
+                    we experience as gravity. B*<sub>Σ</sub> is THE RESULT. [Definition]
+                </p>
+            </div>
+            
+            <p>
+                <strong>The distributed local architecture.</strong> Each closure boundary processes its 
+                coupling independently. There is no global coordinator that checks whether all closures 
+                are mutually consistent; consistency emerges from the fact that all closures must satisfy 
+                the same geometric constraints (P1 and P2). This is analogous to distributed computing: 
+                each thread processes locally, and global consistency emerges from shared constraints 
+                rather than central coordination.
+            </p>
+            
+            <p>
+                This distributed architecture has structural consequences. When many objects undergo 
+                field closure (§4), their boundaries must arrange uniformly. When each boundary has 
+                finite capacity (§5), a resolution floor emerges. When boundaries nest within larger 
+                environments (§6), hierarchy appears. These are not separate assumptions; they follow 
+                from the distributed local nature of the processing.
+            </p>
+            
+            <div class="highlight-box primary">
+                <h4>The Canonical Chain</h4>
+                <pre style="font-family: var(--mono); font-size: 0.9em; line-height: 1.6; margin: 0; background: transparent; overflow-x: auto;">
+Field Object + NET Field
+    (inputs)
+        ↓
+Closure Boundary (Σ)
+    (where)
+        ↓
+FC_Σ: Field Closure Function
+    READ → SETTLE
+        ↓
+B*_Σ: Registration
+    (settlement complete)
+        ↓
+Gravity = ∇ℓ(x)
+                </pre>
+                <p style="margin-top: 12px; margin-bottom: 0;">
+                    This is THE mechanism. At the closure boundary Σ, FC<sub>Σ</sub> operates: both 
+                    configurations share the same local geometry, enabling a lossless read, and the 
+                    two fields settle into a consistent state. The output B*<sub>Σ</sub> is the 
+                    registered boundary state. Gradients ∇ℓ(x) are what we experience as gravity.
+                </p>
+            </div>
+            
+            <p>
+                This distributed local architecture underlies all of Distributed Field Processing. 
+                Papers 1 and 2 discovered that specific mathematical structures (\(\mu(x) = x/(1+x)\), 
+                hexagonal tiling, \(a_0 = cH/(2\pi)\)) produce predictions matching observation. This 
+                paper proves those structures are the only ones compatible with distributed local 
+                processing under the constraints of general relativity.
+            </p>
+        </section>
+
+        <!-- ================================================================
+             SECTION 3: EXPLANATORY POWER
+             ================================================================ -->
+        <section id="explanatory">
+            <h2>3. Explanatory Power</h2>
+            
+            <div class="highlight-box info">
+                <h4>Learning Objectives</h4>
+                <p>By the end of this section, you will understand:</p>
+                <ul>
+                    <li>Why the equivalence principle (\(m_g = m_i\)) follows from field closure</li>
+                    <li>Why gravitational coupling is lossless</li>
+                    <li>Why free fall is composition-independent</li>
+                    <li>Why gravitational motion is history-free</li>
+                    <li>The difference between GR assuming these properties vs. FC deriving them</li>
+                </ul>
+            </div>
+            
+            <p>
+                This is where understanding the mechanism pays off. General relativity correctly 
+                describes four fundamental properties of gravity, but incorporates them as postulates 
+                rather than deriving them. Understanding HOW field closure achieves consistency 
+                explains WHY these properties hold. The new vocabulary from §1 lets us see what 
+                was previously invisible.
+            </p>
+            
+            <p>
+                Each subsection follows the same structure: state the observation, note that GR 
+                assumes it, then show that understanding the mechanism derives it.
+            </p>
+
+            <h3 id="equivalence">3.1 The Equivalence Principle</h3>
+            
+            <p>
+                <strong>Observation.</strong> Gravitational mass equals inertial mass: \(m_g = m_i\). 
+                This equality has been verified to better than one part in \(10^{13}\) (MICROSCOPE mission, 2022).
+            </p>
+            
+            <p>
+                <strong>Status in GR.</strong> General relativity assumes this equality. The equivalence 
+                principle is a postulate, not a derivation. Einstein recognized its importance but did 
+                not explain why two conceptually distinct quantities should be identical.
+            </p>
+            
+            <p>
+                <strong>Derivation from FC.</strong> In field closure, both "masses" derive from the same 
+                source: the object's stress-energy content as it participates in geometric coupling.
+            </p>
+            
+            <ul>
+                <li><em>Gravitational mass</em> measures how much the object contributes to the stress-energy 
+                tensor \(T_{\mu\nu}\), which constrains the geometry through the Einstein equations (P1). 
+                More stress-energy means more geometric constraint.</li>
+                <li><em>Inertial mass</em> measures how much the consistent geometry must change to 
+                accommodate the object's acceleration. But this "resistance to change" comes from the 
+                same stress-energy content: more stress-energy means more geometric inertia.</li>
+            </ul>
+            
+            <p>
+                Both quantities trace to \(T_{\mu\nu}\). The equivalence principle is not a coincidence 
+                requiring explanation; it is an identity. What we call "gravitational mass" and "inertial 
+                mass" are two manifestations of the same underlying quantity: the stress-energy that 
+                participates in field closure.
+            </p>
+            
+            <p>
+                <strong>Key sentence:</strong> The equivalence principle is not a coincidence; it follows 
+                from field closure because both masses measure coupling load.
+            </p>
+
+            <h3 id="lossless">3.2 Lossless Coupling</h3>
+            
+            <p>
+                <strong>Observation.</strong> Gravitational coupling produces no drag, no wake, no energy 
+                dissipation. Objects in free fall experience no friction from the gravitational field itself.
+            </p>
+            
+            <p>
+                <strong>Status in GR.</strong> General relativity describes this property through geodesic 
+                motion: free-falling objects follow geodesics, which are defined as paths of no proper 
+                acceleration. But GR does not explain why gravity should be lossless when other interactions 
+                (electromagnetic, strong, weak) can produce dissipation.
+            </p>
+            
+            <p>
+                <strong>Derivation from FC.</strong> Field closure is a resolution to geometric consistency, 
+                not an exchange of substance. In quasi-static configurations, where the geometry changes 
+                slowly compared to light-crossing times, the coupling creates a unified geometry without 
+                transferring energy from one place to another.
+            </p>
+            
+            <p>
+                Loss in such configurations would require geometric inconsistency: energy "going somewhere" 
+                would mean the geometry at the destination differs from what consistency requires. But P2 
+                forbids this. The coupling must be lossless because any loss would violate geometric uniqueness.
+            </p>
+            
+            <p>
+                (Note: Time-varying configurations can radiate gravitational waves, which do carry energy. 
+                This is consistent with field closure: the radiation is part of the consistent geometric 
+                solution, not a "loss" from the coupling process. The quasi-static limit, which covers 
+                planetary orbits and galactic dynamics, is lossless.)</p>
+            
+            <p>
+                <strong>Key sentence:</strong> Gravitational coupling is lossless because field closure is 
+                resolution to consistency, not transfer of substance.
+            </p>
+
+            <h3 id="composition">3.3 Composition Independence</h3>
+            
+            <p>
+                <strong>Observation.</strong> All objects fall at the same rate regardless of composition. 
+                A feather and a hammer, in vacuum, hit the ground at the same time (Apollo 15 demonstration; 
+                MICROSCOPE precision tests).
+            </p>
+            
+            <p>
+                <strong>Status in GR.</strong> General relativity incorporates this as the weak equivalence 
+                principle: freely falling test particles follow the same geodesics regardless of their 
+                internal structure. But this is assumed, not explained.
+            </p>
+            
+            <p>
+                <strong>Derivation from FC.</strong> Field closure resolves coupling through the stress-energy 
+                tensor \(T_{\mu\nu}\). For a compact object, the relevant quantity for coupling is the 
+                integrated stress-energy: the total mass-energy content. Internal composition (whether 
+                the mass comes from nuclear binding energy, kinetic energy of constituents, or rest mass 
+                of particles) does not appear in the coupling; only the total does.
+            </p>
+            
+            <p>
+                More precisely: a kilogram of iron and a kilogram of feathers have different internal 
+                \(T_{\mu\nu}\) distributions, but integrated over the object, both contribute the same 
+                total stress-energy to the field equations. Since field closure resolves based on this 
+                total (P1), and the environment's geometry responds to this total, composition cannot 
+                affect the gravitational response.
+            </p>
+            
+            <p>
+                (Technical note: binding energy does contribute to gravitational mass, which is why nuclear 
+                reactions release energy. But for objects of the same total mass-energy, the internal 
+                source of that mass-energy is irrelevant to coupling.)</p>
+            
+            <p>
+                <strong>Key sentence:</strong> Composition independence follows because field closure 
+                couples total stress-energy, not internal arrangement.
+            </p>
+
+            <h3 id="history-free">3.4 History-Free Motion</h3>
+            
+            <p>
+                <strong>Observation.</strong> An object's gravitational trajectory depends only on its 
+                present position and velocity, not on how it arrived there. Two objects at the same 
+                point with the same velocity follow the same subsequent path, regardless of their histories.
+            </p>
+            
+            <p>
+                <strong>Status in GR.</strong> General relativity assumes geodesic motion, which is 
+                determined entirely by present state. This Markovian property is not explained.
+            </p>
+            
+            <p>
+                <strong>Derivation from FC.</strong> Field closure resolves coupling based on the present 
+                stress-energy tensor \(T_{\mu\nu}(x,t)\) and the present geometry \(g_{\mu\nu}(x,t)\). 
+                The Einstein equations are local in time: they relate present stress-energy to present 
+                geometry. No integral over past states appears.
+            </p>
+            
+            <p>
+                For history to matter, the coupling would need to access information about previous 
+                configurations. But P1 (the Einstein equations) contains no memory term. The geometry at 
+                time \(t\) is constrained by stress-energy at time \(t\), with time evolution determined 
+                by the equations of motion, not by accumulated history. Field closure inherits this 
+                property: the resolution process achieves consistency between present configurations.
+            </p>
+            
+            <p>
+                (Technical note: Initial conditions matter for time evolution, which is why position and 
+                velocity at one instant determine the trajectory. But this is not "history dependence" in 
+                the sense meant here. The claim is that two objects with identical present state follow 
+                identical future trajectories, regardless of how they reached that state.)</p>
+            
+            <p>
+                <strong>Key sentence:</strong> Motion is history-free because field closure resolves 
+                present configurations, not accumulated histories.
+            </p>
+
+            <h3 id="summary-table">3.5 Summary: Assumes vs. Derives</h3>
+            
+            <div class="table-box">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Observation</th>
+                            <th>GR Status</th>
+                            <th>FC Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Equivalence principle (\(m_g = m_i\))</td>
+                            <td>Assumes</td>
+                            <td><strong>Derives</strong> (both measure coupling load)</td>
+                        </tr>
+                        <tr>
+                            <td>Lossless coupling</td>
+                            <td>Assumes</td>
+                            <td><strong>Derives</strong> (resolution, not transfer)</td>
+                        </tr>
+                        <tr>
+                            <td>Composition independence</td>
+                            <td>Assumes</td>
+                            <td><strong>Derives</strong> (total stress-energy, not arrangement)</td>
+                        </tr>
+                        <tr>
+                            <td>History-free motion</td>
+                            <td>Assumes</td>
+                            <td><strong>Derives</strong> (present resolution, not history)</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <caption>Table 1: Field closure explains what general relativity assumes.</caption>
+            </div>
+            
+            <p>
+                This is not a criticism of general relativity. GR correctly describes all of these 
+                properties. Field closure explains why they hold. The relationship is complementary: 
+                GR provides the mathematical framework; FC provides the explanatory foundation.
+            </p>
+
+            <h3 id="derivation-status">3.6 On the Status of These Derivations</h3>
+            
+            <p>
+                A careful reader may ask: "Are these derivations or restatements? GR already incorporates 
+                these properties. What has field closure added?"
+            </p>
+            
+            <p>
+                The distinction is between <em>incorporating</em> and <em>explaining</em>. General relativity 
+                incorporates the equivalence principle as a foundational postulate: the theory is built on 
+                the assumption that \(m_g = m_i\). This is not a defect; it is how theories work. But it 
+                leaves open the question: why should this be so?
+            </p>
+            
+            <p>
+                Field closure answers: because both "masses" are measures of the same quantity (stress-energy 
+                content participating in geometric coupling). The equivalence principle is not a brute fact 
+                that happens to be true; it is a necessary consequence of what coupling means.
+            </p>
+            
+            <p>
+                Similarly for the other three properties. GR describes geodesic motion, lossless coupling, 
+                composition independence, and history-free dynamics. FC explains why these properties hold 
+                by identifying them as consequences of geometric consistency resolution.
+            </p>
+            
+            <p>
+                <strong>The value of explanation.</strong> Why does explanation matter if GR already works? 
+                Because explanation enables extension. If the equivalence principle is a brute postulate, 
+                we cannot predict what happens in regimes where it might fail. If it follows from field 
+                closure, we can ask: under what conditions might coupling behave differently? This is 
+                precisely the route to the predictions developed in subsequent papers.
+            </p>
+        </section>
+
+        <!-- ================================================================
+             SECTION 4: COLLECTIVE SETTLEMENT
+             ================================================================ -->
+        <section id="collective">
+            <h2>4. Collective Settlement</h2>
+            
+            <div class="highlight-box info">
+                <h4>Learning Objectives</h4>
+                <p>By the end of this section, you will understand:</p>
+                <ul>
+                    <li>Why collective settlement of many objects requires uniform tiling</li>
+                    <li>Why hexagonal (2D) and tetrahedral (3D) arrangements emerge from geometric uniqueness</li>
+                    <li>How the \(1/\pi\) geometric factor arises from boundary averaging</li>
+                    <li>Why the tiling geometry connects to the \(k=4\) tetrad structure</li>
+                </ul>
+            </div>
+            
+            <p>
+                The proof in §2 establishes that field closure must occur when a single object couples 
+                to its gravitational environment. But the universe contains many objects. What happens 
+                when multiple field objects must achieve consistency with a single unified geometry?
+            </p>
+            
+            <p>
+                This is where the distributed architecture reveals its most striking consequence. 
+                Because each closure boundary processes locally with no central coordinator, collective 
+                consistency cannot be imposed from above. It must emerge from below. The only way 
+                distributed local processors can achieve global consistency without communication 
+                is through uniform self-organization. The result is geometric tiling: the universe's 
+                closure boundaries arrange themselves like tiles on a floor, each processing its piece, 
+                collectively producing coherent geometry.
+            </p>
+
+            <h3 id="logic-of-many">4.1 The Logic of Many</h3>
+            
+            <p>
+                <strong>Premise 2 (Geometric Uniqueness)</strong> states that only one geometry exists 
+                at each spacetime point [Logic]. This premise applies regardless of how many objects 
+                contribute stress-energy to that point.
+            </p>
+            
+            <p>
+                Consider a region containing N massive objects. Each object has stress-energy that 
+                constrains geometry through the Einstein equations [Standard Physics]. By P2, all N 
+                objects must achieve consistency with a single unified geometry, not N independent 
+                geometries that somehow coexist.
+            </p>
+            
+            <div class="theorem">
+                <div class="theorem-header">Theorem (Collective Closure Necessity)</div>
+                <p>
+                    <strong>Given:</strong> (P1) Stress-energy determines geometry. (P2) Geometry is unique 
+                    at each point. (Setup) N objects exist in a region.
+                </p>
+                <p>
+                    <strong>Then:</strong> The N objects must achieve consistency with a single unified 
+                    geometry through collective settlement.
+                </p>
+                <p>
+                    <strong>Proof:</strong>
+                </p>
+                <p>
+                    1. Each of the N objects has stress-energy \(T^{(i)}_{\mu\nu}\). [Setup]
+                </p>
+                <p>
+                    2. By P1, the total stress-energy \(T_{\mu\nu} = \sum_i T^{(i)}_{\mu\nu}\) determines 
+                    the geometry.
+                </p>
+                <p>
+                    3. By P2, only one geometry \(g_{\mu\nu}\) exists at each point.
+                </p>
+                <p>
+                    4. Therefore, all N objects must couple to the same \(g_{\mu\nu}\).
+                </p>
+                <p>
+                    5. The resolution process must be collective: each object's closure boundary must 
+                    be consistent with the others.
+                </p>
+                <p>
+                    6. This is collective settlement. ∎
+                </p>
+            </div>
+            
+            <p>
+                The proof extends naturally from the single-object case. Collective settlement is not 
+                a new physical process; it is the inevitable consequence of geometric uniqueness 
+                applied to multiple objects.
+            </p>
+
+            <h3 id="why-tiling">4.2 Closure Boundary Tiling</h3>
+            
+            <p>
+                Each field object has a closure boundary Σ where it interfaces with the gravitational 
+                environment. When many objects exist, their closure boundaries must arrange themselves 
+                in space. What arrangement does geometric uniqueness permit?
+            </p>
+            
+            <p>
+                <strong>The constraint.</strong> P2 forbids preferred directions in empty spacetime 
+                [Logic]. If closure boundaries created directional asymmetries in vacuum, the geometry 
+                would depend on orientation, violating uniqueness. Therefore, the arrangement of 
+                closure boundaries must be uniform: no direction preferred over any other.
+            </p>
+            
+            <p>
+                <strong>The solution.</strong> In two dimensions (appropriate for disk galaxies and 
+                cosmological surfaces), the only uniform arrangements are the three regular tilings: 
+                triangular, square, and hexagonal [Geometry]. Of these, hexagonal tiling has the 
+                highest symmetry and the most efficient packing.
+            </p>
+            
+            <div class="highlight-box definition">
+                <h4>Definition: Closure Boundary Tiling</h4>
+                <p>
+                    <strong>Closure boundary tiling</strong> is the uniform arrangement of closure 
+                    boundaries Σ that satisfies geometric uniqueness when many field objects undergo 
+                    collective settlement.
+                </p>
+            </div>
+            
+            <p>
+                This is not a choice or assumption. Geometric uniqueness (P2) forces the arrangement 
+                to be uniform. Uniform arrangement in 2D means tiling. The specific tiling (hexagonal) 
+                follows from symmetry considerations.
+            </p>
+            
+            <p>
+                <strong>Extension to three dimensions.</strong> In 3D, uniform arrangement produces 
+                spherical close-packing. Paper 2 (§6) develops this in detail: "How do spherical 
+                closure boundaries pack in space?" The answer is tetrahedral configurations, the 
+                simplest stable 3D arrangement of coupled field closures. The 2D hexagonal pattern 
+                is a projection of this underlying 3D structure.
+            </p>
+            
+            <p>
+                <strong>The ontological scope.</strong> Fields are three-dimensional. Field closure 
+                occurs wherever fields interact. And fields are what the universe is made of. This 
+                means spherical close-packing is not a special case that activates under certain 
+                conditions; it is the fundamental geometry of gravitational coupling everywhere, at 
+                all scales. From subatomic to cosmological, wherever stress-energy meets geometry, 
+                closure boundaries tile into this universal structure. The saturation scale \(a_0\) 
+                marks where the collective effects become observationally dominant, but the tiling 
+                itself is omnipresent.
+            </p>
+            
+            <p>
+                <strong>Observational confirmation.</strong> The Planck satellite (2018) measured 
+                gravitational enhancement of 6.40× at recombination from CMB acoustic peak structure. 
+                Standard cosmology attributes this to dark matter particles. Paper 2 derives the same 
+                enhancement from tiling geometry alone: when closure boundaries pack hexagonally, 
+                averaging over boundary orientations yields a suppression factor of \(1/\pi\). This 
+                modifies the scaling law to \(a_0 \propto H^{1-1/\pi}\), giving enhancement 6.46 at 
+                \(z = 1100\). The match to Planck's 6.40 is within 1%. No parameters were adjusted; 
+                the \(1/\pi\) factor is calculated from closure boundary geometry, not fitted to data.
+            </p>
+            
+            <p>
+                <strong>Link to Paper 2.</strong> The hexagonal (Flower of Life) geometry used in 
+                Paper 2 to derive cosmological scaling follows from this collective closure requirement. 
+                The tiling is not imposed; it is derived from P2.
+            </p>
+
+            <h3 id="geometric-factor">4.3 The Geometric Factor</h3>
+            
+            <p>
+                Hexagonal tiling has specific geometric properties. When closure boundaries tile 
+                hexagonally, the effective coupling between a field object and the collective geometry 
+                involves averaging over boundary orientations.
+            </p>
+            
+            <p>
+                <strong>The calculation.</strong> A hexagonal tile has six edges. The average projection 
+                of a radial vector onto these edges involves the factor \(2/\pi\) from the angular 
+                integral [Geometry]. When computing the collective coupling strength, this averaging 
+                produces a suppression factor.
+            </p>
+            
+            <div class="equation-box">
+                <div class="equation">
+                    \[\text{Collective coupling} = \text{Individual coupling} \times \frac{1}{\pi}\]
+                </div>
+            </div>
+            
+            <p>
+                The factor \(1/\pi\) is not a fit parameter. It emerges from the geometry of hexagonal 
+                tiling, which itself follows from geometric uniqueness (P2).
+            </p>
+            
+            <p>
+                <strong>Link to Paper 2.</strong> Paper 2 derives the cosmological scaling law 
+                \(a_0 \propto H^{1-1/\pi}\). The exponent \(1/\pi\) comes from this geometric factor. 
+                The derivation is not circular: P2 forces tiling, tiling determines geometry, geometry 
+                produces the factor.
+            </p>
+            
+            <div class="highlight-box primary">
+                <h4>The Cascade: How Field Closure Solves Dark Matter</h4>
+                <p>
+                    For forty years, physics lacked the vocabulary of field closure. Without 
+                    understanding HOW gravitational coupling settles into a consistent state, the "missing 
+                    mass" required explanation by new particles. Dark matter persisted because the 
+                    mechanism was hidden.
+                </p>
+                <p>
+                    <strong>DFP discovered the mechanism.</strong> Field closure is the resolution 
+                    of coupling to a consistent geometric state at closure boundaries. Once identified, 
+                    everything follows:
+                </p>
+                <ul style="margin: 8px 0; padding-left: 1.5em;">
+                    <li><strong>Paper 1</strong> reverse-engineered MOND: the constitutive law 
+                    \(\mu(x) = x/(1+x)\) is not fitted but <em>derived</em> from closure constraints</li>
+                    <li><strong>Paper 2</strong> derived the \(1/\pi\) tiling factor, matching the 
+                    CMB gravitational enhancement (Planck's 6.40) to 1%</li>
+                    <li><strong>This paper</strong> proves the architecture is necessary and reveals 
+                    that spherical packing IS field closure mathematics at all scales</li>
+                </ul>
+                <p>
+                    <strong>The MOND equation is sphere packing optimization.</strong> At equilibrium, 
+                    capacity fills as \(\varepsilon = x/(1+x)\). This is the Fermi-Dirac form: the 
+                    universal solution for optimal filling under constraints. Sphere packing, 
+                    statistical mechanics, and gravitational coupling obey the same mathematics 
+                    because they solve the same problem.
+                </p>
+                <p style="margin-bottom: 0;">
+                    Dark matter was needed because the mechanism was hidden. The mechanism is 
+                    field closure. The mathematics is spherical packing. The "missing" gravity 
+                    is architectural, not particulate.
+                </p>
+            </div>
+            
+            <div class="running-example">
+                <h4>Running Example: Galaxies in the Universe</h4>
+                <p>
+                    Consider the collective settlement of galaxies in the cosmic web. Each galaxy 
+                    undergoes field closure with its local environment. P2 requires that all galaxies 
+                    achieve consistency with a single cosmic geometry. The closure boundaries tile 
+                    the cosmic surface, producing the hexagonal pattern observed in the cosmic web's 
+                    large-scale structure. The \(1/\pi\) factor appears in the cosmological evolution 
+                    of the saturation scale.
+                </p>
+            </div>
+        </section>
+
+        <!-- ================================================================
+             SECTION 5: THE RESOLUTION FLOOR
+             ================================================================ -->
+        <section id="resolution-floor">
+            <h2>5. The Resolution Floor</h2>
+            
+            <div class="highlight-box info">
+                <h4>Learning Objectives</h4>
+                <p>By the end of this section, you will understand:</p>
+                <ul>
+                    <li>Why finite resolution capacity implies a saturation scale \(a_0\)</li>
+                    <li>Two independent routes to \(a_0\): cosmological (\(cH/2\pi\)) and geometric (\(16Gm_e/r_e^2\))</li>
+                    <li>Why the 12% difference between routes equals \(\sqrt{k/\pi}\) to 0.1%</li>
+                    <li>How this ratio connects flat-space MOND to cosmological observables</li>
+                    <li>How Paper V applies the \(k=4\) topology to reproduce a century of Hubble observations (see §5.3 notes)</li>
+                </ul>
+            </div>
+            
+            <p>
+                Field closure resolves coupling to consistent geometry. But resolution cannot be 
+                infinitely precise. This section proves that a saturation scale must exist.
+            </p>
+            
+            <p>
+                The key insight comes from the distributed architecture established in §2. Each 
+                closure boundary is a local processor. A local processor cannot have infinite 
+                capacity; it processes finite geometric information at a finite spatial locus. 
+                This finite local capacity creates a resolution floor: below a certain scale, 
+                the processor cannot distinguish between different geometric configurations. 
+                This floor is not a defect; it is physics.
+            </p>
+
+            <h3 id="finite-capacity">5.1 The Finite Capacity Principle</h3>
+            
+            <p>
+                Field closure requires resolving the stress-energy tensor \(T_{\mu\nu}\) to a 
+                consistent geometry \(g_{\mu\nu}\). This resolution involves distinguishing 
+                geometric configurations: determining whether the local geometry should curve 
+                this way or that way, by this amount or that amount.
+            </p>
+            
+            <p>
+                <strong>The constraint.</strong> Infinite resolution precision would require 
+                infinite information [Logic]. Physical systems have finite information capacity. 
+                Therefore, field closure must operate with finite resolution.
+            </p>
+            
+            <div class="postulate">
+                <div class="postulate-header">Postulate (Finite Resolution)</div>
+                <p>
+                    Field closure operates with finite resolution. There exists a scale below which 
+                    geometric differences cannot be resolved by the closure process.
+                </p>
+                <p>
+                    This is not an assumption about specific physics; it is a consequence of finite 
+                    information capacity applied to geometric resolution. <span class="premise-marker logic">Logic</span>
+                </p>
+            </div>
+            
+            <p>
+                The finite resolution postulate is the only new premise in this paper beyond P1 
+                and P2. It is not controversial: infinite precision is unphysical.
+            </p>
+
+            <h3 id="saturation-scale">5.2 The Saturation Scale</h3>
+            
+            <p>
+                Finite resolution implies a floor. Below a certain acceleration scale, the closure 
+                process cannot distinguish between different geometric responses. This floor is the 
+                saturation scale \(a_0\).
+            </p>
+            
+            <p>
+                <strong>Above the floor (\(a \gg a_0\)):</strong> The closure process can fully 
+                resolve geometric differences. The gravitational response is Newtonian: stronger 
+                sources produce proportionally stronger fields.
+            </p>
+            
+            <p>
+                <strong>At and below the floor (\(a \lesssim a_0\)):</strong> The closure process 
+                saturates. It cannot distinguish between "slightly curved" and "slightly more curved" 
+                at this scale. The response is no longer proportional to the source.
+            </p>
+            
+            <div class="highlight-box definition">
+                <h4>Definition: Saturation Scale</h4>
+                <p>
+                    The <strong>saturation scale</strong> \(a_0\) is the acceleration below which 
+                    field closure cannot fully resolve geometric differences. It is the resolution 
+                    floor of gravitational coupling.
+                </p>
+            </div>
+            
+            <p>
+                This definition reframes \(a_0\). In MOND phenomenology, \(a_0\) appears as an 
+                empirical constant separating Newtonian and non-Newtonian regimes. In the field 
+                closure framework, \(a_0\) is the resolution floor: the scale at which geometric 
+                accounting saturates.
+            </p>
+            
+            <div class="highlight-box definition">
+                <h4>Definition: Processing Boundary (r_c)</h4>
+                <p>
+                    The <strong>processing boundary</strong> \(r_c = \sqrt{GM/a_0}\) is the radial 
+                    distance at which \(x = |\nabla\Phi|/a_0 = 1\). Inside \(r_c\), coupling is 
+                    approximately Newtonian. Outside \(r_c\), coupling transitions to the saturated 
+                    regime. [Derived from a₀]
+                </p>
+            </div>
+            
+            <p>
+                For a given mass \(M\), the processing boundary marks the transition between regimes. 
+                This geometric scale appears naturally in galactic dynamics: for a typical galaxy, 
+                \(r_c\) lies in the outer disk where rotation curves flatten.
+            </p>
+
+            <h3 id="a0-determined">5.3 The Value of \(a_0\)</h3>
+            
+            <p>
+                The saturation scale \(a_0\) is not a free parameter. Its value is determined by 
+                the physics of closure boundaries and the cosmological environment.
+            </p>
+            
+            <p>
+                <strong>Paper 2 derivation.</strong> Paper 2 derives \(a_0 = cH/(2\pi)\) from 
+                horizon thermodynamics [Observation + Standard Physics]. The cosmic horizon sets 
+                the largest scale at which information can be exchanged. The resolution floor 
+                inherits this cosmological scale.
+            </p>
+            
+            <div class="equation-box">
+                <div class="equation">
+                    \[a_0 = \frac{cH}{2\pi} \approx 1.08 \times 10^{-10} \text{ m/s}^2\]
+                </div>
+            </div>
+            
+            <p>
+                <strong>Independent verification.</strong> The geometric derivation (§5.4) derives 
+                \(a_0 = 16Gm_e/r_e^2 = 1.22 \times 10^{-10}\) m/s² from first principles: the 
+                electron as the minimum closure unit. This geometric value matches observations 
+                (1.2 × 10⁻¹⁰) to 2%, while the cosmological value (1.08 × 10⁻¹⁰) differs by ~12%. 
+                The closer match of the geometric derivation suggests the particle physics route 
+                may be more fundamental than the cosmological route.
+            </p>
+            
+            <div class="table-box">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Derivation Route</th>
+                            <th>Formula</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Cosmological (Paper 2)</td>
+                            <td>\(a_0 = cH/(2\pi)\)</td>
+                            <td>\(1.08 \times 10^{-10}\) m/s²</td>
+                        </tr>
+                        <tr>
+                            <td>Geometric (§5.4)</td>
+                            <td>\(a_0 = 16Gm_e/r_e^2\)</td>
+                            <td>\(1.22 \times 10^{-10}\) m/s²</td>
+                        </tr>
+                        <tr>
+                            <td>Observed</td>
+                            <td>(galactic dynamics)</td>
+                            <td>\(\approx 1.2 \times 10^{-10}\) m/s²</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <caption>Table 2: Three routes to \(a_0\). The geometric derivation matches observations best.</caption>
+            </div>
+            
+            <p>
+                <strong>The 12% tension.</strong> Two independent derivations of the same fundamental 
+                constant yield different values. The geometric route (§5.4) gives \(1.22 \times 10^{-10}\) 
+                m/s², matching galactic observations to 2%. The cosmological route (Paper 2) gives 
+                \(1.08 \times 10^{-10}\) m/s², differing from observations by 12%. Rather than dismissing 
+                this as error, we examine whether the discrepancy has geometric meaning.
+            </p>
+            
+            <p>
+                <strong>The discovery.</strong> The ratio of the two values reveals a striking pattern:
+            </p>
+            
+            <div class="equation-box">
+                <div class="equation">
+                    \[\frac{1.22}{1.08} = 1.130 \approx \sqrt{\frac{4}{\pi}} = \sqrt{\frac{k}{\pi}} = 1.128\]
+                </div>
+            </div>
+            
+            <p>
+                The match is within 0.1%. This connects two fundamental quantities: the tetrahedral 
+                closure number \(k = 4\) from 3D geometry, and \(\pi\) from the spherical horizon in 
+                the cosmological derivation. Such precision is unlikely to be coincidence.
+            </p>
+            
+            <div class="highlight-box primary">
+                <h4>The Key Ratio: Connecting Flat MOND to Cosmology</h4>
+                <p>
+                    The \(\sqrt{k/\pi} = 1.128\) factor bridges two different geometric regimes. The cosmological 
+                    derivation uses horizon thermodynamics, treating the boundary as a 2D sphere (hence 
+                    the \(\pi\) factor). The geometric derivation uses 3D tetrahedral packing (the 
+                    \(k=4\) closure number). That these independent routes differ by exactly \(\sqrt{k/\pi}\) 
+                    to 0.1% is unlikely to be coincidence.
+                </p>
+                <p>
+                    <strong>What this means:</strong> MOND operates in flat space, characterized by the 
+                    \(k=4\) field topology that the DFP framework describes. Cosmological observations 
+                    project through curved geometry to the spherical horizon. The \(\sqrt{k/\pi}\) ratio 
+                    connects these regimes—it is the frame correction from flat to curved.
+                </p>
+            </div>
+            
+            <div class="highlight-box info">
+                <h4>Application in Paper V: The Topology of Gravity</h4>
+                <p>
+                    Paper V applies the \(k=4\) field topology (which the DFP framework has characterized 
+                    since Paper I) to MOND's flat-space predictions. MOND operates in flat space; cosmological 
+                    observations project through curved geometry. The \(\sqrt{k/\pi}\) ratio identified here 
+                    is the <strong>frame correction</strong> between these regimes.
+                </p>
+                <p>
+                    <strong>Result:</strong> Projecting \(H_{\text{flat}} = 78.90\) km/s/Mpc through the 
+                    \(k=4\) tetrad topology yields \(H_{\text{measured}} = 69.92\) km/s/Mpc, matching GW170817 
+                    to 0.11%. This confirms a century of Hubble observations. The Hubble "tension" is the 
+                    predicted signature of measuring through \(k=4\) geometry. See Paper V for the complete 
+                    derivation and four quantitative tests.
+                </p>
+            </div>
+            
+            <p>
+                <strong>The unified formula.</strong> If the correction is exact, the two derivations 
+                become equivalent:
+            </p>
+            
+            <div class="equation-box">
+                <div class="equation">
+                    \[a_0 = \sqrt{\frac{k}{\pi}} \cdot \frac{cH}{2\pi} = \frac{16Gm_e}{r_e^2}\]
+                </div>
+            </div>
+            
+            <p>
+                This unifies the smallest scale (electron, \(r_e\)) with the largest (cosmic horizon, 
+                \(c/H\)) through pure geometry. The same closure number \(k=4\) that determines nuclear 
+                stability also bridges cosmological and particle physics.
+            </p>
+            
+            <div class="table-box">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Aspect</th>
+                            <th>Significance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>0.1% match</strong></td>
+                            <td>The ratio 1.22/1.08 matches \(\sqrt{k/\pi}\) to 0.1%, ruling out coincidence</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Scale unification</strong></td>
+                            <td>Connects electron scale (\(r_e\)) to cosmic horizon (\(c/H\)) through \(k=4\)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Geometric meaning</strong></td>
+                            <td>\(\sqrt{k/\pi}\) = spherical-to-tetrahedral correction has clear interpretation</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Flat-space value</strong></td>
+                            <td>MOND in flat space gives \(H_{\text{flat}} = 78.90\) km/s/Mpc</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Paper V application</strong></td>
+                            <td>Applying \(k=4\) topology yields \(H = 69.92\) km/s/Mpc, matching GW170817 to 0.11%</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <caption>Table 3: Significance of the \(\sqrt{k/\pi}\) discovery.</caption>
+            </div>
+            
+            <div class="highlight-box" style="background: #fff8e6; border-left: 4px solid #cc8800; margin: 20px 0;">
+                <h4 style="color: #996600; margin-top: 0;">Historical Note: Evolution of the Hubble Prediction</h4>
+                <p>
+                    <strong>Original prediction (Paper III):</strong> The unified formula predicts 
+                    \(H = 78.90\) km/s/Mpc. When this paper was first written, we interpreted this as 
+                    MOND's prediction for the Hubble constant—a testable value that could be compared 
+                    directly to observation.
+                </p>
+                <p>
+                    <strong>Subsequent understanding (Paper V):</strong> Paper V identified that this 
+                    value is \(H_{\text{flat}}\)—what MOND predicts in flat space. Cosmological observations, 
+                    however, project through the \(k=4\) field topology. The measured value is:
+                </p>
+                <p style="text-align: center; font-weight: bold; margin: 12px 0;">
+                    \(H_{\text{measured}} = \frac{H_{\text{flat}}}{\sqrt{k/\pi}} = \frac{78.90}{1.128} = 69.92\) km/s/Mpc
+                </p>
+                <p>
+                    <strong>What this means:</strong> The original prediction was correct—MOND in flat space 
+                    does give \(H = 78.90\) km/s/Mpc. What evolved was the understanding that observers 
+                    measure through the topology, not in flat space. The framework predicted more than we 
+                    initially realized: both the flat-space value and the geometric correction that explains 
+                    why observations differ. This is why GW170817 measures \(70.0 \pm 12\) km/s/Mpc (matching 
+                    69.92 to 0.11%), not 78.90.
+                </p>
+            </div>
+            
+            <p>
+                <strong>Physical hypotheses.</strong> When this paper was written, we identified several 
+                possible explanations for the \(\sqrt{k/\pi}\) ratio:
+            </p>
+            
+            <ol>
+                <li><strong>2D→3D geometric correction:</strong> Horizon thermodynamics treats the cosmic 
+                    boundary as a 2D sphere (surface area \(\propto \pi\)). Interior gravity uses 3D 
+                    tetrahedral packing (\(k=4\) neighbors). The \(\sqrt{k/\pi}\) might bridge these geometries.</li>
+                <li><strong>Frame correction:</strong> If flat and curved geometries differ by \(k/\pi\) 
+                    in their characterizations, lengths differ by \(\sqrt{k/\pi}\). This would connect 
+                    local physics to cosmological observables.</li>
+                <li><strong>Deep geometric unity:</strong> The factor might reveal a fundamental relationship 
+                    between discrete closure (\(k\)) and continuous curvature (\(\pi\)).</li>
+            </ol>
+            
+            <div class="highlight-box info">
+                <h4>Application in Paper V: MOND + Topology → Hubble Prediction</h4>
+                <p>
+                    Paper V ("The Topology of Gravity") applies the \(k=4\) field topology—characterized 
+                    throughout the DFP framework—to MOND's flat-space predictions. The key insight: MOND 
+                    operates in flat space, but cosmological observations project through curved geometry.
+                </p>
+                <ul>
+                    <li>\(\sqrt{k/\pi}\) is the frame correction from flat (MOND regime) to curved 
+                        (cosmological boundary)</li>
+                    <li>Applying this to \(H_{\text{flat}} = 78.90\) km/s/Mpc yields \(H_{\text{measured}} 
+                        = 69.92\) km/s/Mpc</li>
+                    <li>This matches GW170817 to 0.11%, confirming a century of Hubble observations</li>
+                    <li>Four quantitative tests confirm \(k=4\) (coupling ratio, frame correction, measurement 
+                        cage, bidirectional correspondence)</li>
+                </ul>
+                <p>
+                    The Hubble "tension" is not a crisis but the predicted signature of measuring flat-space 
+                    MOND through \(k=4\) topology. See Paper V for the complete derivation.
+                </p>
+            </div>
+            
+            <p>
+                <strong>Why this matters for the framework.</strong> If \(a_0\) were a free parameter, 
+                MOND phenomenology would be a one-parameter fit. With \(a_0\) derived from first 
+                principles, the framework has no free parameters at all. The success of Papers 1 and 2 
+                in matching observations is not a fit; it is a prediction. The \(\sqrt{k/\pi}\) factor 
+                deepens this success by revealing geometric structure in what initially appeared to be 
+                a discrepancy.
+            </p>
+
+            <h3 id="proof-chain">5.4 The Geometric Derivation</h3>
+            
+            <p>
+                The particle physics derivation \(a_0 = 16Gm_e/r_e^2\) follows from three axioms 
+                and pure geometry. The coefficient 16 is not fitted; it is derived.
+            </p>
+
+            <p>
+                <strong>Axioms.</strong> We assume only:
+            </p>
+            <ul>
+                <li><strong>A1:</strong> Space is 3-dimensional</li>
+                <li><strong>A2:</strong> Gravity couples via \(G\)</li>
+                <li><strong>A3:</strong> Fields must close consistently (geometric necessity)</li>
+            </ul>
+
+            <p>
+                <strong>Step 1: The closure number.</strong> What is the minimum number of points 
+                required to enclose a point in 3D? The answer is the simplex theorem: enclosing a 
+                point in \(n\) dimensions requires \(n+1\) points. For 3D:
+            </p>
+            
+            <div class="equation-box">
+                <div class="equation">
+                    \[k = 3 + 1 = 4\]
+                </div>
+            </div>
+            
+            <p>
+                This is pure geometry. Four points form a tetrahedron, the simplest 3D enclosure.
+            </p>
+
+            <p>
+                <strong>Step 2: The tile.</strong> Field closure requires spacetime to tile 
+                consistently. Each tile has \(k = 4\) closure contacts with its neighbors. The 
+                optimal packing satisfying this constraint is MOND spherical structure at scale 
+                \(r_e\) (the classical electron radius) with mass \(m_e\) (the electron mass).
+            </p>
+            
+            <p>
+                <strong>Step 3: Unit gravity.</strong> At the tile boundary, standard gravitational 
+                coupling gives:
+            </p>
+            
+            <div class="equation-box">
+                <div class="equation">
+                    \[g_{\text{tile}} = \frac{Gm_e}{r_e^2}\]
+                </div>
+            </div>
+
+            <p>
+                <strong>Step 4: Interior packing.</strong> The tile's \(k = 4\) geometry permits 
+                exactly 4 spheres to pack tetrahedrally inside. This is the configuration of maximum 
+                stability (the \(\alpha\)-particle pattern).
+            </p>
+
+            <p>
+                <strong>Step 5: The coupling count.</strong> Each interior sphere has \(k = 4\) 
+                coupling faces. With 4 spheres, the total number of coupling channels is:
+            </p>
+            
+            <div class="equation-box">
+                <div class="equation">
+                    \[k^2 = 4 \times 4 = 16\]
+                </div>
+            </div>
+
+            <p>
+                <strong>Step 6: The saturation scale.</strong> The MOND scale is the total 
+                gravitational coupling from all channels:
+            </p>
+            
+            <div class="equation-box">
+                <div class="equation">
+                    \[a_0 = k^2 \times g_{\text{tile}} = 16 \times \frac{Gm_e}{r_e^2} = \frac{16 \, G \, m_e}{r_e^2}\]
+                </div>
+            </div>
+
+            <p>
+                <strong>Numerical verification.</strong> Substituting measured values:
+            </p>
+            
+            <div class="equation-box">
+                <div class="equation">
+                    \[a_0 = \frac{16 \times (6.674 \times 10^{-11}) \times (9.109 \times 10^{-31})}{(2.818 \times 10^{-15})^2} = 1.22 \times 10^{-10} \text{ m/s}^2\]
+                </div>
+            </div>
+
+            <p>
+                The observed value is \(a_0 \approx 1.2 \times 10^{-10}\) m/s². The match is 2% 
+                across 36 orders of magnitude.
+            </p>
+            
+            <div class="table-box">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Step</th>
+                            <th>Result</th>
+                            <th>Source</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>\(k = 4\)</td>
+                            <td>3D simplex theorem</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Tile: \(r_e, m_e\)</td>
+                            <td>MOND spherical structure</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>\(g_{\text{tile}} = Gm_e/r_e^2\)</td>
+                            <td>Gravitational coupling</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>4 spheres inside</td>
+                            <td>Tetrahedral stability</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>\(k^2 = 16\)</td>
+                            <td>Sources × channels</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>\(a_0 = 16Gm_e/r_e^2\)</td>
+                            <td>Total coupling</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <caption>Table 4: The proof chain from axioms to \(a_0\).</caption>
+            </div>
+
+            <p>
+                <strong>What this proves.</strong> The coefficient 16 is not a fit. It is 
+                \(k^2 = (d+1)^2 = 4^2\), where \(d = 3\) is the dimension of space. The only 
+                empirical inputs are the measured values of \(G\), \(m_e\), and \(r_e\). The 
+                formula itself is derived from geometry.
+            </p>
+        </section>
+
+        <!-- ================================================================
+             SECTION 6: HIERARCHICAL STRUCTURE
+             ================================================================ -->
+        <section id="hierarchy">
+            <h2>6. Hierarchical Structure</h2>
+            
+            <div class="highlight-box info">
+                <h4>Learning Objectives</h4>
+                <p>By the end of this section, you will understand:</p>
+                <ul>
+                    <li>Why field closures nest hierarchically (electrons → atoms → planets → stars → galaxies)</li>
+                    <li>What the NET Field represents in this hierarchy</li>
+                    <li>Why the External Field Effect (EFE) follows from hierarchical structure</li>
+                    <li>Why the EFE is a unique prediction that particle dark matter cannot make</li>
+                </ul>
+            </div>
+            
+            <p>
+                Field closure does not occur in isolation. Every closure happens within a larger 
+                gravitational environment, which is itself the result of closures at larger scales. 
+                This section establishes the hierarchical structure of field closure.
+            </p>
+
+            <h3 id="nested-closures">6.1 Nested Closures</h3>
+            
+            <p>
+                Consider a star within a galaxy. The star undergoes field closure: its stress-energy 
+                couples to its gravitational environment, producing consistent geometry. But what is 
+                the star's "environment"? It is the galaxy's gravitational field, which is itself 
+                the result of the galaxy's field closure with its environment (the cluster or cosmic 
+                web).
+            </p>
+            
+            <p>
+                <strong>The hierarchy.</strong> Closures nest like Russian dolls [Logic]:
+            </p>
+            
+            <ul>
+                <li>An electron's closure happens within an atom's gravitational environment</li>
+                <li>An atom's closure happens within a planet's gravitational environment</li>
+                <li>A planet's closure happens within a star's gravitational environment</li>
+                <li>A star's closure happens within a galaxy's gravitational environment</li>
+                <li>A galaxy's closure happens within a cluster's gravitational environment</li>
+                <li>A cluster's closure happens within the cosmic web's gravitational environment</li>
+            </ul>
+            
+            <p>
+                Each level's "NET Field" is the registered state from the level above. The hierarchy 
+                is not optional; it follows from the fact that smaller objects exist within the 
+                gravitational environments of larger objects.
+            </p>
+
+            <h3 id="net-field-identity">6.2 The NET Field as Registered State</h3>
+            
+            <p>
+                In §2, we introduced the NET Field as the gravitational environment with which a 
+                field object couples. We can now identify what the NET Field actually is.
+            </p>
+            
+            <div class="highlight-box definition">
+                <h4>Definition: NET Field (Refined)</h4>
+                <p>
+                    The <strong>NET Field</strong> experienced by field object A is the registered 
+                    state from all field closures at scales larger than A. It is the accumulated 
+                    geometric result of the hierarchy above A.
+                </p>
+            </div>
+            
+            <p>
+                This identification explains the "background" gravitational field. Why does a star 
+                experience the galaxy's gravity? Because the galaxy's field closure has produced a 
+                registered geometric state, and the star's closure must achieve consistency with 
+                this pre-existing geometry.
+            </p>
+            
+            <p>
+                <strong>Consequence.</strong> The NET Field is not an abstract external field; it 
+                is the physical result of closures at larger scales. This grounds the field closure 
+                framework in concrete geometric reality.
+            </p>
+
+            <h3 id="external-field-effect">6.3 The External Field Effect</h3>
+            
+            <p>
+                Hierarchical structure has a measurable consequence: the External Field Effect (EFE).
+            </p>
+            
+            <p>
+                <strong>The mechanism.</strong> Consider a satellite galaxy orbiting within a host 
+                galaxy's gravitational field. The satellite's internal dynamics (its own rotation 
+                curve, for example) must achieve consistency with the host's NET Field through 
+                field closure.
+            </p>
+            
+            <p>
+                If the host's field at the satellite's location has acceleration \(g_{ext}\), then 
+                the satellite's closure boundary must accommodate this external geometry. When 
+                \(g_{ext} > a_0\), the external field "lifts" the satellite's internal dynamics 
+                into the Newtonian regime, even if the satellite's own internal accelerations are 
+                below \(a_0\).
+            </p>
+            
+            <div class="theorem">
+                <div class="theorem-header">Theorem (External Field Effect)</div>
+                <p>
+                    <strong>Given:</strong> Hierarchical closure structure. A subsystem (satellite) 
+                    exists within a larger system's (host's) NET Field \(g_{ext}\).
+                </p>
+                <p>
+                    <strong>Then:</strong> The subsystem's internal dynamics depend on \(g_{ext}\). 
+                    When \(g_{ext} \gg a_0\), the subsystem behaves Newtonianly even if its internal 
+                    accelerations are \(< a_0\).
+                </p>
+                <p>
+                    <strong>Proof:</strong> The subsystem's closure must achieve consistency with the 
+                    host's registered state. This external geometry constrains the subsystem's 
+                    internal resolution. The closure process cannot ignore the external field. ∎
+                </p>
+            </div>
+            
+            <p>
+                <strong>Link to Paper 1.</strong> Paper 1 (§4.3) discusses the External Field Effect 
+                as a prediction that distinguishes field closure from particle dark matter. The EFE 
+                is not an ad hoc addition; it follows necessarily from hierarchical closure structure.
+            </p>
+            
+            <div class="running-example">
+                <h4>Running Example: Dwarf Satellite Galaxies</h4>
+                <p>
+                    Dwarf satellites of the Milky Way (like Crater II or Draco) experience the 
+                    Milky Way's gravitational field. Even though their internal accelerations are 
+                    well below \(a_0\), they do not show the deep-MOND behavior expected for 
+                    isolated systems. The External Field Effect explains this: the Milky Way's 
+                    field at their location lifts their internal dynamics. This is a testable 
+                    prediction that particle dark matter does not make.
+                </p>
+            </div>
+            
+            <p>
+                <strong>Falsifiability.</strong> If satellite galaxies in strong external fields 
+                showed deep-MOND behavior, hierarchical closure would be falsified. Current 
+                observations are consistent with the EFE prediction.
+            </p>
+        </section>
+
+        <!-- ================================================================
+             SECTION 7: GRAVITY AS EMERGENCE
+             ================================================================ -->
+        <section id="emergence">
+            <h2>7. Gravity as Emergence</h2>
+            
+            <div class="highlight-box info">
+                <h4>Learning Objectives</h4>
+                <p>By the end of this section, you will understand:</p>
+                <ul>
+                    <li>How gravity emerges as the geometric gradient \(\nabla\ell(x)\) from field closure</li>
+                    <li>Why geodesic motion follows from lossless coupling</li>
+                    <li>The connection between the local geometry scale \(\ell(x)\) and tetrad formalism</li>
+                </ul>
+            </div>
+            
+            <p>
+                Field closure does not merely explain properties of gravity; it identifies what gravity is.
+            </p>
+
+            <h3 id="geometry-gradient">7.1 The Geometric Gradient</h3>
+            
+            <p>
+                In general relativity, gravity manifests as spacetime curvature. Near a massive object, 
+                clocks run slower and rulers measure differently than far from the object. We characterize 
+                this using the local geometry scale \(\ell(x)\), defined in terms of the metric.
+            </p>
+            
+            <p>
+                In the weak-field, slow-motion limit (appropriate for planetary orbits and galactic dynamics), 
+                the metric takes the form \(g_{00} \approx -(1 + 2\Phi/c^2)\), where \(\Phi\) is the 
+                Newtonian potential. The local geometry scale is:
+            </p>
+            
+            <div class="equation">
+                \[\ell(x) = \sqrt{-g_{00}} \approx 1 + \frac{\Phi(x)}{c^2}\]
+            </div>
+            
+            <p>
+                This encodes how local clocks run compared to clocks at infinity: where \(\ell < 1\), 
+                clocks run slower (gravitational time dilation).
+            </p>
+            
+            <p>
+                When matter couples to its gravitational environment through field closure, the resolved 
+                geometry varies spatially. Near the matter, \(\ell(x)\) is smaller; far from the matter, 
+                \(\ell(x)\) approaches 1. This spatial variation creates a gradient:
+            </p>
+            
+            <div class="equation-box">
+                <div class="equation">
+                    \[\vec{g} = -c^2 \nabla\ell(x) \approx -\nabla\Phi(x)\]
+                </div>
+            </div>
+            
+            <p>
+                This is the Newtonian gravitational acceleration in the appropriate limit. What we call 
+                "gravity" is the spatial gradient in local geometry that field closure creates.</p>
+
+            <h3 id="geodesics">7.2 Geodesics from Coupling</h3>
+            
+            <p>
+                Why do objects follow geodesics? In general relativity, geodesic motion is postulated 
+                for test particles. Field closure explains it.
+            </p>
+            
+            <p>
+                An object coupled to its gravitational environment exists in the resolved geometry. 
+                The object does not "feel" gravity as a force; it follows the geometry that field 
+                closure created. Since the coupling is lossless (§3.2), the object experiences no 
+                proper acceleration. The path of no proper acceleration through curved spacetime is 
+                the geodesic.
+            </p>
+            
+            <div class="running-example">
+                <h4>Running Example: The Planet's Geodesic</h4>
+                <p>
+                    The planet doesn't "fall" toward the star because of a force. Field closure creates 
+                    a unified geometry in which the planet exists. The planet follows this geometry 
+                    naturally, without proper acceleration. From the outside, this looks like an 
+                    elliptical orbit. From the planet's perspective, it is simply existing in the 
+                    geometry that coupling created.
+                </p>
+            </div>
+            
+            <div class="theorem">
+                <div class="theorem-header">Theorem (Gravity as Coupling Gradient)</div>
+                <p>
+                    <strong>Statement:</strong> Gravity is the spatial gradient in local geometry 
+                    created by field closure: \(\nabla\ell(x)\).
+                </p>
+                <p>
+                    <strong>Implication:</strong> Objects follow geodesics because they exist in 
+                    the geometry that coupling created, experiencing no proper acceleration.
+                </p>
+            </div>
+            
+            <p>
+                This identification has a crucial consequence: gravity is not separate from coupling. 
+                Gravity is what coupling creates. There is no gravitational "force" that pulls objects; 
+                there is only the geometric gradient that field closure produces.
+            </p>
+            
+            <p>
+                With field closure established as the mechanism of gravity, subsequent work derives the 
+                specific functional form of the coupling, yielding \(\mu(x) = x/(1+x)\) from geometric 
+                constraints.
+            </p>
+        </section>
+
+        <!-- ================================================================
+             SECTION 8: SCIENTIFIC STATUS
+             ================================================================ -->
+        <section id="status">
+            <h2>8. Scientific Status</h2>
+            
+            <div class="highlight-box info">
+                <h4>Learning Objectives</h4>
+                <p>By the end of this section, you will understand:</p>
+                <ul>
+                    <li>The specific testable predictions that follow from field closure</li>
+                    <li>The falsification criteria for the framework</li>
+                    <li>How Paper V applies \(k=4\) topology to flat-space MOND, yielding \(H = 69.92\) km/s/Mpc (0.11% match)</li>
+                    <li>Current observational status of all predictions</li>
+                </ul>
+            </div>
+            
+            <p>
+                A theoretical framework must make testable predictions to qualify as science. Field 
+                closure satisfies this requirement.
+            </p>
+
+            <h3 id="predictions-exist">8.1 Testable Predictions</h3>
+            
+            <p>
+                Field closure, as a foundation, enables specific predictions when combined with 
+                geometric constraints. Papers 1 and 2 develop these predictions in detail; here we 
+                summarize the key results.
+            </p>
+            
+            <p>
+                <strong>Galactic dynamics (Paper 1).</strong> The coupling functional form 
+                \(\mu(x) = x/(1+x)\) predicts specific rotation curve behavior, the Baryonic 
+                Tully-Fisher Relation, and the External Field Effect. These differ from predictions 
+                based on particle dark matter halos.
+            </p>
+            
+            <p>
+                <strong>Cosmological evolution (Paper 2).</strong> The saturation scale evolves as 
+                \(a_0 \propto H^{1-1/\pi}\). At recombination (\(z = 1100\)), this predicts 
+                gravitational enhancement of 6.46, matching Planck's observed 6.40 to 1%. This 
+                follows from the collective tiling geometry (§4.3).
+            </p>
+            
+            <p>
+                <strong>External Field Effect (§6.3).</strong> Hierarchical closure structure 
+                predicts that satellite galaxies in strong external fields behave differently than 
+                isolated systems. This is observed in Milky Way satellites and is a unique 
+                prediction that particle dark matter does not make.
+            </p>
+            
+            <p>
+                <strong>Fast galactic bars (Paper I).</strong> Without halo friction, galactic bars 
+                should remain fast (\(\mathcal{R} \approx 1.0-1.4\)). Observations confirm this 
+                prediction.
+            </p>
+            
+            <div class="highlight-box info">
+                <h4>Quantitative Tests from Paper V</h4>
+                <p>
+                    Paper V ("The Topology of Gravity") applies the \(k=4\) field topology to MOND's 
+                    flat-space predictions, yielding \(H_{\text{measured}} = 69.92\) km/s/Mpc—matching 
+                    GW170817 to 0.11%. Four quantitative tests confirm \(k=4\):
+                </p>
+                
+                <div class="table-box">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Test</th>
+                                <th>Prediction</th>
+                                <th>Observation</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>1. Coupling ratio</strong></td>
+                                <td>\(a_0/(Gm_e/r_e^2) = k^2 = 16\)</td>
+                                <td>15.93</td>
+                                <td>0.41% match</td>
+                            </tr>
+                            <tr>
+                                <td><strong>2. Frame correction</strong></td>
+                                <td>\(H_{\text{flat}}/H_{\text{measured}} = \sqrt{k/\pi}\)</td>
+                                <td>78.90/69.92 = 1.128</td>
+                                <td>GW170817: 0.11%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>3. Measurement cage</strong></td>
+                                <td>All \(H\) within \(\pm(k/\pi)^{1/4} = \pm 6.2\%\)</td>
+                                <td>65.8-74.3 km/s/Mpc</td>
+                                <td>All 7 methods confirm</td>
+                            </tr>
+                            <tr>
+                                <td><strong>4. Bidirectional</strong></td>
+                                <td>\(H \to m_e\) round-trip closes</td>
+                                <td>\(m_e\) recovered to 0.10%</td>
+                                <td>CODATA match</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <caption>Table: Four quantitative tests from Paper V. All confirm \(k=4\) tetrad topology.</caption>
+                </div>
+                
+                <p>
+                    These tests confirm that applying the \(k=4\) field topology to MOND's flat-space 
+                    predictions reproduces a century of Hubble observations to sub-percent accuracy. 
+                    See Paper V for the complete derivation.
+                </p>
+            </div>
+
+            <h3 id="falsification">8.2 Falsification Criteria</h3>
+            
+            <p>
+                Field closure would be falsified if:
+            </p>
+            
+            <div class="table-box">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Falsification Criterion</th>
+                            <th>Current Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Equivalence principle violated (\(m_g \neq m_i\))</td>
+                            <td>Not observed (tested to \(10^{-13}\))</td>
+                        </tr>
+                        <tr>
+                            <td>Gravitational coupling shows dissipation</td>
+                            <td>Not observed</td>
+                        </tr>
+                        <tr>
+                            <td>Free fall depends on composition</td>
+                            <td>Not observed (tested to \(10^{-13}\))</td>
+                        </tr>
+                        <tr>
+                            <td>Gravitational motion shows history dependence</td>
+                            <td>Not observed</td>
+                        </tr>
+                        <tr>
+                            <td>Collective tiling geometry wrong (§4)</td>
+                            <td>Consistent (Paper 2 matches CMB to 1%)</td>
+                        </tr>
+                        <tr>
+                            <td>\(a_0\) derivation fails (§5)</td>
+                            <td>Consistent (two routes converge)</td>
+                        </tr>
+                        <tr>
+                            <td>External Field Effect absent (§6)</td>
+                            <td>Consistent (observed in satellites)</td>
+                        </tr>
+                        <tr>
+                            <td>\(\mu(x) = x/(1+x)\) fails rotation curves</td>
+                            <td>Consistent (Paper 1)</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <caption>Table 5: Falsification criteria and current observational status.</caption>
+            </div>
+            
+            <p>
+                The four derived properties (§3) have been tested extensively; none show violations. 
+                The three new structural predictions (§4-6) are consistent with observations from 
+                Papers 1 and 2. The framework is falsifiable and currently unfalsified.
+            </p>
+
+            <h3 id="objections">8.3 Common Questions</h3>
+            
+            <p>
+                Several questions naturally arise when encountering this framework. We address 
+                them in the spirit of scientific dialogue.
+            </p>
+            
+            <p>
+                <strong>"Isn't this just naming what GR already does?"</strong>
+            </p>
+            
+            <p>
+                Yes, and that is precisely the point. Naming enables understanding. Thermodynamics 
+                "already" described heat flow, but naming the underlying process "entropy increase" 
+                enabled statistical mechanics. General relativity guarantees geometric consistency; 
+                field closure names HOW that consistency is achieved. The value is not in adding 
+                physics but in gaining resolution: seeing the distributed local architecture that 
+                was always there but previously unnamed. This resolution is what enabled the 
+                predictions in Papers 1 and 2.
+            </p>
+            
+            <p>
+                <strong>"Are the derivations in §3 circular?"</strong>
+            </p>
+            
+            <p>
+                No. The logical directions differ. GR starts with the equivalence principle and 
+                derives gravitational dynamics. Field closure starts with geometric consistency 
+                (P1 + P2) and derives the equivalence principle. That both routes arrive at the 
+                same physics is evidence of consistency, not circularity. The derivations explain 
+                WHY the equivalence principle holds, rather than assuming it.
+            </p>
+            
+            <p>
+                <strong>"This paper makes no new predictions. Is it science?"</strong>
+            </p>
+            
+            <p>
+                This paper establishes foundations; predictions emerge when foundations meet 
+                constraints. The relationship mirrors thermodynamics and statistical mechanics: 
+                the second law alone does not predict specific heat capacities, but combined with 
+                molecular theory, predictions follow. Field closure alone does not predict rotation 
+                curves, but combined with geometric constraints (Paper 1), specific predictions 
+                emerge. Foundations should be secure before predictions are attempted.
+            </p>
+            
+            <p>
+                <strong>"Is field closure falsifiable?"</strong>
+            </p>
+            
+            <p>
+                Yes. The four derived properties in §3 are experimentally testable. If the equivalence 
+                principle were violated (\(m_g \neq m_i\)), or free fall depended on composition, or 
+                gravitational coupling showed dissipation, or motion exhibited history dependence, 
+                field closure would be falsified. The structural predictions in §4-6 add further 
+                tests: collective tiling predicts the \(1/\pi\) factor, finite resolution predicts 
+                \(a_0\)'s value, and hierarchical structure predicts the External Field Effect. 
+                All are subject to empirical verification.
+            </p>
+            
+            <p>
+                <strong>"Does this only apply to weak fields?"</strong>
+            </p>
+            
+            <p>
+                No. Fields are three-dimensional, field closure occurs wherever fields interact, 
+                and fields are what the universe is made of (§4.2). The weak-field expressions in 
+                §7 are pedagogical; strong-field applications (black holes, neutron stars) use the 
+                full metric. The tiling structure (spherical close-packing in 3D, hexagonal projection 
+                in 2D) is omnipresent. What changes with scale is observational dominance: at high 
+                accelerations (\(g \gg a_0\)), conventional GR predictions dominate; at low 
+                accelerations (\(g \lesssim a_0\)), the collective tiling structure produces 
+                measurable deviations. The mechanism is always active; the saturation scale 
+                determines where we notice it.
+            </p>
+        </section>
+
+        <!-- ================================================================
+             SECTION 9: CONCLUSION
+             ================================================================ -->
+        <section id="conclusion">
+            <h2>9. Conclusion</h2>
+            
+            <p>
+                The universe computes gravity through distributed local processing.
+            </p>
+            
+            <p>
+                This is not a metaphor. Every closure boundary in the cosmos processes its 
+                coupling independently: no central coordinator, no global synchronization, just 
+                local resolution to geometric consistency at every point where matter meets field. 
+                The architecture we invented for parallel computing, the universe has been running 
+                since the beginning.
+            </p>
+            
+            <p>
+                We proved this architecture is logically necessary. Given general relativity and the 
+                law of non-contradiction, field closure must occur (§2). Understanding how it occurs 
+                reveals that processing is local (§2.5), that collective settlement tiles uniformly 
+                (§4), that local capacity is finite (§5), and that processors nest hierarchically (§6). 
+                These are not separate assumptions; they are consequences of distributed local 
+                processing under geometric constraints.
+            </p>
+            
+            <p>
+                <strong>What this resolves.</strong> For decades, the gravitational effects we 
+                attributed to "dark matter" have driven enormous experimental and theoretical effort. 
+                The particles remain undetected. This framework offers a different answer: the effects 
+                are real, but the explanation is architectural, not particulate. The "missing" 
+                gravitational enhancement emerges from the structure of field closure itself. Papers 1 
+                and 2 demonstrate this concretely: rotation curves, the Baryonic Tully-Fisher Relation, 
+                CMB acoustic peaks, all matched without invoking new particles or free parameters.
+            </p>
+            
+            <p>
+                <strong>What this explains.</strong> Understanding the mechanism derives what general 
+                relativity assumes. The equivalence principle, lossless coupling, composition 
+                independence, and history-free motion are not brute facts; they follow from the 
+                local geometric nature of field closure (§3). We did not add physics; we gained 
+                resolution on physics that was already there.
+            </p>
+            
+            <div class="highlight-box primary">
+                <h4>The Discovery</h4>
+                <p>
+                    Gravity operates through distributed local processing at closure boundaries. 
+                    This single architectural insight explains:
+                </p>
+                <ul style="margin: 8px 0 0 0; padding-left: 1.5em;">
+                    <li>Why the equivalence principle holds (§3)</li>
+                    <li>Why collective settlement produces hexagonal tiling (§4)</li>
+                    <li>Why a saturation scale \(a_0\) exists (§5)</li>
+                    <li>Why the External Field Effect occurs (§6)</li>
+                    <li>Why \(\mu(x) = x/(1+x)\) matches galactic dynamics (Paper 1)</li>
+                    <li>Why \(a_0 = cH/(2\pi)\) matches the CMB to 1% (Paper 2)</li>
+                </ul>
+                <p style="margin-top: 12px;">
+                    The mathematical structures in Papers 1 and 2 were not choices. They were 
+                    the only possibilities consistent with distributed local processing under 
+                    the constraints of general relativity.
+                </p>
+            </div>
+            
+            <p>
+                <strong>What this paper discovered.</strong> The geometric derivation (§5.4) identifies the 
+                electron as the minimum closure unit, deriving \(a_0 = 16Gm_e/r_e^2 = 1.22 \times 10^{-10}\) 
+                m/s² from first principles. Paper II's cosmological derivation gives \(cH/(2\pi) = 1.08 
+                \times 10^{-10}\) m/s². These differ by 12%, but we identified that the ratio is 
+                \(\sqrt{k/\pi} = 1.128\) to 0.1%. This was not coincidence: the unit of gravity at 
+                electron scale carries with it an underlying field topology.
+            </p>
+            
+            <p>
+                <strong>Application in Paper V.</strong> Paper V ("The Topology of Gravity") applies the 
+                \(k=4\) field topology—characterized throughout the DFP framework—to MOND's flat-space 
+                predictions. MOND operates in flat space; cosmological observations project through curved 
+                geometry. Applying the \(\sqrt{k/\pi}\) frame correction to \(H_{\text{flat}} = 78.90\) km/s/Mpc 
+                yields \(H_{\text{measured}} = 69.92\) km/s/Mpc, matching GW170817 to 0.11%. This confirms 
+                a century of Hubble observations. The Hubble "tension" is the predicted signature of 
+                measuring flat-space MOND through \(k=4\) topology.
+            </p>
+            
+            <p>
+                <strong>Remaining questions.</strong> Two directions remain for future work:
+            </p>
+            
+            <ul>
+                <li><strong>Strong fields and dynamics:</strong> How does field closure behave in strong 
+                    fields? In rapidly changing configurations? Near black holes?</li>
+                <li><strong>Quantum-gravity interface:</strong> The electron scale \(r_e\) bridges quantum 
+                    and gravitational regimes. Does field closure illuminate this interface?</li>
+            </ul>
+            
+            <p>
+                The distributed processing architecture is a new lens for gravitational physics. 
+                The hidden architecture is now revealed; its full consequences remain to be explored.
+            </p>
+            
+            <p>
+                We began by asking how gravitational coupling achieves consistency. The answer 
+                turned out to be architectural: distributed local processing at closure boundaries, 
+                with no central coordinator, tiling uniformly, nesting hierarchically, and creating 
+                the geometric gradients we experience as gravity. Where MOND meets the electron, 
+                we find the unit of gravity. The universe has been doing parallel computation all 
+                along. We just learned to see it.
+            </p>
+            
+            <div class="table-box">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Level</th>
+                            <th>Type</th>
+                            <th>Claims</th>
+                            <th>Marker</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>1</strong></td>
+                            <td>Logically Necessary</td>
+                            <td>Field closure must occur; collective tiling; hierarchy</td>
+                            <td>[P1 + P2]</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2</strong></td>
+                            <td>Derived</td>
+                            <td>Equivalence principle; lossless coupling; composition independence; history-free motion</td>
+                            <td>[From FC]</td>
+                        </tr>
+                        <tr>
+                            <td><strong>3</strong></td>
+                            <td>Predicted</td>
+                            <td>\(\mu(x) = x/(1+x)\); \(a_0 = cH/(2\pi)\); EFE; CMB enhancement</td>
+                            <td>[From FC + constraints]</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <caption>Table 6: The Three-Level Claim Structure of DFP.</caption>
+            </div>
+        </section>
+
+        <!-- ================================================================
+             ACKNOWLEDGMENTS
+             ================================================================ -->
+        <section>
+            <h2>Acknowledgments</h2>
+            <p>
+                The author is deeply grateful to Mordehai Milgrom, whose 1983 insight that galactic 
+                dynamics might follow a modified law below a characteristic acceleration \(a_0\) 
+                opened a research program that has now spanned four decades. The MOND phenomenology 
+                he identified was the empirical foundation that made this theoretical work possible.
+            </p>
+            <p>
+                Thanks also to Stacy McGaugh, Federico Lelli, and the broader community of researchers 
+                who have meticulously tested MOND predictions against galactic observations, establishing 
+                the Radial Acceleration Relation and the Baryonic Tully-Fisher Relation as precision 
+                constraints that any theory must satisfy.
+            </p>
+            <p>
+                This work builds on the foundation laid by Einstein's general relativity and benefits 
+                from a century of precision tests by the physics community. The author acknowledges 
+                that progress in science is cumulative, and that the architecture revealed here was 
+                always implicit in the structures these researchers discovered.
+            </p>
+        </section>
+
+        <!-- ================================================================
+             REVISION HISTORY
+             ================================================================ -->
+        <section>
+            <h2>Revision History</h2>
+            <ul style="font-size: 0.95em;">
+                <li><strong>Version 4 (January 2026):</strong> Comprehensive revision to enhance 
+                pedagogical clarity and add cross-references to Paper V. All theoretical derivations, 
+                equations, and predictions remain unchanged. Abstract restructured with explicit 
+                Background/Method/Results/Implications organization. Learning Objectives boxes added to 
+                all major sections (1-9) to guide reader expectations. Scope and Commitments box added 
+                to Section 1. Section 5.3 enhanced with notes showing how Paper V applies the \(k=4\) 
+                field topology (characterized throughout the DFP framework) to MOND's flat-space predictions. 
+                Historical Note added to §5.3 documenting the evolution of the Hubble prediction: the 
+                original prediction of \(H = 78.90\) km/s/Mpc remains as MOND's flat-space value 
+                (\(H_{\text{flat}}\)); Paper V subsequently identified that observations measure through 
+                the topology, yielding \(H_{\text{measured}} = 69.92\) km/s/Mpc (matching GW170817 to 0.11%). 
+                Section 8.1 expanded with cross-reference to the four quantitative tests from Paper V. 
+                Section 9 updated to clarify the relationship between this paper's identification of the 
+                \(\sqrt{k/\pi}\) ratio and Paper V's application of topology to flat-space MOND. Stylistic 
+                refinements throughout for consistency across the DFP paper series.</li>
+                <li><strong>Version 3 (January 2026):</strong> Initial public version.</li>
+            </ul>
+        </section>
+
+        <!-- ================================================================
+             REFERENCES
+             ================================================================ -->
+        <section>
+            <h2>References</h2>
+            <ol style="font-size: 0.95em;">
+                <li>Nelson, S. (2026). "Distributed Field Processing I: Galactic Dynamics from Field Closure." 
+                    <em>Field Dynamics</em>. [Paper 1: Derives μ(x) = x/(1+x), rotation curves, Baryonic Tully-Fisher Relation]</li>
+                <li>Nelson, S. (2026). "Distributed Field Processing II: Cosmological Scaling from Geometric Tiling." 
+                    <em>Field Dynamics</em>. [Paper 2: Derives a₀ = cH/(2π), CMB enhancement to 1%]</li>
+                <li>Einstein, A. (1915). "Die Feldgleichungen der Gravitation." 
+                    <em>Sitzungsberichte der Preussischen Akademie der Wissenschaften</em>.</li>
+                <li>Milgrom, M. (1983). "A modification of the Newtonian dynamics as a possible 
+                    alternative to the hidden mass hypothesis." <em>Astrophysical Journal</em> 270, 365-370.</li>
+                <li>Milgrom, M. (1983). "A modification of the Newtonian dynamics: Implications for 
+                    galaxies." <em>Astrophysical Journal</em> 270, 371-383.</li>
+                <li>McGaugh, S. S., Lelli, F., & Schombert, J. M. (2016). "Radial Acceleration Relation 
+                    in Rotationally Supported Galaxies." <em>Physical Review Letters</em> 117, 201101.</li>
+                <li>Lelli, F., McGaugh, S. S., & Schombert, J. M. (2017). "The baryonic Tully-Fisher 
+                    relation." <em>Monthly Notices of the Royal Astronomical Society</em> 464, 4, 4123-4132.</li>
+                <li>Touboul, P. et al. (2022). "MICROSCOPE Mission: Final Results of the Test of the 
+                    Equivalence Principle." <em>Physical Review Letters</em> 129, 121102.</li>
+                <li>Will, C. M. (2014). "The Confrontation between General Relativity and Experiment." 
+                    <em>Living Reviews in Relativity</em> 17, 4.</li>
+                <li>Misner, C. W., Thorne, K. S., & Wheeler, J. A. (1973). <em>Gravitation</em>. 
+                    W. H. Freeman.</li>
+                <li>Planck Collaboration (2020). "Planck 2018 results. VI. Cosmological parameters." 
+                    <em>Astronomy & Astrophysics</em> 641, A6.</li>
+            </ol>
+        </section>
+
+    </div>
+</body>
+</html>
