@@ -51,6 +51,35 @@ That is the claim of Picture one: **the 24 components removed in 1915 are the co
 
 *Figure 2 of Letter 3. The constitutive law $\mu(x) = x/(x+1)$, rendered over radius. Blue: the TetA share $\mu$, retained by general relativity. Red: the TetB share $1 - \mu$, removed by the torsion-free condition. An interactive version you can rotate is [`figure2_tetrad_partition.html`](papers/letter-3-field-closure-of-tetrad-frame/Supplementary/figure2_tetrad_partition.html).*
 
+### How the surfaces are built
+
+Each disc is a **surface of revolution**: a single curve, spun one full turn about a vertical axis, the way a lathe or a potter's wheel turns a profile into a solid shape. The figure is built in four steps.
+
+1. **Choose a system and a unit of distance.** Take a single central mass $M$, and measure distance in units of its *transition radius*, $r_M = \sqrt{GM/a_0}$: the distance at which the mass's own pull falls to $a_0$. For the Sun, $r_M$ is about 7,000 AU. In these units the Newtonian acceleration, $g = GM/r^2$, becomes simply
+
+   $$x = \frac{g}{a_0} = \frac{1}{r^2} .$$
+
+2. **Compute the two shares at each radius.** Substituting $x = 1/r^2$ into the constitutive law gives two curves with a very simple form:
+
+   $$\text{blue (TetA)}: \; \mu = \frac{1}{1 + r^2}, \qquad \text{red (TetB)}: \; 1 - \mu = \frac{r^2}{1 + r^2} .$$
+
+   The height of each surface is the share of the field that root carries at that radius:
+
+   | Radius $r$ (units of $r_M$) | 0 | 0.5 | 1 | 2 | 5 |
+   |---|---|---|---|---|---|
+   | Blue height $\mu$ | 1 | 0.80 | 0.5 | 0.20 | 0.04 |
+   | Red height $1-\mu$ | 0 | 0.20 | 0.5 | 0.80 | 0.96 |
+
+   The blue curve starts at full height in the centre and falls away outward, a dome. The red curve starts at zero in the centre and rises toward full height at the rim, a bowl. At every radius the two heights add to one.
+
+3. **Spin each curve about the vertical axis.** The constitutive law depends only on how strong the acceleration is, not on its direction, so the curve is the same along every direction out from the centre. Sweeping it through 360° turns the blue curve into a dome-shaped surface and the red curve into a bowl-shaped one. The figure draws both out to five transition radii.
+
+4. **Mark where they cross.** The two curves meet at $r = 1$, at height $\tfrac12$. Spun around the axis, that crossing point becomes a circle of radius $r_M$: the white ring. Inside it the blue dome is higher, and outside it the red bowl is higher.
+
+The spiral lines drawn on the surfaces are visual guides that help the eye follow their curvature in three dimensions. They are not derived from the constitutive law. Only the heights of the surfaces carry physical content.
+
+The figure shows the simplest case, a single central mass. For a real galaxy, with its mass spread through a bulge and a disk, the acceleration profile $g(r)$ comes from that mass distribution instead of $GM/r^2$. The shares at each radius are then $\mu(x)$ and $1 - \mu(x)$ with the galaxy's own $x(r)$. The shapes stretch or sharpen, but the dome, the bowl and the ring at $x = 1$ remain.
+
 ### How to read the surfaces
 
 Picture one says which components belong to which root. Picture two says how much of the field each root carries, and where.
