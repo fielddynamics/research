@@ -91,7 +91,7 @@ Each reading supplies a piece the others lack. One way to fit them together is t
 
 **A single read produces no force.** If every cell of the lattice read the same, nothing would move. A uniform gravitational potential exerts no force either; only its gradient does. Paper I's starting point is that the Laplacian at the heart of the field equation is a comparison between neighbours, $\Phi(x+\epsilon) + \Phi(x-\epsilon) - 2\Phi(x)$. The connection is by definition the rule relating one frame to the next, and its 64 components are the $8 \times 8$ ordered transitions between the corners of neighbouring cubes. On this view gravity lives in the transitions, not in the cells.
 
-**The stellated octahedron sets the strength.** G's exponent, $21 = 1 + K + K^2$, counts the levels of the tetrad: a scalar, the four legs of one tetrahedron and their sixteen couplings. These blocks are built from $K = 4$, not from the cube's $2^3$. If each level costs one factor of $\alpha$, the exchange between neighbours is attenuated by $\alpha^{21}$, read at full TetA depth. The prefactor $17/13$ compares the Field Origin read with the TetB read.
+**The stellated octahedron sets the strength.** G's exponent, $21 = 1 + K + K^2$, counts the levels of the tetrad: a scalar, the four legs of one tetrahedron and their sixteen couplings. These blocks are built from $K = 4$, not from the cube's $2^3$. If each level costs one factor of $\alpha$, the exchange between neighbours is attenuated by $\alpha^{21}$, read at full TetA depth. The prefactor $17/13$ is the parity-even core that the metric couples through (17) over the TetB scaffold that carries it (13).
 
 **The cube completes it.** The cube's spectrum factors as $H_8 = H_2 \otimes H_4$ (Paper C). $H_4$ is the frame within one tetrahedron; $H_2$ says which tetrahedron, and that is the cube's parity. General relativity keeps only the parity-even part, so it reads a single chamber. The full field needs $H_2$: both chambers, and with them $1 - \mu$. At $D = 3$ the two counts coincide, $2 \times 4 = 8$ corners and $K^3 = 64 = 8 \times 8$, which is why the cube and the stellated octahedron can be read as one object.
 
@@ -125,9 +125,11 @@ Everything in G except one step is geometry and algebra. That step is the claim 
 
 G uses all three values of the polynomial at once, $21$ in the exponent and $17/13$ in the prefactor, and it is a constant. The partition slides: the continuous field equation $f(x) = (21x + 13)/(x + 1) = 13 + 8\mu(x)$ moves from 21 in strong fields to 13 in weak ones. If the strength of gravity were $\alpha$ raised to the local depth $f(x)$, weak-field gravity would be $\alpha^{-8} \approx 10^{17}$ times stronger than strong-field gravity, which is plainly not the case. So depth and partition must act in different ways: the depth fixes the constant, and the partition weights the response linearly. A complete answer has to say why the constant reads the whole polynomial and the response reads only its position.
 
-### 3. Why $17/13$?
+### 3. The prefactor is settled; the loop factor's reading is not
 
-The prefactor is the Field Origin read over the TetB read. Numerically it is unique among simple alternatives, but the reason for that particular ratio, and not, say, $21/17$, is not yet derived from first principles. The one-loop factor is decomposed in [`synthesis_one_loop_G.md`](synthesis_one_loop_G.md) as $\tfrac{2}{17} \times \tfrac{17\alpha}{4\pi}$, which matches the residual exactly; that decomposition is an interpretation found after the residual was known, not a prediction made before.
+The prefactor $17/13$ is derived. Paper VI (§8.3, and [`FORMAL BRIDGING OF 17-13.md`](../../papers/06-gravitational-constant-from-topology/FORMAL%20BRIDGING%20OF%2017-13.md)) writes it as $(D^2 + 1)/(dD + 1)$, "coupling channels versus structural elements": the numerator is the 16 tetrad components plus the identity, and the denominator is the $3 \times 4 = 12$ spatial skeleton plus the identity. Letter 2 and the [algebraic pipeline](../../papers/algebraic-papers-a-b-c/algebraic_pipeline_of_reality.md) give the same choice its structural reason. The metric is parity-even, so it couples through the $s = 0$ read, the parity-even core, which is 17, not the full $s = +1$ read of 21: the sign representation, which carries the parity-odd $K$, is absent from the Christoffel sector. The TetB read, 13, is the scaffold that carries that coupling. The look-elsewhere test confirms numerically that no other simple prefactor competes.
+
+What remains open is the one-loop factor's reading. [`synthesis_one_loop_G.md`](synthesis_one_loop_G.md) decomposes $\alpha/2\pi$ as $\tfrac{2}{17} \times \tfrac{17\alpha}{4\pi}$, which matches the residual exactly; that decomposition was found after the residual was known, so it is an interpretation still to be derived.
 
 ### 4. From read to gradient
 
@@ -151,7 +153,7 @@ The light-substrate notes describe the graviton as two stellated octahedra coupl
 
 - **A derivation of $\alpha$ per level** from the coupling of null frames, so that $\alpha^{21}$ follows rather than being assumed.
 - **A continuum limit** of a cell-by-cell closure read that reproduces the modified Poisson equation, including the factor $4\pi$ and the weighting by $\mu$.
-- **A derivation of the prefactor**, showing why the Field Origin and TetB reads enter as a ratio.
+- **A derivation of the one-loop factor**, showing from the structure why the correction is the Schwinger term $\alpha/2\pi$.
 - **An observation that separates the readings from plain MOND.** Every reading above reproduces the radial acceleration relation, because they share $\mu(x)$. Something unique to GFD would have to come from the restored torsion sector, which Letter 3 says persists in empty space, unlike Einstein–Cartan torsion. Identifying a measurable consequence of that is the most direct test available.
 - **The wide-binary tests**, beyond a few thousand AU from a star, where the external field of the Milky Way and the transition at $a_0$ both matter. The published analyses currently disagree (Chae 2023; Banik et al. 2024).
 

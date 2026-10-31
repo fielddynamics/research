@@ -11,7 +11,7 @@ Gravity is weaker than electromagnetism by a factor of about $10^{43}$, and Newt
 $$G = \frac{17}{13}\,\alpha^{21}\,\frac{\hbar c}{m_e^2}\left(1 + \frac{\alpha}{2\pi}\right).$$
 
 - **21** $= 1 + K + K^2$ is the depth of the read: a scalar, the four legs of the tetrad and their sixteen couplings. Each level costs one factor of the fine-structure constant $\alpha$.
-- **17/13** compares the read at the Field Origin with the read in TetB.
+- **17/13** is the parity-even core that the metric couples through, $K^2 + 1 = 17$, over the TetB scaffold that carries it, $DK + 1 = 13$: coupling channels over structural elements (Paper VI, §8.3).
 - **$\hbar c/m_e^2$** sets the scale, through the electron, the smallest closed pattern.
 - **$1 + \alpha/2\pi$** is the one-loop correction, the same Schwinger term that appears in the electron's magnetic moment.
 
@@ -34,7 +34,7 @@ The hierarchy follows in one line: electromagnetism couples through one level an
 | The value of G at tree level (0.12%) and one loop (12 ppm) | Matches measurement |
 | Uniqueness of $17/13 \cdot \alpha^{21}$ among simple alternatives | Computed by [`look_elsewhere_G.py`](look_elsewhere_G.py) |
 | Each coupling level attenuates by one factor of $\alpha$ | The single physical assumption: the frame is built from null directions, so its coupling is photonic |
-| The ratio $17/13$ as Field Origin over TetB | Supported numerically; not yet derived from first principles |
+| The prefactor $17/13 = (K^2+1)/(DK+1)$: the parity-even core the metric couples through, over the TetB scaffold | Derived in Paper VI §8.3 ([formal bridging note](../../papers/06-gravitational-constant-from-topology/FORMAL%20BRIDGING%20OF%2017-13.md)); confirmed numerically by the look-elsewhere test |
 | The decomposition of $\alpha/2\pi$ as $\tfrac{2}{17} \times \tfrac{17\alpha}{4\pi}$ | An interpretation of the residual |
 
 ## Running
