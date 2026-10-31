@@ -324,6 +324,41 @@ python papers/gram-matrix-of-tetrad-equation/verify_gram_theorems.py
 python "research/quantum compute/GFD oscillator v2/run_all.py"
 ```
 
+### Companion repository: the Gravity Field Model
+
+The computational model lives in its own repository, [fielddynamics/dfp-gravity-field-model](https://github.com/fielddynamics/dfp-gravity-field-model). It contains **989 tests in 235 test files**, each comparing a derivation and a model value against an observed or reference value and reporting PASS or FAIL. They fall into two groups:
+
+| Group | Folder | Tests | What it covers |
+|---|---|---|---|
+| Engine | `field_closure/` | 257 | Pi-driven traversal, BBP algorithm, orbit statistics |
+| | `geometry/` | 104 | Stellated octahedron structure, vertex encoding, face classification |
+| | `engine_dynamics/` | 76 | Binding, spin, stability |
+| | `field_probing/` | 60 | Exploratory probes of information flow, entropy and diffusion in the traversal |
+| | `engine_crosschecks/` | 47 | Independent re-verification of the traversal |
+| | `information/` | 37 | Bits per orbit, entropy, channel capacity |
+| | `stress_tests/` | 22 | Determinism, ergodicity |
+| | `timing/` | 20 | Settlement frequency, Compton timing |
+| | `foundations/` | 14 | Lattice axioms and bounds |
+| Calculations | `stellar_mechanics/` | 99 | Fusion thresholds, element formation, binding densities |
+| | `field_theory/` | 54 | Field equations, boundary terms, exterior calculus |
+| | `emergent_constants/` | 50 | α, G, mass ratios, spin, the MOND scale, H₀ |
+| | `historical_systems/` | 43 | Correspondences with the I Ching, gematria and other historical systems |
+| | `particle_physics/` | 42 | Quark structure, mass derivations |
+| | `entanglement_mechanics/` | 20 | Quantum correlations, Tsirelson bounds |
+| | `black_holes/` | 13 | Bekenstein–Hawking entropy, horizons, Kerr ISCO |
+| | `cross_checks/` | 12 | The electron mass by independent routes |
+| | `quantum_tunneling/` | 11 | Gamow peak, Hoyle resonance, STM tunneling |
+| | `biological_mechanics/`, `coupling_dynamics/` | 8 | Biological mechanics, bimetric coupling channels |
+| **Total** | | **989** | |
+
+```bash
+git clone https://github.com/fielddynamics/dfp-gravity-field-model.git
+cd dfp-gravity-field-model
+pip install flask numpy
+python gravity_field_model/web_interface/run_web.py        # browse and run tests at http://localhost:5005
+python -m gravity_field_model.run_test --list              # or list every test from the command line
+```
+
 Notes:
 
 - Many paths contain spaces and parentheses; quote them in the shell.
