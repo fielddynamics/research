@@ -59,7 +59,7 @@ This repository holds the working research behind the Gravity Field Dynamics fra
 
 I'm a tech engineer with an interest in theoretical physics, and this whole body of work grew from one idea: **field closure**.
 
-My working life has been spent building enterprise encryption systems for government. In that world, state has to close. A transaction either settles or it does not; there is no half-committed balance, and nothing is allowed to go unaccounted for. When I began thinking about gravity, I kept returning to the same question: if reality is informational at bottom, how could it keep its books any other way?
+My working life has been spent building enterprise systems, including encryption systems for government. In that world, state has to close. A transaction either settles or it does not; there is no half-committed balance, and nothing is allowed to go unaccounted for. When I began thinking about gravity, I kept returning to the same question: if reality is informational at bottom, how could it keep its books any other way?
 
 The requirement that a field must close is not my invention. Most tetrad formalisms carry it already, and general relativity enforces it: the tetrad must be non-degenerate, $\det(e) \neq 0$, with four independent directions defined at every point, and the constraint equations must hold on every slice before the field can evolve. Paper VII sets this out in its section *Field Closure: The Requirement GR Already Enforces*. What I have tried to do is take that requirement seriously as a process and follow where it leads.
 
