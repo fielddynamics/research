@@ -24,7 +24,7 @@ The hierarchy follows in one line: electromagnetism couples through one level an
 1. [`g_matrix_synthesis.md`](g_matrix_synthesis.md), *G as a Matrix Read*. The derivation: the graded operator $I_s = P_0 + sP_1 + P_2$ on blocks of size 1, 4 and 16, its three traces 21, 17 and 13, and the identity $\det(\alpha^{I}) = \alpha^{\mathrm{Tr}\,I}$.
 2. [`synthesis_one_loop_G.md`](synthesis_one_loop_G.md), *The One-Loop Correction to G*. The residual at tree level matches $\alpha/2\pi$, and a structural reading of that factor.
 3. [`read_sweep_synthesis.md`](read_sweep_synthesis.md), *The Read Sweep*. A physical picture of what does the reading: 64 sectors, three harmonic bands of 1, 4 and 16, and light, gravity and matter as three patterns of one process.
-4. [`what_is_gravity.md`](what_is_gravity.md), *What Is Gravity?* An open question. It sets the archive's five readings of gravity side by side (the lattice, the read sweep, closure settling, the connection and the pixel computing), shows how they fit into one synthesis, and lists what the archive itself names as open.
+4. [`what_is_gravity.md`](what_is_gravity.md), *What Is Gravity?* An open question. It follows one mechanism, first stated in Papers I–III, that field closure requires a read, through what is read (the lattice), what reads it (the sweep), what the read produces (settlement and registration), how general relativity sees it (the connection) and the algebra it runs on (the cube), and lists what the archive itself names as open.
 
 ## What is derived, and what is assumed
 
