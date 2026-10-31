@@ -20,7 +20,7 @@ Every step of that account is derived somewhere in the archive. They have not ye
 
 The work in this archive answers three questions about gravity with unusual precision:
 
-- **How strong it is.** $G = \tfrac{17}{13}\,\alpha^{21}\,\hbar c/m_e^2$, within 0.12% of the measured value at tree level and 12 parts per million with the one-loop factor $1 + \alpha/2\pi$.
+- **How strong it is.** $G = \dfrac{K^2+1}{DK+1}\,\alpha^{1+K+K^2}\,\dfrac{\hbar c}{m_e^2} = \tfrac{17}{13}\,\alpha^{21}\,\hbar c/m_e^2$ with $K = 3+1$ and $D = 3$, within 0.12% of the measured value at tree level and 12 parts per million with the one-loop factor $1 + \alpha/2\pi$.
 - **What shape it has.** The connection has 64 components. General relativity keeps 40 and removes 24, and the constitutive law $\mu(x) = x/(1+x)$ shares the field between the two tetrahedral chambers at every radius.
 - **How it travels.** At $c$, the same speed as light, as GW170817 confirmed.
 
@@ -30,7 +30,7 @@ The fourth question, **what gravity is**, is the subject of this note. It follow
 
 | Term | Meaning |
 |---|---|
-| $K = 4$, $D = 3$ | The number of tetrad legs and of spatial dimensions. Paper VII writes them $k$ and $d$. |
+| $K = 3+1$, $D = 3$ | The number of tetrad legs, one per spacetime dimension, and the number of spatial dimensions. Paper VII writes them $k$ and $d$. |
 | $f(K, s) = 1 + sK + K^2$ | The coupling polynomial: $f(+1) = 21$, $f(0) = 17$, $f(-1) = 13$ |
 | TetA, TetB | The two tetrahedral chambers of the frame. General relativity describes TetA. |
 | $\mu(x)$ | The share of the field resolved through TetA, at $x = g/a_0$ |
@@ -106,6 +106,12 @@ The same operator, read at the other two values of $s$, gives the prefactor. Eac
 | $f(+1) = 21$ | Full TetA depth: scalar, 4 legs, 16 couplings | The exponent, $\alpha^{21}$ |
 | $f(0) = K^2 + 1 = 17$ | The Field Origin, where the face channels are absent: 16 bimetric coupling channels plus the vertex | Numerator: coupling capacity |
 | $f(-1) = DK + 1 = 13$ | TetB: the 4 face channels projected onto 3 spatial dimensions, plus one | Denominator: spatial structure |
+
+Written in $K$ and $D$, with nothing but the dimension of spacetime in it, Newton's constant is
+
+$$G = \frac{K^2 + 1}{DK + 1}\;\alpha^{\,1 + K + K^2}\;\frac{\hbar c}{m_e^2} = \frac{(3+1)^2 + 1}{3(3+1) + 1}\;\alpha^{\,1 + (3+1) + (3+1)^2}\;\frac{\hbar c}{m_e^2} = \frac{17}{13}\,\alpha^{21}\,\frac{\hbar c}{m_e^2}.$$
+
+Neither the prefactor nor the exponent is adjustable; all three numbers follow from $K = 3+1$ and $D = 3$ (Eq. 24).
 
 The ratio $17/13$ is derived twice, as coupling channels over structural elements (Paper VI, §8.3; [`FORMAL BRIDGING OF 17-13.md`](../../papers/06-gravitational-constant-from-topology/FORMAL%20BRIDGING%20OF%2017-13.md)) and as coupling capacity over spatial structure (Eq. 24). Letter 2 adds why the metric couples through 17: the sign representation carrying the parity-odd $K$ is absent from the Christoffel sector, so 17 is the parity-even core (see also the [algebraic pipeline](../../papers/algebraic-papers-a-b-c/algebraic_pipeline_of_reality.md)). The three values are locked together, $f(0) = \tfrac12[f(+1) + f(-1)]$ (Eq. 23), and among 1,953 simple alternatives no other prefactor and exponent come close.
 
