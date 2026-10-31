@@ -11,12 +11,14 @@
 The work in this archive answers three questions about gravity with unusual precision:
 
 - **How strong it is.** $G = \tfrac{17}{13}\,\alpha^{21}\,\hbar c/m_e^2$, within 0.12% of the measured value at tree level and 12 parts per million with the one-loop factor $1 + \alpha/2\pi$.
-- **What shape it has.** The connection has 64 components. General relativity keeps 40 and removes 24, and the constitutive law $\mu(x) = x/(x+1)$ shares the field between the two tetrahedral chambers at every radius.
+- **What shape it has.** The connection has 64 components. General relativity keeps 40 and removes 24, and the constitutive law $\mu(x) = x/(1+x)$ shares the field between the two tetrahedral chambers at every radius.
 - **How it travels.** At $c$, the same speed as light, as GW170817 confirmed.
 
 A fourth question, **what gravity is**, is answered in several places, each from a different side of the work: as a lattice, as a read, as closure settling, as a connection and as a computing medium.
 
-This note sets those readings side by side and shows how they fit into one picture. It records what any answer must account for, what each reading contributes, the synthesis, and what the archive itself still names as open. It is written as an open question because the synthesis, though built entirely from derived pieces, has not yet been stated as one derivation.
+This note sets those readings side by side and shows how they fit into one picture. It proceeds in four steps: what any answer must account for; what each reading contributes; a synthesis that joins them; and what the archive itself still names as open. It is written as an open question because, although each piece of the synthesis is derived in the archive, the pieces have not yet been joined into a single derivation of what gravity is.
+
+**Conventions.** $K = 4$ is the number of tetrad legs and $D = 3$ the number of spatial dimensions; Paper VII writes them $k$ and $d$. The coupling polynomial is $f(K, s) = 1 + sK + K^2$, with values $f(+1) = 21$, $f(0) = 17$ and $f(-1) = 13$. TetA and TetB are the two tetrahedral chambers of the frame, and $\mu$ is the share of the field resolved through TetA. Quoted passages come from the files named at the head of each reading; section and equation numbers refer to Paper VII unless stated otherwise.
 
 ---
 
@@ -26,13 +28,13 @@ These results are established within the framework, by derivation, by computatio
 
 | Result | Status | Where |
 |---|---|---|
-| $G = \tfrac{17}{13}\,\alpha^{21}\,\hbar c/m_e^2$; 0.12% at tree level, 12 ppm with $1 + \alpha/2\pi$ | Matches measurement; G itself is known to 22 ppm | [`g_matrix_synthesis.md`](g_matrix_synthesis.md), [`synthesis_one_loop_G.md`](synthesis_one_loop_G.md) |
+| $G = \tfrac{17}{13}\,\alpha^{21}\,\hbar c/m_e^2$; 0.12% at tree level, 12 ppm with $1 + \alpha/2\pi$ | Matches measurement; G itself is known to 22 ppm (CODATA 2022) | [`g_matrix_synthesis.md`](g_matrix_synthesis.md), [`synthesis_one_loop_G.md`](synthesis_one_loop_G.md) |
 | Among 1,953 alternatives $(p/q)\,\alpha^n$ with $p, q \le 21$ and $n = 18$–24, only $17/13 \cdot \alpha^{21}$ lands within 0.12%, and only it lands within 22 ppm with the loop factor | Computed | [`look_elsewhere_G.py`](look_elsewhere_G.py) |
 | The three values 21, 17, 13 are the traces of one graded operator, $\mathrm{Tr}(P_0 + sP_1 + P_2) = 1 + sK + K^2$, on blocks of size 1, 4 and 16 | Exact | [`g_matrix_synthesis.md`](g_matrix_synthesis.md) |
 | The connection's 64 components split 40 + 24; the 24 carry the second root of the tetrad equation | Exact count; the identification is Letter 3's claim | [Letter 3 guide](../../FIELD_CLOSURE_OF_THE_TETRAD_FRAME.md) |
-| $\mu(x) = x/(x+1)$ reproduces the radial acceleration relation with no free parameter | Matches 175 galaxies | Letter 3; the SPARC letter |
+| $\mu(x) = x/(1+x)$ reproduces the radial acceleration relation with no free parameter | Matches 3,284 points in 164 SPARC galaxies with the same scatter as the empirical fit, 0.18 dex | Letter 3; the [SPARC letter](../../papers/letter-radial-acceleration-relation-sparc/) (Lelli et al. 2016; McGaugh et al. 2016) |
 | The field equations run both ways: an observed rotation curve decodes to an effective mass, $M_{\text{dec}} = r v^4 / [G(a_0 r + v^2)]$, with no mass model and no halo. For the Milky Way and M33 the decoded mass lands near the baryonic mass, where $\Lambda$CDM needs three to five times more | Demonstrated on the Milky Way, M33 and NGC 3198 | [Decoding-mass letter](../../papers/letter-decoding-mass-from-rotation-curves/) |
-| Gravity couples to everything equally, is only ever attractive, and travels at $c$ | Observed | Equivalence principle; GW170817 |
+| Gravity couples to everything equally, is only ever attractive, and travels at $c$ | Observed | Equivalence principle; GW170817 (Abbott et al. 2017) |
 | The cube's eight corners carry every three-input Boolean operation; its spectrum factors as $H_8 = H_2 \otimes H_4$ | Established mathematics | [`universe-is-pixelated/`](../universe-is-pixelated/) |
 
 ---
@@ -63,9 +65,13 @@ The same notes carry the sweep into the field equation: one full sweep covers $4
 
 *[Paper I](../../papers/01-gravitational-constitutive-law/), [Paper VII](../../papers/07-dual-tetrad-topology-field-origin/v7/Dual_Tetrad_Gravity_And_The_Field_Origin.pdf), [`field-closure/`](../field-closure/)*
 
-A field that carries waves must have parts, and parts that couple must reconcile. Where one field meets another, each side reads the other and the coupling settles into a single consistent state. Settlement is atomic: every channel agrees, or the field has not settled. Requiring that settlement to be lossless and local gives $\mu(x) = x/(x+1)$ within the minimal single-channel saturating closure class.
+A field that carries waves must have parts, and parts that couple must reconcile. Where one field meets another, each side reads the other and the coupling settles into a single consistent state. Settlement is atomic: every channel agrees, or the field has not settled. Requiring that settlement to be lossless and local gives $\mu(x) = x/(1+x)$ within the minimal single-channel saturating closure class (Paper I).
 
-Paper VII carries this reading furthest. "Through each face of the local tetrahedron, the field reads and reconciles the geometric state of neighboring regions" (§II.B). Its closure mechanism (§XI) runs in three steps: a *Full State Snapshot* reads the whole configuration at once, *Settlement* resolves it to the single state that satisfies every constraint in both metric sectors, and *Registration* records that state. Then: "The gradients of the registered state $\nabla\ell(x)$ produce three manifestations of the same underlying process: gravitational acceleration, … gravitational lensing, … and time dilation." A body's trajectory is the sequence of its registered states. Paper VII grounds each step in established physics: the snapshot is the complete Cauchy data that a well-posed initial-value problem needs, and settlement is the solution of the Hamiltonian and momentum constraints (the York–Lichnerowicz method). Paper VII also derives the constitutive law from settlement itself (§VII.A). The coupling capacity at each point is either resolved or unresolved; resolution is driven by the field's intensity, $W_+ = \kappa\,x\,(1 - \varepsilon)$, and relaxation runs at $W_- = \kappa\,\varepsilon$. Detailed balance gives the resolved fraction $\varepsilon = x/(1+x) = \mu$, with the "1" as the processing capacity of the single Field Origin. That makes three independent routes to the same law: lossless local closure (Paper I), exchange symmetry (Letter 2) and detailed balance (Paper VII).
+Paper VII carries this reading furthest. "Through each face of the local tetrahedron, the field reads and reconciles the geometric state of neighboring regions" (§II.B). Its closure mechanism (§XI) runs in three steps: a *Full State Snapshot* reads the whole configuration at once, *Settlement* resolves it to the single state that satisfies every constraint in both metric sectors, and *Registration* records that state. Then: "The gradients of the registered state $\nabla\ell(x)$ produce three manifestations of the same underlying process: gravitational acceleration, … gravitational lensing, … and time dilation." A body's trajectory is the sequence of its registered states.
+
+Paper VII grounds each step in established physics: the snapshot is the complete Cauchy data that a well-posed initial-value problem needs, and settlement is the solution of the Hamiltonian and momentum constraints (the York–Lichnerowicz method).
+
+Paper VII also derives the constitutive law from settlement itself (§VII.A). The coupling capacity at each point is either resolved or unresolved; resolution is driven by the field's intensity, $W_+ = \kappa\,x\,(1 - \varepsilon)$, and relaxation runs at $W_- = \kappa\,\varepsilon$. Detailed balance gives the resolved fraction $\varepsilon = x/(1+x) = \mu$, with the "1" as the processing capacity of the single Field Origin. That makes three independent routes to the same law: lossless local closure (Paper I), exchange symmetry (Letter 2) and detailed balance (Paper VII).
 
 *What it contributes:* the mechanism, the constitutive law, why gravity is bookkeeping, and why acceleration, lensing and time dilation are one effect, not three.
 
@@ -89,21 +95,21 @@ The cube's eight corners form a universal Boolean operator, read by its Walsh–
 
 ## A candidate synthesis: gravity as the difference between neighbouring reads
 
-Each reading supplies a piece of one picture. Its core is not new: it is Paper VII's closure mechanism, in which gravity is the gradient of the registered state. What follows adds where that state's strength and completeness come from.
+Each reading supplies a piece of one picture. The core is Paper VII's closure mechanism, in which gravity is the gradient of the registered state. The paragraphs below add where the strength of that gradient comes from (the stellated octahedron), why it needs both chambers (the cube), and how observation reads it (the decoded mass).
 
 **Gravity lives in the comparison between neighbours.** What a body responds to is the gradient of the potential, not its value. Paper I's starting point is that the Laplacian at the heart of the field equation is a comparison between neighbours, $\Phi(x+\epsilon) + \Phi(x-\epsilon) - 2\Phi(x)$. The connection is by definition the rule relating one frame to the next, and its 64 components are the $8 \times 8$ ordered transitions between the corners of neighbouring cubes. On this view gravity lives in the transitions, not in the cells.
 
-**The stellated octahedron sets the strength.** G's exponent, $21 = 1 + K + K^2$, counts the levels of the tetrad: a scalar, the four legs of one tetrahedron and their sixteen couplings. These blocks are built from $K = 4$, not from the cube's $2^3$. Each level costs one factor of $\alpha$, and the factors multiply: the determinant identity $\det(\alpha^{I}) = \alpha^{\mathrm{Tr}\,I}$ applies one factor per eigenvalue of the graded operator, so the exchange between neighbours is attenuated by $\alpha^{21}$, read at full TetA depth. The prefactor $17/13$ is derived twice, as coupling channels over structural elements (Paper VI, §8.3; [`FORMAL BRIDGING OF 17-13.md`](../../papers/06-gravitational-constant-from-topology/FORMAL%20BRIDGING%20OF%2017-13.md)) and as coupling capacity over spatial structure ([Paper VII](../../papers/07-dual-tetrad-topology-field-origin/v7/Dual_Tetrad_Gravity_And_The_Field_Origin.pdf), Eq. 24). The numerator, $k^2 + 1 = 17$, is the Field Origin, where the face channels are absent: the 16 bimetric coupling channels plus the non-degenerate vertex itself. It is also the parity-even core that the metric couples through, since the sign representation carrying the parity-odd $k$ is absent from the Christoffel sector (Letter 2; the [algebraic pipeline](../../papers/algebraic-papers-a-b-c/algebraic_pipeline_of_reality.md)). The denominator, $kd + 1 = 13$, is TetB, the $k = 4$ face channels projected onto $d = 3$ spatial dimensions plus one for non-degeneracy. The three values are locked together, $f(0) = \tfrac12[f(+1) + f(-1)]$ (Paper VII, Eq. 23), and among 1,953 simple alternatives no other prefactor and exponent come close.
+**The stellated octahedron sets the strength.** G's exponent, $21 = 1 + K + K^2$, counts the levels of the tetrad: a scalar, the four legs of one tetrahedron and their sixteen couplings. These blocks are built from $K = 4$, not from the cube's $2^3$. Each level costs one factor of $\alpha$, and the factors multiply: the determinant identity $\det(\alpha^{I}) = \alpha^{\mathrm{Tr}\,I}$ applies one factor per eigenvalue of the graded operator, so the exchange between neighbours is attenuated by $\alpha^{21}$, read at full TetA depth. The prefactor $17/13$ is derived twice, as coupling channels over structural elements (Paper VI, §8.3; [`FORMAL BRIDGING OF 17-13.md`](../../papers/06-gravitational-constant-from-topology/FORMAL%20BRIDGING%20OF%2017-13.md)) and as coupling capacity over spatial structure ([Paper VII](../../papers/07-dual-tetrad-topology-field-origin/v7/Dual_Tetrad_Gravity_And_The_Field_Origin.pdf), Eq. 24). The numerator, $K^2 + 1 = 17$, is the Field Origin, where the face channels are absent: the 16 bimetric coupling channels plus the non-degenerate vertex itself. It is also the parity-even core that the metric couples through, since the sign representation carrying the parity-odd $K$ is absent from the Christoffel sector (Letter 2; the [algebraic pipeline](../../papers/algebraic-papers-a-b-c/algebraic_pipeline_of_reality.md)). The denominator, $DK + 1 = 13$, is TetB, the $K = 4$ face channels projected onto $D = 3$ spatial dimensions plus one for non-degeneracy. The three values are locked together, $f(0) = \tfrac12[f(+1) + f(-1)]$ (Paper VII, Eq. 23), and among 1,953 simple alternatives no other prefactor and exponent come close.
 
-**The cube completes it.** The cube's spectrum factors as $H_8 = H_2 \otimes H_4$ (Paper C). $H_4$ is the frame within one tetrahedron; $H_2$ says which tetrahedron, and that is the cube's parity. General relativity keeps only the parity-even part, so it reads a single chamber. The full field needs $H_2$: both chambers, and with them $1 - \mu$. At $D = 3$ the two counts coincide, $2 \times 4 = 8$ corners and $K^3 = 64 = 8 \times 8$, which is why the cube and the stellated octahedron can be read as one object.
+**The cube completes it.** The cube's spectrum factors as $H_8 = H_2 \otimes H_4$ ([Paper C](../../papers/algebraic-papers-a-b-c/)). $H_4$ is the frame within one tetrahedron; $H_2$ says which tetrahedron, and that is the cube's parity. General relativity keeps only the parity-even part, so it reads a single chamber. The full field needs $H_2$: both chambers, and with them $1 - \mu$. At $D = 3$ the two counts coincide, $2 \times 4 = 8$ corners and $K^3 = 64 = 8 \times 8$, which is why the cube and the stellated octahedron can be read as one object.
 
 **Free fall is settling.** A mass is a trapped closure. The frames around it must reconcile with it, and in three dimensions that reconciliation thins out as $1/r^2$, because it spreads over a sphere of area $4\pi r^2$. A body placed in that region settles into the state of its neighbours, which differ slightly from one side to the other. On this reading, moving along that difference *is* the settling: nothing pushes. General relativity treats free fall the same way, as motion with no force acting.
 
-**Gravity reads both chambers; electromagnetism reads one.** Paper VII (§V.B) gives the reason the two forces read to different depths. In ghost-free bimetric gravity, matter, including the electromagnetic field, couples to a single metric sector, so electromagnetism reaches only the first level and carries one factor of $\alpha$. Gravity is the interaction *between* the two sectors, through the potential $V(\sqrt{g^{-1}f})$, so it must traverse all 21 levels. The ratio is $\alpha^{20} \approx 10^{-43}$. Gravity's need for both chambers, which the cube's $H_2$ factor expresses, is the same fact seen from the bimetric side.
+**Gravity reads both chambers; electromagnetism reads one.** Paper VII (§V.B) gives the reason the two forces read to different depths. In ghost-free bimetric gravity, matter, including the electromagnetic field, couples to a single metric sector, so electromagnetism reaches only the first level and carries one factor of $\alpha$. Gravity is the interaction *between* the two sectors, through the Hassan–Rosen potential $V(\sqrt{g^{-1}f})$ (Hassan and Rosen 2012), so it must traverse all 21 levels. The ratio is $\alpha^{20} \approx 10^{-43}$. Gravity's need for both chambers, which the cube's $H_2$ factor expresses, is the same fact seen from the bimetric side.
 
 Observation shows the same thing. A star's orbit follows the total acceleration $g_t$, the field carried by both chambers, while the visible matter supplies only the TetA share, $g_s = \mu\,g_t$. The [decoding-mass letter](../../papers/letter-decoding-mass-from-rotation-curves/) runs that relation backwards: from the measured rotation speeds alone, with no mass model, it returns the mass the field implies, $M_{\text{dec}}(r) = r\,v^4 / [G\,(a_0 r + v^2)]$. For the Milky Way at 25 kpc the decoded mass is about $6.6 \times 10^{10}\,M_\odot$, against $7.3 \times 10^{10}\,M_\odot$ in stars and gas, where $\Lambda$CDM needs about $2.3 \times 10^{11}\,M_\odot$.
 
-**TetB can drive the rotation or brake it.** This is why a forward prediction of rotation speed cannot settle the question on its own. Predicting a rotation curve from the visible mass assumes a quiet interior, in which TetB neither adds to the field nor takes from it. A galaxy's second chamber behaves more like the drain of a water vortex. The drain can drive the flow, so the water circulates faster than the floating tracers alone would suggest, or it can hold the flow back. The tracers follow the rotation either way, so their speed alone does not say which.
+**TetB can drive the rotation or brake it.** This is why predicting a rotation curve from the visible mass alone is not, by itself, a test of the framework. Predicting a rotation curve from the visible mass assumes a quiet interior, in which TetB neither adds to the field nor takes from it. A galaxy's second chamber behaves more like the drain of a water vortex. The drain can drive the flow, so the water circulates faster than the floating tracers alone would suggest, or it can hold the flow back. The tracers follow the rotation either way, so their speed alone does not say which.
 
 The decode measures it. Comparing the decoded mass with the photometric mass at each radius, the ratio $R(r) = M_{\text{dec}}(r) / M_{\text{phot}}(r)$ reads the interior with no free parameter:
 
@@ -117,14 +123,14 @@ The letter's mass difference, $\Delta M(r) = M_{\text{phot}}(r) - M_{\text{dec}}
 
 The field equation can be read term by term in these words. Paper VII (§IX) writes the Poisson equation with every factor named:
 
-$$\nabla^2\Phi = k\pi \cdot \frac{k^2 + 1}{kd + 1} \cdot G_{\text{bare}} \cdot \rho, \qquad G_{\text{bare}} = \alpha^{21}\,\frac{\hbar c}{m_e^2},$$
+$$\nabla^2\Phi = K\pi \cdot \frac{K^2 + 1}{DK + 1} \cdot G_{\text{bare}} \cdot \rho, \qquad G_{\text{bare}} = \alpha^{21}\,\frac{\hbar c}{m_e^2},$$
 
 and the constitutive law weights the gradient in the full equation, $\nabla \cdot \big[\mu(|\nabla\Phi|/a_0)\,\nabla\Phi\big] = 4\pi G \rho$.
 
 | Term | Reading |
 |---|---|
 | $\nabla\Phi$ | The difference between neighbouring registered states |
-| $k\pi = 4\pi$ | The full solid angle, divided into four equal parts of $\pi$ steradians by the faces of a regular tetrahedron: a pure number, with no radius in it |
+| $K\pi = 4\pi$ | The full solid angle, divided into four equal parts of $\pi$ steradians by the faces of a regular tetrahedron: a pure number, with no radius in it |
 | $17/13$ | Coupling capacity at the Field Origin over the spatial structure of TetB |
 | $G_{\text{bare}}$ | The $\alpha^{21}$-deep read, set in units by the electron |
 | $\mu$ | The share of each comparison resolved through TetA; below $a_0$, TetB carries most of it |
@@ -136,13 +142,13 @@ In one sentence: **gravity is how far the closure of neighbouring frames differs
 
 **The lattice is the stage; gravity is its gradients.** Paper VII (§XI.A) places the two descriptions. The mesh of *unbound* gravity-field envelopes, TetB chambers empty, is the long-range background: "the stage". *Bound* envelopes, TetB chambers occupied, are matter: "the actors". The lattice is the gravitational field, and what a body feels is the gradient of its registered state, as in general relativity the metric is the field and its curvature is what free-falling bodies feel.
 
-The mechanism is Paper VII's, the strength is the G derivation, the shape is Letter 3, and the share is $\mu$: every piece is derived in the archive.
+The mechanism is Paper VII's, the strength is the G derivation, the shape is Letter 3, and the share is $\mu$. Each piece is derived in the archive; what this note adds is the order in which they fit.
 
 ---
 
 ## What remains open
 
-These are the open points the archive itself names.
+Two kinds of open point remain. The first is the one stated in the introduction: the synthesis above has not yet been written as a single derivation. The others are those the archive itself names.
 
 ### 1. The one physical input
 
@@ -150,15 +156,17 @@ Everything in G except one step is geometry and algebra. That step, as [`g_matri
 
 ### 2. The one-loop correction
 
-The tree-level residual, 0.117%, is the Schwinger term $\alpha/2\pi = 0.116\%$, the same correction that shifts the electron's magnetic moment; including it brings G to 12 ppm and moves the predicted Hubble constant from 70.21 to 70.29 km/s/Mpc (Paper VII, §X.B). [`synthesis_one_loop_G.md`](synthesis_one_loop_G.md) reads the factor structurally as $\tfrac{2}{17} \times \tfrac{17\alpha}{4\pi}$, the Field Origin impedance carried through one loop, and marks that reading as the subject of its own paper.
+The tree-level residual, 0.117%, is the Schwinger term $\alpha/2\pi = 0.116\%$, the same correction that shifts the electron's magnetic moment (Schwinger 1948); including it brings G to 12 ppm and moves the predicted Hubble constant from 70.21 to 70.29 km/s/Mpc (Paper VII, §X.B). [`synthesis_one_loop_G.md`](synthesis_one_loop_G.md) reads the factor structurally as $\tfrac{2}{17} \times \tfrac{17\alpha}{4\pi}$, the Field Origin impedance carried through one loop, and marks that reading as the subject of its own paper.
 
 ### 3. Lorentz invariance of the discrete picture
 
-Any discrete picture of spacetime must respect Lorentz invariance, which Fermi observations of GRB 090510 constrain beyond 7.6 Planck energies, and which GW170817 confirms for gravity to about one part in $10^{15}$. The pixelated README sets out why GFD's grid has no spacing to feel: propagation is closure, not motion across a mesh, and each cube is the local frame of its own event. It names the formal proof, that the Walsh structure of the frame keeps $\omega = ck$ exact, as the next step.
+Any discrete picture of spacetime must respect Lorentz invariance, which Fermi observations of GRB 090510 constrain beyond 7.6 Planck energies (Vasileiou et al. 2013), and which GW170817 confirms for gravity to about one part in $10^{15}$ (Abbott et al. 2017). The pixelated README sets out why GFD's grid has no spacing to feel: propagation is closure, not motion across a mesh, and each cube is the local frame of its own event. It names the formal proof, that the Walsh structure of the frame keeps $\omega = ck$ exact, as the next step.
 
 ### 4. Beyond the electron
 
-Paper VII closes by naming what its results do not yet address: how the non-linear coupling at the Field Origin produces the full spectrum of bound configurations beyond the electron, and how the field dynamics of the $k = 4$ topology connect to the gauge dynamics of the Standard Model, the strong and weak forces and the particle mass hierarchy. The graviton belongs here too. Paper VII identifies the massless spin-2 mode of bimetric gravity with the unbound mesh and the massive mode, confined by its own coupling, with bound envelopes, Wheeler's geons realised as matter; the light-substrate notes describe the graviton as two stellated octahedra coupled at a face, and the quantum-gravity folder makes contact with Regge calculus and loop quantum gravity. How the quantised theory follows is open.
+Paper VII closes by naming what its results do not yet address: how the non-linear coupling at the Field Origin produces the full spectrum of bound configurations beyond the electron, and how the field dynamics of the $K = 4$ topology connect to the gauge dynamics of the Standard Model, the strong and weak forces and the particle mass hierarchy.
+
+The graviton belongs here too. Paper VII identifies the massless spin-2 mode of bimetric gravity with the unbound mesh and the massive mode, confined by its own coupling, with bound envelopes, Wheeler's geons (Wheeler 1955) realised as matter; the light-substrate notes describe the graviton as two stellated octahedra coupled at a face, and the quantum-gravity folder makes contact with Regge calculus and loop quantum gravity. How the quantised theory follows is open.
 
 ---
 
@@ -167,7 +175,7 @@ Paper VII closes by naming what its results do not yet address: how the non-line
 Paper VII lists the framework's distinctive predictions, each of which can fail:
 
 - **The massive graviton.** $\beta_n = (1, 0, 16, 0, 1)$ fixes the bimetric mass spectrum, which gravitational-wave dispersion measurements from LIGO, Virgo and KAGRA constrain directly.
-- **An acceleration scale that changes with time.** $a_0$ is tied to the Hubble rate, so it was larger in the past. Rotation curves at redshift $z > 1$, from JWST and Euclid, test this; standard MOND assumes a constant $a_0$.
+- **An acceleration scale that changes with time.** $a_0$ is tied to the Hubble rate, so it was larger in the past. Rotation curves at redshift $z > 1$, from JWST and Euclid, test this; standard MOND assumes a constant $a_0$ (Milgrom 1983).
 - **The value of $H$.** With $G$ and $m_e$ fixed, $H = 70.21$ km/s/Mpc at tree level and 70.29 at one loop, between the Planck and SH0ES values.
 
 Two further measurements follow from this note:
@@ -189,10 +197,28 @@ python ../../papers/letter-3-field-closure-of-tetrad-frame/Supplementary/run_all
 
 ## References
 
+### Archive sources
+
+- Nelson, S. (2026). *The Gravitational Constitutive Law (No Dark Matter Required)* (Paper I). [`papers/01-gravitational-constitutive-law/`](../../papers/01-gravitational-constitutive-law/).
+- Nelson, S. (2026). *Deriving the Gravitational Constant from Spacetime Topology* (Paper VI). [`papers/06-gravitational-constant-from-topology/`](../../papers/06-gravitational-constant-from-topology/); doi:10.5281/zenodo.18463038.
+- Nelson, S. (2026). *Dual Tetrad Topology and the Field Origin: From Nuclear Decay to Galactic Dynamics* (Paper VII). [`papers/07-dual-tetrad-topology-field-origin/`](../../papers/07-dual-tetrad-topology-field-origin/).
+- Nelson, S. (2026). *The Other Half of Gravity: Torsion and the Two-Chamber Structure of the Tetrad Frame* (Letter 2). [`papers/letter-2-other-half-of-gravity-torsion/`](../../papers/letter-2-other-half-of-gravity-torsion/).
+- Nelson, S. (2026). *Gravity Field Dynamics: Field Closure of the Tetrad Frame* (Letter 3). [`papers/letter-3-field-closure-of-tetrad-frame/`](../../papers/letter-3-field-closure-of-tetrad-frame/).
+- Nelson, S. (2026). *Decoding Mass from Observed Rotation Curves*. [`papers/letter-decoding-mass-from-rotation-curves/`](../../papers/letter-decoding-mass-from-rotation-curves/); doi:10.5281/zenodo.18721752.
+- Nelson, S. (2026). *The Radial Acceleration Relation from a Zero-Parameter Covariant Action*. [`papers/letter-radial-acceleration-relation-sparc/`](../../papers/letter-radial-acceleration-relation-sparc/).
+- Nelson, S. (2026). Papers A, B and C. [`papers/algebraic-papers-a-b-c/`](../../papers/algebraic-papers-a-b-c/).
+
+### External
+
 - Abbott, B. P. et al. (2017). Gravitational waves and gamma-rays from a binary neutron star merger: GW170817 and GRB 170817A. *Astrophys. J. Lett.* 848, L13.
 - Banik, I. et al. (2024). Strong constraints on the gravitational law from Gaia DR3 wide binaries. *Mon. Not. R. Astron. Soc.* 527, 4573.
 - Chae, K.-H. (2023). Breakdown of the Newton–Einstein standard gravity at low acceleration in internal dynamics of wide binary stars. *Astrophys. J.* 952, 128.
+- Hassan, S. F. and Rosen, R. A. (2012). Bimetric gravity from ghost-free massive gravity. *J. High Energy Phys.* 2012(2), 126.
 - Jiao, Y., Hammer, F., Flores, H., Wang, J. L. and Yang, Y. (2023). Detection of the Keplerian decline in the Milky Way rotation curve. *Astron. Astrophys.* 678, A208.
-- Nelson, S. (2026). *Dual Tetrad Topology and the Field Origin: From Nuclear Decay to Galactic Dynamics* (Paper VII). [`papers/07-dual-tetrad-topology-field-origin/`](../../papers/07-dual-tetrad-topology-field-origin/).
-- Tiesinga, E. et al. (2021). CODATA recommended values of the fundamental physical constants: 2018. *Rev. Mod. Phys.* 93, 025010.
+- Lelli, F., McGaugh, S. S. and Schombert, J. M. (2016). SPARC: mass models for 175 disk galaxies with Spitzer photometry at 3.6 μm and accurate rotation curves. *Astron. J.* 152, 157.
+- McGaugh, S. S., Lelli, F. and Schombert, J. M. (2016). Radial acceleration relation in rotationally supported galaxies. *Phys. Rev. Lett.* 117, 201101.
+- Milgrom, M. (1983). A modification of the Newtonian dynamics as a possible alternative to the hidden mass hypothesis. *Astrophys. J.* 270, 365.
+- Mohr, P. J., Newell, D. B., Taylor, B. N. and Tiesinga, E. (2025). CODATA recommended values of the fundamental physical constants: 2022. *Rev. Mod. Phys.* 97, 025002.
+- Schwinger, J. (1948). On quantum-electrodynamics and the magnetic moment of the electron. *Phys. Rev.* 73, 416.
 - Vasileiou, V. et al. (2013). Constraints on Lorentz invariance violation from Fermi-Large Area Telescope observations of gamma-ray bursts. *Phys. Rev. D* 87, 122001.
+- Wheeler, J. A. (1955). Geons. *Phys. Rev.* 97, 511.
