@@ -55,20 +55,19 @@ This repository holds the working research behind the Gravity Field Dynamics fra
 
 ---
 
-## Statement on open release
+## A note from the author
 
-This programme has been carried out by a single independent investigator, Stephen Nelson of Field Dynamics Research. It has now reached a stage at which it will benefit most from the engagement of a wider community. The core derivations are in place and have been tested against observational data; the natural next steps are independent verification of the derivations, scrutiny of the empirical comparisons by specialists in each domain, and the development of the several promising lines of inquiry that the work has opened.
+I'm a tech engineer with an interest in theoretical physics, and this whole body of work grew from one idea: **field closure**.
 
-In the spirit of open science, the complete research record is therefore released here without restriction of access. That record comprises the published preprints, the manuscripts in preparation, the validation code and the working notes from which they were developed. It is offered as a foundation for critical examination, replication and extension by the wider research community.
+My working life has been spent building enterprise encryption systems for government. In that world, state has to close. A transaction either settles or it does not; there is no half-committed balance, and nothing is allowed to go unaccounted for. When I began thinking about gravity, I kept returning to the same question: if reality is informational at bottom, how could it keep its books any other way?
 
-Engagement of every kind is welcome:
+Field closure is my answer to that question. Every part of a field has neighbours, and before the field can move on, each part must read its neighbours and settle with them into one consistent state, much as accounts settle in a transaction. The whole configuration is read as a snapshot, reconciled, and recorded. I call this snapshot accounting, and it is the only way I can see an informational reality being managed. The papers here follow what that requirement implies, from the constitutive law that shapes galaxy rotation to the value of Newton's constant.
 
-- independent checks of the mathematical derivations;
-- re-analysis of the observational and experimental comparisons;
-- identification of errors, gaps or unstated assumptions;
-- collaboration on extending the framework into new domains.
+What you will find in this repository is as far as I have taken it, and I present it humbly. I am one person working independently, and the work has not been peer reviewed. I have made everything open, the papers, the code, the working notes and the dead ends, so that other researchers who find the idea interesting can use it, look at it closely, and critique it.
 
-Negative results and well-founded criticism are regarded as contributions of equal value. Correspondence may be directed to stephen@fielddynamics.org, or raised as an issue on this repository.
+If you do, I would be glad to hear from you. Checks of the derivations, re-analyses of the data, errors found, assumptions questioned, or ideas for taking it further are all welcome, and a well-founded criticism is as valuable to me as a confirmation. You can reach me at stephen@fielddynamics.org, or open an issue on this repository.
+
+— Stephen Nelson
 
 ---
 
