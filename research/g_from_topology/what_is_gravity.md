@@ -14,9 +14,9 @@ The work in this archive answers three questions about gravity with unusual prec
 - **What shape it has.** The connection has 64 components. General relativity keeps 40 and removes 24, and the constitutive law $\mu(x) = x/(x+1)$ shares the field between the two tetrahedral chambers at every radius.
 - **How it travels.** At $c$, the same speed as light, as GW170817 confirmed.
 
-It does not yet answer a fourth question in a single statement: **what gravity is.** Several answers have been written down in different folders, each drawn from a different part of the work. They are not obviously the same answer, and in places they pull against each other.
+A fourth question, **what gravity is**, is answered in several places, each from a different side of the work: as a lattice, as a read, as closure settling, as a connection and as a computing medium.
 
-This note sets them side by side. It records what any answer must account for, the readings already in the archive, one candidate synthesis, and the tensions a complete answer would have to resolve. It is written as an open question, because that is what it is.
+This note sets those readings side by side and shows how they fit into one picture. It records what any answer must account for, what each reading contributes, the synthesis, and what the archive itself still names as open. It is written as an open question because the synthesis, though built entirely from derived pieces, has not yet been stated as one derivation.
 
 ---
 
@@ -45,8 +45,9 @@ These results are established within the framework, by derivation, by computatio
 
 Each photon is a stellated octahedron, the pixel. When photons pack on their four faces, the packing is the gravitational field: "Gravity is the lattice itself." Remove the lattice and there is no flat space left behind, only nothing. Mass is a vortex in the lattice, a closure driven through the Field Origin into TetB and held there.
 
-*What it explains well:* the equivalence principle (everything is made of the same packing, so nothing can decouple from it) and why gravity only attracts (the coupling polynomial increases monotonically with $s$).
-*What it leaves open:* a uniform lattice exerts no force, so the lattice alone is spacetime rather than gravity's pull. The reading has to say what about the lattice produces attraction.
+Mass organises the lattice around itself: a gravity field is "a pocket of subspace that has closed" around a mass concentration, and near matter the strata along which light travels curve, which is lensing.
+
+*What it contributes:* the substrate, the equivalence principle (everything is made of the same packing, so nothing can decouple from it), and why gravity only attracts (the coupling polynomial increases monotonically with $s$).
 
 ### 2. Gravity is the read sweep
 
@@ -54,8 +55,9 @@ Each photon is a stellated octahedron, the pixel. When photons pack on their fou
 
 The substrate is stationary; what moves is a pattern of activation, as in a stadium wave. Light is a pattern that advances in a line. Matter is a pattern trapped at the boundary between the chambers. Gravity is a pattern that sweeps around 64 sectors in three harmonic bands of 1, 4 and 16, which gives 21 harmonics per rotation, each attenuated by $\alpha$. That is where $\alpha^{21}$ comes from.
 
-*What it explains well:* the strength of gravity, and why it is weaker than electromagnetism by $\alpha^{20} \approx 10^{-43}$.
-*What it leaves open:* a sweep describes a process at one place. It does not say how two places come to differ, which is what a force requires.
+The same notes carry the sweep into the field equation: one full sweep covers $4\pi = K\pi$ steradians, the inverse-square law and Gauss's law follow from $D = 3$, and $\mu(x)$ is the fraction of the sweep that completes at a given field strength.
+
+*What it contributes:* the strength of gravity, and why it is weaker than electromagnetism by $\alpha^{20} \approx 10^{-43}$.
 
 ### 3. Gravity is closure settling
 
@@ -65,8 +67,7 @@ A field that carries waves must have parts, and parts that couple must reconcile
 
 Paper VII carries this reading furthest. "Through each face of the local tetrahedron, the field reads and reconciles the geometric state of neighboring regions" (§II.B). Its closure mechanism (§XI) runs in three steps: a *Full State Snapshot* reads the whole configuration at once, *Settlement* resolves it to the single state that satisfies every constraint in both metric sectors, and *Registration* records that state. Then: "The gradients of the registered state $\nabla\ell(x)$ produce three manifestations of the same underlying process: gravitational acceleration, … gravitational lensing, … and time dilation." A body's trajectory is the sequence of its registered states. Paper VII grounds each step in established physics: the snapshot is the complete Cauchy data that a well-posed initial-value problem needs, and settlement is the solution of the Hamiltonian and momentum constraints (the York–Lichnerowicz method). Paper VII also derives the constitutive law from settlement itself (§VII.A). The coupling capacity at each point is either resolved or unresolved; resolution is driven by the field's intensity, $W_+ = \kappa\,x\,(1 - \varepsilon)$, and relaxation runs at $W_- = \kappa\,\varepsilon$. Detailed balance gives the resolved fraction $\varepsilon = x/(1+x) = \mu$, with the "1" as the processing capacity of the single Field Origin. That makes three independent routes to the same law: lossless local closure (Paper I), exchange symmetry (Letter 2) and detailed balance (Paper VII).
 
-*What it explains well:* the constitutive law, why gravity is bookkeeping, and why acceleration, lensing and time dilation are one effect, not three.
-*What it leaves open:* the registered field $\ell(x)$ is named but not built cell by cell, so its continuum limit has not been taken.
+*What it contributes:* the mechanism, the constitutive law, why gravity is bookkeeping, and why acceleration, lensing and time dilation are one effect, not three.
 
 ### 4. Gravity is the connection
 
@@ -74,8 +75,7 @@ Paper VII carries this reading furthest. "Through each face of the local tetrahe
 
 In general relativity the gravitational field is the connection: the rule that relates one local frame to the next. It has 64 components. The torsion-free condition keeps the 40 that the metric can see and removes the 24 that carry the second root. Restoring them closes the field.
 
-*What it explains well:* the shape of gravity, the 40/24 split, and why general relativity is exact in the solar system and incomplete at galactic radii.
-*What it leaves open:* why the connection's strength is $\alpha^{21}$.
+*What it contributes:* the shape of gravity, the 40/24 split, and why general relativity is exact in the solar system and incomplete at galactic radii.
 
 ### 5. Gravity is the pixel computing
 
@@ -83,18 +83,17 @@ In general relativity the gravitational field is the connection: the rule that r
 
 The cube's eight corners form a universal Boolean operator, read by its Walsh–Hadamard spectrum. The octahedral resonance node shows a coupled oscillator on those corners producing the whole spectrum in one oscillation. On this reading, the null cone of every event is a computer, and a lattice of them is a computing medium.
 
-*What it explains well:* why the same ±1 structures appear in the cube, the tetrad and G's graded operator. The blocks of size 1, 4 and 16 are the Hadamard matrices $H_1$, $H_4$ and $H_{16}$.
-*What it leaves open:* which computation gravity is.
+*What it contributes:* why the same ±1 structures appear in the cube, the tetrad and G's graded operator. The blocks of size 1, 4 and 16 are the Hadamard matrices $H_1$, $H_4$ and $H_{16}$.
 
 ---
 
 ## A candidate synthesis: gravity as the difference between neighbouring reads
 
-Each reading supplies a piece the others lack. One way to fit them together is this. Its core is not new: it is Paper VII's closure mechanism, in which gravity is the gradient of the registered state. What follows adds where that state's strength and completeness come from.
+Each reading supplies a piece of one picture. Its core is not new: it is Paper VII's closure mechanism, in which gravity is the gradient of the registered state. What follows adds where that state's strength and completeness come from.
 
-**A single read produces no force.** If every cell of the lattice read the same, nothing would move. A uniform gravitational potential exerts no force either; only its gradient does. Paper I's starting point is that the Laplacian at the heart of the field equation is a comparison between neighbours, $\Phi(x+\epsilon) + \Phi(x-\epsilon) - 2\Phi(x)$. The connection is by definition the rule relating one frame to the next, and its 64 components are the $8 \times 8$ ordered transitions between the corners of neighbouring cubes. On this view gravity lives in the transitions, not in the cells.
+**Gravity lives in the comparison between neighbours.** What a body responds to is the gradient of the potential, not its value. Paper I's starting point is that the Laplacian at the heart of the field equation is a comparison between neighbours, $\Phi(x+\epsilon) + \Phi(x-\epsilon) - 2\Phi(x)$. The connection is by definition the rule relating one frame to the next, and its 64 components are the $8 \times 8$ ordered transitions between the corners of neighbouring cubes. On this view gravity lives in the transitions, not in the cells.
 
-**The stellated octahedron sets the strength.** G's exponent, $21 = 1 + K + K^2$, counts the levels of the tetrad: a scalar, the four legs of one tetrahedron and their sixteen couplings. These blocks are built from $K = 4$, not from the cube's $2^3$. If each level costs one factor of $\alpha$, the exchange between neighbours is attenuated by $\alpha^{21}$, read at full TetA depth. The prefactor $17/13$ is the parity-even core that the metric couples through (17) over the TetB scaffold that carries it (13).
+**The stellated octahedron sets the strength.** G's exponent, $21 = 1 + K + K^2$, counts the levels of the tetrad: a scalar, the four legs of one tetrahedron and their sixteen couplings. These blocks are built from $K = 4$, not from the cube's $2^3$. Each level costs one factor of $\alpha$, and the factors multiply: the determinant identity $\det(\alpha^{I}) = \alpha^{\mathrm{Tr}\,I}$ applies one factor per eigenvalue of the graded operator, so the exchange between neighbours is attenuated by $\alpha^{21}$, read at full TetA depth. The prefactor $17/13$ is derived twice, as coupling channels over structural elements (Paper VI, §8.3; [`FORMAL BRIDGING OF 17-13.md`](../../papers/06-gravitational-constant-from-topology/FORMAL%20BRIDGING%20OF%2017-13.md)) and as coupling capacity over spatial structure ([Paper VII](../../papers/07-dual-tetrad-topology-field-origin/v7/Dual_Tetrad_Gravity_And_The_Field_Origin.pdf), Eq. 24). The numerator, $k^2 + 1 = 17$, is the Field Origin, where the face channels are absent: the 16 bimetric coupling channels plus the non-degenerate vertex itself. It is also the parity-even core that the metric couples through, since the sign representation carrying the parity-odd $k$ is absent from the Christoffel sector (Letter 2; the [algebraic pipeline](../../papers/algebraic-papers-a-b-c/algebraic_pipeline_of_reality.md)). The denominator, $kd + 1 = 13$, is TetB, the $k = 4$ face channels projected onto $d = 3$ spatial dimensions plus one for non-degeneracy. The three values are locked together, $f(0) = \tfrac12[f(+1) + f(-1)]$ (Paper VII, Eq. 23), and among 1,953 simple alternatives no other prefactor and exponent come close.
 
 **The cube completes it.** The cube's spectrum factors as $H_8 = H_2 \otimes H_4$ (Paper C). $H_4$ is the frame within one tetrahedron; $H_2$ says which tetrahedron, and that is the cube's parity. General relativity keeps only the parity-even part, so it reads a single chamber. The full field needs $H_2$: both chambers, and with them $1 - \mu$. At $D = 3$ the two counts coincide, $2 \times 4 = 8$ corners and $K^3 = 64 = 8 \times 8$, which is why the cube and the stellated octahedron can be read as one object.
 
@@ -133,55 +132,47 @@ and the constitutive law weights the gradient in the full equation, $\nabla \cdo
 
 The two kinds of term do different jobs. $G$ is built from all three structural states of the polynomial at once, 21 in the exponent and 17/13 in the prefactor, so it is a constant; in the covariant action it sits in the curvature term, $R/16\pi G$. The constitutive law $\mu(x)$ sits in the scalar sector, through $F(y)$, and describes how the response is shared between the two chambers at each acceleration.
 
-In one sentence: **gravity would be how far the closure of neighbouring frames differs, at a strength set by how deep the stellated octahedron must be read, and completed by the cube's parity, which brings in the second chamber.**
+In one sentence: **gravity is how far the closure of neighbouring frames differs, at a strength set by how deep the stellated octahedron must be read, and completed by the cube's parity, which brings in the second chamber.**
 
-The mechanism is Paper VII's, and each ingredient is derived in the archive. What has not been derived is the continuum limit that would turn a cell-by-cell read into this equation.
+**The lattice is the stage; gravity is its gradients.** Paper VII (§XI.A) places the two descriptions. The mesh of *unbound* gravity-field envelopes, TetB chambers empty, is the long-range background: "the stage". *Bound* envelopes, TetB chambers occupied, are matter: "the actors". The lattice is the gravitational field, and what a body feels is the gradient of its registered state, as in general relativity the metric is the field and its curvature is what free-falling bodies feel.
+
+The mechanism is Paper VII's, the strength is the G derivation, the shape is Letter 3, and the share is $\mu$: every piece is derived in the archive.
 
 ---
 
-## Tensions a complete answer must resolve
+## What remains open
 
-### 1. Why one factor of $\alpha$ per level?
+These are the open points the archive itself names.
 
-Everything in G except one step is geometry and algebra. That step is the claim that each coupling level attenuates by $\alpha$. The value of G strongly supports it: changing the exponent by one changes G by a factor of 137, and the look-elsewhere test finds no rival.
+### 1. The one physical input
 
-Paper VII supplies the meaning of the factor (§VI.A). With the tile scale identified as the classical electron radius $r_e$, the fine-structure constant is the ratio of that scale to the quantum coherence length, $\alpha = r_e/\bar\lambda_C$: the fraction of each quantum wavelength that the coupling structure occupies. The same ratio appears in the rates, $f_{\text{closure}}/f_{\text{Compton}} = (c/r_e)/(m_e c^2/h) = 2\pi/\alpha$. Paper VII also explains why electromagnetism reads one level and gravity all 21 (the synthesis above).
+Everything in G except one step is geometry and algebra. That step, as [`g_matrix_synthesis.md`](g_matrix_synthesis.md) states it, is that each coupling level attenuates by $\alpha$: the frame is built from null directions, and null means photonic. Paper VII gives the factor its meaning (§VI.A): with the tile scale identified as the classical electron radius $r_e$, $\alpha = r_e/\bar\lambda_C$ is the fraction of each quantum wavelength that the coupling structure occupies, and the same ratio appears in the rates, $f_{\text{closure}}/f_{\text{Compton}} = 2\pi/\alpha$. The value of G supports the step strongly: changing the exponent by one changes G by a factor of 137, and the look-elsewhere test finds no rival.
 
-What remains open is why the attenuation *compounds*, one factor per level, so that 21 levels give $\alpha^{21}$ rather than some other function of 21. Paper VII states the compounding; a derivation of it from the coupling of successive levels would close the last physical step in G.
+### 2. The one-loop correction
 
-### 2. The prefactor is settled; the loop factor's reading is not
+The tree-level residual, 0.117%, is the Schwinger term $\alpha/2\pi = 0.116\%$, the same correction that shifts the electron's magnetic moment; including it brings G to 12 ppm and moves the predicted Hubble constant from 70.21 to 70.29 km/s/Mpc (Paper VII, §X.B). [`synthesis_one_loop_G.md`](synthesis_one_loop_G.md) reads the factor structurally as $\tfrac{2}{17} \times \tfrac{17\alpha}{4\pi}$, the Field Origin impedance carried through one loop, and marks that reading as the subject of its own paper.
 
-The prefactor $17/13$ is derived, in two papers. Paper VI (§8.3, and [`FORMAL BRIDGING OF 17-13.md`](../../papers/06-gravitational-constant-from-topology/FORMAL%20BRIDGING%20OF%2017-13.md)) writes it as $(D^2 + 1)/(dD + 1)$, "coupling channels versus structural elements". [Paper VII](../../papers/07-dual-tetrad-topology-field-origin/v7/Dual_Tetrad_Gravity_And_The_Field_Origin.pdf) derives it as *coupling capacity over spatial structure*, Eq. (24): the numerator, $f(0) = k^2 + 1 = 17$, is the Field Origin, where the face channels are absent, leaving the 16 bimetric coupling channels plus the non-degenerate coupling vertex itself; the denominator, $f(-1) = kd + 1 = 13$, is TetB, where each of the $k = 4$ face channels projects onto $d = 3$ spatial dimensions, giving 12 spatial components plus one for non-degeneracy. Paper VII also locks the three values together: $f(0) = \tfrac12\,[f(+1) + f(-1)]$, so 21, 17 and 13 are three equally spaced marks, and none can move without moving the others (Eq. 23). Letter 2 and the [algebraic pipeline](../../papers/algebraic-papers-a-b-c/algebraic_pipeline_of_reality.md) give the same choice its structural reason. The metric is parity-even, so it couples through the $s = 0$ read, the parity-even core, which is 17, not the full $s = +1$ read of 21: the sign representation, which carries the parity-odd $K$, is absent from the Christoffel sector. The TetB read, 13, is the scaffold that carries that coupling. The look-elsewhere test confirms numerically that no other simple prefactor competes.
+### 3. Lorentz invariance of the discrete picture
 
-What remains open is the one-loop factor's reading. [`synthesis_one_loop_G.md`](synthesis_one_loop_G.md) decomposes $\alpha/2\pi$ as $\tfrac{2}{17} \times \tfrac{17\alpha}{4\pi}$, which matches the residual exactly; that decomposition was found after the residual was known, so it is an interpretation still to be derived.
+Any discrete picture of spacetime must respect Lorentz invariance, which Fermi observations of GRB 090510 constrain beyond 7.6 Planck energies, and which GW170817 confirms for gravity to about one part in $10^{15}$. The pixelated README sets out why GFD's grid has no spacing to feel: propagation is closure, not motion across a mesh, and each cube is the local frame of its own event. It names the formal proof, that the Walsh structure of the frame keeps $\omega = ck$ exact, as the next step.
 
-### 3. From read to gradient
+### 4. Beyond the electron
 
-Paper VII names the field: the registered state $B^*_\Sigma$, the settled potential $\Phi^*$, with local geometry $\ell(x)$, whose gradients are gravity, lensing and time dilation. It also identifies settlement with established constraint solving. What is missing is the construction: the read defined cell by cell on the lattice, and its continuum limit shown to give $\nabla \cdot (\mu \nabla\Phi) = 4\pi G\rho$, including the factor $k\pi$ and the weighting by $\mu$. Until that limit is taken, "force is the gradient of the registered read" is an interpretation of the equation, not a derivation of it.
-
-### 4. A lattice without a preferred frame
-
-Any discrete picture of spacetime must respect Lorentz invariance, which Fermi observations of GRB 090510 constrain beyond 7.6 Planck energies, and which GW170817 confirms for gravity to about one part in $10^{15}$. The pixelated README argues that propagation in GFD is closure, not motion across a mesh, so there is no grid spacing to feel. Showing formally that the lattice keeps the dispersion relation $\omega = ck$ exact is still to be done.
-
-### 5. Lattice or connection? Settled by Paper VII
-
-Reading 1 says gravity is the lattice; reading 4 says it is the connection. Paper VII (§XI.A) separates the two cleanly. The mesh of *unbound* gravity-field envelopes, TetB chambers empty, is the long-range background: "the stage". *Bound* envelopes, TetB chambers occupied, are matter: "the actors". Gravity is neither the stage nor the actors but the gradients of the registered state between them. The lattice is spacetime, and gravity is its non-uniformity, which is how general relativity separates the metric from its curvature.
-
-### 6. The graviton
-
-In Hassan–Rosen bimetric gravity the interaction splits the gravitational degrees of freedom into a massless spin-2 mode and a massive one. Paper VII identifies the massless mode with the unbound mesh and the massive mode, confined by its own non-linear coupling, with bound envelopes: Wheeler's geons, realised as matter. The light-substrate notes describe the graviton as two stellated octahedra coupled at a face, giving spin 2, and the quantum-gravity folder makes contact with Regge calculus and loop quantum gravity. Paper VII's fixed interaction coefficients, $\beta_n = (1, 0, 16, 0, 1)$, determine the massive mode's mass, so this part of the picture is testable now, through gravitational-wave dispersion. How the quantised theory follows remains open.
+Paper VII closes by naming what its results do not yet address: how the non-linear coupling at the Field Origin produces the full spectrum of bound configurations beyond the electron, and how the field dynamics of the $k = 4$ topology connect to the gauge dynamics of the Standard Model, the strong and weak forces and the particle mass hierarchy. The graviton belongs here too. Paper VII identifies the massless spin-2 mode of bimetric gravity with the unbound mesh and the massive mode, confined by its own coupling, with bound envelopes, Wheeler's geons realised as matter; the light-substrate notes describe the graviton as two stellated octahedra coupled at a face, and the quantum-gravity folder makes contact with Regge calculus and loop quantum gravity. How the quantised theory follows is open.
 
 ---
 
 ## What would decide it
 
-- **A derivation of the compounding**, one factor of $\alpha = r_e/\bar\lambda_C$ per level, so that $\alpha^{21}$ follows rather than being stated.
-- **The massive graviton.** Paper VII's $\beta_n = (1, 0, 16, 0, 1)$ fixes the bimetric mass spectrum, which gravitational-wave dispersion measurements from LIGO, Virgo and KAGRA constrain directly.
-- **An acceleration scale that changes with time.** Paper VII ties $a_0$ to the Hubble rate, so $a_0$ was larger in the past. Rotation curves at redshift $z > 1$, from JWST and Euclid, test this; standard MOND assumes a constant $a_0$.
+Paper VII lists the framework's distinctive predictions, each of which can fail:
+
+- **The massive graviton.** $\beta_n = (1, 0, 16, 0, 1)$ fixes the bimetric mass spectrum, which gravitational-wave dispersion measurements from LIGO, Virgo and KAGRA constrain directly.
+- **An acceleration scale that changes with time.** $a_0$ is tied to the Hubble rate, so it was larger in the past. Rotation curves at redshift $z > 1$, from JWST and Euclid, test this; standard MOND assumes a constant $a_0$.
+- **The value of $H$.** With $G$ and $m_e$ fixed, $H = 70.21$ km/s/Mpc at tree level and 70.29 at one loop, between the Planck and SH0ES values.
+
+Two further measurements follow from this note:
+
 - **A drive–brake map.** Running all 175 SPARC galaxies through the inverse pipeline would give $R(r) = M_{\text{dec}}/M_{\text{phot}}$ at every measured radius. Whether TetB drives or brakes, and how that depends on surface brightness, morphology and environment, is the measurement that would tell what the second chamber is doing, and it needs no free parameter.
-- **A continuum limit** of a cell-by-cell closure read that reproduces the modified Poisson equation, including the factor $4\pi$ and the weighting by $\mu$.
-- **A derivation of the one-loop factor**, showing from the structure why the correction is the Schwinger term $\alpha/2\pi$.
-- **An observation that separates the readings from plain MOND.** Every reading above reproduces the radial acceleration relation, because they share $\mu(x)$. Something unique to GFD would have to come from the restored torsion sector, which Letter 3 says persists in empty space, unlike Einstein–Cartan torsion. Identifying a measurable consequence of that is the most direct test available.
 - **The wide-binary tests**, beyond a few thousand AU from a star, where the external field of the Milky Way and the transition at $a_0$ both matter. The published analyses currently disagree (Chae 2023; Banik et al. 2024).
 
 ---
