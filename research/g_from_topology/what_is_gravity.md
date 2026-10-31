@@ -63,7 +63,7 @@ The substrate is stationary; what moves is a pattern of activation, as in a stad
 
 A field that carries waves must have parts, and parts that couple must reconcile. Where one field meets another, each side reads the other and the coupling settles into a single consistent state. Settlement is atomic: every channel agrees, or the field has not settled. Requiring that settlement to be lossless and local gives $\mu(x) = x/(x+1)$ within the minimal single-channel saturating closure class.
 
-Paper VII carries this reading furthest. "Through each face of the local tetrahedron, the field reads and reconciles the geometric state of neighboring regions" (§II.B). Its closure mechanism (§XI) runs in three steps: a *Full State Snapshot* reads the whole configuration at once, *Settlement* resolves it to the single state that satisfies every constraint in both metric sectors, and *Registration* records that state. Then: "The gradients of the registered state $\nabla\ell(x)$ produce three manifestations of the same underlying process: gravitational acceleration, … gravitational lensing, … and time dilation." A body's trajectory is the sequence of its registered states. Paper VII grounds each step in established physics: the snapshot is the complete Cauchy data that a well-posed initial-value problem needs, and settlement is the solution of the Hamiltonian and momentum constraints (the York–Lichnerowicz method).
+Paper VII carries this reading furthest. "Through each face of the local tetrahedron, the field reads and reconciles the geometric state of neighboring regions" (§II.B). Its closure mechanism (§XI) runs in three steps: a *Full State Snapshot* reads the whole configuration at once, *Settlement* resolves it to the single state that satisfies every constraint in both metric sectors, and *Registration* records that state. Then: "The gradients of the registered state $\nabla\ell(x)$ produce three manifestations of the same underlying process: gravitational acceleration, … gravitational lensing, … and time dilation." A body's trajectory is the sequence of its registered states. Paper VII grounds each step in established physics: the snapshot is the complete Cauchy data that a well-posed initial-value problem needs, and settlement is the solution of the Hamiltonian and momentum constraints (the York–Lichnerowicz method). Paper VII also derives the constitutive law from settlement itself (§VII.A). The coupling capacity at each point is either resolved or unresolved; resolution is driven by the field's intensity, $W_+ = \kappa\,x\,(1 - \varepsilon)$, and relaxation runs at $W_- = \kappa\,\varepsilon$. Detailed balance gives the resolved fraction $\varepsilon = x/(1+x) = \mu$, with the "1" as the processing capacity of the single Field Origin. That makes three independent routes to the same law: lossless local closure (Paper I), exchange symmetry (Letter 2) and detailed balance (Paper VII).
 
 *What it explains well:* the constitutive law, why gravity is bookkeeping, and why acceleration, lensing and time dilation are one effect, not three.
 *What it leaves open:* the registered field $\ell(x)$ is named but not built cell by cell, so its continuum limit has not been taken.
@@ -131,6 +131,8 @@ and the constitutive law weights the gradient in the full equation, $\nabla \cdo
 | $\mu$ | The share of each comparison resolved through TetA; below $a_0$, TetB carries most of it |
 | $\rho$ | The density of trapped closures |
 
+The two kinds of term do different jobs. $G$ is built from all three structural states of the polynomial at once, 21 in the exponent and 17/13 in the prefactor, so it is a constant; in the covariant action it sits in the curvature term, $R/16\pi G$. The constitutive law $\mu(x)$ sits in the scalar sector, through $F(y)$, and describes how the response is shared between the two chambers at each acceleration.
+
 In one sentence: **gravity would be how far the closure of neighbouring frames differs, at a strength set by how deep the stellated octahedron must be read, and completed by the cube's parity, which brings in the second chamber.**
 
 The mechanism is Paper VII's, and each ingredient is derived in the archive. What has not been derived is the continuum limit that would turn a cell-by-cell read into this equation.
@@ -147,31 +149,25 @@ Paper VII supplies the meaning of the factor (§VI.A). With the tile scale ident
 
 What remains open is why the attenuation *compounds*, one factor per level, so that 21 levels give $\alpha^{21}$ rather than some other function of 21. Paper VII states the compounding; a derivation of it from the coupling of successive levels would close the last physical step in G.
 
-### 2. A fixed depth and a sliding partition
-
-G uses all three values of the polynomial at once, $21$ in the exponent and $17/13$ in the prefactor, and it is a constant. The partition slides: the continuous field equation $f(x) = (21x + 13)/(x + 1) = 13 + 8\mu(x)$ moves from 21 in strong fields to 13 in weak ones. If the strength of gravity were $\alpha$ raised to the local depth $f(x)$, weak-field gravity would be $\alpha^{-8} \approx 10^{17}$ times stronger than strong-field gravity, which is plainly not the case. So depth and partition must act in different ways.
-
-Paper VII's second derivation of $\mu$ (§VII.A) suggests how. It treats the coupling capacity at each point as two-state: a *resolved* fraction $\varepsilon$ that tracks the Newtonian demand, and an *unresolved* fraction $1 - \varepsilon$. Resolution is driven by the field's intensity, $W_+ = \kappa\,x\,(1-\varepsilon)$, and relaxation runs at $W_- = \kappa\,\varepsilon$. Detailed balance, $W_+ = W_-$, gives $\varepsilon = x/(1+x) = \mu$, and the "1" in the denominator is the processing capacity of the single Field Origin, a bottleneck. On that reading the depth is the length of the path every exchange must travel, fixed at 21 levels, and so it fixes the constant; $\mu$ is the throughput, the fraction of the capacity resolved at the local intensity. Path length sets the strength; throughput sets the share. This separates the two roles cleanly. Deriving the rates, and showing that the saturation of the 16 + 4 channels below $a_0$ is exactly this two-state balance, would make it a result rather than a reading.
-
-### 3. The prefactor is settled; the loop factor's reading is not
+### 2. The prefactor is settled; the loop factor's reading is not
 
 The prefactor $17/13$ is derived, in two papers. Paper VI (§8.3, and [`FORMAL BRIDGING OF 17-13.md`](../../papers/06-gravitational-constant-from-topology/FORMAL%20BRIDGING%20OF%2017-13.md)) writes it as $(D^2 + 1)/(dD + 1)$, "coupling channels versus structural elements". [Paper VII](../../papers/07-dual-tetrad-topology-field-origin/v7/Dual_Tetrad_Gravity_And_The_Field_Origin.pdf) derives it as *coupling capacity over spatial structure*, Eq. (24): the numerator, $f(0) = k^2 + 1 = 17$, is the Field Origin, where the face channels are absent, leaving the 16 bimetric coupling channels plus the non-degenerate coupling vertex itself; the denominator, $f(-1) = kd + 1 = 13$, is TetB, where each of the $k = 4$ face channels projects onto $d = 3$ spatial dimensions, giving 12 spatial components plus one for non-degeneracy. Paper VII also locks the three values together: $f(0) = \tfrac12\,[f(+1) + f(-1)]$, so 21, 17 and 13 are three equally spaced marks, and none can move without moving the others (Eq. 23). Letter 2 and the [algebraic pipeline](../../papers/algebraic-papers-a-b-c/algebraic_pipeline_of_reality.md) give the same choice its structural reason. The metric is parity-even, so it couples through the $s = 0$ read, the parity-even core, which is 17, not the full $s = +1$ read of 21: the sign representation, which carries the parity-odd $K$, is absent from the Christoffel sector. The TetB read, 13, is the scaffold that carries that coupling. The look-elsewhere test confirms numerically that no other simple prefactor competes.
 
 What remains open is the one-loop factor's reading. [`synthesis_one_loop_G.md`](synthesis_one_loop_G.md) decomposes $\alpha/2\pi$ as $\tfrac{2}{17} \times \tfrac{17\alpha}{4\pi}$, which matches the residual exactly; that decomposition was found after the residual was known, so it is an interpretation still to be derived.
 
-### 4. From read to gradient
+### 3. From read to gradient
 
 Paper VII names the field: the registered state $B^*_\Sigma$, the settled potential $\Phi^*$, with local geometry $\ell(x)$, whose gradients are gravity, lensing and time dilation. It also identifies settlement with established constraint solving. What is missing is the construction: the read defined cell by cell on the lattice, and its continuum limit shown to give $\nabla \cdot (\mu \nabla\Phi) = 4\pi G\rho$, including the factor $k\pi$ and the weighting by $\mu$. Until that limit is taken, "force is the gradient of the registered read" is an interpretation of the equation, not a derivation of it.
 
-### 5. A lattice without a preferred frame
+### 4. A lattice without a preferred frame
 
 Any discrete picture of spacetime must respect Lorentz invariance, which Fermi observations of GRB 090510 constrain beyond 7.6 Planck energies, and which GW170817 confirms for gravity to about one part in $10^{15}$. The pixelated README argues that propagation in GFD is closure, not motion across a mesh, so there is no grid spacing to feel. Showing formally that the lattice keeps the dispersion relation $\omega = ck$ exact is still to be done.
 
-### 6. Lattice or connection? Settled by Paper VII
+### 5. Lattice or connection? Settled by Paper VII
 
 Reading 1 says gravity is the lattice; reading 4 says it is the connection. Paper VII (§XI.A) separates the two cleanly. The mesh of *unbound* gravity-field envelopes, TetB chambers empty, is the long-range background: "the stage". *Bound* envelopes, TetB chambers occupied, are matter: "the actors". Gravity is neither the stage nor the actors but the gradients of the registered state between them. The lattice is spacetime, and gravity is its non-uniformity, which is how general relativity separates the metric from its curvature.
 
-### 7. The graviton
+### 6. The graviton
 
 In Hassan–Rosen bimetric gravity the interaction splits the gravitational degrees of freedom into a massless spin-2 mode and a massive one. Paper VII identifies the massless mode with the unbound mesh and the massive mode, confined by its own non-linear coupling, with bound envelopes: Wheeler's geons, realised as matter. The light-substrate notes describe the graviton as two stellated octahedra coupled at a face, giving spin 2, and the quantum-gravity folder makes contact with Regge calculus and loop quantum gravity. Paper VII's fixed interaction coefficients, $\beta_n = (1, 0, 16, 0, 1)$, determine the massive mode's mass, so this part of the picture is testable now, through gravitational-wave dispersion. How the quantised theory follows remains open.
 
