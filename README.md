@@ -356,7 +356,7 @@ git clone https://github.com/fielddynamics/dfp-gravity-field-model.git
 cd dfp-gravity-field-model
 pip install flask numpy
 python gravity_field_model/web_interface/run_web.py        # browse and run tests at http://localhost:5005
-python -m gravity_field_model.run_test --list              # or list every test from the command line
+python -m gravity_field_model.run_test --list              # or list tests by name from the command line
 ```
 
 Notes:
