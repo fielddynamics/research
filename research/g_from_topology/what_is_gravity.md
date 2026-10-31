@@ -31,6 +31,7 @@ These results are established within the framework, by derivation, by computatio
 | The three values 21, 17, 13 are the traces of one graded operator, $\mathrm{Tr}(P_0 + sP_1 + P_2) = 1 + sK + K^2$, on blocks of size 1, 4 and 16 | Exact | [`g_matrix_synthesis.md`](g_matrix_synthesis.md) |
 | The connection's 64 components split 40 + 24; the 24 carry the second root of the tetrad equation | Exact count; the identification is Letter 3's claim | [Letter 3 guide](../../FIELD_CLOSURE_OF_THE_TETRAD_FRAME.md) |
 | $\mu(x) = x/(x+1)$ reproduces the radial acceleration relation with no free parameter | Matches 175 galaxies | Letter 3; the SPARC letter |
+| The field equations run both ways: an observed rotation curve decodes to an effective mass, $M_{\text{dec}} = r v^4 / [G(a_0 r + v^2)]$, with no mass model and no halo. For the Milky Way and M33 the decoded mass lands near the baryonic mass, where $\Lambda$CDM needs three to five times more | Demonstrated on the Milky Way, M33 and NGC 3198 | [Decoding-mass letter](../../papers/letter-decoding-mass-from-rotation-curves/) |
 | Gravity couples to everything equally, is only ever attractive, and travels at $c$ | Observed | Equivalence principle; GW170817 |
 | The cube's eight corners carry every three-input Boolean operation; its spectrum factors as $H_8 = H_2 \otimes H_4$ | Established mathematics | [`universe-is-pixelated/`](../universe-is-pixelated/) |
 
@@ -101,6 +102,8 @@ Each reading supplies a piece the others lack. One way to fit them together is t
 
 **Gravity reads both chambers; electromagnetism reads one.** Paper VII (§V.B) gives the reason the two forces read to different depths. In ghost-free bimetric gravity, matter, including the electromagnetic field, couples to a single metric sector, so electromagnetism reaches only the first level and carries one factor of $\alpha$. Gravity is the interaction *between* the two sectors, through the potential $V(\sqrt{g^{-1}f})$, so it must traverse all 21 levels. The ratio is $\alpha^{20} \approx 10^{-43}$. Gravity's need for both chambers, which the cube's $H_2$ factor expresses, is the same fact seen from the bimetric side.
 
+Observation shows the same thing. A star's orbit follows the total acceleration $g_t$, the field carried by both chambers, while the visible matter supplies only the TetA share, $g_s = \mu\,g_t$. The [decoding-mass letter](../../papers/letter-decoding-mass-from-rotation-curves/) runs that relation backwards: from the measured rotation speeds alone, with no mass model, it returns the mass that the field implies. For the Milky Way at 25 kpc the decoded mass is about $6.6 \times 10^{10}\,M_\odot$, against $7.3 \times 10^{10}\,M_\odot$ in stars and gas; $\Lambda$CDM needs about $2.3 \times 10^{11}\,M_\odot$. Even the lower outer speeds reported from Gaia DR3 (Jiao et al. 2023), about 181 km/s at 25.5 kpc, decode to about $5 \times 10^{10}\,M_\odot$: still close to the baryons, and nowhere near a halo. Read through both chambers, the rotation needs no unseen mass.
+
 The field equation can be read term by term in these words. Paper VII (§IX) writes the Poisson equation with every factor named:
 
 $$\nabla^2\Phi = k\pi \cdot \frac{k^2 + 1}{kd + 1} \cdot G_{\text{bare}} \cdot \rho, \qquad G_{\text{bare}} = \alpha^{21}\,\frac{\hbar c}{m_e^2},$$
@@ -167,7 +170,7 @@ In Hassan–Rosen bimetric gravity the interaction splits the gravitational degr
 - **A derivation of the compounding**, one factor of $\alpha = r_e/\bar\lambda_C$ per level, so that $\alpha^{21}$ follows rather than being stated.
 - **The massive graviton.** Paper VII's $\beta_n = (1, 0, 16, 0, 1)$ fixes the bimetric mass spectrum, which gravitational-wave dispersion measurements from LIGO, Virgo and KAGRA constrain directly.
 - **An acceleration scale that changes with time.** Paper VII ties $a_0$ to the Hubble rate, so $a_0$ was larger in the past. Rotation curves at redshift $z > 1$, from JWST and Euclid, test this; standard MOND assumes a constant $a_0$.
-- **The outer Milky Way.** Paper VII predicts about 205 km/s at 25 kpc. Jiao et al. (2023) report about 181 km/s at 25.5 kpc from Gaia DR3 and reject a flat curve at 3σ; Eilers et al. (2019) find about 200 km/s. Which outer curve is right is a sharp test.
+- **Decoded mass across catalogues.** Orbits follow the total acceleration $g_t$, carried by both chambers, not the TetA share alone, so the test of a rotation curve is the mass it decodes to. The field equations invert exactly, $M_{\text{dec}}(r) = r\,v^4 / \big[G\,(a_0 r + v^2)\big]$, and running every SPARC galaxy through that inverse would compare decoded mass with baryonic mass across 175 galaxies in one pass.
 - **A continuum limit** of a cell-by-cell closure read that reproduces the modified Poisson equation, including the factor $4\pi$ and the weighting by $\mu$.
 - **A derivation of the one-loop factor**, showing from the structure why the correction is the Schwinger term $\alpha/2\pi$.
 - **An observation that separates the readings from plain MOND.** Every reading above reproduces the radial acceleration relation, because they share $\mu(x)$. Something unique to GFD would have to come from the restored torsion sector, which Letter 3 says persists in empty space, unlike Einstein–Cartan torsion. Identifying a measurable consequence of that is the most direct test available.
@@ -190,7 +193,6 @@ python ../../papers/letter-3-field-closure-of-tetrad-frame/Supplementary/run_all
 - Abbott, B. P. et al. (2017). Gravitational waves and gamma-rays from a binary neutron star merger: GW170817 and GRB 170817A. *Astrophys. J. Lett.* 848, L13.
 - Banik, I. et al. (2024). Strong constraints on the gravitational law from Gaia DR3 wide binaries. *Mon. Not. R. Astron. Soc.* 527, 4573.
 - Chae, K.-H. (2023). Breakdown of the Newton–Einstein standard gravity at low acceleration in internal dynamics of wide binary stars. *Astrophys. J.* 952, 128.
-- Eilers, A.-C., Hogg, D. W., Rix, H.-W. and Ness, M. K. (2019). The circular velocity curve of the Milky Way from 5 to 25 kpc. *Astrophys. J.* 871, 120.
 - Jiao, Y., Hammer, F., Flores, H., Wang, J. L. and Yang, Y. (2023). Detection of the Keplerian decline in the Milky Way rotation curve. *Astron. Astrophys.* 678, A208.
 - Nelson, S. (2026). *Dual Tetrad Topology and the Field Origin: From Nuclear Decay to Galactic Dynamics* (Paper VII). [`papers/07-dual-tetrad-topology-field-origin/`](../../papers/07-dual-tetrad-topology-field-origin/).
 - Tiesinga, E. et al. (2021). CODATA recommended values of the fundamental physical constants: 2018. *Rev. Mod. Phys.* 93, 025010.

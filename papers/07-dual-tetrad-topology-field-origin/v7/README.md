@@ -17,10 +17,6 @@ The paper derives a zero-parameter covariant completion of modified gravity from
 
 ---
 
-**Revision notes.** [`REVISION_NOTES.md`](REVISION_NOTES.md) records a full reading of v7: what later letters strengthen, and what a revision should correct or reframe, with the numerical checks in [`revision_checks.py`](revision_checks.py).
-
----
-
 ## Included Files
 
 ### 1. **run_all_validations.py**
