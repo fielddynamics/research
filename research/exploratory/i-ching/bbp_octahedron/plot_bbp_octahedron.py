@@ -1,5 +1,5 @@
 """
-Figure for BOOK_OF_CHANGES_AND_PI.md.
+Figure for ../BOOK_OF_CHANGES_AND_PI.md.
 
 Panel A: the eight trigrams at the corners of the cube, the two Shuo Gua
 families as the two tetrahedra, the TIME axis from Qian to Kun, and the four
