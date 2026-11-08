@@ -89,6 +89,15 @@ Nothing else was asked of it, yet the rest follows:
 
 The figure shows this at a glance. Each row lights some corners and leaves others dark. Kun's column stays dark in every row, and only one row leaves Qian's dark as well.
 
+**Why the answer is π.** A careful reader will ask whether this is special to π. Silence on the TIME axis turns out to pick out one formula for *any* constant that has one. That part is a property of the formula space, not of π. The question is what the chosen formula looks like.
+
+Every formula of this kind, for any constant, comes out as a rational combination of just seven numbers: π, $\ln 2$, $\ln 3$, $\ln 5$, $\arctan\tfrac12$, $\sqrt2\ln(1+\sqrt2)$ and $\sqrt2\arctan(1/\sqrt2)$. Ask each of the seven for a formula that leaves the parents silent and also closes, its weights summing to zero:
+- $\ln 2$ cannot even keep the parents silent, because it lives only in the mother's corner;
+- the five others manage silence but never closure;
+- only π does both.
+
+Try every arrangement of BBP's weights over the octahedron's balanced corners, 216 in all, and the only one that gives a single constant is BBP itself. One more check: in base 16, the shortest period that can write π at all is 8, one slot for each corner of the cube.
+
 ---
 
 ## Where π actually comes from
@@ -100,6 +109,8 @@ $$\pi = 16\int_0^1 \frac{y-1}{(y^2-2)(y^2-2y+2)}\,dy .$$
 The denominator has two factors.
 - **The factor that produces π.** $y^2 - 2y + 2$ has roots $1 \pm i$, which point at forty-five degrees. Its arctangent supplies π itself, as $4 \arctan 1$.
 - **The factor that tidies up.** $y^2 - 2$ has roots $\pm\sqrt2$. It contributes nothing to π. Its job is to cancel a logarithm the first factor leaves behind.
+
+Seen from the full integrand, the BBP weights do something tidy. The eight poles of $16 - y^8$ sit on a regular octagon, which is two squares. The BBP numerator cancels exactly half of them, keeping the real pair $\pm\sqrt2$ and the pair $1 \pm i$.
 
 Both numbers live in the stellated octahedron. Every edge of a tetrahedron is a diagonal of a face of the cube, so the ratio of tetrahedron edge to cube edge is $\sqrt2$. Each of those edges crosses its face at forty-five degrees.
 
@@ -138,6 +149,8 @@ Because $8 = 2^3$ and $16 = 2^4$, base 8 and base 16 are the same binary stream 
 
 - **The ladder holds.** At 300 positions chosen at random out to the ten-thousandth digit, every trigram computed from the ladder alone matches the digits computed independently. Sent to the millionth hexadecimal place, the ladder returns 26C65E52, the digits David Bailey published there.
 - **The walk can run on BBP alone.** Gravity Field Dynamics' closure walk starts at π's leading 3 and adds each base-8 digit, moving around the cube. Run on ladder digits, it is the same walk, and it closes all sixty-four hexagrams at step 332.
+- **The ladder runs far.** Trigrams near the 100,000th place, each from its own rung, match a full arbitrary-precision computation. Over 2,000 consecutive windows, three ladder hexadecimal digits spell exactly four trigrams.
+- **The ladder is the family's, not BBP's alone.** Every formula for π of this kind can extract digits the same way. BBP's advantage is economy: four terms instead of six or seven.
 - **Base 8 belongs to the ladder.** For bases that are not powers of two, base 10 included, π has no ladder of this kind (Borwein, Borwein and Galway, 2004). Base 8 is the one ladder base whose digits are trigrams.
 
 ---
@@ -148,6 +161,7 @@ Some things the work does not claim, and some it rules out.
 
 - **No claim about intent.** Nothing here suggests the authors of the *I Ching* knew about π or about tetrahedra. The claim is structural: the book's organisation of the trigrams is the stellated octahedron, and the octahedron's TIME axis selects BBP from π's formulas.
 - **The walk's statistics are ordinary.** Driven by π, the closure walk behaves statistically like a walk driven by any well-mixed digits. It closes at a typical step, and it does not visit the corners in the *Shuo Gua*'s order. π is not random: it is fixed by a four-term formula and can be read at any position, which no random sequence can. But its digit frequencies look random. The case for π rests on the formula, not on the walk's statistics.
+- **One choice remains.** Reading the term $8k+j$ as the corner labelled $j \bmod 8$ is the natural identification of denominator with vertex, and it does not depend on which line is called which coordinate. Counting the corners the other way round would select a different formula.
 - **The scope is formulas of this kind.** The theorems cover base 16, period 8 and simple denominators. They say nothing about π's other formulas.
 - **Two rules are still open.** The two reading rules in the table above wait for a derivation.
 
@@ -173,7 +187,7 @@ Every statement above is checked by script, using exact arithmetic wherever the 
 | [`test_reading_rules_exact.py`](https://github.com/fielddynamics/dfp-gravity-field-model/blob/test/bbp-octahedron-hypothesis/gravity_field_model/engine_core/field_closure/bbp_structure/test_reading_rules_exact.py) | the 625 weight rules, and the exact values of the other orders |
 | [`test_bbp_ladder_base8.py`](https://github.com/fielddynamics/dfp-gravity-field-model/blob/test/bbp-octahedron-hypothesis/gravity_field_model/engine_core/field_closure/bbp_structure/test_bbp_ladder_base8.py), [`test_walk_from_bbp_ladder.py`](https://github.com/fielddynamics/dfp-gravity-field-model/blob/test/bbp-octahedron-hypothesis/gravity_field_model/engine_core/field_closure/bbp_structure/test_walk_from_bbp_ladder.py) | the ladder into base 8 and out to the millionth digit, and the closure walk run on BBP alone |
 
-Seventeen tests in all, each opening with a line naming the theorem or finding it checks. A guide to them is in the package [`README.md`](https://github.com/fielddynamics/dfp-gravity-field-model/blob/test/bbp-octahedron-hypothesis/gravity_field_model/engine_core/field_closure/bbp_structure/README.md).
+Seventeen tests in all, each opening with a line naming the theorem or finding it checks, and [twenty more](https://github.com/fielddynamics/dfp-gravity-field-model/blob/test/bbp-octahedron-hypothesis/gravity_field_model/engine_core/field_closure/bbp_structure/extensions/README.md) that take the results further: the seven constants, closure and π, every octahedral arrangement, the minimal period, the symmetries of the reading, the far ladder, the walk for other constants, and an audit of the numerical coincidences. A guide to them is in the package [`README.md`](https://github.com/fielddynamics/dfp-gravity-field-model/blob/test/bbp-octahedron-hypothesis/gravity_field_model/engine_core/field_closure/bbp_structure/README.md).
 
 ---
 
