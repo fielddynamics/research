@@ -34,6 +34,33 @@ The proofs and the full test suite live in the model repository, in [`bbp_struct
 
 ---
 
+## The findings
+
+**π is the stellated octahedron's number.** Give each corner of the cube a weight, and turn the weights into a number with the slot map
+$$S(w) = \sum_{j=1}^{8} w_j \sum_{k\ge0} \frac{1}{16^k(8k+j)},$$
+where the term $8k+j$ belongs to the corner labelled $j \bmod 8$. The octahedron's own conditions single out one weighting:
+- Heaven and Earth (the TIME axis) silent;
+- weights summing to zero (closure);
+- two corners from each family.
+
+That weighting is Mountain $+4$, Thunder $-2$, Fire $-1$, Lake $-1$, the BBP formula, and its value is π. No other constant has such a weighting, and the *I Ching*'s rank order of the children is the only order that writes it out. The slot map itself, base $16 = K^2$ and period $8 = 2^D$, is built from the octahedron's numbers. It is an input, not something the geometry forces.
+
+**Why π.** In the BBP integral, π comes from the pole $1+i$, of length √2 at 45°. Those are the octahedron's own ratios: a tetrahedron edge is √2 times the cube's edge and runs at 45° to it. In the Gaussian integers $2 = -i(1+i)^2$, so this is where the powers of two (the binary cube) meet the circle. In the family base $2^{D+1}$, period $2^D$, that happens only in three dimensions.
+
+**The sequence is π, at three levels.**
+
+| Level | Does it identify π? | Why |
+|---|---|---|
+| **The rule** | Yes (proved) | The octahedron's own conditions select the BBP weighting, whose value is π |
+| **The sequence** | Yes (exactly) | The walk is π re-encoded: its digits come back as $d_n = (v_n - v_{n-1}) \bmod 8$, and any step can be checked on its own against the BBP formula |
+| **The statistics** | No | The walk's frequencies, closure step and other overall properties are those of random digits, as for ln 2, √2 or e |
+
+So the walk that settles the 64 hexagrams is driven by π, and every step of it can be verified as π's. What the walk's statistics cannot do is tell π from another well-mixed number. That is why the evidence for π lies in the rule, not in the walk's statistics.
+
+These are proved or tested in the model repository's [`bbp_structure/`](https://github.com/fielddynamics/dfp-gravity-field-model/tree/test/bbp-octahedron-hypothesis/gravity_field_model/engine_core/field_closure/bbp_structure) (`PROOF.md`, Theorems 2–6 and §10; extension tests 02, 21, 23, 24 and 27).
+
+---
+
 ## Contents
 
 ### The result
@@ -106,13 +133,13 @@ Write π in base 8; each digit names a trigram. A walker moves to the vertex giv
 
 The BBP formula is
 $$\pi = \sum_{k\ge0} \frac{1}{16^k}\left[\frac{4}{8k+1} - \frac{2}{8k+4} - \frac{1}{8k+5} - \frac{1}{8k+6}\right].$$
-The six-constraint derivation reads its base, its period and its coefficients from the face normals of the tetrahedron. The write-up takes this further: within the octahedron's own conditions, BBP is the only formula of its kind for π (proof by Baker's theorem), and the reading rules are recovered without assuming π.
+The six-constraint derivation reads its base, its period and its coefficients from the face normals of the tetrahedron. The write-up takes this further: within the octahedron's own conditions, BBP is the only formula of its kind for π (proof by Baker's theorem), and the reading rules are recovered without assuming π. The [findings](#the-findings) above state the result.
 
 ---
 
 ## Status of the original claims
 
-Testing in the model repository sorted the notes' claims into three groups.
+Testing in the model repository sorted the notes' claims into established, corrected and interpretation.
 
 | Claim in the notes | Status | Where |
 |---|---|---|
@@ -121,7 +148,8 @@ Testing in the model repository sorted the notes' claims into three groups.
 | BBP is the octahedron's formula for π | **Established, and strengthened**: π's formulas of this kind form one family, and only BBP leaves the TIME axis silent | Write-up; `PROOF.md`, Theorems 2–3 |
 | The geometry leaves "no freedom" for the coefficients | **Corrected.** The order of the children is free; only the *I Ching*'s rank order gives π | `test_reading_symmetry.py` |
 | The numerators come from an "agreement rule" | **Corrected.** No agreement rule gives π; the rule is ordered (first child doubles, last child sets the step) | `test_reading_weight_rule.py`; `PROOF.md`, Theorem 6 |
-| Closure at step 332 reflects the structure | **Corrected.** Random digits close at about 304 on average; π's 332 is typical, and its pre-closure walk shows no signal after a trials factor | `test_hexagram_closure_null.py`; extension test 24 |
+| The walk is driven by π | **Established, exactly.** The walk is a lossless re-encoding of π's digits, and each step can be checked on its own against the BBP formula: π's walk passes 200 of 200 checks, e's walk about one in eight | `PROOF.md` §10; extension test 27 |
+| Closure at step 332 shows the structure | **Corrected.** Closure belongs to the space, not to π: random digits close at about step 304 on average, π's 332 is typical, and ln 2, √2 and e close too. The walk before closure shows no signal after a trials factor | `test_hexagram_closure_null.py`; extension tests 16 and 24 |
 | The "dual-source" proof: two independent sources of π's digits | **Clarified.** The three-axis mechanism is the BBP series term by term, so both sources compute π; they agree, as they must | `scripts/why_pi_verification.py` |
 | Coupling-polynomial sawtooth, vortex breath, fine-structure correspondence | **Interpretation**, not tested here | `notes/closure_vortex_synthesis-*.md` |
 
