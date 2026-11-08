@@ -275,7 +275,7 @@ python make_figures.py         # regenerates Figures 1 and 2
 - **Letter 2**, [*The Other Half of Gravity*](../../papers/letter-2-other-half-of-gravity-torsion/): the parity rule, root-blindness and torsion as the carrier of TetB.
 - **Paper C**, [*The Hadamard Sign Kernel of the Tetrahedral Frame*](../../papers/algebraic-papers-a-b-c/gfd_paper_c_hadamard_tetrad.tex): $H_4$ as the parity-restricted Walsh kernel, the tetrad's sign skeleton and the axes of the stellated octahedron; $H_8 = H_2 \otimes H_4$.
 - **Letter 3**, [*Field Closure of the Tetrad Frame*](../../papers/letter-3-field-closure-of-tetrad-frame/): the 40/24 split as the coupling polynomial at its opposite states.
-- **Paper IX**, [*Complete Field Closure from Stellated Octahedron Topology*](../exploratory/i-ching/Nelson_2026_GFD_Complete_Field_Closure_from_Stellated_Octahedron_Topology.pdf): binary addresses, the parity partition and the time faces.
+- **Paper IX**, [*Complete Field Closure from Stellated Octahedron Topology*](../exploratory/i-ching/paper/Nelson_2026_GFD_Complete_Field_Closure_from_Stellated_Octahedron_Topology.pdf): binary addresses, the parity partition and the time faces.
 - [`g_from_topology/`](../g_from_topology/): G as a matrix read.
 - [`spectral/`](../spectral/) and [`quantum compute/`](../quantum%20compute/): the Walsh–Hadamard kernel and the oscillator work built on it.
 - [`photonic/`](../photonic/): the photon as the stellated octahedron, the pixel of spacetime.

@@ -12,6 +12,7 @@ Only r = 0, the BBP formula, leaves both TIME corners empty.
     python plot_bbp_octahedron.py      # writes bbp_octahedron.png
 """
 from fractions import Fraction
+from pathlib import Path
 import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle
 
@@ -137,5 +138,5 @@ axB.text(0.0, -0.06, "Each row is one formula for π; a filled cell is a corner 
          transform=axB.transAxes, fontsize=9, color=INK2, va="top")
 
 plt.tight_layout()
-plt.savefig("bbp_octahedron.png", dpi=180, facecolor=SURF, bbox_inches="tight")
+plt.savefig(Path(__file__).with_name("bbp_octahedron.png"), dpi=180, facecolor=SURF, bbox_inches="tight")
 print("wrote bbp_octahedron.png")

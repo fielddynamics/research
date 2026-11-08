@@ -2,27 +2,85 @@
 
 *Exploratory programme, Gravity Field Dynamics (GFD) · Field Dynamics Research*
 
-`i-ching` `trigrams` `hexagrams` `binary` `combinatorics` `history-of-mathematics` `stellated-octahedron`
+`i-ching` `trigrams` `hexagrams` `binary` `combinatorics` `history-of-mathematics` `stellated-octahedron` `bbp-formula`
 
 ---
 
 On 1 April 1703, Gottfried Wilhelm Leibniz received a letter from Peking. Its author, the Jesuit mathematician Joachim Bouvet, enclosed a woodcut of the 64 hexagrams of the *I Ching* in the arrangement attributed to the legendary sage Fu Xi. Leibniz had been developing binary arithmetic for two decades. In the diagram he recognised his own numbers, 0 to 63, written in broken and unbroken lines. Within a week he sent his *Explication de l'arithmétique binaire* to the Paris Academy, citing the hexagrams as an ancient anticipation of the binary system.
 
-Leibniz saw that the *I Ching* counts. This folder asks a further question: **what geometry does it count?**
+Leibniz saw that the *I Ching* counts. This folder asks a further question: **what geometry does it count?** The answer it develops is the stellated octahedron, the object GFD places at the centre of the gravitational field, and through it the Bailey–Borwein–Plouffe (BBP) formula for π.
 
-> **Read first: [The Book of Changes and the Number π](BOOK_OF_CHANGES_AND_PI.md)**, the write-up of how the trigram families select the BBP formula for π.
+---
 
-Gravity Field Dynamics derives a single geometric object as the local structure of the gravitational field: the stellated octahedron, two regular tetrahedra of opposite orientation (TetA and TetB) inscribed in a cube and sharing a centre, the Field Origin. Its eight vertices are the eight points of three-bit binary space. The notes and code collected here show that the classical organisation of the trigrams, including their division into a family of two parents and six children and their arrangement into opposing pairs, reproduces the geometry of that object exactly.
+## How to read this folder
 
-> **The source paper.** The material in this folder began as a section of Paper IX, *Complete Field Closure from Stellated Octahedron Topology*. The full manuscript, including that section ("Historical Correspondence"), is preserved here as [`Nelson_2026_GFD_Complete_Field_Closure_from_Stellated_Octahedron_Topology.pdf`](Nelson_2026_GFD_Complete_Field_Closure_from_Stellated_Octahedron_Topology.pdf). The version deposited on Zenodo ([`papers/09-complete-field-closure/`](../../../papers/09-complete-field-closure/)) omits the I Ching section, so that the published argument rests on the topology and the closure condition alone. The historical correspondence is offered here as independent corroboration, for readers who wish to examine it, and its checks are retained as Section 13 of [`run_all_validations_with_i-ching-intact.py`](run_all_validations_with_i-ching-intact.py).
+The folder holds two layers of work, written at different times.
 
-## 1. The trigrams are the vertices of the cube
+1. **The result.** [`BOOK_OF_CHANGES_AND_PI.md`](BOOK_OF_CHANGES_AND_PI.md) is the current, tested account. It shows that the trigrams are the stellated octahedron, that π's base-16 formulas form exactly one family, and that silence on the TIME axis (father and mother) selects the BBP formula from that family. Every statement in it is checked by script. **Start here.**
+2. **The original notes.** The files in [`notes/`](notes/), [`scripts/`](scripts/) and [`interactive/`](interactive/) are the exploratory work from March 2026 that led to the result. They are kept as they were written. Some of their claims were later sharpened or corrected by testing; the [status table](#status-of-the-original-claims) below says which.
 
-A trigram is three lines, each broken (yin, 0) or unbroken (yang, 1). Reading the lines from the bottom up as three binary digits places each trigram at a vertex of a cube, one bit per spatial axis. The correspondence is a bijection between the eight trigrams and the group $\mathbb Z_2^3$.
+```
+i-ching/
+├── README.md                     this guide
+├── BOOK_OF_CHANGES_AND_PI.md     the result: start here
+├── figures/                      the figure for the write-up, and the script that draws it
+├── notes/                        the original syntheses and the six-constraint derivation
+├── scripts/                      the original verification scripts and analysis engines
+├── interactive/                  two interactive HTML charts
+└── paper/                        the full Paper IX manuscript, with its I Ching section
+```
 
-Dividing the vertices by the parity of their bit count (odd or even numbers of yang lines) splits the cube into two groups of four. Within each group every pair of vertices differs in exactly two bits, so each group is a regular tetrahedron. These are TetA and TetB, and together they form the stellated octahedron.
+The proofs and the full test suite live in the model repository, in [`bbp_structure/`](https://github.com/fielddynamics/dfp-gravity-field-model/tree/test/bbp-octahedron-hypothesis/gravity_field_model/engine_core/field_closure/bbp_structure) (`PROOF.md`, 17 core tests and 26 extensions).
 
-The classical texts already make this division. The *Shuo Gua* (*Discussion of the Trigrams*) arranges the trigrams as a family:
+---
+
+## Contents
+
+### The result
+
+| File | Contents |
+|---|---|
+| [`BOOK_OF_CHANGES_AND_PI.md`](BOOK_OF_CHANGES_AND_PI.md) | The I Ching as the stellated octahedron; π's formulas as one family; the TIME axis selecting BBP; where π enters; the reading of BBP in the trigram lines; the ladder into base 8; what is not claimed; a sense of rotation; what a particle physicist would ask |
+| [`figures/bbp_octahedron.png`](figures/bbp_octahedron.png) | The trigrams on the cube with the four BBP corners, and four members of π's formula family shown corner by corner |
+| [`figures/plot_bbp_octahedron.py`](figures/plot_bbp_octahedron.py) | Draws the figure |
+
+### The original notes ([`notes/`](notes/))
+
+Read in this order:
+
+| File | Contents |
+|---|---|
+| [`circular_closure_walk_synthesis.md`](notes/circular_closure_walk_synthesis.md) | The first full synthesis: the trigram geometry, the three axis vectors, the reading mechanism, the hexagram walk and the dual-source verification |
+| [`why_pi_formal_derivation.md`](notes/why_pi_formal_derivation.md) | The derivation of the BBP series from six constraints on the closure walk (also kept in [`research/field-closure/`](../../field-closure/)) |
+| [`closure_vortex_synthesis-1.md`](notes/closure_vortex_synthesis-1.md), [`closure_vortex_synthesis-2.md`](notes/closure_vortex_synthesis-2.md) | Two versions of the vortex synthesis: the coupling polynomial as the radial profile of closure, the sawtooth, the last-hexagram gaps and the fine-structure correspondence |
+
+### The original scripts ([`scripts/`](scripts/))
+
+| File | Contents |
+|---|---|
+| [`closure_walk_proof_iching.py`](scripts/closure_walk_proof_iching.py) | π in base 8 from mpmath and from the three-axis (BBP) mechanism, matched digit for digit; the walk closes at step 332 |
+| [`why_pi_verification.py`](scripts/why_pi_verification.py) | Each of the six constraints, and the term-by-term identity with the BBP series |
+| [`run_all_validations_with_i-ching-intact.py`](scripts/run_all_validations_with_i-ching-intact.py) | The validation suite of Paper IX with its I Ching section (Section 13) intact: 46 checks in 16 sections |
+| [`traversal_analyzer.py`](scripts/traversal_analyzer.py), [`tetragram_analyzer.py`](scripts/tetragram_analyzer.py) | Analysis engines: a step-by-step ledger of the walk (faces, orbits, macro-cycles, chamber crossings) and its resolution into 32 sub-channels. Copies of the modules in the model repository's `engine_core/common/`, where they run; they import its `gravity_field_model` package |
+
+### Interactive charts ([`interactive/`](interactive/))
+
+| File | Contents |
+|---|---|
+| [`coupling_channel_analysis.html`](interactive/coupling_channel_analysis.html) | The coupling-polynomial sawtooth over four closure cycles |
+| [`element_closure_is_iching.html`](interactive/element_closure_is_iching.html) | The closure walk applied to the 83 stable elements and their binding curve |
+
+### The source paper ([`paper/`](paper/))
+
+The material here began as a section of Paper IX, *Complete Field Closure from Stellated Octahedron Topology*. The full manuscript, including that section ("Historical Correspondence"), is [`paper/Nelson_2026_GFD_Complete_Field_Closure_from_Stellated_Octahedron_Topology.pdf`](paper/Nelson_2026_GFD_Complete_Field_Closure_from_Stellated_Octahedron_Topology.pdf). The version deposited on Zenodo ([`papers/09-complete-field-closure/`](../../../papers/09-complete-field-closure/)) omits the I Ching section, so that the published argument rests on the topology and the closure condition alone.
+
+---
+
+## The background in brief
+
+### The trigrams are the vertices of the cube
+
+A trigram is three lines, each broken (yin, 0) or unbroken (yang, 1). Reading the lines as three binary digits places each trigram at a vertex of a cube, one bit per spatial axis. Dividing the vertices by the parity of their yang count splits the cube into two regular tetrahedra, TetA and TetB, which together form the stellated octahedron. The classical texts already make this division. The *Shuo Gua* (*Discussion of the Trigrams*) arranges the trigrams as a family:
 
 | Trigram | Name | Binary (bottom → top) | Family role | Chamber | Opposite |
 |---|---|---|---|---|---|
@@ -35,87 +93,65 @@ The classical texts already make this division. The *Shuo Gua* (*Discussion of t
 | ☲ | Fire (*Li*) | 101 | Middle daughter | TetB | Water |
 | ☱ | Lake (*Dui*) | 110 | Youngest daughter | TetB | Mountain |
 
-Three exact correspondences follow:
+- **The family is the parity partition.** Father and sons form TetA, mother and daughters TetB.
+- **The opposites are the body diagonals.** The four Fu Xi pairs are a vertex and its complement, meeting at the centre, the Field Origin.
+- **The hexagrams are the complete state space.** There are $8 \times 8 = 64 = K^D$ of them, 32 within a chamber and 32 across the Field Origin.
+- **The ranks fix the coordinates.** Each child's rank (eldest, middle, youngest) is the position of its distinctive line from the bottom. That holds only if the bottom line is the most significant bit, as in the table.
 
-1. **The family is the parity partition.** The father and three sons have odd numbers of yang lines and form TetA. The mother and three daughters have even numbers and form TetB. The traditional yang and yin families are the two tetrahedra.
-2. **The opposites are the body diagonals.** In the Fu Xi ("Earlier Heaven") arrangement the trigrams stand in four opposing pairs: Heaven–Earth, Thunder–Wind, Water–Fire, Mountain–Lake. Each pair is a vertex and its bitwise complement, the two ends of one of the cube's four body diagonals. All four diagonals cross at the centre, the Field Origin, and every pair joins a vertex of TetA to a vertex of TetB.
-3. **The hexagrams are the complete state space.** A hexagram is an ordered pair of trigrams, so there are $8 \times 8 = 64 = 2^6 = 4^3 = K^D$ of them. They divide evenly by chamber: 16 TetA→TetA, 16 TetA→TetB, 16 TetB→TetA and 16 TetB→TetB. That gives 32 transitions within a chamber and 32 across the Field Origin.
+### The closure walk
 
-The vierbein itself appears in the same table. The four face normals of TetA, written as sign patterns on the three axes, are $(+,+,+)$, $(+,-,-)$, $(-,+,-)$ and $(-,-,+)$: Heaven, Thunder, Water and Mountain. Their negations are Earth, Wind, Fire and Lake. The four fundamental dualities of the *I Ching* are the four directions of the tetrad and their reversals.
+Write π in base 8; each digit names a trigram. A walker moves to the vertex given by the running sum of the digits modulo 8, and each consecutive pair of positions is a hexagram. The walk *closes* when all 64 hexagrams have occurred: for π at step 332. The notes read each closure through the coupling polynomial $f(K,s) = 1 + sK + K^2$, which climbs from 13 (TetB) through 17 (the Field Origin) to 21 (TetA) and resets: a sawtooth the notes call the field's breath.
 
-## 2. The closure walk
+### The bridge to BBP
 
-The second part of the work sets the trigram geometry in motion.
+The BBP formula is
+$$\pi = \sum_{k\ge0} \frac{1}{16^k}\left[\frac{4}{8k+1} - \frac{2}{8k+4} - \frac{1}{8k+5} - \frac{1}{8k+6}\right].$$
+The six-constraint derivation reads its base, its period and its coefficients from the face normals of the tetrahedron. The write-up takes this further: within the octahedron's own conditions, BBP is the only formula of its kind for π (proof by Baker's theorem), and the reading rules are recovered without assuming π.
 
-**The walk.** Write $\pi$ in base 8. Each digit, 0 to 7, is three bits and so names a trigram. A walker on the cube moves to the vertex given by the running sum of the digits modulo 8. Each consecutive pair of positions is a hexagram.
+---
 
-**Closure.** The walk is said to *close* when every one of the 64 hexagrams has occurred. For $\pi$ this happens at step 332, after 333 digits, with all 32 cross-chamber and all 32 within-chamber transitions realised. The walk then continues, and successive closures take 303, 250 and 277 further digits.
+## Status of the original claims
 
-**The coupling polynomial as a clock.** The notes read the progress of each closure through the GFD coupling polynomial $f(K,s) = 1 + sK + K^2$. As the count of distinct hexagrams rises from 0 to 64, the state coordinate $s$ runs from $-1$ to $+1$. The capacity therefore climbs from 13 (TetB) through 17 (the Field Origin, reached at 32 hexagrams) to 21 (TetA), then resets. Over successive closures the result is a sawtooth between 13 and 21, which the notes describe as the field's breath, from vortex core to horizon and back ([`coupling_channel_analysis.html`](coupling_channel_analysis.html)).
+Testing in the model repository sorted the notes' claims into three groups.
 
-## 3. The bridge to the BBP formula
-
-The deepest claim in the folder concerns where the digits of $\pi$ come from. In 1995 Bailey, Borwein and Plouffe discovered the series
-
-$$\pi \;=\; \sum_{k=0}^{\infty} \frac{1}{16^k}\left[\frac{4}{8k+1} - \frac{2}{8k+4} - \frac{1}{8k+5} - \frac{1}{8k+6}\right],$$
-
-which allows any hexadecimal digit of $\pi$ to be computed without the digits before it.
-
-The derivation in [`why_pi_formal_derivation.md`](why_pi_formal_derivation.md) gives every element of this series a meaning in the stellated octahedron:
-
-| Element of the BBP series | Value | Reading in the geometry |
+| Claim in the notes | Status | Where |
 |---|---|---|
-| Base | $16 = K^2$ | the sixteen sub-channels into which each face divides |
-| Terms per orbit | $4 = K$ | one reading per face of the tetrahedron |
-| Denominator step | $8 = 2K$ | one sector per vertex of the cube |
-| Denominator offsets | 1, 4, 5, 6 | the running sum of the $z$-axis face-normal pattern $[3,1,1,3]$, starting from 1 |
-| Numerator magnitudes | 4, 2, 1, 1 | a weighting of the $x$- and $y$-axis patterns $[3,3,1,1]$ and $[3,1,3,1]$ |
-| Numerator signs | $+, -, -, -$ | one temporal and three spatial faces, the $3+1$ structure |
-| Numerator sum | 0 | closure: the face normals sum to zero |
+| Trigrams = cube vertices; families = the two tetrahedra; opposites = body diagonals; 64 hexagrams = $K^D$ | **Established** (identities, any encoding) | Write-up, "The book is a cube" |
+| The bottom line is the most significant bit | **Established**, fixed by the *Shuo Gua*'s ranks and Shao Yong's numbering; the synthesis's three geometric reasons hold under every encoding | Write-up; `test_iching_encoding_selection.py` |
+| BBP is the octahedron's formula for π | **Established, and strengthened**: π's formulas of this kind form one family, and only BBP leaves the TIME axis silent | Write-up; `PROOF.md`, Theorems 2–3 |
+| The geometry leaves "no freedom" for the coefficients | **Corrected.** The order of the children is free; only the *I Ching*'s rank order gives π | `test_reading_symmetry.py` |
+| The numerators come from an "agreement rule" | **Corrected.** No agreement rule gives π; the rule is ordered (first child doubles, last child sets the step) | `test_reading_weight_rule.py`; `PROOF.md`, Theorem 6 |
+| Closure at step 332 reflects the structure | **Corrected.** Random digits close at about 304 on average; π's 332 is typical, and its pre-closure walk shows no signal after a trials factor | `test_hexagram_closure_null.py`; extension test 24 |
+| The "dual-source" proof: two independent sources of π's digits | **Clarified.** The three-axis mechanism is the BBP series term by term, so both sources compute π; they agree, as they must | `scripts/why_pi_verification.py` |
+| Coupling-polynomial sawtooth, vortex breath, fine-structure correspondence | **Interpretation**, not tested here | `notes/closure_vortex_synthesis-*.md` |
 
-The three axis patterns are the columns of the face-normal table with $+$ read as $D = 3$ and $-$ as 1. Each is a permutation of $[D, D, 1, 1]$ and sums to $2K = 8$.
+---
 
-On this reading, $\pi$ is not imported into the framework from the geometry of circles. It is the value of a series whose every coefficient is a count on the stellated octahedron, so that the field's own face structure, read orbit by orbit, generates the digits that drive the walk. The identification with the BBP series is exact term by term, and [`why_pi_verification.py`](why_pi_verification.py) checks it over 40 terms. Of the entries in the table, the base, the term count, the denominator step and the closure of the numerators follow directly from $K$ and $D$. The numerator weights rest on a stated rule for combining the $x$- and $y$-axis patterns, which the derivation sets out explicitly.
+## Reproduce
 
-## 4. What the numbers show
-
-Two observations help place the results.
-
-**The geometric correspondences are exact.** The trigram–vertex bijection, the family as the parity partition, the Fu Xi opposites as body diagonals and the 64 hexagrams as $K^D$ are identities. They depend on no data and no fitting.
-
-**The closure step reflects the statistics of $\pi$.** A walk driven by independent, uniformly random base-8 digits covers all 64 transitions after 301 steps on average, with a standard deviation of about 78. Roughly 29% of such walks need 332 steps or more (5000 simulated walks). $\pi$'s closure at step 332, and the later closures at 303, 250 and 277 digits, are what a well-mixed digit sequence does. This agrees with the expectation, widely supported though unproven, that $\pi$ is normal in base 8. The count of 333 digits is therefore a property of $\pi$'s statistics. The structural content of the walk lies in the space it explores, which is the $8 \times 8$ transition space of the stellated octahedron, and in the BBP bridge that ties the source of the digits to the same geometry.
-
-## 5. Contents
-
-| File | Contents |
-|---|---|
-| [`circular_closure_walk_synthesis.md`](circular_closure_walk_synthesis.md) | **Start here.** The full argument in one document: the trigram geometry, the three axis vectors, the reading mechanism, the hexagram walk and the dual-source verification |
-| [`why_pi_formal_derivation.md`](why_pi_formal_derivation.md) | The derivation of the BBP series from six constraints on the closure walk |
-| [`closure_vortex_synthesis-1.md`](closure_vortex_synthesis-1.md), [`closure_vortex_synthesis-2.md`](closure_vortex_synthesis-2.md) | Two versions of the vortex synthesis: the coupling polynomial as the radial profile of closure, the sawtooth, the last-hexagram gaps and the fine-structure correspondence |
-| [`closure_walk_proof_iching.py`](closure_walk_proof_iching.py) | Dual-source verification: $\pi$ in base 8 from mpmath and from the three-axis mechanism, matched digit for digit, with the walk closing at step 332 |
-| [`why_pi_verification.py`](why_pi_verification.py) | Tests of each of the six constraints and the term-by-term identity with the BBP series |
-| [`run_all_validations_with_i-ching-intact.py`](run_all_validations_with_i-ching-intact.py) | The validation suite of Paper IX with its I Ching section intact: 46 checks across 16 sections, from dimensional uniqueness to the complete derivation chain |
-| [`traversal_analyzer.py`](traversal_analyzer.py), [`tetragram_analyzer.py`](tetragram_analyzer.py) | Analysis engines: a step-by-step ledger of the walk (faces, orbits, macro-cycles, chamber crossings) and its resolution into the 32 corner and central sub-channels of the eight faces |
-| [`coupling_channel_analysis.html`](coupling_channel_analysis.html) | Interactive chart of the coupling-polynomial sawtooth over four closure cycles |
-| [`element_closure_is_iching.html`](element_closure_is_iching.html) | Interactive map of the closure walk applied to the 83 stable elements and their binding curve |
-| [`Nelson_2026_GFD_Complete_Field_Closure_from_Stellated_Octahedron_Topology.pdf`](Nelson_2026_GFD_Complete_Field_Closure_from_Stellated_Octahedron_Topology.pdf) | The full manuscript of Paper IX, including the I Ching section ("Historical Correspondence") omitted from the version deposited on Zenodo; the published version is in [`papers/09-complete-field-closure/`](../../../papers/09-complete-field-closure/) |
-| [`ichingyching/`](ichingyching/) | An earlier copy of the synthesis and proof script |
-
-**Reproduce:**
+The original scripts need only `mpmath`:
 
 ```bash
 pip install mpmath
-cd research/exploratory/i-ching
-python closure_walk_proof_iching.py                  # dual-source proof; closure at step 332
+cd research/exploratory/i-ching/scripts
+python closure_walk_proof_iching.py                  # dual-source check; closure at step 332
 python why_pi_verification.py                        # the six constraints and the BBP identity
 python run_all_validations_with_i-ching-intact.py    # 46 checks
 ```
 
+The proofs and tests behind the write-up are in the model repository:
+
+```bash
+python -m gravity_field_model.engine_core.field_closure.bbp_structure.test_bbp_completeness_proof
+```
+
+---
+
 ## A note on scope
 
-This is exploratory work. Its first part is mathematics: the trigrams of the *I Ching* are the vertices of the cube, and their classical family and their Fu Xi opposites are the two tetrahedra of the stellated octahedron and its four body diagonals. Its second part is an interpretation: a reading of the hexagram walk and of the BBP series as the field reading its own faces.
+The first part of this work is mathematics: the trigrams of the *I Ching* are the vertices of the cube, their family and their opposites are the stellated octahedron's two tetrahedra and four body diagonals, and the octahedron's TIME axis selects the BBP formula for π. The second part, the walk as the field reading its own faces, is interpretation.
 
-No claim is made that the authors of the *I Ching* knew this geometry. The claim is that a system built three thousand years ago to describe change is, in its structure, the complete state space of the object that GFD places at the heart of the gravitational field. Leibniz found binary arithmetic in the hexagrams. The stellated octahedron is the geometry that arithmetic draws.
+No claim is made that the authors of the *I Ching* knew this geometry. The claim is structural: a system built three thousand years ago to describe change is, in its organisation, the complete state space of the object GFD places at the heart of the gravitational field. Leibniz found binary arithmetic in the hexagrams. The stellated octahedron is the geometry that arithmetic draws.
 
 ---
 
