@@ -24,7 +24,8 @@ The hierarchy follows in one line: electromagnetism couples through one level an
 1. [`g_matrix_synthesis.md`](g_matrix_synthesis.md), *G as a Matrix Read*. The derivation: the graded operator $I_s = P_0 + sP_1 + P_2$ on blocks of size 1, 4 and 16, its three traces 21, 17 and 13, and the identity $\det(\alpha^{I}) = \alpha^{\mathrm{Tr}\,I}$.
 2. [`synthesis_one_loop_G.md`](synthesis_one_loop_G.md), *The One-Loop Correction to G*. The residual at tree level matches $\alpha/2\pi$, and a structural reading of that factor.
 3. [`read_sweep_synthesis.md`](read_sweep_synthesis.md), *The Read Sweep*. A physical picture of what does the reading: 64 sectors, three harmonic bands of 1, 4 and 16, and light, gravity and matter as three patterns of one process.
-4. [`what_is_gravity.md`](what_is_gravity.md), *What Is Gravity?* An open question. It follows one mechanism, first stated in Papers I–III, that field closure requires a read, through what is read (the lattice), what reads it (the sweep), what the read produces (settlement and registration), how general relativity sees it (the connection) and the algebra it runs on (the cube), and lists what the archive itself names as open.
+4. [`g_from_the_closure_climb.md`](g_from_the_closure_climb.md), *G from the Closure Climb*. Why 21 is an exponent and 17/13 a ratio: over one closure the coupling climbs 13 → 17 → 21 from TetB to TetA, the Field Origin value 17 is exactly the closure's mean, and $\alpha^{f_{\text{end}}}\,\langle f\rangle/f_{\text{start}}$ is the only one of 21 closure-stage rules that fits. Proposed, not yet derived; the note says what would make it a derivation.
+5. [`what_is_gravity.md`](what_is_gravity.md), *What Is Gravity?* An open question. It follows one mechanism, first stated in Papers I–III, that field closure requires a read, through what is read (the lattice), what reads it (the sweep), what the read produces (settlement and registration), how general relativity sees it (the connection) and the algebra it runs on (the cube), and lists what the archive itself names as open.
 
 ## What is derived, and what is assumed
 
@@ -35,6 +36,7 @@ The hierarchy follows in one line: electromagnetism couples through one level an
 | Uniqueness of $17/13 \cdot \alpha^{21}$ among simple alternatives | Computed by [`look_elsewhere_G.py`](look_elsewhere_G.py) |
 | Each coupling level attenuates by one factor of $\alpha$ | The single physical assumption: the frame is built from null directions, so its coupling is photonic |
 | The prefactor $17/13 = (K^2+1)/(DK+1)$: the parity-even core the metric couples through, over the TetB scaffold | Derived in Paper VI §8.3 ([formal bridging note](../../papers/06-gravitational-constant-from-topology/FORMAL%20BRIDGING%20OF%2017-13.md)) and [Paper VII](../../papers/07-dual-tetrad-topology-field-origin/v7/Dual_Tetrad_Gravity_And_The_Field_Origin.pdf), Eq. (24); confirmed numerically by the look-elsewhere test |
+| The combination rule (21 as exponent, 17/13 as ratio) as end-of-closure depth times closure mean over start | Proposed in [`g_from_the_closure_climb.md`](g_from_the_closure_climb.md); the only fit among 21 closure-stage rules, written after the fact |
 | The decomposition of $\alpha/2\pi$ as $\tfrac{2}{17} \times \tfrac{17\alpha}{4\pi}$ | An interpretation of the residual |
 
 ## Running
@@ -53,7 +55,9 @@ Standard library only. The value of G is also checked in [`universe-is-pixelated
 | [`synthesis_one_loop_G.md`](synthesis_one_loop_G.md) | The one-loop correction and its structural reading |
 | [`read_sweep_synthesis.md`](read_sweep_synthesis.md) | The read sweep: what does the reading |
 | [`what_is_gravity.md`](what_is_gravity.md) | What gravity is, framed as an open question |
+| [`g_from_the_closure_climb.md`](g_from_the_closure_climb.md) | The combination rule read from the closure climb, with its status |
 | [`look_elsewhere_G.py`](look_elsewhere_G.py) | The look-elsewhere test for the prefactor and exponent |
+| [`closure_climb_G.py`](closure_climb_G.py) | The closure climb, its mean, the 21 closure-stage rules and their fake-target test |
 | [`g_three_sierpinski_blocks.html`](g_three_sierpinski_blocks.html) | Diagram of G as three Sierpiński blocks, 1 + 4 + 16 |
 | [`photonic_circle.jsx`](photonic_circle.jsx) | Interactive React component: the 64-sector read circle |
 
@@ -61,6 +65,7 @@ Standard library only. The value of G is also checked in [`universe-is-pixelated
 
 ## Related
 
+- [`exploratory/i-ching/`](../exploratory/i-ching/): the BBP formula for π as the stellated octahedron's formula, read around the TIME axis that G climbs
 - [`universe-is-pixelated/`](../universe-is-pixelated/): the cube as a Boolean computer, and G as an operator read on Walsh–Hadamard blocks
 - [Paper VI](../../papers/06-gravitational-constant-from-topology/): *Deriving the Gravitational Constant from Spacetime Topology*
 - [`docs/02-gravitation/04-g-from-topology.md`](../../docs/02-gravitation/04-g-from-topology.md): the documentation page
