@@ -275,7 +275,7 @@ Most research folders follow the same pattern: a **`*_synthesis.md`** that expla
 | [`quantum compute/`](<research/quantum compute/>) | The GFD oscillator (Kuramoto-type phase + amplitude dynamics) applied to Max-Cut, colouring, TSP, community detection and mazes; t-bit algebra; Walsh-bridge gate recognition; oscillator-based unsupervised learning. Subfolders `GFD oscillator v2/` and `Oscillator learning/` have their own READMEs |
 | [`spectral/`](research/spectral/) | Walsh–Hadamard spectral kernel (PyTorch) |
 | [`3 sweep understanding/`](<research/3 sweep understanding/>) | Closure-algebra pipeline and Walsh-spectral compute primitive syntheses |
-| [`antenna theory/`](<research/antenna theory/>) | The coupling through the Field Origin as a circuit: GFD's Möbius map is the reflection coefficient of a transmission line and μ(x) the voltage divider; the N = 2 law as an infinite ladder; exact Sierpiński-network laws, all bounded above by x/(1 + x), tested against the radial acceleration relation and the Solar System; with a verification script (17 checks) and the original resonant-coupling note |
+| [`antenna theory/`](<research/antenna theory/>) | Resonant coupling through the Field Origin |
 
 ### Exploratory work — [`research/exploratory/`](research/exploratory/)
 
