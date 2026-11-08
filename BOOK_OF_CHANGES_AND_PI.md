@@ -137,7 +137,15 @@ Out comes BBP: positions 1, 4, 5, 6 with weights $+4, -2, -1, -1$. The four step
 
 The order matters. The three sons can be listed in six ways, and those six orderings are exactly the six symmetries of the octahedron that leave the TIME axis in place. All six give weights summing to zero, but only the order of age gives π. The others give nearby numbers such as $\ln(675/256) + 2\arctan 2 \approx 3.18$.
 
-To be clear about what is shown here: the two reading rules (the weight and the step) were found by fitting to BBP. They are compact, and among 625 simple weight rules of the same linear form, only this one gives π; a test checks every one of them. They are not yet derived from the geometry or from the text, and the main result does not depend on them. What this section shows is that, written in the trigram's own lines, BBP comes out in the *I Ching*'s order of the children and in no other.
+The two rules were first found by fitting to BBP, so the natural worry is that they were made to measure. They were not. Forget π and ask only for readings that respect the octahedron:
+- each row's weight and step depend simply (linearly) on its lines;
+- the weights close, summing to zero;
+- the steps make exactly one turn of eight around the cube;
+- the four positions are different, avoid the TIME corners, and split two and two between the families.
+
+Seven hundred and four different formulas survive these conditions. Exactly one of them, up to doubling, works out to a single recognisable constant, and that constant is π ([test 21](https://github.com/fielddynamics/dfp-gravity-field-model/blob/test/bbp-octahedron-hypothesis/gravity_field_model/engine_core/field_closure/bbp_structure/extensions/test_21_reading_rules_confirmed.py)).
+
+The rule that produces it is the same in every order you might read the sons, once it is said in words: *the first child read counts double, and the last child read sets the pace*. The *I Ching* reads its children eldest first, and the eldest's line is the bottom one. So the rule becomes "twice the bottom line, plus the middle, plus the top" and "a step of three when the top line is yang". The reading rules are confirmed, not assumed. The class of simple linear readings is still a choice, but within it nothing is tuned.
 
 ---
 
@@ -187,13 +195,31 @@ Every statement above is checked by script, using exact arithmetic wherever the 
 | [`test_reading_rules_exact.py`](https://github.com/fielddynamics/dfp-gravity-field-model/blob/test/bbp-octahedron-hypothesis/gravity_field_model/engine_core/field_closure/bbp_structure/test_reading_rules_exact.py) | the 625 weight rules, and the exact values of the other orders |
 | [`test_bbp_ladder_base8.py`](https://github.com/fielddynamics/dfp-gravity-field-model/blob/test/bbp-octahedron-hypothesis/gravity_field_model/engine_core/field_closure/bbp_structure/test_bbp_ladder_base8.py), [`test_walk_from_bbp_ladder.py`](https://github.com/fielddynamics/dfp-gravity-field-model/blob/test/bbp-octahedron-hypothesis/gravity_field_model/engine_core/field_closure/bbp_structure/test_walk_from_bbp_ladder.py) | the ladder into base 8 and out to the millionth digit, and the closure walk run on BBP alone |
 
-Seventeen tests in all, each opening with a line naming the theorem or finding it checks, and [twenty more](https://github.com/fielddynamics/dfp-gravity-field-model/blob/test/bbp-octahedron-hypothesis/gravity_field_model/engine_core/field_closure/bbp_structure/extensions/README.md) that take the results further: the seven constants, closure and π, every octahedral arrangement, the minimal period, the symmetries of the reading, the far ladder, the walk for other constants, and an audit of the numerical coincidences. A guide to them is in the package [`README.md`](https://github.com/fielddynamics/dfp-gravity-field-model/blob/test/bbp-octahedron-hypothesis/gravity_field_model/engine_core/field_closure/bbp_structure/README.md).
+Seventeen core tests, each opening with a line naming the theorem or finding it checks, and [twenty-two more]({E}README.md) that take the results further: the seven constants, closure and π, every octahedral arrangement, the minimal period, the symmetries of the reading, the far ladder, the walk for other constants, and an audit of the numerical coincidences. A guide to them is in the package [`README.md`](https://github.com/fielddynamics/dfp-gravity-field-model/blob/test/bbp-octahedron-hypothesis/gravity_field_model/engine_core/field_closure/bbp_structure/README.md).
+
+---
+
+## Does it set a direction of spin?
+
+A question worth asking: could this structure explain why things in the universe seem to turn one way?
+
+**First, the premise.** It needs care.
+- **The solar system.** The planets go round the Sun in one direction, and most spin that way too. That comes from the single rotating disk of gas they formed from. Venus and Uranus are exceptions.
+- **Galaxies.** Across the sky, galaxies spin both ways. Lior Shamir has reported small asymmetries: about two thirds clockwise among 263 early galaxies imaged by the James Webb telescope, and a roughly one per cent excess in large Sloan Digital Sky Survey samples. These results are debated. Shamir himself suggests the Webb asymmetry may come from the Milky Way's own rotation brightening one kind of galaxy, and other analyses of the large surveys have found spin directions consistent with random.
+- **Particle physics.** The clearest, best-established preference for one handedness in nature is in the weak interaction.
+
+**Then the structure.** [Test 22](https://github.com/fielddynamics/dfp-gravity-field-model/blob/test/bbp-octahedron-hypothesis/gravity_field_model/engine_core/field_closure/bbp_structure/extensions/test_22_reading_chirality.py) asks what the π reading prefers.
+- **No handedness.** The reading looks the same after inversion through the Field Origin, which exchanges the two families. A figure with a centre of inversion is the same as its mirror image, so it is achiral.
+- **But a sense of rotation.** It is not the same after a third of a turn about the TIME axis, and its mirror images do not give π. So it does single out one sense of circulation around the parents' axis: eldest, middle, youngest runs counterclockwise seen from Heaven. An achiral object can still spin one way, as a spinning ball does.
+- **The sign is a convention.** What fixes which way is the choice of laying the bottom, middle and top lines along a right-handed $x, y, z$. The book fixes which line is first; it does not fix which way the axes turn.
+
+So the honest answer is: plausible as a question, not yet as an explanation. The structure has room for a preferred sense of rotation about one axis. For that to be physical, Gravity Field Dynamics would have to tie the trigram lines to physical directions with a definite handedness, for example through the asymmetry between the two chambers. It would then have to predict something measurable, such as an alignment of spins with a cosmic axis, that could be checked against the surveys.
 
 ---
 
 ## An open invitation
 
-Two rules remain to be derived. Why should the eldest son's line, the bottom one, count double? Why should the youngest's line, the top one, set the step around the cube? If those two rules can be read from the geometry or from the text, then the octahedron does not merely select the BBP formula: it writes it. Every other step, from the trigrams to the cube, from the cube to π's formulas, and from the TIME axis to BBP, is now on firm ground, and the tests are there for anyone who wants to try.
+One question remains. Why should the reading be simple (linear in the lines) at all? Within that class, every step is now on firm ground: from the trigrams to the cube, from the cube to π's formulas, from the TIME axis to BBP, and from the octahedron's own conditions to the rules that write BBP out. The tests are there for anyone who wants to try another class of readings, or to turn the sense of rotation into a prediction.
 
 ---
 
@@ -205,6 +231,8 @@ Two rules remain to be derived. Why should the eldest son's line, the bottom one
 - Bouvet's letter of 4 November 1701 and Leibniz's reply: [History of Information](https://www.historyofinformation.com/detail.php?entryid=454); [the Leibniz–Bouvet correspondence](https://archive.swarthmore.edu/leibniz-bouvet/index.html).
 - Bailey, D. H., Borwein, P. B. and Plouffe, S. (1997). On the rapid computation of various polylogarithmic constants. *Mathematics of Computation* 66, 903–913.
 - Bailey, D. H. (2006). The BBP algorithm for pi. Table 1: hexadecimal digits of π at positions $10^6$ to $10^9$.
+- Shamir, L. (2025). Galaxy spin directions in the JADES field. *Monthly Notices of the Royal Astronomical Society*; summary: [Kansas State University](https://www.k-state.edu/news/articles/2025/03/lior-shamir-james-webb-space-telescope-spinning-galaxies.html).
+- McAdam, D. and Shamir, L. (2023). Reanalysis of the spin direction distribution of Galaxy Zoo SDSS spiral galaxies. [arXiv:2302.06530](https://arxiv.org/abs/2302.06530).
 - Adamchik, V. and Wagon, S. (1997). A simple formula for π. *American Mathematical Monthly* 104, 852–855.
 - Baker, A. (1966). Linear forms in the logarithms of algebraic numbers I. *Mathematika* 13, 204–216.
 - Borwein, J. M., Borwein, D. and Galway, W. F. (2004). Finding and excluding b-ary Machin-type individual digit formulae. *Canadian Journal of Mathematics* 56, 897–925.
