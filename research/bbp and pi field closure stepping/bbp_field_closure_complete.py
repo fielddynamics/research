@@ -121,7 +121,12 @@ def check_01_selection_equation_unique():
 
 
 def check_02_cubic_uniqueness_forces_K4():
-    """K³ = 2^{2D} combined with 2(D+1)=2^D uniquely gives K=4, D=3."""
+    """K³ = 2^{2D} combined with 2(D+1)=2^D gives K=4, D=3.
+
+    Note (Nov 2026): K³ = 2^{2D} alone is NOT unique to D=3; it has the integer
+    solution K = 2^{2D/3} whenever 3 | D (D = 6, 9, ...). Only with K = D+1 does
+    it give D = 3. This check assumes D = 3 rather than testing uniqueness.
+    """
     # Only D satisfying selection equation
     d_solutions = [d for d in range(1, 200) if 2 * (d + 1) == 2 ** d]
     assert d_solutions == [3]
@@ -162,7 +167,11 @@ def check_05_bbp_constants_match_gfd_prefactors():
 
 
 def check_06_triple_lock_convergence():
-    """Three independent constraints all converge on (K,D) = (4,3)."""
+    """Three constraints all converge on (K,D) = (4,3).
+
+    Note (Nov 2026): the constraints are not independent. Locks 2 and 3 both use
+    D = 3 from lock 1. See the synthesis document, section 1.
+    """
     # Lock 1: dimensional selection
     lock1 = [d for d in range(1, 100) if 2 * (d + 1) == 2 ** d]
     assert lock1 == [3]
@@ -360,7 +369,11 @@ def check_21_alignment_window_encodes_KD():
 
 
 def check_22_e_has_no_bbp_formula():
-    """e = Σ 1/n! has factorial denominators — no BBP-type digit extraction possible."""
+    """e's usual series (Σ 1/n!) is not of BBP form.
+
+    Note (Nov 2026): this shows only that the factorial series is not BBP-type.
+    Whether e has ANY BBP-type formula is an open question; none is known.
+    """
     # e's series has denominator n! which grows faster than any geometric base.
     # A BBP-type formula requires denominators of the form (pn+j) — linear in n.
     # We verify that e's series is NOT of BBP form by checking that
@@ -374,7 +387,12 @@ def check_22_e_has_no_bbp_formula():
 
 
 def check_23_ln2_base2_has_one_active_slot():
-    """ln(2) = Σ 1/(n·2^n): base=2, period=1, only 1 active slot. Cannot read K=4 faces."""
+    """ln(2) = Σ 1/(n·2^n): base=2, period=1, only 1 active slot.
+
+    Note (Nov 2026): ln 2 also has base-16, period-8 formulas (it lies in the
+    span of the slot series; extension test 01). What it lacks is a formula with
+    the TIME axis silent (extension test 02).
+    """
     # Verify the formula converges to ln(2)
     ln2_series = sum(1.0 / (n * 2.0 ** n) for n in range(1, 100))
     assert abs(ln2_series - math.log(2)) < 1e-12
@@ -388,7 +406,7 @@ def check_23_ln2_base2_has_one_active_slot():
 
 
 def check_24_sqrt2_phi_have_no_bbp_formula():
-    """√2 and φ are algebraic — no BBP-type formula exists for algebraic irrationals."""
+    """√2 and φ are algebraic; no BBP-type formula is known for them (not proved impossible)."""
     # Algebraic numbers satisfy polynomial equations over Q.
     # BBP-type formulas exist only for certain polylogarithmic constants.
     # Verify √2 and φ are algebraic:
@@ -396,9 +414,9 @@ def check_24_sqrt2_phi_have_no_bbp_formula():
     assert abs(sqrt2 ** 2 - 2) < 1e-15, "√2 is algebraic: √2² = 2"
     phi = (1 + math.sqrt(5)) / 2
     assert abs(phi ** 2 - phi - 1) < 1e-15, "φ is algebraic: φ² - φ - 1 = 0"
-    # No known BBP-type formula exists for ANY algebraic irrational.
-    # This is a known result in transcendence theory: BBP formulas
-    # produce transcendental numbers (like π, ln(2)).
+    # No BBP-type formula is known for any algebraic irrational. Note (Nov 2026):
+    # that there can be none is NOT a known theorem; this check shows only that
+    # √2 and φ are algebraic.
 
 
 def check_25_exhaustive_4slot_search_produces_only_pi():
