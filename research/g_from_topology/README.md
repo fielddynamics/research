@@ -43,6 +43,7 @@ The hierarchy follows in one line: electromagnetism couples through one level an
 
 ```bash
 python look_elsewhere_G.py
+python compare_G_measurements.py
 ```
 
 Standard library only. The value of G is also checked in [`universe-is-pixelated/verify_pixelated.py`](../universe-is-pixelated/verify_pixelated.py).
@@ -58,6 +59,8 @@ Standard library only. The value of G is also checked in [`universe-is-pixelated
 | [`g_from_the_closure_climb.md`](g_from_the_closure_climb.md) | The combination rule read from the closure climb, with its status |
 | [`look_elsewhere_G.py`](look_elsewhere_G.py) | The look-elsewhere test for the prefactor and exponent |
 | [`closure_climb_G.py`](closure_climb_G.py) | The closure climb, its mean, the 21 closure-stage rules and their fake-target test |
+| [`PREREGISTRATION.md`](PREREGISTRATION.md) | The prediction for G fixed in every part, with pass and fail criteria for measurements after 9 November 2026 |
+| [`compare_G_measurements.py`](compare_G_measurements.py) | The prediction against each of the 16 measurements in the CODATA 2022 adjustment |
 | [`g_three_sierpinski_blocks.html`](g_three_sierpinski_blocks.html) | Diagram of G as three Sierpiński blocks, 1 + 4 + 16 |
 | [`photonic_circle.jsx`](photonic_circle.jsx) | Interactive React component: the 64-sector read circle |
 
