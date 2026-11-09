@@ -1,0 +1,290 @@
+\documentclass[twocolumn]{iopjournal}
+
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{array}
+
+\fancyhfoffset[L]{0mm}
+\setlength{\marginparwidth}{0pt}
+\setlength{\marginparsep}{0pt}
+
+% ==========================================
+% ZENODO PREPRINT HEADERS (ACTIVE)
+% ==========================================
+\renewcommand{\articletype}[1]{%
+  {\vspace*{-8mm}\noindent \Large \sf Preprint}\par
+  \vspace*{6mm}\noindent{\scriptsize \sf{\bfseries \MakeUppercase{#1}}}}
+
+\fancyhead[L]{}
+\fancyhead[R]{}
+
+\newcommand{\sgn}{\operatorname{sgn}}
+
+\hypersetup{pdftitle={The Two Roots of the Tetrad Equation}, pdfauthor={Stephen Nelson}, pdfsubject={Gravity Field Dynamics (GFD)}, pdfkeywords={tetrad, Lorentz group, root-blindness, spatial parity, stellated octahedron, proof}}
+
+\begin{document}
+
+\articletype{Supplementary Material}
+
+\title{The Two Roots of the Tetrad Equation}
+
+\author{Stephen Nelson}
+
+\affil{Field Dynamics Research}
+
+\ead{stephen@fielddynamics.org}
+
+\begin{abstract}
+The tetrad equation $g = e^T \eta\, e$ is quadratic in the frame,
+and like $x^2 = a$ it has a second root: if $e$ solves it, so does
+$-e$. We prove that its solution set is the orbit of one frame under
+the Lorentz group, that an orientation sign splits it into exactly
+two classes, and that $-e$ lies in the class opposite to $e$ if and
+only if the number $D$ of spatial dimensions is odd. Because $\pm I$ is the centre of the Lorentz group, $-e$ is the only
+partner of $e$ that every observer agrees on; spatial parity is how
+one observer sees it. Every quantity
+built from the metric takes one value on both roots, so the
+standard restriction to proper orthochronous frames, which keeps one
+root, is a choice that no metric equation makes. For $D = 3$ the two
+roots carry the two tetrahedra of the stellated octahedron, and the
+second is not a rotation of the first.
+\end{abstract}
+
+\keywords{tetrad, Lorentz group, root-blindness, spatial parity, stellated octahedron, proof}
+
+% ----------------------------------------------------------------------
+
+\section*{Setting}
+
+At a point of a spacetime with $1 + D$ dimensions and metric $g$ of
+signature $(-, +, \dots, +)$, a \emph{tetrad} is a real square matrix
+$e = (e^a{}_\mu)$ with
+\begin{equation}
+  e^T \eta\, e = g, \qquad \eta = \mathrm{diag}(-1, I_D).
+  \label{eq:tetrad}
+\end{equation}
+Equation~\eqref{eq:tetrad} is quadratic in $e$, as $x^2 = a$ is in
+$x$. It defines an affine scheme over
+$\mathbb{R}$~\cite{Grothendieck1960,Hartshorne1977}; we study its
+real points, the solution set $S(g)$. The Lorentz group is
+$O(1,D) = \{\Lambda : \Lambda^T \eta \Lambda = \eta\}$, acting by
+$e \mapsto \Lambda e$. We write $P = \mathrm{diag}(1, -I_D)$ (spatial
+parity), $T = \mathrm{diag}(-1, I_D)$ (time reversal),
+$R = \mathrm{diag}(1, -1, 1, \dots, 1)$ (one spatial reflection), and
+\begin{equation}
+  s(\Lambda) = \det \Lambda \cdot \sgn \Lambda^0{}_0 .
+  \label{eq:s}
+\end{equation}
+$O(1,D)$ has four connected components, $X \cdot SO^+(1,D)$ for
+$X \in \{I, T, R, RT\}$, where $SO^+(1,D)$, the proper orthochronous
+group, is connected (for $D = 3$, see~\cite{Weinberg1972}).
+
+% ----------------------------------------------------------------------
+
+\section*{Two Lemmas}
+
+\paragraph{Lemma 1 (time cone).} \textit{If $\Lambda \in O(1,D)$ and
+$\eta(u,u) < 0$, then
+$\sgn (\Lambda u)^0 = \sgn \Lambda^0{}_0 \cdot \sgn u^0$. Hence
+$\Lambda \mapsto \sgn \Lambda^0{}_0$ and $s$ are homomorphisms onto
+$\{\pm 1\}$.}
+
+\paragraph{Proof.} From $\Lambda^T \eta \Lambda = \eta$ follows
+$\Lambda \eta \Lambda^T = \eta$, whose $(0,0)$ entry gives
+$|r|^2 = (\Lambda^0{}_0)^2 - 1$ for $r = (\Lambda^0{}_i)$. A timelike
+$u$ has $|\vec u| < |u^0|$. In
+$(\Lambda u)^0 = \Lambda^0{}_0 u^0 + r \cdot \vec u$ the second term
+has modulus below $|\Lambda^0{}_0 u^0|$, so the sign is that of
+$\Lambda^0{}_0 u^0$. Applying this to the column $u = \Lambda'_{\cdot 0}$,
+with $\eta(u,u) = -1$, gives
+$\sgn(\Lambda\Lambda')^0{}_0 = \sgn \Lambda^0{}_0 \sgn \Lambda'^0{}_0$;
+$\det$ is multiplicative. $s(T) = 1$ and $s(R) = -1$.
+\hfill $\square$
+
+\paragraph{Lemma 2 (centre).} \textit{For $D \ge 1$, the only
+$Z \in O(1,D)$ commuting with all of $O(1,D)$ are $\pm I$, and the
+only $Y \in O(D)$ commuting with all of $O(D)$ are $\pm I_D$.}
+
+\paragraph{Proof.} Write $Z$ in blocks $(\alpha, w^T; v, Y)$. It
+commutes with $\mathrm{diag}(1, S)$ for every $S \in O(D)$. With
+$S = -I_D$ this gives $v = w = 0$. Commuting with every diagonal sign
+matrix makes $Y$ diagonal, and with every permutation matrix makes it
+$\lambda I_D$; this also settles $O(D)$. A boost in the $0$--$1$
+plane then forces $\alpha = \lambda$, and $Z^T \eta Z = \lambda^2 \eta$
+gives $\lambda = \pm 1$. \hfill $\square$
+
+% ----------------------------------------------------------------------
+
+\section*{The Two Roots}
+
+\paragraph{Theorem 1 (the solution set).} \textit{Let $g$ be
+non-degenerate and $e \in S(g)$. Then:}
+\begin{itemize}
+\item[(a)] \textit{$S(g) = \{\Lambda e : \Lambda \in O(1,D)\}$, and
+  $\Lambda \mapsto \Lambda e$ is a bijection. In particular
+  $-e \in S(g)$.}
+\item[(b)] \textit{Fix an orientation and a time orientation, and set
+  $o(e) = \sgn \det e \cdot \sgn (e\,t)^0$ for a future-directed
+  timelike $t$. Then $o(\Lambda e) = s(\Lambda)\, o(e)$, so $o$ splits
+  $S(g)$ into exactly two classes $S_+$ and $S_-$, each the union of
+  two components. $T$ preserves each class and $R$ exchanges them.}
+\item[(c)] \textit{$-e$ and $Pe$ lie in the class opposite to $e$
+  if and only if $D$ is odd.}
+\end{itemize}
+
+\paragraph{Proof.} (a) Every solution is invertible, since
+$(\det e)^2 \det \eta = \det g \ne 0$. For $e' \in S(g)$ put
+$\Lambda = e' e^{-1}$: then
+$\Lambda^T \eta \Lambda = e^{-T} g\, e^{-1} = \eta$. Conversely
+$(\Lambda e)^T \eta (\Lambda e) = g$, and $\Lambda e = \Lambda' e$
+forces $\Lambda = \Lambda'$. (b) $u = e\,t$ is timelike, as
+$\eta(u,u) = g(t,t) < 0$; with $\det(\Lambda e) = \det \Lambda \det e$,
+Lemma~1 gives the rule. By (a), $S(g)$ is a copy of $O(1,D)$ with
+four components, on which $s$ takes the values
+$s(I) = s(T) = 1$, $s(R) = s(RT) = -1$. Other choices of orientation
+change $o$ by an overall sign only. (c)
+$s(-I) = (-1)^{D+1}(-1) = (-1)^D$ and $s(P) = (-1)^D$.
+\hfill $\square$
+
+\paragraph{Theorem 2 (the canonical root).} \textit{For
+$Z \in O(1,D)$, the map $e \mapsto Z e$ commutes with every change of
+frame, $\Lambda(Ze) = Z(\Lambda e)$ for all $\Lambda$ and $e$, if and
+only if $Z = \pm I$. So $-e$ is the only root that every observer
+pairs with $e$. Parity is not central, and $Pe = T(-e)$: it is $-e$
+with the time leg restored, the second root as seen by the observer
+of $e$.}
+
+\paragraph{Proof.} As $e$ is invertible, the condition is
+$\Lambda Z = Z \Lambda$ for all $\Lambda$; apply Lemma~2. A boost $B$
+has $PBP = B^{-1} \ne B$, so $P$ is not central, and $PT = -I$. \hfill $\square$
+
+\paragraph{Theorem 3 (root-blindness and root selection).}
+\textit{Every quantity determined by $g$, including the Christoffel
+symbols, the curvature, the Einstein tensor and the Einstein--Hilbert
+action, takes one value on all of $S(g)$; the same holds for tetrad
+fields, as $-e(x)$ solves~\eqref{eq:tetrad} wherever $e(x)$ does.
+Restricting frames to $SO^+(1,D)\,e$, the usual choice for oriented
+and time-oriented frames~\cite{Wald1984,Hehl1976}, keeps one component
+and excludes $-e$. Which component is kept is not determined by $g$.}
+
+\paragraph{Proof.} By (a), every element of $S(g)$ gives the same $g$,
+and a function of $g$ cannot separate them. $-I \notin SO^+(1,D)$
+since $(-I)^0{}_0 = -1$. All four components give the same $g$, so
+$g$ cannot select one. \hfill $\square$
+
+% ----------------------------------------------------------------------
+
+\section*{The Two Tetrahedra}
+
+Take $D = 3$. Let $E_a$ be the frame vectors of $e$, with
+$g(E_a, E_b) = \eta_{ab}$, and $W$ the observer's rest space spanned
+by $E_1, E_2, E_3$. The four directions of Letter~1~\cite{Nelson2026a}
+are $n_a = \sum_i M_{ia} E_i$, $a = 1, \dots, 4$, with
+\begin{equation}
+  M = \begin{pmatrix}
+    +1 & +1 & -1 & -1 \\
+    +1 & -1 & +1 & -1 \\
+    +1 & -1 & -1 & +1
+  \end{pmatrix},
+  \label{eq:M}
+\end{equation}
+the regular tetrahedron forced by the tetrad~\cite{NelsonForced}.
+
+\paragraph{Theorem 4.} \textit{In the basis $E_i$ of $W$:}
+\begin{itemize}
+\item[(a)] \textit{$n(-e) = n(Pe) = -M$ and $n(Te) = M$. A frame of
+  the same observer, $\Lambda = \mathrm{diag}(\epsilon, Q)$, gives
+  $n = Q^T M$ with $\det Q^T = s(\Lambda)$.}
+\item[(b)] \textit{No $Q \in SO(3)$ has $QM = -M$: no rotation
+  carries the frame of $e$ to that of $-e$ leg by leg. For a regular
+  simplex $M_D$ in $\mathbb{R}^D$, such a rotation exists if and only
+  if $D$ is even.}
+\item[(c)] \textit{The region
+  $\mathrm{TetA} = \{x \in W : \max_a n_a \cdot x \le 1\}$ of $e$
+  becomes $-\mathrm{TetA} = \{\max_a (-n_a \cdot x) \le 1\}$ for $-e$:
+  the all-flipped region TetB of Letter~1. The two form the
+  stellated octahedron~\cite{NelsonForced}.}
+\end{itemize}
+
+\paragraph{Proof.} (a) The frame vectors of $\Lambda e$ are
+$E\Lambda^{-1}$: for $-e$ all four change sign, for $Te$ only $E_0$,
+and for $\mathrm{diag}(\epsilon, Q)$ the spatial ones become
+$E_j' = \sum_i Q_{ji} E_i$; and $s(\Lambda) = \det Q$. (b)
+$\mathrm{rank}\, M_D = D$, so $QM_D = -M_D$ forces $Q = -I_D$, of
+determinant $(-1)^D$. (c) $(-n_a) \cdot x = n_a \cdot (-x)$.
+\hfill $\square$
+
+\paragraph{Remark (shape and place).} The regular tetrahedron is
+congruent to its mirror image: the $90^\circ$ rotation about the third
+axis maps the vertex set of TetA onto that of TetB, but reorders the
+legs. The second root changes neither shape nor metric, only the order of
+the legs (Theorem~4(b)) and the region of $W$ occupied.
+
+% ----------------------------------------------------------------------
+
+\section*{Scope}
+
+\vspace{2pt}
+\noindent
+\begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}l>{\raggedright\arraybackslash}p{0.68\columnwidth}@{}}
+\hline
+Ingredient & Without it \\
+\hline
+$\det g \ne 0$ & For $g = 0$, $D = 1$: both $0$ and
+  $\binom{1\;0}{1\;0}$ solve, and $S(g)$ is not one orbit \\
+$D$ odd & $-e$ stays in the class of $e$; for $D = 2$,
+  $-M_2$ is $M_2$ turned by $\pi$ \\
+Ordered legs & As point sets TetB is a rotation of TetA \\
+\hline
+\end{tabular*}
+\vspace{4pt}
+
+% ----------------------------------------------------------------------
+
+\section*{Summary}
+
+The tetrad equation keeps both roots, $e$ and $-e$; no equation in the
+metric can tell them apart, so keeping one is a convention. In three
+dimensions they are the two tetrahedra of the stellated octahedron,
+which Letter~1 reaches independently by half-spaces.
+
+% ----------------------------------------------------------------------
+
+\begin{thebibliography}{9}
+
+\bibitem{Grothendieck1960}
+A.~Grothendieck and J.~Dieudonn\'{e},
+\textit{\'{E}l\'{e}ments de g\'{e}om\'{e}trie alg\'{e}brique~I},
+Publ.\ Math.\ IH\'{E}S \textbf{4} (1960).
+
+\bibitem{Hartshorne1977}
+R.~Hartshorne,
+\textit{Algebraic Geometry}
+(Springer, New York, 1977).
+
+\bibitem{Weinberg1972}
+S.~Weinberg,
+\textit{Gravitation and Cosmology}
+(Wiley, New York, 1972).
+
+\bibitem{Wald1984}
+R.~M.~Wald,
+\textit{General Relativity}
+(University of Chicago Press, Chicago, 1984).
+
+\bibitem{Hehl1976}
+F.~W.~Hehl, P.~von der Heyde, G.~D.~Kerlick and J.~M.~Nester,
+Rev.\ Mod.\ Phys.\ \textbf{48}, 393 (1976).
+
+\bibitem{Nelson2026a}
+S.~Nelson,
+\textit{The Coordinate-Space Geometry of the Tetrad Frame},
+Field Dynamics Research (2026).
+
+\bibitem{NelsonForced}
+S.~Nelson,
+\textit{The Spatial Geometry of the Lorentz Tetrad},
+Field Dynamics Research (2026).
+
+\end{thebibliography}
+
+\end{document}
