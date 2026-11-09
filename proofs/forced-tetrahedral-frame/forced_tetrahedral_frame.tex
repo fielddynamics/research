@@ -30,88 +30,75 @@
 \ead{stephen@fielddynamics.org}
 
 \begin{abstract}
-The legs of a Lorentz tetrad have equal magnitude and are pairwise
-orthogonal, so the magnitude pattern $|\eta_{ab}| = \delta_{ab}$ of
-the Minkowski metric is invariant under every permutation of the
-four legs; only the sign of $\eta_{00}$ distinguishes the time leg.
-We realise the four legs as vectors in the three-dimensional
-spatial sector and ask which configurations are possible. Three
-premises, each read from $\eta$, suffice: the Gram matrix of the
-realisation inherits the permutation symmetry of $|\eta|$; the legs
-are distinct; and the realisation lives in $\mathbb{R}^3$. These
-force the Gram matrix $G = c^2 I - (c^2/3)(J - I)$, and hence the
-regular tetrahedron, unique up to $O(3)$. Equal norms and closure
-$\sum_a v_a = 0$ are derived, not assumed. Three is the only
-dimension in which such a realisation both exists and is forced. A
-second route, which grants only the symmetry of $\eta$ itself, gives
-the same tetrahedron once closure is assumed. Each premise is shown
-to be necessary. Parity completion gives the cube and the
-stellated octahedron.
+We realise the four legs of a Lorentz tetrad as vectors in the
+three-dimensional spatial sector and ask which configurations are
+possible. Four premises, each a transcription of the tetrad, suffice:
+every pair of legs bears the same relation, as $\eta_{ab} = 0$ for
+every pair; every leg has the same magnitude, as
+$|\eta_{aa}| = 1$; the legs are distinct; and the realisation lives
+in $\mathbb{R}^3$. They force the Gram matrix
+$G = c^2 I - (c^2/3)(J - I)$, and hence the regular tetrahedron,
+unique up to $O(3)$. Closure $\sum_a v_a = 0$ is derived, not
+assumed. Three is the only dimension in which such a realisation
+both exists and is forced. The realisation keeps the pattern of
+$\eta$'s entries, not their values, which no four vectors in
+$\mathbb{R}^3$ reproduce; it sets aside the sign of $\eta_{00}$,
+which no squared length can carry, and this is the content of the
+premise of equal magnitude. Without that premise an observer's
+projection, in which the time leg vanishes, is admitted. Each
+premise is shown to be necessary. Spatial parity gives the second
+tetrahedron, the cube and the stellated octahedron.
 \end{abstract}
 
 % ----------------------------------------------------------------------
 
 \section*{Setting}
 
-A Lorentz tetrad has four legs $e_a$, $a = 0,1,2,3$, with
-$\eta(e_a, e_b) = \eta_{ab} = \mathrm{diag}(-1,+1,+1,+1)$. Every leg
-has unit magnitude and every pair is orthogonal, so
-\begin{equation}
-  |\eta_{ab}| = \delta_{ab},
-  \label{eq:abseta}
-\end{equation}
-which is invariant under all $24$ permutations of the legs. The
-metric $\eta$ itself is invariant only under the $6$ permutations
-that fix the time leg; the sign of $\eta_{00}$ is the only datum
-that distinguishes it.
-
-A \emph{spatial realisation} is a $4$-tuple
+A Lorentz tetrad has four legs $e_a$, $a = 0,1,2,3$, linearly
+independent, with
+$\eta(e_a, e_b) = \eta_{ab} = \mathrm{diag}(-1,+1,+1,+1)$. A
+\emph{spatial realisation} is a $4$-tuple
 $V = (v_0, v_1, v_2, v_3)$ of vectors $v_a \in \mathbb{R}^D$, one
-per leg, with Gram matrix $G_{ab} = v_a \cdot v_b$. For
-$\sigma \in S_4$ let $P_\sigma$ be its permutation matrix. We write
-$I$ for the $4 \times 4$ identity, $J$ for the all-ones matrix and
+per leg, with Gram matrix $G_{ab} = v_a \cdot v_b$. We write $I$ for
+the $4 \times 4$ identity, $J$ for the all-ones matrix and
 $\mathbf{1} = (1,1,1,1)^T$.
 
 % ----------------------------------------------------------------------
 
 \section*{Premises}
 
-\paragraph{(S) Equivalence of the legs.}
-$P_\sigma G P_\sigma^T = G$ for every $\sigma \in S_4$. A Gram
-matrix of real vectors is positive semidefinite, so its diagonal
-cannot carry the sign $\eta_{00} = -1$; what a realisation can
-inherit from $\eta$ is its magnitude pattern~\eqref{eq:abseta}, and
-with it the permutation symmetry of the legs.
+\paragraph{(R) Equal relation.} $v_a \cdot v_b$ takes one value for
+all $a \neq b$. In the tetrad $\eta_{ab} = 0$ for every pair, time
+with space and space with space alike. The common value $0$ cannot
+be kept, since four mutually orthogonal non-zero vectors do not fit
+in $\mathbb{R}^3$; its being common to all pairs can.
+
+\paragraph{(M) Equal magnitude.} $|v_a| = c > 0$ for all $a$. In
+the tetrad $|\eta_{aa}| = 1$ for every leg. A diagonal entry of a
+Gram matrix is a squared length and cannot be negative, so no
+realisation reproduces $\eta_{00} = -1$; (M) keeps its magnitude,
+which is that of every other leg.
 
 \paragraph{(N) Distinct legs.} The $v_a$ are not all equal, as the
-legs of a tetrad are linearly independent ($\det e \neq 0$).
+legs are linearly independent.
 
-\paragraph{(D) Dimension.} $D = 3$: the realisation lives in the
-spatial sector, the three positive entries of $\eta$.
+\paragraph{(D) Spatial sector.} $D = 3$, the number of positive
+entries of $\eta$.
 
 \medskip
 \noindent
-Neither equal norms nor closure is assumed.
+Together, (M) and (R) say that $G$ is invariant under every
+permutation of the legs, since the orbits of $S_4$ on ordered pairs
+are the diagonal and the off-diagonal pairs. Closure is not
+assumed.
 
 % ----------------------------------------------------------------------
 
-\section*{Two Lemmas}
+\section*{Rigidity}
 
-\paragraph{Lemma 1 (commutant).} \textit{$G$ satisfies (S) if and
-only if $G = \alpha I + \beta J$ for some $\alpha, \beta \in
-\mathbb{R}$.}
-
-\paragraph{Proof.} (S) states $G_{\sigma(a)\sigma(b)} = G_{ab}$ for
-all $\sigma$, $a$, $b$, so $G$ is constant on the orbits of $S_4$ on
-ordered pairs. There are two: the four diagonal pairs, and the
-twelve off-diagonal pairs, one orbit because $S_4$ is
-$2$-transitive. Writing the two values as $\alpha + \beta$ and
-$\beta$ gives $G = \alpha I + \beta J$; conversely $I$ and $J$
-commute with every $P_\sigma$. \hfill $\square$
-
-\paragraph{Lemma 2 (rigidity).} \textit{If $U, W \in
-\mathbb{R}^{D \times 4}$ have $U^T U = W^T W$ of rank $D$, then
-$W = QU$ for a unique $Q \in O(D)$.}
+\paragraph{Lemma.} \textit{If $U, W \in \mathbb{R}^{D \times 4}$
+have $U^T U = W^T W$ of rank $D$, then $W = QU$ for a unique
+$Q \in O(D)$.}
 
 \paragraph{Proof.} For every $\lambda \in \mathbb{R}^4$,
 $|U\lambda|^2 = \lambda^T U^T U \lambda = |W\lambda|^2$. Hence
@@ -125,8 +112,8 @@ fixed by its values on the columns. \hfill $\square$
 
 \section*{The Forced Gram Matrix}
 
-\paragraph{Theorem.} \textit{Under (S), (N) and (D), the legs have a
-common norm $c > 0$, they close, $\sum_a v_a = 0$, and}
+\paragraph{Theorem.} \textit{Under (R), (M), (N) and (D), the legs
+close, $\sum_a v_a = 0$, and}
 \begin{equation}
   \boxed{G = c^2 I - \frac{c^2}{3}\,(J - I),}
   \label{eq:forced}
@@ -134,7 +121,8 @@ common norm $c > 0$, they close, $\sum_a v_a = 0$, and}
 \textit{that is $G_{aa} = c^2$ and $G_{ab} = -c^2/3$ for
 $a \neq b$.}
 
-\paragraph{Proof.} By Lemma 1, $G = \alpha I + \beta J$. Since
+\paragraph{Proof.} By (M) and (R), $G = c^2 I + \beta(J - I)
+= \alpha I + \beta J$ with $\alpha = c^2 - \beta$. Since
 $J\mathbf{1} = 4\mathbf{1}$ and $J$ vanishes on
 $\mathbf{1}^\perp$, $G$ has eigenvalue $\alpha + 4\beta$ on
 $\mathbf{1}$ and $\alpha$, three times, on $\mathbf{1}^\perp$. Every
@@ -144,14 +132,15 @@ $\alpha > 0$ and $\operatorname{rank} G \ge 3$. By (D),
 $\operatorname{rank} G \le 3$. Hence $\alpha + 4\beta = 0$, so
 $G\mathbf{1} = 0$ and
 $|\sum_a v_a|^2 = \mathbf{1}^T G \mathbf{1} = 0$: the legs close.
-Their common norm is $c^2 = G_{aa} = \alpha + \beta = 3\alpha/4$,
-and $\beta = -\alpha/4 = -c^2/3$, which is
-Eq.~\eqref{eq:forced}. \hfill $\square$
+Then $c^2 = \alpha + \beta = 3\alpha/4$ and
+$\beta = -\alpha/4 = -c^2/3$, which is Eq.~\eqref{eq:forced}.
+\hfill $\square$
 
 \paragraph{Corollary 1 (the regular tetrahedron).} \textit{The four
 points $v_a$ are pairwise equidistant, with edge $c\sqrt{8/3}$ and
 centroid at the origin: they are the vertices of a regular
-tetrahedron of circumradius $c$. With $c = \sqrt3$ the columns of}
+tetrahedron of circumradius $c$, and the angle between any two legs
+is $\arccos(-1/3)$. With $c = \sqrt3$ the columns of}
 \begin{equation}
   M = \begin{pmatrix}
     +1 & +1 & -1 & -1 \\
@@ -167,12 +156,12 @@ $V = (c/\sqrt3)\,QM$ for a unique $Q \in O(3)$.}
 puts the centroid at the origin. Each column of $M$ has three
 entries $\pm1$, and each pair of columns agrees in exactly one
 place, so $M^TM = 3I - (J - I)$. Both $V$ and $(c/\sqrt3)M$ have
-Gram matrix~\eqref{eq:forced}, of rank $3$, and Lemma 2 gives $Q$.
-\hfill $\square$
+Gram matrix~\eqref{eq:forced}, of rank $3$, and the Lemma gives
+$Q$. \hfill $\square$
 
 \paragraph{Corollary 2 (why three dimensions).} \textit{For $K$ legs
-satisfying (S) and (N) in $\mathbb{R}^D$, a realisation exists if
-and only if $D \ge K - 1$, and it is forced to the closed regular
+satisfying (R), (M) and (N) in $\mathbb{R}^D$, a realisation exists
+if and only if $D \ge K - 1$, and it is forced to the closed regular
 simplex if and only if $D = K - 1$. For the tetrad, $K = 4$ and
 $D = 3$.}
 
@@ -186,9 +175,10 @@ $\alpha + K\beta > 0$ is also realisable, for example $\beta = 0$:
 $K$ orthogonal legs of equal length. \hfill $\square$
 
 \paragraph{Corollary 3 (parity completion).} \textit{Spatial parity
-$v_a \to -v_a$ preserves $G$, so $-V$ is a second realisation. $V$
-and $-V$ share no point, and for $V = M$ their eight points are the
-vertices of the cube $\{-1,+1\}^3$; the compound of the two
+acts on the spatial sector as $-I$, so it sends every realised
+vector to $-v_a$ and preserves $G$: $-V$ is a second realisation.
+$V$ and $-V$ share no point, and for $V = M$ their eight points are
+the vertices of the cube $\{-1,+1\}^3$; the compound of the two
 tetrahedra is Kepler's stella
 octangula~\cite{Kepler1619,Cromwell1997}, the stellated
 octahedron.}
@@ -200,34 +190,10 @@ sign triples, which exhaust $\{-1,+1\}^3$. \hfill $\square$
 
 % ----------------------------------------------------------------------
 
-\section*{A Second Route}
-
-A reader may grant only the symmetry of $\eta$ itself, the
-permutations of the three spatial legs, together with equal norms.
-Closure must then be assumed, and the result is the same.
-
-\paragraph{Proposition.} \textit{Let $G$ be invariant under the
-permutations of legs $1, 2, 3$, with $G_{aa} = c^2 > 0$ for all
-$a$, and let $\sum_a v_a = 0$. Then $G$ is
-Eq.~\eqref{eq:forced}.}
-
-\paragraph{Proof.} The invariance gives $G_{0i} = q$ and
-$G_{ij} = t$ for $i \neq j$ in $\{1,2,3\}$. Closure gives
-$G\mathbf{1} = 0$. Row $0$ reads $c^2 + 3q = 0$, and row $i$ reads
-$q + c^2 + 2t = 0$, so $q = t = -c^2/3$. \hfill $\square$
-
-\medskip
-\noindent
-The time leg, which $\eta$ singles out by its sign, ends up
-geometrically equivalent to the spatial legs: the realisation
-recovers the full permutation symmetry of $|\eta|$.
-
-% ----------------------------------------------------------------------
-
 \section*{Necessity of the Premises}
 
 Removing any one premise admits configurations that satisfy the
-others but are not the regular tetrahedron:
+other three but are not the regular tetrahedron:
 
 \vspace{6pt}
 \noindent
@@ -235,33 +201,37 @@ others but are not the regular tetrahedron:
 \hline
 Removed & Admitted configurations \\
 \hline
-(S) & $(v, w, -v, -w)$ with $|v| = |w|$, $v \perp w$: distinct legs
-  in $\mathbb{R}^3$, equal norms and even closed, but a square \\
+(R) & $(v, w, -v, -w)$ with $|v| = |w|$, $v \perp w$: a square,
+  even closed \\
+(M) & $v_0 = 0$, $v_i = c\,\hat e_i$: an observer's projection, in
+  which the time leg vanishes. With every leg non-zero:
+  $G_{aa} = (1, 3, 7, 7)\,c^2$, $G_{ab} = -c^2$, of rank $3$ \\
 (N) & $v_a = v$ for all $a$: $G = c^2 J$ \\
-(D) & In $\mathbb{R}^4$: $v_a = c\,\hat e_a$, $G = c^2 I$, the
-  pattern $|\eta|$ itself, not closed. In $\mathbb{R}^2$: no
-  realisation \\
-Closure & (second route) $v_i = c\,\hat e_i$,
-  $v_0 = -c(1,1,1)/\sqrt3$: $G_{0i} = -c^2/\sqrt3$, $G_{ij} = 0$ \\
+(D) & In $\mathbb{R}^4$: $v_a = c\,\hat e_a$, $G = c^2 I$, not
+  closed. In $\mathbb{R}^2$: no realisation \\
 \hline
 \end{tabular*}
 \vspace{6pt}
 
-In the second route, invariance under the spatial legs with equal
-norms leaves, for distinct legs in $\mathbb{R}^3$, the one-parameter
-family $c^2(c^2 + 2t) = 3q^2$; closure selects $q = t = -c^2/3$ from
-it.
+The row for (M) shows what that premise decides. Read with the sign,
+$\eta$ singles out the time leg, and the natural spatial picture is
+an observer's: three orthonormal legs and no fourth. Read by
+magnitude, all four legs are units, and the spatial picture is
+forced to the tetrahedron.
 
 % ----------------------------------------------------------------------
 
 \section*{Summary}
 
-Everything is read from the Minkowski metric. Its magnitude pattern
-$|\eta_{ab}| = \delta_{ab}$ makes the legs equivalent, and its three
-positive entries fix the dimension of the spatial sector. In that
-sector, four equivalent and distinct legs have exactly one
-configuration up to $O(3)$: the regular tetrahedron, with common
-norm and closure as consequences. Three is the only dimension in
+Every premise transcribes the tetrad. Equal relation is the pattern
+of $\eta$'s off-diagonal entries, which carry no sign; equal
+magnitude is the pattern of its diagonal, with the sign of
+$\eta_{00}$ set aside because no squared length can be negative;
+distinctness is the independence of the legs; and the dimension is
+the spatial sector. From these, four
+legs in three dimensions have exactly one configuration up to
+$O(3)$: the regular tetrahedron, closed, with the tetrahedral angle
+$\arccos(-1/3)$ between every pair. Three is the only dimension in
 which this configuration both exists and is forced. Parity, which
 the Gram matrix cannot see, supplies the second tetrahedron, and
 the two together form the stellated octahedron.

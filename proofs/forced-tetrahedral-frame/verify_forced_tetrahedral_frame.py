@@ -24,12 +24,12 @@ g = sp.Matrix(4, 4, lambda i, j: sp.Symbol(f'g{i}{j}'))
 eqs = [e for P in perms for e in (P * g * P.T - g)]
 sol = sp.solve(eqs, list(g), dict=True)[0]
 gs = g.subs(sol); free = sorted(gs.free_symbols, key=str)
-check("Lemma 1: S4-invariant 4x4 matrices form a 2-dimensional space",
+check("Remark: S4-invariant 4x4 matrices form a 2-dimensional space",
       len(free) == 2)
-check("Lemma 1: that space is spanned by I and J",
+check("Remark: that space is spanned by I and J, i.e. (M)+(R) <=> S4-invariance",
       all(sp.simplify(gs.subs({free[0]: x, free[1]: y}) - (gs.subs({free[0]: x, free[1]: y})[0, 1] * J4 + (gs.subs({free[0]: x, free[1]: y})[0, 0] - gs.subs({free[0]: x, free[1]: y})[0, 1]) * I4)) == sp.zeros(4, 4)
           for x, y in [(1, 0), (0, 1), (2, 5)]))
-check("Lemma 1 converse: I and J commute with every permutation matrix",
+check("Remark converse: I and J commute with every permutation matrix",
       all(P * I4 * P.T == I4 and P * J4 * P.T == J4 for P in perms))
 
 # ---- Lemma 2 (rigidity), numerical with random data
@@ -41,11 +41,11 @@ for _ in range(200):
     W = Q @ U
     Qrec = W @ np.linalg.pinv(U)              # the map U lambda -> W lambda on the column space
     good &= np.allclose(U.T @ U, W.T @ W) and np.allclose(Qrec, Q) and np.allclose(Qrec.T @ Qrec, np.eye(3))
-check("Lemma 2: equal Gram matrices of rank 3 differ by a unique orthogonal Q (200 random cases)", good)
+check("Lemma (rigidity): equal Gram matrices of rank 3 differ by a unique orthogonal Q (200 random cases)", good)
 
 # ---- Theorem
 G = a * I4 + b * J4
-check("Theorem: eigenvalues of aI+bJ are alpha (x3) and alpha+4beta (x1)",
+check("Theorem: (M),(R) give G = c^2 I + beta(J-I) = alpha I + beta J; eigenvalues are alpha (x3) and alpha+4beta (x1)",
       G.eigenvals() == {a: 3, a + 4 * b: 1})
 check("Theorem: every pair at the same distance |v_a - v_b|^2 = 2 alpha",
       all(sp.expand(G[i, i] + G[j, j] - 2 * G[i, j]) == 2 * a for i in range(4) for j in range(4) if i != j))
@@ -91,20 +91,10 @@ check("Corollary 3: M and -M share no point; together they are the 8 vertices of
 check("Corollary 3: no shared point in general, since G_ab never equals -c^2",
       all(sp.simplify(forced[i, j] + c**2) != 0 for i in range(4) for j in range(4)))
 
-# ---- Second route
-G3 = sp.Matrix([[c**2, q, q, q], [q, c**2, t, t], [q, t, c**2, t], [q, t, t, c**2]])
-S3 = [P for P, p in zip(perms, itertools.permutations(range(4))) if p[0] == 0]
-check("Second route: G3 is the general matrix invariant under permutations of legs 1,2,3 with equal norms",
-      all(P * G3 * P.T == G3 for P in S3) and len(S3) == 6)
-check("Second route: equal norms + closure force q = t = -c^2/3",
-      sp.solve(list(G3 * one), [q, t], dict=True) == [{q: -c**2 / 3, t: -c**2 / 3}])
-check("Second route: without closure, det G3 = -(t-c^2)^2 (3q^2 - c^2(c^2+2t)): a one-parameter family",
-      sp.expand(G3.det() + (t - c**2)**2 * (3 * q**2 - c**2 * (c**2 + 2 * t))) == 0)
-
 # ---- Necessity table
 v, w = sp.Matrix([1, 0, 0]), sp.Matrix([0, 1, 0])
 Sq = sp.Matrix.hstack(v, w, -v, -w); GS = Sq.T * Sq
-check("Necessity (S): square (v,w,-v,-w) is distinct, equal-norm, closed, in R^3, but not S4-invariant",
+check("Necessity (R): square (v,w,-v,-w) is distinct, equal-norm, closed, in R^3, but not S4-invariant",
       len({tuple(Sq[:, j]) for j in range(4)}) == 4 and Sq * one == sp.zeros(3, 1)
       and all(GS[i, i] == 1 for i in range(4)) and not all(P * GS * P.T == GS for P in perms))
 check("Necessity (N): all legs equal gives G = c^2 J, S4-invariant, rank 1",
@@ -113,12 +103,18 @@ check("Necessity (D): in R^4 the orthonormal legs give G = c^2 I: S4-invariant, 
       I4 * one != sp.zeros(4, 1) and I4.rank() == 4)
 check("Necessity (D): in R^2 no realisation (rank >= 3 whenever alpha > 0)",
       all(G.subs({a: 1, b: bv}).rank() >= 3 for bv in [-1, -sp.Rational(1, 4), 0, 2]))
-v0 = -c * sp.Matrix([1, 1, 1]) / sp.sqrt(3)
-X = sp.Matrix.hstack(v0, c * sp.Matrix([1, 0, 0]), c * sp.Matrix([0, 1, 0]), c * sp.Matrix([0, 0, 1]))
-GX = sp.simplify(X.T * X)
-check("Necessity (closure, second route): v_i = c e_i, v_0 = -c(1,1,1)/sqrt3: equal norms, S3-invariant, not closed",
-      all(sp.simplify(GX[i, i] - c**2) == 0 for i in range(4)) and all(P * GX * P.T == GX for P in S3)
-      and sp.simplify(X * one) != sp.zeros(3, 1)
-      and sp.simplify(GX[0, 1] + c**2 / sp.sqrt(3)) == 0 and GX[1, 2] == 0)
+Xo = sp.Matrix.hstack(sp.zeros(3, 1), sp.eye(3)); Go = Xo.T * Xo
+check("Necessity (M): observer projection v0 = 0, v_i orthonormal: equal relation (all 0), distinct, in R^3, not a tetrahedron",
+      all(Go[i, j] == 0 for i in range(4) for j in range(4) if i != j) and Go[0, 0] == 0 and Go[1, 1] == 1)
+Gn = -sp.ones(4, 4) + sp.diag(2, 4, 8, 8)            # diagonal (1,3,7,7), off-diagonal -1
+ev = Gn.eigenvals()
+check("Necessity (M): non-zero legs with G_aa = (1,3,7,7), G_ab = -1: PSD of rank 3, so realisable in R^3, unequal norms",
+      Gn.rank() == 3 and all(sp.re(k) >= 0 for k in ev) and [Gn[i, i] for i in range(4)] == [1, 3, 7, 7])
+Xn = np.linalg.eigh(np.array(Gn, dtype=float)); wv, Vv = Xn
+Xr = (Vv[:, wv > 1e-9] * np.sqrt(wv[wv > 1e-9])).T
+check("Necessity (M): explicit realisation of that Gram matrix in R^3",
+      Xr.shape == (3, 4) and np.allclose(Xr.T @ Xr, np.array(Gn, dtype=float)))
+check("Premise (R): four mutually orthogonal non-zero vectors need rank 4, impossible in R^3",
+      (I4).rank() == 4)
 
 print(f"\n{sum(ok)}/{len(ok)} checks passed")
