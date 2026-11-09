@@ -1,0 +1,292 @@
+\documentclass[twocolumn]{iopjournal}
+
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{array}
+
+\fancyhfoffset[L]{0mm}
+\setlength{\marginparwidth}{0pt}
+\setlength{\marginparsep}{0pt}
+
+% ==========================================
+% ZENODO PREPRINT HEADERS (ACTIVE)
+% ==========================================
+\renewcommand{\articletype}[1]{%
+  {\vspace*{-8mm}\noindent \Large \sf Preprint}\par
+  \vspace*{6mm}\noindent{\scriptsize \sf{\bfseries \MakeUppercase{#1}}}}
+
+\fancyhead[L]{}
+\fancyhead[R]{}
+
+\newcommand{\sgn}{\mathrm{sgn}}
+\newcommand{\std}{\mathrm{std}}
+\newcommand{\Ind}{\mathrm{Ind}}
+
+\begin{document}
+
+\articletype{Supplementary Material}
+
+\title{The Torsion Sector of the Tetrad Connection\\
+as the Regular Representation of $S_4$}
+
+\author{Stephen Nelson}
+
+\affil{Field Dynamics Research}
+
+\ead{stephen@fielddynamics.org}
+
+\begin{abstract}
+The symmetric group $S_4$ permutes the four legs of a tetrad, and
+with them the $64$ components of the affine connection. We show that
+the $24$ torsion components form the regular representation of
+$S_4$, with an explicit generator: a single torsion tensor whose $24$
+images under the permutations of the legs are a basis. The proof
+splits the torsion components into two orbits of $12$, according to
+whether the upper index repeats a lower one, induced from the trivial
+and the sign character of a transposition. The sign representation occurs once in the torsion
+sector and not at all in the $40$-component Christoffel sector, and
+it is spanned by the totally antisymmetric torsion
+$\sum_d \varepsilon_{abcd}$. With indices lowered by $|\eta| = I$,
+the vector, axial and tensor parts of the torsion lie in the two
+orbits as $12 = 4 + 8$ and $12 = 4 + 8$, and the two tensor halves
+are isomorphic; lowered by $\eta$ itself, the axial part is not
+$S_4$-invariant. The regular representation fits the torsion sector
+only for $K = 2$ and $K = 4$ legs.
+\end{abstract}
+
+% ----------------------------------------------------------------------
+
+\section*{Setting}
+
+Let $V = \mathbb{R}^4$ have basis $f_0, \dots, f_3$, one vector per
+leg, and let $S_4$ act by $\sigma f_a = f_{\sigma(a)}$. Read by
+magnitude, the legs are equivalent: $|\eta_{ab}| = \delta_{ab}$ is
+invariant under every permutation~\cite{Nelson2026frame}. The dual
+basis is permuted in the same way, so $V^* \cong V$ as
+$S_4$-modules with no metric. The affine connection
+$\Gamma^a{}_{bc}$ lies in $V \otimes V^* \otimes V^* \cong V \otimes V
+\otimes V$, which splits into
+the Christoffel sector $C = V \otimes \mathrm{Sym}^2 V$
+($40$ components) and the torsion sector
+$T = V \otimes \Lambda^2 V$ ($24$ components), both
+$S_4$-submodules~\cite{Hehl1976}. $T$ has basis
+$t_{a;bc} = f_a \otimes f_b \wedge f_c$, $b < c$, and
+$\sigma\, t_{a;bc} = t_{\sigma(a);\sigma(b)\sigma(c)}$, with
+$t_{a;cb} = -t_{a;bc}$.
+
+We write $\mathbf{1}$, $\sgn$, $[2,2]$, $\std$ and
+$\sgn \otimes \std$ for the irreducible representations of $S_4$, of
+dimensions $1, 1, 2, 3, 3$~\cite{FultonHarris}, and $H = \langle
+(23) \rangle$. Theorems 1 and 2 and the Proposition use only the
+labels of the legs; Theorem 3 lowers an index with $|\eta| = I$.
+
+% ----------------------------------------------------------------------
+
+\section*{Two Orbits}
+
+\paragraph{Lemma.} \textit{Up to sign, the basis vectors of $T$ form
+two $S_4$-orbits of $12$: the incident vectors, with
+$a \in \{b,c\}$, and the non-incident vectors, with
+$a \notin \{b,c\}$. The stabiliser of the line of $t_{0;01}$, and of
+the line of $t_{0;23}$, is $H$; it acts by $+1$ on $t_{0;01}$ and by
+$-1$ on $t_{0;23}$.}
+
+\paragraph{Proof.} An incident vector is determined by the ordered pair
+$(a, b)$ of distinct labels with $\{b, c\} = \{a, b\}$, and a
+non-incident vector by the ordered pair $(a, d)$, where $d$ is the
+label outside $\{a, b, c\}$. $S_4$ is transitive on the $12$ ordered
+pairs of distinct labels, so each family is one orbit. A permutation
+fixing the line of $t_{0;01}$ fixes $0$ and the set $\{0,1\}$, hence
+$1$, and is $e$ or $(23)$; $(23)\,t_{0;01} = t_{0;01}$. One fixing
+the line of $t_{0;23}$ fixes $0$ and the set $\{2,3\}$, hence $1$,
+and is $e$ or $(23)$; $(23)\,t_{0;23} = t_{0;32} = -t_{0;23}$.
+\hfill $\square$
+
+% ----------------------------------------------------------------------
+
+\section*{The Regular Representation}
+
+\paragraph{Theorem 1.} \textit{Let
+$\xi = t_{0;01} + t_{0;23}$. The $24$ vectors $\sigma\xi$,
+$\sigma \in S_4$, are a basis of $T$, and}
+\begin{equation}
+  \Phi : \mathbb{R}[S_4] \to T, \qquad \sigma \mapsto \sigma\xi,
+  \label{eq:Phi}
+\end{equation}
+\textit{is an isomorphism of $S_4$-modules: the torsion sector is
+the regular representation.}
+
+\paragraph{Proof.} With $\tau = (23)$, the Lemma gives
+$\tau\xi = t_{0;01} - t_{0;23}$. Hence, for every $\sigma$,
+$\sigma\xi + \sigma\tau\xi = 2\,\sigma t_{0;01}$ and
+$\sigma\xi - \sigma\tau\xi = 2\,\sigma t_{0;23}$. As $\sigma$ runs
+over $S_4$, these run over all incident and all non-incident basis
+vectors up to sign, so the $24$ vectors $\sigma\xi$ span $T$, which
+has dimension $24$; they are a basis. $\Phi$ sends the basis
+$\{\sigma\}$ of $\mathbb{R}[S_4]$ to this basis, and
+$\Phi(\rho\sigma) = \rho\sigma\xi = \rho\,\Phi(\sigma)$.
+\hfill $\square$
+
+\paragraph{Corollary 1.} \textit{Each irreducible representation
+occurs in $T$ with multiplicity equal to its dimension,}
+\begin{equation}
+  T \cong \mathbf{1} \oplus \sgn \oplus 2\,[2,2] \oplus 3\,\std
+  \oplus 3\,(\sgn \otimes \std),
+\end{equation}
+\textit{and $T = T_{\mathrm{inc}} \oplus T_{\mathrm{non}}$ with
+$T_{\mathrm{inc}} \cong \Ind_H^{S_4}\mathbf{1}$ and
+$T_{\mathrm{non}} \cong \Ind_H^{S_4}\varepsilon$, where
+$\varepsilon$ is the sign of $H$.}
+
+\paragraph{Proof.} The first statement holds for every regular
+representation~\cite{Serre}. A module spanned by one orbit of lines,
+on which the stabiliser $H$ of one line acts by a character $\chi$,
+is $\Ind_H^{S_4}\chi$~\cite{Serre}; apply the Lemma. As a check,
+$\Ind_H(\mathbf{1} \oplus \varepsilon) = \Ind_H \mathbb{R}[H] =
+\mathbb{R}[S_4]$ by transitivity of induction, and counting fixed
+lines with their signs gives the character of $T$ as
+$(24, 0, 0, 0, 0)$ on the classes $e$, $(ab)$, $(ab)(cd)$, $(abc)$,
+$(abcd)$. \hfill $\square$
+
+% ----------------------------------------------------------------------
+
+\section*{The Sign Representation}
+
+\paragraph{Theorem 2.} \textit{$\sgn$ occurs exactly once in $T$
+and not at all in $C$. In $T$ it is spanned by $\omega$, with
+components $\omega^a{}_{bc} = \sum_d \varepsilon_{abcd}$, which lies
+in $T_{\mathrm{non}}$.}
+
+\paragraph{Proof.} By Frobenius reciprocity~\cite{Serre}, $\sgn$
+occurs in $\Ind_H\chi$ once if $\chi = \sgn|_H$ and otherwise not.
+Since $\sgn|_H = \varepsilon$, it occurs once in
+$T_{\mathrm{non}}$ and not in $T_{\mathrm{inc}}$. The basis
+$f_a \otimes f_b f_c$ of $C$ is permuted without signs, in four
+orbits: $a = b = c$ ($4$), $b = c \neq a$ ($12$),
+$a \in \{b,c\}$ with $b \neq c$ ($12$), and $a \notin \{b,c\}$
+($12$). Each stabiliser contains a transposition acting by $+1$, so
+$C$ is a sum of modules $\Ind_{H_i}\mathbf{1}$ with
+$\sgn|_{H_i} \neq \mathbf{1}$, none of which contains $\sgn$.
+Finally $\varepsilon_{\sigma(a)\sigma(b)\sigma(c)\sigma(d)} =
+\sgn(\sigma)\,\varepsilon_{abcd}$ and the sum over $d$ is
+invariant, so $\sigma\omega = \sgn(\sigma)\,\omega$; $\omega \neq 0$
+is antisymmetric in $b, c$ and vanishes unless $a, b, c$ are
+distinct. \hfill $\square$
+
+% ----------------------------------------------------------------------
+
+\section*{Vector, Axial and Tensor Parts}
+
+Lower indices with $|\eta| = I$. The torsion splits into its vector
+part $T_v = \{\delta^a{}_b v_c - \delta^a{}_c v_b\}$, its axial part
+$T_{ax} = \{\varepsilon_{abcd}\, w^d\}$, both of dimension $4$, and
+its tensor part $T_t$, of dimension $16$, the torsion that is
+trace-free and has no totally antisymmetric part~\cite{Hehl1976}.
+
+\paragraph{Theorem 3.} \textit{$T_v \subset T_{\mathrm{inc}}$ and
+$T_{ax} \subset T_{\mathrm{non}}$, and
+$T_t = (T_{\mathrm{inc}} \ominus T_v) \oplus
+(T_{\mathrm{non}} \ominus T_{ax})$. As $S_4$-modules}
+\begin{equation}
+\begin{aligned}
+  T_v &\cong V = \mathbf{1} \oplus \std, \\
+  T_{ax} &\cong \sgn \otimes V = \sgn \oplus (\sgn \otimes \std),
+\end{aligned}
+\end{equation}
+\textit{and each half of $T_t$ is
+$[2,2] \oplus \std \oplus (\sgn \otimes \std)$. Lowered by $\eta$
+itself, the axial part is not $S_4$-invariant.}
+
+\paragraph{Proof.} The components of $T_v$ vanish unless
+$a \in \{b,c\}$, and those of $T_{ax}$ unless $a, b, c$ are
+distinct. The trace $T^a{}_{ac}$ involves only incident components,
+and $T_v$ is the image of its adjoint, so $T_{\mathrm{inc}} \ominus
+T_v$ is the trace-free part of $T_{\mathrm{inc}}$ and has no totally
+antisymmetric part. Likewise $T_{ax}$ is the image of total
+antisymmetrisation, which involves only non-incident components, so
+$T_{\mathrm{non}} \ominus T_{ax}$ is trace-free with no totally
+antisymmetric part. The maps $v \mapsto T_v$ and
+$w \mapsto T_{ax}$ are equivariant, the second with the sign of
+$\varepsilon$. Counting fixed lines with signs gives
+$\chi_{\mathrm{inc}} = (12, 2, 0, 0, 0)$ and
+$\chi_{\mathrm{non}} = (12, -2, 0, 0, 0)$; subtracting
+$\chi_V = (4, 2, 0, 1, 0)$ and $\sgn\,\chi_V$ leaves
+$(8, 0, 0, -1, 0)$ for each half, the character of
+$[2,2] \oplus \std \oplus (\sgn \otimes \std)$. With $\eta$, the
+axial tensor whose $\eta$-lowered components are
+$\varepsilon_{abc2}$ is sent by $(01)$ to one with lowered components
+$T_{013} = -1$ and $T_{301} = +1$, which is not totally
+antisymmetric. \hfill $\square$
+
+% ----------------------------------------------------------------------
+
+\section*{Why Four Legs}
+
+\paragraph{Proposition.} \textit{For $K$ legs,
+$\dim T = K\binom{K}{2}$ equals $|S_K| = K!$ only for $K = 2$ and
+$K = 4$, and at both the torsion sector is the regular
+representation.}
+
+\paragraph{Proof.} For $K \ge 2$ the equation reduces to
+$K/2 = (K-2)!$. It holds at $K = 2$ and $K = 4$, fails at $K = 3$,
+and for $K \ge 5$,
+$(K-2)! \ge (K-2)(K-3) \ge 2(K-2) > K/2$. At $K = 1$,
+$\dim T = 0 \neq 1$. At $K = 2$, $T$ is spanned by $t_{0;01}$ and
+$t_{1;01}$, which the transposition exchanges with a sign, so its
+character is $(2, 0)$; $K = 4$ is Theorem 1. \hfill $\square$
+
+% ----------------------------------------------------------------------
+
+\section*{Scope}
+
+$\sgn(\sigma) = \det P_\sigma$: the sign representation is the
+orientation character of $GL(V)$ restricted to permutations of the
+legs. Spatial parity, $\mathrm{diag}(1,-1,-1,-1)$, also reverses
+orientation, but it is not a permutation of the legs, and these
+theorems do not describe its action. Theorems 1 and 2 hold for any
+four-index frame, with or without a metric; Theorem 3 uses the
+magnitude reading $|\eta| = I$, and fails with the sign of $\eta$
+kept.
+
+% ----------------------------------------------------------------------
+
+\section*{Summary}
+
+The $24$ torsion components of the tetrad connection are one copy
+of the group algebra of the legs' permutations, generated by one
+explicit tensor. They fall into $12$ incident and $12$ non-incident
+components, induced from the trivial and the sign character of a
+transposition. The sign representation lives in the torsion alone,
+as its totally antisymmetric part along $(1,1,1,1)$. Read by
+magnitude, the vector part of the torsion is incident, the axial
+part is non-incident, and the tensor part is two isomorphic halves.
+General relativity's torsion-free condition therefore removes a
+complete copy of $\mathbb{R}[S_4]$, and with it the only scalar
+response of the connection to odd permutations of the legs.
+
+% ----------------------------------------------------------------------
+
+\begin{thebibliography}{9}
+
+\bibitem{Nelson2026frame}
+S.~Nelson,
+\textit{The Spatial Geometry of the Lorentz Tetrad} (2026).
+
+\bibitem{Hehl1976}
+F.~W.~Hehl, P.~von der Heyde, G.~D.~Kerlick and J.~M.~Nester,
+\textit{General relativity with spin and torsion: foundations and
+prospects},
+Rev.\ Mod.\ Phys.\ \textbf{48} (1976) 393.
+
+\bibitem{Serre}
+J.-P.~Serre,
+\textit{Linear Representations of Finite Groups}
+(Springer, New York, 1977).
+
+\bibitem{FultonHarris}
+W.~Fulton and J.~Harris,
+\textit{Representation Theory: A First Course}
+(Springer, New York, 1991).
+
+\end{thebibliography}
+
+\end{document}
