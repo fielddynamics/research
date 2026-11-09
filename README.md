@@ -217,11 +217,12 @@ Gives the closed form F(y) = y − 2√y + 2 ln(1 + √y) for μ(x) = x/(x + 1),
 
 ## Repository map
 
-The repository has three top-level folders:
+The repository has four top-level folders:
 
 | Folder | Contents |
 |---|---|
 | [`papers/`](papers/) | The published and in-preparation papers (above) |
+| [`proofs/`](proofs/README.md) | Formal proofs, each with a plain-language summary and a verification script |
 | [`docs/`](docs/README.md) | The framework documentation: 28 completed pages copied from the documentation site, as readable Markdown. The full site is available as a Flask app in the [fielddynamics/docs](https://github.com/fielddynamics/docs) repository |
 | [`research/`](research/) | Every research thread, described in the tables below |
 

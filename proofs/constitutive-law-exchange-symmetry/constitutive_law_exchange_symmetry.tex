@@ -1,0 +1,282 @@
+\documentclass[twocolumn]{iopjournal}
+
+\usepackage{amsmath,amssymb,amsfonts}
+
+\fancyhfoffset[L]{0mm}
+\setlength{\marginparwidth}{0pt}
+\setlength{\marginparsep}{0pt}
+
+% ==========================================
+% ZENODO PREPRINT HEADERS (ACTIVE)
+% ==========================================
+\renewcommand{\articletype}[1]{%
+  {\vspace*{-8mm}\noindent \Large \sf Preprint}\par
+  \vspace*{6mm}\noindent{\scriptsize \sf{\bfseries \MakeUppercase{#1}}}}
+
+\fancyhead[L]{}
+\fancyhead[R]{}
+
+\begin{document}
+
+\articletype{Supplementary Material}
+
+\title{Supplementary Material: The Constitutive Law\\
+from Exchange Symmetry}
+
+\author{Stephen Nelson}
+
+\affil{Field Dynamics Research}
+
+\ead{stephen@fielddynamics.org}
+
+\begin{abstract}
+The tetrad equation produces two parity-related bounded regions,
+TetA and TetB~\cite{Nelson2026geometry}. Let the acceleration and
+the fraction $\mu$ of field capacity carried by TetA satisfy a
+polynomial equation. Three premises determine that equation: the endpoint $\mu(0) = 0$; closure of the partition states
+under the exchange of the regions; and degree one in each variable,
+the degree in $\mu$ counting the directions in which the coupling
+runs. A short lemma on degrees makes the relation bilinear, and the
+premises then force the screening identity $x(1-\mu) = \mu$, that is
+$\mu(x) = x/(x+1)$. The exchange is derived, not assumed: it is the
+inversion $x \to 1/x$ about the scale $a_0$, and parity reversing the
+coordinate $s = 2\mu - 1$. Removing any premise admits explicit
+alternatives, among them the framework's own bound-state law, so each
+is necessary. No coupling polynomial, field equation or equilibrium
+postulate enters the proof.
+\end{abstract}
+
+% ----------------------------------------------------------------------
+
+\section*{Definitions}
+
+Let $\tilde x = g/g_\ast \in [0,\infty]$ be the acceleration in units
+of an arbitrary reference $g_\ast$; the natural unit is fixed below.
+Let $\mu(\tilde x) \in [0,1]$ be the fraction of the total field
+capacity carried by TetA, so that $1-\mu$ is the fraction carried by
+TetB, and let
+\begin{equation}
+  \Omega = \frac{\mu}{1-\mu} \in [0,\infty]
+  \label{eq:odds}
+\end{equation}
+be the odds ratio between the two regions.
+
+% ----------------------------------------------------------------------
+
+\section*{Premises}
+
+\paragraph{(E) Endpoint.} $\mu(0) = 0$: at zero acceleration the
+field sits entirely in TetB.
+
+\paragraph{(X) Exchange closure.} The main
+letter~\cite{Nelson2026geometry} and its
+supplement~\cite{Nelson2026scheme} show that the identity and parity
+components of the tetrad equation give TetA and TetB, exchanged by
+spatial parity $P$. Parity leaves $|g|$ unchanged; it acts on the
+partition states, sending the state in which TetA carries a share
+$\mu$ to the state in which TetB carries that share. Since $P$ is a
+symmetry, the set of partition states realised on $[0,\infty]$ is
+closed under it: if $\mu$ is realised at some acceleration, so is
+$1 - \mu$. Nothing more about the exchange is assumed.
+
+\paragraph{(A) Degree one.} The tetrad equation is polynomial, and
+we take $\tilde x$ and $\mu$ to satisfy a real polynomial equation
+$P(\tilde x, \mu) = 0$, $P$ irreducible. We
+require $P$ to have degree one in $\mu$ and degree one in
+$\tilde x$. The degree in $\mu$ counts the directions in which the
+coupling runs. The unbound field couples in one direction: matter
+sources the field, and the field does not source
+itself~\cite{Nelson2026bound}. A bound field sources itself, couples
+in both directions, and obeys $x(1-\mu)^2 = \mu$, of degree two in
+$\mu$~\cite{Nelson2026bound}. The degree in $\tilde x$ is the
+exponent of the driving term of the second
+route~\cite{Nelson2026equilibrium}.
+
+% ----------------------------------------------------------------------
+
+\section*{Lemma}
+
+\paragraph{Lemma.} \textit{Let $K$ be a field and $P \in K[x,y]$
+irreducible, of degree $m \ge 1$ in $y$ and $n \ge 1$ in $x$, with
+$P(x,y) = 0$. Then $[K(x,y):K(x)] = m$ and $[K(x,y):K(y)] = n$. So
+$y \in K(x)$ and $x \in K(y)$ if and only if $m = n = 1$, that is,
+$P = axy + bx + cy + d$ with $ad - bc \neq 0$.}
+
+\paragraph{Proof.} $P$ is irreducible in $K[x][y]$ and has positive
+degree in $y$, so it is primitive over $K[x]$, and by Gauss's lemma
+it is irreducible in $K(x)[y]$. It is therefore the minimal
+polynomial of $y$ over $K(x)$, of degree $m$; by symmetry
+$[K(x,y):K(y)] = n$. Finally, $P = (ay + b)x + (cy + d)$ factors
+exactly when $(a,b)$ and $(c,d)$ are proportional, that is when
+$ad - bc = 0$.
+\hfill $\square$
+
+% ----------------------------------------------------------------------
+
+\section*{The Unique Law}
+
+\paragraph{Theorem.} \textit{Under (E), (X) and (A), with
+$x = g/a_0$ for a unique scale $a_0$, the partition relation is
+$x(1-\mu) = \mu$, so that $\mu(x) = x/(x+1)$, and the exchange acts
+on accelerations as $x \to 1/x$.}
+
+\paragraph{Step 1: bilinear.} By (A) and the lemma,
+$P = a\tilde x\mu + b\tilde x + c\mu + d$ with $ad - bc \neq 0$. By
+(E), $P(0,0) = d = 0$, so $bc \neq 0$, and in odds
+\begin{equation}
+  \Omega(\tilde x) = \frac{\alpha \tilde x}{\gamma \tilde x + \delta},
+\end{equation}
+with $\alpha = -b$, $\gamma = a + b$, $\delta = c$ and
+$\alpha\delta \neq 0$.
+
+\paragraph{Step 2: the pole.} By (E) the state $\mu = 0$ is realised,
+so by (X) the state $\mu = 1$, $\Omega = \infty$, is realised at
+some $\tilde x \in [0,\infty]$. The only pole of $\Omega$ is
+$\tilde x = -\delta/\gamma$, read as $\infty$ when $\gamma = 0$. If
+$\gamma\delta < 0$ the pole is positive and simple, and $\Omega$
+changes sign across it, contrary to $\Omega \ge 0$. If
+$\gamma\delta > 0$ there is no pole on $[0,\infty]$, since
+$\Omega(\infty) = \alpha/\gamma$ is finite, contrary to (X). Hence
+$\gamma = 0$, $a = -b$, and $\Omega = k\tilde x$ with
+$k = \alpha/\delta > 0$ because $\Omega \ge 0$.
+
+\paragraph{Step 3: the scale.} Setting $a_0 = g_\ast/k$ and
+$x = g/a_0$ gives $\Omega(x) = x$, and by Eq.~\eqref{eq:odds}
+\begin{equation}
+  \boxed{x\,(1-\mu) = \mu, \qquad \mu(x) = \frac{x}{x+1}.}
+  \label{eq:law}
+\end{equation}
+The map $(x,\mu) \to (1/x,\, 1-\mu)$ carries Eq.~\eqref{eq:law} to
+itself, and $\mu$ is single-valued in $x$, so the state exchanged
+with the one at $x$ sits at $1/x$: the exchange is the inversion
+$\iota(x) = 1/x$, whose fixed point is $x = 1$, that is $g = a_0$.
+\hfill $\square$
+
+\paragraph{Consequences.} The argument identifies $a_0$ as the fixed
+point of the exchange without evaluating it. The second endpoint,
+$\mu \to 1$ as $x \to \infty$, is derived. The complement symmetry
+$\mu(x) + \mu(1/x) = 1$ is derived. The involution property
+$\iota \circ \iota = \mathrm{id}$, which parity requires through
+$P^2 = 1$, is not used and is recovered. At the fixed point
+$\mu(1) = 1/2$.
+
+\paragraph{Parity form.} Let $s = 2\mu - 1 \in [-1,1]$, so that TetA
+is $s = +1$ and TetB is $s = -1$. Equation~\eqref{eq:law} becomes
+\begin{equation}
+  x\,(1-s) = 1+s, \qquad s(x) = \frac{x-1}{x+1},
+\end{equation}
+and the exchange becomes $(x, s) \to (1/x, -s)$. In this coordinate
+the exchange is parity itself, reversing $s$ as it reverses the
+rank-one term $Ks$ of the coupling polynomial
+$f(K,s) = 1 + sK + K^2$, whose normalisation
+$\big(f(K,s) - f(K,-1)\big)/2K$ is
+$\mu = (1+s)/2$~\cite{Nelson2026geometry}.
+
+% ----------------------------------------------------------------------
+
+\section*{Necessity of the Premises}
+
+Removing any one premise admits alternatives satisfying the other
+two:
+
+\vspace{6pt}
+\noindent
+\begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}lp{0.74\columnwidth}@{}}
+\hline
+Removed & Admitted alternatives \\
+\hline
+(E) & $\Omega = (x+b)/(bx+1)$, $0 < b < 1$; here $\mu(0) = b/(1+b)$
+  and the states fill $[\,b/(1+b),\,1/(1+b)\,]$ \\
+(X) & $\Omega = \alpha x/(\gamma x + \delta)$, $\alpha, \gamma,
+  \delta > 0$; here $\mu(\infty) < 1$ \\
+(A) & $x^n(1-\mu)^m = \mu$, $n, m \ge 1$, $(n,m) \neq (1,1)$, of
+  degree $n$ in $x$ and $m$ in $\mu$; $(n,m) = (1,2)$ is the
+  bound-state law~\cite{Nelson2026bound} \\
+\hline
+\end{tabular*}
+\vspace{6pt}
+
+Each relation in the (A) row is irreducible (Eisenstein at the prime
+$\mu$ of $\mathbb{R}[\mu]$), has a single root
+$\mu \in [0,1]$ for each $x$, and runs from $\mu = 0$ to $\mu = 1$.
+Without (A) the exchange carries no content: any continuous,
+strictly increasing $\mu$ with $\mu(0) = 0$ and $\mu \to 1$
+satisfies (E) and (X).
+
+% ----------------------------------------------------------------------
+
+\section*{Relation to the Other Routes}
+
+The main letter derives the same law by two further routes: graded
+rank counting of the tetrad equation, with parity interpolation and
+rational normalisation~\cite{Nelson2026metric}; and the AQUAL field
+equation with single-channel detailed
+balance~\cite{Nelson2026equilibrium}. The proof above uses neither.
+The three routes meet in
+one relation of degree one in each variable. In the first it is the
+map $s(x)$: of its three boundary conditions, $s(0) = -1$ is (E),
+$s(1) = 0$ is the choice of unit and $s(\infty) = +1$ is derived,
+and its fractional linear form is (A) through the lemma. In the
+second it is the balance $x^n(1-\epsilon) = \epsilon/K$, of degree
+$n$ in $x$ and one in $\epsilon$, with $n = 1$ fixed there by
+deep-field scaling.
+
+% ----------------------------------------------------------------------
+
+\section*{Summary}
+
+For a coupling of degree one in each variable, closure of the
+partition states under the exchange of TetA and TetB forces the
+screening identity $x(1-\mu) = \mu$, whose solution is the
+constitutive law $\mu(x) = x/(x+1)$; each premise is necessary.
+
+This function was identified empirically by
+Milgrom~\cite{Milgrom1983} and selected by fitting by
+Famaey and Binney~\cite{FamaeyBinney2005}. The present
+derivation obtains it from the exchange symmetry of the
+two parity-related roots of the equation that defines the
+gravitational field.
+
+% ----------------------------------------------------------------------
+
+\begin{thebibliography}{99}
+
+\bibitem{Nelson2026geometry}
+S.~Nelson,
+\textit{The Coordinate-Space Geometry of the Tetrad Frame},
+Class.\ Quantum Grav.\ (2026), submitted.
+
+\bibitem{Nelson2026scheme}
+S.~Nelson,
+\textit{Supplementary Material: The Tetrad Scheme and the Two
+Bounded Regions} (2026).
+
+\bibitem{Nelson2026bound}
+S.~Nelson,
+\textit{Nuclear Binding Energy from the Bidirectional
+Scalar-Tensor Transition} (2026).
+
+\bibitem{Nelson2026metric}
+S.~Nelson,
+\textit{Supplementary Material: The Constitutive Law Read from
+the Metric} (2026).
+
+\bibitem{Nelson2026equilibrium}
+S.~Nelson,
+\textit{Supplementary Material: The Constitutive Law from
+Equilibrium Field Closure} (2026).
+
+\bibitem{Milgrom1983}
+M.~Milgrom,
+\textit{A modification of the Newtonian dynamics as a possible
+alternative to the hidden mass hypothesis},
+Astrophys.\ J.\ \textbf{270} (1983) 365.
+
+\bibitem{FamaeyBinney2005}
+B.~Famaey and J.~Binney,
+\textit{Modified Newtonian dynamics in the Milky Way},
+Mon.\ Not.\ R.\ Astron.\ Soc.\ \textbf{363} (2005) 603.
+
+\end{thebibliography}
+
+\end{document}
