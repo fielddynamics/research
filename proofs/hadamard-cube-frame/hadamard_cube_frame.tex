@@ -1,0 +1,243 @@
+\documentclass[twocolumn]{iopjournal}
+
+\usepackage{amsmath,amssymb,amsfonts}
+
+\fancyhfoffset[L]{0mm}
+\setlength{\marginparwidth}{0pt}
+\setlength{\marginparsep}{0pt}
+
+% ==========================================
+% ZENODO PREPRINT HEADERS (ACTIVE)
+% ==========================================
+\renewcommand{\articletype}[1]{%
+  {\vspace*{-8mm}\noindent \Large \sf Preprint}\par
+  \vspace*{6mm}\noindent{\scriptsize \sf{\bfseries \MakeUppercase{#1}}}}
+
+\fancyhead[L]{}
+\fancyhead[R]{}
+
+\begin{document}
+
+\articletype{Supplementary Material}
+
+\title{The Stellated Octahedron, the Cube and the Hadamard Matrix}
+
+\author{Stephen Nelson}
+
+\affil{Field Dynamics Research}
+
+\ead{stephen@fielddynamics.org}
+
+\begin{abstract}
+A cube simplex is a set of $D + 1$ vertices of the cube
+$\{-1,+1\}^D$ that are pairwise equidistant. We show that the
+coordinate matrix $M$ of a cube simplex, bordered by a row of ones,
+is a Hadamard matrix, and conversely; that this is the forced Gram
+matrix of the tetrad frame, $M^TM = (D+1)I - J$; and that the
+Hadamard rows encode closure and an isotropic second moment. A cube
+simplex therefore exists only if $D + 1$ is $2$ or divisible by $4$.
+A cube simplex and its parity image are disjoint, and together they
+fill the cube only for $D = 3$, where they are the two parity
+classes $x_1x_2x_3 = \pm1$ and their compound is the stellated
+octahedron. This is the content of the equation $2(D+1) = 2^D$. In a
+stated ordering, the $8 \times 8$ Walsh matrix of the cube is exactly
+$H_2 \otimes \hat H$, with $H_2$ acting as spatial parity and
+$\hat H$ the bordered frame. Only for $K = 2$ and $K = 4$ do the rows
+of $M$ exhaust the ways of splitting the $K$ points into equal halves.
+\end{abstract}
+
+% ----------------------------------------------------------------------
+
+\section*{Setting}
+
+Let $Q_D = \{-1,+1\}^D$, $D \ge 1$, and $K = D + 1$. A \emph{cube
+simplex} is a set of $K$ distinct points of $Q_D$ that are pairwise
+equidistant. Write them as the columns $v_0, \dots, v_D$ of a
+$D \times K$ matrix $M$ with entries $\pm1$, let
+$\mathbf{1} \in \mathbb{R}^K$ be the all-ones vector, and let
+\begin{equation}
+  \hat H = \begin{pmatrix} \mathbf{1}^T \\ M \end{pmatrix},
+  \label{eq:Hhat}
+\end{equation}
+a $K \times K$ matrix of signs. A Hadamard matrix of order $n$ is an
+$n \times n$ matrix $H$ of signs with $H^TH = nI$; for a square
+matrix this is equivalent to $HH^T = nI$.
+
+% ----------------------------------------------------------------------
+
+\section*{The Frame Is a Hadamard Matrix}
+
+\paragraph{Theorem 1.} \textit{For a $D \times K$ sign matrix $M$
+the following are equivalent:}
+\begin{itemize}
+\item[(a)] \textit{the columns of $M$ form a cube simplex;}
+\item[(b)] \textit{$M^TM = KI - J$;}
+\item[(c)] \textit{$\hat H$ is a Hadamard matrix;}
+\item[(d)] \textit{$M\mathbf{1} = 0$ and $MM^T = K\,I_D$.}
+\end{itemize}
+
+\paragraph{Proof.} (a)$\Rightarrow$(b): every column has squared
+norm $D$, and equal distances between columns of equal norm mean
+equal inner products, so $M^TM = \alpha I + \beta J$ with
+$\alpha + \beta = D$. Distinct columns give
+$\alpha = \tfrac12|v_a - v_b|^2 > 0$, so the eigenvalue $\alpha$,
+of multiplicity $K - 1 = D$ on $\mathbf{1}^\perp$, makes the rank
+at least $D$. The columns lie in $\mathbb{R}^D$, so the eigenvalue
+$\alpha + K\beta$ on $\mathbf{1}$ vanishes. Hence $\beta = -1$ and
+$\alpha = K$; this is the forced Gram matrix of the tetrad frame
+with $c^2 = D$~\cite{Nelson2026frame}. (b)$\Leftrightarrow$(c):
+$\hat H^T\hat H = J + M^TM$. (c)$\Leftrightarrow$(d):
+$\hat H\hat H^T$ has blocks $K$, $(M\mathbf{1})^T$, $M\mathbf{1}$
+and $MM^T$. (b)$\Rightarrow$(a):
+$|v_a - v_b|^2 = 2K$ for $a \neq b$. \hfill $\square$
+
+\medskip
+\noindent
+Every Hadamard matrix of order $K$ becomes one with first row
+$\mathbf{1}^T$ after negating columns, and its remaining rows then
+form a matrix $M$ whose columns are a cube simplex. Cube simplices and normalised Hadamard
+matrices are therefore the same objects. Condition (d) is the pair
+of conditions imposed on the tetrahedral directions in
+Letter~1~\cite{Nelson2026signature}: no net direction, and no
+preferred axis.
+
+\paragraph{Lemma (Hadamard).} \textit{A Hadamard matrix of order
+$n > 2$ has $4 \mid n$.}
+
+\paragraph{Proof.} Normalise the first row to $\mathbf{1}^T$. Let
+$n_{\pm\pm}$ count the columns by their signs in rows $2$ and $3$.
+Orthogonality of rows $2$ and $3$ to row $1$ and to each other gives
+$n_{++} + n_{+-} = n_{-+} + n_{--}$,
+$n_{++} + n_{-+} = n_{+-} + n_{--}$ and
+$n_{++} + n_{--} = n_{+-} + n_{-+}$, so all four counts are equal
+and $n = 4\,n_{++}$. \hfill $\square$
+
+\paragraph{Corollary 1.} \textit{A cube simplex in $Q_D$ exists
+only if $D = 1$ or $4 \mid D + 1$. The first case beyond the
+segment is $D = 3$.}
+
+% ----------------------------------------------------------------------
+
+\section*{Only Three Dimensions Fill the Cube}
+
+\paragraph{Theorem 2.} \textit{Let $V$ be a cube simplex in $Q_D$,
+$D \ge 2$. Then $V$ and $-V$ are disjoint cube simplices, and
+$V \cup (-V) = Q_D$ if and only if $D = 3$. For $D = 3$, $V$ and
+$-V$ are the two parity classes $\{x_1x_2x_3 = +1\}$ and
+$\{x_1x_2x_3 = -1\}$, and their compound is Kepler's stella
+octangula~\cite{Kepler1619,Cromwell1997}, the stellated
+octahedron.}
+
+\paragraph{Proof.} Negation preserves inner products, so $-V$ is a
+cube simplex. A shared point $v_a = -v_b$ would need
+$v_a \cdot v_b = -D$, but by Theorem 1 the inner products are $D$
+and $-1$, and $D \ge 2$. So $|V \cup (-V)| = 2(D+1)$, which equals
+$|Q_D| = 2^D$ only for $D = 3$: the equation fails at $D = 2$, and
+for $D \ge 4$, $2^D > 2(D+1)$ by induction from $16 > 10$. For
+$D = 3$, $v_a \cdot v_b = -1$ means that $v_a$ and $v_b$ differ in
+exactly two coordinates, so they have the same product
+$x_1x_2x_3$; the four points of $V$ lie in one parity class of
+four, and $-V$ in the other. \hfill $\square$
+
+\medskip
+\noindent
+The equation $2(D+1) = 2^D$ counts the same set twice: on the left,
+the vertices of a simplex and its parity image; on the right, the
+vertices of the cube.
+
+% ----------------------------------------------------------------------
+
+\section*{The Walsh Factorisation}
+
+The Walsh functions on $Q_3$ are
+$\chi_S(x) = \prod_{i \in S} x_i$, $S \subseteq \{1,2,3\}$, and the
+Walsh matrix is $W_{S,x} = \chi_S(x)$.
+
+\paragraph{Theorem 3.} \textit{Let $V$ be the parity class
+$x_1x_2x_3 = +1$, with columns $v_0, \dots, v_3$ of $M$. Order the
+points of $Q_3$ as $v_0, \dots, v_3, -v_0, \dots, -v_3$, and the
+Walsh functions as $1$, $x_2x_3$, $x_1x_3$, $x_1x_2$ (even degree),
+then $x_1x_2x_3$, $x_1$, $x_2$, $x_3$ (odd degree). Then}
+\begin{equation}
+  W = H_2 \otimes \hat H = \begin{pmatrix}
+    \hat H & \hat H \\ \hat H & -\hat H \end{pmatrix},
+\end{equation}
+\textit{where $H_2$ has rows $(1, 1)$ and $(1, -1)$.}
+
+\paragraph{Proof.} On $V$, $x_1x_2x_3 = 1$, so $x_2x_3 = x_1$,
+$x_1x_3 = x_2$ and $x_1x_2 = x_3$: both lists restrict to
+$1, x_1, x_2, x_3$, whose values on $v_0, \dots, v_3$ are the rows
+of $\hat H$. Since $\chi_S(-x) = (-1)^{|S|}\chi_S(x)$, the even
+functions take the same values on $-V$ and the odd functions the
+opposite values. \hfill $\square$
+
+\medskip
+\noindent
+The factor $H_2$ is spatial parity, $x \to -x$, acting on Walsh
+functions by their degree; the factor $\hat H$ is the frame. On
+each tetrahedron, every Walsh function coincides with its
+complement up to a common sign, so the eight functions reduce to
+four.
+
+% ----------------------------------------------------------------------
+
+\section*{Why Four Legs}
+
+\paragraph{Corollary 2.} \textit{For a cube simplex with $K$ even,
+each of the $K - 1$ rows of $M$ splits the $K$ points into two
+halves, and the rows give $K - 1$ distinct splits. They are all such
+splits if and only if $K = 2$ or $K = 4$.}
+
+\paragraph{Proof.} By Theorem 1(d), each row has as many $+1$ as
+$-1$ entries. Two rows never give the same split: they are
+orthogonal, and a row and its negative are not. There are
+$\tfrac12\binom{K}{K/2}$ splits, equal to $K - 1$ at $K = 2$ and
+$K = 4$; for $K \ge 6$,
+$\tfrac12\binom{K}{K/2} \ge \tfrac12\binom{K}{2} > K - 1$.
+\hfill $\square$
+
+\medskip
+\noindent
+At $K = 4$ the three rows of $M$ are the three ways of splitting
+the four points, the four legs of the frame, into two pairs.
+
+% ----------------------------------------------------------------------
+
+\section*{Summary}
+
+On the cube, the regular simplex of the tetrad frame and the
+normalised Hadamard matrix are one object: its columns satisfy the
+forced Gram matrix, and its rows satisfy closure and isotropy.
+Hadamard's condition limits such simplices to $D = 1$ and
+$D + 1 \equiv 0 \pmod 4$. A simplex and its parity image fill the
+cube only in three dimensions, where they are the two parity
+classes and form the stellated octahedron; this is what
+$2(D+1) = 2^D$ counts. The Walsh matrix of the three-cube factorises
+exactly as spatial parity times the frame.
+
+% ----------------------------------------------------------------------
+
+\begin{thebibliography}{9}
+
+\bibitem{Nelson2026frame}
+S.~Nelson,
+\textit{The Spatial Geometry of the Lorentz Tetrad} (2026).
+
+\bibitem{Nelson2026signature}
+S.~Nelson,
+\textit{Supplementary Material: From the Lorentz Signature to the
+Tetrahedral Frame} (2026).
+
+\bibitem{Kepler1619}
+J.~Kepler,
+\textit{Harmonices Mundi}
+(Linz, 1619).
+
+\bibitem{Cromwell1997}
+P.~R.~Cromwell,
+\textit{Polyhedra}
+(Cambridge University Press, Cambridge, 1997).
+
+\end{thebibliography}
+
+\end{document}
