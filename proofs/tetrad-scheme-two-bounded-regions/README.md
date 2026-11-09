@@ -34,7 +34,7 @@ Hold one observer and the direction of time fixed, as Letter 1 does. The remaini
 
 ## The metric cannot choose
 
-The metric fixes $(\det e)^2 = \kappa$ and never the sign of $\det e$, just as $a$ fixes $x^2$ and never the sign of $x$. Every quantity built from the metric, including the curvature, Einstein's equations and the action they come from, is identical on both roots. The textbook formulation keeps one root by restricting frames to the *proper orthochronous* Lorentz group. That is a consistent choice, but nothing in the metric makes it: it is a convention.
+The metric fixes $(\det e)^2 = \kappa$ and never the sign of $\det e$, just as $a$ fixes $x^2$ and never the sign of $x$. Every quantity built from the metric, including the curvature, Einstein's equations and the action they come from, is identical on both roots. The textbook formulation keeps one root by restricting frames to the *proper orthochronous* Lorentz group. That is a consistent choice, but it changes the equation: it adds $\det e = +\sqrt\kappa$, which the metric does not contain, just as $x = +\sqrt a$ is not $x^2 = a$.
 
 ## Two honest caveats
 
@@ -64,7 +64,7 @@ The original note is [`supplementary_scheme_proof.tex`](../../papers/letter-1-te
 
 **Both schemes are necessarily present** ("Both Components" in the original)
 - Adds the reason the metric cannot choose, $(\det e)^2 = \kappa$, and the list of quantities that agree on both.
-- Changes "there is no consistent way to retain one component and discard the other" to the exact statement: retaining one is consistent, but no equation in the metric can make the selection. The stronger wording could be refuted by pointing at general relativity itself, which does retain one.
+- Changes "there is no consistent way to retain one component and discard the other" to the exact statement: retaining one is consistent, but it replaces the tetrad equation with the system $g = e^T\eta\,e$, $\det e = +\sqrt\kappa$, whose second equation the metric does not contain, just as $x = +\sqrt a$ is not $x^2 = a$. The stronger wording could be refuted by pointing at general relativity itself, which does retain one.
 - Corrects the convention. The original identified root selection with choosing the signature convention $(-,+,+,+)$ or $(+,-,-,-)$. That choice flips $\eta$ as a whole, leaves the Lorentz group unchanged and selects nothing. The convention that keeps one component is the restriction to the proper orthochronous group, and the revision says so, keeping the original's sentence that it is "a valid computational choice" and that "the scheme itself contains both".
 
 **Each scheme carries a 3 + 1 decomposition** ("Each Component" in the original)
