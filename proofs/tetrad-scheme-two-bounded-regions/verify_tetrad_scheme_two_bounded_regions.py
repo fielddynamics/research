@@ -50,7 +50,7 @@ check("Quadratic: P, T, R and -I are Lorentz transformations, and PT = -I",
       all(X.T * eta * X == eta for X in (P, T, R, -I4)) and P * T == -I4)
 E = sp.Matrix(4, 4, lambda i, j: sp.Symbol(f'e{i}{j}', real=True))
 g_s = sp.Matrix(4, 4, lambda i, j: sp.Symbol(f'g{min(i, j)}{max(i, j)}', real=True))
-check("Two components: same signature, so c = det g / det eta > 0 (200 random Lorentzian metrics)",
+check("Two components: same signature, so kappa = det g / det eta > 0 (200 random Lorentzian metrics)",
       all((np.linalg.det((e0 := rng.normal(size=(4, 4))).T @ etan @ e0) / np.linalg.det(etan)) > 0 for _ in range(200)))
 
 # ---- Lemma 1
@@ -106,7 +106,7 @@ for _ in range(200):
     e0 = rng.normal(size=(4, 4)); g = e0.T @ etan @ e0; c = np.linalg.det(g) / np.linalg.det(etan)
     for _ in range(4):
         e1 = lorentz() @ e0; good &= np.isclose(np.linalg.det(e1) ** 2, c); roots_seen.add(int(np.sign(np.linalg.det(e1)) * np.sign(np.linalg.det(e0))))
-check("Two components: every tetrad has (det e)^2 = c, and both roots det e = +-sqrt(c) occur", good and roots_seen == {1, -1})
+check("Two components: every tetrad has (det e)^2 = kappa, and both roots det e = +-sqrt(kappa) occur", good and roots_seen == {1, -1})
 check("Two components: under the isomorphism, the root of L e0 is det L * root(e0), so the fibres are SO and R*SO",
       all(root(L @ (e0 := rng.normal(size=(4, 4)))) == root(L) * root(e0) for L in samples))
 print("     (cited: SO(1+D, C) is connected [Borel], so each fibre is geometrically connected)")
@@ -229,7 +229,7 @@ check("Two components (cautions): -e carries TetB (n = -M) in the root of e (det
 
 # ---- Scope
 e_a = sp.Matrix([[1, 0], [1, 0]]); eta2 = eta_(1); y = sp.Symbol('y')
-check("Quadratic: det g = 0 gives c = 0 and y^2 = 0 a double root; for g = 0, D = 1, both 0 and [[1,0],[1,0]] solve",
+check("Quadratic: det g = 0 gives kappa = 0 and y^2 = 0 a double root; for g = 0, D = 1, both 0 and [[1,0],[1,0]] solve",
       sp.roots(y ** 2 - 0, y) == {0: 2} and e_a.T * eta2 * e_a == sp.zeros(2, 2) and e_a.rank() == 1)
 check("Two components (D odd): for D = 2, det P = +1, so parity keeps the root, and -M_2 is M_2 turned by pi",
       P_(2).det() == 1 and sp.Matrix([[-1, 0], [0, -1]]) * simplex(2) == -simplex(2) and sp.Matrix([[-1, 0], [0, -1]]).det() == 1)

@@ -49,7 +49,7 @@ This solution space is what algebraic geometry calls the \emph{scheme} of the eq
 \[
 X_g = \operatorname{Spec} \mathbb{R}[e^a{}_\mu] \,/\, (e^T \eta\, e - g)
 \]
-is the affine scheme they define. Its real points are the tetrads, and by the argument above $X_g$ is isomorphic to the orthogonal group scheme $O(\eta)$, through $\Lambda \mapsto \Lambda e_0$ for any one tetrad $e_0$.
+is the affine scheme they define. Its real points are the tetrads, and by the same algebra, which holds over any ring, $X_g$ is isomorphic to the orthogonal group scheme $O(\eta)$, through $\Lambda \mapsto \Lambda e_0$ for any one tetrad $e_0$.
 
 % ----------------------------------------------------------------------
 
@@ -57,10 +57,10 @@ is the affine scheme they define. Its real points are the tetrads, and by the ar
 
 Taking determinants in Eq.~\eqref{eq:tetrad} once more,
 \begin{equation}
-(\det e)^2 = \frac{\det g}{\det \eta} \equiv c > 0,
+(\det e)^2 = \frac{\det g}{\det \eta} \equiv \kappa > 0,
 \label{eq:roots}
 \end{equation}
-where $c > 0$ because $g$ and $\eta$ have the same signature. This is an equation of the form $y^2 = c$, as $x^2 = a$ is for a single unknown. Every tetrad has $\det e = +\sqrt{c}$ or $\det e = -\sqrt{c}$, never both. The scheme therefore splits as $X_g = X_+ \sqcup X_-$, the parts over the two roots, each open and closed. Neither splits further: under $X_g \cong O(\eta)$ the two parts are $SO(\eta)$ and its coset, and $SO(\eta)$ is connected even over $\mathbb{C}$, where it is $SO(4, \mathbb{C})$~\cite{Borel1991}. The scheme has exactly two connected components, the two roots of Eq.~\eqref{eq:roots}.
+where $\kappa > 0$ because $g$ and $\eta$ have the same signature. This is an equation of the form $y^2 = \kappa$, as $x^2 = a$ is for a single unknown. Every tetrad has $\det e = +\sqrt{\kappa}$ or $\det e = -\sqrt{\kappa}$, never both. The scheme therefore splits as $X_g = X_+ \sqcup X_-$, the parts over the two roots, each open and closed. Neither splits further: under $X_g \cong O(\eta)$ the two parts are $SO(\eta)$ and its coset, and $SO(\eta)$ is connected even over $\mathbb{C}$, where it is $SO(4, \mathbb{C})$~\cite{Borel1991}. The scheme has exactly two connected components, the two roots of Eq.~\eqref{eq:roots}.
 
 The Lorentz group $O(1,3)$ has four connected components~\cite{Wald1984}, distinguished by two discrete operations:
 \begin{itemize}
@@ -74,12 +74,12 @@ The main letter's construction uses only the spatial legs of the tetrad: the fou
 The spatial scheme thus has exactly two distinct components:
 \begin{itemize}
 \item the identity component $SO(3)$, which rotates the four derived directions rigidly,
-\item the parity component $P \cdot SO(3)$, which negates all three spatial legs.
+\item the parity component $P \cdot SO(3)$, containing $P$, which negates all three spatial legs.
 \end{itemize}
 
-The continuous part, $SO(3)$, rotates the four derived directions rigidly and produces no new geometry. The discrete part, $P$, sends every $v_i \to -v_i$, producing a second set of four unit vectors with the same pairwise inner product $c = -1/3$. Four unit vectors in $\mathbb{R}^3$ with common pairwise inner product $-1/3$ form the vertices of a regular tetrahedron~\cite{Coxeter1973}; their convex hull is a bounded solid. The identity component gives TetA. The parity component gives TetB. Precisely, $P$ maps $\mathrm{TetA} = \{\max_i v_i \le 1\}$ to $\{\max_i (-v_i) \le 1\}$, the all-flipped sign combination, which is the second bounded region of Route~1.
+The continuous part, $SO(3)$, rotates the four derived directions rigidly and produces no new geometry. The discrete part, $P$, sends every $v_i \to -v_i$, whose normalised directions are a second set of four unit vectors with the same pairwise inner product $c = -1/3$. Four unit vectors in $\mathbb{R}^3$ with common pairwise inner product $-1/3$ form the vertices of a regular tetrahedron~\cite{Coxeter1973}; their convex hull is a bounded solid. The identity component gives TetA. The parity component gives TetB. Precisely, $P$ maps $\mathrm{TetA} = \{\max_i v_i \le 1\}$ to $\{\max_i (-v_i) \le 1\}$, the all-flipped sign combination, which is the second bounded region of Route~1.
 
-Three facts make this identification exact. First, $P$ is the canonical member of its component: the only elements of $O(3)$ commuting with every rotation and reflection are $\pm I$, since commuting with all diagonal sign matrices and all permutation matrices forces a multiple of $I$, hence $\pm I$, and of these only $-I$ has determinant $-1$. Second, parity is not a rotation in disguise: the four directions span $\mathbb{R}^3$, so $Q v_i = -v_i$ for all $i$ forces $Q = -I$, and no element of $SO(3)$ carries the frame of TetA to that of TetB leg by leg. Third, this rests on the spatial dimension being odd: $\det(-I) = (-1)^D$, and in an even number of spatial dimensions $-I$ is a rotation, so parity would produce no new component.
+Three facts make this identification exact. First, $P$ is the canonical member of its component: the only elements of $O(3)$ commuting with every rotation and reflection are $\pm I$, since commuting with all diagonal sign matrices and all permutation matrices forces a multiple of $I$, hence $\pm I$, and of these only $-I$ has determinant $-1$. Second, parity is not a rotation in disguise: the four directions span $\mathbb{R}^3$, so $Q v_i = -v_i$ for all $i$ forces $Q = -I$, and no element of $SO(3)$ carries the frame of TetA to that of TetB leg by leg. Third, this rests on the spatial dimension being odd: $\det(-I) = (-1)^D$ in $D$ spatial dimensions, and in an even number of spatial dimensions $-I$ is a rotation, so parity would produce no new component.
 
 Two cautions keep the statement exact. As unlabelled point sets the tetrahedra are congruent, since a regular tetrahedron is its own mirror image (a $90^\circ$ rotation about one axis maps the vertices of TetA onto those of TetB), so the components differ in the order of the legs and the region of space they occupy, not in shape. And reversing every leg, $e \to -e = PT\,e$, keeps $\det e$ but also reverses the time leg; its spatial legs are those of $Pe$. The identification of root with tetrahedron therefore holds for future-pointing frames, the setting of the main letter.
 
@@ -99,7 +99,7 @@ In the main letter's coordinates, whose axes are the frame's spatial legs, the f
 \begin{equation}
 (+,+,+), \quad (+,-,-), \quad (-,+,-), \quad (-,-,+).
 \end{equation}
-One face normal has uniform sign: $(+,+,+)$, the direction $e_1 + e_2 + e_3$. Three face normals have mixed signs. This is the $3+1$ partition of the four faces that the main letter reads as one temporal and three spatial. The partition is fixed by the frame's spatial legs: under the tetrahedron's own symmetries all four faces are equivalent, so it is a property of the tetrahedron relative to the frame, not of the tetrahedron alone.
+One face normal has uniform sign: $(+,+,+)$, the normal of $v_1$. Three face normals have mixed signs. This is the $3+1$ partition of the four faces that the main letter reads as one temporal and three spatial. The partition is fixed by the frame's spatial legs: under the tetrahedron's own symmetries all four faces are equivalent, so it is a property of the tetrahedron relative to the frame, not of the tetrahedron alone.
 
 Under spatial parity $P$, the face normals of TetB are:
 \begin{equation}
@@ -117,14 +117,14 @@ The main letter derives the stellated octahedron by classifying the sixteen half
 
 \vspace{6pt}
 \noindent
-{\footnotesize
+{\footnotesize\setlength{\tabcolsep}{4pt}%
 \begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}lll@{}}
 \hline
  & Route 1 (letter) & Route 2 (this note) \\
 \hline
 Input & half-space inequalities & tetrad eqn.\ $g = \eta\, e\, e$ \\
 Method & recession cone test & scheme of quad.\ eqn. \\
-Key fact & $\sum v_i = 0$ (normals & $(\det e)^2 = c$ has \\
+Key fact & $\sum v_i = 0$ (normals & $(\det e)^2 = \kappa$ has \\
  & sum to zero) & two roots \\
 Output & 2 of 16 bounded & 2 components of \\
  & & the scheme \\
