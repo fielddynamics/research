@@ -29,7 +29,7 @@
 \affil{Field Dynamics Research}
 
 \begin{abstract}
-The main letter derives the stellated octahedron from the half-space inequalities of four derived tetrahedral directions (Route~1). This note provides a second, independent route to the same result (Route~2). The defining equation of the tetrad, $g_{\mu\nu} = \eta_{ab}\, e^a{}_\mu\, e^b{}_\nu$, is quadratic in the tetrad, and it forces $(\det e)^2 = \det g / \det \eta$, an equation with two roots. Its solution space (scheme) has exactly two connected components, one over each root, related by spatial parity. Each component carries a regular tetrahedron with a $3+1$ face decomposition. The compound of the two components is the stellated octahedron. The metric determines only $(\det e)^2$, so it cannot distinguish the components. This argument uses no half-space bounding, no recession cones, and no sign-combination enumeration.
+The main letter derives the stellated octahedron from the half-space inequalities of four derived tetrahedral directions (Route~1). This note provides a second, independent route to the same result (Route~2). The defining equation of the tetrad, $g_{\mu\nu} = \eta_{ab}\, e^a{}_\mu\, e^b{}_\nu$, is quadratic in the tetrad, and it forces $(\det e)^2 = \det g / \det \eta$, an equation with two roots. Its solution space (scheme) is two schemes, one over each root, related by spatial parity. Each carries a regular tetrahedron with a $3+1$ face decomposition. Their compound is the stellated octahedron. The metric determines only $(\det e)^2$, so it cannot distinguish them. This argument uses no half-space bounding, no recession cones, and no sign-combination enumeration.
 \end{abstract}
 
 \keywords{tetrad, scheme, algebraic geometry, Lorentz group, spatial parity, root-blindness, stellated octahedron, proof}
@@ -53,25 +53,25 @@ is the affine scheme they define. Its real points are the tetrads, and by the sa
 
 % ----------------------------------------------------------------------
 
-\section*{The Scheme Has Two Components}
+\section*{The Scheme Is Two Schemes}
 
 Taking determinants in Eq.~\eqref{eq:tetrad} once more,
 \begin{equation}
 (\det e)^2 = \frac{\det g}{\det \eta} \equiv \kappa > 0,
 \label{eq:roots}
 \end{equation}
-where $\kappa > 0$ because $g$ and $\eta$ have the same signature. This is an equation of the form $y^2 = \kappa$, as $x^2 = a$ is for a single unknown. Every tetrad has $\det e = +\sqrt{\kappa}$ or $\det e = -\sqrt{\kappa}$, never both. The scheme therefore splits as $X_g = X_+ \sqcup X_-$, the parts over the two roots, each open and closed. Neither splits further: under $X_g \cong O(\eta)$ the two parts are $SO(\eta)$ and its coset, and $SO(\eta)$ is connected even over $\mathbb{C}$, where it is $SO(4, \mathbb{C})$~\cite{Borel1991}. The scheme has exactly two connected components, the two roots of Eq.~\eqref{eq:roots}.
+where $\kappa > 0$ because $g$ and $\eta$ have the same signature. This is $y^2 = \kappa$, with roots $\pm\sqrt{\kappa}$, as $x^2 = a$ has $\pm\sqrt{a}$. Every tetrad has one root, never both, so the scheme is two schemes, $X_g = X_+ \sqcup X_-$, one over each root, each open and closed in $X_g$. Neither splits further: under $X_g \cong O(\eta)$ they are $SO(\eta)$ and its coset, and $SO(\eta)$ is connected even over $\mathbb{C}$, where it is $SO(4, \mathbb{C})$~\cite{Borel1991}.
 
 The Lorentz group $O(1,3)$ has four connected components~\cite{Wald1984}, distinguished by two discrete operations:
 \begin{itemize}
 \item spatial parity $P$: $e^0 \to e^0$, $e^i \to -e^i$ ($i = 1,2,3$),
 \item time reversal $T$: $e^0 \to -e^0$, $e^i \to e^i$.
 \end{itemize}
-The four components are $SO^+(1,3)$, $P \cdot SO^+(1,3)$, $T \cdot SO^+(1,3)$, and $PT \cdot SO^+(1,3)$. A change of frame $e \to \Lambda e$ multiplies $\det e$ by $\det \Lambda$, so it exchanges the roots of Eq.~\eqref{eq:roots} if and only if $\det \Lambda = -1$. $P$ and $T$ each have determinant $-1$ and exchange them; $PT = -I$ has determinant $+1$ and does not. The four real components are the two roots, each split by the direction of the time leg.
+The four components are $SO^+(1,3)$, $P \cdot SO^+(1,3)$, $T \cdot SO^+(1,3)$, and $PT \cdot SO^+(1,3)$. A change of frame $e \to \Lambda e$ multiplies $\det e$ by $\det \Lambda$, so it exchanges the two schemes if and only if $\det \Lambda = -1$. $P$ and $T$ each have determinant $-1$ and exchange them; $PT = -I$ has determinant $+1$ and does not. The four real components of $X_g$ are the two schemes, each split by the direction of the time leg.
 
 The main letter's construction uses only the spatial legs of the tetrad: the four derived directions $v_1, v_2, v_3, v_4$ are linear combinations of $e^1, e^2, e^3$. Time reversal $T$ acts only on $e^0$ and leaves the spatial legs unchanged. To compare the frames of one observer, hold the time leg fixed and future-pointing. The changes of frame that do so are $\Lambda = \mathrm{diag}(1, Q)$ with $Q \in O(3)$, and $\det \Lambda = \det Q$: for these frames the root of Eq.~\eqref{eq:roots} is the orientation of the spatial legs.
 
-The spatial scheme thus has exactly two distinct components:
+For one observer, the two schemes are thus the two components of $O(3)$:
 \begin{itemize}
 \item the identity component $SO(3)$, which rotates the four derived directions rigidly,
 \item the parity component $P \cdot SO(3)$, containing $P$, which negates all three spatial legs.
@@ -81,19 +81,19 @@ The continuous part, $SO(3)$, rotates the four derived directions rigidly and pr
 
 Three facts make this identification exact. First, $P$ is the canonical member of its component: the only elements of $O(3)$ commuting with every rotation and reflection are $\pm I$, since commuting with all diagonal sign matrices and all permutation matrices forces a multiple of $I$, hence $\pm I$, and of these only $-I$ has determinant $-1$. Second, parity is not a rotation in disguise: the four directions span $\mathbb{R}^3$, so $Q v_i = -v_i$ for all $i$ forces $Q = -I$, and no element of $SO(3)$ carries the frame of TetA to that of TetB leg by leg. Third, this rests on the spatial dimension being odd: $\det(-I) = (-1)^D$ in $D$ spatial dimensions, and in an even number of spatial dimensions $-I$ is a rotation, so parity would produce no new component.
 
-Two cautions keep the statement exact. As unlabelled point sets the tetrahedra are congruent, since a regular tetrahedron is its own mirror image (a $90^\circ$ rotation about one axis maps the vertices of TetA onto those of TetB), so the components differ in the order of the legs and the region of space they occupy, not in shape. And reversing every leg, $e \to -e = PT\,e$, keeps $\det e$ but also reverses the time leg; its spatial legs are those of $Pe$. The identification of root with tetrahedron therefore holds for future-pointing frames, the setting of the main letter.
+Two cautions keep the statement exact. As unlabelled point sets the tetrahedra are congruent, since a regular tetrahedron is its own mirror image (a $90^\circ$ rotation about one axis maps the vertices of TetA onto those of TetB), so the two schemes differ in the order of the legs and the region of space they occupy, not in shape. And reversing every leg, $e \to -e = PT\,e$, keeps $\det e$ but also reverses the time leg; its spatial legs are those of $Pe$. The identification of root with tetrahedron therefore holds for future-pointing frames, the setting of the main letter.
 
 % ----------------------------------------------------------------------
 
-\section*{Both Components Are Necessarily Present}
+\section*{Both Schemes Are Necessarily Present}
 
-The scheme of a polynomial equation contains all its roots by definition. The quadratic structure of the tetrad equation and the two components of its scheme together guarantee that both TetA and TetB exist in the solution space. Both satisfy the same defining equation with the same metric, and the metric cannot tell them apart: by Eq.~\eqref{eq:roots} it determines $(\det e)^2$ and never $\det e$, and every quantity built from $g$, including the Christoffel symbols, the curvature, the Einstein tensor and the Einstein--Hilbert action, takes the same value on both components. Retaining one component and discarding the other is consistent, but no equation written in the metric can make that selection.
+The scheme of a polynomial equation contains all its roots by definition. The quadratic structure of the tetrad equation and the two schemes it splits into together guarantee that both TetA and TetB exist in the solution space. Both satisfy the same defining equation with the same metric, and the metric cannot tell them apart: by Eq.~\eqref{eq:roots} it determines $(\det e)^2$ and never $\det e$, and every quantity built from $g$, including the Christoffel symbols, the curvature, the Einstein tensor and the Einstein--Hilbert action, takes the same value on both. Retaining one scheme and discarding the other is consistent, but no equation written in the metric can make that selection.
 
-The textbook convention of restricting local frames to the proper orthochronous Lorentz group $SO^+(1,3)$~\cite{Wald1984,Hehl1976} corresponds to working within a single connected component. This is a valid computational choice, but it is a restriction of the full scheme to one component. The scheme itself contains both. The choice between the signature conventions $(-,+,+,+)$ and $(+,-,-,-)$ is a different matter: it changes the sign of $\eta$ as a whole, leaves the Lorentz group unchanged, and selects no component.
+The textbook convention of restricting local frames to the proper orthochronous Lorentz group $SO^+(1,3)$~\cite{Wald1984,Hehl1976} corresponds to working within one of the two schemes. This is a valid computational choice, but it is a restriction of the full scheme to one of them. The scheme itself contains both. The choice between the signature conventions $(-,+,+,+)$ and $(+,-,-,-)$ is a different matter: it changes the sign of $\eta$ as a whole, leaves the Lorentz group unchanged, and selects neither.
 
 % ----------------------------------------------------------------------
 
-\section*{Each Component Carries a $3+1$ Decomposition}
+\section*{Each Scheme Carries a $3+1$ Decomposition}
 
 In the main letter's coordinates, whose axes are the frame's spatial legs, the four face normals of TetA, expressed as sign patterns on the three spatial axes, are:
 \begin{equation}
@@ -126,8 +126,7 @@ Input & half-space inequalities & tetrad eqn.\ $g = \eta\, e\, e$ \\
 Method & recession cone test & scheme of quad.\ eqn. \\
 Key fact & $\sum v_i = 0$ (normals & $(\det e)^2 = \kappa$ has \\
  & sum to zero) & two roots \\
-Output & 2 of 16 bounded & 2 components of \\
- & & the scheme \\
+Output & 2 of 16 bounded & 2 schemes \\
 \hline
 \end{tabular*}}
 \vspace{6pt}

@@ -24,7 +24,7 @@ Take determinants of both sides of the equation:
 
 $$(\det e)^2 = \frac{\det g}{\det \eta} = \kappa .$$
 
-This is literally an equation of the form $y^2 = \kappa$, with $\kappa$ a positive number fixed by the metric. Its two roots are $\det e = +\sqrt\kappa$ and $\det e = -\sqrt\kappa$. Every tetrad has one of these two determinants, and none has both. So the scheme falls into two pieces, one per root. The proof shows neither piece breaks up further, even if complex numbers are allowed. The tetrad equation has exactly two roots, in the strict sense of algebraic geometry.
+This is literally an equation of the form $y^2 = \kappa$, with $\kappa$ a positive number fixed by the metric. Its two roots are $\det e = +\sqrt\kappa$ and $\det e = -\sqrt\kappa$. Every tetrad has one of these two determinants, and none has both. So the scheme is two schemes, one per root. The proof shows neither breaks up further, even if complex numbers are allowed. The tetrad equation has exactly two roots, in the strict sense of algebraic geometry.
 
 ## Parity carries one root to the other
 
@@ -54,20 +54,20 @@ The original note is [`supplementary_scheme_proof.tex`](../../papers/letter-1-te
 - Proves the orbit claim. The original stated that the solution space is one Lorentz orbit; the revision adds the two lines that show every solution is invertible and every pair of solutions differs by a Lorentz transformation.
 - Defines the scheme explicitly, as the affine scheme of the sixteen unknowns, and notes that it is isomorphic to the orthogonal group scheme.
 
-**The scheme has two components** (titled "The Spatial Scheme Has Two Components" in the original)
-- Adds the determinant equation $(\det e)^2 = \kappa$, which makes the scheme do the work: its two roots are the two components, and neither splits further over the complex numbers.
+**The scheme is two schemes** (titled "The Spatial Scheme Has Two Components" in the original)
+- Adds the determinant equation $(\det e)^2 = \kappa$, which makes the scheme do the work: it is two schemes, one per root, and neither splits further over the complex numbers.
 - Replaces the step from four Lorentz components to two. The original reduced them by saying time reversal acts trivially on the spatial legs, which is true but does not by itself define a restriction of the Lorentz group to the spatial sector, since boosts mix time and space. The revision counts the components by the determinant, and recovers the original's two spatial components, $SO(3)$ and $P \cdot SO(3)$, exactly, as the frame changes of one observer with the time leg held fixed.
 - Adds why parity is the canonical member of its component, why no rotation can replace it, and why this needs an odd number of spatial dimensions.
 - Adds the exact link to Route 1: parity maps TetA onto the all-flipped region, the second bounded region of the letter.
 - Adds the two caveats above: same shape, and future-pointing frames.
 - Tightens "four points with constant pairwise inner product" to "four unit vectors with common pairwise inner product $-1/3$", the hypothesis the regular-tetrahedron result actually needs.
 
-**Both components are necessarily present**
-- Adds the reason the metric cannot choose, $(\det e)^2 = \kappa$, and the list of quantities that agree on both components.
+**Both schemes are necessarily present** ("Both Components" in the original)
+- Adds the reason the metric cannot choose, $(\det e)^2 = \kappa$, and the list of quantities that agree on both.
 - Changes "there is no consistent way to retain one component and discard the other" to the exact statement: retaining one is consistent, but no equation in the metric can make the selection. The stronger wording could be refuted by pointing at general relativity itself, which does retain one.
 - Corrects the convention. The original identified root selection with choosing the signature convention $(-,+,+,+)$ or $(+,-,-,-)$. That choice flips $\eta$ as a whole, leaves the Lorentz group unchanged and selects nothing. The convention that keeps one component is the restriction to the proper orthochronous group, and the revision says so, keeping the original's sentence that it is "a valid computational choice" and that "the scheme itself contains both".
 
-**Each component carries a 3 + 1 decomposition**
+**Each scheme carries a 3 + 1 decomposition** ("Each Component" in the original)
 - States that the sign patterns are read in the frame's own axes, and that the 3 + 1 split is relative to those legs.
 - Removes the claim that TetA and TetB recover the $(-,+,+,+)$ and $(+,-,-,-)$ conventions, for the reason above; keeps that parity exchanges the uniform-sign normals.
 
@@ -114,4 +114,4 @@ pdflatex -interaction=nonstopmode tetrad_scheme_two_bounded_regions.tex
 
 ---
 
-*Two roots of $(\det e)^2 = \kappa$, exactly two components of the scheme, parity between them, and a metric that sees only $\kappa$.*
+*Two roots of $(\det e)^2 = \kappa$, a scheme that is two schemes, parity between them, and a metric that sees only $\kappa$.*
