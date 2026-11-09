@@ -1,0 +1,242 @@
+\documentclass[twocolumn]{iopjournal}
+
+\usepackage{amsmath,amssymb,amsfonts}
+
+\fancyhfoffset[L]{0mm}
+\setlength{\marginparwidth}{0pt}
+\setlength{\marginparsep}{0pt}
+
+% ==========================================
+% ZENODO PREPRINT HEADERS (ACTIVE)
+% ==========================================
+\renewcommand{\articletype}[1]{%
+  {\vspace*{-8mm}\noindent \Large \sf Preprint}\par
+  \vspace*{6mm}\noindent{\scriptsize \sf{\bfseries \MakeUppercase{#1}}}}
+
+\fancyhead[L]{}
+\fancyhead[R]{}
+
+\begin{document}
+
+\articletype{Supplementary Material}
+
+\title{The Energy Functional of the\\
+Constitutive Law $\mu(x) = x/(x+1)$}
+
+\author{Stephen Nelson}
+
+\affil{Field Dynamics Research}
+
+\ead{stephen@fielddynamics.org}
+
+\begin{abstract}
+In the AQUAL field theory of Bekenstein and Milgrom the constitutive
+law $\mu$ enters through a kinetic function $F$, with
+$F'(y) = \mu(\sqrt y)$ and $y = |\nabla\Phi|^2/a_0^2$. For
+$\mu(x) = x/(x+1)$ we show that $F$ is uniquely
+$F(y) = y - 2\sqrt y + 2\ln(1 + \sqrt y)$ once its irrelevant
+additive constant is fixed, and give its convergent expansions at
+both ends: Newtonian, $F = y - 2\sqrt y + \ln y + O(y^{-1/2})$, and
+deep-MOND, $F = \tfrac23 y^{3/2} - \tfrac12 y^2 + O(y^{5/2})$,
+where the leading term arises from a cancellation among all three
+terms. As a function of the field gradient, the energy density is
+twice continuously differentiable and strictly convex, with Hessian
+eigenvalues $2\mu$ and $2(x\mu)'$. The field equation is therefore
+elliptic wherever $\nabla\Phi \neq 0$, with the two eigenvalues
+within a factor of two of each other, and on a bounded domain with
+prescribed boundary values it has at most one solution.
+\end{abstract}
+
+% ----------------------------------------------------------------------
+
+\section*{Setting}
+
+The AQUAL Lagrangian~\cite{BekensteinMilgrom1984} is
+\begin{equation}
+  \mathcal{L} = -\frac{a_0^2}{8\pi G}\,
+  F\!\left(\frac{|\nabla\Phi|^2}{a_0^2}\right) - \rho\,\Phi .
+  \label{eq:L}
+\end{equation}
+Its Euler--Lagrange equation is
+\begin{equation}
+\begin{aligned}
+  &\nabla\cdot\big[\mu(|\nabla\Phi|/a_0)\,\nabla\Phi\big]
+  = 4\pi G\rho, \\
+  &\mu(\sqrt y) = F'(y).
+\end{aligned}
+  \label{eq:field}
+\end{equation}
+An additive constant in $F$ leaves Eq.~\eqref{eq:field} unchanged,
+and we fix it by $F(0) = 0$. Throughout,
+\begin{equation}
+  \mu(x) = \frac{x}{x+1}.
+  \label{eq:mu}
+\end{equation}
+
+% ----------------------------------------------------------------------
+
+\section*{The Kinetic Function}
+
+\paragraph{Theorem 1.} \textit{The unique $F \in C^1[0,\infty)$
+with $F'(y) = \mu(\sqrt y)$ and $F(0) = 0$ is}
+\begin{equation}
+  \boxed{F(y) = y - 2\sqrt y + 2\ln\!\big(1 + \sqrt y\big).}
+  \label{eq:F}
+\end{equation}
+
+\paragraph{Proof.} Two such functions differ by a constant, which
+$F(0) = 0$ removes. With $u = \sqrt t$,
+\begin{equation}
+\begin{aligned}
+  F(y) &= \int_0^y \frac{\sqrt t}{1 + \sqrt t}\,dt \\
+  &= 2\int_0^{\sqrt y}\Big(u - 1 + \frac{1}{1+u}\Big)\,du,
+\end{aligned}
+\end{equation}
+since $u^2/(1+u) = u - 1 + 1/(1+u)$, and this integrates to
+Eq.~\eqref{eq:F}. Conversely, with $u = \sqrt y$,
+$dF/du = 2u - 2 + 2/(1+u) = 2u^2/(1+u)$, so
+$F'(y) = (dF/du)/(2u) = u/(1+u)$, which extends continuously to
+$y = 0$. \hfill $\square$
+
+\paragraph{Corollary 1 (the two limits).} \textit{For
+$0 \le y \le 1$,}
+\begin{equation}
+\begin{aligned}
+  F(y) &= 2\sum_{k=3}^{\infty} \frac{(-1)^{k+1}}{k}\, y^{k/2} \\
+       &= \tfrac23\, y^{3/2} - \tfrac12\, y^2 + \tfrac25\, y^{5/2}
+         - \cdots,
+\end{aligned}
+  \label{eq:small}
+\end{equation}
+\textit{and for $y > 1$,}
+\begin{equation}
+  F(y) = y - 2\sqrt y + \ln y
+       + 2\sum_{k=1}^{\infty} \frac{(-1)^{k+1}}{k}\, y^{-k/2}.
+  \label{eq:large}
+\end{equation}
+
+\paragraph{Proof.} Insert
+$\ln(1+u) = \sum_{k\ge1} (-1)^{k+1}u^k/k$ for $0 \le u \le 1$; the
+terms $k = 1, 2$ cancel $-2u$ and $u^2$. For $u > 1$ write
+$\ln(1+u) = \ln u + \ln(1 + 1/u)$ and expand the second logarithm.
+\hfill $\square$
+
+\medskip
+\noindent
+At high acceleration $F'(y) \to 1$ and Eq.~\eqref{eq:field} is
+Poisson's equation. At low acceleration the leading term
+$\tfrac23 y^{3/2}$ is the deep-MOND kinetic
+function~\cite{BekensteinMilgrom1984}, for which
+$\mu(x) \simeq x$ and the field equation becomes
+$\nabla\cdot(|\nabla\Phi|\nabla\Phi) = 4\pi G a_0 \rho$. No single
+term of Eq.~\eqref{eq:F} produces it: the orders $y^{1/2}$ and $y$
+cancel among all three.
+
+% ----------------------------------------------------------------------
+
+\section*{Convexity and Ellipticity}
+
+Write $q = \nabla\Phi/a_0 \in \mathbb{R}^3$ and
+$W(q) = F(|q|^2)$, so that the energy density is
+$(a_0^2/8\pi G)\,W(q) + \rho\Phi$ and Eq.~\eqref{eq:field} reads
+$\nabla\cdot A(\nabla\Phi) = 4\pi G\rho$ with
+$A(p) = \mu(|p|/a_0)\,p = \tfrac{a_0}{2}\nabla W(p/a_0)$.
+
+\paragraph{Theorem 2.} \textit{$W \in C^2(\mathbb{R}^3)$, smooth
+away from $q = 0$. Its Hessian at $q \neq 0$, with $x = |q|$ and
+$\hat q = q/x$, is}
+\begin{equation}
+  \nabla^2 W = 2\mu(x)\,\big(I - \hat q\hat q^{\,T}\big)
+             + 2\,(x\mu)'(x)\,\hat q\hat q^{\,T},
+  \label{eq:hess}
+\end{equation}
+\textit{with $2\mu(x) = 2x/(1+x)$ twice and
+$2(x\mu)'(x) = 2x(x+2)/(x+1)^2$ once, both positive, and
+$\nabla^2 W(0) = 0$. Hence $W$ is strictly convex, $A$ is strictly
+monotone, $(A(p) - A(p'))\cdot(p - p') > 0$ for $p \neq p'$, and
+the field equation is elliptic wherever $\nabla\Phi \neq 0$, with}
+\begin{equation}
+  1 < \frac{(x\mu)'}{\mu} = \frac{x+2}{x+1} \le 2 .
+  \label{eq:ratio}
+\end{equation}
+
+\paragraph{Proof.} $W(q) = g(|q|)$ with
+$g(r) = F(r^2) = r^2 - 2r + 2\ln(1+r)$, so
+$g'(r) = 2r^2/(1+r) = 2r\mu(r)$ and $g''(r) = 2(r\mu)'(r)
+= 2r(r+2)/(1+r)^2$. For a radial function,
+$\nabla W = g'(r)\,\hat q$ and
+$\nabla^2 W = (g'/r)(I - \hat q\hat q^{\,T}) + g''\,\hat q\hat q^{\,T}$,
+which is Eq.~\eqref{eq:hess}. As $r \to 0$, $g'/r = 2\mu(r) \to 0$
+and $g'' \to 0$, so $\nabla W$ and $\nabla^2 W$ extend continuously
+to $q = 0$ with value $0$, and $W \in C^2$; it is smooth for
+$q \neq 0$. For $p \neq p'$ let
+$\varphi(t) = W(p' + t(p - p'))$. Then
+$\varphi''(t) = (p - p')^T\,\nabla^2 W\,(p - p') > 0$ except where
+$p' + t(p - p') = 0$, which happens for at most one $t$, so $W$ is
+strictly convex and
+$\varphi'(1) - \varphi'(0) = \int_0^1 \varphi'' > 0$, which is the
+monotonicity of $\nabla W$ and hence of $A$. The eigenvalues of
+Eq.~\eqref{eq:hess} are those of the principal symbol of
+$\nabla\cdot A(\nabla\Phi)$, up to the factor $2$, and
+Eq.~\eqref{eq:ratio} follows from Eq.~\eqref{eq:mu}. \hfill
+$\square$
+
+\medskip
+\noindent
+At $\nabla\Phi = 0$ both eigenvalues vanish: the equation is
+degenerate there, as the deep-MOND form
+$\nabla\cdot(|\nabla\Phi|\nabla\Phi)$ already is.
+
+\paragraph{Corollary 2 (uniqueness).} \textit{Let
+$\Omega \subset \mathbb{R}^3$ be a bounded connected domain with
+piecewise smooth boundary. Two solutions
+$\Phi_1, \Phi_2 \in C^2(\Omega) \cap C^1(\bar\Omega)$ of
+Eq.~\eqref{eq:field} with $\Phi_1 = \Phi_2$ on $\partial\Omega$
+coincide.}
+
+\paragraph{Proof.} $A$ is $C^1$, including at $p = 0$, where
+$A(p) = |p|\,p/(a_0 + |p|)$ has derivative $0$. Let
+$w = \Phi_1 - \Phi_2$, which vanishes on $\partial\Omega$. By the
+divergence theorem and Eq.~\eqref{eq:field},
+\begin{equation}
+  \int_\Omega \big(A(\nabla\Phi_1) - A(\nabla\Phi_2)\big)
+  \cdot\nabla w \, d^3x = 0 .
+\end{equation}
+The integrand is continuous and, by Theorem 2, positive wherever
+$\nabla\Phi_1 \neq \nabla\Phi_2$. Hence $\nabla w = 0$ on $\Omega$,
+$w$ is constant, and $w = 0$. \hfill $\square$
+
+\medskip
+\noindent
+On all of space, Bekenstein and Milgrom showed that the condition
+$(x\mu)' > 0$ makes the field equation elliptic and its solution
+with $\nabla\Phi \to 0$ at infinity unique~\cite{BekensteinMilgrom1984};
+by Eq.~\eqref{eq:ratio} this $\mu$ satisfies it.
+
+% ----------------------------------------------------------------------
+
+\section*{Summary}
+
+The constitutive law $\mu(x) = x/(x+1)$ has the closed-form kinetic
+function $F(y) = y - 2\sqrt y + 2\ln(1 + \sqrt y)$, unique up to the
+constant that the field equation cannot see. It reduces to
+Poisson's equation at high acceleration and to the deep-MOND
+equation at low acceleration, through convergent expansions given in
+full. As a function of the field gradient the energy is $C^2$ and
+strictly convex, so the field equation is elliptic away from
+$\nabla\Phi = 0$ and its solutions are unique for given boundary
+values.
+
+% ----------------------------------------------------------------------
+
+\begin{thebibliography}{9}
+
+\bibitem{BekensteinMilgrom1984}
+J.~Bekenstein and M.~Milgrom,
+\textit{Does the missing mass problem signal the breakdown of
+Newtonian gravity?},
+Astrophys.\ J.\ \textbf{286} (1984) 7.
+
+\end{thebibliography}
+
+\end{document}
