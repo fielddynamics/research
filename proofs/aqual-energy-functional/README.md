@@ -50,7 +50,7 @@ A natural question about any modified gravity is whether its field equation beha
 
 **The field equation is elliptic.** The same two numbers govern the field equation itself. Because both are positive, the equation is *elliptic*, the class to which Poisson's equation belongs, and the two never differ by more than a factor of two. Both vanish only where the field itself vanishes, where the equation degenerates in the same way as the deep-MOND equation.
 
-**The field is unique.** Strict convexity makes the field equation's flux strictly monotone: stronger gradients always give more flux, in every direction. If two potentials solved the equation in a region with the same values on its boundary, subtracting the two equations and integrating would give the integral of a quantity that is positive wherever their gradients differ, and the integral would have to be zero. So their gradients are equal everywhere and the potentials coincide. On all of space, Bekenstein and Milgrom showed that the same condition, $(x\mu)' > 0$, gives a unique solution that falls off at infinity.
+**The field is unique.** Strict convexity makes the field equation's flux strictly monotone: any change in the gradient changes the flux by an amount with a positive component along that change. If two potentials solved the equation in a region with the same values on its boundary, subtracting the two equations and integrating would give the integral of a quantity that is positive wherever their gradients differ, and the integral would have to be zero. So their gradients are equal everywhere and the potentials coincide. The same argument works on all of space whenever the boundary term at infinity vanishes, but the proof does not treat that case.
 
 ## Why it matters
 
@@ -60,13 +60,13 @@ A natural question about any modified gravity is whether its field equation beha
 
 ## What it does not do
 
-The proof does not derive the constitutive law; the [exchange-symmetry proof](../constitutive-law-exchange-symmetry/) does that. It does not treat the covariant (relativistic) theory, only the field equation of the weak-field limit. It proves uniqueness on a bounded region with given boundary values, and cites Bekenstein and Milgrom for all of space. It does not prove that a solution exists.
+The proof does not derive the constitutive law; the [exchange-symmetry proof](../constitutive-law-exchange-symmetry/) does that. It does not treat the covariant (relativistic) theory, only the field equation of the weak-field limit. It proves uniqueness on a bounded region with given boundary values, not on all of space, and it does not prove that a solution exists.
 
 ## Earlier versions
 
 The closed form appears in the [RAR letter's supplement](../../papers/letter-radial-acceleration-relation-sparc/supplementary/supplementary_energy_functional_gravitational_constitutive_law.tex) and in the [closed-form energy functional paper](../../papers/closed-form-aqual-energy-functional/). Its integration is correct. This version changes four things:
 
-- **The sign of the source term.** Both earlier versions write the Lagrangian with $+\rho\Phi$. That gives $\nabla\cdot(\mu\nabla\Phi) = -4\pi G\rho$, the wrong sign. Bekenstein and Milgrom's action has $-\rho\Phi$, used here, and the script checks both.
+- **The sign of the source term.** Both earlier versions write the Lagrangian with $+\rho\Phi$. That gives $\nabla\cdot(\mu\nabla\Phi) = -4\pi G\rho$, the wrong sign. The sign that gives Bekenstein and Milgrom's field equation is $-\rho\Phi$, used here, and the script checks both.
 - **The low-acceleration limit.** The earlier abstract says the logarithm "dominates at low acceleration". It does not: the deep-MOND term arises from a cancellation among all three terms. The earlier body text describes this correctly; the abstract did not.
 - **No novelty claim.** The earlier versions state that no closed form appears in the published literature. That is a claim about the literature for an elementary integral, easy to dispute and unnecessary, so it is dropped.
 - **New results.** The full convergent expansions, convexity, ellipticity with the factor-of-two bound, and uniqueness are added.
