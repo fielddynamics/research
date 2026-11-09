@@ -1,8 +1,9 @@
-"""Machine checks for every step of 'The Two Roots of the Tetrad Equation'.
+"""Machine checks for every claim of 'The Tetrad Scheme and the Two Bounded Regions'
+(revised), labelled by the section of the note each one supports.
 Exact (sympy) wherever the statement is algebraic; random sampling over all
 four components of the Lorentz group where it is a statement about every frame.
 One step is cited rather than computed: that SO(1+D, C) is connected (Borel).
-Run: python verify_tetrad_equation_two_roots.py"""
+Run: python verify_tetrad_scheme_two_bounded_regions.py"""
 import itertools
 import numpy as np
 import sympy as sp
@@ -45,16 +46,16 @@ t_ref = np.array([1.0, 0, 0, 0])                     # future-directed timelike 
 tau = lambda e: int(np.sign((e @ t_ref)[0]))
 
 # ---- Setting
-check("Setting: P, T, R and -I are Lorentz transformations, and PT = -I",
+check("Quadratic: P, T, R and -I are Lorentz transformations, and PT = -I",
       all(X.T * eta * X == eta for X in (P, T, R, -I4)) and P * T == -I4)
 E = sp.Matrix(4, 4, lambda i, j: sp.Symbol(f'e{i}{j}', real=True))
 g_s = sp.Matrix(4, 4, lambda i, j: sp.Symbol(f'g{min(i, j)}{max(i, j)}', real=True))
-check("Setting: same signature, so c = det g / det eta > 0 (200 random Lorentzian metrics)",
+check("Two components: same signature, so c = det g / det eta > 0 (200 random Lorentzian metrics)",
       all((np.linalg.det((e0 := rng.normal(size=(4, 4))).T @ etan @ e0) / np.linalg.det(etan)) > 0 for _ in range(200)))
 
 # ---- Lemma 1
 samples = [lorentz() for _ in range(400)]
-check("Lemma 1: samples from all four components are Lorentz, with |r|^2 = (L^0_0)^2 - 1",
+check("Two components (time leg): samples from all four components are Lorentz, with |r|^2 = (L^0_0)^2 - 1",
       all(is_lorentz(L) and np.isclose(np.sum(L[0, 1:] ** 2), L[0, 0] ** 2 - 1) for L in samples)
       and {(root(L), int(np.sign(L[0, 0]))) for L in samples} == {(1, 1), (1, -1), (-1, 1), (-1, -1)})
 good = True
@@ -62,8 +63,8 @@ for L in samples:
     u = np.concatenate([[rng.choice([-1, 1]) * (1 + rng.random())], rng.normal(size=3)])
     u[1:] *= abs(u[0]) * rng.random() / np.linalg.norm(u[1:])
     good &= np.sign((L @ u)[0]) == np.sign(L[0, 0]) * np.sign(u[0])
-check("Lemma 1: sgn (Lu)^0 = sgn L^0_0 * sgn u^0 for timelike u", good)
-check("Lemma 1: sgn L^0_0 is a homomorphism",
+check("Two components (time leg): sgn (Lu)^0 = sgn L^0_0 * sgn u^0 for timelike u", good)
+check("Two components (time leg): sgn L^0_0 is a homomorphism",
       all(np.sign((A @ B)[0, 0]) == np.sign(A[0, 0]) * np.sign(B[0, 0]) for A, B in ((lorentz(), lorentz()) for _ in range(400))))
 
 # ---- Lemma 2 (exact)
@@ -86,33 +87,33 @@ def centre_solutions(D, lorentzian):
     met = eta_(D) if lorentzian else sp.eye(D)
     lams = sp.solve([x for x in (Zs.T * met * Zs - met) if x != 0], lam, dict=True)
     return Zs, lam, sorted(d[lam] for d in lams)
-check("Lemma 2: the centre of O(1,D) is +-I (D = 1..4, exact)",
+check("Two components (canonical P): the centre of O(1,D) is +-I (D = 1..4, exact)",
       all((r := centre_solutions(D, True)) is not None and r[0] == r[1] * sp.eye(D + 1) and r[2] == [-1, 1] for D in (1, 2, 3, 4)))
-check("Lemma 2: the centre of O(D) is +-I_D (D = 1..4, exact)",
+check("Two components (canonical P): the centre of O(D) is +-I_D (D = 1..4, exact)",
       all((r := centre_solutions(D, False)) is not None and r[0] == r[1] * sp.eye(D) and r[2] == [-1, 1] for D in (1, 2, 3, 4)))
 
 # ---- Theorem 1 (the scheme)
-check("Theorem 1(a): (det e)^2 det eta = det(e^T eta e) identically, so e is invertible on X_g (exact, symbolic e)",
+check("Quadratic: (det e)^2 det eta = det(e^T eta e) identically, so e is invertible on X_g (exact, symbolic e)",
       sp.expand(E.det() ** 2 * eta.det() - (E.T * eta * E).det()) == 0)
 good = True
 for _ in range(200):
     e0 = rng.normal(size=(4, 4)); g = e0.T @ etan @ e0
     L = lorentz(); e1 = L @ e0
     good &= np.allclose(e1.T @ etan @ e1, g) and is_lorentz(e1 @ np.linalg.inv(e0)) and np.allclose(e1 @ np.linalg.inv(e0), L)
-check("Theorem 1(a): L -> L e0 and e -> e e0^{-1} are inverse maps between O(1,3) and the real tetrads (200 metrics)", good)
+check("Quadratic: L -> L e0 and e -> e e0^{-1} are inverse maps between O(1,3) and the real tetrads (200 metrics)", good)
 good = True; roots_seen = set()
 for _ in range(200):
     e0 = rng.normal(size=(4, 4)); g = e0.T @ etan @ e0; c = np.linalg.det(g) / np.linalg.det(etan)
     for _ in range(4):
         e1 = lorentz() @ e0; good &= np.isclose(np.linalg.det(e1) ** 2, c); roots_seen.add(int(np.sign(np.linalg.det(e1)) * np.sign(np.linalg.det(e0))))
-check("Theorem 1(b): every tetrad has (det e)^2 = c, and both roots det e = +-sqrt(c) occur", good and roots_seen == {1, -1})
-check("Theorem 1(b): under the isomorphism, the root of L e0 is det L * root(e0), so the fibres are SO and R*SO",
+check("Two components: every tetrad has (det e)^2 = c, and both roots det e = +-sqrt(c) occur", good and roots_seen == {1, -1})
+check("Two components: under the isomorphism, the root of L e0 is det L * root(e0), so the fibres are SO and R*SO",
       all(root(L @ (e0 := rng.normal(size=(4, 4)))) == root(L) * root(e0) for L in samples))
 print("     (cited: SO(1+D, C) is connected [Borel], so each fibre is geometrically connected)")
 good = all(T_(D).det() == -1 and R_(D).det() == -1 and P_(D).det() == (-1) ** D and (-sp.eye(D + 1)).det() == (-1) ** (D + 1)
            for D in range(1, 9))
-check("Theorem 1(c): det T = det R = -1, det P = (-1)^D, det(-I) = (-1)^(D+1), for D = 1..8", good)
-check("Theorem 1(c): for D = 3, P and T exchange the roots and -I does not (exact, symbolic e)",
+check("Two components: det T = det R = -1, det P = (-1)^D, det(-I) = (-1)^(D+1), for D = 1..8", good)
+check("Two components: for D = 3, P and T exchange the roots and -I does not (exact, symbolic e)",
       sp.simplify((P * E).det() + E.det()) == 0 and sp.simplify((T * E).det() + E.det()) == 0 and sp.simplify((-E).det() - E.det()) == 0)
 
 # ---- Theorem 2 (real points)
@@ -121,13 +122,13 @@ for k in range(4):
     for _ in range(100):
         e0 = so_plus(); L = lorentz(k); e1 = L @ e0
         good &= tau(e1) == int(np.sign(L[0, 0])) * tau(e0); pieces.add((root(e1), tau(e1)))
-check("Theorem 2(a): tau(Le) = sgn L^0_0 * tau(e), and the real tetrads fall into four pieces (root, tau)",
+check("Two components: tau(Le) = sgn L^0_0 * tau(e), and the real tetrads fall into four pieces (root, tau)",
       good and pieces == {(1, 1), (1, -1), (-1, 1), (-1, -1)})
 good = True
 for _ in range(200):
     e0 = so_plus(); Q = rot3(proper=bool(rng.integers(0, 2))); e1 = spatial(Q) @ e0
     good &= tau(e1) == tau(e0) == 1 and (root(e1) != root(e0)) == (np.linalg.det(Q) < 0)
-check("Theorem 2(b): a frame change diag(1,Q) keeps the observer and tau, and exchanges the roots iff det Q = -1", good)
+check("Two components (one observer): a frame change diag(1,Q) keeps the observer and tau, and exchanges the roots iff det Q = -1", good)
 good = True
 for _ in range(200):
     e0 = so_plus(); L = lorentz(int(rng.choice([0, 2]))); e1 = L @ e0          # future-pointing frames only
@@ -136,19 +137,19 @@ for _ in range(200):
     spatial_coords = np.linalg.solve(adapted, Ev)                              # components of E_i in that basis
     hand = np.sign(np.linalg.det(spatial_coords[1:, :]))                       # handedness of the spatial legs
     good &= tau(e1) == 1 and hand == root(e1) * root(e0)
-check("Theorem 2(b): for future-pointing frames, the root is the handedness of the spatial legs", good)
+check("Two components (one observer): for future-pointing frames, the root is the handedness of the spatial legs", good)
 Y = centre_solutions(3, False)
-check("Theorem 2(b): in O(3) the only elements commuting with every rotation and reflection are +-I_3, and only -I_3 is improper",
+check("Two components (canonical P): in O(3) the only elements commuting with every rotation and reflection are +-I_3, and only -I_3 is improper",
       Y[2] == [-1, 1] and (-sp.eye(3)).det() == -1 and sp.eye(3).det() == 1)
-check("Theorem 2(c): for D = 3, -e keeps the root and reverses tau, and -e = T(Pe)",
+check("Two components (cautions): for D = 3, -e keeps the root and reverses tau, and -e = T(Pe)",
       all(root(-e0) == root(e0) and tau(-e0) == -tau(e0) for e0 in (so_plus() @ rng.normal(size=(4, 4)) for _ in range(100)))
       and T * P == -I4)
 Bx = sp.eye(4); Bx[0, 0] = Bx[1, 1] = sp.Rational(5, 3); Bx[0, 1] = Bx[1, 0] = sp.Rational(4, 3)
-check("Theorem 2(c): P is not central: P B P = B^{-1} != B for a boost",
+check("Two components (canonical P): P is not central in O(1,3): P B P = B^{-1} != B for a boost",
       P * Bx * P == Bx.inv() and P * Bx * P != Bx)
 
 # ---- Theorem 3 (root-blindness)
-check("Theorem 3: det(Pe)^2 = det(e)^2: the metric sees (det e)^2 only (exact)",
+check("Both present: det(Pe)^2 = det(e)^2: the metric sees (det e)^2 only (exact)",
       sp.expand((P * E).det() ** 2 - E.det() ** 2) == 0)
 x = sp.symbols('x0:4', real=True)
 A, Bf, Cf = sp.Function('A')(x[0], x[1]), sp.Function('B')(x[0], x[1]), sp.Function('C')(x[0], x[1])
@@ -158,16 +159,16 @@ def christoffel(g):
     return [[[sp.simplify(sum(gi[l, m] * (sp.diff(g[m, i], x[j]) + sp.diff(g[m, j], x[i]) - sp.diff(g[i, j], x[m])) for m in range(4)) / 2)
               for j in range(4)] for i in range(4)] for l in range(4)]
 g1 = sp.simplify(ef.T * eta * ef)
-check("Theorem 3: a tetrad field e(x), Pe(x), Te(x), -e(x) and (PB)e(x) give the identical metric field (exact)",
+check("Both present: a tetrad field e(x), Pe(x), Te(x), -e(x) and (PB)e(x) give the identical metric field (exact)",
       all(sp.simplify((o.T * eta * o) - g1) == sp.zeros(4, 4) for o in (P * ef, T * ef, -ef, P * Bx * ef)))
-check("Theorem 3: and identical Christoffel symbols for e(x) and Pe(x) (computed, not assumed)",
+check("Both present: and identical Christoffel symbols for e(x) and Pe(x) (computed, not assumed)",
       christoffel(g1) == christoffel(sp.simplify((P * ef).T * eta * (P * ef))))
-check("Theorem 3: SO+(1,3) lies in one root: every sampled proper orthochronous L has det L = 1",
+check("Both present: SO+(1,3) lies in one root: every sampled proper orthochronous L has det L = 1",
       all(np.isclose(np.linalg.det(so_plus()), 1) for _ in range(200)))
 
 # ---- Theorem 4 (the two tetrahedra)
 M = sp.Matrix([[1, 1, -1, -1], [1, -1, 1, -1], [1, -1, -1, 1]]); Mn = np.array(M, dtype=float)
-check("Theorem 4: M^T M = 4I - J, the forced regular tetrahedron",
+check("Two components: M^T M = 4I - J, the forced regular tetrahedron",
       M.T * M == 4 * sp.eye(4) - sp.ones(4, 4))
 def n_coords(e, e_ref):
     Ev, Er = np.linalg.inv(e), np.linalg.inv(e_ref)
@@ -179,7 +180,7 @@ for _ in range(100):
     e0 = so_plus() @ rng.normal(size=(4, 4))
     for Z, target in ((np.array(P, dtype=float), -Mn), (-np.eye(4), -Mn), (np.array(T, dtype=float), Mn)):
         c, inW = n_coords(Z @ e0, e0); good &= inW and np.allclose(c, target)
-check("Theorem 4(a): n(Pe) = n(-e) = -M and n(Te) = M (100 random frames)", good)
+check("Two components: n(Pe) = n(-e) = -M and n(Te) = M (100 random frames)", good)
 good = True
 for _ in range(200):
     e0 = so_plus(); proper = bool(rng.integers(0, 2)); Q = rot3(proper); e1 = spatial(Q) @ e0
@@ -187,9 +188,9 @@ for _ in range(200):
     same_root = root(e1) == root(e0)
     Rc = c @ np.linalg.pinv(Mn) if same_root else c @ np.linalg.pinv(-Mn)      # c = Rc M or Rc (-M)
     good &= inW and np.allclose(c, Q.T @ Mn) and same_root == proper and np.allclose(Rc.T @ Rc, np.eye(3)) and np.isclose(np.linalg.det(Rc), 1)
-check("Theorem 4(a): diag(1,Q)e gives Q^T M: a rotation of M in the root of e, a rotation of -M in the other", good)
+check("Two components (one observer): diag(1,Q)e gives Q^T M: a rotation of M in the root of e, a rotation of -M in the other", good)
 Qsol = (-M) * M.T * (M * M.T).inv()
-check("Theorem 4(b): rank M = 3 and QM = -M forces Q = -I, of determinant -1 (exact)",
+check("Two components (not a rotation): rank M = 3 and QM = -M forces Q = -I, of determinant -1 (exact)",
       M.rank() == 3 and Qsol == -sp.eye(3) and Qsol.det() == -1)
 def simplex(D):
     X = sp.eye(D + 1) - sp.ones(D + 1, D + 1) / (D + 1)
@@ -201,7 +202,7 @@ for D in range(1, 6):
     regular = len({sp.nsimplify(G[i, i]) for i in range(D + 1)}) == 1 and len({sp.nsimplify(G[i, j]) for i in range(D + 1) for j in range(D + 1) if i != j}) == 1
     Q = sp.simplify((-S) * S.T * (S * S.T).inv())
     good &= regular and S.rank() == D and Q == -sp.eye(D) and Q.det() == (-1) ** D
-check("Theorem 4(b): for the regular simplex in R^D (D = 1..5), QM = -M forces Q = -I_D, of det (-1)^D", good)
+check("Two components (D odd): for the regular simplex in R^D (D = 1..5), QM = -M forces Q = -I_D, of det (-1)^D", good)
 def vertices(N):
     out = set()
     for tri in itertools.combinations(range(4), 3):
@@ -211,26 +212,46 @@ def vertices(N):
         if all((N[:, a].T * v)[0] <= 1 for a in range(4)): out.add(tuple(v))
     return out
 VA, VB = vertices(M), vertices(-M)
-check("Theorem 4(c): the regions {max n.x <= 1} and {max(-n.x) <= 1} have vertex sets V and -V",
+check("Two components (Route 1): the regions {max n.x <= 1} and {max(-n.x) <= 1} have vertex sets V and -V",
       len(VA) == 4 and VB == {tuple(-sp.Matrix(v)) for v in VA})
 good = all((np.max(Mn.T @ (-p)) <= 1) == (np.max(-Mn.T @ p) <= 1) for p in rng.uniform(-3, 3, size=(2000, 3)))
-check("Theorem 4(c): x is in TetB iff -x is in TetA (2000 random points)", good)
-check("Theorem 4(c): the eight vertices are the cube {-1,+1}^3, the stellated octahedron",
+check("Two components (Route 1): x is in TetB iff -x is in TetA (2000 random points)", good)
+check("Summary: the eight vertices are the cube {-1,+1}^3, the stellated octahedron",
       VA | VB == set(itertools.product([-1, 1], repeat=3)) and not (VA & VB))
 
 # ---- Remark
 Rz = sp.Matrix([[0, -1, 0], [1, 0, 0], [0, 0, 1]])
-check("Remark: the 90-degree rotation about the third axis maps the vertex set of TetA onto that of TetB, but Rz M != -M",
+check("Two components (cautions): the 90-degree rotation about the third axis maps the vertex set of TetA onto that of TetB, but Rz M != -M",
       Rz.det() == 1 and {tuple(Rz * sp.Matrix(v)) for v in VA} == VB and Rz * M != -M)
-check("Remark: -e carries TetB (n = -M) in the root of e (det(-e) = det e), because it reverses tau",
+check("Two components (cautions): -e carries TetB (n = -M) in the root of e (det(-e) = det e), because it reverses tau",
       all(np.allclose(n_coords(-e0, e0)[0], -Mn) and root(-e0) == root(e0) and tau(-e0) == -tau(e0)
           for e0 in (so_plus() for _ in range(50))))
 
 # ---- Scope
 e_a = sp.Matrix([[1, 0], [1, 0]]); eta2 = eta_(1); y = sp.Symbol('y')
-check("Scope: det g = 0 gives c = 0 and y^2 = 0 a double root; for g = 0, D = 1, both 0 and [[1,0],[1,0]] solve",
+check("Quadratic: det g = 0 gives c = 0 and y^2 = 0 a double root; for g = 0, D = 1, both 0 and [[1,0],[1,0]] solve",
       sp.roots(y ** 2 - 0, y) == {0: 2} and e_a.T * eta2 * e_a == sp.zeros(2, 2) and e_a.rank() == 1)
-check("Scope: for D = 2, det P = +1, so parity keeps the root, and -M_2 is M_2 turned by pi",
+check("Two components (D odd): for D = 2, det P = +1, so parity keeps the root, and -M_2 is M_2 turned by pi",
       P_(2).det() == 1 and sp.Matrix([[-1, 0], [0, -1]]) * simplex(2) == -simplex(2) and sp.Matrix([[-1, 0], [0, -1]]).det() == 1)
+
+# ---- Both present: the signature convention selects nothing
+etam = -eta
+check("Both present: flipping the signature convention (eta -> -eta) leaves the Lorentz group unchanged",
+      all(np.allclose(L.T @ np.array(etam, dtype=float) @ L, np.array(etam, dtype=float)) for L in samples))
+
+# ---- 3+1 decomposition
+patterns_A = [tuple(int(v) for v in M[:, a]) for a in range(4)]
+patterns_B = [tuple(-v for v in p) for p in patterns_A]
+uni = lambda ps: [p for p in ps if len(set(p)) == 1]
+check("3+1: TetA's normals have one uniform-sign pattern (+,+,+) and three mixed; TetB's have (-,-,-) and three mixed",
+      uni(patterns_A) == [(1, 1, 1)] and uni(patterns_B) == [(-1, -1, -1)] and sum(len(set(p)) > 1 for p in patterns_A + patterns_B) == 6)
+check("3+1: parity exchanges the uniform-sign normals (+,+,+) and (-,-,-)",
+      tuple(-v for v in uni(patterns_A)[0]) == uni(patterns_B)[0])
+cols = [sp.Matrix(p) for p in patterns_A]
+transitive = all(any(sp.Matrix(Q) * cols[0] == cols[k] and {tuple(sp.Matrix(Q) * c) for c in cols} == set(patterns_A)
+                     for Q in (sp.diag(1, -1, -1), sp.diag(-1, 1, -1), sp.diag(-1, -1, 1)))
+                 for k in (1, 2, 3))
+check("3+1: the tetrahedron's own rotations (by pi about each axis) carry the uniform normal to each mixed one, so the split is fixed by the frame's legs",
+      transitive)
 
 print(f"\n{sum(ok)}/{len(ok)} checks passed")
