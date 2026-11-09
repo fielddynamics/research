@@ -10,7 +10,7 @@ This folder holds a two-page proof and a script that checks every step. The proo
 
 ## Torsion in one paragraph
 
-To compare directions at neighbouring points of spacetime, geometry uses a *connection*, written $\Gamma^a{}_{bc}$. With four legs, each of the three indices takes four values, so the connection has $4^3 = 64$ components. Swapping the two lower indices splits them into a symmetric part, 40 components, called the Christoffel part, and an antisymmetric part, 24 components, called the *torsion*. Einstein's general relativity sets the torsion to zero. Cartan showed in 1922 that geometry allows torsion, and the Einstein–Cartan theory keeps it. GFD reads the torsion as the place where the two tetrahedra of the stellated octahedron, TetA and TetB, are told apart. So it matters what the torsion actually contains.
+To compare directions at neighbouring points of spacetime, geometry uses a *connection*, written $\Gamma^a{}_{bc}$. With four legs, each of the three indices takes four values, so the connection has $4^3 = 64$ components. In a coordinate basis, swapping the two lower indices splits them into a symmetric part, 40 components, called the Christoffel part, and an antisymmetric part, 24 components, called the *torsion*. Einstein's general relativity sets the torsion to zero. Cartan showed in 1922 that geometry allows torsion, and the Einstein–Cartan theory keeps it. GFD reads the torsion as the place where the two tetrahedra of the stellated octahedron, TetA and TetB, are told apart. So it matters what the torsion actually contains.
 
 ## The symmetry
 
