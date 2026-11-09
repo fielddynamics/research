@@ -33,8 +33,8 @@ The spin read out is s_i = sign(cos phi_i). Phases are taken in the frame
 rotating with the common natural frequency, so the field term has a fixed
 reference.
 
-Relation to the original GFD oscillator (../gfd_oscillator.py)
---------------------------------------------------------------
+Relation to the original GFD oscillator (../graph solver/gfd_oscillator.py)
+--------------------------------------------------------------------------
 The coupling term is the same Kuramoto coupling. This sampler adds the three
 things an Ising machine needs: a field input h_i, second-harmonic locking so
 each oscillator settles to a spin, and an annealing schedule. It reads spins

@@ -16,7 +16,7 @@ This folder turns the GFD oscillator into a solver for exactly these problems. I
 
 ## What changed from the original oscillator
 
-The [original solver](../) couples oscillators with the Kuramoto law and reads answers from an SVD of the settled phases. Three things stop it from being a general Ising solver:
+The [original solver](<../graph solver/>) couples oscillators with the Kuramoto law and reads answers from an SVD of the settled phases. Three things stop it from being a general Ising solver:
 
 | Gap | Consequence |
 |---|---|

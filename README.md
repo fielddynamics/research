@@ -273,7 +273,7 @@ Most research folders follow the same pattern: a **`*_synthesis.md`** that expla
 
 | Folder | Contents |
 |---|---|
-| [`quantum compute/`](<research/quantum compute/>) | The GFD oscillator (Kuramoto-type phase + amplitude dynamics) applied to Max-Cut, colouring, TSP, community detection and mazes; t-bit algebra; Walsh-bridge gate recognition; oscillator-based unsupervised learning. Subfolders `GFD oscillator v2/` and `Oscillator learning/` have their own READMEs |
+| [`quantum compute/`](<research/quantum compute/>) | The oscillator Ising machine: the GFD oscillator as a D-Wave-compatible solver for Ising and QUBO problems, benchmarked against D-Wave's classical solvers. Also the original graph solver (Max-Cut, colouring, TSP, community detection), the t-bit algebra and earlier oscillator versions. Start with its README |
 | [`spectral/`](research/spectral/) | Walsh–Hadamard spectral kernel (PyTorch) |
 | [`3 sweep understanding/`](<research/3 sweep understanding/>) | Closure-algebra pipeline and Walsh-spectral compute primitive syntheses |
 | [`antenna theory/`](<research/antenna theory/>) | Resonant coupling through the Field Origin |
@@ -331,7 +331,7 @@ python research/gfd_algebra.py                      # algebra self-checks (silen
 python papers/letter-1-tetrad-frame-geometry/Supplementary/run_all_validations.py
 python papers/letter-3-field-closure-of-tetrad-frame/Supplementary/run_all_validations.py
 python papers/gram-matrix-of-tetrad-equation/verify_gram_theorems.py
-python "research/quantum compute/GFD oscillator v2/run_all.py"
+python "research/quantum compute/graph solver/run_all.py"
 ```
 
 ### Companion repository: the Gravity Field Model

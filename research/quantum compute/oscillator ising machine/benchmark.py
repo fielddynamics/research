@@ -9,7 +9,7 @@ Instance sets
      best energy found by any solver or by a long simulated-annealing run (1000 reads x 5000 sweeps).
 
 Solvers (20 reads each)
-  GFD oscillator (original)   ../gfd_oscillator.py, K = -J, best sign readout of the SVD modes per run.
+  GFD oscillator (original)   ../graph solver/gfd_oscillator.py, K = -J, best sign readout of the SVD modes per run.
                               It has no field input, so fields are dropped; energy is scored on the true model.
   Oscillator Ising sampler    oscillator_ising.py, default schedule (8000 steps).
   D-Wave SA                   dwave.samplers.SimulatedAnnealingSampler, default schedule (1000 sweeps).
@@ -40,7 +40,7 @@ import dwave_networkx as dnx
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
-sys.path.insert(0, os.path.dirname(HERE))
+sys.path.insert(0, os.path.join(os.path.dirname(HERE), "graph solver"))
 from oscillator_ising import OscillatorIsingSampler
 from gfd_oscillator import GFDOscillator
 
