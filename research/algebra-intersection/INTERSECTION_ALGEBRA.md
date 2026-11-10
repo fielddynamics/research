@@ -817,6 +817,50 @@ $$\alpha_G \;=\; \underbrace{\alpha^{21}}_{\substack{\text{one-way read through 
 
 ---
 
+# Part XIV. What follows from "gravity starts at 13"
+
+*Checked by [`verify_closure_ladder.py`](verify_closure_ladder.py) (8/8); pre-registered test and DR4 prediction in [`BREATH_RESULT_AND_DR4_PREDICTION.md`](BREATH_RESULT_AND_DR4_PREDICTION.md).*
+
+## 46. The closure ladder: why only electromagnetism and gravity
+
+Apply Part XIII's reading to a closure of any depth $n$, with levels $1, K, \dots, K^{n-1}$ and odd levels flipped by parity:
+- junctions: $J_n = (K^n - 1)/(K - 1)$;
+- field-free floor: $F_n = (1 - (-K)^n)/(1 + K)$;
+- symmetric mean: $E_n$, the sum of the even-level sizes;
+- coupling: $\alpha_n = (E_n/F_n)\,\alpha^{J_n}$.
+
+**Theorem.** The floor is positive **exactly when $n$ is odd**. If a closure needs a substrate beneath it (a positive floor, Part XIII), the allowed closures are:
+
+| Depth | Coupling | |
+|---|---|---|
+| 1 | $1 \cdot \alpha^{1}$ | **electromagnetism**: prefactor exactly 1, as calibration requires |
+| 2 | — | forbidden (floor −3) |
+| 3 | $\tfrac{17}{13}\,\alpha^{21}$ | **gravity** |
+| 4 | — | forbidden (floor −51) |
+| 5 | $\tfrac{273}{205}\,\alpha^{341}$ | $\sim 10^{-729}$, physically empty |
+
+So one rule gives both of the long-range couplings, electromagnetism and gravity, and **nothing in between**. For odd $n$ the prefactor is $(K^{n+1}-1)/\big((K-1)(K^n+1)\big)$, which gives 1 at $n = 1$ and 17/13 at $n = 3$, and tends to $4/3$.
+
+Gravity's depth is $D = 3$ (face, channel, subchannel), and the theorem requires it to be odd. This is the same oddness that lets spatial parity change the tetrad's root (the scheme proof's "because three is odd").
+
+**Conflicts, stated.** The archive's $\eta_B = 29.4\,\alpha^5$ uses the depth-2 exponent, and depth 2 is forbidden by this rule. Its $\Lambda \propto \alpha^{57}$ is not a ladder exponent either. Either those formulas need a different origin, such as a product of closures, or the floor rule is incomplete.
+
+## 47. A second reading, tested: does the breath depend on the field?
+
+The prefactor's 17 is the mean of a full breath, 13 → 21. Only a Newtonian field reaches 21. If, in a field $x$, the breath runs only up to $f(x)$, then $G_{\text{eff}}/G = (x + 13/17)/(x + 1)$. This is exactly equivalent to $a_0 \to \tfrac{13}{17}a_0$.
+
+- **SPARC (pre-registered, 347f611): undecided.** σ is unchanged at 0.1814 dex. A rescaled $a_0$ is absorbed along the mass-to-light direction.
+- **Gaia DR4 (registered here, before its 2 December 2026 release).** Using the archive's own solver: H_breath gives $R = 1.126$ (1.118–1.131), the registered GFD gives $R = 1.163$ (1.138–1.184), and Newton gives 1.000. The ranges do not overlap, so DR4 decides whether G's prefactor is a universal constant or runs with the local field.
+
+## 48. What "gravity starts at 13" has produced
+
+1. **A selection rule:** only odd-depth closures exist. Depth 1 is electromagnetism with prefactor exactly 1, depth 3 is gravity with 17/13, and there is no rung between them.
+2. **Agreement with the constitutive law:** the field-free floor is $f(0) = 13$, and gravity is the excess $f - 13 = 8\mu$.
+3. **Two internal conflicts flagged:** the archive's α⁵ for baryogenesis and α⁵⁷ for Λ do not fit the ladder.
+4. **A falsifiable fork for Gaia DR4:** a universal breath ($R = 1.163$) against a field-set breath ($R = 1.126$).
+
+---
+
 ```bash
 python research/algebra-intersection/verify_intersection.py            # Part I:  63/63 PASS
 python research/algebra-intersection/verify_octahedral_connection.py   # Part II: 48/48 PASS
@@ -831,5 +875,8 @@ python research/algebra-intersection/verify_level_factor.py           # Part X: 
 python research/algebra-intersection/verify_topological_alpha_in_G.py # Part XI: 11/11 PASS
 python research/algebra-intersection/verify_exponent_theorem.py       # Part XII:  7/7 PASS
 python research/algebra-intersection/verify_gravity_starts_at_13.py  # Part XIII: 7/7 PASS
+python research/algebra-intersection/verify_closure_ladder.py         # Part XIV:  8/8 PASS
+python research/algebra-intersection/breath_sparc.py                  # pre-registration 3 (undecided)
+python research/algebra-intersection/breath_wide_binaries.py          # H_breath DR4 prediction (needs scipy; ~2 min)
 python research/algebra-intersection/network_model.py                 # registered network model (fails; see NETWORK_MODEL_RESULT.md)
 ```
