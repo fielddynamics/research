@@ -517,6 +517,49 @@ They agree at first order and differ at second. $g_e/2 - (1 + \alpha/2\pi) = -1.
 
 ---
 
+# Part VIII. The loop factor from the snapshot principle
+
+*After two failed pre-registered network models ([`NETWORK_MODEL_RESULT.md`](NETWORK_MODEL_RESULT.md)). Checked by [`verify_seam_average.py`](verify_seam_average.py) (7/7).*
+
+**Why this is not a pre-registration.** A "loop model" could be built to give either $(N+1)/N$ (one extra read) or $N/(N-1)$ (a resummed loop). Nothing in the framework fixes which, so a registration would only encode the modeller's choice. What follows instead is a derivation from stated premises. The mathematics in it is a known theorem, so its result was known before it was computed. The blind test is experimental and is stated in §30.
+
+## 29. Derivation
+
+**Premises.**
+- **P1.** One rotation of the read is one Compton wavelength (`read_sweep_synthesis.md`), and a closure tile has size $r_e$ (Papers III, VII). In tile units the rotation has length $N = \lambda_C / r_e = 2\pi/\alpha \approx 861.02$, which is **not an integer**.
+- **P2.** Closure is atomic: it reads every tile the rotation **touches**. The tile cut by the seam is a shared boundary and must be in the snapshot. This is the author's requirement in the README and Paper I.
+- **P3.** The rotation has no preferred phase relative to the tile lattice. Its offset is uniform over one tile (homogeneity of the lattice).
+- **P4.** Tree-level G counts the ideal $N$ closures per rotation. The physical read counts the tiles actually touched, and the loop factor is the ratio of the two.
+
+**Theorem** (geometric probability). A segment of length $N$ placed at a uniformly random offset on a lattice of unit tiles touches, on average, exactly $N + 1$ tiles, for every real $N$. With $N = n + f$, it touches $n + 1$ tiles with probability $1 - f$ and $n + 2$ with probability $f$, so the mean is $n + f + 1$. Monte Carlo at $N = 2\pi/\alpha$ over 2 million phases gives 862.0224 against 862.0226.
+
+**Result.**
+
+$$\frac{\mathbb E[\text{tiles read}]}{N} = \frac{N+1}{N} = 1 + \frac{\alpha}{2\pi} \qquad \text{exactly, at all orders.}$$
+
+This gives the archive's one-loop factor a mechanism with every input already defined:
+- the $2\pi$ is the rotation;
+- the $\alpha$ is the tile over the wavelength;
+- the "+1" is the seam tile that the snapshot must include.
+
+The other counting rule, counting only tiles wholly inside the rotation, gives $N - 1$: a deficit, excluded by P2. A resummed $N/(N-1)$ needs a loop that premises P1–P4 do not contain.
+
+## 30. What it predicts
+
+Because the average is exact, the factor has **no $\alpha^2$ term**. That separates it from the two other completions in the archive:
+
+| Completion | $G$ | vs seam average |
+|---|---|---|
+| Seam average, $(N+1)/N$ (this Part; equals the pre-registered $1 + \alpha/2\pi$) | $6.674219 \times 10^{-11}$ | — |
+| QED anomaly, $1 + a_e$ (`pyramid_portal_research/python/gravity.py`) | $6.674207 \times 10^{-11}$ | −1.76 ppm |
+| Resummed loop, $N/(N-1)$ | $6.674228 \times 10^{-11}$ | +1.35 ppm |
+
+- **The test.** A determination of G at about 1 ppm decides between a counting correction, with no $\alpha^2$ term, and QED's anomaly, with $-0.328(\alpha/\pi)^2$. Current best measurements are about 10 ppm, so this is a target for the next generation of experiments, not a test available now.
+- **What it settles inside the archive.** It supplies a mechanism for the factor the pre-registration already fixed, $1 + \alpha/2\pi$. It also says that `gravity.py`'s $g_e/2$ is a different and, on these premises, wrong completion.
+- **What is still assumed.** P3, uniform phase, is the physical assumption that does the work. P4, that tree-level G counts exactly $N$ closures, is an identification, not a derivation. If either fails, so does the "exactly".
+
+---
+
 ```bash
 python research/algebra-intersection/verify_intersection.py            # Part I:  63/63 PASS
 python research/algebra-intersection/verify_octahedral_connection.py   # Part II: 48/48 PASS
@@ -525,4 +568,6 @@ python research/algebra-intersection/verify_walsh.py                   # Part IV
 python research/algebra-intersection/verify_closure_tree.py            # Part V:  16/16 PASS
 python research/algebra-intersection/verify_sweep_sierpinski.py        # Part VI: 10/10 PASS
 python research/algebra-intersection/verify_one_loop_fencepost.py      # Part VII: 6/6 PASS
+python research/algebra-intersection/verify_seam_average.py           # Part VIII: 7/7 PASS
+python research/algebra-intersection/network_model.py                 # registered network model (fails; see NETWORK_MODEL_RESULT.md)
 ```
