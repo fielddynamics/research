@@ -2,7 +2,7 @@
 
 *The coupling polynomial, the constitutive law, the closure operator and the torsion sector as one modular group*
 
-**Status:** derived and checked. Part I is tested by [`verify_intersection.py`](verify_intersection.py) (63/63 PASS) and Part II by [`verify_octahedral_connection.py`](verify_octahedral_connection.py) (48/48 PASS). The hypotheses that turned out false are tested too.
+**Status:** derived and checked. Part I is tested by [`verify_intersection.py`](verify_intersection.py) (63/63 PASS), Part II by [`verify_octahedral_connection.py`](verify_octahedral_connection.py) (48/48 PASS) and Part III, the cube, by [`verify_cube.py`](verify_cube.py) (38/38 PASS). **Part III corrects parts of Part II and §13; where they disagree, Part III stands.** The hypotheses that turned out false are tested too.
 **Depends on:** [`algebraic_pipeline_of_reality.md`](../../papers/algebraic-papers-a-b-c/algebraic_pipeline_of_reality.md), [`01.1_cyclotomic_algebra.md`](../exploratory/great-pyramid/pyramid_portal_research/01_framework_foundations/01.1_cyclotomic_algebra.md), [Appendix J](../exploratory/great-pyramid/pyramid_portal_research/99_appendices/J_closure_algebra_advancement.md), [`tbit_algebra.md`](../quantum%20compute/t-bit%20algebra/tbit_algebra.md), [`proofs/torsion-regular-representation`](../../proofs/torsion-regular-representation/)
 
 ---
@@ -161,7 +161,9 @@ So the framework's two involutions, *exchange* ($\mu \leftrightarrow 1 - \mu$) a
 | Christoffel $\Gamma^a{}_{(bc)}$ | 40 | $R[D] \oplus 3R[E]$: the 4 body diagonals and three copies of the edges |
 | **whole connection** | **64** | $R[D] \oplus 4R[E] \oplus C^1$ |
 
-So the torsion-free condition of general relativity keeps only orientation-blind data (diagonals and unoriented edges). The one oriented object in the connection, the 1-cochains $C^1$, lies entirely in the torsion. "General relativity is root-blind" now has a concrete form: **GR discards the orientation of the octahedron.**
+> **Scope (see Part III, §15).** This table is for the *abstract* $S_4$ of leg permutations, transported to the rotation group $O$. When the legs are taken as what they are, vectors to the TetA corners of the cube, the odd rotations send each leg to *minus* a leg, and the geometric action is this one tensored with $\mathrm{sgn}$, which exchanges $R[E]$ and $C^1$. The group that permutes the legs without signs is the tetrahedron's own group $T_d$, and §15 restates the theorem there.
+
+So, for the abstract $S_4$, the torsion-free condition of general relativity keeps only orientation-blind data (diagonals and unoriented edges). The one oriented object in the connection, the 1-cochains $C^1$, lies entirely in the torsion. "General relativity is root-blind" now has a concrete form: **GR discards the orientation of the octahedron.**
 
 **Hodge split.** $X(4)$ is a sphere, so $H^1 = 0$, and $C^1$ is exactly gradients from the cusps plus curls from the tips:
 
@@ -174,7 +176,7 @@ $$C^1 = \underbrace{d\,C^0}_{5\,=\,E + 3'} \;\oplus\; \underbrace{d^{T} C^2}_{7\
 - is purely co-exact, orthogonal to every gradient, so it is not a potential flow;
 - has circulation $+6$ around every TetA tip and $-6$ around every TetB tip.
 
-The pipeline document's sentence "the torsion is the vortex" was a slogan. Here it is a theorem: **the parity-odd part of the torsion is the curl of the TetA − TetB indicator on the level-4 modular curve.**
+The pipeline document's sentence "the torsion is the vortex" was a slogan. Here it is an exact statement for the abstract $S_4$: **the sign mode of the torsion corresponds to the curl of the TetA − TetB indicator on the level-4 curve.** Part III (§15) identifies the same mode, in the frame's own geometry, as the volume form $\varepsilon_{abcd}$ of TetA. It transforms by orientation ($\det$), and how it transforms under spatial inversion is fixed by the connection's three vector indices, not by the octahedron's antipodal map.
 
 ## 10. Where the t-bit states sit
 
@@ -216,7 +218,7 @@ The 21/13 labelling is equivariant up to exactly one defect, the sign character,
 ## 12. What Part II changes
 
 1. **Three different double covers of $S_4$ are in play, and they should be named separately.** They are $O_h = S_4 \times \mathbb Z_2$ (spatial parity, the scheme proof's two roots), $2O$ (spin) and $\mathrm{SL}_2(\mathbb Z/4)$ (the trace cover in which "21 or 13" is a property of the group element itself). They are pairwise non-isomorphic. The framework's own reading, that parity carries 21 to 13, is **consistent** with this: §11 checks that parity acts as $s \to -s$ on the lifted states. The reading that does not survive is mine, in §2: 21 and 13 are *not* the two sheets of the spin cover. See §13.
-2. **Prediction-shaped consequence.** If the torsion's parity-odd mode is $\omega = d^T\chi$, it carries no gradient part. A source that couples only to gradients (a scalar potential) cannot excite it, and only a circulating (axial) source can. The framework's torsion phenomenology should say which it is.
+2. ~~Prediction-shaped consequence ("a scalar potential cannot excite the mode")~~ **Withdrawn.** On the cube's own cell complex, the Hodge dual of $\omega$ is $d\chi$, the *gradient* of the TetA − TetB indicator along the 12 cube edges, each of which runs from a TetA corner to a TetB corner. Whether the mode is a "curl" or a "gradient" depends on which of the two dual complexes you write it on, so it supports no physical prediction. The real discriminating test is in §16.
 3. **Next step.** Level-4 forms with these multipliers ($\eta^6$, $\eta^{12}$, and $\eta(4\tau)^6 \in S_3(\Gamma_0(16))$ with $16 = K^2$) are the natural place to look for a modular reading of the 40 / 24 split.
 
 ## 13. Impact on existing framework claims, stated precisely
@@ -229,26 +231,92 @@ Two kinds of finding are here, and they must not be mixed up.
 | # | Framework claim (file) | Finding | Strength | What has to change | What is untouched |
 |:-:|---|---|:-:|---|---|
 | 1 | Normalisation of the coupling polynomial is a route to $\mu$: $\mu = (f(x) - 13)/8$ (`llms.txt` Eq. 13–15, listed among the "routes in the papers") | $(f - f_{-1})/(f_{+1} - f_{-1}) = (1+s)/2$ for **every** $K$. The route is the Cayley map $s(x)$ rewritten, and 21, 17, 13 cancel out | **Firm** | Stop counting it as an independent route, or as evidence that $\mu$ reflects $K = 4$. It is a relabelling of $s(x)$ | $\mu = x/(x+1)$ itself; the exchange-symmetry proof; the SPARC fit |
-| 2 | "Swapping TetA and TetB is the map $x \to 1/x$" and "The exchange is parity itself" (`proofs/constitutive-law-exchange-symmetry/README.md`, lines 78–80) | At level 4, $x \to 1/x$ is a mirror that **preserves** each tetrahedron. Parity is the central inversion $Z$, a different element, and their product is a half-turn | **Conditional** | If the level-4 picture is adopted, the README's identification of exchange with parity must be weakened to "exchange is *induced by* parity on the accelerations", or the picture rejected. The two cannot both stand as written | The proof's logic. Its premise (X) is about parity, and $x \to 1/x$ is *derived* as the induced map on $(0, \infty)$, which the mod-4 reduction does not contradict |
-| 3 | $x = \infty$ is "Pure TetA", $x = 0$ is "Pure TetB", $P$ "swaps TetA ↔ TetB" (`tbit_algebra.md` lines 48–50, 90; `Cube lattice/tbit_compute_node_algebra.md` lines 69–71, 133; `gfd_quantum_compute_algebra.md` lines 176–178) | On the level-4 curve, 0, 1 and ∞ are corners of **one** tip, and $P$ is that tip's mirror | **Conditional** | Same choice as #2: if the level-4 picture is adopted, the t-bit "TetA/TetB" labels mean "$\mu \to 1$ / $\mu \to 0$" (shares), not "which tetrahedron of the stellated octahedron" | The t-bit gate algebra as algebra: $\mu$ as the TetA *share* is self-consistent |
+| 2 | "Swapping TetA and TetB is the map $x \to 1/x$" and "The exchange is parity itself" (`proofs/constitutive-law-exchange-symmetry/README.md`, lines 78–80) | *Revised in Part III.* At level 4, $x \to 1/x$ is a cube mirror with $(\det, \mathrm{swap}) = (-1, +1)$. It **does** flip orientation, the root of $\det e$, exactly as the scheme proof's criterion requires. It does **not** carry TetA onto TetB as a set; only the inversion $Z$ (or a quarter-turn) does that | **Conditional** | Line 80 is right if "parity" means orientation. Line 78 is the one that conflicts: swapping the root and swapping the tetrahedron are two different bits | The proof's logic and premise (X) |
+| 3 | $x = \infty$ is "Pure TetA", $x = 0$ is "Pure TetB", $P$ "swaps TetA ↔ TetB" (`tbit_algebra.md` lines 48–50, 90; `Cube lattice/tbit_compute_node_algebra.md` lines 69–71, 133; `gfd_quantum_compute_algebra.md` lines 176–178) | In the cube, $0$, $1$ and $\infty$ are the centres of the three faces around one corner. Each is a point where a TetA edge crosses a TetB edge, so none belongs to one tetrahedron. $P$ is the diagonal mirror through that corner | **Conditional** | If the level-4 picture is adopted, the t-bit labels mean "$\mu \to 1$ / $\mu \to 0$" (shares), not "which tetrahedron" | The t-bit gate algebra as algebra |
 | 4 | 21 and 13 are carried across by parity (scheme proof, TetA/TetB as the two roots) | **Consistent.** Parity acts on the lifted states as $s \to -s$ (§11) | — | Nothing | — |
 | 4′ | *My* Part I §2: "21 and 13 are the two spin sheets" | **Wrong.** The cover that separates them is $\mathrm{SL}_2(\mathbb Z/4)$, which is not the spin cover $2O$ | **Firm** | Withdrawn (§2 now corrected) | The fibre-average identity $(21 + 13)/2 = 17$ |
 
-**The decision this forces.** Rows 2 and 3 are one question. Either:
+**The decision this forces** (revised in Part III). Rows 2 and 3 come down to one question: does the exchange $\mu \leftrightarrow 1 - \mu$ swap only the root, or the root *and* the tetrahedron? In cube terms, is it the mirror (a bit SWAP) or the inversion (NOT on all three bits)? §16 gives the test that tells them apart. The earlier version of this paragraph used the octahedron's antipodal action on $\omega$, which is not how inversion acts on the connection, so its test was wrong and has been replaced.
 
-- **(a)** keep the level-4 unification of Parts I–II, the torsion as octahedral cochains, the vortex theorem and the uniqueness route, and accept that the exchange $\mu \leftrightarrow 1 - \mu$ is a mirror *within* a tetrahedron, distinct from parity; or
-- **(b)** keep "exchange is parity" literally, and treat the level-4 structure as a numerical parallel rather than the framework's home. Then Parts I–II remain true algebra but say nothing physical.
 
-No current result in the repository decides between (a) and (b), but the two make different predictions about the torsion vortex $\omega$ of §9 (both checked in `verify_octahedral_connection.py`):
+---
 
-- spatial parity $Z$ flips $\chi$ *and* reverses orientation, so $Z\omega = +\omega$. The vortex is parity-even, as a circulation or an angular momentum is;
-- the exchange $P$ preserves $\chi$ but reverses orientation, so $P\omega = -\omega$.
+# Part III. The stellated octahedron in its cube
 
-Under (a), the exchange $\mu \leftrightarrow 1 - \mu$ reverses the torsion vortex. Under (b), it leaves the vortex unchanged. Any observable that is odd in $\omega$ (a handedness of the torsion circulation correlated with which side of $a_0$ a system sits on) separates the two readings.
+The geometry is two tetrahedra inscribed in a cube $[-1,1]^3$: TetA on the four corners with sign product $+1$, TetB on the four with $-1$. In Walsh language these are the odd- and even-parity 3-bit addresses. Parts I–II used the octahedron and its 24 rotations. The cube has 48 symmetries, $O_h$, and the extra 24 are exactly where the framework's word "parity" splits apart.
+
+## 14. The cube is the modular curve, cell by cell
+
+The special points of $X(4)$ are the non-zero cells of the cube, $\{-1, 0, 1\}^3 \setminus 0$. Each kind of cell is an incidence of the two tetrahedra:
+
+| Cube cell | Count | $X(4)$ point | Stabiliser | Where TetA and TetB meet | Value |
+|---|:-:|---|:-:|---|:-:|
+| face centre | 6 | cusp | $\mathbb Z_4$ | a TetA edge **crosses** a TetB edge (the two diagonals of that face) | level $K = 4$ |
+| edge | 12 | over $i$ | $\mathbb Z_2$ | a TetA face **meets** a TetB face (the core octahedron's edges); the cube edge joins a TetA corner to a TetB corner | **17** |
+| corner | 8 | over $\rho$ | $\mathbb Z_3$ | belongs to **one** tetrahedron | **21 / 13** |
+
+This makes the framework's Rule 4 ("the Field Origin is where TetA and TetB meet") literal. The Field Origin value 17 sits on exactly the 12 cells where a face of one tetrahedron touches a face of the other. The tetrahedron-specific values 21 and 13 sit on the corners, which each belong to one tetrahedron. The 26 cells, $27 - 1$, are the ternary vectors, with the zero vector being the centre.
+
+## 15. Two copies of S₄, and three kinds of "parity"
+
+$O_h$ has three index-2 subgroups, each of order 24 and each containing $A_4$, and correspondingly three non-trivial characters:
+
+| Subgroup | What it is | Kernel of | Relevance |
+|---|---|---|---|
+| $O$ | rotations | $\det$ | $= \mathrm{PSL}_2(\mathbb Z/4)$, the modular group |
+| $T_d$ | symmetries of TetA alone | $\mathrm{swap}$ | **permutes the legs with no sign**: the torsion proof's $S_4$ |
+| $T_h$ | pyritohedral | $\det\cdot\mathrm{swap}$ | contains the inversion $Z$ |
+
+So **the modular $S_4$ and the torsion $S_4$ are different subgroups of the cube's symmetry**, isomorphic and sharing $A_4$. Every odd rotation in $O$ sends each TetA corner to *minus* a TetA corner. Representatives of the three non-trivial classes of $O_h / A_4 \cong \mathbb Z_2^2$:
+
+| Element | In bits | $\det$ (orientation, the root of $\det e$) | swap (TetA ↔ TetB) | At level 4 |
+|---|---|:-:|:-:|---|
+| diagonal mirror, e.g. $x = y$ | SWAP two bits | $-1$ | $+1$ | the exchange $x \to 1/x$ |
+| inversion $Z: v \to -v$ | NOT all three bits | $-1$ | $-1$ | the centre $Z$ of $\mathrm{PGL}_2(\mathbb Z/4)$ |
+| quarter-turn about a face axis | — | $+1$ | $-1$ | the constitutive law $L$ |
+
+The constitutive law equals mirror × inversion modulo $A_4$.
+
+**Galois reading.** The stabiliser of the closure axis $(1,1,1)$ is $D_{3d}$ (order 12). It acts on the $\Omega$-fixed algebra $\mathbb Q[T_1, I] = \mathbb Q(\sqrt3, i) = \mathbb Q(\zeta_{12})$ by $T_1 \to \pm T_1$, $I \to \det \cdot I$, and $D_{3d}/C_3 \cong O_h/A_4 \cong \mathrm{Gal}(\mathbb Q(\zeta_{12})/\mathbb Q)$:
+
+| Element | Galois element | Fixed quadratic field |
+|---|:-:|---|
+| quarter-turn (constitutive-law class) | $\sigma_5$ | $\mathbb Q(i)$, Gaussian: Field Origin, 17 |
+| inversion $Z$ | $\sigma_7$ | $\mathbb Q(\omega)$, Eisenstein: 21 / 13 |
+| mirror (exchange $x \to 1/x$) | $\sigma_{11}$ | $\mathbb Q(\sqrt3)$, real |
+
+Equivalently, **orientation ($\det$) is the quadratic character of $\mathbb Q(i)$, TetA ↔ TetB is that of $\mathbb Q(\sqrt3)$, and $\det\cdot$swap is that of $\mathbb Q(\omega)$.**
+
+**Correction to Appendix J, §3.** There $\sigma_5$ is listed as fixing $\mathbb Q(\sqrt{-3})$ and $\sigma_7$ as fixing $\mathbb Q(i)$. It is the other way round ($\sigma_a$ fixes $\mathbb Q(i)$ iff $a \equiv 1 \bmod 4$). J's "parity reversal" row, $\sigma_{11}$, is the mirror, not spatial inversion.
+
+**The connection, legs as vectors to the TetA corners.**
+- Inversion acts as $-1$ on all 64 components (three vector indices).
+- Under all of $O_h$, the orientation character $\det$ occurs **once in the torsion and never in the Christoffel sector**. That is the torsion proof's result, now correctly placed: its "sign representation" is $\det$, the root of $\det e$.
+- The single $\det$ mode is the **volume form of TetA**, $T^a{}_{[bc]} = \varepsilon_{abcd}$.
+- The TetA ↔ TetB character occurs 4 times in the Christoffel sector and once in the torsion. These are the 5 tensors invariant under every leg permutation. So **GR is blind to orientation but not to which tetrahedron.**
+- The frame-native form of Part II's theorem, under $T_d$ with its geometric action:
+
+$$\text{torsion} = R[\text{TetA vertices}] \otimes C^1(\text{oriented TetA edges}), \qquad \text{Christoffel} = R[\text{TetA vertices}] \otimes \big(R[\text{TetA vertices}] \oplus R[\text{unoriented TetA edges}]\big),$$
+
+where the six TetA edges are the cube's face diagonals through the six cusps. The torsion-free condition forgets the orientation of TetA's edges, and that is what "GR is root-blind" means in the cube.
+
+## 16. The test: mirror or inversion
+
+The exchange $\mu \leftrightarrow 1 - \mu$ flips the root in either reading. What differs is the TetA/TetB bit. On the connection:
+
+| | axial (volume) torsion mode | 5 leg-permutation-invariant modes (4 Christoffel + vector-torsion trace) |
+|---|:-:|:-:|
+| exchange = mirror (level-4 reading) | flipped | **unchanged** |
+| exchange = inversion | flipped | **flipped** |
+
+The axial torsion cannot tell the readings apart; the permutation-invariant part of the connection can. Under the level-4 reading, the transition through $a_0$ reverses the handedness of the torsion while leaving every component that treats the four legs alike untouched. Under the inversion reading, it reverses those too.
+
+**Unresolved and stated plainly.** In the Clifford model (§1), the closure rotor $R$ is a bivector exponential, so inversion fixes it and does *not* exchange $\mathcal N_K(-R) = 21$ with $\mathcal N_K(R) = 13$. In the modular model (§11), inversion acts as $s \to -s$. The two models of "21 versus 13" therefore disagree about spatial inversion. Settling which model the framework means is the next thing to fix, and the cube table of §15 is where to do it.
 
 ---
 
 ```bash
 python research/algebra-intersection/verify_intersection.py            # Part I:  63/63 PASS
 python research/algebra-intersection/verify_octahedral_connection.py   # Part II: 48/48 PASS
+python research/algebra-intersection/verify_cube.py                    # Part III: 38/38 PASS
 ```
