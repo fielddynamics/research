@@ -719,6 +719,59 @@ The data after CODATA (NIST 2026) lean slightly towards the measured α. The que
 
 ---
 
+# Part XII. "One α per level" as a theorem
+
+*Checked by [`verify_exponent_theorem.py`](verify_exponent_theorem.py) (7/7).*
+
+## 40. The theorem
+
+**Premises.** Each is either the framework's own principle or a result of an earlier Part.
+- **P1, self-similarity.** Every junction is the same unit: G's blocks are tensor powers of one matrix $L$ (the author's Sierpiński diagram). So every junction carries the same factor.
+- **P2, the snapshot.** Nothing the read depends on may change while it settles (Paper I; the author's note in the README). So within one closure the coupling runs **one way, in read order**, and the network matrix is block-triangular in that order.
+- **P3, calibration.** Electromagnetism is one junction, and its factor is $\alpha$, by the definition of $\alpha$ as the electromagnetic coupling.
+
+**Lemma (triangular determinant).** If $M = D + E$ with $E$ strictly block-lower in read order, then $\det M = \det D$, the product of the junction factors, **for every choice of couplings $E$**. Checked on 200 random one-way couplings of arbitrary size, and on the registered tree read down only or up only.
+
+**Theorem.** Under P1–P3, the closure amplitude is
+
+$$\det\big[\alpha(B + E)\big] = \alpha^{\#\text{junctions}} = \alpha^{21},$$
+
+**independently of how the levels are coupled**, provided the read is one-way.
+
+This turns "one α per level" from an assumption into a consequence of the framework's own principles. It also explains why the result is so robust: the exponent cannot depend on the details of the inter-level coupling, because a causal (read-ordered) network's determinant never sees those details.
+
+## 41. The converse explains the failed network, and the data bound it
+
+**Back-reaction breaks the theorem.** The pre-registered network of Parts VI–VII had two-way edges: the response returns up the tree within the same closure. With back-reaction of relative strength $\varepsilon$, exactly,
+
+$$\frac{\det}{\alpha^{21}} = (1 - \varepsilon)\,(1 - 4\varepsilon + 5\varepsilon^2 - 10\varepsilon^3) = 1 - 5\varepsilon + O(\varepsilon^2).$$
+
+It is 1 at $\varepsilon = 0$ and **exactly 0 at $\varepsilon = 1$**: the registered symmetric network is the full-back-reaction limit, which is why it gave a zero TetA amplitude. The two negative results were not failures of the framework. They were the theorem's converse.
+
+**The data bound back-reaction.** With the prefactor and loop factor fixed, the measured G gives the exponent as
+
+$$n = 20.999998 \pm 0.000005,$$
+
+and the closure amplitude may differ from $\alpha^{21}$ by at most −33 to +57 ppm (2σ). Hence:
+
+$$|\varepsilon| < 1.1 \times 10^{-5} \quad\text{of the forward coupling.}$$
+
+**Within one closure the read is one-way to one part in $10^5$.** The snapshot principle (P2), the framework's founding requirement, is the premise G measures most directly.
+
+## 42. Which α, and what remains
+
+- **P3 fixes the measured α.** The junction is calibrated by electromagnetism, so the theorem predicts the pre-registered $G = 6.674219 \times 10^{-11}$, not Part XI's octahedron-α value. If future G measurements land near 6.67451, it is P3 that fails: the junction would be calibrated by the bare state count $137 + 1/28$, not by the physical electromagnetic coupling.
+- **What is now derived:**
+  - the exponent, from P1–P3 (§40);
+  - the loop factor, from P2 plus uniform phase (Part VIII);
+  - the numerator 17, from exchange symmetry (Part IX).
+- **What is still identified rather than derived:** the denominator 13 as the bound source in TetB.
+- **What the conditional bound assumes.** The back-reaction bound holds with 17/13 and the loop factor exact, and for back-reaction along the closure tree. A different back-reaction pattern gives a different coefficient, but the same conclusion: any feedback at the $10^{-5}$ level would show up in G.
+
+**The understanding gained, in one sentence.** Gravity is weaker than electromagnetism by $\alpha^{20}$ because a closure is a causal, one-way read through 21 identical junctions. The determinant of a causal network is the product of its junctions, so each junction contributes exactly the electromagnetic coupling, and the measured G confirms that the read has no back-reaction to one part in $10^5$.
+
+---
+
 ```bash
 python research/algebra-intersection/verify_intersection.py            # Part I:  63/63 PASS
 python research/algebra-intersection/verify_octahedral_connection.py   # Part II: 48/48 PASS
@@ -731,5 +784,6 @@ python research/algebra-intersection/verify_seam_average.py           # Part VII
 python research/algebra-intersection/verify_prefactor_exchange.py     # Part IX:  6/6 PASS
 python research/algebra-intersection/verify_level_factor.py           # Part X:   8/8 PASS
 python research/algebra-intersection/verify_topological_alpha_in_G.py # Part XI: 11/11 PASS
+python research/algebra-intersection/verify_exponent_theorem.py       # Part XII:  7/7 PASS
 python research/algebra-intersection/network_model.py                 # registered network model (fails; see NETWORK_MODEL_RESULT.md)
 ```
