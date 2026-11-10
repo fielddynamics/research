@@ -654,6 +654,51 @@ At 2σ, a per-level factor of the form $\theta(1 + c\,\theta^2)$ needs $-0.029 <
 
 ---
 
+# Part XI. The per-level factor is the stellated octahedron's α
+
+*From [`docs/03-fundamental-constants/01-fine-structure-constant-alpha.md`](../../docs/03-fundamental-constants/01-fine-structure-constant-alpha.md) and the mass page. Checked by [`verify_topological_alpha_in_G.py`](verify_topological_alpha_in_G.py) (9/9).*
+
+## 37. Why one α per level: the docs' answer, joined to the read circle
+
+The docs give the mechanism Part X asked for.
+- **The count.** The stellated octahedron has $N = 1/\alpha = 1 + 8 \times 17 + 1/28 = 137 + 1/28$ interaction states: eight vertices each sampling the Field Origin depth 17, the global vertex, and one cycle through its 28 elements.
+- **The share.** Closure's bandwidth $c/r$ is shared equally among them (the mass page: $mc^2 = \hbar c/(Nr)$).
+
+So each level's read takes one state's share, $1/N = \alpha$.
+
+This also resolves the radian-versus-turn split of Part X. Since $r_e = \alpha\bar\lambda_C$, the $N = 1/\alpha$ interaction states are exactly the **tiles in one radian** of the read circle, and $2\pi N$ is the tiles per turn. So:
+- a level selects one of the octahedron's interaction states, the tiles per radian, giving $\alpha$;
+- the seam adds one tile per full turn, giving $\alpha/2\pi$.
+
+One circle, one stellated octahedron, two measures, each with a reason.
+
+## 38. A test: does G use the measured α or the octahedron's α?
+
+If the per-level factor is literally $1/N$ with $N = 137 + 1/28$, the framework can compute G with **no measured coupling at all**, using only $K$, $D$, $m_e$, $\hbar$ and $c$. The 2.1 ppm gap between $1/(137 + 1/28)$ and the measured α is amplified 21 times into **+44 ppm in G**.
+
+| Version | G (×10⁻¹¹) | vs CODATA 2022 |
+|---|---|---|
+| measured α (pre-registered) | 6.674219 | −12 ppm, z = −0.54 |
+| octahedron's α, $1/(137 + 1/28)$ | 6.674510 | +32 ppm, z = +1.40 |
+
+Both lie inside CODATA's 2σ. Over all 16 measurements, with CODATA's expansion factor 3.9, the measured-α version is mildly preferred, Δχ² = 2.0, which does not decide. Inverted, CODATA's G implies a per-level $1/\alpha = 137.03592 \pm 0.00015$: the measured value is at +0.5σ and the octahedron's at −1.4σ.
+
+**The two most precise measurements split along exactly this line.**
+
+| Measurement | Uncertainty | z (measured α) | z (octahedron's α) | Implied 1/α per level |
+|---|---|---|---|---|
+| HUST 2018, time-of-swing | 11.7 ppm | **+0.45** | +4.19 | 137.036033 ± 0.000076 |
+| HUST 2018, angular acceleration | 11.5 ppm | −3.44 | **+0.34** | 137.035740 ± 0.000075 |
+
+The two HUST 2018 methods disagree with each other by 45 ppm, and that disagreement is unexplained in the literature. Each one sits on one version and more than 3σ from the other. The time-of-swing value implies the measured α to 0.45σ; the angular-acceleration value implies the octahedron's α to 0.35σ.
+
+**Status, stated carefully.**
+- **What it is:** an observation, not evidence. Sixteen measurements spread over hundreds of ppm, and two of them happening to land on two predictions 44 ppm apart could be chance. The octahedron's α is itself a 2 ppm-level formula, and the docs say its residual "will be addressed".
+- **Why it is still useful:** it turns the framework's open question about α's next-order correction into something G can measure. A future G measurement at ≤ 10 ppm, or a resolution of the HUST discrepancy, decides whether gravity's 21 levels count the **measured** α or the **octahedron's** α. The two differ by 44 ppm.
+- **The two outcomes:** if G settles near 6.67451, the per-level factor is purely topological and α's 2 ppm residual is an electromagnetic correction that gravity does not see. If G settles near 6.67422, gravity uses the full measured α.
+
+---
+
 ```bash
 python research/algebra-intersection/verify_intersection.py            # Part I:  63/63 PASS
 python research/algebra-intersection/verify_octahedral_connection.py   # Part II: 48/48 PASS
@@ -665,5 +710,6 @@ python research/algebra-intersection/verify_one_loop_fencepost.py      # Part VI
 python research/algebra-intersection/verify_seam_average.py           # Part VIII: 7/7 PASS
 python research/algebra-intersection/verify_prefactor_exchange.py     # Part IX:  6/6 PASS
 python research/algebra-intersection/verify_level_factor.py           # Part X:   8/8 PASS
+python research/algebra-intersection/verify_topological_alpha_in_G.py # Part XI:  9/9 PASS
 python research/algebra-intersection/network_model.py                 # registered network model (fails; see NETWORK_MODEL_RESULT.md)
 ```
