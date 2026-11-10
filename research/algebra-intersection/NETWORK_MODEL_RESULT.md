@@ -31,3 +31,23 @@ It does not produce G's prefactor, and at s = +1 it cancels completely. So:
 ## A post-hoc observation, recorded and not claimed
 
 The two non-zero determinants are 10 and 40. These are the per-face symmetric count and the Christoffel count of Letter 3 (16 = 10 + 6 per face; 64 = 40 + 24). This was noticed **after** the computation, and nothing in the registration predicted it. By the standard this work has used throughout, it counts for nothing unless a new registration predicts it in advance, for example the torsion counts 6 and 24 from a stated variant.
+
+---
+
+## Pre-registration 2: the torsion variant ([`NETWORK_MODEL_PREREG_2.md`](NETWORK_MODEL_PREREG_2.md), committed c461a96 before computing)
+
+| Quantity | Predicted | Result |
+|---|---|---|
+| det(B₀ + E⁻) | 6 | **10** |
+| det(B₋₁ + E⁻) | 24 | **0** |
+| det(B₊₁ + E⁻) | (no prediction) | 40 |
+
+**Outcome: failure.** The 10/40 observation is retired as a coincidence.
+
+**Why the numbers come out mirrored.** Exactly,
+  det(B_s + E⁻) = det(B₋ₛ + E) = (1 + s)(s³ + 4s² + 5s + 10).
+Every parent–child loop in the tree passes through the level-1 block, so reversing the sign of the return edges is equivalent to s → −s. This is a property of the network's shape, not a physical statement. The polynomial is not the coupling polynomial 1 + sK + K².
+
+## Where this leaves the network approach
+
+Two pre-registered tests, two failures. A determinant on the junction network, built from the archive's own structure, carries neither G's prefactor nor Letter 3's counts. Varying the network further would be fitting, so this family of models is closed here.
