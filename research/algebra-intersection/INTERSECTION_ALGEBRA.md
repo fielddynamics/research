@@ -393,6 +393,8 @@ and the 21 orbits are the closed XOR triangles of the cube: 14 genuine triangles
 
 *Read from [`g_three_sierpinski_blocks.html`](../g_from_topology/g_three_sierpinski_blocks.html) and [`tetb_64_walk_of_field_closure.html`](../field-closure/tetb_64_walk_of_field_closure.html). Checked by [`verify_closure_tree.py`](verify_closure_tree.py) (16/16).*
 
+**Credit.** The construction of G from three Sierpiński blocks is the author's, in that diagram. The observations in §21 below (the blocks are tensor powers of $; the closure tree) are read off it. The junction rule of §22–23 is this document's hypothesis and is separate from the author's result.
+
 **Status: hypothesis.** It reproduces three of the archive's four α-exponents. It conflicts with the fourth (Λ), and the 17/13 prefactor rule does not carry over to it. Both failures are stated below.
 
 ## 21. Two facts in the diagrams
@@ -430,10 +432,47 @@ and the 21 orbits are the closed XOR triangles of the cube: 14 genuine triangles
 
 ---
 
+# Part VI. The Sierpiński blocks, the three-sweep kernel and what reaches G
+
+*Checked by [`verify_sweep_sierpinski.py`](verify_sweep_sierpinski.py) (10/10).*
+
+## 24. The blocks are the triangular factors of a Hadamard sweep
+
+The author's diagram builds G's operator as $S_0 \oplus s\,S_1 \oplus S_2$ with $S_k = L^{\otimes 2k}$ and $L = \begin{psmallmatrix}1&0\\1&1\end{psmallmatrix}$, the matrix of $\mu(x) = x/(x+1)$. The three-sweep kernel of [`spectral_kernel.py`](../spectral/spectral_kernel.py) is built from Walsh–Hadamard sweeps. The two are the same object, exactly:
+
+$$H_2 = L\,\begin{pmatrix}1&0\\0&-2\end{pmatrix}L^{\mathsf T}, \qquad H_{2^n} = S_n\,D_n\,S_n^{\mathsf T},\quad D_n = \mathrm{diag}\big((-1)^{\mathrm{grade}}\,2^{\mathrm{grade}}\big).$$
+
+A Hadamard sweep is a Sierpiński block, then the cube's parity grading (with weight $2^{\mathrm{grade}}$), then the transposed Sierpiński block. So the Sierpiński diagram and the three-sweep kernel are two factorisations of the same operator. In the diagram the parity grading appears as the $s$ on the middle block; in the sweep it sits in the diagonal factor $D_n$.
+
+## 25. What actually reaches G
+
+- **Through $\det(\alpha^A) = \alpha^{\mathrm{Tr}\,A}$, only the diagonal enters.** The Sierpiński blocks have unit diagonals, so their traces are 1, 4, 16. Identity blocks, or any unit lower-triangular blocks, give exactly the same $\alpha^{21}$ and $17/13$. The kernel says the same thing: a sweep with bridge $b$ has trace $\sum b$, so identity bridges on blocks 1, 4, 16 give 21, 17, 13. **The 5 + 65 off-diagonal filled cells never enter G.**
+- **No off-diagonal-sensitive read gives 17/13.** The sum of entries, the Frobenius norm, $\mathrm{Tr}(S^{\mathsf T}S)$ and the below-diagonal count give 91/82/73 and 70/65/60, not 17/13. Every power $S^k$ is again unit lower-triangular, so $\mathrm{Tr}(S^k)$ returns 21, 17, 13 and nothing more.
+- **The one-loop factor cannot come from the blocks.** Any read of integer blocks built from sums, products, traces and determinants is a polynomial in $\alpha$ with rational coefficients. $1/2\pi$ is transcendental. So $1 + \alpha/2\pi$, or $g_e/2$ as `gravity.py` writes it, must come from outside the blocks: from something with a circle in it.
+
+## 26. What this means for "G comes from the diagram"
+
+| Claim | Status |
+|---|---|
+| G's 21, 17, 13 are the traces of the three Sierpiński blocks, with $s$ on the middle one | **Exact** |
+| The blocks are tensor powers of the constitutive law's matrix $L$ | **Exact, and new**: it ties G's operator to $\mu$ |
+| The blocks are the triangular factors of the three-sweep Hadamard kernel, $H = SDS^{\mathsf T}$ | **Exact**: diagram and kernel are one operator |
+| The Sierpiński *pattern* (the 9 and 81 filled cells) contributes to G | **No**, under the det–trace read. Identity blocks give the same number |
+| The prefactor 17/13 or the one-loop factor come from the off-diagonal structure | **No**. 17/13 is diagonal, and $1/2\pi$ cannot come from integer blocks |
+
+So the diagram is a correct and new *presentation*: one operator, built from the constitutive law, whose traces give G's integers. For the Sierpiński structure to *do* something, the read would have to be one that sees beyond the diagonal, and the number it gives would have to match G. The obvious places to look:
+- the bridge $b$ of the three-sweep kernel, which can weight grades differently;
+- the middle factor $D_n$, the one place parity and the weights $2^{\mathrm{grade}}$ enter.
+
+Neither is done here.
+
+---
+
 ```bash
 python research/algebra-intersection/verify_intersection.py            # Part I:  63/63 PASS
 python research/algebra-intersection/verify_octahedral_connection.py   # Part II: 48/48 PASS
 python research/algebra-intersection/verify_cube.py                    # Part III: 38/38 PASS
 python research/algebra-intersection/verify_walsh.py                   # Part IV: 26/26 PASS
 python research/algebra-intersection/verify_closure_tree.py            # Part V:  16/16 PASS
+python research/algebra-intersection/verify_sweep_sierpinski.py        # Part VI: 10/10 PASS
 ```
