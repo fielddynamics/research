@@ -697,6 +697,26 @@ The two HUST 2018 methods disagree with each other by 45 ppm, and that disagreem
 - **Why it is still useful:** it turns the framework's open question about α's next-order correction into something G can measure. A future G measurement at ≤ 10 ppm, or a resolution of the HUST discrepancy, decides whether gravity's 21 levels count the **measured** α or the **octahedron's** α. The two differ by 44 ppm.
 - **The two outcomes:** if G settles near 6.67451, the per-level factor is purely topological and α's 2 ppm residual is an electromagnetic correction that gravity does not see. If G settles near 6.67422, gravity uses the full measured α.
 
+## 39. Checked against data beyond CODATA 2022
+
+**NIST 2026.** Schlamminger et al., *Metrologia* **63**, 025012 (April 2026), redetermined G with the BIPM torsion balance under a blind analysis: $G = 6.67387 \times 10^{-11}$, 57 ppm.
+
+| Version | vs NIST 2026 |
+|---|---|
+| measured α, 6.674219 | +52 ppm, z = +0.92 |
+| octahedron's α, 6.674510 | +96 ppm, z = +1.68 |
+
+NIST lies below both. It mildly prefers the measured-α version, but excludes neither. NIST's value also sits about 250 ppm below the 2007 BIPM result it set out to replicate, which deepens the scatter rather than resolving it. **By [`PREREGISTRATION.md`](../g_from_topology/PREREGISTRATION.md) this is a cross-check, not a test:** it was published before the 9 November 2026 registration.
+
+**A rival explanation of the HUST split.** Klein (*Class. Quantum Grav.* 2020, arXiv:1901.02604) argues that the HUST time-of-swing/feedback gap, and BIPM's internal gap, are removed by MOND corrections with one fitted interpolation function. Scarpa, Falomo and Treves (arXiv:2603.17770, 2026) find that the laboratory-tuned function differs from the galactic one. Under GFD's own $\mu(x) = x/(1+x)$, Earth's field as the external field gives $1 - \mu \approx 10^{-11}$: no laboratory effect at all. So Klein's mechanism is **not** GFD's, and if it is right, the HUST split has nothing to do with α. A second, conventional explanation also exists: the time-of-swing method depends on fibre anelasticity, which the feedback method avoids.
+
+**Where this leaves Part XI.** The HUST split is unexplained, and it now has at least three candidate explanations:
+1. fibre anelasticity (time-of-swing only);
+2. a non-standard MOND function (Klein);
+3. two different α's (this Part).
+
+The data after CODATA (NIST 2026) lean slightly towards the measured α. The question in §38 stays open, and the next registered measurements will decide it.
+
 ---
 
 ```bash
@@ -710,6 +730,6 @@ python research/algebra-intersection/verify_one_loop_fencepost.py      # Part VI
 python research/algebra-intersection/verify_seam_average.py           # Part VIII: 7/7 PASS
 python research/algebra-intersection/verify_prefactor_exchange.py     # Part IX:  6/6 PASS
 python research/algebra-intersection/verify_level_factor.py           # Part X:   8/8 PASS
-python research/algebra-intersection/verify_topological_alpha_in_G.py # Part XI:  9/9 PASS
+python research/algebra-intersection/verify_topological_alpha_in_G.py # Part XI: 11/11 PASS
 python research/algebra-intersection/network_model.py                 # registered network model (fails; see NETWORK_MODEL_RESULT.md)
 ```

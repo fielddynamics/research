@@ -97,6 +97,22 @@ for nm, (g, s) in {"CODATA 2022": cg.CODATA, "HUSTT-18": (6.674184, 0.000078), "
 check("CODATA's G implies 1/alpha_level = 137.03592 +- 0.00015: measured 137.035999 (+0.5 sigma) and topological 137.035714 (-1.4 sigma) both inside 2 sigma",
       abs(inv["CODATA 2022"][0] - 137.035999) < 2 * 0.000147 and abs(inv["CODATA 2022"][0] - 137.035714) < 2 * 0.000147)
 
+print("\n=== T5. After CODATA 2022: NIST 2026 (Schlamminger et al., Metrologia 63, 025012) ===")
+G_NIST, REL_NIST = 6.67387, 57e-6          # published April 2026, BEFORE the 9 Nov 2026 pre-registration
+s_n = G_NIST * REL_NIST
+zm_n = (versions["measured alpha (pre-registered)"] - G_NIST) / s_n
+zt_n = (versions["topological alpha, levels and seam"] - G_NIST) / s_n
+print(f"      measured alpha: z = {zm_n:+.2f}    octahedron alpha: z = {zt_n:+.2f}")
+check("NIST 2026 lies below both and mildly prefers the measured alpha (z = +0.92 vs +1.68); neither is excluded",
+      0 < zm_n < zt_n < 2)
+print("      (by PREREGISTRATION.md this is a cross-check, not a test: it predates 9 Nov 2026)")
+
+print("\n=== T6. The rival explanation of the HUST split (Klein 2020, MOND corrections) ===")
+x_lab = 9.81 / 1.2e-10
+check(f"Under GFD's own mu(x) = x/(1+x) with Earth's field as external field, 1 - mu = {1 / (1 + x_lab):.1e}:"
+      " no lab effect, so Klein's mechanism needs a different interpolation function than GFD's",
+      1 / (1 + x_lab) < 1e-10)
+
 n_pass = sum(1 for _, ok in RESULTS if ok)
 print(f"\n{n_pass}/{len(RESULTS)} checks passed")
 if __name__ == "__main__":
