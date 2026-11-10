@@ -395,6 +395,8 @@ and the 21 orbits are the closed XOR triangles of the cube: 14 genuine triangles
 
 **Credit.** The construction of G from three Sierpiński blocks is the author's, in that diagram. The observations in §21 below (the blocks are tensor powers of $; the closure tree) are read off it. The junction rule of §22–23 is this document's hypothesis and is separate from the author's result.
 
+**Note (Part VII):** the count 21 = (K³−1)/(K−1) is already in `g_matrix_synthesis.md`; only the cross-check of exponents in §23 is new here.
+
 **Status: hypothesis.** It reproduces three of the archive's four α-exponents. It conflicts with the fourth (Λ), and the 17/13 prefactor rule does not carry over to it. Both failures are stated below.
 
 ## 21. Two facts in the diagrams
@@ -468,6 +470,53 @@ Neither is done here.
 
 ---
 
+# Part VII. Where the 2π of the one-loop factor comes from
+
+*After reading all of [`g_from_topology/`](../g_from_topology/). Checked by [`verify_one_loop_fencepost.py`](verify_one_loop_fencepost.py) (6/6).*
+
+**Correction to Part V.** The count $21 = (K^3 - 1)/(K - 1)$, i.e. $64 = 21 \times 3 + 1$, is already stated in [`g_matrix_synthesis.md`](../g_from_topology/g_matrix_synthesis.md) Part II. The closure-tree reading of §21–22 restates it as a tree and is not new. What remains of Part V is the comparison with the archive's other exponents (§23).
+
+## 27. The identity
+
+Part VI showed that the factor $1 + \alpha/2\pi$ cannot come from the integer blocks. It needs a circle. The archive already contains the circle, in two places:
+
+- Paper VII: $f_{\text{closure}} = c/r_e$ and $f_{\text{Compton}} = m_e c^2/h$, so $f_{\text{closure}}/f_{\text{Compton}} = 2\pi/\alpha$.
+- [`read_sweep_synthesis.md`](../g_from_topology/read_sweep_synthesis.md): one rotation of the read is one Compton period.
+
+Together:
+
+$$\frac{\alpha}{2\pi} \;=\; \frac{r_e}{\lambda_C} \;=\; \frac{f_{\text{Compton}}}{f_{\text{closure}}} \;=\; \frac1N, \qquad N = \frac{2\pi}{\alpha} \approx 861 \text{ closures per rotation},$$
+
+$$1 + \frac{\alpha}{2\pi} \;=\; \frac{N+1}{N} \;=\; \frac{\lambda_C + r_e}{\lambda_C}.$$
+
+**Reading (proposed).** One rotation of the read is $N$ closures. Read at their boundaries, $N$ intervals have $N + 1$ reads, a fencepost count. Equivalently, the read covers one Compton wavelength *plus one tile* $r_e$: the tile at the seam, which belongs to both the end of one rotation and the start of the next, is read once more. This matches the author's own requirement that a closure boundary is shared and must be read in the snapshot. On this reading:
+
+- the $2\pi$ is the rotation of the read sweep;
+- the $\alpha$ is the tile size over the reduced Compton wavelength, $r_e/\bar\lambda_C$;
+- the "one loop" is one extra closure per rotation.
+
+The closure-climb note already uses the same fencepost: its mean is taken over $n = 0, \ldots, 64$, which is 65 readings for 64 hexagrams.
+
+**Status.** The identity is exact and uses only the archive's definitions. The fencepost reading is a proposal, as `synthesis_one_loop_G.md`'s $(2/17)(17\alpha)/4\pi$ is. Its advantage is that it says where both the $2\pi$ and the $\alpha$ come from, using quantities the framework has already defined, and it makes a different prediction at the next order.
+
+## 28. A test the archive can already state
+
+The archive uses two different completions of the factor, and a third is equally natural:
+
+| Completion | Where | $G$ (CODATA 2018 inputs) | vs CODATA |
+|---|---|---|---|
+| $(N+1)/N = 1 + \alpha/2\pi$ exactly | `g_from_topology/` (fencepost: no $\alpha^2$ term) | $6.674219 \times 10^{-11}$ | −12.1 ppm |
+| $g_e/2 = 1 + a_e$ | `pyramid_portal_research/python/gravity.py` (full QED anomaly) | $6.674207 \times 10^{-11}$ | −13.9 ppm |
+| $N/(N-1)$ | fencepost counted the other way | $6.674228 \times 10^{-11}$ | −10.8 ppm |
+
+They agree at first order and differ at second. $g_e/2 - (1 + \alpha/2\pi) = -1.76 \times 10^{-6}$, which is QED's two- and three-loop terms, $-0.3285\,(\alpha/\pi)^2 + 1.18\,(\alpha/\pi)^3$. The spread across all three is 3.1 ppm.
+
+- **Now:** all three lie inside CODATA's 22 ppm, so G cannot yet choose.
+- **What it means for the archive:** its two "one-loop" factors are different predictions. The [pre-registration](../g_from_topology/PREREGISTRATION.md) fixes $1 + \alpha/2\pi$, so `gravity.py`'s $g_e/2$ is a different formula and should not be cited as the same one.
+- **The test:** a G measurement at about 1 ppm would decide whether the correction is a counting factor, with no $\alpha^2$ term, or QED's anomaly, with its $-0.328(\alpha/\pi)^2$. That is beyond current experiments (best single measurements are about 10 ppm), but it is a sharp statement for the pre-registration to carry.
+
+---
+
 ```bash
 python research/algebra-intersection/verify_intersection.py            # Part I:  63/63 PASS
 python research/algebra-intersection/verify_octahedral_connection.py   # Part II: 48/48 PASS
@@ -475,4 +524,5 @@ python research/algebra-intersection/verify_cube.py                    # Part II
 python research/algebra-intersection/verify_walsh.py                   # Part IV: 26/26 PASS
 python research/algebra-intersection/verify_closure_tree.py            # Part V:  16/16 PASS
 python research/algebra-intersection/verify_sweep_sierpinski.py        # Part VI: 10/10 PASS
+python research/algebra-intersection/verify_one_loop_fencepost.py      # Part VII: 6/6 PASS
 ```
