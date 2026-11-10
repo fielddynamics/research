@@ -560,6 +560,49 @@ Because the average is exact, the factor has **no $\alpha^2$ term**. That separa
 
 ---
 
+# Part IX. The prefactor 17/13 as a phase average
+
+*Checked by [`verify_prefactor_exchange.py`](verify_prefactor_exchange.py) (6/6).*
+
+## 31. The numerator is forced by exchange symmetry
+
+[`g_from_the_closure_climb.md`](../g_from_topology/g_from_the_closure_climb.md) found that the closure's mean coupling depends on the measure: 17 per new hexagram, about 19.2 per step. So it proposed 17 only "per new reading". The dependence disappears under the framework's own exchange symmetry:
+
+$$\langle f \rangle = \langle 1 + sK + K^2\rangle = 1 + K\langle s\rangle + K^2 = 1 + K^2 = 17 \quad\text{whenever the distribution of } s \text{ is symmetric under } s \to -s \;(x \leftrightarrow 1/x).$$
+
+This holds for every symmetric measure. Uniform in $s$, uniform in $\mu$, uniform rapidity, log-normal in $x$ and the two-point TetA/TetB distribution all give 17. A one-way climb averaged per step is not symmetric, and it reproduces the note's ≈19.2 (19.4 here). The archive's own **breathing cycle** (`read_sweep_synthesis.md`: inhale 13 → 21, exhale 21 → 13) is symmetric, and averaged per step over a full breath it gives exactly 17 for any step measure. So the numerator does not need "per new reading". It needs only that a closure is the full breath, which the read-sweep note already says.
+
+## 32. The denominator is the bound source
+
+$\alpha_G = G m_e^2/\hbar c$ measures gravity relative to the electron, a bound pattern. The archive places bound matter in TetB: Paper VII has "bound envelopes, TetB chambers occupied, are matter", and `read_sweep_synthesis.md` describes matter as a read pattern reflected at the TetA/TetB boundary. TetB's capacity is $f(-1) = 13 = DK + 1$. So
+
+$$\frac{17}{13} = \frac{\langle f\rangle_{\text{exchange-symmetric}}}{f(\text{bound source})}.$$
+
+With the source placed elsewhere, the result misses badly: $17/21$ (TetA) is off by 38% and $17/17$ (origin) by 24%. Only TetB fits, at 12 ppm with the loop factor.
+
+**Caveat on independence.** Paper VII's statement that matter sits in TetB was written after the G formula was known. It identifies the denominator but is not independent evidence for it.
+
+## 33. What Parts VIII and IX together say about G
+
+$$\alpha_G \;=\; \underbrace{\alpha^{21}}_{\text{atomic closure over } 1+4+16 \text{ levels}} \;\times\; \underbrace{\frac{\langle f\rangle}{f_{\text{source}}}}_{\text{phase average of the coupling}} \;\times\; \underbrace{\frac{\mathbb E[\text{tiles}]}{N}}_{\text{phase average of the seam}}$$
+
+Both corrections to the bare $\alpha^{21}$ are **averages over a phase the read does not control**:
+- the prefactor averages the coupling over the closure's position in its breath (exchange symmetric, so 17), relative to the source (13);
+- the loop factor averages the seam over the rotation's position on the tile lattice ($N + 1$ tiles), relative to the ideal count ($N$).
+
+**What this changes.** The archive's combination rule, "end as exponent, mean over start as prefactor", was one of 21 menu rules chosen after the fact. It is replaced by two principles the framework already states (exchange symmetry and matter in TetB) and one geometric theorem (the seam average).
+
+**What it does not change, stated plainly.**
+- The exponent's "one α per level" is still the framework's physical assumption.
+- "Tree level counts N closures" (Part VIII, P4) is an identification.
+- The TetB placement of the source is post hoc.
+
+The formula is not more accurate than before: it is the same number. What has changed is that each of its parts now has a stated reason, and two parts have stated tests:
+- **No α² term in the loop factor.** A ~1 ppm measurement of G would test it.
+- **The exchange-symmetric mean.** Any other quantity the framework writes as "coupling relative to bound matter" must use $17/13$; one written relative to an *unbound* source must use $17/21$.
+
+---
+
 ```bash
 python research/algebra-intersection/verify_intersection.py            # Part I:  63/63 PASS
 python research/algebra-intersection/verify_octahedral_connection.py   # Part II: 48/48 PASS
@@ -569,5 +612,6 @@ python research/algebra-intersection/verify_closure_tree.py            # Part V:
 python research/algebra-intersection/verify_sweep_sierpinski.py        # Part VI: 10/10 PASS
 python research/algebra-intersection/verify_one_loop_fencepost.py      # Part VII: 6/6 PASS
 python research/algebra-intersection/verify_seam_average.py           # Part VIII: 7/7 PASS
+python research/algebra-intersection/verify_prefactor_exchange.py     # Part IX:  6/6 PASS
 python research/algebra-intersection/network_model.py                 # registered network model (fails; see NETWORK_MODEL_RESULT.md)
 ```
