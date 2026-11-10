@@ -2,7 +2,7 @@
 
 *The coupling polynomial, the constitutive law, the closure operator and the torsion sector as one modular group*
 
-**Status:** derived and checked. Every claim below is tested by [`verify_intersection.py`](verify_intersection.py) (63/63 PASS), and so is the one hypothesis that turned out false.
+**Status:** derived and checked. Part I is tested by [`verify_intersection.py`](verify_intersection.py) (63/63 PASS) and Part II by [`verify_octahedral_connection.py`](verify_octahedral_connection.py) (46/46 PASS). The hypotheses that turned out false are tested too.
 **Depends on:** [`algebraic_pipeline_of_reality.md`](../../papers/algebraic-papers-a-b-c/algebraic_pipeline_of_reality.md), [`01.1_cyclotomic_algebra.md`](../exploratory/great-pyramid/pyramid_portal_research/01_framework_foundations/01.1_cyclotomic_algebra.md), [Appendix J](../exploratory/great-pyramid/pyramid_portal_research/99_appendices/J_closure_algebra_advancement.md), [`tbit_algebra.md`](../quantum%20compute/t-bit%20algebra/tbit_algebra.md), [`proofs/torsion-regular-representation`](../../proofs/torsion-regular-representation/)
 
 ---
@@ -41,6 +41,8 @@ and the curve this group acts on, the level-4 modular curve $X(4)$, *is* the ste
 Riemann–Hurwitz gives genus 0: $X(4)$ is a sphere tiled as an octahedron (Klein, 1878). That classical fact is not new. What is new is that the framework's objects, derived separately, line up with its pieces: the evaluation point $K = 4$ of the polynomial is the **level** of the modular curve, and it is also the **order** of the constitutive law.
 
 ---
+
+# Part I. One group
 
 ## 1. The spinor norm form
 
@@ -129,18 +131,97 @@ So the framework's two involutions, *exchange* ($\mu \leftrightarrow 1 - \mu$) a
 
 **Scope.**
 - These are exact identities among standard objects: cyclotomic polynomials, $\mathrm{SL}_2(\mathbb Z)$, Klein's $X(4)$, Spin(3). The new part is the identification and the K-cancellation finding, not new number theory.
-- "The torsion $S_4$ is the modular $S_4$" is an *identification*. Both are regular $S_4$-sets and so isomorphic as representations, but no map has been constructed from frame-leg permutations to $\mathrm{PSL}_2(\mathbb Z/4)$ that carries the 24 torsion components to the 24 sheets. Building that map is the next real step.
+- "The torsion $S_4$ is the modular $S_4$": Part II (§9) now builds the explicit isomorphism and the explicit intertwiners. The 24 torsion components are *not* a free orbit (each basis tensor is fixed by a transposition). They are edge data on $X(4)$: $R[E] \oplus C^1$.
 - Nothing here bears on $\alpha_G = \tfrac{17}{13}\alpha^{21}(1 + \alpha/2\pi)$, on $1/\alpha = 137 + 1/28$, or on the SPARC result. In particular the algebra does not single out $\alpha$ as the base or 21 as the exponent.
 
 ## 8. Open questions this opens
 
-1. **Construct the equivariant map** from the torsion components $T^a{}_{[bc]}$ to the sheets of $X(4) \to X(1)$, compatible with the 40 / 24 split. If the 40 Christoffel components also have a natural home on $X(4)$, the Einstein / TetA partition becomes a statement about modular forms of level 4.
+1. ~~Construct the equivariant map~~ Done in §9, for all 64 components.
 2. **The K = 5 hinge is icosahedral.** $\mathrm{PSL}_2(\mathbb Z/5) \cong A_5$ and $X(5)$ is the icosahedron. The "portal shell" at $K = 5$ (`01.4`, `03.1`) would carry icosahedral, not tetrahedral, symmetry, and its torsion count (50) is not the regular representation (60). This is a sharp test of that programme.
 3. **Level-4 modular forms.** $\Gamma(4)$ is conjugate to $\Gamma_0(16)$, with $16 = K^2$ the curvature prefactor, whose forms include $\theta(\tau)^k$. If the 40 / 24 split has a modular reading, it should show up there.
 4. **Exchange as a mirror.** Since $x \mapsto 1/x$ is orientation-reversing on $X(4)$, the exchange-symmetry premise of the constitutive-law proof is a reflection, not a rotation. Restate that proof with the mirror and parity kept distinct, and see whether any premise changes.
 
 ---
 
+
+---
+
+# Part II. The connection lives on the octahedron
+
+## 9. The 64 connection components as cochains on $X(4)$
+
+**The isomorphism.** The cusps of $X(4)$ map to the six vertices $\pm e_i$ of the octahedron, and this carries $\mathrm{PSL}_2(\mathbb Z/4)$ onto the rotation group $O$ and $\mathrm{PGL}_2(\mathbb Z/4)$ onto $O_h$. The map is checked to be a homomorphism on all $48 \times 48$ pairs. The four tetrad legs are the four body diagonals, and $O$ permutes them as $S_4$. A rotation is odd on the legs exactly when it swaps the TetA and TetB tips.
+
+**Theorem (octahedral decomposition of the connection).** As $S_4$-modules, with an explicit invertible intertwiner in each case:
+
+| Sector | Count | Octahedral content |
+|---|:-:|---|
+| incident torsion $T^a{}_{[ab]}$ | 12 | $R[E]$, functions on the 12 edges |
+| non-incident torsion $T^a{}_{[bc]}$ | 12 | $C^1$, **oriented 1-cochains** on the octahedron |
+| Christoffel $\Gamma^a{}_{(bc)}$ | 40 | $R[D] \oplus 3R[E]$: the 4 body diagonals and three copies of the edges |
+| **whole connection** | **64** | $R[D] \oplus 4R[E] \oplus C^1$ |
+
+So the torsion-free condition of general relativity keeps only orientation-blind data (diagonals and unoriented edges). The one oriented object in the connection, the 1-cochains $C^1$, lies entirely in the torsion. "General relativity is root-blind" now has a concrete form: **GR discards the orientation of the octahedron.**
+
+**Hodge split.** $X(4)$ is a sphere, so $H^1 = 0$, and $C^1$ is exactly gradients from the cusps plus curls from the tips:
+
+$$C^1 = \underbrace{d\,C^0}_{5\,=\,E + 3'} \;\oplus\; \underbrace{d^{T} C^2}_{7\,=\,\mathrm{sgn} + 3 + 3'},\qquad C^0 = 1 + E + 3',\quad C^2 = 1 + \mathrm{sgn} + 3 + 3'.$$
+
+**The parity detector is a vortex.** Let $\chi = +1$ on the four TetA tips and $-1$ on the four TetB tips. Then the 1-cochain $\omega = d^{T}\chi$:
+
+- spans the sign line of $C^1$. Pulled back through the intertwiner, it is *the* single sign-representation vector of the torsion, the one the torsion proof found;
+- takes the value $\pm 2$ on every edge (adjacent tips always have opposite colours), so it is a uniform flow;
+- is purely co-exact, orthogonal to every gradient, so it is not a potential flow;
+- has circulation $+6$ around every TetA tip and $-6$ around every TetB tip.
+
+The pipeline document's sentence "the torsion is the vortex" was a slogan. Here it is a theorem: **the parity-odd part of the torsion is the curl of the TetA − TetB indicator on the level-4 modular curve.**
+
+## 10. Where the t-bit states sit
+
+The three axes of the octahedron are $\{0, 2\}$, $\{\infty, \tfrac12\}$ and $\{1, -1\}$.
+
+- **The three t-bit logical states $x = 0$ (deep field), $x = 1$ (balanced) and $x = \infty$ (Newtonian) are the corners of one face, so they form a single tip of the stellated octahedron.** The antipodal tip, in the other tetrahedron, is the harmonic cross-ratio triple $\{-1, 2, \tfrac12\}$.
+- The stabiliser of the tip $\{0, 1, \infty\}$ in $\mathrm{PGL}_2(\mathbb Z/4)$ is the anharmonic group $S_3 = \langle x \mapsto 1/x,\ x \mapsto 1 - x\rangle$, the classical symmetry group of the cross-ratio.
+- The exchange $P$ is the mirror of that tip: it swaps $0$ and $\infty$ and fixes $1$. The constitutive law $L$ is the quarter-turn about the axis $\{0, 2\}$, the threshold shift $T$ is the quarter-turn about $\{\infty, \tfrac12\}$, and the Field Origin $x = 1$ lies on the third axis.
+
+**Consequence for the framework.** The t-bit document labels $x = \infty$ "pure TetA" and $x = 0$ "pure TetB". On the level-4 curve both are corners of the same tip. The two tetrahedra are told apart by the harmonic points $\{-1, 2, \tfrac12\}$, not by $0$ against $\infty$. This sharpens the §7 finding: the exchange $\mu \leftrightarrow 1 - \mu$ acts *inside* one tetrahedron.
+
+## 11. The double cover that separates 21 from 13
+
+The values 21 and 13 are the traces of the two lifts $\pm M$ of one element. The double cover that carries them is $\mathrm{SL}_2(\mathbb Z/4) \to S_4$, and its extension class can be identified exactly:
+
+- Its element orders are $\{1{:}1,\ 2{:}7,\ 3{:}8,\ 4{:}24,\ 6{:}8\}$. So it is **not** the spin cover $2O$ (binary octahedral), **not** $\mathrm{GL}(2,3)$ and **not** split.
+- The rule $\varphi(S) = \varphi(T) = i$ extends to a homomorphism $\varphi: \mathrm{SL}_2(\mathbb Z/4) \to \mu_4$ with $\varphi(-1) = -1$ and $\varphi^2 = \mathrm{sgn}$. Hence
+
+$$\boxed{\;\mathrm{SL}_2(\mathbb Z/4) \;\cong\; \{(g, z) \in S_4 \times \mu_4 \;:\; z^2 = \operatorname{sgn} g\}\;}$$
+
+- $\varphi$ is the multiplier system of $\eta(\tau)^6$ (weight 3), and $\varphi^2 = \mathrm{sgn}$ is that of $\eta(\tau)^{12}$. Both are checked numerically to 50 digits. **The TetA ↔ TetB sign character of $S_4$ is the multiplier of $\eta^{12}$.**
+
+**Trace table.** Writing $s = -\operatorname{tr} M \bmod 4$:
+
+| Class in $S_4$ | $s$ | Value |
+|---|:-:|---|
+| transpositions (edge half-turns) | 0 | $\Phi_4 = 17$, Field Origin |
+| 3-cycles (rotations about the tips) | $\pm 1$ | $\Phi_3 = 21$ / $\Phi_6 = 13$ |
+| identity, double transpositions, 4-cycles | 2 | $(K \mp 1)^2$, not elliptic |
+
+The elliptic classes are exactly the three structural states, now read inside a finite group.
+
+**Sign-twisted equivariance.** Over $A_4$ the cover splits, so each 3-cycle has a canonical order-3 lift (trace $-1$, value 21). Give each TetA tip the 21-lift of its $120^\circ$ rotation and each TetB tip the 13-lift. Then, for all 48 elements $h$ and all 8 tips $v$:
+
+$$h\,\mathcal L(v)\,h^{-1} \;=\; \operatorname{sgn}(h)\,\mathcal L(h v), \qquad \mathcal L(-v) = -\mathcal L(v)^{-1}.$$
+
+The 21/13 labelling is equivariant up to exactly one defect, the sign character, and that defect is $\varphi^2$, the $\eta^{12}$ multiplier. Spatial parity acts on the lifted states as $s \mapsto -s$.
+
+## 12. What Part II changes
+
+1. **Three different double covers of $S_4$ are in play, and the framework conflates them.** They are $O_h = S_4 \times \mathbb Z_2$ (spatial parity, the scheme proof's two roots), $2O$ (spin, §2) and $\mathrm{SL}_2(\mathbb Z/4)$ (the trace cover that actually separates 21 from 13). They are pairwise non-isomorphic. Statements such as "21 and 13 are the two spin sheets" (§2) and "21 and 13 are the two roots of $\det e$" are therefore different claims, and at most one extension class can be the physical one.
+2. **Prediction-shaped consequence.** If the torsion's parity-odd mode is $\omega = d^T\chi$, it carries no gradient part. A source that couples only to gradients (a scalar potential) cannot excite it, and only a circulating (axial) source can. The framework's torsion phenomenology should say which it is.
+3. **Next step.** Level-4 forms with these multipliers ($\eta^6$, $\eta^{12}$, and $\eta(4\tau)^6 \in S_3(\Gamma_0(16))$ with $16 = K^2$) are the natural place to look for a modular reading of the 40 / 24 split.
+
+---
+
 ```bash
-python research/algebra-intersection/verify_intersection.py     # 63/63 PASS
+python research/algebra-intersection/verify_intersection.py            # Part I:  63/63 PASS
+python research/algebra-intersection/verify_octahedral_connection.py   # Part II: 46/46 PASS
 ```
