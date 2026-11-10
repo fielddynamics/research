@@ -2,7 +2,9 @@
 
 *The coupling polynomial, the constitutive law, the closure operator and the torsion sector as one modular group*
 
-**Status:** derived and checked. Part I is tested by [`verify_intersection.py`](verify_intersection.py) (63/63 PASS), Part II by [`verify_octahedral_connection.py`](verify_octahedral_connection.py) (48/48 PASS) and Part III, the cube, by [`verify_cube.py`](verify_cube.py) (38/38 PASS). **Part III corrects parts of Part II and §13; where they disagree, Part III stands.** The hypotheses that turned out false are tested too.
+**Status:** derived and checked. Part I is tested by [`verify_intersection.py`](verify_intersection.py) (63/63 PASS), Part II by [`verify_octahedral_connection.py`](verify_octahedral_connection.py) (48/48 PASS) and Part III, the cube, by [`verify_cube.py`](verify_cube.py) (38/38 PASS). Part IV, the cube as the computer of [`universe-is-pixelated/`](../universe-is-pixelated/), by [`verify_walsh.py`](verify_walsh.py) (26/26 PASS).
+
+> **Read Part IV first.** Parts I–III modelled the exchange $x \to 1/x$ by reducing Möbius matrices mod 4. That model is algebraically correct but is **not** how the cube acts on a field. On the Boolean cube, where $x$ is the TetA : TetB mass ratio, the exchange *is* parity, XOR 111, exactly as the framework states (§17). The "conflicts" reported in §7, §10, §13 and §15–16 about exchange versus parity are therefore **retracted as artifacts of the mod-4 model**. The results that do not depend on that model still stand and are listed in §20. The hypotheses that turned out false are tested too.
 **Depends on:** [`algebraic_pipeline_of_reality.md`](../../papers/algebraic-papers-a-b-c/algebraic_pipeline_of_reality.md), [`01.1_cyclotomic_algebra.md`](../exploratory/great-pyramid/pyramid_portal_research/01_framework_foundations/01.1_cyclotomic_algebra.md), [Appendix J](../exploratory/great-pyramid/pyramid_portal_research/99_appendices/J_closure_algebra_advancement.md), [`tbit_algebra.md`](../quantum%20compute/t-bit%20algebra/tbit_algebra.md), [`proofs/torsion-regular-representation`](../../proofs/torsion-regular-representation/)
 
 ---
@@ -231,12 +233,12 @@ Two kinds of finding are here, and they must not be mixed up.
 | # | Framework claim (file) | Finding | Strength | What has to change | What is untouched |
 |:-:|---|---|:-:|---|---|
 | 1 | Normalisation of the coupling polynomial is a route to $\mu$: $\mu = (f(x) - 13)/8$ (`llms.txt` Eq. 13–15, listed among the "routes in the papers") | $(f - f_{-1})/(f_{+1} - f_{-1}) = (1+s)/2$ for **every** $K$. The route is the Cayley map $s(x)$ rewritten, and 21, 17, 13 cancel out | **Firm** | Stop counting it as an independent route, or as evidence that $\mu$ reflects $K = 4$. It is a relabelling of $s(x)$ | $\mu = x/(x+1)$ itself; the exchange-symmetry proof; the SPARC fit |
-| 2 | "Swapping TetA and TetB is the map $x \to 1/x$" and "The exchange is parity itself" (`proofs/constitutive-law-exchange-symmetry/README.md`, lines 78–80) | *Revised in Part III.* At level 4, $x \to 1/x$ is a cube mirror with $(\det, \mathrm{swap}) = (-1, +1)$. It **does** flip orientation, the root of $\det e$, exactly as the scheme proof's criterion requires. It does **not** carry TetA onto TetB as a set; only the inversion $Z$ (or a quarter-turn) does that | **Conditional** | Line 80 is right if "parity" means orientation. Line 78 is the one that conflicts: swapping the root and swapping the tetrahedron are two different bits | The proof's logic and premise (X) |
-| 3 | $x = \infty$ is "Pure TetA", $x = 0$ is "Pure TetB", $P$ "swaps TetA ↔ TetB" (`tbit_algebra.md` lines 48–50, 90; `Cube lattice/tbit_compute_node_algebra.md` lines 69–71, 133; `gfd_quantum_compute_algebra.md` lines 176–178) | In the cube, $0$, $1$ and $\infty$ are the centres of the three faces around one corner. Each is a point where a TetA edge crosses a TetB edge, so none belongs to one tetrahedron. $P$ is the diagonal mirror through that corner | **Conditional** | If the level-4 picture is adopted, the t-bit labels mean "$\mu \to 1$ / $\mu \to 0$" (shares), not "which tetrahedron" | The t-bit gate algebra as algebra |
+| 2 | "Swapping TetA and TetB is the map $x \to 1/x$", "The exchange is parity itself" (constitutive-law README, lines 78–80) | **Retracted.** On the cube, $x$ = TetA mass / TetB mass and XOR 111 sends $x \to 1/x$ exactly (§17). The mod-4 "mirror" was an artifact of the model | — | Nothing | — |
+| 3 | t-bit labels $x = \infty$ "Pure TetA", $x = 0$ "Pure TetB" | **Retracted.** On the cube, $x \to \infty$ is all mass in TetA and $x \to 0$ all mass in TetB, exactly as labelled | — | Nothing | — |
 | 4 | 21 and 13 are carried across by parity (scheme proof, TetA/TetB as the two roots) | **Consistent.** Parity acts on the lifted states as $s \to -s$ (§11) | — | Nothing | — |
 | 4′ | *My* Part I §2: "21 and 13 are the two spin sheets" | **Wrong.** The cover that separates them is $\mathrm{SL}_2(\mathbb Z/4)$, which is not the spin cover $2O$ | **Firm** | Withdrawn (§2 now corrected) | The fibre-average identity $(21 + 13)/2 = 17$ |
 
-**The decision this forces** (revised in Part III). Rows 2 and 3 come down to one question: does the exchange $\mu \leftrightarrow 1 - \mu$ swap only the root, or the root *and* the tetrahedron? In cube terms, is it the mirror (a bit SWAP) or the inversion (NOT on all three bits)? §16 gives the test that tells them apart. The earlier version of this paragraph used the octahedron's antipodal action on $\omega$, which is not how inversion acts on the connection, so its test was wrong and has been replaced.
+**Superseded by Part IV.** ~~The decision this forces~~ (revised in Part III). Rows 2 and 3 come down to one question: does the exchange $\mu \leftrightarrow 1 - \mu$ swap only the root, or the root *and* the tetrahedron? In cube terms, is it the mirror (a bit SWAP) or the inversion (NOT on all three bits)? §16 gives the test that tells them apart. The earlier version of this paragraph used the octahedron's antipodal action on $\omega$, which is not how inversion acts on the connection, so its test was wrong and has been replaced.
 
 
 ---
@@ -300,7 +302,7 @@ $$\text{torsion} = R[\text{TetA vertices}] \otimes C^1(\text{oriented TetA edges
 
 where the six TetA edges are the cube's face diagonals through the six cusps. The torsion-free condition forgets the orientation of TetA's edges, and that is what "GR is root-blind" means in the cube.
 
-## 16. The test: mirror or inversion
+## 16. ~~The test: mirror or inversion~~ (superseded: on the cube the exchange is inversion, §17)
 
 The exchange $\mu \leftrightarrow 1 - \mu$ flips the root in either reading. What differs is the TetA/TetB bit. On the connection:
 
@@ -315,8 +317,81 @@ The axial torsion cannot tell the readings apart; the permutation-invariant part
 
 ---
 
+# Part IV. The cube as the computer
+
+The cube here is the one of [`universe-is-pixelated/`](../universe-is-pixelated/README.md). Its corners are the 3-bit addresses, its harmonics are the Walsh functions $w_a(x) = (-1)^{\mathrm{popcount}(a \wedge x)}$, TetA and TetB are the odd- and even-parity corners, parity is $x \mapsto x \oplus 111$, and the octahedral node computes on it. A field on the pixel is a non-negative weight $p$ on the 8 corners with Walsh coefficients $c_a$.
+
+## 17. The node reads out the constitutive law, and the exchange is parity
+
+| Cube quantity | Framework quantity |
+|---|---|
+| $s = -c_{111}/c_{000}$, the normalised parity harmonic | the structural state $s$ |
+| TetA share $= (1+s)/2$ | $\mu$, **exactly the node's readout** `mu = (1 + omega/c0)/2` (checked on 200 random node runs) |
+| $x = $ TetA mass / TetB mass | the acceleration ratio $g/a_0$, so that $\mu = x/(x+1)$ |
+| $s = \tanh(\tfrac12 \ln x)$ | the rapidity reading of §3 |
+| $p(x) \to p(x \oplus 111)$ | sends $c_{111} \to -c_{111}$, so $s \to -s$, $\mu \to 1-\mu$ and $x \to 1/x$: **the exchange is Letter 2's parity** |
+
+So the constitutive law is the chamber odds of the pixel, and the node already measures it. Two refinements, both exact:
+
+- **Which operations exchange the chambers.** The XOR masks that flip the parity harmonic are exactly the four TetA addresses $\{001, 010, 100, 111\}$. Of these, only $111$ commutes with every permutation of the axes, so $111$ is the one that is spatial parity. Bit permutations (SWAP gates) keep every grade and never exchange the chambers. This is the cube-native form of §15's three labels: whether the chambers swap is the parity of the XOR mask, orientation is that parity times the sign of the bit permutation, and their product is the sign of the bit permutation alone.
+- **Why the K-cancellation of §3 happens.** $\mu$ is a cube quantity, the TetA share, and the cube's even and odd sectors are the same size (4 and 4, the $H_2$ factor of $H_8 = H_2 \otimes H_4$). The coupling polynomial is a *frame* quantity. Normalising it onto the cube can only return the cube's share, which carries no $K$.
+
+## 18. A new route to μ: maximum entropy on the pixel
+
+Among all distributions on the 8 corners with a given parity harmonic, the one of largest entropy is the Gibbs state $p \propto e^{\eta\,w_A}$ ($w_A = +1$ on TetA, $-1$ on TetB). Its TetA share is
+
+$$\mu = \frac{e^{\eta}}{e^{\eta} + e^{-\eta}} = \frac{x}{x+1}, \qquad x = e^{2\eta}.$$
+
+The acceleration ratio is the exponential of the Lagrange multiplier on the parity harmonic, $\ln x = 2\eta$. The t-bit dilation gate $x \to \alpha x$ is a tilt $\eta \to \eta + \tfrac12\ln\alpha$, and the logistic law $d\mu/d\ln x = \mu(1-\mu)$ is the variance of $w_A$ in that Gibbs state, up to a factor of 4. This is an information-theoretic route to $\mu(x) = x/(x+1)$: *the least-committed field on the pixel, given only how much of it sits in TetA*. Its premise is that $g/a_0$ is the chamber odds. It is a fourth route, independent of the exchange-symmetry, Möbius and normalisation routes.
+
+## 19. The three integers and the 64, read on the cube
+
+**21, 17, 13 are graded dimensions.** Grade the frame's space $T^{\le 2}(V) = V^{\otimes 0} \oplus V \oplus V^{\otimes 2}$ (blocks $H_1, H_4, H_{16}$) by Letter 2's rule, with rank-one odd under parity. Then
+
+$$\dim = 21,\qquad \dim_{\text{even}} = 17,\qquad \operatorname{sdim} = 13,$$
+
+and $\mathrm{Tr}(I_s)$ at $s = +1, 0, -1$ is exactly these three: $I_{-1}$ *is* the parity operator, and its trace is the super-dimension. So the read of $G$ uses
+- 17/13 = (root-blind dimension)/(super-dimension), and
+- $\alpha^{21} = \alpha^{\dim}$.
+
+The cube's own Walsh space, graded by XOR 111, has $(\dim, \dim_{\text{even}}, \operatorname{sdim}) = (8, 4, 0)$. The pixel is perfectly balanced; the frame is not, and its imbalance is 13.
+
+**The 64.** The README notes $K^3 = (2^D)^2 = 64$: the connection's $4^3$ components equal the $8 \times 8$ corner transitions. The check asks *as what*:
+
+| Symmetry | Connection $4^3$ ≅ transitions $8 \times 8$? |
+|---|:-:|
+| $E$ = TetB acting by XOR (order 4) | **yes**, both are 16 copies of the regular representation |
+| $A_4$, the rotations of TetA | no |
+| $T_d$, all of TetA's symmetry | no |
+
+So the identification "the connection *is* the transitions" is canonical exactly over the cube's XOR action by TetB, the computing structure, and not over its rotations.
+
+**The Eisenstein unit as a closure step.** Write a transition $(x, y)$ bitwise as $x + \omega y \in \mathbb F_4^3$, where $\mathbb F_4 = \mathbb Z[\omega]/2$ is the Eisenstein integers mod 2. Multiplication by $\omega$ is then
+
+$$(x, y) \;\mapsto\; (y,\; x \oplus y),$$
+
+a three-step closure: $x$, then $y$, then $x \oplus y$, and back, since $x \oplus y \oplus (x \oplus y) = 0$. It has order 3 and fixes only the trivial transition, so
+
+$$64 = 1 + 3 \times 21,$$
+
+and the 21 orbits are the closed XOR triangles of the cube: 14 genuine triangles (the 7 Fano lines, each in 2 orientations) and 7 out-and-back walks. Here $21 = \Phi_3(4)$ appears as a count of closures on the pixel, with the Eisenstein unit as the step. *Status: an exact identity.* It is the cube's $\mathbb F_4$-projective plane, $|PG(2,4)| = 21$. Whether the node's forward / backward / reconcile cycle realises this $\omega$-step is a question for the node, not yet a result.
+
+## 20. What survives from Parts I–III
+
+| Result | Status after Part IV |
+|---|---|
+| §3: the polynomial normalisation route to $\mu$ carries no $K$ | **Stands**, and is now explained (§17) |
+| §4–5: $f(K,s) = \det(K - M)$ for the elliptic elements of $\mathrm{SL}_2(\mathbb Z)$; $\mu$ as the modular matrix $L$; the $(2,3,K)$ uniqueness route | Stand as algebra |
+| §14: cube cells ↔ special points of $X(4)$; 17 on the cube's edges, where TetA meets TetB | Stands |
+| §15: Appendix J's Galois table has $\sigma_5$ and $\sigma_7$ swapped | **Stands** (firm) |
+| §15: the torsion's unique orientation mode is TetA's volume form $\varepsilon_{abcd}$, absent from the Christoffel sector | Stands |
+| §2 "spin sheets"; §9–10 octahedral cochains and t-bit placement; §13 rows 2–3; §15–16 "exchange is a mirror" | **Retracted** or confined to the mod-4 model |
+
+---
+
 ```bash
 python research/algebra-intersection/verify_intersection.py            # Part I:  63/63 PASS
 python research/algebra-intersection/verify_octahedral_connection.py   # Part II: 48/48 PASS
 python research/algebra-intersection/verify_cube.py                    # Part III: 38/38 PASS
+python research/algebra-intersection/verify_walsh.py                   # Part IV: 26/26 PASS
 ```
