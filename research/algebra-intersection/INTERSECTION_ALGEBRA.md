@@ -2,7 +2,7 @@
 
 *The coupling polynomial, the constitutive law, the closure operator and the torsion sector as one modular group*
 
-**Status:** derived and checked. Part I is tested by [`verify_intersection.py`](verify_intersection.py) (63/63 PASS) and Part II by [`verify_octahedral_connection.py`](verify_octahedral_connection.py) (46/46 PASS). The hypotheses that turned out false are tested too.
+**Status:** derived and checked. Part I is tested by [`verify_intersection.py`](verify_intersection.py) (63/63 PASS) and Part II by [`verify_octahedral_connection.py`](verify_octahedral_connection.py) (48/48 PASS). The hypotheses that turned out false are tested too.
 **Depends on:** [`algebraic_pipeline_of_reality.md`](../../papers/algebraic-papers-a-b-c/algebraic_pipeline_of_reality.md), [`01.1_cyclotomic_algebra.md`](../exploratory/great-pyramid/pyramid_portal_research/01_framework_foundations/01.1_cyclotomic_algebra.md), [Appendix J](../exploratory/great-pyramid/pyramid_portal_research/99_appendices/J_closure_algebra_advancement.md), [`tbit_algebra.md`](../quantum%20compute/t-bit%20algebra/tbit_algebra.md), [`proofs/torsion-regular-representation`](../../proofs/torsion-regular-representation/)
 
 ---
@@ -72,7 +72,7 @@ $$\frac{\mathcal N_K(q) + \mathcal N_K(-q)}{2} = K^2 + 1 = \Phi_4(K), \qquad \ma
 
 With $|2a| = 1$ the difference is $2K = 8 = 2^D$, the framework's "range". The map $q \mapsto -q$ is the kernel of $\mathrm{Spin}(3) \to SO(3)$, and it sends $s \mapsto -s$, $\Phi_3 \leftrightarrow \Phi_6$.
 
-**Reading.** 21 and 13 are the two sheets of the spin double cover over a single rotation, and 17 is the average over the fibre. A rotation in $SO(3)$, which is all the metric sees, cannot tell 21 from 13. It sees only their average, 17. This is the same statement as the scheme proof's "the metric sees only $(\det e)^2$", now in group language. The proof gives the identity $(21 + 13)/2 = 17$ (Eq. 10 in `llms.txt`) for every $K$, which explains why it holds.
+**Reading (corrected in §11 and §13).** The identity holds for any pair $\pm q$, so 17 is the average of 21 and 13 over the pair. But the group that actually separates 21 from 13 is the trace cover $\mathrm{SL}_2(\mathbb Z/4)$, not the spin cover $2O$. So "21 and 13 are the two spin sheets" is withdrawn. What remains is the norm identity and the fibre average. A rotation in $SO(3)$, which is all the metric sees, cannot tell 21 from 13. It sees only their average, 17. This is the same statement as the scheme proof's "the metric sees only $(\det e)^2$", now in group language. The proof gives the identity $(21 + 13)/2 = 17$ (Eq. 10 in `llms.txt`) for every $K$, which explains why it holds.
 
 ## 3. The Möbius–Lorentz reading of the state map
 
@@ -125,7 +125,7 @@ $$\Phi_3(K^2) = \Phi_3(K)\,\Phi_6(K),\qquad \Phi_4(K^2) = \Phi_8(K),\qquad \Phi_
 - the rotation $Z \cdot P$, a half-turn;
 - the order-4 elements, including the constitutive law $L$ itself (whose square preserves the tetrahedra), and the six transpositions. In short, the sign character of $S_4$.
 
-So the framework's two involutions, *exchange* ($\mu \leftrightarrow 1 - \mu$) and *spatial parity* (TetA ↔ TetB), are **different elements** of the octahedral group. Their product is a rotation. The documents currently use the two interchangeably, and this result says they should be kept apart.
+So the framework's two involutions, *exchange* ($\mu \leftrightarrow 1 - \mu$) and *spatial parity* (TetA ↔ TetB), are **different elements** of the octahedral group. Their product is a rotation. The constitutive-law proof's README identifies them ("The exchange is parity itself"), and this result says that in the level-4 model they are different. §13 sets out exactly what that does and does not affect.
 
 **Coincidence rejected.** $\varphi(13) + \varphi(17) + \varphi(21) = 40$ equals the Christoffel count at $K = 4$, but at no other $K$ in $2, \dots, 29$, and nothing explains it. It is filtered out.
 
@@ -184,7 +184,7 @@ The three axes of the octahedron are $\{0, 2\}$, $\{\infty, \tfrac12\}$ and $\{1
 - The stabiliser of the tip $\{0, 1, \infty\}$ in $\mathrm{PGL}_2(\mathbb Z/4)$ is the anharmonic group $S_3 = \langle x \mapsto 1/x,\ x \mapsto 1 - x\rangle$, the classical symmetry group of the cross-ratio.
 - The exchange $P$ is the mirror of that tip: it swaps $0$ and $\infty$ and fixes $1$. The constitutive law $L$ is the quarter-turn about the axis $\{0, 2\}$, the threshold shift $T$ is the quarter-turn about $\{\infty, \tfrac12\}$, and the Field Origin $x = 1$ lies on the third axis.
 
-**Consequence for the framework.** The t-bit document labels $x = \infty$ "pure TetA" and $x = 0$ "pure TetB". On the level-4 curve both are corners of the same tip. The two tetrahedra are told apart by the harmonic points $\{-1, 2, \tfrac12\}$, not by $0$ against $\infty$. This sharpens the §7 finding: the exchange $\mu \leftrightarrow 1 - \mu$ acts *inside* one tetrahedron.
+**Consequence for the framework (conditional; see §13).** *If* the t-bit line is read through the level-4 curve, the labels "$x = \infty$ pure TetA" and "$x = 0$ pure TetB" name two corners of the same tip, and the two tetrahedra are told apart by the harmonic points $\{-1, 2, \tfrac12\}$. Within the t-bit's own definitions ($\mu$ = TetA share) the labels are consistent. They conflict only with the level-4 picture.
 
 ## 11. The double cover that separates 21 from 13
 
@@ -215,13 +215,40 @@ The 21/13 labelling is equivariant up to exactly one defect, the sign character,
 
 ## 12. What Part II changes
 
-1. **Three different double covers of $S_4$ are in play, and the framework conflates them.** They are $O_h = S_4 \times \mathbb Z_2$ (spatial parity, the scheme proof's two roots), $2O$ (spin, §2) and $\mathrm{SL}_2(\mathbb Z/4)$ (the trace cover that actually separates 21 from 13). They are pairwise non-isomorphic. Statements such as "21 and 13 are the two spin sheets" (§2) and "21 and 13 are the two roots of $\det e$" are therefore different claims, and at most one extension class can be the physical one.
+1. **Three different double covers of $S_4$ are in play, and they should be named separately.** They are $O_h = S_4 \times \mathbb Z_2$ (spatial parity, the scheme proof's two roots), $2O$ (spin) and $\mathrm{SL}_2(\mathbb Z/4)$ (the trace cover in which "21 or 13" is a property of the group element itself). They are pairwise non-isomorphic. The framework's own reading, that parity carries 21 to 13, is **consistent** with this: §11 checks that parity acts as $s \to -s$ on the lifted states. The reading that does not survive is mine, in §2: 21 and 13 are *not* the two sheets of the spin cover. See §13.
 2. **Prediction-shaped consequence.** If the torsion's parity-odd mode is $\omega = d^T\chi$, it carries no gradient part. A source that couples only to gradients (a scalar potential) cannot excite it, and only a circulating (axial) source can. The framework's torsion phenomenology should say which it is.
 3. **Next step.** Level-4 forms with these multipliers ($\eta^6$, $\eta^{12}$, and $\eta(4\tau)^6 \in S_3(\Gamma_0(16))$ with $16 = K^2$) are the natural place to look for a modular reading of the 40 / 24 split.
+
+## 13. Impact on existing framework claims, stated precisely
+
+Two kinds of finding are here, and they must not be mixed up.
+
+- **Firm.** Pure algebra, true whatever model you adopt.
+- **Conditional.** True *if* the level-4 modular picture of Parts I–II is the right home for the framework's objects. The algebra of that picture is verified. That it is the *physical* picture is my proposal, not something proven.
+
+| # | Framework claim (file) | Finding | Strength | What has to change | What is untouched |
+|:-:|---|---|:-:|---|---|
+| 1 | Normalisation of the coupling polynomial is a route to $\mu$: $\mu = (f(x) - 13)/8$ (`llms.txt` Eq. 13–15, listed among the "routes in the papers") | $(f - f_{-1})/(f_{+1} - f_{-1}) = (1+s)/2$ for **every** $K$. The route is the Cayley map $s(x)$ rewritten, and 21, 17, 13 cancel out | **Firm** | Stop counting it as an independent route, or as evidence that $\mu$ reflects $K = 4$. It is a relabelling of $s(x)$ | $\mu = x/(x+1)$ itself; the exchange-symmetry proof; the SPARC fit |
+| 2 | "Swapping TetA and TetB is the map $x \to 1/x$" and "The exchange is parity itself" (`proofs/constitutive-law-exchange-symmetry/README.md`, lines 78–80) | At level 4, $x \to 1/x$ is a mirror that **preserves** each tetrahedron. Parity is the central inversion $Z$, a different element, and their product is a half-turn | **Conditional** | If the level-4 picture is adopted, the README's identification of exchange with parity must be weakened to "exchange is *induced by* parity on the accelerations", or the picture rejected. The two cannot both stand as written | The proof's logic. Its premise (X) is about parity, and $x \to 1/x$ is *derived* as the induced map on $(0, \infty)$, which the mod-4 reduction does not contradict |
+| 3 | $x = \infty$ is "Pure TetA", $x = 0$ is "Pure TetB", $P$ "swaps TetA ↔ TetB" (`tbit_algebra.md` lines 48–50, 90; `Cube lattice/tbit_compute_node_algebra.md` lines 69–71, 133; `gfd_quantum_compute_algebra.md` lines 176–178) | On the level-4 curve, 0, 1 and ∞ are corners of **one** tip, and $P$ is that tip's mirror | **Conditional** | Same choice as #2: if the level-4 picture is adopted, the t-bit "TetA/TetB" labels mean "$\mu \to 1$ / $\mu \to 0$" (shares), not "which tetrahedron of the stellated octahedron" | The t-bit gate algebra as algebra: $\mu$ as the TetA *share* is self-consistent |
+| 4 | 21 and 13 are carried across by parity (scheme proof, TetA/TetB as the two roots) | **Consistent.** Parity acts on the lifted states as $s \to -s$ (§11) | — | Nothing | — |
+| 4′ | *My* Part I §2: "21 and 13 are the two spin sheets" | **Wrong.** The cover that separates them is $\mathrm{SL}_2(\mathbb Z/4)$, which is not the spin cover $2O$ | **Firm** | Withdrawn (§2 now corrected) | The fibre-average identity $(21 + 13)/2 = 17$ |
+
+**The decision this forces.** Rows 2 and 3 are one question. Either:
+
+- **(a)** keep the level-4 unification of Parts I–II, the torsion as octahedral cochains, the vortex theorem and the uniqueness route, and accept that the exchange $\mu \leftrightarrow 1 - \mu$ is a mirror *within* a tetrahedron, distinct from parity; or
+- **(b)** keep "exchange is parity" literally, and treat the level-4 structure as a numerical parallel rather than the framework's home. Then Parts I–II remain true algebra but say nothing physical.
+
+No current result in the repository decides between (a) and (b), but the two make different predictions about the torsion vortex $\omega$ of §9 (both checked in `verify_octahedral_connection.py`):
+
+- spatial parity $Z$ flips $\chi$ *and* reverses orientation, so $Z\omega = +\omega$. The vortex is parity-even, as a circulation or an angular momentum is;
+- the exchange $P$ preserves $\chi$ but reverses orientation, so $P\omega = -\omega$.
+
+Under (a), the exchange $\mu \leftrightarrow 1 - \mu$ reverses the torsion vortex. Under (b), it leaves the vortex unchanged. Any observable that is odd in $\omega$ (a handedness of the torsion circulation correlated with which side of $a_0$ a system sits on) separates the two readings.
 
 ---
 
 ```bash
 python research/algebra-intersection/verify_intersection.py            # Part I:  63/63 PASS
-python research/algebra-intersection/verify_octahedral_connection.py   # Part II: 46/46 PASS
+python research/algebra-intersection/verify_octahedral_connection.py   # Part II: 48/48 PASS
 ```

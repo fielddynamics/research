@@ -381,6 +381,11 @@ check("omega is purely co-exact (orthogonal to every gradient d0 f): not a poten
       np.allclose(d0.T @ curl, 0))
 check("Circulation of omega around each TetA tip = +6, around each TetB tip = -6",
       np.allclose(d1 @ curl, 6 * chi))
+Z4 = (1, 2, 2, 3)
+check("Spatial parity Z (central inversion) flips chi and FIXES omega: the vortex is parity-even",
+      np.allclose(rep_faces(RHO[Z4]) @ chi, -chi) and np.allclose(C1(RHO[Z4]) @ curl, curl))
+check("The exchange P: x -> 1/x preserves chi and REVERSES omega",
+      np.allclose(rep_faces(RHO[proj((0, 1, 1, 0))]) @ chi, chi) and np.allclose(C1(RHO[proj((0, 1, 1, 0))]) @ curl, -curl))
 sgn_vec_tors = A_non @ np.linalg.lstsq(A_non, curl, rcond=None)[0]
 check("Pulled back through the explicit intertwiner, omega is the unique sign vector of the non-incident torsion",
       np.allclose(sgn_vec_tors, curl))
