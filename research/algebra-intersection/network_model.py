@@ -82,3 +82,18 @@ if __name__ == "__main__":
         rv = ratios(dv)
         print(f"{nm}: dets {dv}; P = {Fraction(dv[0], dv[-1]) if dv[-1] else None};"
               f" ratios = 17/13: {[k for k, v in rv.items() if v == Fraction(17, 13)]}")
+
+    print("\n=== Pre-registration 2: antisymmetric tree coupling (NETWORK_MODEL_PREREG_2.md) ===")
+    Em = E("down") - E("up")
+    d2 = {s_: int(sp.Matrix(B(s_) + Em).det()) for s_ in (1, 0, -1)}
+    print("det(B_s + E-) for s = +1, 0, -1:", d2)
+    print("Registered prediction (6, 24) at s = 0, -1:", "SUCCESS" if (d2[0], d2[-1]) == (6, 24) else "FAILURE")
+    s_ = sp.symbols("s")
+    def Bsym(v):
+        M = sp.zeros(N, N)
+        for lo, hi, S, w in [(0, 1, kron(L, 0), 1), (1, 5, kron(L, 2), v), (5, 21, kron(L, 4), 1)]:
+            M[lo:hi, lo:hi] = sp.Matrix(w * S)
+        return M
+    p1 = sp.expand((Bsym(s_) + sp.Matrix(Em)).det())
+    p2 = sp.expand((Bsym(-s_) + sp.Matrix(E())).det())
+    print("det(B_s + E-) =", sp.factor(p1), "; equals det(B_-s + E):", sp.simplify(p1 - p2) == 0)
