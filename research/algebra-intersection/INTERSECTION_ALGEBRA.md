@@ -772,6 +772,51 @@ $$|\varepsilon| < 1.1 \times 10^{-5} \quad\text{of the forward coupling.}$$
 
 ---
 
+# Part XIII. Gravity starts at 13
+
+*The author's statement: 13 is where gravity starts; below it is the photonic matrix of light ([`photonic/`](../photonic/the-pixel-and-the-lattice.md)). Checked by [`verify_gravity_starts_at_13.py`](verify_gravity_starts_at_13.py) (7/7).*
+
+## 43. What the framework's own equations say
+
+The continuous capacity in [`the-pixel-and-the-lattice.md`](../photonic/the-pixel-and-the-lattice.md) is $f(x) = (21x + 13)/(x + 1)$. Exactly:
+
+- $f(x) \to 13$ as $x \to 0$, the **field-free limit**, and $f(x) \to 21$ as $x \to \infty$.
+- $f(x) - 13 = 8\,\mu(x)$. **Gravity's response is the capacity above 13.**
+- For every field strength $x > 0$, $13 < f(x) < 21$, and $f$ rises strictly from 13 the moment any field is present.
+
+So **13 is the capacity of the substrate with no gravitational field**: $\mu = 0$, nothing resolved through TetA. In the photonic notes' terms, that is the unorganised matrix of light, pixels not yet packed into a pocket. Every gravitational state lies strictly above it. Nothing gravitational lives at or below 13. The author's reading is exactly what the constitutive law says.
+
+## 44. What it gives G
+
+With gravity starting at 13, the prefactor has a single meaning:
+
+$$\frac{17}{13} = \frac{\text{mean capacity of a closure}}{\text{capacity of the field-free substrate}}.$$
+
+The numerator is the exchange-symmetric mean of a closure that breathes from the floor (Part IX). The denominator is the floor itself, the substrate in which every closure starts. G is a closure's average capacity measured **in units of the bare photonic matrix**.
+
+The measured G confirms the reference point. Taking the reference at the floor gives 12 ppm; at the Field Origin, −24%; at the TetA ceiling, −38%.
+
+**This replaces the "bound source in TetB" identification of Part IX.** That identification relied on Paper VII's statement about where matter sits. This one needs only the constitutive law's zero point, $f(0) = 13$. The two agree, since matter is light trapped below the gate, but the new reading is the cleaner one. It is a property of $f(x)$, not a claim about particles.
+
+## 45. G, end to end
+
+Each factor is now *(an average over a closure)* or *(a product over its junctions)*, relative to *the state at which the closure starts*:
+
+$$\alpha_G \;=\; \underbrace{\alpha^{21}}_{\substack{\text{one-way read through 21 identical junctions,}\\ \text{each calibrated by electromagnetism (Part XII)}}} \times \underbrace{\frac{\langle f\rangle}{f(0)} = \frac{17}{13}}_{\substack{\text{mean capacity over the}\\ \text{field-free floor (IX, XIII)}}} \times \underbrace{\frac{\mathbb E[\text{tiles}]}{N} = 1 + \frac{\alpha}{2\pi}}_{\substack{\text{seam average over the}\\ \text{ideal count (VIII)}}}$$
+
+| Ingredient | Premise | Status |
+|---|---|---|
+| $\alpha^{21}$ | self-similar junctions; one-way read (snapshot); EM calibration | theorem; back-reaction $< 10^{-5}$ by G |
+| 17 | exchange symmetry of the breath | theorem |
+| 13 | the closure starts from the field-free substrate, $f(0) = 13$ | read off the constitutive law; matches the author's photonic picture; only reference that fits G |
+| $1 + \alpha/2\pi$ | atomic closure reads every touched tile; uniform phase | theorem; predicts no $\alpha^2$ term |
+
+**What remains assumed, stated plainly.**
+- Normalising by the closure's starting state follows Paper I's order (the read comes first, so the snapshot is taken at the start). That is the framework's principle applied once more, not an independent proof.
+- The provenance cannot be settled from git. The photonic notes, Paper VII's TetB statements and the 17/13 formula entered the repository in a single import commit, so the agreement with the measured G is not a blind test. The blind tests are the ones already stated: no $\alpha^2$ term (~1 ppm), and measured α against the octahedron's α (~10 ppm).
+
+---
+
 ```bash
 python research/algebra-intersection/verify_intersection.py            # Part I:  63/63 PASS
 python research/algebra-intersection/verify_octahedral_connection.py   # Part II: 48/48 PASS
@@ -785,5 +830,6 @@ python research/algebra-intersection/verify_prefactor_exchange.py     # Part IX:
 python research/algebra-intersection/verify_level_factor.py           # Part X:   8/8 PASS
 python research/algebra-intersection/verify_topological_alpha_in_G.py # Part XI: 11/11 PASS
 python research/algebra-intersection/verify_exponent_theorem.py       # Part XII:  7/7 PASS
+python research/algebra-intersection/verify_gravity_starts_at_13.py  # Part XIII: 7/7 PASS
 python research/algebra-intersection/network_model.py                 # registered network model (fails; see NETWORK_MODEL_RESULT.md)
 ```
