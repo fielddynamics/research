@@ -603,6 +603,57 @@ The formula is not more accurate than before: it is the same number. What has ch
 
 ---
 
+# Part X. One circle, and what the measured G says about the per-level factor
+
+*Checked by [`verify_level_factor.py`](verify_level_factor.py) (8/8).*
+
+## 34. The bound/unbound rule cannot be tested inside the archive
+
+Part IX proposed that quantities taken relative to bound matter carry 17/13, and those relative to unbound sources carry 17/21. A search of the archive finds 17/13 only in G and in what follows from G: the Poisson prefactor $4\pi \cdot 17/13$, the Planck mass, $r_s$ and the docs that restate them. 17/21 appears nowhere. So the rule has no independent test inside the archive. It stands as a prediction for any future formula of that kind.
+
+## 35. The whole formula on one circle
+
+The read circle has circumference $\lambda_C$ (one rotation is one Compton period), so its radius is $\bar\lambda_C$. A tile of length $r_e$ on it subtends
+
+$$\theta = \frac{r_e}{\bar\lambda_C} = \alpha \text{ radians}, \qquad N = \frac{2\pi}{\theta} \text{ tiles per turn},$$
+
+and G becomes a function of this one geometric angle:
+
+$$\alpha_G = \theta^{21}\cdot\frac{17}{13}\cdot\Big(1 + \frac{\theta}{2\pi}\Big).$$
+
+Each of the 21 levels contributes the tile's **arc angle**. The seam contributes one extra tile **per full turn**.
+
+## 36. The measured G already constrains the mechanism
+
+Because the per-level factor is raised to the 21st power, any correction to it is amplified 21 times. With the prefactor and seam held fixed, CODATA's 22 ppm is therefore a per-level test at about 1 ppm:
+
+| Per-level factor | Second-order term | z vs CODATA |
+|---|---|---|
+| **arc, θ** | 0 | **−0.54** |
+| chord, 2 sin(θ/2) | −θ²/24 | −2.6 (excluded at 2σ) |
+| sine, sin θ | −θ²/6 | −8.8 |
+| tangent, tan θ | +θ²/3 | +16 |
+| per-turn probability, θ/2π | — | −4 × 10⁴ |
+
+| Seam factor (arc per level) | z |
+|---|---|
+| **per turn, 1 + θ/2π** | **−0.54** |
+| per radian, 1 + θ | +272 |
+| none | −52 |
+
+At 2σ, a per-level factor of the form $\theta(1 + c\,\theta^2)$ needs $-0.029 < c < +0.051$, and any relative change per level must lie between −1.6 and +2.7 ppm.
+
+**What this says.**
+- **The levels count the arc in radians and the seam counts tiles per full turn.** That is two different measures on the same circle, and the data allow no other pairing.
+- **A mechanism for "one α per level" must produce the arc exactly,** to about 2 ppm per level. Chord, sine and tangent readings are excluded.
+- **The distinction is the familiar one between an angle and a probability.** A level contributes an angle (radian measure, $\hbar$). The seam contributes an expected count over a cycle ($h$, divided by $2\pi$). The formula's scale $\hbar c/m_e^2$ is already in radian measure, which is consistent with this.
+
+**Caveat.** These are conditional constraints. They hold if 17/13 and the seam factor are exact. A per-level correction could be cancelled by an opposite change in the prefactor or the seam, so what the data fix is the combination. Within the formula as pre-registered, though, the per-level factor is pinned to the arc.
+
+**The open question, now precise.** Why does a coupling level cost exactly one tile-angle, the arc subtended by $r_e$ on the read circle? Any proposed mechanism can be checked immediately against the table above, at the 2 ppm level per level, with no new experiment.
+
+---
+
 ```bash
 python research/algebra-intersection/verify_intersection.py            # Part I:  63/63 PASS
 python research/algebra-intersection/verify_octahedral_connection.py   # Part II: 48/48 PASS
@@ -613,5 +664,6 @@ python research/algebra-intersection/verify_sweep_sierpinski.py        # Part VI
 python research/algebra-intersection/verify_one_loop_fencepost.py      # Part VII: 6/6 PASS
 python research/algebra-intersection/verify_seam_average.py           # Part VIII: 7/7 PASS
 python research/algebra-intersection/verify_prefactor_exchange.py     # Part IX:  6/6 PASS
+python research/algebra-intersection/verify_level_factor.py           # Part X:   8/8 PASS
 python research/algebra-intersection/network_model.py                 # registered network model (fails; see NETWORK_MODEL_RESULT.md)
 ```
