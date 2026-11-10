@@ -389,9 +389,51 @@ and the 21 orbits are the closed XOR triangles of the cube: 14 genuine triangles
 
 ---
 
+# Part V. A candidate mechanism for α²¹
+
+*Read from [`g_three_sierpinski_blocks.html`](../g_from_topology/g_three_sierpinski_blocks.html) and [`tetb_64_walk_of_field_closure.html`](../field-closure/tetb_64_walk_of_field_closure.html). Checked by [`verify_closure_tree.py`](verify_closure_tree.py) (16/16).*
+
+**Status: hypothesis.** It reproduces three of the archive's four α-exponents. It conflicts with the fourth (Λ), and the 17/13 prefactor rule does not carry over to it. Both failures are stated below.
+
+## 21. Two facts in the diagrams
+
+1. **G's blocks are the constitutive law.** The 4×4 and 16×16 Sierpiński blocks drawn for G are exactly $L^{\otimes 2}$ and $L^{\otimes 4}$, where $L = \begin{psmallmatrix}1&0\\1&1\end{psmallmatrix}$ is the Möbius matrix of $\mu(x) = x/(x+1)$ (§4). They are unipotent, so $\det(\alpha^{S}) = \alpha^{\mathrm{Tr}\,S} = \alpha^{1+4+16}$, the same 21 as the projector picture. The 1, 9, 81 filled cells are $3^{2k}$, from L's three non-zero entries.
+2. **21 is the number of junctions in the closure tree.** The 64-channel walk (4 faces × 4 channels × 4 subchannels) is a complete 4-ary tree with 64 leaves. Such a tree has $1 + 4 + 16 = (K^D - 1)/(K - 1) = 21$ internal junctions. By depth: 17 at even depth and 4 at odd depth, so 21, 17 and 13 are "all junctions", "even-depth junctions" and "even minus odd".
+
+## 22. The junction rule
+
+> A coupling that completes a closure of $K^n$ channels, read $K$ at a time, carries one α per **junction** of the closure tree:
+> $$\alpha^{J(n)}, \qquad J(n) = \frac{K^n - 1}{K - 1} = 1,\ 5,\ 21,\ 85,\ \dots$$
+
+**Why all the junctions and not one path.** A single root-to-leaf path crosses only $D = 3$ junctions. The exponent counts all 21 because closure is atomic: every shared boundary must settle in the same snapshot (the author's note in the README). The amplitude is therefore a product over every junction, not over one path. At $n = D$ with $K = D + 1$, $J = ((D+1)^D - 1)/D$, so the exponent is fixed by $D$. It has three terms because the walk has three levels: face, channel, subchannel.
+
+## 23. Tested against the archive
+
+| Exponent used in the archive | Where | Junction rule |
+|---|---|---|
+| α¹ | electromagnetism | $J(1)$: one tetrahedron's 4 faces, one junction ✓ |
+| α⁵ | $\eta_B = 29.4\,\alpha^5$, `baryogenesis.py` (justified there as $K_5 = K + 1$) | $J(2)$: a 16-channel closure ✓ |
+| α²¹ | $G$ | $J(3)$: the 64-channel closure ✓ |
+| α⁸⁵ | rejected for $G$ in `merkaba_engine.py` | $J(4)$: consistent, since $G$ is depth 3 |
+| α⁵⁷ | $\Lambda = (9/5)\,\alpha^{57}$, `cosmological_constant.py` | **not a junction count: conflict** |
+
+**What it changes.**
+- The archive's three reasons for 21 do not agree. $1 + K + K^2$ levels and the surface truncation are compatible with the tree. "Three sweeps of α⁷" (`01.3`) is not: the tree splits 21 as $1 + 4 + 16$, not $7 + 7 + 7$, so one of the two readings has to go.
+- The tree gives α¹, α⁵ and α²¹ one rule, where the archive currently has three unrelated justifications.
+
+**Where it fails.**
+- **Λ.** α⁵⁷ cannot be a single closure. Either Λ is a composite of closures, in which case the composition rule must be stated, or the junction rule is wrong.
+- **The prefactor.** G's $17/13$ is (even-depth junctions)/(even − odd). The same rule at depth 2 gives $1/(1-4) = -1/3$, which is not $\eta_B$'s 29.4 and not even positive. So the tree explains the *exponent* but not the prefactor. The prefactor's derivation stays open, as `g_from_the_closure_climb.md` already says.
+- **Look-elsewhere.** Two of the three matches (α¹ and α⁵) come with prefactors that were fitted (η_B's 29.4 was chosen in the archive), so they are weak evidence. The rule earns weight only if it is fixed now and used to predict an exponent the archive has not yet assigned.
+
+**The test it proposes.** Any quantity the framework attributes to a complete closure of 256 channels must scale as α⁸⁵, and no quantity may carry an exponent outside $\{1, 5, 21, 85, \dots\}$ unless it is an explicit product of closures. Λ's α⁵⁷ is the first case to resolve.
+
+---
+
 ```bash
 python research/algebra-intersection/verify_intersection.py            # Part I:  63/63 PASS
 python research/algebra-intersection/verify_octahedral_connection.py   # Part II: 48/48 PASS
 python research/algebra-intersection/verify_cube.py                    # Part III: 38/38 PASS
 python research/algebra-intersection/verify_walsh.py                   # Part IV: 26/26 PASS
+python research/algebra-intersection/verify_closure_tree.py            # Part V:  16/16 PASS
 ```
