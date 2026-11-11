@@ -1,6 +1,6 @@
 # BIMOND × GFD
 
-*Research folder, Field Dynamics Research, 2026-11-11. Status: working notes and checks, not a paper. Run `python3 run_all.py`: 30 checks pass, plus two data scripts (numpy, scipy, sympy).*
+*Research folder, Field Dynamics Research, 2026-11-11. Status: working notes and checks, not a paper. Run `python3 run_all.py`: 39 checks pass, plus two data scripts (numpy, scipy, sympy).*
 
 This folder lines up Milgrom's bimetric MOND (BIMOND; [arXiv:0912.0790](https://arxiv.org/pdf/0912.0790), [arXiv:1001.4444](https://arxiv.org/pdf/1001.4444), [arXiv:2208.10882](https://arxiv.org/pdf/2208.10882)) with the GFD algebra: the Coles notes, `research/gfd_algebra.py`, and `research/bimetric-projection/`. The question is whether BIMOND is a covariant home for the SST's physics.
 
@@ -95,11 +95,32 @@ This tests BIMOND's scalar, brake-only version, not GFD. GFD allows both brakes 
 |---|---|---|
 | Odds ratio Ω(x) = x (Proof C, Möbius uniqueness) | \|∇φ̂\| · \|∇φ\| = a₀ \|∇φ*\|: twin field × total field = a₀ × Newtonian field | exact; a rewrite of μ |
 | Exchange symmetry μ(1/x) = 1 − μ(x) | the TetA and TetB shares of the total field swap under x → 1/x | exact |
-| SST kinetic function F(y) (Proof B) | F and BIMOND's 𝓜 are exact Legendre duals: F(x²) + u² + 𝓜(u) = 2xu, with u = x²/(1+x). This is the AQUAL ↔ QUMOND duality in closed form. | exact to 50 digits; the duality itself is known in general |
+| SST kinetic function F(y) (Proof B) | F and BIMOND's 𝓜 are exact Legendre duals: F(x²) + u² + 𝓜(u) = 2xu, with u = x²/(1+x). This is the AQUAL ↔ QUMOND duality in closed form. | exact (symbolic in 08, 50 digits in 07) |
 | Logistic identity x μ′ = μ(1−μ) | g* ĝ / g², the product of the two shares | exact |
 | 40 retained / 24 discarded (Letter 3) | BIMOND's C = Γ − Γ̂ has 4 × 10 = 40 components, exactly GFD's retained 40. The tetrad (Weitzenböck) difference of two frames has 4³ = 64 = 40 + 24. | count |
 | TetB in the torsion 24 | Two frames that differ by a local rotation have the **same metric**, so BIMOND's C = 0: BIMOND cannot see the rotation. Their tetrad difference does carry axial torsion, and its sign follows the sense of rotation: a twist θ = kz gives a_t = −4k, and a spin θ = ωt gives a_z = 4ω. Reversing the rotation reverses the sign. | exact (sympy) |
 | Parity P (TetA → TetB) | constant P gives zero tetrad difference, consistent with C = 0 and V(P) = 0 in 06 | exact |
+
+**08 — Deriving 𝓜 the GFD way** (`08_deriving_M_the_gfd_way.py`, 9 checks, symbolic).
+
+**Milgrom does not derive 𝓜.** BIMOND (0912.0790) calls it "an a priori unspecified function", says it should eventually come from a deeper theory, and fixes only its limits:
+- 𝓜′ → 0 at high acceleration;
+- 𝓜′ ≈ z^{−1/4} in the deep-MOND regime.
+
+His papers do not mention a Legendre transform, and 2208.10882 again says 𝓜 is fixed by phenomenology. GFD supplies 𝓜 by the same route it used for F, integrating over the tetrad shares. Here x = g/a₀ is the total field, u = g*/a₀ is the TetA (Newtonian) field, and b = 1 − μ is the TetB share.
+
+| Step | Result |
+|---|---|
+| Proof C: exchange symmetry and Möbius uniqueness | μ(x) = x/(1+x) |
+| Split the total field into shares | TetA g* = μg; TetB ĝ = (1−μ)g = **a₀ μ(x)**; total x = u + μ(x) |
+| Proof B (SST side): work done by TetA along the total field | F = 2∫(g*/a₀) dx = x² − 2x − 2 ln b |
+| **BIMOND side: work done by TetB along the TetA field** | **𝓜 = 2∫(ĝ/a₀) du = 2x − 1 + 2b − b² + 2 ln b** |
+| Consequences | 𝓜(0) = 0. 𝓜′(z) = 1/x = a₀/\|∇φ\|, the inverse odds ratio. The TetB logarithm enters F as +2 ln(1+x) and 𝓜 as −2 ln(1+x), and it cancels in the Legendre sum F + u² + 𝓜 = 2xu. |
+
+Written in the TetB share b, 𝓜 is a polynomial plus one logarithm. That is simpler than the arsinh form in 02, which is the same function written in u. Read this way:
+- F is what TetA does along the total field, and 𝓜 is what TetB does along the TetA field.
+- The two are Legendre duals, and the TetB logarithm is the term they exchange.
+- This gives 𝓜 the derivation Milgrom left open, within GFD's postulates. Once μ is given, integrating ν − 1 gives the same function by brute force. The added content is the route through μ's derivation and the reading of each term as a tetrad share.
 
 ## Is there a breakthrough?
 
@@ -107,7 +128,7 @@ Honest grading: two results stand out. Neither is yet a demonstrated breakthroug
 
 **1. GFD fixes BIMOND's two main free choices from geometry.** Milgrom's BIMOND picks the coupling ratio and the function 𝓜 by hand, and 𝓜 has been free since 2009.
 - In GFD the coupling ratio follows from orientation (01): α = −β.
-- 𝓜 follows from exchange symmetry and Möbius uniqueness, giving μ = x/(1+x), and then from Legendre duality with the SST's F. The closed form is in 02, and the duality is checked exactly in 07.
+- 𝓜 follows from exchange symmetry and Möbius uniqueness, giving μ = x/(1+x), and then from Legendre duality with the SST's F. The closed form is in 02. 08 derives it directly as TetB work along the TetA field, and the duality is checked exactly in 07 and 08.
 
 So in the nonrelativistic limit, BIMOND with α = −β is the SST written as a two-metric theory, with no free function. Still free: f(κ), which only enters through det S (06), and the value of a₀. This is the cleanest claim to put forward. It is only as strong as the GFD postulates behind it, namely exchange symmetry and the Aut(P¹) axiom. Note that μ = x/(1+x) is also MOND's well-known "simple" interpolating function.
 
@@ -119,7 +140,7 @@ What is still missing is a field equation linking the axial torsion to ΔM_eff. 
 
 **Not breakthroughs:**
 - The odds-ratio identity and the logistic identity are rewrites of μ.
-- AQUAL–QUMOND Legendre duality is known in general (Milgrom 2010). Only its closed form for this μ is new here.
+- The Legendre pairing is standard convex duality: AQUAL and QUMOND with ν the inverse of μ share their spherical solutions, and that is well known. What is new is the derivation route and the physical reading of 𝓜 (08), not the duality itself.
 - The 40 = 40 match is a component count.
 
 ## What this gives GFD
