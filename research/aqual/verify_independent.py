@@ -16,7 +16,7 @@ This script checks the same results by routes that do not reuse that algebra:
       the change of variable S and the exchange E, and the classification of
       exchange-symmetric members
   T7  the mean coupling 17 by direct quadrature in two different measures
-  T8  central slopes of the TetB density from root-finding and numerical derivatives
+  T8  central slopes of the density inferred from the TetB share, from root-finding and numerical derivatives
 
     pip install sympy mpmath
     python verify_independent.py
@@ -301,7 +301,7 @@ ok = abs(sum(1 + (mp.mpf(n) / 32 - 1) * 4 + 16 for n in range(65)) / 65 - 17) ==
 check("T7b <f> = 17 per new hexagram in the closure climb (measure linear in s)", ok)
 
 # ------------------------------------------------------------------ T8
-print("\nT8  Central slope of the TetB density, from root-finding and numerical derivatives")
+print("\nT8  Central slope of the density inferred from the TetB share, from root-finding and numerical derivatives")
 mp.mp.dps = 40
 
 

@@ -45,7 +45,7 @@ check("A5 in the hyperbolic variable of the note (9): g + a0 = a0 coth^2(psi/2),
       zero((1 / sp.sinh(psi / 2)**2 + 1) - sp.cosh(psi / 2)**2 / sp.sinh(psi / 2)**2))
 Mdec = r * v**4 / (G * (a0 * r + v**2))
 gt = v**2 / r
-check("A6 decode M_dec = r v^4/[G(a0 r + v^2)] = (r^2/G)(g_t - a0 mu): total field minus the TetB field",
+check("A6 decode M_dec = r v^4/[G(a0 r + v^2)] = (r^2/G)(g_t - a0 mu): total field minus its TetB share",
       zero(Mdec - r**2 / G * (gt - a0 * (gt / a0) / (1 + gt / a0))))
 check("A7 deep field: M_dec -> v^4/(G a0), slope 4 in log M vs log v (BTFR)",
       zero(sp.limit(Mdec * G * a0 / v**4, r, sp.oo) - 1))
@@ -90,7 +90,7 @@ c_perp2 = sp.simplify(-H[1, 1] / H[0, 0])
 c_par2 = sp.simplify(-H[3, 3] / H[0, 0])
 check("C3 waves cross a static field at c and travel along it at c sqrt(2 - mu)",
       zero(c_perp2 - 1) and zero(c_par2 - (2 - mu0)))
-check("C4 along-gradient speed lies in [c, sqrt2 c): above c wherever TetB carries any share",
+check("C4 along-gradient speed lies in [c, sqrt2 c): above c wherever mu < 1 (any x), approaching sqrt2 c as x -> 0",
       all(1 < sp.N(c_par2.subs(g0, t)) < 2 for t in [sp.Rational(1, 1000), 1, 1000]))
 check("C5 stability conditions F' > 0 and F' + 2yF'' > 0 are the Hessian eigenvalues mu and (x mu)'",
       zero((sp.diff(F, y) + 2 * y * sp.diff(F, y, 2)).subs(y, x**2) - sp.diff(x * mu, x)))

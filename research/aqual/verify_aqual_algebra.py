@@ -40,7 +40,7 @@ nuQ = (1 + sp.sqrt(1 + 4 / z)) / 2                 # g_t/g_s
 print("\n1. One algebra, three forms")
 check("1a  x(1-mu) = mu", zero(x * (1 - mu) - mu))
 check("1b  source form z(1-mu) = mu^2 with z = x mu", zero((x * mu) * (1 - mu) - mu**2))
-check("1c  g_t - g_s = a0 mu (TetB acceleration = a0 x TetA share)", zero(x - x * mu - mu))
+check("1c  g_t - g_s = a0 mu (TetB share of the acceleration = a0 x TetA share)", zero(x - x * mu - mu))
 check("1d  g_t = (g_s + sqrt(g_s^2 + 4 a0 g_s))/2 solves the spherical field equation g_s = g_t^2/(a0 + g_t)", zero(x_of_z**2 / (1 + x_of_z) - z))
 check("1e  nu = g_t/g_s = (1 + sqrt(1 + 4 a0/g_s))/2", zero(x_of_z / z - nuQ))
 check("1f  nu(1) = phi, i.e. g_t = phi a0 at g_s = a0", zero(nuQ.subs(z, 1) - phi))
@@ -100,7 +100,7 @@ check("5c  int_0^u mu dln x = ln(1+u)", zero(sp.integrate((s / (1 + s)) / s, (s,
 F = u**2 - 2 * u + 2 * sp.log(1 + u)                # F(y) with u = sqrt(y)
 check("5d  dF/du = 2u mu(u), so F' (y) = mu(sqrt y)", zero(sp.diff(F, u) - 2 * u * u / (1 + u)))
 FB = u**2 - F
-check("5e  TetB complement y - F = 2(sqrt y - ln(1 + sqrt y)) = int (1-mu) dy",
+check("5e  TetB share of the energy: y - F = 2(sqrt y - ln(1 + sqrt y)) = int (1-mu) dy",
       zero(FB - 2 * (u - sp.log(1 + u))) and zero(sp.diff(FB, u) - 2 * u * (1 - u / (1 + u))))
 Om = mm / (1 - mm)                                  # odds = x
 d5f = F.subs(u, Om) - (Om**2 - 2 * Om - 2 * sp.log(1 - mm))
@@ -146,7 +146,7 @@ check("7g  inner limit Phi = -GM/r + a0 r + ...", zero(sp.series(Phi, w, 0, 2).r
 check("7h  outer limit Phi - sqrt(GM a0)[ln(4 r/r_M) - 1] -> 0",
       sp.limit(Phi.rewrite(sp.log) - sp.log(4 * w) + 1, w, sp.oo) == 0)
 
-print("\n8. Central slope of the TetB density, rho_B = (a0/4piG) r^-2 d(r^2 mu)/dr")
+print("\n8. Central slope of the density inferred from the TetB share, rho_B = (a0/4piG) r^-2 d(r^2 mu)/dr")
 def xt(zz):
     return (zz + mp.sqrt(zz * zz + 4 * zz)) / 2
 def rho_B(r, gN):

@@ -23,6 +23,16 @@ The AQUAL material in the archive is spread across proofs, letters, papers and r
 - the work that carries the algebra further, connecting the unbound law, its inverse, the bound law of the nuclear papers and the energy functional;
 - two verification scripts.
 
+## Terms
+
+| Term | Meaning | Source |
+|---|---|---|
+| Deep field | The low-acceleration regime $x \ll 1$, where $\mu \to x$. A range of $x$, reached toward a galaxy's rim; not TetB | Paper VII; Letter 2 |
+| TetB | The second chamber, the subspace reached only through the Field Origin. Empty in an unbound field at every $x$; occupied in a bound field (matter) | Paper VII, *Gravity as matter*; [`bound-gravity-and-packing/`](../bound-gravity-and-packing/) |
+| TetB share | $1 - \mu$, the fraction of the coupling capacity resolved through TetB | Paper VII, the constitutive law from detailed balance |
+
+Some archive texts equate the deep field with TetB ("the deep-field limit … is itself the TetB sector", constitutive-law letter, lines 404–411; "TetB (deep field)", galaxy interior/exterior synthesis; "Deep field (TetB dominant)", docs 02 and 03). This folder keeps the three terms separate.
+
 ## Reading order
 
 1. **The archive's foundations** (see the map below). Start with the three derivations of $\mu$, then the [energy-functional proof](../../proofs/aqual-energy-functional/): closed form, convexity, ellipticity and uniqueness.
@@ -30,14 +40,14 @@ The AQUAL material in the archive is spread across proofs, letters, papers and r
 
 | § | Result |
 |---|---|
-| 1 | The constitutive law and the field equation as one algebra in three forms; the TetB field is $a_0\mu$ |
+| 1 | The constitutive law and the field equation as one algebra in three forms; the TetB share of the field is $a_0\mu$ |
 | 2 | The bound law is the exchange image of the source form |
 | 3 | The logistic family |
 | 4 | The field equation's anisotropy equals the TetB share |
 | 5 | The logarithm in $F$ is the screening identity integrated |
 | 6 | The mean coupling of 17 follows from exchange symmetry |
 | 7 | Closed forms: the Legendre dual of the energy density (QUMOND's kinetic function), the bound kinetic function, the point-mass potential |
-| 8 | A check on the central density of the TetB field |
+| 8 | A check on the central density inferred from the TetB share |
 | 9–10 | The point mass and the bound law in one hyperbolic variable |
 | 11 | Two operations generate the laws; uniqueness within the family |
 | 12 | The partition composes like rapidities |

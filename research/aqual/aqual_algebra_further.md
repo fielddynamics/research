@@ -23,9 +23,16 @@ The pieces have not yet been connected to each other. This note connects them. E
 |---|---|
 | $x = g_t/a_0$ | total acceleration |
 | $z = g_s/a_0 = x\mu$ | source (baryonic) acceleration |
-| $\mu$, $1-\mu$ | TetA share, TetB share |
+| $\mu$, $1-\mu$ | TetA share, TetB share: the fractions of the coupling capacity resolved through each chamber |
 | $\Omega = \mu/(1-\mu)$ | odds between the chambers |
 | $\varphi = (1+\sqrt5)/2$ | the golden ratio |
+
+**Terms, as the archive uses them.**
+
+- **Deep field.** The *deep field* (deep-MOND) is the low-acceleration regime $x \ll 1$, where $\mu \to x$ (Paper VII; Letter 2: "at low acceleration ($x \ll 1$), the TetB fraction approaches unity"). It names a range of $x$, which a galaxy reaches toward its rim (Letter 3). It is not TetB.
+- **TetB.** TetB is the second chamber, the subspace reached only through the Field Origin. In an unbound field, which includes every galactic field, its chamber is **empty at every $x$** (Paper VII: "unbound envelopes, TetB chambers empty, form the mesh"). Occupancy of TetB is the bound state, which is matter.
+- **The TetB share.** $1-\mu$ is the fraction of the coupling capacity resolved through TetB (Paper VII: "TetB resolves fraction $\mu(1/x)$"). It describes the partition, not occupancy.
+- **This note's convention.** "TetB share" always means $1-\mu$, and "deep field" always means $x \ll 1$.
 
 ---
 
@@ -41,7 +48,7 @@ They are connected by the AQUAL identity $\mu = dF/dy$ and are algebraically ide
 $$\text{(1a)}\quad x(1-\mu) = \mu, \qquad \text{(1b)}\quad z(1-\mu) = \mu^2, \qquad \text{(1c)}\quad g_t = g_s + a_0\,\mu .$$
 
 - **(1b)** follows from (1a) with $z = x\mu$ and $x = \mu/(1-\mu)$.
-- **(1c)** says the TetB acceleration is $(1-\mu)g_t = (1-\mu)x\,a_0 = \mu\,a_0$. **The TetB part of the field is $a_0$ times the TetA share.** It never exceeds $a_0$, as Letter 3 states, and it equals $a_0/2$ on the ring $x = 1$.
+- **(1c)** says the TetB share of the acceleration is $(1-\mu)g_t = (1-\mu)x\,a_0 = \mu\,a_0$. **The share of the field resolved through TetB is $a_0$ times the TetA share.** It never exceeds $a_0$, as Letter 3 states, and it equals $a_0/2$ on the ring $x = 1$.
 
 **Closed forms from (1b).** Solving (1b) as a quadratic gives the forward pipeline:
 
@@ -60,7 +67,7 @@ The Newtonian part $v_N^2 = GM/r$ fades with radius, and $v^4$ tends to $GMa_0$.
 - **GFD's field equation.** The scalar sector of GFD's covariant action has the AQUAL form, so its field equation is the AQUAL one. In it, $\mu(|g_t|/a_0)\,\vec g_t = \vec g_s$ holds pointwise only where the curl term of Bekenstein and Milgrom vanishes: spherical, cylindrical and planar symmetry. Elsewhere (1a)–(1c) and $\nu$ are approximations whose error is that curl field.
 - **QUMOND, for comparison.** QUMOND (§7) is a different action, not a rewriting of GFD's. Its field equation makes (1a)–(1c) exact by construction in any geometry. There the vector form of (1c) is
 $$\vec g_t - \vec g_s = a_0\,\mu\!\left(\frac{|\vec g_t|}{a_0}\right)\hat g_s ,$$
-so the TetB field is $a_0\mu$ along the source field, with density $\rho_B = (a_0/4\pi G)\,\nabla\cdot(\mu\,\hat g_s)$. In GFD this vector form holds where the curl term vanishes.
+so the TetB share of the field is $a_0\mu$ along the source field. The density a halo fit would infer from that share is $\rho_B = (a_0/4\pi G)\,\nabla\cdot(\mu\,\hat g_s)$. In GFD this vector form holds where the curl term vanishes.
 
 The point-mass forms and density slopes (§§7–10) are spherical, so for them the distinction does not arise. The kinetic functions $F$, $F_b$ and $Q$ are local and hold in any geometry.
 
@@ -105,7 +112,7 @@ Theorem 2 gives the two Hessian eigenvalues of the energy as $2\mu$ (twice, tran
 
 $$\frac{(x\mu)'}{\mu} = \frac{x+2}{x+1} = 1 + (1-\mu).$$
 
-**Stiffness along the field exceeds stiffness across it by exactly the TetB share.** The equation is isotropic where TetB is empty (Newtonian) and reaches a factor of 2 where TetB carries everything (deep field). For the bound law the ratio is $2/(1+\mu)$.
+**Stiffness along the field exceeds stiffness across it by exactly the TetB share.** The equation is isotropic where that share vanishes ($x \gg 1$, Newtonian) and approaches a factor of 2 as the share approaches 1 ($x \ll 1$, the deep field). This is a statement about the partition at each point: in a galaxy TetB's chamber stays empty throughout. For the bound law the ratio is $2/(1+\mu)$.
 
 For the whole family the ratio is $1 + n(1-\mu)/(1 + (m-1)\mu) > 1$. Both eigenvalues stay positive, so every member gives a strictly convex, elliptic AQUAL equation.
 
@@ -121,11 +128,11 @@ The logarithm in $F$ is the TetB share integrated on the linear measure, which t
 
 $$F = \Omega^2 - 2\Omega - 2\ln(1-\mu).$$
 
-**The TetB part of the energy.** Its complement is
+**The TetB share of the energy.** Its complement is
 
 $$y - F = \int_0^y (1-\mu)\,dy' = 2\big[\sqrt y - \ln(1+\sqrt y)\big].$$
 
-This grows only as $2\sqrt y$. The TetB field energy is sub-quadratic, the energy-level counterpart of the TetB acceleration being bounded by $a_0$ in (1c).
+This grows only as $2\sqrt y$. The energy of the TetB share is sub-quadratic, the energy-level counterpart of the TetB share of the acceleration being bounded by $a_0$ in (1c).
 
 ## 6. The mean coupling is 17 by exchange symmetry
 
@@ -166,14 +173,14 @@ $$\Phi(r) = \sqrt{GMa_0}\left[\mathrm{asinh}\frac{2r}{r_M} - \frac{r_M}{2r}\Big(
 
 | Region | $\Phi(r)$ | Reading |
 |---|---|---|
-| Inside $r_M$ | $-GM/r + a_0 r + \cdots$ | the constant TetB pull $a_0$ of (1c) |
+| Inside $r_M$ | $-GM/r + a_0 r + \cdots$ | the TetB share of the acceleration, which tends to $a_0$ near the mass (1c) |
 | Outside $r_M$ | $\sqrt{GMa_0}\,[\ln(4r/r_M) - 1]$ | the logarithmic potential of flat rotation |
 
 ## 8. A check on Letter 3's "bounded central density"
 
 Letter 3, as summarised in [`EINSTEIN_TETA_PARTITION.md`](../../EINSTEIN_TETA_PARTITION.md), lists as a consequence that the TetB fraction never exceeds unity, "so the torsion-sector acceleration never exceeds $a_0$. This removes the central divergence of cuspy halo profiles algebraically."
 
-The acceleration statement is exact; it is (1c). The density statement does not follow from it. The density a halo fit would infer from the TetB field, in spherical symmetry, is
+The acceleration statement is exact; it is (1c). The density statement does not follow from it. The density a halo fit would infer from the TetB share of the field, in spherical symmetry, is
 
 $$\rho_B = \frac{a_0}{4\pi G\,r^2}\,\frac{d(r^2\mu)}{dr}.$$
 
@@ -185,9 +192,9 @@ Its slope at the centre is:
 | $1/r$ cusp (Hernquist) | $-1$, with $\rho_B \to a_0\mu_c/(2\pi G r)$, $\mu_c$ the central share |
 | Uniform core (Plummer) | $-\tfrac12$, with $\rho_B \to \tfrac52\,(a_0/4\pi G)\,(r/b)^{-1/2}$ for $GM = a_0 b^2$ |
 
-So the TetB density stays finite in mass but is not bounded. Around cuspy baryons it has the same $1/r$ slope as NFW. Around cored baryons it is a shallower $r^{-1/2}$ cusp, from the deep-field regime at the very centre.
+So the inferred density $\rho_B$ stays finite in mass but is not bounded. Around cuspy baryons it has the same $1/r$ slope as NFW. Around cored baryons it is a shallower $r^{-1/2}$ cusp. The reason is that the acceleration falls below $a_0$ at the very centre, which puts the centre in the deep-field regime.
 
-A wording that stays within the algebra: *the TetB acceleration never exceeds $a_0$, so its enclosed mass grows no faster than $a_0 r^2/G$.* Any stronger statement about central density needs the baryon profile.
+A wording that stays within the algebra: *the TetB share of the acceleration never exceeds $a_0$, so the mass it implies grows no faster than $a_0 r^2/G$.* Any stronger statement about central density needs the baryon profile.
 
 ## 9. The point mass in one hyperbolic variable
 
@@ -251,7 +258,7 @@ Because the composite coupling is $f = 17 + 4s$, the coupling of a product of sc
 | Logarithm as the screening identity integrated; $F$ in $\Omega$; TetB energy | Exact |
 | $\langle f\rangle = 17$ from exchange symmetry | Exact; explains the closure-climb mean as a symmetry |
 | QUMOND dual $Q$; bound $F_b$ | Exact closed forms, new to the archive |
-| TetB density cusp, slopes $-1$ and $-\tfrac12$, with coefficients | Exact asymptotics; bears on Letter 3, consequence 2 |
+| Cusp in the density inferred from the TetB share, slopes $-1$ and $-\tfrac12$, with coefficients | Exact asymptotics; bears on Letter 3, consequence 2 |
 | Vector form $\vec g_t - \vec g_s = a_0\mu\,\hat g_s$ | Exact in GFD's (AQUAL-form) field equation where the curl term vanishes; exact everywhere in QUMOND, a separate action |
 | Hyperbolic point mass; $\Phi + v^2 = \sqrt{GMa_0}\,\psi$; golden and silver gates | Exact |
 | Bound law $= \tanh^2(\psi/2)$; it mirrors the point mass's TetB share | Exact |
@@ -278,7 +285,7 @@ The independent script does not reuse the closed forms it tests:
 6. the Hessian of the energy by finite differences in three dimensions at random gradients;
 7. the family: irreducibility over $\mathbb Q$, a Sturm count of one root in $[0,1]$, the action of S and E on 25 random members, and the tails solved in log space;
 8. the mean coupling 17 by quadrature in two different measures;
-9. the central slopes and coefficients of the TetB density from numerical derivatives of the root-found field.
+9. the central slopes and coefficients of the density inferred from the TetB share, from numerical derivatives of the root-found field.
 
 ```bash
 pip install sympy mpmath

@@ -34,7 +34,7 @@ Every statement below is checked by [`verify_docs_intersection.py`](verify_docs_
 | $dF/dy = \mu(\sqrt y)$, the round trip (docs 06, site tests) | Holds. The logarithm in $F$ is the screening identity integrated (§5) |
 | $F(0) = 0$, $F \ge 0$, $F'' = 1/[2\sqrt y(1+\sqrt y)^2]$ | Hold. $F \ge 0$ because $F = \int_0^y \mu$ and $\mu \ge 0$ |
 | $v^4 = GM(g + a_0)$ (docs 03, "the local field equation") | It is the spherical field equation $g_t^2 = g_s(g_t + a_0)$. In the hyperbolic variable of §9, $g + a_0 = a_0\coth^2(\psi/2)$ |
-| The decode $M_{\text{dec}} = rv^4/[G(a_0r + v^2)]$ | Equivalently $M_{\text{dec}} = (r^2/G)\,(g_t - a_0\mu)$: **the decoded mass is the total field minus the TetB field**, from (1c) |
+| The decode $M_{\text{dec}} = rv^4/[G(a_0r + v^2)]$ | Equivalently $M_{\text{dec}} = (r^2/G)\,(g_t - a_0\mu)$: **the decoded mass is the total field minus its TetB share**, from (1c) |
 | Deep field: $M = v^4/(Ga_0)$, slope 4 | Holds; it is the $\psi \to \infty$ limit of §9 |
 | "The Legendre transform exists" (site test) | §7 gives it in closed form, $Q(z^2)$ |
 | Complement symmetry $\mu(x) + \mu(1/x) = 1$ | Holds. It is why the mean coupling is 17 (§6) and what singles out the unbound law (§11) |
@@ -69,7 +69,7 @@ Every statement below is checked by [`verify_docs_intersection.py`](verify_docs_
 
    $$c_\perp = c \ \text{(across the field)}, \qquad c_\parallel = c\sqrt{2 - \mu} \ \text{(along it)}.$$
 
-   These are the two eigenvalues of §4, now as speeds. **Along the field the speed exceeds $c$ wherever TetB carries any share, reaching $\sqrt2\,c$ in the deep field.**
+   These are the two eigenvalues of §4, now as speeds. **Along the field the speed exceeds $c$ wherever $\mu < 1$, approaching $\sqrt2\,c$ as $x \to 0$ (the deep field).** It depends on $x$ through the partition, not on TetB's occupancy, which is empty in an unbound field.
 
    This is the known behaviour of relativistic AQUAL (RAQUAL), noted by Bekenstein and Milgrom (1984). Whether it implies acausality is debated: Babichev, Mukhanov and Vikman (2008) argue that superluminal k-essence need not be paradoxical. The docs do not say whether GFD's $y$ is covariant in this sense. They also do not say what $F$ means for timelike gradients ($y < 0$), where $\sqrt y$ is not real.
 
@@ -85,6 +85,8 @@ Every statement below is checked by [`verify_docs_intersection.py`](verify_docs_
    - Paper VII names the full action $S_{\text{ST}}$.
 
    On the convention that the SST is the full action, and the field equation is what varying it gives, the docs need renaming in these places.
+
+   The same pages also label the regime $x \to 0$ "Deep field (TetB dominant)" (docs 02, docs 03). The deep field is a range of $x$, and TetB is the subspace whose share approaches 1 there; in an unbound field its chamber stays empty. The same conflation appears in the constitutive-law letter, lines 404–411 ("the deep-field limit … is itself the TetB sector"), and in the galaxy interior/exterior synthesis table ("TetB (deep field)").
 
 9. **Two relations between $a_0$ and $H$.** At $H = 70.21$ km/s/Mpc:
 
