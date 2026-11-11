@@ -50,19 +50,26 @@ This is QUMOND, the two-potential form of MOND. Lensing is governed by the same 
 | C = Γ − Γ̂, symmetric in its lower indices | lives in the 40, not the torsion 24; its slow-motion component Cⁱ₀₀ = ∂ᵢφ* sits in the shared diagonal 16 |
 
 - **Decoding theorem.** Apply the decoding-mass letter's inversion, M_dec = r²·[g_t²/(a₀ + g_t)]/G, to BIMOND–GFD. It returns M_dec = M − M̂ exactly, at every radius. So **ΔM_eff = M_phot − M_dec is the enclosed twin (occupied-TetB) mass.**
-  - In BIMOND twin matter is a scalar density, so with ρ̂ ≥ 0 it can only brake, and a drive would need ρ̂ < 0. This is a limit of BIMOND, not of GFD.
-  - In GFD, TetB brakes or drives the way a local vortex does inside a net vortex (standard vortex dynamics). Whether it brakes or drives depends on which way its spin points relative to the net TetA vortex spin, not on the sign of a density. Counter-rotating means brake (CamB); co-rotating means drive. Neither needs negative mass.
-  - A scalar ρ̂ has no handedness, so BIMOND cannot represent this. Spin needs an axial (gravitomagnetic) channel, the torsion 24, which is where GFD puts TetB (see open item 2).
+
+> **Brake-only is a BIMOND limitation, not a GFD prediction.** GFD treats both a brake and a drive as possible in galaxies.
+
+  - **BIMOND.** Twin matter ρ̂ is a scalar density. With ρ̂ ≥ 0 the twin sector can only brake (M_dec < M_phot). A drive would need ρ̂ < 0.
+  - **GFD.** TetB acts like a local vortex inside a net vortex, as in standard vortex dynamics. It brakes or drives depending on which way its spin points relative to the net TetA vortex spin, not on the sign of a density. Counter-rotating means brake; co-rotating means drive. Neither needs negative mass.
+  - **The decoding-mass letter shows both cases** (`papers/letter-decoding-mass-from-rotation-curves/letter.tex`). The letter states that the decoded mass "may fall above or below the photometric value".
+    - Brake: CamB, where M_dec falls below M_phot (Fig. 2).
+    - Drive: M33, where M_dec = 1.38 × 10¹⁰ M☉ at 17 kpc against M_phot ≈ 7 × 10⁹ M☉.
+    - Close to zero: the Milky Way (6.6 vs 7.3 × 10¹⁰ M☉) and NGC 3198, which track their baryons.
+  - A scalar ρ̂ has no handedness, so BIMOND cannot represent GFD's drive. Spin direction needs an axial (gravitomagnetic) channel, the torsion 24, which is where GFD puts TetB (see open item 2).
   - Where M̂ > M, matter is repelled, matching Milgrom's "the twin's phantom mass repels both kinds".
 
-**04 — Test of "brake only" on SPARC** (`04_sparc_brake_only.py`). I took the per-galaxy median of log₁₀(M_dec/M_bar) over the outer half of each rotation curve.
+**04 — Test of BIMOND's brake-only limit on SPARC** (`04_sparc_brake_only.py`). I took the per-galaxy median of log₁₀(M_dec/M_bar) over the outer half of each rotation curve.
 
 | Sample | N | Median | Fraction above +0.1 dex | Fraction below −0.1 dex |
 |---|---|---|---|---|
 | All | 163 | −0.054 | 0.22 | 0.40 |
 | Quality flag Q = 1, inclination ≥ 45° | 82 | −0.020 | 0.23 | 0.29 |
 
-This tests BIMOND's scalar, brake-only version, not GFD: in GFD a fifth of galaxies being driven is allowed (co-rotating TetB). The distribution leans toward brakes, but about a fifth of galaxies sit above +0.1 dex. With a flat mass-to-light ratio and 0.18 dex scatter this is not yet a test. It needs fits with the stellar mass-to-light ratio and distance marginalised, and an isolation cut.
+This tests BIMOND's scalar, brake-only version, not GFD. GFD allows both brakes and drives, so the fifth of galaxies sitting above +0.1 dex (driven, like M33) is consistent with GFD. Under scalar BIMOND they would need ρ̂ < 0. The distribution leans toward brakes. With a flat mass-to-light ratio and 0.18 dex scatter this is not yet a test. It needs fits with the stellar mass-to-light ratio and distance marginalised, and an isolation cut.
 
 **05 — Local systems** (`05_local_systems.py`).
 - BIMOND as written applies 𝓜′ to every source. Around the Sun that gives a constant a₀ pull at every planet, plus the external-field quadrupole Q₂ ≈ 4.8 × 10⁻²⁶ s⁻² (at g_e = 2.28 × 10⁻¹⁰). Cassini measures (3 ± 3) × 10⁻²⁷. Both are excluded.

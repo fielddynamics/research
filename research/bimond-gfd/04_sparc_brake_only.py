@@ -1,4 +1,5 @@
-"""04. Prediction from 03: an isolated galaxy can only be braked, M_dec <= M_phot (twin/TetB mass >= 0).
+"""04. Test of BIMOND's scalar limit from 03 (NOT a GFD prediction): with twin density >= 0 a galaxy can only be braked,
+M_dec <= M_phot. GFD allows both brakes and drives (TetB spin relative to the net TetA vortex).
 Per galaxy: ratio = M_dec/M_bar = g_s,inferred / g_bar with g_s,inferred = g_obs^2/(a0 + g_obs) (GFD inversion), outer half of points.
 Data: SPARC RAR (cached CSV, flat Upsilon = 0.5/0.7, minimal pipeline: 0.18 dex point scatter, so only the distribution's skew is testable)."""
 import numpy as np, csv
@@ -22,5 +23,5 @@ def run(sel,lab):
     return L
 run(lambda d: True,"all")
 run(lambda d: d['Q']==1 and d['inc']>=45,"Q=1, inc>=45")
-print("brake-only (rhohat >= 0) predicts the distribution sits at or below 0 with a tail toward negative values;")
-print("an excess of drives (> +0.1 dex) in isolated galaxies would need rhohat < 0, an environmental drive, or a higher Upsilon.")
+print("BIMOND brake-only (rhohat >= 0) predicts the distribution sits at or below 0 with a tail toward negative values;")
+print("in BIMOND, drives (> +0.1 dex) would need rhohat < 0 or a higher Upsilon; in GFD, drives are allowed (co-rotating TetB).")

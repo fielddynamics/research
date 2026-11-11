@@ -19,8 +19,9 @@ ok("cross term: (grad phi)^2 - (grad phihat)^2 = |grad phi*|^2 + 2 grad phi*.gra
 Mdec=r**2*(gt**2/(a0+gt))/G
 ok("decoding theorem: M_dec = M - Mhat exactly, at every radius, so Delta M_eff = M_phot - M_dec = Mhat (enclosed twin/TetB mass)",
    sp.simplify(Mdec-(M-Mh))==0)
-print("   -> with rhohat >= 0 an isolated galaxy can only be braked (M_dec <= M_phot); a 'drive' must come from the environment")
-print("      (the host's net field) or from rhohat < 0.  CamB (M_dec < M_phot) is a brake: an occupied TetB of mass Delta M_eff.")
+print("   -> BIMOND (scalar twin density): with rhohat >= 0 a galaxy can only be braked (M_dec <= M_phot); a drive needs rhohat < 0.")
+print("      This is a BIMOND limitation, not GFD: in GFD TetB brakes or drives by its spin relative to the net TetA vortex")
+print("      (decoding-mass letter: CamB M_dec < M_phot = brake; M33 M_dec > M_phot = drive).")
 # twin-dominated interior: g* < 0 -> repulsion (Milgrom 2010: TM's phantom mass repels both kinds)
 ok("if Mhat > M inside r, g* < 0: matter is repelled (Milgrom's 'TM phantom mass is repulsive')", sp.simplify(gst.subs(Mh,2*M))<0)
 # deep Newtonian regime: twin and ordinary matter decouple apart from Newtonian -G Mhat/r^2 in phi*
