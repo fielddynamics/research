@@ -31,7 +31,7 @@ Stephen Nelson · Field Dynamics Research · fielddynamics.org · Last updated 2
 
 ## 1. The structure in one paragraph
 
-The metric is a Gram matrix of the tetrad, $g_{\mu\nu} = \eta_{ab} e^a{}_\mu e^b{}_\nu$. The equation is even in the spatial frame, so it has two parity-related roots. Drawn in space, one root is a regular tetrahedron (TetA) and the other its inversion (TetB); together they are the stellated octahedron inscribed in the cube, sharing a centre, the Field Origin. Counting on this object gives one polynomial, $f(K,s) = 1 + sK + K^2$, with values 21, 17, 13 at $K = 4$. The exchange symmetry between the two roots forces the interpolating function $\mu(x) = x/(x+1)$. Integrating it gives the AQUAL kinetic function $F(y)$, and with it a covariant action whose prefactors are $K^2$, $2^D$, $K$. In the spherical, static limit the action gives the relation tested on SPARC. General relativity is the $\mu = 1$ (all-TetA) case: its torsion-free condition keeps 40 of 64 connection components and discards the 24 that carry TetB.
+The metric is a Gram matrix of the tetrad, $`g_{\mu\nu} = \eta_{ab} e^a{}_\mu e^b{}_\nu`$. The equation is even in the spatial frame, so it has two parity-related roots. Drawn in space, one root is a regular tetrahedron (TetA) and the other its inversion (TetB); together they are the stellated octahedron inscribed in the cube, sharing a centre, the Field Origin. Counting on this object gives one polynomial, $f(K,s) = 1 + sK + K^2$, with values 21, 17, 13 at $K = 4$. The exchange symmetry between the two roots forces the interpolating function $\mu(x) = x/(x+1)$. Integrating it gives the AQUAL kinetic function $F(y)$, and with it a covariant action whose prefactors are $K^2$, $2^D$, $K$. In the spherical, static limit the action gives the relation tested on SPARC. General relativity is the $\mu = 1$ (all-TetA) case: its torsion-free condition keeps 40 of 64 connection components and discards the 24 that carry TetB.
 
 ---
 
@@ -81,9 +81,9 @@ Three levels: existence (1), the $K$ faces, the $K^2$ face-pair channels. Identi
 - $(f(+1) + f(-1))/2 = 17 = f(0)$; $f(+1) - f(-1) = 2K = 8$.
 - $17/13 = (K^2+1)/(KD+1) = [1; 3, 4]$ as a continued fraction; $13 = 12$ edges $+ 1$ origin $= KD + 1$.
 
-**As a trace [T] (A; research/aqual §13).** With $V = \mathbb R^4$ and $\tau$ the swap on $V\otimes V$ ($\operatorname{Tr}1 = 16$, $\operatorname{Tr}\tau = 4$),
+**As a trace [T] (A; research/aqual §13).** With $V = \mathbb R^4$ and $\tau$ the swap on $V\otimes V$ ($\mathrm{Tr}1 = 16$, $\mathrm{Tr}\tau = 4$),
 
-$$f(K,s) = 1 + \operatorname{Tr}_{V\otimes V}(1 + s\tau),$$
+$$f(K,s) = 1 + \mathrm{Tr}_{V\otimes V}(1 + s\tau),$$
 
 the parity-weighted trace of the sector space $\Lambda^K V \oplus V \oplus (V\otimes V)$. The swap's eigenspaces are the symmetric 10 and antisymmetric 6, the same split GR meets in the tetrad (10 metric + 6 local Lorentz) and in each connection slice (10 Christoffel + 6 torsion). GR keeps the symmetric sector both times, which is why 13, 17, 21 never appear there: the parameter $s$ that weights the two sectors is fixed at one end.
 
@@ -156,14 +156,14 @@ $$f(4,\sigma(x)) = 17 + 4\sigma(x) = \frac{21x+13}{x+1},\qquad \mu(x) = \frac{f 
 
 ### 4.4 Algebraic route [T] (A)
 
-(Paper A states the limit itself: $x^n/(1+x^n)$ satisfies the same exchange for every $n$; $n = 1$ is the fractional-linear member, i.e. the choice of $x$ as the odds.) The swap $\operatorname{Sym}^2V \leftrightarrow \Lambda^2V$ is represented by $x \mapsto x^{-1}$; within fractional-linear maps with the pure-sector endpoints, the unique solution is $x/(1+x)$, and the Cayley coordinate $(x-1)/(x+1)$ is $\sigma(x)$.
+(Paper A states the limit itself: $x^n/(1+x^n)$ satisfies the same exchange for every $n$; $n = 1$ is the fractional-linear member, i.e. the choice of $x$ as the odds.) The swap $\mathrm{Sym}^2V \leftrightarrow \Lambda^2V$ is represented by $x \mapsto x^{-1}$; within fractional-linear maps with the pure-sector endpoints, the unique solution is $x/(1+x)$, and the Cayley coordinate $(x-1)/(x+1)$ is $\sigma(x)$.
 
 ### 4.5 Properties
 
 - Logistic: $x\,d\mu/dx = \mu(1-\mu)$; rate peaks at $1/4$ at $x = 1$.
 - $\sigma(x) = \tanh(\tfrac12\ln x)$, and $\sigma(x_1x_2) = (\sigma_1+\sigma_2)/(1+\sigma_1\sigma_2)$ — shares compose like rapidities; odds multiply.
 - Mean capacity: $\mu(x)+\mu(1/x) = 1 \Rightarrow \langle f\rangle = 17$ over any window symmetric in $\ln x$.
-- Swap-operator form: $1 + \sigma\tau = 2[\mu P_{\rm sym} + (1-\mu)P_{\rm anti}]$, with $x = \lambda_{\rm sym}/\lambda_{\rm anti}$ and $1+\sigma\tau = \operatorname{sech}\theta\,e^{\theta\tau}$, $\theta = \tfrac12\ln x$. GR sits at $\mu = 1$.
+- Swap-operator form: $1 + \sigma\tau = 2[\mu P_{\rm sym} + (1-\mu)P_{\rm anti}]$, with $x = \lambda_{\rm sym}/\lambda_{\rm anti}$ and $1+\sigma\tau = \mathrm{sech}\theta\,e^{\theta\tau}$, $\theta = \tfrac12\ln x$. GR sits at $\mu = 1$.
 - Dark-matter dictionary (L2): if $g_{\rm obs} = g_{\rm bar} + g_{\rm DM}$, then $g_{\rm DM}/g_{\rm bar} = (1-\mu)/\mu = 1/x$, so $M_{\rm DM}/M_{\rm bar} = 1/x$. "Dark matter" is the TetB share read through Newtonian analysis (Paper I: phantom density $\rho_{\rm ph}\propto r^{-2}$).
 
 ### 4.6 The law family and the bound law [D] (IX, XIII; research/aqual)
@@ -182,7 +182,7 @@ $$\mu_b(x) = \frac{(2x+1) - \sqrt{4x+1}}{2x},\qquad \mu_b(1) = \frac{3-\sqrt5}{2
 
 With $r_M = \sqrt{GM/a_0}$ and $\sinh\psi = 2r/r_M$:
 
-$$\frac{g_t}{a_0} = \operatorname{csch}^2\frac\psi2,\quad \mu = \operatorname{sech}^2\frac\psi2,\quad v^2 = \sqrt{GMa_0}\coth\frac\psi2,\quad \Phi + v^2 = \sqrt{GMa_0}\,\psi.$$
+$$\frac{g_t}{a_0} = \mathrm{csch}^2\frac\psi2,\quad \mu = \mathrm{sech}^2\frac\psi2,\quad v^2 = \sqrt{GMa_0}\coth\frac\psi2,\quad \Phi + v^2 = \sqrt{GMa_0}\,\psi.$$
 
 Unit source field ($g_s = a_0$) at $r = r_M$ where $\mu = 1/\varphi$; unit total field ($x = 1$) at $r = \sqrt2\,r_M$ where $\psi/2 = \ln(1+\sqrt2)$.
 
@@ -192,7 +192,7 @@ Unit source field ($g_s = a_0$) at $r = r_M$ where $\mu = 1/\varphi$; unit total
 
 ### 5.1 Counting [T] (L2, L3, GRAM, 40/24 proof)
 
-Per slice $\lambda$, $\Gamma^\lambda{}_{\mu\nu}$ has $K^2 = 16$ entries: $(K^2+K)/2 = 10$ symmetric, $(K^2-K)/2 = 6$ antisymmetric. Over $K$ slices:
+Per slice $\lambda$, $`\Gamma^\lambda{}_{\mu\nu}`$ has $K^2 = 16$ entries: $(K^2+K)/2 = 10$ symmetric, $(K^2-K)/2 = 6$ antisymmetric. Over $K$ slices:
 
 $$\text{Christoffel } K\frac{K(K+1)}2 = 40,\qquad \text{torsion } K\frac{K(K-1)}2 = 24.$$
 
@@ -208,7 +208,7 @@ A torsion-free connection cannot distinguish TetA from TetB; the torsion sector 
 
 ### 5.3 Torsion is the regular representation of $S_4$ [T] (B, P-torsion, 36 checks)
 
-At $K = 4$, $V\otimes\Lambda^2V^*$ (dimension $K^2(K-1)/2 = 24 = 4!$) carries the regular representation of $S_4$ acting on the four legs. The sign representation, the unique scalar parity detector, appears once in torsion and zero times in the Christoffel sector. Only $K = 2$ and $K = 4$ allow this. P-torsion gives the explicit generator $\xi = t_{0;01} + t_{0;23}$ (its 24 permutation images are a basis), two orbits of 12 (incident / non-incident), the sign irrep spanned by $\sum_d\varepsilon_{abcd}$, and, with indices lowered by $|\eta| = I$, vector ⊂ incident, axial ⊂ non-incident, tensor = $8 + 8$. Scope: the sign irrep detects odd *permutations of the legs*; spatial parity $\mathrm{diag}(1,-1,-1,-1)$ is not a leg permutation and is not described by these theorems, so the link to TetA/TetB root-blindness is by analogy (orientation character), not identity.
+At $K = 4$, $`V\otimes\Lambda^2V^*`$ (dimension $K^2(K-1)/2 = 24 = 4!$) carries the regular representation of $S_4$ acting on the four legs. The sign representation, the unique scalar parity detector, appears once in torsion and zero times in the Christoffel sector. Only $K = 2$ and $K = 4$ allow this. P-torsion gives the explicit generator $\xi = t_{0;01} + t_{0;23}$ (its 24 permutation images are a basis), two orbits of 12 (incident / non-incident), the sign irrep spanned by $\sum_d\varepsilon_{abcd}$, and, with indices lowered by $|\eta| = I$, vector ⊂ incident, axial ⊂ non-incident, tensor = $8 + 8$. Scope: the sign irrep detects odd *permutations of the legs*; spatial parity $\mathrm{diag}(1,-1,-1,-1)$ is not a leg permutation and is not described by these theorems, so the link to TetA/TetB root-blindness is by analogy (orientation character), not identity.
 
 ### 5.4 Einstein's equation as the TetA partition [D] (L3)
 
@@ -300,13 +300,13 @@ with $28 = V + E + F$ of the compound $= k(k+d)$, and $\alpha = r_e/\bar\lambda_
 
 ## 9. Bimetric gravity [D] (VIII, XII)
 
-Hassan–Rosen: $S = M_g^2\!\int\!\sqrt{-g}R_g + M_f^2\!\int\!\sqrt{-f}R_f + m^2M_g^2\!\int\!\sqrt{-g}\sum_{n=0}^4\beta_ne_n(S)$, $S = \sqrt{g^{-1}f}$ (vielbein form $S^a{}_b = (e^{-1}\tilde e)^a{}_b$), five free $\beta_n$.
+Hassan–Rosen: $S = M_g^2\!\int\!\sqrt{-g}R_g + M_f^2\!\int\!\sqrt{-f}R_f + m^2M_g^2\!\int\!\sqrt{-g}\sum_{n=0}^4\beta_ne_n(S)$, $S = \sqrt{g^{-1}f}$ (vielbein form $`S^a{}_b = (e^{-1}\tilde e)^a{}_b`$), five free $\beta_n$.
 
 GFD locks them:
 
 $$\{\beta_0,\beta_1,\beta_2,\beta_3,\beta_4\} = \{1, 0, 16, 0, 1\},\qquad V(S) = e_0 + 16\,e_2 + e_4.$$
 
-- $\beta_2 = 16 = \dim C\ell_{1,3} = \dim\operatorname{End}(\mathbb R^{1,3}) = K^2$.
+- $\beta_2 = 16 = \dim C\ell_{1,3} = \dim\mathrm{End}(\mathbb R^{1,3}) = K^2$.
 - Odd terms vanish by orientation parity in VIII; XII, the more careful version, separates three theorems (exchange identity, pairing $\beta_0=\beta_4$, $\beta_1=\beta_3$, Hessian of $e_2$ at $I$ of rank 16 with spectrum $+3^1,+1^6,-1^9$) from three axioms ($\beta_1=\beta_3=0$ by symmetric closure, $\beta_0=1$, $\beta_2$ = Hessian rank), and states that generic ghost-free theories allow $\beta_1=\beta_3\ne0$ and that the data alone cannot pick $\beta_2 = 16$ over 15 or 17. Detail: VIII's wording is that odd terms vanish by orientation parity ($\lambda\to-\lambda$ flips $e_1, e_3$); metric exchange $S\to S^{-1}$, with $e_n(S^{-1}) = e_{4-n}(S)/e_4(S)$, pairs $\beta_0 = \beta_4$ (and $\beta_1 = \beta_3$); normalisation sets $\beta_0 = 1$. The proportional background $S = I$ is a stable minimum, $V''(I)>0$.
 - Ghost freedom: the 4-form interaction is linear in the lapse ($dt\wedge dt = 0$, $\partial^2\mathcal L/\partial N^2 = 0$), so the potential lies in the ghost-free class by construction.
 - The helicity-0 mode (Stückelberg $\varphi^\mu = x^\mu - \partial^\mu\pi/\Lambda_3^3$) gives Galileon terms with $c_k(\beta)$ fixed by the lock; their static limit is algebraic, $\mathcal P(\pi'/r) = GM/r^3$. **Open:** VIII frames the match of this relation to $\mu = x/(x+1)$ (hence $F$) as a checkable problem and does not compute it. VIII's own $N = 2$ label ("bimetric lock") differs from the later bound-law reading (§4.6).
@@ -343,7 +343,7 @@ Shell ceilings $\mathrm{CEIL} = B_{\rm Zn} + B_{\rm bdy} - \mu_b(2)[B_{\rm Zn} -
 - **Paper V:** why four recurs across ADM, tetrads, LQG, Regge, LIGO — the simplex theorem; vocabulary bridge to the Field Chamber and its four Coupling Ports.
 - **Paper IX:** the derivation chain $d = 3 \to$ stellated octahedron $\to (3+1) \to$ tetrad $\to \{\beta_n\} \to \Phi_3/\Phi_6 \to \mu \to S$; the $(3+1)$ split from face classification (2 TIME + 6 spatial faces). Also an isomorphism between the base-8 expansion of π and the topology **[E]**.
 - **ESS:** primer for relativists: tetrads and non-degeneracy ($\det g = -(\det e)^2 \neq 0$) → four active channels → field closure → constitutive law → action → the inverse pipeline.
-- **Exploratory programmes** (not part of the physics claims): the I Ching trigrams as cube vertices and the BBP π formula selected by the TIME axis; the Great Pyramid's King's Chamber at $z^*/h = 1 - 1/\sqrt2$; the oscillator Ising solver.
+- **Exploratory programmes** (not part of the physics claims): the I Ching trigrams as cube vertices and the BBP π formula selected by the TIME axis; the Great Pyramid's King's Chamber at $`z^*/h = 1 - 1/\sqrt2`$; the oscillator Ising solver.
 
 ---
 
@@ -419,7 +419,7 @@ Shell ceilings $\mathrm{CEIL} = B_{\rm Zn} + B_{\rm bdy} - \mu_b(2)[B_{\rm Zn} -
 
 **Question.** AQUAL, $\nabla\cdot[\mu(|\nabla\Phi|/a_0)\nabla\Phi] = 4\pi G\rho$, fixes only the limits $\mu\to1$ ($x\to\infty$) and $\mu\to x$ ($x\to0$); the simple, standard $x/\sqrt{1+x^2}$ and infinitely many other forms fit both. Paper I derives $\mu$ from how a source (the *field object*) couples to its environment (the *NET Field*) at an interface (the *closure boundary* $\Sigma$).
 
-**Architecture (DFP terms → standard).** Field closure = non-degenerate metric, $\det g \ne 0$; closure constraints = ADM constraints; the canonical chain is Field Object + NET Field → $\Sigma$ → field closure function FC$_\Sigma$ (READ, then SETTLE) → registered state $B^*_\Sigma$. Two empirical requirements: **lossless** (no wakes, drag, hysteresis, secular drift; "Full-State Snapshot") and **local** (no faster-than-$c$ coordination). Motivation for distributed structure: the Laplacian is a neighbour comparison, $\nabla^2\Phi = \lim_{\epsilon\to0}[\Phi(x+\epsilon)+\Phi(x-\epsilon)-2\Phi(x)]/\epsilon^2$; wave propagation (LIGO) needs parts. $k = 4$ from the simplex theorem and the 1 + 3 ADM constraints.
+**Architecture (DFP terms → standard).** Field closure = non-degenerate metric, $\det g \ne 0$; closure constraints = ADM constraints; the canonical chain is Field Object + NET Field → $\Sigma$ → field closure function FC$_\Sigma$ (READ, then SETTLE) → registered state $`B^*_\Sigma`$. Two empirical requirements: **lossless** (no wakes, drag, hysteresis, secular drift; "Full-State Snapshot") and **local** (no faster-than-$c$ coordination). Motivation for distributed structure: the Laplacian is a neighbour comparison, $\nabla^2\Phi = \lim_{\epsilon\to0}[\Phi(x+\epsilon)+\Phi(x-\epsilon)-2\Phi(x)]/\epsilon^2$; wave propagation (LIGO) needs parts. $k = 4$ from the simplex theorem and the 1 + 3 ADM constraints.
 
 **Postulates.** P1 Newtonian correspondence, $\lim_{x\to\infty}\mu = 1$. P2 distributed field processing: finite encoding capacity, scale-invariant deep regime, $\lim_{x\to0}\mu/x = 1$ (from $g \propto (GMa_0)^{1/2}/r$, i.e. $g = \sqrt{g_Na_0}$). P3 single-channel capacity saturation.
 
@@ -503,7 +503,7 @@ At $z = 1100$: $(1/23600)^{0.318} = 0.041$, $a_0 = 2.55\times10^{-6}\times0.041 
 
 **Question.** $k = 4$ is dimensionless and $a_0$ is an acceleration; what sets the *size* of the gravitational tile?
 
-**Tetrad coupling $k^2 = 16$.** $e^a{}_\mu$ has $4\times4 = 16$ components; isotropy engages all of them, so the "topologically coupled" acceleration of mass $m$ at $r$ is $a_{\rm coupled} = k^2Gm/r^2 = 16\,Gm/r^2$.
+**Tetrad coupling $k^2 = 16$.** $`e^a{}_\mu`$ has $4\times4 = 16$ components; isotropy engages all of them, so the "topologically coupled" acceleration of mass $m$ at $r$ is $a_{\rm coupled} = k^2Gm/r^2 = 16\,Gm/r^2$.
 
 **Crossover condition.** Setting $k^2Gm/r^2 = a_0$:
 
@@ -532,7 +532,7 @@ Interpreted as the frame correction between flat tetrahedral closure ($k$) and t
 
 **Chain to $k = 4$.** GR + LIGO (gravity propagates) → wave equation → the Laplacian needs neighbours → coupling topology exists. Three routes to $k = 4$: four tetrad legs; four ADM constraints (one Hamiltonian, three momentum, read as the integrability conditions *for* the tetrad, closing under the Dirac algebra); LIGO's two polarisations, $10 - 2k = 2$. Uniqueness: $k\ge4$ (closure, simplex theorem) and $k\le4$ (more constraints leave $<2$ propagating modes or Boulware–Deser ghosts).
 
-**Closure = non-degeneracy.** Completeness $e^a{}_\mu e_a{}^\nu = \delta_\mu^\nu$ and $\det g = -(\det e)^2$, so $\det g\ne0 \iff \det e\ne0$. Tetrad gravity is first-order symmetric hyperbolic with characteristic speed $c$ (Buchman & Bardeen 2003): the "closure rate".
+**Closure = non-degeneracy.** Completeness $`e^a{}_\mu e_a{}^\nu = \delta_\mu^\nu`$ and $\det g = -(\det e)^2$, so $\det g\ne0 \iff \det e\ne0$. Tetrad gravity is first-order symmetric hyperbolic with characteristic speed $c$ (Buchman & Bardeen 2003): the "closure rate".
 
 **Acceleration scale.** Gibbons–Hawking $T = \hbar H/(2\pi k_B)$ = Unruh $T = \hbar a/(2\pi k_Bc)$ gives $a_0 = cH/2\pi = c/C_H$, the speed of light over the horizon *circumference*.
 
@@ -564,8 +564,8 @@ $$m_e = \left(\frac{H\,e^4\sqrt{k/\pi}}{2\pi k^2G(4\pi\varepsilon_0)^2c^3}\right
 *Jan 2026 · doi:10.5281/zenodo.18419531 · DFP vocabulary; mostly interpretive*
 
 **Textbook closures it collects.**
-- ADM: $\mathcal H = \sqrt\gamma(R^{(3)} + K^2 - K_{ij}K^{ij}) - 16\pi G\sqrt\gamma\rho = 0$ and $\mathcal H_i = -2\nabla_j[\sqrt\gamma(K^j{}_i - \delta^j_iK)] + 16\pi G\sqrt\gamma j_i = 0$ (1 + 3).
-- Tetrad completeness $e^a{}_\mu e_a{}^\nu = \delta^\nu_\mu$ (four legs, none redundant).
+- ADM: $\mathcal H = \sqrt\gamma(R^{(3)} + K^2 - K_{ij}K^{ij}) - 16\pi G\sqrt\gamma\rho = 0$ and $`\mathcal H_i = -2\nabla_j[\sqrt\gamma(K^j{}_i - \delta^j_iK)] + 16\pi G\sqrt\gamma j_i = 0`$ (1 + 3).
+- Tetrad completeness $`e^a{}_\mu e_a{}^\nu = \delta^\nu_\mu`$ (four legs, none redundant).
 - LQG: a 4-valent spin-network node is a quantum tetrahedron (Rovelli & Vidotto); closure $\hat J_1+\hat J_2+\hat J_3+\hat J_4 = 0$, the quantum form of Minkowski's theorem $\sum_{f=1}^4A_f\hat n_f = 0$.
 - Regge calculus: $S = \sum_hA_h\epsilon_h$ on simplicial complexes.
 - LIGO: $10 - 2k = 2$. Simplex theorem: $d+1$ points enclose a $d$-region.
@@ -588,7 +588,7 @@ $$m_e = \left(\frac{H\,e^4\sqrt{k/\pi}}{2\pi k^2G(4\pi\varepsilon_0)^2c^3}\right
 3. *Chirality.* Ashtekar's $A = A^+\oplus A^-$; one tetrahedron per handedness.
 4. *Bimetric.* Hassan–Rosen $S = M_g^2\int\sqrt{-g}R[g] + M_f^2\int\sqrt{-f}R[f] + m^2\int\sqrt{-g}V(g,f)$, ghost-free with 7 DOF (2 massless + 5 massive); "one metric → one tetrahedron" (Paper V).
 
-Compatibility: Deffayet–Mourad–Zahariade symmetric-vielbein condition $g^{\mu\nu}E^A{}_\mu L^B{}_\nu = g^{\mu\nu}E^B{}_\mu L^A{}_\nu$, equivalent to real $\sqrt{g^{-1}f}$.
+Compatibility: Deffayet–Mourad–Zahariade symmetric-vielbein condition $`g^{\mu\nu}E^A{}_\mu L^B{}_\nu = g^{\mu\nu}E^B{}_\mu L^A{}_\nu`$, equivalent to real $\sqrt{g^{-1}f}$.
 
 **The stellated octahedron** (unique two-tetrahedra compound, Coxeter). Unit-cube binary labels, parity = bit sum mod 2: TetA (odd) $\{001, 010, 100, 111\}$, apex $V_7 = (1,1,1)$; TetB (even) $\{000, 011, 101, 110\}$, apex $V_0 = (0,0,0)$. Theorems:
 - T1 antipodal apexes, $\hat r_7 + \hat r_0 = 0$;
@@ -633,10 +633,10 @@ vs CODATA 137.035999177 (0.00021%). $2^d = 8$ orthants; $k^2+1 = 17$ = 16 tetrad
 
 **The coupling polynomial (§4).**
 - Three causal stages: EXIST ($k^0 = 1$, $\det e\ne0$), PROPAGATE ($k = 4$: a TetB vertex pierces a TetA face centre, cutting it into 3 + 1 sub-regions), INTERACT ($k^2 = 16$, the $4\times4$ frame-transition matrix). No $k^3$ term: a simplex boundary has only 0-, 1- and 2-cells.
-- Uniqueness by constraints (LIGO, simplex, ghost-free bimetric) and by component counting in $H_{\rm int} = m^2\sqrt g\sum\beta_ne_n(\mathcal S)$: $e_0 = 1$, $e_1 = \operatorname{Tr}\mathcal S$ ($k$ terms), $e_2 = \tfrac12[(\operatorname{Tr}\mathcal S)^2 - \operatorname{Tr}\mathcal S^2]$ ($k^2$ terms).
+- Uniqueness by constraints (LIGO, simplex, ghost-free bimetric) and by component counting in $H_{\rm int} = m^2\sqrt g\sum\beta_ne_n(\mathcal S)$: $e_0 = 1$, $e_1 = \mathrm{Tr}\mathcal S$ ($k$ terms), $e_2 = \tfrac12[(\mathrm{Tr}\mathcal S)^2 - \mathrm{Tr}\mathcal S^2]$ ($k^2$ terms).
 - $f = (k^3-1)/(k-1) = 63/3 = 21$; unit coefficients (one existence condition, one connection per face, one entry per frame pair). Self-similarity: each face again carries 1 + 4 + 16.
 - Three structural states $f = 1 + sk + k^2$: TetA ($+k$, 21, exponent), Field Origin (no face channels, 17, numerator), TetB ($-k$, 13, denominator). Only the odd term flips. Mean lock $(21+13)/2 = 17$, spacing $k$. $17 = k^2 + 1$ ("coupling capacity"), $13 = kd + 1$ ("spatial structure"), using $k^2 - k = kd$.
-- **Proposition (identification).** Under a common coupling point, the symmetric-vielbein condition and compatible 3 + 1 splits, the stellated octahedron's coupled-face matrix $C_{ab}$ equals the Hassan–Rosen $\mathcal S^a{}_b = (E^{-1})^a{}_\mu L^\mu{}_b$. Five conditions: index (vierbein leg ↔ face, $a = 0$ the time face), operation, block split $1 + 3 + 3 + 9$ (lapse/shift + triad), $\sum_n\binom4n = 16$, existence ($\det e\ne0$).
+- **Proposition (identification).** Under a common coupling point, the symmetric-vielbein condition and compatible 3 + 1 splits, the stellated octahedron's coupled-face matrix $C_{ab}$ equals the Hassan–Rosen $`\mathcal S^a{}_b = (E^{-1})^a{}_\mu L^\mu{}_b`$. Five conditions: index (vierbein leg ↔ face, $a = 0$ the time face), operation, block split $1 + 3 + 3 + 9$ (lapse/shift + triad), $\sum_n\binom4n = 16$, existence ($\det e\ne0$).
 
 **Results.**
 1. $G = \frac{17}{13}\alpha^{21}\hbar c/m_e^2 = 6.666\times10^{-11}$ (0.12%); exponent 20 or 22 misses by ×137; extracted $n = 20.9998$. One loop: $G(1 + \alpha/2\pi)$ gives $6.6742\times10^{-11}$ vs $6.6743$ (0.001%).
@@ -656,7 +656,7 @@ vs CODATA 137.035999177 (0.00021%). $2^d = 8$ orthants; $k^2+1 = 17$ = 16 tetrad
 
 **Poisson and scale invariance (§9).** $k = 4$ is topological (immune to renormalisation); $4\pi = k\times\pi$ ($\pi$ steradians per face); $\nabla^2\Phi = k\pi\cdot\frac{k^2+1}{kd+1}G_{\rm bare}\rho = 16.493\,G_{\rm bare}\rho$, i.e. $G_{\rm eff} = (17/13)G_{\rm bare}$.
 
-**Mechanism (§11).** Field Object, Field Atom $A_\Phi$ (a geon-like soliton of the massive spin-2 mode, with a "Valence Horizon"), Full State Snapshot, Settlement, Registration $B^*_\Sigma$ (grounded in ADM, Israel junction conditions, York–Lichnerowicz, Dirac constraints; appendix). **Bound vs unbound is defined here:** an *unbound* gravity-field envelope has an empty TetB chamber (massless mode; the mesh, "the stage"); a *bound* envelope has an occupied TetB (massive mode; matter, "the actors"). Binding by stellar compression, up to electron capture $p + e^-\to n + \nu_e$; TOV balance; the Field Origin as the eye of a self-sustaining vortex. Chessboard picture: bound configurations sit only on mesh nodes where $\det e\ne0$.
+**Mechanism (§11).** Field Object, Field Atom $A_\Phi$ (a geon-like soliton of the massive spin-2 mode, with a "Valence Horizon"), Full State Snapshot, Settlement, Registration $`B^*_\Sigma`$ (grounded in ADM, Israel junction conditions, York–Lichnerowicz, Dirac constraints; appendix). **Bound vs unbound is defined here:** an *unbound* gravity-field envelope has an empty TetB chamber (massless mode; the mesh, "the stage"); a *bound* envelope has an occupied TetB (massive mode; matter, "the actors"). Binding by stellar compression, up to electron capture $p + e^-\to n + \nu_e$; TOV balance; the Field Origin as the eye of a self-sustaining vortex. Chessboard picture: bound configurations sit only on mesh nodes where $\det e\ne0$.
 
 **Nuclear packing in TetB (heuristic, stated as not derived from the field equations).** He-4 first closed nucleus ($A = k$, 7.07 MeV/nucleon vs 2.83, 2.57 for $A = 3$); O-16 $= k^2$ tetrahedral α-clustering; α-ladder ¹²C, ¹⁶O, ²⁰Ne, ²⁴Mg, ²⁸Si; Be-8 ($2k$) unbound, $8.2\times10^{-17}$ s; ceiling $k^4 = 256$ (Fm-258 fissions, fragments near 128); binding peak near Fe-56.
 
@@ -675,8 +675,8 @@ vs CODATA 137.035999177 (0.00021%). $2^d = 8$ orthants; $k^2+1 = 17$ = 16 tetrad
 
 **Locking the coefficients.**
 1. *Basis is unique.* A derivative-free covariant scalar density built from tetrad one-forms is a 4-form, $\epsilon_{abcd}\,\tilde e^{a_1}\wedge\cdots\wedge\tilde e^{a_n}\wedge e^{a_{n+1}}\wedge\cdots\wedge e^{a_4} = e\,e_n(S)\,d^4x$, with $S = e^{-1}\tilde e$. So $V = \sum_{n=0}^4\beta_ne_n(S)$ is forced, not assumed.
-2. *$\beta_2 = 16$, primary (geometric).* $e_2(S) = \tfrac12[(\operatorname{Tr}S)^2 - \operatorname{Tr}S^2]$ counts pairwise couplings; weighting it by the 16 boundary channels gives each channel unit weight.
-3. *$\beta_2 = 16$, secondary (covariance).* $\dim C\ell_{1,3} = \sum_k\binom4k = 16 = \dim\operatorname{End}(\mathbb R^{1,3})$ = the components of $S$. Once the other terms are fixed, $e_2$ is the only free term and "must absorb" all 16; the paper words this as an interpretation ("we therefore interpret").
+2. *$\beta_2 = 16$, primary (geometric).* $e_2(S) = \tfrac12[(\mathrm{Tr}S)^2 - \mathrm{Tr}S^2]$ counts pairwise couplings; weighting it by the 16 boundary channels gives each channel unit weight.
+3. *$\beta_2 = 16$, secondary (covariance).* $\dim C\ell_{1,3} = \sum_k\binom4k = 16 = \dim\mathrm{End}(\mathbb R^{1,3})$ = the components of $S$. Once the other terms are fixed, $e_2$ is the only free term and "must absorb" all 16; the paper words this as an interpretation ("we therefore interpret").
 4. *Parity:* under $\lambda_i\to-\lambda_i$ the odd $e_1, e_3$ change sign (grade 1 and 3 reverse), so $\beta_1 = \beta_3 = 0$. *Exchange:* $g\leftrightarrow f$ sends $S\to S^{-1}$, so $\beta_0 = \beta_4$. *Normalisation:* $\beta_0 = 1$.
 5. Result: $(\beta_0,\ldots,\beta_4) = (1,0,16,0,1)$, $V(S) = e_0 + 16e_2 + e_4$. Polynomial reading: the $1$ is bare existence ($\beta_0 = \beta_4$), $k^2 = 16$ is $\beta_2$, and no odd power gives $\beta_1 = \beta_3 = 0$.
 
@@ -685,7 +685,7 @@ vs CODATA 137.035999177 (0.00021%). $2^d = 8$ orthants; $k^2+1 = 17$ = 16 tetrad
 - The potential is in the Hassan–Rosen class, so the secondary constraint and the BD-ghost removal are inherited. The locked set is a point inside the ghost-free family.
 
 **UV → IR bridge (EFT statement, explicitly not an identity of actions).**
-- Stückelberg: $\tilde e^a{}_\mu\to\tilde e^a{}_\nu(\varphi)\partial_\mu\varphi^\nu$ with $\varphi^\mu = x^\mu - \partial^\mu\pi/\Lambda_3^3$, $\Lambda_3 = (m^2M_{\rm Pl})^{1/3}$.
+- Stückelberg: $`\tilde e^{a}{}_{\mu}\to\tilde e^{a}{}_{\nu}(\varphi)\,\partial_{\mu}\varphi^{\nu}`$ with $\varphi^\mu = x^\mu - \partial^\mu\pi/\Lambda_3^3$, $\Lambda_3 = (m^2M_{\rm Pl})^{1/3}$.
 - In the decoupling limit, $\mathcal L_\pi = c_2(\partial\pi)^2 + c_3(\partial\pi)^2[\Pi]/\Lambda_3^3 + c_4(\partial\pi)^2([\Pi]^2 - [\Pi^2])/\Lambda_3^6 + \cdots$, with $c_k(\beta)$ now fixed rather than tunable.
 - The background $S = I$ is a stable minimum, $V''(I) > 0$. Matter drives the tetrads apart and switches on Vainshtein screening. In GFD language this is the node moving from $s = 0$ toward $s\to+1$.
 - Static reduction is algebraic, $\mathcal P(\pi'/r) = GM(r)/r^3$.
@@ -763,7 +763,7 @@ vs CODATA 137.035999177 (0.00021%). $2^d = 8$ orthants; $k^2+1 = 17$ = 16 tetrad
 - *BBP formula.* $\pi = \sum16^{-k}[4/(8k+1) - 2/(8k+4) - 1/(8k+5) - 1/(8k+6)]$.
   - It has period $8 = 2^D$, four active terms ($K$) and base $16 = K^2 = 2^K$.
   - Its coefficients $\{4,-2,-1,-1\}$ sum to 0 and have magnitudes equal to the binary place values.
-  - $\operatorname{lcm}(3,4) = 12 = KD$.
+  - $\mathrm{lcm}(3,4) = 12 = KD$.
 - *What the evidence supports.* The paper calls this "an algebraic isomorphism, not a numerical coincidence". The evidence is a match of small integers. Uniform visits under a cumulative-sum walk are expected of any digit sequence that behaves like a normal one. The tag stays [E].
 
 **Chain and open items.**
@@ -818,7 +818,7 @@ vs CODATA 137.035999177 (0.00021%). $2^d = 8$ orthants; $k^2+1 = 17$ = 16 tetrad
 - *Roles.* TetA is outward and carries the massless mode ("the unbound gravitational field: spacetime itself, the ocean"). TetB is the bounded interior and carries the massive mode. The Field Origin is the Hassan–Rosen interaction vertex.
 - *Three structural types.*
   - $\det e\ne0$ (1).
-  - The frame $e^a{}_\mu$ ($K$).
+  - The frame $`e^a{}_\mu`$ ($K$).
   - A $K\times K$ coupling matrix ($K^2$). The text writes this as "a connection ($\eta_{ab}$)", but $\eta_{ab}$ is the Minkowski metric; elsewhere this level is the frame-transition matrix $S$.
 
 **Binding formula.**
@@ -1041,7 +1041,7 @@ $V - E + F = 4 = 2\chi(S^2)$, two disjoint closed surfaces.
 **Route 1: graded structure of the metric.**
 - From $\eta_{ab}$: $K = 4$ (size of the matrix), $D = 3$ (positive eigenvalues), and root count $n = 2$ (the tetrad equation is degree 2 in $e$).
 - Closure $2(D+1) = 2^D = 8$.
-- Ranks give dimensions: $\det e\ne0$ is rank 0 (1), $e^a{}_\mu$ rank 1 ($K$), $\eta_{ab}e^ae^b$ rank 2 ($K^2$). They add, giving $f = 21$.
+- Ranks give dimensions: $\det e\ne0$ is rank 0 (1), $`e^a{}_\mu`$ rank 1 ($K$), $\eta_{ab}e^ae^b$ rank 2 ($K^2$). They add, giving $f = 21$.
 - Parity sign $(-1)^r$ makes only rank 1 odd. Three structural components (TetA, octahedral core, TetB) give $s\in\{+1,0,-1\}$. Odd interpolation on three points gives $Ks$, so $f = 1 + sK + K^2$.
 - A rational bijection of $\mathbb P^1$ is fractional-linear (Hartshorne). Three conditions give $s(x) = (x-1)/(x+1)$, then $\mu = (f-13)/8$.
 - Here $s$ is defined as a three-state label and only *then* made continuous by the map. That is the step later notation writes as $\sigma(x)$.
@@ -1076,7 +1076,7 @@ $V - E + F = 4 = 2\chi(S^2)$, two disjoint closed surfaces.
 
 *Letter, companion to L1. Supplementary: `supplementary_tetb_fraction.pdf` and `run_all_validations.py` (NumPy/SciPy/SymPy, 52/52 claims; §13 checks $P^T\eta P = \eta$ per sector, §14 checks the exchange → dark-ratio chain symbolically). Status: [T] for the lemma and counts, [D] for the partition reading.*
 
-**Counts.** $\Gamma^I{}_{JK}$ has $K^3 = 64$ components. The lower-pair symmetric part has $K\cdot K(K+1)/2 = 40$ (Christoffel); the antisymmetric part has $K\cdot K(K-1)/2 = 24$ (torsion). Einstein (1915) set torsion to zero; Cartan (1922) and Hehl (1976) restore it and couple it to spin, giving the same vacuum predictions.
+**Counts.** $`\Gamma^I{}_{JK}`$ has $K^3 = 64$ components. The lower-pair symmetric part has $K\cdot K(K+1)/2 = 40$ (Christoffel); the antisymmetric part has $K\cdot K(K-1)/2 = 24$ (torsion). Einstein (1915) set torsion to zero; Cartan (1922) and Hehl (1976) restore it and couple it to spin, giving the same vacuum predictions.
 
 **Lemma, proposition, corollary.**
 - *Lemma.* A torsion-free connection cannot distinguish TetA from TetB.
@@ -1303,12 +1303,12 @@ $V - E + F = 4 = 2\chi(S^2)$, two disjoint closed surfaces.
 
 **Sector space.**
 - $V$ is the frame space, $K = \dim V = 4$, and $\det e\ne0$. The tetrad equation is bilinear in $e$. Read by frame degree it has three levels, $\mathcal C_K = \Lambda^KV\oplus V\oplus(V\otimes V)$, of dimensions $1 + K + K^2$.
-- There is no rank-3 level: that would need trilinear dependence on $e$. Independently, $\Gamma^a{}_{bc}$ has only two lower indices, so it also stops at bilinear.
-- Weighting $\Omega_s = I\oplus sI_V\oplus I$ gives the theorem $\operatorname{Tr}_{\mathcal C_K}\Omega_s = f(K,s) = 1 + sK + K^2$, i.e. 13/17/21 at $K = 4$.
+- There is no rank-3 level: that would need trilinear dependence on $e$. Independently, $`\Gamma^a{}_{bc}`$ has only two lower indices, so it also stops at bilinear.
+- Weighting $\Omega_s = I\oplus sI_V\oplus I$ gives the theorem $\mathrm{Tr}_{\mathcal C_K}\Omega_s = f(K,s) = 1 + sK + K^2$, i.e. 13/17/21 at $K = 4$.
   - The leading 1 is $\dim\Lambda^KV$.
   - $s = 0$ is the unpolarised average of the $s = \pm1$ reads, not a third eigenvalue.
-- *Swap form.* $\tau(a\otimes b) = b\otimes a$ with $P_\pm = \tfrac12(I\pm\tau)$ and $\operatorname{Tr}\tau = K$, so $f = \dim\Lambda^KV + \operatorname{Tr}_{V\otimes V}(I + s\tau)$.
-- *Connection.* $\Gamma\in V\otimes V^*\otimes V^*$ (the frame affine connection, not the spin connection) splits as $V\otimes\mathrm{Sym}^2V^*$ (40) $\oplus$ $V\otimes\Lambda^2V^*$ (24). Torsion is $\Lambda^2V^*$-valued, with $T^a{}_{bc} = 2\Gamma^a{}_{[bc]}$ in a coordinate basis.
+- *Swap form.* $\tau(a\otimes b) = b\otimes a$ with $P_\pm = \tfrac12(I\pm\tau)$ and $\mathrm{Tr}\tau = K$, so $f = \dim\Lambda^KV + \mathrm{Tr}_{V\otimes V}(I + s\tau)$.
+- *Connection.* $`\Gamma\in V\otimes V^*\otimes V^*`$ (the frame affine connection, not the spin connection) splits as $`V\otimes\mathrm{Sym}^2V^*`$ (40) $\oplus$ $`V\otimes\Lambda^2V^*`$ (24). Torsion is $`\Lambda^2V^*`$-valued, with $`T^a{}_{bc} = 2\Gamma^a{}_{[bc]}`$ in a coordinate basis.
 - *Two gradings, four sectors.*
 
   | Parity, swap | Sector | Dimension |
@@ -1336,12 +1336,12 @@ $V - E + F = 4 = 2\chi(S^2)$, two disjoint closed surfaces.
 
 *Algebraic note. Status: [T]. Recomputed: characters and both multiplicity decompositions.*
 
-- *Action.* $S_4$ acts on the four frame labels before any metric (pre-$\eta$). The character counts fixed labels, and $V^*\cong V$ as $S_4$-modules.
+- *Action.* $S_4$ acts on the four frame labels before any metric (pre-$\eta$). The character counts fixed labels, and $`V^*\cong V`$ as $S_4$-modules.
 - *Characters.* $\chi_{\Lambda^2V} = (\chi^2 - \chi(\sigma^2))/2$. On the classes (e, (12), (123), (1234), (12)(34)) of sizes (1, 6, 8, 6, 3):
   - $\chi_V = (4,2,1,0,0)$.
   - $\chi_{\Lambda^2} = (6,0,0,0,-2)$.
   - $\chi_{V\otimes\Lambda^2} = (24,0,0,0,0)$.
-- *Theorem.* The torsion sector $V\otimes\Lambda^2V^*$ is the regular representation of $S_4$ ($\chi = |G|$ at $e$, 0 elsewhere). So it contains each irrep with multiplicity equal to its dimension: $1+1+4+9+9 = 24$. Recomputed: triv 1, sgn 1, $V_2$ 2, $V_3$ 3, $V_3\otimes$sgn 3.
+- *Theorem.* The torsion sector $`V\otimes\Lambda^2V^*`$ is the regular representation of $S_4$ ($\chi = |G|$ at $e$, 0 elsewhere). So it contains each irrep with multiplicity equal to its dimension: $1+1+4+9+9 = 24$. Recomputed: triv 1, sgn 1, $V_2$ 2, $V_3$ 3, $V_3\otimes$sgn 3.
 - *Christoffel sector.* $V\otimes\mathrm{Sym}^2V$ has $\chi = (40,8,1,0,0)$ and decomposes as $4\cdot\mathbf1\oplus3V_2\oplus7V_3\oplus3(V_3\otimes\mathrm{sgn})$, with **zero** sign copies. Recomputed: confirmed.
 - *Reading.* The sign irrep, the unique scalar detector of odd versus even leg permutations, lives only in torsion. This is a module-theoretic form of root-blindness.
 - *Uniqueness.* $K^2(K-1)/2 = K!$ only for $K\in\{2,4\}$ (table $K = 1..6$).
@@ -1360,7 +1360,7 @@ $V - E + F = 4 = 2\chi(S^2)$, two disjoint closed surfaces.
 - *Theorem 1.* Reading the signs of the four normals $u_0..u_3$ along $x, y, z$ gives the three balanced partitions; adding the constant (temporal) row gives $H_4$.
 - *Theorem 2 (parity-restricted Walsh kernel).* On $T_+$, $1\sim xyz$, $x\sim yz$, $y\sim xz$, $z\sim xy$. Eight Walsh characters collapse to four, $\{1,x,y,z\}$, whose values on $T_+$ form $H_4$.
   - Sylvester: $H_8\cong H_2\otimes H_4$, i.e. parity grading ⊗ frame read.
-- *Tetrad.* The isotropic frame $e^I{}_j = u_I^j/\sqrt3$ has $H_4$ as its sign skeleton, with the time leg giving the constant row.
+- *Tetrad.* The isotropic frame $`e^I{}_j = u_I^j/\sqrt3`$ has $H_4$ as its sign skeleton, with the time leg giving the constant row.
 - *Uniqueness at $D = 3$.* Three facts hold together only there:
   - balanced partitions $= D$ only at $K = 4$ ($K = 3$ gives 3/2; $K = 5$ gives 5 ≠ 4);
   - $2(D+1) = 2^D$;
