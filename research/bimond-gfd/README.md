@@ -21,6 +21,8 @@ This is QUMOND, the two-potential form of MOND. Lensing is governed by the same 
 
 ## Results
 
+*The formal results of 01, 02 and 08 (the coupling sign, 𝓜 in closed form, Legendre duality and convexity) are written up as a proof: [`proofs/bimetric-two-potential-energy/`](../../proofs/bimetric-two-potential-energy/) (39 checks).*
+
 **01 — The orientation of the second root gives α + β = 0** (`01_orientation_alpha_beta.py`).
 - In tetrad form the Einstein–Hilbert term is the 4-form ∫ε_abcd eᵃ∧eᵇ∧Rᶜᵈ. Under the parity that maps TetA to TetB, ε picks up det P = −1, so S_EH[Pe] = −S_EH[e]. Proper Lorentz transformations leave it unchanged.
 - TetA (det e > 0) and TetB (det ẽ < 0) with equal Planck mass therefore enter with opposite signs. That is exactly BIMOND's special case.
