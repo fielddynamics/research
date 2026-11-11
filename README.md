@@ -42,7 +42,7 @@ Each claim is graded by what supports it. **Theorem**: proved, with a script tha
 | G, mₑ, α and H₀ follow from the integers {13, 17, 21} of the coupling polynomial | Exploratory | [`docs/03-fundamental-constants/`](docs/03-fundamental-constants/); [Paper VI validation](papers/06-gravitational-constant-from-topology/validation/run_all_validations.py); [look-elsewhere test](research/g_from_topology/) |
 | Nuclear magic numbers and binding energies from the bound form of the constitutive law | Exploratory | [Paper XI](papers/11-nuclear-shells-tetrahedral-packing/); [Paper XIII](papers/13-nuclear-binding-bidirectional-sst/) |
 
-**The argument in four lines** (the machine-readable chain is in [`llms.txt`](llms.txt)):
+**The argument in four lines** (the machine-readable chain is in [`llms.txt`](llms.txt); a condensed digest of every paper with its algebra is in [`GFD_COLES_NOTES.md`](GFD_COLES_NOTES.md)):
 
 ```text
 Uniqueness:        2(D + 1) = 2^D        ⇒  D = 3, K = 4

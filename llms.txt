@@ -28,6 +28,10 @@ f(4,  0) = 17 (field origin)
 f(4, -1) = 13 (TetB chamber)
 Range = 21 - 13 = 8 = 2^D
 
+## Condensed notes
+GFD_COLES_NOTES.md condenses every paper, letter and proof in this repository, with the algebra written out
+and each result tagged theorem / derived / exploratory / observational. Read it after this file.
+
 ## Core equations
 Covariant action (the governing equation of the framework):
   S = int d^4x sqrt(-g) [R/(16 pi G) - a_0^2/(8 pi G) F(y) - 1/4 e^{-2 Phi/c^2} F_{mu nu}F^{mu nu} + L_matter]
