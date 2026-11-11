@@ -55,7 +55,7 @@ Of the $2^4 = 16$ sign combinations of the half-spaces $\pm v_i \le 1$, exactly 
 
 $$\text{TetA}: \max_i v_i \le 1, \qquad \text{TetB}: \max_i(-v_i) \le 1.$$
 
-(Checked by LP over all 16 patterns.) As a region, TetA has vertices at the even-popcount corners $(+,+,-),(+,-,+),(-,+,+),(-,-,-)$, while its face normals point at the odd corners $\{7,4,2,1\}$; Paper IX labels TetA by the odd corners, i.e. by its normals. They interpenetrate as a stellated octahedron; the boundary splits into $4$ faces $\times$ $4$ sub-regions $= 16$ channels. No second frame is assumed: TetB is the second bounded region of a single tetrad.
+(Checked by LP over all 16 patterns.) As a region, TetA $=\{\max v_i\le1\}$ has *outward* face normals $\propto(+++),(+--),(-+-),(--+)$ and therefore vertices at the opposite corners $(---),(-++),(+-+),(++-)$. Papers IX, GRAM and C instead name TetA by the vertex set $\{(+++),(+--),(-+-),(--+)\}$ ($xyz = +1$); that matches L1's region only if their "face normals" are read as *inward* normals (Paper C calls the same four vectors both TetA's vertices and its face normals). Same pair, flipped label. They interpenetrate as a stellated octahedron; the boundary splits into $4$ faces $\times$ $4$ sub-regions $= 16$ channels. No second frame is assumed: TetB is the second bounded region of a single tetrad.
 
 **Scheme version (P-two-regions, 39 checks).** $g = e^T\eta e$ forces $(\det e)^2 = \det g/\det\eta$, so the solution scheme has exactly two components, one per root of $\det e$. Spatial parity maps one to the other (three is odd) and carries TetA onto TetB. The metric sees only $(\det e)^2$; restricting to $SO^+(1,3)$ keeps one root and discards the other.
 
@@ -1264,3 +1264,88 @@ $V - E + F = 4 = 2\chi(S^2)$, two disjoint closed surfaces.
 - *Symbol.* ESS writes Poisson with the same symbol $\Phi$ used for the total potential in the action. In the pipeline, Poisson defines the Newtonian source field $g_s$, so the $\Phi$ there is $\Phi_N$. Varying the action gives one equation, $\nabla\cdot[\mu\nabla\Phi] = 4\pi G\rho$, whose spherical form is the quadratic.
 - *Naming.* The terminology matches the later rules: "spherical field equation of the scalar-tensor transition (SST) action".
 - *Deficit sign.* ESS repeats DEC's deficit-sign ambiguity.
+
+## Paper A — The Simple AQUAL Interpolation Law from the Tetrad Frame's Bilinear $\mathbb Z_2$ Sector
+
+*Algebraic note. Status: [T]. Scope is stated narrowly: no covariant completion, no optical metric, no prediction of $G$. "No acceleration scale is smuggled in": $x$ is an algebraic odds variable until it is replaced by $|\nabla\Phi|/a_0$.*
+
+**Sector space.**
+- $V$ is the frame space, $K = \dim V = 4$, and $\det e\ne0$. The tetrad equation is bilinear in $e$. Read by frame degree it has three levels, $\mathcal C_K = \Lambda^KV\oplus V\oplus(V\otimes V)$, of dimensions $1 + K + K^2$.
+- There is no rank-3 level: that would need trilinear dependence on $e$. Independently, $\Gamma^a{}_{bc}$ has only two lower indices, so it also stops at bilinear.
+- Weighting $\Omega_s = I\oplus sI_V\oplus I$ gives the theorem $\operatorname{Tr}_{\mathcal C_K}\Omega_s = f(K,s) = 1 + sK + K^2$, i.e. 13/17/21 at $K = 4$.
+  - The leading 1 is $\dim\Lambda^KV$.
+  - $s = 0$ is the unpolarised average of the $s = \pm1$ reads, not a third eigenvalue.
+- *Swap form.* $\tau(a\otimes b) = b\otimes a$ with $P_\pm = \tfrac12(I\pm\tau)$ and $\operatorname{Tr}\tau = K$, so $f = \dim\Lambda^KV + \operatorname{Tr}_{V\otimes V}(I + s\tau)$.
+- *Connection.* $\Gamma\in V\otimes V^*\otimes V^*$ (the frame affine connection, not the spin connection) splits as $V\otimes\mathrm{Sym}^2V^*$ (40) $\oplus$ $V\otimes\Lambda^2V^*$ (24). Torsion is $\Lambda^2V^*$-valued, with $T^a{}_{bc} = 2\Gamma^a{}_{[bc]}$ in a coordinate basis.
+- *Two gradings, four sectors.*
+
+  | Parity, swap | Sector | Dimension |
+  |---|---|---|
+  | (+,+) | $\Lambda^KV\oplus\mathrm{Sym}^2V$ | 11 |
+  | (+,−) | $\Lambda^2V$ | 6 |
+  | (−,+) | $V$ | 4 |
+  | (−,−) | — | 0 |
+
+  Total 21.
+
+**Occupation law.**
+- Exchange $\mathrm{Sym}^2\leftrightarrow\Lambda^2$ acts as $x\mapsto1/x$, so $u(x) + u(1/x) = 1$, with $u(0) = 0$, $u(1) = \tfrac12$, $u(\infty) = 1$. Here $u$ is the symmetric-sector (Christoffel-side) fraction.
+- A fractional-linear $u$ with these three values is $x/(1+x)$.
+- *Stated caveat.* The family $x^n/(1+x^n)$ obeys the same exchange symmetry for every $n>0$. $n = 1$ is singled out by fractional-linearity, equivalently by taking $x$ to be the odds $u/(1-u)$ itself. The remark is explicit that given that identification, $u = x/(1+x)$ is just odds → probability. The content is the identification of the tetrad's bilinear $\mathbb Z_2$ split as the relevant partition.
+- *Coordinates.* $s(x) = 2u - 1 = (x-1)/(x+1)$ is the Cayley coordinate; separately, it is the unique fractional-linear $s$ with $s(1/x) = -s(x)$, $s(1) = 0$, $s(0) = -1$, $s(\infty) = 1$. Then $f(K,s(x)) = f_- + 2Ku(x)$.
+- *Density operator.* $\rho_x = uP_+ + (1-u)P_-$ satisfies $\rho_x + \rho_{1/x} = I$. The weighted count $N_K(x) = K^2(K-1)/2 + K^2u(x)$ satisfies $N_K(x) + N_K(1/x) = K^3 = 64$. This is called an algebraic identity, not a conservation law.
+
+**Primitive.**
+- $y = x^2$ and $F'(y) = u(\sqrt y)$, $F(0) = 0$, give $F = y - 2\sqrt y + 2\ln(1+\sqrt y)$, which is $C^1$ on $[0,\infty)$ and $C^\infty$ on $(0,\infty)$.
+- $F\sim\tfrac23y^{3/2}$ from cancellation of the linear and quadratic orders. The Euler–Lagrange equation is understood weakly at critical points (Bekenstein–Milgrom).
+- Realisation: $S_{\rm NR} = \int d^3x[-(a_0^2/8\pi G)F - \rho\Phi]$ gives $\nabla\cdot[u\nabla\Phi] = 4\pi G\rho$ (the sign is checked).
+
+## Paper B — Torsion as the Regular Representation of $S_4$
+
+*Algebraic note. Status: [T]. Recomputed: characters and both multiplicity decompositions.*
+
+- *Action.* $S_4$ acts on the four frame labels before any metric (pre-$\eta$). The character counts fixed labels, and $V^*\cong V$ as $S_4$-modules.
+- *Characters.* $\chi_{\Lambda^2V} = (\chi^2 - \chi(\sigma^2))/2$. On the classes (e, (12), (123), (1234), (12)(34)) of sizes (1, 6, 8, 6, 3):
+  - $\chi_V = (4,2,1,0,0)$.
+  - $\chi_{\Lambda^2} = (6,0,0,0,-2)$.
+  - $\chi_{V\otimes\Lambda^2} = (24,0,0,0,0)$.
+- *Theorem.* The torsion sector $V\otimes\Lambda^2V^*$ is the regular representation of $S_4$ ($\chi = |G|$ at $e$, 0 elsewhere). So it contains each irrep with multiplicity equal to its dimension: $1+1+4+9+9 = 24$. Recomputed: triv 1, sgn 1, $V_2$ 2, $V_3$ 3, $V_3\otimes$sgn 3.
+- *Christoffel sector.* $V\otimes\mathrm{Sym}^2V$ has $\chi = (40,8,1,0,0)$ and decomposes as $4\cdot\mathbf1\oplus3V_2\oplus7V_3\oplus3(V_3\otimes\mathrm{sgn})$, with **zero** sign copies. Recomputed: confirmed.
+- *Reading.* The sign irrep, the unique scalar detector of odd versus even leg permutations, lives only in torsion. This is a module-theoretic form of root-blindness.
+- *Uniqueness.* $K^2(K-1)/2 = K!$ only for $K\in\{2,4\}$ (table $K = 1..6$).
+- *Combinatorics.* $4\times6 = 24$ vertex–edge incidences of a tetrahedron, equal to $|S_4|$.
+- *Stated limits.*
+  - $\eta$ breaks $S_4$ to about $S_1\times S_3$.
+  - How this relates to the Lorentz split $4 + 4 + 16$ is open.
+  - The explicit isomorphism to $\mathbb R[S_4]$ is not constructed.
+
+## Paper C — The Hadamard Kernel of the Tetrad Frame and the Stellated Octahedron
+
+*Algebraic note. Status: [T].*
+
+- *Parity split.* $p = xyz$ splits the cube into TetA ($p = +1$: $(+++), (+--), (-+-), (--+)$) and TetB ($p = -1$). Within a set the pairwise inner product is $-1$, so each set is a regular tetrahedron.
+- *$H_4$.* The three balanced 2|2 partitions of four objects ($\binom42/2 = 3$) plus the constant row give $H_4$, with $H_4H_4^T = 4I$.
+- *Theorem 1.* Reading the signs of the four normals $u_0..u_3$ along $x, y, z$ gives the three balanced partitions; adding the constant (temporal) row gives $H_4$.
+- *Theorem 2 (parity-restricted Walsh kernel).* On $T_+$, $1\sim xyz$, $x\sim yz$, $y\sim xz$, $z\sim xy$. Eight Walsh characters collapse to four, $\{1,x,y,z\}$, whose values on $T_+$ form $H_4$.
+  - Sylvester: $H_8\cong H_2\otimes H_4$, i.e. parity grading ⊗ frame read.
+- *Tetrad.* The isotropic frame $e^I{}_j = u_I^j/\sqrt3$ has $H_4$ as its sign skeleton, with the time leg giving the constant row.
+- *Uniqueness at $D = 3$.* Three facts hold together only there:
+  - balanced partitions $= D$ only at $K = 4$ ($K = 3$ gives 3/2; $K = 5$ gives 5 ≠ 4);
+  - $2(D+1) = 2^D$;
+  - a Hadamard matrix of order $K>2$ needs $4\mid K$.
+- *Open.* Whether the three appearances of 3 + 1 (Walsh modes, face signs, Lorentz signature) are one fact.
+- **Notes.**
+  - *Axes.* The text says the three axes connect "opposite edge-midpoints of the cube". The axes used ($x, y, z$) pass through the cube's face centres, which are the midpoints of opposite edges *of each tetrahedron*.
+  - *Labelling.* Paper C calls $u_0..u_3$ both TetA's vertices and TetA's face normals. That is consistent only for inward normals, which is the source of the TetA/TetB label flip relative to L1 (Part I §2.2).
+
+## FY — Closed-Form AQUAL Energy Functional for the Simple Interpolating Function
+
+*Short note. Status: [T].*
+
+- *Theorem.* $\mu = x/(x+1)$ with $F(0) = 0$ gives $F = y - 2\sqrt y + 2\ln(1+\sqrt y)$. Proof: $u = \sqrt t$, $u^2/(u+1) = (u-1) + 1/(u+1)$.
+- *Check by differentiation in $u$.* $dF/du = 2u^2/(1+u)$, so $dF/dy = u/(1+u)$. This is regular at $u = 0$.
+- *Limits.* $F\to y$; $F = \tfrac23y^{3/2} - \tfrac12y^2 + O(y^{5/2})$. The crossover is smooth, with no patching.
+- *Novelty claim.* "No closed form for the corresponding $F(y)$ appears in the published literature". Not checked here.
+- **Notes.**
+  - *Abstract vs body.* The abstract says "the logarithm dominates at low acceleration and produces deep-MOND scaling, and the square root provides smooth crossover". The body (§5–6) correctly shows the deep-field $y^{3/2}$ arises only after the $\sqrt y$ and $y$ orders cancel among all three terms. The abstract's term-by-term roles do not hold.
+  - *Sign.* The note writes $\mathcal L = -(a_0^2/8\pi G)F + \rho\Phi$. Varying that gives $\nabla\cdot[\mu\nabla\Phi] = -4\pi G\rho$. The stated field equation needs $-\rho\Phi$, as Paper A writes.
