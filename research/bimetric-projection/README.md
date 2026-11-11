@@ -128,3 +128,29 @@ Part 1's conclusion is right about the standard construction and wrong as a gene
 - The time leg's acceleration defines a preferred frame. The preferred-frame parameters α₁ and α₂ need computing.
 - In an isolated strong field the simple μ leaves a constant extra pull of a₀. The external-field effect still has to be computed against solar-system bounds.
 - The meV-scale origin of the log term (a Gaussian sector on the midpoint frame) is a hypothesis.
+
+---
+
+## Part 3: the solar system, and the matter coupling that GFD needs
+
+*Scripts: `probe_efe_solar_system.py`, `probe_net_galactic_field.py`.*
+
+**The local-source reading fails.** Suppose every mass sources the SST scalar through its own local gradient. Then every isolated mass carries a saturated TetB field, B = (1−μ)g → a₀. Around the Sun this gives two effects, and both are ruled out:
+- *A constant extra pull of 1.2 × 10⁻¹⁰ m/s² at every planet.* Perihelion analyses exclude it: Iorio 2008, arXiv:0711.2791.
+- *An external-field quadrupole of Q₂ ≈ 4.0 × 10⁻²⁶ s⁻².* Cassini measures (3 ± 3) × 10⁻²⁷ (Hees et al. 2014, arXiv:1402.6950).
+
+Exchange symmetry plus the deep-field limit forces 1 − μ ≈ 1/x at large x. Every such μ I tested stays above the Cassini bound.
+
+**The coarse-grained reading adopted here.** The papers leave 𝓛_matter unspecified. The reading is:
+- the SST scalar is sourced by the galaxy's coarse-grained density ρ̄;
+- x = |∇Φ̄|/a₀ is built from the galaxy's net field;
+- bound subsystems (a star with its planets) gravitate internally through the metric, i.e. GR.
+
+What a local solar system then feels is the galaxy's net field. Its uniform part, g_e ≈ 2.3 × 10⁻¹⁰ m/s² (x ≈ 1.9), is removed by free fall, so only the galactic tide is left. That tide is about 1 × 10⁻³⁰ s⁻², giving 1.6 × 10⁻¹⁸ m/s² at Saturn, roughly 8000 times below the Cassini bound. There is no a₀ monopole and no Sun-centred quadrupole.
+
+Galactic predictions are unchanged. With the McMillan-type baryons, the SST rotation curve in the plane is 240 km/s at 8.2 kpc. That number is sensitive to the gas-disk scale assumed here (7 kpc); Paper VII quotes 225 km/s, against an observed 229 ± 5. The curve continues at 220 km/s at 15 kpc, 207 at 25 kpc and 197 at 50 kpc.
+
+**What this commits GFD to.**
+- A precise definition of a bound subsystem. A natural scale is √(Gm/a₀), about 7000 AU for the Sun.
+- Wide binaries, star clusters and the Oort cloud are Newtonian internally. This conflicts with Paper VII's claimed wide-binary plateau.
+- The external-field effect acts between galaxies, through ρ̄.
