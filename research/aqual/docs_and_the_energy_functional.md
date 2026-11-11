@@ -86,7 +86,7 @@ Every statement below is checked by [`verify_docs_intersection.py`](verify_docs_
 
    On the convention that the SST is the full action, and the field equation is what varying it gives, the docs need renaming in these places.
 
-   The same pages also label the regime $x \to 0$ "Deep field (TetB dominant)" (docs 02, docs 03). The deep field is a range of $x$, and TetB is the subspace whose share approaches 1 there; in an unbound field its chamber stays empty. The same conflation appears in the constitutive-law letter, lines 404–411 ("the deep-field limit … is itself the TetB sector"), and in the galaxy interior/exterior synthesis table ("TetB (deep field)").
+   The same pages also label the regime $x \to 0$ "Deep field (TetB dominant)" (docs 02, docs 03). The deep field is a range of $x$ reached in the exterior, toward the rim, where the TetB share approaches 1. TetB itself is the throat interior at the centre, reached through the Field Origin (decoding-mass letter). The same conflation appears in the constitutive-law letter, lines 404–411 ("the deep-field limit … is itself the TetB sector"), and in the galaxy interior/exterior synthesis table ("TetB (deep field)").
 
 9. **Two relations between $a_0$ and $H$.** At $H = 70.21$ km/s/Mpc:
 
