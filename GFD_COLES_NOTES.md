@@ -1129,3 +1129,138 @@ $V - E + F = 4 = 2\chi(S^2)$, two disjoint closed surfaces.
   - Expanded: $\mu\nabla^2\Phi + \nabla\mu\cdot\nabla\Phi = 4\pi G\rho$.
   - Spherical case: $\mu(g_t/a_0)g_t = g_s$, so $g_s = g_t^2/(a_0+g_t)$.
   - PPN $\beta = \gamma = 1$. GW speed $c$ because the tensor sector is pure Einstein–Hilbert.
+
+## RAR — The Radial Acceleration Relation from a Zero-Parameter Covariant Action
+
+*Letter. Supplementary Proofs A (frame from the Lorentz tetrad, = P-forced), B (energy functional, = P-aqual/FY) and C (exchange symmetry, = P-exchange). Code: `sparc_rar.py`, with cached data in `supplementary/sparc_rar.csv`. Status: [O]. The paper states that "zero parameters" refers to $\mu$, not to $a_0$.*
+
+**Chain.**
+- Action (four terms) and $F(y)$.
+- Varying with respect to $\Phi$ gives $\nabla\cdot[\mu\nabla\Phi] = 4\pi G\rho$. In the static weak field $e^{-2\Phi/c^2}\to1$ and the vector sector decouples.
+- Gauss's theorem gives $\mu(g_t/a_0)g_t = g_{\rm bar}$, so $g_{\rm obs} = \tfrac12[g_{\rm bar} + \sqrt{g_{\rm bar}^2 + 4a_0g_{\rm bar}}]$.
+
+**Data.**
+- SPARC (176 galaxies), cut to $Q\le2$: stated as 164 galaxies and 3284 bins.
+- Baryons: $v_{\rm bar}^2 = v_{\rm gas}|v_{\rm gas}| + 0.5v_d^2 + 0.7v_b^2$ (3.6 µm), with 1 (km/s)²/kpc $= 3.241\times10^{-14}$ m/s². $a_0 = 1.2\times10^{-10}$.
+- Comparator: McGaugh+2016, $g_{\rm bar}/(1 - e^{-\sqrt{g_{\rm bar}/a_0}})$.
+
+**Result, recomputed from the cached CSV.**
+
+| Fit | Mean | σ | Median |
+|---|---|---|---|
+| GFD | −0.0269 | 0.1814 | −0.0165 |
+| McGaugh | −0.0216 | 0.1817 | −0.0094 |
+
+- This reproduces the table: $\Delta\sigma = 0.0003$ dex, and the 0.005 dex mean offset is comparable to $\sigma/\sqrt N\approx0.003$.
+- The CSV holds 3284 points from **163** distinct galaxy names, not 164.
+- The scatter of 0.18 dex vs Lelli+2017's 0.13 dex comes from the minimal pipeline: flat Υ, no inclination cut, no error weighting. It affects both curves equally.
+
+**Scope, as stated.** The mean RAR tests only $\mu$, and any theory with the simple $\mu$ gives the same curve. The proposed discriminators are dwarf-spheroidal dispersions, galaxy–galaxy lensing and mergers, where the extra sectors switch on.
+
+**Naming notes.**
+- This letter calls $F_{\mu\nu}$ "the field strength of an auxiliary vector field" whose sector activates in time-dependent, non-axisymmetric or strong-field systems.
+- The L3 covariant-completion note treats the same term as the electromagnetic coupling, with a cosmological role only. The two descriptions of the fourth term differ.
+
+## DEC — Decoding Mass from Rotation Curves (MNRAS-format letter)
+
+*Letter. Code: `generate_letter_figures.py`, `run_all_validations.py`; `supplemental_material.pdf` (§I has the field-closure postulates for $\mu$). Status: [O]. It is framed as "an axiomatic kinematic framework", with the full covariant derivation "presented separately".*
+
+**Two equations, two constants.**
+- Poisson $\nabla^2\Phi = 4\pi G\rho$ gives the source field $g_s$.
+- The spherical limit of the four-term action gives $g_s = g_t^2/(a_0+g_t)$, or forward $g_t = \tfrac12[g_s + \sqrt{g_s^2 + 4g_sa_0}]$.
+- Constants: $G$ (CODATA) and $a_0 = 1.2\times10^{-10}$ (Milgrom's standard value, not derived here).
+
+**Inverse.**
+- With $g_t = v^2/r$, $M_{\rm dec}(r) = r^2g_s/G = rv^4/[G(a_0r + v^2)]$ (checked).
+- This is the *effective* mass: the mass-equivalent of the field an exterior observer sees, defined only over the measured radii. The paper states that it "is not assumed to be baryonic mass; comparison to baryonic mass is the diagnostic".
+
+**Demonstrations.**
+- *Milky Way* (McMillan 2017 baryons: Hernquist bulge 1.5×10¹⁰, scale 0.6 kpc; disk 4.57×10¹⁰, $R_d$ 2.2 kpc; gas 1.5×10¹⁰; total ~7.6×10¹⁰ M☉). At 25 kpc, $M_{\rm dec}\approx6.6\times10^{10}$ vs photometric 7.3×10¹⁰ vs ΛCDM 2.3×10¹¹. The 6.6×10¹⁰ corresponds to $v\approx196$ km/s (recomputed).
+- *M33* (Corbelli 2000, ~7×10⁹ M☉ baryons). At 17 kpc, $M_{\rm dec} = 1.38\times10^{10}$ (needs $v\approx129$ km/s), i.e. about 2× the baryons, and 5.2× below ΛCDM's 7.2×10¹⁰.
+- Footnote: at the last radii the decode sits 6.4σ (MW, ±32 km/s) and 17.2σ (M33, ±8 km/s) below the ΛCDM enclosed mass.
+- Velocities are Gaussian-smoothed (width 6.2% of the radial span) before inversion. The round trip reproduces $v$ by construction.
+- *Also shown:* CamB (Fig. 2), where the decode is *below* photometric, and NGC 3198 (Fig. 3, Begeman 1991), where the decode tracks the baryons.
+
+**Interior topology and the deficit.**
+- Ellis drainholes and Einstein–Rosen bridges allow an exterior field not fixed by the exterior matter. Such structures are placed at the centres of spiral galaxies.
+- $\Delta M_{\rm eff} = M_{\rm phot} - M_{\rm dec}$ is a zero-parameter output, read as the drain's "power output". Vortex analogies: ping-pong balls, bathtub drain, jet engine, magnetic stirrer.
+- "Quiet interior": decode = baryons. "Active interior": the interior "drives the field beyond what the exterior matter alone sustains".
+
+**Notes.**
+- *Sign of the deficit.* An interior that drives the field beyond the exterior matter would make $M_{\rm dec} > M_{\rm phot}$ ($\Delta M_{\rm eff}<0$). But the worked case, CamB, has $M_{\rm dec} < M_{\rm phot}$ ($\Delta M_{\rm eff}>0$) and is still described as "additional field strength sustained by the interior". The sign convention for "drives" versus "brakes" is not pinned down in the letter. Part I §3.2 records both signs as allowed.
+- *Wording conflict.* The Framework paragraph says the inverse "returns the baryonic mass distribution that produces it", which conflicts with the later and more careful "not assumed to be baryonic mass".
+- *Scope.* The abstract names the MW and M33; the body adds CamB and NGC 3198. "Factor of order unity" covers M33's factor of about 2.
+- *Naming.* The letter calls the quadratic the "transition relation", and the summary/abstract framing calls the four-term action $S_{\rm ST}$. Under the naming rules the quadratic is the spherical field equation.
+
+## GRAM — The Gram Matrix of the Tetrad Equation (supplementary manuscript)
+
+*Supplementary note. Status: [T]. Every step is matrix arithmetic; the paper states that no dynamics are used.*
+
+**Part I: three Gram products.**
+- $M$ is the $D\times K$ spatial frame and $G = M^TM$. The equation is even in $M$, so $M_2 = -M_1$ is also a solution. Time reversal acts on the time leg, which is outside $M$.
+- Products: $G_{11} = M_1^TM_1$, $G_{22}$, and $G_{12} = M_1^TM_2 = G_{21}$.
+- Lemma 1 (root-blind): $G_{22} = G_{11}$.
+- Lemma 2: $G_{12} = -G_{11}$, the only root-resolving product.
+- Lemma 3: for $M_1$ with columns $(+,+,+), (+,-,-), (-,+,-), (-,-,+)$, $G_{II} = D = 3$ and $G_{I\ne J} = -1$.
+- Lemma 4: all three are $O(D)$-invariant.
+- Lemma 5: $G = (D+1)I - J$, with eigenvalues 0 (×1, eigenvector $(1,1,1,1)$, i.e. closure $\sum_IM_{aI} = 0$) and $D+1 = 4$ (×3). The trace 12 checks.
+
+**Part II: geometry.**
+- The columns of $M_1$ and $-M_1$ are disjoint and exhaust $\{\pm1\}^3$, the cube of side 2.
+- Constant pairwise inner product makes each set a regular tetrahedron (Coxeter), and $S = [M_1\,|\,M_2]$ is the stellated octahedron.
+- TetA is named as the columns of $M_1$ read as *vertices*.
+
+**Part III: index grid.**
+- Per slice, 6 strict upper + 4 diagonal + 6 strict lower, so the full connection is $24 + 16 + 24 = 64$.
+- Torsion-free identifies lower with upper, keeping $16 + 24 = 40$. The Christoffel part depends only on $g$ (root-blind); the antisymmetric part carries Lemma 2's root-resolving content.
+
+**Part IV: theorem.** The torsion-free connection keeps "the 16 shared + 24 TetA" and drops "24 TetB". So $16 + 24 = 40\ne64$: "a tetrahedron is not a stellated octahedron", and the torsion-free connection is a projection, not a rewrite.
+
+**Notes.**
+- *Labelling.* Read as vertices, the columns of $M_1$ are the odd-popcount corners, which agrees with Paper IX. In L1 the same four vectors are the *face normals* of the region TetA $=\{\max v_i\le1\}$, whose vertices are the even corners. So GRAM's TetA, as a solid, is L1's TetB region. The pair is the same and only the "A" label flips.
+- *Upper vs lower.* Calling the strict upper triangle "TetA" and the strict lower "TetB" is a bookkeeping choice. What the torsion-free condition removes is the six antisymmetric combinations $\tfrac12(\Gamma_{\mu\nu} - \Gamma_{\nu\mu})$ per slice, which are not the lower-triangle entries themselves. The counts are unaffected.
+
+## TF — Tully–Fisher Velocity Evolution from Dual-Tetrad Gravity (RevTeX manuscript, Feb 2026)
+
+*Manuscript. Figure from GRAVIS (github.com/fielddynamics/gravis). Status: [O] comparison using [D]/[E] inputs. It is the longer sibling of Paper X.*
+
+**Framework (older vocabulary).**
+- *Waves and simplex.* LIGO waves imply local structure. The simplex theorem gives $k = 4$.
+- *Faces.* Of the $k\cdot d = 12$ nearest-neighbour couplings, 4 are active faces and 8 are "topologically closed". Each face's two transverse deformation modes are read as the + and × polarisations.
+- *Two chambers, four routes:* ghost stability, the SL(2,C) double cover, chirality (Ashtekar; Alexander–Marcianò–Smolin), and Hassan–Rosen.
+- *Polynomial.* $f(k) = 1 + k + k^2 = 21$, read as vertex + faces + face pairs.
+- *Constants and action.* $G = (17/13)\alpha^{21}\hbar c/m_e^2$, here with $13 = k^2 - k + 1$ (equal to $kd+1$ at $k = 4$). $a_0 = k^2Gm_e/r_e^2$. The action is the four-term SST, with the $e^{-2\Phi/c^2}$ factor called "the disformal coupling", whose 2 counts the two orientations.
+- *Equivalence asserted.* The action is said to be equivalent to the bimetric completion with $\beta = (1,0,16,0,1)$. VIII and IX list the explicit match as open.
+
+**Prediction.**
+- $a_0 = (cH/2\pi)\sqrt{k/\pi}$. Its agreement with $k^2Gm_e/r_e^2$ "to within 0.3%" is reproduced: at $H = 70.0$ it gives $1.2214\times10^{-10}$ against $1.2250\times10^{-10}$.
+- $v^4 = GMa_0$ gives a naive exponent of ¼. Photon-path screening through the disformal coupling, governed by $\sqrt{k/\pi}$ and $\mathcal F$, gives the stated 0.17. The derivation is cited, not shown.
+- The table is identical to Paper X's (χ² = 0.34 for 8). Band ±6.2% from $(k/\pi)^{1/4}$, explained as "flat faces vs spherical curvature, correction $(k/\pi)^n$ with $n = ¼$ for velocity scatter".
+- $H_0 = 70.29$: the tree-level 70.21 times the Schwinger one-loop factor carried through $G\to a_0\to H$. Band 66.2–74.7 (recomputed 66.17–74.67).
+- Futures: $z = 4$ gives 1.36, $z = 5$ "≈ 40%" (recomputed 1.427). JWST NIRSpec and Euclid.
+
+**Notes.**
+- *Graviton mass.* The manuscript says GFD "predicts a specific mass for the massive graviton, determined by the five $\beta_n$". In Hassan–Rosen the graviton mass also scales with the overall $m^2$ in $m^2\sum\beta_ne_n$ (and with the Planck-mass ratio). Fixing the $\beta_n$ fixes ratios but not $m$, and no paper in the series gives $m$. So the mass is not yet predicted.
+- *Coupling name.* $e^{-2\Phi/c^2}F_{\mu\nu}F^{\mu\nu}$ is a field-dependent factor on the Maxwell term. TF and ESS call it "disformal"; the L3 supplement calls it conformal and assigns it a different role. The documents disagree on what the term does (see Part I §3).
+
+## ESS — GFD Essentials: Tetrads, Field Closure, and the Inverse Pipeline
+
+*Primer for relativists, Feb 2026. Status: [D] summary; it cites Nelson 2026 (DEC) for the postulates.*
+
+**Path in ten steps.**
+1. GR uses tetrads, and LIGO shows local coupling (the wave equation's Laplacian compares neighbours).
+2. Non-degeneracy, $\det e\ne0$, means four independent directions, hence a tetrahedral chamber. This is linked to ADM $1+3$ and to condensed-matter tetrahedral coordination.
+3. Packing: of 12 sphere-packing contacts, 4 are open and 8 closed. The analogies are water's four H-bonds and Plateau's tetrahedral foam junctions (Taylor 1976).
+4. A single orientation is ghost-unstable (Alexander 2014). Hassan–Rosen, spinors and chirality give two tetrahedra, the stellated octahedron, with the Field Origin at its centre.
+5. Field closure is the ongoing enforcement of a closed, non-degenerate frame.
+6. The postulates A1 (local closure), A2 (lossless transmission) and A3 (one scale $a_0$) give $\mu = x/(1+x)$. The 1 in the denominator comes from sector symmetry: $\mu(x) + \mu(1/x) = 1$ for $x/(n+x)$ only if $n = 1$.
+7. The four-term action, with $F$ obtained by integration. Limits: $F\to y$; $F\to\tfrac23y^{3/2}$.
+8. The spherical static limit gives "two field equations": Poisson $\nabla^2\Phi = 4\pi G\rho$ (source) and $g_s = g_t^2/(a_0+g_t)$ (response).
+9. Inverse: $v\to g_t\to g_s\to M_{\rm dec} = rv^4/[G(a_0r + v^2)]$. This is "the spherical field equation and Poisson together, not Poisson alone" (Poisson alone would give $v^2r/G$).
+10. $\Delta M_{\rm eff} = M_{\rm phot} - M_{\rm dec}$ is the drain's power output.
+
+**Notes.**
+- *Lensing.* ESS says the EM term "recovers the full gravitational lensing … without this term, lensing would be half". The L3 covariant-completion note says the opposite: $\gamma = 1$ comes from the single-potential connection structure, and the EM term has no lensing role. The later note is the more careful one, so Part I §3 follows it.
+- *Symbol.* ESS writes Poisson with the same symbol $\Phi$ used for the total potential in the action. In the pipeline, Poisson defines the Newtonian source field $g_s$, so the $\Phi$ there is $\Phi_N$. Varying the action gives one equation, $\nabla\cdot[\mu\nabla\Phi] = 4\pi G\rho$, whose spherical form is the quadratic.
+- *Naming.* The terminology matches the later rules: "spherical field equation of the scalar-tensor transition (SST) action".
+- *Deficit sign.* ESS repeats DEC's deficit-sign ambiguity.
