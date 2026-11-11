@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below, and cite the relevant Zenodo preprint for any specific result."
+title: "Gravity Field Dynamics: research archive"
+abstract: "A covariant theory of gravity whose interpolating function, mu(x) = x/(x + 1), is derived from the exchange symmetry of the tetrad's two parity-related roots. Includes the papers, formal proofs, documentation and validation code."
+type: software
+authors:
+  - family-names: Nelson
+    given-names: Stephen
+    orcid: "https://orcid.org/0009-0008-6190-3269"
+    affiliation: "Field Dynamics Research"
+    website: "https://fielddynamics.org"
+repository-code: "https://github.com/fielddynamics/research"
+url: "https://fielddynamics.org"
+license: MIT
+keywords:
+  - gravity
+  - modified gravity
+  - tetrad
+  - radial acceleration relation
+  - SPARC
+  - AQUAL

@@ -1,16 +1,20 @@
-# Field Dynamics — Research Framework
+# Gravity Field Dynamics
 
-**Gravity Field Dynamics (GFD)** · Stephen Nelson · [Field Dynamics Research](https://fielddynamics.org) · stephen@fielddynamics.org
+**A covariant theory of gravity whose interpolating function is derived from the tetrad**
 
-`gravity` `theoretical-physics` `general-relativity` `modified-gravity` `astrophysics` `cosmology` `galaxy-rotation-curves` `dark-matter` `tetrad` `scientific-computing` `open-science` `sparc`
+Stephen Nelson · [Field Dynamics Research](https://fielddynamics.org) · [ORCID 0009-0008-6190-3269](https://orcid.org/0009-0008-6190-3269) · stephen@fielddynamics.org
 
-**One covariant action, with no parameter fitted to galaxies, reproduces the radial acceleration relation of the SPARC database: 3284 rotation-curve points in 164 galaxies, with a scatter of σ = 0.181 dex, within 0.0003 dex of the best one-parameter empirical fit.** Its interpolating function, μ(x) = x/(x + 1), is not chosen. It follows from the exchange symmetry between the two parity-related roots of the tetrad equation, which together form a stellated octahedron.
+[![Licence: MIT](https://img.shields.io/badge/licence-MIT-blue.svg)](LICENSE) [![Proofs: 185 checks pass](https://img.shields.io/badge/proofs-185%20checks%20pass-brightgreen.svg)](proofs/README.md) [![Status: preprints, not yet peer reviewed](https://img.shields.io/badge/status-preprints%2C%20not%20peer%20reviewed-orange.svg)](#status-and-known-limitations)
+
+On the radial acceleration relation of the SPARC database (3284 rotation-curve points in 164 galaxies), the covariant action of Gravity Field Dynamics (GFD) gives a scatter of σ = 0.181 dex, within 0.0003 dex of the one-parameter empirical fit of McGaugh, Lelli & Schombert (2016). No parameter is fitted to any galaxy. The only empirical constant is the acceleration scale a₀ = 1.2 × 10⁻¹⁰ m/s², taken at its conventional value.
+
+The interpolating function in the action is μ(x) = x/(x + 1), MOND's "simple" function, so on this relation GFD coincides with that variant of MOND. What is new is the status of the function. In GFD it is not chosen: it is the unique law consistent with the exchange symmetry between the two parity-related roots of the tetrad equation, which together form a stellated octahedron. It also sits inside a covariant action whose other consequences (the torsion sector, the constants, the Hubble scale) can be tested separately.
 
 ![The radial acceleration relation for 164 SPARC galaxies, with the GFD prediction and the McGaugh et al. (2016) empirical fit, and residual histograms for both](papers/letter-radial-acceleration-relation-sparc/sparc_rar.png)
 
 ***Figure.** Left: observed against baryonic gravitational acceleration for 3284 rotation-curve points in 164 SPARC galaxies (quality Q ≤ 2). Dashed: the Newtonian expectation. Solid red: the GFD covariant action in its weak-field, static, spherical limit, g<sub>obs</sub> = ½[g<sub>bar</sub> + √(g<sub>bar</sub>² + 4a₀g<sub>bar</sub>)]. Dotted orange, almost indistinguishable: the one-parameter empirical fit of McGaugh, Lelli & Schombert (2016). Right: residuals. GFD: mean −0.027 dex, σ = 0.181 dex. Empirical fit: mean −0.022 dex, σ = 0.182 dex. From [The Radial Acceleration Relation from a Zero-Parameter Covariant Action](papers/letter-radial-acceleration-relation-sparc/).*
 
-**What is not adjusted.** No galaxy-by-galaxy parameters, no halo profiles or concentrations, no fitted interpolating function. The only inputs are the SPARC baryonic rotation-curve components at the survey's standard stellar mass-to-light ratios (Υ<sub>disk</sub> = 0.5, Υ<sub>bulge</sub> = 0.7 at 3.6 μm) and the acceleration scale a₀ = 1.2 × 10⁻¹⁰ m/s² at its conventional value.
+**Inputs.** The SPARC baryonic rotation-curve components at the survey's standard stellar mass-to-light ratios (Υ<sub>disk</sub> = 0.5, Υ<sub>bulge</sub> = 0.7 at 3.6 μm), and a₀. Nothing is adjusted per galaxy: no halo profiles, no concentrations, no fitted interpolating function.
 
 **Reproduce the figure in one command** (offline, from the bundled data table):
 
@@ -19,17 +23,26 @@ cd papers/letter-radial-acceleration-relation-sparc
 python sparc_rar.py --from-csv supplementary/sparc_rar.csv
 ```
 
-## Why this is worth a look
+---
+
+## Results and their status
+
+Each claim is graded by what supports it. **Theorem**: proved, with a script that checks every step. **Derived**: follows from the framework's stated assumptions, with validation code. **Exploratory**: a numerical correspondence or extension that is not yet a derivation.
 
 | Claim | Status | How to check |
 |---|---|---|
-| The radial acceleration relation follows from a covariant action with no parameter fitted to galaxies | Primary result | [`sparc_rar.py`](papers/letter-radial-acceleration-relation-sparc/sparc_rar.py) |
-| The geometry is forced: under common norm, closure and S₄ symmetry the stellated octahedron is the unique spatial realisation of the tetrad, and μ(x) = x/(x + 1) is the unique law with exchange symmetry | Formal proofs | [`verify_gram_theorems.py`](papers/gram-matrix-of-tetrad-equation/verify_gram_theorems.py); [exchange-symmetry proof](<papers/letter-radial-acceleration-relation-sparc/supplementary/supplementary_constitutive_law_exchange_symmetry (1).tex>) |
-| Einstein's equation is the TetA partition (μ = 1): the torsion-free condition keeps 40 and discards 24 of the 64 connection components, a split generated by f(K, ±1) | Letter 3 and supplementary proofs | [`EINSTEIN_TETA_PARTITION.md`](EINSTEIN_TETA_PARTITION.md); [`FIELD_CLOSURE_OF_THE_TETRAD_FRAME.md`](FIELD_CLOSURE_OF_THE_TETRAD_FRAME.md); [Letter 3 validation](papers/letter-3-field-closure-of-tetrad-frame/Supplementary/run_all_validations.py) |
-| The I Ching is the stellated octahedron, and its TIME axis (father and mother silent) selects the BBP formula uniquely from all of π's base-16, period-8 formulas | Proof (uses Baker's theorem) and exact tests | [`BOOK_OF_CHANGES_AND_PI.md`](research/exploratory/i-ching/BOOK_OF_CHANGES_AND_PI.md); [`PROOF.md` and tests](https://github.com/fielddynamics/dfp-gravity-field-model/tree/test/bbp-octahedron-hypothesis/gravity_field_model/engine_core/field_closure/bbp_structure) |
-| G, mₑ, α and H₀ follow from the same integers {13, 17, 21} | Derived; more exploratory | [`docs/03-fundamental-constants/`](docs/03-fundamental-constants/); [Paper VI validation](papers/06-gravitational-constant-from-topology/validation/run_all_validations.py) |
+| The radial acceleration relation follows from the covariant action, with no parameter fitted to galaxies | Derived; tested on SPARC | [`sparc_rar.py`](papers/letter-radial-acceleration-relation-sparc/sparc_rar.py) |
+| Under common norm, closure and S₄ symmetry, the regular tetrahedron, and hence the stellated octahedron, is the unique spatial realisation of the tetrad | Theorem | [forced tetrahedral frame](proofs/forced-tetrahedral-frame/) (27 checks); [`verify_gram_theorems.py`](papers/gram-matrix-of-tetrad-equation/verify_gram_theorems.py) (32 checks) |
+| The spatial sector of a single tetrad bounds exactly two parity-related regions | Theorem | [two bounded regions](proofs/tetrad-scheme-two-bounded-regions/) (39 checks) |
+| μ(x) = x/(x + 1) is the unique law with exchange symmetry between those regions | Theorem, within the stated class of maps | [exchange symmetry](proofs/constitutive-law-exchange-symmetry/) (34 checks) |
+| The kinetic functional has the closed form F(y) = y − 2√y + 2 ln(1 + √y), so the action can be written explicitly | Theorem | [AQUAL energy functional](proofs/aqual-energy-functional/) (24 checks) |
+| The torsion sector carries the regular representation of S₄; the torsion-free condition keeps 40 and discards 24 of the 64 connection components, a split generated by the coupling polynomial | Theorem (counting); the identification of the 24 with TetB is the claim of Letter 3 | [torsion representation](proofs/torsion-regular-representation/) (36 checks); [Letter 3 validation](papers/letter-3-field-closure-of-tetrad-frame/Supplementary/run_all_validations.py) (52 claims) |
+| General relativity is the TetA partition, μ = 1; releasing μ opens the gap conventionally attributed to dark matter | Derived (Letter 3) | [`EINSTEIN_TETA_PARTITION.md`](EINSTEIN_TETA_PARTITION.md); [`FIELD_CLOSURE_OF_THE_TETRAD_FRAME.md`](FIELD_CLOSURE_OF_THE_TETRAD_FRAME.md) |
+| Tully–Fisher velocities rise with redshift as [H(z)/H₀]^0.17 | Derived; compared with nine IFU measurements to z = 3 | [Paper X](papers/10-two-scale-kinematics-tully-fisher-h0/); [`tully-fisher-velocity-evolution/`](papers/tully-fisher-velocity-evolution/) (64 claims) |
+| G, mₑ, α and H₀ follow from the integers {13, 17, 21} of the coupling polynomial | Exploratory | [`docs/03-fundamental-constants/`](docs/03-fundamental-constants/); [Paper VI validation](papers/06-gravitational-constant-from-topology/validation/run_all_validations.py); [look-elsewhere test](research/g_from_topology/) |
+| Nuclear magic numbers and binding energies from the bound form of the constitutive law | Exploratory | [Paper XI](papers/11-nuclear-shells-tetrahedral-packing/); [Paper XIII](papers/13-nuclear-binding-bidirectional-sst/) |
 
-**The argument in four lines** (full table in [The framework in one page](#the-framework-in-one-page); machine-readable chain in [`llms.txt`](llms.txt)):
+**The argument in four lines** (the machine-readable chain is in [`llms.txt`](llms.txt)):
 
 ```text
 Uniqueness:        2(D + 1) = 2^D        ⇒  D = 3, K = 4
@@ -38,73 +51,92 @@ Constitutive law:  μ(x) = x/(x + 1)          derived from exchange symmetry, no
 Action prefactors: 16 = K², 8 = 2^D, 4 = K
 ```
 
-**For readers coming from MOND.** μ(x) = x/(x + 1) is MOND's "simple" interpolating function, so on the radial acceleration relation GFD's prediction coincides with that variant. The difference lies in the status of the function and in what surrounds it. Here μ is derived rather than selected, and it sits inside a covariant action whose further consequences (the torsion sector, the constants, the Hubble scale) can be tested independently.
+---
 
-## Context
+## Relation to prior work
 
-The radial acceleration relation is one of the sharpest regularities in extragalactic astronomy. In the standard cosmological model it must emerge from the assembly of dark-matter haloes. In modified-gravity approaches it is reproduced by an interpolating function whose form has, since Milgrom's 1983 proposal, been chosen to fit the data. GFD proposes that the form is fixed by the tetrad, the local orthonormal frame through which general relativity couples to matter. The spatial sector of a single tetrad bounds exactly two parity-related regions, and the exchange symmetry between them leaves one admissible function.
+GFD builds directly on existing work, and the galactic result should be read against it.
 
-The same structure is then followed further: to the gravitational constant, the electron mass and the Hubble constant; to nuclear binding energies and the magic numbers; and to the relation between GFD and ghost-free bimetric gravity. These extensions are more exploratory than the galactic result. They are presented with their derivations and validation code so that each can be examined on its own merits.
-
-> **Featured: [Einstein's equation as the TetA partition](EINSTEIN_TETA_PARTITION.md).** A summary of Letter 3, *Field Closure of the Tetrad Frame*. The torsion-free condition retains 40 and discards 24 of the 64 connection components, a split generated by the same coupling polynomial. General relativity is the GFD field equation with μ fixed at 1, and the gap opened by releasing μ is the TetB share of the field, conventionally attributed to dark matter.
->
-> **Companion: [The twenty-four that were set aside](FIELD_CLOSURE_OF_THE_TETRAD_FRAME.md).** A reader's guide to Letter 3 through its two figures: which 24 connection components general relativity removes, and where in a galaxy they carry the field, from Mercury's orbit to a galaxy's edge.
->
-> **Also: [The Book of Changes and the number π](research/exploratory/i-ching/BOOK_OF_CHANGES_AND_PI.md).** The I Ching's trigram families are the two tetrahedra of the stellated octahedron, and its ranks of the children fix the coordinates. Among all base-16, period-8 formulas for π, exactly one leaves the father and mother (the TIME axis) silent: the Bailey–Borwein–Plouffe formula, which then uses four corners, two from each family, with weights summing to zero.
-
-This repository holds the working research behind the Gravity Field Dynamics framework and the preprints published on Zenodo. It is published **as is**: derivation notes, synthesis documents, validation scripts, paper sources, interactive visualisations and exploratory experiments, in the state they were left at the end of each research session.
-
-> **Read this first.** This is a lab notebook, not a software package. Folders were created as research threads opened, so naming is informal, some files exist in several versions (`(1)`, `-1`, `- Copy`, `v1`/`v2`), and a few threads were later superseded or abandoned. The published papers in [`papers/`](papers/) and the documentation in [`docs/`](docs/README.md) are the curated statements of the framework. Everything else is the trail that led there. The work is independent and has not been peer reviewed.
+- **MOND** (Milgrom 1983, *ApJ* 270, 365) introduced the acceleration scale a₀ and an interpolating function chosen to fit rotation curves. GFD keeps a₀ and the simple function, and replaces the choice with a derivation.
+- **AQUAL** (Bekenstein & Milgrom 1984, *ApJ* 286, 7) wrote MOND as a field theory with a kinetic function F. GFD's scalar sector is AQUAL with the simple μ; the [closed form of F](proofs/aqual-energy-functional/) makes it explicit.
+- **The simple interpolating function** was found to fit Milky Way and galaxy data well by Famaey & Binney (2005, *MNRAS* 363, 603). GFD's agreement on the radial acceleration relation is therefore expected; the derivation, not the fit, is the contribution.
+- **The radial acceleration relation** and **SPARC**: McGaugh, Lelli & Schombert (2016, *PRL* 117, 201101); Lelli, McGaugh & Schombert (2016, *AJ* 152, 157). A review of the field is Famaey & McGaugh (2012, *Living Rev. Relativ.* 15, 10).
+- **Ghost-free bimetric gravity** (Hassan & Rosen 2012, *JHEP* 02, 126). Papers VIII and XII fix its five interaction coefficients to {1, 0, 16, 0, 1} from the same polynomial.
+- **Torsion and the tetrad connection.** Letters 2 and 3 work in the tetrad formalism of general relativity and its torsionful extensions, and locate the second tetrahedron in the 24 torsion components that the torsion-free condition removes.
 
 ---
 
-## A note from the author
+## Status and known limitations
 
-I'm a tech engineer with an interest in theoretical physics, and this whole body of work grew from one idea: **field closure**.
+The work is independent and has not yet been peer reviewed. The papers are preprints on Zenodo. The open problems below are stated so that readers can test the framework where it is weakest.
 
-My working life has been spent building enterprise systems, including encryption systems for government. In that world, state has to close. A transaction either settles or it does not; there is no half-committed balance, and nothing is allowed to go unaccounted for. When I began thinking about gravity, I kept returning to the same question: if reality is informational at bottom, how could it keep its books any other way?
+- **The radial acceleration relation alone cannot separate GFD from MOND's simple function.** They are the same curve. Distinguishing tests have to come from the parts of the action MOND lacks: the redshift evolution of Tully–Fisher, the torsion sector and the constants.
+- **a₀ is empirical in the galactic test.** The repository contains two relations to the Hubble rate: a₀ = cH/2π (1.086 × 10⁻¹⁰ m/s² at H = 70.21 km/s/Mpc) and a₀ = (cH/2π)√(4/π) (1.225 × 10⁻¹⁰ m/s², which matches 16 G mₑ/rₑ²). They differ by a factor 1.128, and which one holds has to be settled.
+- **H₀ is quoted at three values** from different routes: 69.92 (Paper IV), 70.21 (Paper X) and 70.29 km/s/Mpc (the Tully–Fisher manuscript). The ±6% band of Paper X contains both the Planck and SH0ES values, so it does not yet discriminate between them.
+- **Galaxy clusters and lensing.** Clusters, including the Bullet Cluster, are discussed qualitatively in Paper VII. There is no quantitative lensing or cluster mass reconstruction yet.
+- **The CMB.** Paper II computes a single enhancement factor at recombination (6.46 against the ≈ 6.4 required). The full temperature power spectrum has not been computed.
+- **Matter coupling.** The action leaves 𝓛<sub>matter</sub> unspecified. Its source term, how matter couples to the scalar Φ, needs to be stated explicitly ([`research/aqual/`](research/aqual/) shows what each choice gives).
+- **The constants.** The numerical routes to G, mₑ and α are exploratory. A [look-elsewhere test](research/g_from_topology/) is included, and the correspondences should be weighed against how many formulas could be built from the same integers.
 
-The requirement that a field must close is not my invention. Most tetrad formalisms carry it already, and general relativity enforces it: the tetrad must be non-degenerate, $\det(e) \neq 0$, with four independent directions defined at every point, and the constraint equations must hold on every slice before the field can evolve. Paper VII sets this out in its section *Field Closure: The Requirement GR Already Enforces*. What I have tried to do is take that requirement seriously as a process and follow where it leads.
-
-That process is my answer to the question. Every part of a field has neighbours, and before the field can move on, each part must read its neighbours and settle with them into one consistent state, much as accounts settle in a transaction. Paper I names the steps: at the closure boundary the field *reads*, then *settles*, and the settled result is *registered*.
-
-The point I most want a reader to take from this is why that sequence cannot be interrupted. A closure boundary is not private. Paper I is explicit that the boundary belongs to neither side; it is the interface the two share. Paper II shows that once closures are packed together, each one shares part of its boundary with every neighbour it touches. So when a field begins to close, the information it is reading sits partly on a surface that a neighbour also owns.
-
-Now suppose a field gets halfway through closure, having read that shared surface, and before it settles the neighbour changes what is on it. The field would then settle against a state that no longer exists. Whatever it registers is either out of step with its neighbour across their common boundary, or it overwrites the neighbour's change. In both cases information the field was responsible for has been lost, and the closure is lossy. Paper I shows what lossy closure would look like: wakes behind moving bodies, drag, hysteresis, and errors accumulating over cosmic time. None of these are observed, which is why Paper I takes lossless closure as an empirical constraint rather than a preference.
-
-So closure has to be atomic in the full sense an engineer means. It is not enough that the result is all or nothing. The state being read must also hold still until the result is recorded: nothing a field shares with its neighbours may change part-way through its closure. That is what Paper I means by settlement being consistent "across all interfaces simultaneously", and it is why the read has to be a snapshot. A snapshot is a read that cannot change underneath you while you settle against it. Read, settle and register as one indivisible step is what I call snapshot accounting, and it is the only way I can see an informational reality being managed. The papers here follow what that requirement implies, from the constitutive law that shapes galaxy rotation to the value of Newton's constant.
-
-What you will find here is as far as I have been able to take the idea on my own, and I offer it humbly. I have worked on it independently, and it now needs what every piece of science needs: careful peer review by others. That is why I have opened everything up, the papers, the code, the working notes and even the dead ends. If the idea sparks your interest, I hope you will make use of it, look at it closely, and tell me where it holds and where it does not.
-
-If you do, I would be glad to hear from you. Checks of the derivations, re-analyses of the data, errors found, assumptions questioned, or ideas for taking it further are all welcome, and a well-founded criticism is as valuable to me as a confirmation. You can reach me at stephen@fielddynamics.org, or open an issue on this repository.
-
-— Stephen Nelson
+Criticism of any of these, or of anything else here, is welcome: open an issue or write to stephen@fielddynamics.org.
 
 ---
 
 ## The framework in one page
 
-GFD proposes that the local gravitational frame has a definite interior geometry: the **stellated octahedron**, two interpenetrating tetrahedra of opposite orientation (**TetA** and **TetB**) sharing a common centre (the **Field Origin**). From that geometry it derives a covariant, zero-free-parameter theory of gravity that reproduces galactic rotation curves without dark matter, and it then follows the same structure into constants, particle masses, nuclear binding and atomic structure.
+GFD proposes that the local gravitational frame has a definite interior geometry: the **stellated octahedron**, two interpenetrating tetrahedra of opposite orientation (**TetA** and **TetB**) sharing a common centre (the **Field Origin**). TetA is the exterior, where baryonic tracers orbit; TetB is the throat interior, reached only through the Field Origin. From that geometry GFD derives a covariant theory of gravity with no free function, and follows the same structure into constants, nuclei and atoms.
 
 | Object | Statement |
 |---|---|
 | Dimension selection | `2(D + 1) = 2^D  ⇒  D = 3`, `K = D + 1 = 4` |
 | Tetrad | `g_μν = η_ab e^a_μ e^b_ν` — the 2⁴ sign combinations of the spatial frame give exactly two bounded regions (TetA, TetB) |
-| Coupling polynomial | `f(K, s) = 1 + sK + K²` → at K = 4: **21** (TetA, s = +1), **17** (origin, s = 0), **13** (TetB, s = −1) |
+| Coupling polynomial | `f(K, s) = 1 + sK + K²` → at K = 4: **21** (TetA, s = +1), **17** (Field Origin, s = 0), **13** (TetB, s = −1) |
 | Constitutive law | `μ(x) = x/(x + 1)`, with `x = g_t / a₀` — the "simple" AQUAL/MOND interpolating function, derived rather than fitted |
-| Spherical field equation | `g_s = g_t² / (a₀ + g_t)`, inverted as `g_t = (g_s + √(g_s² + 4 g_s a₀))/2` |
+| Covariant action (the SST) | `S = ∫ d⁴x √−g [ R/16πG − (a₀²/8πG) F(y) − ¼ e^{−2Φ/c²} F_μν F^μν + L_m ]` — prefactors 16 = K², 8 = 2^D, 4 = K |
 | Kinetic functional | `F(y) = y − 2√y + 2 ln(1 + √y)`, with `dF/dy = μ(√y)` |
-| Covariant action | `S = ∫ d⁴x √−g [ R/16πG − (a₀²/8πG) F(y) − ¼ e^{−2Φ/c²} F_μν F^μν + L_m ]` — prefactors 16 = K², 8 = 2^D, 4 = K |
+| Spherical field equation | `g_s = g_t² / (a₀ + g_t)`, the spherical, static limit of the action; inverted as `g_t = (g_s + √(g_s² + 4 g_s a₀))/2` |
 | Connection split | `K³ = 64 = 40 + 24`: GR's torsion-free condition keeps 40 Christoffel components and discards the 24 torsion components, which GFD identifies with TetB |
-| Gravitational constant | `G = (17/13) α²¹ ħc / m_e²` |
+| Gravitational constant (exploratory) | `G = (17/13) α²¹ ħc / m_e²` |
 
-For a guided explanation of each step, start with the [documentation](docs/README.md): Foundations, Gravitation, Fundamental Constants and Galactic Dynamics. [`llms.txt`](llms.txt) contains the full machine-readable derivation chain, symbol glossary and interpretation rules, and is the best single-file summary of the framework.
+For a guided explanation of each step, start with the [documentation](docs/README.md): Foundations, Gravitation, Fundamental Constants and Galactic Dynamics. Two plain-language summaries of the tetrad letters are at the top level: [Einstein's equation as the TetA partition](EINSTEIN_TETA_PARTITION.md) and [The twenty-four that were set aside](FIELD_CLOSURE_OF_THE_TETRAD_FRAME.md).
 
 ---
 
-## Published papers (Zenodo)
+## Verification
 
-Paper PDFs and their LaTeX sources live in [`papers/`](papers/). Two series were published: the numbered **Distributed Field Processing / GFD papers I–XIII** (January–March 2026) and the shorter **tetrad letters** (March 2026 onward). Each description below summarises the paper's own claim.
+The scripts are standalone research code, not an installable package. Most need only Python 3 and NumPy.
+
+```bash
+pip install numpy scipy sympy mpmath matplotlib
+```
+
+**Canonical suite.** These check the curated claims. Each runs from its own folder and prints PASS/FAIL.
+
+| Script | Checks |
+|---|---|
+| [`papers/letter-radial-acceleration-relation-sparc/sparc_rar.py`](papers/letter-radial-acceleration-relation-sparc/sparc_rar.py) `--from-csv supplementary/sparc_rar.csv` | SPARC radial acceleration relation: figure, mean and scatter |
+| [`proofs/*/verify_*.py`](proofs/README.md) | The six formal proofs: 24 + 34 + 27 + 25 + 39 + 36 = 185 checks |
+| [`papers/letter-1-tetrad-frame-geometry/Supplementary/run_all_validations.py`](papers/letter-1-tetrad-frame-geometry/Supplementary/run_all_validations.py) | Letter 1: tetrad frame geometry (29 claims) |
+| [`papers/letter-2-other-half-of-gravity-torsion/v2/Supplementary/run_all_validations.py`](papers/letter-2-other-half-of-gravity-torsion/v2/Supplementary/run_all_validations.py) | Letters 1–2: geometry, torsion = TetB (52 claims) |
+| [`papers/letter-3-field-closure-of-tetrad-frame/Supplementary/run_all_validations.py`](papers/letter-3-field-closure-of-tetrad-frame/Supplementary/run_all_validations.py) | Letter 3: 40/24 split, polynomial identity, partition (52 claims) |
+| [`papers/gram-matrix-of-tetrad-equation/verify_gram_theorems.py`](papers/gram-matrix-of-tetrad-equation/verify_gram_theorems.py) | Gram-matrix and forced-Gram theorems (32 checks) |
+
+Framework-wide checks, from the repository root:
+
+```bash
+python research/gfd_algebra.py                        # algebra self-checks
+python research/gfd_enterprise_validation-v2.py       # end-to-end framework validation (92 checks)
+python research/gfd_fundamental_constants.py          # constants from {K, D} (exploratory)
+```
+
+The computational model, with 989 further tests, is in the companion repository [fielddynamics/dfp-gravity-field-model](https://github.com/fielddynamics/dfp-gravity-field-model). Its physics groups cover field theory, emergent constants, stellar mechanics, particle physics and black holes; it also contains exploratory groups that are not part of the claims above.
+
+---
+
+
+## Papers
+
+Paper PDFs and their LaTeX sources live in [`papers/`](papers/). Two series were published: the numbered **Distributed Field Processing / GFD papers I–XIII** (January–March 2026) and the shorter **tetrad letters** (March 2026 onward). Each description below summarises the paper's own claim. DOIs are given where a Zenodo record exists.
 
 ### Numbered series — Papers I–XIII (January–March 2026)
 
@@ -135,35 +167,35 @@ Explains why the number four recurs across ADM, tetrad gravity, Loop Quantum Gra
 Argues that spinor theory, chiral gravity, ghost-free bimetric gravity and stability analysis all require two oppositely oriented tetrahedra, and from that dual-chamber structure derives Newton's constant with no adjustable parameters. Includes an arXiv-format build and `validation/run_all_validations.py`.
 
 **VII — Dual Tetrad Topology and the Field Origin: From Nuclear Decay to Galactic Dynamics**
-[`papers/07-dual-tetrad-topology-field-origin/`](papers/07-dual-tetrad-topology-field-origin/) <!-- Zenodo DOI -->
-Derives the stellated octahedron as the minimal closure topology in 3+1 dimensions and builds a covariant scalar-tensor action from it, testing predictions from the neutron-lifetime beam–bottle discrepancy to Milky Way rotation. Revisions `v2`–`v7` are kept; `v7` is the latest.
+[`papers/07-dual-tetrad-topology-field-origin/`](papers/07-dual-tetrad-topology-field-origin/)
+Derives the stellated octahedron as the minimal closure topology in 3+1 dimensions and builds the covariant action (the SST) from it, testing predictions from the neutron-lifetime beam–bottle discrepancy to Milky Way rotation. Revisions `v2`–`v7` are kept; `v7` is the latest.
 
 **VIII — Gravity Field Dynamics and Bimetric Gravity**
-[`papers/08-gfd-and-bimetric-gravity/`](papers/08-gfd-and-bimetric-gravity/) <!-- Zenodo DOI -->
+[`papers/08-gfd-and-bimetric-gravity/`](papers/08-gfd-and-bimetric-gravity/)
 Shows how the coupling polynomial fixes the five free Hassan–Rosen bimetric coefficients to {1, 0, 16, 0, 1}, while its continuous form, normalised, gives the constitutive law μ(x) = x/(x + 1).
 
 **IX — Complete Field Closure from Stellated Octahedron Topology**
-[`papers/09-complete-field-closure/`](papers/09-complete-field-closure/) <!-- Zenodo DOI -->
+[`papers/09-complete-field-closure/`](papers/09-complete-field-closure/)
 Derives both the topology and the closure condition of gravity from the single equation 2(d + 1) = 2^d, whose only solution d = 3 fixes K = 4 and produces the stellated octahedron and the 3+1 split. Comes with the largest test collection (`Tests/`, `supplementary/`).
 
 **X — Two-Scale Kinematics from a Single Field Equation**
-[`papers/10-two-scale-kinematics-tully-fisher-h0/`](papers/10-two-scale-kinematics-tully-fisher-h0/) <!-- Zenodo DOI -->
+[`papers/10-two-scale-kinematics-tully-fisher-h0/`](papers/10-two-scale-kinematics-tully-fisher-h0/)
 Applies the same spherical field equation, `g_s = g_t² / (a₀ + g_t)`, at galactic and cosmological scales to predict the redshift evolution of the baryonic Tully–Fisher relation to z = 3 and H₀ = 70.21 km/s/Mpc, with a ±6% band containing both the Planck and SH0ES values.
 
 **XI — Nuclear Shell Structure and Binding Energies from Tetrahedral Packing at K = 4**
-[`papers/11-nuclear-shells-tetrahedral-packing/`](papers/11-nuclear-shells-tetrahedral-packing/) <!-- Zenodo DOI -->
+[`papers/11-nuclear-shells-tetrahedral-packing/`](papers/11-nuclear-shells-tetrahedral-packing/)
 Gives a one-line binding-energy formula from the coupling polynomial, tested across the stable elements from hydrogen to bismuth, and a tetrahedral packing algebra that produces all seven nuclear magic numbers.
 
 **XII — Dual Tetrad Covariance: The GFD Action and the Hassan–Rosen Potential as Two Projections of a Single Geometry**
-[`papers/12-dual-tetrad-covariance-hassan-rosen/`](papers/12-dual-tetrad-covariance-hassan-rosen/) (source only) <!-- Zenodo DOI -->
+[`papers/12-dual-tetrad-covariance-hassan-rosen/`](papers/12-dual-tetrad-covariance-hassan-rosen/) (source only)
 Develops Paper VIII into a term-by-term correspondence between the two actions, locks the bimetric coefficients through three theorems and three axioms, and checks the result against six concordance tests (expansion history, BBN, CMB, Vainshtein screening, Galileon hierarchy, mixing angle).
 
 **XIII — Nuclear Binding Energy from the Bidirectional Constitutive Law**
-[`papers/13-nuclear-binding-bidirectional-sst/`](papers/13-nuclear-binding-bidirectional-sst/) <!-- Zenodo DOI -->
+[`papers/13-nuclear-binding-bidirectional-sst/`](papers/13-nuclear-binding-bidirectional-sst/)
 Uses the self-consistent (bound) form of the constitutive law, $x(1-\mu)^2 = \mu$, the bidirectional counterpart of the law used for galaxy rotation curves, evaluated along a 64-step walk to reproduce the seven magic numbers (including the 20 → 28 gap without spin–orbit coupling) and binding energy per nucleon from helium to lead. The earlier draft is in `working-draft/`.
 
 **Companion — Topological Field Closure: A Bidirectional Derivation of the Hubble Constant and the Electron Mass**
-[`2026-01-26-Topological_Field_Closure_…pdf`](papers/2026-01-26-Topological_Field_Closure_A_Bidirectional_Derivation_of_the_Hubble_Constant_and_the_Electron_Mass.pdf) <!-- Zenodo DOI -->
+[`2026-01-26-Topological_Field_Closure_…pdf`](papers/2026-01-26-Topological_Field_Closure_A_Bidirectional_Derivation_of_the_Hubble_Constant_and_the_Electron_Mass.pdf)
 A short paper presenting the Hubble-constant ↔ electron-mass link from Papers III–IV as a bidirectional test: forward from electron properties to H₀, and in reverse from H₀ to the electron mass.
 
 ### Tetrad letters — March 2026 onward
@@ -171,23 +203,23 @@ A short paper presenting the Hubble-constant ↔ electron-mass link from Papers 
 Short, self-contained letters that rebuild the framework from the tetrad equation alone. Each folder holds `letter.tex` / `letter.pdf`, a cover letter, supplementary proofs and, in most cases, a `run_all_validations.py` that checks every number in the letter.
 
 **Letter 1 — The Coordinate-Space Geometry of the Tetrad Frame**
-[`papers/letter-1-tetrad-frame-geometry/`](papers/letter-1-tetrad-frame-geometry/) <!-- Zenodo DOI -->
+[`papers/letter-1-tetrad-frame-geometry/`](papers/letter-1-tetrad-frame-geometry/)
 Takes the four half-space inequalities of a single orthonormal tetrad and shows that their 16 sign combinations give exactly two bounded regions, which together form a stellated octahedron. No second frame is assumed; every structural constant reduces to K = 4 and D = 3.
 
 **Letter — The Gravitational Constitutive Law from the Tetrad Frame Geometry**
-[`papers/letter-constitutive-law-tetrad-geometry/`](papers/letter-constitutive-law-tetrad-geometry/) <!-- Zenodo DOI -->
+[`papers/letter-constitutive-law-tetrad-geometry/`](papers/letter-constitutive-law-tetrad-geometry/)
 Derives the AQUAL interpolating function μ(x) = x/(x + 1) by three independent routes: the rank structure of the metric, equilibrium field closure, and the exchange symmetry between the tetrad's two bounded regions.
 
 **Letter 2 — The Other Half of Gravity: Torsion and the Two-Chamber Structure of the Tetrad Frame**
-[`papers/letter-2-other-half-of-gravity-torsion/`](papers/letter-2-other-half-of-gravity-torsion/) (`v1`, `v2`) <!-- Zenodo DOI -->
+[`papers/letter-2-other-half-of-gravity-torsion/`](papers/letter-2-other-half-of-gravity-torsion/) (`v1`, `v2`)
 Proves that a torsion-free connection cannot tell the two tetrahedral chambers apart, so the 24 torsion components that general relativity discards are what carry the TetA/TetB distinction. The TetB field fraction comes out as 1/(x + 1).
 
 **Letter 3 — Gravity Field Dynamics: Field Closure of the Tetrad Frame**
-[`papers/letter-3-field-closure-of-tetrad-frame/`](papers/letter-3-field-closure-of-tetrad-frame/) <!-- Zenodo DOI -->
+[`papers/letter-3-field-closure-of-tetrad-frame/`](papers/letter-3-field-closure-of-tetrad-frame/)
 Shows that the torsion-free condition keeps the s = +1 projection of the coupling polynomial (40 components) and discards the s = −1 projection (24 components). Restoring them gives the full 64-component connection, which the constitutive law partitions spatially.
 
 **Letter — The Radial Acceleration Relation from a Zero-Parameter Covariant Action**
-[`papers/letter-radial-acceleration-relation-sparc/`](papers/letter-radial-acceleration-relation-sparc/) <!-- Zenodo DOI -->
+[`papers/letter-radial-acceleration-relation-sparc/`](papers/letter-radial-acceleration-relation-sparc/)
 Shows that the radial acceleration relation follows kinematically from the covariant action with F(y) written out explicitly, and tests it against the SPARC database (164 galaxies, 3284 points), reaching 0.181 dex scatter with no fitted parameters.
 
 **Letter — Decoding Mass from Observed Rotation Curves**
@@ -217,7 +249,7 @@ Gives the closed form F(y) = y − 2√y + 2 ln(1 + √y) for μ(x) = x/(x + 1),
 
 ## Repository map
 
-The repository has four top-level folders:
+This is a working research archive. The [papers](papers/), the [proofs](proofs/README.md) and the [documentation](docs/README.md) are the curated statements of the framework; [`research/`](research/) is the trail that led there, kept as it was left at the end of each session, with some files in several versions. The repository has four top-level folders:
 
 | Folder | Contents |
 |---|---|
@@ -244,7 +276,7 @@ Most research folders follow the same pattern: a **`*_synthesis.md`** that expla
 | [`constitutive-law-u(x)/`](<research/constitutive-law-u(x)/>) | Constitutive law suites and TetA/TetB roulette visualisations |
 | [`aqual/`](research/aqual/) | The scalar sector as AQUAL: a map of the archive's AQUAL material, the algebra carried further (bound law as the exchange image of the source form, QUMOND dual, hyperbolic point mass), and two verification suites |
 | [`galaxy-rotation/`](research/galaxy-rotation/) | Rotation-curve pipeline, interior/exterior synthesis, mass decoding, vortex viewers |
-| [`cdm/`](research/cdm/) | Translation of the cold-dark-matter halo into the TetB interior of the field |
+| [`cdm/`](research/cdm/) | Translation of the cold-dark-matter halo into the TetB share of the field |
 | [`cmb/`](research/cmb/) | The oldest light: the recombination enhancement of 6.46 from packed closure boundaries, one law across two epochs, and the 0.17 velocity exponent |
 | [`g_from_topology/`](research/g_from_topology/) | G as a matrix read; one-loop (Schwinger) correction to G; look-elsewhere test; *What Is Gravity?*, an open question |
 | [`field-closure/`](research/field-closure/) | Where the research began: why a gravitational field must close, the accounting closure demands, the field closure pipeline, and the closure walk |
@@ -281,12 +313,7 @@ Most research folders follow the same pattern: a **`*_synthesis.md`** that expla
 
 ### Exploratory work — [`research/exploratory/`](research/exploratory/)
 
-These programmes carry the framework's structures into new domains. They are kept alongside the main research record as exploratory work, and each states its own results and open measurements.
-
-| Folder | Contents |
-|---|---|
-| [`great-pyramid/`](research/exploratory/great-pyramid/) | **The Giza Field-Resonator Programme.** It applies GFD's scale invariance to the Great Pyramid: an apex body's local Field Origin lies at z*/h = 1 − 1/√2, and the King's Chamber floor sits on it to 0.8 in (Petrie's measurements; derived from the GFD action and confirmed by a field model). Start with the [findings](research/exploratory/great-pyramid/pyramid_portal_research/README.md#key-findings) and the [programme definition](research/exploratory/great-pyramid/pyramid_portal_research/PROGRAMME.md); a compendium, working notes and a tested Python package follow |
-| [`i-ching/`](research/exploratory/i-ching/) | The I Ching and the stellated octahedron: trigrams as cube vertices, the trigram family as the TetA/TetB partition, Fu Xi opposites as body diagonals; the π base-8 hexagram walk and the BBP bridge |
+Programmes that carry the framework's structures into other domains: historical systems (the I Ching) and architecture (the Great Pyramid). They are kept with the research record and are not part of the claims above; each folder states its own results.
 
 ### Other notes
 
@@ -294,100 +321,29 @@ These programmes carry the framework's structures into new domains. They are kep
 |---|---|
 | [`earth-365-days/`](research/earth-365-days/) | Note on the 365/360 relation |
 | [`formalisms-tetrad/`](research/formalisms-tetrad/) | The dual-chamber structure across tetrad, bimetric, loop-quantum, spinor and stability formalisms, read against GFD |
-| [`trash-bin/`](research/trash-bin/) | Material kept only to track the course of the research and flagged as likely not reliable; not to be cited (the early neural-network binding experiments and the former `temp/` scratch folder) |
+| [`trash-bin/`](research/trash-bin/) | Superseded material kept to track the course of the research; not reliable and not to be cited |
 
 ### External reference material
 
 [`stellated octahedron geometry/On the 14-Octahedron Backbone of the Bimetric.pdf`](<research/stellated octahedron geometry/On the 14-Octahedron Backbone of the Bimetric.pdf>) is a third-party paper by Bruno R. Galeffi, kept as background reading. It is not part of the GFD work.
 
----
-
-## Running the code
-
-The scripts are standalone research code, not an installable package. Most need only Python 3 and NumPy; some use the extras below.
-
-```bash
-pip install numpy scipy mpmath matplotlib pytest
-pip install torch        # spectral kernel, neural-network experiments, some oscillator work
-```
-
-**Canonical validation suite.** These scripts check the curated claims, and each runs standalone from its own folder:
-
-| Script | Checks |
-|---|---|
-| [`papers/letter-radial-acceleration-relation-sparc/sparc_rar.py`](papers/letter-radial-acceleration-relation-sparc/sparc_rar.py) `--from-csv supplementary/sparc_rar.csv` | SPARC radial acceleration relation: figure, mean and scatter |
-| [`papers/letter-1-tetrad-frame-geometry/Supplementary/run_all_validations.py`](papers/letter-1-tetrad-frame-geometry/Supplementary/run_all_validations.py) | Letter 1: tetrad frame geometry (29 claims) |
-| [`papers/letter-2-other-half-of-gravity-torsion/v2/Supplementary/run_all_validations.py`](papers/letter-2-other-half-of-gravity-torsion/v2/Supplementary/run_all_validations.py) | Letters 1–2: geometry, torsion = TetB (52 claims) |
-| [`papers/letter-3-field-closure-of-tetrad-frame/Supplementary/run_all_validations.py`](papers/letter-3-field-closure-of-tetrad-frame/Supplementary/run_all_validations.py) | Letter 3: 40/24 split, polynomial identity, partition (52 claims) |
-| [`papers/gram-matrix-of-tetrad-equation/verify_gram_theorems.py`](papers/gram-matrix-of-tetrad-equation/verify_gram_theorems.py) | Gram-matrix and forced-Gram theorems (32 checks) |
-
-Everything under [`research/`](research/), and in particular [`research/exploratory/`](research/exploratory/), is working material rather than part of the canonical suite.
-
-Other entry points:
-
-```bash
-python research/gfd_enterprise_validation-v2.py           # core framework validation
-python research/gfd_fundamental_constants.py            # constants from {K, D}
-python research/gfd_algebra.py                      # algebra self-checks (silent = pass)
-python papers/letter-1-tetrad-frame-geometry/Supplementary/run_all_validations.py
-python papers/letter-3-field-closure-of-tetrad-frame/Supplementary/run_all_validations.py
-python papers/gram-matrix-of-tetrad-equation/verify_gram_theorems.py
-python "research/quantum compute/graph solver/run_all.py"
-```
-
-### Companion repository: the Gravity Field Model
-
-The computational model lives in its own repository, [fielddynamics/dfp-gravity-field-model](https://github.com/fielddynamics/dfp-gravity-field-model). It contains **989 tests in 235 test files**, each comparing a derivation and a model value against an observed or reference value and reporting PASS or FAIL. They fall into two groups:
-
-| Group | Folder | Tests | What it covers |
-|---|---|---|---|
-| Engine | `field_closure/` | 257 | Pi-driven traversal, BBP algorithm, orbit statistics |
-| | `geometry/` | 104 | Stellated octahedron structure, vertex encoding, face classification |
-| | `engine_dynamics/` | 76 | Binding, spin, stability |
-| | `field_probing/` | 60 | Exploratory probes of information flow, entropy and diffusion in the traversal |
-| | `engine_crosschecks/` | 47 | Independent re-verification of the traversal |
-| | `information/` | 37 | Bits per orbit, entropy, channel capacity |
-| | `stress_tests/` | 22 | Determinism, ergodicity |
-| | `timing/` | 20 | Settlement frequency, Compton timing |
-| | `foundations/` | 14 | Lattice axioms and bounds |
-| Calculations | `stellar_mechanics/` | 99 | Fusion thresholds, element formation, binding densities |
-| | `field_theory/` | 54 | Field equations, boundary terms, exterior calculus |
-| | `emergent_constants/` | 50 | α, G, mass ratios, spin, the MOND scale, H₀ |
-| | `historical_systems/` | 43 | Correspondences with the I Ching, gematria and other historical systems |
-| | `particle_physics/` | 42 | Quark structure, mass derivations |
-| | `entanglement_mechanics/` | 20 | Quantum correlations, Tsirelson bounds |
-| | `black_holes/` | 13 | Bekenstein–Hawking entropy, horizons, Kerr ISCO |
-| | `cross_checks/` | 12 | The electron mass by independent routes |
-| | `quantum_tunneling/` | 11 | Gamow peak, Hoyle resonance, STM tunneling |
-| | `biological_mechanics/`, `coupling_dynamics/` | 8 | Biological mechanics, bimetric coupling channels |
-| **Total** | | **989** | |
-
-```bash
-git clone https://github.com/fielddynamics/dfp-gravity-field-model.git
-cd dfp-gravity-field-model
-pip install flask numpy
-python gravity_field_model/web_interface/run_web.py        # browse and run tests at http://localhost:5005
-python -m gravity_field_model.run_test --list              # or list tests by name from the command line
-```
-
-Notes:
-
-- Many paths contain spaces and parentheses; quote them in the shell.
-- Scripts are generally meant to be run from their own folder.
-- A few files under `research/exploratory/great-pyramid/field_origin_geometry/`, `research/exploratory/i-ching/` and `papers/09-complete-field-closure/Tests/` import `gravity_field_model` from the companion model repository (`dfp-gravity-field-model`) and will not run without it.
-- Trained model weights (`*.pt`), zipped code bundles and LaTeX build artefacts (`.aux`, `.log`, `.out`) are committed as they were produced.
+Notes on running research scripts: many paths contain spaces and parentheses, so quote them in the shell; scripts are meant to be run from their own folder; a few files under `research/exploratory/` and `papers/09-complete-field-closure/Tests/` import `gravity_field_model` from the companion repository.
 
 ---
+
+## About the author
+
+I'm an engineer who has spent his career building enterprise and government systems, including encryption systems, and GFD grew from one idea from that world: a field, like a transaction, must close, with nothing left unaccounted for. The papers follow what that requirement implies, from the constitutive law that shapes galaxy rotation to the value of Newton's constant. The full account of where the idea came from is in [`ABOUT.md`](ABOUT.md).
 
 ## Citing
 
-Please cite the relevant Zenodo preprint for any result taken from this archive. For the framework as a whole, cite the latest letters above or the [documentation](docs/README.md).
+Cite the relevant Zenodo preprint for any result taken from this archive. For the framework as a whole, cite this repository; GitHub's "Cite this repository" button uses [`CITATION.cff`](CITATION.cff).
 
 ## Licence
 
-This repository is released under the [MIT License](LICENSE) © 2026 Stephen Nelson, Field Dynamics Research. The code, notes and paper sources may be used, modified and redistributed, provided the copyright and licence notice are retained. Papers deposited on Zenodo also carry the licence shown on their Zenodo records.
+Released under the [MIT License](LICENSE) © 2026 Stephen Nelson, Field Dynamics Research. The code, notes and paper sources may be used, modified and redistributed, provided the copyright and licence notice are retained. Papers deposited on Zenodo also carry the licence shown on their Zenodo records.
 
 ## Contact
 
 Stephen Nelson — Field Dynamics Research
-[fielddynamics.org](https://fielddynamics.org) · [documentation](docs/README.md) · stephen@fielddynamics.org
+[fielddynamics.org](https://fielddynamics.org) · [documentation](docs/README.md) · stephen@fielddynamics.org · or open an issue on this repository
