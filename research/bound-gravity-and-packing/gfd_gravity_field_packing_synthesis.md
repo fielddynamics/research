@@ -12,7 +12,7 @@
 In Gravity Field Dynamics there is only one field, the gravity field, and every gravity field has the same two-chambered geometry: the stellated octahedron, with its chambers TetA and TetB coupled at a central Field Origin. What distinguishes empty space from a grain of sand is not a different substance but a different **state** of the same field.
 
 - **Unbound.** A field whose TetB chamber is empty is unbound. Unbound fields make up the long-range gravitational background, the mesh on which everything else sits.
-- **Bound.** A field that has been pushed through its Field Origin, so that its TetB chamber is occupied, is bound. Bound fields are what we call matter.
+- **Bound.** A field that has been pushed through its Field Origin, so that its TetB chamber is occupied, is bound. Bound fields are what we call matter. Nuclei are the smallest bound configurations; stars and galaxies are bound configurations as well (Paper VII, quoted in §7).
 
 This note explains how a field passes from one state to the other, why a bound field stays bound, what does the pushing, and what the nuclear data say about it.
 
@@ -24,7 +24,11 @@ Let $x = g/a_0$ be the strength of the field in units of the acceleration scale 
 
 $$x\,(1 - \mu) = \mu \qquad\Longrightarrow\qquad \mu(x) = \frac{x}{x+1}.$$
 
-This is the GFD constitutive law. It governs galaxies: at high field strength $\mu \to 1$ and Newtonian gravity is recovered, while at low field strength $\mu \to x$ and rotation curves flatten. In Paper VII's language, a field in this state corresponds to the massless spin-2 mode of bimetric gravity. Its TetB chamber is empty, and it carries no localised energy. It is the stage, not an actor.
+This is the GFD constitutive law. In Paper VII's language, a field in this state corresponds to the massless spin-2 mode of bimetric gravity. Its TetB chamber is empty and it carries no localised energy: it is the stage, not an actor.
+
+**The law in a galaxy.** The same one-directional law governs the exterior field of a galaxy. At high field strength $\mu \to 1$ and Newtonian gravity is recovered. At low field strength $\mu \to x$ and rotation curves flatten.
+
+This statement concerns the exterior only: the field through which stars and gas orbit as tracers of the flow. It does not imply that the galaxy's TetB is empty. A galaxy is a vortex. Matter spirals inward through the throat at its centre, the drain of the vortex, and passes into TetB. Taken as a whole, a galaxy is therefore a bound configuration (§7), and it is its exterior that obeys the one-directional law.
 
 ## 2. The gate
 

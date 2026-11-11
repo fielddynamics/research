@@ -27,9 +27,10 @@ The AQUAL material in the archive is spread across proofs, letters, papers and r
 
 | Term | Meaning | Source |
 |---|---|---|
-| TetA | The exterior: the observable disk, our spacetime, where the baryons orbit as tracers of the flow | Decoding-mass letter |
+| TetA | The exterior: the observable disk, our spacetime, in which the baryons orbit as tracers of the flow | [Decoding-mass letter](../../papers/letter-decoding-mass-from-rotation-curves/) |
 | Deep field | The low-acceleration regime $x \ll 1$, where $\mu \to x$. A range of $x$, reached toward a galaxy's rim, in the exterior; not TetB | Paper VII; Letter 2 |
-| TetB | The second chamber, the subspace reached only through the Field Origin: in a galaxy, the throat interior at the centre, the drain beneath the tracers. Empty in an unbound field; occupied in a bound field (matter). A galaxy's TetB is not empty: matter spirals down the drain into it. The "unbound law" $x(1-\mu) = \mu$ governs the galaxy's exterior field, not the state of its interior | [Decoding-mass letter](../../papers/letter-decoding-mass-from-rotation-curves/); Paper VII; [`bound-gravity-and-packing/`](../bound-gravity-and-packing/) |
+| TetB | The interior: the subspace reached only through the Field Origin. In a galaxy it lies beyond the throat at the centre, and matter spiralling inward through the throat passes into it, so a galaxy's TetB is occupied. Only an individual unbound envelope, a tile of the long-range mesh, has an empty TetB | [Decoding-mass letter](../../papers/letter-decoding-mass-from-rotation-curves/); Paper VII; [`bound-gravity-and-packing/`](../bound-gravity-and-packing/) |
+| Unbound law | The one-directional law $x(1-\mu) = \mu$. It governs a galaxy's exterior field; the name refers to the law, not to the state of the galaxy's interior | [`bound-gravity-and-packing/`](../bound-gravity-and-packing/) |
 | TetB share | $1 - \mu$, the fraction of the coupling capacity resolved through TetB; part of the quiet prediction | Paper VII, the constitutive law from detailed balance |
 | Interior's active contribution | $\Delta M_{\text{eff}} = M_{\text{phot}} - M_{\text{dec}}$: zero when the interior is quiet, otherwise drive or brake. Not the TetB share | Decoding-mass letter; [`what_is_gravity.md`](../g_from_topology/what_is_gravity.md) §7 |
 

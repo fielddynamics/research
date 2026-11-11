@@ -10,14 +10,16 @@ What separates empty space from a grain of sand?
 
 In most of physics the answer is a list of ingredients: fields here, particles there, forces between them. Gravity Field Dynamics gives a shorter answer. There is one field, the gravity field, and it can be in one of two states.
 
-- **Unbound.** Most gravity fields are unbound. They respond to whatever sources them, they hold nothing, and together they form the background against which everything else moves. This is the regime of galaxies.
-- **Bound.** A few have been driven through their own centre into the second chamber of their geometry, and they cannot get back out. These are bound fields, and a bound field is what we call matter. This is the regime of atomic nuclei.
+- **Unbound.** Most gravity fields are unbound. An unbound field has an empty TetB chamber. It responds to whatever sources it and holds nothing, and unbound fields together form the background through which everything else moves.
+- **Bound.** Some fields have been driven through their own centre into the second chamber of their geometry, and they cannot get back out. These are bound fields, and a bound field is what we call matter. Atomic nuclei are the smallest bound configurations. Stars and galaxies are bound configurations too (Paper VII).
 
 The work in this folder follows a field from one state to the other, and asks whether the nuclear data carry the signature of the crossing.
 
 ## The story in four steps
 
-**1. The ocean.** Every gravity field has the geometry of the stellated octahedron: two interlocking tetrahedral chambers, TetA and TetB, coupled at a central Field Origin. In an unbound field the TetB chamber is empty. The field couples one way, $x(1-\mu) = \mu$, the law that decodes galaxy rotation curves.
+**1. The ocean.** Every gravity field has the geometry of the stellated octahedron: two interlocking tetrahedral chambers, TetA and TetB, joined at a central Field Origin. In an unbound field the TetB chamber is empty, and the field couples in one direction only: $x(1-\mu) = \mu$.
+
+The same one-directional law governs the exterior of a galaxy, the disk through which its stars and gas orbit, and it is the law that decodes galaxy rotation curves. It describes that exterior field, not the galaxy's interior. A galaxy is a vortex: matter spirals inward through the throat at its centre and passes into TetB. A galaxy's TetB is therefore occupied, not empty.
 
 **2. The gate.** The Field Origin, at $x = 1$ and coupling value $f = 17$, is the only place where a field can cross from one chamber to the other.
 

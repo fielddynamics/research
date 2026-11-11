@@ -27,17 +27,21 @@ The pieces have not yet been connected to each other. This note connects them. E
 | $\Omega = \mu/(1-\mu)$ | odds between the chambers |
 | $\varphi = (1+\sqrt5)/2$ | the golden ratio |
 
-**Terms, as the archive uses them.**
+**Terms.** The following terms recur in this note. The archive does not always keep them apart, so they are fixed here.
 
-- **TetA and TetB in a galaxy.** A galaxy is a vortex with an exterior and an interior ([decoding-mass letter](../../papers/letter-decoding-mass-from-rotation-curves/)).
-  - **TetA** is the exterior: the observable disk, our spacetime, where stars and gas orbit. The baryons there are tracers. They follow the flow but do not set it.
-  - **TetB** is the throat interior at the centre, the drain beneath the surface, reached through the Field Origin.
-- **Deep field.** The *deep field* (deep-MOND) is the low-acceleration regime $x \ll 1$, where $\mu \to x$ (Paper VII; Letter 2: "at low acceleration ($x \ll 1$), the TetB fraction approaches unity"). It names a range of $x$, which a galaxy reaches toward its rim (Letter 3). It lies in the exterior, among the tracers, as far from TetB as the galaxy goes.
-- **TetB.** TetB is the second chamber, the subspace reached only through the Field Origin. In an unbound field its chamber is **empty** (Paper VII: "unbound envelopes, TetB chambers empty, form the mesh"). Occupancy of TetB is the bound state, which is matter.
-  - **A galaxy's TetB is not empty.** Matter spirals inward down the drain into it. The one-directional law $x(1-\mu) = \mu$, called the *unbound law* in this note, governs the exterior field through which the tracers move. The name describes that law, not the state of the galaxy's interior.
-- **The TetB share.** $1-\mu$ is the fraction of the coupling capacity resolved through TetB (Paper VII: "TetB resolves fraction $\mu(1/x)$"). It describes the partition, not occupancy. It is part of the *quiet* prediction, the one the constitutive law makes when the interior neither drives nor brakes.
-- **The interior's active contribution.** This is measured separately, by $\Delta M_{\text{eff}} = M_{\text{phot}} - M_{\text{dec}}$ ([decoding-mass letter](../../papers/letter-decoding-mass-from-rotation-curves/); [`what_is_gravity.md`](../g_from_topology/what_is_gravity.md) §7). The interior is quiet when this is zero; otherwise it drives or brakes the rotation. $\Delta M_{\text{eff}}$ is not the TetB share.
-- **This note's convention.** "TetB share" always means $1-\mu$, and "deep field" always means $x \ll 1$.
+*TetA and TetB.* A galaxy is a vortex, with an exterior and an interior ([decoding-mass letter](../../papers/letter-decoding-mass-from-rotation-curves/)).
+
+- **TetA** is the exterior: the observable disk, our spacetime, in which stars and gas orbit. The baryons are tracers of the flow. They follow it but do not set it.
+- **TetB** is the interior: the subspace reached only through the Field Origin. In a galaxy it lies beyond the throat at the centre, the drain of the vortex. Matter spirals inward through the throat and passes into TetB, so **a galaxy's TetB is occupied, not empty**. Paper VII accordingly counts galaxies among the bound gravity-field configurations.
+- **Empty TetB.** Only an individual *unbound envelope*, a single tile of the long-range mesh, has an empty TetB chamber (Paper VII).
+
+*The deep field.* The deep field, or deep-MOND regime, is the low-acceleration regime $x \ll 1$, in which $\mu \to x$ (Paper VII; Letter 2). It is a range of $x$. A galaxy reaches it toward its rim (Letter 3), so it lies in the exterior, among the tracers, as far from TetB as the galaxy extends. The deep field is not TetB.
+
+*The TetB share.* The quantity $1-\mu$ is the fraction of the coupling capacity resolved through TetB (Paper VII). It characterises the partition of the field at a point, not the occupancy of TetB. It belongs to the *quiet* prediction: the field the constitutive law yields when the interior neither drives nor brakes the rotation.
+
+*The interior's active contribution.* Departures from the quiet prediction are measured separately, by $\Delta M_{\text{eff}} = M_{\text{phot}} - M_{\text{dec}}$ ([decoding-mass letter](../../papers/letter-decoding-mass-from-rotation-curves/); [`what_is_gravity.md`](../g_from_topology/what_is_gravity.md) §7). The interior is quiet when $\Delta M_{\text{eff}} = 0$, and otherwise it drives or brakes the rotation. $\Delta M_{\text{eff}}$ is not the TetB share.
+
+*Naming.* Following the archive, the one-directional law $x(1-\mu) = \mu$ is called the *unbound law*. It governs the exterior field of a galaxy, and the name refers to the law, not to the state of the galaxy's interior. Throughout, "TetB share" means $1-\mu$ and "deep field" means $x \ll 1$.
 
 ---
 
