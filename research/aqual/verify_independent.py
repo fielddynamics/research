@@ -71,7 +71,7 @@ identities = {
     "5   int_0^x (1-mu) = int_0^x mu dln x = ln(1+x)":
         lambda x: (mp.quad(lambda t: 1 - mu(t), [0, x]) - mp.log(1 + x)) + (mp.quad(lambda t: mu(t) / t, [0, x]) - mp.log(1 + x)),
     "9   S(B): mu_b = sqrt(z_b)/(1+sqrt(z_b)), z_b = x mu_b": lambda x: mu_b(x) - mu(mp.sqrt(x * mu_b(x))),
-    "11  s(x1 x2) = (s1+s2)/(1+s1 s2)": None,
+    "11  sigma(x1 x2) = (sigma1+sigma2)/(1+sigma1 sigma2)": None,
 }
 for label, f in identities.items():
     if f is None:
@@ -117,7 +117,7 @@ Phi_closed = sp.asinh(2 * w) - (1 + sp.sqrt(1 + 4 * w**2)) / (2 * w)
 # asinh(2w) = asinh(sinh psi) = psi; the rest must equal coth(psi/2) = c/a
 check("9f  Phi = sqrt(G M a0) [psi - coth(psi/2)], so Phi + v^2 = sqrt(G M a0) psi",
       z0((1 + root) / (2 * w) - c / a) and abs(sp.N((sp.asinh(2 * w) - 2 * sp.asinh(a)).subs(a, sp.Rational(7, 5)), 40)) < 1e-35)
-check("9g  gate x = 1 at sinh(psi/2) = 1: psi/2 = ln(1+sqrt2), r = sqrt2 r_M",
+check("9g  ring x = 1 at sinh(psi/2) = 1: psi/2 = ln(1+sqrt2), r = sqrt2 r_M",
       z0((sinh_psi / 2).subs(a, 1) - sp.sqrt(2)) and z0(sp.asinh(1) - sp.log(1 + sp.sqrt(2))))
 check("9h  g_s = a0 at r = r_M: cosh^2(psi/2) = phi, mu = 1/phi",
       z0((c**2).subs(a, sp.sqrt((sp.sqrt(5) - 1) / 2)) - (1 + sp.sqrt(5)) / 2)
@@ -145,7 +145,7 @@ ok = all(abs(g_num(r) * r - mp.sqrt(1 / (4 * r * r) + 1) - 1 / (2 * r)) < mp.mpf
 check("T3b point mass: v^2 from the root-found field = vN^2/2 + sqrt(vN^4/4 + GMa0)", ok)
 ok = all(abs(g_num(r) * r - mp.coth(mp.asinh(2 * r) / 2)) < mp.mpf('1e-20') for r in [mp.mpf('0.1'), mp.mpf(2), mp.mpf(9)])
 check("T3c point mass: v^2 = coth(psi/2) with sinh psi = 2r/r_M", ok)
-check("T3d gate: root-found g equals a0 at r = sqrt2 r_M, and g = phi a0 at r = r_M",
+check("T3d unit fields: root-found g equals a0 at r = sqrt2 r_M, and g = phi a0 at r = r_M",
       abs(g_num(mp.sqrt(2)) - 1) < mp.mpf('1e-20') and abs(g_num(mp.mpf(1)) - (1 + mp.sqrt(5)) / 2) < mp.mpf('1e-20'))
 # Plummer sphere, scale b = 1, GM = 1: g_N = r/(r^2+1)^1.5. Outside the mass the field must match the point mass
 # only asymptotically; check instead that the root-found field obeys the source form z(1-mu) = mu^2 everywhere
@@ -194,7 +194,7 @@ def numerical_sup(zz):
 
 ok = all(abs(numerical_sup(zz) - Qc(zz)) < mp.mpf('1e-20') for zz in [mp.mpf('0.01'), mp.mpf('0.3'), mp.mpf(1), mp.mpf(7), mp.mpf(120)])
 check("T4a sup_q [q.P - W(q)] at |P| = 2z equals the closed form Q(z^2)", ok)
-check("T4b gate value Q(1) = 1/2 + 3 sqrt5/2 - 4 ln phi",
+check("T4b Q at z = 1: 1/2 + 3 sqrt5/2 - 4 ln phi",
       abs(Qc(mp.mpf(1)) - (mp.mpf(1) / 2 + 3 * mp.sqrt(5) / 2 - 4 * mp.log(PHI))) < mp.mpf('1e-25'))
 
 # ------------------------------------------------------------------ T5
@@ -298,7 +298,7 @@ for L in [mp.mpf('0.3'), mp.mpf(3), mp.mpf(25)]:
     ok &= abs(mp.quad(lambda l: f_of_x(mp.e**l), [-L, 0, L]) / (2 * L) - 17) < mp.mpf('1e-25')
 check("T7a <f> = 17 over symmetric windows in ln x (measure d ln x)", ok)
 ok = abs(sum(1 + (mp.mpf(n) / 32 - 1) * 4 + 16 for n in range(65)) / 65 - 17) == 0
-check("T7b <f> = 17 per new hexagram in the closure climb (measure linear in s)", ok)
+check("T7b <f> = 17 per new hexagram in the closure climb (measure linear in the polynomial's argument)", ok)
 
 # ------------------------------------------------------------------ T8
 print("\nT8  Central slope of the density inferred from the TetB share, from root-finding and numerical derivatives")
@@ -346,7 +346,7 @@ for _ in range(8):
     thv = mp.log(xv) / 2
     Ex = mp.expm(thv * tau)
     ok_exp &= mp.mnorm(Mx - Ex / mp.cosh(thv), 1) < mp.mpf('1e-20')
-check("T9a f(x) = 1 + Tr(1 + s(x) tau) = 13 + 8 mu at 8 random x", ok_f)
+check("T9a f(K, sigma(x)) = 1 + Tr(1 + sigma(x) tau) = 13 + 8 mu at 8 random x", ok_f)
 check("T9b eigenvalues: 2mu (x10) and 2(1 - mu) (x6); their ratio is x", ok_eig)
 check("T9c 1 + s tau = sech(theta) expm(theta tau), theta = ln(x)/2, by matrix exponential", ok_exp)
 

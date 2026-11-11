@@ -41,6 +41,17 @@ The pieces have not yet been connected to each other. This note connects them. E
 
 *The interior's active contribution.* Departures from the quiet prediction are measured separately, by $\Delta M_{\text{eff}} = M_{\text{phot}} - M_{\text{dec}}$ ([decoding-mass letter](../../papers/letter-decoding-mass-from-rotation-curves/); [`what_is_gravity.md`](../g_from_topology/what_is_gravity.md) §7). The interior is quiet when $\Delta M_{\text{eff}} = 0$, and otherwise it drives or brakes the rotation. $\Delta M_{\text{eff}}$ is not the TetB share.
 
+*The state label $s$ and the share difference $\sigma(x)$.* These are kept strictly apart.
+
+- **$s$** is the state label of the coupling polynomial $f(K, s) = 1 + sK + K^2$. It takes the values $s = +1$ (TetA), $s = 0$ (the Field Origin) and $s = -1$ (TetB), and names states of the structure.
+- **$\sigma(x) = (x-1)/(x+1) = \mu - (1-\mu)$** is the TetA share minus the TetB share at acceleration $x$. It is a continuous function of position in the field.
+- **$f(K, \sigma(x)) = 13 + 8\mu$** is the coupling capacity at that acceleration.
+
+$\sigma(x)$ takes the *values* of the state labels without being those states:
+
+- $\sigma(x) = 0$ on the ring $x = 1$, a radius in the exterior where the shares are equal. The ring is not the Field Origin, which in a galaxy is the gate at the centre.
+- $\sigma(x) \to -1$ only as $x \to 0$, in the deep field, where the TetB share approaches 1. That is not TetB.
+
 *Naming.* Following the archive, the one-directional law $x(1-\mu) = \mu$ is called the *unbound law*. It governs the exterior field of a galaxy, and the name refers to the law, not to the state of the galaxy's interior. Throughout, "TetB share" means $1-\mu$ and "deep field" means $x \ll 1$.
 
 ---
@@ -108,12 +119,12 @@ Every member of the necessity table's family $x^n(1-\mu)^m = \mu$ has a logistic
 
 $$x\,\frac{d\mu}{dx} = \frac{n\,\mu(1-\mu)}{1 + (m-1)\mu}.$$
 
-| Law | $x\,\mu'$ | Gate value | Slope at the gate |
+| Law | $x\,\mu'$ | Value at $x = 1$ | Slope at $x = 1$ |
 |---|---|---|---|
 | Unbound, $(n,m) = (1,1)$ | $\mu(1-\mu)$ | $\mu = 1/2$ | $1/4$ |
 | Bound, $(n,m) = (1,2)$ | $\mu(1-\mu)/(1+\mu)$ | $\mu = 1/\varphi^2$ | $1/(\sqrt5\,\varphi^2) = (3\sqrt5 - 5)/10 \approx 0.171$ |
 
-The denominator $1+\mu$ is the bound law's extra direction. The bound transition is slower and peaks later. Its rate is greatest at $\mu = \sqrt2 - 1$, that is at $x = (1+\sqrt2)/2 \approx 1.21$, where it reaches $(\sqrt2-1)^2 \approx 0.172$. The unbound rate peaks at $1/4$ on the gate itself.
+The denominator $1+\mu$ is the bound law's extra direction. The bound transition is slower and peaks later. Its rate is greatest at $\mu = \sqrt2 - 1$, that is at $x = (1+\sqrt2)/2 \approx 1.21$, where it reaches $(\sqrt2-1)^2 \approx 0.172$. The unbound rate peaks at $1/4$ at $x = 1$ itself.
 
 ## 4. The anisotropy of the field equation is the TetB share
 
@@ -145,13 +156,13 @@ This grows only as $2\sqrt y$. The energy of the TetB share is sub-quadratic, th
 
 ## 6. The mean coupling is 17 by exchange symmetry
 
-Composing the coupling polynomial with $s(x) = (x-1)/(x+1)$ gives
+Evaluating the coupling polynomial at the share difference $\sigma(x) = (x-1)/(x+1)$ gives the capacity at acceleration $x$,
 
-$$f(x) = 13 + 8\mu = \frac{21x + 13}{x+1}.$$
+$$f(K, \sigma(x)) = 13 + 8\mu = \frac{21x + 13}{x+1}.$$
 
 Because $\mu(x) + \mu(1/x) = 1$, the average of $\mu$ over any window symmetric in $\ln x$ is exactly $1/2$, so $\langle f\rangle = 17$.
 
-This is the continuous counterpart of the closure-climb result that the Field Origin value is the mean of a closure. Both rest on one fact: $f$ is affine in $s$, and both measures are symmetric about $s = 0$.
+This is the continuous counterpart of the closure-climb result that 17, the value of the Field Origin state, is the mean of a closure. Both rest on one fact: $f$ is affine in its second argument, and both measures are symmetric about the value 0. In the closure climb that argument runs linearly with the hexagram count; here it is $\sigma(x)$.
 
 The bound law is not exchange-symmetric. Over the same windows it gives the following, all below 17:
 
@@ -165,7 +176,7 @@ The bound law is not exchange-symmetric. Over the same windows it gives the foll
 
 $$Q(z^2) = \frac{z^2}{2} + \frac{(z+2)\sqrt{z(z+4)}}{2} - 4\,\mathrm{asinh}\frac{\sqrt z}{2}.$$
 
-It is the exact Legendre transform of the GFD energy density, $W^*(2z) = Q(z^2)$. This duality is between energy densities, not actions. QUMOND built on $Q$ is a separate action, which matches GFD's field equation where the curl term vanishes and differs from it elsewhere. It is not a rewriting of GFD's covariant action. At the gate $z = 1$, $\mathrm{asinh}(1/2) = \ln\varphi$. The AQUAL–QUMOND duality is standard (Milgrom 2010); this closed form for GFD's $\mu$ is new to the archive.
+It is the exact Legendre transform of the GFD energy density, $W^*(2z) = Q(z^2)$. This duality is between energy densities, not actions. QUMOND built on $Q$ is a separate action, which matches GFD's field equation where the curl term vanishes and differs from it elsewhere. It is not a rewriting of GFD's covariant action. At unit source acceleration, $z = 1$, $\mathrm{asinh}(1/2) = \ln\varphi$. The AQUAL–QUMOND duality is standard (Milgrom 2010); this closed form for GFD's $\mu$ is new to the archive.
 
 **The bound law has an algebraic kinetic function, with no logarithm.**
 
@@ -213,7 +224,7 @@ $$\frac{g_t}{a_0} = \operatorname{csch}^2\frac{\psi}{2}, \qquad \mu = \operatorn
 
 - **An invariant.** $\Phi + v^2 = \sqrt{GMa_0}\,\psi$ at every radius. The potential and the circular speed are tied together by the one variable $\psi$.
 - **Limits.** As $\psi \to \infty$, $\coth \to 1$ and $v^4 \to GMa_0$. As $\psi \to 0$, $\coth(\psi/2) \approx 2/\psi \approx r_M/r$ and $v^2 \to GM/r$.
-- **Two gates, two ratios.** The source gate $g_s = a_0$ sits at $r = r_M$, where $\cosh^2(\psi/2) = \varphi$ and $\mu = 1/\varphi$. The total gate $g_t = a_0$ (the ring $x = 1$) sits at $r = \sqrt2\,r_M$, where $\sinh(\psi/2) = 1$, so $\psi/2 = \ln(1+\sqrt2)$, the logarithm of the silver ratio. The golden ratio marks unit source field and the silver ratio marks unit total field.
+- **Unit source field and unit total field.** Unit source field, $g_s = a_0$, is reached at $r = r_M$, where $\cosh^2(\psi/2) = \varphi$ and $\mu = 1/\varphi$. Unit total field, $g_t = a_0$ (the ring $x = 1$), is reached at $r = \sqrt2\,r_M$, where $\sinh(\psi/2) = 1$, so $\psi/2 = \ln(1+\sqrt2)$, the logarithm of the silver ratio. The golden ratio marks unit source field and the silver ratio marks unit total field.
 
 ## 10. The bound law in the same variable
 
@@ -245,11 +256,11 @@ So within the family, **deep-field scaling ($n = k$) plus exchange symmetry ($m 
 
 ## 12. Composition: the partition adds like rapidities
 
-In the parity coordinate $s = (x-1)/(x+1) = \tanh(\tfrac12\ln x)$, multiplying acceleration ratios composes the partition by Einstein's velocity-addition law:
+The share difference $\sigma(x) = (x-1)/(x+1) = \tanh(\tfrac12\ln x)$ composes under multiplied acceleration ratios by Einstein's velocity-addition law:
 
-$$s(x_1x_2) = \frac{s_1 + s_2}{1 + s_1 s_2}.$$
+$$\sigma(x_1x_2) = \frac{\sigma_1 + \sigma_2}{1 + \sigma_1\sigma_2}.$$
 
-Because the composite coupling is $f = 17 + 4s$, the coupling of a product of scales is fixed by the couplings of its factors through this law. The odds simply multiply, $\Omega(x_1x_2) = \Omega_1\Omega_2$, since $\Omega = x$. The exchange $x \to 1/x$ is $s \to -s$, and the Field Origin $s = 0$ is the identity of the composition. This is algebra only; how nested closures (the Solar System inside the galaxy) should compose is a physical question it does not answer.
+Because the capacity is $f(K, \sigma) = 17 + 4\sigma$, the capacity at a product of scales is fixed by the capacities of its factors through this law. The odds simply multiply, $\Omega(x_1x_2) = \Omega_1\Omega_2$, since $\Omega = x$. The exchange $x \to 1/x$ is $\sigma \to -\sigma$, and $\sigma = 0$, the ring $x = 1$, is the identity of the composition. This is algebra only; how nested closures (the Solar System inside the galaxy) should compose is a physical question it does not answer.
 
 ## 13. Why general relativity never meets 13, 17 and 21
 
@@ -268,28 +279,28 @@ $$f(K, s) = 1 + \mathrm{Tr}_{V\otimes V}(1 + s\tau).$$
 
 So $21 = 1 + 2 \cdot 10$, $17 = 1 + 16$ and $13 = 1 + 2 \cdot 6$. These are the symmetric sector doubled, the whole tensor product, and the antisymmetric sector doubled, each with the scalar 1 of the non-degeneracy condition.
 
-**The constitutive law weights the two sectors.** With $s(x) = (x-1)/(x+1)$ and $\mu = (1+s)/2$,
+**The constitutive law weights the two sectors.** Evaluate the operator at the share difference $\sigma(x) = (x-1)/(x+1)$, so that $\mu = (1+\sigma)/2$:
 
-$$1 + s(x)\,\tau = 2\big[\mu\,P_{\text{sym}} + (1-\mu)\,P_{\text{anti}}\big], \qquad f(x) = 1 + 2\big[10\,\mu + 6\,(1-\mu)\big] = 13 + 8\mu.$$
+$$1 + \sigma(x)\,\tau = 2\big[\mu\,P_{\text{sym}} + (1-\mu)\,P_{\text{anti}}\big], \qquad f(K, \sigma(x)) = 1 + 2\big[10\,\mu + 6\,(1-\mu)\big] = 13 + 8\mu.$$
 
 The constitutive law is the weight the operator places on the symmetric sector, and the TetB share is its weight on the antisymmetric sector. The operator's eigenvalues are $2\mu$ on the symmetric sector and $2(1-\mu)$ on the antisymmetric sector, so the acceleration ratio is their quotient: $x = \lambda_{\text{sym}}/\lambda_{\text{anti}}$. This is the odds $\Omega = x$ of the exchange proof, now read as an eigenvalue ratio.
 
 **The weighting is a one-parameter group.** Because $\tau^2 = 1$, $e^{\theta\tau} = \cosh\theta + \tau\sinh\theta$, and with $\theta = \tfrac12\ln x$,
 
-$$1 + s(x)\,\tau = \operatorname{sech}\theta\; e^{\theta\tau}.$$
+$$1 + \sigma(x)\,\tau = \operatorname{sech}\theta\; e^{\theta\tau}.$$
 
 Up to normalisation, the operator is a boost generated by the swap, with rapidity $\theta = \tfrac12\ln x$. It acts as $\sqrt x$ on the symmetric sector and $1/\sqrt x$ on the antisymmetric sector. Two consequences follow:
 
 - The exchange $x \to 1/x$ is $\theta \to -\theta$, which interchanges the two sectors.
 - The rapidity addition of §12 is the group law $e^{a\tau}e^{b\tau} = e^{(a+b)\tau}$.
 
-**Where general relativity sits.** GR sets $\mu = 1$: Einstein's equation is the TetA partition with the constitutive law fixed at unity ([`EINSTEIN_TETA_PARTITION.md`](../../EINSTEIN_TETA_PARTITION.md)). Then $1 + s\tau = 2P_{\text{sym}}$, the antisymmetric sector has weight zero, $\theta = \infty$, and $f = 21$ identically. In that limit:
+**Where general relativity sits.** GR sets $\mu = 1$: Einstein's equation is the TetA partition with the constitutive law fixed at unity ([`EINSTEIN_TETA_PARTITION.md`](../../EINSTEIN_TETA_PARTITION.md)). Then $\sigma = +1$, $1 + \sigma\tau = 2P_{\text{sym}}$, the antisymmetric sector has weight zero, $\theta = \infty$, and $f = 21$ identically. The share difference has reached the value of the TetA state label, $s = +1$. In that limit:
 
 - 21 is a fixed count, $1 + 2\dim\mathrm{Sym}^2 V$, with no partner value to compare it with.
 - 17 and 13 require $\mu < 1$, a non-zero weight on the antisymmetric sector. GR's two conventions, one root of the tetrad equation and a torsion-free connection, set that weight to zero.
 - Nothing in GR combines the non-degeneracy scalar and the doubled sectors into one polynomial in a sign parameter.
 
-The three integers are therefore not absent from general relativity: their ingredients, 10, 6 and 16, are textbook. They are never assembled, because GR evaluates the operator only at its endpoint $s = +1$, and an endpoint value is a count, not a coupling.
+The three integers are therefore not absent from general relativity: their ingredients, 10, 6 and 16, are textbook. They are never assembled, because GR evaluates the operator only at $\sigma = +1$, and an endpoint value is a count, not a coupling.
 
 **Status.** The operator identities are exact (checked below). Reading $\mu$ as the weight on the metric sector rests on the archive's identification of the antisymmetric sector with TetB (Letters 2 and 3). What the algebra adds is that the constitutive law and the coupling polynomial are one and the same weighting of $\mathrm{Sym}^2 V \oplus \Lambda^2 V$.
 
@@ -304,19 +315,19 @@ The three integers are therefore not absent from general relativity: their ingre
 | Unbound golden ratio at $g_s = a_0$ | Exact; not previously in the archive |
 | Bound law = exchange of (1b) | Exact identity; its physical reading is open |
 | $1 - \mu_b \simeq 1/\sqrt x$, giving $1/A$ | Exact asymptote; consistent with the bound-gravity README |
-| Logistic family, gate slope $1/(\sqrt5\varphi^2)$ | Exact |
+| Logistic family; bound slope $1/(\sqrt5\varphi^2)$ at $x = 1$ | Exact |
 | Anisotropy $= 1 + (1-\mu)$; family convexity | Exact, from Theorem 2 |
 | Logarithm as the screening identity integrated; $F$ in $\Omega$; TetB energy | Exact |
 | $\langle f\rangle = 17$ from exchange symmetry | Exact; explains the closure-climb mean as a symmetry |
 | QUMOND dual $Q$; bound $F_b$ | Exact closed forms, new to the archive |
 | Cusp in the density inferred from the TetB share, slopes $-1$ and $-\tfrac12$, with coefficients | Exact asymptotics; bears on Letter 3, consequence 2 |
 | Vector form $\vec g_t - \vec g_s = a_0\mu\,\hat g_s$ | Exact in GFD's (AQUAL-form) field equation where the curl term vanishes; exact everywhere in QUMOND, a separate action |
-| Hyperbolic point mass; $\Phi + v^2 = \sqrt{GMa_0}\,\psi$; golden and silver gates | Exact |
+| Hyperbolic point mass; $\Phi + v^2 = \sqrt{GMa_0}\,\psi$; golden ratio at unit source field, silver ratio at unit total field | Exact |
 | Bound law $= \tanh^2(\psi/2)$; it mirrors the point mass's TetB share | Exact |
 | S and E generate the laws; the bound law's source form is $U(\sqrt z)$ | Exact |
 | Deep scaling plus exchange symmetry select $U$ within the family | Exact, within the stated family |
-| Rapidity composition of $s$ | Exact; its physical use is open |
-| $f(K,s) = 1 + \mathrm{Tr}(1 + s\tau)$; $1 + s\tau = 2[\mu P_{\text{sym}} + (1-\mu)P_{\text{anti}}]$; $x = \lambda_{\text{sym}}/\lambda_{\text{anti}}$; GR at $\mu = 1$ | Exact; the physical reading of the sectors is the archive's |
+| Rapidity composition of $\sigma(x)$ | Exact; its physical use is open |
+| $f(K,s) = 1 + \mathrm{Tr}(1 + s\tau)$; $1 + \sigma(x)\tau = 2[\mu P_{\text{sym}} + (1-\mu)P_{\text{anti}}]$; $x = \lambda_{\text{sym}}/\lambda_{\text{anti}}$; GR at $\mu = 1$ | Exact; the physical reading of the sectors is the archive's |
 
 ## Verification
 
@@ -345,7 +356,7 @@ python verify_aqual_algebra.py     # 50/50
 python verify_independent.py       # 48/48
 ```
 
-Checking found one error in the first draft of this note: the bound law's rate peaks *later* than the gate, not earlier (§3).
+Checking found one error in the first draft of this note: the bound law's rate peaks *later* than $x = 1$, not earlier (§3).
 
 ## References
 

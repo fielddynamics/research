@@ -58,7 +58,7 @@ check("2b  nu_b solves x nu^2 + nu - 1 = 0 (Paper XIII law)", zero(x * nu_b**2 +
 check("2c  1 - mu_b(x) = 1/nu(1/x)", zero(nu_b - 1 / nuQ.subs(z, 1 / x)))
 check("2d  in total variable the unbound law is self-conjugate: mu(x) + mu(1/x) = 1",
       zero(mu + mu.subs(x, 1 / x) - 1))
-check("2e  bound gate: mu_b(1) = 1/phi^2, TetB share 1/phi", zero(mu_b.subs(x, 1) - 1 / phi**2))
+check("2e  bound law at x = 1: mu_b(1) = 1/phi^2, TetB share 1/phi", zero(mu_b.subs(x, 1) - 1 / phi**2))
 ok = True
 for A in [4, 56, 208]:
     X = mp.mpf(A)**2
@@ -74,7 +74,7 @@ check("3a  x mu' = n mu(1-mu)/(1 + (m-1) mu) on x^n(1-mu)^m = mu",
 check("3b  unbound: x mu' = mu(1-mu)", zero(x * sp.diff(mu, x) - mu * (1 - mu)))
 check("3c  bound: x mu_b' = mu_b(1-mu_b)/(1+mu_b)", zero(x * sp.diff(mu_b, x) - mu_b * (1 - mu_b) / (1 + mu_b)))
 gate = (mu_b * (1 - mu_b) / (1 + mu_b)).subs(x, 1)
-check("3d  bound gate slope = 1/(sqrt5 phi^2) = (3 sqrt5 - 5)/10", zero(gate - 1 / (sp.sqrt(5) * phi**2))
+check("3d  bound slope at x = 1 = 1/(sqrt5 phi^2) = (3 sqrt5 - 5)/10", zero(gate - 1 / (sp.sqrt(5) * phi**2))
       and zero(gate - (3 * sp.sqrt(5) - 5) / 10))
 
 rate = mm * (1 - mm) / (1 + mm)
@@ -109,7 +109,7 @@ check("5f  in partition variables F = Om^2 - 2 Om - 2 ln(1 - mu)  (since 1 + Om 
       and all(abs(sp.N(d5f.subs(mm, v), 40)) < 1e-35 for v in [sp.Rational(1, 10), sp.Rational(1, 2), sp.Rational(9, 10)]))
 
 print("\n6. Exchange mean of the coupling")
-check("6a  f(x) = 1 + s(x) K + K^2 = 13 + 8 mu = (21x + 13)/(x + 1), s = (x-1)/(x+1)",
+check("6a  f(K, sigma(x)) = 1 + sigma K + K^2 = 13 + 8 mu = (21x + 13)/(x + 1), sigma = (x-1)/(x+1) the share difference",
       zero(1 + (x - 1) / (x + 1) * 4 + 16 - (13 + 8 * mu)) and zero(13 + 8 * mu - (21 * x + 13) / (x + 1)))
 ok = True
 for L in [mp.mpf('0.5'), 2, 10]:
@@ -133,7 +133,7 @@ FF = lambda U: U**2 - 2 * U + 2 * sp.log(1 + U)
 Wstar = 2 * z * x_of_z - FF(x_of_z)
 check("7b  Q is the Legendre dual of the GFD energy: W*(2z) = Q(z^2)",
       all(abs(sp.N((Wstar - Qc).subs(z, v), 30)) < 1e-25 for v in [sp.Rational(1, 7), 1, 3, 50]))
-check("7c  asinh(1/2) = ln phi (the gate value of Q)", abs(mp.asinh(mp.mpf(1) / 2) - mp.log(mp.phi)) < 1e-35)
+check("7c  asinh(1/2) = ln phi (Q at unit source field, z = 1)", abs(mp.asinh(mp.mpf(1) / 2) - mp.log(mp.phi)) < 1e-35)
 Fb = u**2 + u - (2 * u / 3 + sp.Rational(1, 6)) * sp.sqrt(1 + 4 * u) + sp.Rational(1, 6)
 mub_u = 1 - (sp.sqrt(1 + 4 * u) - 1) / (2 * u)
 check("7d  bound kinetic fn F_b(y) = y + sqrt y - (2 sqrt y/3 + 1/6) sqrt(1 + 4 sqrt y) + 1/6",
@@ -169,16 +169,16 @@ I16 = sp.eye(N16)
 Ps, Pa = (I16 + tau) / 2, (I16 - tau) / 2
 check("13a tau^2 = 1, Tr tau = 4, ranks of P_sym and P_anti are 10 and 6",
       tau * tau == I16 and tau.trace() == 4 and Ps.rank() == 10 and Pa.rank() == 6)
-check("13b f(K,s) = 1 + Tr(1 + s tau): 21, 17, 13 at s = 1, 0, -1",
+check("13b f(K,s) = 1 + Tr(1 + s tau): 21, 17, 13 at the state labels s = +1 (TetA), 0 (Field Origin), -1 (TetB)",
       [1 + (I16 + sv * tau).trace() for sv in (1, 0, -1)] == [21, 17, 13])
 sx = (x - 1) / (x + 1)
-check("13c 1 + s(x) tau = 2[mu P_sym + (1 - mu) P_anti]",
+check("13c 1 + sigma(x) tau = 2[mu P_sym + (1 - mu) P_anti]",
       sp.simplify(I16 + sx * tau - 2 * (mu * Ps + (1 - mu) * Pa)) == sp.zeros(N16, N16))
 check("13d f(x) = 1 + 2[10 mu + 6(1 - mu)] = 13 + 8 mu",
       zero(1 + (I16 + sx * tau).trace() - (13 + 8 * mu)) and zero(1 + 2 * (10 * mu + 6 * (1 - mu)) - (13 + 8 * mu)))
 check("13e x is the eigenvalue ratio: 2 mu / [2 (1 - mu)] = x", zero(mu / (1 - mu) - x))
 th = sp.symbols('theta', positive=True)
-check("13f 1 + tanh(theta) tau = sech(theta) e^{theta tau}, and s(x) = tanh(ln(x)/2)",
+check("13f 1 + tanh(theta) tau = sech(theta) e^{theta tau}, and sigma(x) = tanh(ln(x)/2)",
       sp.simplify(I16 + sp.tanh(th) * tau - (sp.cosh(th) * I16 + sp.sinh(th) * tau) / sp.cosh(th)) == sp.zeros(N16, N16)
       and zero(sp.tanh(sp.log(x) / 2).rewrite(sp.exp) - sx))
 check("13g GR point mu = 1: 1 + s tau = 2 P_sym and f = 21",
