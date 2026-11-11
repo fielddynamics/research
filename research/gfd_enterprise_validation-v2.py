@@ -285,7 +285,12 @@ def euclidean(v1, v2):
 
 
 def conformal_map(x):
-    """State parameter s(x) = (x - 1)/(x + 1). Maps [0, inf) -> [-1, +1)."""
+    """Share difference sigma(x) = (x - 1)/(x + 1) = mu - (1 - mu). Maps [0, inf) -> [-1, +1).
+
+    Continuous in x and distinct from the discrete state label s of f(K, s)
+    (+1 TetA, 0 Field Origin, -1 TetB). sigma = 0 is the equal-shares ring
+    x = 1, not the Field Origin; sigma -> -1 is the deep field, not TetB.
+    """
     return (x - 1.0) / (x + 1.0)
 
 
@@ -1032,9 +1037,9 @@ def validate_constitutive_law_convergence():
 #   Static (s = 0): f(K, 0) = 1 + 0 + 16 = 17. The coefficients of
 #   this expansion are the five bimetric parameters {1, 0, 16, 0, 1}.
 #
-#   Dynamic (s varies): the conformal map s(x) = (x-1)/(x+1) projects
-#   the observable acceleration ratio x onto the bounded state space
-#   [-1, +1]. Normalizing f to [0, 1] yields the constitutive law
+#   Dynamic: the share difference sigma(x) = (x-1)/(x+1) takes the place
+#   of s, projecting the acceleration ratio x onto [-1, +1]. sigma is
+#   continuous; s is the discrete state label. Normalizing f to [0, 1] yields the constitutive law
 #   mu(x) = x/(x+1). Integrating mu gives the kinetic functional
 #   F(y) = y - 2*sqrt(y) + 2*ln(1 + sqrt(y)).
 #
@@ -1076,15 +1081,15 @@ def validate_bimetric_static_skeleton():
 
 
 # =============================================================================
-# SECTION 9a: MOEBIUS UNIQUENESS — WHY s(x) = (x-1)/(x+1)
+# SECTION 9a: MOEBIUS UNIQUENESS — WHY sigma(x) = (x-1)/(x+1)
 #
-# A Moebius transformation s(x) = (ax + b)/(cx + d) has 3 free parameters
+# A Moebius transformation sigma(x) = (ax + b)/(cx + d) has 3 free parameters
 # after projective normalization. Field closure imposes three constraints:
-#   C1. s(0) = -1    (capacity lower bound)
-#   C2. s(inf) = +1  (capacity upper bound)
-#   C3. s(1) = 0     (transition fixed point)
+#   C1. sigma(0) = -1    (capacity lower bound)
+#   C2. sigma(inf) = +1  (capacity upper bound)
+#   C3. sigma(1) = 0     (transition fixed point)
 #
-# These uniquely determine s(x) = (x-1)/(x+1). The involution property
+# These uniquely determine sigma(x) = (x-1)/(x+1). The involution property
 # (algebraic invertibility) is then AUTOMATIC — not an additional assumption.
 # No non-Moebius smooth map (tanh, arctan, polynomial) can satisfy C1-C3
 # with closed-form algebraic invertibility.
@@ -1096,43 +1101,43 @@ def validate_mobius_freedom():
     coefficients = 4  # a, b, c, d
     normalization = 1  # projective equivalence
     free_params = coefficients - normalization
-    constraints = 3  # s(0)=-1, s(inf)=+1, s(1)=0
+    constraints = 3  # sigma(0)=-1, sigma(inf)=+1, sigma(1)=0
     assert free_params == constraints == 3, "System is exactly determined"
 
 
-@validate("C1-C3 uniquely determine s(x) = (x-1)/(x+1)", "9a. Moebius Uniqueness")
+@validate("C1-C3 uniquely determine sigma(x) = (x-1)/(x+1)", "9a. Moebius Uniqueness")
 def validate_mobius_from_constraints():
-    # s(x) = (ax + b)/(cx + d), normalize d = 1.
-    # C1: s(0) = b/1 = -1  ->  b = -1
+    # sigma(x) = (ax + b)/(cx + d), normalize d = 1.
+    # C1: sigma(0) = b/1 = -1  ->  b = -1
     b = -1
 
-    # C2: s(inf) = a/c = +1  ->  a = c
-    # C3: s(1) = (a + b)/(c + 1) = 0  ->  a + b = 0  ->  a = 1, c = 1
+    # C2: sigma(inf) = a/c = +1  ->  a = c
+    # C3: sigma(1) = (a + b)/(c + 1) = 0  ->  a + b = 0  ->  a = 1, c = 1
     a = 1
     c = 1
     d = 1
 
-    def s(x):
+    def sigma(x):
         return (a * x + b) / (c * x + d)
 
-    assert abs(s(0) - (-1)) < 1e-10, f"s(0) = {s(0)}, expected -1"
-    assert abs(s(1) - 0) < 1e-10, f"s(1) = {s(1)}, expected 0"
-    assert abs(a / c - 1) < 1e-10, f"s(inf) = {a/c}, expected +1"
+    assert abs(sigma(0) - (-1)) < 1e-10, f"sigma(0) = {sigma(0)}, expected -1"
+    assert abs(sigma(1) - 0) < 1e-10, f"sigma(1) = {sigma(1)}, expected 0"
+    assert abs(a / c - 1) < 1e-10, f"sigma(inf) = {a/c}, expected +1"
 
     # Verify this IS (x-1)/(x+1)
     for x in [0.01, 0.5, 1.0, 2.0, 10.0, 100.0]:
         expected = (x - 1) / (x + 1)
-        assert abs(s(x) - expected) < 1e-10, f"s({x}) = {s(x)}, expected {expected}"
+        assert abs(sigma(x) - expected) < 1e-10, f"sigma({x}) = {sigma(x)}, expected {expected}"
 
 
 @validate("Involution (algebraic invertibility) is automatic, not imposed", "9a. Moebius Uniqueness")
 def validate_involution_automatic():
-    def s(x):
+    def sigma(x):
         return (x - 1) / (x + 1)
 
     # The inverse: if s = (x-1)/(x+1), then x = (1+s)/(1-s)
     for x in [0.01, 0.5, 1.0, 2.0, 10.0, 100.0]:
-        s_val = s(x)
+        s_val = sigma(x)
         x_recovered = (1 + s_val) / (1 - s_val)
         assert abs(x_recovered - x) < 1e-10, (
             f"Inverse failed at x={x}: recovered {x_recovered}"
@@ -1146,18 +1151,18 @@ def validate_no_alternative():
         s_0 = math.tanh(k * (0 - 1))  # tanh(-k)
         assert s_0 > -1, f"tanh(-{k}) = {s_0} should be > -1"
 
-    # The Moebius form gives s(0) = -1 EXACTLY
+    # The Moebius form gives sigma(0) = -1 EXACTLY
     s_0_mobius = (0 - 1) / (0 + 1)
-    assert s_0_mobius == -1.0, "Moebius gives s(0) = -1 exactly"
+    assert s_0_mobius == -1.0, "Moebius gives sigma(0) = -1 exactly"
 
 
 @validate("Moebius map preserves the capacity polynomial structure", "9a. Moebius Uniqueness")
 def validate_mobius_capacity_preservation():
-    def s(x):
+    def sigma(x):
         return (x - 1) / (x + 1)
 
     for x in [0.001, 0.1, 0.5, 1.0, 2.0, 10.0, 1000.0]:
-        s_val = s(x)
+        s_val = sigma(x)
         f_poly = 1 + K * s_val + K ** 2
         f_rational = (F_PLUS * x + F_MINUS) / (x + 1)
         assert abs(f_poly - f_rational) < 1e-10, (
@@ -1172,21 +1177,21 @@ def validate_mobius_capacity_preservation():
 
 
 @validate(
-    "SST: conformal map s(x) = (x-1)/(x+1) projects [0, inf) -> [-1, +1)",
+    "SST: share difference sigma(x) = (x-1)/(x+1) projects [0, inf) -> [-1, +1)",
     "9. Scalar-Tensor Action",
 )
 def validate_conformal_map_and_capacity():
-    # s(x) = (x - 1)/(x + 1) maps the observable acceleration ratio x
-    # onto the bounded state space of the dual field chambers.
-    #   x = 0              -> s = -1  (lower bound)
-    #   x = 1 (transition)  -> s =  0  (Field Origin)
-    #   x -> inf            -> s -> +1 (upper bound)
+    # sigma(x) = (x - 1)/(x + 1) maps the observable acceleration ratio x
+    # onto [-1, +1]: the difference between the TetA and TetB shares.
+    #   x = 0              -> sigma = -1  (TetB share 1: deep-field limit, not TetB)
+    #   x = 1 (transition)  -> sigma =  0  (equal shares; not the Field Origin)
+    #   x -> inf            -> sigma -> +1 (TetA share 1: Newtonian limit)
     assert abs(conformal_map(0.0) - (-1.0)) < 1e-10
     assert abs(conformal_map(1.0) - 0.0) < 1e-10
     assert conformal_map(1e12) > 0.999
 
     # f composed with s recovers the capacity function:
-    #   f(K, s(x)) = 1 + K*s(x) + K^2 = (21x + 13)/(x + 1)
+    #   f(K, sigma(x)) = 1 + K*sigma(x) + K^2 = (21x + 13)/(x + 1)
     for x in [0.01, 0.5, 1.0, 2.0, 10.0, 100.0]:
         s = conformal_map(x)
         f_via_poly = 1 + K * s + K ** 2
@@ -1440,7 +1445,7 @@ def validate_n_metric_transition():
 
 
 @validate(
-    "SST: mass decode M_dec = rv^4/(G(a_0*r + v^2)) is exact inverse of MOND encoding",
+    "Spherical field equation: mass decode M_dec = rv^4/(G(a_0*r + v^2)) inverts the forward solver",
     "9. Scalar-Tensor Action",
 )
 def validate_mass_decode_pipeline():
@@ -1449,7 +1454,8 @@ def validate_mass_decode_pipeline():
     #
     # Forward (encoding): given source mass M and radius r,
     #   g_s = GM/r^2  (Newtonian source acceleration)
-    #   g_t = [g_s + sqrt(g_s^2 + 4*g_s*a_0)] / 2  (observed acceleration)
+    #   g_t = [g_s + sqrt(g_s^2 + 4*g_s*a_0)] / 2  (forward solver of the spherical
+    #       field equation g_s = g_t^2/(a_0 + g_t), the spherical limit of the SST action)
     #   v^2 = g_t * r  (rotation velocity)
     #
     # Inverse (decoding): given v(r),

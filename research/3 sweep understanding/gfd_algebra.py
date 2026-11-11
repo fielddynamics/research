@@ -7,12 +7,29 @@ Every algebraic object used in the RAR letter and its three
 supplementary proofs, collected in one file with docstrings
 tracing each to its origin.
 
+Naming used throughout:
+    SST (scalar-tensor transition) = the full covariant action
+        (COVARIANT_ACTION below), all four terms.  Nothing else.
+    Spherical field equation = g_s = g_t^2/(a0 + g_t), the
+        spherical, static field equation of that action.  It is
+        never called "the SST".
+    One-directional law x(1 - mu) = mu governs a galaxy's exterior
+        field.  A galaxy is never unbound: it is a vortex whose TetB
+        is occupied, fed through the drain at its centre.
+    Deep field = the regime x << 1 in the exterior, where the TetB
+        share 1 - mu -> 1.  It is not TetB, which is the throat
+        interior reached through the Field Origin.
+    s = discrete state label of f(K, s): +1 TetA, 0 Field Origin,
+        -1 TetB.  sigma(x) = (x - 1)/(x + 1) = mu - (1 - mu) is the
+        continuous share difference.  x = 1 (sigma = 0) is the
+        equal-shares ring, not the Field Origin.
+
 Organisation follows the logical chain:
 
     Proof A  (Spatial Geometry)    — Tetrahedral uniqueness
     Proof C  (Exchange Symmetry)   — μ forced from parity duality
     Proof B  (Energy Functional)   — F(y) from integrating μ
-    Letter   (RAR)                 — Action → field equation → data
+    Letter   (RAR)                 — Action (SST) → spherical field equation → data
 
 Run:  python gfd_algebra.py
       Executes all self-checks.  Zero output = all pass.
@@ -242,21 +259,25 @@ def mu(x):
     Derived here from exchange symmetry of the tetrad equation's
     two parity-related spatial roots.
 
-    Kinematic, not dynamic.  The algebraic form is identical to
-    the GFD field equation's static limit, but the origin is
-    geometric (exchange symmetry), not variational (action).
-    Connected to the field equation via the AQUAL identity mu = dF/dy.
+    Kinematic, not dynamic.  Substituted into Gauss's theorem it
+    gives the spherical field equation g_s = g_t^2/(a0 + g_t), but
+    its origin is geometric (exchange symmetry), not variational
+    (action).  Connected to the action via the AQUAL identity
+    mu = dF/dy.  As the one-directional law x(1 - mu) = mu it
+    governs a galaxy's exterior field.
     """
     x = np.asarray(x, dtype=float)
     return x / (x + 1.0)
 
 
 def one_minus_mu(x):
-    """TetB partition fraction: 1 - mu(x) = 1 / (x + 1).
+    """TetB share: 1 - mu(x) = 1 / (x + 1).
 
     Origin: Proof C, Definition 1 / eq (2).
     The fraction of the total field capacity carried by the
-    parity component (TetB) at acceleration x.
+    parity component (TetB) at acceleration x.  It approaches 1 in
+    the deep field (x << 1, toward a galaxy's rim); the deep field
+    is a regime of the exterior, not TetB itself.
 
     In the torsion-free projection, these 24 antisymmetric
     connection components are discarded.  Their field fraction
@@ -272,7 +293,8 @@ def midpoint_value() -> float:
 
     Origin: Proof C, Corollary 2 (Midpoint value).
     At the parity midpoint x = 1 (the MOND transition scale),
-    TetA and TetB contribute equally.  This is a consequence
+    TetA and TetB contribute equally: sigma(1) = 0.  This
+    equal-shares ring is not the Field Origin.  This is a consequence
     of the exchange symmetry, not an independent condition.
     """
     return mu(1.0)
@@ -485,12 +507,13 @@ def uniqueness_equation(d: int) -> bool:
 
 
 # =========================================================================
-#  LETTER — GFD Field Equation and RAR Prediction
+#  LETTER — Spherical Field Equation of the Action and RAR Prediction
 # =========================================================================
 
 def gfd_field_equation(g_bar, a0: float = A0) -> np.ndarray:
     """g_obs = (1/2) [g_bar + sqrt(g_bar^2 + 4*a0*g_bar)].
 
+    Forward solver of the spherical field equation.
     Origin: Letter eq (4), boxed.  The prediction tested against SPARC.
 
     Derivation chain (Letter §3, three steps):
@@ -513,6 +536,7 @@ def gfd_field_equation(g_bar, a0: float = A0) -> np.ndarray:
         Substitute mu(x) = x/(x+1) into mu * g_t = g_bar:
             g_t/(g_t/a0 + 1) * (g_t/a0) * a0 = ... simplifies to
             g_bar = g_t^2 / (a0 + g_t)
+        This is the spherical field equation (not "the SST").
         Solve the resulting quadratic for g_t:
             g_obs = (1/2) [g_bar + sqrt(g_bar^2 + 4*a0*g_bar)]
 
@@ -527,14 +551,13 @@ def gfd_field_equation_inverse(g_obs, a0: float = A0) -> np.ndarray:
     """g_bar = g_obs^2 / (a0 + g_obs).
 
     Origin: Letter eq (4) rearranged; Letter 3 eq (10).
-    The field equation form: substitute mu = g_bar/g_obs,
+    The spherical field equation: substitute mu = g_bar/g_obs,
     x = g_obs/a0 into mu * g_obs = g_bar.
 
-    This is NOT the covariant action (the SST).
-    This is NOT the field equation (the modified Poisson equation).
-    This IS the field equation solved in the spherical static limit.
-    The four equivalent forms are one equation (the coupling polynomial)
-    written for different purposes.
+    The SST is the covariant action; this quadratic is not the SST.
+    Varying the action gives the modified Poisson equation; this is
+    that equation solved in the spherical, static limit, so it is
+    the spherical field equation of the action.
     """
     g_obs = np.asarray(g_obs, dtype=float)
     return g_obs**2 / (a0 + g_obs)
@@ -547,7 +570,7 @@ def mcgaugh_rar(g_bar, g_dagger: float = A0) -> np.ndarray:
     One-parameter empirical fit to the SPARC radial acceleration relation.
     The parameter g+ (= a0) is fitted to rotation curve data.
 
-    Compared against the GFD field equation in the RAR letter.
+    Compared against the GFD spherical field equation in the RAR letter.
     The two are statistically indistinguishable at SPARC precision:
     Delta sigma = 0.0003 dex across 3284 points / 164 galaxies.
     """
@@ -560,7 +583,9 @@ def mcgaugh_rar(g_bar, g_dagger: float = A0) -> np.ndarray:
 # =========================================================================
 
 COVARIANT_ACTION = r"""
-The Gravity Field Dynamics covariant action (Letter eq (1)):
+The Gravity Field Dynamics covariant action (Letter eq (1)).
+This action is the SST (scalar-tensor transition); the name refers to
+the action and to nothing else.
 
     S = int d^4x sqrt(-g) [ R/(16*pi*G)
                            - a0^2/(8*pi*G) * F(y)
@@ -899,7 +924,11 @@ def acceleration_from_velocity(v_squared, r_kpc):
 #
 #  The coupling polynomial f(K,s) has discrete states s ∈ {+1, 0, -1}.
 #  Analytic continuation s = e^{iθ} lifts the state parameter to a
-#  phase angle on the unit circle.  The constitutive law μ = x/(x+1)
+#  phase angle on the unit circle.  With μ = cos²(θ/2), the real part
+#  cos θ = 2μ - 1 = σ(x), the continuous share difference.  It equals
+#  the state label s only as a limit: σ → +1 as x → ∞ (TetA share → 1)
+#  and σ → -1 as x → 0 (TetB share → 1, the deep field).  θ = π/2 is
+#  the equal-shares ring x = 1, not the Field Origin.  The constitutive law μ = x/(x+1)
 #  then acquires a spinor parametrization μ = cos²(θ/2) that satisfies
 #  all algebraic identities exactly — including the logistic transition
 #  — by pure trigonometry.
@@ -916,7 +945,7 @@ def complex_coupling_polynomial(K: int, theta: float) -> complex:
     The state parameter s = e^{iθ} lifts the three discrete states
     to a continuous phase:
         θ = 0   → s = +1  → f = 21  (TetA total)
-        θ = π/2 → s =  i  → f = 17 + 4i  (field origin + conjugate momentum)
+        θ = π/2 → s =  i  → f = 17 + 4i  (Re f = f(4,0); equal shares at x = 1)
         θ = π   → s = -1  → f = 13  (TetB core)
 
     Real part: (1+K²) + K·cos(θ) spans the physical states {13, 17, 21}.
@@ -957,22 +986,24 @@ def mu_spinor(theta: float) -> float:
     Origin: SU(2) double cover of the stellated octahedron parity group.
     Assigning μ to the probability amplitude of the TetA state on the
     Bloch sphere:
-        μ       = cos²(θ/2)   (TetA fraction)
-        1 - μ   = sin²(θ/2)   (TetB fraction)
+        μ       = cos²(θ/2)   (TetA share)
+        1 - μ   = sin²(θ/2)   (TetB share)
 
     The partition μ + (1-μ) = 1 is automatic from the Pythagorean
     identity — no external constraint needed.
 
     Boundary values:
-        θ = 0:  μ = 1     (pure TetA, Newtonian)
-        θ = π/2: μ = 1/2  (equal partition, MOND transition)
-        θ = π:  μ = 0     (pure TetB, deep field)
+        θ = 0:  μ = 1     (TetA share → 1, Newtonian)
+        θ = π/2: μ = 1/2  (equal shares, MOND transition)
+        θ = π:  μ = 0     (TetB share → 1, deep field)
+    The deep field is a regime of the exterior; it is not TetB,
+    the throat interior.
     """
     return math.cos(theta / 2.0) ** 2
 
 
 def one_minus_mu_spinor(theta: float) -> float:
-    """1 - μ = sin²(θ/2).  TetB fraction in spinor form."""
+    """1 - μ = sin²(θ/2).  TetB share in spinor form."""
     return math.sin(theta / 2.0) ** 2
 
 
@@ -986,8 +1017,9 @@ def x_from_theta(theta: float) -> float:
     Since Ω(x) = x, we have x = cot²(θ/2).
 
     Acceleration is the geometric readout of the spinor angle.
-    High acceleration (x → ∞) corresponds to θ → 0 (pure TetA).
-    Low acceleration (x → 0) corresponds to θ → π (pure TetB).
+    High acceleration (x → ∞) corresponds to θ → 0 (TetA share → 1).
+    Low acceleration (x → 0) corresponds to θ → π (TetB share → 1,
+    the deep field; not TetB itself).
     MOND transition (x = 1) corresponds to θ = π/2.
     """
     return 1.0 / math.tan(theta / 2.0) ** 2
@@ -1325,11 +1357,11 @@ def run_checks():
         else:
             assert not uniqueness_equation(d), f"2({d}+1) should NOT equal 2^{d}"
 
-    # GFD field equation round-trip
+    # Spherical field equation round-trip
     g_bar_test = np.logspace(-13, -8, 100)
     g_obs_test = gfd_field_equation(g_bar_test)
     g_bar_back = gfd_field_equation_inverse(g_obs_test)
-    assert np.allclose(g_bar_test, g_bar_back, rtol=1e-10), "field equation round-trip fails"
+    assert np.allclose(g_bar_test, g_bar_back, rtol=1e-10), "spherical field equation round-trip fails"
 
     # DFP series
     assert graviton_polarizations(4) == 2, "polarizations != 2 at k=4"

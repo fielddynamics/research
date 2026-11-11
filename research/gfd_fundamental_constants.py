@@ -18,7 +18,7 @@ This suite tests what the engine PRODUCES: the fundamental constants
 and field equations of physics. Every measured constant — G, α, θ_W,
 H₀, c² — is derived from {K, D} and the stellated octahedron's
 topological invariants. Every field equation — Poisson, Einstein,
-the SST action — has prefactors that are K^n · π with zero free
+the SST (the full covariant action) — has prefactors that are K^n · π with zero free
 parameters.
 
 If the engine is correct and the domain predictions are correct,
@@ -133,12 +133,18 @@ km_to_m    = 1.0e3
 # CONSTITUTIVE LAW
 # =============================================================================
 
-def mu_unbound(x):
-    """μ = x/(x+1): unbound field on TetA, one-directional screening."""
+def mu_one_directional(x):
+    """μ = x/(x+1): one-directional law x(1−μ) = μ.
+
+    Matter sources the field and the field does not source itself.
+    Governs a galaxy's exterior field on TetA. A galaxy is never unbound:
+    it is a vortex whose TetB is occupied, fed through its central drain.
+    """
     return x / (x + 1.0) if x > 0 else 0.0
 
 def mu_bound(x):
-    """x(1−μ)² = μ: bound field on TetB, bidirectional compression."""
+    """x(1−μ)² = μ: the bound law, bidirectional compression (nuclei),
+    where each partner is both source and response."""
     if x <= 0:
         return 0.0
     return ((2.0 * x + 1.0) - math.sqrt(4.0 * x + 1.0)) / (2.0 * x)

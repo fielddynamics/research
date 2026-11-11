@@ -284,7 +284,12 @@ def euclidean(v1, v2):
 
 
 def conformal_map(x):
-    """State parameter s(x) = (x - 1)/(x + 1). Maps [0, inf) -> [-1, +1)."""
+    """Share difference sigma(x) = (x - 1)/(x + 1) = mu - (1 - mu). Maps [0, inf) -> [-1, +1).
+
+    Continuous in x and distinct from the discrete state label s of f(K, s)
+    (+1 TetA, 0 Field Origin, -1 TetB). sigma = 0 is the equal-shares ring
+    x = 1, not the Field Origin; sigma -> -1 is the deep field, not TetB.
+    """
     return (x - 1.0) / (x + 1.0)
 
 
@@ -933,9 +938,9 @@ def validate_constitutive_law_convergence():
 #   Static (s = 0): f(K, 0) = 1 + 0 + 16 = 17. The coefficients of
 #   this expansion are the five bimetric parameters {1, 0, 16, 0, 1}.
 #
-#   Dynamic (s varies): the conformal map s(x) = (x-1)/(x+1) projects
-#   the observable acceleration ratio x onto the bounded state space
-#   [-1, +1]. Normalizing f to [0, 1] yields the constitutive law
+#   Dynamic: the share difference sigma(x) = (x-1)/(x+1) takes the place
+#   of s, projecting the acceleration ratio x onto [-1, +1]. sigma is
+#   continuous; s is the discrete state label. Normalizing f to [0, 1] yields the constitutive law
 #   mu(x) = x/(x+1). Integrating mu gives the kinetic functional
 #   F(y) = y - 2*sqrt(y) + 2*ln(1 + sqrt(y)).
 #
@@ -977,21 +982,21 @@ def validate_bimetric_static_skeleton():
 
 
 @validate(
-    "SST: conformal map s(x) = (x-1)/(x+1) projects [0, inf) -> [-1, +1)",
+    "SST: share difference sigma(x) = (x-1)/(x+1) projects [0, inf) -> [-1, +1)",
     "9. Scalar-Tensor Action",
 )
 def validate_conformal_map_and_capacity():
-    # s(x) = (x - 1)/(x + 1) maps the observable acceleration ratio x
-    # onto the bounded state space of the dual field chambers.
-    #   x = 0              -> s = -1  (lower bound)
-    #   x = 1 (transition)  -> s =  0  (Field Origin)
-    #   x -> inf            -> s -> +1 (upper bound)
+    # sigma(x) = (x - 1)/(x + 1) maps the observable acceleration ratio x
+    # onto [-1, +1]: the difference between the TetA and TetB shares.
+    #   x = 0              -> sigma = -1  (TetB share 1: deep-field limit, not TetB)
+    #   x = 1 (transition)  -> sigma =  0  (equal shares; not the Field Origin)
+    #   x -> inf            -> sigma -> +1 (TetA share 1: Newtonian limit)
     assert abs(conformal_map(0.0) - (-1.0)) < 1e-10
     assert abs(conformal_map(1.0) - 0.0) < 1e-10
     assert conformal_map(1e12) > 0.999
 
     # f composed with s recovers the capacity function:
-    #   f(K, s(x)) = 1 + K*s(x) + K^2 = (21x + 13)/(x + 1)
+    #   f(K, sigma(x)) = 1 + K*sigma(x) + K^2 = (21x + 13)/(x + 1)
     for x in [0.01, 0.5, 1.0, 2.0, 10.0, 100.0]:
         s = conformal_map(x)
         f_via_poly = 1 + K * s + K ** 2
