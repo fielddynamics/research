@@ -251,7 +251,7 @@ $a_0 = cH_0/(2\pi)$ from horizon thermodynamics. At cosmic scales, closures tile
 
 ### 7.2 CMB enhancement [D/O] (II)
 
-At recombination ($z = 1100$), $a_0$ was about 24,000 times larger, the field sits deep in the low-$x$ regime, and the enhancement is $1/\mu(x_{\rm rec}) = (1+x_{\rm rec})/x_{\rm rec} = 6.46$ against the ≈ 6.4 that Planck's peaks require (1%). Only this single factor is computed, not the full power spectrum. Paper II also lists consequences for the Planck lensing anomaly, JWST early galaxies and DESI's evolving dark energy.
+Planck's target is $x = 0.185$ ($1.185/0.185 = 6.40$). The linear estimate $x = g_N/a_0$ gives 722, the self-consistent deep estimate $x = \sqrt{g_N/a_0}$ gives 28; the tiling suppression $(H_0/H)^{1/\pi} = 0.041$ at $z = 1100$ gives $a_0 = 1.05\times10^{-7}$ m/s², $x = 0.183$ and enhancement $1.183/0.183 = 6.46$ (+0.9%). Only this single factor is computed, not the full power spectrum. Paper II also lists consequences for the Planck lensing anomaly, JWST early galaxies and DESI's evolving dark energy.
 
 ### 7.3 The unit of gravity [E] (III, IV, V)
 
@@ -268,7 +268,7 @@ agreement 0.21%, unique to the electron (muon and proton fail by ~$10^3$). Equiv
 - Port ratio $\sqrt{k/\pi} = 1.128$ converts the spherical envelope ($\pi$) to the tetrahedral chamber ($k$).
 - Band: $(k/\pi)^{1/4} - 1 = \pm6.2\%$ → 65.9–74.6 km/s/Mpc, containing Planck, SH0ES and the other major methods.
 - Bidirectional: observed $H$ recovers $m_e$ to 0.10% (IV) / 0.01% (companion).
-- Paper X quotes $H_0 = 2\pi a_0/(c\sqrt{K/\pi}) = 70.21$; TF quotes 70.29; Paper VII 70.21. **Open:** three values from different routes; the two $a_0$–$H$ relations ($cH/2\pi$ vs $(cH/2\pi)\sqrt{4/\pi}$) differ by 1.128.
+- The single formula is $H = 2\pi a_0/(c\sqrt{k/\pi})$, i.e. $a_0 = (cH_{\rm meas}/2\pi)\sqrt{k/\pi} = cH_{\rm flat}/2\pi$. Paper IV evaluates it twice: $a_0 = 1.220\times10^{-10}$ (MOND empirical) gives **69.92**; $a_0 = 16Gm_e/r_e^2 = 1.225\times10^{-10}$ gives **70.21** (used in Papers VII and X). The 0.41% gap is the $16$ vs $15.93$ coupling test. **70.29** is the 70.21 value with the Schwinger one-loop factor $(1+\alpha/2\pi)$ carried through $G\to a_0\to H$ (Paper VII), and is the value the TF manuscript uses. Notes that write $a_0 = cH/2\pi$ with the *measured* $H$ (e.g. 1.086×10⁻¹⁰ at 70.21) mix the flat and measured frames.
 
 ---
 
@@ -347,8 +347,8 @@ Shell ceilings $\mathrm{CEIL} = B_{\rm Zn} + B_{\rm bdy} - \mu_b(2)[B_{\rm Zn} -
 ## 12. Open problems (stated in the README)
 
 1. The RAR cannot separate GFD from MOND's simple function; discriminating tests are TF evolution, torsion, constants.
-2. $a_0$ is empirical in the galactic test; two $a_0$–$H$ relations differ by 1.128.
-3. $H_0$ appears as 69.92, 70.21, 70.29; the ±6% band does not yet discriminate Planck from SH0ES.
+2. $a_0$ is empirical in the galactic test. Its link to $H$ ($a_0 = cH_{\rm flat}/2\pi$, $H_{\rm meas} = H_{\rm flat}/\sqrt{k/\pi}$) rests on the frame factor $\sqrt{k/\pi}$, which Paper IV calls a dimensional argument.
+3. $H_0$ is quoted as 69.92 and 70.21 (the same formula with the empirical and the electron-derived $a_0$) and 70.29 (70.21 with the one-loop correction); the ±6.2% cage does not discriminate Planck from SH0ES.
 4. Clusters and the Bullet Cluster: qualitative only (VII); no lensing reconstruction.
 5. CMB: one enhancement factor, no full power spectrum.
 6. $\mathcal L_{\rm matter}$ unspecified.
@@ -373,3 +373,258 @@ Shell ceilings $\mathrm{CEIL} = B_{\rm Zn} + B_{\rm bdy} - \mu_b(2)[B_{\rm Zn} -
 | TF evolution | `papers/tully-fisher-velocity-evolution/` | 64 |
 | AQUAL algebra (§§4.5–4.7 here) | `research/aqual/verify_*.py` | 50, 48, 23 |
 | Framework / constants | `research/gfd_enterprise_validation-v2.py`, `research/gfd_fundamental_constants.py` | 92, 36 |
+
+---
+
+# Part II — Paper by paper
+
+*Each entry below was written after reading the full paper. Entries give the paper's own claims and algebra, its stated scope, and notes where it differs from later work. Part I above is the thematic summary; where an entry here corrects Part I, Part I has been updated.*
+
+## Paper I — The Gravitational Constitutive Law (No Dark Matter Required)
+
+*Jan 2026, v5 · doi:10.5281/zenodo.18332595 · DFP vocabulary · non-relativistic effective theory*
+
+**Question.** AQUAL, $\nabla\cdot[\mu(|\nabla\Phi|/a_0)\nabla\Phi] = 4\pi G\rho$, fixes only the limits $\mu\to1$ ($x\to\infty$) and $\mu\to x$ ($x\to0$); the simple, standard $x/\sqrt{1+x^2}$ and infinitely many other forms fit both. Paper I derives $\mu$ from how a source (the *field object*) couples to its environment (the *NET Field*) at an interface (the *closure boundary* $\Sigma$).
+
+**Architecture (DFP terms → standard).** Field closure = non-degenerate metric, $\det g \ne 0$; closure constraints = ADM constraints; the canonical chain is Field Object + NET Field → $\Sigma$ → field closure function FC$_\Sigma$ (READ, then SETTLE) → registered state $B^*_\Sigma$. Two empirical requirements: **lossless** (no wakes, drag, hysteresis, secular drift; "Full-State Snapshot") and **local** (no faster-than-$c$ coordination). Motivation for distributed structure: the Laplacian is a neighbour comparison, $\nabla^2\Phi = \lim_{\epsilon\to0}[\Phi(x+\epsilon)+\Phi(x-\epsilon)-2\Phi(x)]/\epsilon^2$; wave propagation (LIGO) needs parts. $k = 4$ from the simplex theorem and the 1 + 3 ADM constraints.
+
+**Postulates.** P1 Newtonian correspondence, $\lim_{x\to\infty}\mu = 1$. P2 distributed field processing: finite encoding capacity, scale-invariant deep regime, $\lim_{x\to0}\mu/x = 1$ (from $g \propto (GMa_0)^{1/2}/r$, i.e. $g = \sqrt{g_Na_0}$). P3 single-channel capacity saturation.
+
+**MSC class** (Minimal Single-Channel Saturating Closure): (i) one occupancy $\varepsilon\in[0,1]$; (ii) detailed balance $W_+ = W_-$; (iii) linear saturation $f(\varepsilon) = 1-\varepsilon$; (iv) monomial driving $x^n$; (v) $\mu \equiv \varepsilon$.
+
+**Derivation (Lemmas A.1–A.5).** Rates $r_+ = \alpha x^n(1-\varepsilon)$, $r_- = \beta\varepsilon$ give $\varepsilon_{\rm eq} = x^n/(k + x^n)$, $k = \beta/\alpha$. P2 forces $n = 1$; $k$ is absorbed into $a_0$:
+
+$$\boxed{\mu(x) = \frac{x}{1+x}}\qquad(\text{Theorem 1: unique within MSC, "a conditional theorem"}).$$
+
+Stability: $\dot\varepsilon = \kappa x(1-\varepsilon) - \kappa\varepsilon$, slope $-\kappa(x+1) < 0$, unique globally attracting fixed point. Cross-check table: $n = 2$ gives $\mu/x\to0$ and $v\propto r^{1/6}$; $n = 1/2$ gives $\mu/x\to\infty$ and $v \propto r^{-1/6}$; only $n = 1$ gives flat curves and $v^4 \propto M$.
+
+**Three convergent readings.** (1) the kinetics above; (2) flow $d\mu/d\ln x = \mu(1-\mu)$ (logistic; "variance of a coin flip", maximal at $\mu = \tfrac12$, $x = 1$; RG-like running between a UV fixed point $\mu = 1$ and IR $\mu = 0$); (3) Padé[1/1] uniqueness: $\mu = ax/(bx+c)$ with three constraints gives $a = b = c = 1$. Also the odds power law $\mu/(1-\mu) = Cx^k$ with P2 forcing $k = C = 1$, and the remark $\mu(x) + \mu(1/x) = 1$ ("asymptotic rigidity": the deep limit fixes the Newtonian approach $\mu \simeq 1 - 1/x$). Same form as the Langmuir isotherm and Michaelis–Menten kinetics.
+
+**Action.** $S[\Phi] = \int d^3x\,[-(a_0^2/8\pi G)F(X) - \rho\Phi]$, $X = x^2$, $F'(X) = \mu(\sqrt X)$, giving $F(x^2) = x^2 - 2x + 2\ln(1+x)$; $F \to (2/3)x^3$ deep. A scalar Lagrangian $L(x) = \tfrac12x^2 - x + \ln(1+x)$ with $dL = x\mu\,dx$ (equal to $F/2$). Status table in the paper: the function is the Famaey–Binney (2005) "simple" form; the contribution is the mechanism. Gentile et al. (2011) found it gives population-synthesis M/L ratios.
+
+**Galactic consequences.** BTFR $v^4 = GM_ba_0$ (theorem of the deep limit). Phantom density as an operator residual,
+
+$$\rho_{\rm ph} = \frac{1}{4\pi G}\left[\nabla^2\Phi - \nabla\cdot(\mu\nabla\Phi)\right] = \frac{\nabla\cdot[(\mu-1)\mathbf g]}{4\pi G},\qquad \rho_{\rm ph}(r) = \frac{\sqrt{GM_ba_0}}{4\pi Gr^2}\ (\text{deep, outside the source}),$$
+
+a singular isothermal sphere. Conserved flux $r^2\mu(g/a_0)g = GM$. External field effect inherited from AQUAL: if $g_{\rm ext}\gg a_0 \gg g_{\rm int}$ then $\mu\approx1$ (Crater II, NGC 1052-DF2/DF4 as discriminants).
+
+**Processing boundary** $r_c = \sqrt{GM_b/a_0}$ (where $x = 1$, $\mu = \tfrac12$): Milky Way ($6\times10^{10}M_\odot$) ≈ 8 kpc; Sun ≈ 7000 AU; Sgr A* ≈ 0.06 pc; MW total ≈ 5 kpc (listed); rich cluster ≈ 150 kpc; a 33-billion-tonne asteroid ≈ 4300 km.
+
+**Predictions.** Fast bars $\mathcal R \approx 1.0$–1.4 (no halo-wake friction: conservative, velocity-independent, constraint-slaved phantom) vs $\gtrsim 1.4$–2 for CDM; wide binaries: Newtonian return $\mu\to1-1/x$ (slow) vs standard $1 - 1/(2x^2)$ (fast); EFE in satellites; baryon-only cluster lensing.
+
+**Relativistic extension (1PN only).** Postulate A4 (single-standard calibration, clocks and radar-ranged rods from one field $L$): $A = L^2$, $B = L^{-2}$, so $g_{00}\simeq-(1+2\Phi/c^2)$, $g_{ij}\simeq(1-2\Phi/c^2)\delta_{ij}$, $\Phi = \Psi$, $\gamma = 1$. Lensing by "two-sphere saturation": $\varepsilon = \varepsilon_0S$, $\mu_0\to\mu_0S$, $n = S = 1 + 2GM/(rc^2)$; Fermat's principle with $\int dz/(b^2+z^2)^{3/2} = 2/b^2$ gives $\theta = 4GM/(bc^2)$, resolving scalar "half-lensing". A covariant action $S = \tfrac{c^3}{16\pi G}\int\sqrt{-g}R - \tfrac{a_0^2}{8\pi G}\int\sqrt{-g}\tilde F(Y) + S_m$ is stated as future work.
+
+**Bullet Cluster.** "Constraint, not refutation." Expanding $\rho_{\rm ph} = [(\mu-1)\nabla\cdot\mathbf g + (\nabla\mu)\cdot\mathbf g]/4\pi G$, with $d\mu/dx = 1/(1+x)^2$ and $|\nabla x|\sim2x/r$: compact sources give sharper residual peaks ("peaks + pedestal"), so lensing peaks can follow galaxies while gas gives a broad floor. A baryon-only AQUAL forward-model pipeline (Bullet, El Gordo, MACS J0025) is specified; success metrics are given; the computation is deferred.
+
+**Scope stated by the paper.** $a_0$ is an empirical input; cosmology (CMB, BAO, LSS) and cluster profiles are not addressed (ΛCDM favoured there, per its own table); time-dependent dynamics need the covariant completion; uniqueness holds only within MSC.
+
+## Paper II — A Covariant Theory Without Dark Matter
+
+*Jan 2026, v4 · doi:10.5281/zenodo.18360354 · DFP vocabulary*
+
+**Question.** Can Paper I's law explain the CMB, where Planck needs a gravitating-to-baryonic ratio $\Omega_m/\Omega_b = 1 + 5.36 = 6.36$ (target enhancement ≈ 6.4)?
+
+**Saturation scale (§2).** Gibbons–Hawking temperature $T_{GH} = \hbar H/(2\pi k_Bc)$ and the Unruh relation $T = \hbar a/(2\pi ck_B)$ give a minimum resolvable acceleration
+
+$$a_0 = \frac{cH}{2\pi}.$$
+
+Inverted with $a_0 = 1.2\times10^{-10}$: $H_0 = 2.51\times10^{-18}\,\mathrm{s^{-1}} = 77.61$ km/s/Mpc, which the paper notes is 6–15% above Planck (67.4) and SH0ES (73.0) and leaves open. With $a_0 \propto H(z)$ unmodified, $a_0$ at $z = 1100$ would be $2.36\times10^4$ times today's.
+
+**Action (§3).** "Constitutive Lagrangian" $F(y) = \tfrac12y - \sqrt y + \ln(1+\sqrt y)$ (half of the later $F$), from $dL/dx = x\mu(x)$, and
+
+$$S = \int d^4x\sqrt{-g}\left[\frac{R}{16\pi G} - \frac{a_0^2}{8\pi G}F(y) - \frac14e^{-2\phi/c^2}F_{\mu\nu}F^{\mu\nu} + \mathcal L_{\rm matter}\right].$$
+
+"Two-sphere coupling": photons see $\tilde g_{\mu\nu} = e^{-2\phi/c^2}g_{\mu\nu}$, $n\approx1+2\Phi/c^2$, $\theta = 4GM/(rc^2)$. Appendix A: $G_{\mu\nu} = 8\pi G(T^{\rm m} + T^\phi + T^{\rm EM})$, $T^\phi_{\mu\nu} = (a_0^2/4\pi G)[\mu\,\partial_\mu\phi\partial_\nu\phi - g_{\mu\nu}F]$, $\nabla_\mu(\mu\nabla^\mu\phi) = 4\pi G\rho$.
+
+**Cosmological equations (§4).** Modified Poisson $\nabla^2\Phi = 4\pi Ga^2\rho\delta/\mu(x)$; growth $\ddot\delta + 2H\dot\delta - 4\pi G\rho\delta/\mu(x) = 0$; $1/\mu = (1+x)/x$ acts as "phantom dark matter".
+
+**The CMB gap (§5).** Target $x = 0.185$ (since $1.185/0.185 = 6.40$). Linear estimate $x = g_N/a_0 \approx 0.0014$ → enhancement 722 (113× too large). Self-consistent deep-MOND $x = \sqrt{g_N/a_0} = \sqrt{4\pi G\rho\delta/(k a_0)} \approx 0.037$ → 28 (4.3× too large).
+
+**Closure tiling (§6).** Closures pack tetrahedrally (hexagonal in 2D projection). Two circular boundaries of radius $R$ at separation $d$ share arc $\theta(d) = 2\cos^{-1}(d/2R)$. Fixed $d = R$: $\theta = 2\pi/3$, fraction $1/3$. Uniform $d\in[0,2R]$:
+
+$$\langle\theta\rangle = \int_0^1 2\cos^{-1}u\,du = 2\left[u\cos^{-1}u - \sqrt{1-u^2}\right]_0^1 = 2,\qquad \frac{\langle\theta\rangle}{2\pi} = \frac1\pi .$$
+
+Uniform weighting justified by microcanonical, scale-invariance ($n_s\approx0.965$), maximum-entropy and homogeneity arguments.
+
+**Scaling law (§7).**
+
+$$a_0(z) = \frac{cH(z)}{2\pi}\left(\frac{H_0}{H(z)}\right)^{1/\pi} \;\Rightarrow\; a_0 \propto H^{1-1/\pi},\quad 1 - \tfrac1\pi \approx 0.682 .$$
+
+At $z = 1100$: $(1/23600)^{0.318} = 0.041$, $a_0 = 2.55\times10^{-6}\times0.041 = 1.05\times10^{-7}$ m/s², self-consistent $x = 0.183$, enhancement $1/\mu = 1.183/0.183 = 6.46$ vs 6.40 (+0.9%). The discrete exponent $1/3$ gives $x = 0.198$, 6.05 (−5.5%).
+
+**Predictions (§8).** All from $a_0\propto H^{0.682}$:
+- Tully–Fisher: $v(z)/v(0) = [a_0(z)/a_0(0)]^{1/4} = [H(z)/H_0]^{0.682/4} = [H(z)/H_0]^{0.17}$: +5% ($z = 0.5$), +10% (1), +21% (2), +30% (3). SINS reports ≈ +27% at $z\approx2$, inside the ±6.2% band of Paper V.
+- DESI: $w_{\rm eff} = (F - yF')/(F + yF')$, said to approach −0.85 in the deep regime and 0 in the Newtonian.
+- JWST early galaxies at $z = 10$: $a_0$ 9.5× higher; Jeans mass ratio $(\mu_{\rm DFP}/\mu_{\rm MOND})^{3/2}\approx0.03$, collapse time ratio ≈ 0.32.
+- Planck lensing anomaly $A_L = 1.18\pm0.07$: $A_L \approx 1 + \langle E(z) - 1\rangle_{z\sim0.5-2}$ gives 1.15–1.20.
+- Bullet Cluster infall velocity: $a_0(0.3)/a_0(0) \approx 1.10$; $1/\mu$ from 2 to 2.4 gives a 10% velocity boost (2700 → ~3000 km/s); phantom/baryon ratio rising with cluster redshift (1.10 at $z = 0.296$, 1.18 at 0.59, 1.26 at 0.87).
+- Bidirectional BTFR worked example: $M = 10^{11}M_\odot$ → 200 km/s; $v = 150$ km/s → $3.2\times10^{10}M_\odot$.
+
+**Scope stated.** No full CMB power spectrum (needs a Boltzmann code), no cluster dynamics, no quantum origin of the scale.
+
+**Later revision.** Paper III onward keeps $a_0 = cH/2\pi$ only for flat space and introduces the factor $\sqrt{k/\pi}$; the H₀ value moves from 77.61 to 78.90 (flat) and 69.92 (measured).
+
+## Paper III — The Unit of Gravity
+
+*Jan 2026, v5 · doi:10.5281/zenodo.18362768 · DFP vocabulary*
+
+**Question.** $k = 4$ is dimensionless and $a_0$ is an acceleration; what sets the *size* of the gravitational tile?
+
+**Tetrad coupling $k^2 = 16$.** $e^a{}_\mu$ has $4\times4 = 16$ components; isotropy engages all of them, so the "topologically coupled" acceleration of mass $m$ at $r$ is $a_{\rm coupled} = k^2Gm/r^2 = 16\,Gm/r^2$.
+
+**Crossover condition.** Setting $k^2Gm/r^2 = a_0$:
+
+$$r = k\sqrt{\frac{Gm}{a_0}} .$$
+
+**Two routes to 2.82 fm.**
+- Route 1 (EM, no gravity): $U_{\rm EM} = e^2/(4\pi\varepsilon_0r) = m_ec^2 \Rightarrow r_e = e^2/(4\pi\varepsilon_0m_ec^2) = 2.818$ fm.
+- Route 2 (gravity, no EM): $r_e = 4\sqrt{(6.674\times10^{-11})(9.109\times10^{-31})/(1.22\times10^{-10})} = 2.82$ fm.
+- Agreement 0.21%. Unique to the electron: the muon misses by ~$10^3$, the proton by ~$10^7$. The electron is "a probe, not a cause".
+- Equivalent statement: $a_0 = k^2Gm_e/r_e^2 = 16\,Gm_e/r_e^2$; measured $a_0/(Gm_e/r_e^2) = 15.93$ (0.41% from 16).
+- Route 3 (from Paper IV): $r_e = k\sqrt{2\pi Gm_e/(cH)} = 2.82$ fm, i.e. Route 2 with $a_0 = cH/2\pi$.
+
+**The two $a_0$ values and $\sqrt{k/\pi}$.**
+
+$$a_0^{\rm cosmo} = \frac{cH}{2\pi} = 1.08\times10^{-10},\qquad a_0^{\rm geom} = k^2\frac{Gm_e}{r_e^2} = 1.22\times10^{-10},\qquad \frac{a_0^{\rm geom}}{a_0^{\rm cosmo}} = 1.130 \approx \sqrt{\frac4\pi} = 1.128\ (0.1\%).$$
+
+Interpreted as the frame correction between flat tetrahedral closure ($k$) and the spherical horizon ($\pi$); the square root because $k/\pi$ compares area-like quantities.
+
+**Hubble prediction.** $H = 2\pi a_0/c$ with $a_0 = 1.22\times10^{-10}$ gives 78.90 km/s/Mpc. Historical note in the paper: v1–v3 read this as the Hubble constant; after Paper IV it is $H_{\rm flat}$, and $H_{\rm measured} = 78.90/\sqrt{k/\pi} = 69.92$ (GW170817: $70.0\pm12$).
+
+**Falsification criteria given.** Coupling ratio outside $16\pm1$; the two routes diverging by >1%; $\sqrt{k/\pi}$ failing by >1%; data requiring $k\ne4$. **Not claimed:** $r_e$ from pure topology, $m_e$ from first principles, MOND's correctness.
+
+## Paper IV — Resolving the Hubble Tension Through Tetrad Topology
+
+*Jan 2026 · doi:10.5281/zenodo.18371849 · arXiv-format source*
+
+**Chain to $k = 4$.** GR + LIGO (gravity propagates) → wave equation → the Laplacian needs neighbours → coupling topology exists. Three routes to $k = 4$: four tetrad legs; four ADM constraints (one Hamiltonian, three momentum, read as the integrability conditions *for* the tetrad, closing under the Dirac algebra); LIGO's two polarisations, $10 - 2k = 2$. Uniqueness: $k\ge4$ (closure, simplex theorem) and $k\le4$ (more constraints leave $<2$ propagating modes or Boulware–Deser ghosts).
+
+**Closure = non-degeneracy.** Completeness $e^a{}_\mu e_a{}^\nu = \delta_\mu^\nu$ and $\det g = -(\det e)^2$, so $\det g\ne0 \iff \det e\ne0$. Tetrad gravity is first-order symmetric hyperbolic with characteristic speed $c$ (Buchman & Bardeen 2003): the "closure rate".
+
+**Acceleration scale.** Gibbons–Hawking $T = \hbar H/(2\pi k_B)$ = Unruh $T = \hbar a/(2\pi k_Bc)$ gives $a_0 = cH/2\pi = c/C_H$, the speed of light over the horizon *circumference*.
+
+**Tile size.** $k^2Gm/r^2 = a_0 \Rightarrow r = k\sqrt{Gm/a_0} = k\sqrt{2\pi Gm/(cH)}$; for the electron 2.82 fm vs EM 2.818 fm (0.21%). Forward check: $a_0^{\rm pred} = 16\,Gm_e/r_e^2 = 16\times7.66\times10^{-12} = 1.225\times10^{-10}$ (0.4% from 1.22).
+
+**Central result.**
+
+$$\boxed{H = \frac{2\pi k^2}{c\sqrt{k/\pi}}\cdot\frac{Gm_e}{r_e^2}},\qquad H_{\rm measured} = \frac{H_{\rm flat}}{\sqrt{k/\pi}} .$$
+
+| Route | $a_0$ (m/s²) | $H_{\rm flat}$ | $H_{\rm measured}$ |
+|---|---|---|---|
+| A: MOND empirical | $1.220\times10^{-10}$ | 78.90 | **69.92** |
+| B: electron-derived $16Gm_e/r_e^2$ | $1.225\times10^{-10}$ | 79.22 | **70.21** |
+
+The 0.41% A–B difference is exactly the $k^2 = 16$ vs 15.93 test. GW170817 ($70.0\pm12$) lies between (0.11% above A, 0.30% below B). **This is where 69.92 and 70.21 both come from**; they are the same formula with the two $a_0$ inputs.
+
+**Frame correction.** $\sqrt{k/\pi} = 1.128$ compares the flat tetrahedral frame ($k$ faces) with the spherical horizon ($\pi$ in $4\pi R^2$); square root because $H = v/d$ depends on length and $k/\pi$ is area-like. The paper calls this "a dimensional argument, not a rigorous derivation from Regge calculus".
+
+**Reverse (electron mass).** Since $r_e\propto1/m_e$, $Gm_e/r_e^2 \propto m_e^3$:
+
+$$m_e = \left(\frac{H\,e^4\sqrt{k/\pi}}{2\pi k^2G(4\pi\varepsilon_0)^2c^3}\right)^{1/3} = 9.10\times10^{-31}\ \text{kg at } H = 70\ (0.10\%\text{ of CODATA}).$$
+
+**Hubble tension.** Measurements traverse different fractions of the flat-to-curved correction (0 to 12.8%); the geometric mean of a factor running from 1 to $\sqrt{k/\pi}$ is $(k/\pi)^{1/4} = 1.062$, giving the cage $69.92/1.062 = 65.8$ to $69.92\times1.062 = 74.3$ km/s/Mpc. Planck 67.4 (−3.6%), BAO 68.0, GW170817 70.0, TRGB 72.5, SH0ES 73.0, masers 73.9 (+5.7%) all inside. Reverse test: the six values × 1.128 average 79.1 (0.27% from 78.90). A naive chance estimate $(0.12)^6\approx3\times10^{-6}$ is given with the caveat that shared systematics overstate it.
+
+**Falsifiers.** Coupling ratio outside $16\pm1$; GW-siren $H$ converging outside $70\pm3$; a credible $H$ outside 65.8–74.3; the $m_e$ ↔ $H$ link breaking. **Limitations stated:** $m_e$ is an input; $a_0 = cH/2\pi$ is taken from horizon thermodynamics, not derived from $k$; $\sqrt{k/\pi}$ is dimensional.
+
+## Paper V — Field Closure and the Topology of Gravity ("The Tetrahedral Bridge")
+
+*Jan 2026 · doi:10.5281/zenodo.18419531 · DFP vocabulary; mostly interpretive*
+
+**Textbook closures it collects.**
+- ADM: $\mathcal H = \sqrt\gamma(R^{(3)} + K^2 - K_{ij}K^{ij}) - 16\pi G\sqrt\gamma\rho = 0$ and $\mathcal H_i = -2\nabla_j[\sqrt\gamma(K^j{}_i - \delta^j_iK)] + 16\pi G\sqrt\gamma j_i = 0$ (1 + 3).
+- Tetrad completeness $e^a{}_\mu e_a{}^\nu = \delta^\nu_\mu$ (four legs, none redundant).
+- LQG: a 4-valent spin-network node is a quantum tetrahedron (Rovelli & Vidotto); closure $\hat J_1+\hat J_2+\hat J_3+\hat J_4 = 0$, the quantum form of Minkowski's theorem $\sum_{f=1}^4A_f\hat n_f = 0$.
+- Regge calculus: $S = \sum_hA_h\epsilon_h$ on simplicial complexes.
+- LIGO: $10 - 2k = 2$. Simplex theorem: $d+1$ points enclose a $d$-region.
+
+**Reinterpretation.** Constraints are read as four coupling channels ("Coupling Ports") through which a Field Object and the NET Field settle (READ, then SETTLE) at $\Sigma$; settlement is atomic, enabled by quantum co-location (both states share the same local conditions). Lossless supported by MICROSCOPE ($10^{-15}$ EP test). New terms: **Field Envelope** (spherical extent, signature $\pi$), **Coupling Boundary**, **Field Chamber** (the tetrahedral interior, signature $k = 4$), with an engine analogy (cylinder volume, ports, swept volume, combustion chamber, compression ratio).
+
+**Port Ratio.** $\sqrt{k/\pi} = 1.128$, from (1) area-to-length conversion or (2) an effective aperture $r_{\rm eff} = \sqrt{A_{\rm open}/\pi} = \sqrt{k/\pi}$ for open area $\propto k$. Candidate mechanisms ranked: aperture-constrained propagation (coherent, achromatic) > mode-constrained propagation with periodic structure > bare boundary normalisation. Scatter: half the 12.8% correction ≈ 6.4%, vs the 6.2% cage of Paper IV.
+
+**Scale.** Three routes: EM radius 2.818 fm; $k\sqrt{Gm_e/a_0} = 2.82$ fm; coupling test $a_0/(Gm_e/r_e^2) = 15.93\approx16$. Hubble chain: $a_0 = 16Gm_e/r_e^2 = 1.225\times10^{-10}$ → $H_{\rm flat} = 79.2$ → $79.2/1.128 = 70.2$ (the paper's boxed number is 69.92, the Route-A value).
+
+**Interpretive claims.** The tetrahedron is "the bridge": the LQG quantum of space, the tetrad frame, the Regge simplex and the DFP Field Chamber are the same geometry. The 1 + 3 asymmetry (one Hamiltonian constraint across time, three momentum constraints within a slice) is read as the mechanism for a full-state read. The paper separates what is citable textbook fact (its Table 6) from what DFP adds (terminology, mechanism, Port Ratio, scale identification, $H$).
+
+## Paper VI — Deriving the Gravitational Constant from Spacetime Topology
+
+*Feb 2026 · doi:10.5281/zenodo.18463038 · arXiv/REVTeX source · "The Dual Tetrahedral Field Chambers"*
+
+**Four roads to two tetrahedra** (the paper's literature synthesis):
+1. *Stability.* For one tetrahedron with face fluxes $\Phi_i$ and $\sum\hat n_i = 0$, the net flux is $\vec F_{\rm net} = (\Phi_{\rm TIME} - \Phi_{\rm SPATIAL})\hat n_{\rm TIME} = \delta\phi\,\hat n_{\rm TIME}\ne0$; an oppositely oriented partner gives $\delta\phi(\hat n_A + \hat n_B) = 0$. Cited: Alexander, Marcianò & Smolin (2014), the parity-symmetric phase carries a scalar ghost and is unstable; parity breaking yields the massless graviton plus an SU(2) triplet of chirally coupled Yang–Mills fields.
+2. *Double cover.* SL(2,C) covers SO(1,3) twice ($\pm s$); Geroch (1968): spinor structure ⟺ a global orthonormal tetrad. Two distinct closures need two distinct tetrahedra.
+3. *Chirality.* Ashtekar's $A = A^+\oplus A^-$; one tetrahedron per handedness.
+4. *Bimetric.* Hassan–Rosen $S = M_g^2\int\sqrt{-g}R[g] + M_f^2\int\sqrt{-f}R[f] + m^2\int\sqrt{-g}V(g,f)$, ghost-free with 7 DOF (2 massless + 5 massive); "one metric → one tetrahedron" (Paper V).
+
+Compatibility: Deffayet–Mourad–Zahariade symmetric-vielbein condition $g^{\mu\nu}E^A{}_\mu L^B{}_\nu = g^{\mu\nu}E^B{}_\mu L^A{}_\nu$, equivalent to real $\sqrt{g^{-1}f}$.
+
+**The stellated octahedron** (unique two-tetrahedra compound, Coxeter). Unit-cube binary labels, parity = bit sum mod 2: TetA (odd) $\{001, 010, 100, 111\}$, apex $V_7 = (1,1,1)$; TetB (even) $\{000, 011, 101, 110\}$, apex $V_0 = (0,0,0)$. Theorems:
+- T1 antipodal apexes, $\hat r_7 + \hat r_0 = 0$;
+- T2 coupling point $C = (V_0+V_7)/2 = (\tfrac12,\tfrac12,\tfrac12)$;
+- T3–T4 TIME faces $A_7 = \{V_1,V_2,V_4\}$ (centroid $(\tfrac13,\tfrac13,\tfrac13)$) and $B_0 = \{V_3,V_5,V_6\}$ (centroid $(\tfrac23,\tfrac23,\tfrac23)$); compressions $\pm(\tfrac16,\tfrac16,\tfrac16)$ cancel at $C$;
+- T5 the symmetric-vielbein condition holds at $C$ ($\sqrt{g^{-1}f}\to\mathbb 1$) and only there.
+
+**Field Origin** defined as the octahedral core at $C$: where the chambers intersect, the compressions cancel, the vielbein condition holds and angular momentum transfers. Faces: per tetrahedron 1 TIME (inward) + 3 SPATIAL (outward), read as the 3 + 1 split; total 2 + 6 = 8.
+
+**Spin (Theorem T6).** Ansatz: a full circuit of one tetrahedron carries $\hbar$ ($\hbar/4$ per face), so $L = \hbar + \hbar = 2\hbar$ (360° + 360° = 720°, matching the double cover):
+
+$$S = \frac{N_{\rm TIME}}{N_{\rm total}}\,L = \frac28\cdot2\hbar = \frac\hbar2 .$$
+
+**Newton's constant.** With $D = 3+1$:
+
+$$G = \frac{(3+1)^2+1}{3(3+1)+1}\,\alpha^{1+(3+1)+(3+1)^2}\,\frac{\hbar c}{m_e^2} = 1.3077\times1.338\times10^{-45}\times3.810\times10^{34} = 6.666\times10^{-11}$$
+
+vs $6.674\times10^{-11}$ (0.12%). Exponent terms: 1 (time), $D$ (spacetime), $D^2$ (dual-tetrahedra interaction). Hierarchy: gravity/EM $\sim\alpha^{1+D+D^2}/\alpha = \alpha^{D+D^2} = \alpha^{20}\approx10^{-43}$.
+
+**Fine-structure constant (explicitly an empirical observation, "not a derivation").**
+
+$$\frac1\alpha = 2^d(k^2+1) + 1 + \frac{1}{k(k+d)} = 8\cdot17 + 1 + \frac1{28} = 137.035714\ldots$$
+
+vs CODATA 137.035999177 (0.00021%). $2^d = 8$ orthants; $k^2+1 = 17$ = 16 tetrad components + identity; $k(k+d) = 28$. The residual (~1/3500) is suggested to be QED-like.
+
+**Scope.** $\alpha$, $\hbar$, $c$, $m_e$ are inputs; the spin result rests on the stated angular-momentum ansatz; the 17/13 prefactor is read as "coupling channels versus structural elements".
+
+## Paper VII — Dual Tetrad Topology and the Field Origin: From Nuclear Decay to Galactic Dynamics
+
+*Feb 2026, v7 (latest of v2–v7) · REVTeX source · the series' longest synthesis; introduces "dual tetrad gravity" (DTG)*
+
+**Foundations (§§2–3).**
+- Closure = non-degeneracy: $\det g = -(\det e)^2$; Barbieri (1998): the discrete closure $\sum\vec n_i = 0$ on four face normals defines a tetrahedron at each node. The binary existence condition is the $k^0 = 1$ term.
+- $k = 4$ from both sides ($k\ge4$ simplex, $k\le4$ from $10 - 2k = 2$). $d = 3$ from three intersecting constraints: $2(d+1) = 2^d$ (two simplices' face count = dual-lattice vertices), Bertrand's theorem (closed orbits need $1/r^{d-1} = 1/r^2$), no hydrogen bound states for $d\ge4$.
+- Scale: $r_e$ by the two routes; $\alpha = r_e/\bar\lambda_C$, $\bar\lambda_C = \hbar/(m_ec)$.
+- Four roads to two tetrahedra (as Paper VI), plus Hassan–Kocic (2018): the two metrics need compatible 3 + 1 decompositions. The compound has $V + E + F = 8 + 12 + 8 = 28$ elements and inversion symmetry $\mathbf r\to-\mathbf r$ swapping TetA and TetB.
+- **Field Origin** = the Hassan–Rosen interaction vertex, where both tetrads are evaluated at one point and $\tau_{\rm prop} = r/c = 0$ ("the neck of the hourglass"); it permits the atomic Full State Snapshot. Vortex picture: angular momentum flows through the Field Origin; Einstein–Cartan links spin and torsion.
+
+**Spin, two routes.** (1) faces: $(2/8)\cdot2\hbar = \hbar/2$; (2) polynomial: $21 - 17 = 4$ TetA face channels and $17 - 13 = 4$ TetB; an observer sees one sector, $(4/8)\hbar = \hbar/2$. The quantum $\hbar$ per circuit is stated as an empirical input.
+
+**28 three ways.** $V + E + F = 28 = k(k+d) = 4\times7$ = 7 bimetric propagating modes (2 massless + 5 massive) × 4 faces.
+
+**The coupling polynomial (§4).**
+- Three causal stages: EXIST ($k^0 = 1$, $\det e\ne0$), PROPAGATE ($k = 4$: a TetB vertex pierces a TetA face centre, cutting it into 3 + 1 sub-regions), INTERACT ($k^2 = 16$, the $4\times4$ frame-transition matrix). No $k^3$ term: a simplex boundary has only 0-, 1- and 2-cells.
+- Uniqueness by constraints (LIGO, simplex, ghost-free bimetric) and by component counting in $H_{\rm int} = m^2\sqrt g\sum\beta_ne_n(\mathcal S)$: $e_0 = 1$, $e_1 = \operatorname{Tr}\mathcal S$ ($k$ terms), $e_2 = \tfrac12[(\operatorname{Tr}\mathcal S)^2 - \operatorname{Tr}\mathcal S^2]$ ($k^2$ terms).
+- $f = (k^3-1)/(k-1) = 63/3 = 21$; unit coefficients (one existence condition, one connection per face, one entry per frame pair). Self-similarity: each face again carries 1 + 4 + 16.
+- Three structural states $f = 1 + sk + k^2$: TetA ($+k$, 21, exponent), Field Origin (no face channels, 17, numerator), TetB ($-k$, 13, denominator). Only the odd term flips. Mean lock $(21+13)/2 = 17$, spacing $k$. $17 = k^2 + 1$ ("coupling capacity"), $13 = kd + 1$ ("spatial structure"), using $k^2 - k = kd$.
+- **Proposition (identification).** Under a common coupling point, the symmetric-vielbein condition and compatible 3 + 1 splits, the stellated octahedron's coupled-face matrix $C_{ab}$ equals the Hassan–Rosen $\mathcal S^a{}_b = (E^{-1})^a{}_\mu L^\mu{}_b$. Five conditions: index (vierbein leg ↔ face, $a = 0$ the time face), operation, block split $1 + 3 + 3 + 9$ (lapse/shift + triad), $\sum_n\binom4n = 16$, existence ($\det e\ne0$).
+
+**Results.**
+1. $G = \frac{17}{13}\alpha^{21}\hbar c/m_e^2 = 6.666\times10^{-11}$ (0.12%); exponent 20 or 22 misses by ×137; extracted $n = 20.9998$. One loop: $G(1 + \alpha/2\pi)$ gives $6.6742\times10^{-11}$ vs $6.6743$ (0.001%).
+2. $1/r^2$ from flux over $4\pi r^2$ in $d = 3$ (same for Newton and Coulomb; depth $\alpha^{21}$ vs $\alpha^1$).
+3. $E = mc^2$: mass is closure energy at the Field Origin; $\omega_{\rm closure} = c/r$, $N$ states, $\omega_{\rm state} = c/(Nr)$, $mc^2 = \hbar c/(Nr)$ ⇒ $m = \hbar/(Nrc)$; with $N = 1/\alpha$, $m = \alpha\hbar/(rc)$ (the classical-radius relation). $c^2 = c_{\rm TetA}c_{\rm TetB}$ (dimensions, bilinear metric, exchange symmetry).
+4. Hierarchy: EM couples to one sector ($\alpha^1$), gravity to both ($\alpha^{21}$): $\alpha^{20}\approx10^{-43}$.
+5. $1/\alpha = 1 + 2k(k^2+1) + 1/[k(k+d)] = 137 + 1/28 = 137.0357$ (0.00021%). Integer part = 1 vertex + 8 vierbein legs × 17-dimensional interaction space; $2k^3 + 2k + 1 = 137 \Rightarrow k^3 + k = 68 \Rightarrow k = 4$. $k + d = 7$ = 12 configuration components − 4 diffeomorphisms − 1 ghost constraint. Rate check: $f_{\rm closure}/f_{\rm Compton} = (c/r_e)/(m_ec^2/h) = 2\pi/\alpha$ (an identity of the definitions).
+6. $a_0 = k^2Gm_e/r_e^2 \approx 1.22\times10^{-10}$; $a_0 = (cH/2\pi)\sqrt{k/\pi}$; $H = 2\pi a_0/(c\sqrt{k/\pi}) = 70.21$; one loop gives **70.29** (the TF manuscript's value).
+7. Electron mass: $a_0 = k^2Gm/r^2$ and $a_0 = (cH/2\pi)\sqrt{k/\pi}$ with $m = \alpha\hbar/(rc)$ give $r^3 = 2\pi^{3/2}k^{3/2}\alpha\hbar G/(c^2H)$, i.e. $r = [(3+1)^2\pi^{3/2}\alpha\hbar G/(c^2H)]^{1/3} = 2.82$ fm and $m = 9.11\times10^{-31}$ kg (0.1%).
+
+**Galaxies (§7).** Detailed balance gives $\mu = x/(1+x)$; exchange $g\leftrightarrow f$ sends $x\to1/x$, and $\mu(x) + \mu(1/x) = 1$ holds for $x/(n+x)$ only if $n = 1$ (the "1" is the Field Origin). Newtonian-inferred dark fraction $1 - \mu = a_0/(g + a_0)$ (91% at $g = 0.1a_0$). Milky Way (7.5×10¹⁰ M☉: Hernquist bulge, exponential disk and gas), DTG vs standard-$\mu$ MOND vs Newton: 228/205/195 km/s at 5 kpc, **225**/200/179 at 8 kpc (obs. 229 ± 5), 208/191/126 at 20 kpc, 196/188/80 at 50 kpc (83% "dark"); reduced $\chi^2\approx1$ against seven datasets (Eilers, Jiao/Gaia DR3, Sofue). "Corrective lens" $M_{\rm actual} = M_{\rm inferred}\,g/(g + a_0)$. Clusters, Bullet Cluster and CMB are listed as known challenges.
+
+**Covariant completion (§8).**
+- Hassan–Rosen vielbein action $S_{\rm HR} = \int[e\,e\,e\,\Omega + \tilde e\,\tilde e\,\tilde e\,\tilde\Omega + m^2e\sum\beta_ne_n(e^{-1}\tilde e)]$. Fixing the $\beta_n$: (1) parity $e_n(-\lambda) = (-1)^ne_n$; (2) exchange $e_n(\mathcal S^{-1}) = e_{4-n}(\mathcal S)/e_4(\mathcal S)$ with $\mathcal S = I$ at the Field Origin, so $\beta_0 = \beta_4$, $\beta_1 = \beta_3$; (3) odd terms vanish at the symmetric point, $\beta_1e_1(I) + \beta_3e_3(I) = 8\beta_1 = 0$; (4) $\beta_0:\beta_2:\beta_4 = 1:k^2:1$. Result $V = e_0 + 16e_2 + e_4$ (weighted count $1 + 96 + 1 = 98$), testable through the massive-graviton spectrum.
+- Scalar-tensor form $S_{\rm ST}$ (the four-term action; this is the SST). Term reading of $F$: $y$ ↔ $k^2$ (full interaction), $-2\sqrt y$ ↔ $k$ (face level; the sign echoes $s = -1$, the 2 counts two tetrahedra), $2\ln(1+\sqrt y)$ ↔ $k^0$ (the Field Origin floor). $e^{-2\Phi/c^2}$: the 2 counts two tetrahedra; $\gamma = 1$ (Cassini). Whether the scalar-tensor theory is the formal low-energy limit of the locked bimetric theory is stated as open.
+- 14 tests + 1 check: $\gamma = 1$; $|v_{gw}/c - 1| < 10^{-15}$; neutron bound-decay probability 1.084% vs $1.081\pm0.03$% (SM ≈ 0.0004%), tied to the tetrahedral dihedral angle $\arccos(-1/3)$; MW 225 vs 229 ± 5; Gaia wide-binary plateau 0.39 vs $0.5\pm0.15$ km/s; Bullet offset $150\pm30$ kpc "consistent with gas displacement" (no simulation).
+
+**Poisson and scale invariance (§9).** $k = 4$ is topological (immune to renormalisation); $4\pi = k\times\pi$ ($\pi$ steradians per face); $\nabla^2\Phi = k\pi\cdot\frac{k^2+1}{kd+1}G_{\rm bare}\rho = 16.493\,G_{\rm bare}\rho$, i.e. $G_{\rm eff} = (17/13)G_{\rm bare}$.
+
+**Mechanism (§11).** Field Object, Field Atom $A_\Phi$ (a geon-like soliton of the massive spin-2 mode, with a "Valence Horizon"), Full State Snapshot, Settlement, Registration $B^*_\Sigma$ (grounded in ADM, Israel junction conditions, York–Lichnerowicz, Dirac constraints; appendix). **Bound vs unbound is defined here:** an *unbound* gravity-field envelope has an empty TetB chamber (massless mode; the mesh, "the stage"); a *bound* envelope has an occupied TetB (massive mode; matter, "the actors"). Binding by stellar compression, up to electron capture $p + e^-\to n + \nu_e$; TOV balance; the Field Origin as the eye of a self-sustaining vortex. Chessboard picture: bound configurations sit only on mesh nodes where $\det e\ne0$.
+
+**Nuclear packing in TetB (heuristic, stated as not derived from the field equations).** He-4 first closed nucleus ($A = k$, 7.07 MeV/nucleon vs 2.83, 2.57 for $A = 3$); O-16 $= k^2$ tetrahedral α-clustering; α-ladder ¹²C, ¹⁶O, ²⁰Ne, ²⁴Mg, ²⁸Si; Be-8 ($2k$) unbound, $8.2\times10^{-17}$ s; ceiling $k^4 = 256$ (Fm-258 fissions, fragments near 128); binding peak near Fe-56.
+
+**Summary claims.** Dependency chain $d = 3 \to k \to f \to \{21,17,13\} \to G, 1/\alpha, \beta_n$, spin, $1/r^2$, $E = mc^2$, $\alpha^{20} \to a_0, \mu \to H, m_e \to$ one-loop. Every integer named: 1 vertex, 4 faces, 8 vierbein legs, 13, 16 frame matrix, 17 interaction space, 21 depth, 28 elements, 137 breadth. Not addressed: strong and weak forces, the particle mass hierarchy, the cosmological constant.
