@@ -345,7 +345,9 @@ Shell ceilings $\mathrm{CEIL} = B_{\rm Zn} + B_{\rm bdy} - \mu_b(2)[B_{\rm Zn} -
 
 ---
 
-## 12. Open problems (stated in the README)
+## 12. Open problems and issues
+
+### 12.0 Stated in the README
 
 1. The RAR cannot separate GFD from MOND's simple function; discriminating tests are TF evolution, torsion, constants.
 2. $a_0$ is empirical in the galactic test. Its link to $H$ ($a_0 = cH_{\rm flat}/2\pi$, $H_{\rm meas} = H_{\rm flat}/\sqrt{k/\pi}$) rests on the frame factor $\sqrt{k/\pi}$, which Paper IV calls a dimensional argument.
@@ -355,6 +357,34 @@ Shell ceilings $\mathrm{CEIL} = B_{\rm Zn} + B_{\rm bdy} - \mu_b(2)[B_{\rm Zn} -
 6. $\mathcal L_{\rm matter}$ unspecified.
 7. Constants: numerical routes, subject to look-elsewhere effects.
 8. No peer-reviewed publication yet.
+
+### 12.1 Found in the full paper-by-paper reading (Part II)
+
+*Physics gaps, stated or implied by the papers themselves:*
+
+9. **UV → IR bridge.** No paper computes the match between the locked bimetric potential and the SST. In that match, the Galileon coefficients $c_k(\beta)$ give a quasi-static relation, and that relation would have to equal $\mu = x/(x+1)$. VIII and IX call this the open "checkable matching problem". XII and TF assert the equivalence without computing it.
+10. **$\gamma = 1$.** This rests on a posited single-potential weak-field metric (L3 supplement §3). The metric field equations, which include the stress–energy of the $F(y)$ sector, are not solved. ESS gives the opposite account, in which the EM term supplies the lensing.
+11. **EM coupling and $\alpha$.** With $\Phi$ the Newtonian potential, $-\tfrac14e^{-2\Phi/c^2}F^2$ implies $\alpha_{\rm eff}\propto e^{2\Phi/c^2}$, i.e. $|k_\alpha| = 2$. Laboratory bounds are about $10^{-6}$–$10^{-7}$. This is not discussed in any paper (§3).
+12. **Graviton mass.** It is not predicted. The $\beta_n$ fix ratios; the overall $m^2$ (and $M_f/M_g$, set via $\theta$) remain (TF note).
+13. **The exponent 0.17.** It has two stated mechanisms: $(1-1/\pi)/4$ from the tiling scaling (II), and disformal photon-path screening (X, TF). Neither paper shows the other's route.
+14. **Nuclei.**
+    - XI's single formula rises monotonically to 8.687 MeV, so it has no Fe peak and overshoots Pb/Bi by 9–10%.
+    - XIII calibrates on Zn-64, entered as 8.756 MeV where AME2020 gives 8.736.
+    - Its reflect-and-min envelope is constructed, not derived.
+    - XI ends stability at $K^K = 256$ (Bi-209); XIII ends it at 192 + 16 (Pb-208).
+15. **The decode deficit.** The sign of $\Delta M_{\rm eff}$ ("drives" vs "brakes") is not pinned down (DEC, ESS).
+
+*Errata and internal inconsistencies (arithmetic checked here):*
+
+16. XI: the uniqueness counterexamples are swapped. $K = 3$ misses 20, not 28; $K = 5$ misses 28, not 20. XI also gives the locked set as $\{1,0,K,0,1\}$ where it should be $K^2$.
+17. Companion PDF: it pairs $a_0 = 1.225\times10^{-10}$ with $H = 69.92$, which needs 1.220. Its "0.01%" electron-mass round trip is −0.10% from its own eq. 5.
+18. Paper X: it uses three $a_0$ values (1.2, 1.22, 1.225) for 68.8 / 78.9 / 70.21.
+19. FY note: $+\rho\Phi$ in $\mathcal L$ gives the wrong sign of Poisson, and the abstract assigns the deep-field scaling to the log term alone.
+20. TetA label: in L1, P-two-regions and Letter 2, TetA is the region with outward normals $(+++),\ldots$. In IX, GRAM and C, TetA is the solid with vertices $(+++),\ldots$. The pair is the same and the label is flipped (§2.2).
+21. Paper C: its symmetry axes pass through cube face centres, not "opposite edge-midpoints of the cube".
+22. RAR: the cached CSV has 163 galaxy names, not 164. XII cites 179 SPARC galaxies and X cites 175.
+23. CMB factor: 6.46 (II) vs 6.44 (XII); comparator 6.40 (II) vs $6.36\pm0.10$ (XII).
+24. The 40/24 proof note reads the subtracted "1" as the diagonal. There are $K$ diagonal entries, and they are the $+K$ that separates 10 from 6.
 
 ---
 
