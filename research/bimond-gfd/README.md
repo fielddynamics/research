@@ -1,6 +1,6 @@
 # BIMOND × GFD
 
-*Research folder, Field Dynamics Research, 2026-11-11. Status: working notes and checks, not a paper. Run `python3 run_all.py`: 19 checks pass, plus two data scripts (numpy, scipy, sympy).*
+*Research folder, Field Dynamics Research, 2026-11-11. Status: working notes and checks, not a paper. Run `python3 run_all.py`: 30 checks pass, plus two data scripts (numpy, scipy, sympy).*
 
 This folder lines up Milgrom's bimetric MOND (BIMOND; [arXiv:0912.0790](https://arxiv.org/pdf/0912.0790), [arXiv:1001.4444](https://arxiv.org/pdf/1001.4444), [arXiv:2208.10882](https://arxiv.org/pdf/2208.10882)) with the GFD algebra: the Coles notes, `research/gfd_algebra.py`, and `research/bimetric-projection/`. The question is whether BIMOND is a covariant home for the SST's physics.
 
@@ -88,6 +88,39 @@ This tests BIMOND's scalar, brake-only version, not GFD. GFD allows both brakes 
   - the locked Hassan–Rosen potential, because V(P) = 0.
   - Only matter and twin matter split the metrics.
 - GFD's 𝓜 grows like 2u, so Milgrom's Λ ~ a₀²𝓜(∞) does not apply directly. The vacuum term would come from f(κ) or from the locked potential's floor (V₀ = 49 m², giving Λ_eff = 2a₀²/c⁴ in `research/bimetric-projection/`).
+
+**07 — The algebra side by side** (`07_algebra_intersection.py`, 11 checks). This compares the identities in `research/gfd_algebra.py` with BIMOND's variables. The three potentials are φ* (TetA), φ̂ (TetB) and φ (the total).
+
+| GFD algebra | BIMOND form | Status |
+|---|---|---|
+| Odds ratio Ω(x) = x (Proof C, Möbius uniqueness) | \|∇φ̂\| · \|∇φ\| = a₀ \|∇φ*\|: twin field × total field = a₀ × Newtonian field | exact; a rewrite of μ |
+| Exchange symmetry μ(1/x) = 1 − μ(x) | the TetA and TetB shares of the total field swap under x → 1/x | exact |
+| SST kinetic function F(y) (Proof B) | F and BIMOND's 𝓜 are exact Legendre duals: F(x²) + u² + 𝓜(u) = 2xu, with u = x²/(1+x). This is the AQUAL ↔ QUMOND duality in closed form. | exact to 50 digits; the duality itself is known in general |
+| Logistic identity x μ′ = μ(1−μ) | g* ĝ / g², the product of the two shares | exact |
+| 40 retained / 24 discarded (Letter 3) | BIMOND's C = Γ − Γ̂ has 4 × 10 = 40 components, exactly GFD's retained 40. The tetrad (Weitzenböck) difference of two frames has 4³ = 64 = 40 + 24. | count |
+| TetB in the torsion 24 | Two frames that differ by a local rotation have the **same metric**, so BIMOND's C = 0: BIMOND cannot see the rotation. Their tetrad difference does carry axial torsion, and its sign follows the sense of rotation: a twist θ = kz gives a_t = −4k, and a spin θ = ωt gives a_z = 4ω. Reversing the rotation reverses the sign. | exact (sympy) |
+| Parity P (TetA → TetB) | constant P gives zero tetrad difference, consistent with C = 0 and V(P) = 0 in 06 | exact |
+
+## Is there a breakthrough?
+
+Honest grading: two results stand out. Neither is yet a demonstrated breakthrough.
+
+**1. GFD fixes BIMOND's two main free choices from geometry.** Milgrom's BIMOND picks the coupling ratio and the function 𝓜 by hand, and 𝓜 has been free since 2009.
+- In GFD the coupling ratio follows from orientation (01): α = −β.
+- 𝓜 follows from exchange symmetry and Möbius uniqueness, giving μ = x/(1+x), and then from Legendre duality with the SST's F. The closed form is in 02, and the duality is checked exactly in 07.
+
+So in the nonrelativistic limit, BIMOND with α = −β is the SST written as a two-metric theory, with no free function. Still free: f(κ), which only enters through det S (06), and the value of a₀. This is the cleanest claim to put forward. It is only as strong as the GFD postulates behind it, namely exchange symmetry and the Aut(P¹) axiom. Note that μ = x/(1+x) is also MOND's well-known "simple" interpolating function.
+
+**2. Spin blindness, which separates GFD from every metric bimetric theory.** Any theory built only from the two metrics cannot see a relative rotation of the two frames: BIMOND through C, and Hassan–Rosen through S. A tetrad theory sees it as axial torsion, with a sign set by handedness.
+- This is the algebraic home for brake versus drive: counter-rotating versus co-rotating TetB.
+- It gives a prediction that BIMOND does not make: the sign of ΔM_eff should correlate with relative rotation sense. Examples to test are counter-rotating gas or stellar components, and spin relative to the host galaxy's tidal field.
+
+What is still missing is a field equation linking the axial torsion to ΔM_eff. Until that exists this is a kinematic statement, not a derived prediction, and the size of the effect is not computed.
+
+**Not breakthroughs:**
+- The odds-ratio identity and the logistic identity are rewrites of μ.
+- AQUAL–QUMOND Legendre duality is known in general (Milgrom 2010). Only its closed form for this μ is new here.
+- The 40 = 40 match is a component count.
 
 ## What this gives GFD
 
