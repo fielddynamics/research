@@ -54,6 +54,7 @@ Some archive texts equate the deep field with TetB ("the deep-field limit … is
 | 9–10 | The point mass and the bound law in one hyperbolic variable |
 | 11 | Two operations generate the laws; uniqueness within the family |
 | 12 | The partition composes like rapidities |
+| 13 | Why general relativity never meets 13, 17 and 21: the coupling polynomial is a trace over $\mathrm{Sym}^2 \oplus \Lambda^2$, the constitutive law weights the two sectors, and GR sits at the endpoint $\mu = 1$ |
 
 3. [`docs_and_the_energy_functional.md`](docs_and_the_energy_functional.md), *The Docs and the Energy Functional*. What the documentation and the docs-site tests derive from $F$, read against this folder: what agrees, nine statements the algebra does not support, and suggested edits (not made).
 
@@ -94,8 +95,8 @@ Some archive texts equate the deep field with TetB ("the deep-field limit … is
 
 ```bash
 pip install sympy mpmath
-python verify_aqual_algebra.py     # 43/43, each claim by its own algebra
-python verify_independent.py       # 45/45, by routes that do not reuse the closed forms
+python verify_aqual_algebra.py     # 50/50, each claim by its own algebra
+python verify_independent.py       # 48/48, by routes that do not reuse the closed forms
 python verify_docs_intersection.py # 23/23, the docs read against this folder
 ```
 

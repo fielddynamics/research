@@ -324,6 +324,32 @@ check("T8d point mass coefficient: r rho_B -> 2, i.e. rho_B -> a0/(2 pi G r)",
 check("T8e Plummer coefficient: sqrt(r) rho_B -> 5/2 (in units a0/4piG, GM = b = 1)",
       abs(mp.sqrt(r_) * rho_B(r_, plummer) - mp.mpf(5) / 2) < mp.mpf('1e-3'))
 
+print("\nT9  The swap operator, numerically at random x")
+mp.mp.dps = 30
+Kd, N16 = 4, 16
+tau = mp.matrix(N16, N16)
+for i in range(Kd):
+    for j in range(Kd):
+        tau[j * Kd + i, i * Kd + j] = 1
+I16 = mp.eye(N16)
+ok_f, ok_eig, ok_exp = True, True, True
+for _ in range(8):
+    xv = rand(mp.mpf('1e-4'), mp.mpf('1e4'))
+    sv = (xv - 1) / (xv + 1)
+    Mx = I16 + sv * tau
+    fv = 1 + sum(Mx[k, k] for k in range(N16))
+    ok_f &= abs(fv - (13 + 8 * mu(xv))) < mp.mpf('1e-25')
+    ev = sorted([mp.re(e) for e in mp.eig(Mx)[0]])
+    want = sorted([2 * (1 - mu(xv))] * 6 + [2 * mu(xv)] * 10)
+    ok_eig &= all(abs(a - b) < mp.mpf('1e-20') for a, b in zip(ev, want))
+    ok_eig &= abs(max(ev) / min(ev) - max(xv, 1 / xv)) < mp.mpf('1e-15')
+    thv = mp.log(xv) / 2
+    Ex = mp.expm(thv * tau)
+    ok_exp &= mp.mnorm(Mx - Ex / mp.cosh(thv), 1) < mp.mpf('1e-20')
+check("T9a f(x) = 1 + Tr(1 + s(x) tau) = 13 + 8 mu at 8 random x", ok_f)
+check("T9b eigenvalues: 2mu (x10) and 2(1 - mu) (x6); their ratio is x", ok_eig)
+check("T9c 1 + s tau = sech(theta) expm(theta tau), theta = ln(x)/2, by matrix exponential", ok_exp)
+
 failed = [l for l, ok in results if not ok]
 print(f"\n{len(results) - len(failed)}/{len(results)} independent checks pass")
 if failed:

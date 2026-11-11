@@ -158,6 +158,32 @@ check("8b  point mass: slope -1", abs(slope(lambda r: 1 / r**2) + 1) < 1e-3)
 check("8c  Hernquist baryons (rho ~ 1/r): slope -1", abs(slope(lambda r: 1 / (1 + r)**2) + 1) < 1e-3)
 check("8d  cored baryons (g_N ~ r): slope -1/2", abs(slope(lambda r: r) + mp.mpf('0.5')) < 1e-3)
 
+print("\n13. The coupling polynomial as a trace over V (x) V")
+Kd = 4
+N16 = Kd * Kd
+tau = sp.zeros(N16, N16)
+for i in range(Kd):
+    for j in range(Kd):
+        tau[j * Kd + i, i * Kd + j] = 1
+I16 = sp.eye(N16)
+Ps, Pa = (I16 + tau) / 2, (I16 - tau) / 2
+check("13a tau^2 = 1, Tr tau = 4, ranks of P_sym and P_anti are 10 and 6",
+      tau * tau == I16 and tau.trace() == 4 and Ps.rank() == 10 and Pa.rank() == 6)
+check("13b f(K,s) = 1 + Tr(1 + s tau): 21, 17, 13 at s = 1, 0, -1",
+      [1 + (I16 + sv * tau).trace() for sv in (1, 0, -1)] == [21, 17, 13])
+sx = (x - 1) / (x + 1)
+check("13c 1 + s(x) tau = 2[mu P_sym + (1 - mu) P_anti]",
+      sp.simplify(I16 + sx * tau - 2 * (mu * Ps + (1 - mu) * Pa)) == sp.zeros(N16, N16))
+check("13d f(x) = 1 + 2[10 mu + 6(1 - mu)] = 13 + 8 mu",
+      zero(1 + (I16 + sx * tau).trace() - (13 + 8 * mu)) and zero(1 + 2 * (10 * mu + 6 * (1 - mu)) - (13 + 8 * mu)))
+check("13e x is the eigenvalue ratio: 2 mu / [2 (1 - mu)] = x", zero(mu / (1 - mu) - x))
+th = sp.symbols('theta', positive=True)
+check("13f 1 + tanh(theta) tau = sech(theta) e^{theta tau}, and s(x) = tanh(ln(x)/2)",
+      sp.simplify(I16 + sp.tanh(th) * tau - (sp.cosh(th) * I16 + sp.sinh(th) * tau) / sp.cosh(th)) == sp.zeros(N16, N16)
+      and zero(sp.tanh(sp.log(x) / 2).rewrite(sp.exp) - sx))
+check("13g GR point mu = 1: 1 + s tau = 2 P_sym and f = 21",
+      sp.limit(13 + 8 * mu, x, sp.oo) == 21 and (I16 + tau) == 2 * Ps)
+
 failed = [l for l, ok in results if not ok]
 print(f"\n{len(results) - len(failed)}/{len(results)} checks pass")
 if failed:
