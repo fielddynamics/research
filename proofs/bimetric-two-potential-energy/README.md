@@ -2,7 +2,7 @@
 
 *How the constitutive law $\mu(x) = x/(x+1)$ fixes the free function of Milgrom's bimetric MOND, and why the second metric enters with the opposite sign · Gravity Field Dynamics (GFD) · Field Dynamics Research*
 
-`BIMOND` `QUMOND` `AQUAL` `MOND` `bimetric-gravity` `Legendre-duality` `proof`
+`BIMOND` `QUMOND` `AQUAL` `MOND` `bimetric-gravity` `modified-gravity` `interpolating-function` `Legendre-duality` `convexity` `tetrad` `spatial-parity` `proof`
 
 ---
 
