@@ -80,3 +80,51 @@ This is the standard HR equation of motion, checked rather than assumed.
 - The decoupling limit was taken around flat space. The locked set's d₀ = 49 tadpole really sits on a de Sitter background with H ~ m. At galactic radii its corrections are of order H²r², which is negligible.
 - The full bimetric decoupling limit, with a dynamical f-fluctuation, was not computed. The massive-gravity (frozen-f) limit was used. The linear bimetric force is the standard massless plus weighted massive superposition, which keeps the enhancement bounded by 4/3.
 - The sign that places the locked set at Q < 0 follows from the conventions stated in part F. The conclusion does not depend on it: the response is a function of M/r³ and is bounded on either sign.
+
+---
+
+## Part 2 (later the same day): the relation that does work
+
+*Probe scripts, all passing: `probe_sst_vs_locked_hr.py`, `probe_gradient_leg.py`, `probe_log_and_stueckelberg.py`, `probe_cube_clifford_mond.py`, `probe_mu_as_field.py`, `probe_orientation_and_covariant.py`. Supporting runs: `probe_projections.py`, `probe_torsion_force.py`, `probe_aqual_vs_two_potential.py`, `probe_local_mixing.py`, `probe_tetb_auxiliary.py`, `probe_ec_candidate.py`.*
+
+Part 1's conclusion is right about the standard construction and wrong as a general verdict. The locked potential reproduces the SST once the second frame is tied to the acceleration rather than to the curvature of a reference field.
+
+**Why the standard construction gives density and GFD gives acceleration.** Standard bimetric gravity builds the second frame from reference fields, ẽ = dφ.
+- For φⁱ = xⁱh(r), the eigenvalues are tied: (rh)′ radially and h on the two transverse axes. In the decoupling limit that puts ∂∂π, a second derivative, into S, so the response depends on density, M/r³.
+- GFD needs S = diag(1, 1, 1, |∇Φ|/a₀). That means h = 1 with (rh)′ ≠ 1, which no reference-field pullback can give.
+
+**The cube and Clifford structure of the lock.**
+- *On the cube of spatial leg flips, S = diag(1, ±1, ±1, ±1):*
+  - V vanishes on all four TetB transitions.
+  - On TetA it is 98 at (+,+,+) and −30 at the three mixed vertices. That is V = 2(1 + K²(x+y+z)) on Paper C's TetA modes.
+- *In the even Clifford algebra Cl⁺(1,3) ≅ Cl(3), whose 8 blades are the cube's vertices,* the locked weights split 49 | 49 two ways:
+  - by parity: TetA = scalar + 3 rotations, TetB = 3 boosts + volume;
+  - by face, along any single axis.
+- *The gradient leg:* the rank-one deformation along the acceleration axis gives V = 49(1 + λ). That is the face split along that axis.
+  - The face share λ/(1+λ) is μ = x/(1+x), with n = 1 from the palindrome.
+  - β₂ = 16 only sets the 49s; it cancels from μ.
+
+**The SST as a function of the locked potential.** Let w = V/V₀ = 1 + |∇Φ|/a₀. Then:
+- F(y) = y − 2D(w), with D(w) = w − 1 − ln w (equivalently −4 KL(𝒩(0,w)‖𝒩(0,1))).
+- On this family, V/V(I) = det[(I+S)/2], so the log term is the log-volume of the midpoint (Field-Origin) frame.
+
+**The share as a field (auxiliary).**
+- *Uniform split of all four legs.* Writing e_A = μe, e_B = (1−μ)e turns the locked potential into a binomial average. Its stationary point sits at μ = ½, so this split cannot give MOND.
+- *Acceleration leg.* With u = ln(V/V₀):
+
+  E(u; y) = (1 − V₀/V)·y − 2(sinh u − u)
+
+  - Its stationary point is V/V₀ = 1 + |∇Φ|/a₀.
+  - At that point the coupling equals μ and the value equals F(y).
+  - The potential is the orientation-odd sum −Σ_{s=±1} s·φ(su), with φ(z) = e^z − 1 − z. That is the odd channel, like sK in f(K,s).
+  - The orientation-even sum Σ_s φ(su) is the equation of state.
+
+**A covariant form.** Let a_μ be the acceleration of the tetrad's time leg, the boost direction.
+- Take the second frame equal to the first except along a_μ, with ratio |a|/a₀. This gives V = 49(1 + |a|/a₀) for any direction of a.
+- In the static weak field the extra sector depends only on g₀₀. So Ψ = Φ (γ = 1, full lensing), and the Φ-equation is g_s = g_t²/(a₀ + g_t).
+- A homogeneous cosmology has a = 0. That puts V at its floor, V₀ = 49, a pure vacuum term.
+
+**Open.**
+- The time leg's acceleration defines a preferred frame. The preferred-frame parameters α₁ and α₂ need computing.
+- In an isolated strong field the simple μ leaves a constant extra pull of a₀. The external-field effect still has to be computed against solar-system bounds.
+- The meV-scale origin of the log term (a Gaussian sector on the midpoint frame) is a hypothesis.
