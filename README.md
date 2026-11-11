@@ -242,6 +242,7 @@ Most research folders follow the same pattern: a **`*_synthesis.md`** that expla
 | Folder | Contents |
 |---|---|
 | [`constitutive-law-u(x)/`](<research/constitutive-law-u(x)/>) | Constitutive law suites and TetA/TetB roulette visualisations |
+| [`aqual/`](research/aqual/) | The scalar sector as AQUAL: a map of the archive's AQUAL material, the algebra carried further (bound law as the exchange image of the source form, QUMOND dual, hyperbolic point mass), and two verification suites |
 | [`galaxy-rotation/`](research/galaxy-rotation/) | Rotation-curve pipeline, interior/exterior synthesis, mass decoding, vortex viewers |
 | [`cdm/`](research/cdm/) | Translation of the cold-dark-matter halo into the TetB interior of the field |
 | [`cmb/`](research/cmb/) | The oldest light: the recombination enhancement of 6.46 from packed closure boundaries, one law across two epochs, and the 0.17 velocity exponent |
