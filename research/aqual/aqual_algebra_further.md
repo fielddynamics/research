@@ -29,9 +29,13 @@ The pieces have not yet been connected to each other. This note connects them. E
 
 **Terms, as the archive uses them.**
 
-- **Deep field.** The *deep field* (deep-MOND) is the low-acceleration regime $x \ll 1$, where $\mu \to x$ (Paper VII; Letter 2: "at low acceleration ($x \ll 1$), the TetB fraction approaches unity"). It names a range of $x$, which a galaxy reaches toward its rim (Letter 3). It is not TetB.
-- **TetB.** TetB is the second chamber, the subspace reached only through the Field Origin. In an unbound field, which includes every galactic field, its chamber is **empty at every $x$** (Paper VII: "unbound envelopes, TetB chambers empty, form the mesh"). Occupancy of TetB is the bound state, which is matter.
-- **The TetB share.** $1-\mu$ is the fraction of the coupling capacity resolved through TetB (Paper VII: "TetB resolves fraction $\mu(1/x)$"). It describes the partition, not occupancy.
+- **TetA and TetB in a galaxy.** A galaxy is a vortex with an exterior and an interior ([decoding-mass letter](../../papers/letter-decoding-mass-from-rotation-curves/)).
+  - **TetA** is the exterior: the observable disk, our spacetime, where stars and gas orbit. The baryons there are tracers. They follow the flow but do not set it.
+  - **TetB** is the throat interior at the centre, the drain beneath the surface, reached through the Field Origin.
+- **Deep field.** The *deep field* (deep-MOND) is the low-acceleration regime $x \ll 1$, where $\mu \to x$ (Paper VII; Letter 2: "at low acceleration ($x \ll 1$), the TetB fraction approaches unity"). It names a range of $x$, which a galaxy reaches toward its rim (Letter 3). It lies in the exterior, among the tracers, as far from TetB as the galaxy goes.
+- **TetB.** TetB is the second chamber, the subspace reached only through the Field Origin. In an unbound field its chamber is **empty** (Paper VII: "unbound envelopes, TetB chambers empty, form the mesh"). Occupancy of TetB is the bound state, which is matter.
+- **The TetB share.** $1-\mu$ is the fraction of the coupling capacity resolved through TetB (Paper VII: "TetB resolves fraction $\mu(1/x)$"). It describes the partition, not occupancy. It is part of the *quiet* prediction, the one the constitutive law makes when the interior neither drives nor brakes.
+- **The interior's active contribution.** This is measured separately, by $\Delta M_{\text{eff}} = M_{\text{phot}} - M_{\text{dec}}$ ([decoding-mass letter](../../papers/letter-decoding-mass-from-rotation-curves/); [`what_is_gravity.md`](../g_from_topology/what_is_gravity.md) §7). The interior is quiet when this is zero; otherwise it drives or brakes the rotation. $\Delta M_{\text{eff}}$ is not the TetB share.
 - **This note's convention.** "TetB share" always means $1-\mu$, and "deep field" always means $x \ll 1$.
 
 ---
@@ -112,7 +116,7 @@ Theorem 2 gives the two Hessian eigenvalues of the energy as $2\mu$ (twice, tran
 
 $$\frac{(x\mu)'}{\mu} = \frac{x+2}{x+1} = 1 + (1-\mu).$$
 
-**Stiffness along the field exceeds stiffness across it by exactly the TetB share.** The equation is isotropic where that share vanishes ($x \gg 1$, Newtonian) and approaches a factor of 2 as the share approaches 1 ($x \ll 1$, the deep field). This is a statement about the partition at each point: in a galaxy TetB's chamber stays empty throughout. For the bound law the ratio is $2/(1+\mu)$.
+**Stiffness along the field exceeds stiffness across it by exactly the TetB share.** The equation is isotropic where that share vanishes ($x \gg 1$, Newtonian) and approaches a factor of 2 as the share approaches 1 ($x \ll 1$, the deep field). This is a statement about the partition at each point, not about TetB's occupancy. For the bound law the ratio is $2/(1+\mu)$.
 
 For the whole family the ratio is $1 + n(1-\mu)/(1 + (m-1)\mu) > 1$. Both eigenvalues stay positive, so every member gives a strictly convex, elliptic AQUAL equation.
 
