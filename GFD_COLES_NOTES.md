@@ -235,7 +235,7 @@ Observed $v(r)$ → $M_{\rm dec}(r)$ with only $G$ and $a_0$. Milky Way and M33 
 
 $$a_0 = \frac{cH}{2\pi}\sqrt{\frac K\pi},\qquad v_{\rm flat}^4 = GMa_0 \;\Rightarrow\; \frac{v(z)}{v(0)} = \left[\frac{a_0(z)}{a_0(0)}\right]^{1/4}.$$
 
-With Paper II's cosmological scaling $a_0 \propto H^{1-1/\pi}$, the exponent is $(1 - 1/\pi)/4 = 0.170$:
+With Paper II's cosmological scaling $a_0 \propto H^{1-1/\pi}$, the exponent is $(1 - 1/\pi)/4 = 0.170$. (Paper X gives a different stated mechanism for the same 0.17: disformal screening of the photon path, governed by $\sqrt{K/\pi}$; it cites the derivation rather than showing it.)
 
 $$\frac{v(z)}{v(0)} = \left[\frac{H(z)}{H_0}\right]^{0.17},\qquad H(z) = H_0\sqrt{\Omega_m(1+z)^3 + \Omega_\Lambda}.$$
 
@@ -251,7 +251,7 @@ $a_0 = cH_0/(2\pi)$ from horizon thermodynamics. At cosmic scales, closures tile
 
 ### 7.2 CMB enhancement [D/O] (II)
 
-Planck's target is $x = 0.185$ ($1.185/0.185 = 6.40$). The linear estimate $x = g_N/a_0$ gives 722, the self-consistent deep estimate $x = \sqrt{g_N/a_0}$ gives 28; the tiling suppression $(H_0/H)^{1/\pi} = 0.041$ at $z = 1100$ gives $a_0 = 1.05\times10^{-7}$ m/s², $x = 0.183$ and enhancement $1.183/0.183 = 6.46$ (+0.9%). Only this single factor is computed, not the full power spectrum. Paper II also lists consequences for the Planck lensing anomaly, JWST early galaxies and DESI's evolving dark energy.
+Planck's target is $x = 0.185$ ($1.185/0.185 = 6.40$). The linear estimate $x = g_N/a_0$ gives 722, the self-consistent deep estimate $x = \sqrt{g_N/a_0}$ gives 28; the tiling suppression $(H_0/H)^{1/\pi} = 0.041$ at $z = 1100$ gives $a_0 = 1.05\times10^{-7}$ m/s², $x = 0.183$ and enhancement $1.183/0.183 = 6.46$ (+0.9%). Only this single factor is computed, not the full power spectrum. (Paper XII quotes $E = 6.44$ against $\Omega_m/\Omega_b = 6.36\pm0.10$; Planck 2018 central values give 6.39–6.40.) Paper II also lists consequences for the Planck lensing anomaly, JWST early galaxies and DESI's evolving dark energy.
 
 ### 7.3 The unit of gravity [E] (III, IV, V)
 
@@ -268,7 +268,7 @@ agreement 0.21%, unique to the electron (muon and proton fail by ~$10^3$). Equiv
 - Port ratio $\sqrt{k/\pi} = 1.128$ converts the spherical envelope ($\pi$) to the tetrahedral chamber ($k$).
 - Band: $(k/\pi)^{1/4} - 1 = \pm6.2\%$ → 65.9–74.6 km/s/Mpc, containing Planck, SH0ES and the other major methods.
 - Bidirectional: observed $H$ recovers $m_e$ to 0.10% (IV) / 0.01% (companion).
-- The single formula is $H = 2\pi a_0/(c\sqrt{k/\pi})$, i.e. $a_0 = (cH_{\rm meas}/2\pi)\sqrt{k/\pi} = cH_{\rm flat}/2\pi$. Paper IV evaluates it twice: $a_0 = 1.220\times10^{-10}$ (MOND empirical) gives **69.92**; $a_0 = 16Gm_e/r_e^2 = 1.225\times10^{-10}$ gives **70.21** (used in Papers VII and X). The 0.41% gap is the $16$ vs $15.93$ coupling test. **70.29** is the 70.21 value with the Schwinger one-loop factor $(1+\alpha/2\pi)$ carried through $G\to a_0\to H$ (Paper VII), and is the value the TF manuscript uses. Notes that write $a_0 = cH/2\pi$ with the *measured* $H$ (e.g. 1.086×10⁻¹⁰ at 70.21) mix the flat and measured frames.
+- The single formula is $H = 2\pi a_0/(c\sqrt{k/\pi})$, i.e. $a_0 = (cH_{\rm meas}/2\pi)\sqrt{k/\pi} = cH_{\rm flat}/2\pi$. Paper IV evaluates it twice: $a_0 = 1.220\times10^{-10}$ (MOND empirical) gives **69.92**; $a_0 = 16Gm_e/r_e^2 = 1.225\times10^{-10}$ gives **70.21** (used in Papers VII and X). The 0.41% gap is the $16$ vs $15.93$ coupling test. **70.29** is the 70.21 value with the Schwinger one-loop factor $(1+\alpha/2\pi)$ carried through $G\to a_0\to H$ (Paper VII), and is the value the TF manuscript uses. Paper X quotes $a_0 = 1.2\times10^{-10}$ in its opening, 78.9 as the naive value (that is $a_0 = 1.22$) and 70.21 (that is 1.225): three inputs in one letter. Notes that write $a_0 = cH/2\pi$ with the *measured* $H$ (e.g. 1.086×10⁻¹⁰ at 70.21) mix the flat and measured frames.
 
 ---
 
@@ -304,9 +304,9 @@ GFD locks them:
 $$\{\beta_0,\beta_1,\beta_2,\beta_3,\beta_4\} = \{1, 0, 16, 0, 1\},\qquad V(S) = e_0 + 16\,e_2 + e_4.$$
 
 - $\beta_2 = 16 = \dim C\ell_{1,3} = \dim\operatorname{End}(\mathbb R^{1,3}) = K^2$.
-- Odd terms vanish by metric exchange symmetry, $e_n(S^{-1}) = e_{4-n}(S)$, palindromic.
+- Odd terms vanish by orientation parity in VIII; XII, the more careful version, separates three theorems (exchange identity, pairing $\beta_0=\beta_4$, $\beta_1=\beta_3$, Hessian of $e_2$ at $I$ of rank 16 with spectrum $+3^1,+1^6,-1^9$) from three axioms ($\beta_1=\beta_3=0$ by symmetric closure, $\beta_0=1$, $\beta_2$ = Hessian rank), and states that generic ghost-free theories allow $\beta_1=\beta_3\ne0$ and that the data alone cannot pick $\beta_2 = 16$ over 15 or 17. Detail: VIII's wording is that odd terms vanish by orientation parity ($\lambda\to-\lambda$ flips $e_1, e_3$); metric exchange $S\to S^{-1}$, with $e_n(S^{-1}) = e_{4-n}(S)/e_4(S)$, pairs $\beta_0 = \beta_4$ (and $\beta_1 = \beta_3$); normalisation sets $\beta_0 = 1$. The proportional background $S = I$ is a stable minimum, $V''(I)>0$.
 - Ghost freedom: the 4-form interaction is linear in the lapse ($dt\wedge dt = 0$, $\partial^2\mathcal L/\partial N^2 = 0$), so the potential lies in the ghost-free class by construction.
-- The helicity-0 mode (Stückelberg $\varphi^\mu = x^\mu - \partial^\mu\pi/\Lambda_3^3$) gives Galileon terms whose static limit is AQUAL-like, $\mathcal P(\pi'/r) = GM/r^3$, matching $\mu(\sqrt y) = F'$.
+- The helicity-0 mode (Stückelberg $\varphi^\mu = x^\mu - \partial^\mu\pi/\Lambda_3^3$) gives Galileon terms with $c_k(\beta)$ fixed by the lock; their static limit is algebraic, $\mathcal P(\pi'/r) = GM/r^3$. **Open:** VIII frames the match of this relation to $\mu = x/(x+1)$ (hence $F$) as a checkable problem and does not compute it. VIII's own $N = 2$ label ("bimetric lock") differs from the later bound-law reading (§4.6).
 - XII adds three theorems + three axioms, a term-by-term map of the two actions, and six concordance checks (expansion history, BBN, CMB enhancement, Vainshtein screening, Galileon hierarchy, mixing angle $\tan\theta = D/(V+E+F) = 3/28$, $\theta = 6.12°$; $\Delta\mu = 2/17 = 11.76\%$).
 
 ---
@@ -323,7 +323,7 @@ where $\mu_2$ is the bound law. Ceiling $C(21 - 17) = m_ec^2\cdot17 = 8.687$ MeV
 
 $$T(n) = \frac{n(n+1)(n+2)}6,\quad G(n) = \begin{cases}0 & n < K\\ (n-1)n/2 & n\ge K\end{cases},\quad M(n) = 2[T(n) - G(n)] \Rightarrow \{2, 8, 20, 28, 50, 82, 126\}.$$
 
-$K = 4$ is the unique integer in $2\le K\le10$ that gives all seven. Ceiling $M(n) \le K^K = 256$: no shell beyond the eighth, consistent with Bi-209 as the heaviest stable isotope.
+$K = 4$ is the unique integer in $2\le K\le10$ that gives all seven ($K = 3$ gives 14 in place of 20; $K = 5$ gives 40 in place of 28). The formula's $\mu_2(A^2)$ is monotonic, so BE/A rises toward its ceiling and has no Fe peak: about −4–5% in the middle, +6–10% at Pb/Bi, −31% at He-4. Ceiling $M(n) \le K^K = 256$: no shell beyond the eighth, consistent with Bi-209 as the heaviest stable isotope.
 
 ### 10.2 Paper XIII: the bound law along a 64-step walk
 
@@ -628,3 +628,265 @@ vs CODATA 137.035999177 (0.00021%). $2^d = 8$ orthants; $k^2+1 = 17$ = 16 tetrad
 **Nuclear packing in TetB (heuristic, stated as not derived from the field equations).** He-4 first closed nucleus ($A = k$, 7.07 MeV/nucleon vs 2.83, 2.57 for $A = 3$); O-16 $= k^2$ tetrahedral α-clustering; α-ladder ¹²C, ¹⁶O, ²⁰Ne, ²⁴Mg, ²⁸Si; Be-8 ($2k$) unbound, $8.2\times10^{-17}$ s; ceiling $k^4 = 256$ (Fm-258 fissions, fragments near 128); binding peak near Fe-56.
 
 **Summary claims.** Dependency chain $d = 3 \to k \to f \to \{21,17,13\} \to G, 1/\alpha, \beta_n$, spin, $1/r^2$, $E = mc^2$, $\alpha^{20} \to a_0, \mu \to H, m_e \to$ one-loop. Every integer named: 1 vertex, 4 faces, 8 vierbein legs, 13, 16 frame matrix, 17 interaction space, 21 depth, 28 elements, 137 breadth. Not addressed: strong and weak forces, the particle mass hierarchy, the cosmological constant.
+
+## Paper VIII — Gravity Field Dynamics and Bimetric Gravity: Dual Tetrahedral Field Chambers as the Key to the General Parameters
+
+*Letter. Companion: GFD Essentials; supplementary `fig1_dual_tetrahedral_field_chamber.html`, `run_all_validations.py`. Status of the main claims: [D] for the locked $\beta_n$ and the IR algebra; the UV→IR matching is stated as open.*
+
+**Claim.** The five Hassan–Rosen coefficients are not free. One polynomial $f(k,s) = 1 + ks + k^2$ at $k = 4$ gives both the UV bimetric potential (its "static skeleton" at $s = 0$) and the IR constitutive law (its "dynamic body" as $s$ varies).
+
+**Geometry made explicit (half-space form).**
+- Face projections $v_1 = x+y+z$, $v_2 = x-y-z$, $v_3 = -x+y-z$, $v_4 = -x-y+z$.
+- TetA: $\max_i v_i\le1$. TetB: $\max_i(-v_i)\le1$. The intersection is the central octahedron (the Field Origin); the union is the stellated octahedron.
+- Fig. 1 samples $4\times10^6$ points against these inequalities, with no mesh. Each TetA face is cut by the piercing TetB vertex into 3 corners + 1 inverted core, giving $4\times4 = 16$ boundary channels.
+
+**Locking the coefficients.**
+1. *Basis is unique.* A derivative-free covariant scalar density built from tetrad one-forms is a 4-form, $\epsilon_{abcd}\,\tilde e^{a_1}\wedge\cdots\wedge\tilde e^{a_n}\wedge e^{a_{n+1}}\wedge\cdots\wedge e^{a_4} = e\,e_n(S)\,d^4x$, with $S = e^{-1}\tilde e$. So $V = \sum_{n=0}^4\beta_ne_n(S)$ is forced, not assumed.
+2. *$\beta_2 = 16$, primary (geometric).* $e_2(S) = \tfrac12[(\operatorname{Tr}S)^2 - \operatorname{Tr}S^2]$ counts pairwise couplings; weighting it by the 16 boundary channels gives each channel unit weight.
+3. *$\beta_2 = 16$, secondary (covariance).* $\dim C\ell_{1,3} = \sum_k\binom4k = 16 = \dim\operatorname{End}(\mathbb R^{1,3})$ = the components of $S$. Once the other terms are fixed, $e_2$ is the only free term and "must absorb" all 16; the paper words this as an interpretation ("we therefore interpret").
+4. *Parity:* under $\lambda_i\to-\lambda_i$ the odd $e_1, e_3$ change sign (grade 1 and 3 reverse), so $\beta_1 = \beta_3 = 0$. *Exchange:* $g\leftrightarrow f$ sends $S\to S^{-1}$, so $\beta_0 = \beta_4$. *Normalisation:* $\beta_0 = 1$.
+5. Result: $(\beta_0,\ldots,\beta_4) = (1,0,16,0,1)$, $V(S) = e_0 + 16e_2 + e_4$. Polynomial reading: the $1$ is bare existence ($\beta_0 = \beta_4$), $k^2 = 16$ is $\beta_2$, and no odd power gives $\beta_1 = \beta_3 = 0$.
+
+**Ghost freedom.**
+- ADM split: $e^0 = N\,dt + N_idx^i$. A 4-form contains exactly one $dt$, and $dt\wedge dt = 0$, so $\partial^2\mathcal L_{\rm int}/\partial N^2 = \partial^2\mathcal L_{\rm int}/\partial\tilde N^2 = 0$.
+- The potential is in the Hassan–Rosen class, so the secondary constraint and the BD-ghost removal are inherited. The locked set is a point inside the ghost-free family.
+
+**UV → IR bridge (EFT statement, explicitly not an identity of actions).**
+- Stückelberg: $\tilde e^a{}_\mu\to\tilde e^a{}_\nu(\varphi)\partial_\mu\varphi^\nu$ with $\varphi^\mu = x^\mu - \partial^\mu\pi/\Lambda_3^3$, $\Lambda_3 = (m^2M_{\rm Pl})^{1/3}$.
+- In the decoupling limit, $\mathcal L_\pi = c_2(\partial\pi)^2 + c_3(\partial\pi)^2[\Pi]/\Lambda_3^3 + c_4(\partial\pi)^2([\Pi]^2 - [\Pi^2])/\Lambda_3^6 + \cdots$, with $c_k(\beta)$ now fixed rather than tunable.
+- The background $S = I$ is a stable minimum, $V''(I) > 0$. Matter drives the tetrads apart and switches on Vainshtein screening. In GFD language this is the node moving from $s = 0$ toward $s\to+1$.
+- Static reduction is algebraic, $\mathcal P(\pi'/r) = GM(r)/r^3$.
+- **Open (the paper's own words):** computing the quasi-static relation from the locked $c_k$ and showing it gives $\mu(x) = x/(x+1)$ "is the natural next step". Paper VIII frames it as a checkable matching problem; it does not do the calculation.
+
+**IR algebra.**
+- Conformal map $s(x) = (x-1)/(x+1)$, with $x\to0\Rightarrow s\to-1$, $x = 1\Rightarrow s = 0$, $x\to\infty\Rightarrow s\to+1$. It is called the unique Möbius map from $[0,\infty)$ onto $[-1,1]$ that fixes the transition point.
+- $f(x) = 17 + 4s(x) = (21x+13)/(x+1)$, and $\mu = (f-13)/8 = x/(x+1)$.
+- $F(y) = y - 2\sqrt y + 2\ln(1+\sqrt y)$ from $\mu(\sqrt y) = F'(y)$.
+- "Stellated octahedron field equation": $\nabla\cdot\big[\tfrac{f(x)-13}{8}\nabla\Phi\big] = 4\pi G\rho$ (the AQUAL/MOND equation with $\mu$ written through $f$).
+
+**$N$-metric family.**
+- $x(1-\mu)^N = \mu$ with $\mu = (f-13)/8$ and $1-\mu = (21-f)/8$ gives $x = 8^{N-1}(f-13)/(21-f)^N$.
+- $N = 1$: $x = (f-13)/(21-f)$, $\mu(1) = \tfrac12$.
+- $N = 2$: $x = 8(f-13)/(21-f)^2$, $\mu = (\sqrt{1+4x}-1)/(\sqrt{1+4x}+1)$, which is the same function as Part I's $\mu_b$ (checked numerically), and $\mu(1) = 1/\varphi^2\approx0.382$.
+- Proposed test: the two laws differ only near $x\sim1$.
+
+**Notes against later work.**
+- *$s$ vs $\sigma$.* Paper VIII lets the state label vary continuously, $s(x) = (x-1)/(x+1)$. Later naming keeps $s\in\{+1,0,-1\}$ as discrete states and calls the continuous quantity $\sigma(x)$. Paper VIII's "$s = 0$ at $x = 1$" is $\sigma = 0$ in later notation, and that point is not the Field Origin.
+- *Deep field vs TetB.* Paper VIII says that in the deep-MOND regime the response "saturates at the geometric floor provided by the adjacent, inverted TetB subspace ($s\to-1$)". In the later reading this describes the TetB share $1-\mu\to1$ seen from the exterior (the deep field), not the field being in TetB.
+- *What $N = 2$ means.* Paper VIII calls $N = 2$ "the Hassan–Rosen bimetric lock" and "the dual-tetrad interaction", and calls $N = 1$ the "effective single-metric SST" and "screened" limit. Later work (IX, XIII, research/aqual) reads $N = 1$ as the one-directional law for a galaxy's exterior and $N = 2$ as the bound law for nuclei. It derives $N = 2$ as the exchange image of the source form, not from counting metrics.
+- *The SST action here has three terms.* It omits the $-\tfrac14e^{-2\Phi/c^2}F_{\mu\nu}F^{\mu\nu}$ term that the full SST has (§3). The name already means the action, as later naming requires.
+- *What $e_2$ counts.* As a sum over $a<b$, $e_2$ has $\binom42 = 6$ principal $2\times2$ minors, so $e_2(I) = 6$ and $V(I) = 1 + 96 + 1 = 98$ (as Paper VII). The 16 is supplied by the channel count and the $\dim C\ell_{1,3}$ argument, not by the number of terms in $e_2$.
+
+## Paper IX — Complete Field Closure from Stellated Octahedron Topology
+
+*Letter. Companion to VIII (which carries the full $\beta_n$ derivation and the ghost-freedom proof). Validation: `run_all_validations.py`, 45 tests in 19 sections. Status: [T] for the combinatorics and algebra, [D] for the physics chain, [E] for the π section.*
+
+**Thesis.** Every gravity formalism needs a *topology* (what the field is) and a *closure condition* (that the field extends through all of space). In GR, tetrad gravity, bimetric gravity and scalar–tensor theory both are inputs. In GFD both follow from $2(d+1) = 2^d$.
+
+**Topology.**
+1. *Uniqueness.* $2(d+1) = 2^d$ only at $d = 3$ (table $d = 1..5$; for $d\ge4$ the exponential side wins). So $K = d+1 = 4$ and $D = 3$. Euler check: $4 - 6 + 4 = 2$.
+2. *Parity partition.*
+   - Cube vertices are labelled by 3-bit addresses ($0\to-1$, $1\to+1$).
+   - Odd popcount $\{1,2,4,7\}$ = TetA; even $\{0,3,5,6\}$ = TetB.
+   - Within a class every pair is at Hamming distance 2, so each class is a regular tetrahedron with edge $2\sqrt2$. The two are vertex-, edge- and face-disjoint (the stella octangula).
+   - Antipodal pairs sum to $7 = 111_2$. The four body diagonals meet at the centre, the Field Origin.
+   - $12$ edges $+ 1$ origin $= 13 = KD+1$.
+3. *(3+1) from faces.*
+   - Per tetrahedron, three faces look outward and one inward. The inward face is opposite $V_7$ for TetA and opposite $V_0$ for TetB; these are the two time faces, and the other six are spatial. That gives $1 + 3$ per tetrahedron.
+   - Time fraction $2/8 = 1/4$, so spin $= \tfrac14\cdot2\hbar = \hbar/2$.
+4. *Tetrad = tetrahedron.*
+   - The half-space construction ($v_i$, TetA $\max v_i\le1$, TetB $\max(-v_i)\le1$) is as in VIII.
+   - Reading the signs of $v_i$ as bits gives TetA's normals at corners $\{7,4,2,1\}$ and their negatives at $\{0,3,5,6\}$. The binary stellated octahedron and the tetrad's dual tetrahedra are one object.
+
+**Closure → coupling.**
+- Medial-triangle subdivision: each TetA face splits into 4 similar triangles, and TetB's vertex sits at the centre. $K\times K = 16$ channels, organised hierarchically (4 faces × 4 sub-channels).
+- $\beta_0 = \beta_4 = 1$ (exchange), $\beta_1 = \beta_3 = 0$ (orientation parity at the Field Origin), $\beta_2 = K^2 = 16 = \dim C\ell_{1,3} = 2^{D+1}$.
+- Ghost freedom is cited to VIII. It is also said to "guarantee" a Vainshtein mechanism that recovers GR in strong fields.
+
+**Polynomial algebra [T].**
+- $f(4,\pm1,0) = 21, 13, 17$. Closure range $21 - 13 = 8 = 2K = 2^D$.
+- $17/13 = 1 + 1/(3 + 1/4) = [1; D, K]$.
+- Self-reciprocal: $k^2f(1/k,s) = f(k,s)$. Roots $k = (-s\pm\sqrt{s^2-4})/2$ are complex for $|s|\le1$, with $|r| = 1$.
+- $f(k,+1) = \Phi_3(k)$, root phase $2\pi/3$. $f(k,-1) = \Phi_6(k)$, phase $\pi/3$. $s = 0$ gives roots $\pm i$. Sweeping $s\in[-1,1]$ moves the roots through one 60° hexagonal sector (checked: phases 60°, 90°, 120°).
+- $\Phi_3\Phi_6 = k^4 + k^2 + 1$; at $k = 4$, $21\times13 = 273 = 256 + 16 + 1$.
+
+**Action.**
+- Möbius map $s(x) = (x-1)/(x+1)$, so $f(x) = (21x+13)/(x+1)$ and $\mu = (f-13)/8 = x/(x+1)$. "The factor 8 cancels" is read as the vertex count $2^D$ removing itself.
+- $F(y) = y - 2\sqrt y + 2\ln(1+\sqrt y)$, with $F(0) = 0$.
+- $S = \int\sqrt{-g}\,[R/16\pi G - (a_0^2/8\pi G)F + \mathcal L_m]$.
+- Prefactors $16, 8, 4 = K^2, 2K, K$ (channels, vertices, faces), each half the previous.
+- Constants table: $4 = K$, $8 = 2^D$, $12 = KD$, $13 = KD+1$, $16 = K^2$, $17 = K^2+1$, $21 = K^2+K+1$, $64 = K^D$ ("vertex-pair state space").
+
+**$N$-metric family.**
+- $x(1-\mu)^N = \mu$. $N = 2$ at $x = 1$ gives $\mu^2 - 3\mu + 1 = 0$, so $\mu = (3-\sqrt5)/2 = 1/\varphi^2$.
+- Closed form $\mu_2 = (\sqrt{1+4x}-1)/(\sqrt{1+4x}+1)$. Both laws go to $\mu\to x$ for $x\ll1$ and $\mu\to1$ for $x\gg1$, and differ only near $x\approx1$.
+- The family is described as "a discrete hierarchy indexed by closure depth".
+
+**π section [E].**
+- *Octal walk.* Take the octal digits of π ($3.11037552\ldots$) and walk the cube's vertices by cumulative sum mod 8 from vertex 0.
+  - Checked on 12,000 digits: vertices first appear at steps 1, 2, 4, 5, 7, 8, 11, 15.
+  - The time face $\{1,2,4\}$ completes at step 5, as stated.
+  - Visit frequencies are uniform to within ±5%.
+- *BBP formula.* $\pi = \sum16^{-k}[4/(8k+1) - 2/(8k+4) - 1/(8k+5) - 1/(8k+6)]$.
+  - It has period $8 = 2^D$, four active terms ($K$) and base $16 = K^2 = 2^K$.
+  - Its coefficients $\{4,-2,-1,-1\}$ sum to 0 and have magnitudes equal to the binary place values.
+  - $\operatorname{lcm}(3,4) = 12 = KD$.
+- *What the evidence supports.* The paper calls this "an algebraic isomorphism, not a numerical coincidence". The evidence is a match of small integers. Uniform visits under a cumulative-sum walk are expected of any digit sequence that behaves like a normal one. The tag stays [E].
+
+**Chain and open items.**
+- Chain: $d = 3\to$ stellated octahedron $\to(3+1)\to$ tetrad $\to\{\beta_n\}\to\Phi_3/\Phi_6\to\mu\to S_{\rm SST}$.
+- Open, as the paper states them: (i) quantum gravity, where the closure frequency is ~$10^{20}$ Hz; (ii) the closed-form EFT match from the locked Galileons to $\mu$, as in VIII.
+
+**Notes against later work.**
+- As in VIII, $s$ is continuous here; in later notation it is $\sigma(x)$.
+- The displayed action has three terms, but the text cites a "1/4" coupling, which belongs to the $-\tfrac14e^{-2\Phi/c^2}FF$ term of the full SST (§3). The 16 : 8 : 4 reading assumes that term.
+- IX's "$N$ metric sectors" reading of $N = 2$ is superseded by the bound-law reading (§4.6).
+
+## Paper X — One Equation, Two Scales: Tully–Fisher Evolution and the Hubble Constant (`sst_two_scale_jcap`)
+
+*JCAP-format letter. Data served from api.fielddynamics.org. Status: [O] comparisons, using [D]/[E] inputs.*
+
+**Framing.**
+- Starts from the spherical field equation $g_s = g_t^2/(a_0+g_t)$ with $a_0 = 1.2\times10^{-10}$. Limits: $g_s\approx g_t$ (Newton); $g_t\approx\sqrt{g_sa_0}$ (deep field).
+- States the naming explicitly: the four-term action (with $-\tfrac14e^{-2\Phi/c^2}FF$) *is* the SST, and the quadratic is its spherical, static field equation. Prefactors $16, 8, 4 = K^2, 2^D, K$. $F$ is the AQUAL functional for the simple $\mu$; the difference from AQUAL is the derivation, not the mathematics.
+- The forward solver $g_t = \tfrac12[g_s + \sqrt{g_s^2 + 4g_sa_0}]$ is used directly; $\mu$ appears in no computation.
+- SPARC (175 galaxies): RMS "comparable to MOND and ΛCDM" with zero parameters (cited, not re-shown).
+
+**Prediction 1: Tully–Fisher evolution.**
+- In the deep field, $g_t = \sqrt{g_sa_0}$ with $g_t = v^2/r$ and $g_s = GM/r^2$ gives $v^4 = GMa_0$ exactly.
+- $a_0 = (cH/2\pi)\sqrt{K/\pi}$, so $a_0$ grows with $H(z)$. Naively, at fixed $M$, $v(z)/v(0) = [H(z)/H_0]^{1/4}$.
+- **Exponent 0.17.** The stated mechanism: velocities are inferred from photons that crossed the scalar field. The disformal coupling changes the photon metric and "partially screens" the evolution, with the aperture factor $\sqrt{K/\pi} = 1.128$ setting the share absorbed. The full derivation is cited to nelson2025a.
+- Prediction $v(z)/v(0) = [H(z)/H_0]^{0.17}$ with $H(z) = H_0\sqrt{0.3(1+z)^3 + 0.7}$.
+- Recomputed: 1.026, 1.057, 1.090, 1.101, 1.154, 1.203, 1.222, 1.289 at $z$ = 0.3, 0.6, 0.9, 1.0, 1.5, 2.0, 2.2, 3.0; residuals ≤ 0.38σ; $\chi^2 = 0.339$ over 8 points. All reproduce the table.
+- SINS BX442 ($z = 2.18$, +27%): GFD gives 1.220.
+- Falsifier: $z = 4$ gives 1.363 (ΛCDM 1.0, naive ¼-power 1.58). Any $z>3$ value below the band or above 1.4 falsifies.
+
+**Prediction 2: $H_0$.**
+- $H_0 = 2\pi a_0/(c\sqrt{K/\pi}) = 70.21$.
+- Band ±6.2% from $(K/\pi)^{1/4} = 1.0623$, applied linearly: 65.9–74.6. It contains Planck 67.4, TRGB 69.8, GW170817 70.0, SH0ES 73.04, megamasers 73.9 and TDCOSMO 74.2.
+- Tension reframed: Planck's ΛCDM fit ignores the sub-$a_0$ enhancement (pulls low); SH0ES's Newtonian calibration in Cepheid-host outskirts pulls high. Stated as "may", not computed.
+
+**Arithmetic check (inputs).**
+- 70.21 needs $a_0 = 1.225\times10^{-10}$ (the $16Gm_e/r_e^2$ value). The opening's $a_0 = 1.2\times10^{-10}$ gives 68.78.
+- The "naive $cH/2\pi$" 78.9 uses $a_0 = 1.22\times10^{-10}$; with 1.225 it is 79.2.
+- So the letter mixes three $a_0$ inputs. The relation itself is unaffected; only the quoted numbers carry different $a_0$ (see §7.4).
+
+**Notes against other papers.**
+- Paper II obtains the same 0.17 as $(1-1/\pi)/4$ from the tiling scaling $a_0\propto H^{1-1/\pi}$. Paper X attributes it to disformal photon-path screening governed by $\sqrt{K/\pi}$.
+- These are two different stated mechanisms for one number. Neither letter shows the other's route, and Part I §6.4 now records both.
+
+## Paper XI — Nuclear Shell Structure and Binding Energies from Tetrahedral Packing at $K = 4$
+
+*Letter. Supplementary material: a pure-Python 82-isotope validation script and an interactive periodic table. Status: [E] throughout. The paper separates "what is established" from "what is not".*
+
+**Setup.**
+- *Two tetrahedra, four ways* (as VI/VII): Hassan–Rosen; BD-ghost cancellation by opposite orientations; the $SL(2,\mathbb C)$ double cover; Ashtekar's self-dual/anti-self-dual split.
+- *A new packing route.* Twelve FCC neighbours (Kepler, Hales) give twelve boundary planes, which sort into four groups of three sharing a normal. That makes a tetrahedron, and the opposite normals make the inverted one.
+- *Roles.* TetA is outward and carries the massless mode ("the unbound gravitational field: spacetime itself, the ocean"). TetB is the bounded interior and carries the massive mode. The Field Origin is the Hassan–Rosen interaction vertex.
+- *Three structural types.*
+  - $\det e\ne0$ (1).
+  - The frame $e^a{}_\mu$ ($K$).
+  - A $K\times K$ coupling matrix ($K^2$). The text writes this as "a connection ($\eta_{ab}$)", but $\eta_{ab}$ is the Minkowski metric; elsewhere this level is the frame-transition matrix $S$.
+
+**Binding formula.**
+- Packing $A$ fields into a host's TetB cavity crosses the full Field Origin ($N = 2$ faces), so the bound law applies: $x(1-\mu)^2 = \mu$, $\mu_2 = [(2x+1) - \sqrt{4x+1}]/(2x)$.
+- Nuclear map $s_2 = 2\mu_2 - 1$ with compression $x = A^2$.
+- $\mathrm{BE}/A = C[f(K, s_2(A^2)) - 17] = C[8\mu_2(A^2) - 4]$, with $C = m_ec^2\cdot17/K = 2.1717$ MeV. The fitted value is 2.16 (0.54%).
+- The range $f\in[13,21]$ maps to $\pm4C$. Zero binding falls at $f = 17$, i.e. $\mu_2 = \tfrac12$, i.e. $x = 2$.
+- Asymptotic ceiling $4C = 17\,m_ec^2 = 8.687$ MeV; the Fe-56 peak is 8.790.
+- Recomputed from the formula:
+
+  | Nucleus | Formula (MeV) | Observed (MeV) | Error |
+  |---|---|---|---|
+  | He-4 | 4.853 | 7.074 | −31% (the stated outlier, "$A = K$ resonance") |
+  | C-12 | 7.30 | 7.68 | −5.0% |
+  | O-16 | 7.64 | 7.98 | −4.3% |
+  | Ca-40 | 8.26 | 8.55 | −3.4% |
+  | Fe-56 | 8.38 | 8.79 | −4.7% |
+  | Sn-120 | 8.54 | 8.51 | +0.4% |
+  | Pb-208 | 8.60 | 7.87 | +9.4% |
+  | Bi-209 | 8.60 | 7.85 | +9.6% |
+
+- Stated statistics on 82 isotopes: $R^2 = 0.991$ on total BE; mean |error| in BE/A 3.9% (3.5% without He-4); 79% within 5%, 98% within 10%; Bethe–Weizsäcker needs five fitted parameters.
+- **Shape of the curve.** $\mu_2(A^2)$ is monotonic, so the formula rises toward 8.687 and has no maximum. The Fe peak and the decline toward Pb are not reproduced: light and middle nuclei are under-predicted by about 4–5%, heavy ones over-predicted by 6–10%.
+- The paper attributes the heavy-end excess to Coulomb repulsion (∝ $Z^2$). It also reports that subtracting a standard Coulomb term worsens the fit, and records the effect as not yet separated.
+- Deuterium is outside the tested set (the formula gives 1.90 vs 1.11).
+
+**Magic numbers.**
+- $T(n) = n(n+1)(n+2)/6$; gate $G(n) = 0$ for $n<K$, $(n-1)n/2$ for $n\ge K$ (Sierpiński: the central sub-triangle is removed at each level); $P = T - G$.
+- $M(n) = 2P(n)$, where the 2 is two time-face orientations (spin).
+- At $K = 4$: $M = 2, 8, 20, 28, 50, 82, 126, 184, 258$. Shell sizes are $S = 2, 6, 12, 8, 22, 32, 44, 58, 74$.
+- $S_3 = 12 > S_4 = 8$ is presented as the spin–orbit inversion, "a theorem": below $K$ the sizes are $n(n+1)$, and at $n = K$ the size is $2K$; $DK = 12 > 2K = 8$ because $D>2$.
+- **Uniqueness, recomputed for $K = 2..10$.** Only $K = 4$ contains all seven magic numbers.
+  - The paper's two examples are swapped. $K = 3$ gives 2, 8, **14**, 28, …, so it misses **20**. $K = 5$ gives 2, 8, 20, **40**, 50, …, so it misses **28**.
+  - $K$ enters only as the onset of gate exclusion. The gate $(n-1)n/2$ itself does not depend on $K$, so every $K\le n$ gives the same $M(n)$.
+
+**Stability ceiling.**
+- Nesting depth $K$ (3 + 1); address space $K^K = 256$.
+- $M(8) = 184$ is allowed, which the paper links to the island of stability ($Z\approx114$, $N = 126$–184).
+- $M(9) = 258$ exceeds 256 by 2 (the time faces).
+- Bi-209 uses 81.6% of the space. Fm-258 ($A = M(9)$) fissions spontaneously, $t_{1/2}\approx370\ \mu$s.
+
+**One polynomial, two scales.**
+- $N$ counts the faces on the coupling path. $N = 1$ (galaxies): $s_1 = (x-1)/(x+1)$, $\mu_1 = x/(x+1)$, AQUAL $F$. $N = 2$ (nuclei): $f = 13 + 8\mu_2(A^2)$.
+- This is the reading Part I uses: one-directional law for galaxies, bound law for nuclei. Here it is motivated by face crossings. research/aqual derives it instead as the exchange image of the source form.
+
+**Small errata.**
+- The text gives the locked bimetric set as $\{1, 0, K, 0, 1\}$; elsewhere (and correctly, $\beta_2 = K^2$) it is $\{1,0,16,0,1\}$.
+- The abstract says "83 stable elements" but tests 82 isotopes (He-4 to Bi-209).
+
+## Paper XII — Dual Tetrad Covariance: the GFD Scalar–Tensor Action and the Hassan–Rosen Potential as Two Projections of One Geometry (v9)
+
+*REVTeX letter. Supplementary scripts: `gfd_structured_derivation.py` (the lock: theorems, axioms, counterexamples, impedance) and `gfd_bimetric_concordance.py` (six checks, integer scan, plots). Status: three [T] theorems, three axioms stated as postulates, and [O] concordance.*
+
+**The GFD side.**
+- The four-term action, with prefactors $16\pi G = K^2\pi G_{\rm eff}$, $8\pi G = 2^D\pi G_{\rm eff}$ and $1/4 = 1/K$.
+- $\mu(\sqrt y) = F'(y)$. In the spherical, static limit the action gives $g_s = g_t^2/(a_0+g_t)$, read both ways, with decode $M_{\rm dec} = rv^4/[G(a_0r + v^2)]$.
+- Observational status as listed:
+  - 179 SPARC rotation curves via the decode formula (X says 175; RAR uses 164 at $Q\le2$).
+  - CMB $E = 6.44$ vs $\Omega_m/\Omega_b = 6.36\pm0.10$ (0.8σ).
+  - TF evolution, $\chi^2/{\rm dof} = 0.04$.
+  - $H_0 = 70.21$ ± 6.2%.
+
+**The Hassan–Rosen side.**
+- $S = M_g^2\!\int\!\sqrt{-g}R_g + M_f^2\!\int\!\sqrt{-f}R_f + m^2M_g^2\!\int\!\sqrt{-g}\sum\beta_ne_n(S)$, with $S = \sqrt{g^{-1}f}$.
+- Högås & Mörtsell (2025; DESI DR2 + Planck + ACT + SNe; seven-parameter MCMC): $\theta = 6.1^{+1.7}_{-2.1}$°, $H_0 = 69.0\pm0.4$.
+
+**Dictionary.** TetA ↔ $e$, TetB ↔ $\tilde e$, stellated octahedron ↔ interaction domain, central octahedron ↔ proportional background, Field Origin ↔ $S = I$, and the $f$-vector $(8,12,8)$, 28 elements ↔ "five $\beta_n$ to be determined".
+
+**The lock, with theorems kept separate from axioms.**
+- **T1 (exchange identity).** $e_n(S^{-1}) = e_{4-n}(S)$ for $\det S = 1$ (Cayley–Hamilton; in general divide by $\det S$).
+- **T2 (pairing).** If $V(S) = V(S^{-1})$ on the unimodular sector, then $\beta_0 = \beta_4$ and $\beta_1 = \beta_3$.
+- **T3 (Hessian rank).** The Hessian of $e_2$ over the 16 entries at $S = I$, $\partial^2e_2/\partial S_{ij}\partial S_{kl} = \delta_{ij}\delta_{kl} - \delta_{il}\delta_{jk}$, has full rank 16 with spectrum $+3\,(\times1)$, $+1\,(\times6)$, $-1\,(\times9)$. Recomputed: confirmed. The form is indefinite but has no null directions.
+- **A1 (symmetric lock).** A balanced closure at the origin excludes the pair $(e_1, e_3)$, which swaps under $S\to S^{-1}$ instead of mapping to itself. So $\beta_1 = \beta_3 = 0$. The paper says plainly that generic ghost-free theories allow $\beta_1 = \beta_3\ne0$, and that A1 selects a subclass.
+- **A2 (normalisation).** $\beta_0 = K^0 = 1$, hence $\beta_4 = 1$.
+- **A3 (quadratic completeness).** $\beta_2$ equals the Hessian multiplicity, 16. Three routes converge: variational (T3), combinatorial ($4\times4$ medial channels) and algebraic ($\dim C\ell(1,3)$). T3 fixes the rank. Setting the weight equal to the rank is the axiom.
+- Counterexamples: drop A1 → $\{a,b,c,b,a\}$; drop A2 → $\{a,0,16,0,a\}$; drop A3 → $\{1,0,c,0,1\}$.
+- Compared with VIII, the odd terms here come from an axiom (A1), not from orientation parity $\lambda\to-\lambda$. XII is the more careful statement.
+
+**Six concordance checks.**
+1. *Expansion.* The Bianchi bracket $\beta_1 + 2\beta_2y + \beta_3y^2 = 32y\ne0$ forces the finite branch, which is viable at $\theta = 6.1°$.
+2. *BBN.* $\Delta N_{\rm eff} = 0.07 < 0.5$.
+3. *CMB.* $E = 6.44$ vs $6.36\pm0.10$, stated as concordance with $\mu$, not a result of the $\beta_n$.
+4. and 5. *Screening and Galileons.* $\beta_1 = \beta_3 = 0$ "kills the cubic and quintic Galileons"; the quartic survives with $c_3 = \tfrac32\beta_2 = 24$. This is stated, not derived, in the letter.
+6. *Mixing angle.* $\tan\theta = D/(V+E+F) = 3/28$, $\theta = 6.1155°$ (recomputed), $0.016°$ from H–M's central value.
+- *Integer scan, $\beta_2 = 1..30$.* Every value is viable at $\theta = 6.1°$, and the data cannot tell 15, 16 and 17 apart. The paper states that the selection of 16 is structural (A3), not observational.
+
+**Term-by-term map.**
+
+| GFD | Hassan–Rosen | Origin |
+|---|---|---|
+| $16\pi G$ | $\beta_2 = 16$ | $K^2$ |
+| $8\pi G$ | scalar sector | $2^D$ |
+| $1/4$ | $K$ faces | — |
+| $\mu = x/(x+1)$ | $V = e_0 + 16e_2 + e_4$ | partition ↔ potential |
+| $\tan\theta = 3/28$ | $\theta$ | — |
+| $\Delta\mu = 2/17$ | boundary overhead | — |
+
+- The scalar sector: $F$'s three terms ↔ $K^2$, $sK$, $K^0$. This is said to be "the same scalar content" as the Galileon sector with $c_3 = 24$; no calculation is given.
+- **Topological coupling impedance.** $\Delta\mu = (\beta_0+\beta_4)/f(0) = 2/17 = 0.11765$, compared with $\tfrac12 - 1/\varphi^2 = 0.11803$, a 0.33% gap (recomputed). The $1/\varphi^2$ is attributed here to "quartic Galileon screening in the decoupling limit". Elsewhere it is $\mu_b(1)$ of the bound law.
+- The text says the impedance sits at the vertex inside the vortex, and the exterior decode integrates over it.
+
+**Notes against other papers.**
+- *CMB numbers.* XII's 6.44 differs from Paper II's 6.46 (Part I §7.2). XII's comparator $6.36\pm0.10$ differs from Paper II's target 6.40 ($1.185/0.185$); Planck 2018 central values give 6.39–6.40.
+- *Open matching.* XII claims the two actions "produce the same field content". The explicit match from Galileons to $\mu$ that VIII and IX list as open is still not computed here; the scalar-sector row is asserted.
