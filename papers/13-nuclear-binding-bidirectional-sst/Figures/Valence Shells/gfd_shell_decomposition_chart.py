@@ -2,7 +2,7 @@
 """
 GFD Shell Decomposition — 4-Panel Chart
 =========================================
-Shows how the SST walk partitions nucleons into shells
+Shows how the bound-law walk partitions nucleons into shells
 via packing algebra magic numbers.
 
 M(n) = 2[T(n) - G(n)]
@@ -93,12 +93,12 @@ ELEMENTS = [
 
 
 def draw_shell_chart(ax, sym, A, Z, ba_known):
-    """Draw μ_SST scatter chart with shell-colored dots and pastel band backgrounds."""
+    """Draw μ_b scatter chart with shell-colored dots and pastel band backgrounds."""
     
     positions = list(range(1, 65))
     mu_vals = [mu_sst(i*i) for i in positions]
     
-    # SST continuous curve
+    # bound-law continuous curve
     x_cont = np.linspace(1, 64, 500)
     y_cont = [mu_sst(x*x) for x in x_cont]
     ax.plot(x_cont, y_cont, color='#00b89480', linewidth=1.5, zorder=1)
@@ -195,7 +195,7 @@ def draw_shell_chart(ax, sym, A, Z, ba_known):
     
     ax.set_xlim(0, 68)
     ax.set_ylim(-0.12, 1.05)
-    ax.set_ylabel(r'$\mu_{\mathrm{SST}}(i^2)$', fontsize=8, color='#333333')
+    ax.set_ylabel(r'$\mu_{\mathrm{b}}(i^2)$', fontsize=8, color='#333333')
     ax.set_xlabel('Walk position $i$', fontsize=8, color='#333333')
     ax.tick_params(labelsize=6, colors='#444444')
     ax.grid(True, axis='y', alpha=0.1, color='#999999')

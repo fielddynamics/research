@@ -131,7 +131,7 @@ pdflatex -interaction=nonstopmode constitutive_law_exchange_symmetry.tex
 
 - [*The Gravitational Constitutive Law from the Tetrad Frame Geometry*](../../papers/letter-constitutive-law-tetrad-geometry/): the main letter, with the three routes to $\mu(x)$.
 - [Equilibrium route](../../papers/letter-constitutive-law-tetrad-geometry/Supplementary/supplementary_equilibrium_route.tex): the same law from single-channel detailed balance.
-- **Paper XIII**, [*Nuclear Binding Energy from the Bidirectional Scalar-Tensor Transition*](../../papers/13-nuclear-binding-bidirectional-sst/): one-directional and bidirectional coupling, and the bound-state law.
+- **Paper XIII**, [*Nuclear Binding Energy from the Bidirectional Constitutive Law*](../../papers/13-nuclear-binding-bidirectional-sst/): one-directional and bidirectional coupling, and the bound-state law.
 - [Bound and Unbound Gravity](../../research/bound-gravity-and-packing/): the two states of a gravity field.
 
 ---

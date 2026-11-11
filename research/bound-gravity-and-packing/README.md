@@ -54,7 +54,7 @@ python gfd_gravity_field_packing_20.py      # 20/20
 
 - **Paper VII**, [*Dual Tetrad Topology and the Field Origin*](../../papers/07-dual-tetrad-topology-field-origin/): unbound and bound envelopes, Field Atoms and Field Objects, stellar compression.
 - **Paper XI**, [*Nuclear Shell Structure and Binding Energies from Tetrahedral Packing at K = 4*](../../papers/11-nuclear-shells-tetrahedral-packing/): compression into the TetB cavity, $x = A^2$, the energy constant from the electron mass.
-- **Paper XIII**, [*Nuclear Binding Energy from the Bidirectional Scalar-Tensor Transition*](../../papers/13-nuclear-binding-bidirectional-sst/): the self-consistent law, the full binding curve through sector crossings, the magic numbers, the end of stability at lead-208.
+- **Paper XIII**, [*Nuclear Binding Energy from the Bidirectional Constitutive Law*](../../papers/13-nuclear-binding-bidirectional-sst/): the self-consistent law, the full binding curve through sector crossings, the magic numbers, the end of stability at lead-208.
 
 ---
 

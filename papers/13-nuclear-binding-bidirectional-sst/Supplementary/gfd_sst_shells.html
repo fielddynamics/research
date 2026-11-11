@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GFD SST Shell Structure Explorer</title>
+<title>GFD Bound-Law Shell Structure Explorer</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
 :root {
@@ -89,7 +89,7 @@ canvas{display:block;}
 
 <div class="sidebar">
   <div class="sidebar-head">
-    <h2>SST Shell Explorer</h2>
+    <h2>Bound-Law Shell Explorer</h2>
     <div class="sub">f(K,s) = 1+Ks+K² &middot; K=4, D=3</div>
   </div>
   <div class="el-list" id="elList"></div>
@@ -113,7 +113,7 @@ canvas{display:block;}
 
 <script>
 // ═══════════════════════════════════════
-// GFD CONSTANTS & SST
+// GFD CONSTANTS & BOUND LAW
 // ═══════════════════════════════════════
 const K=4, D=3, M_E=0.51099895;
 const F_ZERO=K*K+1, F_PLUS=K*K+K+1;
@@ -160,11 +160,11 @@ const ELEMENTS=[
   [29,'Cu',63,8.752],[30,'Zn',64,8.756],
 ];
 
-// Precompute SST B/A for all A
-const SST_BA={};
+// Precompute bound-law B/A for all A
+const B_BA={};
 for(let a=1;a<=64;a++){
   let B=0;for(let i=1;i<=a;i++)B+=mu_sst(i*i);
-  SST_BA[a]=SCALE*B/a;
+  B_BA[a]=SCALE*B/a;
 }
 
 // ═══════════════════════════════════════
@@ -178,7 +178,7 @@ ELEMENTS.forEach(([Z,sym,A,BA])=>{
   const div=document.createElement('div');
   div.className='el-item';
   div.dataset.z=Z;
-  const pred=SST_BA[A]||0;
+  const pred=B_BA[A]||0;
   const err=BA>0?Math.abs(pred-BA)/BA*100:0;
   const errCls=err<1?'good':err<2?'':err<5?'warn':'bad';
   div.innerHTML=`<span class="z">${Z}</span><span class="sym">${sym}</span><span class="a">A=${A}</span><span class="ba" style="color:var(--${errCls||'text'})">${BA.toFixed(3)}</span>`;
@@ -240,7 +240,7 @@ function drawChart(el){
   // Y axis label (left: μ)
   ctx.save();ctx.translate(10,mg.t+ph/2);ctx.rotate(-Math.PI/2);
   ctx.fillStyle='#2a3050';ctx.textAlign='center';ctx.font='400 8px "JetBrains Mono"';
-  ctx.fillText('μ_SST(i²)',0,0);ctx.restore();
+  ctx.fillText('μ_b(i²)',0,0);ctx.restore();
 
   // Right Y axis: MeV per position = SCALE × μ
   ctx.font='400 8px "JetBrains Mono"';ctx.fillStyle='#2a3050';ctx.textAlign='left';
@@ -340,7 +340,7 @@ function drawChart(el){
   // Title in chart
   ctx.font='600 11px "JetBrains Mono"';ctx.fillStyle='#3a4060';
   ctx.textAlign='left';
-  ctx.fillText(`μ_SST(i²) — ${sym} (Z=${Z}, A=${A})`,mg.l+4,mg.t+ph-8);
+  ctx.fillText(`μ_b(i²) — ${sym} (Z=${Z}, A=${A})`,mg.l+4,mg.t+ph-8);
 }
 
 // ═══════════════════════════════════════
@@ -361,7 +361,7 @@ canvas.addEventListener('mousemove',(e)=>{
 
   if(closest&&minD<400){
     const [Z,sym,A,BA]=activeEl;
-    const pred=SST_BA[A]||0;
+    const pred=B_BA[A]||0;
     const err_keV=(pred-BA)*1000;
     const err_pct=BA>0?Math.abs(err_keV/10/BA):0;
     const cls=err_pct<1?'good':err_pct<3?'warn':'bad';
@@ -380,7 +380,7 @@ canvas.addEventListener('mousemove',(e)=>{
 
     tooltip.innerHTML=`
       <div class="tt-pos">Position ${closest.i} / ${A}</div>
-      <div class="tt-mu">μ_SST(${closest.i}²) = ${closest.mu.toFixed(6)}</div>
+      <div class="tt-mu">μ_b(${closest.i}²) = ${closest.mu.toFixed(6)}</div>
       <div class="tt-shell" style="color:${shellColor(closest.shell)}">
         Shell n=${closest.shell} · closes at M=${mc}
       </div>
@@ -417,7 +417,7 @@ canvas.addEventListener('mouseleave',()=>{tooltip.className='tooltip';});
 
 function updateInfo(el){
   const [Z,sym,A,BA]=el;
-  const pred=SST_BA[A]||0;
+  const pred=B_BA[A]||0;
   const err_keV=(pred-BA)*1000;
   const err_pct=BA>0?Math.abs(err_keV/10/BA):0;
   const cls=err_pct<1?'good':err_pct<3?'warn':'bad';

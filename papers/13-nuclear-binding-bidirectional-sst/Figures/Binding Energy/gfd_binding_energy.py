@@ -2,20 +2,20 @@
 """
 GFD Nuclear Binding Energy — Single Field Closure
 ===================================================
-Publication chart: SST binding energy curve vs experimental data.
+Publication chart: bound-law binding energy curve vs experimental data.
 
-One field closure. One curve shape — the SST quadratic summed along the
+One field closure. One curve shape — the bound law summed along the
 Sierpinski walk — plotted and inverted at each K^D boundary.
 
   Round 1 (A = 0 to 64):
-    SST_1      — rising curve, walk fills from position 1
-    SST_1_inv  — CEIL_1 - SST_1, first reflection at K^D = 64
+    B_1        — rising curve, walk fills from position 1
+    B_1_inv  — CEIL_1 - B_1, first reflection at K^D = 64
 
   Round 2 (A = 64 onward):
-    SST_2_inv  — CEIL_2 - SST_local(A-64), walk restarts at A = 64
+    B_2_inv  — CEIL_2 - B_local(A-64), walk restarts at A = 64
 
   Round 3 (A = 128 onward):
-    SST_3_inv  — CEIL_3 - SST_local(A-128), walk restarts at A = 128
+    B_3_inv  — CEIL_3 - B_local(A-128), walk restarts at A = 128
 
 B/A = min(active curves)
 
@@ -33,7 +33,7 @@ One rule, applied uniformly:
   CEIL_3 = 8.756 + 8.199 = 16.955  (at A=192)
 
 The drops between ceilings (0.371, 0.186) decay with ratio
-mu_SST(2) = 1/2 — the bound-state field origin. This is a
+mu_b(2) = 1/2 — the bound-state field origin. This is a
 consequence of the sum rule, not a separate construction.
 
 Stephen Nelson — Gravity Field Dynamics
@@ -52,7 +52,7 @@ from matplotlib.ticker import MultipleLocator
 K = 4; D = 3; KD = K**D  # 64
 
 def mu_sst(x):
-    """SST quadratic: bound-state constitutive law."""
+    """bound law: bound-state constitutive law."""
     if x <= 0: return 0
     return ((2*x + 1) - math.sqrt(4*x + 1)) / (2*x)
 
@@ -64,14 +64,14 @@ MAX_FILL = BA_ZN  # one complete 64-position walk
 SUM_KD = sum(mu_sst(i*i) for i in range(1, KD + 1))  # 59.928
 
 def sst_curve(A):
-    """Rising SST curve: B/A(Zn) * (K^D / A) * (sum_A / sum_KD).
+    """Rising bound-law curve: B/A(Zn) * (K^D / A) * (sum_A / sum_KD).
     No opaque SCALE constant. Every term is physical."""
     if A < 1: return 0
     sum_A = sum(mu_sst(i*i) for i in range(1, A + 1))
     return BA_ZN * (KD / A) * (sum_A / SUM_KD)
 
 def sst_local(n):
-    """SST curve for a walk restarted from position 1, covering n positions."""
+    """Bound-law curve for a walk restarted from position 1, covering n positions."""
     if n < 1: return 0
     sum_n = sum(mu_sst(i*i) for i in range(1, n + 1))
     return BA_ZN * (KD / n) * (sum_n / SUM_KD)
@@ -137,7 +137,7 @@ print(f"  CEIL_2 = {CEIL_2:.4f},  max_fill + ba(128) = {ceil_2_check:.4f},  diff
 print(f"  CEIL_3 = {CEIL_3:.4f},  max_fill + ba(192) = {ceil_3_check:.4f},  diff = {abs(CEIL_3 - ceil_3_check):.6f}")
 print(f"")
 print(f"Ceiling drops: {drop_1:.4f}, {drop_2:.4f}")
-print(f"Ratio = {ratio:.4f}  (mu_SST(2) = {mu_sst(2):.4f})")
+print(f"Ratio = {ratio:.4f}  (mu_b(2) = {mu_sst(2):.4f})")
 
 # =====================================================================
 # ENVELOPE
@@ -245,21 +245,21 @@ for ax in (ax1, ax2):
 
 # Round 1
 ax1.plot(A_range, sst1, color='#c8a020', linewidth=1.5, alpha=0.5, zorder=2,
-         label=r'SST$_1$')
+         label=r'$B_1$')
 ax1.plot(A_range, sst1_inv, color='#c03030', linewidth=1.5, alpha=0.5, zorder=2,
-         label=f'SST$_1$ inv  (ceil = {CEIL_1:.3f})')
+         label=f'$B_1$ inv  (ceil = {CEIL_1:.3f})')
 
 # Round 2
 mask_r2 = A_range > 64
 ax1.plot(A_range[mask_r2], sst2_inv[mask_r2], color='#7848b0', linewidth=1.5,
          alpha=0.5, zorder=2,
-         label=f'SST$_2$ inv  (ceil = {CEIL_2:.3f})')
+         label=f'$B_2$ inv  (ceil = {CEIL_2:.3f})')
 
 # Round 3
 mask_r3 = A_range > 128
 ax1.plot(A_range[mask_r3], sst3_inv[mask_r3], color='#3088c0', linewidth=1.5,
          alpha=0.5, zorder=2,
-         label=f'SST$_3$ inv  (ceil = {CEIL_3:.3f})')
+         label=f'$B_3$ inv  (ceil = {CEIL_3:.3f})')
 
 # Envelope
 ax1.plot(A_range, model, color='#008870', linewidth=2.5, zorder=4, alpha=0.85,
@@ -305,11 +305,11 @@ ax1.legend(loc='upper right', fontsize=6.5, facecolor='white', edgecolor='#ccccc
 
 # Equations on chart
 ax1.text(0.98, 0.30,
-         r'$\mu_{\mathrm{SST}}(x) = \frac{(2x+1) - \sqrt{4x+1}}{2x}$',
+         r'$\mu_{\mathrm{b}}(x) = \frac{(2x+1) - \sqrt{4x+1}}{2x}$',
          transform=ax1.transAxes, fontsize=10, color='#00887080',
          va='bottom', ha='right')
 ax1.text(0.98, 0.20,
-         r'$\mathrm{SST}(A) = \frac{B}{A}(\mathrm{Zn})'
+         r'$B_1(A) = \frac{B}{A}(\mathrm{Zn})'
          r'\cdot\frac{K^D}{A}\cdot\frac{\Sigma_A}{\Sigma_{K^D}}$',
          transform=ax1.transAxes, fontsize=10, color='#c8a02080',
          va='bottom', ha='right')
@@ -322,7 +322,7 @@ ax1.text(0.98, 0.04, stats, transform=ax1.transAxes, fontsize=7,
          va='bottom', ha='right', color='#555555', fontfamily='monospace',
          bbox=dict(boxstyle='round,pad=0.4', facecolor='#f8f8f8', edgecolor='#cccccc'))
 
-ax1.set_title('Nuclear Binding Energy from Bidirectional SST',
+ax1.set_title('Nuclear Binding Energy from the Bidirectional Constitutive Law',
               fontsize=12, color='#222222', pad=10, fontfamily='serif')
 
 # Residual panel

@@ -219,7 +219,7 @@ for gd in range(4):
              va='center')
 
 fig.text(0.5, 0.005,
-         r'$\mu_{\mathrm{SST}}(x) = [(2x\!+\!1) - \sqrt{4x\!+\!1}]\,/\,2x$'
+         r'$\mu_{\mathrm{b}}(x) = [(2x\!+\!1) - \sqrt{4x\!+\!1}]\,/\,2x$'
          r'$\qquad K\!=\!4,\ D\!=\!3,\ K^D\!=\!64$',
          ha='center', fontsize=7, color='#888888', style='italic')
 

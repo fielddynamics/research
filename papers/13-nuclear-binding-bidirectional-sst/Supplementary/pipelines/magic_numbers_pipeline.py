@@ -294,7 +294,7 @@ print(f"""  The shell closures and binding energy share the same walk.
     No field equation involved.
 
   Binding energy pipeline:
-    Uses mu_SST(i^2) at each walk position.
+    Uses mu_b(i^2) at each walk position.
     Produces a continuous curve.
     Calibrated from one element (Zn-64).
 

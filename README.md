@@ -146,7 +146,7 @@ Shows how the coupling polynomial fixes the five free Hassan–Rosen bimetric co
 [`papers/09-complete-field-closure/`](papers/09-complete-field-closure/) <!-- Zenodo DOI -->
 Derives both the topology and the closure condition of gravity from the single equation 2(d + 1) = 2^d, whose only solution d = 3 fixes K = 4 and produces the stellated octahedron and the 3+1 split. Comes with the largest test collection (`Tests/`, `supplementary/`).
 
-**X — Two-Scale Kinematics from a Single Scalar-Tensor Transition**
+**X — Two-Scale Kinematics from a Single Field Equation**
 [`papers/10-two-scale-kinematics-tully-fisher-h0/`](papers/10-two-scale-kinematics-tully-fisher-h0/) <!-- Zenodo DOI -->
 Applies the same spherical field equation, `g_s = g_t² / (a₀ + g_t)`, at galactic and cosmological scales to predict the redshift evolution of the baryonic Tully–Fisher relation to z = 3 and H₀ = 70.21 km/s/Mpc, with a ±6% band containing both the Planck and SH0ES values.
 
@@ -158,7 +158,7 @@ Gives a one-line binding-energy formula from the coupling polynomial, tested acr
 [`papers/12-dual-tetrad-covariance-hassan-rosen/`](papers/12-dual-tetrad-covariance-hassan-rosen/) (source only) <!-- Zenodo DOI -->
 Develops Paper VIII into a term-by-term correspondence between the two actions, locks the bimetric coefficients through three theorems and three axioms, and checks the result against six concordance tests (expansion history, BBN, CMB, Vainshtein screening, Galileon hierarchy, mixing angle).
 
-**XIII — Nuclear Binding Energy from the Bidirectional Scalar-Tensor Transition**
+**XIII — Nuclear Binding Energy from the Bidirectional Constitutive Law**
 [`papers/13-nuclear-binding-bidirectional-sst/`](papers/13-nuclear-binding-bidirectional-sst/) <!-- Zenodo DOI -->
 Uses the self-consistent (bound) form of the constitutive law, $x(1-\mu)^2 = \mu$, the bidirectional counterpart of the law used for galaxy rotation curves, evaluated along a 64-step walk to reproduce the seven magic numbers (including the 20 → 28 gap without spin–orbit coupling) and binding energy per nucleon from helium to lead. The earlier draft is in `working-draft/`.
 

@@ -2,20 +2,20 @@
 """
 Nuclear Binding Energy Pipeline
 ================================
-Step-by-step implementation of the SST quadratic binding energy construction.
+Step-by-step implementation of the bound law binding energy construction.
 
 Each function maps directly to a step in nuclear_binding_pipeline.md.
 Run this script to reproduce every number in the pipeline document.
 
 Inputs:
-  - mu_SST(x) = [(2x+1) - sqrt(4x+1)] / 2x
+  - mu_b(x) = [(2x+1) - sqrt(4x+1)] / 2x
   - K = 4, D = 3, K^D = 64
   - B/A(Zn-64) = 8.756 MeV
 
 Outputs:
   - Magic numbers: 2, 8, 20, 28, 50, 82, 126
   - Binding energy curve from He to Pb at MAE = 95 keV
-  - Ceiling sequence governed by mu_SST(2) = 1/2
+  - Ceiling sequence governed by mu_b(2) = 1/2
 
 Stephen Nelson — Gravity Field Dynamics
 """
@@ -34,7 +34,7 @@ BA_ZN = 8.756  # B/A(Zn-64) in MeV — the single calibration point
 
 
 def mu_sst(x):
-    """SST quadratic: bound-state constitutive law.
+    """bound law: bound-state constitutive law.
 
     The self-consistent solution of x(1-mu)^2 = mu.
     Physical root satisfying 0 < mu < 1 for x > 0.
@@ -49,9 +49,9 @@ def mu_sst(x):
 # =====================================================================
 
 def coupling_sum(A):
-    """Sum of mu_SST(i^2) from i=1 to A.
+    """Sum of mu_b(i^2) from i=1 to A.
 
-    Each walk position i contributes mu_SST(i^2) to the collective binding.
+    Each walk position i contributes mu_b(i^2) to the collective binding.
     x = i^2 maps position to acceleration ratio (Jacobian: dx = 2i di).
     """
     return sum(mu_sst(i*i) for i in range(1, A + 1))
@@ -63,18 +63,18 @@ SUM_KD = coupling_sum(KD)  # 59.928
 print("=" * 70)
 print("STEP 1: Coupling sum")
 print("=" * 70)
-print(f"  SUM_KD = sum(mu_SST(i^2), i=1..64) = {SUM_KD:.4f}")
+print(f"  SUM_KD = sum(mu_b(i^2), i=1..64) = {SUM_KD:.4f}")
 print(f"  Individual values:")
 for i in [1, 2, 4, 8, 16, 32, 64]:
-    print(f"    mu_SST({i}^2) = mu_SST({i*i}) = {mu_sst(i*i):.6f}")
+    print(f"    mu_b({i}^2) = mu_b({i*i}) = {mu_sst(i*i):.6f}")
 
 
 # =====================================================================
-# STEP 2: THE RISING CURVE (SST_1)
+# STEP 2: THE RISING CURVE (B_1)
 # =====================================================================
 
 def sst_curve(A):
-    """Rising SST curve: B/A(Zn) * (K^D / A) * (sum_A / sum_KD).
+    """Rising bound-law curve: B/A(Zn) * (K^D / A) * (sum_A / sum_KD).
 
     Three terms:
       B/A(Zn)          — energy scale (MeV)
@@ -90,7 +90,7 @@ def sst_curve(A):
 
 
 def sst_local(n):
-    """SST curve for a walk restarted from position 1, covering n positions.
+    """bound-law curve for a walk restarted from position 1, covering n positions.
 
     Identical to sst_curve(n) — a fresh walk always starts from position 1.
     Named separately for clarity when used in sector-crossing reflections.
@@ -99,9 +99,9 @@ def sst_local(n):
 
 
 print(f"\n{'=' * 70}")
-print("STEP 2: Rising curve (SST_1)")
+print("STEP 2: Rising curve (B_1)")
 print("=" * 70)
-print(f"  SST_1(A) = B/A(Zn) * (K^D / A) * (sum_A / sum_KD)")
+print(f"  B_1(A) = B/A(Zn) * (K^D / A) * (sum_A / sum_KD)")
 print(f"")
 test_A = [4, 12, 28, 56, 64, 100, 128, 192, 208]
 for A in test_A:
@@ -110,7 +110,7 @@ for A in test_A:
     share = KD / A
     val = sst_curve(A)
     print(f"  A={A:>3}:  sum={sum_A:>7.3f}  frac={frac:.4f}  "
-          f"share={share:.4f}  SST_1 = {val:.4f} MeV")
+          f"share={share:.4f}  B_1 = {val:.4f} MeV")
 
 
 # =====================================================================
@@ -118,7 +118,7 @@ for A in test_A:
 # =====================================================================
 
 # One formula for every ceiling:
-#   CEIL = BA_ZN + prev - mu_SST(2) * (BA_ZN - prev)
+#   CEIL = BA_ZN + prev - mu_b(2) * (BA_ZN - prev)
 # where prev = B/A at the sector boundary from all previously established sectors.
 
 MU_HALF = mu_sst(2)  # exactly 0.5
@@ -127,10 +127,10 @@ MU_HALF = mu_sst(2)  # exactly 0.5
 def ceiling(prev):
     """Unified ceiling formula. Applied identically at every sector boundary.
 
-    CEIL = B/A(Zn) + prev - mu_SST(2) * [B/A(Zn) - prev]
+    CEIL = B/A(Zn) + prev - mu_b(2) * [B/A(Zn) - prev]
 
     prev = B/A at the sector boundary from all previously established sectors.
-    mu_SST(2) = 1/2 is the bound-state field origin.
+    mu_b(2) = 1/2 is the bound-state field origin.
     """
     return BA_ZN + prev - MU_HALF * (BA_ZN - prev)
 
@@ -139,13 +139,13 @@ def ceiling(prev):
 prev_1 = BA_ZN
 CEIL_1 = ceiling(prev_1)
 
-# CEIL_2: sector 0 established. prev = SST_1_inv(128) from sector 0
+# CEIL_2: sector 0 established. prev = B_1_inv(128) from sector 0
 sst1_inv_128 = CEIL_1 - sst_curve(128)
 prev_2 = sst1_inv_128
 CEIL_2 = ceiling(prev_2)
 
 # CEIL_3: sectors 0+1 established. prev = envelope at A=128 updated by sector 1
-#   SST_2_inv(128) = CEIL_2 - sst_local(64) = CEIL_2 - BA_ZN
+#   B_2_inv(128) = CEIL_2 - sst_local(64) = CEIL_2 - BA_ZN
 sst2_inv_128 = CEIL_2 - BA_ZN
 prev_3 = min(sst1_inv_128, sst2_inv_128)  # sector 1 has taken over
 CEIL_3 = ceiling(prev_3)
@@ -156,24 +156,24 @@ delta = CEIL_1 - CEIL_2
 print(f"\n{'=' * 70}")
 print("STEP 5: Ceiling sequence")
 print("=" * 70)
-print(f"  One formula: CEIL = B/A(Zn) + prev - mu_SST(2) * [B/A(Zn) - prev]")
-print(f"  mu_SST(2) = {MU_HALF:.4f} (bound-state field origin)")
+print(f"  One formula: CEIL = B/A(Zn) + prev - mu_b(2) * [B/A(Zn) - prev]")
+print(f"  mu_b(2) = {MU_HALF:.4f} (bound-state field origin)")
 print(f"")
 print(f"  Sector 0:")
 print(f"    prev = B/A(Zn) = {prev_1:.4f} MeV  (no prior sector, no impedance)")
-print(f"    correction = mu_SST(2) * [{BA_ZN:.3f} - {prev_1:.3f}] = {MU_HALF} * {BA_ZN - prev_1:.4f} = {MU_HALF*(BA_ZN - prev_1):.4f}")
+print(f"    correction = mu_b(2) * [{BA_ZN:.3f} - {prev_1:.3f}] = {MU_HALF} * {BA_ZN - prev_1:.4f} = {MU_HALF*(BA_ZN - prev_1):.4f}")
 print(f"    CEIL_1 = {BA_ZN:.3f} + {prev_1:.3f} - {MU_HALF*(BA_ZN - prev_1):.3f} = {CEIL_1:.4f} MeV")
 print(f"")
 print(f"  Sector 1:")
-print(f"    SST_1(128)     = {sst_curve(128):.4f} MeV")
-print(f"    prev = SST_1_inv(128) = {CEIL_1:.3f} - {sst_curve(128):.3f} = {prev_2:.4f} MeV")
-print(f"    correction = mu_SST(2) * [{BA_ZN:.3f} - {prev_2:.3f}] = {MU_HALF} * {BA_ZN - prev_2:.4f} = {MU_HALF*(BA_ZN - prev_2):.4f}")
+print(f"    B_1(128)     = {sst_curve(128):.4f} MeV")
+print(f"    prev = B_1_inv(128) = {CEIL_1:.3f} - {sst_curve(128):.3f} = {prev_2:.4f} MeV")
+print(f"    correction = mu_b(2) * [{BA_ZN:.3f} - {prev_2:.3f}] = {MU_HALF} * {BA_ZN - prev_2:.4f} = {MU_HALF*(BA_ZN - prev_2):.4f}")
 print(f"    CEIL_2 = {BA_ZN:.3f} + {prev_2:.3f} - {MU_HALF*(BA_ZN - prev_2):.3f} = {CEIL_2:.4f} MeV")
 print(f"")
 print(f"  Sector 2:")
-print(f"    SST_2_inv(128) = CEIL_2 - B/A(Zn) = {CEIL_2:.3f} - {BA_ZN:.3f} = {sst2_inv_128:.4f} MeV")
+print(f"    B_2_inv(128) = CEIL_2 - B/A(Zn) = {CEIL_2:.3f} - {BA_ZN:.3f} = {sst2_inv_128:.4f} MeV")
 print(f"    prev = min({sst1_inv_128:.4f}, {sst2_inv_128:.4f}) = {prev_3:.4f} MeV  (sector 1 has taken over)")
-print(f"    correction = mu_SST(2) * [{BA_ZN:.3f} - {prev_3:.3f}] = {MU_HALF} * {BA_ZN - prev_3:.4f} = {MU_HALF*(BA_ZN - prev_3):.4f}")
+print(f"    correction = mu_b(2) * [{BA_ZN:.3f} - {prev_3:.3f}] = {MU_HALF} * {BA_ZN - prev_3:.4f} = {MU_HALF*(BA_ZN - prev_3):.4f}")
 print(f"    CEIL_3 = {BA_ZN:.3f} + {prev_3:.3f} - {MU_HALF*(BA_ZN - prev_3):.3f} = {CEIL_3:.4f} MeV")
 print(f"")
 print(f"  Summary:")
@@ -214,17 +214,17 @@ def sst3_inv(A):
 print(f"\n{'=' * 70}")
 print("STEP 4: Sector-by-sector construction")
 print("=" * 70)
-print(f"  {'A':>5}  {'SST_1':>8}  {'SST1inv':>8}  {'SST2inv':>8}  {'SST3inv':>8}  {'governs':>10}")
+print(f"  {'A':>5}  {'B_1':>8}  {'B1inv':>8}  {'B2inv':>8}  {'B3inv':>8}  {'governs':>10}")
 for A in [32, 56, 64, 80, 100, 110, 128, 150, 192, 208]:
     s1 = sst1(A)
     s1i = sst1_inv(A)
     s2i = sst2_inv(A)
     s3i = sst3_inv(A)
-    vals = {'SST_1': s1, 'SST1inv': s1i}
+    vals = {'B_1': s1, 'B1inv': s1i}
     if A > 64:
-        vals['SST2inv'] = s2i
+        vals['B2inv'] = s2i
     if A > 128:
-        vals['SST3inv'] = s3i
+        vals['B3inv'] = s3i
     gov = min(vals, key=vals.get)
     s2i_str = f"{s2i:8.4f}" if A > 64 else "     n/a"
     s3i_str = f"{s3i:8.4f}" if A > 128 else "     n/a"
@@ -248,7 +248,7 @@ def envelope(A):
 print(f"\n{'=' * 70}")
 print("STEP 6: Envelope (predicted B/A)")
 print("=" * 70)
-print(f"  B/A(A) = min(SST_1, SST_1_inv, SST_2_inv, SST_3_inv)")
+print(f"  B/A(A) = min(B_1, B_1_inv, B_2_inv, B_3_inv)")
 print(f"")
 for A in [4, 12, 28, 56, 64, 80, 100, 120, 128, 150, 192, 208]:
     print(f"  A={A:>3}:  B/A = {envelope(A):.4f} MeV")
@@ -428,11 +428,11 @@ print("SUMMARY")
 print("=" * 70)
 print(f"""
   Inputs:
-    mu_SST(x) = [(2x+1) - sqrt(4x+1)] / 2x
+    mu_b(x) = [(2x+1) - sqrt(4x+1)] / 2x
     K = {K}, D = {D}, K^D = {KD}
     B/A(Zn-64) = {BA_ZN} MeV
 
-  Ceilings (one formula: CEIL = B/A(Zn) + prev - mu_SST(2) * [B/A(Zn) - prev]):
+  Ceilings (one formula: CEIL = B/A(Zn) + prev - mu_b(2) * [B/A(Zn) - prev]):
     CEIL_1 = {CEIL_1:.4f} MeV  (prev = {prev_1:.4f}, no impedance)
     CEIL_2 = {CEIL_2:.4f} MeV  (prev = {prev_2:.4f}, correction = {MU_HALF*(BA_ZN-prev_2):.4f})
     CEIL_3 = {CEIL_3:.4f} MeV  (prev = {prev_3:.4f}, correction = {MU_HALF*(BA_ZN-prev_3):.4f})

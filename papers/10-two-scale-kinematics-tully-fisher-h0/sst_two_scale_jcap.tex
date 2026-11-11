@@ -1,5 +1,5 @@
 % ============================================================================
-% Two-Scale Kinematics from a Single Scalar-Tensor Transition
+% Two-Scale Kinematics from a Single Field Equation
 % Target: JCAP (Journal of Cosmology and Astroparticle Physics)
 % Author: Stephen Nelson
 % March 2026
@@ -16,7 +16,7 @@
 % ============================================================================
 % FRONT MATTER
 % ============================================================================
-\title{\boldmath Two-scale kinematics from a single scalar-tensor transition:
+\title{\boldmath Two-scale kinematics from a single field equation:
 Tully-Fisher evolution and $H_0$ without free parameters}
 
 \author[a]{Stephen Nelson}
@@ -27,7 +27,7 @@ ORCID: 0009-0008-6190-3269}
 \emailAdd{stephen@fielddynamics.org}
 
 \abstract{
-The scalar-tensor transition $g_s = g_t^2/(a_0 + g_t)$, derived from the
+The spherical field equation $g_s = g_t^2/(a_0 + g_t)$, derived from the
 covariant Gravity Field Dynamics action, relates baryonic source acceleration
 to total gravitational acceleration through a single physical constant $a_0$
 and zero fitted parameters. We show that this equation, applied without
@@ -65,38 +65,38 @@ The starting point is a single algebraic relation between two accelerations. Giv
 g_s = \frac{g_t^2}{a_0 + g_t}\,.
 \label{eq:sst}
 \end{equation}
-This is the scalar-tensor transition (SST). It contains one physical constant, the characteristic acceleration $a_0 = 1.2 \times 10^{-10}$~m\,s$^{-2}$, and no fitted parameters.
+This is the spherical field equation of Gravity Field Dynamics. It contains one physical constant, the characteristic acceleration $a_0 = 1.2 \times 10^{-10}$~m\,s$^{-2}$, and no fitted parameters.
 
 The equation has two transparent limits. When the gravitational field is strong ($g_t \gg a_0$), the denominator is dominated by $g_t$ and the relation reduces to $g_s \approx g_t$: standard Newtonian gravity. When the field is weak ($g_t \ll a_0$), the denominator is dominated by $a_0$ and the relation becomes $g_s \approx g_t^2/a_0$, or equivalently $g_t \approx \sqrt{g_s\, a_0}$: the deep-MOND regime (referred to in GFD as the deep-field regime) where gravity is amplified beyond the Newtonian prediction.
 
-The SST is not a phenomenological interpolation. It is the field equation of the covariant Gravity Field Dynamics (GFD) action~\cite{nelson2025a}, derived from the coupling structure of a dual-tetrahedral gravitational field topology. The action is
+Eq.~(\ref{eq:sst}) is not a phenomenological interpolation. It is the spherical, static field equation of the covariant Gravity Field Dynamics (GFD) action~\cite{nelson2025a}, derived from the coupling structure of a dual-tetrahedral gravitational field topology. The action is
 \begin{equation}
 S = \int d^4x \sqrt{-g} \left[ \frac{R}{16\pi G} - \frac{a_0^2}{8\pi G} F(y) - \frac{1}{4} e^{-2\Phi/c^2} F_{\mu\nu}F^{\mu\nu} + \mathcal{L}_{\mathrm{matter}} \right],
 \label{eq:action}
 \end{equation}
-where $F(y) = y - 2\sqrt{y} + 2\ln(1+\sqrt{y})$ is the kinetic functional and $y = |\nabla\Phi|^2/a_0^2$. The prefactors 16, 8, and 4 are the topological constants $K^2$, $2^D$, and $K$ respectively. The SST of eq.~(\ref{eq:sst}) follows from varying this action with respect to $\Phi$. The kinetic functional $F(y)$ is the unique antiderivative satisfying $dF/dy = \mu(\sqrt{y})$ where $\mu(x) = x/(x+1)$ is the constitutive law obtained by normalizing the field equation $f(x)$ between its topological floor (13) and ceiling (21). This is the same variational structure as the AQUAL formalism of Bekenstein and Milgrom~\cite{bekenstein1984}, and the resulting $F(y)$ is identical to the AQUAL functional for the simple interpolating function. The difference is not in the mathematics but in the derivation: in AQUAL, $\mu$ is a phenomenological choice from a family of candidates; in GFD, $\mu$ is the unique output of the coupling polynomial and no other interpolating function is compatible with the topology.
+where $F(y) = y - 2\sqrt{y} + 2\ln(1+\sqrt{y})$ is the kinetic functional and $y = |\nabla\Phi|^2/a_0^2$. The prefactors 16, 8, and 4 are the topological constants $K^2$, $2^D$, and $K$ respectively. Eq.~(\ref{eq:sst}) follows from varying this action with respect to $\Phi$ in spherical symmetry; the action itself is the scalar-tensor transition (SST). The kinetic functional $F(y)$ is the unique antiderivative satisfying $dF/dy = \mu(\sqrt{y})$ where $\mu(x) = x/(x+1)$ is the constitutive law obtained by normalizing the capacity function $f(x)$ between its topological floor (13) and ceiling (21). This is the same variational structure as the AQUAL formalism of Bekenstein and Milgrom~\cite{bekenstein1984}, and the resulting $F(y)$ is identical to the AQUAL functional for the simple interpolating function. The difference is not in the mathematics but in the derivation: in AQUAL, $\mu$ is a phenomenological choice from a family of candidates; in GFD, $\mu$ is the unique output of the coupling polynomial and no other interpolating function is compatible with the topology.
 
-The underlying geometry is the stellated octahedron, two interpenetrating tetrahedra sharing a common center, whose coupling polynomial $f(K, s) = 1 + sK + K^2$ with $K = 4$ produces the governing field equation $f(x) = (21x + 13)/(x + 1)$. Equivalently, the constitutive law $\mu(x) = x/(x+1)$, which is the linear normalization of this field equation, reproduces the SST when expressed in terms of source and total accelerations. This constitutive law is derived from the field equation, not postulated as an interpolation function. It plays no role in the prediction pipeline: the forward solver of eq.~(\ref{eq:forward}) is the exact quadratic inverse of the SST, and $\mu(x)$ does not appear in any computation in this paper.
+The underlying geometry is the stellated octahedron, two interpenetrating tetrahedra sharing a common center, whose coupling polynomial $f(K, s) = 1 + sK + K^2$ with $K = 4$ produces the capacity function $f(x) = (21x + 13)/(x + 1)$. Equivalently, the constitutive law $\mu(x) = x/(x+1)$, which is the linear normalization of this capacity function, reproduces eq.~(\ref{eq:sst}) when expressed in terms of source and total accelerations. This constitutive law is derived from the capacity function, not postulated as an interpolation function. It plays no role in the prediction pipeline: the forward solver of eq.~(\ref{eq:forward}) is the exact quadratic inverse of eq.~(\ref{eq:sst}), and $\mu(x)$ does not appear in any computation in this paper.
 
 The bimetric completion of the same topology produces the Hassan-Rosen interaction parameters $\beta = \{1, 0, 16, 0, 1\}$, which are ghost-free by construction~\cite{hassan2012}. A full derivation is given in ref.~\cite{nelson2025a}; the bimetric formulation is developed in ref.~\cite{nelson2025b}.
 
-For the purposes of this Letter, the SST is treated as a kinematic relation. The question is not where it comes from, but what it predicts, and whether those predictions survive contact with data at two very different scales.
+For the purposes of this Letter, eq.~(\ref{eq:sst}) is treated as a kinematic relation. The question is not where it comes from, but what it predicts, and whether those predictions survive contact with data at two very different scales.
 
-The SST has an exact quadratic inverse. Given the baryonic source acceleration $g_s = GM_{\mathrm{bar}}(r)/r^2$ from observed mass profiles, the total acceleration is
+Eq.~(\ref{eq:sst}) has an exact quadratic inverse. Given the baryonic source acceleration $g_s = GM_{\mathrm{bar}}(r)/r^2$ from observed mass profiles, the total acceleration is
 \begin{equation}
 g_t = \frac{g_s + \sqrt{g_s^2 + 4\,g_s\,a_0}}{2}\,.
 \label{eq:forward}
 \end{equation}
 This forward solver takes baryonic input and returns the predicted rotation velocity $v(r) = \sqrt{r\,g_t(r)}$ at every radius. No interpolation function is applied. No dark matter halo is fitted. The prediction is deterministic and unique for each galaxy.
 
-At 175 galaxies in the SPARC catalog~\cite{lelli2016}, this solver reproduces observed rotation curves with an RMS scatter comparable to MOND and $\Lambda$CDM, despite having zero adjustable parameters~\cite{nelson2025a}. But rotation curves test the SST at a single redshift and a single scale. The more powerful test is whether the same equation, with the same $a_0$, produces correct predictions at other redshifts and at cosmological distances.
+At 175 galaxies in the SPARC catalog~\cite{lelli2016}, this solver reproduces observed rotation curves with an RMS scatter comparable to MOND and $\Lambda$CDM, despite having zero adjustable parameters~\cite{nelson2025a}. But rotation curves test the field equation at a single redshift and a single scale. The more powerful test is whether the same equation, with the same $a_0$, produces correct predictions at other redshifts and at cosmological distances.
 
 We now present two such tests.
 
 % ============================================================================
 % 2. TULLY-FISHER EVOLUTION
 % ============================================================================
-\section{SST prediction 1: Tully-Fisher evolution}
+\section{Prediction 1: Tully-Fisher evolution}
 \label{sec:tf}
 
 \subsection{The local relation}
@@ -108,13 +108,13 @@ M_b = \frac{v_{\mathrm{flat}}^4}{G\,a_0}\,.
 \end{equation}
 The relation holds over four orders of magnitude in mass with a scatter of less than 0.1~dex. No other galaxy scaling law is this tight.
 
-The BTFR is an exact theorem of the SST. In the deep-field regime ($g_t \ll a_0$), the SST gives $g_t = \sqrt{g_s\,a_0}$. For a circular orbit, $g_t = v^2/r$ and $g_s = GM/r^2$. Substituting and solving yields $v^4 = GMa_0$ identically. The BTFR is not an empirical correlation that the SST happens to reproduce. It is a mathematical consequence of eq.~(\ref{eq:sst}).
+The BTFR is an exact theorem of eq.~(\ref{eq:sst}). In the deep-field regime ($g_t \ll a_0$), it gives $g_t = \sqrt{g_s\,a_0}$. For a circular orbit, $g_t = v^2/r$ and $g_s = GM/r^2$. Substituting and solving yields $v^4 = GMa_0$ identically. The BTFR is not an empirical correlation that the field equation happens to reproduce. It is a mathematical consequence of eq.~(\ref{eq:sst}).
 
 \subsection{Redshift evolution}
 
 The $\Lambda$CDM framework predicts that the BTFR should not change with redshift. A galaxy at $z = 3$ should obey the same relation as a galaxy next door. In quantitative terms, the velocity ratio $v(z)/v(0)$ should equal 1.0 at all redshifts.
 
-The SST predicts otherwise, because $a_0$ is not a fixed constant of the universe. It is connected to the Hubble expansion rate through the horizon thermodynamics of the dual-tetrahedral field~\cite{nelson2025a}:
+The field equation predicts otherwise, because $a_0$ is not a fixed constant of the universe. It is connected to the Hubble expansion rate through the horizon thermodynamics of the dual-tetrahedral field~\cite{nelson2025a}:
 \begin{equation}
 a_0 = \frac{cH}{2\pi}\sqrt{\frac{K}{\pi}}\,,
 \label{eq:a0H}
@@ -150,7 +150,7 @@ Over two decades, integral field unit (IFU) surveys have mapped the rotation vel
 \centering
 \begin{tabular}{@{}cccccl@{}}
 \toprule
-$z$ & Observed & $\sigma$ & SST & Residual & Survey \\
+$z$ & Observed & $\sigma$ & GFD & Residual & Survey \\
 \midrule
 0.0 & 1.00 & 0.02 & 1.000 & $0.0\sigma$ & Local calibration \\
 0.3 & 1.04 & 0.05 & 1.026 & $0.3\sigma$ & DEEP2/AEGIS~\cite{kassin2007} \\
@@ -163,42 +163,42 @@ $z$ & Observed & $\sigma$ & SST & Residual & Survey \\
 3.0 & 1.29 & 0.12 & 1.289 & $0.0\sigma$ & KMOS$^{\mathrm{3D}}$~\cite{ubler2017} \\
 \bottomrule
 \end{tabular}
-\caption{Observed Tully-Fisher velocity ratios compared to the SST prediction of eq.~(\ref{eq:prediction}). Cosmological parameters: $H_0 = 70.21$~km\,s$^{-1}$\,Mpc$^{-1}$, $\Omega_m = 0.30$, $\Omega_\Lambda = 0.70$. The value of $H_0$ cancels in the ratio $H(z)/H_0$.}
+\caption{Observed Tully-Fisher velocity ratios compared to the GFD prediction of eq.~(\ref{eq:prediction}). Cosmological parameters: $H_0 = 70.21$~km\,s$^{-1}$\,Mpc$^{-1}$, $\Omega_m = 0.30$, $\Omega_\Lambda = 0.70$. The value of $H_0$ cancels in the ratio $H(z)/H_0$.}
 \label{tab:tf}
 \end{table}
 
-All nine data points fall within the $1\sigma$ error bars of the prediction, with a maximum residual of $0.4\sigma$ at $z = 2.2$. A $\chi^2$ test over the eight non-anchor measurements gives $\chi^2/\mathrm{dof} = 0.34/8$, indicating excellent consistency between the zero-parameter SST prediction and the IFU data.
+All nine data points fall within the $1\sigma$ error bars of the prediction, with a maximum residual of $0.4\sigma$ at $z = 2.2$. A $\chi^2$ test over the eight non-anchor measurements gives $\chi^2/\mathrm{dof} = 0.34/8$, indicating excellent consistency between the zero-parameter GFD prediction and the IFU data.
 
-The individual galaxy SINS BX442, a rare grand-design spiral at $z = 2.18$~\cite{law2012}, rotates 27\% faster than the local Tully-Fisher relation predicts. The SST prediction at $z = 2.18$ gives $v(z)/v(0) = 1.22$, consistent with the measurement within its uncertainty.
+The individual galaxy SINS BX442, a rare grand-design spiral at $z = 2.18$~\cite{law2012}, rotates 27\% faster than the local Tully-Fisher relation predicts. The GFD prediction at $z = 2.18$ gives $v(z)/v(0) = 1.22$, consistent with the measurement within its uncertainty.
 
-The contrast with $\Lambda$CDM is direct. The standard model predicts a flat line at $v(z)/v(0) = 1.0$. At $z = 2$, the observed ratio of 1.21 exceeds this by more than 20\%, lying more than $2\sigma$ from the $\Lambda$CDM prediction. At $z = 3$, the discrepancy reaches 29\%. The data track the SST curve, not the flat line.
+The contrast with $\Lambda$CDM is direct. The standard model predicts a flat line at $v(z)/v(0) = 1.0$. At $z = 2$, the observed ratio of 1.21 exceeds this by more than 20\%, lying more than $2\sigma$ from the $\Lambda$CDM prediction. At $z = 3$, the discrepancy reaches 29\%. The data track the GFD curve, not the flat line.
 
-Figure~\ref{fig:tf} shows the SST prediction, the $\Lambda$CDM baseline, the topological uncertainty band, and the nine IFU data points.
+Figure~\ref{fig:tf} shows the GFD prediction, the $\Lambda$CDM baseline, the topological uncertainty band, and the nine IFU data points.
 
 \begin{figure}[t]
 \centering
 % Replace 'tf-evolution.png' with the actual filename
 % Generate from: https://api.fielddynamics.org/v1/cosmology/tully-fisher
 \includegraphics[width=\textwidth]{tf-evolution.png}
-\caption{Tully-Fisher velocity evolution from $z = 0$ to $z = 4$. The solid green curve is the SST prediction $v(z)/v(0) = [H(z)/H_0]^{0.17}$ with zero free parameters. The shaded band is the $\pm 6.2\%$ geometric uncertainty derived from the tetrahedral-to-spherical aperture correction $(K/\pi)^{1/4}$. The dashed line is the $\Lambda$CDM prediction of no evolution. Colored circles are IFU survey measurements from table~\ref{tab:tf}. The starred point is SINS BX442 at $z = 2.18$, a grand-design spiral rotating 27\% faster than the local Tully-Fisher calibration. All nine measurements fall within the SST prediction band. Data served from the Field Dynamics API.}
+\caption{Tully-Fisher velocity evolution from $z = 0$ to $z = 4$. The solid green curve is the GFD prediction $v(z)/v(0) = [H(z)/H_0]^{0.17}$ with zero free parameters. The shaded band is the $\pm 6.2\%$ geometric uncertainty derived from the tetrahedral-to-spherical aperture correction $(K/\pi)^{1/4}$. The dashed line is the $\Lambda$CDM prediction of no evolution. Colored circles are IFU survey measurements from table~\ref{tab:tf}. The starred point is SINS BX442 at $z = 2.18$, a grand-design spiral rotating 27\% faster than the local Tully-Fisher calibration. All nine measurements fall within the GFD prediction band. Data served from the Field Dynamics API.}
 \label{fig:tf}
 \end{figure}
 
 % ============================================================================
 % 3. THE HUBBLE CONSTANT
 % ============================================================================
-\section{SST prediction 2: the Hubble constant}
+\section{Prediction 2: the Hubble constant}
 \label{sec:hubble}
 
 \subsection{The tension}
 
 The expansion rate of the universe should be a single number. Two of the most precise measurements in cosmology disagree on what that number is. The Planck satellite, observing the cosmic microwave background, measures $H_0 = 67.4 \pm 0.5$~km\,s$^{-1}$\,Mpc$^{-1}$~\cite{planck2020}. The SH0ES team, calibrating distances to nearby supernovae through Cepheid variable stars, measures $H_0 = 73.04 \pm 1.04$~km\,s$^{-1}$\,Mpc$^{-1}$~\cite{riess2022}. These values disagree by more than five standard deviations, a gap that has persisted for over a decade despite increasingly precise instruments.
 
-Both measurements assume the same thing: gravity behaves identically at all acceleration scales. If that assumption is incorrect, and the gravitational response varies with acceleration as the SST describes, then both measurements are looking through a lens they do not know is there.
+Both measurements assume the same thing: gravity behaves identically at all acceleration scales. If that assumption is incorrect, and the gravitational response varies with acceleration as the field equation describes, then both measurements are looking through a lens they do not know is there.
 
 \subsection{The prediction}
 
-The same characteristic acceleration $a_0$ that governs the SST determines $H_0$ through the Hubble horizon. At the Hubble radius $R_H = c/H$, the recession velocity of the expanding universe equals the speed of light, defining a minimum resolvable acceleration. From eq.~(\ref{eq:a0H}), solving for $H$:
+The same characteristic acceleration $a_0$ that governs the field equation determines $H_0$ through the Hubble horizon. At the Hubble radius $R_H = c/H$, the recession velocity of the expanding universe equals the speed of light, defining a minimum resolvable acceleration. From eq.~(\ref{eq:a0H}), solving for $H$:
 \begin{equation}
 H_0 = \frac{2\pi\,a_0}{c\sqrt{K/\pi}} = 70.21~\mathrm{km\,s^{-1}\,Mpc^{-1}}\,.
 \label{eq:H0}
@@ -228,7 +228,7 @@ TDCOSMO lensing~\cite{wong2020} & $74.2 \pm 1.6$ & Yes \\
 GFD & $70.21$ & --- \\
 \bottomrule
 \end{tabular}
-\caption{Independent measurements of $H_0$ compared to the SST prediction. The GFD band (65.9--74.6~km\,s$^{-1}$\,Mpc$^{-1}$) is the $\pm 6.2\%$ geometric aperture uncertainty. All six measurements fall within the band.}
+\caption{Independent measurements of $H_0$ compared to the GFD prediction. The GFD band (65.9--74.6~km\,s$^{-1}$\,Mpc$^{-1}$) is the $\pm 6.2\%$ geometric aperture uncertainty. All six measurements fall within the band.}
 \label{tab:h0}
 \end{table}
 
@@ -239,19 +239,19 @@ Figure~\ref{fig:h0} shows the GFD prediction, the uncertainty band, and the six 
 % Replace 'h0-comparison.png' with the actual filename
 % Generate from: https://api.fielddynamics.org/v1/cosmology/hubble-constant
 \includegraphics[width=\textwidth]{h0-comparison.png}
-\caption{The Hubble constant from six independent measurement methods and the GFD prediction. The green diamond is the SST prediction $H_0 = 70.21$~km\,s$^{-1}$\,Mpc$^{-1}$. The shaded band spans 65.9 to 74.6~km\,s$^{-1}$\,Mpc$^{-1}$, the $\pm 6.2\%$ geometric uncertainty from the tetrahedral aperture correction. Blue circles are early-universe measurements. Orange and red circles are late-universe measurements. The pink circle is the gravitational wave standard siren GW170817. All six independent measurements fall within the single GFD prediction band. Data served from the Field Dynamics API.}
+\caption{The Hubble constant from six independent measurement methods and the GFD prediction. The green diamond is the GFD prediction $H_0 = 70.21$~km\,s$^{-1}$\,Mpc$^{-1}$. The shaded band spans 65.9 to 74.6~km\,s$^{-1}$\,Mpc$^{-1}$, the $\pm 6.2\%$ geometric uncertainty from the tetrahedral aperture correction. Blue circles are early-universe measurements. Orange and red circles are late-universe measurements. The pink circle is the gravitational wave standard siren GW170817. All six independent measurements fall within the single GFD prediction band. Data served from the Field Dynamics API.}
 \label{fig:h0}
 \end{figure}
 
 \subsection{Reframing the tension}
 
-The Hubble tension is usually framed as a mystery: why do two careful measurements disagree? The SST reframes it as a diagnosis.
+The Hubble tension is usually framed as a mystery: why do two careful measurements disagree? The field equation reframes it as a diagnosis.
 
-The Planck analysis infers $H_0$ by fitting the cosmic microwave background through the $\Lambda$CDM model, which assumes gravity is scale-invariant. Below the acceleration scale $a_0$, the SST enhances gravitational coupling. The $\Lambda$CDM model does not account for this enhancement. The result is a systematic pull on the inferred $H_0$ toward lower values.
+The Planck analysis infers $H_0$ by fitting the cosmic microwave background through the $\Lambda$CDM model, which assumes gravity is scale-invariant. Below the acceleration scale $a_0$, the field equation enhances gravitational coupling. The $\Lambda$CDM model does not account for this enhancement. The result is a systematic pull on the inferred $H_0$ toward lower values.
 
-The SH0ES analysis calibrates distances using Newtonian gravity, which assumes the inverse square law holds exactly at all accelerations. In the outskirts of the Cepheid calibration galaxies, where accelerations fall below $a_0$, the SST modifies the effective gravitational coupling. The result is a systematic push on the inferred $H_0$ toward higher values.
+The SH0ES analysis calibrates distances using Newtonian gravity, which assumes the inverse square law holds exactly at all accelerations. In the outskirts of the Cepheid calibration galaxies, where accelerations fall below $a_0$, the field equation modifies the effective gravitational coupling. The result is a systematic push on the inferred $H_0$ toward higher values.
 
-The GFD prediction of 70.21~km\,s$^{-1}$\,Mpc$^{-1}$ is not a split-the-difference compromise. It is the value that follows from the acceleration-Hubble connection when the gravitational field has the coupling structure described by the SST. The tension between 67.4 and 73.04 may not reflect a problem with either measurement. It may reflect a shared assumption, that gravity has no internal structure below $a_0$, on which both teams unknowingly rely.
+The GFD prediction of 70.21~km\,s$^{-1}$\,Mpc$^{-1}$ is not a split-the-difference compromise. It is the value that follows from the acceleration-Hubble connection when the gravitational field has the coupling structure described by the field equation. The tension between 67.4 and 73.04 may not reflect a problem with either measurement. It may reflect a shared assumption, that gravity has no internal structure below $a_0$, on which both teams unknowingly rely.
 
 % ============================================================================
 % 4. DISCUSSION
@@ -261,33 +261,33 @@ The GFD prediction of 70.21~km\,s$^{-1}$\,Mpc$^{-1}$ is not a split-the-differen
 
 \subsection{One equation, two scales}
 
-The central result of this Letter is that the scalar-tensor transition of eq.~(\ref{eq:sst}) produces two independent, zero-parameter SST predictions at scales separated by a factor of $10^5$ in distance, and both are consistent with current observations.
+The central result of this Letter is that the spherical field equation, eq.~(\ref{eq:sst}), produces two independent, zero-parameter predictions at scales separated by a factor of $10^5$ in distance, and both are consistent with current observations.
 
-The Tully-Fisher evolution (section~\ref{sec:tf}) tests the SST in the regime $g_t \sim a_0$, where the gravitational response transitions between its Newtonian and deep-field limits. The data are galaxy rotation velocities measured by IFU spectrographs across nine surveys spanning $0 < z < 3$.
+The Tully-Fisher evolution (section~\ref{sec:tf}) tests the field equation in the regime $g_t \sim a_0$, where the gravitational response transitions between its Newtonian and deep-field limits. The data are galaxy rotation velocities measured by IFU spectrographs across nine surveys spanning $0 < z < 3$.
 
-The Hubble constant (section~\ref{sec:hubble}) tests the SST at the horizon scale, where the characteristic acceleration $a_0$ connects to the expansion rate of the universe. The data are six independent cosmological measurements using techniques from CMB analysis to gravitational wave standard sirens.
+The Hubble constant (section~\ref{sec:hubble}) tests the field equation at the horizon scale, where the characteristic acceleration $a_0$ connects to the expansion rate of the universe. The data are six independent cosmological measurements using techniques from CMB analysis to gravitational wave standard sirens.
 
-No parameter is adjusted between these two predictions. The same $a_0$, appearing in the same equation, produces the galactic prediction and the cosmological prediction simultaneously. This is a strong constraint. Any modification to the SST that improves agreement at one scale will generically worsen agreement at the other. The fact that both predictions succeed with the same equation and the same constant is evidence that the SST is capturing something real about the structure of gravity.
+No parameter is adjusted between these two predictions. The same $a_0$, appearing in the same equation, produces the galactic prediction and the cosmological prediction simultaneously. This is a strong constraint. Any modification to the field equation that improves agreement at one scale will generically worsen agreement at the other. The fact that both predictions succeed with the same equation and the same constant is evidence that the field equation is capturing something real about the structure of gravity.
 
 \subsection{Comparison with other frameworks}
 
 It is instructive to compare what each framework predicts at both scales.
 
-MOND~\cite{milgrom1983} predicts the local Tully-Fisher relation at $z = 0$, because the BTFR is a consequence of any theory with a characteristic acceleration scale. However, standard MOND treats $a_0$ as a fixed universal constant. It does not predict Tully-Fisher evolution with redshift. Milgrom and others have noted the numerical coincidence $a_0 \approx cH_0/(2\pi)$, but MOND treats this as unexplained. GFD derives the connection with a specific geometric correction $\sqrt{K/\pi}$ that shifts the prediction from 78.9~km\,s$^{-1}$\,Mpc$^{-1}$ (the naive $cH/(2\pi)$ value) to 70.21~km\,s$^{-1}$\,Mpc$^{-1}$. MOND does not produce this correction and does not predict $H_0$. The empirical success of MOND at the galactic scale is well established, and the fact that the SST agrees with MOND on the decoded baryonic mass at each radius is significant: it suggests that modified gravity is capturing something real about the weak-field regime. The SST provides the structural explanation for why MOND works, by deriving the gravitational response from the coupling topology rather than postulating it.
+MOND~\cite{milgrom1983} predicts the local Tully-Fisher relation at $z = 0$, because the BTFR is a consequence of any theory with a characteristic acceleration scale. However, standard MOND treats $a_0$ as a fixed universal constant. It does not predict Tully-Fisher evolution with redshift. Milgrom and others have noted the numerical coincidence $a_0 \approx cH_0/(2\pi)$, but MOND treats this as unexplained. GFD derives the connection with a specific geometric correction $\sqrt{K/\pi}$ that shifts the prediction from 78.9~km\,s$^{-1}$\,Mpc$^{-1}$ (the naive $cH/(2\pi)$ value) to 70.21~km\,s$^{-1}$\,Mpc$^{-1}$. MOND does not produce this correction and does not predict $H_0$. The empirical success of MOND at the galactic scale is well established, and the fact that the field equation agrees with MOND on the decoded baryonic mass at each radius is significant: it suggests that modified gravity is capturing something real about the weak-field regime. The GFD action provides the structural explanation for why MOND works, by deriving the gravitational response from the coupling topology rather than postulating it.
 
 $\Lambda$CDM predicts $H_0$ from CMB fitting, but requires a dark matter halo with adjustable parameters (concentration, virial mass) to reproduce each galaxy's rotation curve individually. It does not predict the BTFR from first principles, and it predicts no Tully-Fisher evolution: the velocity ratio $v(z)/v(0) = 1.0$ at all redshifts. The growing body of IFU data showing systematic velocity evolution with redshift is in tension with this prediction.
 
-The SST is, to our knowledge, the only equation in the current literature that produces both the galactic and cosmological predictions from a single relation with no adjustable parameters.
+Eq.~(\ref{eq:sst}) is, to our knowledge, the only equation in the current literature that produces both the galactic and cosmological predictions from a single relation with no adjustable parameters.
 
 \subsection{Falsifiability}
 
 Both predictions are specific and falsifiable.
 
-For Tully-Fisher evolution: JWST is already measuring galaxy kinematics at $z > 3$ with its NIRSpec IFU mode. At $z = 4$, the SST predicts $v(z)/v(0) = 1.36$ while $\Lambda$CDM predicts 1.0. A sample of approximately 10 disk galaxies with resolved rotation curves at $z \sim 4$ would distinguish these predictions at $> 5\sigma$. Any measurement of $v(z)/v(0)$ at $z > 3$ that falls below the SST band or above 1.4 would falsify the prediction. The European Extremely Large Telescope, with its HARMONI IFU, will extend spatially resolved kinematics to even higher redshifts.
+For Tully-Fisher evolution: JWST is already measuring galaxy kinematics at $z > 3$ with its NIRSpec IFU mode. At $z = 4$, the field equation predicts $v(z)/v(0) = 1.36$ while $\Lambda$CDM predicts 1.0. A sample of approximately 10 disk galaxies with resolved rotation curves at $z \sim 4$ would distinguish these predictions at $> 5\sigma$. Any measurement of $v(z)/v(0)$ at $z > 3$ that falls below the GFD band or above 1.4 would falsify the prediction. The European Extremely Large Telescope, with its HARMONI IFU, will extend spatially resolved kinematics to even higher redshifts.
 
-For $H_0$: the SST prediction is $70.21$~km\,s$^{-1}$\,Mpc$^{-1}$ with a $\pm 6.2\%$ band. Any future measurement falling outside the range 65.9--74.6~km\,s$^{-1}$\,Mpc$^{-1}$ would falsify the SST prediction. As gravitational wave detectors accumulate more standard siren events, the GW-based determination of $H_0$ will narrow. If it converges to a value outside the SST band, the prediction fails.
+For $H_0$: the GFD prediction is $70.21$~km\,s$^{-1}$\,Mpc$^{-1}$ with a $\pm 6.2\%$ band. Any future measurement falling outside the range 65.9--74.6~km\,s$^{-1}$\,Mpc$^{-1}$ would falsify the prediction. As gravitational wave detectors accumulate more standard siren events, the GW-based determination of $H_0$ will narrow. If it converges to a value outside the GFD band, the prediction fails.
 
-These are not soft constraints. Both SST predictions have specific numerical values derived from geometry, and both will be tested by observations that are already underway.
+These are not soft constraints. Both predictions have specific numerical values derived from geometry, and both will be tested by observations that are already underway.
 
 % ============================================================================
 % 5. CONCLUSION
@@ -297,7 +297,7 @@ These are not soft constraints. Both SST predictions have specific numerical val
 
 One equation. Two scales. Zero free parameters. Both predictions consistent with current observations.
 
-The scalar-tensor transition $g_s = g_t^2/(a_0 + g_t)$ unifies galactic kinematics and cosmological expansion through a single acceleration constant. At the galactic scale, it predicts the redshift evolution of the Tully-Fisher relation with an exponent derived from the covariant action, matching nine IFU survey measurements from $z = 0$ to $z = 3$ with $\chi^2/\mathrm{dof} = 0.34/8 = 0.04$. At the cosmological scale, it predicts $H_0 = 70.21$~km\,s$^{-1}$\,Mpc$^{-1}$ from geometry alone, with a band that contains all six major independent measurements.
+The spherical field equation $g_s = g_t^2/(a_0 + g_t)$ unifies galactic kinematics and cosmological expansion through a single acceleration constant. At the galactic scale, it predicts the redshift evolution of the Tully-Fisher relation with an exponent derived from the covariant action, matching nine IFU survey measurements from $z = 0$ to $z = 3$ with $\chi^2/\mathrm{dof} = 0.34/8 = 0.04$. At the cosmological scale, it predicts $H_0 = 70.21$~km\,s$^{-1}$\,Mpc$^{-1}$ from geometry alone, with a band that contains all six major independent measurements.
 
 The Hubble tension may not require new particles, new fields, or new physics beyond general relativity. It may require recognizing that gravity has coupling structure below the acceleration scale $a_0$, and that this structure connects the rotation of galaxies to the expansion of the universe through a single, testable equation.
 

@@ -57,7 +57,7 @@ canvas#triCanvas{display:block;}
 <div class="sidebar">
   <div class="sidebar-head">
     <h2>MeV Budget</h2>
-    <div class="sub">Sierpiński Walk × SST</div>
+    <div class="sub">Sierpiński Walk × Bound Law</div>
   </div>
   <div class="el-list" id="elList"></div>
 </div>
@@ -177,7 +177,7 @@ function draw(el){
   const [Z,sym,A,BA]=el;
   ctx.clearRect(0,0,W,H);
 
-  // Compute B/A for this element from SST
+  // Compute B/A for this element from the bound law
   let B_total=0;
   for(let i=0;i<A;i++) B_total+=POS[i].E;
   const ba_pred=B_total/A;

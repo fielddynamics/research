@@ -20,7 +20,7 @@ freedom in the structure equals the number of states it can encode.
 D = 3 times at branching factor K = 4, producing $K^D = 64$ sub-triangles.
 Each sub-triangle is one position in the walk.
 
-**One equation.** The SST quadratic $\mu_{\text{SST}}(x)$ defines the
+**One equation.** The bound law $\mu_{\text{b}}(x)$ defines the
 coupling at each walk position, but the magic numbers themselves do not
 depend on it. They follow entirely from K, D, and the packing geometry.
 The magic numbers are a property of the walk, not the field equation.
@@ -239,7 +239,7 @@ walk produces it from the gate face threshold at n = K = 4.
 
 The shell closures and the binding energy curve share the same walk
 structure. The positions that pack into shells (this pipeline) are the
-same positions that contribute coupling $\mu_{\text{SST}}(i^2)$ to
+same positions that contribute coupling $\mu_{\text{b}}(i^2)$ to
 the binding sum (the binding energy pipeline).
 
 The magic numbers mark the mass numbers where shells close. On the
@@ -252,7 +252,7 @@ The two pipelines are independent computations on the same structure:
 
 - **Magic numbers** use only K, D, and the packing geometry (T, G, M).
   They are exact integers. No field equation is involved.
-- **Binding energy** uses $\mu_{\text{SST}}(i^2)$ evaluated at each
+- **Binding energy** uses $\mu_{\text{b}}(i^2)$ evaluated at each
   walk position. It is a continuous curve calibrated from one element.
 
 Both are outputs of the 64-position Sierpiński walk defined by K = 4
@@ -291,7 +291,7 @@ emerges from gate exclusion at n = K = 4, without spin-orbit coupling.
   condition. The gate threshold n = K is a geometric consequence, not
   a choice.
 - **No field equation.** The magic numbers depend only on the walk
-  structure. The SST quadratic is not used. This is pure combinatorics.
+  structure. The bound law is not used. This is pure combinatorics.
 
 ---
 
