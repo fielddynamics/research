@@ -55,7 +55,7 @@ Of the $2^4 = 16$ sign combinations of the half-spaces $\pm v_i \le 1$, exactly 
 
 $$\text{TetA}: \max_i v_i \le 1, \qquad \text{TetB}: \max_i(-v_i) \le 1.$$
 
-They interpenetrate as a stellated octahedron; the boundary splits into $4$ faces $\times$ $4$ sub-regions $= 16$ channels. No second frame is assumed: TetB is the second bounded region of a single tetrad.
+(Checked by LP over all 16 patterns.) As a region, TetA has vertices at the even-popcount corners $(+,+,-),(+,-,+),(-,+,+),(-,-,-)$, while its face normals point at the odd corners $\{7,4,2,1\}$; Paper IX labels TetA by the odd corners, i.e. by its normals. They interpenetrate as a stellated octahedron; the boundary splits into $4$ faces $\times$ $4$ sub-regions $= 16$ channels. No second frame is assumed: TetB is the second bounded region of a single tetrad.
 
 **Scheme version (P-two-regions, 39 checks).** $g = e^T\eta e$ forces $(\det e)^2 = \det g/\det\eta$, so the solution scheme has exactly two components, one per root of $\det e$. Spatial parity maps one to the other (three is odd) and carries TetA onto TetB. The metric sees only $(\det e)^2$; restricting to $SO^+(1,3)$ keeps one root and discards the other.
 
@@ -69,7 +69,7 @@ Gram products: $G_{M_2M_2} = G_{M_1M_1}$ (root-blind self-coupling), $G_{M_1M_2}
 
 ### 2.4 Hadamard kernel [T] (C, P-hadamard, 25 checks)
 
-A regular simplex on cube corners $\{\pm1\}^D$, bordered by a row of ones, is a Hadamard matrix. The Walsh–Hadamard matrix of the 3-cube factorises $H_8 = H_2 \otimes H_4$ (parity $\otimes$ frame). The three non-constant rows of $H_4$ are the stellated octahedron's axes and the tetrad's face normals. Parity classes: TetA $\{(+++),(+--),(-+-),(--+)\}$, TetB $\{(---),(-++),(+-+),(++-)\}$.
+A regular simplex on cube corners $\{\pm1\}^D$, bordered by a row of ones, is a Hadamard matrix. The Walsh–Hadamard matrix of the 3-cube factorises $H_8 = H_2 \otimes H_4$ (parity $\otimes$ frame). The three non-constant rows of $H_4$ are the stellated octahedron's axes and the tetrad's face normals. Parity classes (as face-normal sign patterns, cf. §2.2): TetA $\{(+++),(+--),(-+-),(--+)\}$, TetB $\{(---),(-++),(+-+),(++-)\}$.
 
 ### 2.5 The coupling polynomial [D] (VII, VIII, IX, A)
 
@@ -94,9 +94,10 @@ the parity-weighted trace of the sector space $\Lambda^K V \oplus V \oplus (V\ot
 $$\boxed{S = \int d^4x\,\sqrt{-g}\left[\frac{R}{16\pi G} - \frac{a_0^2}{8\pi G}\,F(y) - \frac14 e^{-2\Phi/c^2}F_{\mu\nu}F^{\mu\nu} + \mathcal L_{\rm matter}\right],\qquad y = \frac{|\nabla\Phi|^2}{a_0^2}}$$
 
 - **Prefactors [D]** (L3 supplement): $16 = K^2$, $8 = 2^D$, $4 = K$, a geometric sequence of ratio 2.
-- **Electromagnetic term:** conformal coupling $e^{-2\Phi/c^2}$; $\gamma = 1$ follows from the connection structure, giving full light bending $\theta = (1+\gamma)\,2GM/(rc^2) = 4GM/(rc^2)$ (Paper I resolved the "half-lensing" problem of scalar theories this way).
+- **Lensing and $\gamma$ (L3 supplement §3):** the claim is $\gamma = 1$ at all accelerations, giving full light bending $\theta = (1+\gamma)\,2GM/(rc^2) = 4GM/(rc^2)$, because one potential $\Phi$ enters both $g_{00}$ and $g_{ij}$ ("the modification lives inside the connection, not beside it"), whereas AQUAL-in-GR with a separate scalar gets $\gamma = \mu(x)$. The single-potential weak-field metric is stated as an ansatz; the metric field equations of the action (including the scalar's stress–energy) are not solved in the note.
+- **Electromagnetic term:** $-\tfrac14e^{-2\Phi/c^2}F_{\mu\nu}F^{\mu\nu}$. The supplement assigns it no lensing role (null rays are unaffected) and a cosmological one (a redshift dependence in EM scaling relations). **Unaddressed constraint:** with $\Phi$ the Newtonian potential, this term is a dilaton-type coupling, $\alpha_{\rm eff} = \alpha\,e^{2\Phi/c^2}$, i.e. $\delta\alpha/\alpha = k_\alpha\,\delta U/c^2$ with $|k_\alpha| = 2$. Clock and spectroscopy tests of $\alpha$'s dependence on the Sun's potential (annual $\delta U/c^2 \approx 3\times10^{-10}$) bound $|k_\alpha|$ at roughly $10^{-6}$–$10^{-7}$. None of the papers discusses this.
 - **Weak field:** $g_{00} = -(1+2\Phi/c^2)$, $g_{ij} = (1-2\Phi/c^2)\delta_{ij}$; GW speed equals $c$.
-- **Split:** $\nabla^2\Phi_N = 4\pi G\rho$ (the 40-component Newtonian part) plus the scalar supplement $\nabla\cdot[(\mu - 1)\nabla\Phi] = 0$.
+- **Split (what GFD does *not* do):** the L3 supplement describes the scalar-tensor embedding as $\nabla^2\Phi_N = 4\pi G\rho$ (40 components) plus a scalar supplement $\nabla\cdot[(\mu - 1)\nabla\Phi] = 0$ carrying its own stress–energy, and attributes the $\gamma = \mu$ lensing deficit to that decomposition; GFD keeps the single equation $\nabla\cdot[\mu\nabla\Phi] = 4\pi G\rho$.
 - **Open:** $\mathcal L_{\rm matter}$ is not specified in the papers. The source term $-\rho\Phi$ is what makes the scalar equation sourced (research/aqual docs note, check D1–D2).
 
 ### 3.1 The kinetic functional [T] (FY, P-aqual, 24 checks)
@@ -199,11 +200,11 @@ In polynomial form, per slice:
 
 $$\text{kept} = \frac{f(K,+1)-1}{2} = 10,\qquad \text{discarded} = \frac{f(K,-1)-1}{2} = 6,$$
 
-with difference $K$ and sum $K^2$. GRAM writes the index grid per slice as $6$ upper $+ 4$ diagonal $+ 6$ lower, so $24 + 16 + 24 = 64$, the torsion-free projection retaining $16 + 24 = 40$. The split is defined on the index grid, not on cube-corner pairs.
+with difference $K$ and sum $K^2$. (Counting note: the $K$ that separates 10 from 6 is the $K$ diagonal entries, which are all kept; the "$-1$" removed before halving is a single unit, although the L3 proof note describes it as standing for the diagonal. The identity $(f(K,\pm1)-1)/2 = (K^2\pm K)/2$ is exact either way.) GRAM writes the index grid per slice as $6$ upper $+ 4$ diagonal $+ 6$ lower, so $24 + 16 + 24 = 64$, the torsion-free projection retaining $16 + 24 = 40$. The split is defined on the index grid, not on cube-corner pairs.
 
 ### 5.2 The torsion lemma [T] (L2)
 
-A torsion-free connection cannot distinguish TetA from TetB; the torsion sector is the necessary carrier of the two-chamber distinction. $K/2 = 2 \Rightarrow K = 4$ selects the dimension at which this works.
+A torsion-free connection cannot distinguish TetA from TetB; the torsion sector is the necessary carrier of the two-chamber distinction. (The metric is bilinear in $e$, so parity $e^i\to-e^i$ leaves it fixed, and the Levi-Civita connection is built from the metric alone; this holds for any $K$.) Separately, the torsion count factorises as $K\cdot K(K-1)/2 = D\times2K$ (with $D = K-1$) only at $K = 4$ ($K/2 = 2$): $24 = 3\times8$, spatial dimension × coupling range.
 
 ### 5.3 Torsion is the regular representation of $S_4$ [T] (B, P-torsion, 36 checks)
 
@@ -267,7 +268,7 @@ agreement 0.21%, unique to the electron (muon and proton fail by ~$10^3$). Equiv
 - Projected through the tetrad: $H = H_{\rm flat}/\sqrt{k/\pi} = 69.92$ km/s/Mpc (GW170817: $70.0\pm12$).
 - Port ratio $\sqrt{k/\pi} = 1.128$ converts the spherical envelope ($\pi$) to the tetrahedral chamber ($k$).
 - Band: $(k/\pi)^{1/4} - 1 = \pm6.2\%$ → 65.9–74.6 km/s/Mpc, containing Planck, SH0ES and the other major methods.
-- Bidirectional: observed $H$ recovers $m_e$ to 0.10% (IV) / 0.01% (companion).
+- Bidirectional: observed $H$ recovers $m_e$ to 0.10% (IV). The companion PDF claims 0.01%, but its own eq. 5 at $H = 70$ gives −0.10%; its forward eq. pairs $a_0 = 1.225\times10^{-10}$ with 69.92, which belongs to $a_0 = 1.220\times10^{-10}$.
 - The single formula is $H = 2\pi a_0/(c\sqrt{k/\pi})$, i.e. $a_0 = (cH_{\rm meas}/2\pi)\sqrt{k/\pi} = cH_{\rm flat}/2\pi$. Paper IV evaluates it twice: $a_0 = 1.220\times10^{-10}$ (MOND empirical) gives **69.92**; $a_0 = 16Gm_e/r_e^2 = 1.225\times10^{-10}$ gives **70.21** (used in Papers VII and X). The 0.41% gap is the $16$ vs $15.93$ coupling test. **70.29** is the 70.21 value with the Schwinger one-loop factor $(1+\alpha/2\pi)$ carried through $G\to a_0\to H$ (Paper VII), and is the value the TF manuscript uses. Paper X quotes $a_0 = 1.2\times10^{-10}$ in its opening, 78.9 as the naive value (that is $a_0 = 1.22$) and 70.21 (that is 1.225): three inputs in one letter. Notes that write $a_0 = cH/2\pi$ with the *measured* $H$ (e.g. 1.086×10⁻¹⁰ at 70.21) mix the flat and measured frames.
 
 ---
@@ -331,7 +332,7 @@ Each nucleon $i$ contributes $\mu_b(i^2)$; with $\Sigma_A = \sum_{i\le A}\mu_b(i
 
 $$\frac BA(A) = \frac BA(\text{Zn})\,\frac{K^D}{A}\,\frac{\Sigma_A}{\Sigma_{K^D}}.$$
 
-Shell ceilings $\mathrm{CEIL} = B_{\rm Zn} + B_{\rm bdy} - \mu_b(2)[B_{\rm Zn} - B_{\rm bdy}]$ with $\mu_b(2) = 1/2$; inverted curves $B_n^{\rm inv}(A) = \mathrm{CEIL}_n - B_{\rm local}(A - A_n)$; $B/A = \min(B_1, B_1^{\rm inv}, B_2^{\rm inv}, B_3^{\rm inv})$. Results: the seven magic numbers including the $20\to28$ gap without spin–orbit coupling, and $B/A$ from He to Pb at MAE ≈ 95 keV.
+Shell ceilings $\mathrm{CEIL} = B_{\rm Zn} + B_{\rm bdy} - \mu_b(2)[B_{\rm Zn} - B_{\rm bdy}]$ with $\mu_b(2) = 1/2$; inverted curves $B_n^{\rm inv}(A) = \mathrm{CEIL}_n - B_{\rm local}(A - A_n)$; $B/A = \min(B_1, B_1^{\rm inv}, B_2^{\rm inv}, B_3^{\rm inv})$. Results: the seven magic numbers including the $20\to28$ gap without spin–orbit coupling, and $B/A$ from He to Pb at MAE ≈ 95 keV. One energy scale is calibrated (Zn-64, entered as 8.756 MeV; AME2020 gives 8.736), and the reflect-at-sector/min envelope is a construction, not derived from the action. XIII ends stability at Pb-208 (16 into the gate sector past 192); XI ends it at $K^K = 256$ / Bi-209.
 
 ---
 
@@ -890,3 +891,241 @@ vs CODATA 137.035999177 (0.00021%). $2^d = 8$ orthants; $k^2+1 = 17$ = 16 tetrad
 **Notes against other papers.**
 - *CMB numbers.* XII's 6.44 differs from Paper II's 6.46 (Part I §7.2). XII's comparator $6.36\pm0.10$ differs from Paper II's target 6.40 ($1.185/0.185$); Planck 2018 central values give 6.39–6.40.
 - *Open matching.* XII claims the two actions "produce the same field content". The explicit match from Galileons to $\mu$ that VIII and IX list as open is still not computed here; the scalar-sector row is asserted.
+
+## Paper XIII — Nuclear Binding and Magic Numbers from the Bound Law (`13-nuclear-binding-bidirectional-sst`)
+
+*MNRAS-format letter. Code: `github.com/field-dynamics/nuclear-binding` and `Supplementary/pipelines/` (30-test harness). Status: [E]. Magic numbers are exact arithmetic; the binding curve uses one calibration point plus a constructed envelope.*
+
+**Framing (naming matches the later rules).**
+- The four-term action is called the SST, and $g_s = g_t^2/(a_0+g_t)$ is its spherical, static field equation.
+- In galaxies "matter sources the field and the field does not source itself" (one-directional). The galaxy itself is "a bound vortex whose interior is fed through its central drain".
+- In a nucleus each nucleon is source and response at once.
+
+**Bound law.**
+- Self-consistency: the return share $(1-\mu)$, used as the effective source in the field equation, must give back $\mu$. That gives $x(1-\mu)^2 = \mu$, with root $\mu_b = [(2x+1) - \sqrt{4x+1}]/(2x)$.
+- $\mu_b(2) = (5-3)/4 = \tfrac12$ is called "the bound-state field origin", the point where forward and return capacity split equally.
+- This is the face-crossing/self-consistency motivation. research/aqual gives the exchange-image derivation (Part I §4.6).
+
+**Walk.**
+- $2(D+1) = 2^D \Rightarrow D = 3$, $K = 4$. Here $K$ is the branching factor and $D$ the depth.
+- A Sierpiński triangle subdivided $D$ times at branching $K$ has $K^D = 64$ positions (4 faces × 4 channels × 4 sub-channels). The parent has $K = 4$ sectors, $4\times64 = 256$ in all. Face index 3 is the gate face.
+- Nucleon $i$ sits at $x = i^2$; the stated reason is the Jacobian $dx = 2i\,di$.
+
+**Magic numbers.**
+- Same $T$, $G$, $M = 2(T - G)$ as XI. Here the 2 is "proton and neutron, or the two tetrahedra" (XI: two time-face orientations).
+- The gate is the triangular number of side $n-1$ on the gate face. It first contributes at $n = K$: $G(4) = 6$ cuts shell 4 from 20 to 8.
+- Capacities 2, 6, 12, 8, 22, 32, 44, i.e. the $20\to28$ gap without spin–orbit.
+
+**Binding curve.**
+- Rising branch: $\Sigma_A = \sum_{i\le A}\mu_b(i^2)$, $\Sigma_{64} = 59.928$ (recomputed 59.9278), and $B_1(A) = (B/A)_{\rm Zn}\,(64/A)\,(\Sigma_A/\Sigma_{64})$ with $(B/A)_{\rm Zn} = 8.756$ MeV.
+- Each sector crossing (64 Zn, 128 Te, 192 Os) reflects the curve: $B^{\rm inv}_n = \mathrm{CEIL}_n - B_{\rm local}(A - A_n)$.
+- $\mathrm{CEIL} = B_{\rm Zn} + B_{\rm bdy} - \mu_b(2)(B_{\rm Zn} - B_{\rm bdy})$, giving 17.512, 17.141 and 16.955 MeV.
+  - Recomputed: $B_1(128) = 9.0034$, so $B_{\rm bdy} = 8.5086$, then 8.3849. All three ceilings reproduce.
+- Prediction is $\min(B_1, B_1^{\rm inv}, B_2^{\rm inv}, B_3^{\rm inv})$.
+- Stated fit: MAE 95 keV, $R^2 = 0.82$ He–Pb (sector 0: 97 keV, $R^2 = 0.90$; after 64: 36 keV, $R^2 = 0.96$). Te-128 within 14 keV.
+- Recomputed spot checks against the paper's inputs:
+  - C-12: −249 keV, as stated.
+  - O-16 −221, Ca-40 −44, Fe-56 −97, Sn-120 −57, Pb-208 +239 keV.
+  - He-4: −1.26 MeV. The paper notes $A<12$ has residuals of ≥ 200 keV.
+- **Calibration value.** The paper and its pipelines use $B/A({\rm Zn\text{-}64}) = 8.756$ MeV. AME2020 gives 8.736 MeV, as listed in the repo's own `research/nuclear/gfd_nuclear_enterprise_20.py` and `research/bound-gravity-and-packing/…_20.py`. 8.756 is close to Zn-66 (8.760).
+  - The 20 keV offset rescales the whole curve by 0.2%.
+  - It also makes the "0 keV at Zn" statement true only for the input value.
+  - Worth correcting at the source.
+- **Free parameters.** The abstract says zero; the text says one energy scale "calibrated from a single element". The envelope (reflection at sector boundaries, the ceiling rule, the min) is a construction chosen in the paper, not derived from the action.
+
+**Stability at lead.** Sectors 0–2 hold $3\times64 = 192$ positions; sector 3 is the gate. Pb-208 is 16 positions into the gate sector, and beyond it nuclei decay. (XI places the ceiling at $K^K = 256$ with Bi-209 as the last stable nucleus; the two letters choose different endpoints.)
+
+**Limitations, as stated.** Few-body nuclei ($A<12$). Shell-closure fine structure is deferred to a "shell-by-shell decomposition".
+
+## Companion — Topological Field Closure: A Bidirectional Derivation of the Hubble Constant and the Electron Mass
+
+*Short PDF (DFP-era vocabulary, lower-case $k$). Zenodo 10.5281/zenodo.18371849, with a Python 3.6+ validation suite. Status: [E].*
+
+**Argument.**
+- *Simplex theorem.* The minimum enclosing polytope in $d$ dimensions has $d+1$ faces, so $k = 4$. The paper cites tetrahedral examples: CH₄, water, diamond, SiO₄.
+- *Isotropic coupling.* All-to-all face coupling gives $k^2 = 16$, the only rotation-invariant count for tetrahedral topology. Test: $a_0/(Gm_e/r_e^2) = 15.93$ (with $a_0 = 1.22\times10^{-10}$; 0.41% from 16).
+- *Horizon.* Unruh $T = \hbar a/2\pi k_Bc$ set equal to Gibbons–Hawking $T = \hbar H/2\pi k_Bc$ gives $a_0 = cH/2\pi$. This "flat" relation gives 78.9.
+- *Geometric ratio.* $H_{\rm meas} = H_{\rm flat}/\sqrt{k/\pi} = 78.9/1.128 = 69.9$.
+- *Forward.* $g_e = Gm_e/r_e^2 = 7.66\times10^{-12}$, so $a_0 = 16g_e = 1.225\times10^{-10}$ and $H = 2\pi k^2Gm_e/(r_e^2c\sqrt{k/\pi})$, stated as 69.92 (GW170817 70.0, 0.11%).
+- *Reverse.* Since $r_e\propto1/m_e$, $Gm_e/r_e^2\propto m_e^3$, so $m_e = [H e^4\sqrt{k/\pi}/(2\pi k^2G(4\pi\varepsilon_0)^2c^3)]^{1/3}$. From $H = 70$ the paper states $9.11\times10^{-31}$ kg, "0.01% of CODATA".
+- *Measurement cage.* $(k/\pi)^{1/4} = 1.062$ (±6.2%), described as the "geometric mean" of a 0–12.8% path correction. The range is 65.8–74.3. All seven listed methods (66.0 lensing, 67.4 Planck, 68.0 BAO, 70.0 GW, 72.5 TRGB, 73.0 SH0ES, 73.9 masers) fall inside. Chance probability is quoted as $0.12^7 = 3.6\times10^{-7}$.
+- *Convergence test.* The mean of the seven, times 1.128, is 79.1 (recomputed 79.12). GW170817 alone gives 79.0.
+
+**Arithmetic check.**
+- *Forward.* With the paper's own $a_0 = 1.2250\times10^{-10}$ (recomputed from CODATA $G, m_e, r_e$), the formula gives $H = 70.21$, not 69.92. 69.92 is the value for $a_0 = 1.220\times10^{-10}$ (Paper IV's first evaluation). So the companion's eq. 3 and eq. 4 use different $a_0$.
+- *Reverse.* Eq. 5 with $H = 70.0$ gives $m_e = 9.1002\times10^{-31}$ kg, which is −0.10% from CODATA. With $H = 69.92$ it gives −0.14%. The "0.01%" is not reproduced. The 0.10% figure (Paper IV's) is the one the algebra supports.
+- *Probability.* The $3.6\times10^{-7}$ treats the seven measurements as independent and uniform on 50–150 km/s/Mpc. In practice they cluster around 70 by any account, so the number overstates the evidence.
+- *Cage edges.* These check out: $69.92\times1.0623 = 74.28$ and $69.92/1.0623 = 65.82$.
+
+## Letter 1 — The Coordinate-Space Geometry of the Tetrad Frame
+
+*Letter. Supplementary material: `fig1_tetrad_frame.html`, `run_all_validations.py` (NumPy/SciPy), `supplementary_signature_to_frame.pdf` (the frame derived from the Lorentz signature), `supplementary_scheme_proof.pdf` (= P-two-regions). Status: [T]. The paper states that the result holds before any dynamics.*
+
+**Claim.** One orthonormal tetrad, with no dual frame assumed, generates the stellated octahedron and its 16 boundary channels.
+
+**Steps.**
+1. *From signature to frame.* $(-,+,+,+)$ sends null directions to $S^2$ with $SO(3)$ symmetry. Asking that four directions on $S^2$ pick out no net direction forces the regular tetrahedral frame, with pairwise inner product $-1/3$ (proved in the supplement).
+2. *Four planes.* $v_1..v_4$ as before, with TetA $=\{\max v_i\le1\}$. The $v_i$ are the spatial one-forms projected on the tetrahedral normals rather than on three orthogonal legs.
+3. *Boundedness theorem.*
+   - Choosing a sign per projection gives $2^4 = 16$ convex regions. The only relation among the $v_i$ is $v_1 + v_2 + v_3 + v_4 = 0$.
+   - Bounded means the selected inward normals surround the origin.
+   - All $+$ and all $-$ do. In any mixed choice the flipped normal is a positive combination of the others (e.g. $-v_4 = v_1+v_2+v_3$), so all four lie in one half-space and the region is unbounded.
+   - So exactly two are bounded, TetA and TetB $=\{\max(-v_i)\le1\}$. Recomputed by linear programming over all 16 sign patterns: exactly $(++++)$ and $(----)$ are bounded.
+4. *Intersection.* $|v_i|\le1$ for all $i$ gives six vertices $(\pm1,0,0),(0,\pm1,0),(0,0,\pm1)$ and twelve equal edges, i.e. the regular octahedron. The union is the stella octangula (Kepler 1619).
+5. *Channels.* The opposing vertex cuts each coupled face into 3 exposed corners + 1 inverted core (the first Sierpiński level), giving $4\times4 = 16$ connected boundary regions. Whether deeper recursion matters is left open.
+
+**Inventory.**
+
+| Quantity | Formula | Value |
+|---|---|---|
+| Tetrahedra | — | 2 |
+| Faces per tetrahedron | $K$ | 4 |
+| Vertices | $2^D$ | 8 |
+| Edges | $KD$ | 12 |
+| Faces | $2K$ | 8 |
+| Channels | $K^2$ | 16 |
+| $V+E+F$ | $K(K+D)$ | 28 |
+
+$V - E + F = 4 = 2\chi(S^2)$, two disjoint closed surfaces.
+
+**Discussion points.**
+- Each tetrahedron has one face whose normal has uniform sign and three with mixed signs. This 3 + 1 pattern mirrors $(-,+,+,+)$.
+- The metric is quadratic in the tetrad, so the parity-related frames give the same $g_{\mu\nu}$. TetA and TetB are "distinct tetrad-level realisations of the same metric". This is the coordinate picture of P-two-regions' two scheme components.
+- The geometry is independent of the action, so it sits in the local frame of any covariant tetrad theory.
+
+**Labelling note (checked, applies across papers).**
+- The region TetA $=\{\max v_i\le1\}$ has its *vertices* at $(+,+,-), (+,-,+), (-,+,+), (-,-,-)$, the even-popcount corners $\{6,5,3,0\}$. Its *face normals* $v_i$ point at the odd corners $\{7,4,2,1\}$.
+- Paper IX's vertex table assigns the odd corners $\{1,2,4,7\}$ to TetA, which matches the normals, not the vertices, of this region.
+- Both labellings name the same pair, and only the "which is A" convention differs. A reader matching vertex coordinates across papers should use the half-space definition.
+
+## CL — The Gravitational Constitutive Law from the Tetrad Frame Geometry
+
+*Letter, companion to L1. Supplementary Notes 1–3 hold the full routes. Status: [D]. It derives the form of $\mu$ and states that $a_0$ is an empirical input: "determining it … is the subject of ongoing work".*
+
+**Problem.**
+- AQUAL $\nabla\cdot[\mu(|\nabla\Phi|/a_0)\nabla\Phi] = 4\pi G\rho$ needs $\mu\to1$ for $x\gg1$ and $\mu\propto x$ for $x\to0$.
+- Many forms satisfy both limits: simple $x/(1+x)$, standard $x/\sqrt{1+x^2}$, $1 - e^{-\sqrt x}$. Famaey & Binney (2005) prefer the simple form by fit.
+
+**Route 1: graded structure of the metric.**
+- From $\eta_{ab}$: $K = 4$ (size of the matrix), $D = 3$ (positive eigenvalues), and root count $n = 2$ (the tetrad equation is degree 2 in $e$).
+- Closure $2(D+1) = 2^D = 8$.
+- Ranks give dimensions: $\det e\ne0$ is rank 0 (1), $e^a{}_\mu$ rank 1 ($K$), $\eta_{ab}e^ae^b$ rank 2 ($K^2$). They add, giving $f = 21$.
+- Parity sign $(-1)^r$ makes only rank 1 odd. Three structural components (TetA, octahedral core, TetB) give $s\in\{+1,0,-1\}$. Odd interpolation on three points gives $Ks$, so $f = 1 + sK + K^2$.
+- A rational bijection of $\mathbb P^1$ is fractional-linear (Hartshorne). Three conditions give $s(x) = (x-1)/(x+1)$, then $\mu = (f-13)/8$.
+- Here $s$ is defined as a three-state label and only *then* made continuous by the map. That is the step later notation writes as $\sigma(x)$.
+
+**Route 2: equilibrium.**
+- Let $\epsilon$ be the TetA fraction. Throughput to TetA is $\propto x^n(1-\epsilon)$, to TetB $\propto\epsilon$. Balance gives $\epsilon = \kappa x^n/(1+\kappa x^n)$.
+- Deep-field $\mu/x\to$ const forces $n = 1$. This is an observational input (flat curves, BTFR).
+- The rate ratio $\kappa$ (the letter writes it "$K$", which clashes with $K = 4$) is absorbed into $a_0$.
+- So the route fixes the form, not the scale. It is globally attracting: the net rate has negative slope in $\epsilon$.
+
+**Route 3: exchange symmetry (the cleanest).**
+- Parity swaps the sectors and inverts $x$: $\mu(1/x) = 1 - \mu(x)$. With odds $\Omega = \mu/(1-\mu)$ this becomes $\Omega(1/x) = 1/\Omega(x)$, with $\Omega(0) = 0$ and $\Omega(\infty) = \infty$.
+- Rational and bijective gives $\Omega = (ax+b)/(cx+d)$; $\Omega(0) = 0$ gives $b = 0$.
+- The exchange condition gives $a^2x = (c+dx)(cx+d)$, so $cd = 0$ and $a^2 = c^2+d^2$ (checked).
+- $d = 0$ makes $\Omega$ constant (excluded). $c = 0$ gives $a = \pm d$, and positivity picks $\Omega = x$.
+- Hence $\mu = x/(1+x)$, with $\mu(1) = \tfrac12$ automatic.
+
+**Why the three agree.** Each identifies the TetA:TetB odds with $x$.
+- Route 1: $(f-13)/(21-f) = x$.
+- Route 2: $\epsilon/(1-\epsilon) = x$.
+- Route 3: $\Omega = x$.
+
+**Consequences.**
+- Complement symmetry is Route 3's premise, not a coincidence.
+- BTFR: $\mu\approx x$ gives $v^4 = GMa_0$ in spherical symmetry.
+
+**Note against later naming.**
+- The letter's BTFR paragraph says the deep-field limit "corresponds to the TetB-dominated sector … is itself the TetB sector of the tetrad geometry". The later rule (and `research/aqual/README.md`, which cites these lines) is that the deep field is the exterior regime $x\ll1$, where the TetB *share* $1-\mu\to1$. TetB itself is the throat interior.
+- The source `papers/letter-constitutive-law-tetrad-geometry/letter.tex` still carries the conflated wording.
+
+## Letter 2 — The Other Half of Gravity: Torsion and the Two-Chamber Structure of the Tetrad Frame (v2)
+
+*Letter, companion to L1. Supplementary: `supplementary_tetb_fraction.pdf` and `run_all_validations.py` (NumPy/SciPy/SymPy, 52/52 claims; §13 checks $P^T\eta P = \eta$ per sector, §14 checks the exchange → dark-ratio chain symbolically). Status: [T] for the lemma and counts, [D] for the partition reading.*
+
+**Counts.** $\Gamma^I{}_{JK}$ has $K^3 = 64$ components. The lower-pair symmetric part has $K\cdot K(K+1)/2 = 40$ (Christoffel); the antisymmetric part has $K\cdot K(K-1)/2 = 24$ (torsion). Einstein (1915) set torsion to zero; Cartan (1922) and Hehl (1976) restore it and couple it to spin, giving the same vacuum predictions.
+
+**Lemma, proposition, corollary.**
+- *Lemma.* A torsion-free connection cannot distinguish TetA from TetB.
+  - It is fixed by $g$ and $\partial g$ (fundamental theorem).
+  - $g = \eta_{ab}e^ae^b$ is bilinear in $e$, so under $P: e^i\to-e^i$ both factors flip sign and $g$ is unchanged.
+- *Proposition.* $\phi: e\mapsto\eta(e,e)$ is quadratic, so $e$ and $Pe$ lie in the same pre-image. The metric is root-blind; a torsionful connection depends on $e$ directly and resolves the root.
+- *Corollary.*
+  - Torsion is the necessary connection-level carrier of the TetA/TetB distinction.
+  - Setting it to zero collapses the two chambers, and the interaction core with them, into one effective sector.
+  - "Image-complete but root-blind."
+
+**TetB fraction.**
+- The response splits as $\mu$ (TetA) and $1-\mu$ (TetB). In the weak field the connection reduces to $\nabla\Phi$, so the split acts on $g$.
+- Exchange gives $\Omega\to1/\Omega$, and a rational bijection forces $\Omega = x$ (as CL Route 3). So $\mu = x/(x+1)$ and $1-\mu = 1/(x+1)$.
+- Torsion-free means $\mu = 1$. The missing share is $\Delta\mu(x) = 1/(x+1)$, which is ≈ 0 for $x\gg1$, ½ at $x = 1$, and ≈ 1 for $x\ll1$.
+
+**Dark matter as the residual.**
+- With $g_{\rm obs} = g_{\rm bar} + g_{\rm DM}$, $g_{\rm bar} = \mu g_{\rm obs}$ and $g_{\rm DM} = (1-\mu)g_{\rm obs}$, so $g_{\rm DM}/g_{\rm bar} = 1/x$.
+- $M = gr^2/G$ shell by shell gives $M_{\rm DM}/M_{\rm bar} = 1/x$.
+- **No cusp.** $g_{\rm DM} = g_{\rm obs}/(x+1) = a_0\,x/(x+1) < a_0$ (recomputed), so the phantom field saturates at $a_0$. This implies a finite central density, not an NFW cusp.
+
+**Polynomial organisation (independent of the above).**
+- Ranks 0, 1, 2 carry dimensions $1, K, K^2$. Only rank 1 is parity-odd, giving $f = 1 + sK + K^2$, with values 21/17/13 and $\Delta f = 2K = 8$.
+- *Theorem.* With $D = K-1$, $K\cdot K(K-1)/2 = D\cdot2K$ iff $K = 4$ (divide through to $K/2 = 2$). So $24 = D\times\Delta f = 3\times8$.
+- Counts table: $1, 4, 16, 10, 6, 64, 40, 24 = K^0, K, K^2, K(K\pm1)/2, K^3, K\cdot K(K\pm1)/2$.
+
+**Discussion.**
+- Einstein–Cartan keeps the 24 components. Here, keeping them keeps TetB and the full partition. "At the level of field magnitudes", Christoffel + contorsion ↔ $\mu$ + $(1-\mu)$.
+- Logistic: $x\,d\mu/dx = \mu(1-\mu)$, i.e. $d\mu/dt = \mu(1-\mu)$ with $t = \ln x$.
+- Strong-field tests (Solar System, pulsars, GW speed) are untouched because $\Delta\mu\to0$.
+- Concordance at three levels from $2(D+1) = 2^D$: the stellated octahedron, $K^3 = K^D$, and $24 = D\times2K$.
+
+**Notes.**
+- The lemma is a statement about parity invariance of the metric and holds for any $K$. The "$K = 4$ only" statement belongs to the 24 = 3 × 8 factorisation (Part I §5.2 corrected to say so).
+- The identification "the 24 torsion components carry the TetB share $1/(x+1)$" is made at the scalar-partition level, not by a calculation of a contorsion tensor in a galaxy.
+- Symbol clash: this letter's $\Delta\mu = 1/(x+1)$ is not XII's $\Delta\mu = 2/17$ ("topological coupling impedance").
+
+## Letter 3 — Field Closure of the Tetrad Frame (with `proof_polynomial_40_24` and `supplementary_covariant_completion`)
+
+*Letter plus two supplementary notes. Supplementary files: `figure2_tetrad_partition.html` and `run_all_validations.py` (polynomial identity, partition, logistic identity, RAR, $F$ limits). Status: [T] for the counting, [D] for the identification and the action. The γ argument is [D] with an ansatz.*
+
+**Letter: the torsion-free projection.**
+- Per upper index $\lambda$ the lower pair is a $K\times K$ grid: $K$ diagonal entries and $(K^2-K)/2 = 6$ mirror pairs.
+- Torsion-free keeps each pair's symmetric half and drops its antisymmetric half. Per slice that keeps $K + 6 = 10$ and drops 6; over $K$ slices, 40 kept and 24 dropped, 64 in all.
+- In polynomial form, kept $= (f(K,+1)-1)/2$ and dropped $= (f(K,-1)-1)/2$.
+- With TetA ↔ $s = +1$ and TetB ↔ $s = -1$ (from L2), "the 24 discarded components are the second root of the tetrad equation".
+- The scheme has two components, so both roots satisfy the same equation and neither can be eliminated. Choosing an orientation is a projection, not a removal.
+- **Field closure** means all $K^3$ connection components are active. This is distinct from Einstein's "complete field theory" and from geodesic completeness.
+- Unlike Einstein–Cartan, where torsion is tied to spin and vanishes in vacuum, here torsion carries $1-\mu(x)$ and persists in vacuum: "kinematic, acceleration-dependent".
+
+**Letter: the partition in space (Fig. 2).**
+- The surfaces of revolution $\mu$ (blue, TetA) and $1-\mu$ (red, TetB) mirror each other and cross on the white ring $x = 1$.
+- Centre ($x\gg1$): the TetA share dominates and the Christoffel sector suffices. Rim ($x\ll1$): the TetB share dominates.
+- The "disk-and-bulge morphology" is said to emerge from the crossing and to need both roots. This is an interpretive reading of the plot of $\mu(x(r))$; no morphology is computed.
+- $x\mu' = \mu(1-\mu)$ peaks at $\tfrac14$ on the ring. $\mu(1-\mu)$ is read as the continuous analogue of the $s = 0$ core.
+- RAR: $g_{\rm bar} = \mu g_{\rm obs} = g_{\rm obs}^2/(g_{\rm obs}+a_0)$. Cites 0.057 dex intrinsic scatter over 175 galaxies (Li 2018).
+- Consequences listed:
+  - Bounded central phantom field, $< a_0$, so no cusp.
+  - No new particles.
+  - Solar System at $x\sim10^8$, where the TetB share is $\sim10^{-8}$.
+- AeST (Skordis–Złośnik) adds fields; GFD restores connection content removed by a constraint.
+
+**Proof note (40/24).** It is the same counting in seven steps (Steps 1–5 matrix counting, 6 polynomial identity, 7 interpretation).
+- Surplus kept − dropped $= \Delta f/2 = K$ per slice and $K^2 = 16$ in total ("the asymmetry 40 vs 24 is the $K^2$ term"). Restored: $(K^2+K)/2 + (K^2-K)/2 = K^2$ per slice, $K^3$ in total.
+- *Counting nuance.* Step 6 says the subtracted $K^0 = 1$ "maps to the diagonal entries". There are $K = 4$ diagonal entries, and they are inside the kept 10. The $\pm K$ difference between 10 and 6 is exactly those diagonals, while Step 7 attributes $\pm K$ to the off-diagonal pairs. The numerical identity is exact; the term-by-term reading does not match the grid count.
+
+**Covariant-completion note.**
+- *§1.* $F = 2\int_0^{\sqrt y}u^2/(u+1)\,du$ with $u^2/(u+1) = u - 1 + 1/(u+1)$, giving $y - 2\sqrt y + 2\ln(1+\sqrt y)$. The round trip $F' = \mu(\sqrt y)$ is checked.
+  - Term map: $u\to y$ ($K^2$), $-1\to-2\sqrt y$ ($sK$), $1/(u+1)\to2\ln(1+\sqrt y)$ ($K^0$).
+  - The remainder $1/(u+1) = 1-\mu$, so the log term integrates twice the TetB share.
+  - Limits: $F/y\to1$; $F\to\tfrac23y^{3/2}$.
+- *§2.* Prefactors are $16 = K^2$ (with $4\pi/K = \pi$ sr per face), $8 = 2^D$ and $4 = K$, a halving sequence. $\Phi$ "is not a new field": it is the Newtonian potential, with the torsion share carried implicitly inside $F$.
+- *§3 (lensing).*
+  - AQUAL-in-GR treats $(\mu-1)$ as a separate scalar with anisotropic stress, so $\gamma = \Psi/\Phi = \mu(x)$, and $\gamma\to0$ at the rim gives half the lensing (the reason for TeVeS).
+  - GFD keeps one equation $\nabla\cdot[\mu\nabla\Phi] = 4\pi G\rho$ and one potential in $g_{00} = -(1+2\Phi/c^2)$, $g_{ij} = (1-2\Phi/c^2)\delta_{ij}$, so $\gamma = 1$ everywhere.
+  - Table: GR (40 of 64, wrong rotation, $\gamma = 1$); AQUAL+φ (correct rotation, $\gamma = \mu$); GFD (64 of 64, correct rotation, $\gamma = 1$).
+  - The single-potential metric is *posited*. The metric variation, which would include the stress–energy of the $F(y)$ term, is described but not carried out.
+- *§3 (EM term).* It leaves null geodesics alone (conformal invariance of Maxwell in 4D). Its stated role is cosmological: $\Phi(z)$ modulates EM scaling relations.
+  - Not discussed: as written it makes $\alpha_{\rm eff} = \alpha e^{2\Phi/c^2}$, a coupling $k_\alpha = 2$ of $\alpha$ to the gravitational potential. Laboratory bounds are $|k_\alpha|\lesssim10^{-6}$–$10^{-7}$ (Part I §3).
+- *§4.*
+  - The scalar variation gives $-(1/4\pi G)\nabla\cdot[\mu\nabla\Phi]$, set against $-\rho$; the prefactor $(a_0^2/8\pi G)(2/a_0^2) = 1/4\pi G$ checks.
+  - Expanded: $\mu\nabla^2\Phi + \nabla\mu\cdot\nabla\Phi = 4\pi G\rho$.
+  - Spherical case: $\mu(g_t/a_0)g_t = g_s$, so $g_s = g_t^2/(a_0+g_t)$.
+  - PPN $\beta = \gamma = 1$. GW speed $c$ because the tensor sector is pure Einstein–Hilbert.
