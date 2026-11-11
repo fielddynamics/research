@@ -92,7 +92,7 @@ GFD proposes that the local gravitational frame has a definite interior geometry
 | Tetrad | `g_μν = η_ab e^a_μ e^b_ν` — the 2⁴ sign combinations of the spatial frame give exactly two bounded regions (TetA, TetB) |
 | Coupling polynomial | `f(K, s) = 1 + sK + K²` → at K = 4: **21** (TetA, s = +1), **17** (origin, s = 0), **13** (TetB, s = −1) |
 | Constitutive law | `μ(x) = x/(x + 1)`, with `x = g_t / a₀` — the "simple" AQUAL/MOND interpolating function, derived rather than fitted |
-| Scalar–tensor transition (SST) | `g_s = g_t² / (a₀ + g_t)`, inverted as `g_t = (g_s + √(g_s² + 4 g_s a₀))/2` |
+| Spherical field equation | `g_s = g_t² / (a₀ + g_t)`, inverted as `g_t = (g_s + √(g_s² + 4 g_s a₀))/2` |
 | Kinetic functional | `F(y) = y − 2√y + 2 ln(1 + √y)`, with `dF/dy = μ(√y)` |
 | Covariant action | `S = ∫ d⁴x √−g [ R/16πG − (a₀²/8πG) F(y) − ¼ e^{−2Φ/c²} F_μν F^μν + L_m ]` — prefactors 16 = K², 8 = 2^D, 4 = K |
 | Connection split | `K³ = 64 = 40 + 24`: GR's torsion-free condition keeps 40 Christoffel components and discards the 24 torsion components, which GFD identifies with TetB |
@@ -148,7 +148,7 @@ Derives both the topology and the closure condition of gravity from the single e
 
 **X — Two-Scale Kinematics from a Single Scalar-Tensor Transition**
 [`papers/10-two-scale-kinematics-tully-fisher-h0/`](papers/10-two-scale-kinematics-tully-fisher-h0/) <!-- Zenodo DOI -->
-Applies the same SST equation at galactic and cosmological scales to predict the redshift evolution of the baryonic Tully–Fisher relation to z = 3 and H₀ = 70.21 km/s/Mpc, with a ±6% band containing both the Planck and SH0ES values.
+Applies the same spherical field equation, `g_s = g_t² / (a₀ + g_t)`, at galactic and cosmological scales to predict the redshift evolution of the baryonic Tully–Fisher relation to z = 3 and H₀ = 70.21 km/s/Mpc, with a ±6% band containing both the Planck and SH0ES values.
 
 **XI — Nuclear Shell Structure and Binding Energies from Tetrahedral Packing at K = 4**
 [`papers/11-nuclear-shells-tetrahedral-packing/`](papers/11-nuclear-shells-tetrahedral-packing/) <!-- Zenodo DOI -->
@@ -160,7 +160,7 @@ Develops Paper VIII into a term-by-term correspondence between the two actions, 
 
 **XIII — Nuclear Binding Energy from the Bidirectional Scalar-Tensor Transition**
 [`papers/13-nuclear-binding-bidirectional-sst/`](papers/13-nuclear-binding-bidirectional-sst/) <!-- Zenodo DOI -->
-Uses the SST quadratic, the same equation used for galaxy rotation curves, evaluated along a 64-step walk to reproduce the seven magic numbers (including the 20 → 28 gap without spin–orbit coupling) and binding energy per nucleon from helium to lead. The earlier draft is in `working-draft/`.
+Uses the self-consistent (bound) form of the constitutive law, $x(1-\mu)^2 = \mu$, the bidirectional counterpart of the law used for galaxy rotation curves, evaluated along a 64-step walk to reproduce the seven magic numbers (including the 20 → 28 gap without spin–orbit coupling) and binding energy per nucleon from helium to lead. The earlier draft is in `working-draft/`.
 
 **Companion — Topological Field Closure: A Bidirectional Derivation of the Hubble Constant and the Electron Mass**
 [`2026-01-26-Topological_Field_Closure_…pdf`](papers/2026-01-26-Topological_Field_Closure_A_Bidirectional_Derivation_of_the_Hubble_Constant_and_the_Electron_Mass.pdf) <!-- Zenodo DOI -->

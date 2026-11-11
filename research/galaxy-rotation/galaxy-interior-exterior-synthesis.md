@@ -33,7 +33,7 @@ evaluated at k = K = 4 (the face count per tetrahedron, fixed by the uniqueness 
 |-------|---|--------|-----------------|
 | TetA (Newtonian) | +1 | 21 | Baryonic gravity dominates |
 | Field Origin (transition) | 0 | 17 | Bimetric equilibrium |
-| TetB (deep field) | −1 | 13 | Interior field dominates |
+| TetB (throat interior) | −1 | 13 | Interior field dominates |
 
 The Möbius map s(x) = (x−1)/(x+1) makes the state continuous in the acceleration ratio x = g/a₀. Substituting into f(4, s(x)):
 
@@ -47,7 +47,7 @@ This is the fraction of the gravitational field attributable to baryonic matter 
 
 ### The Two Pipelines
 
-**Forward pipeline.** From photometric baryonic mass M_bar(r), compute the Newtonian acceleration g_s = GM_bar/r², then solve the SST quadratic:
+**Forward pipeline.** From photometric baryonic mass M_bar(r), compute the Newtonian acceleration g_s = GM_bar/r², then solve the spherical-static quadratic:
 
 $$g_t = \frac{g_s + \sqrt{g_s^2 + 4g_s a_0}}{2}$$
 
@@ -147,11 +147,11 @@ The shielding in atoms and the interior contribution in galaxies are the same me
 
 ### The Packing Connection
 
-Unbound gravity fields on TetA screen in one direction: x(1 − μ) = μ, giving μ = x/(x+1). This governs galactic dynamics. The exponent 1 in (1 − μ)¹ reflects one-directional screening in the unbound ocean.
+A galaxy's exterior field, on TetA, screens in one direction: x(1 − μ) = μ, giving μ = x/(x+1). This governs galactic dynamics. The exponent 1 in (1 − μ)¹ reflects one-directional coupling: the baryons source the field and the field does not source itself. The galaxy is nonetheless a bound vortex, never an unbound field. Its TetB is occupied, fed by the matter that spirals through the drain at the centre.
 
-Bound gravity fields on TetB compress bidirectionally: x(1 − μ)² = μ. This governs nuclear binding. The exponent 2 reflects the bidirectional compression of fields trapped on TetB.
+In a nucleus each field is both source and response, and the coupling compresses bidirectionally: x(1 − μ)² = μ. This governs nuclear binding. The exponent 2 reflects the bidirectional compression of fields trapped on TetB.
 
-The difference between the galaxy and the nucleus is not a parameter to be fitted. It is the physics of the state the field is in: unbound (one-directional, exponent 1) or bound (bidirectional, exponent 2). The field equation is the same. The topology is the same. The state determines the exponent.
+The difference between the galaxy and the nucleus is not a parameter to be fitted. It is the physics of how the field couples: one-directional (exponent 1), as in a galaxy's exterior field, or bidirectional (exponent 2), as in a nucleus. The field equation is the same. The topology is the same. The direction of coupling determines the exponent.
 
 ---
 
@@ -179,7 +179,7 @@ The energy functional enters the covariant action as the scalar sector:
 
 $$S = S_R + S_\phi + S_{em} + S_m$$
 
-Four terms, each with a prefactor determined by the stellated octahedron. Three structural levels in the kinetic functional. Two field equations (Poisson and SST). One topology. Zero free parameters. The entire pipeline from the coupling polynomial to the galaxy rotation curve is algebraic.
+Four terms, each with a prefactor determined by the stellated octahedron. Three structural levels in the kinetic functional. Two field equations (Poisson and the spherical-static quadratic). One topology. Zero free parameters. The entire pipeline from the coupling polynomial to the galaxy rotation curve is algebraic.
 
 ---
 

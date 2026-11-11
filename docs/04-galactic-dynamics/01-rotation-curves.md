@@ -1,6 +1,6 @@
 # Rotation Curves & Effective Mass Decoded
 
-Flat rotation curves are evidence of missing field topology, not missing mass. Select any of 175 galaxies below and see how the Gravity Field Dynamics scalar-tensor transition predicts each rotation curve from baryonic mass alone, with no free parameters, alongside MOND and $\Lambda$CDM.
+Flat rotation curves are evidence of missing field topology, not missing mass. Select any of 175 galaxies below and see how the Gravity Field Dynamics spherical field equation, $g_s = g_t^2 / (a_0 + g_t)$, predicts each rotation curve from baryonic mass alone, with no free parameters, alongside MOND and $\Lambda$CDM.
 
 <div class="rc-explorer" data-catalog-url="https://api.fielddynamics.org/v1/sparc/catalog" data-rc-url="https://api.fielddynamics.org/v1/analysis/rotation-curve/photometric" data-default-galaxy="NGC2998">
 
@@ -39,7 +39,7 @@ This interactive explorer lets you examine the question for yourself, galaxy by 
 
 The chart above plots observed velocity (white points with error bars) against radius in kiloparsecs. Overlaid are three colored curves, each representing a different gravitational framework's prediction for what the rotation curve should look like. All three take the same baryonic input (gas, stellar disk, and bulge) from SPARC 3.6 micron photometry and attempt to reproduce the observed curve.
 
-**GFD** (green) is Gravity Field Dynamics. Its governing equation is the stellated octahedron field equation, $f(x) = (21x + 13) / (x + 1)$, from which the scalar-tensor transition $g_s = g_t^2 / (a_0 + g_t)$ is derived. The forward solver takes baryonic source acceleration in and total acceleration out via the exact quadratic inverse of the scalar-tensor transition. No interpolation function. No dark matter. No free parameters.
+**GFD** (green) is Gravity Field Dynamics. Its governing equation is the stellated octahedron field equation, $f(x) = (21x + 13) / (x + 1)$, from which the spherical field equation $g_s = g_t^2 / (a_0 + g_t)$ is derived. The forward solver takes baryonic source acceleration in and total acceleration out via the exact inverse of this quadratic. No interpolation function. No dark matter. No free parameters.
 
 **MOND** (amber) is Modified Newtonian Dynamics. It applies the McGaugh interpolation function to modify Newtonian gravity in the low-acceleration regime. MOND is an empirical prescription: it fits the data well but does not derive its interpolation function from a deeper structure.
 
@@ -71,7 +71,7 @@ At every observed radius, we can work backwards from the measured velocity to de
 
 $$M_{\text{dec}}(r) = \frac{r\,v^4}{G\,(a_0\,r + v^2)}$$
 
-This decoded mass is derived from the observed kinematics and the GFD constitutive law. It represents what the rotation curve implies when gravity obeys the scalar-tensor transition rather than the Newtonian inverse-square law.
+This decoded mass is derived from the observed kinematics and the GFD constitutive law. It represents what the rotation curve implies when gravity obeys the spherical field equation $g_s = g_t^2 / (a_0 + g_t)$ rather than the Newtonian inverse-square law.
 
 Each framework also has its own forward model that predicts how much enclosed mass there should be at a given radius. The bar chart shows the ratio of each framework's predicted mass to the decoded mass. A ratio of 1x means perfect agreement.
 

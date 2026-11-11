@@ -265,7 +265,7 @@ for _ in range(25):
     ok &= sp.expand(-(exch * X_**n) - (X_**en * (1 - M_)**em - M_**ek)) == 0
 check("T6c S (z = x mu) and E (x->1/x, mu->1-mu) act as (n,m,k)->(n,m,k+n) and (n,m,k)->(n,k,m), 25 random members", ok)
 U = (1, 1, 1)
-check("T6d orbit: U -S-> (1,1,2) -E-> (1,2,1) = bound law -S-> (1,2,2) = unbound law in sqrt(z), fixed by E",
+check("T6d orbit: U -S-> (1,1,2) -E-> (1,2,1) = bound law -S-> (1,2,2) = one-directional law in sqrt(z), fixed by E",
       S_op(U) == (1, 1, 2) and E_op(S_op(U)) == (1, 2, 1) and S_op(E_op(S_op(U))) == (1, 2, 2)
       and E_op((1, 2, 2)) == (1, 2, 2))
 ok = True

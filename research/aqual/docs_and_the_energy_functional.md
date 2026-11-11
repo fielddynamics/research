@@ -37,7 +37,7 @@ Every statement below is checked by [`verify_docs_intersection.py`](verify_docs_
 | The decode $M_{\text{dec}} = rv^4/[G(a_0r + v^2)]$ | Equivalently $M_{\text{dec}} = (r^2/G)\,(g_t - a_0\mu)$: **the decoded mass is the total field minus its TetB share**, from (1c). This is the quiet partition; the interior's active contribution is the separate quantity $\Delta M_{\text{eff}} = M_{\text{phot}} - M_{\text{dec}}$ |
 | Deep field: $M = v^4/(Ga_0)$, slope 4 | Holds; it is the $\psi \to \infty$ limit of §9 |
 | "The Legendre transform exists" (site test) | §7 gives it in closed form, $Q(z^2)$ |
-| Complement symmetry $\mu(x) + \mu(1/x) = 1$ | Holds. It is why the mean coupling is 17 (§6) and what singles out the unbound law (§11) |
+| Complement symmetry $\mu(x) + \mu(1/x) = 1$ | Holds. It is why the mean coupling is 17 (§6) and what singles out the one-directional law (§11) |
 
 ## B. Docs statements the algebra does not support
 
@@ -84,7 +84,7 @@ Every statement below is checked by [`verify_docs_intersection.py`](verify_docs_
    - Docs 02, docs 06, the rotation-curves page and Paper XIII call the quadratic $g_s = g_t^2/(a_0 + g_t)$ "the scalar-tensor transition".
    - Paper VII names the full action $S_{\text{ST}}$.
 
-   On the convention that the SST is the full action, and the field equation is what varying it gives, the docs need renaming in these places.
+   The SST is the full covariant action; the quadratic is its spherical field equation and is never itself "the SST". The reader-facing Markdown (docs 02, docs 06, the rotation-curves page, the root README, the field-closure and Tully–Fisher READMEs and the research syntheses) has been corrected to say "spherical field equation" or "spherical-static quadratic". Paper titles and LaTeX sources (Papers X and XIII, the field-closure letter supplement, the Hassan–Rosen lock letter, GFD essentials) still use the old name and are left for the author.
 
    The same pages also label the regime $x \to 0$ "Deep field (TetB dominant)" (docs 02, docs 03). The deep field is a range of $x$ reached in the exterior, toward the rim, where the TetB share approaches 1. TetB itself is the throat interior at the centre, reached through the Field Origin (decoding-mass letter). The same conflation appears in the constitutive-law letter, lines 404–411 ("the deep-field limit … is itself the TetB sector"), and in the galaxy interior/exterior synthesis table ("TetB (deep field)").
 

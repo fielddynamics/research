@@ -85,7 +85,7 @@ $$
 $$
 
 This source equation determines the Newtonian potential, utilizing the CODATA value of $G$ which already contains the topological ratio $17/13$.
-The second is the Scalar-Tensor Transition:
+The second is the scalar field equation in its spherical, static form:
 
 $$
 g_s = \frac{g_t^2}{a_0 + g_t}

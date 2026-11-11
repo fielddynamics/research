@@ -94,9 +94,9 @@ Here $(A-1)/A$ is the fraction of fields beyond the first crossing (hydrogen con
 
 This form describes the **rise** of the binding curve: from carbon to iron it is within about 5% of the measured values. On its own, though, it keeps climbing towards its ceiling $CK$. It has no way to turn over, so past iron it increasingly over-predicts, reaching +9% at lead.
 
-**The full curve: sector crossings.** The turnover does not need a new mechanism. Paper XIII keeps the same self-consistent law and adds the structure the fields pack into. Each nucleon $i$ contributes $\mu_{\mathrm{SST}}(i^2)$, and the fields fill a hierarchy of sectors, each holding $K^D = 64$ positions.
+**The full curve: sector crossings.** The turnover does not need a new mechanism. Paper XIII keeps the same self-consistent law and adds the structure the fields pack into. Each nucleon $i$ contributes $\mu_b(i^2)$, where $\mu_b$ is the solution of the bound law $x(1-\mu)^2 = \mu$ (Paper XIII writes it $\mu_{\mathrm{SST}}$), and the fields fill a hierarchy of sectors, each holding $K^D = 64$ positions.
 - **Inside a sector**, binding per nucleon rises as the sector fills. The first sector is complete at zinc-64.
-- **At each sector boundary**, the coupling profile reflects, and binding per nucleon descends from a ceiling. The ceiling is set by the same law, evaluated at its own half-split point, $\mu_{\mathrm{SST}}(2) = \tfrac12$.
+- **At each sector boundary**, the coupling profile reflects, and binding per nucleon descends from a ceiling. The ceiling is set by the same law, evaluated at its own half-split point, $\mu_b(2) = \tfrac12$.
 - **Past iron**, the declining binding is the cost of crossing sector boundaries at $A = 64$ (zinc), 128 (tellurium) and 192 (osmium). It is not a separate force.
 
 The energy scale is calibrated once, at zinc-64, where the first sector closes. Against measured binding energies (AME2020), evaluated from the atomic masses:

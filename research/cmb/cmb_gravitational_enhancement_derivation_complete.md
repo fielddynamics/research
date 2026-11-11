@@ -36,13 +36,13 @@ $$a_0 = \frac{cH}{2\pi}$$
 
 #### Proposition 2 — Naive enhancement overshoots
 
-Applying the deep-field limit of the scalar-tensor transition at recombination with naive linear scaling $a_0 \propto H$ predicts an enhancement of $\sim 28$, far above the Planck-inferred value $6.36 \pm 0.10$.
+Applying the deep-field limit of the spherical field equation at recombination with naive linear scaling $a_0 \propto H$ predicts an enhancement of $\sim 28$, far above the Planck-inferred value $6.36 \pm 0.10$.
 
-*Proof.* The scalar-tensor transition from the covariant action is
+*Proof.* In the spherical, static limit the covariant action gives the field equation
 
 $$g_s = \frac{g_t^2}{a_0 + g_t}$$
 
-At recombination, density perturbations have amplitude $\delta \sim 10^{-5}$ at acoustic scale $k \sim 0.1$ Mpc$^{-1}$. The perturbation-scale accelerations satisfy $g_t \ll a_0$, so the SST reduces to
+At recombination, density perturbations have amplitude $\delta \sim 10^{-5}$ at acoustic scale $k \sim 0.1$ Mpc$^{-1}$. The perturbation-scale accelerations satisfy $g_t \ll a_0$, so the quadratic reduces to
 
 $$g_s \approx \frac{g_t^2}{a_0} \quad \Rightarrow \quad g_t = \sqrt{g_s \cdot a_0}$$
 
@@ -123,7 +123,7 @@ Comparison: $|6.46 - 6.36|/6.36 = 1.6\%$; the prediction lies at the upper edge 
 
 $$\boxed{\begin{aligned}
 &\textbf{Target:} \quad \mathcal{E}_{\text{CMB}} = 1/\mu(x_{\text{rec}}) \\[6pt]
-&\textbf{Deep-field SST:} \quad g_t = \sqrt{g_s \cdot a_0}, \quad x = \sqrt{g_s/a_0} \\[6pt]
+&\textbf{Deep-field limit:} \quad g_t = \sqrt{g_s \cdot a_0}, \quad x = \sqrt{g_s/a_0} \\[6pt]
 &\textbf{Naive scaling:} \quad a_0^{\text{naive}} = cH/(2\pi) \\
 &\quad \Rightarrow x \approx 0.037, \quad \mathcal{E} \approx 28 \\[6pt]
 &\textbf{Tiling correction:} \quad \langle\theta/(2\pi)\rangle = 1/\pi \\

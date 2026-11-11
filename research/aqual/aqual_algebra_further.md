@@ -1,6 +1,6 @@
 # The AQUAL Algebra, Taken Further
 
-*The unbound law, its inverse, the bound law and the energy functional as one algebra · Field Dynamics Research · working note, November 2026*
+*The one-directional law, its inverse, the bound law and the energy functional as one algebra · Field Dynamics Research · working note, November 2026*
 
 ---
 
@@ -52,7 +52,7 @@ $\sigma(x)$ takes the *values* of the state labels without being those states:
 - $\sigma(x) = 0$ on the ring $x = 1$, a radius in the exterior where the shares are equal. The ring is not the Field Origin, which in a galaxy is the gate at the centre.
 - $\sigma(x) \to -1$ only as $x \to 0$, in the deep field, where the TetB share approaches 1. That is not TetB.
 
-*Naming.* Following the archive, the one-directional law $x(1-\mu) = \mu$ is called the *unbound law*. It governs the exterior field of a galaxy, and the name refers to the law, not to the state of the galaxy's interior. Throughout, "TetB share" means $1-\mu$ and "deep field" means $x \ll 1$.
+*Naming.* The law $x(1-\mu) = \mu$ is called the *one-directional law*: matter sources the field and the field does not source itself. It governs the exterior field of a galaxy. A galaxy is never unbound; it is a vortex whose TetB is occupied, fed through the drain at its centre. The self-consistent law $x(1-\mu)^2 = \mu$ of the nuclear papers keeps its archive name, the *bound law*. Throughout, "TetB share" means $1-\mu$ and "deep field" means $x \ll 1$.
 
 ---
 
@@ -80,7 +80,7 @@ $$v^2 = \frac{v_N^2}{2} + \sqrt{\frac{v_N^4}{4} + GMa_0}.$$
 
 The Newtonian part $v_N^2 = GM/r$ fades with radius, and $v^4$ tends to $GMa_0$.
 
-**The golden ratio in the unbound law.** At $g_s = a_0$, (1b) becomes $\mu^2 + \mu - 1 = 0$. So $\mu = 1/\varphi$ and $g_t = \varphi\,a_0$. The archive has the golden ratio only in the bound law, at $x = 1$. It is also in the unbound law, at unit *source* acceleration.
+**The golden ratio in the one-directional law.** At $g_s = a_0$, (1b) becomes $\mu^2 + \mu - 1 = 0$. So $\mu = 1/\varphi$ and $g_t = \varphi\,a_0$. The archive has the golden ratio only in the bound law, at $x = 1$. It is also in the one-directional law, at unit *source* acceleration.
 
 **Scope: where these forms are pointwise.**
 
@@ -99,19 +99,19 @@ Apply the same exchange to the source form (1b):
 
 $$z(1-\mu) = \mu^2 \quad\xrightarrow{\;(z,\mu)\,\to\,(1/z,\,1-\mu)\;}\quad z\,(1-\mu)^2 = \mu .$$
 
-**That is Paper XIII's bound law, exactly.** Equivalently, $1 - \mu_b(x) = 1/\nu(1/x)$: the bound law's TetB share at $x$ is the unbound law's $g_s/g_t$ at source acceleration $a_0/x$.
+**That is Paper XIII's bound law, exactly.** Equivalently, $1 - \mu_b(x) = 1/\nu(1/x)$: the bound law's TetB share at $x$ is the one-directional law's $g_s/g_t$ at source acceleration $a_0/x$.
 
 Three things follow.
 
-- **The two golden ratios are one equation.** The unbound TetA share at $g_s = a_0$ and the bound TetB share at $x = 1$ are both $1/\varphi$. Each is the root of $\mu^2 + \mu - 1 = 0$, read from either side of the exchange.
-- **The $1/A$ saturation is the bound law's asymptote.** For large $x$, $1 - \mu_b \simeq 1/\sqrt x - 1/(2x)$. At $x = A^2$ this is $1/A$, against $1/(1+A^2)$ for the unbound law. This is the "$1/A$, not $1/A^2$" signature claimed in [`bound-gravity-and-packing/`](../bound-gravity-and-packing/).
-- **Degree depends on the variable.** The unbound law has degree $(1,1)$ in $(x,\mu)$ but degree $(1,2)$ in $(z,\mu)$, the same degree the bound law has in $x$. The exchange proof's premise (A), that the degree in $\mu$ counts the directions in which the coupling runs, therefore holds in the total variable specifically. The proof works in $x$, so it is unaffected, but the reading of "degree" should say which variable it uses.
+- **The two golden ratios are one equation.** The one-directional TetA share at $g_s = a_0$ and the bound TetB share at $x = 1$ are both $1/\varphi$. Each is the root of $\mu^2 + \mu - 1 = 0$, read from either side of the exchange.
+- **The $1/A$ saturation is the bound law's asymptote.** For large $x$, $1 - \mu_b \simeq 1/\sqrt x - 1/(2x)$. At $x = A^2$ this is $1/A$, against $1/(1+A^2)$ for the one-directional law. This is the "$1/A$, not $1/A^2$" signature claimed in [`bound-gravity-and-packing/`](../bound-gravity-and-packing/).
+- **Degree depends on the variable.** The one-directional law has degree $(1,1)$ in $(x,\mu)$ but degree $(1,2)$ in $(z,\mu)$, the same degree the bound law has in $x$. The exchange proof's premise (A), that the degree in $\mu$ counts the directions in which the coupling runs, therefore holds in the total variable specifically. The proof works in $x$, so it is unaffected, but the reading of "degree" should say which variable it uses.
 
 - **The cycle closes.** Rewrite the bound law in *its* source variable $z_b = x\mu_b$. Then $x = \mu/(1-\mu)^2$ gives $\sqrt{z_b} = \mu/(1-\mu)$, so
 $$\mu_b = \frac{\sqrt{z_b}}{1 + \sqrt{z_b}} .$$
-In its own source variable, the bound law is the unbound law at $\sqrt{z_b}$. That form is exchange-symmetric again. §11 shows this is one orbit of two operations.
+In its own source variable, the bound law is the one-directional law at $\sqrt{z_b}$. That form is exchange-symmetric again. §11 shows this is one orbit of two operations.
 
-**Status.** The identity is exact. It is a candidate derivation of the bound law from the unbound law plus the exchange. Whether exchanging in the source variable is the physical content of "binding" is the framework's call, not the algebra's.
+**Status.** The identity is exact. It is a candidate derivation of the bound law from the one-directional law plus the exchange. Whether exchanging in the source variable is the physical content of "binding" is the framework's call, not the algebra's.
 
 ## 3. The logistic family
 
@@ -121,14 +121,14 @@ $$x\,\frac{d\mu}{dx} = \frac{n\,\mu(1-\mu)}{1 + (m-1)\mu}.$$
 
 | Law | $x\,\mu'$ | Value at $x = 1$ | Slope at $x = 1$ |
 |---|---|---|---|
-| Unbound, $(n,m) = (1,1)$ | $\mu(1-\mu)$ | $\mu = 1/2$ | $1/4$ |
+| One-directional, $(n,m) = (1,1)$ | $\mu(1-\mu)$ | $\mu = 1/2$ | $1/4$ |
 | Bound, $(n,m) = (1,2)$ | $\mu(1-\mu)/(1+\mu)$ | $\mu = 1/\varphi^2$ | $1/(\sqrt5\,\varphi^2) = (3\sqrt5 - 5)/10 \approx 0.171$ |
 
-The denominator $1+\mu$ is the bound law's extra direction. The bound transition is slower and peaks later. Its rate is greatest at $\mu = \sqrt2 - 1$, that is at $x = (1+\sqrt2)/2 \approx 1.21$, where it reaches $(\sqrt2-1)^2 \approx 0.172$. The unbound rate peaks at $1/4$ at $x = 1$ itself.
+The denominator $1+\mu$ is the bound law's extra direction. The bound transition is slower and peaks later. Its rate is greatest at $\mu = \sqrt2 - 1$, that is at $x = (1+\sqrt2)/2 \approx 1.21$, where it reaches $(\sqrt2-1)^2 \approx 0.172$. The one-directional rate peaks at $1/4$ at $x = 1$ itself.
 
 ## 4. The anisotropy of the field equation is the TetB share
 
-Theorem 2 gives the two Hessian eigenvalues of the energy as $2\mu$ (twice, transverse) and $2(x\mu)'$ (once, along the field). Their ratio is $1 + x\mu'/\mu$, and for the unbound law
+Theorem 2 gives the two Hessian eigenvalues of the energy as $2\mu$ (twice, transverse) and $2(x\mu)'$ (once, along the field). Their ratio is $1 + x\mu'/\mu$, and for the one-directional law
 
 $$\frac{(x\mu)'}{\mu} = \frac{x+2}{x+1} = 1 + (1-\mu).$$
 
@@ -185,7 +185,7 @@ $$F_b(y) = y + \sqrt y - \Big(\tfrac23\sqrt y + \tfrac16\Big)\sqrt{1 + 4\sqrt y}
 - **Deep field:** it has the same deep-field limit as $F$, $\tfrac23 y^{3/2} - y^2 + \cdots$.
 - **Strong field:** it goes as $y - \tfrac43 y^{3/4} + \cdots$, with no $\ln y$.
 
-So the logarithm, which the archive reads as the Field Origin term, belongs to the unbound field only.
+So the logarithm, which the archive reads as the Field Origin term, belongs to the one-directional law only.
 
 **The potential of a point mass.** With $r_M = \sqrt{GM/a_0}$:
 
@@ -234,7 +234,7 @@ $$\mu_b = \tanh^2\frac{\psi}{2}, \qquad 1 - \mu_b = \operatorname{sech}^2\frac{\
 
 Compare §9. **At the same $\psi$, the bound law's TetA share is the point mass's TetB share**, with $x = r^2/r_M^2 = a_0/g_s$. This is identity 2c of §2 in geometric form: the bound law reads the point-mass field from the other side of the exchange. The QUMOND energy $Q$ of §7 also lives on this variable: on the point-mass field, $z = g_s/a_0 = 4/\sinh^2\psi$, and its logarithmic term is $\mathrm{asinh}(\sqrt z/2) = \ln\coth(\psi/2) = \ln\big(v^2/\sqrt{GMa_0}\big)$.
 
-For comparison, the unbound law in its natural variable $\sqrt x = e^{\theta}$ is $\mu = (1 + \tanh\theta)/2$. The unbound law is a tanh of a logarithm; the bound law is a tanh squared of an asinh.
+For comparison, the one-directional law in its natural variable $\sqrt x = e^{\theta}$ is $\mu = (1 + \tanh\theta)/2$. The one-directional law is a tanh of a logarithm; the bound law is a tanh squared of an asinh.
 
 ## 11. Two operations generate the laws
 
@@ -243,16 +243,16 @@ Take the family $x^n(1-\mu)^m = \mu^k$, which includes the necessity table's alt
 - **S**, rewrite in the source variable $z = x\mu$: $(n, m, k) \to (n, m, k+n)$;
 - **E**, the exchange $(x,\mu) \to (1/x, 1-\mu)$: $(n, m, k) \to (n, k, m)$.
 
-A law depends only on the ratio $n : m : k$, since taking roots does not change its solution. Starting from the unbound law $U = (1,1,1)$:
+A law depends only on the ratio $n : m : k$, since taking roots does not change its solution. Starting from the one-directional law $U = (1,1,1)$:
 
 $$U \xrightarrow{\;S\;} (1,1,2) \xrightarrow{\;E\;} (1,2,1) = \text{bound} \xrightarrow{\;S\;} (1,2,2) = U \text{ at } \sqrt z \xrightarrow{\;E\;} \text{itself}.$$
 
-Two facts about the family make the uniqueness of the unbound law structural:
+Two facts about the family make the uniqueness of the one-directional law structural:
 
 - **Tails.** $\mu \sim x^{n/k}$ in the deep field and $1 - \mu \sim x^{-n/m}$ in the strong field.
 - **Fixed points.** The members fixed by E are exactly $m = k$, which are the laws $\mu = x^a/(1+x^a)$ with $a = n/m$. All of them are exchange-symmetric.
 
-So within the family, **deep-field scaling ($n = k$) plus exchange symmetry ($m = k$) leaves only $n = m = k$: the unbound law.** This is the exchange proof's conclusion reached without the degree lemma: premise (A) is replaced by the deep-field exponent, which the equilibrium route already fixes.
+So within the family, **deep-field scaling ($n = k$) plus exchange symmetry ($m = k$) leaves only $n = m = k$: the one-directional law.** This is the exchange proof's conclusion reached without the degree lemma: premise (A) is replaced by the deep-field exponent, which the equilibrium route already fixes.
 
 ## 12. Composition: the partition adds like rapidities
 
@@ -312,7 +312,7 @@ The three integers are therefore not absent from general relativity: their ingre
 |---|---|
 | (1c) $g_t = g_s + a_0\mu$; source form (1b) | Exact; new readings of a known law |
 | $\nu(z)$, the point-mass $v^2$ and $\Phi$ | Exact; standard for this $\mu$ in MOND, now stated in GFD terms |
-| Unbound golden ratio at $g_s = a_0$ | Exact; not previously in the archive |
+| One-directional golden ratio at $g_s = a_0$ | Exact; not previously in the archive |
 | Bound law = exchange of (1b) | Exact identity; its physical reading is open |
 | $1 - \mu_b \simeq 1/\sqrt x$, giving $1/A$ | Exact asymptote; consistent with the bound-gravity README |
 | Logistic family; bound slope $1/(\sqrt5\varphi^2)$ at $x = 1$ | Exact |

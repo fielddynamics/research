@@ -76,7 +76,7 @@ Closure is not only a principle. It runs as a pipeline, from the demand that the
 5. **The partition**: exchange symmetry between the two chambers allows exactly one split of the field, $\mu(x) = x/(x+1)$ (Letter 2).
 6. **The energy functional**: integrating $\mu$ gives $F(y) = y - 2\sqrt y + 2\ln(1 + \sqrt y)$. Its three terms are the three levels of the polynomial (Letter 3).
 7. **The action**: Einstein–Hilbert plus the scalar sector built on $F$, with electromagnetic and matter terms (Letter 3).
-8. **The field equations**: in the spherical, static limit, the action gives the Poisson equation and the scalar-tensor transition (SST), $g_s = g_t^2/(a_0 + g_t)$.
+8. **The field equations**: in the spherical, static limit, the action gives the Poisson equation and the spherical field equation $g_s = g_t^2/(a_0 + g_t)$.
 
 **Inverse: from what we observe back to what is there.** Because both field equations are algebraic in the spherical case, the pipeline also runs backwards ([*GFD Essentials*](../../papers/gfd-essentials-tetrads-field-closure-inverse-pipeline/)):
 

@@ -38,7 +38,7 @@ $$
 f(x) = \frac{21x + 13}{x + 1}
 $$
 
-This is f(K, s) evaluated continuously across all accelerations. It ranges from 13 (deep field, TetB dominant) to 21 (strong field, TetA dominant), passing through 17 at x = 1.
+This is f(K, s) evaluated continuously across all accelerations. It ranges from 13 (deep field, TetB share approaching 1) to 21 (strong field, TetA share approaching 1), passing through 17 at x = 1.
 The constitutive law is the normalization of this capacity to the unit interval:
 
 $$

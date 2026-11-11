@@ -120,7 +120,7 @@ One secondary observation, not pre-registered, is worth recording. Against indep
 
 ### Test 2: the bound-state law, with out-of-sample elements
 
-GFD's nuclear papers (Papers 11 and XIII) use the constitutive law in two forms: one-directional, $\mu = x/(1+x)$, for unbound systems such as galaxies, and self-consistent, $x(1-\mu)^2 = \mu$, for bound systems such as nuclei, where every partner is both source and response. Electrons in an atom are bound, so the second form is the natural candidate. It was pre-registered with no other change, $s_{ij} = \mu_2(r_i/r_j)$, and tested on $Z = 1$–20 and on 16 new elements, $Z = 21$–36 (scandium to krypton, including the Cr and Cu configurations), which no rule had been evaluated against ([`PREREGISTRATION_bound_screening.md`](PREREGISTRATION_bound_screening.md)).
+GFD's nuclear papers (Papers 11 and XIII) use the constitutive law in two forms: one-directional, $\mu = x/(1+x)$, for the exterior field of a galaxy, where matter sources the field and the field does not source itself, and self-consistent, $x(1-\mu)^2 = \mu$, for nuclei, where every partner is both source and response. Electrons in an atom are likewise mutually coupled, so the second form is the natural candidate. It was pre-registered with no other change, $s_{ij} = \mu_2(r_i/r_j)$, and tested on $Z = 1$–20 and on 16 new elements, $Z = 21$–36 (scandium to krypton, including the Cr and Cu configurations), which no rule had been evaluated against ([`PREREGISTRATION_bound_screening.md`](PREREGISTRATION_bound_screening.md)).
 
 | Pre-registered criterion | Result | Verdict |
 |---|---|---|

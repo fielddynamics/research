@@ -55,7 +55,7 @@ Since $H$ evolves with epoch via the Friedmann equation, $a_0$ is not a constant
 
 ## 5. The Naive Calculation and Why It Fails
 
-At recombination ($z = 1100$), the perturbation-scale accelerations satisfy $g_t \ll a_0$, placing the entire universe in the deep-field limit. The scalar-tensor transition reduces to $g_t = \sqrt{g_s \cdot a_0}$, giving $x = \sqrt{g_s/a_0}$.
+At recombination ($z = 1100$), the perturbation-scale accelerations satisfy $g_t \ll a_0$, placing the entire universe in the deep-field limit. The spherical field equation reduces to $g_t = \sqrt{g_s \cdot a_0}$, giving $x = \sqrt{g_s/a_0}$.
 
 With naive linear scaling $a_0 \propto H$, the dimensionless ratio evaluates to $x \approx 0.037$. The enhancement is
 

@@ -31,7 +31,7 @@ def zero(e):
     return sp.simplify(e) == 0
 
 
-mu = x / (1 + x)                                   # unbound law
+mu = x / (1 + x)                                   # one-directional law
 nu_b = (sp.sqrt(1 + 4 * x) - 1) / (2 * x)          # bound law TetB share
 mu_b = 1 - nu_b                                    # bound law TetA share
 x_of_z = (z + sp.sqrt(z**2 + 4 * z)) / 2           # total from source (spherical field equation, inverted)
@@ -56,7 +56,7 @@ check("2a  (z, mu) -> (1/z, 1-mu) sends z(1-mu) = mu^2 to z(1-mu)^2 = mu",
       zero(sp.expand(exch) - sp.expand(-(z * (1 - mm)**2 - mm))))
 check("2b  nu_b solves x nu^2 + nu - 1 = 0 (Paper XIII law)", zero(x * nu_b**2 + nu_b - 1))
 check("2c  1 - mu_b(x) = 1/nu(1/x)", zero(nu_b - 1 / nuQ.subs(z, 1 / x)))
-check("2d  in total variable the unbound law is self-conjugate: mu(x) + mu(1/x) = 1",
+check("2d  in total variable the one-directional law is self-conjugate: mu(x) + mu(1/x) = 1",
       zero(mu + mu.subs(x, 1 / x) - 1))
 check("2e  bound law at x = 1: mu_b(1) = 1/phi^2, TetB share 1/phi", zero(mu_b.subs(x, 1) - 1 / phi**2))
 ok = True
@@ -64,14 +64,14 @@ for A in [4, 56, 208]:
     X = mp.mpf(A)**2
     nb = (mp.sqrt(1 + 4 * X) - 1) / (2 * X)
     ok &= abs(nb - (1 / mp.mpf(A) - 1 / (2 * mp.mpf(A)**2))) < 1 / mp.mpf(A)**3
-check("2f  large x: 1 - mu_b(A^2) = 1/A - 1/(2A^2) + O(A^-3), against 1/(1+A^2) unbound", ok)
+check("2f  large x: 1 - mu_b(A^2) = 1/A - 1/(2A^2) + O(A^-3), against 1/(1+A^2) one-directional", ok)
 
 print("\n3. The logistic family")
 P = n * sp.log(x) + m * sp.log(1 - M) - sp.log(M)   # x^n (1-mu)^m = mu
 xdm = -sp.diff(P, x) * x / sp.diff(P, M)
 check("3a  x mu' = n mu(1-mu)/(1 + (m-1) mu) on x^n(1-mu)^m = mu",
       zero(xdm - n * M * (1 - M) / (1 + (m - 1) * M)))
-check("3b  unbound: x mu' = mu(1-mu)", zero(x * sp.diff(mu, x) - mu * (1 - mu)))
+check("3b  one-directional: x mu' = mu(1-mu)", zero(x * sp.diff(mu, x) - mu * (1 - mu)))
 check("3c  bound: x mu_b' = mu_b(1-mu_b)/(1+mu_b)", zero(x * sp.diff(mu_b, x) - mu_b * (1 - mu_b) / (1 + mu_b)))
 gate = (mu_b * (1 - mu_b) / (1 + mu_b)).subs(x, 1)
 check("3d  bound slope at x = 1 = 1/(sqrt5 phi^2) = (3 sqrt5 - 5)/10", zero(gate - 1 / (sp.sqrt(5) * phi**2))
@@ -85,7 +85,7 @@ check("3e  bound rate peaks at mu = sqrt2 - 1, x = (1+sqrt2)/2, value (sqrt2-1)^
       and zero(rate.subs(mm, crit[0]) - (sp.sqrt(2) - 1)**2))
 
 print("\n4. Field-equation anisotropy")
-check("4a  unbound (x mu)'/mu = 2 - mu = 1 + TetB share", zero(sp.diff(x * mu, x) / mu - (2 - mu)))
+check("4a  one-directional (x mu)'/mu = 2 - mu = 1 + TetB share", zero(sp.diff(x * mu, x) / mu - (2 - mu)))
 check("4b  matches Theorem 2: (x+2)/(x+1)", zero(sp.diff(x * mu, x) / mu - (x + 2) / (x + 1)))
 check("4c  bound (x mu_b)'/mu_b = 2/(1 + mu_b)", zero(sp.diff(x * mu_b, x) / mu_b - 2 / (1 + mu_b)))
 fam = 1 + n * M * (1 - M) / (1 + (m - 1) * M) / M
@@ -115,7 +115,7 @@ ok = True
 for L in [mp.mpf('0.5'), 2, 10]:
     a = mp.quad(lambda l: 13 + 8 * mp.e**l / (1 + mp.e**l), [-L, 0, L]) / (2 * L)
     ok &= abs(a - 17) < mp.mpf('1e-30')
-check("6b  <f> = 17 over |ln x| <= 0.5, 2, 10 (unbound)", ok)
+check("6b  <f> = 17 over |ln x| <= 0.5, 2, 10 (one-directional)", ok)
 bvals = []
 for L in [mp.mpf('0.5'), 2, 10]:
     nbf = lambda l: (mp.sqrt(1 + 4 * mp.e**l) - 1) / (2 * mp.e**l)

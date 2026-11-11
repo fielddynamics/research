@@ -77,7 +77,7 @@ This protects against GR absorbing the SST. Knowing μ = x/(x+1) from fitting gi
 | What you know | What you can do |
 |---|---|
 | μ = 1 (GR) | g = GM/r² |
-| μ(x) = x/(x+1) from fitting | g²/(g+a₀) = GM/r² (SST, spherical only) |
+| μ(x) = x/(x+1) from fitting | g²/(g+a₀) = GM/r² (spherical field equation of the SST action) |
 | μ inside the divergence (field eq) | ∇·[μ∇Φ] = 4πGρ (general field equation) |
 | F(y) from integrating μ (action) | The covariant action (full dynamics) |
 

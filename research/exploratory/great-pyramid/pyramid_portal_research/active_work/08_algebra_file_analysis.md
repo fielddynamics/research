@@ -104,7 +104,7 @@ Active Work 03–07 added new algebraic content that the file does not yet have.
 
 **Permutation discrimination.** For each permutation of $\{21, 17, 13\}$ into (exponent, numerator, denominator), compute $\alpha^{\text{exp}} \cdot \text{num}/\text{den} \cdot g_e/2$ and verify that only $(17/13, \alpha^{21})$ gives an integer exponent against measured $G$.
 
-**SST quadratic** $g^2/(g + a_0) = GM/r^2$ in the spherical static limit. AQUAL identity $\mu = dF/dy$.
+**Spherical field equation** $g^2/(g + a_0) = GM/r^2$, the spherical static limit of the SST action. AQUAL identity $\mu = dF/dy$.
 
 ### Missing from Maxwell algebra (AW 07)
 

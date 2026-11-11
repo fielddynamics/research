@@ -20,7 +20,7 @@ They are algebraically identical and connected by $\mu = dF/dy$. They are not th
 The AQUAL material in the archive is spread across proofs, letters, papers and research notes. This folder gathers it in one place:
 
 - a map of where each piece already lives;
-- the work that carries the algebra further, connecting the unbound law, its inverse, the bound law of the nuclear papers and the energy functional;
+- the work that carries the algebra further, connecting the one-directional law, its inverse, the bound law of the nuclear papers and the energy functional;
 - two verification scripts.
 
 ## Terms
@@ -30,7 +30,7 @@ The AQUAL material in the archive is spread across proofs, letters, papers and r
 | TetA | The exterior: the observable disk, our spacetime, in which the baryons orbit as tracers of the flow | [Decoding-mass letter](../../papers/letter-decoding-mass-from-rotation-curves/) |
 | Deep field | The low-acceleration regime $x \ll 1$, where $\mu \to x$. A range of $x$, reached toward a galaxy's rim, in the exterior; not TetB | Paper VII; Letter 2 |
 | TetB | The interior: the subspace reached only through the Field Origin. In a galaxy it lies beyond the throat at the centre, and matter spiralling inward through the throat passes into it, so a galaxy's TetB is occupied. Only an individual unbound envelope, a tile of the long-range mesh, has an empty TetB | [Decoding-mass letter](../../papers/letter-decoding-mass-from-rotation-curves/); Paper VII; [`bound-gravity-and-packing/`](../bound-gravity-and-packing/) |
-| Unbound law | The one-directional law $x(1-\mu) = \mu$. It governs a galaxy's exterior field; the name refers to the law, not to the state of the galaxy's interior | [`bound-gravity-and-packing/`](../bound-gravity-and-packing/) |
+| One-directional law | The law $x(1-\mu) = \mu$: matter sources the field and the field does not source itself. It governs a galaxy's exterior field. A galaxy is never unbound: it is a vortex whose TetB is fed through its drain | [`bound-gravity-and-packing/`](../bound-gravity-and-packing/) |
 | TetB share | $1 - \mu$, the fraction of the coupling capacity resolved through TetB; part of the quiet prediction | Paper VII, the constitutive law from detailed balance |
 | $s$ and $\sigma(x)$ | $s$ is the coupling polynomial's state label: $+1$ TetA, $0$ Field Origin, $-1$ TetB. $\sigma(x) = \mu - (1-\mu)$ is the share difference at acceleration $x$. $\sigma(x)$ takes the label values without being those states: $\sigma = 0$ on the ring $x = 1$, which is not the Field Origin, and $\sigma \to -1$ in the deep field, which is not TetB | This folder |
 | Interior's active contribution | $\Delta M_{\text{eff}} = M_{\text{phot}} - M_{\text{dec}}$: zero when the interior is quiet, otherwise drive or brake. Not the TetB share | Decoding-mass letter; [`what_is_gravity.md`](../g_from_topology/what_is_gravity.md) §7 |

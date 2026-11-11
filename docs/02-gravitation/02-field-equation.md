@@ -58,11 +58,11 @@ This single expression is the stellated octahedron coupling polynomial made cont
 
 | Acceleration | State | $f(x)$ | Regime |
 |:---:|:---:|:---:|---|
-| $x \to \infty$ | $s \to +1$ | $f \to 21$ | Newtonian (TetA dominant) |
-| $x = 1$ | $s = 0$ | $f = 17$ | Transition (field origin) |
-| $x \to 0$ | $s \to -1$ | $f \to 13$ | Deep field (TetB dominant) |
+| $x \to \infty$ | $s \to +1$ | $f \to 21$ | Newtonian (TetA share $\mu \to 1$) |
+| $x = 1$ | $s = 0$ | $f = 17$ | Transition (equal shares) |
+| $x \to 0$ | $s \to -1$ | $f \to 13$ | Deep field (TetB share $1 - \mu \to 1$) |
 
-Between these states, $f(x)$ varies smoothly and monotonically. At any acceleration, the field equation tells you the effective coupling capacity of the stellated octahedron at that point in space. Strong fields activate more coupling channels, pushing $f$ toward its ceiling of 21. Weak fields activate fewer, and $f$ settles toward its floor of 13. The transition at $x = 1$ is the field origin, where the two tetrahedral chambers contribute equally and $f$ sits at its geometric midpoint of 17.
+Between these states, $f(x)$ varies smoothly and monotonically. At any acceleration, the field equation tells you the effective coupling capacity of the stellated octahedron at that point in space. Strong fields activate more coupling channels, pushing $f$ toward its ceiling of 21. Weak fields activate fewer, and $f$ settles toward its floor of 13. At the transition $x = 1$ the two tetrahedral chambers contribute equally and $f$ sits at its geometric midpoint of 17.
 
 Every number in this equation is topological. The 21 comes from $f(4, +1) = 1 + 4 + 16$. The 13 comes from $f(4, -1) = 1 - 4 + 16$. The denominator $x + 1$ comes from the Mobius map. No constants have been chosen or fitted. The equation is the output of the geometry.
 
@@ -78,13 +78,13 @@ $$\mu(x) = \frac{f(x) - 13}{8} = \frac{x}{x + 1}$$
 
 The constitutive law measures where the coupling currently sits as a fraction of its total range, from 0 (fully TetB) to 1 (fully TetA). It is a convenient rescaling of $f(x)$ for use in the modified Poisson equation, but it is not the source. The field equation is the source.
 
-The scalar-tensor transition $g_s = g_t^2 / (a_0 + g_t)$, which is the field equation used to predict galaxy rotation curves, is also derived from $f(x)$. It follows from substituting $\mu = g_s / g_t$ and $x = g_t / a_0$ into the constitutive law and solving. The forward quadratic solver that takes baryonic acceleration in and total acceleration out is the algebraic inverse of this relation. Both are consequences of the field equation, not independent postulates.
+The spherical-static quadratic $g_s = g_t^2 / (a_0 + g_t)$, the relation used to predict galaxy rotation curves, is also derived from $f(x)$. It follows from substituting $\mu = g_s / g_t$ and $x = g_t / a_0$ into the constitutive law and solving. The forward quadratic solver that takes baryonic acceleration in and total acceleration out is the algebraic inverse of this relation. Both are consequences of the field equation, not independent postulates.
 
 The Hassan-Rosen bimetric parameters $\beta = \{1, 0, 16, 0, 1\}$ are yet another reading of the same object. They arise from expressing $f(x)$ in the language of bimetric gravity, where the interaction potential between the two spin-2 fields is constructed from the same topological integers. The GFD covariant description and the bimetric description are two projections of the field equation, taken at different levels of a screening hierarchy. Both are exact. Both are derived. Neither requires the other as input.
 
 The derivation chain, from deepest to most observable, runs:
 
-Stellated octahedron $\to$ coupling polynomial $f(K, s) = 1 + sK + K^2$ $\to$ Mobius state map $s(x)$ $\to$ **the field equation** $f(x) = (21x + 13)/(x + 1)$ $\to$ constitutive law $\mu(x)$ $\to$ scalar-tensor transition $\to$ rotation curves, Tully-Fisher, lensing, PPN parameters
+Stellated octahedron $\to$ coupling polynomial $f(K, s) = 1 + sK + K^2$ $\to$ Mobius state map $s(x)$ $\to$ **the field equation** $f(x) = (21x + 13)/(x + 1)$ $\to$ constitutive law $\mu(x)$ $\to$ spherical-static quadratic $g_s = g_t^2/(a_0 + g_t)$ $\to$ rotation curves, Tully-Fisher, lensing, PPN parameters
 
 Everything above the field equation in this chain is derivable from it. Everything below it is what produces it. The field equation is where the topology of the stellated octahedron meets the physics of the gravitational field. It is, in a precise sense, the single equation of the theory.
 

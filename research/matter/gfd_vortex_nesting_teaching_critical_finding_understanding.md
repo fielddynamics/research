@@ -187,7 +187,7 @@ It matters enormously — just not for energy distribution. The walk determines:
 
 **Shell structure.** The walk visits positions in a specific order — three face positions, then one channel position, repeating through each level of the hierarchy. This pattern determines which orbitals fill first and why certain nucleon configurations are especially stable.
 
-**The SST curve.** The shape of the B/A curve across the periodic table — rising steeply from Hydrogen to Helium, more gradually to Iron, then declining toward Lead — is the sum of three vortex contributions at the three hierarchical levels. The walk provides the fill-dependent coupling at each level.
+**The binding curve.** The shape of the B/A curve across the periodic table — rising steeply from Hydrogen to Helium, more gradually to Iron, then declining toward Lead — is the sum of three vortex contributions at the three hierarchical levels. The walk provides the fill-dependent coupling at each level.
 
 What the walk does not determine is how much energy each position contributes. That is uniform. The walk is the index. The vortex is the content.
 

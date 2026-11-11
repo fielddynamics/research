@@ -24,19 +24,19 @@ All nine measurements fall on it.
 
 ## The equation behind the curve
 
-The curve plotted is $v(z)/v(0) = [H(z)/H_0]^{0.17}$. It is built on the **scalar-tensor transition (SST)**, the field equation GFD uses for galaxies. The SST supplies the Tully–Fisher law itself; the evolving acceleration scale supplies the redshift dependence. The chain has four links.
+The curve plotted is $v(z)/v(0) = [H(z)/H_0]^{0.17}$. It is built on the **spherical field equation** $g_s = g_t^2/(a_0 + g_t)$, the spherical, static limit of the GFD action that GFD uses for galaxies. This equation supplies the Tully–Fisher law itself; the evolving acceleration scale supplies the redshift dependence. The chain has four links.
 
-**1. The SST.** In its spherical limit, the GFD action gives the relation between the acceleration sourced by ordinary matter, $g_s$, and the total acceleration that governs orbits, $g_t$:
+**1. The spherical field equation.** In its spherical, static limit, the GFD action gives the relation between the acceleration sourced by ordinary matter, $g_s$, and the total acceleration that governs orbits, $g_t$:
 
 $$g_s = \frac{g_t^2}{a_0 + g_t}, \qquad \text{equivalently} \qquad \mu\!\left(\frac{g_t}{a_0}\right) = \frac{g_t/a_0}{1 + g_t/a_0} .$$
 
-Where the field is strong ($g_t \gg a_0$), $g_t \to g_s$ and gravity is Newtonian. In the outskirts of galaxies, where the field is weak, the SST takes a different form.
+Where the field is strong ($g_t \gg a_0$), $g_t \to g_s$ and gravity is Newtonian. In the outskirts of galaxies, where the field is weak, the equation takes a different form.
 
-**2. The weak-field limit gives Tully–Fisher.** For $g_t \ll a_0$, the SST reduces to $g_s \approx g_t^2/a_0$. On a flat rotation curve, $g_t = v^2/r$, and the matter-sourced acceleration is $g_s = GM/r^2$. So
+**2. The weak-field limit gives Tully–Fisher.** For $g_t \ll a_0$, the quadratic reduces to $g_s \approx g_t^2/a_0$. On a flat rotation curve, $g_t = v^2/r$, and the matter-sourced acceleration is $g_s = GM/r^2$. So
 
 $$\frac{GM}{r^2} = \frac{(v^2/r)^2}{a_0} \qquad\Longrightarrow\qquad v_{\mathrm{flat}}^4 = G\,M\,a_0 .$$
 
-The radius cancels. This is the baryonic Tully–Fisher relation, $M_b \propto v^4$, derived from the SST rather than fitted.
+The radius cancels. This is the baryonic Tully–Fisher relation, $M_b \propto v^4$, derived from the field equation rather than fitted.
 
 **3. The acceleration scale follows the expansion rate.** GFD ties $a_0$ to the Hubble parameter:
 
@@ -100,8 +100,8 @@ python run_all_validations.py      # ALL 64 VALIDATIONS PASSED
 ## Related work
 
 - [`research/cmb/`](../../research/cmb/): the source-side derivation of the exponent, $(1 - 1/\pi)/4$, and the CMB enhancement of 6.46 from the same scaling law.
-- **Paper X**, [`10-two-scale-kinematics-tully-fisher-h0/`](../10-two-scale-kinematics-tully-fisher-h0/): the SST applied at galactic and cosmological scales, with Tully–Fisher evolution and $H_0$.
-- [`letter-radial-acceleration-relation-sparc/`](../letter-radial-acceleration-relation-sparc/): the same SST tested at $z = 0$ against 164 SPARC galaxies.
+- **Paper X**, [`10-two-scale-kinematics-tully-fisher-h0/`](../10-two-scale-kinematics-tully-fisher-h0/): the spherical field equation applied at galactic and cosmological scales, with Tully–Fisher evolution and $H_0$.
+- [`letter-radial-acceleration-relation-sparc/`](../letter-radial-acceleration-relation-sparc/): the same equation tested at $z = 0$ against 164 SPARC galaxies.
 - [GRAVIS](https://github.com/fielddynamics/gravis): Galactic Rotation from Field Dynamics, the interactive tool used for Figure 1.
 
 ## References
