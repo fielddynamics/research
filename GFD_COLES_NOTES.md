@@ -214,6 +214,8 @@ At $K = 4$, $V\otimes\Lambda^2V^*$ (dimension $K^2(K-1)/2 = 24 = 4!$) carries th
 
 The torsion-free condition keeps the $s = +1$ projection and discards the $s = -1$ projection. GR is the GFD field equation at $\mu = 1$. Restoring the 24 components gives the full 64-component connection, which $\mu(x)$ partitions spatially; the gap opened by releasing $\mu$ is the TetB share, conventionally attributed to dark matter. In a galaxy, the TetA share dominates the core and the TetB share the rim (the deep field), with the handover on the ring $x = 1$. TetB itself is the throat interior at the centre.
 
+**Local systems are TetA only** (as now stated in `EINSTEIN_TETA_PARTITION.md`). In a solar system, a binary or a star cluster, gravity between the bodies is the TetA connection, i.e. GR, exactly. The TetB share is not a property of each mass. It belongs to the net field of the host galaxy, which is uniform across a bound system (to about $10^{-12}$ over the solar system) and cancels in the bodies' common free fall: the mountain stream, whose current presses on neighbouring rocks alike and appears only in the slope of the whole stream. A bound system enters the galaxy's net field as a single element, its total mass and position (the "pointer" picture). So $x$ is the galaxy's net field over $a_0$, and $\mu(x)$ is never applied to a star's own field. Applying it per mass would leave a TetB tail $1-\mu \approx 1/x$ around every star: a constant extra pull $\approx a_0$ at every planet and an external-field quadrupole $Q_2 \approx 4\times10^{-26}$ s⁻², both excluded (perihelia; Cassini, $Q_2 = (3\pm3)\times10^{-27}$ s⁻²); see `research/bimetric-projection/` Part 3. The surviving galactic tide at Saturn is about $10^{-18}$ m/s².
+
 ---
 
 ## 6. Galactic results
@@ -437,11 +439,11 @@ Stability: $\dot\varepsilon = \kappa x(1-\varepsilon) - \kappa\varepsilon$, slop
 
 $$\rho_{\rm ph} = \frac{1}{4\pi G}\left[\nabla^2\Phi - \nabla\cdot(\mu\nabla\Phi)\right] = \frac{\nabla\cdot[(\mu-1)\mathbf g]}{4\pi G},\qquad \rho_{\rm ph}(r) = \frac{\sqrt{GM_ba_0}}{4\pi Gr^2}\ (\text{deep, outside the source}),$$
 
-a singular isothermal sphere. Conserved flux $r^2\mu(g/a_0)g = GM$. External field effect inherited from AQUAL: if $g_{\rm ext}\gg a_0 \gg g_{\rm int}$ then $\mu\approx1$ (Crater II, NGC 1052-DF2/DF4 as discriminants).
+a singular isothermal sphere. Conserved flux $r^2\mu(g/a_0)g = GM$. External field effect inherited from AQUAL: if $g_{\rm ext}\gg a_0 \gg g_{\rm int}$ then $\mu\approx1$ (Crater II, NGC 1052-DF2/DF4 as discriminants). (Later reading, §5.4: a bound system much smaller than its host's field is pure TetA internally; the host's net field cancels in its free fall. Galaxies, including dwarfs, carry their own vortex TetB, possibly driven or braked as in DEC.)
 
 **Processing boundary** $r_c = \sqrt{GM_b/a_0}$ (where $x = 1$, $\mu = \tfrac12$): Milky Way ($6\times10^{10}M_\odot$) ≈ 8 kpc; Sun ≈ 7000 AU; Sgr A* ≈ 0.06 pc; MW total ≈ 5 kpc (listed); rich cluster ≈ 150 kpc; a 33-billion-tonne asteroid ≈ 4300 km.
 
-**Predictions.** Fast bars $\mathcal R \approx 1.0$–1.4 (no halo-wake friction: conservative, velocity-independent, constraint-slaved phantom) vs $\gtrsim 1.4$–2 for CDM; wide binaries: Newtonian return $\mu\to1-1/x$ (slow) vs standard $1 - 1/(2x^2)$ (fast); EFE in satellites; baryon-only cluster lensing.
+**Predictions.** Fast bars $\mathcal R \approx 1.0$–1.4 (no halo-wake friction: conservative, velocity-independent, constraint-slaved phantom) vs $\gtrsim 1.4$–2 for CDM; wide binaries: Newtonian return $\mu\to1-1/x$ (slow) vs standard $1 - 1/(2x^2)$ (fast) [superseded by §5.4: wide binaries are bound systems, so pure TetA, i.e. Newtonian]; EFE in satellites; baryon-only cluster lensing.
 
 **Relativistic extension (1PN only).** Postulate A4 (single-standard calibration, clocks and radar-ranged rods from one field $L$): $A = L^2$, $B = L^{-2}$, so $g_{00}\simeq-(1+2\Phi/c^2)$, $g_{ij}\simeq(1-2\Phi/c^2)\delta_{ij}$, $\Phi = \Psi$, $\gamma = 1$. Lensing by "two-sphere saturation": $\varepsilon = \varepsilon_0S$, $\mu_0\to\mu_0S$, $n = S = 1 + 2GM/(rc^2)$; Fermat's principle with $\int dz/(b^2+z^2)^{3/2} = 2/b^2$ gives $\theta = 4GM/(bc^2)$, resolving scalar "half-lensing". A covariant action $S = \tfrac{c^3}{16\pi G}\int\sqrt{-g}R - \tfrac{a_0^2}{8\pi G}\int\sqrt{-g}\tilde F(Y) + S_m$ is stated as future work.
 
@@ -1104,7 +1106,7 @@ $V - E + F = 4 = 2\chi(S^2)$, two disjoint closed surfaces.
 **Discussion.**
 - Einstein–Cartan keeps the 24 components. Here, keeping them keeps TetB and the full partition. "At the level of field magnitudes", Christoffel + contorsion ↔ $\mu$ + $(1-\mu)$.
 - Logistic: $x\,d\mu/dx = \mu(1-\mu)$, i.e. $d\mu/dt = \mu(1-\mu)$ with $t = \ln x$.
-- Strong-field tests (Solar System, pulsars, GW speed) are untouched because $\Delta\mu\to0$.
+- Strong-field tests (Solar System, pulsars, GW speed) are untouched because $\Delta\mu\to0$. (Later reading, §5.4: in a bound system the TetB share is exactly zero, not small; TetB is the host galaxy's net field.)
 - Concordance at three levels from $2(D+1) = 2^D$: the stellated octahedron, $K^3 = K^D$, and $24 = D\times2K$.
 
 **Notes.**
@@ -1134,7 +1136,7 @@ $V - E + F = 4 = 2\chi(S^2)$, two disjoint closed surfaces.
 - Consequences listed:
   - Bounded central phantom field, $< a_0$, so no cusp.
   - No new particles.
-  - Solar System at $x\sim10^8$, where the TetB share is $\sim10^{-8}$.
+  - Solar System at $x\sim10^8$, where the TetB share is $\sim10^{-8}$. (Superseded, §5.4: the solar system is pure TetA; the per-mass $10^{-8}$ reading is excluded by perihelia and Cassini.)
 - AeST (Skordis–Złośnik) adds fields; GFD restores connection content removed by a constraint.
 
 **Proof note (40/24).** It is the same counting in seven steps (Steps 1–5 matrix counting, 6 polynomial identity, 7 interpretation).

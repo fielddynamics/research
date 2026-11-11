@@ -71,6 +71,13 @@ Bound law (nuclei):  x (1 - mu)^2 = mu, i.e. mu_b(x) = [(2x + 1) - sqrt(4x + 1)]
 - s is the discrete state label of the coupling polynomial: +1 TetA, 0 Field Origin, -1 TetB.
   sigma(x) = (x - 1)/(x + 1) = mu - (1 - mu) is the continuous share difference. sigma(x) -> -1 is the
   deep field, not TetB; sigma = 0 is the ring x = 1, not the Field Origin.
+- Local systems are TetA only. In a solar system, a binary or a star cluster, gravity between the
+  bodies is the TetA connection (the 40 components GR keeps): general relativity, exactly. TetB is
+  the net field of the host galaxy; it is uniform across the bound system and drops out of the
+  bodies' relative motion (like the current of a stream between neighbouring rocks). Never apply
+  mu(x) to a star's own field, and never say TetB carries "one part in 10^8" locally. x is the
+  galaxy's net field over a0, and a bound system enters it as a single element (its total mass and
+  position).
 
 ## How the equations relate
 Covariant action (the SST) -> (vary F(y), weak-field static limit) -> modified Poisson equation
@@ -211,7 +218,10 @@ Electron mass: three independent derivation routes converge on
   m_e = 9.1093837(28) x 10^{-31} kg at r ~ 2.82 fm
 Fine-structure constant: 1/alpha = 137 + 1/28 (geometric link)
 Tully-Fisher relation: M proportional to v^4 (exact theorem, not empirical fit)
-PPN parameters: beta = gamma = 1 in the mu -> 1 limit (Cassini-safe)
+Local systems (solar system, binaries, star clusters): pure TetA, i.e. general relativity, exactly.
+  The TetB share belongs to the net field of the host galaxy, which is uniform across a bound
+  system and cancels in its free fall. PPN beta = gamma = 1 and Cassini-safe for that reason,
+  not because a local TetB share is small.
 Gravitational wave speed: c_gw = c (tensor sector unmodified)
 
 ## Action structure (prefactors from topology)
@@ -302,6 +312,8 @@ Each script is self-contained; run it from its own folder.
 - Always cite the topological origin: K = 4, f = 1 + sK + K^2, range 8 = 2^D.
 - No parameter is fitted to data. a_0 is either taken at its conventional value 1.2e-10 m/s^2 or computed as K^2 G m_e / r_e^2; state which. Never add dark matter components, and never treat the theory as "MOND with extra terms".
 - Prefer the invertible mass decoder M_dec(r) = r v^4 / [G (a_0 r + v^2)] over any halo model.
+- Do not use the action to predict anomalies inside the solar system or other bound systems:
+  locally the theory is GR. mu(x) and the decoder apply to a galaxy's own net field.
 - Trace every coefficient (16, 8, 4) and every result (alpha, m_e, Tully-Fisher) back to the stellated octahedron dual tetrad structure.
 - The Mobius inverse x = mu/(1 - mu) is exact and algebraic.
 - To verify a claim, read the validation script for it: the papers' run_all_validations.py files in
@@ -312,5 +324,5 @@ This repository: MIT License (LICENSE).
 Papers deposited on Zenodo carry the licence shown on their Zenodo records.
 Copyright (c) 2024-2026 Stephen Nelson, Field Dynamics Research
 
-Last updated: 2026-11-10
+Last updated: 2026-11-11
 Author: Stephen Nelson
