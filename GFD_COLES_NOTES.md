@@ -61,7 +61,7 @@ $$\text{TetA}: \max_i v_i \le 1, \qquad \text{TetB}: \max_i(-v_i) \le 1.$$
 
 ### 2.3 The forced frame [T] (P-forced, GRAM, 27 + 32 checks)
 
-Legs with the pattern of $\eta$ (every pair alike, equal magnitudes, distinct) are forced to a regular tetrahedron, unique up to $O(3)$, and only in three dimensions. Explicitly,
+Legs with the pattern of $\eta$ (every pair alike, equal magnitudes, distinct; the sign of $\eta_{00}$ is set aside, since a squared length cannot be negative — keeping it instead admits the observer's projection, three orthonormal legs and a null time leg) are forced to a regular tetrahedron, unique up to $O(3)$, and only in three dimensions. Explicitly,
 
 $$M_1 = \begin{pmatrix} +1&+1&-1&-1\\ +1&-1&+1&-1\\ +1&-1&-1&+1\end{pmatrix},\quad M_2 = -M_1,\quad G_{M_1M_1} = M_1^TM_1 = \begin{pmatrix}3&-1&-1&-1\\-1&3&-1&-1\\-1&-1&3&-1\\-1&-1&-1&3\end{pmatrix}.$$
 
@@ -144,7 +144,7 @@ On the odds ratio $\Omega = \mu/(1-\mu)$ this reads $\Omega(1/x) = 1/\Omega(x)$.
 
 $$\frac{\mu}{1-\mu} = x \;\Longrightarrow\; \boxed{\mu(x) = \frac{x}{x+1}}.$$
 
-Every premise is shown necessary. The capacity ratio between the two sectors equals the dimensionless acceleration.
+Every premise is shown necessary. The capacity ratio between the two sectors equals the dimensionless acceleration. The P-exchange version derives the exchange rather than assuming it: premises are (E) $\mu(0)=0$, (X) closure of the set of partition states under parity, and (A) a polynomial relation of degree one in each variable; a field-theory lemma (Gauss) makes it bilinear, and $x\to1/x$ with fixed point $a_0$ then follows. Premise (A) is where the one-directional law is chosen over the bound law: dropping it admits $x^n(1-\mu)^m = \mu$, and $(n,m) = (1,2)$ is the bound law. Without (A), any increasing $\mu$ from 0 to 1 satisfies (E) and (X).
 
 ### 4.2 Equilibrium (detailed balance) route [D] (I, CL route 2)
 
@@ -156,7 +156,7 @@ $$f(4,\sigma(x)) = 17 + 4\sigma(x) = \frac{21x+13}{x+1},\qquad \mu(x) = \frac{f 
 
 ### 4.4 Algebraic route [T] (A)
 
-The swap $\operatorname{Sym}^2V \leftrightarrow \Lambda^2V$ is represented by $x \mapsto x^{-1}$; within fractional-linear maps with the pure-sector endpoints, the unique solution is $x/(1+x)$, and the Cayley coordinate $(x-1)/(x+1)$ is $\sigma(x)$.
+(Paper A states the limit itself: $x^n/(1+x^n)$ satisfies the same exchange for every $n$; $n = 1$ is the fractional-linear member, i.e. the choice of $x$ as the odds.) The swap $\operatorname{Sym}^2V \leftrightarrow \Lambda^2V$ is represented by $x \mapsto x^{-1}$; within fractional-linear maps with the pure-sector endpoints, the unique solution is $x/(1+x)$, and the Cayley coordinate $(x-1)/(x+1)$ is $\sigma(x)$.
 
 ### 4.5 Properties
 
@@ -208,7 +208,7 @@ A torsion-free connection cannot distinguish TetA from TetB; the torsion sector 
 
 ### 5.3 Torsion is the regular representation of $S_4$ [T] (B, P-torsion, 36 checks)
 
-At $K = 4$, $V\otimes\Lambda^2V^*$ (dimension $K^2(K-1)/2 = 24 = 4!$) carries the regular representation of $S_4$ acting on the four legs. The sign representation, the unique scalar parity detector, appears once in torsion and zero times in the Christoffel sector. Only $K = 2$ and $K = 4$ allow this.
+At $K = 4$, $V\otimes\Lambda^2V^*$ (dimension $K^2(K-1)/2 = 24 = 4!$) carries the regular representation of $S_4$ acting on the four legs. The sign representation, the unique scalar parity detector, appears once in torsion and zero times in the Christoffel sector. Only $K = 2$ and $K = 4$ allow this. P-torsion gives the explicit generator $\xi = t_{0;01} + t_{0;23}$ (its 24 permutation images are a basis), two orbits of 12 (incident / non-incident), the sign irrep spanned by $\sum_d\varepsilon_{abcd}$, and, with indices lowered by $|\eta| = I$, vector ⊂ incident, axial ⊂ non-incident, tensor = $8 + 8$. Scope: the sign irrep detects odd *permutations of the legs*; spatial parity $\mathrm{diag}(1,-1,-1,-1)$ is not a leg permutation and is not described by these theorems, so the link to TetA/TetB root-blindness is by analogy (orientation character), not identity.
 
 ### 5.4 Einstein's equation as the TetA partition [D] (L3)
 
@@ -1349,3 +1349,88 @@ $V - E + F = 4 = 2\chi(S^2)$, two disjoint closed surfaces.
 - **Notes.**
   - *Abstract vs body.* The abstract says "the logarithm dominates at low acceleration and produces deep-MOND scaling, and the square root provides smooth crossover". The body (§5–6) correctly shows the deep-field $y^{3/2}$ arises only after the $\sqrt y$ and $y$ orders cancel among all three terms. The abstract's term-by-term roles do not hold.
   - *Sign.* The note writes $\mathcal L = -(a_0^2/8\pi G)F + \rho\Phi$. Varying that gives $\nabla\cdot[\mu\nabla\Phi] = -4\pi G\rho$. The stated field equation needs $-\rho\Phi$, as Paper A writes.
+
+## The six formal proofs (`proofs/`)
+
+*All six verification scripts were re-run: aqual 24/24, exchange 34/34, forced frame 27/27, Hadamard 25/25, scheme 39/39, torsion 36/36, 185 checks in all. Each proof lists its premises and shows them necessary by counterexample.*
+
+**P-aqual — The Energy Functional of $\mu = x/(x+1)$.**
+- $\mathcal L = -(a_0^2/8\pi G)F - \rho\Phi$.
+- Thm 1: $F$ is the unique $C^1$ primitive with $F(0) = 0$.
+- Cor 1 gives the convergent series:
+  - $F = 2\sum_{k\ge3}(-1)^{k+1}y^{k/2}/k$ for $y\le1$;
+  - $F = y - 2\sqrt y + \ln y + 2\sum_{k\ge1}(-1)^{k+1}y^{-k/2}/k$ for $y>1$.
+- Deep field: $\nabla\cdot(|\nabla\Phi|\nabla\Phi) = 4\pi Ga_0\rho$.
+- Thm 2:
+  - With $W(q) = F(|q|^2)$, $W\in C^2$ and the Hessian is $2\mu(I - \hat q\hat q^T) + 2(x\mu)'\hat q\hat q^T$, with $2(x\mu)' = 2x(x+2)/(x+1)^2$.
+  - So $W$ is strictly convex and $A(p) = \mu(|p|/a_0)p$ is strictly monotone.
+  - $1 < (x\mu)'/\mu = (x+2)/(x+1)\le2$; the equation degenerates only at $\nabla\Phi = 0$.
+- Cor 2: uniqueness for Dirichlet data on bounded domains. The whole-space case is not treated.
+
+**P-exchange — The Constitutive Law from Exchange Symmetry.**
+- Premises:
+  - (E) $\mu(0) = 0$.
+  - (X) Partition states are closed under parity. Parity fixes $|g|$, so if $\mu$ occurs then $1-\mu$ occurs.
+  - (A) $P(\tilde x,\mu) = 0$ irreducible, of degree 1 in each variable. The degree in $\mu$ "counts the directions in which the coupling runs".
+- Lemma (field degrees with Gauss): $y\in K(x)$ and $x\in K(y)$ iff $P = axy + bx + cy + d$ with $ad\ne bc$.
+- Steps:
+  1. Bilinearity gives $\Omega = \alpha\tilde x/(\gamma\tilde x + \delta)$.
+  2. (X) requires a pole on $[0,\infty]$ without a sign change, so $\gamma = 0$.
+  3. Setting the unit gives $\Omega = x$.
+- The exchange $x\to1/x$ is *derived*, and $a_0$ is its fixed point (identified, not evaluated). $\mu(\infty) = 1$ and the complement symmetry are also derived.
+- Parity form: $s = 2\mu - 1$ gives $x(1-s) = 1+s$, with exchange $(x,s)\to(1/x,-s)$.
+- Necessity:
+  - drop (E): $\Omega = (x+b)/(bx+1)$;
+  - drop (X): $\mu(\infty)<1$;
+  - drop (A): $x^n(1-\mu)^m = \mu$, irreducible by Eisenstein, where $(1,2)$ is the bound law;
+  - without (A), any increasing $\mu$ works.
+- Wording note: (A) is motivated by "the unbound field couples in one direction: matter sources the field, and the field does not source itself". "Unbound field" here means the field sourced one way. Under the naming rules this is the one-directional law that governs a galaxy's exterior, not an "unbound galaxy".
+
+**P-forced — The Spatial Geometry of the Lorentz Tetrad.**
+- Premises: (R) equal pairwise relation (the pattern of $\eta_{a\ne b} = 0$); (M) equal magnitude ($|\eta_{aa}| = 1$, so the sign of $\eta_{00}$ is set aside); (N) distinct legs; (D) $D = 3$.
+- Rigidity lemma: equal Gram matrices of rank $D$ differ by a unique $Q\in O(D)$.
+- Theorem: $G = c^2I - (c^2/3)(J-I)$ and closure $\sum v_a = 0$ are *derived*, giving the regular tetrahedron with angle $\arccos(-1/3)$, unique up to $O(3)$.
+- Cor 2: $K$ legs can be realised iff $D\ge K-1$, and are forced iff $D = K-1$.
+- Cor 3: parity $-I$ gives the disjoint second tetrahedron, and the eight points are the cube, i.e. the stella octangula.
+- Necessity:
+  - drop (R): a square;
+  - drop (M): the observer's projection $v_0 = 0$, $v_i = c\hat e_i$, or $G_{aa} = (1,3,7,7)c^2$;
+  - drop (N): $G = c^2J$;
+  - drop (D): orthogonal legs in $\mathbb R^4$, and nothing in $\mathbb R^2$.
+- The paper states that premise (M) is the decisive interpretive choice.
+
+**P-hadamard — The Stellated Octahedron, the Cube and the Hadamard Matrix.**
+- Thm 1: for a $D\times K$ sign matrix these are equivalent:
+  - the columns are a cube simplex;
+  - $M^TM = KI - J$;
+  - $\hat H = \binom{\mathbf1^T}{M}$ is Hadamard;
+  - $M\mathbf1 = 0$ and $MM^T = KI_D$ (no net direction, no preferred axis).
+- Hadamard lemma: $4\mid n$ for $n>2$, so cube simplices exist only for $D = 1$ or $4\mid D+1$.
+- Thm 2: $V\cup(-V) = Q_D$ iff $D = 3$, where they are the classes $x_1x_2x_3 = \pm1$. This is exactly what $2(D+1) = 2^D$ counts.
+- Thm 3: in a stated ordering, $W_8 = H_2\otimes\hat H$ exactly, with $H_2$ as parity.
+- Cor 2: the $K-1$ rows are all the equal-half splits only for $K = 2, 4$.
+
+**P-two-regions — The Tetrad Scheme and the Two Bounded Regions.**
+- The solution set of $g = e^T\eta e$ is the $O(1,3)$-orbit of one tetrad. The scheme $X_g\cong O(\eta)$.
+- $(\det e)^2 = \det g/\det\eta = \kappa>0$, so $X_g = X_+\sqcup X_-$. Neither piece splits further, since $SO(4,\mathbb C)$ is connected.
+- $P$ and $T$ (both det −1) exchange the pieces; $PT = -I$ does not. For a fixed future-pointing time leg the root is the orientation of the spatial legs, i.e. $O(3)$'s two components.
+- $P = -I$ is canonical: it is the only det −1 element central in $O(3)$, and not a rotation leg by leg. The construction needs odd $D$.
+- *Cautions stated.*
+  - As unlabelled point sets the two tetrahedra are congruent (a 90° rotation maps one onto the other). They differ in leg order and occupied region.
+  - The root ↔ tetrahedron identification needs future-pointing frames.
+- Every metric-built quantity (Christoffels, curvature, Einstein tensor, EH action) is the same on both pieces. Keeping one piece is "a valid computational choice" ($SO^+(1,3)$), equivalent to adding $\det e = +\sqrt\kappa$.
+- Each piece carries a 3 + 1 face split relative to the spatial legs: one uniform-sign normal ($(+++)$ or $(---)$) and three mixed.
+
+**P-torsion — The Torsion Sector as the Regular Representation of $S_4$.**
+- Lemma: the torsion basis $t_{a;bc}$ forms two orbits of 12, incident ($a\in\{b,c\}$) and non-incident. Both have stabiliser $\langle(23)\rangle$, acting by $\pm1$.
+- Thm 1: the 24 images of $\xi = t_{0;01} + t_{0;23}$ are a basis, so $\mathbb R[S_4]\cong T$ explicitly. Also $T_{\rm inc} = \mathrm{Ind}_H\mathbf1$ and $T_{\rm non} = \mathrm{Ind}_H\varepsilon$.
+- Thm 2: sgn occurs once in $T$ (spanned by $\sum_d\varepsilon_{abcd}$, in $T_{\rm non}$) and never in $C$. In $C$ every one of the four orbits has a stabiliser containing a transposition acting by +1.
+- Thm 3, using $|\eta| = I$:
+  - $T_v\cong V = \mathbf1\oplus\mathrm{std}$, inside the incident half.
+  - $T_{ax}\cong\mathrm{sgn}\otimes V$, inside the non-incident half.
+  - Each half of the tensor part is $[2,2]\oplus\mathrm{std}\oplus(\mathrm{sgn}\otimes\mathrm{std})$.
+  - With the signed $\eta$ the axial part is not $S_4$-invariant.
+- This answers Paper B's two open questions: the explicit isomorphism, and the relation to the Lorentz split $4 + 4 + 16$.
+- Scope, as stated:
+  - sgn$(\sigma) = \det P_\sigma$, the orientation character on leg permutations.
+  - Spatial parity is not a leg permutation, and these theorems do not describe its action. So the link between the sign irrep and TetA/TetB root-blindness is by analogy, through orientation (Part I §5.3 updated).
