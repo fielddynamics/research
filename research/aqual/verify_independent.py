@@ -166,7 +166,7 @@ for _ in range(300):
     g = [nuQ(zN) * v for v in gN]
     X = mp.sqrt(sum(v * v for v in g))
     worst = max(worst, max(abs((gi - gNi) - mu(X) * gNi / zN) for gi, gNi in zip(g, gN)))
-check("T3f QUMOND, any geometry: g - g_N = a0 mu(|g|/a0) unit(g_N), 300 random field vectors", worst < mp.mpf('1e-25'))
+check("T3f QUMOND field (a separate action from GFD's), any geometry: g - g_N = a0 mu(|g|/a0) unit(g_N), 300 random field vectors", worst < mp.mpf('1e-25'))
 
 # ------------------------------------------------------------------ T4
 print("\nT4  Legendre dual as a numerical supremum")

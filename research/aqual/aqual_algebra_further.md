@@ -57,10 +57,10 @@ The Newtonian part $v_N^2 = GM/r$ fades with radius, and $v^4$ tends to $GMa_0$.
 
 **Scope: where these forms are pointwise.**
 
-- **AQUAL with symmetry.** In AQUAL, $\mu(|g_t|/a_0)\,\vec g_t = \vec g_s$ holds pointwise only where the curl term of Bekenstein and Milgrom vanishes: spherical, cylindrical and planar symmetry. Elsewhere (1a)–(1c) and $\nu$ are approximations whose error is that curl field.
-- **QUMOND, any geometry.** In the QUMOND form of §7 they are exact by construction. The vector form of (1c) is then
+- **GFD's field equation.** The scalar sector of GFD's covariant action has the AQUAL form, so its field equation is the AQUAL one. In it, $\mu(|g_t|/a_0)\,\vec g_t = \vec g_s$ holds pointwise only where the curl term of Bekenstein and Milgrom vanishes: spherical, cylindrical and planar symmetry. Elsewhere (1a)–(1c) and $\nu$ are approximations whose error is that curl field.
+- **QUMOND, for comparison.** QUMOND (§7) is a different action, not a rewriting of GFD's. Its field equation makes (1a)–(1c) exact by construction in any geometry. There the vector form of (1c) is
 $$\vec g_t - \vec g_s = a_0\,\mu\!\left(\frac{|\vec g_t|}{a_0}\right)\hat g_s ,$$
-so the TetB field is $a_0\mu$ along the source field, in any geometry. Its density is $\rho_B = (a_0/4\pi G)\,\nabla\cdot(\mu\,\hat g_s)$.
+so the TetB field is $a_0\mu$ along the source field, with density $\rho_B = (a_0/4\pi G)\,\nabla\cdot(\mu\,\hat g_s)$. In GFD this vector form holds where the curl term vanishes.
 
 The point-mass forms and density slopes (§§7–10) are spherical, so for them the distinction does not arise. The kinetic functions $F$, $F_b$ and $Q$ are local and hold in any geometry.
 
@@ -149,7 +149,7 @@ The bound law is not exchange-symmetric. Over the same windows it gives the foll
 
 $$Q(z^2) = \frac{z^2}{2} + \frac{(z+2)\sqrt{z(z+4)}}{2} - 4\,\mathrm{asinh}\frac{\sqrt z}{2}.$$
 
-It is the exact Legendre transform of the GFD energy, $W^*(2z) = Q(z^2)$. So the action can be written equally in the observed field (AQUAL) or in the source field (QUMOND). At the gate $z = 1$, $\mathrm{asinh}(1/2) = \ln\varphi$. The AQUAL–QUMOND duality is standard (Milgrom 2010); this closed form for GFD's $\mu$ is new to the archive.
+It is the exact Legendre transform of the GFD energy density, $W^*(2z) = Q(z^2)$. This duality is between energy densities, not actions. QUMOND built on $Q$ is a separate action, which matches GFD's field equation where the curl term vanishes and differs from it elsewhere. It is not a rewriting of GFD's covariant action. At the gate $z = 1$, $\mathrm{asinh}(1/2) = \ln\varphi$. The AQUAL–QUMOND duality is standard (Milgrom 2010); this closed form for GFD's $\mu$ is new to the archive.
 
 **The bound law has an algebraic kinetic function, with no logarithm.**
 
@@ -252,7 +252,7 @@ Because the composite coupling is $f = 17 + 4s$, the coupling of a product of sc
 | $\langle f\rangle = 17$ from exchange symmetry | Exact; explains the closure-climb mean as a symmetry |
 | QUMOND dual $Q$; bound $F_b$ | Exact closed forms, new to the archive |
 | TetB density cusp, slopes $-1$ and $-\tfrac12$, with coefficients | Exact asymptotics; bears on Letter 3, consequence 2 |
-| QUMOND vector form $\vec g_t - \vec g_s = a_0\mu\,\hat g_s$ | Exact in any geometry; in AQUAL, exact only without the curl term |
+| Vector form $\vec g_t - \vec g_s = a_0\mu\,\hat g_s$ | Exact in GFD's (AQUAL-form) field equation where the curl term vanishes; exact everywhere in QUMOND, a separate action |
 | Hyperbolic point mass; $\Phi + v^2 = \sqrt{GMa_0}\,\psi$; golden and silver gates | Exact |
 | Bound law $= \tanh^2(\psi/2)$; it mirrors the point mass's TetB share | Exact |
 | S and E generate the laws; the bound law's source form is $U(\sqrt z)$ | Exact |

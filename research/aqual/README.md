@@ -36,7 +36,7 @@ The AQUAL material in the archive is spread across proofs, letters, papers and r
 | 4 | The field equation's anisotropy equals the TetB share |
 | 5 | The logarithm in $F$ is the screening identity integrated |
 | 6 | The mean coupling of 17 follows from exchange symmetry |
-| 7 | Closed forms: the QUMOND dual, the bound kinetic function, the point-mass potential |
+| 7 | Closed forms: the Legendre dual of the energy density (QUMOND's kinetic function), the bound kinetic function, the point-mass potential |
 | 8 | A check on the central density of the TetB field |
 | 9–10 | The point mass and the bound law in one hyperbolic variable |
 | 11 | Two operations generate the laws; uniqueness within the family |
@@ -66,7 +66,7 @@ The AQUAL material in the archive is spread across proofs, letters, papers and r
 | $\mu(x) = x/(x+1)$ | Derived by three routes in the archive |
 | $F(y)$, convexity, ellipticity, uniqueness | Proved in the archive |
 | The forms and identities of `aqual_algebra_further.md` | Exact; checked twice (below) |
-| Pointwise forms (1a)–(1c) beyond spherical, cylindrical and planar symmetry | Approximate in AQUAL (the curl term); exact in the QUMOND form |
+| Pointwise forms (1a)–(1c) beyond spherical, cylindrical and planar symmetry | Approximate in GFD's field equation, which has the AQUAL form (the curl term); exact only in QUMOND, which is a separate action |
 | The bound law as the exchange of the source form | Exact identity; its physical reading is open |
 | Letter 3's "bounded central density" | The acceleration bound holds; the density has a cusp (§8) |
 | How nested closures compose (§12) | Open; the algebra does not decide it |
