@@ -50,8 +50,9 @@ This is QUMOND, the two-potential form of MOND. Lensing is governed by the same 
 | C = Γ − Γ̂, symmetric in its lower indices | lives in the 40, not the torsion 24; its slow-motion component Cⁱ₀₀ = ∂ᵢφ* sits in the shared diagonal 16 |
 
 - **Decoding theorem.** Apply the decoding-mass letter's inversion, M_dec = r²·[g_t²/(a₀ + g_t)]/G, to BIMOND–GFD. It returns M_dec = M − M̂ exactly, at every radius. So **ΔM_eff = M_phot − M_dec is the enclosed twin (occupied-TetB) mass.**
-  - With ρ̂ ≥ 0, an isolated galaxy can only be braked. CamB is a brake.
-  - A drive (M_dec > M_phot) needs the environment (the host's net field) or ρ̂ < 0.
+  - In BIMOND twin matter is a scalar density, so with ρ̂ ≥ 0 it can only brake, and a drive would need ρ̂ < 0. This is a limit of BIMOND, not of GFD.
+  - In GFD, TetB brakes or drives the way a local vortex does inside a net vortex (standard vortex dynamics). Whether it brakes or drives depends on which way its spin points relative to the net TetA vortex spin, not on the sign of a density. Counter-rotating means brake (CamB); co-rotating means drive. Neither needs negative mass.
+  - A scalar ρ̂ has no handedness, so BIMOND cannot represent this. Spin needs an axial (gravitomagnetic) channel, the torsion 24, which is where GFD puts TetB (see open item 2).
   - Where M̂ > M, matter is repelled, matching Milgrom's "the twin's phantom mass repels both kinds".
 
 **04 — Test of "brake only" on SPARC** (`04_sparc_brake_only.py`). I took the per-galaxy median of log₁₀(M_dec/M_bar) over the outer half of each rotation curve.
@@ -61,7 +62,7 @@ This is QUMOND, the two-potential form of MOND. Lensing is governed by the same 
 | All | 163 | −0.054 | 0.22 | 0.40 |
 | Quality flag Q = 1, inclination ≥ 45° | 82 | −0.020 | 0.23 | 0.29 |
 
-The distribution leans toward brakes, but about a fifth of galaxies sit above +0.1 dex. With a flat mass-to-light ratio and 0.18 dex scatter this is not yet a test. It needs fits with the stellar mass-to-light ratio and distance marginalised, and an isolation cut.
+This tests BIMOND's scalar, brake-only version, not GFD: in GFD a fifth of galaxies being driven is allowed (co-rotating TetB). The distribution leans toward brakes, but about a fifth of galaxies sit above +0.1 dex. With a flat mass-to-light ratio and 0.18 dex scatter this is not yet a test. It needs fits with the stellar mass-to-light ratio and distance marginalised, and an isolation cut.
 
 **05 — Local systems** (`05_local_systems.py`).
 - BIMOND as written applies 𝓜′ to every source. Around the Sun that gives a constant a₀ pull at every planet, plus the external-field quadrupole Q₂ ≈ 4.8 × 10⁻²⁶ s⁻² (at g_e = 2.28 × 10⁻¹⁰). Cassini measures (3 ± 3) × 10⁻²⁷. Both are excluded.
@@ -95,8 +96,8 @@ In this candidate:
 ## Open items
 
 1. **Root-blindness only in vacuum.** In BIMOND the two metrics must differ once matter is present, or C = 0. GFD's "same metric for both roots" then holds only at the Field Origin, with no matter.
-2. **Torsion vs connection difference.** BIMOND's MOND sector is C in the 40. GFD has placed TetB in the torsion 24. Both give the same 3-vector in the slow-motion limit (`research/bimetric-projection/probe_where_tetb_pushes.py`). The relativistic content differs, and GFD has to choose.
+2. **Torsion vs connection difference.** BIMOND's MOND sector is C in the 40. GFD has placed TetB in the torsion 24. Both give the same 3-vector in the slow-motion limit (`research/bimetric-projection/probe_where_tetb_pushes.py`). The relativistic content differs. Brake vs drive by spin orientation (item 6) favours the torsion 24, because only an axial channel carries spin direction.
 3. **Ghosts.** α = −β gives the twin sector a negative Einstein–Hilbert term. Ghost stability, and Milgrom's self-acceleration of mixed systems (F − F̂ = 0, not F + F̂ = 0), are open.
 4. **The net-field rule needs a covariant statement.** It has to say what coarse-graining scale defines φ̄*. Test D (`research/bimetric-projection/probe_testD_clusters_vs_dwarfs.py`) shows that star clusters must be coarse-grained out and dwarf galaxies kept. The criterion is galaxy (vortex) versus bound cluster, not a radius.
 5. **Gravitational-wave speed** in BIMOND with two dynamical metrics is not checked here (GW170817).
-6. **Drives.** Under "brake only", any isolated galaxy with M_dec > M_phot beyond the errors needs ρ̂ < 0 or an environmental origin. Test 04 has to be redone properly.
+6. **Brake and drive come from spin orientation.** In GFD the local TetB vortex brakes or drives against the net TetA vortex spin, depending on its relative handedness, as in standard vortex dynamics. BIMOND needs an axial (spin) twin sector to match this. A proper test of 04 should correlate the sign of ΔM_eff with spin orientation (for example, counter-rotating gas or stellar components, or spin relative to the host's tidal field), not just test a skew.
