@@ -42,6 +42,8 @@ The AQUAL material in the archive is spread across proofs, letters, papers and r
 | 11 | Two operations generate the laws; uniqueness within the family |
 | 12 | The partition composes like rapidities |
 
+3. [`docs_and_the_energy_functional.md`](docs_and_the_energy_functional.md), *The Docs and the Energy Functional*. What the documentation and the docs-site tests derive from $F$, read against this folder: what agrees, nine statements the algebra does not support, and suggested edits (not made).
+
 ## Map: where the AQUAL material lives
 
 | Topic | Where | What it establishes |
@@ -58,6 +60,7 @@ The AQUAL material in the archive is spread across proofs, letters, papers and r
 | The bound law as bimetric screening | [Paper VIII](../../papers/08-gfd-and-bimetric-gravity/) | The $N = 2$ law, $\mu = (\sqrt{1+4x}-1)/(\sqrt{1+4x}+1)$; equal to $\tanh^2(\psi/2)$ of §10 here |
 | The algebraic chain to $F$ | [`algebraic_pipeline_of_reality.md`](../../papers/algebraic-papers-a-b-c/algebraic_pipeline_of_reality.md) | $D = 3$ through the partition law to $F$ and the logistic equation |
 | Suites and visualisations | [`constitutive-law-u(x)/`](<../constitutive-law-u(x)/>) | Test suites and the TetA/TetB roulette |
+| The documentation | [`docs/02-gravitation/`](../../docs/02-gravitation/), [`docs/04-galactic-dynamics/`](../../docs/04-galactic-dynamics/); site tests in [`fielddynamics/docs`](https://github.com/fielddynamics/docs) | The reader-facing account of $F$ and its consequences; read against this folder in `docs_and_the_energy_functional.md` |
 
 ## What is established, and what is open
 
@@ -70,6 +73,9 @@ The AQUAL material in the archive is spread across proofs, letters, papers and r
 | The bound law as the exchange of the source form | Exact identity; its physical reading is open |
 | Letter 3's "bounded central density" | The acceleration bound holds; the density has a cusp (§8) |
 | How nested closures compose (§12) | Open; the algebra does not decide it |
+| How matter couples to $\Phi$ in the action | Not stated in the docs; needed for the scalar equation to have a source |
+| Whether $y$ is covariant, and $F$ for timelike gradients | Open; if covariant, waves along a static field travel at $c\sqrt{2-\mu}$ |
+| One relation between $a_0$ and $H$ | Two are in use, differing by $\sqrt{4/\pi}$ |
 
 ## Running
 
@@ -77,6 +83,7 @@ The AQUAL material in the archive is spread across proofs, letters, papers and r
 pip install sympy mpmath
 python verify_aqual_algebra.py     # 43/43, each claim by its own algebra
 python verify_independent.py       # 45/45, by routes that do not reuse the closed forms
+python verify_docs_intersection.py # 23/23, the docs read against this folder
 ```
 
 The independent script evaluates every identity at random points to 60 digits. It also:
@@ -94,8 +101,11 @@ The independent script evaluates every identity at random points to 60 digits. I
 | [`aqual_algebra_further.md`](aqual_algebra_further.md) | The AQUAL algebra carried further: twelve sections, with status and verification |
 | [`verify_aqual_algebra.py`](verify_aqual_algebra.py) | Direct verification, symbolic and exact |
 | [`verify_independent.py`](verify_independent.py) | Independent verification, numerical and symbolic by separate routes |
+| [`docs_and_the_energy_functional.md`](docs_and_the_energy_functional.md) | The documentation's account of $F$ and its consequences, read against this folder |
+| [`verify_docs_intersection.py`](verify_docs_intersection.py) | Verification for the docs note |
 
 ## References
 
 - Bekenstein, J. and Milgrom, M. (1984). Does the missing mass problem signal the breakdown of Newtonian gravity? *Astrophys. J.* 286, 7.
 - Milgrom, M. (2010). Quasi-linear formulation of MOND. *Mon. Not. R. Astron. Soc.* 403, 886.
+- Babichev, E., Mukhanov, V. and Vikman, A. (2008). k-Essence, superluminal propagation, causality and emergent geometry. *J. High Energy Phys.* 2008(02), 101.
