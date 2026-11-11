@@ -243,7 +243,6 @@ Most research folders follow the same pattern: a **`*_synthesis.md`** that expla
 |---|---|
 | [`constitutive-law-u(x)/`](<research/constitutive-law-u(x)/>) | Constitutive law suites and TetA/TetB roulette visualisations |
 | [`galaxy-rotation/`](research/galaxy-rotation/) | Rotation-curve pipeline, interior/exterior synthesis, mass decoding, vortex viewers |
-| [`wide-binaries/`](research/wide-binaries/) | Pre-registered test of the covariant action against Gaia DR4 (2 December 2026): the full field equation solved for a binary in the Milky Way's field. Wide pairs are predicted 42% stronger in gravity and 19% faster than Newton |
 | [`cdm/`](research/cdm/) | Translation of the cold-dark-matter halo into the TetB interior of the field |
 | [`cmb/`](research/cmb/) | The oldest light: the recombination enhancement of 6.46 from packed closure boundaries, one law across two epochs, and the 0.17 velocity exponent |
 | [`g_from_topology/`](research/g_from_topology/) | G as a matrix read; one-loop (Schwinger) correction to G; look-elsewhere test; *What Is Gravity?*, an open question |
