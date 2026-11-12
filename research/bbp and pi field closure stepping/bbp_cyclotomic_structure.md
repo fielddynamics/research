@@ -125,6 +125,7 @@ What is left at r = 0 is −(y − 1). So **BBP's factor (y − 1) is the closur
 
 ## Related
 
+- [The proof](../../proofs/bbp-coupling-polynomial-ladder/): sections 1 and 3, with the Field Origin column of the Sierpiński ladder, stated and proved as theorems (32 checks).
 - [The synthesis](bbp_field_closure_synthesis.md) and [`bbp_field_closure_complete.py`](bbp_field_closure_complete.py) (30 checks).
 - PROOF.md in the model repository (`dfp-gravity-field-model`, branch `test/bbp-octahedron-hypothesis`, `gravity_field_model/engine_core/field_closure/bbp_structure/`).
 - [`01.1_cyclotomic_algebra.md`](../exploratory/great-pyramid/pyramid_portal_research/01_framework_foundations/01.1_cyclotomic_algebra.md): f(K, s) = Φ₆, Φ₄, Φ₃ and the Sierpiński ladder (241, 257, 273 at K = 16).

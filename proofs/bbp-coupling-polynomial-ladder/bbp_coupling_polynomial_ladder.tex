@@ -1,0 +1,305 @@
+\documentclass[twocolumn]{iopjournal}
+
+\usepackage{amsmath,amssymb,amsfonts}
+
+\fancyhfoffset[L]{0mm}
+\setlength{\marginparwidth}{0pt}
+\setlength{\marginparsep}{0pt}
+
+% ==========================================
+% ZENODO PREPRINT HEADERS (ACTIVE)
+% ==========================================
+\renewcommand{\articletype}[1]{%
+  {\vspace*{-8mm}\noindent \Large \sf Preprint}\par
+  \vspace*{6mm}\noindent{\scriptsize \sf{\bfseries \MakeUppercase{#1}}}}
+
+\fancyhead[L]{}
+\fancyhead[R]{}
+
+\hypersetup{pdftitle={The BBP Formula and the Coupling Polynomial on One Ladder}, pdfauthor={Stephen Nelson}, pdfsubject={Gravity Field Dynamics (GFD)}, pdfkeywords={BBP formula, cyclotomic polynomials, coupling polynomial, Field Origin, stellated octahedron, proof}}
+
+\begin{document}
+
+\articletype{Supplementary Material}
+
+\title{The BBP Formula and the Coupling Polynomial on One Ladder}
+
+\author{Stephen Nelson}
+
+\affil{Field Dynamics Research}
+
+\ead{stephen@fielddynamics.org}
+
+\begin{abstract}
+The coupling polynomial $f(K,s) = 1 + sK + K^2$ of Gravity Field
+Dynamics takes the values $\Phi_6(K), \Phi_4(K), \Phi_3(K)$ at
+$s = -1, 0, +1$, so its three states form one row of the ladder
+$X \to X^2$ of cyclotomic polynomials. We show that the
+Bailey--Borwein--Plouffe (BBP) formula for $\pi$ lies on the same
+ladder, in its Field Origin column. In the variable $u = y/\sqrt2$
+the denominator of its integral is $16(1-u)(1+u)(1+u^2)(1+u^4)$,
+three rungs $\Phi_2, \Phi_4, \Phi_8$, which are the Field Origin
+polynomial at three consecutive levels and take the values $5, 17,
+257$ at $K = 4$. The rungs are the binary coordinates of the cube,
+the top one being the half-turn. Every formula for $\pi$ of BBP's
+type must drop the rung at the coupling row's own level, $\Phi_4$,
+together with one half of $\Phi_8$, because their poles carry the
+primes $3$ and $5$; $\pi$ is read from the other half of $\Phi_8 =
+\Phi_4(X^2)$, the Field Origin one level up. Silence on the TIME
+slot and closure of the weights both act on the one remaining
+factor, and both select BBP.
+\end{abstract}
+
+\keywords{BBP formula, cyclotomic polynomials, coupling polynomial, Field Origin, stellated octahedron, proof}
+
+% ----------------------------------------------------------------------
+
+\section*{Setting}
+
+Let $D$ be the positive integer with $2(D+1) = 2^D$, so $D = 3$ and
+$K = D + 1 = 4$~\cite{Nelson2026hadamard}. The \emph{coupling
+polynomial} is $f(K,s) = 1 + sK + K^2$, read at $s = +1$ (TetA),
+$s = 0$ (the Field Origin) and $s = -1$ (TetB). $\Phi_n$ is the
+$n$-th cyclotomic polynomial, the minimal polynomial of
+$e^{2\pi i/n}$.
+
+The \emph{slot series} are
+$S_j = \sum_{k \ge 0} 16^{-k}/(8k+j)$, $j = 1, \dots, 8$. A
+\emph{formula of type $(\ast)$} for a number $c$ is a rational
+vector $w$ with $\sum_j w_j S_j = c$. Expanding $1/(16 - y^8)$ on
+$[0,1]$ gives
+\begin{equation}
+  \sum_j w_j S_j = \int_0^1 \frac{p_w(y)}{16 - y^8}\,dy,
+  \label{eq:int}
+\end{equation}
+with $p_w(y) = 16\sum_{j=1}^{8} w_j\,y^{j-1}$.
+BBP is $w_{\mathrm{BBP}} = (4,0,0,-2,-1,-1,0,0)$~\cite{BBP1997}.
+With $a = (8,-8,-4,-8,-2,-2,1,0)$, every formula of type $(\ast)$
+for $\pi$ is $w(r) = w_{\mathrm{BBP}} + r\,a$, $r \in
+\mathbb{Q}$~\cite{AdamchikWagon1997,Nelson2026bbp}. The proof of
+that statement~\cite{Nelson2026bbp} writes each slot as
+\begin{equation}
+  S_j = -\tfrac18\sum_{\omega^8 = 1} (\sqrt2\,\omega)^j\,L_\omega,
+  \label{eq:res}
+\end{equation}
+with $L_\omega = \operatorname{Log}\big(1 - \bar\omega/\sqrt2\big)$,
+and shows, with Baker's theorem~\cite{Baker1966}, that the seven
+logarithms $i\pi$, $\log 2$, $\log(1+\sqrt2)$, $\log(2\pm i)$,
+$\log(\sqrt2\pm i)$ in which every $L_\omega$ is expanded are
+linearly independent over the algebraic numbers. We use these two
+facts.
+
+% ----------------------------------------------------------------------
+
+\section*{The Coupling Polynomial Is a Row of the Ladder}
+
+\paragraph{Theorem 1.} \textit{$f(X,+1) = \Phi_3(X)$,
+$f(X,0) = \Phi_4(X)$ and $f(X,-1) = \Phi_6(X)$. Under $X \to X^2$,}
+\begin{equation}
+\begin{aligned}
+  \Phi_3(X^2) &= \Phi_3(X)\,\Phi_6(X),\\
+  \Phi_4(X^2) &= \Phi_8(X),\qquad \Phi_6(X^2) = \Phi_{12}(X).
+\end{aligned}
+\end{equation}
+\textit{So the rows $(\Phi_6, \Phi_4, \Phi_3)$ at $X = K^{2^n}$ are
+$(13, 17, 21)$, $(241, 257, 273)$, \dots, and the Field Origin
+column $\Phi_4(K^{2^n}) = 1 + K^{2^{n+1}}$ is $17, 257, 65537$.}
+
+\paragraph{Proof.} The roots of $X^2 \pm X + 1$ and $X^2 + 1$ are
+the primitive roots of unity of orders $3$, $6$ and $4$. The square
+roots of a primitive $n$-th root are primitive $2n$-th roots when $n$
+is even, and one primitive $n$-th and one primitive $2n$-th root when
+$n$ is odd. \hfill $\square$
+
+\medskip
+\noindent
+The cyclotomic form of $f$ and this ladder are already in the
+archive~\cite{Nelson2026cyclo}; Theorem 1 states them as the frame
+for what follows.
+
+% ----------------------------------------------------------------------
+
+\section*{BBP Lies on the Field Origin Column}
+
+\paragraph{Lemma.} \textit{For base $2^{D+1}$ and period $2^D$, the
+poles of $1/(2^{D+1} - y^{2^D})$ lie at radius $2^{(D+1)/2^D}$. The
+radius is $\sqrt2$, and the poles include $1 + i$, exactly when
+$2(D+1) = 2^D$.}
+
+\paragraph{Proof.} $(D+1)/2^D = 1/2$ is the stated equation, and
+$(1+i)^8 = 16$. \hfill $\square$
+
+\paragraph{Theorem 2.} \textit{With $y = \sqrt2\,u$,}
+\begin{equation}
+  16 - y^8 = 16\,(1-u)(1+u)(1+u^2)(1+u^4),
+\end{equation}
+\textit{and the rungs $1 + u^{2^k}$, $k = 0, 1, 2$, are
+$\Phi_2(u), \Phi_4(u), \Phi_8(u)$, the Field Origin polynomial at
+three consecutive levels: $\Phi_2(X) = \Phi_4(\sqrt X)$, $\Phi_4(X)$
+and $\Phi_8(X) = \Phi_4(X^2)$. At $X = K$ they are $5, 17, 257$.
+Neither $\Phi_3$ nor $\Phi_6$ divides the denominator: of the
+coupling row, only $\Phi_4$ occurs.}
+
+\paragraph{Proof.} $1 - u^8 = (1 - u)\prod_{k=0}^{2}(1 + u^{2^k})$
+by repeated difference of squares, and $1 + u^{2^k}$ is
+$\Phi_{2^{k+1}}$. The factors of $1 - u^8$ are the $\Phi_d$ with
+$d \mid 8$, and $3, 6 \nmid 8$. \hfill $\square$
+
+\paragraph{Theorem 3.} \textit{The rungs are the binary coordinates
+of the cube. $\prod_{k=0}^{2}(1 + u^{2^k}) = \sum_{m=0}^{7} u^m$,
+each $m = 4b_2 + 2b_1 + b_0$ arising once, so $m \mapsto
+(b_2, b_1, b_0)$ is a bijection onto the corners $\{0,1\}^3$. On the
+poles $y = \sqrt2\,\omega$, with $\omega = e^{i\pi/4}$,}
+\begin{equation}
+  \omega^m = (\omega^4)^{b_2}(\omega^2)^{b_1}\omega^{b_0},\qquad
+  \omega^4 = -1,\ \ \omega^2 = i,
+\end{equation}
+\textit{so the three bits are the half-turn, the quarter-turn and the
+eighth-turn, and flipping the most significant bit multiplies every
+pole character by $-1$.}
+
+\paragraph{Proof.} Each $m < 8$ has one binary expansion; expand the
+product and the power. \hfill $\square$
+
+\medskip
+\noindent
+In~(\ref{eq:res}) slot $j$ carries the character $\omega^j$, so
+Theorem 3 is the place-value reading of slot $j$ as corner
+$j \bmod 8$ used in~\cite{Nelson2026bbp}. The ladder fixes which bit
+is which rung. It does not fix which spatial axis carries which bit,
+and the selection of BBP does not depend on that choice; whether the
+slot is counted as $j$ or $j - 1$ does matter~\cite{Nelson2026bbp}.
+
+% ----------------------------------------------------------------------
+
+\section*{Every Formula for $\pi$ Drops the Coupling Row's Rung}
+
+\paragraph{Theorem 4.} \textit{If $w$ is a formula of type $(\ast)$
+for $\pi$, then $(y^2 + 2)(y^2 + 2y + 2)$ divides $p_w$. Here
+$y^2 + 2 = 2\Phi_4(u)$, the Field Origin rung at the coupling row's
+level, and $y^2 + 2y + 2 = 2(u^2 + \sqrt2 u + 1)$, the half of
+$\Phi_8 = (u^2 - \sqrt2 u + 1)(u^2 + \sqrt2 u + 1)$ with poles at
+$135^\circ$ and $225^\circ$. The numerators are exactly}
+\begin{equation}
+\begin{aligned}
+  p_{w(r)} = 16\,&(y^2+2)(y^2+2y+2)\\
+  &\times\big[r\,(y^2 - 4y + 2) - (y-1)\big].
+\end{aligned}
+  \label{eq:num}
+\end{equation}
+
+\paragraph{Proof.} By~(\ref{eq:res}),
+$\sum_j w_j S_j = -\tfrac18\sum_\omega P_w(\sqrt2\omega)\,L_\omega$
+with $P_w(z) = \sum_j w_j z^j = z\,p_w(z)/16$. Write
+$\omega_n = e^{i\pi n/4}$. Of the seven logarithms,
+$\log(\sqrt2 + i)$ occurs only in $L_{\omega_2}$,
+$\log(\sqrt2 - i)$ only in $L_{\omega_6}$, $\log(2 - i)$ only in
+$L_{\omega_3}$ and $\log(2 + i)$ only in $L_{\omega_5}$, each with
+coefficient $1$~\cite{Nelson2026bbp}. The sum equals
+$\pi = -i\cdot i\pi$, which has no component on these four
+logarithms, and the coefficients $-\tfrac18 P_w(\sqrt2\omega_n)$ are
+algebraic. By the independence over the algebraic numbers, each is
+zero. So $p_w$ vanishes at $\sqrt2\omega_n = \pm i\sqrt2$ and
+$-1 \pm i$, the roots of $y^2 + 2$ and $y^2 + 2y + 2$. Dividing the
+numerators of $w_{\mathrm{BBP}} + r\,a$ gives~(\ref{eq:num}).
+\hfill $\square$
+
+\medskip
+\noindent
+The reason is arithmetic. Over each conjugate pair of poles, the
+product of $1 - \bar\omega/\sqrt2$ is $\tfrac12$ at $0^\circ$ and
+$180^\circ$, $\tfrac12$ at $45^\circ$ and $315^\circ$, $\tfrac32$ on
+the $\Phi_4$ pair and $\tfrac52$ on the $135^\circ$ pair. Only the
+last two contain an odd prime, $3 = (\sqrt2+i)(\sqrt2-i)$ and
+$5 = (2+i)(2-i)$, and logarithms of those primes cannot combine into
+$\pi$. The cancellation is forced on the whole family; it is not
+particular to BBP.
+
+% ----------------------------------------------------------------------
+
+\section*{$\pi$ Is Read One Rung Up}
+
+\paragraph{Theorem 5.} \textit{After the cancellation in Theorem 4
+the integrand of every formula for $\pi$ is}
+\begin{equation}
+  \frac{16\big[r\,(y^2 - 4y + 2) - (y-1)\big]}{(y^2 - 2)(y^2 - 2y + 2)},
+\end{equation}
+\textit{whose poles are $\pm\sqrt2$, on $\Phi_1\Phi_2$, and $1 \pm i$,
+on the $45^\circ$ half of $\Phi_8$. Only the poles $1 \pm i$
+contribute to $\pi$. For BBP the $1 \pm i$ part integrates to
+$\pi + \ln 4$ and the $\pm\sqrt2$ part to $-\ln 4$. The rung that
+carries $\pi$ is $\Phi_8 = \Phi_4(X^2)$, the Field Origin one level
+above the coupling row.}
+
+\paragraph{Proof.} The integrand follows from~(\ref{eq:num}). At
+$\pm\sqrt2$, $1 - \bar\omega/\sqrt2 = 1 \mp 1/\sqrt2$ is real, so
+$L_\omega$ is real. At $1 \pm i$, $1 - \bar\omega/\sqrt2 =
+(1 \pm i)/2$, whose logarithm is $-\tfrac12\log 2 \pm i\pi/4$. The
+two integrals are elementary. \hfill $\square$
+
+\paragraph{Corollary.} \textit{The TIME slot $w_7$ is the coefficient
+of $y^6$ in~(\ref{eq:num}), $16r$; the sum of the weights is
+$p_{w(r)}(1)/16 = -15r$. So silence on the TIME slot and closure,
+weights summing to zero, are each the condition $r = 0$, which
+leaves the factor $-(y-1)$ and is BBP. The factor $y - 1$ is the
+closure condition.}
+
+% ----------------------------------------------------------------------
+
+\section*{Scope}
+
+The results are exact. The coupling row
+$(\Phi_6, \Phi_4, \Phi_3)$ at $K$ and BBP's Field Origin column
+$(\Phi_2, \Phi_4, \Phi_8)$ meet only in $\Phi_4$. Every formula of
+type $(\ast)$ for $\pi$ drops that rung, and $\pi$ is read from the
+rung above it.
+
+The type $(\ast)$, base $16 = K^2$ and period $8 = 2^D$, is an input
+taken from~\cite{Nelson2026bbp}; the Lemma shows that it is the type
+whose poles reach $1 + i$. Nothing here says that BBP is the
+stellated octahedron. No symmetry of the stellated octahedron has
+order $8$, so BBP's period is not one of its symmetries; the ladder
+places that period one rung up. The primes $3$ and $5$ are not given
+a meaning in Gravity Field Dynamics. The rungs at $X = K$ multiply to
+$5 \cdot 17 \cdot 257 = \sum_{m<8} K^m$, while $f(K,+1) =
+\sum_{m<3} K^m$; that is the geometric series, recorded only as an
+observation.
+
+% ----------------------------------------------------------------------
+
+\begin{thebibliography}{9}
+
+\bibitem{BBP1997}
+D.~H.~Bailey, P.~B.~Borwein and S.~Plouffe,
+``On the rapid computation of various polylogarithmic constants'',
+\textit{Math. Comp.} \textbf{66} (1997) 903--913.
+
+\bibitem{AdamchikWagon1997}
+V.~Adamchik and S.~Wagon,
+``A simple formula for $\pi$'',
+\textit{Amer. Math. Monthly} \textbf{104} (1997) 852--855.
+
+\bibitem{Baker1966}
+A.~Baker,
+``Linear forms in the logarithms of algebraic numbers I'',
+\textit{Mathematika} \textbf{13} (1966) 204--216.
+
+\bibitem{Nelson2026bbp}
+S.~Nelson,
+\textit{The I Ching and the BBP formula as the stellated octahedron:
+theorems and proofs} (2026), \texttt{PROOF.md}, model repository
+\texttt{dfp-gravity-field-model}.
+
+\bibitem{Nelson2026cyclo}
+S.~Nelson,
+\textit{Cyclotomic algebra of the coupling polynomial} (2026),
+research archive.
+
+\bibitem{Nelson2026hadamard}
+S.~Nelson,
+\textit{The Stellated Octahedron, the Cube and the Hadamard Matrix}
+(2026).
+
+\end{thebibliography}
+
+\end{document}
