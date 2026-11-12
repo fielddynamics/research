@@ -421,7 +421,7 @@ Shell ceilings $\mathrm{CEIL} = B_{\rm Zn} + B_{\rm bdy} - \mu_b(2)[B_{\rm Zn} -
 | Chiral holonomy: uniform $= I$ (spinor $-1$), chiral angles exact, relabelling = reversal | `proofs/chiral-holonomy-closed-frame/` | 32 |
 | BIMOND × GFD research (incl. chiral holonomy reproduced; connection irreducibles; where the roots live) | `research/bimond-gfd/run_all.py` | 130 |
 | Gram theorems | `papers/gram-matrix-of-tetrad-equation/verify_gram_theorems.py` | 32 |
-| Coupling algebra: the cube's symmetric couplings, two TetA–TetB channels, Gram/Walsh/Paper IX as elements, second root = odd leg relabelling | `research/coupling-algebra/verify_coupling_algebra.py` | 50 |
+| Coupling algebra: the cube's symmetric couplings, two TetA–TetB channels, Gram/Walsh/Paper IX as elements, second root = odd leg relabelling; η as an element (time = grade 0), the connection's lower pair on the TetA–TetB links with the swap as parity | `research/coupling-algebra/verify_*.py` | 50, 34 |
 | Letters 1, 2, 3 | `papers/letter-*/…/Supplementary/run_all_validations.py` | 29, 52, 52 |
 | TF evolution | `papers/tully-fisher-velocity-evolution/` | 64 |
 | AQUAL algebra (§§4.5–4.7 here) | `research/aqual/verify_*.py` | 50, 48, 23 |

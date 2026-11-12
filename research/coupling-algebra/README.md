@@ -4,7 +4,7 @@
 
 `association-scheme` `Walsh-functions` `Clifford-algebra` `graph-Laplacian` `stellated-octahedron` `tetrad`
 
-*Research folder, 2026-11-12. Status: working notes with checks, not a paper. Run `python verify_coupling_algebra.py`: 50 checks pass (numpy).*
+*Research folder, 2026-11-12. Status: working notes with checks, not a paper. Run `python verify_coupling_algebra.py` (50 checks) and `python verify_metric_and_connection.py` (34 checks); all 84 pass (numpy).*
 
 ---
 
@@ -123,8 +123,75 @@ This is the detailed-balance route to $\mu$ (Coles notes §4.2), lifted from two
 ### 8. Counts the archive already uses
 
 - **The triforce's 16 sub-channels are the 16 between-chamber links.** Pair each face of TetA (opposite corner $v$) with each slot $w$ on it, and send the pair to the link from TetA's corner $w$ to TetB's corner $-v$. This is one-to-one onto all 16 between-chamber links. The 12 outer sub-channels go to the 12 vector links, and the 4 central sub-channels to the 4 Field Origin links. So the triforce's "12 spatial + 4 gravitational = 16 = $\beta_2$" is the two symmetry-allowed channels of Result 1, counted. The centre of each face, $-v/3$, lies on the diagonal to $-v$. The correspondence is between labels: an outer sub-channel's centroid does not lie on its cube edge.
-- **The 64 ordered pairs of corners split $8 + 24 + 24 + 8$ by distance**, as the triforce traversal's Hamming spectrum records. That is 24 between-chamber vector pairs, 24 within-chamber pairs and 16 self or antipodal pairs, the same numbers as the Gram paper's $24 + 16 + 24$. **No map between these pairs and the connection components has been built.** [Note 13](../bimond-gfd/13_connection_irreducibles.md) shows the index grid's 16 is not Lorentz-invariant, so the coincidence of counts should not be read as an identification.
+- **The 64 ordered pairs of corners split $8 + 24 + 24 + 8$ by distance**, as the triforce traversal's Hamming spectrum records. That is 24 between-chamber vector pairs, 24 within-chamber pairs and 16 self or antipodal pairs, the same numbers as the Gram paper's $24 + 16 + 24$. **No map between these 64 pairs and the 64 connection components has been built** (Result 10 places the connection's lower index pair, which is a different and smaller statement). [Note 13](../bimond-gfd/13_connection_irreducibles.md) shows the index grid's 16 is not Lorentz-invariant, so the coincidence of counts should not be read as an identification.
 - **Average effective resistance.** Paper IX and the triforce note state that the average effective resistance of their graph is $\tfrac12 = \mu(1)$. It is exactly $\tfrac12$ for $A_2 + A_3$. The other graphs in the algebra give 0.69 (cube), 0.46 ($K_{4,4}$), 0.30 ($A_1 + A_2$) and 0.25 (all pairs), so the value belongs to the choice of graph. Nothing here ties it to $\mu$, and this folder does not use it.
+
+### 9. The metric $g_{\mu\nu}$ is an element of the algebra
+
+*Checks: `verify_metric_and_connection.py` §§1–2.*
+
+Lift each corner to a null direction of spacetime, $n_v = (1,\, v/\sqrt3)$, so that $\eta(n_v, n_v) = 0$. These are Letter 1's eight null directions. Their Lorentzian inner products are simply the Hamming distance:
+
+$$\eta(n_v, n_w) = -\tfrac23\, d(v, w), \qquad G_\eta = -\tfrac23\,(A_1 + 2A_2 + 3A_3) = \tfrac13\,S^TS - J .$$
+
+So the Minkowski metric, read on the eight null directions, is an element of the coupling algebra. Equivalently, it is the spatial Gram matrix minus the all-ones mode. Its eigenvalues by Walsh grade are:
+
+| Walsh grade | Size | Eigenvalue of $G_\eta$ | Reading |
+|---|---|---|---|
+| 0 (constant) | 1 | $-8$ | time |
+| 1 ($x, y, z$) | 3 | $+8/3$ | space |
+| 2 ($xy, xz, yz$) | 3 | 0 | invisible to the metric |
+| 3 ($xyz$, the chamber sign) | 1 | 0 | invisible to the metric |
+
+**The signature (1, 3) comes out of the cube.** Time is the constant Walsh mode and space is the three vector modes. The chamber sign $xyz$ lies in the metric's kernel, so the metric cannot tell TetA from TetB. That is Letter 2's root-blindness, stated as a spectral fact.
+
+Three more facts:
+- **Closure is the time axis.** TetA's four null directions sum to the pure time vector $(4, 0, 0, 0)$: the zero-sum of the spatial legs (closure) makes the frame's centre the time direction. This fits the Hadamard proof's reading of the bordering row of ones as closure. In the null lift that same row is the time component.
+- **One chamber is enough.** TetA's four null directions alone determine $\eta$: they form a null tetrad, with $\eta(n_a, n_b) = -4/3$ for every pair. TetB's four give the same $\eta$, which is root-blindness again.
+- **The metric's 10 components are a simplex.** A symmetric form on spacetime is fixed, one to one, by its values on the 10 edges of the 4-simplex whose vertices are the Field Origin and TetA's four null directions. Those are the 4 edges from the Field Origin (the $A_0$ slots) and the 6 edges of TetA (the $A_2$ slots). For $\eta$, the 4 edges from the Field Origin are null and the 6 TetA edges all have squared length $8/3$. This is Regge calculus's count: the flat metric in a 4-simplex is fixed by its 10 edge lengths. Here the simplex is the Field Origin together with one chamber.
+
+### 10. The connection's lower index pair lives on the TetA–TetB links, and the swap is parity
+
+*Checks: `verify_metric_and_connection.py` §§3–4.*
+
+Take the four legs as TetA's four corners, as in the torsion proof. Send the connection's lower index pair $(a, b)$ to the link from TetA's corner $a$ to TetB's corner $-b$, so the second index is read through the Field Origin. This is one to one onto the 16 between-chamber links of Result 1:
+
+- the diagonal $(a, a)$ goes to the 4 **Field Origin links**;
+- the 12 off-diagonal pairs go to the 12 **cube edges**;
+- **the index swap $(a, b) \to (b, a)$ is exactly spatial parity acting on the links.** The antipode sends the link $\{a, -b\}$ to $\{-a, b\}$, which is the link of $(b, a)$.
+
+So the swap that defines the 40/24 split is, on the cube, the map between the two roots. Each Field Origin link is fixed by it, and the 12 cube edges are exchanged in 6 antipodal pairs. Per slice of the connection:
+
+| Index pair | On the links | Under the exchange of roots | Count per slice |
+|---|---|---|---|
+| diagonal $(a, a)$ | Field Origin links | fixed | 4 |
+| symmetric off-diagonal | even combination of an antipodal pair of cube edges | even | 6 |
+| antisymmetric (torsion) | odd combination of an antipodal pair of cube edges | odd | 6 |
+
+Over the four slices that is $16 + 24 + 24 = 64$. General relativity keeps the parts even under the exchange of roots ($16 + 24 = 40$) and discards the odd part (the torsion 24). **Letter 2's identification of the torsion with TetB is here the statement that the torsion is the part of the TetA–TetB coupling that is odd under exchanging the roots.** The diagonal 16 is "shared" because the Field Origin links are the links the exchange fixes.
+
+This split is kept by **all 48 symmetries** of the cube, not only the 24 that fix TetA. A symmetry that keeps the chambers acts on the index pair as a relabelling of the legs. One that exchanges the chambers acts as a relabelling together with the swap. Note 13 showed the Gram paper's index grid is not kept by boosts. This realisation does not change that, since the cube's symmetries are not boosts. It does give the grid a symmetric home: the 48 symmetries of the frame.
+
+### 11. Reading across the roots: gravitomagnetism and rotation are the odd part
+
+*Checks: `verify_metric_and_connection.py` §5.*
+
+Result 10 relabels indices. A different and more physical question is what a bilinear form $B$ on spacetime (a metric perturbation, or a Lorentz generator) looks like when read *across the roots*: $C_B(a, b) = B(n_a, n_{-b})$, from TetA's leg $a$ to TetB's leg $-b$. This is the Lorentzian analogue of the Gram paper's cross-coupling $M_1^TM_2$. Since $n_{-b} = P\,n_b$ with $P = \mathrm{diag}(1,-1,-1,-1)$, the rule is
+
+$$\text{(symmetry across the roots)} \;=\; \text{(index symmetry of } B) \times \text{(spatial parity, } PBP = \pm B).$$
+
+Applied to the 16 basic forms:
+
+| Form | Index symmetry | Spatial parity | Across the roots |
+|---|---|---|---|
+| $g_{00}$, $g_{ij}$ (gravitoelectric, 1 + 6) | symmetric | even | **even** |
+| $g_{0i}$ (gravitomagnetic, frame dragging, 3) | symmetric | odd | **odd** |
+| rotation generators (3) | antisymmetric | even | **odd** |
+| boost generators (3) | antisymmetric | odd | **even** |
+
+So across the roots, the odd 6 are **the three rotations and the three gravitomagnetic components**, and the even 10 are $g_{00}$, the six $g_{ij}$ and the three boosts. The flat metric reads even (root-blind). Newton's component, with both lower slots in time, reads even: $\Gamma^i{}_{00}$ is the same from TetA and TetB, as `bimetric-projection/probe_where_tetb_pushes.py` found.
+
+**Reading (GFD's, not derived here).** The part of the field that is odd under exchanging the roots is rotation and frame dragging, the vortex content. That fits GFD's picture of a galaxy as a vortex coupled through the Field Origin. It also fits note 14, where the relative *rotation* of the frames carried handedness. Whether the gravitomagnetic sector is where TetB's brake and drive act is a lead for a field equation, not a result.
 
 ## What is standard, and what is new here
 
@@ -140,23 +207,30 @@ This is the detailed-balance route to $\mu$ (Coles notes §4.2), lifted from two
 | Up to a proper rotation, the second root is an odd relabelling of the legs, so the sign representation detects the root among rotation-invariant quantities | New here; bears on the torsion proof's scope statement |
 | The constitutive law as the stationary share of a two-rate flow on the coupling links, with exchange as conjugation by the Field Origin | Lift of an existing route (the rate ratio is assumed) |
 | The triforce's 12 + 4 sub-channels are the vector and Field Origin links | New here: an exact correspondence of labels |
+| $\eta(n_v, n_w) = -\tfrac12\lvert\hat v - \hat w\rvert^2$ for null directions; a null tetrad fixes the metric; a 4-simplex's metric is fixed by its 10 edge lengths | Standard |
+| The Minkowski metric on the eight null directions is $-\tfrac23$ × the Hamming distance, an element of the algebra, with time = Walsh grade 0, space = grade 1, and the chamber sign in its kernel | New here: a reorganisation of standard facts |
+| The connection's lower pair maps one to one onto the 16 TetA–TetB links, the index swap becomes spatial parity on the links, and the torsion is the exchange-odd part, kept by all 48 symmetries | New here |
+| Across the roots, the exchange-odd forms are the rotations and the gravitomagnetic $g_{0i}$ | Linear algebra; the vortex reading is GFD's |
 
 ## Open directions
 
 1. **Carry Result 6 into the torsion proof.** For the torsion components with frame indices, show that the root exchange acts through the sign representation once rotations are factored out. That would turn the proof's "by analogy" into a theorem.
 2. **The two channels and the two torsion channels.** [Note 14](../bimond-gfd/14_where_the_roots_live.md) separates vector torsion, which pushes matter, from axial torsion, which carries handedness and is the dual of a three-form. The chambers couple through vector links and through the pseudoscalar Field Origin link. Whether these pairs correspond is a lead, not yet tested.
-3. **The 64 connection components.** Build an actual map, if one exists, from the ordered pairs of corners to the connection's components that respects the symmetry. Only then could $24 + 16 + 24$ be read across.
+3. **The upper index.** Result 10 places the connection's lower pair on the TetA–TetB links. The upper index (the slice) is still only a label. Placing it too, most naturally as a TetA corner or face, would put all 64 components on the cube and would test whether the vertex–edge reading of the torsion in the algebraic pipeline ("1 of 4 faces and 1 of 6 edges") follows from the symmetry.
 4. **The Eisenstein layer.** The pipeline's closure operator $\Omega$, a third-turn about a body diagonal, fixes one Field Origin link and cycles the other three. Its subalgebra of this algebra is not yet worked out.
+5. **The gravitomagnetic sector.** Result 11 puts rotations and $g_{0i}$ in the exchange-odd part across the roots. A field equation coupling that sector to the axial torsion of note 14 is the natural next calculation for brake and drive.
 
 ## Contents
 
 | File | Contents |
 |---|---|
-| [`verify_coupling_algebra.py`](verify_coupling_algebra.py) | 50 checks, in nine sections matching the results above |
+| [`verify_coupling_algebra.py`](verify_coupling_algebra.py) | 50 checks, in nine sections matching Results 1–8 |
+| [`verify_metric_and_connection.py`](verify_metric_and_connection.py) | 34 checks, in five sections matching Results 9–11 |
 
 ```bash
 pip install numpy
-python verify_coupling_algebra.py      # 50/50
+python verify_coupling_algebra.py          # 50/50
+python verify_metric_and_connection.py      # 34/34
 ```
 
 ## Related
