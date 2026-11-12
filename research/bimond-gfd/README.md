@@ -149,6 +149,8 @@ Results:
 
 **Scope.** This is the scalar sector on a given metric. It is not a proof that the full SST, with its R and Maxwell terms, equals full two-metric BIMOND. BIMOND's second metric carries its own curvature term, whereas here φ̂ is a second scalar. The duality is exact for spacelike gradients. For timelike gradients F(y) is not defined, which is the standard open issue for AQUAL-type theories.
 
+*Scripts 10–12 are written up as a proof: [`proofs/chiral-holonomy-closed-frame/`](../../proofs/chiral-holonomy-closed-frame/) (32 checks).*
+
 **10 — The chiral holonomy, reproduced** (`10_chiral_holonomy_check.py`, 6 checks). Letter 3's supplement [`supplementary_chiral_holonomy.tex`](../../papers/letter-3-field-closure-of-tetrad-frame/Supplementary/supplementary_chiral_holonomy.tex) proves by computation that transport through the eight null directions has two behaviours:
 - **Uniform transport** (no chirality) gives identity holonomy on all twelve Hamiltonian cycles of the cube.
 - **Chiral transport** (+θ from TetA, −θ from TetB) never does: 6 cycles give 135° and 6 give 155.8°.

@@ -1,0 +1,302 @@
+\documentclass[twocolumn]{iopjournal}
+
+\usepackage{amsmath,amssymb,amsfonts}
+
+\fancyhfoffset[L]{0mm}
+\setlength{\marginparwidth}{0pt}
+\setlength{\marginparsep}{0pt}
+
+% ==========================================
+% ZENODO PREPRINT HEADERS (ACTIVE)
+% ==========================================
+\renewcommand{\articletype}[1]{%
+  {\vspace*{-8mm}\noindent \Large \sf Preprint}\par
+  \vspace*{6mm}\noindent{\scriptsize \sf{\bfseries \MakeUppercase{#1}}}}
+
+\fancyhead[L]{}
+\fancyhead[R]{}
+
+\hypersetup{pdftitle={Chiral Holonomy of the Closed Tetrad Frame}, pdfauthor={Stephen Nelson}, pdfsubject={Gravity Field Dynamics (GFD)}, pdfkeywords={holonomy, parallel transport, stellated octahedron, cube, chirality, spinor, double cover, proof}}
+
+\begin{document}
+
+\articletype{Supplementary Material}
+
+\title{Chiral Holonomy of the\\
+Closed Tetrad Frame}
+
+\author{Stephen Nelson}
+
+\affil{Field Dynamics Research}
+
+\ead{stephen@fielddynamics.org}
+
+\begin{abstract}
+The eight null directions of the closed tetrad frame are the
+corners of a cube, four on TetA and four on TetB, and every cube edge
+joins the two. We transport a frame around the cube's Hamiltonian
+cycles in two ways: \emph{uniformly}, with the rotation $R_{ij}$ that
+carries $v_i$ to $v_j$ at every step, and \emph{chirally}, with its
+transpose $R_{ij}^T$ at every step leaving a TetB direction.
+Transposition keeps the diagonal and exchanges the two triangles.
+Uniform transport is parallel transport on the sphere. Every
+Hamiltonian cycle encloses exactly half the sphere, so the holonomy is
+the identity on vectors and exactly $-1$ on spinors: a full turn,
+undone only by a second circuit. Chiral transport never closes. Its
+holonomy angles are exactly $\arccos(-4639/6561)$ and
+$\arccos(-5983/6561)$, one for each sense of circulation, so the
+closure is chiral. Exchanging the labels TetA and TetB is the same as
+reversing the sense. Weighting each step by the shares $\mu$ and
+$1-\mu$ gives a rotation by $\arctan(\sigma\tan\theta)$ with
+$\sigma = (x-1)/(x+1)$; the chirality is odd in $\sigma$ and vanishes
+at $x = 1$.
+\end{abstract}
+
+\keywords{holonomy, parallel transport, stellated octahedron, cube, chirality, spinor, double cover, proof}
+
+% ----------------------------------------------------------------------
+
+\section*{Setting}
+
+Let $v \in \{(\pm1, \pm1, \pm1)/\sqrt3\}$ be the eight corners of the
+cube on the unit sphere, the null directions of the closed
+frame~\cite{L1,L3holonomy}. Following~\cite{L3holonomy}, TetA is the
+set with $v_1v_2v_3 > 0$ and TetB the set with $v_1v_2v_3 < 0$; parity
+$v \to -v$ exchanges them. (Theorem~3 shows the choice of label does
+not matter.) Corners $v_i, v_j$ are adjacent when they
+differ in one coordinate; then they lie in opposite sets and
+$v_i\cdot v_j = 1/3$, so the angle between them is
+$\theta = \arccos(1/3)$. The cube graph has six Hamiltonian cycles,
+twelve directed cycles from any given corner.
+
+For adjacent $i, j$ let $n_{ij} = v_i\times v_j/|v_i\times v_j|$, $K$
+its cross-product matrix, and
+\begin{equation}
+  R_{ij} = I + \sin\theta\,K + (1 - \cos\theta)\,K^2 ,
+  \label{eq:R}
+\end{equation}
+the rotation by $\theta$ about $n_{ij}$. For a directed cycle
+$C = (c_0, \dots, c_7)$ define
+\begin{equation}
+\begin{aligned}
+  H_u(C) &= R_{c_7c_0}\cdots R_{c_1c_2}R_{c_0c_1},\\
+  H_\chi(C) &= T_{c_7c_0}\cdots T_{c_1c_2}T_{c_0c_1},
+\end{aligned}
+  \label{eq:H}
+\end{equation}
+with $T_{ij} = R_{ij}$ if $v_i \in$ TetA and $T_{ij} = R_{ij}^T$ if
+$v_i \in$ TetB. We call these the uniform and the chiral transport.
+
+\medskip
+\noindent
+\textit{Reading.} In the tetrad connection each $K\times K$ slice is
+$6 + 4 + 6$: an upper triangle, a shared diagonal and a lower triangle,
+$64 = 24 + 16 + 24$ in all, with TetA and TetB on the two
+triangles~\cite{Gram}. Transposition is exactly the exchange of the
+triangles with the diagonal kept (Lemma~1). The torsion-free
+connection keeps $16 + 24 = 40$ and cannot tell the two roots
+apart~\cite{L2}; uniform transport, reading every step as TetA, is its
+analogue. These readings motivate the definitions; no proof below
+uses them.
+
+% ----------------------------------------------------------------------
+
+\section*{Two Lemmas}
+
+\paragraph{Lemma 1 (the edge rotation).} \textit{$R_{ij}$ is a
+rotation with $R_{ij}v_i = v_j$, and
+$R_{ij}^T = R(n_{ij}, -\theta) = R_{ji} = R_{ij}^{-1}$. Transposition
+leaves the diagonal of $R_{ij}$ unchanged and exchanges its strict
+upper and lower triangles.}
+
+\paragraph{Proof.} $v_i\perp n_{ij}$ and Eq.~\eqref{eq:R} turns the
+plane $\perp n_{ij}$ by $\theta$, from $v_i$ towards $v_j$.
+$K^T = -K$ and $(K^2)^T = K^2$, which give $R_{ij}^T$; and
+$n_{ji} = -n_{ij}$ gives $R_{ji}$. $K$ has zero diagonal and
+$K^2$ is symmetric. \hfill $\square$
+
+\paragraph{Lemma 2 (turning and area).} \textit{Along a Hamiltonian
+cycle drawn with great-circle arcs, every turn is $\pm\pi/3$, and
+every Hamiltonian cycle makes four turns of each sign. The region on
+its left therefore has area exactly $2\pi$.}
+
+\paragraph{Proof.} The three edges at a corner leave it at
+$120^\circ$ to one another (by the threefold symmetry about that
+corner), so a path entering on one and leaving on another turns by
+$\pm\pi/3$. The count of four and four is checked on all six cycles.
+By Gauss--Bonnet on the unit sphere the region on the left has area
+$2\pi - \sum(\text{turns}) = 2\pi$. \hfill $\square$
+
+% ----------------------------------------------------------------------
+
+\section*{Uniform Transport}
+
+\paragraph{Theorem 1.} \textit{For every Hamiltonian cycle,
+$H_u(C) = I$, while the $SU(2)$ lift of the transport, with step
+$U_{ij} = \cos\tfrac\theta2\,\mathbf 1 - i\sin\tfrac\theta2\,
+n_{ij}\cdot\boldsymbol\sigma$, is exactly $-\mathbf 1$. Two circuits
+give $+\mathbf 1$. Reversing the cycle transposes $H_u$.}
+
+\paragraph{Proof.} $R_{ij}$ is the Levi-Civita parallel transport of
+the sphere along the arc from $v_i$ to $v_j$: it is the rotation about
+the arc's pole, which carries the tangent plane along the arc. Around
+a closed geodesic polygon the transport is the rotation about the
+starting point by the enclosed area, here $2\pi$ (Lemma~2), hence
+$H_u = I$. For spin $\tfrac12$ the same loop gives the factor
+$e^{-i\Omega/2}$ with solid angle $\Omega = 2\pi$~\cite{Berry}, that is
+$-1$. Both are confirmed by exact computation on all twelve cycles,
+each $U_{ij}$ covering $R_{ij}$. Reversal replaces each $R_{ij}$ by
+$R_{ji} = R_{ij}^T$ in the opposite order, which is $H_u^T$.
+\hfill $\square$
+
+\medskip
+\noindent
+One circuit is a full turn: vectors return, spinors return with a
+minus sign, and only a second circuit restores them. Uniform
+transport cannot tell the two senses of circulation apart, since
+$H_u$ and $H_u^T$ are the same rotation.
+
+% ----------------------------------------------------------------------
+
+\section*{Chiral Transport}
+
+\paragraph{Theorem 2.} \textit{For every Hamiltonian cycle,
+$H_\chi(C) \neq I$, and its rotation angle $\Theta$ satisfies}
+\begin{equation}
+  \cos\Theta \in \left\{-\frac{4639}{6561},\;
+  -\frac{5983}{6561}\right\}, \qquad 6561 = 3^8 ,
+  \label{eq:angles}
+\end{equation}
+\textit{that is $\Theta = 134.996^\circ$ or $155.770^\circ$. The two
+senses of each undirected cycle give the two values. The $SU(2)$
+half-traces are $31/81$ and $-17/81$. $\Theta$ does not depend on the
+starting corner.}
+
+\paragraph{Proof.} Exact computation on all twelve cycles, with
+$\cos\theta = 1/3$, $\sin\theta = 2\sqrt2/3$, $\cos\tfrac\theta2 =
+\sqrt{2/3}$. The $SU(2)$ values agree with Eq.~\eqref{eq:angles}
+through $\cos\Theta = 2\cos^2\tfrac\Theta2 - 1$:
+$2(31/81)^2 - 1 = -4639/6561$ and $2(17/81)^2 - 1 = -5983/6561$.
+Moving the starting corner conjugates $H_\chi$. \hfill $\square$
+
+\medskip
+\noindent
+The first angle is close to $3\pi/4$ but not equal to it:
+$\cos(3\pi/4) = -0.70711$ against $-4639/6561 = -0.70706$.
+
+\paragraph{Theorem 3 (relabelling is reversal).} \textit{Let
+$H'_\chi$ be the chiral transport with the labels TetA and TetB
+exchanged. Then, for every cycle,}
+\begin{equation}
+  H'_\chi(C) = H_\chi(\bar C)^T ,
+  \label{eq:relabel}
+\end{equation}
+\textit{where $\bar C$ is $C$ traversed in the opposite sense. So
+exchanging the two chambers exchanges the two values of
+Eq.~\eqref{eq:angles}, exactly as reversing the sense does.}
+
+\paragraph{Proof.} Write $M_k = T_{c_kc_{k+1}}$, so
+$H_\chi(C) = M_7\cdots M_0$. The step of $\bar C$ from $c_{k+1}$ to
+$c_k$ leaves the other chamber. By Lemma~1 it is
+$R_{c_{k+1}c_k} = R_{c_kc_{k+1}}^T$ if $c_{k+1} \in$ TetA, that is,
+if $c_k \in$ TetB, and $R_{c_{k+1}c_k}^T = R_{c_kc_{k+1}}$ otherwise.
+Either way it equals $M_k$, so $H_\chi(\bar C) = M_0M_1\cdots M_7$.
+Relabelling transposes every step, so
+$H'_\chi(C) = M_7^T\cdots M_0^T = (M_0\cdots M_7)^T$.
+\hfill $\square$
+
+\medskip
+\noindent
+The two senses use the same eight steps in opposite orders. For
+uniform transport the orders give transposes, the same rotation; for
+chiral transport they give different rotations. That difference is
+the chirality.
+
+% ----------------------------------------------------------------------
+
+\section*{Weighting by the Shares}
+
+Weight each step by the shares $\mu$ and $1-\mu$ of the constitutive
+law, $\mu(x) = x/(x+1)$~\cite{Exchange}: $S_{ij} = \mu R_{ij} +
+(1-\mu)R_{ij}^T$ leaving TetA and $\mu R_{ij}^T + (1-\mu)R_{ij}$
+leaving TetB. Let $H_\sigma(C)$ be the product, with
+$\sigma = 2\mu - 1$.
+
+\paragraph{Proposition 4.} \textit{(a) $S_{ij} = I +
+\sigma\sin\theta\,K + (1-\cos\theta)K^2$ leaving TetA. It is normal,
+with eigenvalue $1$ along $n_{ij}$ and $\cos\theta \pm
+i\sigma\sin\theta$ in the plane: a rotation by $\varphi$, with}
+\begin{equation}
+  \tan\varphi = \sigma\tan\theta ,
+  \label{eq:phi}
+\end{equation}
+\textit{times a contraction by $\rho = (\cos^2\theta +
+\sigma^2\sin^2\theta)^{1/2} \ge 1/3$. (b) $\sigma = (x-1)/(x+1)$, the
+difference of the shares, and $x \to 1/x$ sends $\sigma \to -\sigma$.
+(c) $H_{-\sigma}(C) = H_\sigma(\bar C)^T$. (d) At $\sigma = 0$
+($x = 1$) every step is symmetric and the two senses have the same
+rotational part; the difference between the senses is odd in
+$\sigma$. $\sigma = \pm1$ give Theorem~2.}
+
+\paragraph{Proof.} (a) Substitute Eq.~\eqref{eq:R}; $S_{ij}$ is a
+polynomial in $K$, hence normal, and the plane block is
+$\begin{pmatrix}\cos\theta & -\sigma\sin\theta\\ \sigma\sin\theta &
+\cos\theta\end{pmatrix}$. (b) $2x/(x+1) - 1$. (c) Leaving TetB the
+step at $\sigma$ is the TetA step at $-\sigma$, its transpose; the
+argument of Theorem~3 applies. (d) At $\sigma = 0$ the step is
+$I + (1-\cos\theta)K^2$, symmetric, and by (c)
+$H_0(C) = H_0(\bar C)^T$; a matrix and its transpose have
+transposed polar factors, hence equal rotation angles. By (c) the
+difference changes sign with $\sigma$. \hfill $\square$
+
+% ----------------------------------------------------------------------
+
+\section*{Summary}
+
+On the cube of null directions, uniform transport is parallel
+transport on the sphere. Each Hamiltonian cycle encloses half the
+sphere, so it returns vectors unchanged and spinors with a minus sign.
+Chiral transport, with the TetB steps transposed, never closes. Its
+two exact angles belong to the two senses of circulation, and
+exchanging the chambers exchanges them. Weighted by the shares of the
+constitutive law, each step rotates by $\arctan(\sigma\tan\theta)$,
+and the chirality is odd in $\sigma = (x-1)/(x+1)$ and vanishes at
+$x = 1$.
+
+% ----------------------------------------------------------------------
+
+\begin{thebibliography}{9}
+
+\bibitem{L3holonomy}
+S.~Nelson,
+\textit{Supplementary material: chiral holonomy of the closed tetrad
+frame}, Letter~3 supplement, Field Dynamics Research (2026).
+
+\bibitem{L1}
+S.~Nelson,
+\textit{The coordinate-space geometry of the tetrad frame},
+Field Dynamics Research (2026).
+
+\bibitem{Gram}
+S.~Nelson,
+\textit{The Gram matrix of the tetrad equation and the stellated
+octahedron}, Field Dynamics Research (2026).
+
+\bibitem{L2}
+S.~Nelson,
+\textit{The other half of gravity: torsion and the two-chamber
+structure of the tetrad frame}, Field Dynamics Research (2026).
+
+\bibitem{Exchange}
+S.~Nelson,
+\textit{The constitutive law from exchange symmetry},
+Field Dynamics Research (2026).
+
+\bibitem{Berry}
+M.~V.~Berry,
+\textit{Quantal phase factors accompanying adiabatic changes},
+Proc.\ R.\ Soc.\ Lond.\ A \textbf{392} (1984) 45.
+
+\end{thebibliography}
+
+\end{document}
