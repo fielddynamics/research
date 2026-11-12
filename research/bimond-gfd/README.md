@@ -1,6 +1,6 @@
 # BIMOND × GFD
 
-*Research folder, Field Dynamics Research, 2026-11-11. Status: working notes and checks, not a paper. Run `python3 run_all.py`: 72 checks pass, plus two data scripts (numpy, scipy, sympy).*
+*Research folder, Field Dynamics Research, 2026-11-11. Status: working notes and checks, not a paper. Run `python3 run_all.py`: 69 checks pass, plus two data scripts (numpy, scipy, sympy).*
 
 This folder lines up Milgrom's bimetric MOND (BIMOND; [arXiv:0912.0790](https://arxiv.org/pdf/0912.0790), [arXiv:1001.4444](https://arxiv.org/pdf/1001.4444), [arXiv:2208.10882](https://arxiv.org/pdf/2208.10882)) with the GFD algebra: the Coles notes, `research/gfd_algebra.py`, and `research/bimetric-projection/`. The question is whether BIMOND is a covariant home for the SST's physics.
 
@@ -155,20 +155,22 @@ Results:
 
 The script the note cites isn't in the repository, so this reproduces it exactly. It adds one result: **the two angle classes are the two senses of circulation.** Each cycle gives 135° traversed one way and 155.8° traversed the other (exactly arccos(−4639/6561) and arccos(−5983/6561); see 11). So the closure through the Field Origin is chiral: its two senses of rotation are not equivalent. This is the framework's own evidence that the vortex is a parity-broken configuration, which bears on open item 3. It is kinematic (transport), not a stability result.
 
-**11 — How robust is the holonomy, and what makes the winding?** (`11_holonomy_robustness.py`, 13 checks)
+**11 — The holonomy read through GFD's two-sector algebra** (`11_holonomy_robustness.py`, 10 checks)
+
+GFD already has the mathematics of the two sectors:
+- **The Gram index grid** ([`papers/gram-matrix-of-tetrad-equation/`](../../papers/gram-matrix-of-tetrad-equation/)). Each K × K slice of the connection splits into 6 upper entries (TetA), 4 diagonal entries (shared) and 6 lower entries (TetB). Across four slices that is 64 = 24 + 16 + 24.
+- **The cross-coupling sign reversal.** M₁ᵀM₂ = −M₁ᵀM₁ for M₂ = −M₁.
+- **Letter 2's Lemma.** A torsion-free connection, which keeps 16 + 24 = 40, cannot distinguish TetA from TetB.
 
 | Check | Result |
 |---|---|
-| Exact angles of the note's model | cos Θ = −4639/6561 and −5983/6561, with 6561 = 3⁸. So Θ = 134.996° and 155.770°. **The note's "135° (= 3π/4)" is close but not exact**: cos 3π/4 = −0.70711, against −0.70706. |
-| Parity | Swapping the TetA/TetB labels exchanges the two classes. So does taking each step's sign from its target rather than its source. The difference between the two senses of circulation is mirror-odd, a genuine chirality. |
-| Riemann–Cartan reading: Levi-Civita transport plus a torsion rotation ε whose sign is the chirality | **Alternating signs (+ on TetA steps, − on TetB) cancel exactly** on all twelve cycles. One sign on every step accumulates to 8ε. |
-| GFD's own 40/24 assignment: TetA torsion-free, torsion carried by TetB | Torsion sits only on the four TetB steps, all of one sign. The holonomy is **4ε about the base direction**, the same in both senses of traversal, and parity reverses its sense. Weighted by the TetB share it is **4(1 − μ)ε**: about 0 at the centre, 2ε on the ring x = 1, and 4ε at the rim. |
+| The note's TetB step | R(n, −θ) is **exactly the transpose** of the TetA step R(n, θ). The diagonal is shared, and the upper and lower triangles are exchanged. That is the same exchange the Gram index grid assigns to TetA ↔ TetB. So the note's sign rule is the 24 + 16 + 24 structure, not an extra assumption. Transposing the TetB steps reproduces the note's transport on all twelve cycles. |
+| Uniform transport | Every step is read as TetA, which is the root-blind, torsion-free projection. It gives the identity on every cycle, as Letter 2's Lemma requires. Keeping the TetB sector gives winding on every cycle. |
+| Exact angles | cos Θ = −4639/6561 and −5983/6561, with 6561 = 3⁸, so Θ = 134.996° and 155.770°. The note's "135° (= 3π/4)" is close but not exact. |
+| Parity | Swapping the TetA/TetB labels exchanges the two classes. The difference between the two senses of circulation is mirror-odd: a chirality. |
+| For comparison: a GR-baseline model | TetA's Levi-Civita transport on every step, plus torsion as a small rotation of alternating sign, cancels exactly. That model imposes GR's projection on the TetB steps, so it reproduces the root-blind null result. It is not a test of the two-sector structure. |
 
-What this means:
-- **The winding survives, but the mechanism should be stated differently.** The note gets a nonzero holonomy by flipping the sign of each whole step, including the Levi-Civita part. In Riemann–Cartan geometry, torsion adds a contortion on top of the Levi-Civita connection; it does not reverse it. On that reading, alternating chirality cancels. What produces winding is torsion of one sign.
-- **GFD's own assignment supplies exactly that.** TetA is the torsion-free 40 and TetB carries the 24. The torsion is all TetB, all one sign, and its holonomy grows with 1 − μ: suppressed in the throat, full at the rim. That is the radial behaviour the note describes, now derived from the 40/24 split rather than from a sign-flip model.
-- **The handedness is the sign of TetB's torsion**, and parity reverses it. This is the variable a brake/drive picture would need: TetB's sense relative to the TetA rotation.
-- **Caveat.** In Riemann–Cartan geometry, the direct holonomy of torsion is a translation: the failure of a small parallelogram to close, the Burgers vector of a dislocation (Hehl et al. 1976). The rotational holonomy comes from the curvature of the full connection. The rotation models here are a proxy. A full treatment would compute the translational closure failure, which is helical in the screw-dislocation sense and would fit the note's "helix" language directly.
+So the chiral-holonomy proposition follows from GFD's own algebra. The TetB step is the TetA step with the two 24-component triangles exchanged and the shared 16 kept. The winding is what the full 24 + 16 + 24 connection does and the 40-component projection cannot.
 
 ## Is there a breakthrough?
 
