@@ -13,8 +13,10 @@ B. Gradient form.  Restrict p = 2 dchi/a0.  Then L2(Phi, chi) = (a0^2/8piG) Q(|d
 C. What differs.  Field equations:  AQUAL: field a0 grad W*(p) = dPhi is curl-free, flux p carries a curl, div p = 8piG rho/a0.
    QUMOND: flux p = 2 dchi/a0 is curl-free (chi Newtonian), the field nu dchi carries a curl, Phi is its gradient part.
    The two coincide whenever the curl part vanishes (e.g. spherical symmetry).
-D. Dynamics.  In the gradient form chi has its own kinetic term: the kinetic matrix of (phi, phihat) is diag(1, -1),
-   indefinite.  In the first-order form p is auxiliary and nothing new propagates.
+D. Dynamics.  TetA and TetB are two roots of one equation, not two fields.  In the first-order form the TetB flux p is
+   fixed algebraically (no derivatives of p), so nothing extra propagates and there is no ghost.  Only if TetB is given
+   independent dynamics (the gradient form, or BIMOND's second dynamical metric) does the opposite sign appear as a
+   kinetic matrix diag(1, -1).
 """
 import numpy as np, sympy as sp
 ok = []
@@ -110,7 +112,7 @@ check("C: one mass (spherical): nu(|gN|) gN is curl-free, so AQUAL and QUMOND co
 
 # ---- D. kinetic matrices
 K_grad = sp.Matrix([[1, 0], [0, -1]])                               # (phi, phihat) in L2 ~ -(1/8piG)[X_phi - X_phihat ...]
-check("D: gradient form: kinetic matrix of (phi, phihat) is diag(1, -1), indefinite (det = -1): a second scalar with the opposite sign",
+check("D: if TetB is (wrongly) given independent dynamics, as in the gradient form, the (phi, phihat) kinetic matrix is diag(1, -1)",
       K_grad.det() == -1)
 P = [sp.Function(n)(*co) for n in ('p1', 'p2', 'p3')]
 Ws = sp.Function('Wstar')
