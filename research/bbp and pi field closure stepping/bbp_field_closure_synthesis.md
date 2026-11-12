@@ -164,3 +164,18 @@ Among all formulas for π of BBP's type, which are exactly one family, silence o
 - weights summing to zero.
 
 The precise term remains **common algebraic origin with structural realization**, now with the realization proved unique. The bridge from this mathematics to gravitational physics is not established.
+
+---
+
+## Addendum (2026-11-12): one cyclotomic family, and the weight of the labelling
+
+[`bbp_cyclotomic_structure.md`](bbp_cyclotomic_structure.md), with [`verify_bbp_cyclotomic_and_labelling.py`](verify_bbp_cyclotomic_and_labelling.py) (14 checks), adds two results.
+
+- **BBP and the coupling polynomial are one cyclotomic family.**
+  - The coupling polynomial's states are Φ₃, Φ₄, Φ₆ at K (21, 17, 13).
+  - In u = y/√2, BBP's integrand has denominator −16 Φ₁Φ₂Φ₄Φ₈(u).
+  - Its numerator cancels exactly Φ₄ (the Field Origin polynomial) and the 135° half of Φ₈. π comes from the 45° half of Φ₈ (poles 1 ± i).
+  - The two families share only Φ₄. Φ₈(K) = Φ₄(K²) = 257 is the Field Origin one step up the Sierpiński ladder.
+- **The slot → vertex labelling carries little weight.**
+  - Over all 8! labellings, 42.9% give BBP an octahedral reading through some body diagonal. The I Ching labelling does, through the TIME axis, but so does, for example, Gray code, through another diagonal.
+  - The labelling-free core is closure: within the family BBP + r·a the weights sum to −15r, so zero total weight alone selects BBP.
