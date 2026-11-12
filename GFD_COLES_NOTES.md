@@ -419,7 +419,7 @@ Shell ceilings $\mathrm{CEIL} = B_{\rm Zn} + B_{\rm bdy} - \mu_b(2)[B_{\rm Zn} -
 | $F(y)$ closed form, convexity | `proofs/aqual-energy-functional/` | 24 |
 | BIMOND: $\alpha = -\beta$, $\mathcal M$ closed form, Legendre dual of $F$ | `proofs/bimetric-two-potential-energy/` | 39 |
 | Chiral holonomy: uniform $= I$ (spinor $-1$), chiral angles exact, relabelling = reversal | `proofs/chiral-holonomy-closed-frame/` | 32 |
-| BIMOND × GFD research (incl. chiral holonomy reproduced; connection irreducibles; where the roots live) | `research/bimond-gfd/run_all.py` | 128 |
+| BIMOND × GFD research (incl. chiral holonomy reproduced; connection irreducibles; where the roots live) | `research/bimond-gfd/run_all.py` | 130 |
 | Gram theorems | `papers/gram-matrix-of-tetrad-equation/verify_gram_theorems.py` | 32 |
 | Letters 1, 2, 3 | `papers/letter-*/…/Supplementary/run_all_validations.py` | 29, 52, 52 |
 | TF evolution | `papers/tully-fisher-velocity-evolution/` | 64 |

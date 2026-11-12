@@ -76,7 +76,7 @@ The sign representation appears nowhere in the 40, consistent with Theorem 2 of 
 
 ## A related point, already in this folder
 
-Script 07 (check F′) shows that a *constant* parity $P$ leaves the tetrad's (Weitzenböck) connection, and so its torsion, unchanged: $(Pe)^{-1}\partial(Pe) = e^{-1}\partial e$. Torsion distinguishes two frames only when the relation between them varies from point to point, as in the twist and spin examples of 07. Letter 2's proposition that "a torsionful connection depends on $e$ directly and is therefore root-resolving" should be read with this condition.
+Script 07 (check F′) shows that a *constant* parity $P$ leaves the tetrad's (Weitzenböck) connection unchanged in coordinate components: $(Pe)^{-1}\partial(Pe) = e^{-1}\partial e$. That is because the connection carries one frame and one inverse frame, so $P$ enters twice and cancels, as it does in the metric. In its frame form, $T^a = de^a$, the torsion of the second root is $P\,T^a$: it changes with the root, as Letter 2 states. Note 14 (Result 2) checks this.
 
 ## What this does not settle
 

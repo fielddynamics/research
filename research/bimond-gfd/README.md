@@ -1,6 +1,6 @@
 # BIMOND × GFD
 
-*Research folder, Field Dynamics Research, 2026-11-11. Status: working notes and checks, not a paper. Run `python3 run_all.py`: 128 checks pass, plus two data scripts (numpy, scipy, sympy).*
+*Research folder, Field Dynamics Research, 2026-11-11. Status: working notes and checks, not a paper. Run `python3 run_all.py`: 130 checks pass, plus two data scripts (numpy, scipy, sympy).*
 
 This folder lines up Milgrom's bimetric MOND (BIMOND; [arXiv:0912.0790](https://arxiv.org/pdf/0912.0790), [arXiv:1001.4444](https://arxiv.org/pdf/1001.4444), [arXiv:2208.10882](https://arxiv.org/pdf/2208.10882)) with the GFD algebra: the Coles notes, `research/gfd_algebra.py`, and `research/bimetric-projection/`. The question is whether BIMOND is a covariant home for the SST's physics.
 
@@ -210,9 +210,9 @@ What is still missing is a field equation linking the axial torsion to ΔM_eff. 
 - **The index grid's diagonal 16 is kept by leg permutations but not by rotations or boosts.** It shares no tensor with any Lorentz piece, and the upper-triangle 24 is not even kept by a leg swap. The 24 + 16 + 24 counts are exact. "Shared 16" describes coordinates, not a covariant sector.
 - **Under leg permutations the symmetric 40 is 4·1 ⊕ 3[2,2] ⊕ 7 std ⊕ 3(sgn⊗std).** It contains no sign representation. Its off-diagonal 24 is not isomorphic to the torsion 24, which is the regular representation.
 
-**14 — Where the two roots live in the connection** ([`14_where_the_roots_live.md`](14_where_the_roots_live.md), `14_where_the_roots_live.py`, 25 checks). A deduction from the frame, following 13.
+**14 — Where the two roots live in the connection** ([`14_where_the_roots_live.md`](14_where_the_roots_live.md), `14_where_the_roots_live.py`, 27 checks). A deduction from the frame, following 13.
 - **64 = 40 + 24 without the index grid.** The 64 first derivatives of a frame are, one to one, the 40 derivatives of the metric (the Gram product, root-blind) plus the 24 torsion components, which are the local Lorentz changes of the frame the metric cannot see. Standard (Weitzenböck); it is the covariant version of the Gram paper's split.
-- **The second root is in none of the 64 components.** Two frames on one metric have connections differing by L⁻¹∂L, which lies in the metric-compatible 24 and is unchanged when L → PL. For the constant parity that defines TetB, every connection component and the torsion tensor are identical. The root shows only in the orientation, det e = ±√−g. For example, the axial torsion vector, built with that ε, flips sign. Torsion carries the continuous, position-dependent relation between frames; the discrete TetA/TetB label is carried by the orientation. This is the same mechanism as Lemma 1 of the bimetric proof.
+- **The 40 are root-blind and the 24 carry the second root.** Under the Gram parity eⁱ → −eⁱ the metric and its 40 derivatives are unchanged, while the torsion in frame form, Tᵃ = deᵃ, becomes P Tᵃ: its spatial components reverse sign, as the vielbein does. This is Letter 2's 40 = root-blind / 24 = TetB, in covariant form. Written with coordinate indices (e_aᵏ Tᵃ, or Γ = e⁻¹∂e) the inverse frame applies P twice and hides the sign, as forming g does; the root then still shows through the orientation, for example in the axial torsion vector built with ε = det e.
 - **Which action terms see the root:** those with an odd number of ε. Einstein–Hilbert, the cosmological term and Euler flip sign; Holst, Nieh–Yan and Pontryagin do not. So with equal couplings TetB's vacuum term is also opposite in sign, alongside α = −β.
 - **What pushes slow matter.** The extra slow-motion force of a relative frame is −(L⁻¹∂ₜL)ⁱ₀, the rate of relative boost: the acceleration of the time legs. That is the channel `research/bimetric-projection/` Part 2 reached from the potential side. Rotations of any profile (twist, spin) carry axial and tensor torsion and exert no slow-motion force.
 

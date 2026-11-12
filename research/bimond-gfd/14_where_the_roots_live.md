@@ -1,6 +1,6 @@
 # 14 — Where the two roots live in the connection
 
-*Research note, Field Dynamics Research, 2026-11-12. Status: deduction with checks, not a paper. Script: [`14_where_the_roots_live.py`](14_where_the_roots_live.py), 25 checks (numpy, sympy). Follows [note 13](13_connection_irreducibles.md).*
+*Research note, Field Dynamics Research, 2026-11-12. Status: deduction with checks, not a paper. Script: [`14_where_the_roots_live.py`](14_where_the_roots_live.py), 27 checks (numpy, sympy). Follows [note 13](13_connection_irreducibles.md).*
 
 ## The question
 
@@ -16,31 +16,28 @@ $$\underbrace{\partial_\mu e^a{}_\nu}_{64} \;\longleftrightarrow\; \underbrace{\
 
 The 24 that the metric cannot see is exactly the set of local Lorentz changes of the frame, $\mathfrak{so}(1,3) \otimes V^* = 6 \times 4$.
 
-**Why it matters for GFD.** This is the coordinate-free version of the split that the Gram paper draws on the index grid. Note 13 showed that the grid's diagonal 16 is not Lorentz-invariant. Here the split needs no grid:
+**Why it matters for GFD.** This is the coordinate-free version of the 40/24 split of Letter 2 and the Gram paper. Note 13 showed that the index grid's diagonal 16 is not Lorentz-invariant. Here the split needs no grid:
 - the 40 are the derivatives of the metric, which is the Gram product $e^T\eta e$ and so root-blind (Gram Lemma 1);
-- the 24 are the derivatives of the frame that the Gram product does not see.
+- the 24 are the torsion, the derivatives of the frame that the Gram product does not see. Result 2 shows that these carry the second root.
 
 **Status: standard** in teleparallel geometry (the Weitzenböck connection). The GFD use is the reading: the 40/24 split is the derivative of the Gram map.
 
 A companion check: "symmetric in the lower pair" (40, torsion-free) and "antisymmetric in the outer pair" (24, metric-compatible) meet only in zero and together span the 64. That is the fundamental theorem of Riemannian geometry, the uniqueness of the Levi-Civita connection, stated as linear algebra. Letter 2's Lemma rests on it.
 
-## Result 2: the second root is not in any of the 64 components
+## Result 2: the 40 is root-blind and the 24 carries the second root
 
-Two frames on one metric, $e$ and $Le$, have connections that differ by
+Take the second root as the Gram paper defines it, $e^i{}_\mu \to -e^i{}_\mu$, that is $\tilde e = P e$ with $P = \mathrm{diag}(1,-1,-1,-1)$ on the frame index. The script checks, on a nontrivial (twisted and curved) frame:
 
-$$N^\lambda{}_{\mu\nu} = (L^{-1}\partial_\mu L)^\lambda{}_\nu .$$
+- **The 40 are the same for both roots.** $\tilde e^T\eta\,\tilde e = e^T\eta\,e$, so the metric and all 40 of its derivatives agree. This is Gram Lemma 1 carried to the connection, and it is Letter 2's Lemma.
+- **The 24 change with the root.** In its frame form, $T^a = de^a$, the torsion of the second root is $\tilde T^a = P^a{}_b\,T^b$: the spatial components reverse sign, exactly as the vielbein does. The torsion is rank 1 in the frame index, the parity-odd rank of Letter 2's argument, while the metric is rank 2 and even.
 
-The script checks this for a general $L = R(f_1)\,B(f_2)$ with arbitrary functions $f_1, f_2$ of all four coordinates. Each $L^{-1}\partial_\mu L$ lies in $\mathfrak{so}(1,3)$, so $N$ is metric-compatible: it lies in the 24.
+So, in the jet split of Result 1, the second root leaves the 40 fixed and acts on the 24. That is the 40 = TetA-blind / 24 = TetB identification of Letter 2, here without the index grid.
 
-The discrete part drops out. $L^{-1}\partial L$ is unchanged when $L$ is replaced by $PL$ with $P$ a constant parity. So:
+**A trap to avoid.** If the torsion is written with coordinate indices, $T^\lambda{}_{\mu\nu} = e_a{}^\lambda T^a{}_{\mu\nu}$, the inverse frame applies $P$ a second time and the sign cancels. The same happens to the frame's connection $\Gamma = e^{-1}\partial e$, which has one frame and one inverse frame, and to any relative-frame difference $L^{-1}\partial L$ (unchanged when $L \to PL$). This is the same cancellation that makes $g = e^T\eta e$ root-blind: a quantity contracted with the frame twice cannot see the root. The root has to be read where the frame index is left free, as in the Gram cross-coupling $M_1^T M_2$, or through the orientation. In coordinate form the axial torsion vector $a^\mu = \tfrac16\varepsilon^{\mu\nu\rho\sigma}T_{\nu\rho\sigma}$, built with $\varepsilon = \det(e)\,[\mu\nu\rho\sigma]$, still flips sign between the roots.
 
-- **For a constant parity, every one of the 64 connection components is the same for both roots.** The torsion tensor is the same too.
-- **What changes is the orientation**, $\det(PL) = -\det L$. It enters only through the volume form $\varepsilon = \det(e)\,[\mu\nu\rho\sigma]$.
-- Example: for a twisted frame, the axial torsion *vector* $a^\mu = \tfrac16\varepsilon^{\mu\nu\rho\sigma}T_{\nu\rho\sigma}$ flips sign between the roots, while the torsion tensor $T_{\nu\rho\sigma}$ does not.
+**Relative frames.** Two frames on one metric related by a position-dependent $L(x)$ have connections that differ by $N^\lambda{}_{\mu\nu} = (L^{-1}\partial_\mu L)^\lambda{}_\nu$. The script checks this for a general $L = R(f_1)\,B(f_2)$. Each $L^{-1}\partial_\mu L$ lies in $\mathfrak{so}(1,3)$, so $N$ is metric-compatible: it lies in the 24. Result 4 uses this.
 
-**What this changes in the reading.** The torsion carries the *continuous* relation between two frames: how one turns or boosts relative to the other from point to point. The *discrete* root label, TetA or TetB, is carried by the orientation $\det e = \pm\sqrt{-g}$, which is a property of the frame, not of its derivatives. Letter 2's corollary, that torsion is the necessary carrier of the TetA/TetB distinction, is accurate only for roots related by a position-dependent transformation. For the global parity that defines TetB it is not: there the carrier is the orientation.
-
-This agrees with the [bimetric proof](../../proofs/bimetric-two-potential-energy/). Its Lemma 1 gets $\alpha = -\beta$ from $\det(e)$, through the orientation, not from torsion.
+The orientation reading agrees with the [bimetric proof](../../proofs/bimetric-two-potential-energy/), whose Lemma 1 gets $\alpha = -\beta$ from $\det(e)$.
 
 ## Result 3: which action terms see the root
 
@@ -85,11 +82,13 @@ This matches `research/bimetric-projection/probe_torsion_force.py`, which found 
 
 - It does not say which connection matter follows. Result 4 assumes particles follow the frame's own connection (its autoparallels). In teleparallel-equivalent gravity they follow the Levi-Civita geodesics instead, and then a relative frame exerts no force at all.
 - It does not supply the field equation asked for in consequence 2.
-- Results 1 and 3 and the companion check are standard. The GFD-specific content is the reading in Result 2 (the root lives in the orientation, not in the 64), the action-term table read as root-blind versus root-resolving, and the two consequences of Result 4.
-- Results 2 and 3 bear on wording in Letter 2 (its corollary) and Letter 3. No paper has been changed here.
+- Results 1 and 3 and the companion check are standard. The GFD-specific content is Result 2 (the covariant form of 40 = root-blind, 24 = TetB, and the coordinate-index trap), the action-term table read as root-blind versus root-resolving, and the two consequences of Result 4.
+- No paper has been changed here.
+
+*Correction, 2026-11-12. The first version of Result 2 said that the second root appears in none of the 64 connection components. That was wrong. It compared the torsion in coordinate components, where the inverse frame applies the parity twice and cancels the sign. In frame form the 24 change with the root, as Letter 2 states.*
 
 ## Run
 
 ```bash
-python3 14_where_the_roots_live.py      # 25/25
+python3 14_where_the_roots_live.py      # 27/27
 ```

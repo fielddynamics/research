@@ -6,9 +6,9 @@ B. Levi-Civita uniqueness as algebra: on V(x)V(x)V, 'symmetric in the lower pair
    outer pair' (metric compatibility) intersect in 0 and together span all 64.
 C. Two frames on the same metric, e' = L(x) e with L in O(1,3): their connections differ by
    e^-1 (L^-1 dL) e, which lies in the 24-dim contorsion space and depends only on L^-1 dL.
-D. The discrete component (parity, the second root) drops out: L and P L give the same difference.
-   For constant P every one of the 64 components is unchanged. The root sign survives only in the
-   orientation eps = det(e)[....], e.g. in the axial torsion vector a^mu, which flips sign.
+D. The second root: the 40 metric derivatives are the same for both roots, while the 24 torsion components in
+   frame form, T^a = de^a, change with the root as the vielbein does (T^a -> P T^a). Expressed with coordinate
+   indices (e_a^l T^a) the inverse frame applies P a second time and hides the sign, as forming g does.
 E. Slow-motion force of the relative frame: -N^i_(00) = boost part of L^-1 d_0 L (the rate of relative
    rapidity). Rotations, and all spatial gradients, give no slow-motion force.
 F. The torsion carried by four elementary relations (twist, spin, boost in time, boost in space), split
@@ -96,12 +96,25 @@ check("C. the connection difference is N^l_{m n} = (L^-1 d_m L)^l_n", all(sp.sim
       for l, m, nn in itertools.product(range(4), repeat=3)))
 check("C. each L^-1 d_m L lies in so(1,3), so N lowered with eta is antisymmetric in its outer pair (metric compatible: the 24)",
       all(sp.simplify(A[m].T * eta + eta * A[m]) == sp.zeros(4, 4) for m in range(4)))
-check("D. constant parity P: every one of the 64 Weitzenboeck components is unchanged (and is 0 for the flat frame)",
-      all(GW_P[l, m, nn] == GW_I[l, m, nn] for l, m, nn in itertools.product(range(4), repeat=3)))
-check("D. P L and L give the same connection: the discrete component (the second root) drops out of all 64",
+# D: the second root. Gram parity e^i -> -e^i, i.e. Pg = diag(1,-1,-1,-1) acting on the frame index.
+Pg = sp.diag(1, -1, -1, -1)
+e0 = rot(sp.Symbol('k') * z) * sp.diag(1, 1, 1, 1 + x**2)        # a nontrivial frame (twisted and curved)
+def frameT(E):       # T^a_{mu nu} = d_mu e^a_nu - d_nu e^a_mu, frame index a (torsion of the frame's own connection)
+    return [[[sp.simplify(sp.diff(E[a, nn], X4[m]) - sp.diff(E[a, m], X4[nn])) for nn in range(4)] for m in range(4)] for a in range(4)]
+FA, FB = frameT(e0), frameT(Pg * e0)
+check("D. the metric and its 40 derivatives are the same for both roots (root-blind: the Gram product)",
+      all(sp.simplify(sp.diff((Pg * e0).T * eta * (Pg * e0) - e0.T * eta * e0, v)) == sp.zeros(4, 4) for v in X4))
+check("D. the 24 torsion components, in frame form T^a = de^a, change with the root: T^a(Pe) = P T^a(e)",
+      all(sp.simplify(FB[a][m][nn] - Pg[a, a] * FA[a][m][nn]) == 0 for a, m, nn in itertools.product(range(4), repeat=3)))
+check("D. and the change is real: the spatial frame torsion of this frame is nonzero",
+      any(FA[a][m][nn] != 0 for a in (1, 2, 3) for m in range(4) for nn in range(4)))
+GA, GB = weitz(e0), weitz(Pg * e0)
+check("D. converting the frame index back with the inverse frame (e_a^l T^a, or Gamma = e^-1 de) applies P twice and hides the "
+      "sign, exactly as forming g = e^T eta e does",
+      all(sp.simplify(GA[l, m, nn] - GB[l, m, nn]) == 0 for l, m, nn in itertools.product(range(4), repeat=3)))
+check("D. likewise the relative-frame difference L^-1 dL is the same for L and P L (both factors carry P)",
       all(sp.simplify(GW_PL[l, m, nn] - GW_L[l, m, nn]) == 0 for l, m, nn in itertools.product(range(4), repeat=3)))
-check("D. the metric is also unchanged: (PL)^T eta (PL) = eta", sp.simplify((P * L).T * eta * (P * L) - eta) == sp.zeros(4, 4))
-check("D. what changes is the orientation: det(P L) = -det(L)", sp.simplify((P * L).det() + L.det()) == 0)
+check("D. the orientation also distinguishes the roots: det(P L) = -det(L)", sp.simplify((P * L).det() + L.det()) == 0)
 
 def torsion(G):      # T^l_{m n} = Gamma^l_{m n} - Gamma^l_{n m}
     return sp.Array([[[sp.simplify(G[l, m, nn] - G[l, nn, m]) for nn in range(4)] for m in range(4)] for l in range(4)])
@@ -113,8 +126,8 @@ def axial(E, G):     # a^mu = (1/6) eps^{mu nu rho sigma} T_{nu rho sigma}, with
     return a_low
 twist = rot(sp.Symbol('k') * z)
 a1 = axial(twist, weitz(twist)); a2 = axial(P * twist, weitz(P * twist))
-check("D. with a twisted frame, the axial torsion vector (built with eps = det e) flips sign under the constant parity, "
-      "while the torsion tensor itself does not", all(sp.simplify(u + v) == 0 for u, v in zip(a1, a2)) and any(u != 0 for u in a1)
+check("D. in coordinate form the root still shows through the orientation: the axial torsion vector (built with eps = det e) "
+      "flips sign, while the coordinate-index connection does not", all(sp.simplify(u + v) == 0 for u, v in zip(a1, a2)) and any(u != 0 for u in a1)
       and all(sp.simplify(weitz(P * twist)[l, m, nn] - weitz(twist)[l, m, nn]) == 0 for l, m, nn in itertools.product(range(4), repeat=3)))
 
 # E: the slow-motion force of the relative frame: autoparallel d2x^i/dt2 = -N^i_(00)
