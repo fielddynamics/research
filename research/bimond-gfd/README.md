@@ -1,6 +1,6 @@
 # BIMOND × GFD
 
-*Research folder, Field Dynamics Research, 2026-11-11. Status: working notes and checks, not a paper. Run `python3 run_all.py`: 39 checks pass, plus two data scripts (numpy, scipy, sympy).*
+*Research folder, Field Dynamics Research, 2026-11-11. Status: working notes and checks, not a paper. Run `python3 run_all.py`: 51 checks pass, plus two data scripts (numpy, scipy, sympy).*
 
 This folder lines up Milgrom's bimetric MOND (BIMOND; [arXiv:0912.0790](https://arxiv.org/pdf/0912.0790), [arXiv:1001.4444](https://arxiv.org/pdf/1001.4444), [arXiv:2208.10882](https://arxiv.org/pdf/2208.10882)) with the GFD algebra: the Coles notes, `research/gfd_algebra.py`, and `research/bimetric-projection/`. The question is whether BIMOND is a covariant home for the SST's physics.
 
@@ -124,6 +124,28 @@ Written in the TetB share b, 𝓜 is a polynomial plus one logarithm. That is si
 - The two are Legendre duals, and the TetB logarithm is the term they exchange.
 - This gives 𝓜 the derivation Milgrom left open, within GFD's postulates. Once μ is given, integrating ν − 1 gives the same function by brute force. The added content is the route through μ's derivation and the reading of each term as a tetrad share.
 
+**09 — Legendre duality at the level of the action** (`09_covariant_legendre_duality.py`, 12 checks). This tests whether the SST and BIMOND are one theory written two ways. It works with the SST's scalar sector, −(a₀²/8πG)F(X/a₀²) − ρΦ, where X = g^{μν}∂_μΦ∂_νΦ, on any metric. Gradients are taken to be spacelike, which is where F is defined. W*(p) = Q(|p|/2), where Q = y² + 𝓜 is the Legendre dual from the proof.
+
+| Form | Lagrangian | What it is |
+|---|---|---|
+| SST (AQUAL) | −(a₀²/8πG) F − ρΦ | one scalar |
+| First-order | (a₀²/8πG)[W*(p) − p·∂Φ/a₀] − ρΦ, with p an auxiliary covector | **exactly the SST.** Eliminating p returns F on any metric. p has no derivatives, so nothing new propagates. |
+| Gradient | p = 2∂χ/a₀: (a₀²/8πG) Q(\|∂χ\|/a₀) − (1/4πG) ∂χ·∂Φ − ρΦ | **identically** −(1/8πG)[\|∂φ\|² − \|∂φ̂\|² − a₀²𝓜] − ρφ, with φ = Φ, φ* = χ, φ̂ = Φ − χ. This is Milgrom's BIMOND Lagrangian with β = 1, α = −1 (flat space and a curved static 3-metric checked symbolically). |
+
+Results:
+- **α = −β has a second, independent origin.** The Legendre pairing term −2∂χ·∂Φ completes the square to \|∂φ\|² − \|∂φ̂\|². The opposite sign is the sign of the duality itself, and it agrees with the tetrad orientation lemma.
+- **The two forms differ by exactly one thing: which side carries the curl.**
+  - In AQUAL the field ∂Φ is a gradient, and the flux p (that is, μ∇Φ) can have a curl.
+  - In QUMOND/BIMOND the flux is the Newtonian gradient ∂φ*, and the field ν∇φ* has a curl, which is projected away.
+  - With two point masses, the curl of ν(\|g_N\|)g_N is 10⁻²–10⁻¹ in units with G = a₀ = 1. With one mass it is zero, so the two coincide in spherical symmetry.
+  - So BIMOND is the SST with the auxiliary flux required to be a gradient. That is one constraint, not a different theory. It matches the under-1% disk difference found in `research/bimetric-projection/probe_aqual_vs_two_potential.py`.
+- **The ghost question appears already at the scalar level.**
+  - In the gradient (BIMOND) form, φ̂ has its own kinetic term, and the (φ, φ̂) kinetic matrix is diag(1, −1), which is indefinite. Made fully relativistic with time derivatives, that is a second scalar of the wrong sign.
+  - In the first-order form p is auxiliary, so there is no extra mode, and the SST's single scalar is all that propagates.
+  - So the healthy relativistic statement is the first-order form. The two-potential form is safe as a slow-motion (static, curl-free) description. This sharpens open item 3: the opposite sign that makes BIMOND's Newtonian potential Newtonian is the same sign that would propagate as a ghost if φ̂ were made dynamical.
+
+**Scope.** This is the scalar sector on a given metric. It is not a proof that the full SST, with its R and Maxwell terms, equals full two-metric BIMOND. BIMOND's second metric carries its own curvature term, whereas here φ̂ is a second scalar. The duality is exact for spacelike gradients. For timelike gradients F(y) is not defined, which is the standard open issue for AQUAL-type theories.
+
 ## Is there a breakthrough?
 
 Honest grading: two results stand out. Neither is yet a demonstrated breakthrough.
@@ -160,7 +182,7 @@ In this candidate:
 
 1. **Root-blindness only in vacuum.** In BIMOND the two metrics must differ once matter is present, or C = 0. GFD's "same metric for both roots" then holds only at the Field Origin, with no matter.
 2. **Torsion vs connection difference.** BIMOND's MOND sector is C in the 40. GFD has placed TetB in the torsion 24. Both give the same 3-vector in the slow-motion limit (`research/bimetric-projection/probe_where_tetb_pushes.py`). The relativistic content differs. Brake vs drive by spin orientation (item 6) favours the torsion 24, because only an axial channel carries spin direction.
-3. **Ghosts.** α = −β gives the twin sector a negative Einstein–Hilbert term. Ghost stability, and Milgrom's self-acceleration of mixed systems (F − F̂ = 0, not F + F̂ = 0), are open.
+3. **Ghosts.** α = −β gives the twin sector a negative Einstein–Hilbert term. Script 09 shows the same sign at the scalar level: the two-potential form has an indefinite kinetic matrix, while the equivalent first-order form (auxiliary flux) propagates only one scalar. The candidate resolution is that φ̂ is auxiliary, not dynamical. Ghost stability, and Milgrom's self-acceleration of mixed systems (F − F̂ = 0, not F + F̂ = 0), are open.
 4. **The net-field rule needs a covariant statement.** It has to say what coarse-graining scale defines φ̄*. Test D (`research/bimetric-projection/probe_testD_clusters_vs_dwarfs.py`) shows that star clusters must be coarse-grained out and dwarf galaxies kept. The criterion is galaxy (vortex) versus bound cluster, not a radius.
 5. **Gravitational-wave speed** in BIMOND with two dynamical metrics is not checked here (GW170817).
 6. **Brake and drive come from spin orientation.** In GFD the local TetB vortex brakes or drives against the net TetA vortex spin, depending on its relative handedness, as in standard vortex dynamics. BIMOND needs an axial (spin) twin sector to match this. A proper test of 04 should correlate the sign of ΔM_eff with spin orientation (for example, counter-rotating gas or stellar components, or spin relative to the host's tidal field), not just test a skew.
