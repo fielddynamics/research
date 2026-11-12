@@ -5,7 +5,8 @@ is cited there but not in the repository.
 Eight null directions = cube vertices (+-1,+-1,+-1)/sqrt3; TetA = odd popcount, TetB = even popcount (as in the note).
 Each step v_i -> v_j along a cube edge rotates by theta = arccos(v_i.v_j) about v_i x v_j, with sign + from TetA, - from TetB.
 Claims: (a) uniform transport gives identity holonomy on every Hamiltonian cycle; (b) chiral transport never does:
-6 cycles give 135 deg and 6 give 155.8 deg.  Added here: the two angle classes are the two senses of circulation.  Each undirected cycle gives 135 deg traversed one
+6 cycles give 135 deg and 6 give 155.8 deg (exactly arccos(-4639/6561) = 134.996 deg and
+arccos(-5983/6561) = 155.770 deg; see 11, so 135 deg is not exactly 3pi/4).  Added here: the two angle classes are the two senses of circulation.  Each undirected cycle gives 135 deg traversed one
 way and 155.8 deg traversed the other way, so the two senses are not equivalent: the closure is chiral (parity-broken)."""
 import itertools, numpy as np
 from collections import Counter

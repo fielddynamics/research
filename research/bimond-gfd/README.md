@@ -1,6 +1,6 @@
 # BIMOND × GFD
 
-*Research folder, Field Dynamics Research, 2026-11-11. Status: working notes and checks, not a paper. Run `python3 run_all.py`: 59 checks pass, plus two data scripts (numpy, scipy, sympy).*
+*Research folder, Field Dynamics Research, 2026-11-11. Status: working notes and checks, not a paper. Run `python3 run_all.py`: 72 checks pass, plus two data scripts (numpy, scipy, sympy).*
 
 This folder lines up Milgrom's bimetric MOND (BIMOND; [arXiv:0912.0790](https://arxiv.org/pdf/0912.0790), [arXiv:1001.4444](https://arxiv.org/pdf/1001.4444), [arXiv:2208.10882](https://arxiv.org/pdf/2208.10882)) with the GFD algebra: the Coles notes, `research/gfd_algebra.py`, and `research/bimetric-projection/`. The question is whether BIMOND is a covariant home for the SST's physics.
 
@@ -153,7 +153,22 @@ Results:
 - **Uniform transport** (no chirality) gives identity holonomy on all twelve Hamiltonian cycles of the cube.
 - **Chiral transport** (+θ from TetA, −θ from TetB) never does: 6 cycles give 135° and 6 give 155.8°.
 
-The script the note cites isn't in the repository, so this reproduces it exactly. It adds one result: **the two angle classes are the two senses of circulation.** Each cycle gives 135° traversed one way and 155.8° traversed the other. So the closure through the Field Origin is chiral: its two senses of rotation are not equivalent. This is the framework's own evidence that the vortex is a parity-broken configuration, which bears on open item 3. It is kinematic (transport), not a stability result.
+The script the note cites isn't in the repository, so this reproduces it exactly. It adds one result: **the two angle classes are the two senses of circulation.** Each cycle gives 135° traversed one way and 155.8° traversed the other (exactly arccos(−4639/6561) and arccos(−5983/6561); see 11). So the closure through the Field Origin is chiral: its two senses of rotation are not equivalent. This is the framework's own evidence that the vortex is a parity-broken configuration, which bears on open item 3. It is kinematic (transport), not a stability result.
+
+**11 — How robust is the holonomy, and what makes the winding?** (`11_holonomy_robustness.py`, 13 checks)
+
+| Check | Result |
+|---|---|
+| Exact angles of the note's model | cos Θ = −4639/6561 and −5983/6561, with 6561 = 3⁸. So Θ = 134.996° and 155.770°. **The note's "135° (= 3π/4)" is close but not exact**: cos 3π/4 = −0.70711, against −0.70706. |
+| Parity | Swapping the TetA/TetB labels exchanges the two classes. So does taking each step's sign from its target rather than its source. The difference between the two senses of circulation is mirror-odd, a genuine chirality. |
+| Riemann–Cartan reading: Levi-Civita transport plus a torsion rotation ε whose sign is the chirality | **Alternating signs (+ on TetA steps, − on TetB) cancel exactly** on all twelve cycles. One sign on every step accumulates to 8ε. |
+| GFD's own 40/24 assignment: TetA torsion-free, torsion carried by TetB | Torsion sits only on the four TetB steps, all of one sign. The holonomy is **4ε about the base direction**, the same in both senses of traversal, and parity reverses its sense. Weighted by the TetB share it is **4(1 − μ)ε**: about 0 at the centre, 2ε on the ring x = 1, and 4ε at the rim. |
+
+What this means:
+- **The winding survives, but the mechanism should be stated differently.** The note gets a nonzero holonomy by flipping the sign of each whole step, including the Levi-Civita part. In Riemann–Cartan geometry, torsion adds a contortion on top of the Levi-Civita connection; it does not reverse it. On that reading, alternating chirality cancels. What produces winding is torsion of one sign.
+- **GFD's own assignment supplies exactly that.** TetA is the torsion-free 40 and TetB carries the 24. The torsion is all TetB, all one sign, and its holonomy grows with 1 − μ: suppressed in the throat, full at the rim. That is the radial behaviour the note describes, now derived from the 40/24 split rather than from a sign-flip model.
+- **The handedness is the sign of TetB's torsion**, and parity reverses it. This is the variable a brake/drive picture would need: TetB's sense relative to the TetA rotation.
+- **Caveat.** In Riemann–Cartan geometry, the direct holonomy of torsion is a translation: the failure of a small parallelogram to close, the Burgers vector of a dislocation (Hehl et al. 1976). The rotational holonomy comes from the curvature of the full connection. The rotation models here are a proxy. A full treatment would compute the translational closure failure, which is helical in the screw-dislocation sense and would fit the note's "helix" language directly.
 
 ## Is there a breakthrough?
 
@@ -194,6 +209,7 @@ In this candidate:
 3. **Stability of the two-orientation structure.** α = −β gives the second sector a negative Einstein–Hilbert term, and that sign is the orientation of the second scheme. Any stability analysis has to be done in the nonlinear theory around real backgrounds, not by linearising at the Field Origin, where no quadratic theory exists (item above, script 09). Two points to check:
    - **Citation.** Paper VII cites Alexander, Marcianò & Smolin (2014) for "a single orientation produces a scalar ghost; two opposite chambers cancel it". That paper's abstract says the reverse: its parity-symmetric bimetric phase has a scalar ghost and is unstable, while its parity-broken (chiral) phase is stable. The citation should be checked against the paper's body before it is relied on. One reading consistent with GFD: the vortex is a parity-broken configuration. The chiral-holonomy proposition supports this kinematically: the two senses of circulation give different holonomies, 135° versus 155.8° (script 10). That would place the GFD vortex in the phase Alexander, Marcianò & Smolin find stable, but it is an alignment of descriptions, not a stability proof.
    - **Hassan–Rosen.** Their proof that the Boulware–Deser ghost is absent assumes both kinetic terms are positive. Extending it to opposite orientations is a claim of the framework, not yet a result.
+   - **Milgrom (2014), [Gravitational waves in bimetric MOND](https://arxiv.org/abs/1308.5388v1), PRD 89, 024027.** In BIMOND's weak-field limit, the sum sector H⁺ behaves like linearised GR and carries GR's vacuum waves. The difference sector H⁻ "is fully nonlinear even for the weakest" fields and has no gauge freedom. That is the literature form of the Field Origin being nonlinear (script 09). The difference between the two sectors has no linear regime in which a standard ghost count applies.
 
    Milgrom's self-acceleration of mixed systems (F − F̂ = 0, not F + F̂ = 0) is also open.
 4. **The net-field rule needs a covariant statement.** It has to say what coarse-graining scale defines φ̄*. Test D (`research/bimetric-projection/probe_testD_clusters_vs_dwarfs.py`) shows that star clusters must be coarse-grained out and dwarf galaxies kept. The criterion is galaxy (vortex) versus bound cluster, not a radius.
