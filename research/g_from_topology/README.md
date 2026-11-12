@@ -67,5 +67,6 @@ Standard library only. The value of G is also checked in [`universe-is-pixelated
 
 - [`exploratory/i-ching/`](../exploratory/i-ching/): the BBP formula for π as the stellated octahedron's formula, read around the TIME axis that G climbs
 - [`universe-is-pixelated/`](../universe-is-pixelated/): the cube as a Boolean computer, and G as an operator read on Walsh–Hadamard blocks
+- [`coupling-algebra/`](../coupling-algebra/) Results 12–13: the 21 coupling levels as the points of the projective plane over $\mathbb{F}_4$ ($64 = 21 \times 3 + 1$ is $4^3 \equiv 1 \bmod 21$), and 21, 17, 13 as the characteristic polynomials of the cube's 3-fold rotation, 4-fold symmetries and 6-fold rotoreflection, evaluated at $K$. Neither derives the combination rule.
 - [Paper VI](../../papers/06-gravitational-constant-from-topology/): *Deriving the Gravitational Constant from Spacetime Topology*
 - [`docs/02-gravitation/04-g-from-topology.md`](../../docs/02-gravitation/04-g-from-topology.md): the documentation page

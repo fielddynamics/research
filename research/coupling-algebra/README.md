@@ -4,7 +4,7 @@
 
 `association-scheme` `Walsh-functions` `Clifford-algebra` `graph-Laplacian` `stellated-octahedron` `tetrad`
 
-*Research folder, 2026-11-12. Status: working notes with checks, not a paper. Run `python verify_coupling_algebra.py` (50 checks) and `python verify_metric_and_connection.py` (34 checks); all 84 pass (numpy).*
+*Research folder, 2026-11-12. Status: working notes with checks, not a paper. Run `python verify_coupling_algebra.py` (50 checks), `python verify_metric_and_connection.py` (34 checks) and `python certify_first_principles.py` (52 checks, exact, independent of the other two); all 136 pass (numpy, sympy).*
 
 ---
 
@@ -193,6 +193,64 @@ So across the roots, the odd 6 are **the three rotations and the three gravitoma
 
 **Reading (GFD's, not derived here).** The part of the field that is odd under exchanging the roots is rotation and frame dragging, the vortex content. That fits GFD's picture of a galaxy as a vortex coupled through the Field Origin. It also fits note 14, where the relative *rotation* of the frames carried handedness. Whether the gravitomagnetic sector is where TetB's brake and drive act is a lead for a field equation, not a result.
 
+### 12. The tetrahedron as $\mathbb{F}_4$: a language, with its automatic parts marked
+
+*Checks: `certify_first_principles.py` §§F, G, I.*
+
+The field with four elements, $\mathbb{F}_4 = \mathbb{F}_2[x]/(x^2+x+1) = \{0, 1, \omega, \omega^2\}$, gives one language for several facts in the archive. Some of what it says is real content and some is automatic, so the two are separated here.
+
+**What is real:**
+- **Seen down the time axis, a tetrahedron is $\{0, 1, \omega, \omega^2\}$ in the complex plane.** Looking down the body diagonal through TetA's corner $(1,1,1)$, that corner sits at the centre and the other three sit on an equilateral triangle, at $r$, $r\omega$, $r\omega^2$. The closure rotation $\Omega$ is multiplication by $\omega$.
+- **Adding corners is arithmetic modulo 2.** The Eisenstein integers modulo 2 are $\mathbb{F}_4$ (2 stays prime in $\mathbb{Z}[\omega]$), and modulo 2, $1 + \omega = -\omega^2 \equiv \omega^2$. So XOR of corners (the half-turns) is the reduction of complex addition. This is the concrete bridge between the Eisenstein layer of the [algebraic pipeline](../../papers/algebraic-papers-a-b-c/algebraic_pipeline_of_reality.md) and the cube's Walsh layer.
+- **The second root reverses the sense of the closure.** In all 12 cases where a proper rotation carries TetA onto TetB, each leg goes to a reversed leg through an **odd** permutation (Result 6, recertified exactly). In $\mathbb{F}_4$ terms, the odd permutations are those that contain the Galois conjugation $\omega \leftrightarrow \omega^2$. So, up to a rotation, exchanging the roots reverses the sense of $\Omega$. This agrees with the [chiral-holonomy proof](../../proofs/chiral-holonomy-closed-frame/), where exchanging the chambers equals reversing the sense of circulation.
+- **The coupling levels of G are the points of the projective plane over $\mathbb{F}_4$.** The 63 nonzero triples in $\mathbb{F}_4^3$ fall into 21 orbits of $\mathbb{F}_4^* = \{1, \omega, \omega^2\}$, and $1 + 4 + 16$ are that plane's three cells. The archive's $64 = 21 \times 3 + 1$ is $4^3 \equiv 1 \pmod{21}$. See [`g_from_topology/`](../g_from_topology/).
+
+**What is automatic, and so carries no information by itself:**
+- *"The tetrahedron's symmetries are $\mathbb{F}_4$'s symmetries."* Every one of the 24 permutations of four points is a semi-affine map $x \mapsto a x^\sigma + b$ of $\mathbb{F}_4$, so this holds for any labelling. What remains is classical: the rotations are the even permutations ($A_4$, the affine maps) and the reflections the odd ones (those with the Galois conjugation).
+- *$K^3 = (2^D)^2$* is $|\mathbb{F}_4|^3 = |\mathbb{F}_2|^6$, true for any four-element set built from two bits.
+- *The uniqueness equation read as "$D = |\mathbb{F}_4^*|$"* renames $D = K - 1$.
+
+*Correction.* In conversation the $\mathbb{F}_4$ reading was first presented as a breakthrough, including the first automatic statement above. The recertification showed that statement carries no information, so the reading is recorded here as a language.
+
+### 13. The coupling polynomial is the characteristic polynomial of the cube's rotations
+
+*Checks: `certify_first_principles.py` §§H, K.*
+
+For a planar rotation $R_\theta$,
+
+$$\det(K\,I - R_\theta) = K^2 - 2K\cos\theta + 1 = f(K, s), \qquad s = -2\cos\theta .$$
+
+**Why only $s = -1, 0, +1$.** A rotation that preserves a lattice has integer trace $2\cos\theta \in \{-2, -1, 0, 1, 2\}$ (the crystallographic restriction). The three values whose characteristic polynomial is irreducible, meaning a genuinely planar rotation rather than $\pm1$, are $2\cos\theta = -1, 0, 1$, which give $s = +1, 0, -1$. So the coupling polynomial's three structural states are exactly the three planar rotations a lattice allows, of orders 3, 4 and 6. The algebraic pipeline obtained the same three values from a discriminant condition. Here they come from the cube's symmetry elements.
+
+**Which cube symmetry gives which value.** Sorting all 48 symmetries of the cube by type, with $\det(4 - g) = (K \mp 1)\,f$:
+
+| State | Value | Cube symmetry | The chambers | Lattice, seen down |
+|---|---|---|---|---|
+| TetA | 21 | the 3-fold closure rotation (8 of them) | **kept**, in every case | triangular (Eisenstein), a body diagonal: the time axis |
+| TetB | 13 | the 6-fold rotoreflection, the closure rotation composed with the antipode (8) | **exchanged**, in every case | the same triangular lattice |
+| Field Origin | 17 | the 4-fold symmetries: quarter turns (6) and 4-fold rotoreflections (6) | quarter turns exchange, rotoreflections keep | square, a coordinate axis |
+
+So TetB's value belongs to TetA's rotation followed by parity, the map between the two roots. The Field Origin's value belongs to the order-4 elements, one kind exchanging the chambers and one keeping them. Down a body diagonal the cubic lattice projects onto the triangular lattice, where the closure rotation acts as the 120° rotation. Down a coordinate axis it projects onto the square lattice, where the quarter turn acts.
+
+**What this does not explain.** Why the characteristic polynomial is evaluated at $K$. $|\det(K - R)|$ counts the points $x$ of the planar torus with $Kx = Rx$: 21 on the triangular torus, 13, and 17 on the square torus. That is a count, not a mechanism. It also does not derive G's combination rule. In this language the prefactor $17/13$ is the ratio of the two rotoreflection classes ($\det(K + C_4)/\det(K + C_3)$). That was noticed after the fact among a handful of class pairs and carries no weight.
+
+## Recertification
+
+*2026-11-12.* Every result in this folder was rebuilt from the frame's premises by `certify_first_principles.py`: four unit vectors with equal angles and zero sum, the forced cube simplex, and the tetrad equation's two roots. It is independent of the two `verify_*.py` scripts. It counts orbits rather than ranks matrices, uses exact arithmetic throughout, and builds $\mathbb{F}_4$ abstractly. Each check carries a tag:
+
+| Tag | Checks | Meaning |
+|---|---|---|
+| classical | 29 | standard mathematics, used as a reading |
+| new | 19 | new to the archive |
+| automatic | 2 | true for a reason that makes it carry no information |
+| coincidence | 2 | exact, but holds only at the special value |
+
+The two coincidences, kept apart and not built on:
+- the lower-index swap has exactly $13 = f(K,-1)$ orbits on the projective plane over $\mathbb{F}_q$ only at $q = 4$;
+- $\mu(z) = z/(1+z)$ sends $e^{i120^\circ}$ to $e^{i60^\circ}$, but GFD never uses $\mu$ at complex arguments.
+
+The same day, all existing scripts in this line were rerun and pass unchanged: this folder (50, 34), [`bimond-gfd/`](../bimond-gfd/) (130), the bimetric, torsion, chiral-holonomy, Hadamard, forced-frame, two-regions, exchange-symmetry and AQUAL proofs, the Gram paper (32), [`universe-is-pixelated/`](../universe-is-pixelated/) (52) and the G look-elsewhere test.
+
 ## What is standard, and what is new here
 
 | Statement | Status |
@@ -211,6 +269,10 @@ So across the roots, the odd 6 are **the three rotations and the three gravitoma
 | The Minkowski metric on the eight null directions is $-\tfrac23$ × the Hamming distance, an element of the algebra, with time = Walsh grade 0, space = grade 1, and the chamber sign in its kernel | New here: a reorganisation of standard facts |
 | The connection's lower pair maps one to one onto the 16 TetA–TetB links, the index swap becomes spatial parity on the links, and the torsion is the exchange-odd part, kept by all 48 symmetries | New here |
 | Across the roots, the exchange-odd forms are the rotations and the gravitomagnetic $g_{0i}$ | Linear algebra; the vortex reading is GFD's |
+| $\mathrm{A\Gamma L}(1,4) = S_4$, $\mathrm{AGL}(1,4) = A_4$; $\mathbb{Z}[\omega]/(2) = \mathbb{F}_4$; the points of $PG(2,4)$; the crystallographic restriction | Standard |
+| "The tetrahedron's symmetries are $\mathbb{F}_4$'s symmetries"; $K^3 = (2^D)^2$ | Automatic: true for any labelling |
+| Seen down the time axis a tetrahedron is $\{0, 1, \omega, \omega^2\}$, with addition of corners as arithmetic mod 2; the second root reverses the sense of the closure | New here: geometric realisation of standard facts |
+| $f(K,s) = \det(K - R)$ for the cube's planar rotations; the three states are the lattice's three irreducible rotations; TetA = the chamber-keeping 3-fold rotation, TetB = that rotation with parity, the Field Origin = the 4-fold elements | New here |
 
 ## Open directions
 
@@ -219,6 +281,7 @@ So across the roots, the odd 6 are **the three rotations and the three gravitoma
 3. **The upper index.** Result 10 places the connection's lower pair on the TetA–TetB links. The upper index (the slice) is still only a label. Placing it too, most naturally as a TetA corner or face, would put all 64 components on the cube and would test whether the vertex–edge reading of the torsion in the algebraic pipeline ("1 of 4 faces and 1 of 6 edges") follows from the symmetry.
 4. **The Eisenstein layer.** The pipeline's closure operator $\Omega$, a third-turn about a body diagonal, fixes one Field Origin link and cycles the other three. Its subalgebra of this algebra is not yet worked out.
 5. **The gravitomagnetic sector.** Result 11 puts rotations and $g_{0i}$ in the exchange-odd part across the roots. A field equation coupling that sector to the axial torsion of note 14 is the natural next calculation for brake and drive.
+6. **Why evaluate at $K$.** Result 13 makes the three integers characteristic polynomials of the cube's rotations, but evaluated at $K = 4$ for no derived reason. The count of torus points with $Kx = Rx$ is a candidate meaning; it needs a role for "scale by $K$" in the frame, for example the four-way subdivision of each face in the triforce.
 
 ## Contents
 
@@ -226,11 +289,13 @@ So across the roots, the odd 6 are **the three rotations and the three gravitoma
 |---|---|
 | [`verify_coupling_algebra.py`](verify_coupling_algebra.py) | 50 checks, in nine sections matching Results 1–8 |
 | [`verify_metric_and_connection.py`](verify_metric_and_connection.py) | 34 checks, in five sections matching Results 9–11 |
+| [`certify_first_principles.py`](certify_first_principles.py) | 52 exact checks rebuilding Results 1–13 from the frame's premises, each tagged classical, new, automatic or coincidence |
 
 ```bash
-pip install numpy
+pip install numpy sympy
 python verify_coupling_algebra.py          # 50/50
 python verify_metric_and_connection.py      # 34/34
+python certify_first_principles.py          # 52/52
 ```
 
 ## Related
