@@ -308,6 +308,7 @@ python certify_first_principles.py          # 52/52
 - [`faces/`](../faces/) and Paper IX's graph-theory tests (`papers/09-complete-field-closure/supplementary/gfd_graph_theory_20_tests.py`): the triforce and the complement of the cube.
 - [`quantum compute/`](../quantum%20compute/): the {1, D, D, 1} oscillator theorem.
 - [`bimond-gfd/`](../bimond-gfd/) notes 13 and 14: the connection's 64 components and where the roots live in them.
+- [`stellated octahedron geometry/`](../stellated%20octahedron%20geometry/): the 64-tetrahedron grid, whose 64 tetrahedra are (star, spike) pairs sorted by $A_0$–$A_3$; the grid = the large star + the 24 $A_1$ spikes.
 
 ## References
 

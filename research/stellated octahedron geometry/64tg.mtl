@@ -1,0 +1,28 @@
+newmtl A0_outward_8
+Kd 0.850 0.360 0.200
+d 1.0
+
+newmtl A1_vector_24
+Kd 0.930 0.700 0.220
+d 1.0
+
+newmtl A2_within_24
+Kd 0.220 0.560 0.780
+d 1.0
+
+newmtl A3_origin_8
+Kd 0.480 0.300 0.720
+d 1.0
+
+newmtl octa_cores_8
+Kd 0.550 0.600 0.620
+d 1.0
+
+newmtl octa_central_6
+Kd 0.300 0.700 0.550
+d 1.0
+
+newmtl large_star_ref
+Kd 0.900 0.900 0.900
+d 0.25
+
