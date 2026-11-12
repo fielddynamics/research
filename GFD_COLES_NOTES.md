@@ -418,7 +418,7 @@ Shell ceilings $\mathrm{CEIL} = B_{\rm Zn} + B_{\rm bdy} - \mu_b(2)[B_{\rm Zn} -
 | Exchange symmetry → $\mu$ | `proofs/constitutive-law-exchange-symmetry/` | 34 |
 | $F(y)$ closed form, convexity | `proofs/aqual-energy-functional/` | 24 |
 | BIMOND: $\alpha = -\beta$, $\mathcal M$ closed form, Legendre dual of $F$ | `proofs/bimetric-two-potential-energy/` | 39 |
-| BIMOND × GFD research (incl. chiral holonomy reproduced) | `research/bimond-gfd/run_all.py` | 69 |
+| BIMOND × GFD research (incl. chiral holonomy reproduced) | `research/bimond-gfd/run_all.py` | 78 |
 | Gram theorems | `papers/gram-matrix-of-tetrad-equation/verify_gram_theorems.py` | 32 |
 | Letters 1, 2, 3 | `papers/letter-*/…/Supplementary/run_all_validations.py` | 29, 52, 52 |
 | TF evolution | `papers/tully-fisher-velocity-evolution/` | 64 |

@@ -1,6 +1,6 @@
 # BIMOND × GFD
 
-*Research folder, Field Dynamics Research, 2026-11-11. Status: working notes and checks, not a paper. Run `python3 run_all.py`: 69 checks pass, plus two data scripts (numpy, scipy, sympy).*
+*Research folder, Field Dynamics Research, 2026-11-11. Status: working notes and checks, not a paper. Run `python3 run_all.py`: 78 checks pass, plus two data scripts (numpy, scipy, sympy).*
 
 This folder lines up Milgrom's bimetric MOND (BIMOND; [arXiv:0912.0790](https://arxiv.org/pdf/0912.0790), [arXiv:1001.4444](https://arxiv.org/pdf/1001.4444), [arXiv:2208.10882](https://arxiv.org/pdf/2208.10882)) with the GFD algebra: the Coles notes, `research/gfd_algebra.py`, and `research/bimetric-projection/`. The question is whether BIMOND is a covariant home for the SST's physics.
 
@@ -171,6 +171,17 @@ GFD already has the mathematics of the two sectors:
 | For comparison: a GR-baseline model | TetA's Levi-Civita transport on every step, plus torsion as a small rotation of alternating sign, cancels exactly. That model imposes GR's projection on the TetB steps, so it reproduces the root-blind null result. It is not a test of the two-sector structure. |
 
 So the chiral-holonomy proposition follows from GFD's own algebra. The TetB step is the TetA step with the two 24-component triangles exchanged and the shared 16 kept. The winding is what the full 24 + 16 + 24 connection does and the 40-component projection cannot.
+
+**12 — Further algebra: the spinor lift and the share-weighted transport** (`12_spinor_lift_and_partition.py`, 9 checks)
+
+| Check | Result |
+|---|---|
+| Spinor (SU(2)) lift, uniform transport | Uniform transport is the root-blind, all-TetA reading. In SO(3) it gives the identity, but in SU(2) it gives **exactly −1 on every cycle**: one circuit is a full 2π turn. Vectors return; spinors return with a minus sign, and two circuits are needed to bring them back. This is the 720° of the double cover, which Paper VII assigns to the two sheets, and it falls out of the root-blind transport itself. |
+| Spinor lift, chiral transport | Half-traces exactly 31/81 and −17/81 for the two senses, consistent with the SO(3) values: 2(31/81)² − 1 = −4639/6561 and 2(17/81)² − 1 = −5983/6561. |
+| Share-weighted steps | S = μR + (1 − μ)Rᵀ at a TetA source and μRᵀ + (1 − μ)R at a TetB source, where Rᵀ is the TetB step from 11. Exchange symmetry x → 1/x (μ → 1 − μ) turns each TetA step into the TetB step exactly. **So exchange symmetry acts as parity on the holonomy**: it swaps the two senses of circulation. |
+| The ring x = 1 | With equal shares every step is symmetric: only the shared diagonal part survives. The two senses become equivalent and **the chirality vanishes**. The chirality is odd under x → 1/x, with opposite signs inside and outside the ring, and μ = 1 and μ = 0 recover the two chiral classes. |
+
+Status. The spinor result is exact and needs no assumption beyond the transport of 10 and 11. The share-weighted steps are a construction here: the field partition μ applied to the transport. Two of its results follow from structure, not from fitting: exchange symmetry acting as parity, and chirality vanishing at the ring. The weighted products are not rotations (they contract, most strongly near the ring), so only their rotational part is compared.
 
 ## Is there a breakthrough?
 
