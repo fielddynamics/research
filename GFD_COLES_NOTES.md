@@ -401,6 +401,7 @@ Shell ceilings $\mathrm{CEIL} = B_{\rm Zn} + B_{\rm bdy} - \mu_b(2)[B_{\rm Zn} -
 22. RAR: the cached CSV has 163 galaxy names, not 164. XII cites 179 SPARC galaxies and X cites 175.
 23. CMB factor: 6.46 (II) vs 6.44 (XII); comparator 6.40 (II) vs $6.36\pm0.10$ (XII).
 24. The 40/24 proof note reads the subtracted "1" as the diagonal. There are $K$ diagonal entries, and they are the $+K$ that separates 10 from 6.
+25. **Ghost citation (VII, VIII).** VII cites Alexander, Marcianò & Smolin, PRD 89, 065017 (2014) for "a single orientation produces a scalar ghost; two opposite chambers cancel it", and VIII for "BD-ghost cancellation by opposite orientations". The paper's abstract and introduction say the reverse. Its parity-symmetric bimetric phase (massless graviton + massive spin-2 + scalar ghost, following Speziale) is unstable, and its parity-broken chiral phase is stable. It does not discuss tetrad orientation. A reading consistent with GFD: the closed frame is parity-broken, because the chiral holonomy (L3 supplement) distinguishes the two senses of circulation, 135° versus 155.8° ([`research/bimond-gfd/10_chiral_holonomy_check.py`](research/bimond-gfd/10_chiral_holonomy_check.py)). That is an alignment of descriptions, not a stability proof. Hassan–Rosen's proof that the BD ghost is absent assumes positive kinetic terms for both metrics, so extending it to opposite orientations is open. Linearising at the Field Origin cannot settle this: $\mathcal M$ is non-analytic at zero field, and no quadratic theory exists there ([`research/bimond-gfd/`](research/bimond-gfd/), script 09).
 
 ---
 
@@ -415,6 +416,8 @@ Shell ceilings $\mathrm{CEIL} = B_{\rm Zn} + B_{\rm bdy} - \mu_b(2)[B_{\rm Zn} -
 | Torsion = regular rep of $S_4$ | `proofs/torsion-regular-representation/` | 36 |
 | Exchange symmetry → $\mu$ | `proofs/constitutive-law-exchange-symmetry/` | 34 |
 | $F(y)$ closed form, convexity | `proofs/aqual-energy-functional/` | 24 |
+| BIMOND: $\alpha = -\beta$, $\mathcal M$ closed form, Legendre dual of $F$ | `proofs/bimetric-two-potential-energy/` | 39 |
+| BIMOND × GFD research (incl. chiral holonomy reproduced) | `research/bimond-gfd/run_all.py` | 59 |
 | Gram theorems | `papers/gram-matrix-of-tetrad-equation/verify_gram_theorems.py` | 32 |
 | Letters 1, 2, 3 | `papers/letter-*/…/Supplementary/run_all_validations.py` | 29, 52, 52 |
 | TF evolution | `papers/tully-fisher-velocity-evolution/` | 64 |

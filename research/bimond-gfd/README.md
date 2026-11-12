@@ -1,6 +1,6 @@
 # BIMOND × GFD
 
-*Research folder, Field Dynamics Research, 2026-11-11. Status: working notes and checks, not a paper. Run `python3 run_all.py`: 53 checks pass, plus two data scripts (numpy, scipy, sympy).*
+*Research folder, Field Dynamics Research, 2026-11-11. Status: working notes and checks, not a paper. Run `python3 run_all.py`: 59 checks pass, plus two data scripts (numpy, scipy, sympy).*
 
 This folder lines up Milgrom's bimetric MOND (BIMOND; [arXiv:0912.0790](https://arxiv.org/pdf/0912.0790), [arXiv:1001.4444](https://arxiv.org/pdf/1001.4444), [arXiv:2208.10882](https://arxiv.org/pdf/2208.10882)) with the GFD algebra: the Coles notes, `research/gfd_algebra.py`, and `research/bimetric-projection/`. The question is whether BIMOND is a covariant home for the SST's physics.
 
@@ -149,6 +149,12 @@ Results:
 
 **Scope.** This is the scalar sector on a given metric. It is not a proof that the full SST, with its R and Maxwell terms, equals full two-metric BIMOND. BIMOND's second metric carries its own curvature term, whereas here φ̂ is a second scalar. The duality is exact for spacelike gradients. For timelike gradients F(y) is not defined, which is the standard open issue for AQUAL-type theories.
 
+**10 — The chiral holonomy, reproduced** (`10_chiral_holonomy_check.py`, 6 checks). Letter 3's supplement [`supplementary_chiral_holonomy.tex`](../../papers/letter-3-field-closure-of-tetrad-frame/Supplementary/supplementary_chiral_holonomy.tex) proves by computation that transport through the eight null directions has two behaviours:
+- **Uniform transport** (no chirality) gives identity holonomy on all twelve Hamiltonian cycles of the cube.
+- **Chiral transport** (+θ from TetA, −θ from TetB) never does: 6 cycles give 135° and 6 give 155.8°.
+
+The script the note cites isn't in the repository, so this reproduces it exactly. It adds one result: **the two angle classes are the two senses of circulation.** Each cycle gives 135° traversed one way and 155.8° traversed the other. So the closure through the Field Origin is chiral: its two senses of rotation are not equivalent. This is the framework's own evidence that the vortex is a parity-broken configuration, which bears on open item 3. It is kinematic (transport), not a stability result.
+
 ## Is there a breakthrough?
 
 Honest grading: two results stand out. Neither is yet a demonstrated breakthrough.
@@ -186,7 +192,7 @@ In this candidate:
 1. **Root-blindness only in vacuum.** In BIMOND the two metrics must differ once matter is present, or C = 0. GFD's "same metric for both roots" then holds only at the Field Origin, with no matter.
 2. **Torsion vs connection difference.** BIMOND's MOND sector is C in the 40. GFD has placed TetB in the torsion 24. Both give the same 3-vector in the slow-motion limit (`research/bimetric-projection/probe_where_tetb_pushes.py`). The relativistic content differs. Brake vs drive by spin orientation (item 6) favours the torsion 24, because only an axial channel carries spin direction.
 3. **Stability of the two-orientation structure.** α = −β gives the second sector a negative Einstein–Hilbert term, and that sign is the orientation of the second scheme. Any stability analysis has to be done in the nonlinear theory around real backgrounds, not by linearising at the Field Origin, where no quadratic theory exists (item above, script 09). Two points to check:
-   - **Citation.** Paper VII cites Alexander, Marcianò & Smolin (2014) for "a single orientation produces a scalar ghost; two opposite chambers cancel it". That paper's abstract says the reverse: its parity-symmetric bimetric phase has a scalar ghost and is unstable, while its parity-broken (chiral) phase is stable. The citation should be checked against the paper's body before it is relied on. One reading consistent with GFD: the vortex is a parity-broken configuration, since its chiral holonomy gives it a handedness. That is an interpretation, not shown.
+   - **Citation.** Paper VII cites Alexander, Marcianò & Smolin (2014) for "a single orientation produces a scalar ghost; two opposite chambers cancel it". That paper's abstract says the reverse: its parity-symmetric bimetric phase has a scalar ghost and is unstable, while its parity-broken (chiral) phase is stable. The citation should be checked against the paper's body before it is relied on. One reading consistent with GFD: the vortex is a parity-broken configuration. The chiral-holonomy proposition supports this kinematically: the two senses of circulation give different holonomies, 135° versus 155.8° (script 10). That would place the GFD vortex in the phase Alexander, Marcianò & Smolin find stable, but it is an alignment of descriptions, not a stability proof.
    - **Hassan–Rosen.** Their proof that the Boulware–Deser ghost is absent assumes both kinetic terms are positive. Extending it to opposite orientations is a claim of the framework, not yet a result.
 
    Milgrom's self-acceleration of mixed systems (F − F̂ = 0, not F + F̂ = 0) is also open.
