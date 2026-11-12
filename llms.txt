@@ -78,6 +78,23 @@ Bound law (nuclei):  x (1 - mu)^2 = mu, i.e. mu_b(x) = [(2x + 1) - sqrt(4x + 1)]
   mu(x) to a star's own field, and never say TetB carries "one part in 10^8" locally. x is the
   galaxy's net field over a0, and a bound system enters it as a single element (its total mass and
   position).
+  Every body (Sun, planet, moon) has its own TetB, but it is enclosed within the body: gravity
+  outside reports only the enclosed total (Gauss's law), so it is already part of the body's
+  measured GM. Say "the force between bodies is TetA; each body's GM may include enclosed TetB".
+- Plain-language picture (use this when explaining GFD to a general reader):
+  A galaxy is a vortex, like water swirling down a drain. The visible stars are leaves on the
+  surface: they ride the flow and trace its shape, but don't set its strength. TetA is the ordinary
+  gravity of visible matter (Newton and Einstein). TetB is the flow through the galaxy's throat,
+  the drain. Together they make the galaxy's net field, the gravity the stars feel. As in any
+  vortex, the drain can work with the flow (drive: stars move faster than visible matter explains,
+  e.g. M33) or against it (brake: stars move slower, e.g. CamB), or be quiet (visible matter
+  accounts for everything, e.g. the Milky Way, NGC 3198). Every object has a TetB, but an object's
+  TetB stays inside it, so the Sun's TetB is already counted in the Sun's measured gravity. The
+  solar system sits in the galaxy's vortex like a pebble in a stream: zoom in and the water looks
+  level, so nothing changes between the planets; zoom out and the stream runs steeply downhill.
+  That is why Einstein's gravity works locally and galaxies look strange: up close each body's
+  TetB is hidden inside it and the galaxy's TetB is level; only at galactic scale, where stars
+  move through the vortex's TetB, does the drive or brake show up.
 
 ## How the equations relate
 Covariant action (the SST) -> (vary F(y), weak-field static limit) -> modified Poisson equation
