@@ -1,6 +1,6 @@
 # BIMOND × GFD
 
-*Research folder, Field Dynamics Research, 2026-11-11. Status: working notes and checks, not a paper. Run `python3 run_all.py`: 103 checks pass, plus two data scripts (numpy, scipy, sympy).*
+*Research folder, Field Dynamics Research, 2026-11-11. Status: working notes and checks, not a paper. Run `python3 run_all.py`: 128 checks pass, plus two data scripts (numpy, scipy, sympy).*
 
 This folder lines up Milgrom's bimetric MOND (BIMOND; [arXiv:0912.0790](https://arxiv.org/pdf/0912.0790), [arXiv:1001.4444](https://arxiv.org/pdf/1001.4444), [arXiv:2208.10882](https://arxiv.org/pdf/2208.10882)) with the GFD algebra: the Coles notes, `research/gfd_algebra.py`, and `research/bimetric-projection/`. The question is whether BIMOND is a covariant home for the SST's physics.
 
@@ -199,7 +199,7 @@ So in the nonrelativistic limit, BIMOND with α = −β is the SST written as a 
 - This is the algebraic home for brake versus drive: counter-rotating versus co-rotating TetB.
 - It gives a prediction that BIMOND does not make: the sign of ΔM_eff should correlate with relative rotation sense. Examples to test are counter-rotating gas or stellar components, and spin relative to the host galaxy's tidal field.
 
-What is still missing is a field equation linking the axial torsion to ΔM_eff. Until that exists this is a kinematic statement, not a derived prediction, and the size of the effect is not computed.
+What is still missing is a field equation linking the axial torsion to ΔM_eff. Note 14 sharpens this: a relative rotation of the frames, which is what carries the sense of spin, exerts no slow-motion force by itself, so the coupling has to come from a field equation, not from kinematics. Until that exists this is a kinematic statement, not a derived prediction, and the size of the effect is not computed.
 
 **13 — The 64 connection components, split by symmetry** ([`13_connection_irreducibles.md`](13_connection_irreducibles.md), `13_connection_irreducibles.py`, 25 checks). Target #1: the 64 components split into seven pieces that no change of frame mixes.
 - **The split itself is standard.** The symmetric 40 is nonmetricity, 16 + 16 + 4 + 4. The torsion 24 is 16 + 4 + 4. Both 16s of mixed symmetry are the same Lorentz type, (3/2,1/2) ⊕ (1/2,3/2).
@@ -209,6 +209,12 @@ What is still missing is a field equation linking the axial torsion to ΔM_eff. 
   - So no torsion reproduces BIMOND's C. The two agree on the slow-motion force only.
 - **The index grid's diagonal 16 is kept by leg permutations but not by rotations or boosts.** It shares no tensor with any Lorentz piece, and the upper-triangle 24 is not even kept by a leg swap. The 24 + 16 + 24 counts are exact. "Shared 16" describes coordinates, not a covariant sector.
 - **Under leg permutations the symmetric 40 is 4·1 ⊕ 3[2,2] ⊕ 7 std ⊕ 3(sgn⊗std).** It contains no sign representation. Its off-diagonal 24 is not isomorphic to the torsion 24, which is the regular representation.
+
+**14 — Where the two roots live in the connection** ([`14_where_the_roots_live.md`](14_where_the_roots_live.md), `14_where_the_roots_live.py`, 25 checks). A deduction from the frame, following 13.
+- **64 = 40 + 24 without the index grid.** The 64 first derivatives of a frame are, one to one, the 40 derivatives of the metric (the Gram product, root-blind) plus the 24 torsion components, which are the local Lorentz changes of the frame the metric cannot see. Standard (Weitzenböck); it is the covariant version of the Gram paper's split.
+- **The second root is in none of the 64 components.** Two frames on one metric have connections differing by L⁻¹∂L, which lies in the metric-compatible 24 and is unchanged when L → PL. For the constant parity that defines TetB, every connection component and the torsion tensor are identical. The root shows only in the orientation, det e = ±√−g. For example, the axial torsion vector, built with that ε, flips sign. Torsion carries the continuous, position-dependent relation between frames; the discrete TetA/TetB label is carried by the orientation. This is the same mechanism as Lemma 1 of the bimetric proof.
+- **Which action terms see the root:** those with an odd number of ε. Einstein–Hilbert, the cosmological term and Euler flip sign; Holst, Nieh–Yan and Pontryagin do not. So with equal couplings TetB's vacuum term is also opposite in sign, alongside α = −β.
+- **What pushes slow matter.** The extra slow-motion force of a relative frame is −(L⁻¹∂ₜL)ⁱ₀, the rate of relative boost: the acceleration of the time legs. That is the channel `research/bimetric-projection/` Part 2 reached from the potential side. Rotations of any profile (twist, spin) carry axial and tensor torsion and exert no slow-motion force.
 
 **Not breakthroughs:**
 - The odds-ratio identity and the logistic identity are rewrites of μ.
@@ -243,3 +249,4 @@ In this candidate:
 4. **The net-field rule needs a covariant statement.** It has to say what coarse-graining scale defines φ̄*. Test D (`research/bimetric-projection/probe_testD_clusters_vs_dwarfs.py`) shows that star clusters must be coarse-grained out and dwarf galaxies kept. The criterion is galaxy (vortex) versus bound cluster, not a radius.
 5. **Gravitational-wave speed** in BIMOND with two dynamical metrics is not checked here (GW170817).
 6. **Brake and drive come from spin orientation.** In GFD the local TetB vortex brakes or drives against the net TetA vortex spin, depending on its relative handedness, as in standard vortex dynamics. BIMOND needs an axial (spin) twin sector to match this. A proper test of 04 should correlate the sign of ΔM_eff with spin orientation (for example, counter-rotating gas or stellar components, or spin relative to the host's tidal field), not just test a skew.
+   - Note 14: in the tetrad kinematics, handedness (axial torsion from a relative rotation) and force (a relative boost changing in time) are separate channels. Brake and drive by spin sense need a field equation that couples the first to the second.
