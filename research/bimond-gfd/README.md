@@ -1,6 +1,6 @@
 # BIMOND × GFD
 
-*Research folder, Field Dynamics Research, 2026-11-11. Status: working notes and checks, not a paper. Run `python3 run_all.py`: 78 checks pass, plus two data scripts (numpy, scipy, sympy).*
+*Research folder, Field Dynamics Research, 2026-11-11. Status: working notes and checks, not a paper. Run `python3 run_all.py`: 103 checks pass, plus two data scripts (numpy, scipy, sympy).*
 
 This folder lines up Milgrom's bimetric MOND (BIMOND; [arXiv:0912.0790](https://arxiv.org/pdf/0912.0790), [arXiv:1001.4444](https://arxiv.org/pdf/1001.4444), [arXiv:2208.10882](https://arxiv.org/pdf/2208.10882)) with the GFD algebra: the Coles notes, `research/gfd_algebra.py`, and `research/bimetric-projection/`. The question is whether BIMOND is a covariant home for the SST's physics.
 
@@ -49,7 +49,7 @@ This is QUMOND, the two-potential form of MOND. Lensing is governed by the same 
 | φ, which matter and light follow | the TetA + TetB total (γ = 1) |
 | twin matter ρ̂, a negative active mass for φ* | occupied TetB: the drain or throat |
 | (∇φ)² − (∇φ̂)² = \|∇φ*\|² + 2∇φ*·∇φ̂ | the TetA–TetB cross-coupling, supplied by α = −β instead of being added by hand |
-| C = Γ − Γ̂, symmetric in its lower indices | lives in the 40, not the torsion 24; its slow-motion component Cⁱ₀₀ = ∂ᵢφ* sits in the shared diagonal 16 |
+| C = Γ − Γ̂, symmetric in its lower indices | lives in the 40 (nonmetricity), not the torsion 24; its slow-motion component Cⁱ₀₀ = ∂ᵢφ* sits in the diagonal 16 of the index grid, a statement about static-frame coordinates, not a Lorentz-invariant sector (see 13) |
 
 - **Decoding theorem.** Apply the decoding-mass letter's inversion, M_dec = r²·[g_t²/(a₀ + g_t)]/G, to BIMOND–GFD. It returns M_dec = M − M̂ exactly, at every radius. So **ΔM_eff = M_phot − M_dec is the enclosed twin (occupied-TetB) mass.**
 
@@ -201,10 +201,19 @@ So in the nonrelativistic limit, BIMOND with α = −β is the SST written as a 
 
 What is still missing is a field equation linking the axial torsion to ΔM_eff. Until that exists this is a kinematic statement, not a derived prediction, and the size of the effect is not computed.
 
+**13 — The 64 connection components, split by symmetry** ([`13_connection_irreducibles.md`](13_connection_irreducibles.md), `13_connection_irreducibles.py`, 25 checks). Target #1: the 64 components split into seven pieces that no change of frame mixes.
+- **The split itself is standard.** The symmetric 40 is nonmetricity, 16 + 16 + 4 + 4. The torsion 24 is 16 + 4 + 4. Both 16s of mixed symmetry are the same Lorentz type, (3/2,1/2) ⊕ (1/2,3/2).
+- **BIMOND and GFD sit in different halves of metric-affine geometry.** BIMOND's C is nonmetricity; GFD's TetB is torsion.
+  - A torsion reaches the symmetric 40 only through its contorsion. That map has rank 20, kills exactly the axial 4 and lands exactly on the mixed-symmetry 20.
+  - BIMOND's weak-field C always has a fully symmetric part: (C_x00 + C_0x0 + C_00x)/3 = −g/3, for every γ.
+  - So no torsion reproduces BIMOND's C. The two agree on the slow-motion force only.
+- **The index grid's diagonal 16 is kept by leg permutations but not by rotations or boosts.** It shares no tensor with any Lorentz piece, and the upper-triangle 24 is not even kept by a leg swap. The 24 + 16 + 24 counts are exact. "Shared 16" describes coordinates, not a covariant sector.
+- **Under leg permutations the symmetric 40 is 4·1 ⊕ 3[2,2] ⊕ 7 std ⊕ 3(sgn⊗std).** It contains no sign representation. Its off-diagonal 24 is not isomorphic to the torsion 24, which is the regular representation.
+
 **Not breakthroughs:**
 - The odds-ratio identity and the logistic identity are rewrites of μ.
 - The Legendre pairing is standard convex duality: AQUAL and QUMOND with ν the inverse of μ share their spherical solutions, and that is well known. What is new is the derivation route and the physical reading of 𝓜 (08), not the duality itself.
-- The 40 = 40 match is a component count.
+- The 40 = 40 match is a component count. Note 13 shows the match is of dimension only: BIMOND's 40 is nonmetricity, and GFD's retained 40 is the Christoffel sector of one metric.
 
 ## What this gives GFD
 
@@ -220,7 +229,11 @@ In this candidate:
 ## Open items
 
 1. **Root-blindness only in vacuum.** In BIMOND the two metrics must differ once matter is present, or C = 0. GFD's "same metric for both roots" then holds only at the Field Origin, with no matter.
-2. **Torsion vs connection difference.** BIMOND's MOND sector is C in the 40. GFD has placed TetB in the torsion 24. Both give the same 3-vector in the slow-motion limit (`research/bimetric-projection/probe_where_tetb_pushes.py`). The relativistic content differs. Brake vs drive by spin orientation (item 6) favours the torsion 24, because only an axial channel carries spin direction.
+2. **Torsion vs connection difference: shown to be different theories (13).** BIMOND's MOND sector is C in the 40, a nonmetricity. GFD has placed TetB in the torsion 24. Both give the same 3-vector in the slow-motion limit (`research/bimetric-projection/probe_where_tetb_pushes.py`). Relativistically they cannot coincide: torsion reaches only the mixed-symmetry 20 of the 40, and BIMOND's weak-field C always has a fully symmetric part.
+   - GFD has to choose.
+     - To match BIMOND relativistically it needs a nonmetricity sector, which no GFD paper uses.
+     - To keep TetB in the torsion it needs its own covariant completion (for example `research/bimetric-projection/probe_ec_candidate.py`).
+   - Brake vs drive by spin orientation (item 6) favours the torsion 24, because only an axial channel carries spin direction. But the axial 4 is exactly the piece that exerts no slow-motion force.
 3. **Stability of the two-orientation structure.** α = −β gives the second sector a negative Einstein–Hilbert term, and that sign is the orientation of the second scheme. Any stability analysis has to be done in the nonlinear theory around real backgrounds, not by linearising at the Field Origin, where no quadratic theory exists (item above, script 09). Two points to check:
    - **Citation.** Paper VII cites Alexander, Marcianò & Smolin (2014) for "a single orientation produces a scalar ghost; two opposite chambers cancel it". That paper's abstract says the reverse: its parity-symmetric bimetric phase has a scalar ghost and is unstable, while its parity-broken (chiral) phase is stable. The citation should be checked against the paper's body before it is relied on. One reading consistent with GFD: the vortex is a parity-broken configuration. The chiral-holonomy proposition supports this kinematically: the two senses of circulation give different holonomies, 135° versus 155.8° (script 10). That would place the GFD vortex in the phase Alexander, Marcianò & Smolin find stable, but it is an alignment of descriptions, not a stability proof.
    - **Hassan–Rosen.** Their proof that the Boulware–Deser ghost is absent assumes both kinetic terms are positive. Extending it to opposite orientations is a claim of the framework, not yet a result.
