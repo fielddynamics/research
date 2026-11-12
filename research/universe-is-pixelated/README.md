@@ -280,6 +280,7 @@ python make_figures.py         # regenerates Figures 1 and 2
 - [`spectral/`](../spectral/) and [`quantum compute/`](../quantum%20compute/): the Walsh–Hadamard kernel and the oscillator work built on it.
 - [`photonic/`](../photonic/): the photon as the stellated octahedron, the pixel of spacetime.
 - [`field-closure/`](../field-closure/): the closure walk, and π from binary steps.
+- [`coupling-algebra/`](../coupling-algebra/): the cube's corners as one 4-dimensional algebra (the Hamming scheme), in which the cube graph, the Gram matrix, Paper IX's graph and the Walsh spectrum above are elements, and TetA and TetB couple through exactly two channels.
 
 ---
 
