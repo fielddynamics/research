@@ -69,7 +69,7 @@ In GFD terms, $\phi^*$ is the TetA field, $\hat\phi$ is the TetB field, and $\ph
 ## What it does not do
 
 - It does not derive $\mu$; the [exchange-symmetry proof](../constitutive-law-exchange-symmetry/) does that.
-- It treats only the low-speed (nonrelativistic) limit of BIMOND. It does not treat the full relativistic theory, its stability (the opposite-sign second metric raises the question of ghosts), gravitational waves, or BIMOND's second free function $f(\kappa)$.
+- It treats only the low-speed (nonrelativistic) limit of BIMOND. It does not treat the full relativistic theory, the dynamical stability of the two-orientation structure, which has to be analysed in the nonlinear theory because no quadratic theory exists at zero field, gravitational waves, or BIMOND's second free function $f(\kappa)$.
 - Lemma 1 rests on a stated premise. The second metric is carried by a frame on the negative root, with the same coupling, and the Einstein–Hilbert term is taken in its tetrad form $\det(e)\,R$. The metric form $\sqrt{-g}\,R$ would not see the sign.
 - It makes no novelty claim for the Legendre duality as such. AQUAL and QUMOND are known to agree for spherical systems, and that is a standard convex duality. What is shown here is the closed form for this $\mu$, its derivation, and its properties.
 - It proves uniqueness, not existence, and only on a bounded region.

@@ -1,6 +1,6 @@
 # BIMOND × GFD
 
-*Research folder, Field Dynamics Research, 2026-11-11. Status: working notes and checks, not a paper. Run `python3 run_all.py`: 51 checks pass, plus two data scripts (numpy, scipy, sympy).*
+*Research folder, Field Dynamics Research, 2026-11-11. Status: working notes and checks, not a paper. Run `python3 run_all.py`: 53 checks pass, plus two data scripts (numpy, scipy, sympy).*
 
 This folder lines up Milgrom's bimetric MOND (BIMOND; [arXiv:0912.0790](https://arxiv.org/pdf/0912.0790), [arXiv:1001.4444](https://arxiv.org/pdf/1001.4444), [arXiv:2208.10882](https://arxiv.org/pdf/2208.10882)) with the GFD algebra: the Coles notes, `research/gfd_algebra.py`, and `research/bimetric-projection/`. The question is whether BIMOND is a covariant home for the SST's physics.
 
@@ -124,12 +124,12 @@ Written in the TetB share b, 𝓜 is a polynomial plus one logarithm. That is si
 - The two are Legendre duals, and the TetB logarithm is the term they exchange.
 - This gives 𝓜 the derivation Milgrom left open, within GFD's postulates. Once μ is given, integrating ν − 1 gives the same function by brute force. The added content is the route through μ's derivation and the reading of each term as a tetrad share.
 
-**09 — Legendre duality at the level of the action** (`09_covariant_legendre_duality.py`, 12 checks). This tests whether the SST and BIMOND are one theory written two ways. It works with the SST's scalar sector, −(a₀²/8πG)F(X/a₀²) − ρΦ, where X = g^{μν}∂_μΦ∂_νΦ, on any metric. Gradients are taken to be spacelike, which is where F is defined. W*(p) = Q(|p|/2), where Q = y² + 𝓜 is the Legendre dual from the proof.
+**09 — Legendre duality at the level of the action** (`09_covariant_legendre_duality.py`, 14 checks). This tests whether the SST and BIMOND are one theory written two ways. It works with the SST's scalar sector, −(a₀²/8πG)F(X/a₀²) − ρΦ, where X = g^{μν}∂_μΦ∂_νΦ, on any metric. Gradients are taken to be spacelike, which is where F is defined. W*(p) = Q(|p|/2), where Q = y² + 𝓜 is the Legendre dual from the proof.
 
 | Form | Lagrangian | What it is |
 |---|---|---|
 | SST (AQUAL) | −(a₀²/8πG) F − ρΦ | one scalar |
-| First-order | (a₀²/8πG)[W*(p) − p·∂Φ/a₀] − ρΦ, with p an auxiliary covector | **exactly the SST.** Eliminating p returns F on any metric. p has no derivatives, so nothing new propagates. |
+| First-order | (a₀²/8πG)[W*(p) − p·∂Φ/a₀] − ρΦ, with p an auxiliary covector | **exactly the SST.** Eliminating p returns F on any metric; p enters without derivatives. |
 | Gradient | p = 2∂χ/a₀: (a₀²/8πG) Q(\|∂χ\|/a₀) − (1/4πG) ∂χ·∂Φ − ρΦ | **identically** −(1/8πG)[\|∂φ\|² − \|∂φ̂\|² − a₀²𝓜] − ρφ, with φ = Φ, φ* = χ, φ̂ = Φ − χ. This is Milgrom's BIMOND Lagrangian with β = 1, α = −1 (flat space and a curved static 3-metric checked symbolically). |
 
 Results:
@@ -139,13 +139,13 @@ Results:
   - In QUMOND/BIMOND the flux is the Newtonian gradient ∂φ*, and the field ν∇φ* has a curl, which is projected away.
   - With two point masses, the curl of ν(\|g_N\|)g_N is 10⁻²–10⁻¹ in units with G = a₀ = 1. With one mass it is zero, so the two coincide in spherical symmetry.
   - So BIMOND is the SST with the auxiliary flux required to be a gradient. That is one constraint, not a different theory. It matches the under-1% disk difference found in `research/bimetric-projection/probe_aqual_vs_two_potential.py`.
-- **Two roots are not two fields, and that removes the ghost.**
-  - A ghost is an independent field that propagates with a wrong-sign kinetic term.
-  - TetA and TetB are the two roots of one quadratic, the tetrad equation, with det e = ±√−g. They share one metric, so they are two branches of one solution, not two independent fields. The opposite sign is orientation (det e < 0), not negative energy.
-  - The first-order form says exactly this. The TetB flux p is fixed by Φ through an algebraic equation with no derivatives of p, so there is nothing extra to propagate, and only the SST's single scalar does.
-  - The sign becomes a problem only if TetB is given its own independent dynamics. BIMOND does that by making ĝ a second dynamical metric, and so does the two-potential form here: its (φ, φ̂) kinetic matrix is diag(1, −1). That is a modelling choice which treats the second root as a second field. GFD's root structure says not to make it.
-  - So the GFD-consistent relativistic form is the first-order one. The two-potential BIMOND form is a valid way to compute static, curl-free situations, not a statement that TetB propagates on its own.
-  - There is a precedent, which the Einstein TetA write-up discusses: the negative-energy second root of Dirac's equation turned out to be antiparticles with positive energy, not a pathology.
+- **Two schemes meeting at a nonlinear Field Origin.**
+  - The tetrad equation's scheme is two schemes, one per root, det e = ±√−g (see the [two bounded regions proof](../../proofs/tetrad-scheme-two-bounded-regions/)). TetA and TetB are two full sectors, two tetrads in GFD's Hassan–Rosen form (Paper VII), not one field with a sign chosen.
+  - They meet at the Field Origin, the interaction vertex at S = I (the octahedral core), and the coupling there is nonlinear. The Hassan–Rosen potential V(S) = e₀ + 16e₂ + e₄ is nonlinear in S. In the two-potential form, 𝓜 has no Taylor expansion at zero field: 𝓜 ≈ (4/3)z^{3/4} and 𝓜′ ≈ z^{−1/4} → ∞.
+  - The two proofs show the same thing from either side. At zero field the AQUAL Hessian goes to 0 (degenerate) and the two-potential Hessian goes to ∞ (singular). There is no quadratic, linear theory at the Field Origin.
+  - So the diag(1, −1) kinetic matrix of the two-potential form records the orientation sign of the two sectors away from the vertex. It is not a ghost diagnosis. A ghost is defined by the quadratic (linearised) theory, and at the Field Origin that does not exist.
+  - The opposite sign is the orientation that gives the two sectors opposite chirality (+θ for TetA, −θ for TetB). In the vortex-closure note (Letter 3 supplement), that chirality breaks the holonomy cancellation through the Field Origin and makes the field close as a vortex with an axis, which is the disk. The sign is what makes the vortex.
+  - The first-order form (auxiliary flux) is a mathematically equivalent rewriting of the SST's scalar sector. It is not a claim that TetB lacks its own dynamics, which GFD's two-tetrad form gives it.
 
 **Scope.** This is the scalar sector on a given metric. It is not a proof that the full SST, with its R and Maxwell terms, equals full two-metric BIMOND. BIMOND's second metric carries its own curvature term, whereas here φ̂ is a second scalar. The duality is exact for spacelike gradients. For timelike gradients F(y) is not defined, which is the standard open issue for AQUAL-type theories.
 
@@ -185,7 +185,11 @@ In this candidate:
 
 1. **Root-blindness only in vacuum.** In BIMOND the two metrics must differ once matter is present, or C = 0. GFD's "same metric for both roots" then holds only at the Field Origin, with no matter.
 2. **Torsion vs connection difference.** BIMOND's MOND sector is C in the 40. GFD has placed TetB in the torsion 24. Both give the same 3-vector in the slow-motion limit (`research/bimetric-projection/probe_where_tetb_pushes.py`). The relativistic content differs. Brake vs drive by spin orientation (item 6) favours the torsion 24, because only an axial channel carries spin direction.
-3. **The opposite sign: orientation, not a ghost.** α = −β gives the second sector a negative Einstein–Hilbert term. In BIMOND, where ĝ is an independent dynamical metric, that is a ghost risk. In GFD the second sector is the other root of the same tetrad equation, not an independent field. Script 09 shows the consistent form: in the first-order version the TetB flux is fixed algebraically and nothing extra propagates. What remains open is to carry this into the full action, with TetB constrained by TetA rather than given its own curvature term, and to check that no mode reappears there. Ghost stability, and Milgrom's self-acceleration of mixed systems (F − F̂ = 0, not F + F̂ = 0), are open.
+3. **Stability of the two-orientation structure.** α = −β gives the second sector a negative Einstein–Hilbert term, and that sign is the orientation of the second scheme. Any stability analysis has to be done in the nonlinear theory around real backgrounds, not by linearising at the Field Origin, where no quadratic theory exists (item above, script 09). Two points to check:
+   - **Citation.** Paper VII cites Alexander, Marcianò & Smolin (2014) for "a single orientation produces a scalar ghost; two opposite chambers cancel it". That paper's abstract says the reverse: its parity-symmetric bimetric phase has a scalar ghost and is unstable, while its parity-broken (chiral) phase is stable. The citation should be checked against the paper's body before it is relied on. One reading consistent with GFD: the vortex is a parity-broken configuration, since its chiral holonomy gives it a handedness. That is an interpretation, not shown.
+   - **Hassan–Rosen.** Their proof that the Boulware–Deser ghost is absent assumes both kinetic terms are positive. Extending it to opposite orientations is a claim of the framework, not yet a result.
+
+   Milgrom's self-acceleration of mixed systems (F − F̂ = 0, not F + F̂ = 0) is also open.
 4. **The net-field rule needs a covariant statement.** It has to say what coarse-graining scale defines φ̄*. Test D (`research/bimetric-projection/probe_testD_clusters_vs_dwarfs.py`) shows that star clusters must be coarse-grained out and dwarf galaxies kept. The criterion is galaxy (vortex) versus bound cluster, not a radius.
 5. **Gravitational-wave speed** in BIMOND with two dynamical metrics is not checked here (GW170817).
 6. **Brake and drive come from spin orientation.** In GFD the local TetB vortex brakes or drives against the net TetA vortex spin, depending on its relative handedness, as in standard vortex dynamics. BIMOND needs an axial (spin) twin sector to match this. A proper test of 04 should correlate the sign of ΔM_eff with spin orientation (for example, counter-rotating gas or stellar components, or spin relative to the host's tidal field), not just test a skew.

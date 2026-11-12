@@ -13,10 +13,10 @@ B. Gradient form.  Restrict p = 2 dchi/a0.  Then L2(Phi, chi) = (a0^2/8piG) Q(|d
 C. What differs.  Field equations:  AQUAL: field a0 grad W*(p) = dPhi is curl-free, flux p carries a curl, div p = 8piG rho/a0.
    QUMOND: flux p = 2 dchi/a0 is curl-free (chi Newtonian), the field nu dchi carries a curl, Phi is its gradient part.
    The two coincide whenever the curl part vanishes (e.g. spherical symmetry).
-D. Dynamics.  TetA and TetB are two roots of one equation, not two fields.  In the first-order form the TetB flux p is
-   fixed algebraically (no derivatives of p), so nothing extra propagates and there is no ghost.  Only if TetB is given
-   independent dynamics (the gradient form, or BIMOND's second dynamical metric) does the opposite sign appear as a
-   kinetic matrix diag(1, -1).
+D. The Field Origin is nonlinear.  TetA and TetB are two schemes (two sectors) meeting at the Field Origin.  At zero
+   field M has no Taylor expansion (M ~ (4/3) z^(3/4), M' ~ z^(-1/4) -> oo): the AQUAL Hessian -> 0 and the two-potential
+   Hessian -> oo.  No quadratic theory exists there, so the sign pattern diag(1, -1) of the two-potential kinetic terms is
+   the orientation of the two sectors, not a ghost diagnosis.  The first-order form is an equivalent rewriting of the SST.
 """
 import numpy as np, sympy as sp
 ok = []
@@ -112,13 +112,21 @@ check("C: one mass (spherical): nu(|gN|) gN is curl-free, so AQUAL and QUMOND co
 
 # ---- D. kinetic matrices
 K_grad = sp.Matrix([[1, 0], [0, -1]])                               # (phi, phihat) in L2 ~ -(1/8piG)[X_phi - X_phihat ...]
-check("D: if TetB is (wrongly) given independent dynamics, as in the gradient form, the (phi, phihat) kinetic matrix is diag(1, -1)",
-      K_grad.det() == -1)
+check("D: the two-potential kinetic terms carry the orientation signs diag(1, -1) (beta = 1, alpha = -1)", K_grad.det() == -1)
+zz = sp.symbols('z', positive=True)
+Mz = (sp.sqrt(sp.sqrt(zz))*(sp.sqrt(zz)+2)*sp.sqrt(sp.sqrt(zz)+4)/2 - zz/2 - 4*sp.asinh(sp.sqrt(sp.sqrt(zz))/2))   # M as a function of z = u^2
+lead = sp.limit(Mz/zz**sp.Rational(3, 4), zz, 0)
+check("D: at the Field Origin (zero field) M is non-analytic: M ~ (4/3) z^(3/4), M'(z) -> oo, no Taylor expansion in z",
+      lead == sp.Rational(4, 3) and sp.limit(sp.diff(Mz, zz), zz, 0) == sp.oo)
+xx = sp.symbols('x', positive=True)
+check("D: the AQUAL Hessian (2mu, 2(x mu)') -> 0 and the two-potential Hessian (2nu, 2(x+1)^2/(x(x+2))) -> oo at zero field: no quadratic theory at the vertex",
+      sp.limit(2*xx/(1+xx), xx, 0) == 0 and sp.limit(2*xx*(xx+2)/(xx+1)**2, xx, 0) == 0
+      and sp.limit(2*(xx+1)**2/(xx*(xx+2)), xx, 0) == sp.oo)
 P = [sp.Function(n)(*co) for n in ('p1', 'p2', 'p3')]
 Ws = sp.Function('Wstar')
 L1 = (a0**2/(8*sp.pi*G))*(Ws(sum(pi**2 for pi in P)) - sum(P[i]*sp.diff(Phi, co[i]) for i in range(3))/a0) - rho*Phi
 Ep = [e.lhs for e in sp.euler_equations(L1, P, co)]
-check("D: first-order form: the p equations are algebraic (no derivatives of p), so p is auxiliary and only Phi propagates, as in the SST",
+check("D: first-order form: the p equations are algebraic (no derivatives of p): an exact rewriting of the SST scalar sector",
       all(not e.has(*[sp.Derivative(pi, v) for pi in P for v in co]) for e in Ep))
 
 print(f"\n{sum(ok)}/{len(ok)} checks passed")
