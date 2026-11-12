@@ -4,6 +4,7 @@ Exact checks for bbp_cyclotomic_structure.md.  Run: python3 verify_bbp_cyclotomi
 Part 1: f(K,s) = 1 + sK + K^2 is Phi_3, Phi_4, Phi_6 at K; BBP's integrand is built from Phi_1, Phi_2, Phi_4, Phi_8 in u = y/sqrt2;
         BBP's numerator cancels Phi_4 (the Field Origin polynomial) and one half of Phi_8, and pi comes from the other half.
 Part 2: the octahedral reading of BBP (PROOF.md Theorem 3) under all 8! slot -> vertex labellings; the labelling-free selection.
+Part 3: why every formula for pi of BBP's type cancels Phi_4 and the 135-degree half (primes 3 and 5); (y - 1) is closure.
 """
 import itertools
 from fractions import Fraction as Fr
@@ -92,5 +93,36 @@ check("2d. the I Ching place-value labelling (slot j -> vertex j mod 8) selects 
 check("2e. the Gray-code labelling (consecutive slots one cube edge apart) also selects BBP, through a different diagonal; "
       "reverse place value (j -> -j mod 8) selects none (PROOF.md extension test 07)",
       selecting({s: (s % 8) ^ ((s % 8) >> 1) for s in range(1, 9)}) == [(3, 4)] and selecting({s: (-s) % 8 for s in range(1, 9)}) == [])
+
+print("\n=== 3. Why Phi_4 and the 135-degree half cancel: the primes 3 and 5")
+s2 = sp.sqrt(2)
+om = lambda n: sp.exp(sp.I * sp.pi * n / 4)                         # pole at y = sqrt2 * omega, omega = e^{i pi n/4}
+pairs = [(0, 4), (1, 7), (2, 6), (3, 5)]                           # 0/180, 45/315, 90/270 (Phi_4), 135/225 degrees
+prod = [sp.nsimplify(sp.expand(sp.simplify((1 - sp.conjugate(om(m)) / s2) * (1 - sp.conjugate(om(n)) / s2)))) for m, n in pairs]
+check("3a. multiplying 1 - conj(omega)/sqrt2 over each conjugate pole pair: 0/180 -> 1/2, 45/315 -> 1/2, 90/270 (Phi_4) -> 3/2, "
+      "135/225 -> 5/2; only the Field Origin pair and the 135-degree pair bring in an odd prime (3 and 5)",
+      prod == [sp.Rational(1, 2), sp.Rational(1, 2), sp.Rational(3, 2), sp.Rational(5, 2)])
+Lg = lambda n: mpmath.log(1 - mpmath.exp(-1j * mpmath.pi * n / 4) / mpmath.sqrt(2))
+lg2, lu = mpmath.log(2), mpmath.log(1 + mpmath.sqrt(2))
+expect = {0: -lu - lg2 / 2, 1: -lg2 / 2 + 1j * mpmath.pi / 4, 2: mpmath.log(mpmath.sqrt(2) + 1j) - lg2 / 2,
+          3: mpmath.log(1 + 1j) + mpmath.log(2 - 1j) - lg2, 4: lu - lg2 / 2, 5: mpmath.log(1 - 1j) + mpmath.log(2 + 1j) - lg2,
+          6: mpmath.log(mpmath.sqrt(2) - 1j) - lg2 / 2, 7: -lg2 / 2 - 1j * mpmath.pi / 4}
+check("3b. the logarithm at each pole (PROOF.md Theorem 2, Step 2): log(sqrt2 +- i) occurs only at the 90 and 270-degree poles and "
+      "log(2 -+ i) only at the 135 and 225-degree poles, each at exactly one pole",
+      all(abs(Lg(n) - expect[n]) < mpmath.mpf(10)**-35 for n in range(8)))
+r = sp.Symbol('r')
+a_vec = [A[j] for j in range(1, 9)]
+num_r = sp.expand(16 * sum((w[j] + r * a_vec[j]) * y**j for j in range(8)))
+quo, rem = sp.div(num_r, sp.expand((y**2 + 2) * (y**2 + 2 * y + 2)), y)
+check("3c. so (Baker: those logarithms are independent of pi, log 2, log(1 + sqrt2)) every formula BBP + r a must have zero residue at "
+      "those four poles: its numerator is divisible by (y^2 + 2)(y^2 + 2y + 2) for every r", sp.simplify(rem) == 0)
+check("3d. the remaining factor is m_r(y) = 16 [r (y^2 - 4y + 2) - (y - 1)], and its y^2 coefficient 16 r is exactly the TIME slot w_7 = r",
+      sp.expand(quo - 16 * (r * (y**2 - 4 * y + 2) - (y - 1))) == 0 and sp.expand(num_r).coeff(y, 6) == 16 * r)
+check("3e. TIME silence (w_7 = 0) <=> m_r is linear <=> r = 0", sp.solve(sp.Poly(quo, y).coeff_monomial(y**2), r) == [0])
+check("3f. closure (weights summing to zero) <=> the numerator vanishes at y = 1 <=> r = 0, leaving m_0 = -16 (y - 1): "
+      "BBP's factor (y - 1) is the closure condition",
+      sp.solve(num_r.subs(y, 1), r) == [0] and sp.expand(quo.subs(r, 0) + 16 * (y - 1)) == 0)
+check("3g. of the poles that remain, only the 45/315-degree pair carries pi: (1 +- i)/2 has argument +-pi/4; the 0/180 pair is real",
+      abs(mpmath.im(Lg(0))) < 1e-35 and abs(mpmath.im(Lg(4))) < 1e-35 and abs(mpmath.im(Lg(1)) - mpmath.pi / 4) < 1e-35)
 
 print(f"\n{sum(ok)}/{len(ok)} checks passed")

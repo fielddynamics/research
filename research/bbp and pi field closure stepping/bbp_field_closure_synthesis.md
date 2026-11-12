@@ -169,7 +169,7 @@ The precise term remains **common algebraic origin with structural realization**
 
 ## Addendum (2026-11-12): one cyclotomic family, and the weight of the labelling
 
-[`bbp_cyclotomic_structure.md`](bbp_cyclotomic_structure.md), with [`verify_bbp_cyclotomic_and_labelling.py`](verify_bbp_cyclotomic_and_labelling.py) (14 checks), adds two results.
+[`bbp_cyclotomic_structure.md`](bbp_cyclotomic_structure.md), with [`verify_bbp_cyclotomic_and_labelling.py`](verify_bbp_cyclotomic_and_labelling.py) (21 checks), adds three results.
 
 - **BBP and the coupling polynomial are one cyclotomic family.**
   - The coupling polynomial's states are Φ₃, Φ₄, Φ₆ at K (21, 17, 13).
@@ -179,3 +179,6 @@ The precise term remains **common algebraic origin with structural realization**
 - **The slot → vertex labelling carries little weight.**
   - Over all 8! labellings, 42.9% give BBP an octahedral reading through some body diagonal. The I Ching labelling does, through the TIME axis, but so does, for example, Gray code, through another diagonal.
   - The labelling-free core is closure: within the family BBP + r·a the weights sum to −15r, so zero total weight alone selects BBP.
+- **Why those factors cancel.**
+  - Every formula for π of BBP's type cancels Φ₄ and the 135° half of Φ₈, not BBP alone. Their poles carry the primes 3 and 5, whose logarithms are independent of π by Baker's theorem.
+  - Every such numerator is 16(y² + 2)(y² + 2y + 2)[r(y² − 4y + 2) − (y − 1)]. TIME silence and closure both set r = 0, so BBP's factor (y − 1) is the closure condition.
