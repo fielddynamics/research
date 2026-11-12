@@ -4,7 +4,7 @@
 
 `stellated-octahedron` `64-tetrahedron-grid` `isotropic-vector-matrix` `association-scheme` `coupling-algebra`
 
-*Research folder, 2026-11-12. Status: working notes with checks, not a paper. Run `python3 verify_64_tetrahedron_grid.py` (24 checks) and `python3 verify_photon_composition.py` (14 checks); all exact (integers, fractions, sympy). Run `python3 export_64tg_model.py` to regenerate the 3D model files. Open `viewer.html` in a browser to explore the grid.*
+*Research folder, 2026-11-12. Status: working notes with checks, not a paper. Run `python3 verify_64_tetrahedron_grid.py` (24 checks) `python3 verify_photon_composition.py` (14 checks) and `python3 verify_pixel_tiling.py` (9 checks); all exact (integers, fractions, sympy). Run `python3 export_64tg_model.py` to regenerate the 3D model files. Open `viewer.html` in a browser to explore the grid.*
 
 ---
 
@@ -85,6 +85,10 @@ The operators on the 64 tetrahedra that commute with the grid's 48 symmetries fo
 
 For any n×n×n block of photons, the large star n times the photon captures 4n(n²+1) spikes and expels 24·C(n+1,3) (proved for every n). The expelled volume reappears exactly as new octahedral cavities between photons. Off the 4 body diagonals the split is exactly half and half. The expelled spikes always form whole copies of the regular representation of S4, the symmetry of the 24 torsion components. At n = 2 each tip sits at the average of two photon frame vectors, so the grid lays out the photon's Gram matrix. The page `photon_composition.html` shows all of this for n = 1 to 5 and rechecks it live.
 
+### 7. The pixel cube forces the lattice, and closure fixes its chambers (proved; see [pixel_tiling_and_closure.md](pixel_tiling_and_closure.md))
+
+A photon's star fills half its cube. The other half is 12 edge wedges, and 4 wedges around each shared edge close into an octahedron held jointly by 4 photons, so pixel cubes fill space and the lattice is forced. Requiring every shared corner to get one chamber from all 8 photons meeting there has exactly two solutions. Photons alternate orientation like a checkerboard, every corner's chamber is its global parity, and the one remaining choice is the global exchange of TetA and TetB: the tetrad equation's two roots.
+
 ## Correction to Galeffi's Table 3 (CORRECTION)
 
 Galeffi's Table 3 lists the tetrahedra (edge $a/2$) inside each nested polyhedron. For the large stellated octahedron ($2a$) it gives **16** tetrahedra and a packing density of $1/6 \approx 0.166$. The exact model gives **40** and a density of **$5/12 \approx 0.417$**.
@@ -134,6 +138,8 @@ This is the $A_0$ spike of star $000$: its base is three face centres and its ti
 | `photon_composition.md` | Note: n×n×n photons composing a larger star; proofs of the counts, the volume exchange, the torsion symmetry of what is expelled |
 | `verify_photon_composition.py` | 14 exact checks for the note (n = 1–8, the two-level composite, the n = 2 metric readings) |
 | `photon_composition.html` | Interactive page: captured, expelled and diagonal spikes for n = 1–5, with every claim rechecked live |
+| `pixel_tiling_and_closure.md` | Note: the pixel cube forces the lattice; closure at shared corners fixes every photon's chambers up to the global root choice |
+| `verify_pixel_tiling.py` | 9 exact checks for that note |
 
 ## Related
 
