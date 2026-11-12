@@ -422,7 +422,7 @@ Shell ceilings $\mathrm{CEIL} = B_{\rm Zn} + B_{\rm bdy} - \mu_b(2)[B_{\rm Zn} -
 | BIMOND × GFD research (incl. chiral holonomy reproduced; connection irreducibles; where the roots live) | `research/bimond-gfd/run_all.py` | 130 |
 | Gram theorems | `papers/gram-matrix-of-tetrad-equation/verify_gram_theorems.py` | 32 |
 | Coupling algebra: the cube's symmetric couplings, two TetA–TetB channels, Gram/Walsh/Paper IX as elements, second root = odd leg relabelling; η as an element (time = grade 0), the connection's lower pair on the TetA–TetB links with the swap as parity | `research/coupling-algebra/verify_*.py`, `certify_first_principles.py` (exact, independent) | 50, 34, 52 |
-| 64-Tetrahedron Grid: the 64 tetrahedra as (star, spike) pairs sorted by the coupling relations; grid = large star + 24 vector-link spikes; Galeffi's counts recomputed, Table 3 corrected (16 → 40) | `research/stellated octahedron geometry/verify_64_tetrahedron_grid.py` (exact) | 24 |
+| 64-Tetrahedron Grid: the 64 tetrahedra as (star, spike) pairs sorted by the coupling relations; grid = large star + 24 vector-link spikes; Galeffi's counts recomputed, Table 3 corrected (16 → 40); n×n×n photon composition: 4n(n²+1) captured, 24·C(n+1,3) expelled as copies of the regular rep of S4 (proved) | `research/stellated octahedron geometry/verify_64_tetrahedron_grid.py`, `verify_photon_composition.py` (exact) | 24, 14 |
 | Letters 1, 2, 3 | `papers/letter-*/…/Supplementary/run_all_validations.py` | 29, 52, 52 |
 | TF evolution | `papers/tully-fisher-velocity-evolution/` | 64 |
 | AQUAL algebra (§§4.5–4.7 here) | `research/aqual/verify_*.py` | 50, 48, 23 |

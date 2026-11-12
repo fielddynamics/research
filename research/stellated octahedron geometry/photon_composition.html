@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body{margin:0}[hidden]{display:none!important}</style>
+<title>Photon Composition</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@500;600&family=IBM+Plex+Sans:wght@400;500&display=swap">
+<style>
+/* Layout: same drafting bench as the 64-TG viewer. Model left, a ledger of live checks right (stacks on phones). */
+:root {
+  --bg: #eef0f2; --panel: #f8f9fa; --canvas: #e6e9ec; --ink: #1b2026; --muted: #5d6670; --rule: #cfd5db; --accent: #2f6f9f;
+  --in: #2f7fbf; --out: #d9901c; --axis: #7a4fc0; --core: #8a949c; --cav: #3a9a77; --edge: #1b2026; --ok: #2e8b57; --bad: #c0392b;
+  --f-head: "IBM Plex Sans Condensed", "Arial Narrow", system-ui, sans-serif;
+  --f-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #12161a; --panel: #181d22; --canvas: #0d1013; --ink: #e3e7eb; --muted: #95a0aa; --rule: #2a323a; --accent: #6aa8d8;
+  --in: #4f9edc; --out: #ecaa45; --axis: #9d78e0; --core: #6c757d; --cav: #4dbb92; --edge: #05070a; --ok: #5cc98a; --bad: #ec6b5a; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #12161a; --panel: #181d22; --canvas: #0d1013; --ink: #e3e7eb; --muted: #95a0aa; --rule: #2a323a; --accent: #6aa8d8;
+  --in: #4f9edc; --out: #ecaa45; --axis: #9d78e0; --core: #6c757d; --cav: #4dbb92; --edge: #05070a; --ok: #5cc98a; --bad: #ec6b5a; color-scheme: dark }
+html, body { height: 100% }
+body { background: var(--bg); color: var(--ink); font: 14px/1.5 var(--f-body); }
+.wrap { display: grid; grid-template-columns: minmax(0, 1fr) 380px; gap: 16px; height: 100%; box-sizing: border-box;
+  padding-block: 16px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.stage { position: relative; min-width: 0; min-height: 360px; background: var(--canvas); border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; }
+.stage canvas { display: block; width: 100%; height: 100%; touch-action: none; }
+.hud { position: absolute; left: 12px; bottom: 10px; right: 12px; font: 12px/1.4 var(--f-mono); color: var(--muted); pointer-events: none; }
+.views { position: absolute; right: 10px; top: 10px; display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+aside { min-width: 0; overflow-y: auto; background: var(--panel); border: 1px solid var(--rule); border-radius: 6px; padding: 16px; display: flex; flex-direction: column; gap: 18px; }
+h1 { font: 600 22px/1.15 var(--f-head); margin: 0; text-wrap: balance }
+.sub { color: var(--muted); margin: 4px 0 0; font-size: 13px }
+h2 { font: 600 12px/1 var(--f-head); text-transform: uppercase; letter-spacing: .09em; color: var(--muted); margin: 0 0 8px }
+.seg { display: flex; border: 1px solid var(--rule); border-radius: 5px; overflow: hidden }
+.seg button { flex: 1; border: 0; background: transparent; color: var(--ink); font: 500 13px var(--f-mono); padding: 7px 4px; cursor: pointer }
+.seg button + button { border-left: 1px solid var(--rule) }
+.seg button[aria-pressed="true"] { background: var(--accent); color: var(--panel) }
+.btn { border: 1px solid var(--rule); background: var(--panel); color: var(--ink); font: 500 12px var(--f-body); padding: 5px 9px; border-radius: 4px; cursor: pointer }
+.btn:hover { border-color: var(--accent) }
+button:focus-visible, input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px }
+.layers { display: grid; gap: 2px }
+.layer { display: grid; grid-template-columns: 18px 12px minmax(0,1fr) auto; align-items: center; gap: 8px; padding: 4px 6px; border-radius: 4px; cursor: pointer }
+.layer:hover { background: color-mix(in srgb, var(--accent) 8%, transparent) }
+.layer input { margin: 0; accent-color: var(--accent) }
+.sw { width: 12px; height: 12px; border-radius: 2px; border: 1px solid color-mix(in srgb, var(--ink) 25%, transparent); display: inline-block }
+.layer .nm small { display: block; color: var(--muted); font-size: 12px; line-height: 1.3 }
+.layer .ct { font: 12px var(--f-mono); color: var(--muted); font-variant-numeric: tabular-nums }
+label.row { display: grid; grid-template-columns: 70px minmax(0,1fr) 36px; gap: 8px; align-items: center; font-size: 13px }
+label.row output { font: 12px var(--f-mono); color: var(--muted); text-align: right }
+input[type=range] { width: 100%; accent-color: var(--accent) }
+.claims { display: grid; gap: 8px }
+.claim { display: grid; grid-template-columns: 22px minmax(0,1fr); gap: 8px; align-items: start; padding: 8px 10px; background: var(--bg); border: 1px solid var(--rule); border-radius: 4px }
+.mark { font: 600 13px var(--f-mono); width: 20px; height: 20px; border-radius: 50%; display: grid; place-items: center; color: var(--panel) }
+.mark.ok { background: var(--ok) } .mark.bad { background: var(--bad) }
+.claim b { font-weight: 600 } .claim .eq { display: block; font: 12px/1.5 var(--f-mono); color: var(--muted); overflow-wrap: anywhere; font-variant-numeric: tabular-nums }
+.pick { font: 12.5px/1.55 var(--f-mono); background: var(--bg); border: 1px solid var(--rule); border-radius: 4px; padding: 10px; min-height: 72px }
+.pick b { font-family: var(--f-body) }
+.note { font-size: 12.5px; color: var(--muted); margin: 0 }
+@media (max-width: 860px) {
+  html, body { height: auto }
+  .wrap { grid-template-columns: minmax(0,1fr); height: auto }
+  .stage { height: min(82vw, 560px); min-height: 300px }
+  aside { overflow: visible }
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="stage" id="stage">
+    <canvas id="cv" aria-label="3D model of n by n by n photons composing a larger stellated octahedron"></canvas>
+    <div class="views">
+      <button class="btn" data-view="iso">Iso</button>
+      <button class="btn" data-view="axis">4-fold axis</button>
+      <button class="btn" data-view="tri">3-fold axis</button>
+      <button class="btn" id="spin" aria-pressed="false">Spin</button>
+    </div>
+    <div class="hud" id="hud"></div>
+  </div>
+
+  <aside>
+    <header>
+      <h1>Photon Composition</h1>
+      <p class="sub">n×n×n photons (stellated octahedra) build one stellated octahedron n times larger. Every claim below is recomputed from the geometry in exact integers whenever you change n.</p>
+    </header>
+
+    <section>
+      <h2>Photons per side, n</h2>
+      <div class="seg" role="group" aria-label="Photons per side">
+        <button data-n="1">1</button><button data-n="2">2</button><button data-n="3">3</button><button data-n="4">4</button><button data-n="5">5</button>
+      </div>
+    </section>
+
+    <section>
+      <h2>Show</h2>
+      <div class="layers" id="layers"></div>
+    </section>
+
+    <section>
+      <h2>Checks at this n</h2>
+      <div class="claims" id="claims"></div>
+    </section>
+
+    <section>
+      <h2>Arrange</h2>
+      <div style="display:grid;gap:8px">
+        <label class="row" for="explode">Explode <input type="range" id="explode" min="0" max="100" value="0"><output id="explodeV">0</output></label>
+        <label class="row" for="push">Push out <input type="range" id="push" min="0" max="100" value="0"><output id="pushV">0</output></label>
+      </div>
+    </section>
+
+    <section>
+      <h2>Selected spike</h2>
+      <div class="pick" id="pick">Tap a spike to see its photon, whether it is captured, and where its root-flipped partner goes.</div>
+    </section>
+
+    <p class="note">This page shows each claim and checks it at the n you pick. The counting formulas are verified for n = 1 to 8, not proved for every n. Units: tetrahedron volume = 1, so an octahedron = 4 and a photon = 12.</p>
+  </aside>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script>
+(() => {
+  const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+  const BITS = [0,1].flatMap(a => [0,1].flatMap(b => [0,1].map(c => [a,b,c])));
+  const comb3 = k => k < 3 ? 0 : k*(k-1)*(k-2)/6;
+
+  // ---------- exact geometry in doubled coordinates (all integers); block = [0, 2n]^3, centre M = (n, n, n)
+  function build(n) {
+    const M = n;
+    const Vp = [[1,1,1],[1,-1,-1],[-1,1,-1],[-1,-1,1]], Vm = Vp.map(v => v.map(x => -x));
+    const inTet = (p, V) => V.every(v => (p[0]-M)*v[0] + (p[1]-M)*v[1] + (p[2]-M)*v[2] >= -n);
+    const inStar = vs => vs.every(p => inTet(p, Vp)) || vs.every(p => inTet(p, Vm));
+    const spikeVerts = (c, f) => [c.map((x,i) => 2*(x + f[i])), ...[0,1,2].map(k => c.map((x,i) => i === k ? 2*(x + f[k]) : 2*x + 1))];
+    const octVerts = cen => [0,1,2].flatMap(k => [1,-1].map(s => cen.map((x,i) => x + (i === k ? s : 0))));
+    const stars = [];
+    for (let x = 0; x < n; x++) for (let y = 0; y < n; y++) for (let z = 0; z < n; z++) stars.push([x,y,z]);
+    const spikes = [];
+    stars.forEach((c, si) => BITS.forEach(f => {
+      const vs = spikeVerts(c, f);
+      const S = c.map(x => 2*x + 1 - M), D = f.map(x => 2*x - 1);              // star centre (centred) and spike direction
+      const axial = S.every((s, i) => s * D[i] === S[0] * D[0]);           // S parallel to D: the spike lies on a body diagonal
+      spikes.push({ c, f, si, vs, inside: inStar(vs), axial });
+    }));
+    // the root-flipped partner of each spike: same photon, opposite corner
+    const idx = new Map(spikes.map((s, i) => [s.si + ':' + s.f.join(''), i]));
+    spikes.forEach(s => s.partner = idx.get(s.si + ':' + s.f.map(x => 1 - x).join('')));
+    const cores = stars.map(c => { const cen = c.map(x => 2*x + 1); return { cen, vs: octVerts(cen), inside: inStar(octVerts(cen)) }; });
+    const cavs = [];
+    for (let x = 0; x <= 2*n; x++) for (let y = 0; y <= 2*n; y++) for (let z = 0; z <= 2*n; z++) {
+      const p = [x,y,z]; if (p.filter(v => v % 2).length !== 1) continue;
+      const vs = octVerts(p); if (vs.some(v => v.some(t => t < 0 || t > 2*n))) continue;
+      if (inStar(vs)) cavs.push({ cen: p, vs });
+    }
+    // rotation stabilisers of the expelled spikes (24 proper signed permutations about the centre)
+    const rots = [];
+    [[0,1,2],[1,2,0],[2,0,1],[1,0,2],[0,2,1],[2,1,0]].forEach((p, pi) => {
+      for (let s = 0; s < 8; s++) { const sg = [s & 1 ? -1 : 1, s & 2 ? -1 : 1, s & 4 ? -1 : 1];
+        const det = (pi < 3 ? 1 : -1) * sg[0] * sg[1] * sg[2]; if (det === 1) rots.push(v => p.map((j, i) => sg[i] * v[j])); }
+    });
+    const key = vs => vs.map(v => v.map(x => x - M).join(',')).sort().join('|');
+    const keyRot = (vs, R) => vs.map(v => R(v.map(x => x - M)).join(',')).sort().join('|');
+    const out = spikes.filter(s => !s.inside);
+    const free = out.every(s => { const k = key(s.vs); return rots.filter(R => keyRot(s.vs, R) === k).length === 1; });
+    return { n, M, spikes, cores, cavs, free, nrots: rots.length };
+  }
+
+  // ---------- scene
+  const cv = document.getElementById('cv'), stage = document.getElementById('stage');
+  const renderer = new THREE.WebGLRenderer({ canvas: cv, antialias: true }); renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+  const scene = new THREE.Scene(), camera = new THREE.PerspectiveCamera(32, 1, .05, 400);
+  const controls = new THREE.OrbitControls(camera, cv); controls.enableDamping = true; controls.dampingFactor = .09; controls.autoRotateSpeed = 1.2;
+  scene.add(new THREE.HemisphereLight(0xffffff, 0x445566, .75));
+  const key = new THREE.DirectionalLight(0xffffff, .65); key.position.set(4,6,5); scene.add(key);
+  const rim = new THREE.DirectionalLight(0xffffff, .3); rim.position.set(-5,-2,-4); scene.add(rim);
+  const root = new THREE.Group(); scene.add(root);
+  const edgeMat = new THREE.LineBasicMaterial({ transparent: true, opacity: .5 });
+  const lineMat = new THREE.LineBasicMaterial();
+  const mats = {}; ['in','out','axis','core','cav'].forEach(k => mats[k] = new THREE.MeshStandardMaterial({ flatShading: true, roughness: .6, transparent: true }));
+  const selMat = new THREE.MeshStandardMaterial({ flatShading: true, roughness: .5 });
+  const partMat = new THREE.MeshStandardMaterial({ flatShading: true, roughness: .5 });
+
+  const TET_F = [[0,1,2],[0,1,3],[0,2,3],[1,2,3]], OCT_F = [0,1].flatMap(a => [2,3].flatMap(b => [4,5].map(c => [a,b,c])));
+  function mesh(vs, faces, mat, M, s) {
+    const P = vs.map(v => new THREE.Vector3(...v.map(x => (x - M) * s)));
+    const cen = P.reduce((a, p) => a.add(p.clone().divideScalar(P.length)), new THREE.Vector3());
+    const pos = [];
+    faces.forEach(([a,b,c]) => { const n = new THREE.Vector3().subVectors(P[b],P[a]).cross(new THREE.Vector3().subVectors(P[c],P[a]));
+      (n.dot(new THREE.Vector3().subVectors(P[a], cen)) > 0 ? [P[a],P[b],P[c]] : [P[a],P[c],P[b]]).forEach(v => pos.push(v.x - cen.x, v.y - cen.y, v.z - cen.z)); });
+    const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3)); g.computeVertexNormals();
+    const m = new THREE.Mesh(g, mat); m.add(new THREE.LineSegments(new THREE.EdgesGeometry(g), edgeMat));
+    m.userData.cen = cen; m.position.copy(cen); root.add(m); return m;
+  }
+
+  let model = null, objs = { spikes: [], cores: [], cavs: [], outline: null };
+  const state = { n: 2, show: { in:1, out:1, axis:1, core:1, cav:1, star:1 }, explode: 0, push: 0, sel: null };
+  try { const s = JSON.parse(localStorage.getItem('photon-comp') || '{}'); if (s.n) state.n = s.n; if (s.show) Object.assign(state.show, s.show); } catch (e) {}
+  const save = () => { try { localStorage.setItem('photon-comp', JSON.stringify({ n: state.n, show: state.show })); } catch (e) {} };
+
+  function rebuild() {
+    while (root.children.length) { const o = root.children.pop(); o.traverse(x => x.geometry && x.geometry.dispose()); }
+    model = build(state.n); const s = 2 / state.n;                      // scale so every block has the same size on screen
+    objs.spikes = model.spikes.map(sp => { const m = mesh(sp.vs, TET_F, sp.axial ? mats.axis : sp.inside ? mats.in : mats.out, model.M, s / 2);
+      m.userData.sp = sp; return m; });
+    objs.cores = model.cores.map(c => { const m = mesh(c.vs, OCT_F, mats.core, model.M, s / 2); m.userData.core = c; return m; });
+    objs.cavs = model.cavs.map(c => mesh(c.vs, OCT_F, mats.cav, model.M, s / 2));
+    const C = [-1,1].flatMap(a => [-1,1].flatMap(b => [-1,1].map(c => [a,b,c]))), arr = [];
+    [C.filter(p => p[0]*p[1]*p[2] > 0), C.filter(p => p[0]*p[1]*p[2] < 0)].forEach(T => T.forEach((p,i) => T.slice(i+1).forEach(q => arr.push(...p, ...q))));
+    const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(arr, 3));
+    objs.outline = new THREE.LineSegments(g, lineMat); root.add(objs.outline);
+    state.sel = null; showPick(); claims(); apply();
+  }
+
+  // ---------- the live checks
+  function claims() {
+    const { n, spikes, cores, cavs, free } = model;
+    const I = spikes.filter(s => s.inside).length, O = spikes.length - I, A = spikes.filter(s => s.axial).length;
+    const axialIn = spikes.filter(s => s.axial).every(s => s.inside);
+    const offIn = spikes.filter(s => !s.axial && s.inside).length;
+    const coresIn = cores.filter(c => c.inside).length, coresOut = cores.length - coresIn;
+    const starVol = 12 * n ** 3, filled = I + 4 * (coresIn + cavs.length);
+    const expelled = O + 4 * coresOut, created = 4 * cavs.length;
+    const flipSwaps = spikes.filter(s => !s.axial).every(s => s.inside !== spikes[s.partner].inside);
+    const flipFails = spikes.filter(s => !s.axial && s.inside === spikes[s.partner].inside).length;
+    const items = [
+      [filled === starVol, 'The large star is filled exactly', `${I} spikes + 4×(${coresIn} cores + ${cavs.length} new cavities) = ${filled} = 12n³ = ${starVol}`],
+      [I === 4*n*(n*n+1) && O === 24*comb3(n+1), 'Captured and expelled counts', `inside ${I} = 4n(n²+1) · expelled ${O} = 24·C(n+1,3) = 24×${comb3(n+1)}`],
+      [expelled === created, 'Expelled volume = new between-photon volume', `${O} spikes + 4×${coresOut} cores out = ${expelled} = 4×${cavs.length} cavities = ${created}`],
+      [O === 0 || free, 'Expelled spikes carry torsion\'s symmetry', O === 0 ? 'nothing is expelled at n = 1' : `all ${O} have trivial rotation stabiliser: ${O/24} ${O === 24 ? 'copy' : 'copies'} of the regular representation of S4 (24 rotations)`],
+      [axialIn && offIn === O, 'Exact half-and-half off the diagonals', `on the 4 body diagonals: ${A} = 8n, all captured · off them: ${offIn} in, ${O} out`],
+      [flipSwaps, 'Photon root flip (f → f̄) swaps in and out', flipSwaps ? (n === 1 ? 'no off-axis spikes at n = 1' : 'holds for every off-axis spike') : `fails for ${flipFails} off-axis spikes at this n (holds only at n = 2); the half-and-half split above still holds`],
+    ];
+    document.getElementById('claims').innerHTML = items.map(([ok, t, eq]) =>
+      `<div class="claim"><span class="mark ${ok ? 'ok' : 'bad'}">${ok ? '✓' : '✗'}</span><span><b>${t}</b><span class="eq">${eq}</span></span></div>`).join('');
+    const cnt = { in: offIn, out: O, axis: A, core: cores.length, cav: cavs.length };
+    Object.entries(cnt).forEach(([k, v]) => { const el = document.getElementById('ct-' + k); if (el) el.textContent = v; });
+  }
+
+  // ---------- UI
+  const LAYERS = [
+    ['in', '--in', 'Captured spikes', 'off-axis, inside the large star'],
+    ['out', '--out', 'Expelled spikes', 'outside the large star'],
+    ['axis', '--axis', 'Diagonal spikes', 'on the 4 body diagonals through the Field Origin'],
+    ['core', '--core', 'Photon cores', 'each photon\'s own octahedron'],
+    ['cav', '--cav', 'New cavities', 'octahedra between photons, inside the large star'],
+    ['star', '--ink', 'Large star', 'outline, n times the photon'],
+  ];
+  const L = document.getElementById('layers');
+  LAYERS.forEach(([id, tok, name, note]) => {
+    const l = document.createElement('label'); l.className = 'layer'; l.htmlFor = 'L-' + id;
+    l.innerHTML = `<input type="checkbox" id="L-${id}"><span class="sw" data-sw="${tok}"></span><span class="nm">${name}<small>${note}</small></span><span class="ct" id="ct-${id}"></span>`;
+    L.appendChild(l); const cb = l.querySelector('input'); cb.checked = !!state.show[id];
+    cb.addEventListener('change', () => { state.show[id] = cb.checked ? 1 : 0; save(); apply(); });
+  });
+  document.querySelectorAll('[data-n]').forEach(b => b.addEventListener('click', () => { state.n = +b.dataset.n; save(); rebuild(); }));
+  const ex = document.getElementById('explode'), pu = document.getElementById('push');
+  ex.addEventListener('input', () => { state.explode = ex.value / 100; document.getElementById('explodeV').value = ex.value; apply(); });
+  pu.addEventListener('input', () => { state.push = pu.value / 100; document.getElementById('pushV').value = pu.value; apply(); });
+
+  function apply() {
+    document.querySelectorAll('[data-n]').forEach(b => b.setAttribute('aria-pressed', +b.dataset.n === state.n));
+    document.querySelectorAll('[data-sw]').forEach(s => s.style.background = css(s.dataset.sw));
+    mats.in.color.set(css('--in')); mats.out.color.set(css('--out')); mats.axis.color.set(css('--axis'));
+    mats.core.color.set(css('--core')); mats.cav.color.set(css('--cav'));
+    mats.core.opacity = .6; mats.cav.opacity = .75;
+    selMat.color.set(css('--accent')); selMat.emissive.set(css('--accent')); selMat.emissiveIntensity = .35;
+    partMat.color.set(css('--ink')); edgeMat.color.set(css('--edge')); lineMat.color.set(css('--ink'));
+    scene.background = new THREE.Color(css('--canvas'));
+    const e = state.explode * 1.2;
+    let vis = 0;
+    objs.spikes.forEach(m => { const sp = m.userData.sp, k = sp.axial ? 'axis' : sp.inside ? 'in' : 'out';
+      m.visible = !!state.show[k]; vis += m.visible;
+      const sel = state.sel && (state.sel === sp), part = state.sel && model.spikes[state.sel.partner] === sp;
+      m.material = sel ? selMat : part ? partMat : mats[k];
+      const p = m.userData.cen.clone().multiplyScalar(1 + e);
+      if (k === 'out') p.add(m.userData.cen.clone().normalize().multiplyScalar(state.push * .9));
+      m.position.copy(p); });
+    objs.cores.forEach(m => { m.visible = !!state.show.core; m.position.copy(m.userData.cen.clone().multiplyScalar(1 + e)); });
+    objs.cavs.forEach(m => { m.visible = !!state.show.cav; m.position.copy(m.userData.cen.clone().multiplyScalar(1 + e)); });
+    objs.outline.visible = !!state.show.star; objs.outline.scale.setScalar(1 + e);
+    document.getElementById('hud').textContent = `n = ${state.n} · ${state.n ** 3} photons · ${vis} of ${model.spikes.length} spikes shown`;
+  }
+
+  // ---------- picking
+  const ray = new THREE.Raycaster(), ptr = new THREE.Vector2(); let down = null;
+  cv.addEventListener('pointerdown', e => down = [e.clientX, e.clientY]);
+  cv.addEventListener('pointerup', e => {
+    if (!down || Math.hypot(e.clientX - down[0], e.clientY - down[1]) > 5) return;
+    const r = cv.getBoundingClientRect(); ptr.set((e.clientX - r.left) / r.width * 2 - 1, -(e.clientY - r.top) / r.height * 2 + 1);
+    ray.setFromCamera(ptr, camera);
+    const hit = ray.intersectObjects(objs.spikes.filter(m => m.visible), false)[0];
+    state.sel = hit ? hit.object.userData.sp : null; showPick(); apply();
+  });
+  const status = s => s.axial ? 'on a body diagonal (captured)' : s.inside ? 'captured' : 'expelled';
+  function showPick() {
+    const P = document.getElementById('pick');
+    if (!state.sel) { P.textContent = 'Tap a spike to see its photon, whether it is captured, and where its root-flipped partner goes.'; return; }
+    const s = state.sel, p = model.spikes[s.partner];
+    P.innerHTML = `<b>Photon (${s.c.join(',')}), spike f = ${s.f.join('')}</b><br>${status(s)}<br>root-flipped partner f̄ = ${p.f.join('')} (shown dark): ${status(p)}`;
+  }
+
+  // ---------- views, theme, size
+  const VIEWS = { iso: [5.2, 3.8, 6.2], axis: [0, 0, 8.6], tri: [5, 5, 5] };
+  let tween = null;
+  function go(v) { const to = new THREE.Vector3(...VIEWS[v]), from = camera.position.clone(), t0 = performance.now();
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    tween = t => { const k = reduce ? 1 : Math.min(1, (t - t0) / 600), ek = 1 - (1 - k) ** 3; camera.position.lerpVectors(from, to, ek); controls.target.set(0,0,0); if (k >= 1) tween = null; }; }
+  document.querySelectorAll('[data-view]').forEach(b => b.addEventListener('click', () => go(b.dataset.view)));
+  const spin = document.getElementById('spin');
+  spin.addEventListener('click', () => { controls.autoRotate = !controls.autoRotate; spin.setAttribute('aria-pressed', controls.autoRotate); });
+  camera.position.set(...VIEWS.iso);
+  new MutationObserver(apply).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change', apply);
+  const fit = () => { const w = stage.clientWidth, h = stage.clientHeight; renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix(); };
+  new ResizeObserver(fit).observe(stage); fit();
+  rebuild();
+  renderer.setAnimationLoop(t => { if (tween) tween(t); controls.update(); renderer.render(scene, camera); });
+})();
+</script>
+</body>
+</html>
