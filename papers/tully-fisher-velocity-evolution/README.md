@@ -18,9 +18,9 @@ $$\frac{v(z)}{v(0)} = \left[\frac{H(z)}{H_0}\right]^{0.17}$$
 
 All nine measurements fall on it.
 
-![Tully–Fisher velocity evolution: GFD prediction, ΛCDM flat line, ±6.2% band and nine IFU measurements](tf-evolution.png)
+![Tully–Fisher velocity evolution: GFD prediction with its ±6.2% band, ΛCDM, a₀ ∝ H for reference, and nine IFU measurements with ±1σ errors; residuals below](tf-evolution-errors.png)
 
-*Blue curve: the GFD prediction $[H(z)/H_0]^{0.17}$. Shaded band: the ±6.2% topological band, $(k/\pi)^{1/4}$. Dashed line: ΛCDM, $v(z)/v(0) = 1$. Orange points: the nine IFU measurements. Green star: SINS BX442 at $z = 2.18$, rotating 27% faster than the local relation. Chart produced with [GRAVIS](https://github.com/fielddynamics/gravis).*
+*Upper panel. Blue curve: the GFD prediction $[H(z)/H_0]^{0.17}$. Shaded band: the ±6.2% topological band, $(k/\pi)^{1/4}$. Dashed line: ΛCDM, or MOND with a constant $a_0$, $v(z)/v(0) = 1$. Dotted line: $a_0 \propto H$ (exponent 1/4), for reference. Points: the nine IFU measurements with their ±1σ errors, one marker per survey. Green star: SINS BX442 at $z = 2.18$, a single galaxy rotating 27% faster than the local relation, quoted without an uncertainty. The inset gives χ² over the eight points at $z > 0$: 0.34 for GFD, 6.70 for $a_0 \propto H$, 27.14 for no evolution. Lower panel: residuals from GFD in units of each measurement's σ. Built by [`make_tf_figure.py`](make_tf_figure.py).*
 
 ## The equation behind the curve
 
@@ -90,7 +90,9 @@ GFD and ΛCDM diverge further with every step in redshift. At $z = 4$ the predic
 |---|---|
 | [`tf_velocity_evolution.pdf`](tf_velocity_evolution.pdf) | The paper |
 | [`tf_velocity_evolution.tex`](tf_velocity_evolution.tex) | LaTeX source |
-| [`tf-evolution.png`](tf-evolution.png) | Figure 1: the prediction, band, ΛCDM line and data |
+| [`tf-evolution-errors.png`](tf-evolution-errors.png), [`tf-evolution-errors.pdf`](tf-evolution-errors.pdf) | Figure 1: the prediction and band, ΛCDM, a₀ ∝ H for reference, the nine measurements with ±1σ errors, χ² for each model, and residuals in units of σ |
+| [`make_tf_figure.py`](make_tf_figure.py) | Builds Figure 1 (`python make_tf_figure.py`; needs NumPy and Matplotlib) |
+| [`tf-evolution.png`](tf-evolution.png) | The earlier GRAVIS rendering of the same curve and data |
 | [`run_all_validations.py`](run_all_validations.py) | Checks every equation, constant and table entry against CODATA 2022 and Planck 2018 (64 checks) |
 
 ```bash

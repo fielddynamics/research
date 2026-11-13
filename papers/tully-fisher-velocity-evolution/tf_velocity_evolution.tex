@@ -172,14 +172,14 @@ Where does the $\pm 6.2\%$ come from? The tetrahedral field chamber has flat fac
 
 The contrast with $\Lambda$CDM is direct. The standard model predicts a flat line at $v(z)/v(0) = 1.0$. At $z = 2$, the observed ratio of 1.21 exceeds this by more than 20\%, lying more than $2\sigma$ from the flat line. At $z = 3$, the discrepancy grows to 29\%.
 
-Figure~\ref{fig:tf} shows the prediction, the $\Lambda$CDM flat line, the $\pm 6.2\%$ uncertainty band, and the nine IFU data points, as rendered by the GRAVIS interactive tool.
+Figure~\ref{fig:tf} shows the prediction, the $\Lambda$CDM flat line, the $\pm 6.2\%$ uncertainty band, and the nine IFU data points with their $\pm1\sigma$ uncertainties, together with the residuals from the prediction.
 
-\begin{figure}[t]
+\begin{figure*}[t]
 \centering
-\includegraphics[width=\columnwidth]{tf-evolution.png}
-\caption{Tully-Fisher velocity evolution: $v(z)/v(0)$ versus redshift $z$. Blue curve: the GFD zero-parameter prediction $[H(z)/H_0]^{0.17}$. Shaded band: the $\pm 6.2\%$ topological measurement cage. Dashed white line: the $\Lambda$CDM prediction ($v(z)/v(0) = 1.0$). Orange circles: IFU survey data (Table~\ref{tab:observations}). Green star: SINS BX442 at $z = 2.18$ (Law et~al.\ 2012; Cresci et~al.\ 2009), rotating 27\% faster than the local TF relation. Chart produced by \textsc{GRAVIS}: Galactic Rotation from Field Dynamics (\url{https://github.com/fielddynamics/gravis}).}
+\includegraphics[width=\textwidth]{tf-evolution-errors.pdf}
+\caption{Tully-Fisher velocity evolution: $v(z)/v(0)$ at fixed baryonic mass versus redshift $z$. \textit{Upper panel.} Blue curve: the GFD zero-parameter prediction $[H(z)/H_0]^{0.17}$. Shaded band: the $\pm 6.2\%$ topological band, $(4/\pi)^{1/4}$. Dashed line: the $\Lambda$CDM prediction, or MOND with a constant $a_0$ ($v(z)/v(0) = 1$). Dotted line: $a_0 \propto H$ (exponent $1/4$), for reference. Points: the IFU measurements of Table~\ref{tab:observations} with their $\pm1\sigma$ uncertainties, one marker per survey. Green star: SINS BX442 at $z = 2.18$ (Law et~al.\ 2012; Cresci et~al.\ 2009), a single galaxy rotating 27\% faster than the local relation, quoted without an uncertainty. The inset gives $\chi^2$ over the eight measurements at $z > 0$: 0.34 for GFD, 6.70 for $a_0 \propto H$ and 27.14 for no evolution. \textit{Lower panel.} Residuals from the GFD prediction in units of each measurement's $\sigma$; the shaded strip is $\pm1\sigma$. Cosmology: $\Omega_m = 0.30$, $\Omega_\Lambda = 0.70$; $H_0$ cancels in the ratio. Produced by \texttt{make\_tf\_figure.py}.}
 \label{fig:tf}
-\end{figure}
+\end{figure*}
 
 % ----------------------------------------------------------------------------
 % 4. CONNECTION TO THE HUBBLE TENSION
