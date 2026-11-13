@@ -1,0 +1,395 @@
+\documentclass[twocolumn]{iopjournal}
+
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+
+\fancyhfoffset[L]{0mm}
+\setlength{\marginparwidth}{0pt}
+\setlength{\marginparsep}{0pt}
+
+\renewcommand{\articletype}[1]{%
+  {\vspace*{-8mm}\noindent \Large \sf Preprint}\par
+  \vspace*{6mm}\noindent{\scriptsize \sf{\bfseries \MakeUppercase{#1}}}}
+
+\fancyhead[L]{}
+\fancyhead[R]{}
+
+\hypersetup{pdftitle={The SST Covariant Completion: y From the Acceleration of the Time Leg}, pdfauthor={Stephen Nelson}, pdfsubject={Gravity Field Dynamics (GFD)}, pdfkeywords={scalar-tensor transition, covariant action, tetrad, time leg, acceleration, khronometric, preferred foliation, MOND, proof}}
+
+\begin{document}
+
+\articletype{Supplementary Material}
+
+\title{The SST Covariant Completion: $y$ From the Acceleration of the Time Leg}
+
+\author{Stephen Nelson}
+
+\affil{Field Dynamics Research}
+
+\ead{stephen@fielddynamics.org}
+
+\begin{abstract}
+The quasi-static proof of the SST~\cite{NelsonPqs} left three points
+open: the covariant definition of $y$, which the archive writes as
+$|\nabla\Phi|^2/a_0^2$; $F$ for timelike gradients, $y<0$; and the
+metric field equations, with the status of $\Phi$'s stress--energy.
+We settle all three with one definition. Let $u = e_0$ be the time
+leg of the tetrad and $a^\mu = u^\nu\nabla_\nu u^\mu$ its
+acceleration, and set $y = c^4 a_\mu a^\mu/a_0^2$. This $y$ is a
+spacetime scalar. Since $a\cdot u = 0$, the acceleration is spacelike
+or zero, so $y \ge 0$ for every configuration and $F$ needs no
+extension. In a static metric $-N^2c^2dt^2 + h_{ij}dx^idx^j$ with
+$N = e^{\Phi/c^2}$, $c^2 a_i = \partial_i\Phi$ exactly, so $y$ reduces
+to the archive's $|\nabla\Phi|^2/a_0^2$, and $\Phi$ is the lapse
+potential of the metric, not a separate field. The SST, with the
+reading of Lemma~1 of~\cite{NelsonPqs}, is then the action
+$(1/16\pi G)\sqrt{-g}\,[R - 2f(a)]$ with $f = a_0^2[F(y) - y]$. This
+is the preferred-foliation form of Blanchet and
+Marsat~\cite{BM2011,BM2012}, and it gives $\mu_{\rm total} = 1 +
+f'(a)/2a = x/(x+1)$ exactly. Its static weak field gives $\Psi =
+\Phi$ and $\nabla\cdot[\mu\nabla\Phi] = 4\pi G\rho$; the metric
+equations carry the TetB share as phantom density; the time-leg
+stress--energy is post-Newtonian; and the homogeneous background is
+exactly general relativity. We also state a limit the covariant form
+makes precise: $f$ does not tend to a constant at large $a$, so on
+each mass's own time leg the action leaves a TetB tail $\to a_0$. The
+archive excludes that tail in the solar system and applies $\mu$ to
+the galaxy's net field. The covariant statement of that rule is that
+$a$ is the acceleration of the coarse-grained time leg; deriving that
+from an action is open.
+\end{abstract}
+
+\keywords{scalar-tensor transition, covariant action, tetrad, time leg, acceleration, khronometric, preferred foliation, MOND, proof}
+
+% ----------------------------------------------------------------------
+
+\section*{Setting}
+
+The SST is the action~\cite{NelsonL3,NelsonL3supp,NelsonII}
+\begin{equation}
+\begin{aligned}
+S = \!\int\! d^4x\sqrt{-g}\Big[&\frac{R}{16\pi G} - \frac{a_0^2}{8\pi G}F(y)\\
+&- \tfrac14 e^{-2\Phi/c^2}F_{\mu\nu}F^{\mu\nu} + \mathcal L_{\rm m}\Big],
+\end{aligned}
+\label{eq:sst}
+\end{equation}
+with $F(y) = y - 2\sqrt y + 2\ln(1+\sqrt y)$ and
+$\mu(x) = x/(x+1)$, $x = \sqrt y$. The quasi-static
+proof~\cite{NelsonPqs} reads the action as the framework does
+(Lemma~1 there): in the static weak field the curvature term supplies
+the Newtonian part $y$ of $F$, and the scalar term supplies
+$F(y) - y$. It derives the field equation, $\gamma = 1$ and the
+galactic results from that reading. Its Scope listed three open
+points, and this note answers them.
+
+\textbf{The time leg.} The tetrad's leg $e_0$ is unit timelike,
+$g(e_0,e_0) = -1$. We take it normal to GFD's time foliation (in the
+static case, the slices of constant Killing time), so $u = e_0$ is
+hypersurface-orthogonal. Its acceleration is
+$a^\mu = u^\nu\nabla_\nu u^\mu$.
+
+\textbf{Definition.} \(y \equiv c^4\, a_\mu a^\mu / a_0^2.\)
+
+Each identity below is checked exactly by the accompanying script, 16
+checks in all, using sympy for every algebraic
+step~\cite{NelsonScript}.
+
+\textbf{Contributions and prior work.} An action of the form
+$(1/16\pi G)\sqrt{-g}[R - 2f(a)]$, built from the acceleration of a
+unit timelike field normal to a preferred foliation, is Blanchet and
+Marsat's modified gravity with a preferred time
+foliation~\cite{BM2011,BM2012}. Its MOND phenomenology, and the
+conditions on $f$, are theirs. Related constructions are Sanders'
+Ho\v{r}ava-type MOND~\cite{Sanders2011}, generalized Einstein-aether
+MOND~\cite{ZFS2007} and the khronometric theory~\cite{BPS2011}. What
+this note adds:
+\begin{itemize}
+\item the identification of the SST's $y$ with the acceleration of the
+tetrad's time leg;
+\item the SST's own $f$, $f = a_0^2[F(y) - y]$, which gives the
+archive's $\mu = x/(x+1)$ exactly;
+\item the identification of $\Phi$ with the lapse;
+\item the strong-field limit of this $f$, and what it means for the
+archive's net-field rule;
+\item machine checks of every step.
+\end{itemize}
+
+% ----------------------------------------------------------------------
+
+\section*{Theorem 1 (covariance and positivity)}
+
+\emph{$y$ is a spacetime scalar, and $y \ge 0$ for every configuration.
+So $F(y)$ is defined everywhere, and no branch for timelike gradients
+is needed.}
+
+\begin{proof}
+$y$ is the contraction of the vector $a^\mu$ with itself, so it is a
+scalar. From $u\cdot u = -1$, $u_\mu\nabla_\nu u^\mu = 0$, so
+$a\cdot u = 0$: $a$ is orthogonal to a timelike vector and is
+therefore spacelike or zero. Hence $a_\mu a^\mu \ge 0$. The script
+checks $g(u,u) = -1$ and $a\cdot u = 0$ identically for a general
+time-dependent lapse and conformal factor, and $a\cdot a \ge 0$ at 20
+random points of a time-dependent metric.
+\end{proof}
+
+So open point~2 does not arise. An argument $\nabla_\mu\Phi\nabla^\mu\Phi$
+of a scalar $\Phi$ can be negative; the time leg's acceleration
+cannot.
+
+% ----------------------------------------------------------------------
+
+\section*{Theorem 2 (the static reduction)}
+
+\emph{For a static metric $-N^2c^2dt^2 + h_{ij}dx^idx^j$, the time
+leg's acceleration is $a_0 = 0$, $a_i = \partial_i\ln N$ exactly. With
+$N = e^{\Phi/c^2}$,
+\begin{equation}
+c^2 a_i = \partial_i\Phi,\qquad
+y = \frac{h^{ij}\partial_i\Phi\,\partial_j\Phi}{a_0^2},
+\label{eq:static}
+\end{equation}
+and in the weak field, $h_{ij} = (1 - 2\Psi/c^2)\delta_{ij}$,
+$y = |\nabla\Phi|^2/a_0^2 + O(c^{-2})$.}
+
+\begin{proof}
+Direct computation of $u^\nu\nabla_\nu u^\mu$ with
+$u = (Nc)^{-1}\partial_t$ (checked for general $N$ and a conformal
+$h$). Substituting $N = e^{\Phi/c^2}$ gives~(\ref{eq:static}), and the
+limit $c\to\infty$ gives the weak-field form (checked).
+\end{proof}
+
+So the archive's $y$ is the static form of a covariant scalar. The
+field strength is the acceleration of the frame's time leg: what an
+observer at rest in the foliation measures on an accelerometer. In
+the static case $\Phi \equiv c^2\ln N$ is the lapse potential of the
+metric. It is not a field added to the metric, which is the framework's
+reading~(i) in~\cite{NelsonPqs}, now stated exactly.
+
+% ----------------------------------------------------------------------
+
+\section*{Theorem 3 (the covariant SST)}
+
+\emph{With $y$ as defined, the SST read as in Lemma~1
+of~\cite{NelsonPqs} is the action
+\begin{equation}
+\begin{aligned}
+S &= \int d^4x\,\frac{\sqrt{-g}}{16\pi G}\big[R - 2f(a)\big] + S_{\rm EM} + S_{\rm m},\\
+f &= a_0^2\big[F(y) - y\big],
+\end{aligned}
+\label{eq:cov}
+\end{equation}
+in units $c = 1$, $y = a^2/a_0^2$. Then:
+\begin{enumerate}
+\item Blanchet and Marsat's $\chi = f'(a)/2a$ is
+$\chi = \mu - 1$, so $\mu_{\rm total} = 1 + \chi = \mu(a/a_0) = x/(x+1)$
+exactly;
+\item the curvature term supplies the $y$ of $F$, and the time-leg
+term supplies $F - y$: $-2f/16\pi G = -(a_0^2/8\pi G)[F(y) - y]$;
+\item in the static weak field, with minimal coupling,
+$\nabla^2(\Phi - \Psi) = 0$, so $\Psi = \Phi$ ($\gamma = 1$), and
+\begin{equation}
+\nabla\cdot\big[\mu(|\nabla\Phi|/a_0)\nabla\Phi\big] = 4\pi G\rho .
+\label{eq:field}
+\end{equation}
+\end{enumerate}}
+
+\begin{proof}
+(1) Differentiate $f(a) = a_0^2[F(a^2/a_0^2) - a^2/a_0^2]$; using
+$F'(y) = \mu(\sqrt y)$ gives $f'/2a = \mu - 1$ (checked exactly).
+(2) is the definition. (3) By Theorem~2 the static weak-field
+Lagrangian of~(\ref{eq:cov}) is Lemma~1 of~\cite{NelsonPqs},
+\[
+\frac{(\nabla\Psi)^2 - 2\nabla\Phi\cdot\nabla\Psi}{8\pi G}
+- \frac{a_0^2}{8\pi G}\big[F(y) - y\big] - \rho\Phi .
+\]
+Its Euler--Lagrange equations are checked: the $\Psi$-equation is
+$\nabla^2(\Phi - \Psi) = 0$, and the $\Phi$-equation on $\Psi = \Phi$
+is~(\ref{eq:field}).
+\end{proof}
+
+Equation~(\ref{eq:cov}) is the reading of Lemma~1 written as a
+covariant action. Read with $F$ in place of $F - y$, the $y$ would be
+counted twice, and the field equation would be
+$\nabla\cdot[(1+\mu)\nabla\Phi] = 4\pi G\rho$~\cite{NelsonPqs}.
+
+% ----------------------------------------------------------------------
+
+\section*{Theorem 4 (the metric equations and $\Phi$'s stress--energy)}
+
+\emph{Varying~(\ref{eq:cov}) gives Einstein's equation with the
+time-leg stress tensor as an extra source, plus the foliation's own
+equation~\cite{BM2011}. There is no separate scalar stress tensor,
+because $\Phi$ is the lapse. In the static weak field:
+\begin{enumerate}
+\item the $00$-equation is $\nabla^2\Phi = 4\pi G(\rho + \rho_{\rm ph})$,
+with $\rho_{\rm ph} = \nabla\cdot[(1-\mu)\nabla\Phi]/4\pi G$, the
+TetB share as phantom density (for a deep point mass,
+$\rho_{\rm ph} = \sqrt{GMa_0}/4\pi G r^2$);
+\item the time-leg energy density is the gravitational field energy,
+$\sim g^2/8\pi G$, since $F - y = -y + \tfrac23 y^{3/2} + O(y^2)$ in
+the deep field. As a mass density it is $v^2/2c^2$ times
+$\rho_{\rm ph}$, where $v^4 = GMa_0$: about $2\times10^{-7}$ at
+$200$~km/s.
+\end{enumerate}}
+
+\begin{proof}
+(1) is~(\ref{eq:field}) rearranged, and the deep point-mass value is
+checked for $g = \sqrt{GMa_0}/r$. (2) The series of $F - y$ and the
+ratio are checked exactly.
+\end{proof}
+
+This answers open point~3. ``$\Phi$ is the metric's Newtonian
+potential'' is Theorem~2 ($\Phi = c^2\ln N$) together with
+Theorem~3(3) ($\Psi = \Phi$). Its energy enters the metric at
+post-Newtonian order, as the energy of any gravitational field does.
+
+% ----------------------------------------------------------------------
+
+\section*{Theorem 5 (the cosmological background)}
+
+\emph{In a homogeneous, isotropic background the comoving time leg is
+geodesic, $a = 0$, so $y = 0$ and $F(0) = 0$. The background is
+exactly general relativity, and the SST acts on perturbations.}
+
+\begin{proof}
+For $-dt^2 + a(t)^2d\mathbf x^2$ with $u = \partial_t$, every
+component of $u^\nu\nabla_\nu u^\mu$ vanishes (checked), and
+$F(0) = 0$.
+\end{proof}
+
+% ----------------------------------------------------------------------
+
+\section*{Theorem 6 (the two limits of $f$)}
+
+\emph{In the deep field, $f = -a^2 + 2a^3/3a_0 + O(a^4)$:
+Blanchet and Marsat's MOND condition with $\Lambda_0 = 0$. In the
+strong field, $f = -2a_0a + 2a_0^2\ln(a/a_0) + O(1)$, which does not
+tend to a constant, their condition for recovering general
+relativity. So the TetB share $(1-\mu)g$ tends to $a_0$ as
+$x\to\infty$.}
+
+\begin{proof}
+Both series are checked exactly, as is
+$\lim_{x\to\infty} a_0\mu(x) = a_0$.
+\end{proof}
+
+\textbf{What this means for the solar system.} Evaluated on each
+mass's own time leg, the action leaves a TetB tail
+$(1-\mu)g \to a_0$ around every star. At Saturn, $x\approx 5\times10^5$
+and the tail is $a_0$ to two parts in $10^6$ (checked). This is the
+per-mass tail that the archive records as excluded: a constant pull
+$\approx a_0$ at every planet, ruled out by perihelia, and a
+Sun-centred quadrupole, ruled out by Cassini (\cite{NelsonColes},
+\S5.4; \cite{NelsonBimetric}, Part~3). The archive therefore applies
+$\mu$ to the galaxy's net field, never to a star's own field. The
+covariant form makes that rule precise: $a$ is the acceleration of
+the coarse-grained time leg, the frame of the galaxy's net field, and
+bound subsystems gravitate internally through $R$ alone. In a solar
+system that net field is uniform to $\sim10^{-12}$ and is removed by
+free fall~\cite{NelsonColes}. Equation~(\ref{eq:cov}) with $a$ taken
+from each mass's own time leg does not implement this. An action that
+does, for example by defining the coarse-graining covariantly, is the
+open step.
+
+% ----------------------------------------------------------------------
+
+\section*{Scope}
+
+Proved here:
+\begin{itemize}
+\item the covariant $y$ and its positivity;
+\item its exact static reduction, and $\Phi$ as the lapse;
+\item the covariant form~(\ref{eq:cov}) of the SST under Lemma~1, with
+$\mu = x/(x+1)$ exactly;
+\item $\gamma = 1$ and the field equation from it;
+\item the structure and size of the metric equations' extra source;
+\item the general-relativistic background;
+\item the two limits of $f$.
+\end{itemize}
+
+Not proved here:
+\begin{enumerate}
+\item \emph{The net-field mechanism} (Theorem~6).
+\item \emph{Preferred-frame effects.} A preferred foliation breaks
+local Lorentz invariance. The PPN parameters $\alpha_1, \alpha_2$ and
+the khronon's dynamics and stability~\cite{BPS2011} are not computed
+for this $f$. In Blanchet and Marsat's model, general relativity is
+recovered well above $a_0$ because $f$ tends to a constant there
+(the cosmological constant); this $f$ does not, so these must be
+computed with the net-field rule in place.
+\item \emph{Signal speeds.} The action has no $(\nabla u)^2$ shear or
+expansion terms, so the curvature term carries the tensor modes. The
+scalar-sector propagation speed found in the archive assumed $\Phi$ as
+a covariant scalar and needs redoing with $\Phi$ as the lapse.
+\item \emph{The fourth term.} With $\Phi = c^2\ln N$, the EM coupling
+$e^{-2\Phi/c^2}$ is defined relative to the foliation's normalized
+time; its coefficient $\alpha$ remains open, as in~\cite{NelsonPqs}.
+\item \emph{A general time leg.} If $e_0$ is not hypersurface-orthogonal,
+the theory is of generalized Einstein-aether type~\cite{ZFS2007}, with
+a vorticity sector not treated here.
+\end{enumerate}
+
+% ----------------------------------------------------------------------
+
+\begin{thebibliography}{99}
+
+\bibitem{NelsonPqs}
+S.~Nelson,
+\textit{The SST Covariant Completion in Its Quasi-Static Limit} (2026),
+\texttt{proofs/sst-quasi-static-limit/}.
+
+\bibitem{NelsonL3}
+S.~Nelson,
+\textit{Gravity Field Dynamics: Field Closure of the Tetrad Frame},
+Letter~3 (2026).
+
+\bibitem{NelsonL3supp}
+S.~Nelson,
+\textit{Covariant completion}, supplementary note to Letter~3 (2026).
+
+\bibitem{NelsonII}
+S.~Nelson,
+\textit{A Covariant Theory Without Dark Matter}, Paper~II (2026),
+doi:10.5281/zenodo.18360354.
+
+\bibitem{NelsonColes}
+S.~Nelson,
+\textit{Gravity Field Dynamics --- Coles Notes} (2026), \S5.4.
+
+\bibitem{NelsonBimetric}
+S.~Nelson,
+\textit{Bimetric projection} (2026),
+\texttt{research/bimetric-projection/}, Part~3.
+
+\bibitem{NelsonScript}
+S.~Nelson,
+\texttt{verify\_sst\_covariant\_time\_leg.py} (2026),
+\texttt{proofs/sst-covariant-time-leg/}.
+
+\bibitem{BM2011}
+L.~Blanchet and S.~Marsat,
+Modified gravity approach based on a preferred time foliation,
+arXiv:1107.5264 (2011).
+
+\bibitem{BM2012}
+L.~Blanchet and S.~Marsat,
+Relativistic MOND theory based on the Khronon scalar field,
+arXiv:1205.0400 (2012).
+
+\bibitem{Sanders2011}
+R.~H.~Sanders,
+Hiding Lorentz invariance violation with MOND,
+arXiv:1105.3910 (2011).
+
+\bibitem{ZFS2007}
+T.~G.~Zlosnik, P.~G.~Ferreira and G.~D.~Starkman,
+Modifying gravity with the aether: an alternative to dark matter,
+\textit{Phys.\ Rev.\ D} \textbf{75} (2007) 044017.
+
+\bibitem{BPS2011}
+D.~Blas, O.~Pujol\`as and S.~Sibiryakov,
+Models of non-relativistic quantum gravity: the good, the bad and the
+healthy, \textit{JHEP} \textbf{04} (2011) 018.
+
+\end{thebibliography}
+
+\end{document}

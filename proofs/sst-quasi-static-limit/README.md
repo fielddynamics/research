@@ -6,7 +6,7 @@
 
 ---
 
-This folder holds a three-page proof and a script that checks every step (26 checks, exact algebra). It was revised after an internal referee-style review ([`referee_review.md`](referee_review.md)). The SST (scalar-tensor transition) is GFD's four-term covariant action:
+This folder holds a four-page proof and a script that checks every step (26 checks, exact algebra). It was revised after an internal referee-style review ([`referee_review.md`](referee_review.md)). The SST (scalar-tensor transition) is GFD's four-term covariant action:
 
 $$S = \int d^4x\,\sqrt{-g}\left[\frac{R}{16\pi G} - \frac{a_0^2}{8\pi G}F(y) - \frac14 e^{-2\Phi/c^2}F_{\mu\nu}F^{\mu\nu} + \mathcal L_{\rm matter}\right],\qquad F(y) = y - 2\sqrt y + 2\ln(1+\sqrt y).$$
 
@@ -66,7 +66,7 @@ Minor points:
 
 - **The metric field equations** beyond leading order, including the stress–energy of the F sector, have not been solved.
 - **ℒ_matter** is specified here only in its weak-field form.
-- **The covariant meaning of y.** The limit uses the static frame. As a spacetime scalar, y would need Φ to be a scalar field, and its covariant form for time-dependent and strong fields is open.
+- **The covariant meaning of y.** *Answered in the companion proof [`../sst-covariant-time-leg/`](../sst-covariant-time-leg/):* y = c⁴a·a/a₀², with a the acceleration of the tetrad's time leg. It is a scalar with y ≥ 0, it reduces exactly to |∇Φ|²/a₀² with Φ the lapse, and it gives the metric equations' structure. That proof also finds that the SST's f does not tend to a constant at large a, so the net-field rule (Coles §5.4) needs a mechanism.
 - **The fourth term has three descriptions in the documents:** disformal and needed for lensing; conformal with a cosmological role; an auxiliary vector field. The variation of α with the potential that it implies is not discussed.
 - **The bimetric match.** The match from the locked bimetric theory to μ is open.
 - **Paper I's processing boundary.** Paper I's √(GM/a₀) is where x = φ = (1+√5)/2, not where x = 1. The ring μ = ½ is at √(2GM/a₀).
