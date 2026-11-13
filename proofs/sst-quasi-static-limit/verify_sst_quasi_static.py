@@ -1,4 +1,4 @@
-"""Machine checks for 'The SST in Its Quasi-Static Limit'.
+"""Machine checks for 'The SST Covariant Completion in Its Quasi-Static Limit'.
 Exact algebra (sympy) for every identity; numerics only to evaluate physical sizes.
 Run: python verify_sst_quasi_static.py"""
 import sympy as sp

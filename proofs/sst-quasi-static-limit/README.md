@@ -1,4 +1,4 @@
-# The SST in Its Quasi-Static Limit
+# The SST Covariant Completion in Its Quasi-Static Limit
 
 *What the four-term covariant action gives where galaxies are observed · Gravity Field Dynamics (GFD) · Field Dynamics Research*
 
