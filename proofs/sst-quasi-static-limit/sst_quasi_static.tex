@@ -32,22 +32,23 @@ The scalar-tensor transition (SST) is the four-term covariant action
 of Gravity Field Dynamics, with kinetic function
 $F(y) = y - 2\sqrt y + 2\ln(1+\sqrt y)$. We derive, exactly, what it
 gives in the quasi-static weak-field limit in which galaxies are
-observed, reading the action as the framework does: $\Phi$ is the
+observed. We read the action as the framework does: $\Phi$ is the
 Newtonian potential of the metric, the curvature term carries the
-tensor sector, and $\Phi$'s response is carried by $F$. Varying the
-action gives the field equation
+tensor sector, and $\Phi$'s response is carried by $F$. Lemma~1 states
+that reading as an exact identity for the static Lagrangian. From it
+the curvature term's equation gives $\Psi = \Phi$, so $\gamma = 1$ at
+leading order, and the $\Phi$-equation is
 $\nabla\cdot[\mu(|\nabla\Phi|/a_0)\nabla\Phi] = 4\pi G\rho$ with
 $\mu(x) = x/(x+1)$, equivalently the capacity form with
-$f(x) = (21x+13)/(x+1)$. In spherical symmetry it integrates exactly to
-the conserved flux $r^2\mu g_t = GM$ and the spherical field equation
+$f(x) = (21x+13)/(x+1)$. Minimal coupling of matter gives the source.
+In spherical symmetry the field equation integrates exactly to
 $g_s = g_t^2/(a_0 + g_t)$, whose forward solver and mass decoder are
 exact inverses. We derive the Newtonian and deep limits, the baryonic
-Tully--Fisher relation $v^4 = GMa_0$, the bound $a_0\mu < a_0$ on the
-TetB share, the location of the transition ring, the phantom density,
-and the well-posedness of the field equation. With the single potential
-in both metric components, $\gamma = 1$: a point mass deflects light by
-$4GM/(bc^2)$, the deep field by $2\pi\sqrt{GMa_0}/c^2$, and lensing mass
-equals dynamical mass.
+Tully--Fisher relation, the bound on the TetB share, the transition
+ring, the phantom density and well-posedness, and, from $\gamma = 1$,
+light deflection $4GM/(bc^2)$ in the Newtonian field and
+$2\pi\sqrt{GMa_0}/c^2$ in the deep field, with lensing mass equal to
+dynamical mass.
 \end{abstract}
 
 \keywords{scalar-tensor transition, covariant action, AQUAL, constitutive law, radial acceleration relation, Tully--Fisher, lensing, proof}
@@ -81,11 +82,9 @@ inside $F$~\cite{NelsonL3supp}.
 \item[(ii)] The curvature term carries the tensor sector, so
 gravitational waves travel at $c$, and $\Phi$'s response is carried by
 $F$, the scalar sector ``decoupling from the metric
-dynamics''~\cite{NelsonL3supp}. (The Remark after Theorem~6 shows why
-this is needed.)
-\item[(iii)] In the static weak field, matter enters through the source
-term $-\rho\Phi$, the weak-field form of minimal coupling when $\Phi$
-is the metric potential, and $e^{-2\Phi/c^2} \to 1$~\cite{NelsonRAR}.
+dynamics''~\cite{NelsonL3supp}. Lemma~1 states this exactly.
+\item[(iii)] Matter is minimally coupled to the metric, and
+$e^{-2\Phi/c^2} \to 1$ in the static weak field~\cite{NelsonRAR}.
 \item[(iv)] $\mu$ applies to the net field of a galaxy, not to each
 mass; a bound system much smaller than its host, such as the solar
 system, is pure TetA, that is, general
@@ -97,20 +96,62 @@ equation~\cite{NelsonColes}. The documentation calls the capacity
 function $f(x) = (21x+13)/(x+1)$ ``the field equation''~\cite{NelsonDocs};
 Theorem~2 shows that the two are one equation.
 
+\paragraph{Contributions and prior work.} The AQUAL field equation, its
+spherical reduction, the Newtonian and deep limits, the Tully--Fisher
+relation, well-posedness and the deep-field deflection are standard
+results for the simple interpolating
+function~\cite{BekensteinMilgrom1984,Milgrom1983,FamaeyMcGaugh2012}.
+What this proof adds is their derivation from the SST's own terms, with
+the framework's reading stated as an exact identity (Lemma~1) and
+$\gamma = 1$ derived from it, together with the capacity form, the
+exact solver--decoder pair, the TetB-share bound and the transition
+ring, each checked by machine.
+
 % ----------------------------------------------------------------------
 
 \section*{The Field Equation}
 
-\paragraph{Theorem 1.} \textit{In the static weak field the SST
-reduces to $\int d^3x\,[-(a_0^2/8\pi G)F(|\nabla\Phi|^2/a_0^2) -
-\rho\Phi]$, and varying $\Phi$ gives}
+Write the static weak-field metric as $g_{00} = -(1 + 2\Phi/c^2)$,
+$g_{ij} = (1 - 2\Psi/c^2)\delta_{ij}$.
+
+\paragraph{Lemma 1 (the reading, exactly).} \textit{The static part of
+$\sqrt{-g}R/16\pi G$ at second order is, up to a divergence,
+$(8\pi G)^{-1}[(\nabla\Psi)^2 - 2\nabla\Phi\cdot\nabla\Psi]$, which on
+$\Psi = \Phi$ is the Newtonian energy $-(\nabla\Phi)^2/8\pi G =
+-(a_0^2/8\pi G)\,y$. Reading (ii) is the statement that the static
+Lagrangian is}
+\begin{equation}
+\begin{aligned}
+\mathcal L_{\mathrm{st}} = \;&\frac{(\nabla\Psi)^2 - 2\nabla\Phi\cdot\nabla\Psi}{8\pi G}\\
+&- \frac{a_0^2}{8\pi G}\big[F(y) - y\big] - \rho\Phi ,
+\end{aligned}
+\label{eq:lst}
+\end{equation}
+\textit{the curvature term supplying the Newtonian part $y$ of $F$. On
+$\Psi = \Phi$ this is $-(a_0^2/8\pi G)F(y) - \rho\Phi$. The source term
+is minimal coupling: a mass $m$ contributes
+$-mc^2\sqrt{-g_{00}} = -mc^2 - m\Phi + O(\Phi^2/c^2)$.}
+
+\paragraph{Proof.} The second-order expansion of $\sqrt{-g}R$ for this
+metric is computed directly; its Euler--Lagrange equations are twice
+those of $(\nabla\Psi)^2 - 2\nabla\Phi\cdot\nabla\Psi$. The rest is
+substitution. \hfill $\square$
+
+\paragraph{Theorem 1.} \textit{Varying Eq.~(\ref{eq:lst}) with respect
+to $\Psi$ gives $\nabla^2(\Phi - \Psi) = 0$, so $\Psi = \Phi$ for
+fields that vanish at infinity: $\gamma = 1$ at leading order. Varying
+with respect to $\Phi$ and setting $\Psi = \Phi$ gives}
 \begin{equation}
   \nabla\cdot\Big[\mu\Big(\frac{|\nabla\Phi|}{a_0}\Big)\nabla\Phi\Big]
   = 4\pi G\rho .
 \label{eq:field}
 \end{equation}
 
-\paragraph{Proof.} $\partial F/\partial(\nabla\Phi) =
+\paragraph{Proof.} The $\Psi$-equation is
+$(8\pi G)^{-1}(-2\nabla^2\Psi + 2\nabla^2\Phi) = 0$. In the
+$\Phi$-equation, the curvature term contributes $\nabla^2\Psi/4\pi G$
+and the term $+(a_0^2/8\pi G)y$ contributes $-\nabla^2\Phi/4\pi G$;
+these cancel on $\Psi = \Phi$. For the rest, $\partial F/\partial(\nabla\Phi) =
 F'(y)\,2\nabla\Phi/a_0^2 = 2\mu\nabla\Phi/a_0^2$, and
 $(a_0^2/8\pi G)(2/a_0^2) = 1/(4\pi G)$. The Euler--Lagrange equation is
 $(4\pi G)^{-1}\nabla\cdot(\mu\nabla\Phi) - \rho = 0$, the Bekenstein--Milgrom form~\cite{BekensteinMilgrom1984}. \hfill $\square$
@@ -167,8 +208,9 @@ letter~\cite{NelsonDEC}.
 \paragraph{Theorem 4.} \textit{(i) As $g_s \to \infty$,
 $g_t = g_s + a_0 - a_0^2/g_s + O(g_s^{-2})$: Newtonian. (ii) As
 $g_s \to 0$, $g_t = \sqrt{g_s a_0} + g_s/2 + O(g_s^{3/2})$. (iii) For a
-bounded mass $M$, $v^4 \to GMa_0$ exactly as $r \to \infty$: the
-baryonic Tully--Fisher relation. (iv) The TetB share of the field is
+bounded, isolated mass $M$, $v^4 \to GMa_0$ exactly as $r \to \infty$:
+the baryonic Tully--Fisher relation (an external field modifies this,
+as in AQUAL). (iv) The TetB share of the field is
 $(1-\mu)g_t = a_0\mu(g_t/a_0) < a_0$. (v) The ring $x = 1$, where
 $\mu = \tfrac12$, lies where $g_s = a_0/2$, at
 $r_1 = \sqrt{2GM/a_0}$; at $r = \sqrt{GM/a_0}$, where $g_s = a_0$, the
@@ -190,7 +232,9 @@ $F(|p|^2/a_0^2)$ is strictly convex in $p = \nabla\Phi$ for $p \neq 0$,
 with Hessian eigenvalues $2\mu$ across and $2(x\mu)'$ along the field,
 whose ratio $(x\mu)'/\mu = 1 + (1-\mu)$ lies in $[1, 2]$. So
 Eq.~(\ref{eq:field}) is elliptic away from $\nabla\Phi = 0$, and its
-solution is unique for given boundary data.}
+solution is unique for given boundary data or for fields decaying at
+infinity. Existence for AQUAL is due to Bekenstein and
+Milgrom~\cite{BekensteinMilgrom1984}.}
 
 \paragraph{Proof.} The energy-functional proof~\cite{NelsonPaqual};
 the eigenvalues are $2x/(x+1)$ and $2x(x+2)/(x+1)^2$. \hfill $\square$
@@ -199,16 +243,19 @@ the eigenvalues are $2x/(x+1)$ and $2x(x+2)/(x+1)^2$. \hfill $\square$
 
 \section*{The Single Potential}
 
-\paragraph{Theorem 6.} \textit{Under reading (i), the weak-field metric
-carries the one potential in both components,
-$g_{00} = -(1 + 2\Phi/c^2)$, $g_{ij} = (1 - 2\Phi/c^2)\delta_{ij}$, so
-$\gamma = 1$, and the deflection of light at impact parameter $b$ is
+\paragraph{Theorem 6.} \textit{By Theorem~1 the weak-field metric
+carries one potential in both components,
+$g_{00} = -(1 + 2\Phi/c^2)$, $g_{ij} = (1 - 2\Phi/c^2)\delta_{ij}$, so the
+lensing potential is $\int(\Phi + \Psi)\,dz = 2\int\Phi\,dz$: light is
+deflected by the same $\Phi$ that sets the dynamics. In the Born
+approximation the deflection at impact parameter $b$ is
 $\theta = (2/c^2)\int g_\perp\,dz$. A Newtonian point mass gives
 $4GM/(bc^2)$; the deep field $g_t = \sqrt{GMa_0}/r$ gives the constant
-$2\pi\sqrt{GMa_0}/c^2$; and in general the lensing mass equals the
-dynamical mass $M_{\mathrm{dyn}}(r) = g_t r^2/G$. In a galaxy the factor
-$e^{-2\Phi/c^2}$ differs from $1$ by about $2|\Phi|/c^2 \sim 10^{-6}$,
-so the fourth term does not enter the static dynamics.}
+$2\pi\sqrt{GMa_0}/c^2$; and for a spherical lens the lensing mass equals
+the dynamical mass $M_{\mathrm{dyn}}(r) = g_t r^2/G$. In a galaxy the
+factor $e^{-2\Phi/c^2}$ differs from $1$ by about
+$2|\Phi|/c^2 \sim 10^{-6}$, so the fourth term does not enter the
+static dynamics.}
 
 \paragraph{Proof.} The deflection is $((1+\gamma)/c^2)\int
 \nabla_\perp\Phi\,dz$ with $\nabla_\perp\Phi = g_t\,b/r$; the integrals
@@ -219,40 +266,43 @@ has $g = GM_{\mathrm{dyn}}/r^2 = g_t$, the same integrand.
 
 \medskip
 \noindent
-This is the content of Letter~3's statement that $\gamma = 1$ ``because
-the single potential $\Phi$ governs both metric components'', and of
-Paper~I's single-standard postulate~\cite{NelsonI}. The deep-field
-deflection is Milgrom's~\cite{Milgrom1983}.
+This is Letter~3's statement that $\gamma = 1$ ``because the single
+potential $\Phi$ governs both metric components'', and Paper~I's
+single-standard postulate~\cite{NelsonI}, here derived from the
+curvature term's $\Psi$-equation. The deep-field deflection is
+Milgrom's~\cite{Milgrom1983}.
 
 \paragraph{Remark (the reading in (ii)).} The static weak-field part of
 $R/16\pi G$ is $(8\pi G)^{-1}[(\nabla\Psi)^2 - 2\nabla\Phi\cdot\nabla\Psi]$,
 which on $\Psi = \Phi$ is the Newtonian energy $-(\nabla\Phi)^2/8\pi G$.
-If that part were counted for $\Phi$ in addition to $F$, the equations
-would give $\Psi = \Phi$ and $\nabla\cdot[(1+\mu)\nabla\Phi] =
-4\pi G\rho$. The SST's field equation, Eq.~(\ref{eq:field}), is the one
-in which $\Phi$'s response is carried by $F$ alone, as the archive
-states; this fixes the reading, and Theorems~1--6 use it.
+If $F$ were added to it in full, rather than $F - y$ as in Lemma~1, the
+equations would give $\Psi = \Phi$ and $\nabla\cdot[(1+\mu)\nabla\Phi]
+= 4\pi G\rho$. The SST's field equation, Eq.~(\ref{eq:field}), is the
+one in which $\Phi$'s response is carried by $F$ alone, as the archive
+states; Lemma~1 is that statement made exact.
 
 % ----------------------------------------------------------------------
 
 \section*{Scope}
 
-Theorems~1--5 are exact consequences of the SST in the quasi-static
-weak field, and Theorems~3--4 are what the SPARC rotation curves, the
-Tully--Fisher relation and the mass decoder test. Theorem~6 holds under
-the single-potential reading of Letter~3. The archive records what
-remains open~\cite{NelsonColes}: the metric field equations, including
-the stress--energy of the $F$ sector, have not been solved beyond this
-limit; $\mathcal L_{\mathrm{matter}}$ is specified here only in its
-weak-field form; the covariant meaning of $y$ for time-dependent and
-strong fields is open; the documents describe the fourth term
+Theorems~1--6 are exact consequences of the SST, read as in Lemma~1, at
+leading order in the quasi-static weak field, and Theorems~3--4 are
+what the SPARC rotation curves, the Tully--Fisher relation and the mass
+decoder test. The limit uses the static frame, in which $|\nabla\Phi|^2$
+is defined; as a spacetime scalar, $y$ requires $\Phi$ to be a scalar
+field, and its covariant form for time-dependent and strong fields is
+open. The archive records what else remains open~\cite{NelsonColes}:
+the metric field equations beyond leading order, including the
+stress--energy of the $F$ sector; $\mathcal L_{\mathrm{matter}}$ beyond
+its weak-field form; the documents describe the fourth term
 differently (disformal and needed for lensing; conformal with a
 cosmological role; an auxiliary vector), and the dependence of the
 fine-structure constant on the potential that it implies is not
 discussed; and the match from the locked bimetric theory to $\mu$ is
-open. Theorem~4(v) places the ring $\mu = \tfrac12$ at
-$\sqrt{2GM/a_0}$; the radius $\sqrt{GM/a_0}$ quoted as the processing
-boundary in Paper~I is where $x = \varphi$.
+open. At the radius $\sqrt{GM/a_0}$ quoted as the processing boundary in
+Paper~I, the Newtonian acceleration equals $a_0$, and there
+$x = \varphi$ and $\mu = 1/\varphi$; the ring $\mu = \tfrac12$ is at
+$\sqrt{2GM/a_0}$ (Theorem~4(v)).
 
 % ----------------------------------------------------------------------
 
@@ -324,6 +374,12 @@ doi:10.5281/zenodo.18332595.
 J.~Bekenstein and M.~Milgrom,
 ``Does the missing mass problem signal the breakdown of Newtonian
 gravity?'', \textit{Astrophys. J.} \textbf{286} (1984) 7.
+
+\bibitem{FamaeyMcGaugh2012}
+B.~Famaey and S.~S.~McGaugh,
+``Modified Newtonian Dynamics (MOND): observational phenomenology and
+relativistic extensions'', \textit{Living Rev. Relativ.} \textbf{15}
+(2012) 10.
 
 \bibitem{Milgrom1983}
 M.~Milgrom,

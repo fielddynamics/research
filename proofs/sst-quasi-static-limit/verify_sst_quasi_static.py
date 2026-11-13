@@ -13,13 +13,29 @@ G, a0, M, r, b, c, rho = sp.symbols("G a_0 M r b c rho", positive=True)
 mu = lambda X: X / (X + 1)
 F = lambda Y: Y - 2 * sp.sqrt(Y) + 2 * sp.log(1 + sp.sqrt(Y))
 
+# ---- Lemma 1: the reading made precise, and the matter coupling
+X1, X2, X3 = sp.symbols("X1 X2 X3")
+P = sp.Function("Phi")(X1, X2, X3)
+Q = sp.Function("Psi")(X1, X2, X3)
+grad = [sp.diff(P, v) for v in (X1, X2, X3)]
+Y = sum(g_ ** 2 for g_ in grad) / a0 ** 2
+LEH = (sum(sp.diff(Q, v_) ** 2 for v_ in (X1, X2, X3)) - 2 * sum(sp.diff(P, v_) * sp.diff(Q, v_) for v_ in (X1, X2, X3))) / (8 * sp.pi * G)
+Lread = LEH - a0 ** 2 / (8 * sp.pi * G) * (F(Y) - Y) - rho * P
+check("L1.1 (Lemma 1) on Psi = Phi, the curvature term's static part plus -(a0^2/8 pi G)[F(y) - y] equals -(a0^2/8 pi G) F(y): "
+      "the energy the archive varies", sp.simplify(LEH.subs(Q, P) - a0 ** 2 / (8 * sp.pi * G) * (F(Y) - Y) + a0 ** 2 / (8 * sp.pi * G) * F(Y)) == 0)
+eL = euler_equations(Lread, [P, Q], [X1, X2, X3])
+check("L1.2 its Psi-equation is lap(Phi - Psi) = 0, so Psi = Phi for decaying fields: gamma = 1 at leading order",
+      sp.simplify(eL[1].lhs * 4 * sp.pi * G - sum(sp.diff(P - Q, v_, 2) for v_ in (X1, X2, X3))) == 0)
+xg0 = sp.sqrt(sum(g_ ** 2 for g_ in grad)) / a0
+tgt0 = sum(sp.diff(mu(xg0) * g_, v_) for g_, v_ in zip(grad, (X1, X2, X3))) / (4 * sp.pi * G) - rho
+check("L1.3 and its Phi-equation on Psi = Phi is div[mu grad Phi] = 4 pi G rho", sp.simplify(eL[0].lhs.subs(Q, P).doit() - tgt0) == 0)
+m_, P0 = sp.symbols("m Phi_0", positive=True)
+check("L1.4 matter: -m c^2 sqrt(-g_00) = -m c^2 sqrt(1 + 2 Phi/c^2) = -m c^2 - m Phi + O(Phi^2/c^2): minimal coupling gives the source -rho Phi",
+      sp.simplify(sp.series(-m_ * c ** 2 * sp.sqrt(1 + 2 * P0 / c ** 2), P0, 0, 2).removeO() - (-m_ * c ** 2 - m_ * P0)) == 0)
+
 # ---- Theorem 1: the field equation from the action
 check("T1.1 F(0) = 0 and F'(y) = mu(sqrt y): the kinetic function of the SST is the AQUAL energy of mu(x) = x/(x+1)",
       F(sp.Integer(0)) == 0 and sp.simplify(sp.diff(F(y), y) - mu(sp.sqrt(y))) == 0)
-X1, X2, X3 = sp.symbols("X1 X2 X3")
-P = sp.Function("Phi")(X1, X2, X3)
-grad = [sp.diff(P, v) for v in (X1, X2, X3)]
-Y = sum(g_ ** 2 for g_ in grad) / a0 ** 2
 L = -a0 ** 2 / (8 * sp.pi * G) * F(Y) - rho * P
 EL = euler_equations(L, [P], [X1, X2, X3])[0].lhs
 xg = sp.sqrt(sum(g_ ** 2 for g_ in grad)) / a0
