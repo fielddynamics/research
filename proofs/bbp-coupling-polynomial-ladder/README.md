@@ -6,7 +6,7 @@
 
 ---
 
-This folder holds a four-page proof in two parts, a script that checks every step (46 checks), and an independent blind test of Part II (9 checks, in [`extensions/`](extensions/)). The checks use exact algebra, with 40-digit numerics only where a logarithm's branch or an integral's value has to be fixed. The proof places the Bailey–Borwein–Plouffe (BBP) formula for π and GFD's coupling polynomial f(K, s) = 1 + sK + K² on one ladder of cyclotomic polynomials, and shows exactly where they meet.
+This folder holds a five-page proof in three parts, a script that checks every step (61 checks), and an independent blind test of Part II (9 checks, in [`extensions/`](extensions/)). The checks use exact algebra, with 40-digit numerics only where a logarithm's branch or an integral's value has to be fixed. The proof places the Bailey–Borwein–Plouffe (BBP) formula for π and GFD's coupling polynomial f(K, s) = 1 + sK + K² on one ladder of cyclotomic polynomials, and shows exactly where they meet.
 
 ## The ladder
 
@@ -101,6 +101,39 @@ This is proved for periods 16, 32 and 64, where F₂, F₃ and F₄ are prime. B
 
 The blind test in [`extensions/`](extensions/) searches by lattice reduction without using the theorem. At each of the three periods it finds exactly two integer relations among π and the slot series, both in the lifted family, with nothing else below coefficients of about 10²².
 
+## Part III: BBP from the octahedral lattice
+
+### Result 8: BBP's π poles are the neighbouring octahedra (Theorem 10)
+
+Put the photon's cube at [−1, 1]³.
+- **The core octahedron is TetA ∩ TetB.** Its 6 vertices are the cube's face centres, and its centre is the Field Origin.
+- **The neighbouring octahedra.** Outside the star, the cube holds 12 edge wedges. In the tiling, the 4 cubes around each edge close its wedges into an octahedron the same size as the core. These are the shared octahedra of the [pixel-tiling note](../../research/stellated%20octahedron%20geometry/pixel_tiling_and_closure.md).
+- **They sit on the vector links.** Each one sits on a cube edge joining a TetA corner to a TetB corner, and the 12 of them are the core's nearest neighbours.
+- **In a mirror plane, they are BBP's Φ₈ poles.** In a mirror plane of the core, the four neighbours are centred at ±1 ± i, which are exactly the poles of BBP's rung Φ₈.
+- **BBP's other four poles aren't geometry.** ±√2 and ±i√2 are not lattice points. They are the neighbours turned by 45°, which is not a symmetry of the cube.
+
+### Result 9: π is a 45° angle (Theorem 11)
+
+Each pole contributes Log(1 − 1/p). Its argument is the angle at which the pole sees the walk from the Field Origin to the core vertex, the integration path [0, 1]:
+
+| Pole | What it is | Angle |
+|---|---|---|
+| 1 ± i | near neighbouring octahedra | 45° |
+| ±i√2 (Φ₄, prime 3) | not a lattice point | arctan(1/√2), the angle at a star point in the triangle Field Origin – face centre – corner |
+| −1 ± i (prime 5) | far neighbouring octahedra | arctan(1/3) |
+| ±√2 | not a lattice point | 0 |
+
+By Niven's theorem, only 45° is a rational multiple of π. This is the planar triangle reading of Kristensen and Mathiasen ([arXiv:2208.07696](https://arxiv.org/abs/2208.07696)); what's new here is that the triangle's corners are the Field Origin, an octahedron vertex and a neighbouring octahedron.
+
+### Result 10: BBP from the octahedra (Theorem 12)
+
+1. **Poles only at the four in-plane neighbours** means the denominator is y⁴ + 4. That gives base −4 with 4 slots.
+2. **A value of π forces the far neighbours to cancel,** because of the prime 5 (Baker). Then ln 2 must drop out, since π/ln 2 is irrational (Gelfond). This leaves exactly one formula, π = Σ(−1/4)ᵏ[2/(4k+1) + 2/(4k+2) + 1/(4k+3)], with its fourth slot silent.
+3. **One doubling,** X → X², takes base −4 to base 16 = (−4)². It gives the member r = −1/4 of BBP's family.
+4. **Closure,** meaning the integrand vanishes at the core vertex where the walk ends, holds only at r = 0. That is BBP.
+
+So BBP follows from octahedral data: a walk along the core octahedron's half-axis, poles at its neighbouring octahedra, one doubling and closure. The base −4 formula is known (it is Theorem 7's member); here it is derived from the geometry rather than found by search.
+
 ## Why it matters
 
 - **It gives the BBP connection a structural place.** The coupling polynomial reads the photon's level across its three states. BBP reads down the Field Origin column, drops the photon's own Field Origin, and takes π from the level above.
@@ -110,7 +143,7 @@ The blind test in [`extensions/`](extensions/) searches by lattice reduction wit
 
 ## What it does not do
 
-- **It does not show that BBP is the stellated octahedron.** No symmetry of the stellated octahedron has order 8: its 48 symmetries have orders 1, 2, 3, 4 and 6, and its 8 points form ℤ₂³, not BBP's ℤ₈. The ladder places BBP's period one rung up instead.
+- **It does not show that BBP is the stellated octahedron.** Part III derives BBP from the octahedral lattice. Its inputs are the choice of poles at the neighbouring octahedra, the doubling and closure, and it reads the integral in one mirror plane (all three planes give the same result by symmetry). It is a derivation, not an identity. No symmetry of the stellated octahedron has order 8: its 48 symmetries have orders 1, 2, 3, 4 and 6, and its 8 points form ℤ₂³, not BBP's ℤ₈. The ladder places BBP's period one rung up instead, and the doubling in Part III is where the non-lattice poles enter.
 - **The formula type is an input.** Base 16 = K², period 8 = 2^D and first-power denominators are taken from PROOF.md. The Lemma shows only that this is the type whose poles reach 1 + i.
 - **Some choices are left open.** The ladder fixes which bit is which rung, but not which spatial axis carries which bit. It also leaves open whether a slot is counted as j or j − 1, which does matter.
 - **The primes get only the meaning Theorem 8 gives them.** They are the Field Origin values below the photon's level. Reading 3 as D works only because K = 4.
@@ -124,15 +157,15 @@ The first version of this proof (commit b128fb4) printed the cancelled integrand
 
 | File | Contents |
 |---|---|
-| [`bbp_coupling_polynomial_ladder.pdf`](bbp_coupling_polynomial_ladder.pdf) | The proof, four pages: Part I (Theorems 1–5) and Part II (Theorems 6–9) |
+| [`bbp_coupling_polynomial_ladder.pdf`](bbp_coupling_polynomial_ladder.pdf) | The proof, five pages: Part I (Theorems 1–5), Part II (Theorems 6–9) and Part III (Theorems 10–12) |
 | [`bbp_coupling_polynomial_ladder.tex`](bbp_coupling_polynomial_ladder.tex) | LaTeX source (IOP journal class, included) |
-| [`verify_bbp_coupling_polynomial_ladder.py`](verify_bbp_coupling_polynomial_ladder.py) | Checks of every theorem, the lemma, the corollary and the remarks: the cyclotomic identities, the ladder, the denominator's factorisation, the binary coordinates and turns, the logarithm at every pole, the divisibility and exact numerators of the whole family, the two remaining integrals, the TIME and closure conditions; Part II: the seven formulas of the dictionary checked exactly through the logarithm expansion, the dictionary table, the base −4 formula, the Galois orbits and norms of the rungs at k = 3 to 6, the Fermat values, Euler–Lucas, and the lifted family at periods 16, 32 and 64 |
+| [`verify_bbp_coupling_polynomial_ladder.py`](verify_bbp_coupling_polynomial_ladder.py) | Checks of every theorem, the lemma, the corollary and the remarks: the cyclotomic identities, the ladder, the denominator's factorisation, the binary coordinates and turns, the logarithm at every pole, the divisibility and exact numerators of the whole family, the two remaining integrals, the TIME and closure conditions; Part II: the seven formulas of the dictionary checked exactly through the logarithm expansion, the dictionary table, the base −4 formula, the Galois orbits and norms of the rungs at k = 3 to 6, the Fermat values, Euler–Lucas, and the lifted family at periods 16, 32 and 64; Part III: the core octahedron as TetA ∩ TetB, the 12 neighbouring octahedra (exact rational sampling and exact volumes), the Φ₈ poles as neighbour centres, the subtended angles and Niven's criterion, the uniqueness of the base −4 formula, the doubling identity, and closure |
 | [`extensions/`](extensions/) | Blind lattice-reduction test of Theorem 9 at periods 16, 32 and 64 (needs fpylll) |
 | [`iopjournal.cls`](iopjournal.cls) | Document class, so the source builds here |
 
 ```bash
 pip install sympy mpmath
-python verify_bbp_coupling_polynomial_ladder.py      # 46/46
+python verify_bbp_coupling_polynomial_ladder.py      # 61/61
 python extensions/test_ladder_invariance_lll.py      # 9/9 (pip install fpylll cysignals)
 pdflatex -interaction=nonstopmode bbp_coupling_polynomial_ladder.tex
 ```

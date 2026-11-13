@@ -70,3 +70,4 @@ The composition results in [photon_composition.md](photon_composition.md) descri
 - [photon_composition.md](photon_composition.md): n×n×n photons composing a larger star.
 - [the pixel and the lattice](../photonic/the-pixel-and-the-lattice.md) and [what is gravity](../g_from_topology/what_is_gravity.md): the framework's picture of photons organising into the gravity lattice.
 - [`coupling-algebra/`](../coupling-algebra/): the two roots as parity on the cube.
+- [BBP and the coupling polynomial, Part III](../../proofs/bbp-coupling-polynomial-ladder/): the shared octahedra are BBP's π poles. In a mirror plane of the core octahedron, the 4 neighbouring octahedra are centred at the poles of Φ₈. The walk from the Field Origin to a core vertex subtends 45° from the near ones, and one doubling plus closure gives BBP.

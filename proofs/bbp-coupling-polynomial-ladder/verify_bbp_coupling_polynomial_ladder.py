@@ -257,4 +257,90 @@ check("Theorem 9: the lifted BBP at period 16 is pi = sum_k 256^-k [4/(16k+1) - 
       "- 1/16/(16k+13) - 1/16/(16k+14)], i.e. BBP with its terms paired", abs(sum(float(w16[j]) * S16[j] for j in range(16)) - mpmath.pi) < 1e-30
       and w16 == [4, 0, 0, -2, -1, -1, 0, 0, sp.Rational(1, 4), 0, 0, sp.Rational(-1, 8), sp.Rational(-1, 16), sp.Rational(-1, 16), 0, 0])
 
+
+# ======================================================================
+# Part III: the octahedral derivation of BBP
+import itertools, random
+corners = list(itertools.product((-1, 1), repeat=3))
+TA = [c for c in corners if c[0] * c[1] * c[2] == 1]
+TB = [c for c in corners if c[0] * c[1] * c[2] == -1]
+# a regular tetrahedron with vertices v in a set T is {x : -v.x <= 1 for every v in T}
+planes = lambda T: {tuple(-ci for ci in v) for v in T}
+check("Theorem 10: TetA ∩ TetB is cut out by the 8 planes ±x ± y ± z <= 1, i.e. it is the core octahedron |x| + |y| + |z| <= 1, "
+      "whose 6 vertices are the cube's face centres and whose centre is the Field Origin",
+      planes(TA) | planes(TB) == set(corners) and not planes(TA) & planes(TB))
+inA = lambda p: all(sum(n * x for n, x in zip(v, p)) <= 1 for v in planes(TA))
+inB = lambda p: all(sum(n * x for n, x in zip(v, p)) <= 1 for v in planes(TB))
+mids = [m for m in itertools.product((-1, 0, 1), repeat=3) if sorted(map(abs, m)) == [0, 1, 1]]
+l1 = lambda p, c: sum(abs(a - b) for a, b in zip(p, c))
+random.seed(7)
+pts = [tuple(sp.Rational(random.randint(-10**4, 10**4), 10**4) for _ in range(3)) for _ in range(20000)]
+check("Theorem 10: inside the cube, the points outside the star are exactly the points inside one of 12 unit octahedra centred at the "
+      "cube-edge midpoints (exact rational arithmetic on 20,000 random points)",
+      len(mids) == 12 and all((not (inA(p) or inB(p))) == any(l1(p, m) < 1 for m in mids) for p in pts if not any(l1(p, m) == 1 for m in mids)))
+check("Theorem 10: volumes agree exactly: cube 8 = star 4 (2·8/3 − 4/3) + 12 quarter-octahedra of 1/3 each",
+      8 == 2 * sp.Rational(8, 3) - sp.Rational(4, 3) + 12 * sp.Rational(4, 3) / 4)
+check("Theorem 10: so in the tiling by cubes the neighbouring octahedra are congruent to the core; each sits on a cube edge, the "
+      "midpoint of exactly one TetA corner and one TetB corner (a vector link); the 12 are the core's nearest neighbours in the lattice "
+      "of octahedron centres (even coordinate sum)",
+      all(sum(1 for a in TA for b in TB if all(sp.Rational(x + z, 2) == w for x, z, w in zip(a, b, m))) == 1 for m in mids)
+      and sorted(m for m in itertools.product((-2, -1, 0, 1, 2), repeat=3) if sum(m) % 2 == 0 and 0 < sum(x * x for x in m) <= 2) == sorted(mids))
+plane_mids = [sp.Integer(m[0]) + sp.I * m[1] for m in mids if m[2] == 0]
+check("Theorem 10: in the mirror plane z = 0 (coordinate y = x1 + i x2) the core's vertices are ±1, ±i and its 4 in-plane neighbours "
+      "are centred at ±1 ± i, the roots of y^4 + 4 = 4 Phi_8(u), the four poles of BBP on the rung Phi_8",
+      sp.expand(sp.prod([y - c for c in plane_mids]) - (y**4 + 4)) == 0
+      and sp.expand((y**4 + 4).subs(y, sp.sqrt(2) * u) - 4 * Phi(8, u)) == 0
+      and sp.expand(sp.rem(16 - y**8, y**4 + 4, y)) == 0)
+check("Theorem 10: BBP's other four poles ±sqrt2, ±i sqrt2 are not lattice points; they are the neighbour centres turned by 45 degrees, "
+      "which is not a symmetry of the cube",
+      all(sp.simplify(sp.expand_complex(c * sp.exp(sp.I * sp.pi / 4))) in (sp.sqrt(2), -sp.sqrt(2), sp.sqrt(2) * sp.I, -sp.sqrt(2) * sp.I)
+          for c in plane_mids))
+# Theorem 11: the angles
+allpoles = [sp.sqrt(2) * sp.exp(sp.I * sp.pi * n / 4) for n in range(8)]
+def tan2(p):                         # exact tan^2 of the angle at p subtended by the segment [0, 1]
+    z = sp.expand_complex(sp.conjugate(-p) * (1 - p))
+    re_, im_ = sp.simplify(sp.re(z)), sp.simplify(sp.im(z))
+    return sp.nsimplify(sp.simplify(im_**2 / re_**2)) if re_ != 0 else sp.oo
+t2 = [tan2(sp.expand_complex(p)) for p in allpoles]
+check("Theorem 11: integral_0^1 dy/(y - p) = Log(1 - 1/p), whose argument is the angle at p subtended by the walk from the Field Origin "
+      "(0) to the core vertex (1); tan^2 of that angle at the poles 0, 45, ..., 315 degrees is 0, 1, 1/2, 1/9, 0, 1/9, 1/2, 1",
+      t2 == [0, 1, sp.Rational(1, 2), sp.Rational(1, 9), 0, sp.Rational(1, 9), sp.Rational(1, 2), 1]
+      and all(abs(mpmath.quad(lambda t: 1 / (t - pm), [0, 1]) - mpmath.log(1 - 1 / pm)) < 1e-35
+              for pm in (mpmath.mpc(sp.N(sp.re(sp.expand_complex(p)), 45), sp.N(sp.im(sp.expand_complex(p)), 45)) for p in allpoles)))
+check("Theorem 11: 45 degrees at the near neighbours 1 ± i; arctan(1/sqrt2) at ±i sqrt2, the angle at a star point in the triangle "
+      "Field Origin - face centre - corner (legs 1, sqrt2); arctan(1/3) at the far neighbours -1 ± i",
+      t2[1] == t2[7] == 1 and t2[2] == t2[6] == sp.Rational(1, 2) and t2[3] == t2[5] == sp.Rational(1, 9)
+      and abs(mpmath.atan(1 / mpmath.sqrt(2)) - mpmath.acos(2 / (mpmath.sqrt(3) * mpmath.sqrt(2)))) < 1e-35)
+check("Theorem 11 (Niven): cos 2θ = (1 - t^2)/(1 + t^2) is 0, 1/3, 4/5 for t^2 = 1, 1/2, 1/9; a rational cosine of a rational multiple of "
+      "pi is 0, ±1/2 or ±1, so only the 45-degree angle is a rational multiple of pi",
+      [(1 - t) / (1 + t) for t in (1, sp.Rational(1, 2), sp.Rational(1, 9))] == [0, sp.Rational(1, 3), sp.Rational(4, 5)])
+# Theorem 12: the octahedral formula
+T = lambda j: mpmath.nsum(lambda k: (-mpmath.mpf(1) / 4)**k / (4 * k + j), [0, mpmath.inf])
+check("Theorem 12: 4 y^(j-1)/(4 + y^4) = sum_k (-1/4)^k y^(4k+j-1), so the formulas with poles exactly at the four in-plane neighbours are "
+      "sum_j c_j T_j = integral_0^1 4 p_c(y)/(4 + y^4), T_j = sum_k (-1/4)^k/(4k+j), base -4 and period 4",
+      sp.expand(sp.series(4 / (4 + y**4), y, 0, 17).removeO() - sum((-sp.Rational(1, 4))**k * y**(4 * k) for k in range(5))) == 0
+      and all(abs(T(j) - mpmath.quad(lambda t: 4 * t**(j - 1) / (4 + t**4), [0, 1])) < 1e-35 for j in range(1, 5)))
+check("Theorem 12: at the far neighbours 1 - 1/p = (3 ± i)/2 = (1 ± i)(2 ∓ i)/2 carries the prime 5; at the near ones (1 ± i)/2 does not",
+      sp.expand((1 + sp.I) * (2 - sp.I)) == 3 + sp.I and sp.expand_complex(1 - 1 / (-1 + sp.I)) == sp.Rational(3, 2) + sp.I / 2
+      and sp.expand_complex(1 - 1 / (1 + sp.I)) == sp.Rational(1, 2) + sp.I / 2)
+al, be = sp.symbols('alpha beta')
+valab = sp.simplify(sp.integrate(4 * (al * y + be) / (y**2 - 2 * y + 2), (y, 0, 1)))
+check("Theorem 12: so p_c vanishes at -1 ± i, p_c = (y^2 + 2y + 2)(alpha y + beta), and the value is (alpha + beta) pi - 2 alpha ln 2",
+      sp.simplify(valab - ((al + be) * sp.pi - 2 * al * sp.log(2))) == 0
+      and sp.expand(sp.cancel(4 * (y**2 + 2 * y + 2) * (al * y + be) / (4 + y**4)) - sp.cancel(4 * (al * y + be) / (y**2 - 2 * y + 2))) == 0)
+cvec = sp.Poly(y**2 + 2 * y + 2, y).all_coeffs()[::-1] + [0]
+check("Theorem 12: pi/ln 2 is irrational (e^pi is transcendental, Gelfond), so alpha = 0, beta = 1: the unique formula is "
+      "pi = sum_k (-1/4)^k [2/(4k+1) + 2/(4k+2) + 1/(4k+3)], with its fourth slot silent",
+      cvec == [2, 2, 1, 0] and abs(sum(c * T(j + 1) for j, c in enumerate(cvec)) - mpmath.pi) < 1e-35)
+w_lift = [2, 2, 1, 0, sp.Rational(-1, 2), sp.Rational(-1, 2), sp.Rational(-1, 4), 0]
+check("Theorem 12: doubling, k -> (2m, 2m+1), turns base -4 into base 16 = (-4)^2: T_j = S_j - S_(j+4)/4, i.e. "
+      "4(4 - y^4)(y^2 + 2y + 2) = 16 sum_j w_j y^(j-1) with w = (2, 2, 1, 0, -1/2, -1/2, -1/4, 0) = w_BBP - a/4",
+      sp.expand(4 * (4 - y**4) * (y**2 + 2 * y + 2) - 16 * sum(w_lift[j] * y**j for j in range(8))) == 0
+      and w_lift == [b_ - sp.Rational(1, 4) * a_ for b_, a_ in zip([4, 0, 0, -2, -1, -1, 0, 0], [8, -8, -4, -8, -2, -2, 1, 0])])
+pw = lambda w: 16 * sum(w[j] * y**j for j in range(8))
+check("Theorem 12: closure, the integrand vanishing at the core vertex y = 1, holds for no member but r = 0: the octahedral formula's "
+      "integrand is 4 there, its lift's weights sum to 15/4, and p_(w(r))(1) = -240 r; so closure selects BBP",
+      sp.cancel(4 * (y**2 + 2 * y + 2) / (4 + y**4)).subs(y, 1) == 4 and sum(w_lift) == sp.Rational(15, 4)
+      and sp.expand(pw([b_ + r * a_ for b_, a_ in zip([4, 0, 0, -2, -1, -1, 0, 0], [8, -8, -4, -8, -2, -2, 1, 0])]).subs(y, 1) + 240 * r) == 0)
+
 print(f"\n{sum(ok)}/{len(ok)} checks passed")

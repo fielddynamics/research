@@ -57,7 +57,15 @@ numbers $3, 5, 17, 257, \dots$, which are the Field Origin column read
 down the ladder, so that the rung $\Phi_{16}$ carries the Field
 Origin's own value $17$; and climbing the ladder to periods $16$, $32$
 and $64$ adds no formula for $\pi$, because every new rung carries its
-own Fermat prime and must be dropped.
+own Fermat prime and must be dropped. Finally, BBP is derived from the
+octahedral lattice of the photon tiling. In a mirror plane of the core
+octahedron TetA $\cap$ TetB, the four neighbouring octahedra are
+centred at the poles of $\Phi_8$. Seen from the two near neighbours,
+the walk from the Field Origin to a core vertex subtends exactly
+$45^\circ$, and every other angle is an irrational multiple of $\pi$.
+The unique formula for $\pi$ with poles only at those neighbours is
+the base $-4$ formula. One doubling, $X \to X^2$, gives base $16$, and
+closure at the core vertex then selects BBP.
 \end{abstract}
 
 \keywords{BBP formula, cyclotomic polynomials, coupling polynomial, Field Origin, stellated octahedron, proof}
@@ -405,6 +413,121 @@ lattice have coefficients near $10^{22}$.
 
 % ----------------------------------------------------------------------
 
+\section*{Part III: BBP from the Octahedral Lattice}
+
+Place the photon's cube at $[-1,1]^3$, with TetA on the corners of
+product $+1$ and TetB on those of product $-1$.
+
+\paragraph{Theorem 10 (the octahedra).} \textit{TetA $\cap$ TetB is
+the core octahedron $|x_1| + |x_2| + |x_3| \le 1$. Its vertices are
+the face centres of the cube, and its centre is the Field Origin.
+Inside the cube, the complement of the star is $12$ wedges, one on each
+edge, each a quarter of a unit octahedron centred at the edge's
+midpoint. In the tiling by cubes, the four cubes around an edge close
+its wedges into an octahedron congruent to the core. The midpoint of
+each edge is the midpoint of one TetA corner and one TetB corner, so the
+$12$ neighbouring octahedra sit on the $12$ vector links, and they are
+the core's nearest neighbours in the lattice of octahedron centres,
+the points of even coordinate sum. In the mirror plane $x_3 = 0$,
+with coordinate $y = x_1 + i x_2$, the core's vertices are
+$\pm1, \pm i$, and its four neighbours in the plane are centred at
+$\pm1 \pm i$, the roots of $y^4 + 4 = 4\,\Phi_8(u)$. BBP's other four
+poles, $\pm\sqrt2$ and $\pm i\sqrt2$, are not lattice points. They are
+the neighbours turned by $45^\circ$, which is not a symmetry of the
+cube.}
+
+\paragraph{Proof.} A regular tetrahedron with vertex set $T$ is
+$\{x : -v\cdot x \le 1,\ v \in T\}$. The outward normals of TetA and
+TetB are the two halves of the eight sign vectors, so the intersection
+is cut out by $\pm x_1 \pm x_2 \pm x_3 \le 1$. Near the edge through
+$(1,1,\pm1)$ the two faces facing it are $x_1 + x_2 \mp x_3 \le 1$.
+The region outside both is $(1 - x_1) + (1 - x_2) + |x_3| < 1$,
+the quarter of the octahedron about $(1,1,0)$ that lies in the cube.
+The volumes agree: $8 = 4 + 12 \cdot \tfrac13$. The rest is
+coordinates. \hfill $\square$
+
+\medskip
+\noindent
+The tiling is the tetrahedral--octahedral honeycomb already recorded
+in the archive's pixel-tiling note~\cite{Nelson2026pixel}. Theorem 10
+places BBP's rung $\Phi_8$ on it: the four poles of $\Phi_8$ are
+exactly the neighbouring octahedra in one mirror plane of the core. By
+Theorem 4, the $45^\circ$ half carries $\pi$, and the $135^\circ$ half
+is cancelled.
+
+\paragraph{Theorem 11 (the angles).} \textit{For a pole $p$ off
+$[0,1]$, $\int_0^1 dy/(y - p) = \operatorname{Log}(1 - 1/p)$, whose
+argument is the angle at $p$ subtended by the segment from the Field
+Origin $0$ to the core vertex $1$. This angle is $45^\circ$ at the near
+neighbours $1 \pm i$. It is $\arctan(1/\sqrt2)$ at $\pm i\sqrt2$, which
+is the angle at a star point in the triangle formed by the Field
+Origin, a face centre and a corner. It is $\arctan\frac13$ at the far
+neighbours $-1 \pm i$, and $0$ at $\pm\sqrt2$. Only $45^\circ$ is a
+rational multiple of $\pi$.}
+
+\paragraph{Proof.} The argument of $(1 - p)/(-p)$ is the angle between
+the rays from $p$ to $1$ and to $0$. The values of $\tan^2$ are $1$,
+$\tfrac12$, $\tfrac19$ and $0$, so $\cos 2\theta = 0, \tfrac13,
+\tfrac45, 1$. A rational cosine of a rational multiple of $\pi$ is
+$0$, $\pm\tfrac12$ or $\pm1$~\cite{Niven1956}, and the angle $0$ adds
+nothing to the argument. \hfill $\square$
+
+\medskip
+\noindent
+This is the planar triangle reading of BBP-type formulas due to
+Kristensen and Mathiasen~\cite{Kristensen2022}, in which $\pi/4$ is
+the angle of an isosceles right triangle. Theorem 11 identifies the
+triangle's corners as the Field Origin, a vertex of the core
+octahedron, and the centre of a neighbouring octahedron.
+
+\paragraph{Theorem 12 (BBP from the octahedra).} \textit{Take the walk
+from the Field Origin to a core vertex, $y \in [0,1]$, and the rational
+integrands whose poles are exactly the four in-plane neighbours,
+$4p(y)/(4 + y^4)$ with $\deg p \le 3$. These are the formulas
+$\sum_{j=1}^{4} c_j T_j$ with $T_j = \sum_k (-\tfrac14)^k/(4k+j)$ and
+$p = \sum_j c_j y^{j-1}$. Exactly one of them has the value $\pi$:}
+\begin{equation}
+  \pi = \sum_{k\ge0}\Big(-\frac14\Big)^k\Big[\frac{2}{4k+1} +
+  \frac{2}{4k+2} + \frac{1}{4k+3}\Big],
+  \label{eq:octa}
+\end{equation}
+\textit{whose fourth slot is silent. Doubling the index,
+$k \to (2m, 2m+1)$, turns base $-4$ into base $16 = (-4)^2$ and
+gives the member $w(-\tfrac14)$ of the family for $\pi$. Of all the
+members $w(r)$, closure, meaning that the integrand vanishes at the
+core vertex $y = 1$, holds only for $r = 0$, which is BBP.}
+
+\paragraph{Proof.} Expanding $4/(4 + y^4)$ gives the slot series. At
+the far neighbours, $1 - 1/p = (3 \pm i)/2 = (1 \pm i)(2 \mp i)/2$
+carries a prime above $5$. The near ones give $(1 \pm i)/2$, which does
+not. The logarithms involved lie among the seven independent ones, so,
+as in Theorem 4, a value of $\pi$ forces $p(-1 \pm i) = 0$ and
+$p = (y^2 + 2y + 2)(\alpha y + \beta)$. Then the integrand is
+$4(\alpha y + \beta)/(y^2 - 2y + 2)$, with value
+$(\alpha + \beta)\pi - 2\alpha\ln2$. Since $e^\pi$ is
+transcendental~\cite{Gelfond1934}, $\pi/\ln 2$ is irrational, so
+$\alpha = 0$ and $\beta = 1$, which gives $c = (2,2,1,0)$. For the
+doubling, $T_j = S_j - \tfrac14 S_{j+4}$, which is the identity
+$4(4 - y^4)(y^2 + 2y + 2) = 16\sum_j w_j y^{j-1}$ with
+$w = (2, 2, 1, 0, -\tfrac12, -\tfrac12, -\tfrac14, 0) = w_{\mathrm{BBP}}
+- \tfrac14 a$. Closure is the Corollary: $p_{w(r)}(1) = -240\,r$.
+\hfill $\square$
+
+\medskip
+\noindent
+So BBP follows from octahedral data. The data are the walk along the
+core octahedron's half-axis and poles at the centres of its
+neighbouring octahedra. Two steps follow: one doubling, the step
+$X \to X^2$ of Theorem 1, and closure at the vertex where the walk
+ends. Formula~(\ref{eq:octa}) is Theorem 7's member of the family; it
+is known~\cite{AdamchikWagon1997}, and here it is derived from the
+geometry rather than found by search. The doubling introduces the
+poles $\pm\sqrt2$ and $\pm i\sqrt2$, which are not in the lattice.
+Closure then fixes the one member whose integrand vanishes at the core
+vertex.
+
+% ----------------------------------------------------------------------
+
 \section*{Scope}
 
 The results are exact. The coupling row
@@ -415,8 +538,12 @@ rung above it.
 
 The type $(\ast)$, base $16 = K^2$ and period $8 = 2^D$, is an input
 taken from~\cite{Nelson2026bbp}; the Lemma shows that it is the type
-whose poles reach $1 + i$. Nothing here says that BBP is the
-stellated octahedron. No symmetry of the stellated octahedron has
+whose poles reach $1 + i$. Part III derives BBP from the octahedral
+lattice, but it does not show that BBP is the stellated octahedron.
+Three things are inputs: the choice of poles at the neighbouring
+octahedra, the doubling, and closure. The integral is read in one mirror
+plane of the core, and the three mirror planes give the same result by
+symmetry. No symmetry of the stellated octahedron has
 order $8$, so BBP's period is not one of its symmetries; the ladder
 places that period one rung up. The primes $3$ and $5$ are not given
 a meaning in Gravity Field Dynamics beyond Theorem 8, which identifies
@@ -462,6 +589,26 @@ research archive.
 M.~K\v{r}\'{\i}\v{z}ek, F.~Luca and L.~Somer,
 \textit{17 Lectures on Fermat Numbers}
 (Springer, New York, 2001).
+
+\bibitem{Kristensen2022}
+S.~Kristensen and O.~Mathiasen,
+``BBP-type formulas --- an elementary approach'',
+arXiv:2208.07696 (2022).
+
+\bibitem{Niven1956}
+I.~Niven,
+\textit{Irrational Numbers}, Carus Mathematical Monographs 11
+(Mathematical Association of America, 1956).
+
+\bibitem{Gelfond1934}
+A.~O.~Gelfond,
+``Sur le septi\`eme probl\`eme de Hilbert'',
+\textit{Izv. Akad. Nauk SSSR} \textbf{7} (1934) 623--630.
+
+\bibitem{Nelson2026pixel}
+S.~Nelson,
+\textit{Pixel tiling and closure} (2026),
+research archive, \texttt{stellated octahedron geometry}.
 
 \bibitem{Nelson2026hadamard}
 S.~Nelson,
