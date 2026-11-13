@@ -126,6 +126,7 @@ pip install numpy scipy sympy mpmath matplotlib
 | [`papers/letter-2-other-half-of-gravity-torsion/v2/Supplementary/run_all_validations.py`](papers/letter-2-other-half-of-gravity-torsion/v2/Supplementary/run_all_validations.py) | Letters 1–2: geometry, torsion = TetB (52 claims) |
 | [`papers/letter-3-field-closure-of-tetrad-frame/Supplementary/run_all_validations.py`](papers/letter-3-field-closure-of-tetrad-frame/Supplementary/run_all_validations.py) | Letter 3: 40/24 split, polynomial identity, partition (52 claims) |
 | [`papers/gram-matrix-of-tetrad-equation/verify_gram_theorems.py`](papers/gram-matrix-of-tetrad-equation/verify_gram_theorems.py) | Gram-matrix and forced-Gram theorems (32 checks) |
+| [`papers/null-cone-boolean-operator/verify_null_cone_boolean.py`](papers/null-cone-boolean-operator/verify_null_cone_boolean.py) | The null directions of the frame as a complete Boolean basis (18 checks) |
 
 Framework-wide checks, from the repository root:
 
@@ -242,6 +243,9 @@ Because a₀ = (cH/2π)√(K/π) tracks the Hubble parameter, galaxies should ro
 
 **GFD Essentials: Tetrads, Field Closure, and the Inverse Pipeline** — [`papers/gfd-essentials-tetrads-field-closure-inverse-pipeline/`](papers/gfd-essentials-tetrads-field-closure-inverse-pipeline/)
 A short primer for relativists. It walks from tetrads and non-degeneracy to tetrahedral field chambers with four active channels, then to field closure, the constitutive law and the scalar–tensor action, and ends with the inverse pipeline that decodes observed velocity into effective mass M_dec(r). A good first read before the decoding-mass letter.
+
+**The Null Directions of the Tetrad Frame Carry a Complete Boolean Basis** — [`papers/null-cone-boolean-operator/`](papers/null-cone-boolean-operator/)
+Makes precise the archive's claim that the null cone of the frame is a universal Boolean operator. The eight null directions are the eight 3-bit words. Parity gates, including the TetA/TetB split, are not universal (Post). The Walsh read factors as H₈ = S·D·Sᵀ, an AND table and a half-turn per bit. On the two-bit block, read as spinor indices, the light rays are exactly the separable gates, which are universal (NOR alone suffices), while parity lies off the cone.
 
 **Papers A, B and C** — [`papers/algebraic-papers-a-b-c/`](papers/algebraic-papers-a-b-c/)
 - *A — An Algebraic Origin for the Simple AQUAL Interpolation Function* (`gfd_phase1_letter_final.tex`): derives μ(x) = x/(1 + x) from the reciprocal ℤ₂ structure of the tetrad-frame sector algebra, whose parity-weighted trace is f(K, s).

@@ -70,7 +70,8 @@ Read the frame's two bits as spinor indices. Each leg is then an outer product h
 
 - **The products** are l·n = 2 and m·m̄ = −2, with every other product 0. That is a Newman–Penrose null tetrad, the standard null frame of general relativity, built from the spinor dyad formed by the two columns of H₂.
 - **The orthonormal frame comes back.** Adding and subtracting the legs (another Hadamard step) gives the orthonormal frame: l + n, l − n, m + m̄ and i(m − m̄) are 2t, 2x, 2z and 2y.
-- **At most two legs can be real light rays.** This holds in any spinor reading, and is proved. So "built from null directions" holds in the form GR uses: two real light rays and a complex-conjugate pair.
+- **At most two legs can be real light rays.** This holds in any spinor reading, and is proved. In that reading the frame is null in the form GR uses: two real light rays and a complex-conjugate pair.
+- **Letter 1's reading is different.** There the legs are (1, v/√3), the same frame with its spatial rows rescaled by 1/√3, and all four are real light rays. Both readings make the frame null; they differ in which coordinates carry the two bits.
 
 ## What it does not do
 
@@ -78,7 +79,7 @@ Read the frame's two bits as spinor indices. Each leg is then an outer product h
 - **The trace cannot tell a null rotation from the identity.** Both have χ = 4. The new content is what the drawn blocks are.
 - **It sharpens an archive statement.** The archive said the blocks "are" H₁, H₄, H₁₆; strictly, they are the Sierpiński factors of those matrices, whose own traces are 0. The wording in [`universe-is-pixelated/`](../../research/universe-is-pixelated/README.md) and [`what_is_gravity.md`](../../research/g_from_topology/what_is_gravity.md) has been updated to say this.
 - **Components need rotations.** The Sierpiński blocks act through the Lorentz group of (t, x, z). So the chain lengths match a vector, a metric and a 2-form exactly, but naming components (h₀₀, h₀ᵢ, …) needs ordinary rotations.
-- **Two null legs are complex.** The tetrad's legs are null only in the spinor reading, and there two of them are complex. Read in (t, x, y, z), the tetrahedral legs have norm −2.
+- **Two null legs are complex in the spinor reading.** Read directly in (t, x, y, z), the Hadamard frame's legs have norm −2. Rescaled as in Letter 1, (1, v/√3), all four are real light rays.
 - **Most of the ingredients are standard:** the spinor–vector correspondence, null rotations, the triangular factorisation of the Hadamard matrix, and building a null tetrad from a spinor dyad. What's new is identifying them with G's blocks and with the archive's tetrad frame.
 
 ## Contents
