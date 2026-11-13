@@ -17,13 +17,13 @@
 \fancyhead[L]{}
 \fancyhead[R]{}
 
-\hypersetup{pdftitle={The Null Directions of the Tetrad Frame Carry a Complete Boolean Basis}, pdfauthor={Stephen Nelson}, pdfsubject={Gravity Field Dynamics (GFD)}, pdfkeywords={null cone, tetrad, stellated octahedron, Boolean functions, functional completeness, Walsh-Hadamard transform, algebraic normal form, null rotation}}
+\hypersetup{pdftitle={Boolean Universality and the Null Cone of the Tetrad Frame}, pdfauthor={Stephen Nelson}, pdfsubject={Gravity Field Dynamics (GFD)}, pdfkeywords={null cone, tetrad, stellated octahedron, Boolean functions, functional completeness, Walsh-Hadamard transform, algebraic normal form, null rotation, Segre variety}}
 
 \begin{document}
 
 \articletype{Paper}
 
-\title{The Null Directions of the Tetrad Frame Carry a Complete Boolean Basis}
+\title{Boolean Universality and the Null Cone of the Tetrad Frame}
 
 \author{Stephen Nelson}
 
@@ -32,31 +32,30 @@
 \ead{stephen@fielddynamics.org}
 
 \begin{abstract}
-Requiring four null directions of a Lorentzian frame to be isotropic
-forces a regular tetrahedron; with its antipodes it gives eight null
-directions, the points of a stellated octahedron and the corners of a
-cube. Gravity Field Dynamics has claimed that this sampled null cone
-is a universal Boolean operator. We make the claim precise and prove
-the strong form. The signs of the eight directions are the eight
-three-bit words, so functions on them are the $256$ three-input
-Boolean functions, and the Walsh--Hadamard matrix $H_8$ represents
-every one; that much holds for any eight labelled points. Gate
-universality is different. The Walsh characters are parities, and
-parity gates, including the TetA/TetB split, generate only the $16$
-affine functions, so by Post's theorem they are not universal. We show
-that $H_8 = S\,D\,S^T$, where $S$ is the evaluation table of the AND
-monomials, which is its own inverse over GF(2) and gives every
-function a unique algebraic normal form, and
-$D = e^{(\ln 2 + i\pi)|x|}$ is a half-turn per bit. The Walsh read
-therefore factors into an AND table and an XOR table, which together
-are universal. Reading the two-bit block as spinor indices, the
-truth table of a two-input gate is a $4$-vector whose Minkowski norm is
-its determinant. Exactly ten gates are null, the separable ones; they
-include AND and NOT, and NOR, a real light ray, is universal on its
-own. Parity lies off the cone.
+Four null directions of a Lorentzian frame that single out no spatial
+direction form a regular tetrahedron; with their antipodes they are
+eight null directions, the corners of a cube, labelled canonically (up
+to the cube's $48$ symmetries) by the eight three-bit words. It has
+been claimed that this sampled null cone is a universal Boolean
+operator. We separate what is generic from what depends on the null
+cone. Generically, for any Boolean cube: the Walsh--Hadamard matrix
+represents every function, but parity gates, including the split into
+the two tetrahedra, generate only the $16$ affine functions and are not
+functionally complete; and $H_8 = S\,D\,S^T$, where $S$ is the table of
+AND monomials and $D$ carries a phase $e^{i\pi}$ per set bit. Over
+GF(2), $H_8$ is the all-ones matrix while $S$ is invertible, so the
+algebraic normal form, and with it functional completeness, lives in
+$S$. The null cone enters through the two-bit block of the frame:
+$\det$ is the unique quadratic form invariant under independent
+changes of basis of the two bits, so the null cone there is canonical,
+and a two-input gate is null exactly when its truth table is separable.
+Ten gates are null; they include AND and NOT, and NOR, a real light
+ray, is universal on its own, while parity is off the cone. Read mod 2,
+the null rotation of the frame sends each gate to its algebraic normal
+form.
 \end{abstract}
 
-\keywords{null cone, tetrad, stellated octahedron, Boolean functions, functional completeness, Walsh--Hadamard transform, algebraic normal form, null rotation}
+\keywords{null cone, tetrad, stellated octahedron, Boolean functions, functional completeness, Walsh--Hadamard transform, algebraic normal form, null rotation, Segre variety}
 
 % ----------------------------------------------------------------------
 
@@ -64,36 +63,51 @@ own. Parity lies off the cone.
 
 Letter~1 of the tetrad series derives the stellated octahedron from
 the null cone~\cite{NelsonL1}: four null directions that introduce no
-preferred spatial direction must form a regular tetrahedron on the
+preferred spatial direction form a regular tetrahedron on the
 celestial sphere, and with their antipodes they are the eight points
-of the star. The archive goes on to claim that this sampled null cone
-is a universal Boolean operator~\cite{NelsonPixel}, on the strength of
-two facts: the eight corners of the cube carry every three-input
-Boolean function, and a coupled oscillator laid out on them, the
-octahedral resonance node, computes with the Walsh spectrum. The
-archive states the conjunction as a claim.
+of the star. The research archive then states, as a claim, that this
+sampled null cone is a universal Boolean operator~\cite{NelsonPixel}.
+The claim rests on two facts: the cube's eight corners carry every
+three-input Boolean function, and a coupled oscillator laid out on
+them, the octahedral resonance node, computes with the Walsh spectrum.
 
 ``Universal'' has two meanings, and they come apart here. A set of
 points is universal in the weak sense if every Boolean function on it
 can be represented; any eight labelled points are. A set of gates is
-universal, or functionally complete, if composing them produces every
-Boolean function~\cite{Post1941}. This paper proves the strong form for
-the null directions of the frame, and shows where in their algebra the
-universality sits. Figure~\ref{fig:main} summarises the results.
+functionally complete if composing it with the projections produces
+every Boolean function; constants count only if they belong to the
+set. Post's theorem~\cite{Post1941} says a set is complete exactly
+when it lies in none of five classes: the functions preserving $0$,
+those preserving $1$, the monotone, the self-dual and the affine.
+
+\paragraph{Contributions and prior work.} Theorems~1 and~2 are facts
+about any labelled Boolean cube. Post's theorem, the algebraic normal
+form~\cite{Zhegalkin1927,Reed1954,Muller1954} and the completeness of
+NOR~\cite{Sheffer1913} are classical, and the identity
+$H_8 = S\,D\,S^T$ is elementary; we claim no novelty for any of them.
+What this paper adds is their placement on the frame, and two points
+where the null cone itself is used. First, the three-bit labelling of
+the null directions is canonical (Proposition~1). Second, on the
+two-bit block the Minkowski form is forced (Lemma~1), and its null
+vectors are exactly the separable gates (Theorem~3), which are
+universal while parity is not. The result is a precise version of the
+archive's claim, with the generic and the geometric parts kept apart.
+Figure~\ref{fig:main} summarises it.
 
 \begin{figure*}[!t]
 \centering
 \includegraphics[width=0.84\textwidth]{null_cone_boolean_figure.png}
-\caption{(a) The eight null directions of the tetrad frame (Letter~1),
-labelled by the signs of their spatial parts: the eight three-bit
-words, with TetA and TetB the even and odd words. (b) The $16$
-two-input gates, with truth tables read as $2\times2$ matrices $X$. In
-the spinor reading $\det X$ is the Minkowski norm. Ten gates are null,
-the separable gates $g(a)h(b)$; AND, NOR and TRUE are real light rays.
-The other six, including parity, are off the cone (Theorem~3).
-(c) The Walsh read of the eight directions factors as an AND table,
-a half-turn per bit, and the transposed AND table (Theorem~2). Right:
-the number of three-input functions each gate set generates.}
+\caption{(a) The eight null directions of the tetrad frame
+(Proposition~1), labelled by the signs of their spatial parts: the
+eight three-bit words, with the two tetrahedra the even and odd words.
+(b) The $16$ two-input gates on the two-bit block, with truth tables
+read as $2\times2$ matrices $X$, for which $\det X$ is the Minkowski
+norm (Lemma~1). Ten gates are null: the separable gates $g(a)h(b)$.
+AND, NOR and TRUE are real light rays; the other six, including
+parity, are off the cone (Theorem~3). (c) The Walsh read of the eight
+directions factors as the AND table, a phase $e^{i\pi}$ per set bit,
+and the transposed AND table (Theorem~2). Right: the number of
+three-input functions each gate set generates.}
 \label{fig:main}
 \end{figure*}
 
@@ -104,31 +118,37 @@ the number of three-input functions each gate set generates.}
 \paragraph{Proposition 1.} \textit{In a Lorentzian frame, let
 $u_1,\dots,u_4$ be unit spatial vectors with zero centroid and
 isotropic second moment, so that each $k_I = (1, u_I)$ is null. Then
-the $u_I$ are a regular tetrahedron, with $u_I\cdot u_J = -\tfrac13$,
-and up to rotation they are $v/\sqrt3$ for the four corners
-$v \in \{\pm1\}^3$ with $v_1v_2v_3 = +1$ (TetA). With their antipodes
-(TetB) they are the eight corners of the cube. Writing each corner's
-signs as bits, $b_i = (1 - v_i)/2$, the eight null directions are the
-eight words $b \in \{0,1\}^3$, and TetA and TetB are the words of even
-and odd weight.}
+$u_I\cdot u_J = -\tfrac13$, and up to rotation the $u_I$ are $v/\sqrt3$
+for the four corners $v \in \{\pm1\}^3$ with $v_1v_2v_3 = +1$ (TetA).
+With their antipodes (TetB) they are the cube's eight corners. Writing
+$b_i = (1 - v_i)/2$, the eight null directions are the eight words
+$b \in \{0,1\}^3$, and TetA and TetB are the words of even and odd
+weight.}
 
-\paragraph{Proof.} The tetrahedron is Letter~1's
-proposition~\cite{NelsonL1}; squaring the centroid condition gives
-$4 + 12c = 0$. The rest is the substitution $v_i = (-1)^{b_i}$, under
-which $v_1v_2v_3 = (-1)^{|b|}$. \hfill $\square$
+\paragraph{Proof.} Squaring the centroid condition gives
+$4 + 12\,u_I\cdot u_J = 0$, and four unit vectors with equal pairwise
+products $-\tfrac13$ are a regular tetrahedron, unique up to
+$O(3)$~\cite{NelsonL1}. Under $v_i = (-1)^{b_i}$,
+$v_1v_2v_3 = (-1)^{|b|}$. \hfill $\square$
 
-\medskip
-\noindent
-So a function on the eight null directions is exactly a three-input
-Boolean function, and there are $2^8 = 256$ of them.
+\paragraph{Remark (the labelling).} The rotation in Proposition~1 is
+fixed up to the cube's symmetry group, of order $48$, which acts on the
+words by permuting and negating bits. Every property used below is
+invariant under these $48$ relabellings: the affine class, the gate
+closures, and separability. An odd number of negations exchanges TetA
+and TetB. Letter~1 writes the signature as $(-,+,+,+)$; below we use
+$(+,-,-,-)$, so that the norm is $\det X$. The light cone is the same.
+
+So a function on the eight null directions is a three-input Boolean
+function, and there are $256$ of them.
 
 % ----------------------------------------------------------------------
 
 \section{Representation Versus Gates}
 
 Let $H_8$ have entries $(-1)^{|i \wedge j|}$, the Walsh characters of
-the cube~\cite{Walsh1923,Sylvester1867}, where $i \wedge j$ is the
-bitwise AND of the words and $|\cdot|$ counts ones.
+the cube~\cite{Walsh1923,Sylvester1867,ODonnell2014}, where $i \wedge j$
+is the bitwise AND of the words and $|\cdot|$ counts ones.
 
 \paragraph{Proposition 2 (representation).} \textit{$H_8^2 = 8I$, so
 every function on the eight null directions is a unique real
@@ -136,39 +156,37 @@ combination of the eight Walsh characters.}
 
 \medskip
 \noindent
-This is the sense of the archive's claim, and it is generic: the same
-holds for any eight labelled points. It says nothing about which gates
-the structure supplies. The Walsh characters themselves are, in $0/1$
-form, the parities $x_J = \bigoplus_{i\in J} b_i$.
+This is the sense of the archive's claim. It is generic: the same
+holds for any eight labelled points, and it says nothing about which
+gates the structure supplies. In $0/1$ form the Walsh characters are
+the parities $x_J = \bigoplus_{i\in J} b_i$.
 
 \paragraph{Theorem 1 (parity is not universal).} \textit{Every Walsh
 character, and the TetA/TetB indicator, is affine over GF(2): its
 algebraic normal form has degree at most one. Closing the three
 projections under XOR, NOT and the constants gives exactly the $16$
 affine functions of three bits, not all $256$. So no set of parity
-gates is universal.}
+gates is functionally complete.}
 
-\paragraph{Proof.} A parity is a sum of variables over GF(2), and
-compositions of affine functions are affine. The count of $16$ is
-checked by exhaustive closure. By Post's theorem~\cite{Post1941} a
-gate set inside the affine class is not functionally complete.
-\hfill $\square$
+\paragraph{Proof.} A parity is a sum of variables over GF(2), and a
+composition of affine functions is affine. The count of $16$ is
+checked by exhaustive closure. By Post's theorem, a gate set inside the
+affine class is not complete. \hfill $\square$
 
 \medskip
 \noindent
-In particular the XOR read off the octahedral node's grade-two Walsh
-coefficient, and the parity term it reads at grade three, are affine.
-The node computes NAND and the full adder because its readout is a
-real linear combination of Walsh coefficients, which is
-Proposition~2, not because parity gates are universal.
+As the archive describes the octahedral node~\cite{NelsonPixel}, its
+XOR is a grade-two Walsh coefficient and its parity a grade-three one;
+both are affine. Its NAND and full adder are read as a dot product with
+the gate's Walsh coefficients, that is, through Proposition~2. We make
+no independent claim about the node.
 
 % ----------------------------------------------------------------------
 
 \section{The Walsh Read Factors Into AND and XOR}
 
-Let $S$ be the $8 \times 8$ matrix with $S_{ij} = 1$ when the bits of
-$j$ are a subset of those of $i$, and $0$ otherwise. Equivalently,
-$S = A^{\otimes 3}$ with
+Let $S_{ij} = 1$ when the bits of $j$ are a subset of those of $i$,
+and $0$ otherwise. Equivalently $S = A^{\otimes 3}$ with
 $A = \bigl(\begin{smallmatrix}1&0\\1&1\end{smallmatrix}\bigr)$, the
 Sierpi\'nski triangle.
 
@@ -176,110 +194,142 @@ Sierpi\'nski triangle.
 $j$ at the corner $i$: $S$ is the evaluation table of the eight AND
 monomials $1, x, y, z, xy, xz, yz, xyz$. (ii) $S^2 = I$ over GF(2), so
 every Boolean function is a unique XOR of AND monomials, its algebraic
-normal form, with coefficients $S f \bmod 2$. (iii)}
+normal form, with coefficients $S f \bmod 2$. (iii) With $|x|$ the
+number of set bits of the index $x$,}
 \begin{equation}
-  H_8 = S\,D\,S^T, \qquad
-  D = \mathrm{diag}\big((-2)^{|x|}\big) = e^{(\ln 2 + i\pi)|x|} .
+\begin{aligned}
+  H_8 &= S\,D\,S^T, \\
+  D &= \mathrm{diag}\big((-2)^{|x|}\big) = \mathrm{diag}\big(2^{|x|}e^{i\pi|x|}\big).
+\end{aligned}
 \end{equation}
 \textit{(iv) AND, XOR and the constant $1$ generate all $256$
-functions.}
+functions. (v) Over GF(2), $H_8 \equiv J$, the all-ones matrix, of
+rank $1$, while $S$ is invertible.}
 
-\paragraph{Proof.} (i) A monomial $\prod_{b \in J} x_b$ is $1$ at a
-corner exactly when every bit of $J$ is set there. (ii) $A^2 \equiv I
-\pmod 2$, and tensor powers follow. This is the Zhegalkin, or
-Reed--Muller, expansion~\cite{Zhegalkin1927,Muller1954}. (iii) Entry
-by entry, with $n = |i \wedge j|$,
+\paragraph{Proof.} (i) The monomial $\prod_{b \in J} x_b$ is $1$ at a
+corner exactly when every bit of $J$ is set there. (ii)
+$A^2 \equiv I \pmod 2$, and the same holds for tensor powers; this is
+the Zhegalkin or Reed--Muller expansion. (iii) Entry by entry, with
+$n = |i \wedge j|$,
 $\sum_{K \subseteq i \wedge j} (-2)^{|K|} = (1 - 2)^n = (-1)^n$.
 (iv) follows from (ii), and is also checked by exhaustive closure.
-\hfill $\square$
+(v) Every entry of $H_8$ is $\pm1$. \hfill $\square$
 
 \medskip
 \noindent
-So the Walsh read of the eight null directions factors into the two
-halves of a universal gate set. The outer factors are the AND table;
-the half-turn $e^{i\pi}$ per bit in the middle carries the parity
-signs. The universality of the structure is located in the
-Sierpi\'nski factor, not in the Hadamard sign pattern. In the spinor
-reading of the next section, $A$ acting on both indices is a null
-rotation~\cite{NelsonNullRot}.
+Part (v) is the precise sense in which universality is located in the
+Sierpi\'nski factor. Mod 2 the Hadamard sign pattern carries no
+information, while $S$ carries the whole algebraic normal form. The
+factor $e^{i\pi|x|}$ is a phase of $-1$ per set bit. Its reading as a
+rotation of space exists only on the two-bit block, where $A \otimes A$
+is a null rotation and $H_2 \otimes H_2$ a rotation by
+$\pi$~\cite{NelsonNullRot}.
 
 % ----------------------------------------------------------------------
 
 \section{The Null Cone of the Two-Bit Block}
 
-Write a two-input gate as its truth table $X_{ab} = f(a,b)$, a
-$2\times2$ matrix, and read the two bits as the two spinor indices of a
-$4$-vector, $X = t + x\sigma_1 + y\sigma_2 + z\sigma_3$, so that
-$\det X = t^2 - x^2 - y^2 - z^2$~\cite{PenroseRindler}. This is the
-reading in which the tetrad frame's legs form a Newman--Penrose null
-tetrad~\cite{NelsonNullRot}.
+This section concerns a different object from Section~2. There the
+null directions were the inputs, labelled by three-bit words. Here the
+object is the two-bit block $\mathbb{C}^2 \otimes \mathbb{C}^2$ of the
+frame, the four-dimensional factor in $H_8 = H_2 \otimes
+H_4$~\cite{NelsonC}. Its vectors are functions of two bits, so a
+two-input gate $f$ is the vector $X_{ab} = f(a,b)$, a $2\times2$
+matrix.
+
+\paragraph{Lemma 1 (the form is forced).} \textit{Up to scale, the
+only symmetric bilinear form on $\mathbb{C}^2 \otimes \mathbb{C}^2$
+invariant under independent $SL(2)$ changes of basis of the two bits is
+the polarisation of $\det X$. Writing $X = t + x\sigma_1 + y\sigma_2 +
+z\sigma_3$, $\det X = t^2 - x^2 - y^2 - z^2$.}
+
+\paragraph{Proof.} The symmetric square of $\mathbb{C}^2 \otimes
+\mathbb{C}^2$ is $(\mathrm{Sym}^2 \otimes \mathrm{Sym}^2) \oplus
+(\Lambda^2 \otimes \Lambda^2)$, and only the last summand, spanned by
+$\varepsilon \otimes \varepsilon$, is invariant~\cite{PenroseRindler}.
+Solving the invariance equations directly gives a one-dimensional
+solution space. \hfill $\square$
+
+\medskip
+\noindent
+So the null cone of the two-bit block is not a choice. Its null vectors
+are the rank-one matrices, the Segre cone of product vectors, and this
+is invariant under every change of basis $X \mapsto BXC^T$. What does
+depend on a choice is which null vectors are real light rays: that
+needs a Hermitian structure. We use the standard one, in which the
+frame's legs form a Newman--Penrose null tetrad~\cite{NelsonNullRot}.
 
 \paragraph{Theorem 3 (the null gates).} \textit{A gate is null,
-$\det X = 0$, exactly when $X$ has rank at most one, that is, when
-$f(a,b) = g(a)\,h(b)$. Exactly $10$ of the $16$ gates are null: FALSE,
-TRUE, AND, NOR, the four literals $a$, $b$, $\neg a$, $\neg b$, and
-$a\wedge\neg b$, $\neg a \wedge b$. The other six, XOR, XNOR, OR, NAND
-and the two implications, have $\det X = \pm1$. Among the null gates,
-AND, NOR and TRUE are real light rays, along $-z$, $+z$ and $+x$;
-FALSE is the zero vector; the remaining six are complex null vectors,
-real only in the split-signature reading of real $2\times2$ matrices.
-AND is the light ray $|11\rangle$ fixed by the Sierpi\'nski null
-rotation $X \mapsto AXA^T$.}
+$\det X = 0$, exactly when $f(a,b) = g(a)\,h(b)$. Exactly $10$ of the
+$16$ gates are null: FALSE, TRUE, AND, NOR, the literals $a$, $b$,
+$\neg a$, $\neg b$, and $a\wedge\neg b$, $\neg a \wedge b$. The other
+six, XOR, XNOR, OR, NAND and the two implications, have
+$\det X = \pm1$. This classification does not depend on the reading. In
+the standard Hermitian structure, AND, NOR and TRUE are real light rays
+along $-z$, $+z$ and $+x$; FALSE is the zero vector; and the other six
+null gates are complex null vectors. Re-reading one bit, for example
+by a swap, can make AND complex.}
 
 \paragraph{Proof.} A $2\times2$ matrix is singular exactly when its
-rank is at most one, and a $0/1$ matrix of rank one is an outer
-product $g\,h^T$ of $0/1$ vectors. The components follow from
-$x^\mu = \tfrac12\mathrm{Tr}(\sigma_\mu X)$; a non-symmetric $X$ has
-an imaginary $y$ component. $A$ fixes $|1\rangle$. \hfill $\square$
-
-\paragraph{Corollary.} \textit{The null gates are a universal set:
-they contain AND and NOT. NOR, a real light ray, is universal on its
-own. Parity, XOR and XNOR, lies off the cone.}
-
-\paragraph{Proof.} $\{\mathrm{AND}, \mathrm{NOT}\}$ and $\{\mathrm{NOR}\}$
-are classical complete sets~\cite{Post1941,Sheffer1913}; exhaustive
-closure confirms that each generates all $256$ three-input functions.
+rank is at most one, and a $0/1$ matrix of rank one is an outer product
+$g\,h^T$ of $0/1$ vectors. Rank is unchanged by $X \mapsto BXC^T$. The
+components follow from $x^\mu = \tfrac12\mathrm{Tr}(\sigma_\mu X)$; a
+non-symmetric $X$ has an imaginary $y$ component.
 \hfill $\square$
+
+\paragraph{Corollary.} \textit{The null gates are functionally
+complete, since they contain AND and NOT. NOR, a real light ray, is
+complete on its own. Parity, XOR and XNOR, lies off the cone.}
+
+\paragraph{Proof.} $\{\mathrm{AND}, \mathrm{NOT}\}$ and
+$\{\mathrm{NOR}\}$ are classical complete sets; exhaustive closure
+confirms that each generates all $256$ three-input functions.
+\hfill $\square$
+
+\paragraph{Proposition 3 (the null rotation mod 2).} \textit{The
+Sierpi\'nski null rotation $X \mapsto AXA^T$ fixes the light ray
+$|11\rangle$, which is AND. Over the reals its only fixed gates are
+FALSE and AND. Mod 2 it sends each gate's truth table to the
+coefficients of its algebraic normal form, and the gates it fixes mod 2,
+those equal to their own normal form, are FALSE, AND, XOR and OR.}
+
+\paragraph{Proof.} $A$ fixes $|1\rangle$, and $\mathrm{vec}(AXA^T) = (A\otimes A)
+\,\mathrm{vec}(X) = S_2\,\mathrm{vec}(X)$, which mod 2 is
+Theorem~2(ii) on two bits. The fixed gates are found by checking all $16$. \hfill $\square$
 
 \medskip
 \noindent
 Rank-one truth tables are the combinatorial rectangles of
-communication complexity~\cite{Kushilevitz1997}; the observation here is
-that, in the spinor reading of the frame, they are its light rays.
+communication complexity~\cite{Kushilevitz1997}. The observation here
+is that, under the forced metric of Lemma~1, they are the light rays of
+the frame's two-bit block.
 
 % ----------------------------------------------------------------------
 
 \section{Discussion and Scope}
 
-The archive's claim, that the null cone of the frame is a universal
-Boolean operator, is true in two senses, and they should be kept
+The archive's claim is true in two senses, and they should be kept
 apart. In the weak sense, representation, it holds for the eight null
-directions as for any eight labelled points (Proposition~2). In the
-strong sense, functional completeness, it holds in a specific way.
+directions as it does for any eight labelled points (Proposition~2). In
+the strong sense, functional completeness, it holds in a specific way.
 Parity alone, the structure that separates TetA from TetB, is not
-universal (Theorem~1). The Walsh read of the eight directions factors
-into an AND table and a half-turn (Theorem~2), and on the two-bit
-block the light rays are exactly the separable gates, which are
-universal, while parity is off the cone (Theorem~3).
+complete (Theorem~1). The Walsh read factors through the AND table,
+which carries the whole algebraic normal form (Theorem~2). On the
+two-bit block the forced metric makes the light rays exactly the
+separable gates, which are complete, while parity is off the cone
+(Lemma~1, Theorem~3).
 
-What is standard and what is new: Post's theorem, the algebraic normal
-form, the completeness of NOR, and the spinor--vector correspondence
-are classical. The new content is their placement on the frame: the
-null directions as the three-bit words, the factorisation of their
-Walsh read into AND and XOR tables, and the identification of the
-separable gates with the light rays of the spinor reading.
-
-The paper does not show that physical light computes, nor that a
+The paper does not show that physical light computes, or that a
 lattice of photons is a computing medium; those remain the archive's
-interpretation. The real form matters: only AND, NOR and TRUE are real
-light rays in Minkowski signature, and the other null gates are real
-only in split signature. The ten null and six non-null gates should
-not be confused with the archive's split of $16$ into $10$ symmetric
-and $6$ antisymmetric components: the null gates do not form a linear
-subspace, and no relation between the two counts is claimed.
+interpretation. The distinction between real and complex light rays
+depends on the Hermitian structure, though the null set does not. The
+ten null and six non-null gates should not be confused with the
+archive's split of $16$ into ten symmetric and six antisymmetric
+components: the null gates do not form a linear subspace, and no
+relation between the two counts is claimed.
 
-Every statement is checked by the accompanying script (18 checks,
-exact arithmetic, closures exhaustive over all $256$ functions).
+Every statement is checked by the accompanying script (26 checks,
+exact arithmetic, with closures exhaustive over all $256$ functions).
 
 % ----------------------------------------------------------------------
 
@@ -296,6 +346,11 @@ S.~Nelson,
 \textit{The universe is pixelated} (2026), research archive,
 \texttt{universe-is-pixelated/}.
 
+\bibitem{NelsonC}
+S.~Nelson,
+\textit{The Hadamard sign kernel of the tetrahedral frame} (2026),
+Paper~C.
+
 \bibitem{NelsonNullRot}
 S.~Nelson,
 \textit{G's graded operator is a null rotation} (2026),
@@ -310,6 +365,12 @@ Annals of Mathematics Studies~5 (Princeton University Press, 1941).
 I.~I.~Zhegalkin,
 ``On the technique of calculating propositions in symbolic logic'',
 \textit{Mat. Sb.} \textbf{34} (1927) 9--28.
+
+\bibitem{Reed1954}
+I.~S.~Reed,
+``A class of multiple-error-correcting codes and the decoding
+scheme'', \textit{Trans. IRE Prof. Group Inf. Theory} \textbf{4}
+(1954) 38--49.
 
 \bibitem{Muller1954}
 D.~E.~Muller,
@@ -332,6 +393,11 @@ J.~L.~Walsh,
 J.~J.~Sylvester,
 ``Thoughts on inverse orthogonal matrices'',
 \textit{Phil. Mag.} \textbf{34} (1867) 461--475.
+
+\bibitem{ODonnell2014}
+R.~O'Donnell,
+\textit{Analysis of Boolean Functions}
+(Cambridge University Press, 2014).
 
 \bibitem{PenroseRindler}
 R.~Penrose and W.~Rindler,

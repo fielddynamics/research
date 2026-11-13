@@ -1,4 +1,4 @@
-"""Checks for every result in 'The Null Directions of the Tetrad Frame Carry a Complete Boolean Basis'.
+"""Checks for every result in 'Boolean Universality and the Null Cone of the Tetrad Frame'.
 Exact integer and rational arithmetic throughout (sympy); the clone closures are exhaustive over all 256 three-input functions.
 Run: python verify_null_cone_boolean.py"""
 import itertools
@@ -108,5 +108,45 @@ Cl_nor = clone([(lambda a, b: 1 - (a | b), 2)])
 check("5.6 NOR alone generates all 256 three-input functions: a single gate whose truth table is a real light ray is universal", len(Cl_nor) == 256)
 check("5.7 the non-null gates are XOR, XNOR, OR, NAND and the two implications; parity (XOR, XNOR) lies off the cone",
       gates2["XOR"].det() == -1 and gates2["XNOR"].det() == 1)
+
+
+# ---- Referee additions: labelling, GF(2) localisation, the forced form, reading (in)dependence, the null rotation mod 2
+check("R1 over GF(2), H_8 is the all-ones matrix (rank 1) while S is invertible: the algebraic normal form lives in S (Theorem 2(v))",
+      H.applyfunc(lambda v: v % 2) == sp.ones(N, N) and S2 == sp.eye(N))
+def relabel(t, perm, mask):
+    out = 0
+    for i in range(N):
+        bb = [(i >> b) & 1 for b in range(3)]
+        j = sum(((bb[perm[b]]) ^ ((mask >> b) & 1)) << b for b in range(3))
+        if (t >> j) & 1: out |= 1 << i
+    return out
+aff = {t for t in range(256) if deg(t) <= 1}
+check("R2 the affine class is invariant under all 48 relabellings (bit permutations and negations), and so are the closures of 3.3 and 4.5",
+      all({relabel(t, p_, m_) for t in aff} == aff for p_ in itertools.permutations(range(3)) for m_ in range(8))
+      and all({relabel(t, p_, m_) for t in Cl_axo} == Cl_axo for p_ in itertools.permutations(range(3)) for m_ in range(8)))
+tetA = table(lambda i: pc(i) % 2 == 0)
+check("R3 one bit negation exchanges the TetA and TetB indicators", relabel(tetA, (0, 1, 2), 1) == 255 ^ tetA)
+E_ = sp.Matrix([[0, 1], [0, 0]]); F_ = sp.Matrix([[0, 0], [1, 0]]); Hh = sp.Matrix([[1, 0], [0, -1]])
+gens = [sp.kronecker_product(g, I2) for g in (E_, F_, Hh)] + [sp.kronecker_product(I2, g) for g in (E_, F_, Hh)]
+Q = sp.Matrix(4, 4, lambda i, j: sp.Symbol(f"q{min(i, j)}{max(i, j)}"))
+sol = sp.solve([e for g in gens for e in (g.T * Q + Q * g)], list(Q.free_symbols), dict=True)[0]
+Qs = Q.subs(sol); xv = sp.Matrix(sp.symbols("x0:4"))
+check("R4 (Lemma 1) the symmetric bilinear forms on C2 (x) C2 invariant under sl2 + sl2 acting on the two bits form a one-dimensional space, "
+      "spanned by the polarisation of det", len(Qs.free_symbols) == 1
+      and sp.simplify((xv.T * Qs * xv)[0] / (xv[0] * xv[3] - xv[1] * xv[2])).free_symbols <= Qs.free_symbols)
+Bm = sp.Matrix([[2, 1], [1, 1]]); Cm = sp.Matrix([[1, 3], [0, 1]])
+check("R5 the null set of gates is unchanged by any re-reading X -> B X C^T (rank is invariant), checked for an example and for B = C = A",
+      {nm for nm, X in gates2.items() if X.det() == 0} == {nm for nm, X in gates2.items() if (Bm * X * Cm.T).det() == 0}
+      == {nm for nm, X in gates2.items() if (sp.Matrix([[1, 0], [1, 1]]) * X * sp.Matrix([[1, 0], [1, 1]]).T).det() == 0})
+swp = sp.Matrix([[0, 1], [1, 0]])
+check("R6 but which null gates are real light rays depends on the Hermitian structure: re-reading one bit by a swap makes AND non-symmetric "
+      "(a complex null vector)", (gates2["AND"] * swp.T) != (gates2["AND"] * swp.T).T)
+Am = sp.Matrix([[1, 0], [1, 1]])
+check("R7 (Proposition 3) mod 2, X -> A X A^T = S_2 vec(X) gives the algebraic-normal-form coefficients of every gate",
+      all((Am * X * Am.T).applyfunc(lambda v: v % 2) == sp.Matrix(2, 2, list((sp.kronecker_product(Am, Am) * sp.Matrix(list(X))).applyfunc(lambda v: v % 2)))
+          for X in gates2.values()))
+check("R8 (Proposition 3) over the reals the null rotation fixes only FALSE and AND; mod 2 it fixes FALSE, AND, XOR and OR",
+      sorted(nm for nm, X in gates2.items() if Am * X * Am.T == X) == ["AND", "FALSE"]
+      and sorted(nm for nm, X in gates2.items() if (Am * X * Am.T).applyfunc(lambda v: v % 2) == X) == ["AND", "FALSE", "OR", "XOR"])
 
 print(f"\n{sum(ok)}/{len(ok)} checks passed")
