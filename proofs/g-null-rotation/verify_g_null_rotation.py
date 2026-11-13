@@ -1,4 +1,4 @@
-"""Machine checks for every step of "G's Graded Operator Is a Null Rotation".
+"""Machine checks for every step of "The Sierpinski Blocks of G's Graded Operator Are a Null Rotation".
 Exact algebra (sympy) throughout; 30-digit numerics only for one determinant of a matrix exponential and one size estimate.
 Run: python verify_g_null_rotation.py"""
 import re, pathlib
@@ -187,5 +187,38 @@ check("Theorem 8 (lemma): for p != 0, p q^T is Hermitian exactly when q is a rea
       "through conj(p)); so, with B, C invertible, the legs B h_a (C h_b)^T for a fixed a and both b cannot both be Hermitian, and at most "
       "two of the four legs are real light rays in any spinor reading",
       len(nullv) == 1 and sp.Matrix.hstack(nullv[0], conjp).rank() == 1)
+
+
+# ---- Referee additions
+rho = lambda V: sp.diag(sp.Matrix([[1]]), V, sp.kronecker_product(V, V))
+check("R1 in the bit basis M_(+1) = S_0 + S_2 + S_4 is the null rotation acting on scalar, vector and tensor, rho(A (x) A) "
+      "(the tensor block is (A (x) A) (x) (A (x) A) = S_4)", M(1) == rho(S[2]))
+check("R2 M_(-1) = rho(-(A (x) A)): TetB is the null rotation composed with the total inversion -1 (PT), which is -1 on vectors and +1 on "
+      "tensors; M_0 = (M_(+1) + M_(-1))/2 = rho(A (x) A) Pi_+, with Pi_+ the projection onto the part even under -1",
+      M(-1) == rho(-S[2]) and M(0) == (rho(S[2]) + rho(-S[2])) / 2
+      and M(0) == rho(S[2]) * (sp.eye(21) + rho(-sp.eye(4))) / 2)
+Ppar = sp.diag(1, -1, -1, -1)
+check("R3 spatial parity P = diag(1,-1,-1,-1) does not give TetB: Tr(P Lambda) = -1 and the graded trace of P Lambda is 1, not 13; "
+      "only the total inversion -1 gives 1 - 4 + 16 = 13",
+      (Ppar * LA).trace() == -1 and 1 + (Ppar * LA).trace() + sp.kronecker_product(Ppar * LA, Ppar * LA).trace() == 1
+      and 1 + (-LA).trace() + sp.kronecker_product(-LA, -LA).trace() == 13)
+lam = mpmath.findroot(lambda q: q + 1 / q - 2 * mpmath.exp(1j * mpmath.pi / 3), 0.3 + 0.3j)
+check("R4 chi = 4 does not single out null rotations: diag(lam, 1/lam) with lam + 1/lam = 2 e^(i pi/3) has |Tr|^2 = 4 but |lam| != 1 "
+      "(a loxodromic element, a boost combined with a rotation)",
+      abs(abs(lam + 1 / lam)**2 - 4) < 1e-25 and abs(abs(lam) - 1) > 0.1)
+check("R5 for real trace the classification is exact: Tr M = ±2 (chi = 4) are +-1 and the null rotations (Tr A = 2, and -A gives the same "
+      "Lambda); |Tr| < 2 are rotations (chi < 4); |Tr| > 2 are boosts (chi > 4)",
+      A.trace() == 2 and Lam(-A) == LA and chi(Rz.subs(ph, sp.pi / 3)) < 4 and chi(Bz.subs(et, 1)) > 4)
+tt = sp.symbols("tau", positive=True)
+At = sp.Matrix([[1, 0], [tt, 1]])
+check("R6 the one-parameter group A(tau) = [[1,0],[tau,1]] is conjugated by a boost to A(tau e^(-eta)): every null rotation about k with "
+      "tau > 0 is equivalent to the Sierpinski block A(1), so the 1 is a convention",
+      sp.simplify(Bz * At * Bz.inv() - sp.Matrix([[1, 0], [tt * sp.exp(-et), 1]])).is_zero_matrix)
+vv = sp.Matrix([1, 1, 0, 0])
+lim = [sp.limit(c / (Lam(At) * vv)[0], tt, sp.oo) for c in Lam(At) * vv]
+check("R7 as tau -> infinity, A(tau) carries every other light ray toward the fixed ray k (example: the ray along +x tends to (1,0,0,-1))",
+      lim == [1, 0, 0, -1])
+check("R8 the NP dyad normalisation: epsilon(h_0, h_1) = det[h_0 h_1] = -2, so the tetrad of Theorem 8 is the NP tetrad up to the factor 2",
+      sp.Matrix.hstack(hcol[0], hcol[1]).det() == -2)
 
 print(f"\n{sum(ok)}/{len(ok)} checks passed")

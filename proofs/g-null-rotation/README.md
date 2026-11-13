@@ -1,4 +1,4 @@
-# G's Graded Operator Is a Null Rotation
+# The Sierpiński Blocks of G's Graded Operator Are a Null Rotation
 
 *What the Sierpiński blocks in G's derivation are · Gravity Field Dynamics (GFD) · Field Dynamics Research*
 
@@ -6,7 +6,7 @@
 
 ---
 
-This folder holds a four-page proof with one figure, and a script that checks every step (33 checks, exact algebra). The archive derives Newton's constant as G = (17/13) α²¹ ħc/m_e² from a graded operator on blocks of size 1, 4 and 16 ([`g_matrix_synthesis.md`](../../research/g_from_topology/g_matrix_synthesis.md)). Its diagram, [`g_three_sierpinski_blocks.html`](../../research/g_from_topology/g_three_sierpinski_blocks.html), draws those blocks as Sierpiński triangles. The proof works out what those blocks are.
+This folder holds a five-page proof with one figure, and a script that checks every step (41 checks, exact algebra). It was revised after an internal referee-style review ([`referee_review.md`](referee_review.md)); the first version was titled *G's Graded Operator Is a Null Rotation*. The archive derives Newton's constant as G = (17/13) α²¹ ħc/m_e² from a graded operator on blocks of size 1, 4 and 16 ([`g_matrix_synthesis.md`](../../research/g_from_topology/g_matrix_synthesis.md)). Its diagram, [`g_three_sierpinski_blocks.html`](../../research/g_from_topology/g_three_sierpinski_blocks.html), draws those blocks as Sierpiński triangles. The proof works out what those blocks are.
 
 ![G's graded operator as Sierpiński blocks, the Hadamard factorisation, and the null rotation](g_null_rotation_figure.png)
 
@@ -29,10 +29,21 @@ Write a 4-vector as the 2×2 matrix X = (x_ij), with the two bits of the 4-block
 - **It factors exactly** as H = S · diag((−2)^popcount) · Sᵀ = e^L · e^((ln 2 + iπ)·popcount) · e^(Lᵀ). In Lorentz terms: a null rotation, then a boost of rapidity ln 2 with a π twist, then the reverse null rotation.
 - **So the Sierpiński blocks are the outer factors of the read,** and the half-turn e^{iπ} sits in the middle.
 
-## Result 4: K = 4 is the trace of a null rotation (Theorem 5)
+## Result 4: the operator at the three states, and K = 4 (Theorem 5)
+
+The operator is a null rotation only at TetA. The three states are:
+
+| State | Operator | Trace |
+|---|---|---|
+| TetA, s = +1 | the null rotation acting on scalar, vector and tensor | 21 |
+| TetB, s = −1 | the same rotation composed with the total inversion −1 (time and space reversed together) | 13 |
+| Field Origin, s = 0 | their average: the part even under −1 | 17 = (21 + 13)/2 |
+
+- **TetB is not spatial parity.** Spatial parity would give a graded trace of 1, not 13. Only the total inversion reproduces TetB. Whether GFD's TetA ↔ TetB exchange should be read as this inversion on the frame's vector block is left open.
+- **χ = 4 doesn't single out null rotations.** It also holds for the identity and for some elements that combine a boost with a rotation. Among Lorentz transformations whose 2×2 matrix has a real trace, it holds exactly for ±1 and the null rotations.
 
 - **The character.** On a 4-vector, the trace of the Lorentz transformation of A is χ = |Tr A|², and on a rank-2 tensor it is χ². So the graded trace on scalar, vector and tensor is 1 + sχ + χ² = f(χ, s).
-- **The two cases:**
+- **The two cases, in more detail:**
   - **Null rotation:** χ = 4 = K, which gives 21, 17, 13.
   - **The Walsh–Hadamard read itself:** χ = 0, which gives 1. So the read itself cannot produce G's numbers.
 - **The boundary.** Rotations have χ ≤ 4 and boosts χ ≥ 4, so the null rotations sit exactly on the boundary between them.
@@ -73,6 +84,20 @@ Read the frame's two bits as spinor indices. Each leg is then an outer product h
 - **At most two legs can be real light rays.** This holds in any spinor reading, and is proved. In that reading the frame is null in the form GR uses: two real light rays and a complex-conjugate pair.
 - **Letter 1's reading is different.** There the legs are (1, v/√3), the same frame with its spatial rows rescaled by 1/√3, and all four are real light rays. Both readings make the frame null; they differ in which coordinates carry the two bits.
 
+## What a referee would ask, and the answers
+
+The internal review ([`referee_review.md`](referee_review.md)) raised four major points:
+1. **Overclaim.** The operator is a null rotation only at TetA. The title is narrowed, and Theorem 5 gives all three states exactly.
+2. **TetB is the total inversion, not spatial parity.** This is flagged as an open question for the framework.
+3. **χ = 4 is not exclusive to null rotations.** The exact real-trace statement is given, with a counterexample in the checks.
+4. **Prior work.** The standard ingredients are now listed up front.
+
+Minor points:
+- the 1 in the Sierpiński block is a convention, since every null rotation about the ray is equivalent to it under a boost;
+- the figure's light-ray flow is the τ → ∞ limit;
+- the 1 + 9 + 81 area comparison is a remark, not a theorem;
+- the Newman–Penrose normalisation factor of 2 is stated.
+
 ## What it does not do
 
 - **It does not derive G.** G still rests on the archive's assumption that each of the 21 coupling levels contributes one factor of α, and on K = 4 from D = 3. The proof identifies the operator G is read from.
@@ -86,16 +111,17 @@ Read the frame's two bits as spinor indices. Each leg is then an outer product h
 
 | File | Contents |
 |---|---|
-| [`g_null_rotation.pdf`](g_null_rotation.pdf) | The proof, four pages, Theorems 1–8 and Figure 1 |
+| [`g_null_rotation.pdf`](g_null_rotation.pdf) | The proof, five pages, Theorems 1–8 and Figure 1 |
+| [`referee_review.md`](referee_review.md) | The internal referee-style review and the response to each point |
 | [`g_null_rotation.tex`](g_null_rotation.tex) | LaTeX source (IOP journal class, included) |
 | [`g_null_rotation_figure.png`](g_null_rotation_figure.png) | Figure 1 |
 | [`make_figure.py`](make_figure.py) | Draws Figure 1 (numpy, matplotlib) |
-| [`verify_g_null_rotation.py`](verify_g_null_rotation.py) | Checks of every theorem: the diagram's blocks cell by cell, Lucas, S = e^L, traces and areas, spectra, det(α^M) at 30 digits, the spinor map and Minkowski norm, the null rotation and its fixed plane, the π-rotation, the Hadamard factorisation at m = 0, 2, 4, the boost, the characters, rotation and boost bounds, the Jordan chains, Clebsch–Gordan, and the symmetric/antisymmetric split; the tetrad frame as the 4-block read and its factorisation; the null legs, their Minkowski components and products, the orthonormal frame, and the bound of two real light rays |
+| [`verify_g_null_rotation.py`](verify_g_null_rotation.py) | Checks of every theorem: the diagram's blocks cell by cell, Lucas, S = e^L, traces and areas, spectra, det(α^M) at 30 digits, the spinor map and Minkowski norm, the null rotation and its fixed plane, the π-rotation, the Hadamard factorisation at m = 0, 2, 4, the boost, the characters, rotation and boost bounds, the Jordan chains, Clebsch–Gordan, and the symmetric/antisymmetric split; the tetrad frame as the 4-block read and its factorisation; the null legs, their Minkowski components and products, the orthonormal frame, and the bound of two real light rays; referee additions: M at the three states, parity versus total inversion, the loxodromic χ = 4 counterexample, the real-trace classification, boost conjugacy of the null rotations, the light-ray limit, and the dyad normalisation |
 | [`iopjournal.cls`](iopjournal.cls) | Document class, so the source builds here |
 
 ```bash
 pip install sympy mpmath
-python verify_g_null_rotation.py      # 33/33
+python verify_g_null_rotation.py      # 41/41
 python make_figure.py                 # needs numpy, matplotlib
 pdflatex -interaction=nonstopmode g_null_rotation.tex
 ```
