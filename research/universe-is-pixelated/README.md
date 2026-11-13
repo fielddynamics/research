@@ -204,7 +204,7 @@ Three counts meet here:
 
 ### Gravity's constant on the same blocks
 
-The derivation of $G$ in [`g_from_topology/`](../g_from_topology/g_matrix_synthesis.md) works on a 21-dimensional space with blocks of size 1, 4 and 16, the scalar, vector and tensor parts of the tetrad equation. Those are exactly the sizes of the Sylvester–Hadamard matrices $H_1$, $H_4$ and $H_{16}$. The vector block is spanned by the rows of $H_4$, which are the tetrad of the previous section, and the tensor block by $H_4 \otimes H_4$, the 16 channels of Letters 1 and 3. The state parameter $s$ acts on the odd block alone, as Letter 2 requires. In this basis, $G$'s graded operator is a stack of Walsh–Hadamard blocks.
+The derivation of $G$ in [`g_from_topology/`](../g_from_topology/g_matrix_synthesis.md) works on a 21-dimensional space with blocks of size 1, 4 and 16, the scalar, vector and tensor parts of the tetrad equation. Those are exactly the sizes of the Sylvester–Hadamard matrices $H_1$, $H_4$ and $H_{16}$. The vector block is spanned by the rows of $H_4$, which are the tetrad of the previous section, and the tensor block by $H_4 \otimes H_4$, the 16 channels of Letters 1 and 3. The state parameter $s$ acts on the odd block alone, as Letter 2 requires. In this basis, $G$'s graded operator is a stack of Walsh–Hadamard blocks. The [Sierpiński diagram](../g_from_topology/g_three_sierpinski_blocks.html) draws the blocks more precisely: they are not the matrices $H_4$ and $H_{16}$, whose traces are 0, but their Sierpiński factors $S$ in $H = S\,\mathrm{diag}\big((-2)^{\mathrm{popcount}}\big)\,S^T$. Read on 4-vectors, $S$ is a null rotation, and its trace on scalar, vector and tensor is $f(K, s)$ ([proof](../../proofs/g-null-rotation/)).
 
 ## G as an operator read
 

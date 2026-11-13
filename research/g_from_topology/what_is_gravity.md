@@ -151,7 +151,7 @@ In general relativity the gravitational field is the connection, the rule that r
 
 **In short:** the read is a ±1 transform on the cube, and the cube's parity is what brings in the second chamber.
 
-The cube's eight corners form a universal Boolean operator, read by its Walsh–Hadamard spectrum, and the blocks of size 1, 4 and 16 in G's graded operator are the Hadamard matrices $H_1$, $H_4$ and $H_{16}$. The octahedral resonance node shows a coupled oscillator on those corners producing the whole spectrum in one oscillation.
+The cube's eight corners form a universal Boolean operator, read by its Walsh–Hadamard spectrum, and the blocks of size 1, 4 and 16 in G's graded operator have the sizes of the Hadamard matrices $H_1$, $H_4$ and $H_{16}$. Drawn as in [`g_three_sierpinski_blocks.html`](g_three_sierpinski_blocks.html), they are the Sierpiński factors of those matrices, which act on 4-vectors as null rotations ([proof](../../proofs/g-null-rotation/)). The octahedral resonance node shows a coupled oscillator on those corners producing the whole spectrum in one oscillation.
 
 The spectrum factors as $H_8 = H_2 \otimes H_4$ (Paper C). $H_4$ is the frame within one tetrahedron; $H_2$ says which tetrahedron, and that is the cube's parity. General relativity keeps only the parity-even part, so it reads a single chamber. The full read needs $H_2$: both chambers, and with them $1 - \mu$. This is the bimetric result of step 3, seen from the algebra. At $D = 3$ the counts coincide, $2 \times 4 = 8$ corners and $K^3 = 64 = 8 \times 8$, which is why the cube and the stellated octahedron can be read as one object.
 

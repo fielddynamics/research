@@ -58,7 +58,7 @@ Standard library only. The value of G is also checked in [`universe-is-pixelated
 | [`g_from_the_closure_climb.md`](g_from_the_closure_climb.md) | The combination rule read from the closure climb, with its status |
 | [`look_elsewhere_G.py`](look_elsewhere_G.py) | The look-elsewhere test for the prefactor and exponent |
 | [`closure_climb_G.py`](closure_climb_G.py) | The closure climb, its mean, the 21 closure-stage rules and their fake-target test |
-| [`g_three_sierpinski_blocks.html`](g_three_sierpinski_blocks.html) | Diagram of G as three Sierpiński blocks, 1 + 4 + 16 |
+| [`g_three_sierpinski_blocks.html`](g_three_sierpinski_blocks.html) | Diagram of G as three Sierpiński blocks, 1 + 4 + 16; what the blocks are is proved in [`proofs/g-null-rotation/`](../../proofs/g-null-rotation/) |
 | [`photonic_circle.jsx`](photonic_circle.jsx) | Interactive React component: the 64-sector read circle |
 
 `g_matrix_synthesis.md`, `read_sweep_synthesis.md` and `photonic_circle.jsx` also appear, identical, in [`photonic/`](../photonic/).
@@ -67,6 +67,7 @@ Standard library only. The value of G is also checked in [`universe-is-pixelated
 
 - [`exploratory/i-ching/`](../exploratory/i-ching/): the BBP formula for π as the stellated octahedron's formula, read around the TIME axis that G climbs
 - [`universe-is-pixelated/`](../universe-is-pixelated/): the cube as a Boolean computer, and G as an operator read on Walsh–Hadamard blocks
+- [`proofs/g-null-rotation/`](../../proofs/g-null-rotation/): the blocks of `g_three_sierpinski_blocks.html` are null rotations and the Sierpiński factors of the Walsh–Hadamard read; G reads only their diagonal, and its traces 21, 17, 13 are the character of a null rotation on scalar, vector and tensor (25 checks)
 - [`coupling-algebra/`](../coupling-algebra/) Results 12–13: the 21 coupling levels as the points of the projective plane over $\mathbb{F}_4$ ($64 = 21 \times 3 + 1$ is $4^3 \equiv 1 \bmod 21$), and 21, 17, 13 as the characteristic polynomials of the cube's 3-fold rotation, 4-fold symmetries and 6-fold rotoreflection, evaluated at $K$. Neither derives the combination rule.
 - [Paper VI](../../papers/06-gravitational-constant-from-topology/): *Deriving the Gravitational Constant from Spacetime Topology*
 - [`docs/02-gravitation/04-g-from-topology.md`](../../docs/02-gravitation/04-g-from-topology.md): the documentation page

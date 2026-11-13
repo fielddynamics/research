@@ -1,0 +1,306 @@
+\documentclass[twocolumn]{iopjournal}
+
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+
+\fancyhfoffset[L]{0mm}
+\setlength{\marginparwidth}{0pt}
+\setlength{\marginparsep}{0pt}
+\renewcommand{\dbltopfraction}{0.95}
+\renewcommand{\topfraction}{0.95}
+\renewcommand{\dblfloatpagefraction}{0.85}
+
+\renewcommand{\articletype}[1]{%
+  {\vspace*{-8mm}\noindent \Large \sf Preprint}\par
+  \vspace*{6mm}\noindent{\scriptsize \sf{\bfseries \MakeUppercase{#1}}}}
+
+\fancyhead[L]{}
+\fancyhead[R]{}
+
+\hypersetup{pdftitle={G's Graded Operator Is a Null Rotation}, pdfauthor={Stephen Nelson}, pdfsubject={Gravity Field Dynamics (GFD)}, pdfkeywords={gravitational constant, Sierpinski triangle, Walsh-Hadamard transform, null rotation, Lorentz group, coupling polynomial, proof}}
+
+\begin{document}
+
+\articletype{Supplementary Material}
+
+\title{G's Graded Operator Is a Null Rotation}
+
+\author{Stephen Nelson}
+
+\affil{Field Dynamics Research}
+
+\ead{stephen@fielddynamics.org}
+
+\begin{abstract}
+Gravity Field Dynamics writes Newton's constant as
+$G = \tfrac{17}{13}\,\alpha^{21}\,\hbar c/m_e^2$, read from a graded
+operator on blocks of size $1$, $4$ and $16$ whose traces are the
+coupling polynomial $f(K,s) = 1 + sK + K^2$. The archive's diagram
+draws those blocks as Sierpi\'nski triangles. We show what they are.
+Each block is $S_m = A^{\otimes m}$, $A = \bigl(\begin{smallmatrix}1&0\\1&1\end{smallmatrix}\bigr)$,
+on $m = 0, 2, 4$ bits, equal to $e^{L}$ with $L$ the operator that
+removes one bit. $G$ is unchanged by them and reads only their
+diagonal: $1 + 4 + 16 = 21$, while the filled area $1 + 9 + 81$ would
+miss $G$ by $10^{-150}$. Reading the two bits of the $4$-block as the
+spinor indices of a $4$-vector, the Sierpi\'nski block is a null
+rotation, a Lorentz transformation that fixes one light ray. The
+Walsh--Hadamard read on the same block is a rotation of space by
+$\pi$, and it factors as null rotation, boost of rapidity $\ln 2$
+with a $\pi$ twist, and reverse null rotation. The trace of a null
+rotation on a $4$-vector is $|\mathrm{Tr}\,A|^2 = 4 = K$, the boundary
+between rotations and boosts, so $G$'s graded trace is the character
+$1 + s\chi + \chi^2$ of a null rotation on scalar, vector and
+rank-$2$ tensor. The Sierpi\'nski chains split the blocks as
+$4 = 3 + 1$ and $16 = (5 + 3 + 1 + 1) + (3 + 3)$, the pieces of a
+metric and of a $2$-form.
+\end{abstract}
+
+\keywords{gravitational constant, Sierpi\'nski triangle, Walsh--Hadamard transform, null rotation, Lorentz group, coupling polynomial, proof}
+
+% ----------------------------------------------------------------------
+
+\section*{Setting}
+
+The archive derives $G$ from the graded operator
+$I_s = P_0 + sP_1 + P_2$ on blocks of size $1$, $K = 4$ and
+$K^2 = 16$, the scalar, vector and tensor parts of the tetrad
+equation~\cite{Nelson2026gmatrix}. Its traces are $f(K,s) = 21, 17,
+13$ at $s = +1, 0, -1$ (TetA, the Field Origin, TetB), and
+$\det(\alpha^{I_s}) = \alpha^{\mathrm{Tr}\,I_s}$ gives
+$G = \tfrac{17}{13}\,\alpha^{21}\,\hbar c/m_e^2$. The archive's
+diagram of this operator~\cite{Nelson2026gdiagram} draws the three
+blocks as Sierpi\'nski triangles, and its account of the cube says
+that the blocks ``are'' the Sylvester--Hadamard matrices $H_1$, $H_4$,
+$H_{16}$~\cite{Nelson2026pixelated}. We take the diagram's blocks at
+face value and determine what they are. Write
+$A = \bigl(\begin{smallmatrix}1&0\\1&1\end{smallmatrix}\bigr)$,
+$H_2 = \bigl(\begin{smallmatrix}1&1\\1&-1\end{smallmatrix}\bigr)$,
+$S_m = A^{\otimes m}$, and let $|x|$ be the number of $1$-bits of an
+index $x$.
+
+\begin{figure*}[!t]
+\centering
+\includegraphics[width=0.8\textwidth]{g_null_rotation_figure.png}
+\caption{(a) $G$'s graded operator as drawn in the archive: the
+Sierpi\'nski blocks $S_0$, $S_2$, $S_4$. Their diagonals (dark) are all
+that the trace, and so $G$, reads. (b) The Walsh--Hadamard read on the
+$4$-block factors through the Sierpi\'nski block (Theorem 4).
+(c) Read as acting on $4$-vectors, the Sierpi\'nski block fixes the
+light ray $|11\rangle$ and carries every other light ray towards it
+(Theorem 3), shown on the slice $y = 0$, which it preserves.}
+\label{fig:main}
+\end{figure*}
+
+% ----------------------------------------------------------------------
+
+\section*{The Blocks}
+
+\paragraph{Theorem 1 (the Sierpi\'nski blocks).} \textit{The
+diagram's blocks are $S_0$, $S_2$ and $S_4$. Entry $(i,j)$ of $S_m$
+is $1$ exactly when the bits of $j$ are a subset of those of $i$,
+that is, when $\binom{i}{j}$ is odd. With $L = \sum_{b} N_b$, where
+$N_b$ removes bit $b$ (it acts as
+$\bigl(\begin{smallmatrix}0&0\\1&0\end{smallmatrix}\bigr)$ on that
+bit),}
+\begin{equation}
+  S_m = e^{L}, \qquad L^{m+1} = 0, \qquad \mathrm{Tr}\,L = 0 .
+\end{equation}
+\textit{The traces are $1, 4, 16$ and the filled areas are $1, 9,
+81 = 3^m$.}
+
+\paragraph{Proof.} The diagram's cells are compared with $S_m$ one by
+one. $A = e^{N}$ with $N^2 = 0$, and the $N_b$ commute, so
+$A^{\otimes m} = \prod_b e^{N_b} = e^{L}$. The entry rule is the
+tensor product of $A$'s and Lucas's theorem. Each bit contributes
+$1$ to the trace and $3$ to the area. \hfill $\square$
+
+\paragraph{Theorem 2 ($G$ reads the diagonal).} \textit{Let
+$M_s = S_0 \oplus s\,S_2 \oplus S_4$. Then $\mathrm{Tr}\,M_s =
+1 + 4s + 16 = f(K,s)$, the spectra of $M_s$ and $I_s$ coincide (rank
+$17$ at $s = 0$; $17$ eigenvalues $+1$ and $4$ eigenvalues $-1$ at
+$s = -1$), and $\det(\alpha^{M_s}) = \alpha^{f(K,s)}$. So $G$ is the
+same whether the blocks are identities or Sierpi\'nski blocks. Reading
+the filled cells instead, $1 + 9 + 81 = 91$, would change $G$ by
+$\alpha^{70} \approx 10^{-150}$.}
+
+\paragraph{Proof.} Each $S_m$ is lower triangular with unit
+diagonal, so its eigenvalues are all $1$. $\det e^{X} =
+e^{\mathrm{Tr}\,X}$. \hfill $\square$
+
+\medskip
+\noindent
+So the Sierpi\'nski structure off the diagonal is invisible to $G$.
+The next theorems say what that structure is.
+
+% ----------------------------------------------------------------------
+
+\section*{The Lorentz Reading}
+
+Write a $4$-vector as $X = t + x\sigma_1 + y\sigma_2 + z\sigma_3$, so
+that $\det X = t^2 - x^2 - y^2 - z^2$, and index its entries by the
+two bits of the $4$-block, $X = (x_{ij})$~\cite{PenroseRindler}. The
+states $|00\rangle$ and $|11\rangle$ are $t + z$ and $t - z$, the two
+null directions along $z$.
+
+\paragraph{Theorem 3 (the Sierpi\'nski block is a null rotation).}
+\textit{On the bit basis, $S_2\,\mathrm{vec}(X) = \mathrm{vec}(AXA^T)$.
+The map $\Lambda_A : X \mapsto AXA^{\dagger}$ is a proper
+orthochronous Lorentz transformation with $\Lambda_A \ne 1$ and
+$(\Lambda_A - 1)^3 = 0$: a null rotation. Its fixed vectors form the
+plane spanned by $k = (1,0,0,-1)$, the state $|11\rangle$, and the
+$y$ axis, and $k$ is the only light ray in that plane. Every real $A$
+with $\det A = 1$ fixes $y$, so the Sierpi\'nski blocks act as the
+Lorentz group of $(t, x, z)$.}
+
+\paragraph{Proof.} $\mathrm{vec}(AXA^T) = (A \otimes A)\,
+\mathrm{vec}(X)$, and $A$ is real, so $A^T = A^\dagger$.
+$\det(AXA^\dagger) = \det X$ because $\det A = 1$. $A$ fixes
+$|1\rangle$, so $\Lambda_A$ fixes the matrix
+$|1\rangle\langle1|$, which is the light ray $k$. The antisymmetric part $y\,i\sigma_2$ is sent to
+$\det A \cdot y\,i\sigma_2$. The remaining statements are computed
+from the $4 \times 4$ matrix of $\Lambda_A$. \hfill $\square$
+
+\paragraph{Theorem 4 (the Hadamard read).} \textit{The normalised
+$H_2/\sqrt2$ acts on $4$-vectors as a rotation of space by $\pi$ about
+$(\hat x + \hat z)/\sqrt2$. For $m = 0, 2, 4$,}
+\begin{equation}
+  H_{2^m} = S_m\,\mathrm{diag}\big((-2)^{|x|}\big)\,S_m^{T}
+  = e^{L}\,e^{(\ln 2 + i\pi)|x|}\,e^{L^T}.
+\end{equation}
+\textit{On the $4$-block the middle factor
+$\mathrm{diag}(1,-2)/\sqrt2$ is a boost of rapidity $\ln 2$ along $z$
+combined with a rotation by $\pi$ about $z$. So the rotation by $\pi$
+is a null rotation, a boost with a $\pi$ twist, and the reverse null
+rotation.}
+
+\paragraph{Proof.} For one bit,
+$A\,\mathrm{diag}(1,-2)\,A^T = H_2$; tensor powers give the rest, and
+$(-2)^{|x|} = e^{(\ln 2 + i\pi)|x|}$. The Lorentz matrices follow
+from $\Lambda_M = \tfrac12\mathrm{Tr}(\sigma_\mu M \sigma_\nu
+M^\dagger)$, with $\cosh\ln2 = \tfrac54$ and $\sinh\ln2 = \tfrac34$.
+\hfill $\square$
+
+\medskip
+\noindent
+This is the triangular (Gauss) factorisation of the Walsh--Hadamard
+matrix~\cite{Sylvester1867}. In it, the Sierpi\'nski blocks are the
+outer factors and the half-turn $e^{i\pi}$ sits in the middle.
+
+% ----------------------------------------------------------------------
+
+\section*{The Character}
+
+\paragraph{Theorem 5 ($K = 4$ is the trace of a null rotation).}
+\textit{For $M \in SL(2,\mathbb{C})$ the trace of $\Lambda_M$ on
+$4$-vectors is $\chi = |\mathrm{Tr}\,M|^2$, and on rank-$2$ tensors it
+is $\chi^2$. So the graded trace of $M$ acting on scalar, vector and
+tensor, with the sign $s$ on the vector, is}
+\begin{equation}
+  1 + s\,\chi + \chi^2 = f(\chi, s).
+\end{equation}
+\textit{The null rotation has $\chi = 4 = K$, giving $21, 17, 13$. The
+$\pi$-rotation $H_2/\sqrt2$ has $\chi = 0$, giving $1$. A rotation by
+$\phi$ has $\chi = 4\cos^2(\phi/2) \le 4$ and a boost of rapidity
+$\eta$ has $\chi = 4\cosh^2(\eta/2) \ge 4$, with equality only for the
+identity: the null rotations lie on the boundary $\chi = 4$.}
+
+\paragraph{Proof.} $\Lambda_M$ is $M \otimes \bar M$ in the bit
+basis, so its trace is $\mathrm{Tr}\,M\,\overline{\mathrm{Tr}\,M}$,
+and the trace of a tensor product is the product of traces.
+$\mathrm{Tr}\,A = 2$, $\mathrm{Tr}\,H_2 = 0$, and the rotation and the
+boost about $z$ are $\mathrm{diag}(e^{\pm i\phi/2})$ and
+$\mathrm{diag}(e^{\pm\eta/2})$. \hfill $\square$
+
+\medskip
+\noindent
+This gives $G$'s three traces a reading as a character. It does not
+derive $K = 4$, which comes from $D = 3$~\cite{Nelson2026hadamard},
+and the identity has the same character. What it shows is that the
+blocks the archive draws, with their Sierpi\'nski structure, are
+null rotations, and that the Walsh--Hadamard read itself, with
+$\chi = 0$, could not give $G$'s numbers.
+
+\paragraph{Theorem 6 (the chains).} \textit{The Jordan chains of $S_2$
+have lengths $3 + 1$, and those of $S_4$ have lengths $5 + 3 + 3 + 3 +
+1 + 1$. They are the Clebsch--Gordan decompositions of $2$ and $4$
+spin-$\tfrac12$ factors, and over the whole operator
+$21 = 1 + (3 + 1) + (5 + 3 + 3 + 3 + 1 + 1)$. $S_4$ commutes with the
+exchange of the two vector factors, and on the symmetric $10$ and
+antisymmetric $6$ its chains are}
+\begin{equation}
+  10 = 5 + 3 + 1 + 1, \qquad 6 = 3 + 3 .
+\end{equation}
+
+\paragraph{Proof.} $L$ is the lowering operator of the diagonal
+$\mathfrak{sl}_2$ on $m$ spin-$\tfrac12$ factors, so each irreducible
+summand of dimension $d$ is one chain of length $d$. The multiplicity
+of dimension $m - 2k + 1$ is $\binom{m}{k} - \binom{m}{k-1}$. The
+restriction to the symmetric and antisymmetric parts is computed from
+the ranks of $(S_4 - 1)^j$. \hfill $\square$
+
+\medskip
+\noindent
+The split $16 = 10 + 6$ is the archive's: general relativity keeps the
+symmetric $10$, and the antisymmetric $6$ is the torsion-type part.
+The chains refine it into the pieces of a symmetric tensor
+($5 + 3 + 1 + 1$) and of a $2$-form ($3 + 3$).
+
+% ----------------------------------------------------------------------
+
+\section*{Scope}
+
+The results are exact. They identify the operator from which $G$ is
+read; they do not derive $G$. The value of $G$ still rests on the
+archive's assumption that each of the $21$ coupling levels contributes
+one factor of $\alpha$~\cite{Nelson2026gmatrix}, and on $K = 4$ from
+$D = 3$. The trace cannot tell a null rotation from the identity, so
+the content added here is what the blocks are: Sierpi\'nski triangles,
+null rotations, and the outer factors of the Walsh--Hadamard read. The
+statement that the blocks ``are'' $H_1$, $H_4$, $H_{16}$ is sharpened
+accordingly: they are the Sierpi\'nski factors of those matrices, and
+the matrices themselves have trace $0$ beyond $H_1$. The Sierpi\'nski
+blocks act through the Lorentz group of $(t, x, z)$, with $y$ fixed.
+So the chain lengths match the decomposition of a vector, a metric and
+a $2$-form exactly, but naming the components ($h_{00}$, $h_{0i}$,
+\dots) requires the rotation group, which the Sierpi\'nski block does
+not supply. The spinor--vector correspondence, null rotations and the
+factorisation of the Hadamard matrix are standard; the identification
+with $G$'s blocks is new.
+
+% ----------------------------------------------------------------------
+
+\begin{thebibliography}{9}
+
+\bibitem{Nelson2026gmatrix}
+S.~Nelson,
+\textit{G as a matrix read} (2026), research archive,
+\texttt{g\_from\_topology/g\_matrix\_synthesis.md}.
+
+\bibitem{Nelson2026gdiagram}
+S.~Nelson,
+\textit{G as three Sierpi\'nski blocks} (2026), research archive,
+\texttt{g\_from\_topology/g\_three\_sierpinski\_blocks.html}.
+
+\bibitem{Nelson2026pixelated}
+S.~Nelson,
+\textit{The universe is pixelated} (2026), research archive,
+\texttt{universe-is-pixelated/}.
+
+\bibitem{Nelson2026hadamard}
+S.~Nelson,
+\textit{The Stellated Octahedron, the Cube and the Hadamard Matrix}
+(2026).
+
+\bibitem{PenroseRindler}
+R.~Penrose and W.~Rindler,
+\textit{Spinors and Space-Time}, vol.~1
+(Cambridge University Press, 1984).
+
+\bibitem{Sylvester1867}
+J.~J.~Sylvester,
+``Thoughts on inverse orthogonal matrices'',
+\textit{Phil. Mag.} \textbf{34} (1867) 461--475.
+
+\end{thebibliography}
+
+\end{document}
