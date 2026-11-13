@@ -61,10 +61,10 @@ F = lambda Y: Y - 2 * sp.sqrt(Y) + 2 * sp.log(1 + sp.sqrt(Y))
 mu = lambda X_: X_ / (X_ + 1)
 f = a0 ** 2 * (F(A ** 2 / a0 ** 2) - A ** 2 / a0 ** 2)
 chi = sp.diff(f, A) / (2 * A)
-check("T3.1 writing the SST as (1/16 pi G)[R - 2 f(a)] with f = a0^2 [F(y) - y], y = a^2/a0^2 (units c = 1), gives Blanchet-Marsat's "
-      "chi = f'(a)/2a = mu - 1, so mu_total = 1 + chi = mu(a/a0) = x/(x+1)", sp.simplify(chi - (mu(A / a0) - 1)) == 0)
-check("T3.2 equivalently R/16 pi G - (a0^2/8 pi G)[F(y) - y]: the curvature term supplies the y of F and the time-leg term supplies F - y "
-      "(Lemma 1 of the quasi-static proof)", sp.simplify(-2 * f / (16 * sp.pi * G) + a0 ** 2 / (8 * sp.pi * G) * (F(A ** 2 / a0 ** 2) - A ** 2 / a0 ** 2)) == 0)
+check("T3.1 the SST as written, varied as in Lemma 1, has Blanchet-Marsat's field equations with f = a0^2 [F(y) - y], y = a^2/a0^2 (c = 1): "
+      "their chi = f'(a)/2a = mu - 1, so mu_total = 1 + chi = mu(a/a0) = x/(x+1)", sp.simplify(chi - (mu(A / a0) - 1)) == 0)
+check("T3.2 term by term -2f/16 pi G = -(a0^2/8 pi G)[F(y) - y]: the y of F is the curvature term's (Lemma 1), F - y is the rest; "
+      "the action itself is the SST as written", sp.simplify(-2 * f / (16 * sp.pi * G) + a0 ** 2 / (8 * sp.pi * G) * (F(A ** 2 / a0 ** 2) - A ** 2 / a0 ** 2)) == 0)
 X1, X2, X3 = sp.symbols("X1 X2 X3")
 P = sp.Function("Phi")(X1, X2, X3); Q = sp.Function("Psi")(X1, X2, X3)
 gr = [sp.diff(P, v) for v in (X1, X2, X3)]
@@ -74,7 +74,7 @@ L = LEH - a0 ** 2 / (8 * sp.pi * G) * (F(Yv) - Yv) - rho * P
 eL = euler_equations(L, [P, Q], [X1, X2, X3])
 xg = sp.sqrt(sum(g_ ** 2 for g_ in gr)) / a0
 tgt = sum(sp.diff(mu(xg) * g_, v) for g_, v in zip(gr, (X1, X2, X3))) / (4 * sp.pi * G) - rho
-check("T3.3 its static weak-field reduction (N = exp(Phi/c^2), h = (1 - 2 Psi/c^2) delta, minimal coupling) gives lap(Phi - Psi) = 0, so "
+check("T3.3 the SST's static weak-field reduction (N = exp(Phi/c^2), h = (1 - 2 Psi/c^2) delta, minimal coupling) gives lap(Phi - Psi) = 0, so "
       "Psi = Phi (gamma = 1), and div[mu grad Phi] = 4 pi G rho",
       sp.simplify(eL[1].lhs * 4 * sp.pi * G - sum(sp.diff(P - Q, v, 2) for v in (X1, X2, X3))) == 0
       and sp.simplify(eL[0].lhs.subs(Q, P).doit() - tgt) == 0)

@@ -9,7 +9,7 @@
 The note defines the SST's y covariantly as c⁴a·a/a₀², with a the acceleration of the tetrad's time leg. From that it shows:
 - y ≥ 0;
 - the exact static reduction to |∇Φ|²/a₀², with Φ the lapse;
-- the covariant SST as (1/16πG)√−g[R − 2f(a)], f = a₀²(F − y), with μ = x/(x+1) exactly;
+- that the SST as written, varied as in Lemma 1, has the field equations of Blanchet–Marsat's theory with f = a₀²(F − y), and μ = x/(x+1) exactly;
 - γ = 1 and the field equation;
 - the structure of the metric equations;
 - a GR background;
@@ -23,7 +23,7 @@ The algebra is correct and machine-checked.
 
 **M2. The strong-field limit.** Blanchet and Marsat need f → constant at large a to recover GR. This f does not, so applied to the Sun's own field it leaves a residual ≈ a₀, which is excluded. A referee will not accept a galactic theory that fails in the solar system unless the paper says how. *Response.* Theorem 6 states it plainly, with the Saturn number. The archive already excludes the per-mass tail and applies μ to the galaxy's net field (Coles Notes §5.4; bimetric-projection Part 3). The note states that rule covariantly (a from the coarse-grained time leg), and says that an action implementing it is open. It does not claim the solar system is solved.
 
-**M3. "Reading" versus action.** Equation (3) has F − y where the SST has F. *Response.* That is the reading of Lemma 1 of the quasi-static proof, now written as a covariant action. The note says so, and repeats the consequence of counting y twice (1 + μ).
+**M3. Reading versus action.** Is the SST being replaced by a different action? *Response.* No. The action displayed is the SST exactly as written. Lemma 1 (the curvature term supplies the y of F) is stated in words as how its terms are varied, and f = a₀²(F − y) is only the name of the equivalent function in Blanchet–Marsat's notation. The note repeats the consequence of counting y twice (1 + μ).
 
 **M4. Lorentz violation.** A preferred foliation is constrained by PPN α₁, α₂, by the khronon's stability and by gravitational-wave speed bounds. *Response.* Listed as open in Scope, with the reason the Blanchet–Marsat argument does not carry over directly.
 

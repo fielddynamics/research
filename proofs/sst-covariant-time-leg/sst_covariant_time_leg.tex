@@ -40,16 +40,17 @@ or zero, so $y \ge 0$ for every configuration and $F$ needs no
 extension. In a static metric $-N^2c^2dt^2 + h_{ij}dx^idx^j$ with
 $N = e^{\Phi/c^2}$, $c^2 a_i = \partial_i\Phi$ exactly, so $y$ reduces
 to the archive's $|\nabla\Phi|^2/a_0^2$, and $\Phi$ is the lapse
-potential of the metric, not a separate field. The SST, with the
-reading of Lemma~1 of~\cite{NelsonPqs}, is then the action
-$(1/16\pi G)\sqrt{-g}\,[R - 2f(a)]$ with $f = a_0^2[F(y) - y]$. This
-is the preferred-foliation form of Blanchet and
-Marsat~\cite{BM2011,BM2012}, and it gives $\mu_{\rm total} = 1 +
-f'(a)/2a = x/(x+1)$ exactly. Its static weak field gives $\Psi =
+potential of the metric, not a separate field. The SST is taken
+exactly as written. Varied as the framework varies it (Lemma~1
+of~\cite{NelsonPqs}: the curvature term supplies the Newtonian part
+$y$ of $F$), it has the field equations of Blanchet and Marsat's
+preferred-foliation theory~\cite{BM2011,BM2012} with their function
+$f(a) = a_0^2[F(y) - y]$, and $\mu_{\rm total} = 1 + f'(a)/2a =
+x/(x+1)$ exactly. Its static weak field gives $\Psi =
 \Phi$ and $\nabla\cdot[\mu\nabla\Phi] = 4\pi G\rho$; the metric
 equations carry the TetB share as phantom density; the time-leg
 stress--energy is post-Newtonian; and the homogeneous background is
-exactly general relativity. We also state a limit the covariant form
+exactly general relativity. We also state a limit the covariant $y$
 makes precise: $f$ does not tend to a constant at large $a$, so on
 each mass's own time leg the action leaves a TetB tail $\to a_0$. The
 archive excludes that tail in the solar system and applies $\mu$ to
@@ -93,7 +94,7 @@ Each identity below is checked exactly by the accompanying script, 16
 checks in all, using sympy for every algebraic
 step~\cite{NelsonScript}.
 
-\textbf{Contributions and prior work.} An action of the form
+\textbf{Contributions and prior work.} A theory with action
 $(1/16\pi G)\sqrt{-g}[R - 2f(a)]$, built from the acceleration of a
 unit timelike field normal to a preferred foliation, is Blanchet and
 Marsat's modified gravity with a preferred time
@@ -105,8 +106,10 @@ this note adds:
 \begin{itemize}
 \item the identification of the SST's $y$ with the acceleration of the
 tetrad's time leg;
-\item the SST's own $f$, $f = a_0^2[F(y) - y]$, which gives the
-archive's $\mu = x/(x+1)$ exactly;
+\item the correspondence: the SST as written, varied as in Lemma~1,
+has the field equations of that theory with
+$f = a_0^2[F(y) - y]$, which gives the archive's $\mu = x/(x+1)$
+exactly;
 \item the identification of $\Phi$ with the lapse;
 \item the strong-field limit of this $f$, and what it means for the
 archive's net-field rule;
@@ -168,22 +171,22 @@ reading~(i) in~\cite{NelsonPqs}, now stated exactly.
 
 \section*{Theorem 3 (the covariant SST)}
 
-\emph{With $y$ as defined, the SST read as in Lemma~1
-of~\cite{NelsonPqs} is the action
+\emph{Take the SST~(\ref{eq:sst}) as written, with $y$ as defined,
+and vary it as the framework does (Lemma~1 of~\cite{NelsonPqs}): the
+curvature term supplies the Newtonian part $y$ of $F$, so the scalar
+term's contribution beyond general relativity is $F(y) - y$. Then, in
+units $c = 1$ with $y = a^2/a_0^2$:
+\begin{enumerate}
+\item the field equations are those of Blanchet and Marsat's
+preferred-foliation theory~\cite{BM2011}, with their function
 \begin{equation}
-\begin{aligned}
-S &= \int d^4x\,\frac{\sqrt{-g}}{16\pi G}\big[R - 2f(a)\big] + S_{\rm EM} + S_{\rm m},\\
-f &= a_0^2\big[F(y) - y\big],
-\end{aligned}
+f(a) = a_0^2\big[F(y) - y\big],
 \label{eq:cov}
 \end{equation}
-in units $c = 1$, $y = a^2/a_0^2$. Then:
-\begin{enumerate}
-\item Blanchet and Marsat's $\chi = f'(a)/2a$ is
-$\chi = \mu - 1$, so $\mu_{\rm total} = 1 + \chi = \mu(a/a_0) = x/(x+1)$
-exactly;
-\item the curvature term supplies the $y$ of $F$, and the time-leg
-term supplies $F - y$: $-2f/16\pi G = -(a_0^2/8\pi G)[F(y) - y]$;
+and their $\chi = f'(a)/2a$ is $\chi = \mu - 1$, so
+$\mu_{\rm total} = 1 + \chi = \mu(a/a_0) = x/(x+1)$ exactly;
+\item term by term, $-2f/16\pi G = -(a_0^2/8\pi G)[F(y) - y]$: the
+$y$ of $F$ is the curvature term's, and $F - y$ is the rest;
 \item in the static weak field, with minimal coupling,
 $\nabla^2(\Phi - \Psi) = 0$, so $\Psi = \Phi$ ($\gamma = 1$), and
 \begin{equation}
@@ -195,8 +198,8 @@ $\nabla^2(\Phi - \Psi) = 0$, so $\Psi = \Phi$ ($\gamma = 1$), and
 \begin{proof}
 (1) Differentiate $f(a) = a_0^2[F(a^2/a_0^2) - a^2/a_0^2]$; using
 $F'(y) = \mu(\sqrt y)$ gives $f'/2a = \mu - 1$ (checked exactly).
-(2) is the definition. (3) By Theorem~2 the static weak-field
-Lagrangian of~(\ref{eq:cov}) is Lemma~1 of~\cite{NelsonPqs},
+(2) is checked exactly. (3) By Theorem~2 the static weak-field
+Lagrangian of the SST, varied this way, is Lemma~1 of~\cite{NelsonPqs},
 \[
 \frac{(\nabla\Psi)^2 - 2\nabla\Phi\cdot\nabla\Psi}{8\pi G}
 - \frac{a_0^2}{8\pi G}\big[F(y) - y\big] - \rho\Phi .
@@ -206,16 +209,17 @@ $\nabla^2(\Phi - \Psi) = 0$, and the $\Phi$-equation on $\Psi = \Phi$
 is~(\ref{eq:field}).
 \end{proof}
 
-Equation~(\ref{eq:cov}) is the reading of Lemma~1 written as a
-covariant action. Read with $F$ in place of $F - y$, the $y$ would be
-counted twice, and the field equation would be
+The action is~(\ref{eq:sst}) as written; Lemma~1 is how its terms
+are varied, and~(\ref{eq:cov}) names the equivalent function in
+Blanchet and Marsat's notation. If the $y$ of $F$ were counted in
+addition to the curvature term's, the field equation would be
 $\nabla\cdot[(1+\mu)\nabla\Phi] = 4\pi G\rho$~\cite{NelsonPqs}.
 
 % ----------------------------------------------------------------------
 
 \section*{Theorem 4 (the metric equations and $\Phi$'s stress--energy)}
 
-\emph{Varying~(\ref{eq:cov}) gives Einstein's equation with the
+\emph{Varying the SST as in Theorem~3 gives Einstein's equation with the
 time-leg stress tensor as an extra source, plus the foliation's own
 equation~\cite{BM2011}. There is no separate scalar stress tensor,
 because $\Phi$ is the lapse. In the static weak field:
@@ -285,7 +289,7 @@ covariant form makes that rule precise: $a$ is the acceleration of
 the coarse-grained time leg, the frame of the galaxy's net field, and
 bound subsystems gravitate internally through $R$ alone. In a solar
 system that net field is uniform to $\sim10^{-12}$ and is removed by
-free fall~\cite{NelsonColes}. Equation~(\ref{eq:cov}) with $a$ taken
+free fall~\cite{NelsonColes}. The SST with $a$ taken
 from each mass's own time leg does not implement this. An action that
 does, for example by defining the coarse-graining covariantly, is the
 open step.
@@ -298,7 +302,8 @@ Proved here:
 \begin{itemize}
 \item the covariant $y$ and its positivity;
 \item its exact static reduction, and $\Phi$ as the lapse;
-\item the covariant form~(\ref{eq:cov}) of the SST under Lemma~1, with
+\item the SST as written, varied as in Lemma~1, has Blanchet and
+Marsat's field equations with $f$ as in~(\ref{eq:cov}), and
 $\mu = x/(x+1)$ exactly;
 \item $\gamma = 1$ and the field equation from it;
 \item the structure and size of the metric equations' extra source;
