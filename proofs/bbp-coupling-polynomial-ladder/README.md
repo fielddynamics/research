@@ -6,7 +6,7 @@
 
 ---
 
-This folder holds a three-page proof and a script that checks every step. The checks use exact algebra, with 40-digit numerics only where a logarithm's branch or an integral's value has to be fixed. The proof places the Bailey–Borwein–Plouffe (BBP) formula for π and GFD's coupling polynomial f(K, s) = 1 + sK + K² on one ladder of cyclotomic polynomials, and shows exactly where they meet.
+This folder holds a four-page proof in two parts, a script that checks every step (46 checks), and an independent blind test of Part II (9 checks, in [`extensions/`](extensions/)). The checks use exact algebra, with 40-digit numerics only where a logarithm's branch or an integral's value has to be fixed. The proof places the Bailey–Borwein–Plouffe (BBP) formula for π and GFD's coupling polynomial f(K, s) = 1 + sK + K² on one ladder of cyclotomic polynomials, and shows exactly where they meet.
 
 ## The ladder
 
@@ -53,31 +53,87 @@ The reason is arithmetic. Each pole contributes the logarithm of 1 − ω̄/√2
 - **So π comes from Φ₈ = Φ₄(X²),** the Field Origin one ladder level above the photon (257).
 - **What selects BBP.** In the last factor, the TIME slot w₇ is the y⁶ coefficient, 16r, and the weights sum to −15r. So silence on the TIME axis and closure (weights summing to zero) are each the condition r = 0, which is BBP. BBP's factor (y − 1) is the closure condition.
 
+## Part II: the dictionary and the ladder
+
+### Result 4: the rung dictionary (Theorem 6)
+
+BBP's eight slot series evaluate to combinations of seven constants. For each constant the formulas again form a one-parameter family, and each family must use exactly the pole pairs whose arithmetic it contains. All seven formulas are checked exactly, not numerically: for example ln 3 = 2S₂ + ½S₆ and arctan(1/2) = S₂ − ¼S₆.
+
+| Pole pair | Its number 1 − ω̄/√2 | Constants whose formulas must use it |
+|---|---|---|
+| 0°, 180° | real, involving the unit 1 + √2 | √2 ln(1 + √2) |
+| 45°, 315° | (1 ± i)/2, argument π/4 | π, arctan(1/2) |
+| 90°, 270° (Field Origin, Φ₄) | (√2 ± i)/√2, norm 3/2 | ln 3, √2 arctan(1/√2) |
+| 135°, 225° | (1 ± i)(2 ∓ i)/2, norm 5/2 | ln 5, arctan(1/2) |
+
+So π and ln 3 are complementary. Every formula for π drops the Field Origin pair, and every formula for ln 3 uses it.
+
+### Result 5: π lives on one rung (Theorem 7)
+
+The member r = −1/4 of the π family is the classical base −4 formula, π = Σ(−1/4)ᵏ[2/(4k+1) + 2/(4k+2) + 1/(4k+3)].
+- **It is the only member with no ±√2 poles.**
+- **Its whole integrand is 4/(y² − 2y + 2),** so π = 4 arctan 1 is read from the 45° half of Φ₈ alone.
+- **Its natural denominator is one rung:** 4 + y⁴ = 4Φ₈(u).
+
+BBP is the same π spread over the period-8 ladder. Its extra ±√2 poles contribute −ln 4, and closure fixes the member.
+
+### Result 6: the rungs carry the Field Origin column (Lemma 2, Theorem 8)
+
+At BBP's own point 1/√2 the rungs take the values
+
+$$2^{2^{k-2}}\,\Phi_{2^k}(1/\sqrt2) = F_{k-2} = \Phi_4\big(K^{2^{k-4}}\big),$$
+
+the Fermat numbers 3, 5, 17, 257, 65537. These are exactly the Field Origin column of the ladder, read at X = K^(1/4), K^(1/2), K, K², K⁴.
+- **The rung Φ₁₆ carries the Field Origin's own value,** f(K, 0) = 17.
+- **The primes 3 and 5 of Result 2 are the Field Origin values one and two levels below the photon.** Of the two:
+  - 5 = K + 1 holds for every K;
+  - 3 = √K + 1 equals D = K − 1 only at K = 4.
+- **For k ≥ 4 each rung's poles form one Galois orbit,** so every pole on the rung has this norm. At k = 3 the orbit is only half the rung, which is why Φ₈ splits into its 45° and 135° halves.
+
+### Result 7: climbing the ladder adds nothing (Theorem 9)
+
+Generalise BBP's type to base 2^(2^(m−1)) and period 2^m. The poles stay at radius √2.
+- **Every prime factor of F_(k−2) is ≡ 1 mod 2^k** (Euler–Lucas), so it splits completely.
+- **So each new rung's poles carry private primes,** and by Baker's theorem every formula for π must drop them.
+- **What remains is the period-8 integrand,** so the formulas for π are the same one-parameter family at every level.
+
+This is proved for periods 16, 32 and 64, where F₂, F₃ and F₄ are prime. Beyond that it rests on each Fermat number having a prime factor to the first power, which is not known in general.
+
+The blind test in [`extensions/`](extensions/) searches by lattice reduction without using the theorem. At each of the three periods it finds exactly two integer relations among π and the slot series, both in the lifted family, with nothing else below coefficients of about 10²².
+
 ## Why it matters
 
 - **It gives the BBP connection a structural place.** The coupling polynomial reads the photon's level across its three states. BBP reads down the Field Origin column, drops the photon's own Field Origin, and takes π from the level above.
 - **It explains a cancellation that was only recorded.** PROOF.md's extension test 18 lists which poles BBP's numerator cancels. This proof says why: the primes 3 and 5.
 - **It locates the labelling.** The place-value reading of slots as cube corners is the binary coordinate system of the ladder's rungs.
+- **It ties BBP's primes to the Field Origin.** The primes that block π on each rung are the Field Origin column read down the ladder. The first one above the photon's own level is 17, and no formula for π can use the rung that carries it.
 
 ## What it does not do
 
 - **It does not show that BBP is the stellated octahedron.** No symmetry of the stellated octahedron has order 8: its 48 symmetries have orders 1, 2, 3, 4 and 6, and its 8 points form ℤ₂³, not BBP's ℤ₈. The ladder places BBP's period one rung up instead.
 - **The formula type is an input.** Base 16 = K², period 8 = 2^D and first-power denominators are taken from PROOF.md. The Lemma shows only that this is the type whose poles reach 1 + i.
 - **Some choices are left open.** The ladder fixes which bit is which rung, but not which spatial axis carries which bit. It also leaves open whether a slot is counted as j or j − 1, which does matter.
-- **No GFD meaning is given to the primes 3 and 5.** Reading them as D = 3 and K + 1 = 5 would need its own argument.
+- **The primes get only the meaning Theorem 8 gives them.** They are the Field Origin values below the photon's level. Reading 3 as D works only because K = 4.
+- **Theorem 9 beyond period 64 is conditional.** It needs each Fermat number to have a prime factor to the first power.
+
+## Correction
+
+The first version of this proof (commit b128fb4) printed the cancelled integrand of Theorem 5 with the wrong sign. The correct integrand is 16[(y − 1) − r(y² − 4y + 2)]/((y² − 2)(y² − 2y + 2)). The numerators in Theorem 4 were right. The script had accepted either sign; it now checks the sign strictly. The error came to light when the period-16 search was compared with the lifted family.
 
 ## Contents
 
 | File | Contents |
 |---|---|
-| [`bbp_coupling_polynomial_ladder.pdf`](bbp_coupling_polynomial_ladder.pdf) | The proof, three pages |
+| [`bbp_coupling_polynomial_ladder.pdf`](bbp_coupling_polynomial_ladder.pdf) | The proof, four pages: Part I (Theorems 1–5) and Part II (Theorems 6–9) |
 | [`bbp_coupling_polynomial_ladder.tex`](bbp_coupling_polynomial_ladder.tex) | LaTeX source (IOP journal class, included) |
-| [`verify_bbp_coupling_polynomial_ladder.py`](verify_bbp_coupling_polynomial_ladder.py) | Checks of every theorem, the lemma, the corollary and the remarks: the cyclotomic identities, the ladder, the denominator's factorisation, the binary coordinates and turns, the logarithm at every pole, the divisibility and exact numerators of the whole family, the two remaining integrals, and the TIME and closure conditions |
+| [`verify_bbp_coupling_polynomial_ladder.py`](verify_bbp_coupling_polynomial_ladder.py) | Checks of every theorem, the lemma, the corollary and the remarks: the cyclotomic identities, the ladder, the denominator's factorisation, the binary coordinates and turns, the logarithm at every pole, the divisibility and exact numerators of the whole family, the two remaining integrals, the TIME and closure conditions; Part II: the seven formulas of the dictionary checked exactly through the logarithm expansion, the dictionary table, the base −4 formula, the Galois orbits and norms of the rungs at k = 3 to 6, the Fermat values, Euler–Lucas, and the lifted family at periods 16, 32 and 64 |
+| [`extensions/`](extensions/) | Blind lattice-reduction test of Theorem 9 at periods 16, 32 and 64 (needs fpylll) |
 | [`iopjournal.cls`](iopjournal.cls) | Document class, so the source builds here |
 
 ```bash
 pip install sympy mpmath
-python verify_bbp_coupling_polynomial_ladder.py      # 32/32
+python verify_bbp_coupling_polynomial_ladder.py      # 46/46
+python extensions/test_ladder_invariance_lll.py      # 9/9 (pip install fpylll cysignals)
 pdflatex -interaction=nonstopmode bbp_coupling_polynomial_ladder.tex
 ```
 

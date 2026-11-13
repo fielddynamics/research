@@ -47,7 +47,17 @@ together with one half of $\Phi_8$, because their poles carry the
 primes $3$ and $5$; $\pi$ is read from the other half of $\Phi_8 =
 \Phi_4(X^2)$, the Field Origin one level up. Silence on the TIME
 slot and closure of the weights both act on the one remaining
-factor, and both select BBP.
+factor, and both select BBP. Taking the algebra further: each of the
+seven constants of BBP's slots uses exactly the pole pairs whose
+arithmetic it contains, so the Field Origin pair is used only by
+$\ln 3$ and $\sqrt2\arctan(1/\sqrt2)$; $\pi$ lives on the single rung
+$\Phi_8$, in the base $-4$ formula; at BBP's point $1/\sqrt2$ the
+rungs $\Phi_{2^k}$ take the values $F_{k-2}/2^{2^{k-2}}$, the Fermat
+numbers $3, 5, 17, 257, \dots$, which are the Field Origin column read
+down the ladder, so that the rung $\Phi_{16}$ carries the Field
+Origin's own value $17$; and climbing the ladder to periods $16$, $32$
+and $64$ adds no formula for $\pi$, because every new rung carries its
+own Fermat prime and must be dropped.
 \end{abstract}
 
 \keywords{BBP formula, cyclotomic polynomials, coupling polynomial, Field Origin, stellated octahedron, proof}
@@ -222,7 +232,8 @@ particular to BBP.
 \paragraph{Theorem 5.} \textit{After the cancellation in Theorem 4
 the integrand of every formula for $\pi$ is}
 \begin{equation}
-  \frac{16\big[r\,(y^2 - 4y + 2) - (y-1)\big]}{(y^2 - 2)(y^2 - 2y + 2)},
+  \frac{16\big[(y-1) - r\,(y^2 - 4y + 2)\big]}{(y^2 - 2)(y^2 - 2y + 2)},
+  \label{eq:integrand}
 \end{equation}
 \textit{whose poles are $\pm\sqrt2$, on $\Phi_1\Phi_2$, and $1 \pm i$,
 on the $45^\circ$ half of $\Phi_8$. Only the poles $1 \pm i$
@@ -246,6 +257,154 @@ closure condition.}
 
 % ----------------------------------------------------------------------
 
+\section*{Part II: the Dictionary and the Ladder}
+
+\paragraph{Theorem 6 (the rung dictionary).} \textit{The values of
+formulas of type $(\ast)$ span the seven constants $\pi$, $\ln 2$,
+$\ln 3$, $\ln 5$, $\arctan\frac12$, $\sqrt2\ln(1+\sqrt2)$ and
+$\sqrt2\arctan(1/\sqrt2)$; for each, the formulas are $w_c + r\,a$.
+Group the poles into the pairs $0/180^\circ$ ($\pm\sqrt2$),
+$45/315^\circ$ ($1 \pm i$), $90/270^\circ$ (the Field Origin,
+$\pm i\sqrt2$) and $135/225^\circ$ ($-1 \pm i$). Then a formula for
+$c$ must use a pair (no member of its family vanishes there) exactly
+in these cases:}
+\begin{center}
+\begin{tabular}{ll}
+pair & constants whose formulas must use it\\
+\hline
+$0/180^\circ$ & $\sqrt2\ln(1+\sqrt2)$\\
+$45/315^\circ$ & $\pi$, $\arctan\frac12$\\
+$90/270^\circ$ & $\ln 3$, $\sqrt2\arctan(1/\sqrt2)$\\
+$135/225^\circ$ & $\ln 5$, $\arctan\frac12$
+\end{tabular}
+\end{center}
+\textit{Every family drops the $90/270^\circ$ and $135/225^\circ$ pairs
+unless the table says otherwise, and each remaining pair is dropped by
+exactly one member.}
+
+\paragraph{Proof.} The seven formulas, for example
+$\ln 3 = 2S_2 + \tfrac12 S_6$ and $\arctan\frac12 = S_2 - \tfrac14 S_6$,
+are checked exactly by expanding~(\ref{eq:res}) in the seven
+logarithms of~\cite{Nelson2026bbp}. Each entry is then the
+divisibility of the numerators $p_{w_c + ra}$ by the pair's quadratic,
+for all $r$, for one $r$, or for none. \hfill $\square$
+
+\medskip
+\noindent
+Each pair is used by the constants built from its own number
+$1 - \bar\omega/\sqrt2$: the real units at $0/180^\circ$; the argument
+$\pi/4$ at $45/315^\circ$; the norm $3$ and argument
+$\arctan(1/\sqrt2)$ of $(\sqrt2 \pm i)/\sqrt2$ on the Field Origin
+pair; the norm $5$ and argument of $(1 \pm i)(2 \mp i)/2$ at
+$135/225^\circ$. So $\pi$ and $\ln 3$ are complementary: every formula
+for $\pi$ drops the Field Origin pair, and every formula for $\ln 3$
+uses it.
+
+\paragraph{Theorem 7 ($\pi$ on one rung).} \textit{The member
+$r = -\tfrac14$ of the family for $\pi$ is
+$(2, 2, 1, 0, -\tfrac12, -\tfrac12, -\tfrac14, 0)$, the base $-4$
+formula
+$\pi = \sum_k (-\tfrac14)^k\big[\tfrac{2}{4k+1} + \tfrac{2}{4k+2} +
+\tfrac{1}{4k+3}\big]$. It is the only member with no poles at
+$\pm\sqrt2$. Its integrand is $4/(y^2 - 2y + 2)$, so
+$\pi = 4\arctan 1$ is read from the $45^\circ$ half of $\Phi_8$ alone,
+and its natural denominator $4 + y^4 = 4\,\Phi_8(u)$ is a single
+rung.}
+
+\paragraph{Proof.} The bracket in~(\ref{eq:integrand}) vanishes at
+$y = \pm\sqrt2$ exactly when $1 + 4r = 0$; the rest is
+substitution. \hfill $\square$
+
+\medskip
+\noindent
+BBP is the same $\pi$ spread over the period-$8$ ladder: it adds the
+$\pm\sqrt2$ poles, which contribute $-\ln 4$ and cancel the logarithm
+from $1 \pm i$, and closure fixes the member.
+
+\paragraph{Lemma 2.} \textit{Let $k \ge 4$ and let $\omega$ be a
+primitive $2^k$-th root of unity. The conjugates of
+$\alpha_\omega = 1 - \bar\omega/\sqrt2 \in \mathbb{Q}(\zeta_{2^k})$
+are the $\alpha_{\omega'}$ for all primitive $\omega'$, and}
+\begin{equation}
+  N(\alpha_\omega) = \Phi_{2^k}\!\big(1/\sqrt2\big)
+  = 1 + 2^{-2^{k-2}}.
+\end{equation}
+\textit{For $k = 3$ the orbit is only half of the rung, which is why
+$\Phi_8$ splits into its $45^\circ$ and $135^\circ$ halves.}
+
+\paragraph{Proof.} The automorphism $\zeta \mapsto \zeta^t$, $t$ odd,
+sends $\sqrt2$ to $\varepsilon_t\sqrt2$ with $\varepsilon_t = \pm1$
+depending on $t \bmod 8$, and $\alpha_\omega$ to
+$\alpha_{\varepsilon_t\omega^t}$. Since $-1 = \omega^{2^{k-1}}$, the
+index of $\varepsilon_t\omega^t$ is $t$ or $t + 2^{k-1}$, which for
+$k \ge 4$ has the same residue mod 8 as $t$; so the indices run over
+all odd residues once. The product over all primitive $\omega'$ is
+$\Phi_{2^k}(1/\sqrt2)$, because $\Phi_{2^k}$ is palindromic.
+\hfill $\square$
+
+\paragraph{Theorem 8 (the rungs carry the Field Origin column).}
+\textit{For $k \ge 2$,}
+\begin{equation}
+  2^{2^{k-2}}\,\Phi_{2^k}\!\big(1/\sqrt2\big) = F_{k-2}
+  = \Phi_4\big(K^{2^{k-4}}\big),
+\end{equation}
+\textit{where $F_j = 2^{2^j} + 1$ is the $j$-th Fermat number and
+$K = 4$. So BBP's rungs $\Phi_4, \Phi_8, \Phi_{16}, \Phi_{32}, \dots$,
+read at its own point $1/\sqrt2$, carry $3, 5, 17, 257, \dots$: the
+Field Origin column at $X = K^{1/4}, K^{1/2}, K, K^2, \dots$. The rung
+$\Phi_{16}$ carries the Field Origin's own value $f(K,0) = 17$.}
+
+\paragraph{Proof.} $\Phi_{2^k}(x) = x^{2^{k-1}} + 1$ and
+$K^{2^{k-4}} = 2^{2^{k-3}}$. \hfill $\square$
+
+\medskip
+\noindent
+At level $-1$ the Field Origin value is $K + 1$ for every $K$. At
+level $-2$ it is $\sqrt K + 1$, which equals $D = K - 1$ only at
+$K = 4$; the primes $3$ and $5$ of Theorem 4 are these two values.
+
+\paragraph{Theorem 9 (ladder invariance).} \textit{For $m \ge 3$ let
+type $(\ast_m)$ be base $2^{2^{m-1}}$ and period $2^m$, whose poles
+again lie at radius $\sqrt2$. Suppose each $F_j$, $2 \le j \le m-2$,
+has a prime factor that divides it exactly once; this holds for
+$m \le 6$, since $F_2, F_3, F_4$ are prime. Then the numerator of every
+formula of type $(\ast_m)$ for $\pi$ is divisible by $y^2 + 2$,
+$y^2 + 2y + 2$ and every rung $y^{2^{k-1}} + 2^{2^{k-2}}$,
+$4 \le k \le m$; its integrand is~(\ref{eq:integrand}); and the
+formulas for $\pi$ are the same one-parameter family at every level.}
+
+\paragraph{Proof.} Let $p$ divide $F_{k-2}$ exactly once. Every prime
+factor of $F_{k-2}$ is $\equiv 1 \pmod{2^k}$ (Euler and
+Lucas~\cite{Krizek2001}), so $p$ splits completely in
+$\mathbb{Q}(\zeta_{2^k})$ into primes of norm $p$. By Lemma 2,
+$v_p(N(\alpha_\omega)) = 1$, so exactly one prime $\mathfrak p_\omega$
+above $p$ divides $\alpha_\omega$, and the $\mathfrak p_\omega$ of the
+rung are distinct conjugates. The Fermat numbers are pairwise coprime,
+so no other pole's $\alpha$ is divisible by a prime above $p$. Hence
+$\log\alpha_\omega$ is not in the $\mathbb{Q}$-span of $\log(-1)$ and
+the other $\log\alpha_{\omega'}$, and by Baker's
+theorem~\cite{Baker1966} not in their span over the algebraic numbers.
+A formula with value $\pi$ therefore has zero coefficient on it: its
+numerator vanishes at $\sqrt2\omega$. The pairs at $90/270^\circ$ and
+$135/225^\circ$ keep their private primes above $3$ and $5$, as in
+Theorem 4. The forced factors leave a numerator of the form
+$(\text{forced})\times Q(y)$ with $\deg Q \le 3$, so the integrand is
+$Q(y)/\big((y^2-2)(y^2-2y+2)\big)$, as at period $8$, and the same
+three conditions (no $\log 2$, no $\log(1+\sqrt2)$, value $\pi$)
+select the same affine line. \hfill $\square$
+
+\medskip
+\noindent
+Climbing the ladder never adds a route to $\pi$. Each new rung carries
+a new Fermat prime, the first being the Field Origin's $17$, and every
+formula for $\pi$ must drop it. A blind search by lattice reduction at
+periods $16$, $32$ and $64$, which does not use this theorem, finds
+exactly two integer relations among $\pi$ and the slot series at each
+level, both in the lifted family; the next vectors of the reduced
+lattice have coefficients near $10^{22}$.
+
+% ----------------------------------------------------------------------
+
 \section*{Scope}
 
 The results are exact. The coupling row
@@ -260,7 +419,11 @@ whose poles reach $1 + i$. Nothing here says that BBP is the
 stellated octahedron. No symmetry of the stellated octahedron has
 order $8$, so BBP's period is not one of its symmetries; the ladder
 places that period one rung up. The primes $3$ and $5$ are not given
-a meaning in Gravity Field Dynamics. The rungs at $X = K$ multiply to
+a meaning in Gravity Field Dynamics beyond Theorem 8, which identifies
+them as Field Origin values below the photon's level. Theorem 9 is
+proved for periods up to $64$; beyond that it rests on each Fermat
+number having a prime factor to the first power, which is not known
+in general. The rungs at $X = K$ multiply to
 $5 \cdot 17 \cdot 257 = \sum_{m<8} K^m$, while $f(K,+1) =
 \sum_{m<3} K^m$; that is the geometric series, recorded only as an
 observation.
@@ -294,6 +457,11 @@ theorems and proofs} (2026), \texttt{PROOF.md}, model repository
 S.~Nelson,
 \textit{Cyclotomic algebra of the coupling polynomial} (2026),
 research archive.
+
+\bibitem{Krizek2001}
+M.~K\v{r}\'{\i}\v{z}ek, F.~Luca and L.~Somer,
+\textit{17 Lectures on Fermat Numbers}
+(Springer, New York, 2001).
 
 \bibitem{Nelson2026hadamard}
 S.~Nelson,

@@ -419,7 +419,7 @@ Shell ceilings $\mathrm{CEIL} = B_{\rm Zn} + B_{\rm bdy} - \mu_b(2)[B_{\rm Zn} -
 | $F(y)$ closed form, convexity | `proofs/aqual-energy-functional/` | 24 |
 | BIMOND: $\alpha = -\beta$, $\mathcal M$ closed form, Legendre dual of $F$ | `proofs/bimetric-two-potential-energy/` | 39 |
 | Chiral holonomy: uniform $= I$ (spinor $-1$), chiral angles exact, relabelling = reversal | `proofs/chiral-holonomy-closed-frame/` | 32 |
-| BBP on the coupling polynomial's ladder: denominator = Field Origin column $\Phi_2\Phi_4\Phi_8$; every $\pi$ formula drops $\Phi_4$ (prime 3); $\pi$ from $\Phi_8$ | `proofs/bbp-coupling-polynomial-ladder/` | 32 |
+| BBP on the coupling polynomial's ladder: denominator = Field Origin column $\Phi_2\Phi_4\Phi_8$; every $\pi$ formula drops $\Phi_4$ (prime 3); $\pi$ from $\Phi_8$; rung dictionary; rungs carry Fermat numbers 3, 5, 17, 257; ladder invariance at periods 16–64 | `proofs/bbp-coupling-polynomial-ladder/` (+ `extensions/`, blind LLL) | 46 (+9) |
 | BIMOND × GFD research (incl. chiral holonomy reproduced; connection irreducibles; where the roots live) | `research/bimond-gfd/run_all.py` | 130 |
 | Gram theorems | `papers/gram-matrix-of-tetrad-equation/verify_gram_theorems.py` | 32 |
 | Coupling algebra: the cube's symmetric couplings, two TetA–TetB channels, Gram/Walsh/Paper IX as elements, second root = odd leg relabelling; η as an element (time = grade 0), the connection's lower pair on the TetA–TetB links with the swap as parity | `research/coupling-algebra/verify_*.py`, `certify_first_principles.py` (exact, independent) | 50, 34, 52 |

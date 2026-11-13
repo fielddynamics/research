@@ -100,10 +100,9 @@ check("Theorem 4: the numerators are exactly 16 (y^2 + 2)(y^2 + 2y + 2) [r (y^2 
 
 # ---- Theorem 5: pi is read from the next rung up
 red = sp.cancel(num_r / (16 - y**8))
-check("Theorem 5: after cancellation the integrand is 16 [r (y^2 - 4y + 2) - (y - 1)] / ((y^2 - 2)(y^2 - 2y + 2)), "
+check("Theorem 5: after cancellation the integrand is 16 [(y - 1) - r (y^2 - 4y + 2)] / ((y^2 - 2)(y^2 - 2y + 2)), "
       "with poles +-sqrt2 (the rung Phi_1 Phi_2) and 1 +- i (the 45-degree half of Phi_8)",
-      sp.simplify(red + 16 * (r * (y**2 - 4 * y + 2) - (y - 1)) / ((y**2 - 2) * (y**2 - 2 * y + 2))) == 0
-      or sp.simplify(red - 16 * (r * (y**2 - 4 * y + 2) - (y - 1)) / ((y**2 - 2) * (y**2 - 2 * y + 2))) == 0)
+      sp.simplify(red - 16 * ((y - 1) - r * (y**2 - 4 * y + 2)) / ((y**2 - 2) * (y**2 - 2 * y + 2))) == 0)
 check("Theorem 5: the +-sqrt2 poles give real logarithms only; the 1 +- i poles are the only remaining poles with nonzero argument (+-pi/4) "
       "and their product of 1 - conj(omega)/sqrt2 is a power of 2",
       abs(mpmath.im(L(0))) < 1e-35 and abs(mpmath.im(L(4))) < 1e-35 and abs(mpmath.im(L(1)) - mpmath.pi / 4) < 1e-35 and prods[1] == sp.Rational(1, 2))
@@ -137,5 +136,125 @@ for p in itertools.permutations(range(3)):
         orders.add(k)
 check("Remark (scope): no symmetry of the stellated octahedron has order 8 (orders {1, 2, 3, 4, 6}), so BBP's period-8 cycle is not one of "
       "its symmetries; the ladder places it one rung up instead", orders == {1, 2, 3, 4, 6})
+
+# ======================================================================== Part II
+# ---- Theorem 6: the rung dictionary (exact, through the residue expansion with PROOF.md's logarithms)
+J, L2s, Lus, Lps, Lms, Aps, Ams = sp.symbols('J L2 Lu Lp Lm Ap Am')   # J = i pi; Lp, Lm = log(2 +- i); Ap, Am = log(sqrt2 +- i)
+Lw = {0: -Lus - L2s / 2, 1: -L2s / 2 + J / 4, 2: Aps - L2s / 2, 3: Lms - L2s / 2 + J / 4,
+      4: Lus - L2s / 2, 5: Lps - L2s / 2 - J / 4, 6: Ams - L2s / 2, 7: -L2s / 2 - J / 4}
+omx = [sp.expand_complex(sp.exp(sp.I * sp.pi * n / 4)) for n in range(8)]
+def value(wt):
+    return sp.expand(sum(-sp.Rational(1, 8) * sp.expand_complex(sp.expand(sum(wt[j - 1] * (sp.sqrt(2) * omx[n])**j for j in range(1, 9)))) * Lw[n]
+                         for n in range(8)))
+def same(e1, e2):
+    d = sp.expand(e1 - e2)
+    return all(sp.simplify(sp.expand_complex(d.coeff(t))) == 0 for t in (J, L2s, Lus, Lps, Lms, Aps, Ams))
+DICT = {  # constant: (exact target in the seven logarithms, one formula w_c)
+    "pi": (-sp.I * J, [4, 0, 0, -2, -1, -1, 0, 0]),
+    "ln 2": (L2s, [1, 0, sp.Rational(-1, 2), sp.Rational(-1, 2), sp.Rational(-1, 4), 0, sp.Rational(1, 8), sp.Rational(1, 8)]),
+    "ln 3": (Aps + Ams, [0, 2, 0, 0, 0, sp.Rational(1, 2), 0, 0]),
+    "ln 5": (Lps + Lms, [2, 0, -1, 0, sp.Rational(-1, 2), 0, sp.Rational(1, 4), 0]),
+    "arctan(1/2)": ((Lps - Lms) / (2 * sp.I), [0, 1, 0, 0, 0, sp.Rational(-1, 4), 0, 0]),
+    "sqrt2 ln(1+sqrt2)": (sp.sqrt(2) * Lus, [0, 1, 1, 1, sp.Rational(1, 2), sp.Rational(1, 4), 0, 0]),
+    "sqrt2 arctan(1/sqrt2)": (sp.sqrt(2) * (Aps - Ams) / (2 * sp.I), [0, 1, 0, 1, sp.Rational(1, 2), sp.Rational(1, 4), sp.Rational(-1, 4), 0]),
+}
+check("Theorem 6: the logarithm expansion reproduces the relation (a gives 0) and each of the seven formulas gives its constant exactly",
+      same(value(A), 0) and all(same(value(wc), tgt) for tgt, wc in DICT.values()))
+PAIRS = {"0/180": y**2 - 2, "45/315": y**2 - 2 * y + 2, "90/270": y**2 + 2, "135/225": y**2 + 2 * y + 2}
+def status(wc, fac):
+    numr = sp.expand(16 * sum((wc[j] + r * A[j]) * y**j for j in range(8)))
+    rm = sp.expand(sp.rem(numr, sp.expand(fac), y))
+    if rm == 0: return "dropped"
+    sol = sp.solve(sp.Poly(rm, y).coeffs(), r, dict=True)
+    return "one member drops it" if sol else "used"
+table = {c: tuple(status(wc, f) for f in PAIRS.values()) for c, (tgt, wc) in DICT.items()}
+expected = {"pi": ("one member drops it", "used", "dropped", "dropped"),
+            "ln 2": ("one member drops it", "one member drops it", "dropped", "dropped"),
+            "ln 3": ("one member drops it", "one member drops it", "used", "dropped"),
+            "ln 5": ("one member drops it", "one member drops it", "dropped", "used"),
+            "arctan(1/2)": ("one member drops it", "used", "dropped", "used"),
+            "sqrt2 ln(1+sqrt2)": ("used", "one member drops it", "dropped", "dropped"),
+            "sqrt2 arctan(1/sqrt2)": ("one member drops it", "one member drops it", "used", "dropped")}
+for c in table: print(f"     {c:22s} 0/180: {table[c][0]:20s} 45/315: {table[c][1]:20s} 90/270 (Phi4): {table[c][2]:20s} 135/225: {table[c][3]}")
+check("Theorem 6: the dictionary. The Field Origin pair (90/270) is used by ln 3 and sqrt2 arctan(1/sqrt2) and dropped by every other "
+      "constant; the 135-degree pair is used by ln 5 and arctan(1/2); the 45-degree pair by pi and arctan(1/2); the 0/180 pair by "
+      "sqrt2 ln(1+sqrt2); every other entry is dropped by exactly one member of the family", table == expected)
+
+# ---- Theorem 7: pi on one rung
+wq = [BBP[j] - sp.Rational(1, 4) * A[j] for j in range(8)]
+check("Theorem 7: the member r = -1/4 is (2, 2, 1, 0, -1/2, -1/2, -1/4, 0), the base -4 formula "
+      "pi = sum (-1/4)^k [2/(4k+1) + 2/(4k+2) + 1/(4k+3)] written with base 16 and period 8",
+      wq == [2, 2, 1, 0, sp.Rational(-1, 2), sp.Rational(-1, 2), sp.Rational(-1, 4), 0]
+      and abs(mpmath.nsum(lambda k: (-mpmath.mpf(1) / 4)**k * (2 / (4 * k + 1) + mpmath.mpf(2) / (4 * k + 2) + mpmath.mpf(1) / (4 * k + 3)),
+                          [0, mpmath.inf]) - mpmath.pi) < mpmath.mpf(10)**-35)
+bracket = (y - 1) - r * (y**2 - 4 * y + 2)
+check("Theorem 7: it is the only member with no poles at +-sqrt2: the bracket (y - 1) - r (y^2 - 4y + 2) vanishes at both +-sqrt2 "
+      "exactly when r = -1/4", sp.solve([bracket.subs(y, sp.sqrt(2)), bracket.subs(y, -sp.sqrt(2))], r, dict=True) == [{r: sp.Rational(-1, 4)}])
+check("Theorem 7: its integrand is 4/(y^2 - 2y + 2), whose integral is 4 arctan 1 = pi; its natural denominator 4 + y^4 = 4 Phi_8(u) "
+      "is a single rung, and its numerator 4 (y^2 + 2y + 2) removes the 135-degree half",
+      sp.simplify(sp.cancel(num(wq) / (16 - y**8)) - 4 / (y**2 - 2 * y + 2)) == 0
+      and sp.integrate(4 / (y**2 - 2 * y + 2), (y, 0, 1)) == sp.pi
+      and sp.expand((4 + y**4).subs(y, sp.sqrt(2) * u) - 4 * Phi(8, u)) == 0
+      and sp.expand(4 * (y**2 + 2 * y + 2) * (y**2 - 2 * y + 2) - 4 * (4 + y**4)) == 0)
+
+# ---- Lemma 2 and Theorem 8: rung norms are the Field Origin column (Fermat numbers)
+def pole_alpha(n, k, t):            # sigma_t applied to 1 - conj(omega)/sqrt2, omega = zeta_(2^k)^n, sqrt2 = zeta_8 + zeta_8^-1
+    z = mpmath.exp(2j * mpmath.pi * t / 2**k)
+    return 1 - z**(-n) / (z**(2**(k - 3)) + z**(-2**(k - 3)))
+mpmath.mp.dps = 50
+def orbit_and_norm(n, k):
+    vals = [pole_alpha(n, k, t) for t in range(1, 2**k, 2)]
+    idx = set()
+    for v in vals:                  # identify each conjugate with the pole whose alpha it equals
+        for m in range(2**k):
+            if abs(v - pole_alpha(m, k, 1)) < 1e-40: idx.add(m)
+    N = mpmath.fprod(vals)
+    return idx, sp.nsimplify(float(mpmath.re(N)), rational=True, tolerance=1e-12)
+lemma_ok = True
+for k in (4, 5, 6):
+    prim = {n for n in range(2**k) if n % 2 == 1}
+    for n in (1, 3):
+        idx, Nr = orbit_and_norm(n, k)
+        lemma_ok &= idx == prim and Nr == sp.Rational(2**(2**(k - 2)) + 1, 2**(2**(k - 2)))
+check("Lemma 2: for k = 4, 5, 6 the 2^(k-1) poles of the rung Phi_(2^k) form one Galois orbit, and the norm of 1 - conj(omega)/sqrt2 "
+      "is Phi_(2^k)(1/sqrt2) = 1 + 2^(-2^(k-2)): 17/16, 257/256, 65537/65536", lemma_ok)
+idx3, _ = orbit_and_norm(1, 3)
+check("Lemma 2: at k = 3 the orbit of the 45-degree pole is only {45, 315} degrees (sqrt2 changes sign under half the Galois group), "
+      "which is why Phi_8 splits into its two halves", idx3 == {1, 7})
+check("Theorem 8: Phi_(2^k)(1/sqrt2) * 2^(2^(k-2)) = F_(k-2) = Phi_4(K^(2^(k-4))) for k = 2..6: 3, 5, 17, 257, 65537, the Field Origin "
+      "column at X = K^(1/4), K^(1/2), K, K^2, K^4; the rung Phi_16 carries f(K,0) = 17",
+      all(Phi(2**k, 1 / sp.sqrt(2)) * 2**(2**(k - 2)) == 2**(2**(k - 2)) + 1 == sp.expand(Phi(4, sp.Integer(4)**sp.Rational(2**k, 16)))
+          for k in range(2, 7)) and Phi(16, 1 / sp.sqrt(2)) * 16 == Phi(4, K) == 17)
+check("Theorem 8 (remark): at the Field Origin column's level -1 the value is K + 1 for every K (Phi_4(sqrt X) = X + 1); at level -2 it "
+      "is sqrt K + 1, which equals D = K - 1 only at K = 4",
+      sp.expand(Phi(4, sp.sqrt(X)) - (X + 1)) == 0 and sp.solve(sp.sqrt(X) + 1 - (X - 1), X) == [4])
+
+# ---- Theorem 9: ladder invariance
+check("Theorem 9 (step): every prime factor of F_j is 1 mod 2^(j+2) (Euler-Lucas), checked for j = 2..5, including 641 and 6700417 | F_5",
+      all(p % 2**(j + 2) == 1 for j in range(2, 6) for p in sp.factorint(2**(2**j) + 1)))
+check("Theorem 9 (step): F_2 = 17, F_3 = 257, F_4 = 65537 are prime, so the rungs Phi_16, Phi_32, Phi_64 each carry a prime to the first "
+      "power; the Fermat numbers are pairwise coprime", all(sp.isprime(2**(2**j) + 1) for j in (2, 3, 4))
+      and all(sp.gcd(2**(2**i) + 1, 2**(2**j) + 1) == 1 for i in range(6) for j in range(i)))
+check("Theorem 9 (step): a prime p = 1 mod 2^k splits completely in Q(zeta_(2^k)) (its order mod 2^k is 1): 17 for k = 4, 257 for k = 5, "
+      "65537 for k = 6", all(pow(p, 1, 2**k) == 1 for p, k in ((17, 4), (257, 5), (65537, 6))))
+def lifted_numerator(m):
+    P_, b_ = 2**m, 2**(2**(m - 1))
+    return sp.expand(sp.cancel(16 * ((y - 1) - r * (y**2 - 4 * y + 2)) / ((y**2 - 2) * (y**2 - 2 * y + 2)) * (b_ - y**P_))), P_, b_
+inv_ok = True
+for m in (4, 5, 6):
+    numm, P_, b_ = lifted_numerator(m)
+    forced = sp.expand((y**2 + 2) * (y**2 + 2 * y + 2) * sp.prod([y**(2**(k - 1)) + 2**(2**(k - 2)) for k in range(4, m + 1)]))
+    inv_ok &= sp.degree(numm, y) <= P_ - 1 and sp.expand(sp.rem(numm, forced, y)) == 0
+    inv_ok &= sp.expand((b_ - y**P_) + (y**2 - 2) * (y**2 - 2 * y + 2) * forced) == 0
+check("Theorem 9: at periods 16, 32 and 64 (bases 2^8, 2^16, 2^32) the denominator is -(y^2 - 2)(y^2 - 2y + 2) times the forced factors "
+      "(y^2 + 2)(y^2 + 2y + 2) prod_(4<=k<=m) (y^(2^(k-1)) + 2^(2^(k-2))), and the lifted period-8 family fits with numerator degree < period: "
+      "the formulas for pi are the same one-parameter family at every level", inv_ok)
+mpmath.mp.dps = 40
+S16 = [mpmath.nsum(lambda k: 1 / (mpmath.mpf(256)**k * (16 * k + j)), [0, mpmath.inf]) for j in range(1, 17)]
+n16, _, _ = lifted_numerator(4)
+w16 = [sp.Poly(n16.subs(r, 0), y).coeff_monomial(y**j) / 256 for j in range(16)]
+check("Theorem 9: the lifted BBP at period 16 is pi = sum_k 256^-k [4/(16k+1) - 2/(16k+4) - 1/(16k+5) - 1/(16k+6) + 1/4/(16k+9) - 1/8/(16k+12) "
+      "- 1/16/(16k+13) - 1/16/(16k+14)], i.e. BBP with its terms paired", abs(sum(float(w16[j]) * S16[j] for j in range(16)) - mpmath.pi) < 1e-30
+      and w16 == [4, 0, 0, -2, -1, -1, 0, 0, sp.Rational(1, 4), 0, 0, sp.Rational(-1, 8), sp.Rational(-1, 16), sp.Rational(-1, 16), 0, 0])
 
 print(f"\n{sum(ok)}/{len(ok)} checks passed")
