@@ -96,6 +96,7 @@ pdflatex -interaction=nonstopmode hadamard_cube_frame.tex
 - [The forced tetrahedral frame](../forced-tetrahedral-frame/): why the tetrad's legs, drawn in space, form a regular tetrahedron.
 - [Letter 1 supplement: from the Lorentz signature to the tetrahedral frame](../../papers/letter-1-tetrad-frame-geometry/Supplementary/supplementary_signature_to_frame.tex): the balance and isotropy conditions.
 - [The torsion sector as the regular representation of S₄](../torsion-regular-representation/): the permutation structure of the four legs.
+- [G's graded operator is a null rotation](../g-null-rotation/), Theorems 7–8: this frame is the Walsh–Hadamard read on G's 4-block, it factors through a null rotation, and with its two bits read as spinor indices its legs are a Newman–Penrose null tetrad.
 
 ---
 

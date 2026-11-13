@@ -52,7 +52,12 @@ between rotations and boosts, so $G$'s graded trace is the character
 $1 + s\chi + \chi^2$ of a null rotation on scalar, vector and
 rank-$2$ tensor. The Sierpi\'nski chains split the blocks as
 $4 = 3 + 1$ and $16 = (5 + 3 + 1 + 1) + (3 + 3)$, the pieces of a
-metric and of a $2$-form.
+metric and of a $2$-form. Finally, the archive's tetrad frame, a row
+of ones over the four TetA corners, is the same Walsh--Hadamard read
+on the $4$-block, so it factors through the null rotation. Read with
+its two bits as spinor indices, its four legs are a Newman--Penrose
+null tetrad: two real light rays and a complex-conjugate null pair.
+No spinor reading makes more than two legs real light rays.
 \end{abstract}
 
 \keywords{gravitational constant, Sierpi\'nski triangle, Walsh--Hadamard transform, null rotation, Lorentz group, coupling polynomial, proof}
@@ -247,6 +252,71 @@ The chains refine it into the pieces of a symmetric tensor
 
 % ----------------------------------------------------------------------
 
+\section*{The Tetrad Frame}
+
+\paragraph{Theorem 7 (the frame is the $4$-block read).}
+\textit{The archive's tetrad frame~\cite{Nelson2026hadamard}, a row of
+ones over the four TetA corners $(1,1,1)$, $(1,-1,-1)$, $(-1,1,-1)$,
+$(-1,-1,1)$, is $H_2 \otimes H_2$ with its second and third rows
+exchanged. So it factors through the Sierpi\'nski block,}
+\begin{equation}
+  e = P\,S_2\,\mathrm{diag}\big((-2)^{|x|}\big)\,S_2^{T},
+\end{equation}
+\textit{with $P$ the row exchange: a null rotation, a boost of rapidity
+$\ln 2$ with a $\pi$ twist, and the reverse null rotation. Read in
+$(t, x, y, z)$, the frame is not a Lorentz structure:
+$e^T\eta\,e = 2J - 4I$, which is $J$ minus the archive's forced Gram
+matrix $4I - J$.}
+
+\paragraph{Proof.} Direct comparison, and Theorem 4 with $m = 2$.
+\hfill $\square$
+
+\medskip
+\noindent
+So the same $4 \times 4$ matrix plays two roles. As an operator on the
+$4$-block it is a Lorentz transformation, the rotation by $\pi$. As a
+set of four legs it is the frame. The next theorem reads the legs in
+the spinor picture.
+
+\paragraph{Theorem 8 (a Newman--Penrose null tetrad).} \textit{Read
+with its two bits as spinor indices, leg $(a, b)$ of
+$H_2 \otimes H_2$ is the matrix $X = h_a h_b^T$, with $h_0, h_1$ the
+columns of $H_2$, so every leg has $\det X = 0$. In Minkowski
+components}
+\begin{equation}
+\begin{aligned}
+  l &= (1, 1, 0, 0), & n &= (1, -1, 0, 0),\\
+  m &= (0, 0, -i, 1), & \bar m &= (0, 0, i, 1),
+\end{aligned}
+\end{equation}
+\textit{with $l\cdot n = 2$, $m\cdot\bar m = -2$ and every other
+product $0$: a Newman--Penrose null
+tetrad~\cite{NewmanPenrose1962}, built from the spinor dyad
+$(h_0, h_1)$. Its Hadamard combinations $l \pm n$, $m + \bar m$ and
+$i(m - \bar m)$ are $2t$, $2x$, $2z$ and $2y$. In any spinor reading,
+$X \mapsto BXC^T$ with $B$, $C$ invertible, at most two of the four
+legs are real light rays.}
+
+\paragraph{Proof.} The column $(a, b)$ of $H_2 \otimes H_2$ is
+$h_a \otimes h_b = \mathrm{vec}(h_a h_b^T)$, a matrix of rank one.
+The components and products follow from
+$x^\mu = \tfrac12\mathrm{Tr}(\sigma_\mu X)$ and the polarisation of
+$\det$. For the bound: a rank-one matrix $pq^T$ is Hermitian exactly
+when $q$ is a real multiple of $\bar p$. If the legs $(a,0)$ and
+$(a,1)$ were both Hermitian, then $Ch_0$ and $Ch_1$ would both be
+multiples of $\overline{Bh_a}$, which is impossible for invertible
+$C$. So each $a$ contributes at most one real light ray.
+\hfill $\square$
+
+\medskip
+\noindent
+So the frame's four legs are null in the spinor picture. That fits the
+archive's statement that the frame is built from null directions, in
+the form that general relativity uses for null tetrads: two real light
+rays and one complex-conjugate pair, not four real light rays.
+
+% ----------------------------------------------------------------------
+
 \section*{Scope}
 
 The results are exact. They identify the operator from which $G$ is
@@ -264,8 +334,12 @@ So the chain lengths match the decomposition of a vector, a metric and
 a $2$-form exactly, but naming the components ($h_{00}$, $h_{0i}$,
 \dots) requires the rotation group, which the Sierpi\'nski block does
 not supply. The spinor--vector correspondence, null rotations and the
-factorisation of the Hadamard matrix are standard; the identification
-with $G$'s blocks is new.
+factorisation of the Hadamard matrix are standard, as is the
+construction of a null tetrad from a spinor dyad; the identification
+with $G$'s blocks and with the archive's tetrad frame is new. Theorem 8
+gives two real null legs, not four: the frame's tetrahedral legs read
+in $(t, x, y, z)$ have norm $-2$, and the spinor reading that makes
+them null makes two of them complex.
 
 % ----------------------------------------------------------------------
 
@@ -295,6 +369,11 @@ S.~Nelson,
 R.~Penrose and W.~Rindler,
 \textit{Spinors and Space-Time}, vol.~1
 (Cambridge University Press, 1984).
+
+\bibitem{NewmanPenrose1962}
+E.~Newman and R.~Penrose,
+``An approach to gravitational radiation by a method of spin
+coefficients'', \textit{J. Math. Phys.} \textbf{3} (1962) 566--578.
 
 \bibitem{Sylvester1867}
 J.~J.~Sylvester,

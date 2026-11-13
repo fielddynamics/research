@@ -6,7 +6,7 @@
 
 ---
 
-This folder holds a three-page proof with one figure, and a script that checks every step (25 checks, exact algebra). The archive derives Newton's constant as G = (17/13) α²¹ ħc/m_e² from a graded operator on blocks of size 1, 4 and 16 ([`g_matrix_synthesis.md`](../../research/g_from_topology/g_matrix_synthesis.md)). Its diagram, [`g_three_sierpinski_blocks.html`](../../research/g_from_topology/g_three_sierpinski_blocks.html), draws those blocks as Sierpiński triangles. The proof works out what those blocks are.
+This folder holds a four-page proof with one figure, and a script that checks every step (33 checks, exact algebra). The archive derives Newton's constant as G = (17/13) α²¹ ħc/m_e² from a graded operator on blocks of size 1, 4 and 16 ([`g_matrix_synthesis.md`](../../research/g_from_topology/g_matrix_synthesis.md)). Its diagram, [`g_three_sierpinski_blocks.html`](../../research/g_from_topology/g_three_sierpinski_blocks.html), draws those blocks as Sierpiński triangles. The proof works out what those blocks are.
 
 ![G's graded operator as Sierpiński blocks, the Hadamard factorisation, and the null rotation](g_null_rotation_figure.png)
 
@@ -50,28 +50,51 @@ The Sierpiński chains split each block without changing its size:
 
 These are the pieces of a symmetric tensor (a metric) and of a 2-form.
 
+## Result 6: the tetrad frame is the same read (Theorem 7)
+
+The archive's tetrad frame ([`hadamard-cube-frame/`](../hadamard-cube-frame/)) is a row of ones over the four TetA corners.
+- **It is the 4-block's read.** The frame is exactly H₂ ⊗ H₂ with two rows exchanged: the Walsh–Hadamard read on G's 4-block.
+- **So it factors through the null rotation:** frame = (row swap) · S · diag((−2)^popcount) · Sᵀ.
+- **One matrix, two roles.** As an operator on the 4-block it is a Lorentz transformation, the rotation by π. As four legs read in (t, x, y, z), it is not a Lorentz structure: each leg has norm −2.
+
+## Result 7: the legs are a Newman–Penrose null tetrad (Theorem 8)
+
+Read the frame's two bits as spinor indices. Each leg is then an outer product h_a h_bᵀ of two columns of H₂, so every leg is null:
+
+| Leg | Minkowski components | Kind |
+|---|---|---|
+| l | (1, 1, 0, 0) | real light ray along +x |
+| n | (1, −1, 0, 0) | real light ray along −x |
+| m | (0, 0, −i, 1) | complex null |
+| m̄ | (0, 0, i, 1) | its complex conjugate |
+
+- **The products** are l·n = 2 and m·m̄ = −2, with every other product 0. That is a Newman–Penrose null tetrad, the standard null frame of general relativity, built from the spinor dyad formed by the two columns of H₂.
+- **The orthonormal frame comes back.** Adding and subtracting the legs (another Hadamard step) gives the orthonormal frame: l + n, l − n, m + m̄ and i(m − m̄) are 2t, 2x, 2z and 2y.
+- **At most two legs can be real light rays.** This holds in any spinor reading, and is proved. So "built from null directions" holds in the form GR uses: two real light rays and a complex-conjugate pair.
+
 ## What it does not do
 
 - **It does not derive G.** G still rests on the archive's assumption that each of the 21 coupling levels contributes one factor of α, and on K = 4 from D = 3. The proof identifies the operator G is read from.
 - **The trace cannot tell a null rotation from the identity.** Both have χ = 4. The new content is what the drawn blocks are.
 - **It sharpens an archive statement.** The archive said the blocks "are" H₁, H₄, H₁₆; strictly, they are the Sierpiński factors of those matrices, whose own traces are 0. The wording in [`universe-is-pixelated/`](../../research/universe-is-pixelated/README.md) and [`what_is_gravity.md`](../../research/g_from_topology/what_is_gravity.md) has been updated to say this.
 - **Components need rotations.** The Sierpiński blocks act through the Lorentz group of (t, x, z). So the chain lengths match a vector, a metric and a 2-form exactly, but naming components (h₀₀, h₀ᵢ, …) needs ordinary rotations.
-- **Most of the ingredients are standard:** the spinor–vector correspondence, null rotations, and the triangular factorisation of the Hadamard matrix. What's new is identifying them with G's blocks.
+- **Two null legs are complex.** The tetrad's legs are null only in the spinor reading, and there two of them are complex. Read in (t, x, y, z), the tetrahedral legs have norm −2.
+- **Most of the ingredients are standard:** the spinor–vector correspondence, null rotations, the triangular factorisation of the Hadamard matrix, and building a null tetrad from a spinor dyad. What's new is identifying them with G's blocks and with the archive's tetrad frame.
 
 ## Contents
 
 | File | Contents |
 |---|---|
-| [`g_null_rotation.pdf`](g_null_rotation.pdf) | The proof, three pages, Theorems 1–6 and Figure 1 |
+| [`g_null_rotation.pdf`](g_null_rotation.pdf) | The proof, four pages, Theorems 1–8 and Figure 1 |
 | [`g_null_rotation.tex`](g_null_rotation.tex) | LaTeX source (IOP journal class, included) |
 | [`g_null_rotation_figure.png`](g_null_rotation_figure.png) | Figure 1 |
 | [`make_figure.py`](make_figure.py) | Draws Figure 1 (numpy, matplotlib) |
-| [`verify_g_null_rotation.py`](verify_g_null_rotation.py) | Checks of every theorem: the diagram's blocks cell by cell, Lucas, S = e^L, traces and areas, spectra, det(α^M) at 30 digits, the spinor map and Minkowski norm, the null rotation and its fixed plane, the π-rotation, the Hadamard factorisation at m = 0, 2, 4, the boost, the characters, rotation and boost bounds, the Jordan chains, Clebsch–Gordan, and the symmetric/antisymmetric split |
+| [`verify_g_null_rotation.py`](verify_g_null_rotation.py) | Checks of every theorem: the diagram's blocks cell by cell, Lucas, S = e^L, traces and areas, spectra, det(α^M) at 30 digits, the spinor map and Minkowski norm, the null rotation and its fixed plane, the π-rotation, the Hadamard factorisation at m = 0, 2, 4, the boost, the characters, rotation and boost bounds, the Jordan chains, Clebsch–Gordan, and the symmetric/antisymmetric split; the tetrad frame as the 4-block read and its factorisation; the null legs, their Minkowski components and products, the orthonormal frame, and the bound of two real light rays |
 | [`iopjournal.cls`](iopjournal.cls) | Document class, so the source builds here |
 
 ```bash
 pip install sympy mpmath
-python verify_g_null_rotation.py      # 25/25
+python verify_g_null_rotation.py      # 33/33
 python make_figure.py                 # needs numpy, matplotlib
 pdflatex -interaction=nonstopmode g_null_rotation.tex
 ```

@@ -141,4 +141,51 @@ check("Theorem 6: S_4 commutes with the exchange of the two vector factors; on t
       (S[4] * P - P * S[4]).is_zero_matrix and restricted_sizes((sp.eye(16) + P) / 2) == [5, 3, 1, 1]
       and restricted_sizes((sp.eye(16) - P) / 2) == [3, 3])
 
+
+# ---- Theorem 7: the tetrad frame is the 4-block's Walsh-Hadamard read
+corners = [(a, b, c) for a in (1, -1) for b in (1, -1) for c in (1, -1) if a * b * c == 1]
+H4 = sp.kronecker_product(H2, H2)
+frame = sp.Matrix([[1, 1, 1, 1], [1, 1, -1, -1], [1, -1, 1, -1], [1, -1, -1, 1]])     # hadamard-cube-frame's bordered frame
+Prow = sp.Matrix([[1, 0, 0, 0], [0, 0, 1, 0], [0, 1, 0, 0], [0, 0, 0, 1]])
+check("Theorem 7: the archive's tetrad frame (a row of ones over the four TetA corners) is H_2 (x) H_2 with its 2nd and 3rd rows exchanged; "
+      "its legs point at the four corners with xyz = +1",
+      Prow * H4 == frame and sorted(tuple(frame[1:, c]) for c in range(4)) == sorted(corners))
+check("Theorem 7: so the frame factors through the Sierpinski block: frame = P S_2 diag((-2)^popcount) S_2^T, a null rotation, a boost of "
+      "rapidity ln 2 with a pi twist, and the reverse null rotation", frame == Prow * S[2] * sp.diag(*[(-2)**popc(i) for i in range(4)]) * S[2].T)
+check("Theorem 7: read in (t, x, y, z) the frame is not a Lorentz structure: frame^T eta frame = 2J - 4I (legs of norm -2, pairwise 2), the "
+      "archive's forced Gram matrix up to sign and scale", frame.T * eta * frame == 2 * sp.ones(4, 4) - 4 * sp.eye(4))
+
+# ---- Theorem 8: in the spinor reading the legs are a Newman-Penrose null tetrad
+hcol = [H2[:, 0], H2[:, 1]]
+leg = {(a, b): hcol[a] * hcol[b].T for a in (0, 1) for b in (0, 1)}
+check("Theorem 8: the leg (a, b) of H_2 (x) H_2, read as the 2x2 matrix X, is the outer product h_a h_b^T of two columns of H_2, so det X = 0: "
+      "every leg is null", all(sp.Matrix(2, 2, list(H4[:, 2 * a + b])) == leg[(a, b)] and leg[(a, b)].det() == 0 for a in (0, 1) for b in (0, 1)))
+mink = lambda Xm: sp.Matrix([sp.simplify((sg * Xm).trace() / 2) for sg in sig])
+l_, n_, m_, mb_ = leg[(0, 0)], leg[(1, 1)], leg[(0, 1)], leg[(1, 0)]
+check("Theorem 8: in Minkowski components l = (1,1,0,0) and n = (1,-1,0,0) are real light rays along ±x; m = (0,0,-i,1) and its complex "
+      "conjugate m-bar = (0,0,i,1) are the other two legs",
+      mink(l_) == sp.Matrix([1, 1, 0, 0]) and mink(n_) == sp.Matrix([1, -1, 0, 0]) and mink(m_) == sp.Matrix([0, 0, -sp.I, 1])
+      and mink(mb_) == mink(m_).conjugate())
+ipr = lambda U, V: sp.Rational(1, 2) * ((U + V).det() - U.det() - V.det())
+legs4 = [l_, n_, m_, mb_]
+G4 = sp.Matrix(4, 4, lambda i, j: ipr(legs4[i], legs4[j]))
+check("Theorem 8: their products are l.n = 2, m.m-bar = -2 and all others 0: a Newman-Penrose null tetrad (normalisation x2, from |h_a|^2 = 2)",
+      G4 == sp.Matrix([[0, 2, 0, 0], [2, 0, 0, 0], [0, 0, 0, -2], [0, 0, -2, 0]]))
+check("Theorem 8: the Hadamard combinations of the legs, l + n, l - n, m + m-bar, i(m - m-bar), are 2t, 2x, 2z, 2y: the orthonormal frame",
+      [mink(l_ + n_), mink(l_ - n_), mink(m_ + mb_), mink(sp.I * (m_ - mb_))]
+      == [sp.Matrix([2, 0, 0, 0]), sp.Matrix([0, 2, 0, 0]), sp.Matrix([0, 0, 0, 2]), sp.Matrix([0, 0, 2, 0])])
+# lemma: p q^T (p != 0) is Hermitian exactly when q = lambda conj(p) with lambda real
+p1, p2 = sp.Rational(3, 7) + 2 * sp.I, -sp.Rational(5, 3) + sp.I / 4
+qr = sp.symbols("q1r q1i q2r q2i", real=True)
+q = sp.Matrix([qr[0] + sp.I * qr[1], qr[2] + sp.I * qr[3]]); pv = sp.Matrix([p1, p2])
+Mh = pv * q.T - (pv * q.T).H
+eqs = [e for entry in Mh for e in sp.expand(entry).as_real_imag() if e != 0]
+Jac = sp.Matrix([[sp.diff(e, v) for v in qr] for e in eqs])
+nullv = Jac.nullspace()
+conjp = sp.Matrix([sp.re(p1), -sp.im(p1), sp.re(p2), -sp.im(p2)])
+check("Theorem 8 (lemma): for p != 0, p q^T is Hermitian exactly when q is a real multiple of conj(p) (the solution space is one real line "
+      "through conj(p)); so, with B, C invertible, the legs B h_a (C h_b)^T for a fixed a and both b cannot both be Hermitian, and at most "
+      "two of the four legs are real light rays in any spinor reading",
+      len(nullv) == 1 and sp.Matrix.hstack(nullv[0], conjp).rank() == 1)
+
 print(f"\n{sum(ok)}/{len(ok)} checks passed")
