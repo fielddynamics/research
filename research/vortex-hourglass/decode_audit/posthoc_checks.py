@@ -26,7 +26,8 @@ rng = np.random.default_rng(2026)
 
 
 def spearman(a, b, n_perm=20000):
-    ra, rb = np.argsort(np.argsort(a)), np.argsort(np.argsort(b))
+    from scipy.stats import rankdata
+    ra, rb = rankdata(a), rankdata(b)  # average ranks for ties
     rho = np.corrcoef(ra, rb)[0, 1]
     perm = np.array([np.corrcoef(ra, rng.permutation(rb))[0, 1] for _ in range(n_perm)])
     return float(rho), float((np.sum(perm >= rho) + 1) / (n_perm + 1))

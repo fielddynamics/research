@@ -8,11 +8,11 @@ P1  median Delta (dex) by x = g_obs/a0, all points of the quality-cut galaxies
     point-level rho(log x, Delta) = +0.41 (p = 0.0005)
 
 P2  shared trend removed: area of (Delta - median Delta(x))
-    all quality-cut    N = 149  rho(f_in, A) = +0.46   rho(f_in, A_resid) = +0.24 (p = 0.0012)
-    not gas-dominated  N =  90  rho(f_in, A) = +0.33   rho(f_in, A_resid) = +0.23 (p = 0.0152)
+    all quality-cut    N = 149  rho(f_in, A) = +0.47   rho(f_in, A_resid) = +0.27 (p = 0.0005)
+    not gas-dominated  N =  90  rho(f_in, A) = +0.32   rho(f_in, A_resid) = +0.22 (p = 0.0185)
     galaxy-to-galaxy scatter of A: 0.397 dex; of A_resid: 0.258 dex
 
 P3  decoded with McGaugh et al. (2016)'s empirical RAR instead of mu(x) = x/(x+1)
     point-level rho(log x, Delta) = +0.42
-    all quality-cut    N = 149  rho(f_in, A) = +0.47 (p = 0.0000)   median A -0.064
-    not gas-dominated  N =  90  rho(f_in, A) = +0.34 (p = 0.0003)   median A +0.001
+    all quality-cut    N = 149  rho(f_in, A) = +0.48 (p = 0.0000)   median A -0.064
+    not gas-dominated  N =  90  rho(f_in, A) = +0.33 (p = 0.0007)   median A +0.001

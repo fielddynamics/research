@@ -1,0 +1,5 @@
+Diagnostic D1: 149 quality-cut galaxies
+  all                N=149  H3, letter's g_bar: rho +0.47 (p 0.0000)   SPARC g_bar: rho +0.16 (p 0.0217)
+  not gas-dominated  N= 90  H3, letter's g_bar: rho +0.32 (p 0.0011)   SPARC g_bar: rho +0.14 (p 0.1010)
+  whole galaxy outside the ring (f_in = 0)   N= 74  median A: letter -0.244, SPARC g_bar -0.028
+  ring inside the data                       N= 72  median A: letter +0.041, SPARC g_bar +0.007

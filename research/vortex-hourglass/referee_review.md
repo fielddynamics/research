@@ -1,6 +1,6 @@
 # Referee Review and Response
 
-*An internal review of everything in `research/vortex-hourglass/`, written as a journal referee would write it. It covers the hourglass lemma, the roll-ratio theorem, the SPARC tests, the decode audit and the CamB correction to the decoding-mass letter. Each point records the change made. 2026-11-14.*
+*An internal review of everything in `research/vortex-hourglass/`, rechecked on 2026-11-14 against a fresh reading of the decoding-mass letter and its supplement, written as a journal referee would write it. It covers the hourglass lemma, the roll-ratio theorem, the SPARC tests, the decode audit and the CamB correction to the decoding-mass letter. Each point records the change made. 2026-11-14.*
 
 ---
 
@@ -60,7 +60,7 @@ Neither is derived.
 - it turns enclosed mass into acceleration as a sphere, $GM/r^2$, which understates a thin disk's pull inside a few scale lengths;
 - it models the gas as an exponential disk with scale length $R_{\rm HI}/3$.
 
-With SPARC's own Newtonian $g_{\rm bar}$ (thin disks, measured HI maps), H3 drops to $\rho = +0.18$ ($p = 0.014$) overall and $+0.12$ ($p = 0.13$) in star-dominated galaxies. Galaxies entirely outside the ring move from a median of −0.24 dex (brake) to −0.03 dex (quiet).
+With SPARC's own Newtonian $g_{\rm bar}$ (thin disks, measured HI maps), H3 drops to $\rho = +0.16$ ($p = 0.02$) overall and $+0.14$ ($p = 0.10$) in star-dominated galaxies. Galaxies entirely outside the ring move from a median of −0.24 dex (brake) to −0.03 dex (quiet).
 
 *Response.* Diagnostic D1 is now in the decode-audit README and the hourglass README. Both say that the drive/brake pattern against the ring is **not established**: under the letter's method H3 passes, but most of its signal comes from that method's approximations.
 
@@ -94,6 +94,21 @@ Only H1, H2 and H3 had criteria fixed before measurement. Everything else is exp
 
 *Response.* Each result is labelled pre-registered or exploratory where it appears, and failed tests are kept in the record (H1, H2, H2′). No exploratory result is presented as a confirmation. In particular, the ring crossing at $x \approx 1$ with SPARC's $g_{\rm bar}$ is described as a consistency check: any law that fits the radial acceleration relation would put $\mu = \tfrac12$ near $g_{\rm obs} = a_0$.
 
+**M9. Tied ranks in the rank correlation.** Every Spearman correlation in this folder ranked with `argsort(argsort(·))`, which breaks ties arbitrarily instead of averaging them. The ring share $f_{\rm in}$ is heavily tied: 74 galaxies have exactly 0. So the correlations depended on row order. (This was found during the recheck: two runs on the same data gave +0.46 and +0.47.)
+
+*Response.* All scripts now use average ranks (`scipy.stats.rankdata`), every test is rerun, and every quoted number is updated. The conclusions hold, with one exception:
+
+| Test | Before | After |
+|---|---|---|
+| H2, outer half (pre-registered) | +0.08; no bulge −0.07: fail | +0.20 ($p = 0.008$); no bulge +0.11 ($p = 0.11$): **fail** |
+| **H2′, outer point, letter's decode (pre-registered)** | +0.23; no bulge +0.05: fail | +0.33; no bulge +0.21 ($p = 0.0094$): **pass**, narrowly |
+| H3 v1 | +0.32 / +0.34 | +0.29 / +0.36: pass |
+| H3 v2 (letter's pipeline) | +0.46 / +0.33 | +0.47 / +0.32: pass |
+| v2, shared trend removed | +0.24 / +0.23 | +0.27 ($p = 0.0005$) / +0.22 ($p = 0.019$) |
+| D1, SPARC's $g_{\rm bar}$ | +0.18 / +0.12 | +0.16 ($p = 0.02$) / +0.14 ($p = 0.10$) |
+
+**H2′'s verdict changes from fail to pass.** The record now says so. H2′ is superseded by the full-profile H3 and by D1, whose conclusion is unchanged: the drive/brake pattern against the ring rests mostly on the letter's photometric approximations. D1 itself had been computed inline; it is now a script, [`decode_audit/diagnostic_d1.py`](decode_audit/diagnostic_d1.py), with its output saved.
+
 ## Minor points
 
 - **m1. Points with $\mu_{\rm obs}$ outside (0, 1).** These are 157–192 points (5–6%) where $g_{\rm bar} > g_{\rm obs}$. They are kept in the median shares and excluded from the slip, since $\Omega$ is undefined there. The scripts print the counts, and this review now states it.
@@ -117,7 +132,7 @@ These come from reproducing the letter. None changes its text. They are recorded
 
   One consequence for the text: with the corrected baryons, the ΛCDM curve in panel (a) now passes through CamB's outermost point.
 - **F2. Bulge light is counted twice in the SPARC catalogue.** The letter's pipeline (Gravis, `data/build_sparc_sources.py`) sets the disk mass to $0.5\,L_{[3.6]}$ of the *total* light, then adds a bulge on top. In the 29 SPARC galaxies with a bulge, the median bulge share of the light is 0.19. Gravis's stellar mass is a median 1.19 times SPARC's ($0.5L_{\rm disk} + 0.7L_{\rm bulge}$), and up to 2.09 times (R4). That biases bulge galaxies toward brake in the letter's pipeline.
-- **F3. Sphere approximation.** The pipeline turns enclosed mass into acceleration as $GM/r^2$. Inside a few disk scale lengths this understates a thin disk's pull, which:
+- **F3. Sphere approximation.** The letter states that it works in the spherically symmetric limit (Letter §2; Supplement §2), and its pipeline turns enclosed mass into acceleration as $GM/r^2$. This is a declared simplification, not an error; D1 measures what it costs on SPARC's disks. Inside a few disk scale lengths this understates a thin disk's pull, which:
   - flattens the inner measured shares;
   - moves their crossing outward (to $x = 1.62$ point-weighted, 1.83 galaxy-weighted);
   - produces most of H3's signal (M5).
@@ -149,6 +164,7 @@ python verify_roll_ratio.py                                        # 18/18
 python decode_audit/decode_audit_paper_mphot.py GRAVIS_DIR         # decode audit v2 -> decode_audit/results_paper_mphot/
 python decode_audit/posthoc_checks.py decode_audit/results_paper_mphot
 python measured_partition.py decode_audit/results_paper_mphot measured_partition.png ROTMOD_DIR
+python decode_audit/diagnostic_d1.py ROTMOD_DIR                    # D1
 python referee_checks.py ROTMOD_DIR GRAVIS_DIR                     # R1-R4
 ```
 

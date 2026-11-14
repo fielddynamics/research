@@ -16,10 +16,10 @@ MEASURED: 175 galaxies, 3391 radii (photometric mass: Gravis mass_model + enclos
     uncertain: 44;  median A_net -0.073 dex
 
 H3  ring share versus net area A
-  (a) all quality-cut      N=149  rho = +0.46  one-sided p = 0.0000
-  (b) not gas-dominated    N= 90  rho = +0.33  one-sided p = 0.0006
-      no bulge             N=118  rho = +0.49  one-sided p = 0.0000
-      gas-dominated        N= 59  rho = +0.34  one-sided p = 0.0045
+  (a) all quality-cut      N=149  rho = +0.47  one-sided p = 0.0000
+  (b) not gas-dominated    N= 90  rho = +0.32  one-sided p = 0.0008
+      no bulge             N=118  rho = +0.50  one-sided p = 0.0000
+      gas-dominated        N= 59  rho = +0.51  one-sided p = 0.0000
   H3: PASS
     all outside the ring (f_in = 0)    N= 74  median A -0.244  {'drive': 6, 'quiet': 34, 'brake': 34, 'mixed': 0}
     ring inside the data               N= 72  median A +0.041  {'drive': 20, 'quiet': 41, 'brake': 11, 'mixed': 0}

@@ -27,9 +27,10 @@
 
 | Sample | N | $\rho(f_{\rm in}, A)$ | one-sided $p$ |
 |---|---|---|---|
-| (a) all quality-cut | 149 | +0.46 | < 0.0001 |
-| (b) not gas-dominated | 90 | +0.33 | 0.0006 |
-| no bulge | 118 | +0.49 | < 0.0001 |
+| (a) all quality-cut | 149 | +0.47 | < 0.0001 |
+| (b) not gas-dominated | 90 | +0.32 | 0.0008 |
+| no bulge | 118 | +0.50 | < 0.0001 |
+| gas-dominated | 59 | +0.51 | < 0.0001 |
 
 By ring position:
 
@@ -41,14 +42,14 @@ By ring position:
 
 **Post-hoc** ([`results_paper_mphot/posthoc_output.txt`](results_paper_mphot/posthoc_output.txt)):
 - **The shared trend is still there.** $\Delta$ follows acceleration in every galaxy: −0.95 dex in the deepest field, rising to +0.10 to +0.12 around and inside the ring.
-- **A galaxy-level part survives its removal:** $\rho = +0.24$ ($p = 0.001$) over all galaxies and $+0.23$ ($p = 0.015$) not gas-dominated. That is stronger than in Version 1.
-- **Not the form of μ.** McGaugh's empirical relation gives the same result: $\rho = +0.47$ and $+0.34$.
+- **A galaxy-level part survives its removal:** $\rho = +0.27$ ($p = 0.0005$) over all galaxies and $+0.22$ ($p = 0.019$) not gas-dominated.
+- **Not the form of μ.** McGaugh's empirical relation gives the same result: $\rho = +0.48$ and $+0.33$. *(Numbers updated 2026-11-14 after a tie-handling bug in the rank correlation was fixed; see [`referee_review.md`](referee_review.md), M9.)*
 
 **CamB.** With the letter's pipeline the gap at 1.79 kpc is 0.77 dex (5.9×), not the 0.42 dex of the letter's Figure 2. The reason is that the letter's CamB figure uses a hand-set mass model in `generate_letter_figures.py`: a disk of $3.75\times10^7$ with $R_d = 1.0$ kpc, and gas of $6.25\times10^8$ with $R_d = 26.48$ kpc. Its own catalogue has CamB's disk at $R_d = 0.47$ kpc (SPARC's measured value) and its gas at $1.6\times10^7$, $R_d = 0.40$ kpc (1.33 × SPARC's $M_{\rm HI}$). The figure's gas mass is 39 times SPARC's. Both versions show CamB as a brake; the figure's depth comes from parameters that differ from the catalogue. **Corrected 2026-11-14:** the figure's CamB values had been read from the neighbouring columns of SPARC table 1 (gas $6.251\times10^8 = 1.33\times R_{\rm disk}$, gas $R_d = 26.48 = {\rm SB}_{\rm disk}/2.5$, disk $R_d = 1.0$ = parser default). The letter's scripts now use the catalogue values, and Figure 2 is regenerated: 0.77 dex at 1.79 kpc, matching this audit.
 
 Reproduce: `python decode_audit_paper_mphot.py GRAVIS_DIR` then `python posthoc_checks.py results_paper_mphot`.
 
-**Diagnostic D1: dependence on the photometric method** (added 2026-11-14; [`../measured_partition.py`](../measured_partition.py), [`../ROLL_RATIO.md`](../ROLL_RATIO.md)). The letter turns $M_{\rm phot}$ into an acceleration as $GM_{\rm phot}/r^2$, which understates a thin disk's pull inside a few scale lengths, and its gas is a model exponential disk. Replacing that $g_{\rm bar}$ by SPARC's own Newtonian $g_{\rm bar}$ (thin disks, measured HI maps) weakens H3 from $\rho = +0.47$ to $+0.18$ ($p = 0.014$), and in galaxies that are not gas-dominated from $+0.32$ to $+0.12$ ($p = 0.13$, not significant). Galaxies entirely outside the ring move from a median net area of −0.24 dex (brake) to −0.03 dex (quiet). **H3 passes under the letter's method, but most of its signal comes from that method's approximations.**
+**Diagnostic D1: dependence on the photometric method** (added 2026-11-14; [`../measured_partition.py`](../measured_partition.py), [`../ROLL_RATIO.md`](../ROLL_RATIO.md)). The letter works, by its own statement, in the spherical limit: it turns $M_{\rm phot}$ into an acceleration as $GM_{\rm phot}/r^2$, which understates a thin disk's pull inside a few scale lengths. Its gas is a model exponential disk. D1 measures the cost of that declared simplification ([`diagnostic_d1.py`](diagnostic_d1.py), [`results_paper_mphot/diagnostic_d1_output.txt`](results_paper_mphot/diagnostic_d1_output.txt)). Replacing that $g_{\rm bar}$ by SPARC's own Newtonian $g_{\rm bar}$ (thin disks, measured HI maps) weakens H3 from $\rho = +0.47$ to $+0.16$ ($p = 0.02$), and in galaxies that are not gas-dominated from $+0.32$ to $+0.14$ ($p = 0.10$, not significant). Galaxies entirely outside the ring move from a median net area of −0.24 dex (brake) to −0.03 dex (quiet). **H3 passes under the letter's method, but most of its signal comes from that method's approximations.**
 
 ---
 
@@ -59,8 +60,8 @@ Reproduce: `python decode_audit_paper_mphot.py GRAVIS_DIR` then `python posthoc_
 - **The decode is correct.** It runs the [decoding-mass letter](../../../papers/letter-decoding-mass-from-rotation-curves/)'s own functions and constants, loaded from its script rather than re-typed. It matches the closed form to machine precision at all 3,391 SPARC points, and it reproduces the letter's published M33 value, $1.381\times10^{10}\,M_\odot$ against the quoted $1.38\times10^{10}$.
 - **Full profiles replace the single outer point.** For each of 174 galaxies, $M_{\rm dec}(r)$ and $M_{\rm phot}(r)$ are compared at every observed radius, 3,366 in all. The new metric is the area of the profile above and below its baryons.
 - **Across SPARC (quality cut, 148 galaxies):** 59% quiet, 19% drive, 22% brake, none mixed. A third of the classes change when the stellar M/L moves by ±20%, so individual classifications are fragile. Brakes are the most robust (30 of 33).
-- **H3 passes as pre-registered.** The more of a galaxy lies inside the ring $x = 1$, the higher its net area: $\rho = +0.32$ ($p < 10^{-4}$) over all galaxies and $\rho = +0.34$ ($p = 0.001$) over galaxies that are not gas-dominated.
-- **Post-hoc, the effect has two parts.** Most of it, across the whole sample, is a gap that depends on acceleration in the same way in every galaxy. In star-dominated galaxies, a galaxy-level part survives with that shared trend removed ($\rho = +0.33$, $p = 0.003$). The form of μ is not the cause: decoding with McGaugh et al.'s empirical relation instead gives the same result.
+- **H3 passes as pre-registered.** The more of a galaxy lies inside the ring $x = 1$, the higher its net area: $\rho = +0.29$ ($p = 0.0001$) over all galaxies and $\rho = +0.36$ ($p = 0.001$) over galaxies that are not gas-dominated. *(Numbers updated 2026-11-14 after a tie-handling bug in the rank correlation was fixed; see [`referee_review.md`](referee_review.md), M9.)*
+- **Post-hoc, the effect has two parts.** Most of it, across the whole sample, is a gap that depends on acceleration in the same way in every galaxy. In star-dominated galaxies, a galaxy-level part survives with that shared trend removed ($\rho = +0.35$, $p = 0.002$). The form of μ is not the cause: decoding with McGaugh et al.'s empirical relation instead gives the same result.
 
 ## 1. Audit
 
@@ -103,10 +104,10 @@ Every profile is drawn in [`results/profile_atlas.pdf`](results/profile_atlas.pd
 
 | Sample | N | $\rho(f_{\rm in}, A)$ | one-sided $p$ |
 |---|---|---|---|
-| (a) all quality-cut | 148 | +0.32 | < 0.0001 |
-| (b) not gas-dominated | 71 | +0.34 | 0.0014 |
-| no bulge | 120 | +0.35 | < 0.0001 |
-| gas-dominated | 77 | +0.43 | < 0.0001 |
+| (a) all quality-cut | 148 | +0.29 | 0.0001 |
+| (b) not gas-dominated | 71 | +0.36 | 0.0009 |
+| no bulge | 120 | +0.31 | 0.0005 |
+| gas-dominated | 77 | +0.34 | 0.0013 |
 
 **H3: PASS.** By ring position:
 
@@ -130,10 +131,10 @@ Locally, in the 72 galaxies that contain the ring, $\Delta$ is higher inside the
 The field sits above its baryons around the ring, at about its baryons in the high-acceleration core, and below them in the low-acceleration exterior, steeply so in the deepest field. Point-level $\rho(\log x, \Delta) = +0.34$.
 
 **P2. Shared trend removed.** Subtracting the median $\Delta(x)$ from every point and recomputing the area:
-- **all galaxies:** the ring correlation falls from +0.32 to **+0.10 ($p = 0.11$)**, so across the whole sample the effect is mostly the shared trend;
-- **galaxies that are not gas-dominated:** it stays at **+0.33 ($p = 0.003$)**, a galaxy-level effect beyond the shared trend.
+- **all galaxies:** the ring correlation falls from +0.29 to **+0.09 ($p = 0.15$)**, so across the whole sample the effect is mostly the shared trend;
+- **galaxies that are not gas-dominated:** it stays at **+0.35 ($p = 0.002$)**, a galaxy-level effect beyond the shared trend.
 
-**P3. Not the form of μ.** Decoding with McGaugh, Lelli & Schombert (2016)'s empirical relation instead of $\mu = x/(x+1)$ leaves everything in place: $\rho = +0.33$ overall and $+0.35$ not gas-dominated, with the same point-level trend (+0.35).
+**P3. Not the form of μ.** Decoding with McGaugh, Lelli & Schombert (2016)'s empirical relation instead of $\mu = x/(x+1)$ leaves everything in place: $\rho = +0.30$ overall and $+0.37$ not gas-dominated, with the same point-level trend (+0.35).
 
 ## 5. What this does and does not show
 

@@ -23,10 +23,10 @@ MEASURED: 174 galaxies, 3366 radii
     median A_net -0.006 dex, median A_above 0.053, median A_below 0.068
 
 H3  ring share versus net area A
-  (a) all quality-cut      N=148  rho = +0.32  one-sided p = 0.0000
-  (b) not gas-dominated    N= 71  rho = +0.34  one-sided p = 0.0014
-      no bulge             N=120  rho = +0.35  one-sided p = 0.0000
-      gas-dominated        N= 77  rho = +0.43  one-sided p = 0.0000
+  (a) all quality-cut      N=148  rho = +0.29  one-sided p = 0.0001
+  (b) not gas-dominated    N= 71  rho = +0.36  one-sided p = 0.0009
+      no bulge             N=120  rho = +0.31  one-sided p = 0.0005
+      gas-dominated        N= 77  rho = +0.34  one-sided p = 0.0013
   H3: PASS
     all outside the ring (f_in = 0)    N= 73  median A -0.109  {'drive': 11, 'quiet': 35, 'brake': 27, 'mixed': 0}
     ring inside the data               N= 72  median A +0.029  {'drive': 17, 'quiet': 49, 'brake': 6, 'mixed': 0}
