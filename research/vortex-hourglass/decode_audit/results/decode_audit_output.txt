@@ -1,0 +1,37 @@
+AUDIT
+  A1 closed form = letter's velocity_decode at all 3391 points: max rel diff 8.9e-16  PASS
+  A2 round trip M_dec -> forward relation -> v: max rel diff 4.4e-16  PASS
+  A3 M33 at 17 kpc from the letter's data and code path: 1.381e+10 Msun (published 1.38e10)  PASS
+  A4 constants G=6.674e-11, a0=1.2e-10, kpc=3.086e+19, Msun=1.989e+30  PASS
+  A5 integrated 3.6um light / SPARC L[3.6]: median -0.024 dex (N=175)  PASS
+  A6 smoothing: the letter's diffraction_smooth, frac = 0.062, loaded from its source  PASS
+
+MEASURED: 174 galaxies, 3366 radii
+  all (N=174):
+    drive   36 (21%)   robust to M/L x0.8-1.2:  26
+    quiet   93 (53%)   robust to M/L x0.8-1.2:  51
+    brake   45 (26%)   robust to M/L x0.8-1.2:  42
+    mixed    0 (0%)   robust to M/L x0.8-1.2:   0
+    uncertain (class changes with M/L): 55
+    median A_net -0.025 dex, median A_above 0.045, median A_below 0.069
+  quality cut (N=148):
+    drive   28 (19%)   robust to M/L x0.8-1.2:  20
+    quiet   87 (59%)   robust to M/L x0.8-1.2:  48
+    brake   33 (22%)   robust to M/L x0.8-1.2:  30
+    mixed    0 (0%)   robust to M/L x0.8-1.2:   0
+    uncertain (class changes with M/L): 50
+    median A_net -0.006 dex, median A_above 0.053, median A_below 0.068
+
+H3  ring share versus net area A
+  (a) all quality-cut      N=148  rho = +0.32  one-sided p = 0.0000
+  (b) not gas-dominated    N= 71  rho = +0.34  one-sided p = 0.0014
+      no bulge             N=120  rho = +0.35  one-sided p = 0.0000
+      gas-dominated        N= 77  rho = +0.43  one-sided p = 0.0000
+  H3: PASS
+    all outside the ring (f_in = 0)    N= 73  median A -0.109  {'drive': 11, 'quiet': 35, 'brake': 27, 'mixed': 0}
+    ring inside the data               N= 72  median A +0.029  {'drive': 17, 'quiet': 49, 'brake': 6, 'mixed': 0}
+    all inside the ring (f_in = 1)     N=  3  median A +0.075  {'drive': 0, 'quiet': 3, 'brake': 0, 'mixed': 0}
+
+  Local (no pass condition): 72 galaxies contain the ring. Delta inside minus outside: median +0.064 dex; inside higher in 67%
+
+Atlas: /home/claude/research/research/vortex-hourglass/decode_audit/results/profile_atlas.pdf
