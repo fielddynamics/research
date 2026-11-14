@@ -4,6 +4,54 @@
 
 ---
 
+## Version 2 (canonical): the photometric mass exactly as the letter's pipeline builds it
+
+*Added 2026-11-14 at Stephen Nelson's instruction. Version 1 below built $M_{\rm phot}$ itself, from SPARC surface brightness for the stars and a velocity-based estimate for the gas. That was not what the letter does, and Version 2 replaces it.*
+
+**What the letter does.** Its general script, [`generate_from_api_galaxy.py`](../../../papers/letter-decoding-mass-from-rotation-curves/research/generate_from_api_galaxy.py), takes each galaxy's observations and `mass_model` from the [Gravis](https://github.com/fielddynamics/gravis) catalogue and computes $M_{\rm phot}(r)$ with Gravis's `physics/mass_model.enclosed_mass`: a Hernquist bulge plus an exponential disk and an exponential gas disk. For SPARC galaxies, Gravis builds the mass model from SPARC table 1 (`data/build_sparc_sources.py`):
+- **disk:** $M = 0.5\,L_{[3.6]}$, with scale length $R_{\rm disk}$;
+- **gas:** $M = 1.33\,M_{\rm HI}$, with scale length $R_{\rm HI}/3$;
+- **bulge:** $M = 0.15\,M_{\rm disk}(V_{\rm bul,max}/V_{\rm disk,max})^2$, with $a = 0.3$ kpc.
+
+[`decode_audit_paper_mphot.py`](decode_audit_paper_mphot.py) uses those observations, mass models and `enclosed_mass` unchanged (Gravis commit `c19da3a`), and the letter's own decode, smoothing and bounds. The area metric, classes and H3 are the ones in [`CRITERIA.md`](CRITERIA.md). Gravis's observations equal SPARC's exactly. Results are in [`results_paper_mphot/`](results_paper_mphot/).
+
+**Results (175 galaxies; quality cut 149):**
+
+| | All | Quality cut | Robust to M/L ×0.8–1.2 |
+|---|---|---|---|
+| Drive | 34 (19%) | 28 (19%) | 20 |
+| Quiet | 82 (47%) | 76 (51%) | 49 |
+| Brake | 59 (34%) | 45 (30%) | 36 |
+
+**H3 passes:**
+
+| Sample | N | $\rho(f_{\rm in}, A)$ | one-sided $p$ |
+|---|---|---|---|
+| (a) all quality-cut | 149 | +0.46 | < 0.0001 |
+| (b) not gas-dominated | 90 | +0.33 | 0.0006 |
+| no bulge | 118 | +0.49 | < 0.0001 |
+
+By ring position:
+
+| | N | median $A$ | Classes |
+|---|---|---|---|
+| Whole galaxy outside the ring | 74 | −0.24 | 6 drive, 34 quiet, 34 brake |
+| Ring inside the data | 72 | +0.04 | 20 drive, 41 quiet, 11 brake |
+| Whole galaxy inside the ring | 3 | +0.32 | |
+
+**Post-hoc** ([`results_paper_mphot/posthoc_output.txt`](results_paper_mphot/posthoc_output.txt)):
+- **The shared trend is still there.** $\Delta$ follows acceleration in every galaxy: −0.95 dex in the deepest field, rising to +0.10 to +0.12 around and inside the ring.
+- **A galaxy-level part survives its removal:** $\rho = +0.24$ ($p = 0.001$) over all galaxies and $+0.23$ ($p = 0.015$) not gas-dominated. That is stronger than in Version 1.
+- **Not the form of μ.** McGaugh's empirical relation gives the same result: $\rho = +0.47$ and $+0.34$.
+
+**CamB.** With the letter's pipeline the gap at 1.79 kpc is 0.77 dex (5.9×), not the 0.42 dex of the letter's Figure 2. The reason is that the letter's CamB figure uses a hand-set mass model in `generate_letter_figures.py`: a disk of $3.75\times10^7$ with $R_d = 1.0$ kpc, and gas of $6.25\times10^8$ with $R_d = 26.48$ kpc. Its own catalogue has CamB's disk at $R_d = 0.47$ kpc (SPARC's measured value) and its gas at $1.6\times10^7$, $R_d = 0.40$ kpc (1.33 × SPARC's $M_{\rm HI}$). The figure's gas mass is 39 times SPARC's. Both versions show CamB as a brake; the figure's depth comes from parameters that differ from the catalogue.
+
+Reproduce: `python decode_audit_paper_mphot.py GRAVIS_DIR` then `python posthoc_checks.py results_paper_mphot`.
+
+---
+
+# Version 1 (superseded: photometric mass built by the audit)
+
 ## Summary
 
 - **The decode is correct.** It runs the [decoding-mass letter](../../../papers/letter-decoding-mass-from-rotation-curves/)'s own functions and constants, loaded from its script rather than re-typed. It matches the closed form to machine precision at all 3,391 SPARC points, and it reproduces the letter's published M33 value, $1.381\times10^{10}\,M_\odot$ against the quoted $1.38\times10^{10}$.

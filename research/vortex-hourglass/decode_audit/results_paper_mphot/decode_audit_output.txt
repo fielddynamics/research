@@ -1,0 +1,28 @@
+Gravis SPARC galaxies with observations and a mass model: 178; in SPARC table1: 175; not in table1 (excluded): ['m31', 'm33', 'milky_way']
+Audit A1-A6 (decode, constants, smoothing) as in decode_audit.py: the same letter functions are used.
+
+MEASURED: 175 galaxies, 3391 radii (photometric mass: Gravis mass_model + enclosed_mass)
+  all (N=175):
+    drive   34 (19%)   robust to M/L x0.8-1.2:  25
+    quiet   82 (47%)   robust to M/L x0.8-1.2:  53
+    brake   59 (34%)   robust to M/L x0.8-1.2:  49
+    mixed    0 (0%)   robust to M/L x0.8-1.2:   0
+    uncertain: 48;  median A_net -0.079 dex
+  quality cut (N=149):
+    drive   28 (19%)   robust to M/L x0.8-1.2:  20
+    quiet   76 (51%)   robust to M/L x0.8-1.2:  49
+    brake   45 (30%)   robust to M/L x0.8-1.2:  36
+    mixed    0 (0%)   robust to M/L x0.8-1.2:   0
+    uncertain: 44;  median A_net -0.073 dex
+
+H3  ring share versus net area A
+  (a) all quality-cut      N=149  rho = +0.46  one-sided p = 0.0000
+  (b) not gas-dominated    N= 90  rho = +0.33  one-sided p = 0.0006
+      no bulge             N=118  rho = +0.49  one-sided p = 0.0000
+      gas-dominated        N= 59  rho = +0.34  one-sided p = 0.0045
+  H3: PASS
+    all outside the ring (f_in = 0)    N= 74  median A -0.244  {'drive': 6, 'quiet': 34, 'brake': 34, 'mixed': 0}
+    ring inside the data               N= 72  median A +0.041  {'drive': 20, 'quiet': 41, 'brake': 11, 'mixed': 0}
+    all inside the ring (f_in = 1)     N=  3  median A +0.316  {'drive': 2, 'quiet': 1, 'brake': 0, 'mixed': 0}
+
+  Local: 72 galaxies contain the ring; Delta inside minus outside: median +0.050 dex; inside higher in 61%
