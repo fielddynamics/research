@@ -58,9 +58,11 @@ and the symmetry group of their compound, the stellated octahedron,
 is that of one tetrahedron times $\{\pm I\}$. On the connection,
 exchange of the lower indices splits the 64 components into 40 and
 24; the torsion-free condition is the projection onto the 40, and for
-a metric connection the discarded 24 are exactly the torsion, the
-only place a connection can tell the roots apart. Every step is exact
-and machine-checked.
+a metric connection the discarded 24, the torsion, are the only place
+a connection can tell the roots apart. A connection carried
+covariantly with the frame does not; one that keeps its spin
+connection in general does, through its torsion. Every step is exact and
+machine-checked.
 \end{abstract}
 
 \keywords{tetrad, Gram matrix, spatial parity, Hadamard matrix,
@@ -81,13 +83,15 @@ unchanged, $(Pe)^T\eta(Pe) = g$, while $\det(Pe) = -\det e$: the
 equation has two roots, carried into each other by $P$, and the
 metric sees only $(\det e)^2$~\cite{NelsonScheme}.
 
-The four legs are realised in space as in~\cite{NelsonForced}: a
-\emph{spatial realisation} is a matrix $M \in \mathbb{R}^{3\times4}$
-whose column $v_a$ represents leg $a$, with every pair of legs in the
-same relation and every leg of the same magnitude. Those premises
-force the Gram matrix and the regular tetrahedron, unique up to
-$O(3)$. We take that result as given, normalise the magnitude to
-$|v_a|^2 = 3$, and use the representative
+Following~\cite{NelsonLetter1,NelsonScheme}, the frame is realised
+in an observer's space by four directions $v_1,\dots,v_4$, the
+columns of a matrix $M \in \mathbb{R}^{3\times4}$, each a fixed linear
+combination of the spatial legs $e^1, e^2, e^3$. Every pair of
+directions bears the same relation and every direction has the same
+magnitude; these premises force the Gram matrix $M^TM$ and the
+regular tetrahedron, unique up to $O(3)$~\cite{NelsonForced}. We take
+that result as given, scale to $|v_a|^2 = 3$ (every statement below
+is invariant under a common rescaling), and use the representative
 \begin{equation}
   M_1 = \begin{pmatrix}
     +1 & +1 & -1 & -1 \\
@@ -96,8 +100,12 @@ $|v_a|^2 = 3$, and use the representative
   \end{pmatrix}.
   \label{eq:M1}
 \end{equation}
-Parity reflects the realisation, $v_a \mapsto -v_a$, so the second
-root is realised by $M_2 = -M_1$. We write $I$ for the identity,
+Since each $v_a$ is linear in the spatial legs, $P$ sends every
+$v_a \mapsto -v_a$, so the second root is realised by $M_2 = -M_1$.
+Reversing every leg, $e \mapsto -e = PTe$, also reverses the time
+leg; as in~\cite{NelsonScheme}, the identification of root with
+tetrahedron is for future-pointing frames. The legs are labelled
+throughout: $v_a$ and $-v_a$ belong to the same leg. We write $I$ for the identity,
 $J$ for the $4\times4$ all-ones matrix and $\mathbf{1} = (1,1,1,1)^T$.
 
 % ======================================================================
@@ -202,8 +210,9 @@ $Q$. For $W = -M_1$ this is $-I$.
 \end{proof}
 
 \noindent
-So the Gram matrix is the complete invariant of a realisation under
-$O(3)$, and the two roots are one $O(3)$ orbit: they are related by
+So, for realisations of rank 3 with labelled legs, the Gram matrix
+is a complete invariant under $O(3)$, and the two roots are one
+$O(3)$ orbit: they are related by
 $-I$, which has determinant $-1$ and lies outside $SO(3)$.
 
 \begin{proposition}[Orientation]
@@ -264,7 +273,7 @@ permuting the corners of $S$ form the group
   \label{eq:sym}
 \end{equation}
 of order 48, and every element outside $\mathrm{Sym}(\mathrm{TetA})$
-carries TetA onto TetB. In particular TetA is not congruent to $S$.
+carries TetA onto TetB.
 \end{theorem}
 
 \begin{proof}
@@ -289,7 +298,12 @@ corners.
 \noindent
 The extra factor is exactly parity: the compound has twice the
 symmetry of either root, and the doubling is the element that
-exchanges them.
+exchanges them. Half of the exchanging elements are rotations (for
+example a quarter turn about a coordinate axis), so TetA and TetB are
+congruent as unlabelled point sets; as labelled frames they are not,
+by Proposition~\ref{prop:orient}. This is the caution
+of~\cite{NelsonScheme}: the roots differ in the order of the legs,
+not in shape.
 
 % ======================================================================
 
@@ -306,7 +320,9 @@ triangle and $6$ in the strict lower triangle. Over the four slices,
 \end{equation}
 In the framework's reading of the grid the upper triangle is TetA,
 the lower triangle TetB and the diagonal shared, and exchanging the
-triangles is the TetB step~\cite{NelsonLetter2,NelsonChiral}.
+triangles is the TetB step~\cite{NelsonGramOrig,NelsonChiral};
+Letter~2 calls the exchange-even sector the identity sector and the
+exchange-odd sector the parity sector~\cite{NelsonLetter2}.
 
 \begin{lemma}[The exchange split]
 \label{lem:tau}
@@ -336,6 +352,18 @@ $\tfrac12(u+l)$, which does not change when the triangles are
 exchanged, and what is discarded is the exchange-odd difference
 $u - l$.
 
+Two cautions. First, the triangles depend on the order in which the
+coordinates are listed: relabelling them in reverse carries every
+upper entry into the lower triangle. The exchange $\tau$ commutes
+with every relabelling, and the torsion is a tensor (the
+inhomogeneous term in the transformation of $\Gamma$ is symmetric in
+the lower indices), so the split $40 + 24$ and the condition $T = 0$
+are coordinate-independent, while the split $24 + 16 + 24$ is a
+property of a chosen ordered basis. Second, $\tau$ acts on the index
+slots of the connection and $P$ on the frame; they are different
+operations, and the only link between them proved here is
+Theorem~\ref{thm:proj}(iii).
+
 % ======================================================================
 
 \section*{Part IV: The torsion-free projection}
@@ -362,7 +390,7 @@ $u - l$.
 \end{theorem}
 
 \begin{proof}
-(i) is Lemma~\ref{lem:tau}. (ii) The difference $\Delta$ of two
+(i) is Lemma~\ref{lem:tau}. (ii) All statements are pointwise. The difference $\Delta$ of two
 $g$-compatible connections satisfies
 $\Delta_{\lambda\mu\nu} + \Delta_{\nu\mu\lambda} = 0$, with the first
 index lowered by $g$: antisymmetry in two of three indices, $4\times6
@@ -377,6 +405,33 @@ vanishes in the torsion-free case. The verification script checks (ii)
 exactly for $\eta$ and for a generic Lorentzian metric.
 \end{proof}
 
+\begin{proposition}[How a connection follows the root]
+\label{prop:follow}
+Let $\omega_\mu$ be a Lorentz connection, $\eta\omega_\mu$
+antisymmetric, and
+$\Gamma^\lambda{}_{\mu\nu}
+= (e^{-1})^\lambda{}_a\bigl(\partial_\mu e^a{}_\nu
++ \omega^a{}_{\mu b}\,e^b{}_\nu\bigr)$, which is compatible with
+$g = e^T\eta e$.
+\begin{enumerate}
+\item[(a)] If $\omega$ is carried along with the frame,
+  $(e,\omega) \mapsto (Pe, P\omega P)$, then $P\omega P$ is again a
+  Lorentz connection and $\Gamma$, with its torsion, is unchanged.
+\item[(b)] If both roots carry the same $\omega$, the two connections
+  are compatible with the same $g$ and in general differ; by
+  Theorem~\ref{thm:proj}(ii) they differ exactly by a contorsion,
+  with nonzero torsion difference.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(a) $P^T\eta P = \eta$ keeps $\eta P\omega P$ antisymmetric, and
+$(Pe)^{-1}(P\partial e + P\omega P\,Pe) = e^{-1}(\partial e + \omega e)$
+since $P^2 = 1$. (b) Both are of the stated form with the same $g$;
+the script exhibits a rational example with nonzero torsion
+difference.
+\end{proof}
+
 \begin{remark}
 Parts I and IV say the same thing at two levels. The metric, and
 every Gram product, cannot tell the roots apart; neither can any
@@ -386,10 +441,33 @@ torsion components that general relativity sets to
 zero~\cite{LeviCivita1917} and Einstein--Cartan theory
 keeps~\cite{Cartan1922,Hehl1976}. GFD reads the torsion as where
 TetA and TetB are told apart~\cite{NelsonLetter2,NelsonTorsion}. The
-theorem proves that the torsion is the only place available; it does
-not prove that the torsion is nonzero, nor how it transforms under
-parity.
+theorem proves that the torsion is the only place available: the
+torsion is the \emph{necessary} carrier of the distinction, as
+Letter~2 states. Proposition~\ref{prop:follow} shows it is not
+automatically a carrier: a connection carried covariantly with the
+frame is identical on both roots, torsion included, and the roots
+are distinguished at the connection level only when their
+connections are not so related. Which assignment the field makes is
+a physical input, not a consequence of the tetrad equation.
 \end{remark}
+
+% ======================================================================
+
+\section*{Contributions and prior work}
+
+The ingredients are classical: rigidity of Gram matrices under the
+orthogonal group, the $4\times4$ Hadamard
+matrix~\cite{Sylvester1867}, the stellated octahedron and its
+symmetry $T_d \times \{\pm I\} = O_h$~\cite{Coxeter1973}, the
+fundamental theorem of Riemannian geometry~\cite{LeviCivita1917},
+and the decomposition of a metric connection into Levi-Civita
+connection and contorsion~\cite{Hehl1976}. What this note adds is
+their assembly on the two roots of the tetrad equation: the
+distinction between relative and absolute root, with orientation as
+the absolute invariant; the compound's symmetry as one root's
+doubled by the exchange; and the exact form of the statement that
+torsion is the only place a metric connection can tell the roots
+apart, together with the condition under which it does.
 
 % ======================================================================
 
@@ -412,6 +490,7 @@ Thm.\ 1 & $xyz = \pm1$; cube & Lemma 3 \\
 Thm.\ 2 & Symmetry $\times\{\pm I\}$ & Lemma 5 \\
 Lemma 6 & $64 = 40 + 24$ under $\tau$ & Indices \\
 Thm.\ 3 & Roots differ only by $T$ & Lemma 6 \\
+Prop.\ 2 & Covariant: no difference & $P^2 = 1$ \\
 \hline
 \end{tabular*}}
 \vspace{4pt}
@@ -431,6 +510,12 @@ S.~Nelson,
 \textit{The Other Half of Gravity: Torsion and the Two-Chamber
 Structure of the Tetrad Frame},
 Field Dynamics Research (2026), submitted.
+
+\bibitem{NelsonGramOrig}
+S.~Nelson,
+\textit{The Gram Matrix of the Tetrad Equation} (original note),
+Field Dynamics Research (2026),
+\url{papers/gram-matrix-of-tetrad-equation}.
 
 \bibitem{NelsonScheme}
 S.~Nelson,
@@ -480,6 +565,12 @@ F.~W.~Hehl, P.~von der Heyde, G.~D.~Kerlick and J.~M.~Nester,
 \textit{General relativity with spin and torsion: foundations and
 prospects},
 Rev.\ Mod.\ Phys.\ \textbf{48} (1976) 393.
+
+\bibitem{Sylvester1867}
+J.~J.~Sylvester,
+\textit{Thoughts on inverse orthogonal matrices, simultaneous
+sign-successions, and tessellated pavements in two or more colours},
+Phil.\ Mag.\ \textbf{34} (1867) 461.
 
 \bibitem{Kepler1619}
 J.~Kepler,

@@ -6,7 +6,7 @@
 
 ---
 
-This folder holds a four-page proof and a script that checks every step (54 checks, exact algebra, exhaustive where the cases are finite). It is the revised version of the [Gram-matrix note](../../papers/gram-matrix-of-tetrad-equation/), which is unchanged in its own folder. This page explains the argument for a reader with first-year linear algebra.
+This folder holds a four-page proof and a script that checks every step (66 checks, exact algebra, exhaustive where the cases are finite). It was revised after an internal referee-style review ([`referee_review.md`](referee_review.md)). It is the revised version of the [Gram-matrix note](../../papers/gram-matrix-of-tetrad-equation/), which is unchanged in its own folder. This page explains the argument for a reader with first-year linear algebra.
 
 ## The question
 
@@ -14,7 +14,7 @@ The tetrad equation, $g = e^T\eta\,e$, builds the metric from the frame. It is q
 
 ## Part I: the three Gram products
 
-Write the four legs, realised in space, as the columns of a $3 \times 4$ matrix $M$. The second root is $-M$. From the two roots you can form three Gram products:
+Realise the frame in space as four directions, each a combination of the three spatial legs, and write them as the columns of a $3 \times 4$ matrix $M$. Spatial parity flips every spatial leg, so it flips every direction: the second root is $-M$. From the two roots you can form three Gram products:
 
 - **Self-coupling** $M^TM$ is the same for both roots. It is *root-blind*.
 - **Cross-coupling** $M^T(-M)$ is minus the self-coupling.
@@ -52,6 +52,12 @@ The theorem has three parts:
 
 Parts I and IV say the same thing at two levels. The metric cannot see the roots, so neither can anything built from the metric alone. General relativity sets the torsion to zero, and with it the only room left for the distinction.
 
+**Necessary, not automatic.** Proposition 2 shows when the torsion actually carries the distinction. In the tetrad formalism a connection is built from the frame and a spin connection $\omega$:
+- **Carried with the frame.** If $\omega$ is transformed by parity along with the frame, the connection comes out identical on both roots, torsion included.
+- **Kept fixed.** If both roots keep the same $\omega$, the two connections share the metric but differ, and they differ exactly in their torsion.
+
+So the torsion is the *necessary* carrier, Letter 2's word. Whether it carries the distinction depends on how the field assigns connections to the roots, which is physical input, not something the tetrad equation decides.
+
 ## Why it matters
 
 - **It makes "root-blind" and "root-resolving" exact.** Gram data are blind to which root is which and resolve only the relative root; orientation is the absolute invariant.
@@ -60,7 +66,8 @@ Parts I and IV say the same thing at two levels. The metric cannot see the roots
 
 ## What it does not do
 
-- It does not prove that the torsion is nonzero, or how it transforms under parity. It proves that if the connection tells the roots apart, the torsion is where it does so.
+- It does not prove that the field assigns the two roots connections that differ. It proves that if they differ, they differ in the torsion (Theorem 3), and that this happens exactly when the connection is not carried covariantly with the frame (Proposition 2).
+- The split of each slice into upper and lower triangles depends on the order of the coordinates. The 40 + 24 split and the torsion do not.
 - The tetrahedral frame is taken from the [forced tetrahedral frame](../forced-tetrahedral-frame/) proof, which rests on the magnitude reading of $\eta$.
 - The labels upper = TetA, lower = TetB on the index grid are the framework's reading. The theorems hold whatever the labels.
 
@@ -83,12 +90,13 @@ The original note, [`supplementary_gram_stellated_octahedron.tex`](../../papers/
 |---|---|
 | [`gram_matrix_tetrad_equation.pdf`](gram_matrix_tetrad_equation.pdf) | The proof, four pages |
 | [`gram_matrix_tetrad_equation.tex`](gram_matrix_tetrad_equation.tex) | LaTeX source (IOP journal class, included) |
-| [`verify_gram_matrix_tetrad_equation.py`](verify_gram_matrix_tetrad_equation.py) | Exact checks of every lemma, proposition and theorem: the Hadamard identity, exact rational rotations and reflections for invariance and rigidity, orientation of all four leg triples, the symmetry groups over all $8!$ relabellings of the cube, the exchange split, and the metric-connection bijection for $\eta$ and a generic Lorentzian metric |
+| [`verify_gram_matrix_tetrad_equation.py`](verify_gram_matrix_tetrad_equation.py) | Exact checks of every lemma, proposition and theorem: the Hadamard identity, exact rational rotations and reflections for invariance and rigidity, orientation of all four leg triples, the symmetry groups over all $8!$ relabellings of the cube, the exchange split and its coordinate independence, the metric-connection bijection for $\eta$ and a generic Lorentzian metric, and both cases of Proposition 2 |
+| [`referee_review.md`](referee_review.md) | Internal referee-style review and the change made for each point |
 | [`iopjournal.cls`](iopjournal.cls) | Document class, so the source builds here |
 
 ```bash
 pip install sympy
-python verify_gram_matrix_tetrad_equation.py      # 54/54
+python verify_gram_matrix_tetrad_equation.py      # 66/66
 pdflatex -interaction=nonstopmode gram_matrix_tetrad_equation.tex
 ```
 

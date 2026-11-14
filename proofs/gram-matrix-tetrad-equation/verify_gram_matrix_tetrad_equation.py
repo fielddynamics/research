@@ -206,6 +206,99 @@ check("T4 the metric is root-blind: (P e)^T eta (P e) = e^T eta e",
       (Pspace * E).T * eta * (Pspace * E) == g_gen)
 check("T4 the roots differ in orientation: det(P e) = -det e", (Pspace * E).det() == -E.det())
 
+# ---------------------------------------------------------------- referee additions
+# R1: the realisation is linear in the spatial legs, so P negates every direction
+Es = sp.Matrix(3, 3, lambda i, j: sp.Rational(rng.randint(-5, 5), rng.randint(1, 3)) + (2 if i == j else 0))
+Cmix = sp.Matrix(4, 3, lambda i, j: sp.Rational(rng.randint(-5, 5), rng.randint(1, 3)))
+V = (Cmix * Es).T                                  # columns: directions as combinations of spatial legs
+check("R1 directions linear in the spatial legs: e^i -> -e^i sends every v_a -> -v_a",
+      (Cmix * (-Es)).T == -V)
+
+# R2: TetA and TetB are congruent as unlabelled sets (by a rotation), not as labelled frames
+rot_swap = [L for L in outside if L.det() == 1]
+check("R2 half of the exchanging symmetries are rotations (det +1)", len(rot_swap) == 12)
+quarter = sp.Matrix([[0, -1, 0], [1, 0, 0], [0, 0, 1]])
+check("R2 a quarter turn about z carries the TetA corners onto the TetB corners",
+      {tuple((quarter * M1)[:, j]) for j in range(4)} == cols2)
+check("R2 but no rotation carries the TetA legs onto the TetB legs leg by leg", R_needed.det() == -1)
+
+# R3: triangle split depends on index ordering; tau and torsion do not
+rev = (3, 2, 1, 0)
+check("R3 reversing the coordinate order carries every upper entry into the lower triangle",
+      all((rev[m], rev[n]) not in set(up) for m, n in up))
+
+
+def relabel_matrix(sig):
+    Rm = sp.zeros(K ** 3, K ** 3)
+    for l, m, n in itertools.product(range(K), repeat=3):
+        Rm[vec_index(sig[l], sig[m], sig[n]), vec_index(l, m, n)] = 1
+    return Rm
+
+
+check("R3 tau commutes with every relabelling of the coordinates",
+      all(relabel_matrix(sig) * tau == tau * relabel_matrix(sig) for sig in itertools.permutations(range(K))))
+Acoord = sp.Matrix(4, 4, lambda i, j: sp.Rational(rng.randint(-4, 4), rng.randint(1, 3)) + (3 if i == j else 0))
+Ai = Acoord.inv()
+Gam = {k: sp.Rational(rng.randint(-6, 6), rng.randint(1, 4)) for k in itertools.product(range(K), repeat=3)}
+inh = {}
+for l, m, n in itertools.product(range(K), repeat=3):
+    if m <= n:
+        inh[(l, m, n)] = inh[(l, n, m)] = sp.Rational(rng.randint(-6, 6), rng.randint(1, 4))
+
+
+def transform(Gm, extra):
+    return {(l, m, n): sum(Acoord[l, a] * Gm[(a, b, c)] * Ai[b, m] * Ai[c, n]
+                           for a in range(K) for b in range(K) for c in range(K)) + extra[(l, m, n)]
+            for l, m, n in itertools.product(range(K), repeat=3)}
+
+
+def torsion(Gm):
+    return {(l, m, n): Gm[(l, m, n)] - Gm[(l, n, m)] for l, m, n in Gm}
+
+
+zero = {k: 0 for k in Gam}
+check("R3 torsion transforms as a tensor (the inhomogeneous term is symmetric)",
+      torsion(transform(Gam, inh)) == transform(torsion(Gam), zero))
+
+# Proposition 2: how a connection follows the root
+e4 = sp.Matrix(4, 4, lambda i, j: sp.Rational(rng.randint(-5, 5), rng.randint(1, 3)) + (4 if i == j else 0))
+de4 = [sp.Matrix(4, 4, lambda i, j: sp.Rational(rng.randint(-5, 5), rng.randint(1, 3))) for _ in range(K)]
+
+
+def lorentz_generator():
+    Aant = sp.Matrix(4, 4, lambda i, j: sp.Rational(rng.randint(-5, 5), rng.randint(1, 3)))
+    return eta * (Aant - Aant.T)              # eta * omega is antisymmetric
+
+
+om4 = [lorentz_generator() for _ in range(K)]
+
+
+def frame_connection(e, de, om):
+    """Gamma^lam_{mu nu} from (e^{-1})^lam_a (d_mu e^a_nu + omega^a_{mu b} e^b_nu)."""
+    ei = e.inv()
+    blocks = [ei * (de[m] + om[m] * e) for m in range(K)]       # blocks[mu][lam, nu]
+    return {(l, m, n): blocks[m][l, n] for l, m, n in itertools.product(range(K), repeat=3)}
+
+
+def is_compatible_difference(Dl, g):
+    low = {(l, m, n): sum(g[l, s] * Dl[(s, m, n)] for s in range(K)) for l, m, n in Dl}
+    return all(sp.simplify(low[(l, m, n)] + low[(n, m, l)]) == 0 for l, m, n in low)
+
+
+check("P2 eta * omega antisymmetric is preserved by omega -> P omega P",
+      all(eta * Pspace * o * Pspace + (eta * Pspace * o * Pspace).T == sp.zeros(4, 4) for o in om4))
+Ga = frame_connection(e4, de4, om4)
+Gb = frame_connection(Pspace * e4, [Pspace * d for d in de4], [Pspace * o * Pspace for o in om4])
+check("P2(a) carried covariantly, the connection is identical on both roots",
+      all(sp.simplify(Ga[k] - Gb[k]) == 0 for k in Ga))
+Gc = frame_connection(Pspace * e4, [Pspace * d for d in de4], om4)
+diff = {k: sp.simplify(Gc[k] - Ga[k]) for k in Ga}
+g4 = e4.T * eta * e4
+check("P2(b) with the same omega the two connections differ", any(v != 0 for v in diff.values()))
+check("P2(b) their difference is a metric-compatible difference (same g)",
+      (Pspace * e4).T * eta * (Pspace * e4) == g4 and is_compatible_difference(diff, g4))
+check("P2(b) and its torsion is nonzero", any(v != 0 for v in torsion(diff).values()))
+
 # ----------------------------------------------------------------
 if __name__ == "__main__":
     for name, ok in CHECKS:
