@@ -310,6 +310,7 @@ Most research folders follow the same pattern: a **`*_synthesis.md`** that expla
 | [`mass-spectrum-particle-physics/`](research/mass-spectrum-particle-physics/) | Particle mass spectrum from A₄ → V₄ × Z₃ |
 | [`proton/`](research/proton/) | Proton–electron mass ratio proof chain |
 | [`photonic/`](research/photonic/) | Photon equations, "light substrate" suites and teaching notes |
+| [`diamond-tetrad-lattice/`](research/diamond-tetrad-lattice/) | The two roots as bond stars: one root cannot close a lattice, and alternating TetA and TetB builds the diamond lattice, the landmark photonic crystal (23 checks) |
 | [`nuclear/`](research/nuclear/), [`nuclear-triforce/`](research/nuclear-triforce/) | Nuclear binding from the constitutive law; intersection with the face suite |
 | [`matter/`](research/matter/) | Nuclear binding (Bethe–Weizsäcker coefficients, 3-scale model, Sierpiński walk), electron configurations, particle properties |
 | [`electron-configurations/`](research/electron-configurations/) | Electron configurations: sub-shell capacities, Madelung order and the transition-metal exceptions from the coupling polynomial |
