@@ -29,6 +29,8 @@ The algebra is correct and machine-checked. The concerns are about the setting, 
 
 The Remark now says torsion is the *necessary* carrier, which is Letter 2's own word in its Corollary. Whether the field assigns connections covariantly or not is stated as a physical input, not a consequence of the tetrad equation. Letter 2's "therefore root-resolving" is not changed here. It is flagged for the author, since (a) is a counterexample to it as written.
 
+*Follow-up, 2026-11-14: the "counterexample" reading is withdrawn.* Proposition 2(a) shows that the coordinate torsion tensor alone is the same on both roots. That is the $y$ in $y = x^2$, and Letter 2 never claimed it was anything else. Proposition 3 is added: in frame form the torsion $T^a = De^a$ reverses with the root, as Letter 2's "depends on $e^a{}_\mu$ directly" says. In coordinate form its dual, taken with the frame's orientation, reverses sign. And the torsion-free part has no first-order tensor to carry the root. So Letter 2's Proposition is right: the torsion is root-resolving wherever it is nonzero. This review had treated one representation as the whole story.
+
 **M3. The index-grid reading depends on the basis.** Upper and lower triangles depend on the order in which coordinates are listed. Reversing the order carries every upper entry into the lower triangle. Identifying the triangles with TetA and TetB is therefore a statement about a chosen ordered basis. In addition, $\tau$ (exchange of index slots) and $P$ (parity of the frame) are different operations, and the draft's Part III could be read as equating them.
 
 *Response.* A "Two cautions" paragraph is added to Part III:
@@ -72,12 +74,13 @@ Checks R2 cover this.
 
 The algebra was sound. The revision makes the setting consistent with the scheme proof (M1). It turns the connection-level conclusion into an exact necessary-carrier statement, with the covariant counterexample and the non-covariant example (M2). It separates basis-dependent bookkeeping from invariant content (M3), and it places the note against prior work (M4).
 
-Two things are stated as open, not proved: that the field assigns the roots non-covariantly related connections, and that their torsion is nonzero. One item is flagged for the author outside this note: Letter 2's "therefore root-resolving".
+One thing is stated as open, not proved: that the field's torsion is nonzero. The item once flagged for the author, Letter 2's "therefore root-resolving", is withdrawn (see M2's follow-up).
 
 ## Checks
 
-`python verify_gram_matrix_tetrad_equation.py`: 66/66, exact rational arithmetic. Added for this review:
+`python verify_gram_matrix_tetrad_equation.py`: 76/76, exact rational arithmetic. Added for this review:
 - R1, the realisation is linear in the spatial legs;
 - R2, unlabelled congruence by a rotation versus labelled non-congruence;
 - R3, ordering dependence of the triangles, $\tau$ commuting with all 24 relabellings, and torsion as a tensor;
-- P2, Proposition 2 (a) and (b).
+- P2, Proposition 2 (a) and (b);
+- P3, Proposition 3 (added after the review): frame torsion, its dual and axial vector under the exchange.

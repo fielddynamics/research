@@ -1,7 +1,7 @@
 """
 Verification of "The Gram Matrix of the Tetrad Equation" (revised).
 
-Check labels follow the paper: Lem1-Lem6, Thm1-Thm3, Prop1-Prop2; R1-R3 are the referee additions.
+Check labels follow the paper: Lem1-Lem6, Thm1-Thm3, Prop1-Prop3; R1-R3 are the referee additions.
 The converse of Lemma 5 (rigidity) and Theorem 3(ii) are proved in the text; here they are checked by exact
 spot checks (four rational O(3) elements; the metric eta and one generic Lorentzian metric).
 
@@ -302,6 +302,61 @@ check("Prop2(b) with the same omega the two connections differ", any(v != 0 for 
 check("Prop2(b) their difference is a metric-compatible difference (same g)",
       (Pspace * e4).T * eta * (Pspace * e4) == g4 and is_compatible_difference(diff, g4))
 check("Prop2(b) and its torsion is nonzero", any(v != 0 for v in torsion(diff).values()))
+
+# Proposition 3: how the torsion carries the root
+def frame_torsion(e, de, om):
+    """T^a_{mu nu} = d_mu e^a_nu - d_nu e^a_mu + omega^a_{mu b} e^b_nu - omega^a_{nu b} e^b_mu."""
+    cols = [de[m] + om[m] * e for m in range(K)]                  # cols[mu][a, nu]
+    return {(a, m, n): cols[m][a, n] - cols[n][a, m] for a, m, n in itertools.product(range(K), repeat=3)}
+
+
+TA = frame_torsion(e4, de4, om4)
+TB = frame_torsion(Pspace * e4, [Pspace * d for d in de4], [Pspace * o * Pspace for o in om4])
+check("Prop3(i) in frame form the torsion follows the root: T^a -> P T^a (spatial legs reverse)",
+      all(sp.simplify(TB[(a, m, n)] - Pspace[a, a] * TA[(a, m, n)]) == 0 for a, m, n in TA))
+check("Prop3(i) and it is nonzero here", any(v != 0 for v in TA.values()))
+check("Prop3(i) the coordinate torsion is e^{-1} T^a, so it is the same on both roots (Prop2(a))",
+      all(sp.simplify(sum(e4.inv()[l, a] * TA[(a, m, n)] for a in range(K)) - torsion(Ga)[(l, m, n)]) == 0
+          for l, m, n in itertools.product(range(K), repeat=3)))
+
+
+def lower(Gm, g):
+    return {(l, m, n): sum(g[l, s] * Gm[(s, m, n)] for s in range(K)) for l, m, n in Gm}
+
+
+def axial(Gm_low, e):
+    """A^s = (1/det e) [s l m n] X_{l m n}: the orientation volume eps^{s l m n} up to a fixed sign."""
+    return [sp.simplify(sum(sp.LeviCivita(s, l, m, n) * Gm_low[(l, m, n)]
+                            for l, m, n in itertools.product(range(K), repeat=3)) / e.det()) for s in range(K)]
+
+
+check("Prop3(ii) the orientation reverses between the roots: det(Pe) = -det e",
+      (Pspace * e4).det() == -e4.det())
+Ax_A = axial(lower(torsion(Ga), g4), e4)
+Ax_B = axial(lower(torsion(Gb), g4), Pspace * e4)
+check("Prop3(ii) the axial torsion read with the frame's orientation is nonzero", any(v != 0 for v in Ax_A))
+check("Prop3(ii) and reverses sign between TetA and TetB", all(sp.simplify(a + b) == 0 for a, b in zip(Ax_A, Ax_B)))
+
+def dual(T, e, g):
+    """(*T)^l_{ab} = (1/2) eps_{ab mu nu} T^{l mu nu}, eps_{0123} = det e (the frame's volume)."""
+    gi = g.inv()
+    Tup = {(l, m, n): sum(gi[m, p] * gi[n, q] * T[(l, p, q)] for p in range(K) for q in range(K))
+           for l, m, n in itertools.product(range(K), repeat=3)}
+    return {(l, a, b): sp.simplify(e.det() * sum(sp.LeviCivita(a, b, m, n) * Tup[(l, m, n)]
+                                                 for m in range(K) for n in range(K)) / 2)
+            for l, a, b in itertools.product(range(K), repeat=3)}
+
+
+DA, DB = dual(torsion(Ga), e4, g4), dual(torsion(Gb), Pspace * e4, g4)
+check("Prop3(ii) the dual *T, taken with the frame's orientation, reverses between the roots",
+      all(sp.simplify(DA[k] + DB[k]) == 0 for k in DA))
+check("Prop3(ii) and *T is nonzero (the dual is invertible, so nonzero whenever T is)",
+      any(v != 0 for v in DA.values()))
+check("Prop3(iii) the totally antisymmetric part of Gamma is the torsion's: half its axial part",
+      all(sp.simplify(x - y / 2) == 0 for x, y in zip(axial(lower(Ga, g4), e4), Ax_A)))
+Gsym = {(l, m, n): (Ga[(l, m, n)] + Ga[(l, n, m)]) / 2 for l, m, n in Ga}
+check("Prop3(iii) so the torsion-free (symmetric) part has no axial part",
+      all(v == 0 for v in axial(lower(Gsym, g4), e4)))
 
 # ----------------------------------------------------------------
 if __name__ == "__main__":

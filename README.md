@@ -124,7 +124,7 @@ pip install numpy scipy sympy mpmath matplotlib
 | Script | Checks |
 |---|---|
 | [`papers/letter-radial-acceleration-relation-sparc/sparc_rar.py`](papers/letter-radial-acceleration-relation-sparc/sparc_rar.py) `--from-csv supplementary/sparc_rar.csv` | SPARC radial acceleration relation: figure, mean and scatter |
-| [`proofs/*/verify_*.py`](proofs/README.md) | The fourteen formal proofs: 24 + 34 + 27 + 25 + 39 + 36 + 39 + 32 + 61 + 41 + 26 + 16 + 64 + 66 = 530 checks |
+| [`proofs/*/verify_*.py`](proofs/README.md) | The fourteen formal proofs: 24 + 34 + 27 + 25 + 39 + 36 + 39 + 32 + 61 + 41 + 26 + 16 + 64 + 76 = 540 checks |
 | [`papers/letter-1-tetrad-frame-geometry/Supplementary/run_all_validations.py`](papers/letter-1-tetrad-frame-geometry/Supplementary/run_all_validations.py) | Letter 1: tetrad frame geometry (29 claims) |
 | [`papers/letter-2-other-half-of-gravity-torsion/v2/Supplementary/run_all_validations.py`](papers/letter-2-other-half-of-gravity-torsion/v2/Supplementary/run_all_validations.py) | Letters 1–2: geometry, torsion = TetB (52 claims) |
 | [`papers/letter-3-field-closure-of-tetrad-frame/Supplementary/run_all_validations.py`](papers/letter-3-field-closure-of-tetrad-frame/Supplementary/run_all_validations.py) | Letter 3: 40/24 split, polynomial identity, partition (52 claims) |

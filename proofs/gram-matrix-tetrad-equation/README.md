@@ -6,7 +6,7 @@
 
 ---
 
-This folder holds a five-page proof and a script that checks every step (66 checks, exact algebra, exhaustive where the cases are finite, and exact spot checks for the rigidity converse and Theorem 3(ii)). It was revised after an internal referee-style review ([`referee_review.md`](referee_review.md)). It is the revised version of the [Gram-matrix note](../../papers/gram-matrix-of-tetrad-equation/), which is unchanged in its own folder. This page explains the argument for a reader with first-year linear algebra.
+This folder holds a five-page proof and a script that checks every step (76 checks, exact algebra, exhaustive where the cases are finite, and exact spot checks for the rigidity converse, Theorem 3(ii) and Propositions 2 and 3). It was revised after an internal referee-style review ([`referee_review.md`](referee_review.md)). It is the revised version of the [Gram-matrix note](../../papers/gram-matrix-of-tetrad-equation/), which is unchanged in its own folder. This page explains the argument for a reader with first-year linear algebra.
 
 ## The question
 
@@ -52,11 +52,12 @@ The theorem has three parts:
 
 Parts I and IV say the same thing at two levels. The metric cannot see the roots, so neither can anything built from the metric alone. General relativity sets the torsion to zero, and with it the only room left for the distinction.
 
-**Necessary, not automatic.** Proposition 2 shows when the torsion actually carries the distinction. In the tetrad formalism a connection is built from the frame and a spin connection $\omega$:
-- **Carried with the frame.** If $\omega$ is transformed by parity along with the frame, the connection comes out identical on both roots, torsion included.
-- **Kept fixed.** If both roots keep the same $\omega$, the two connections share the metric but differ, and they differ exactly in their torsion.
+**Necessary, and it carries the root.** Think of $y = x^2$: $y$ cannot tell $x$ from $-x$, but $x$ itself can. The metric is the $y$; the frame is the $x$, and its orientation is what separates the roots. Proposition 3 shows that the torsion carries that orientation:
+- **In frame form,** $T^a = De^a$, the torsion reverses with the spatial legs, exactly as the frame does.
+- **In coordinate form,** the torsion tensor alone is the same on both roots (Proposition 2(a)), as $y$ is the same for $\pm x$. Read with the frame's orientation, its dual $\star T$ and its axial vector reverse sign between TetA and TetB, and $\star T$ is nonzero whenever $T$ is.
+- **The torsion-free part has nothing to carry it with.** The totally antisymmetric part of the connection is the torsion's, and a torsion-free connection has no tensor at all at first order.
 
-So the torsion is the *necessary* carrier, Letter 2's word. Whether it carries the distinction depends on how the field assigns connections to the roots, which is physical input, not something the tetrad equation decides.
+So the torsion is the necessary carrier of the TetA/TetB distinction at the connection level and, wherever it is nonzero, an actual one, as Letter 2 states. Proposition 2(b) adds that two roots carrying the same spin connection differ by a contorsion.
 
 ## Why it matters
 
@@ -66,7 +67,7 @@ So the torsion is the *necessary* carrier, Letter 2's word. Whether it carries t
 
 ## What it does not do
 
-- It does not prove that the field assigns the two roots connections that differ. It proves that if they differ, they differ in the torsion (Theorem 3), and that this happens exactly when the connection is not carried covariantly with the frame (Proposition 2).
+- It does not prove that the field's torsion is nonzero. It proves that the torsion is the only place a metric connection can tell the roots apart (Theorem 3), and that wherever it is nonzero it carries the root through the frame's orientation (Proposition 3).
 - The split of each slice into upper and lower triangles depends on the order of the coordinates. The 40 + 24 split and the torsion do not.
 - The tetrahedral frame is taken from the [forced tetrahedral frame](../forced-tetrahedral-frame/) proof, which rests on the magnitude reading of $\eta$.
 - The labels upper = TetA, lower = TetB on the index grid are the framework's reading. The theorems hold whatever the labels.
@@ -81,7 +82,7 @@ The original note, [`supplementary_gram_stellated_octahedron.tex`](../../papers/
 - **proves the tetrahedron and cube facts directly** ($xyz = \pm 1$, edge length, disjointness, exhaustion) instead of citing Coxeter for "constant pairwise inner product implies a regular tetrahedron", which also needs equal lengths;
 - **gives the non-isomorphism content.** "A tetrahedron is not a stellated octahedron" is now Theorem 2: $\mathrm{Sym}(S) = \mathrm{Sym}(\mathrm{TetA}) \times \{\pm I\}$, checked over all $8!$ relabellings, with the extra factor being the parity exchange;
 - **repairs Theorem 1's proof.** The original concluded that the retained 24 are TetA and the discarded 24 TetB "by the Part II identification", but Part II identifies the *columns* of $M$ with the tetrahedra, not the *triangles* of the index grid. The revision keeps the framework's triangle reading as a reading, states the coordinate-free split (40 swap-even, 24 swap-odd), and proves what the conclusion needs: for metric connections, the discarded 24 are the only place the roots can differ;
-- **drops the claim that the antisymmetric part "carries the root-resolving content of Lemma 2"** as a consequence of Part I. Lemma 2 is about Gram products, not connections; the revision proves instead that torsion is the *only possible* carrier, and states that its being nonzero is not shown;
+- **drops the claim that the antisymmetric part "carries the root-resolving content of Lemma 2"** as a consequence of Part I. Lemma 2 is about Gram products, not connections; the revision proves instead that torsion is the *only possible* carrier, and Proposition 3 shows how it carries the root wherever it is nonzero;
 - **sharpens the Levi-Civita sentence.** The original called torsion-freeness "a sufficient condition for the Levi-Civita theorem"; it is one of the theorem's two hypotheses, with metric compatibility.
 
 ## Contents
@@ -90,13 +91,13 @@ The original note, [`supplementary_gram_stellated_octahedron.tex`](../../papers/
 |---|---|
 | [`gram_matrix_tetrad_equation.pdf`](gram_matrix_tetrad_equation.pdf) | The proof, five pages |
 | [`gram_matrix_tetrad_equation.tex`](gram_matrix_tetrad_equation.tex) | LaTeX source (IOP journal class, included) |
-| [`verify_gram_matrix_tetrad_equation.py`](verify_gram_matrix_tetrad_equation.py) | Exact checks of every lemma, proposition and theorem: the Hadamard identity, exact rational rotations and reflections for invariance and rigidity, orientation of all four leg triples, the symmetry groups over all $8!$ relabellings of the cube, the exchange split and its coordinate independence, the metric-connection bijection for $\eta$ and a generic Lorentzian metric, and both cases of Proposition 2 |
+| [`verify_gram_matrix_tetrad_equation.py`](verify_gram_matrix_tetrad_equation.py) | Exact checks of every lemma, proposition and theorem: the Hadamard identity, exact rational rotations and reflections for invariance and rigidity, orientation of all four leg triples, the symmetry groups over all $8!$ relabellings of the cube, the exchange split and its coordinate independence, the metric-connection bijection for $\eta$ and a generic Lorentzian metric, both cases of Proposition 2, and Proposition 3 (frame torsion, its dual and axial vector under the exchange) |
 | [`referee_review.md`](referee_review.md) | Internal referee-style review and the change made for each point |
 | [`iopjournal.cls`](iopjournal.cls) | Document class, so the source builds here |
 
 ```bash
 pip install sympy
-python verify_gram_matrix_tetrad_equation.py      # 66/66
+python verify_gram_matrix_tetrad_equation.py      # 76/76
 pdflatex -interaction=nonstopmode gram_matrix_tetrad_equation.tex
 ```
 

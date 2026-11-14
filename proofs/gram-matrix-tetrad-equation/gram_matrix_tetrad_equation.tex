@@ -59,9 +59,11 @@ is that of one tetrahedron times $\{\pm I\}$. On the connection,
 exchange of the lower indices splits the 64 components into 40 and
 24; the torsion-free condition is the projection onto the 40, and for
 a metric connection the discarded 24, the torsion, are the only place
-a connection can tell the roots apart. A connection carried
-covariantly with the frame does not; one that keeps its spin
-connection in general does, through its torsion. Every step is exact. The script checks each one, exhaustively where the cases are finite, and by exact spot checks for the converse of Lemma~5 and for Theorem~3(ii).
+a connection can tell the roots apart. They carry the root
+as the frame does: in frame form the torsion reverses with the
+spatial legs, and in coordinate form its dual, taken with the frame's
+orientation, reverses sign between the roots, while the torsion-free
+part has nothing at first order to carry it. Every step is exact. The script checks each one, exhaustively where the cases are finite, and by exact spot checks on rational examples for the converse of Lemma~5, Theorem~3(ii) and Propositions~2 and~3.
 \end{abstract}
 
 \keywords{tetrad, Gram matrix, spatial parity, Hadamard matrix,
@@ -431,23 +433,64 @@ the script exhibits a rational example with nonzero torsion
 difference.
 \end{proof}
 
+\begin{proposition}[How the torsion carries the root]
+\label{prop:carry}
+Let $T$ be the torsion of the connection of
+Proposition~\ref{prop:follow}(a), and let $\epsilon$ be the frame's
+volume form, $\epsilon_{0123} = \det e$.
+\begin{enumerate}
+\item[(i)] In frame form, $T^a{}_{\mu\nu} = 2\,\partial_{[\mu}e^a{}_{\nu]}
+  + 2\,\omega^a{}_{[\mu|b|}e^b{}_{\nu]}$, the torsion follows the root:
+  $(Pe, P\omega P)$ gives $PT^a$, its spatial legs reversed as the
+  frame's are. Its coordinate form $(e^{-1})^\lambda{}_a T^a{}_{\mu\nu}$
+  is the same on both roots.
+\item[(ii)] $\det(Pe) = -\det e$, so $\epsilon$ reverses. The dual
+  $(\star T)^\lambda{}_{\alpha\beta}
+  = \tfrac12\,\epsilon_{\alpha\beta}{}^{\mu\nu}\,T^\lambda{}_{\mu\nu}$
+  and the axial vector $A^\sigma \propto
+  \epsilon^{\sigma\lambda\mu\nu}T_{\lambda\mu\nu}$ reverse sign between
+  TetA and TetB, and $\star T \neq 0$ whenever $T \neq 0$.
+\item[(iii)] The totally antisymmetric part of $\Gamma$ is half that
+  of $T$, so the torsion-free part has no axial part. More generally a
+  torsion-free connection has no tensor at first order in derivatives
+  (normal coordinates), so at the connection level nothing torsion-free
+  can carry the root.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i) $d(Pe) + P\omega P\,Pe = P(de + \omega e)$ since $P^2 = 1$, and
+$(Pe)^{-1}P = e^{-1}$. (ii) By (i) the coordinate torsion and $g$ are
+the same on both roots, and $\epsilon$ changes sign; the dual is
+invertible ($\star\star = -1$ on 2-forms in Lorentzian signature).
+(iii) $\Gamma_{[\lambda\mu\nu]} = \tfrac12 T_{[\lambda\mu\nu]}$
+because the symmetric part drops out of the total antisymmetrisation;
+the first derivatives of $g$ vanish at a point in normal coordinates,
+so no tensor is built from them. The script checks (i)--(iii) on a
+rational example.
+\end{proof}
+
 \begin{remark}
 Parts I and IV say the same thing at two levels. The metric, and
-every Gram product, cannot tell the roots apart; neither can any
-torsion-free metric connection, since it is built from the metric.
-At the connection level the only room for the distinction is the 24
-torsion components that general relativity sets to
-zero~\cite{LeviCivita1917} and Einstein--Cartan theory
-keeps~\cite{Cartan1922,Hehl1976}. GFD reads the torsion as where
-TetA and TetB are told apart~\cite{NelsonLetter2,NelsonTorsion}. The
-theorem proves that the torsion is the only place available: the
-torsion is the \emph{necessary} carrier of the distinction, as
-Letter~2 states. Proposition~\ref{prop:follow} shows it is not
-automatically a carrier: a connection carried covariantly with the
-frame is identical on both roots, torsion included, and the roots
-are distinguished at the connection level only when their
-connections are not so related. Which assignment the field makes is
-a physical input, not a consequence of the tetrad equation.
+every Gram product, cannot tell the roots apart, as $y = x^2$ cannot
+tell $x$ from $-x$; neither can any torsion-free metric connection,
+since it is built from the metric. The frame can: it is the root, and
+its orientation is the absolute invariant
+(Proposition~\ref{prop:orient}). At the connection level the only room
+for the distinction is the 24 torsion components that general
+relativity sets to zero~\cite{LeviCivita1917} and Einstein--Cartan
+theory keeps~\cite{Cartan1922,Hehl1976}, and
+Proposition~\ref{prop:carry} shows that the torsion carries it: in
+frame form it reverses with the root, and in coordinate form its dual,
+taken with the frame's orientation, reverses sign. So the torsion is
+the necessary carrier of the TetA/TetB distinction at the connection
+level and, whenever it is nonzero, an actual one, as
+Letter~2~\cite{NelsonLetter2,NelsonTorsion} states.
+Proposition~\ref{prop:follow}(a) says only that the coordinate torsion
+tensor alone, read without the orientation, is the same on both roots,
+as $y$ is the same for $x$ and $-x$. Duals of the curvature taken with
+the orientation also reverse; the statement here is at the connection
+level, where Letter~2 makes it.
 \end{remark}
 
 % ======================================================================
@@ -466,7 +509,7 @@ distinction between relative and absolute root, with orientation as
 the absolute invariant; the compound's symmetry as one root's
 doubled by the exchange; and the exact form of the statement that
 torsion is the only place a metric connection can tell the roots
-apart, together with the condition under which it does.
+apart, and of how it carries them: through the frame's orientation.
 
 % ======================================================================
 
@@ -489,7 +532,8 @@ Thm.\ 1 & $xyz = \pm1$; cube & Lemma 3 \\
 Thm.\ 2 & Symmetry $\times\{\pm I\}$ & Lemma 5 \\
 Lemma 6 & $64 = 40 + 24$ under $\tau$ & Indices \\
 Thm.\ 3 & Roots differ only by $T$ & Lemma 6 \\
-Prop.\ 2 & Covariant: no difference & $P^2 = 1$ \\
+Prop.\ 2 & Coordinate $\Gamma$ same on both & $P^2 = 1$ \\
+Prop.\ 3 & Torsion carries the root & Prop.~1 \\
 \hline
 \end{tabular*}}
 \vspace{4pt}
