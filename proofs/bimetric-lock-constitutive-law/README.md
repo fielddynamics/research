@@ -6,7 +6,7 @@
 
 ---
 
-This folder holds a four-page proof and a script that checks every step (48 checks, exact algebra).
+This folder holds a three-page proof and a script that checks every step (48 checks, exact algebra).
 
 Papers VIII, IX and XII lock the Hassan–Rosen coefficients to β = (1, 0, 16, 0, 1). They state that the locked bimetric theory and the SST are two projections of one geometry. If so, the bimetric theory's quasi-static limit should give μ(x) = x/(x + 1). Papers VIII and IX list that match as open. This proof settles what can and cannot be shown.
 
@@ -66,7 +66,7 @@ The papers themselves are not changed here.
 
 | File | What it is |
 |---|---|
-| [`bimetric_lock_constitutive_law.pdf`](bimetric_lock_constitutive_law.pdf) | The proof (4 pages) |
+| [`bimetric_lock_constitutive_law.pdf`](bimetric_lock_constitutive_law.pdf) | The proof (3 pages) |
 | [`bimetric_lock_constitutive_law.tex`](bimetric_lock_constitutive_law.tex) | LaTeX source (IOP class, [`iopjournal.cls`](iopjournal.cls)) |
 | [`verify_bimetric_lock_constitutive_law.py`](verify_bimetric_lock_constitutive_law.py) | 48 checks, sympy exact algebra, including the decoupling-limit derivation and the further checks below |
 
