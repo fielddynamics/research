@@ -1,6 +1,6 @@
-# The Pixel Lattice: Stellated Octahedra in a Cubic Tiling, and the Diamond Nets Inside It
+# The Pixel Lattice: One Stellated Octahedron per Cube, and the Diamond Nets Its Legs Form
 
-*Field Dynamics Research, research folder, 2026-11-14. Status: research, not a paper. Verification: `python verify_diamond_tetrad_lattice.py` (29 checks, exact).*
+*Field Dynamics Research, research folder, 2026-11-14. Status: research, not a paper. Verification: `python verify_diamond_tetrad_lattice.py` (33 checks, exact).*
 
 `lattice` `diamond` `photonic-crystal` `bond-reciprocity` `stellated-octahedron` `TetA` `TetB` `parity` `research`
 
@@ -14,7 +14,7 @@ The tetrad equation $g = e^T\eta e$ has two roots ([Gram-matrix proof](../../pro
 - **TetA**, the legs $M$: the cube corners with $xyz = +1$, $(1,1,1), (1,-1,-1), (-1,1,-1), (-1,-1,1)$.
 - **TetB**, the parity root $-M$: the corners with $xyz = -1$.
 
-Together they are the stellated octahedron in its cube. The lattice is cubic: pixels tile space as cubes, and inside each cube is still the stellated octahedron. This note asks what that tiling looks like from the tetrad's side. It reads each root as the bond star of a site, its four bonds pointing along its legs, and finds the diamond lattice running through the cubic tiling (results 1–6), then shows how the two fit together (result 7).
+Together they are the stellated octahedron in its cube. The lattice is cubic: pixels tile space as cubes, and each cube holds one whole stellated octahedron, its centre the pixel's Field Origin and its eight legs running to that cube's own corners. This note asks what that tiling looks like from the tetrad's side. It reads each root as the bond star of a site, its four bonds pointing along its legs, and finds the diamond lattice running through the cubic tiling (results 1–6), then shows how the two fit together (result 7).
 
 ## Results
 
@@ -45,19 +45,20 @@ In lattice terms, the tetrad equation needs both roots for its bonds to close.
 - The turned star has the same Gram matrix (6.3), so the metric cannot tell the two stackings apart.
 - The tetrad's own second root, the parity image $-M$, is what selects the diamond lattice. This is the root-blindness of the metric again, now at the level of the lattice: the frame decides, the metric does not.
 
-**7. The cubic tiling of pixels, and the diamonds inside it.** Tile space with cubes, each holding a stellated octahedron whose eight vertices are its corners.
-- **Every corner is shared evenly.** It belongs to 8 pixels: it is a TetA vertex of 4 of them and a TetB vertex of the other 4 (7.1).
-- **Neighbouring pixels swap.** Across every face, a shared corner is TetA in one pixel and TetB in the other (7.2). The tiling alternates TetA and TetB from pixel to pixel, as the diamond's sites do.
-- **If every centre and corner carries a full pixel,** with all eight legs, the sites form a body-centred cubic lattice (7.3). That lattice is exactly two interpenetrating diamond lattices. At every site one root's four legs stay in its own diamond and the other root's four legs reach into the other diamond (7.4). Within each diamond the roots alternate (7.5), and one of the two is the diamond of results 3–4 (7.6).
+**7. The cubic tiling of pixels, and the diamonds its legs form.** Tile space with cubes. Each cube holds one whole stellated octahedron: its eight vertices are that cube's corners (7.1), and its eight legs run from the centre to them. Neighbouring cubes share corners, never pixels.
+- **Every corner is shared evenly.** It belongs to 8 cubes: it is a TetA vertex in 4 and a TetB vertex in the other 4 (7.2).
+- **Neighbouring cubes swap.** Across every face, a shared corner that is TetA in one cube is TetB in the next (7.3). So on each shared face, one cube's TetA edge is the next cube's TetB edge (7.4).
+- **The TetA legs meet at the corners in a TetB shape.** At each corner, the TetA legs of its 4 cubes arrive along the four TetB directions (7.5).
+- **Joined at the corners, the TetA legs of all the cubes form diamond nets.** There are exactly two. One is the diamond lattice of results 3–4, moved by $(1,1,1)$, and the other is the same net moved by one cube (7.6, 7.7). Their nodes alternate between a cube centre, the Field Origin with its TetA star, and a shared corner, where the arriving legs form a TetB star (7.8). The TetB legs form two more diamond nets the same way (7.9).
 
-So the cubic lattice and the stellated octahedron are the whole picture. The diamond is what one root traces through it, each site handing on to the other root. Each pixel holds both roots, and its two halves lead into the two diamond nets.
+So the picture is the cubic lattice with one whole stellated octahedron in each cube. Every leg lies inside its own cube. The diamond nets are what the legs make when they meet at the shared corners: each pixel's TetA legs hand on, at the corner, to the TetB shape of its neighbours. This is result 2 inside the tiling. A pixel's TetA legs cannot link it to another pixel directly; they close only through the reversed, TetB-shaped junction at the corners.
 
 ## What this adds to GFD
 
-- **The structure inside the cubic lattice, named.** Pixels tiled as cubes, each holding a stellated octahedron, alternate TetA and TetB across every face. Read as bonds, the roots run through the tiling as diamond nets: one diamond when each site holds one root, two interpenetrating diamonds when each site holds the full pixel.
+- **The structure inside the cubic lattice, named.** With one stellated octahedron in each cube, neighbouring cubes swap TetA and TetB across every face. The pixels' legs, joined at the shared corners, run through the tiling as diamond nets: two from the TetA legs and two from the TetB legs, each alternating Field Origin and corner.
 - **TetB is required, not optional.** The usual reading of the tetrad equation keeps one root and drops the other by convention. As a lattice, one root cannot close; both are needed.
 - **A photonic link.** The diamond structure is the landmark photonic crystal. Ho, Chan and Soukoulis (1990) showed that dielectric spheres on a diamond lattice have a complete photonic band gap, which simple fcc structures lack. The widest gap came from structures built from the bonds alone, the rods between sites, which are the TetA and TetB legs here.
-- **The ice analogy made exact.** Water's tetrahedral bonding builds the same two nets: cubic ice is a diamond net of oxygen atoms, and ordinary hexagonal ice is the lonsdaleite-type net. Result 6 is the same choice for the tetrad, settled by the parity root. High-pressure ice VII is two interpenetrating diamond networks on a body-centred cubic lattice of oxygen atoms, which is the full-pixel tiling of result 7.
+- **The ice analogy made exact.** Water's tetrahedral bonding builds the same two nets: cubic ice is a diamond net of oxygen atoms, and ordinary hexagonal ice is the lonsdaleite-type net. Result 6 is the same choice for the tetrad, settled by the parity root. High-pressure ice VII is two interpenetrating diamond networks on a body-centred cubic lattice of oxygen atoms. That is the arrangement of the cube centres and corners in result 7, with the two TetA nets as its two networks.
 
 ## What is not established
 
@@ -75,12 +76,12 @@ So the cubic lattice and the stellated octahedron are the whole picture. The dia
 
 | File | What it does |
 |---|---|
-| [`verify_diamond_tetrad_lattice.py`](verify_diamond_tetrad_lattice.py) | 29 exact checks, labelled by the result numbers above |
+| [`verify_diamond_tetrad_lattice.py`](verify_diamond_tetrad_lattice.py) | 33 exact checks, labelled by the result numbers above |
 
 ## Reproduce
 
 ```
-python verify_diamond_tetrad_lattice.py    # 29/29
+python verify_diamond_tetrad_lattice.py    # 33/33
 ```
 
 ## Related

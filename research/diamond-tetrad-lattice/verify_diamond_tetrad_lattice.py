@@ -164,40 +164,69 @@ check("6.3 and its Gram matrix is unchanged, so the metric cannot tell the two s
       sp.simplify(sp.Matrix.hstack(*rot_star).T * sp.Matrix.hstack(*rot_star)) == G)
 
 # 7. The cubic tiling of pixels --------------------------------------------
-# Cubes of side 2 centred on the odd points; each holds a stellated octahedron
-# whose 8 vertices are its corners (the even points), shared with neighbours.
-centres = [p for p in itertools.product(range(-5, 6), repeat=3) if all(c % 2 for c in p)]
+# Cubes of side 2 centred on the odd points. Each cube holds one whole
+# stellated octahedron: its centre is the pixel's Field Origin, its 8 legs
+# run to its own 8 corners (the even points), which neighbouring cubes share.
+Rc = 9
+centres = {p for p in itertools.product(range(-Rc, Rc + 1), repeat=3) if all(c % 2 for c in p)}
+corners = {p for p in itertools.product(range(-Rc, Rc + 1), repeat=3) if all(c % 2 == 0 for c in p)}
+c0 = (1, 1, 1)
+check("7.1 each stellated octahedron lies in one cube: its 8 vertices are that cube's corners",
+      sorted(add(c0, v) for v in TETA + TETB) == sorted(itertools.product((0, 2), repeat=3)))
 o = (0, 0, 0)
 around = [c for c in centres if max(map(abs, c)) == 1]
 roles = [add(o, c, -1) in TETA for c in around]
-check("7.1 each corner is shared by 8 pixels: a TetA vertex of 4 and a TetB vertex of the other 4",
+check("7.2 each corner is shared by 8 cubes: a TetA vertex in 4 and a TetB vertex in the other 4",
       len(around) == 8 and roles.count(True) == 4)
 face = [(0, 0, 0), (2, 0, 0), (0, 2, 0), (2, 2, 0)]
-check("7.2 across every face the pixels swap: a shared corner is TetA in one, TetB in the other",
-      all((add(k, (1, 1, 1), -1) in TETA) != (add(k, (1, 1, -1), -1) in TETA) for k in face))
-
-Rb = 7
-sites = [p for p in itertools.product(range(-Rb, Rb + 1), repeat=3) if len({c % 2 for c in p}) == 1]
-D1 = {p for p in sites if (all(c % 2 == 0 for c in p) and sum(p) % 4 == 0) or (all(c % 2 for c in p) and sum(p) % 4 == 3)}
-D2 = set(sites) - D1
-interior = [p for p in sites if max(map(abs, p)) <= Rb - 1]
-check("7.3 if every centre and corner carries a full pixel (8 legs), the sites form a body-centred cubic lattice",
-      all(sum(add(p, v) in set(sites) for v in TETA + TETB) == 8 for p in interior))
+c1, c2 = (1, 1, 1), (1, 1, -1)
+check("7.3 across every face the cubes swap: a shared corner is TetA in one, TetB in the other",
+      all((add(k, c1, -1) in TETA) != (add(k, c2, -1) in TETA) for k in face))
+check("7.4 so on a shared face one cube's TetA edge is the next cube's TetB edge",
+      {k for k in face if add(k, c1, -1) in TETA} == {k for k in face if add(k, c2, -1) in TETB})
 
 
-def split(p):
-    own = D1 if p in D1 else D2
-    a = [add(p, v) in own for v in TETA]
-    b = [add(p, v) in own for v in TETB]
-    return (all(a) and not any(b)) or (all(b) and not any(a))
+def leg_graph(legs):
+    adj = {}
+    for c in centres:
+        for v in legs:
+            k = add(c, v)
+            if k in corners:
+                adj.setdefault(c, set()).add(k)
+                adj.setdefault(k, set()).add(c)
+    comps, seen = [], set()
+    for st in adj:
+        if st in seen:
+            continue
+        comp, dq = {st}, deque([st])
+        seen.add(st)
+        while dq:
+            u = dq.popleft()
+            for w in adj[u]:
+                if w not in seen:
+                    seen.add(w); comp.add(w); dq.append(w)
+        comps.append(comp)
+    return adj, comps
 
 
-check("7.4 it is two interpenetrating diamond lattices: at every site one root's 4 legs stay in its own "
-      "diamond and the other root's 4 legs reach the other", all(split(p) for p in interior))
-check("7.5 inside each diamond the roots alternate (TetA legs at one sublattice, TetB at the other)",
-      all(add((0, 0, 0), v) in D1 for v in TETA) and all(add((1, 1, 1), v) in D1 for v in TETB))
-check("7.6 the first diamond is the lattice of results 3-4",
-      {p for p in D1 if max(map(abs, p)) <= r} == fcc_a | fcc_b)
+adjA, compA = leg_graph(TETA)
+check("7.5 at each corner the TetA legs of its 4 cubes arrive as a TetB-shaped star",
+      sorted(add(c, o, -1) for c in adjA[o]) == sorted(TETB))
+check("7.6 the TetA legs of all cubes, joined at the corners, form two separate nets",
+      len(compA) == 2)
+shift = {add(p, (1, 1, 1)) for p in fcc_a | fcc_b}
+inbox = lambda S, m: {p for p in S if max(map(abs, p)) <= m}
+check("7.7 one of them is exactly the diamond lattice of results 3-4, moved by (1,1,1)",
+      any(inbox(comp, r - 1) == inbox(shift, r - 1) for comp in compA))
+check("7.7 and the other is the same diamond moved by one cube, (2,0,0)",
+      inbox(compA[0], r - 3) == inbox({add(p, (2, 0, 0)) for p in compA[1]}, r - 3)
+      or inbox(compA[1], r - 3) == inbox({add(p, (2, 0, 0)) for p in compA[0]}, r - 3))
+check("7.8 and its nodes alternate cube centre (Field Origin, TetA star) and shared corner (TetB star)",
+      all(all(c in centres for c in adjA[k]) for k in corners if k in adjA)
+      and all(all(k in corners for k in adjA[c]) for c in centres if c in adjA))
+adjB, compB = leg_graph(TETB)
+check("7.9 the TetB legs form two more diamond nets the same way",
+      len(compB) == 2 and sorted(add(c, o, -1) for c in adjB[o]) == sorted(TETA))
 
 print(f"\n{passed}/{passed + failed} checks passed")
 raise SystemExit(failed)
