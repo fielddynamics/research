@@ -178,4 +178,81 @@ check("C4 covariantly, w is |a|/a0 for the acceleration a of the tetrad's time l
       "(proofs/sst-covariant-time-leg, Theorem 2), so w = x and the deformed leg is the time leg's acceleration direction",
       all(sp.simplify(c_**2*sp.diff(sp.log(sp.exp(Phi/c_**2)), v) - sp.diff(Phi, v)) == 0 for v in sp.symbols("X Y Z")))
 
+# ---------------- Part D: further checks
+# D1-D2 the linear regime, from the derived equations (general a3)
+eps = sp.symbols("epsilon", positive=True)
+lam_lin = -qS/(6*Ms*c1)
+check("D1 linear regime: to first order in q the pi-equation gives lambda = -q/(6 M a1), and g_tot/g_N = 4/3 for any a2, a3",
+      sp.simplify(sp.series(pieqS.subs(qS, eps*qS).subs(lamS, eps*lam_lin), eps, 0, 2).removeO()) == 0
+      and sp.limit(forceS.subs(qS, eps*qS).subs(lamS, eps*lam_lin), eps, 0) == sp.Rational(4, 3))
+gam = sp.simplify((solS[Bp_]/solS[Ap_]).subs(lamS, lam_lin).subs({c2: 0, c3: 0}))
+check("D2 and the two potentials differ there: B'/A' = 1/2, i.e. PPN gamma = 1/2 (vDVZ), so light bending would be (1 + gamma)/2 = 3/4 of GR "
+      "unless screened", gam == sp.Rational(1, 2))
+# D3-D4 the screened and the physical branch
+vv = sp.symbols("vv", positive=True)
+check("D3 strong screening: for Q -> +inf, v^3 ~ 2Q, so s = v/Q ~ 2^(1/3) Q^(-2/3) -> 0",
+      sp.limit((2/(vv**2 + 6*vv + 6)) / (2**sp.Rational(1, 3)*(vv*(vv**2 + 6*vv + 6)/2)**sp.Rational(-2, 3)), vv, sp.oo) == 1)
+check("D4 on the physical branch with Q > 0 (v > 0), Q increases and s decreases monotonically with v: one screened solution at every radius",
+      sp.simplify(sp.diff(vv*(vv**2 + 6*vv + 6)/2, vv)).is_positive and sp.simplify(-sp.diff(2/(vv**2 + 6*vv + 6), vv)).is_positive)
+# D5-D7 the radii
+Mv, kq, Gq, a0q = sp.symbols("M_v k_q G_q a0_q", positive=True)
+rstar = (kq*Mv/abs(2 - 2*sp.sqrt(2)))**sp.Rational(1, 3)
+rM = sp.sqrt(Gq*Mv/a0q)
+check("D5 the radius where the physical branch ends (|Q| = |Q*|, Q = k M/r^3) scales as M^(1/3); the MOND radius as M^(1/2); their ratio as "
+      "M^(-1/6), so no single mass-independent map links them",
+      sp.simplify(Mv*sp.diff(sp.log(rstar), Mv)) == sp.Rational(1, 3) and sp.simplify(Mv*sp.diff(sp.log(rM), Mv)) == sp.Rational(1, 2)
+      and sp.simplify(Mv*sp.diff(sp.log(rstar/rM), Mv)) == -sp.Rational(1, 6))
+Msun, Gn, cl, kpc = 1.989e30, 6.674e-11, 2.998e8, 3.0857e19
+H0 = 70e3/3.0857e22
+rV = (2*Gn*1e10*Msun/cl**2 * (cl/H0)**2)**(1/3)/kpc
+rMn = (Gn*1e10*Msun/1.2e-10)**0.5/kpc
+check("D6 numbers: with m = H0/c (H0 = 70), r_V = (r_s (c/H0)^2)^(1/3) is about 256 kpc at 10^10 Msun, against the MOND radius of about 3.3 kpc: "
+      "galaxies sit deep inside r_V", 230 < rV < 280 and 3.0 < rMn < 3.6)
+# D7-D10 the parity configuration and the cube
+check("D7 for general beta, V(P) = b0 - 2 b1 + 2 b3 - b4: it vanishes for every palindromic set, the lock included",
+      sp.expand(V(P, b) - (b[0] - 2*b[1] + 2*b[3] - b[4])) == 0 and sp.expand(V(P, pal)) == 0)
+YP = sp.zeros(4)
+for n in range(4): YP += (-1)**n*LOCK[n]*Ymat(sp.diag(*P), n)
+check("D8 the stress at S = P, sum_n (-1)^n beta_n Y_n(P), is diag(49, -15, -15, -15) for the lock: not proportional to the identity, so "
+      "S = P (f = g with TetB) is not a vacuum (cosmological-constant) solution", YP == sp.diag(49, -15, -15, -15))
+from itertools import product as iproduct
+vals = {sg: V([1, *sg], LOCK) for sg in iproduct((1, -1), repeat=3)}
+check("D9 on the cube of spatial sign flips diag(1, +-1, +-1, +-1), the locked potential is 98 at I, -30 at the three vertices with two "
+      "flips, and 0 at all four vertices with det S < 0 (one or three flips): it vanishes on every TetB-orientation vertex",
+      all(vals[sg] == {0: 98, 2: -30}.get(sg.count(-1), 0) for sg in vals))
+check("D10 the same holds for every palindromic set with b1 = b3 = 0: on det S = -1 vertices e2 = 0 and e0 + e4 = 0, so V = 0",
+      all(sp.expand(V([1, *sg], [b[0], 0, b[2], 0, b[0]])) == 0 for sg in iproduct((1, -1), repeat=3) if sg.count(-1) % 2 == 1))
+# D11-D15 the bimetric facts the lock does fix
+al2, cb = sp.symbols("alpha2 c_b", positive=True)
+c2sol = (48 - al2)/(48*al2 - 1)
+check("D11 proportional background f = c^2 g: c^2 = (48 - alpha^2)/(48 alpha^2 - 1) solves alpha^2 (1 + 48 c^2) = c^2 + 48, and is positive "
+      "exactly for 1/48 < alpha^2 < 48", sp.simplify(al2*(1 + 48*c2sol) - (c2sol + 48)) == 0
+      and c2sol.subs(al2, 1) == 1 and c2sol.subs(al2, sp.Rational(1, 50)) < 0 and c2sol.subs(al2, 50) < 0)
+check("D12 the Fierz-Pauli combination b1 c + 2 b2 c^2 + b3 c^3 is 32 c^2 for the lock (and d1 = 32 at c = 1)",
+      sp.expand(LOCK[1]*cb + 2*LOCK[2]*cb**2 + LOCK[3]*cb**3) == 32*cb**2)
+mfp_H2 = 96*cb**2/(1 + 48*cb**2) + 96/(cb**2 + 48)      # m_FP^2/H^2 with m_FP^2 = 32 m^2 c^2 (1 + 1/(alpha^2 c^2)), H^2 = m^2 (1 + 48 c^2)/3
+check("D13 with m_FP^2 = 32 m^2 c^2 (1 + 1/(alpha^2 c^2)) and H^2 = m^2 (1 + 48 c^2)/3 on that background, m_FP^2/H^2 - 2 = "
+      "4606 c^2/((c^2 + 48)(48 c^2 + 1)) > 0: the Higuchi bound holds for every c",
+      sp.simplify(mfp_H2 - 2 - 4606*cb**2/((cb**2 + 48)*(48*cb**2 + 1))) == 0)
+check("D14 its maximum is m_FP^2/H^2 = 192/49 (about 3.918), at c = 1",
+      sp.simplify(sp.diff(mfp_H2, cb).subs(cb, 1)) == 0 and mfp_H2.subs(cb, 1) == sp.Rational(192, 49))
+check("D15 for palindromic beta with b1 = b3 = 0, the tadpole d0 = b0 + 3 b2 is V(I)/2 (49 = 98/2 for the lock)",
+      sp.expand(2*d[0].subs({b[1]: 0, b[3]: 0}) - V([1, 1, 1, 1], [b[0], 0, b[2], 0, b[0]])) == 0)
+# D16-D21 the deformed frame, examined further
+shL = w/(1 + w)
+check("D16 the share obeys Letter 3's logistic identity w s'(w) = s(1 - s), equals 1/2 at w = 1 (the ring), and its odds s/(1 - s) are w",
+      sp.simplify(w*sp.diff(shL, w) - shL*(1 - shL)) == 0 and shL.subs(w, 1) == sp.Rational(1, 2) and sp.simplify(shL/(1 - shL) - w) == 0)
+check("D17 V is symmetric in the eigenvalues, so deforming any one leg, the time leg included (diag(w,1,1,1)), gives the same 49(1 + w): "
+      "the potential does not single out the acceleration direction; that identification comes from the SST",
+      sp.expand(V([w, 1, 1, 1], LOCK) - V([1, 1, 1, w], LOCK)) == 0)
+check("D18 the deformed family never reaches the second root: det diag(1,1,1,w) = w > 0 for every w > 0, so it stays on TetA's "
+      "orientation, while det P = -1", sp.diag(1, 1, 1, w).det() == w and sp.diag(*P).det() == -1)
+d2E = sp.diff(E, u, 2).subs(u, ust)
+check("D19 the stationary point of E(u; y) is a maximum in u (d^2E/du^2 < 0 there), so F(y) = max_u E(u; y): a Legendre-type construction",
+      sp.simplify(d2E.rewrite(sp.exp) + (y/(1 + sp.sqrt(y)) + (1 + sp.sqrt(y)) - 1/(1 + sp.sqrt(y)))) == 0)
+check("D20 F is convex for y > 0: F''(y) = 1/(2 sqrt(y) (1 + sqrt(y))^2) > 0, as a maximum over u of functions linear in y must be",
+      sp.simplify(sp.diff(Fy, y, 2) - 1/(2*sp.sqrt(y)*(1 + sp.sqrt(y))**2)) == 0)
+check("D21 at the stationary point dE/dy = 1 - V0/V = mu: the slope is the deformed leg's share, so the share enters the energy only as "
+      "the slope, not through any beta", sp.simplify((1 - 1/(1 + sp.sqrt(y))) - sp.sqrt(y)/(1 + sp.sqrt(y))) == 0)
+
 print(f"\n{sum(ok)}/{len(ok)} checks passed")
