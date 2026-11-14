@@ -108,6 +108,29 @@ check("(d) reversing the swirl alone also flips the helicity",
       sp.simplify(at((field(vr_d, -vphi_d, vz_d).T * curl(field(vr_d, -vphi_d, vz_d)))[0], (0, 0, 0))
                   + at(hd, (0, 0, 0))) == 0)
 
+# Drive and brake: the two chambers turn the same way at different rates
+Ob, d = sp.symbols("Omega_bar delta", real=True)
+step = z / sp.sqrt(1 + z ** 2)                 # smooth, odd: -> +1 above, -1 below
+vphi_db = r / (1 + r ** 2) * (Ob + d * step)   # mean rate Ob, half-difference d
+Vdb = field(vr_d, vphi_db, vz_d)
+PVdb = parity(Vdb)
+check("(f) Pi keeps the mean swirl rate and flips the half-difference (delta -> -delta)",
+      zero(PVdb - field(-vr_d, vphi_db.subs(d, -d), -vz_d)))
+far_A = sp.limit(Ob + d * step, z, sp.oo)
+far_B = sp.limit(Ob + d * step, z, -sp.oo)
+check("(f) far from the throat TetA turns at Ob + delta, TetB at Ob - delta",
+      sp.simplify(far_A - (Ob + d)) == 0 and sp.simplify(far_B - (Ob - d)) == 0)
+ex = {Ob: 1, d: sp.Rational(1, 4)}
+check("(f) slower co-rotation: with 0 < delta < Ob both chambers turn the same way, TetB slower",
+      far_B.subs(ex) > 0 and far_B.subs(ex) < far_A.subs(ex))
+check("(f) the pure parity image co-rotates at one rate: delta = 0 is the only Pi-invariant case",
+      sp.solve(sp.Eq(d, -d), d) == [0])
+omega_r = (curl(Vdb).T * rhat)[0]
+check("(f) the rate difference is a shear across the throat: radial vorticity there is nonzero iff delta != 0",
+      sp.simplify(at(omega_r, (1, 0, 0)).subs(d, 0)) == 0
+      and sp.simplify(at(omega_r, (1, 0, 0))).has(d)
+      and sp.simplify(at(omega_r, (1, 0, 0)).subs(ex)) != 0)
+
 if __name__ == "__main__":
     for name, ok in CHECKS:
         print(f"{'PASS' if ok else 'FAIL'}  {name}")

@@ -1,6 +1,6 @@
 # The Hourglass Vortex Under Parity
 
-*Working note, Field Dynamics Research, 2026-11-13. Status: research, not a paper. Verification: `python verify_hourglass_lemma.py` (16 checks, exact sympy).*
+*Working note, Field Dynamics Research, 2026-11-13. Status: research, not a paper. Verification: `python verify_hourglass_lemma.py` (21 checks, exact sympy).*
 
 `vortex` `hourglass` `throat` `Field-Origin` `spatial-parity` `helicity` `chirality` `TetA` `TetB` `research`
 
@@ -42,7 +42,9 @@ so pure swirl is achiral and pure through-flow is achiral. Under parity, $h[\Pi 
 
 **(e)** The throat is the only fixed point of parity.
 
-The checks verify (a), (b) and (d) for a general axisymmetric field (arbitrary component functions), and (c), (d) on an explicit smooth, incompressible hourglass: $v_r = -arz$, $v_z = az^2 - w$, $v_\varphi = \Omega r/(1 + r^2)$.
+**(f) Drive and brake are the rate difference.** Let the swirl turn at the mean rate $\bar\Omega$ plus a half-difference $\delta$ that takes opposite signs on the two sides of the throat. Far from it, TetA then turns at $\bar\Omega + \delta$ and TetB at $\bar\Omega - \delta$. Parity keeps $\bar\Omega$ and flips $\delta$, so $\delta = 0$, one rate on both sides, is the only case parity leaves unchanged. With $0 < |\delta| < \bar\Omega$ both chambers turn the same way at different rates, and the difference is a shear across the throat: the radial vorticity there is nonzero exactly when $\delta \neq 0$.
+
+The checks verify (a), (b) and (d) for a general axisymmetric field (arbitrary component functions), and (c), (d) on an explicit smooth, incompressible hourglass: $v_r = -arz$, $v_z = az^2 - w$, $v_\varphi = \Omega r/(1 + r^2)$. For (f) the swirl is $v_\varphi = \frac{r}{1+r^2}\bigl(\bar\Omega + \delta\, z/\sqrt{1+z^2}\bigr)$.
 
 ## Reading in GFD
 
@@ -55,6 +57,7 @@ Read with the upper spiral as TetA, the throat as the Field Origin, and the lowe
   - the [two-connection note](../two-connection-dual-chamber/)'s chirality: axial torsion is zero when static, switched on by rotation, and opposite on the two roots.
 
   The helicity adds one thing to these. Rotation alone is not enough; the chirality needs rotation *and* through-flow.
+- **Drive and brake are the rate difference across the throat** (f). TetB turns the same way as TetA. Slower, it drags the vortex (brake); faster, it drives it; at the same rate the interior is quiet. Counter-rotation is only the extreme of a brake. The quiet vortex is the pure parity image, and drive or brake is the part of the swirl parity does not produce. It shows up as a shear at the Field Origin. (The framework's position, Stephen Nelson, 2026-11-14.)
 
 ## What it does not do
 
@@ -65,10 +68,10 @@ Read with the upper spiral as TetA, the throat as the Field Origin, and the lowe
 ## Next
 
 1. **Transport theorem.** Carry a tetrad along a streamline from the TetA spiral through the throat into the TetB spiral. Show that it arrives as Proposition 2(b) of the Gram-matrix proof (connections that differ, by a torsion), not 2(a) (the covariant mirror, identical). Then compute its axial torsion and compare it with the helicity of (d).
-2. **Drive and brake.** In the archive TetB can spin *with* the galaxy (drive) or *against* it (brake) (Coles Notes, vortex picture). By (b), the pure parity image always co-rotates. So a counter-rotating interior is a part of the flow that parity does *not* produce, an odd-swirl component. Whether drive and brake are exactly the even and odd swirl components is a question to settle, not a claim.
+2. **Drive and brake against the decoded mass.** By (f), drive and brake are the half-difference $\delta$ of the swirl rates. The archive already measures the drain's output as $\Delta M_{\rm eff} = M_{\rm phot} - M_{\rm dec}$: zero when the interior is quiet, positive or negative when it drives or brakes. The question is whether $\Delta M_{\rm eff}$ is a function of $\delta$, and with which sign convention.
 
 ## Files
 
 | File | Contents |
 |---|---|
-| [`verify_hourglass_lemma.py`](verify_hourglass_lemma.py) | Exact checks of (a)–(e): general axisymmetric field, and an explicit incompressible hourglass |
+| [`verify_hourglass_lemma.py`](verify_hourglass_lemma.py) | Exact checks of (a)–(f): general axisymmetric field, an explicit incompressible hourglass, and two chambers co-rotating at different rates |
