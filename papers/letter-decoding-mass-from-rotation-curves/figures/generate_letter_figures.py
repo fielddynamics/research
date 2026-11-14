@@ -489,10 +489,15 @@ plt.close()
 camb_r_obs = np.array([0.16, 0.41, 0.57, 0.73, 0.90, 1.06, 1.22, 1.47, 1.79])
 camb_v_obs = np.array([1.99, 4.84, 6.79, 8.87, 10.9, 12.9, 14.7, 16.8, 20.1])
 camb_e_obs = np.array([1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5])
+# Mass model from SPARC table1 (Lelli+2016), as built for CamB by the Gravis catalogue
+# (data/build_sparc_sources.py): disk M = 0.5 L[3.6] = 0.5 x 0.075e9, Rd = R_disk = 0.47 kpc;
+# gas M = 1.33 M_HI = 1.33 x 0.012e9, Rd = R_HI/3 = 1.21/3 = 0.40 kpc; no bulge.
+# (Corrected 2026-11-14: the earlier GAS_M = 6.251e8 = 1.33 x R_disk and GAS_Rd = 26.48 = SB_disk/2.5
+#  had been read from the neighbouring table1 columns, and DISK_Rd = 1.0 was a parser default.)
 DISK_M = 3.75e7 * MSUN
-DISK_Rd = 1.0 * KPC
-GAS_M = 6.251e8 * MSUN
-GAS_Rd = 26.48 * KPC
+DISK_Rd = 0.47 * KPC
+GAS_M = 1.596e7 * MSUN
+GAS_Rd = 0.40 * KPC
 
 def camb_M_enc(r):
     """Baryonic enclosed mass for CamB: exponential disk + gas. r in metres."""
@@ -523,7 +528,7 @@ def nfw_enclosed_mass_simple(r_kpc, m200_msun):
     x = r_m / rs
     return 4 * np.pi * rho0 * rs**3 * (np.log(1 + x) - x / (1 + x))
 
-camb_m_bary_total = (3.75e7 + 6.251e8)
+camb_m_bary_total = (DISK_M + GAS_M) / MSUN
 camb_m200 = abundance_matching_simple(camb_m_bary_total)
 
 # CamB radial grids and pipeline curves
