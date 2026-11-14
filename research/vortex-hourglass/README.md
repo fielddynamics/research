@@ -70,8 +70,22 @@ Read with the upper spiral as TetA, the throat as the Field Origin, and the lowe
 1. **Transport theorem.** Carry a tetrad along a streamline from the TetA spiral through the throat into the TetB spiral. Show that it arrives as Proposition 2(b) of the Gram-matrix proof (connections that differ, by a torsion), not 2(a) (the covariant mirror, identical). Then compute its axial torsion and compare it with the helicity of (d).
 2. **Drive and brake against the decoded mass.** By (f), drive and brake are the half-difference $\delta$ of the swirl rates. The archive already measures the drain's output as $\Delta M_{\rm eff} = M_{\rm phot} - M_{\rm dec}$: zero when the interior is quiet, positive or negative when it drives or brakes. The question is whether $\Delta M_{\rm eff}$ is a function of $\delta$, and with which sign convention.
 
+## SPARC checks of the galaxy reading (2026-11-14)
+
+Letter 3's figure, seen from above, looks like a galaxy: a red dome in the middle, a blue disk around it, and the white ring at $x = 1$ between them. Two readings were tested against SPARC, with the hypotheses and pass criteria fixed before the data were examined ([`check_ring_bulge_sparc.py`](check_ring_bulge_sparc.py)). The data are the SPARC mass models (Lelli, McGaugh & Schombert 2016), taken from a GitHub mirror of `Rotmod_LTG` because CDS is not reachable from the build environment. The mirror reproduces all 3,284 points of the repo's cached RAR file to 0.001 dex.
+
+**H1: the ring is the bulge–disk boundary. Fails.** In the 18 galaxies where both crossings lie inside the data, the radius where bulge and disk contribute equally sits a median **0.48 dex (about 3×) inside the ring**. That is worse than the plain baseline of 2.2 disk scale lengths (0.36 dex). The result holds for a bulge M/L of 0.5, 0.7 and 1.0 (0.52, 0.48 and 0.43 dex). The ring lies out in the disk, where the acceleration falls to $a_0$. So the figure's inner region is the high-acceleration, baryon-dominated part of the galaxy, which contains the bulge and much of the disk. It is not the photometric bulge.
+
+**H2: drive and brake follow the share inside the ring. Fails.** Across 148 galaxies, the rank correlation between the mass fraction inside the ring and the outer-half $\log_{10}(M_{\rm dec}/M_{\rm bar})$ is $\rho = +0.08$ ($p = 0.16$). Without bulges it is $\rho = -0.07$ ($p = 0.77$). Galaxies with no ring in the data (all below $a_0$, mostly dwarfs) sit at a median of −0.11 dex, and those with a ring at −0.03 dex. That is the predicted direction, but it is small and not significant. The pipeline has a flat M/L and about 0.18 dex of point scatter, so it can resolve the sign of a trend of this size only weakly.
+
+**What follows.**
+- The roll-ratio algebra is untouched: the exchange is parity, the ring is the quiet throat, and the rate difference is the share difference. What failed is the identification of the figure's regions with a galaxy's bulge and disk, and the idea that a galaxy's net drive or brake is the pointwise roll ratio summed over its ring.
+- This fits the archive's other position: the drive or brake is set at the drain, by the TetB in the galaxy's central throat, not by the share of the disk inside the ring.
+- Letter 3 describes the figure's "disk-and-bulge morphology" as the field configuration of any bound mass. These checks say that morphology is the shares' high-acceleration core and low-acceleration exterior, not the stellar bulge and disk. Any reading of the figure as a galaxy's stellar structure should say so.
+
 ## Files
 
 | File | Contents |
 |---|---|
+| [`check_ring_bulge_sparc.py`](check_ring_bulge_sparc.py) | SPARC tests H1 and H2, hypotheses fixed in the docstring. Usage: `python check_ring_bulge_sparc.py ROTMOD_DIR TABLE1` (bulge M/L via `UPS_BULGE`, default 0.7) |
 | [`verify_hourglass_lemma.py`](verify_hourglass_lemma.py) | Exact checks of (a)–(f): general axisymmetric field, an explicit incompressible hourglass, and two chambers co-rotating at different rates |
