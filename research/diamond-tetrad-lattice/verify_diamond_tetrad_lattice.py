@@ -228,5 +228,64 @@ adjB, compB = leg_graph(TETB)
 check("7.9 the TetB legs form two more diamond nets the same way",
       len(compB) == 2 and sorted(add(c, o, -1) for c in adjB[o]) == sorted(TETA))
 
+# 8. sp3 hybrids are the bordered Hadamard matrix --------------------------
+Hd = sp.Matrix.vstack(sp.ones(1, 4), M)          # rows s, px, py, pz; columns the 4 legs
+C_A = Hd / 2                                       # TetA site's sp3 hybrids
+C_B = sp.Matrix.vstack(sp.ones(1, 4), -M) / 2      # TetB site's sp3 hybrids
+check("8.1 [1; M] is a Hadamard matrix: entries +-1 and H H^T = 4I", Hd * Hd.T == 4 * sp.eye(4)
+      and all(abs(c) == 1 for c in Hd))
+check("8.2 so (1/2)[1; M] is orthogonal: four orthonormal sp3 hybrids", C_A.T * C_A == sp.eye(4))
+check("8.3 each hybrid is 1/4 s and 3/4 p (sp3), and its p-part points along its TetA leg",
+      all(C_A[0, a] ** 2 == sp.Rational(1, 4) and C_A[1:, a] == M[:, a] / 2 for a in range(4)))
+check("8.4 the p-parts of two hybrids meet at the tetrahedral angle, cos = -1/3",
+      all((C_A[1:, a].T * C_A[1:, b])[0] / (C_A[1:, a].T * C_A[1:, a])[0] == sp.Rational(-1, 3)
+          for a in range(4) for b in range(4) if a != b))
+check("8.5 a TetB site's hybrids are (1/2)[1; -M], also orthonormal", C_B.T * C_B == sp.eye(4))
+check("8.6 along every bond the TetA and TetB hybrids point at each other (p-parts opposite)",
+      C_A[1:, :] == -C_B[1:, :] and C_A[0, :] == C_B[0, :])
+
+# 9. The bond between a TetA and a TetB site gives mu(x) --------------------
+# Bond-orbital model: covalent energy V2 > 0 couples the two hybrids; the
+# polar energy V3 puts the TetA hybrid at -V3 and the TetB hybrid at +V3.
+# Every real u = V3/V2 is u = (t^2 - 1)/(2t) for exactly one t > 0.
+t, V2s = sp.symbols("t V2", positive=True)
+u = (t ** 2 - 1) / (2 * t)
+root = (t ** 2 + 1) / (2 * t)                      # sqrt(1 + u^2), exactly
+check("9.0 sqrt(1 + u^2) = (t^2 + 1)/(2t) for u = (t^2 - 1)/(2t)", sp.simplify(root ** 2 - 1 - u ** 2) == 0)
+Hbond = V2s * sp.Matrix([[-u, -1], [-1, u]])
+vb = sp.Matrix([t, 1])                             # (TetA amplitude, TetB amplitude)
+check("9.1 the bonding orbital has amplitudes (t, 1) and energy -sqrt(V2^2 + V3^2)",
+      sp.simplify(Hbond * vb + V2s * root * vb) == sp.zeros(2, 1))
+x = t ** 2                                         # odds of the bonding electron, TetA : TetB
+muA = sp.simplify(vb[0] ** 2 / (vb.T * vb)[0])
+check("9.2 the TetA share is mu = x/(1 + x), with x the odds t^2", sp.simplify(muA - x / (1 + x)) == 0)
+check("9.3 the odds are x = (u + sqrt(1 + u^2))^2", sp.simplify((u + root) ** 2 - x) == 0)
+alpha_p = sp.simplify(2 * muA - 1)
+alpha_c = sp.simplify(2 * sp.sqrt(muA * (1 - muA)))
+check("9.4 polarity alpha_p = V3/sqrt(V2^2 + V3^2) = 2 mu - 1 = (x - 1)/(x + 1)",
+      sp.simplify(alpha_p - u / root) == 0 and sp.simplify(alpha_p - (x - 1) / (x + 1)) == 0)
+check("9.5 covalency alpha_c = V2/sqrt(V2^2 + V3^2), and alpha_p^2 + alpha_c^2 = 1",
+      sp.simplify(alpha_c - 1 / root) == 0 and sp.simplify(alpha_p ** 2 + alpha_c ** 2 - 1) == 0)
+xx = sp.symbols("x", positive=True)
+mux = xx / (1 + xx)
+check("9.6 covalency^2 / 4 = mu (1 - mu) = x dmu/dx, the logistic term",
+      sp.simplify(alpha_c ** 2 / 4 - muA * (1 - muA)) == 0 and sp.simplify(xx * sp.diff(mux, xx) - mux * (1 - mux)) == 0)
+check("9.7 reversing the polarity (u -> -u: swapping the ends, parity) sends x -> 1/x",
+      sp.simplify(u.subs(t, 1 / t) + u) == 0)
+check("9.8 a nonpolar bond (u = 0, both ends alike: diamond itself) has x = 1, equal shares",
+      sp.solve(sp.Eq(u, 0), t) == [1])
+check("9.9 inverting: a given x needs V3/V2 = (x - 1)/(2 sqrt x)",
+      sp.simplify(u - (x - 1) / (2 * sp.sqrt(x))) == 0)
+g, a0 = sp.symbols("g a0", positive=True)
+Hd2 = sp.Matrix([[-(g - a0) / 2, -sp.sqrt(g * a0)], [-sp.sqrt(g * a0), (g - a0) / 2]])
+w = sp.Matrix([sp.sqrt(g), sp.sqrt(a0)])
+check("9.10 with polar energy (g - a0)/2 and coupling sqrt(g a0), the bonding orbital is (sqrt g, sqrt a0)",
+      sp.simplify(Hd2 * w + (g + a0) / 2 * w) == sp.zeros(2, 1))
+check("9.11 so its TetA share is g/(g + a0) = mu(g/a0), and the bond gap is g + a0",
+      sp.simplify(w[0] ** 2 / (w.T * w)[0] - g / (g + a0)) == 0
+      and {sp.simplify(e) for e in Hd2.eigenvals()} == {-(g + a0) / 2, (g + a0) / 2})
+check("9.12 and the bond matrix shifted by (g + a0)/2 is rank one: a single coupled channel",
+      (Hd2 + (g + a0) / 2 * sp.eye(2)).rank(simplify=True) == 1)
+
 print(f"\n{passed}/{passed + failed} checks passed")
 raise SystemExit(failed)

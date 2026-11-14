@@ -1,6 +1,6 @@
 # The Pixel Lattice: One Stellated Octahedron per Cube, and the Diamond Nets Its Legs Form
 
-*Field Dynamics Research, research folder, 2026-11-14. Status: research, not a paper. Verification: `python verify_diamond_tetrad_lattice.py` (33 checks, exact).*
+*Field Dynamics Research, research folder, 2026-11-14. Status: research, not a paper. Verification: `python verify_diamond_tetrad_lattice.py` (52 checks, exact).*
 
 `lattice` `diamond` `photonic-crystal` `bond-reciprocity` `stellated-octahedron` `TetA` `TetB` `parity` `research`
 
@@ -53,35 +53,50 @@ In lattice terms, the tetrad equation needs both roots for its bonds to close.
 
 So the picture is the cubic lattice with one whole stellated octahedron in each cube. Every leg lies inside its own cube. The diamond nets are what the legs make when they meet at the shared corners: each pixel's TetA legs hand on, at the corner, to the TetB shape of its neighbours. This is result 2 inside the tiling. A pixel's TetA legs cannot link it to another pixel directly; they close only through the reversed, TetB-shaped junction at the corners.
 
+**8. Carbon's sp³ orbitals are the Gram-matrix proof's Hadamard matrix.** The four tetrahedral sp³ hybrids of a diamond-lattice atom have the coefficient matrix $\tfrac12[1;\,M]$, rows $s, p_x, p_y, p_z$. This is the bordered matrix $[1;\,M]$ of the Gram-matrix proof, a Hadamard matrix, divided by 2 (8.1, 8.2).
+- Each hybrid is $\tfrac14$ $s$ and $\tfrac34$ $p$, and its $p$-part points along its TetA leg (8.3).
+- The $p$-parts meet at the tetrahedral angle (8.4).
+- A TetB site's hybrids are $\tfrac12[1;\,-M]$ (8.5). Along every bond, the TetA and TetB hybrids point at each other (8.6).
+
+**9. The bond between a TetA site and a TetB site gives $\mu(x)$ exactly.** In the bond-orbital model of chemistry (Harrison), a bond joins two hybrids. A covalent energy $V_2$ couples them, and a polar energy $V_3$ puts the TetA hybrid at $-V_3$ and the TetB hybrid at $+V_3$. The bonding orbital is the lower state of this two-level problem (9.0, 9.1). Then:
+- **Its shares are $\mu$ and $1-\mu$.** The bonding electron sits on the TetA end with weight $\mu = x/(1+x)$, where $x$ is its odds between the two ends (9.2), and $x = (u + \sqrt{1+u^2})^2$ with $u = V_3/V_2$ (9.3).
+- **Polarity is $2\mu - 1 = (x-1)/(x+1)$,** the share difference the framework already uses (9.4).
+- **Covalency squared is $4\mu(1-\mu)$,** four times the logistic term $x\,d\mu/dx$ (9.5, 9.6).
+- **Exchange is polarity reversal.** Swapping the two ends, $u \to -u$, sends $x \to 1/x$ (9.7).
+- **The equal-share point $x = 1$ is the nonpolar bond,** both ends alike, which is diamond itself (9.8). Polar compounds on the same lattice, such as GaAs, have $x \ne 1$.
+
+So any given $x$ needs $V_3/V_2 = (x-1)/(2\sqrt x)$ (9.9). For $x = g/a_0$, that is a polar energy $(g - a_0)/2$ and a covalent coupling $\sqrt{g a_0}$. With those, the bonding orbital has amplitudes $(\sqrt g,\ \sqrt{a_0})$ and TetA share $g/(g+a_0)$, and the bond gap is $g + a_0$ (9.10, 9.11). Shifted by $(g+a_0)/2$, the bond matrix has rank one: a single coupled channel (9.12).
+
 ## What this adds to GFD
 
 - **The structure inside the cubic lattice, named.** With one stellated octahedron in each cube, neighbouring cubes swap TetA and TetB across every face. The pixels' legs, joined at the shared corners, run through the tiling as diamond nets: two from the TetA legs and two from the TetB legs, each alternating Field Origin and corner.
 - **TetB is required, not optional.** The usual reading of the tetrad equation keeps one root and drops the other by convention. As a lattice, one root cannot close; both are needed.
 - **A photonic link.** The diamond structure is the landmark photonic crystal. Ho, Chan and Soukoulis (1990) showed that dielectric spheres on a diamond lattice have a complete photonic band gap, which simple fcc structures lack. The widest gap came from structures built from the bonds alone, the rods between sites, which are the TetA and TetB legs here.
+- **A mechanism-shaped reading of $\mu(x)$.** The constitutive law has exactly the algebra of the chemical bond between a TetA site and a TetB site: $\mu$ is the bonding electron's share on the TetA end, exchange is swapping the ends, and the equal-share ring is the nonpolar bond. The question "why $\mu(x)$?" becomes one precise question: why would the polar energy scale as $g - a_0$ and the coupling as $\sqrt{g a_0}$? The coupling $\sqrt{g a_0}$ is the familiar deep-field scale.
 - **The ice analogy made exact.** Water's tetrahedral bonding builds the same two nets: cubic ice is a diamond net of oxygen atoms, and ordinary hexagonal ice is the lonsdaleite-type net. Result 6 is the same choice for the tetrad, settled by the parity root. High-pressure ice VII is two interpenetrating diamond networks on a body-centred cubic lattice of oxygen atoms. That is the arrangement of the cube centres and corners in result 7, with the two TetA nets as its two networks.
 
 ## What is not established
 
 - **That the vacuum is this lattice.** The algebra gives a lattice from the two roots once the legs are read as bonds of a spatial net. That reading, and the identification of the sites or bonds with photons, are the framework's, not consequences of the checks.
 - **That "photonic" follows.** The diamond structure's band gap is a statement about light in a dielectric lattice. It is suggestive for the framework, not a derivation of it.
-- **Any GFD observable.** Nothing here yet gives $\mu(x)$, $a_0$ or the 64 field-closure states. That is the next step.
+- **That the bond picture is the mechanism.** Any two-state system gives a share $x/(1+x)$; that algebra alone is generic. What is specific here is the identification: the two states are the TetA and TetB ends of a lattice bond, and parity is polarity reversal. Result 9 shows what the energies would have to be, not that they are.
+- **Any GFD observable.** Nothing here derives $a_0$, the scaling of the bond energies with $g$, or the 64 field-closure states. [`TEST_PLAN.md`](TEST_PLAN.md) sets out 20 tests aimed at these.
 
 ## Next
 
-1. **Coupling between the two sites.** Build the simplest wave model on this lattice (one mode per site, coupling along the bonds), and ask whether the share of a mode on TetA sites against TetB sites can give $\mu = x/(x+1)$ for some physically defined $x$. If it can, the lattice becomes the mechanism behind the constitutive law rather than a picture of it.
-2. **The 64 states as lattice modes.** Ask whether the 64 field-closure states appear among the lattice's modes or symmetries (the cube's $8 \times 8$ Walsh–Hadamard structure is the natural candidate).
-3. **Then a proof.** Once the statements here are settled, move the exact parts (results 1–4, 6 and 7) into `proofs/` as a short proof.
+[`TEST_PLAN.md`](TEST_PLAN.md) sets out 20 Python tests, each with its question, method and pass criterion fixed in advance. Once the statements here are settled, the exact parts (results 1–4 and 6–9) can move into `proofs/` as a short proof.
 
 ## Files
 
 | File | What it does |
 |---|---|
-| [`verify_diamond_tetrad_lattice.py`](verify_diamond_tetrad_lattice.py) | 33 exact checks, labelled by the result numbers above |
+| [`verify_diamond_tetrad_lattice.py`](verify_diamond_tetrad_lattice.py) | 52 exact checks, labelled by the result numbers above |
+| [`TEST_PLAN.md`](TEST_PLAN.md) | 20 planned tests to take the lattice and the bond reading further |
 
 ## Reproduce
 
 ```
-python verify_diamond_tetrad_lattice.py    # 33/33
+python verify_diamond_tetrad_lattice.py    # 52/52
 ```
 
 ## Related
@@ -90,6 +105,8 @@ python verify_diamond_tetrad_lattice.py    # 33/33
 - [The Pixel and the Lattice](../photonic/the-pixel-and-the-lattice.md) and [The Photonic Substrate](../photonic/the_photonic_substrate_enterprise_full_thinking.md): the framework's reading of the vacuum as a lattice of photons.
 - [Two connections and the dual chamber](../two-connection-dual-chamber/): what distinguishes the roots is orientation.
 
-## Reference
+## References
+
+W. A. Harrison, *Electronic Structure and the Properties of Solids* (Freeman, 1980): the bond-orbital model, polarity and covalency.
 
 K. M. Ho, C. T. Chan and C. M. Soukoulis, "Existence of a photonic gap in periodic dielectric structures", Phys. Rev. Lett. **65**, 3152 (1990).
