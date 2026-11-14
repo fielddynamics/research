@@ -49,11 +49,11 @@ check("(ii) the mean rate is kept", sp.simplify((wA2 + wB2) / 2 - wbar) == 0)
 check("(ii) the half-difference flips: the parity action of the hourglass lemma (f)",
       sp.simplify((wA2 - wB2) / 2 + delta) == 0)
 
-# (iii) the quiet throat
+# (iii) one rate only at the ring (the quiet partition itself)
 check("(iii) delta = 0 exactly at x = 1", sp.solve(sp.Eq(ratio, 0), x) == [1])
 check("(iii) where mu = 1/2 (the ring)", mu.subs(x, 1) == sp.Rational(1, 2))
-check("(iii) TetB turns faster inside the ring (x > 1): drive in the rate sense", sp.simplify(wB.subs(x, 2) / wA) > 1)
-check("(iii) and slower outside it (x < 1): drag in the rate sense", sp.simplify(wB.subs(x, sp.Rational(1, 2)) / wA) < 1)
+check("(iii) TetB turns faster than TetA inside the ring (x > 1)", sp.simplify(wB.subs(x, 2) / wA) > 1)
+check("(iii) and slower than TetA outside it (x < 1)", sp.simplify(wB.subs(x, sp.Rational(1, 2)) / wA) < 1)
 
 # (iv) the shear's rate of change is the logistic core
 t = sp.symbols("t", real=True)

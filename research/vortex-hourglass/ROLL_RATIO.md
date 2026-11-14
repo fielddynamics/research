@@ -10,7 +10,7 @@ Four results in the repo each describe TetA and TetB, and nothing yet ties them 
 
 - **[Letter 2](../../papers/letter-2-other-half-of-gravity-torsion/):** exchanging the chambers inverts their odds, Ω → 1/Ω, and that forces Ω = μ/(1 − μ) = x.
 - **The [roulette](../constitutive-law-u(x)/tetA_tetB_roulette_roll_ratio.html):** TetA is a fixed circle of radius μ and TetB a circle of radius 1 − μ rolling on it, with roll ratio μ/(1 − μ).
-- **The [hourglass lemma](LEMMA.md):** parity keeps the mean swirl rate of the two chambers and flips their half-difference. Drive and brake are that rate difference.
+- **The [hourglass lemma](LEMMA.md):** parity keeps the mean swirl rate of the two chambers and flips their half-difference.
 - **[Letter 3](../../papers/letter-3-field-closure-of-tetrad-frame/)'s figure:** the two shares as surfaces that meet on the ring $x = 1$.
 
 The question is whether the roll ratio is the rate ratio of the vortex's two chambers, and what follows if it is.
@@ -33,7 +33,7 @@ $$\frac{\delta}{\bar\omega} = \frac{1 - x}{1 + x} = 1 - 2\mu .$$
 
 Exchanging the chambers swaps the radii, so $x \to 1/x$. That keeps $\bar\omega$ and flips $\delta$, which is exactly what parity does to the hourglass (lemma (f)). Letter 2's exchange of the chambers and the vortex's parity are the same operation.
 
-**(iii) The ring is the quiet throat.** $\delta = 0$ exactly at $x = 1$, where $\mu = \tfrac12$. Inside the ring ($x > 1$) TetB turns faster: drive. Outside it ($x < 1$) TetB turns slower: drag.
+**(iii) The chambers turn at one rate only at the ring.** $\delta = 0$ exactly at $x = 1$, where $\mu = \tfrac12$. Inside the ring ($x > 1$) TetB turns faster than TetA; outside it ($x < 1$), slower. This is the quiet state, with no drive or brake anywhere: it is the partition $\mu(x)$ itself.
 
 **(iv) The shear changes fastest at the ring.** $\dfrac{d(\delta/\bar\omega)}{d\ln x} = -2\mu(1-\mu)$. This is the logistic law's core term, $x\,d\mu/dx = \mu(1-\mu)$, and it is largest at $x = 1$, where $\mu(1-\mu) = \tfrac14$: the interaction core of Letters 2 and 3.
 
@@ -41,24 +41,24 @@ Exchanging the chambers swaps the radii, so $x \to 1/x$. That keeps $\bar\omega$
 
 All of (i)–(v) are exact ([`verify_roll_ratio.py`](verify_roll_ratio.py), 18 checks). Given the premise, (i) is an identity: setting the radii equal to the shares makes the rate ratio the odds by definition. The content of the theorem is the identification, and what the premise then implies in (ii)–(v).
 
-**Two senses of drive.** In (iii), "drive" and "drag" refer to *rates*: TetB turning faster or slower than TetA, the hourglass lemma's sense. In the decoding-mass letter, drive and brake are *masses*: $M_{\rm dec}$ above or below $M_{\rm phot}$. Under the premise these come apart. The chambers turn at different rates everywhere except the ring, yet with no slip at $\mu(x)$ the decoded mass equals the photometric mass everywhere. A decoded drive or brake therefore measures slip, not the rate difference of (iii). This matches the decoding-mass letter's own terms. The decode already contains $\mu(x)$ ($g_{\rm s} = \mu\,g_{\rm t}$), so a **quiet interior** ($\Delta M_{\rm eff} = 0$, effective mass equal to the baryons) is no slip, and an **active interior** ($\Delta M_{\rm eff} \neq 0$, the drain's power output) is slip. Which sense the framework means by drive and brake is a question for the framework, recorded here, not settled.
+**Drive and brake are slip.** **Drive and brake** always refer to the interior TetB (the framework's definition, Stephen Nelson, 2026-11-14). They are seen as measured observations above or below what the photometric mass predicts: a **drive** is $M_{\rm dec} > M_{\rm phot}$, a **brake** is $M_{\rm dec} < M_{\rm phot}$, and a **quiet** interior is $M_{\rm dec} = M_{\rm phot}$. With no slip at $\mu(x)$, the decoded mass equals the photometric mass everywhere, even though the chambers turn at different rates everywhere except the ring. So the rate difference of (iii) is the quiet baseline. A drive or brake is the interior TetB departing from it: slip. This matches the decoding-mass letter's own terms. The decode already contains $\mu(x)$ ($g_{\rm s} = \mu\,g_{\rm t}$), so a **quiet interior** ($\Delta M_{\rm eff} = 0$, effective mass equal to the baryons) is no slip, and an **active interior** ($\Delta M_{\rm eff} \neq 0$, the drain's power output) is slip.
 
 ## What it shows
 
 Given the no-slip premise, the roulette is a theorem, not an illustration. One premise turns four objects already in the repo into one:
 - Letter 2's odds become the rate ratio;
 - Letter 2's exchange becomes the vortex's parity;
-- Letter 3's ring becomes the quiet throat;
+- Letter 3's ring becomes where the chambers turn at one rate;
 - the chiral-holonomy twist becomes the rate difference.
 
 ## What it does not show
 
 - **Why the contact does not slip.** That is the framework's reading of the Field Origin.
-- **The size of anything.** The theorem gives rates, not masses or forces. It predicts *where* drive turns to drag (at $x = 1$), not by how much.
+- **The size of anything.** The theorem gives rates, not masses or forces. It predicts where the chambers' rates cross (at $x = 1$), not by how much they differ. It predicts no drive or brake at all: those are departures from it.
 
 ## What the data can test (correction, 2026-11-14)
 
-An earlier version of this note compared the theorem's drive-inside, drag-outside pattern with the decode audit's gap $\Delta = \log_{10}(M_{\rm dec}/M_{\rm phot})$, and reported that "the sign structure matches". **That comparison was wrong.** If the chambers roll without slipping at $\mu(x)$, the decode returns $M_{\rm dec} = M_{\rm phot}$ at every radius: every galaxy is quiet, even though the chambers turn at different rates everywhere except the ring. The rate difference in (iii) does not produce a mass gap. What $\Delta$ measures is the departure of the measured shares from $\mu(x)$:
+An earlier version of this note compared the theorem's rate pattern (TetB faster inside the ring, slower outside) with the decode audit's gap $\Delta = \log_{10}(M_{\rm dec}/M_{\rm phot})$, and reported that "the sign structure matches". **That comparison was wrong.** If the chambers roll without slipping at $\mu(x)$, the decode returns $M_{\rm dec} = M_{\rm phot}$ at every radius: every galaxy is quiet, even though the chambers turn at different rates everywhere except the ring. The rate difference in (iii) does not produce a mass gap. What $\Delta$ measures is the departure of the measured shares from $\mu(x)$:
 
 $$\Delta = \log_{10}\frac{\mu(x)}{\mu_{\rm obs}}, \qquad \mu_{\rm obs} = \frac{g_{\rm bar}}{g_{\rm obs}}, \qquad \Omega_{\rm obs} = \frac{\mu_{\rm obs}}{1 - \mu_{\rm obs}} .$$
 

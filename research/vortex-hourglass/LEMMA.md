@@ -40,7 +40,7 @@ so pure swirl is achiral and pure through-flow is achiral. Under parity, $h[\Pi 
 
 **(e)** The throat is the only fixed point of parity.
 
-**(f) Drive and brake are the rate difference.** Let the swirl turn at the mean rate $\bar\Omega$ plus a half-difference $\delta$ that takes opposite signs on the two sides of the throat. Far from it, TetA then turns at $\bar\Omega + \delta$ and TetB at $\bar\Omega - \delta$. Parity keeps $\bar\Omega$ and flips $\delta$, so $\delta = 0$, one rate on both sides, is the only case parity leaves unchanged. With $0 < |\delta| < \bar\Omega$ both chambers turn the same way at different rates, and the difference is a shear across the throat: the radial vorticity there is nonzero exactly when $\delta \neq 0$.
+**(f) The rate difference across the throat.** Let the swirl turn at the mean rate $\bar\Omega$ plus a half-difference $\delta$ that takes opposite signs on the two sides of the throat. Far from it, TetA then turns at $\bar\Omega + \delta$ and TetB at $\bar\Omega - \delta$. Parity keeps $\bar\Omega$ and flips $\delta$, so $\delta = 0$, one rate on both sides, is the only case parity leaves unchanged. With $0 < |\delta| < \bar\Omega$ both chambers turn the same way at different rates, and the difference is a shear across the throat: the radial vorticity there is nonzero exactly when $\delta \neq 0$.
 
 The checks verify (a), (b) and (d) for a general axisymmetric field (arbitrary component functions), and (c), (d) on an explicit smooth, incompressible hourglass: $v_r = -arz$, $v_z = az^2 - w$, $v_\varphi = \Omega r/(1 + r^2)$. For (f) the swirl is $v_\varphi = \frac{r}{1+r^2}\bigl(\bar\Omega + \delta\, z/\sqrt{1+z^2}\bigr)$.
 
@@ -55,16 +55,17 @@ Read with the upper spiral as TetA, the throat as the Field Origin, and the lowe
   - the [two-connection note](../two-connection-dual-chamber/)'s chirality: axial torsion is zero when static, switched on by rotation, and opposite on the two roots.
 
   The helicity adds one thing to these. Rotation alone is not enough; the chirality needs rotation *and* through-flow.
-- **Drive and brake are the rate difference across the throat** (f). TetB turns the same way as TetA. Slower, it drags the vortex (brake); faster, it drives it; at the same rate the interior is quiet. Counter-rotation is only the extreme of a brake. The quiet vortex is the pure parity image, and drive or brake is the part of the swirl parity does not produce. It shows up as a shear at the Field Origin. (The framework's position, Stephen Nelson, 2026-11-14.)
+- **The interior turns at its own rate** (f). TetB turns the same way as TetA, faster or slower; counter-rotation is only an extreme. The rate difference is the part of the swirl parity does not produce, and it shows up as a shear at the Field Origin.
+- **Drive and brake** always refer to the interior TetB (the framework's definition, Stephen Nelson, 2026-11-14). They are seen as measured observations above or below what the photometric mass predicts: a **drive** is $M_{\rm dec} > M_{\rm phot}$, a **brake** is $M_{\rm dec} < M_{\rm phot}$, and a **quiet** interior is $M_{\rm dec} = M_{\rm phot}$. In the rate picture, drive and brake are TetB turning faster or slower than the rate the no-slip partition gives it ([`ROLL_RATIO.md`](ROLL_RATIO.md)), not faster or slower than TetA: the no-slip partition already has the chambers turning at different rates everywhere except the ring, and is quiet. (Revised 2026-11-14. An earlier version read drive as TetB faster than TetA.)
 
 ## What it does not do
 
 - It is about a velocity field in an observer's space. It does not yet connect the flow to the tetrad's connection, so it does not show that the helicity *is* the axial torsion. That identification is the next step (below), and it has to be derived, not matched.
 - The assignment of the upper spiral to TetA and the lower to TetB is the framework's reading.
-- It makes no dynamical claim. Nothing here says how fast the vortex turns or what drives it.
+- It makes no dynamical claim. Nothing here says how fast the vortex turns or what sets its rate.
 
 ## Next
 
 1. **Transport theorem.** Carry a tetrad along a streamline from the TetA spiral through the throat into the TetB spiral. Show that it arrives as Proposition 2(b) of the Gram-matrix proof (connections that differ, by a torsion), not 2(a) (the covariant mirror, identical). Then compute its axial torsion and compare it with the helicity of (d).
-2. **Which sense of drive.** (f) defines drive and brake by rate. The decoding-mass letter reads them from mass: $M_{\rm dec}$ against $M_{\rm phot}$. Under the [roll-ratio theorem](ROLL_RATIO.md) these come apart: a decoded drive or brake measures slip from $\mu(x)$, not the rate difference. The framework needs to say which sense it means.
+2. **Drive and brake from the interior.** A galaxy-level measure of TetB's effect, read from decoded against photometric mass at the drain rather than across the disk.
 

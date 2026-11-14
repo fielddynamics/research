@@ -108,7 +108,7 @@ check("(d) reversing the swirl alone also flips the helicity",
       sp.simplify(at((field(vr_d, -vphi_d, vz_d).T * curl(field(vr_d, -vphi_d, vz_d)))[0], (0, 0, 0))
                   + at(hd, (0, 0, 0))) == 0)
 
-# Drive and brake: the two chambers turn the same way at different rates
+# (f) The two chambers turn the same way at different rates
 Ob, d = sp.symbols("Omega_bar delta", real=True)
 step = z / sp.sqrt(1 + z ** 2)                 # smooth, odd: -> +1 above, -1 below
 vphi_db = r / (1 + r ** 2) * (Ob + d * step)   # mean rate Ob, half-difference d

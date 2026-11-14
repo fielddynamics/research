@@ -15,22 +15,21 @@ In GFD, TetA and TetB together form a vortex: spiral → throat → spiral, like
    - it reverses the through-flow, so the two spirals swap which one feeds the throat;
    - it flips the handedness, which needs both swirl and through-flow.
 
-   Drive and brake, in the rate sense, are the difference in swirl rate across the throat. An equal rate is the quiet vortex.
+   The swirl-rate difference across the throat is the part of the vortex parity does not produce.
 2. **One premise ties four existing results together.** The [roll-ratio theorem](ROLL_RATIO.md) assumes that the chambers roll without slipping at the Field Origin, with radii equal to their shares. Then:
    - the roulette's roll ratio is the rate ratio $x$;
    - Letter 2's exchange of the chambers is the vortex's parity;
-   - Letter 3's ring $x = 1$ is the quiet throat;
+   - Letter 3's ring $x = 1$ is where the two chambers turn at one rate;
    - the chiral-holonomy twist $(x-1)/(x+1)$ is the rate difference.
 3. **Letter 3's red and blue discs hold on real galaxies.** The measured TetA and TetB shares meet at the ring, $x = 1.00$–1.07, and follow $\mu(x)$ across it, mirroring each other there as exchange symmetry requires (figure below).
 4. **The decoding-mass letter is verified and corrected before review.** Its decode reproduces exactly, including every published value. CamB's mass model, which had been read from the wrong table columns, is fixed. Three further issues in its photometric pipeline are recorded for its next revision.
-5. **A clear reading of quiet and active.** The decode already contains $\mu(x)$. So the letter's quiet interior ($M_{\rm dec} = M_{\rm phot}$) means the chambers roll at $\mu(x)$ without slip, and an active interior means slip.
+5. **Drive, brake and quiet, made precise.** **Drive and brake** always refer to the interior TetB (the framework's definition, Stephen Nelson, 2026-11-14). They are seen as measured observations above or below what the photometric mass predicts: a **drive** is $M_{\rm dec} > M_{\rm phot}$, a **brake** is $M_{\rm dec} < M_{\rm phot}$, and a **quiet** interior is $M_{\rm dec} = M_{\rm phot}$. The decode already contains $\mu(x)$. So the letter's quiet interior ($M_{\rm dec} = M_{\rm phot}$) means the chambers roll at $\mu(x)$ without slip, and an active interior, a drive or a brake, means slip: TetB departing from the rate the no-slip partition gives it.
 
 ## What is not established
 
 - **That the vortex *is* the tetrad's structure.** The lemma is exact kinematics. Identifying its spirals with TetA and TetB, and its throat with the Field Origin, is the framework's reading. The no-slip premise and the link between helicity and axial torsion are not derived. The transport theorem (below) is the step that would derive them.
 - **Drive and brake against the ring.** Under the letter's photometric method, galaxies with more mass inside the ring sit further above their baryons. With SPARC's own Newtonian accelerations, most of that signal goes. It comes mainly from the method's spherical approximation and model gas disks.
 - **Uniqueness.** Any law that fits the radial acceleration relation puts the crossing of the shares near $x = 1$. The ring result is consistent with GFD; it does not single GFD out.
-- **Which sense of "drive".** In the rate sense, TetB turns faster or slower. In the mass sense, $M_{\rm dec}$ sits above or below $M_{\rm phot}$. Under the roll-ratio theorem the two come apart. **This is a decision for the framework.**
 
 ## The results in brief
 
@@ -41,14 +40,14 @@ For any axisymmetric flow, parity $(\Pi v)(\mathbf x) = -v(-\mathbf x)$ sends $(
 - **through-flow:** reversed;
 - **vorticity:** kept, $\boldsymbol\omega(-\mathbf x)$;
 - **helicity:** flips, $h \to -h$. It is exactly the cross term between swirl and through-flow, so a pure swirl or a pure through-flow has none;
-- **the swirl's mean rate:** kept. Its half-difference across the throat flips, so the quiet vortex (one rate on both sides) is the only one parity leaves unchanged.
+- **the swirl's mean rate:** kept. Its half-difference across the throat flips, so the equal-rate vortex (one rate on both sides) is the only one parity leaves unchanged.
 
 ### 2. The roll-ratio theorem ([`ROLL_RATIO.md`](ROLL_RATIO.md), 18 exact checks)
 
 Grant no slip and radii $\mu$ and $1 - \mu$. Then:
 - **rate ratio:** $\omega_B/\omega_A = \mu/(1-\mu) = x$;
 - **exchange is parity:** swapping the chambers keeps the mean rate, flips the half-difference, and sends $x \to 1/x$;
-- **quiet throat:** the rates are equal only at $x = 1$;
+- **one rate at the ring:** the rates are equal only at $x = 1$;
 - **shear:** $\delta/\bar\omega = 1 - 2\mu$, changing at $-2\mu(1-\mu)$ per unit $\ln x$, fastest at the ring;
 - **chiral-holonomy twist:** $\sigma = 2\mu - 1$.
 
@@ -90,7 +89,7 @@ So the drive/brake pattern against the ring is **not established**. A measure of
 
 1. **Transport theorem.** Carry a tetrad along a streamline from TetA through the Field Origin into TetB. Show that it arrives with a torsion difference (Gram-matrix proof, Proposition 2(b)), and compare its axial torsion with the lemma's helicity. This is the step that would make the vortex a consequence of the tetrad equation rather than a reading of it.
 2. **Derive no slip** from the Field Origin as the point where both tetrads are evaluated together.
-3. **Decide the sense of drive** (rate or decoded mass), and build a drive/brake measure from the drain, not from the disk's share.
+3. **Measure drive and brake from the interior.** A galaxy-level measure of TetB's effect, from the drain, not from how much of the disk lies inside the ring.
 4. **Reduce the photometric systematics** that make the shares saturate less far from the ring: colour-based stellar M/L, asymmetric-drift corrections and HI surface-density profiles. Then test whether the departures are physical.
 
 ## Related
