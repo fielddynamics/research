@@ -1,0 +1,240 @@
+\documentclass[twocolumn]{iopjournal}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\fancyhfoffset[L]{0mm}
+\setlength{\marginparwidth}{0pt}
+\setlength{\marginparsep}{0pt}
+\renewcommand{\articletype}[1]{%
+  {\vspace*{-8mm}\noindent \Large \sf Preprint}\par
+  \vspace*{6mm}\noindent{\scriptsize \sf{\bfseries \MakeUppercase{#1}}}}
+\fancyhead[L]{}
+\fancyhead[R]{}
+\hypersetup{pdftitle={The Locked Bimetric Potential and the Constitutive Law}, pdfauthor={Stephen Nelson}, pdfsubject={Gravity Field Dynamics (GFD)}, pdfkeywords={Hassan-Rosen, bimetric gravity, Vainshtein, Galileon, exchange symmetry, constitutive law, MOND, proof}}
+
+\begin{document}
+\articletype{Supplementary Material}
+\title{The Locked Bimetric Potential and the Constitutive Law}
+\author{Stephen Nelson}
+\affil{Field Dynamics Research}
+\ead{stephen@fielddynamics.org}
+
+\begin{abstract}
+Papers~VIII, IX and XII fix the Hassan--Rosen coefficients to
+$\beta = (1,0,16,0,1)$ and state that the locked bimetric theory and
+the SST are two projections of one geometry, so that the bimetric
+theory's quasi-static limit should give $\mu(x) = x/(x+1)$. We settle
+what can and cannot be shown. \emph{Negative:} in the standard
+reduction (decoupling limit, static spherical weak field) the response
+depends on the enclosed mass only through $M/r^3$, for every $\beta$;
+no function of $M/r^3$ equals a function of $x \propto M/r^2$ for all
+masses and radii; the enhancement is bounded,
+$g_{\rm tot}/g_N < 1 + 1/\sqrt2 < 1.71$; and the potential vanishes at
+GFD's parity configuration. So the standard reduction cannot give
+$\mu$, and the obstruction is structural, not specific to the lock.
+\emph{Positive:} on the frame deformed along a single leg by a ratio
+$w$, every potential is $V = A + Bw$, and the deformed leg's share
+$Bw/(A + Bw)$ obeys exchange closure $s(1/w) = 1 - s(w)$ if and only
+if $\beta_0 + 2\beta_1 = \beta_4 + 2\beta_3$. It is then exactly
+$w/(1+w)$. Palindromic coefficients (the $g\leftrightarrow f$
+symmetry) satisfy the condition, the locked set gives $V = 49(1+w)$,
+and $\beta_2 = 16$ cancels. With $w = |a|/a_0$, $a$ the acceleration
+of the tetrad's time leg, this is $\mu(x)$. The deformation is not a
+Hassan--Rosen reference metric, and the energy $F$ is not supplied by
+the potential. The correct statement is therefore: \emph{an
+exchange-symmetric bimetric potential, evaluated on the frame deformed
+along the time leg's acceleration, carries the face share $x/(x+1)$;
+the standard Hassan--Rosen reduction does not.}
+\end{abstract}
+
+\keywords{Hassan--Rosen, bimetric gravity, Vainshtein, Galileon, exchange symmetry, constitutive law, MOND, proof}
+
+\section*{Setting}
+
+The Hassan--Rosen (HR) interaction is
+$m^2\sqrt{-g}\,V(S)$, $V(S) = \sum_{n=0}^4\beta_n e_n(S)$, with
+$S = \sqrt{g^{-1}f}$ and $e_n$ the elementary symmetric polynomials of
+its eigenvalues~\cite{HR2012}. The lock is
+$\beta = (1,0,16,0,1)$~\cite{NelsonVIII,NelsonXII}. The SST's scalar
+sector is $-(a_0^2/8\pi G)F(y)$, $F(y) = y - 2\sqrt y + 2\ln(1+\sqrt y)$,
+$\mu(x) = F'(x^2) = x/(x+1)$~\cite{NelsonL3,NelsonPqs}. The question,
+listed as open in Papers~VIII and IX, is whether the first reduces to
+the second. Each step is checked by the accompanying script, 18 checks,
+exact algebra~\cite{NelsonScript}; the decoupling-limit derivation is
+in~\cite{NelsonBimetric} (23 checks).
+
+\section*{Part A: the standard reduction}
+
+\textbf{Theorem 1 (the response depends on density).} \emph{In the
+decoupling limit, with Stückelberg field $\pi$ and
+$\Lambda_3^3 = m^2M_{\rm Pl}$, the $h$--$\pi$ mixing has coefficients
+$d_0 = \beta_0+3\beta_1+3\beta_2+\beta_3$,
+$d_1 = \beta_1+2\beta_2+\beta_3$, $d_2 = \beta_2+\beta_3$,
+$d_3 = \beta_3$; for the lock, $(49, 32, 16, 0)$. Around a static mass,
+with $d_3 = 0$, $\lambda = \pi'/r = -sq/(2Ma_1)$ and
+$Q = a_2q/(Ma_1^2)$, the $\pi$-equation is
+\begin{equation}
+Q^2s^3 + 6Qs^2 + 6s - 2 = 0,\qquad g_{\rm tot}/g_N = 1 + s,
+\label{eq:screen}
+\end{equation}
+with $q = M_{\rm enc}/4\pi r^3$. The radius enters only through $q$.}
+
+\begin{proof}
+The coefficients follow from expanding
+$\sum(-1)^n\beta_nY_n(1-\Pi)$ in the identically conserved basis; the
+reduced first integrals are in~\cite{NelsonBimetric}. The substitution
+is checked exactly.
+\end{proof}
+
+$d_1 = 32$ is the Fierz--Pauli combination and $d_3 = 0$ removes the
+quintic mixing; $d_2 = 16$ keeps the cubic Galileon term (Paper~XII
+states that both vanish).
+
+\textbf{Theorem 2 (bounded enhancement).} \emph{As $Q\to0$, $s = 1/3$:
+$g_{\rm tot}/g_N = 4/3$ (vDVZ). As $Q\to+\infty$, $s\to0$: screened to
+general relativity. On the $Q<0$ branch the turning point is
+$Q_* = 2 - 2\sqrt2$, where $s = 1/\sqrt2$. So
+$g_{\rm tot}/g_N < 1.71$ on every branch.}
+
+\begin{proof}
+With $v = Qs$, (\ref{eq:screen}) is $v(v^2+6v+6) = 2Q$, whose turning
+points are $v = -2\pm\sqrt2$; all values are checked exactly.
+\end{proof}
+
+\textbf{Theorem 3 (no change of variable).} \emph{No function of
+$M/r^3$ equals a function of $x = GM/(a_0r^2)$ for all $M$ and $r$,
+unless both are constant. Hence the standard response cannot be
+$1/\mu(x)$, for any $\beta$.}
+
+\begin{proof}
+Along $M = Lr^3$ the density is fixed while $x = GLr/a_0$ varies, and
+$\mathrm d[1/\mu(x)]/\mathrm dr \neq 0$ (checked). Equivalently, the
+Vainshtein radius scales as $M^{1/3}$ and the MOND radius
+$\sqrt{GM/a_0}$ as $M^{1/2}$.
+\end{proof}
+
+Flat rotation curves need $g_{\rm tot}/g_N\to\infty$ as $g_N\to0$,
+which Theorem~2 excludes. With $m\sim H_0$, galaxies also lie well
+inside the Vainshtein radius ($\sim$260~kpc at $10^{10}M_\odot$), where
+$\mu_{\rm eff}\to1$~\cite{NelsonBimetric}. Dimensionally, the Galileon
+variable is $\Phi/(mr)^2$ and the MOND variable $\Phi/(mr)$: both small
+quantities $\Phi/c^2$ and $rH_0/c$ are $\sim10^{-6}$ at galactic radii,
+which is why $a_0\sim cH_0$ is natural, but the potential's strongest
+interactions select the wrong power.
+
+\textbf{Theorem 4 (the parity configuration and the polynomial).}
+\emph{At $S = P = \mathrm{diag}(1,-1,-1,-1)$, $e_n(P) = (1,-2,0,2,-1)$
+and $V(P) = \beta_0 - \beta_4 = 0$. On $S = \mathrm{diag}(1,s,s,s)$ the
+locked potential is $1 + 48s + 48s^2 + s^3$ (98, 1, 0 at
+$s = +1, 0, -1$), not the coupling polynomial $1 + 4s + 16s^2$
+(21, 17, 13).}
+
+\begin{proof}
+Direct evaluation (checked).
+\end{proof}
+
+So GFD's two roots (one metric, $S = P$) and HR's two metrics are
+different objects, and the potential's values are not the polynomial's.
+
+\section*{Part B: the acceleration-deformed frame}
+
+\textbf{Theorem 5 (exchange closure fixes the share).} \emph{On
+$S = \mathrm{diag}(1,1,1,w)$, for every $\beta$,
+\[
+\begin{aligned}
+V &= A + Bw,\\
+A &= \beta_0+3\beta_1+3\beta_2+\beta_3,\\
+B &= \beta_1+3\beta_2+3\beta_3+\beta_4 .
+\end{aligned}
+\]
+The deformed leg's share $s(w) = Bw/(A + Bw)$ satisfies
+$s(1/w) = 1 - s(w)$ if and only if $A = B$, that is
+\begin{equation}
+\beta_0 + 2\beta_1 = \beta_4 + 2\beta_3 ,
+\label{eq:cond}
+\end{equation}
+and then $s(w) = w/(1+w)$ exactly.}
+
+\begin{proof}
+$s(1/w) - [1 - s(w)] = -w(A-B)(A+B)/[(A+Bw)(Aw+B)]$ (checked), which
+vanishes iff $A = B$ since $A + B > 0$.
+\end{proof}
+
+\textbf{Corollary 1 (the lock and $\beta_2$).} \emph{Palindromic
+$\beta$, equivalent to HR's $g\leftrightarrow f$ symmetry
+$\det S\,V(S^{-1}) = V(S)$, satisfies (\ref{eq:cond}), and then
+$V = (\beta_0 + 4\beta_1 + 3\beta_2)(1+w)$. The locked set gives
+$V = 49(1+w)$, and $\beta_2$ cancels from $s$. On this family
+$V/V(I) = \det[(I+S)/2]$, the volume of the midpoint frame.}
+
+\begin{proof}
+All identities checked exactly; $(1,0,16,0,2)$ shows that
+(\ref{eq:cond}) is a real condition.
+\end{proof}
+
+This is the exchange-closure theorem of the constitutive
+law~\cite{NelsonExch} at the level of the bimetric potential: the
+share's form follows from the $g\leftrightarrow f$ symmetry, not from
+the value 16.
+
+\textbf{Theorem 6 (the time leg, and what the potential does not
+supply).} \emph{(i) With $w = |a|/a_0$, $a$ the acceleration of the
+tetrad's time leg, a static field has $c^2|a| = |\nabla\Phi|$
+exactly~\cite{NelsonTL}, so $w = x$ and $s = \mu(x)$. (ii) The
+auxiliary energy
+\[
+E(u;y) = (1 - e^{-u})\,y - 2(\sinh u - u),
+\]
+with $u = \ln(V/V_0)$,
+is stationary at $V/V_0 = 1 + \sqrt y$, where its value is $F(y)$ and
+its slope $\partial E/\partial y$ is $\mu$. (iii) Its $u$-dependence
+contains no $\beta$.}
+
+\begin{proof}
+All checked exactly.
+\end{proof}
+
+So the potential supplies the variable $V/V_0 = 1 + x$; the energy
+$F$, and with it the dynamics, comes from the SST's own scalar term.
+
+\section*{Conclusion and scope}
+
+\begin{itemize}
+\item The locked HR theory does not reduce to $\mu(x)$ by the standard
+reduction (Theorems~1--3), and no choice of $\beta$ would change that.
+Papers~VIII, IX and XII overstate the equivalence.
+\item What the lock does fix is bimetric physics: the de~Sitter
+background $\Lambda = m^2(1+48c^2)$, the Fierz--Pauli mass, the Higuchi
+bound and the screening cubic~(\ref{eq:screen})~\cite{NelsonBimetric}.
+\item The constitutive law follows from the potential's exchange
+symmetry on the frame deformed along the time leg's acceleration
+(Theorem~5, Corollary~1, Theorem~6). That frame is not an HR reference
+metric; it is the single-metric time-leg structure of~\cite{NelsonTL}.
+\item Not done here: the full bimetric (dynamical $f$) decoupling
+limit, which keeps the linear enhancement below $4/3$; and a
+derivation of the deformation $w = |a|/a_0$ from an action.
+\end{itemize}
+
+\begin{thebibliography}{99}
+\bibitem{HR2012} S.~F.~Hassan and R.~A.~Rosen, Bimetric gravity from
+ghost-free massive gravity, \textit{JHEP} \textbf{02} (2012) 126.
+\bibitem{NelsonVIII} S.~Nelson, \textit{GFD and Bimetric Gravity},
+Paper~VIII (2026).
+\bibitem{NelsonXII} S.~Nelson, \textit{Dual-tetrad covariance and the
+Hassan--Rosen lock}, Paper~XII (2026).
+\bibitem{NelsonL3} S.~Nelson, \textit{Field Closure of the Tetrad
+Frame}, Letter~3 (2026).
+\bibitem{NelsonPqs} S.~Nelson, \textit{The SST Covariant Completion in
+Its Quasi-Static Limit} (2026), \texttt{proofs/sst-quasi-static-limit/}.
+\bibitem{NelsonTL} S.~Nelson, \textit{The SST Covariant Completion: $y$
+From the Acceleration of the Time Leg} (2026),
+\texttt{proofs/\linebreak sst-covariant-time-leg/}.
+\bibitem{NelsonExch} S.~Nelson, \textit{The constitutive law from
+exchange symmetry} (2026),
+\texttt{proofs/constitutive-law-\linebreak exchange-symmetry/}.
+\bibitem{NelsonBimetric} S.~Nelson, \textit{Does the locked bimetric
+potential project onto $\mu(x)$?} (2026),
+\texttt{research/bimetric-projection/}.
+\bibitem{NelsonScript} S.~Nelson,
+\texttt{verify\_bimetric\_lock\_\linebreak constitutive\_law.py} (2026),
+\texttt{proofs/bimetric-lock-\linebreak constitutive-law/}.
+\end{thebibliography}
+\end{document}
