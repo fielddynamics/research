@@ -1,5 +1,5 @@
 """Checks for the section 'Three routes tested' of the research note 'Two connections and the dual chamber'.
-Route 1: the two chambers as a two-state system. Route 2: TetB's clock rate (equivalently the share) as an auxiliary field.
+Route 1: the two chambers as a two-state system. Route 2: the auxiliary metric's clock factor (equivalently the share) as an auxiliary field.
 Route 4: TetB as a channel through a throat of capacity a0. Exact sympy. Run: python verify_three_routes.py"""
 import sympy as sp
 ok=[]
@@ -10,15 +10,15 @@ mu=lambda X: X/(1+X)
 
 print("--- Route 1: the two chambers as a two-state system")
 Z=1+x
-check("1a with Z = V/V0 = 1 + x (two states, statistical weights 1 and x), the TetB occupation d ln Z/d ln x is mu(x)",
+check("1a with Z = V/V0 = 1 + x (two states: TetA with weight x, TetB with weight 1), the TetA occupation d ln Z/d ln x is mu(x)",
       sp.simplify(x*sp.diff(sp.log(Z),x)-mu(x))==0)
 check("1b the SST energy is F = y - 2(Z - 1) + 2 ln Z: the logarithm is ln Z, the log-partition function of the two chambers",
       sp.simplify(F(x**2)-(x**2-2*(Z-1)+2*sp.log(Z)))==0)
 s_=sp.symbols('s',positive=True)
-check("1c F is the work integral of the TetB occupation against y: F(y) = int_0^y mu(sqrt t) dt; partial fractions of 2x^2/(1+x) "
+check("1c F is the work integral of the TetA occupation against y: F(y) = int_0^y mu(sqrt t) dt; partial fractions of 2x^2/(1+x) "
       "produce the ln Z", sp.simplify(sp.integrate(2*s_*mu(s_),(s_,0,x))-F(x**2))==0)
-check("1d if each chamber's weight is proportional to a horizon temperature, TetA ~ T(a0) and TetB ~ T_Unruh(g) = hbar g/(2 pi c k), "
-      "the odds are T_U(g)/T(a0) = g/a0 and the TetB share is g/(g + a0) = mu", sp.simplify((g/(g+a0))-mu(g/a0))==0)
+check("1d if each chamber's weight is proportional to a horizon temperature, TetA ~ T_Unruh(g) = hbar g/(2 pi c k) and TetB ~ T(a0), "
+      "the odds are T_U(g)/T(a0) = g/a0 and the TetA share is g/(g + a0) = mu", sp.simplify((g/(g+a0))-mu(g/a0))==0)
 muM=(sp.sqrt(x**2+1)-1)/x
 check("1e Milgrom's 1999 vacuum construction, inertia ~ T_U(sqrt(g^2 + a0^2)) - T_U(a0), gives a different law, (sqrt(1+x^2) - 1)/x, "
       "which goes as x/2 in the deep field: the additive two-state weighting reproduces mu, the subtractive one does not",
@@ -45,8 +45,8 @@ check("1i the time-leg energy is a Gaussian relative entropy: F - y = -2 D(Z) wi
       "F - y = -4 KL between a Gaussian of variance Z = 1 + x and the unit Gaussian",
       sp.simplify((F(x**2)-x**2)+4*sp.Rational(1,2)*(Z-1-sp.log(Z)))==0)
 
-print("--- Route 2: TetB's clock rate as an auxiliary field")
-G_=lambda W,Y: -Y/W - W + 1/W + 2*sp.log(W)      # candidate for the time-leg term F - y, with W = V/V0 = TetB clock factor 1 + x
+print("--- Route 2: the clock factor as an auxiliary field")
+G_=lambda W,Y: -Y/W - W + 1/W + 2*sp.log(W)      # candidate for the time-leg term F - y, with W = V/V0 = the auxiliary clock factor 1 + x
 sol=sp.solve(sp.diff(G_(w,y),w),y)
 check("2a the term (F - y) = max over w of [-y/w - w + 1/w + 2 ln w]: its w-equation is algebraic and gives y = (w - 1)^2, i.e. w = 1 + x",
       len(sol)==1 and sp.expand(sol[0]-(w-1)**2)==0)
@@ -54,7 +54,7 @@ check("2b at that point its value is exactly F(y) - y", sp.simplify(G_(1+x,x**2)
 d2=sp.simplify(sp.diff(G_(w,y),w,2).subs(y,(w-1)**2).subs(w,1+x))
 check("2c and it is a maximum in w: d^2/dw^2 = -2x(1+x)/(1+x)^3 < 0", sp.simplify(d2+2*x*(1+x)/(1+x)**3)==0)
 check("2d for fixed w the term is linear in y, with slope -1/w; adding the curvature term's y gives the conductivity 1 - 1/w = 1 - V0/V, "
-      "the TetB volume share. At w = 1 + x it is mu(x): for fixed w the field equation is linear, as in QUMOND",
+      "the deformed part's volume share. At w = 1 + x it is mu(x), TetA's share: for fixed w the field equation is linear, as in QUMOND",
       sp.simplify(sp.diff(y+G_(w,y),y)-(1-1/w))==0 and sp.simplify((1-1/(1+x))-mu(x))==0)
 check("2e envelope: d/dy of the stationary value equals the partial derivative at fixed w, so treating w as an independent field gives "
       "the same Phi-equation as the SST", sp.simplify(sp.diff(F(y)-y,y)-sp.diff(G_(w,y),y).subs(w,1+sp.sqrt(y)))==0)

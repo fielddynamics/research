@@ -53,48 +53,48 @@ This is Letter 3's chirality made explicit. It also sets a limit: **the chiralit
 
 **This is the dual-chamber composition, carried by two fields on the two roots:** TetA and TetB each hold their share, the shares sum to the total, and exchange inverts their odds. Unlike the deformed-frame construction in the bimetric proof, the two parts here are the two roots.
 
-## A GFD-faithful bimetric algebra
+## An auxiliary time-leg metric: what Hassan–Rosen's algebra would need
 
-*This section answers one question: what does Hassan–Rosen's two-chamber algebra have to become to reproduce GFD's μ(x)? Checks: `verify_dual_chamber_bimetric.py`.*
+*This section asks: what would Hassan–Rosen's two-metric algebra have to be given in order to reproduce GFD's μ(x)? It answers with an auxiliary metric built on TetA's time leg. That metric is a device, not TetB: in the archive TetB is its own chamber, the parity component of the tetrad equation reached through the Field Origin, not a time leg and not reverse time (Coles Notes, naming table). Checks: `verify_dual_chamber_bimetric.py`.*
 
 ### Where we start
 
-The [bimetric proof](../../proofs/bimetric-lock-constitutive-law/) established two things about Hassan–Rosen (HR) gravity with the locked coefficients β = (1, 0, 16, 0, 1):
+The [bimetric proof](../../proofs/bimetric-lock-constitutive-law/) established two things about Hassan–Rosen (HR) gravity with the locked coefficients β = (1, 0, 16, 0, 1), reading its two metrics as the two chambers, TetA (g) and TetB (f):
 
-- **The partition is right.** HR's potential V = Σ βₙeₙ(S), built from S = √(g⁻¹f), splits into a TetA part and a TetB part. Exchanging the two metrics inverts their odds Ω, so the TetB share is exactly Ω/(1 + Ω), the form of μ (its Theorem 8).
-- **The variable is wrong.** μ(x) needs Ω to equal the acceleration ratio x = g/a₀. In standard HR the two metrics are nearly equal in any weak field, so Ω stays at 1 and the share at ½ (its Theorem 10).
+- **The partition has the right form.** HR's potential V = Σ βₙeₙ(S), built from S = √(g⁻¹f), splits into a TetA part and a TetB part. Exchanging the two metrics inverts their odds Ω (TetA : TetB), so TetA's share is exactly Ω/(1 + Ω) and TetB's is 1/(1 + Ω): the form of μ and 1 − μ (its Theorem 8).
+- **The variable is wrong.** μ(x) needs Ω to equal the acceleration ratio x = g/a₀. In standard HR the two metrics are nearly equal in any weak field, so Ω stays at 1 and the shares at ½ (its Theorem 10).
 
-So the task is to find a second chamber whose odds are x, and then see what else has to change.
+So the question is what a second metric would have to look like for the odds to be x.
 
-### Step 1: a second chamber whose clock runs at the acceleration ratio
+### Step 1: a metric whose clock runs at the acceleration ratio
 
-Take the second chamber's metric to be the first one with its clock rescaled along the time leg u:
+Take an auxiliary metric equal to TetA's, with its clock rescaled along TetA's time leg u:
 
   f = g − (y − 1) u u,  with y = x² and x = c²|a|/a₀,
 
-where a is the acceleration of the time leg (the SST's covariant y; see the [time-leg proof](../../proofs/sst-covariant-time-leg/)). In words: TetB is the same space as TetA, but its proper time runs at rate x relative to TetA's. Algebraically f is a *disformal* transformation of g, the same kind of second metric that Bekenstein's disformal gravity and TeVeS use.
+where a is the acceleration of the time leg (the SST's covariant y; see the [time-leg proof](../../proofs/sst-covariant-time-leg/)). Algebraically f is a *disformal* transformation of g, the same kind of second metric that Bekenstein's disformal gravity and TeVeS use.
 
 What follows, exactly (checks 1a–2d):
-- **The odds become the acceleration.** S = √(g⁻¹f) = diag(x, 1, 1, 1): the time leg is stretched by x and nothing else changes. This is the principal square root, so HR's own metric form sees it. The two volume terms of V stand in the ratio 1 : det S = 1 : x, so Ω = x.
-- **The dual-chamber share is GFD's μ.** The TetB share is Ω/(1 + Ω) = x/(1 + x). It equals the SST's own slope, F′(y) = μ.
-- **Exchange and the ring.** Swapping the chambers sends x → 1/x and swaps the shares. At the ring x = 1, f = g: the two chambers coincide where the acceleration equals a₀.
-- **The locked potential** on this second chamber is V = 49(1 + x).
+- **The odds carry the acceleration.** S = √(g⁻¹f) = diag(x, 1, 1, 1): the time leg is stretched by x and nothing else changes. This is the principal square root, so HR's own metric form sees it. The two volume terms of V stand in the ratio 1 : det S = 1 : x.
+- **The logistic share appears.** The share of the deformed part is x/(1 + x), which equals the SST's own slope, F′(y) = μ. In the archive μ is TetA's share, so this deformed metric behaves like a reweighting of TetA, not like TetB, whose share is 1 − μ.
+- **Exchange and the ring.** Inverting S sends x → 1/x and swaps the shares. At the ring x = 1, f = g.
+- **The locked potential** on this metric is V = 49(1 + x).
 
-### Step 2: TetB is a subspace
+### Step 2: the auxiliary metric degenerates onto the spatial subspace
 
-Rewrite the second metric with the spatial metric h = g + uu, which measures distances orthogonal to the time leg (checks 5a–5c):
+Rewrite it with the spatial metric h = g + uu, which measures distances orthogonal to the time leg (checks 5a–5c):
 
   f = h − y u u.
 
-- **TetB's space is the spatial subspace itself;** only its time direction carries the acceleration weight y.
-- **In the deep field (y → 0) TetB collapses onto the subspace:** f becomes a rank-3 projector, while g stays rank 4.
+- **Its space is TetA's spatial subspace;** only its time direction carries the weight y.
+- **As y → 0 it collapses onto that subspace:** f becomes a rank-3 projector, while g stays rank 4.
 - **On the pure subspace, S = diag(0, 1, 1, 1), the locked potential is V = 49.** That value, V₀ = 49, is the reference point of the energy in Step 3. At f = g it is 98.
 
-Standard HR assumes the second metric is a full, independent, rank-4 metric. A second chamber that can degenerate onto a subspace is outside that set-up.
+Standard HR assumes the second metric is a full, independent, rank-4 metric, so a second metric that can degenerate like this is outside its set-up.
 
 ### Step 3: the vertex is nonlinear
 
-With this second chamber, the SST's energy is a function of the HR potential (checks 3a–3b):
+On this metric, the SST's energy is a function of the HR potential (checks 3a–3b):
 
   F(y) − y = −2 D(V/V₀),  with D(w) = w − 1 − ln w and V₀ = 49.
 
@@ -104,50 +104,48 @@ D is a relative entropy: it measures how far V has moved from its subspace value
 
 the curvature term's y, plus the relative entropy of the locked potential.
 
-HR uses V linearly (√−g·V). The two pieces of D show why GFD cannot (checks 3c–3d):
-- **The linear piece of D,** −2(V/V₀ − 1) = −2x, is exactly F's −2√y term. Alone, it gives a flux of fixed size a₀: the constant tail around every mass that is excluded in the solar system. *A linear HR vertex on this second chamber gives that tail and nothing else.*
+HR uses V linearly (√−g·V). The two pieces of D show why that is not enough (checks 3c–3d):
+- **The linear piece of D,** −2(V/V₀ − 1) = −2x, is exactly F's −2√y term. Alone, it gives a flux of fixed size a₀: the constant tail around every mass that is excluded in the solar system. *A linear HR vertex on this metric gives that tail and nothing else.*
 - **The logarithm,** 2 ln(V/V₀), cancels the linear piece in the deep field. What survives is MOND's ⅔y^{3/2}, which gives flat rotation curves and Tully–Fisher.
 
-So the nonlinearity of the vertex is not a detail. It is exactly what turns HR's partition into the constitutive law.
+### What this shows, and what it does not
 
-### The result, and what it does not yet do
+**What it shows.** For HR's partition to produce μ(x), two things have to be added to HR: a second metric whose odds carry the acceleration (here, one built on TetA's time leg), and a nonlinear vertex (the relative entropy of the locked potential). Both are statements about what the *algebra* needs.
 
-**The unified statement.** GFD's SST is two-chamber gravity in which TetB is the spatial subspace with its clock running at the acceleration ratio x.
+**What it does not show.** It does not identify TetB. The auxiliary metric has det S > 0 and carries TetA's share μ; TetB, the archive's own chamber, is the parity root (det S = −1), which the auxiliary family never reaches (bimetric proof, Theorem 9 and check D18). A GFD derivation of μ(x) from the two chambers themselves would have to work with TetB as that chamber.
 
-*A caution on the word TetB.* This second chamber has det S = x > 0. It is not the parity root Pe that Letters 1–2 call TetB (det S = −1); the [bimetric proof](../../proofs/bimetric-lock-constitutive-law/) shows the time-leg family never reaches that root. So "TetB" here names the time-leg chamber, and how it relates to the parity root is open. HR's locked partition then gives μ(x) as TetB's volume share, and the SST's energy is the relative entropy of the locked potential measured from the subspace.
+Compared with standard HR:
 
-Compared with standard HR, three things change:
-
-| | Standard Hassan–Rosen | GFD-faithful version | Status |
+| | Standard Hassan–Rosen | With the auxiliary time-leg metric | Status |
 |---|---|---|---|
 | The vertex | Linear in V | Nonlinear: the relative entropy D(V/V₀) | Shown (checks 3a–3d) |
-| The second chamber | An independent full-rank metric, close to g in a weak field | Built on g's time leg; differs from g at order 1 in its clock; collapses onto the spatial subspace in the deep field | Shown (checks 1a–2d, 4b, 5a–5c) |
-| Where the interaction acts | Everywhere in the bulk | Possibly at the Field Origin, the throat between TetA and the interior | Not attempted |
+| The second metric | An independent full-rank metric, close to g in a weak field | Built on TetA's time leg; differs from g at order 1 in its clock; collapses onto the spatial subspace as y → 0 | Shown (checks 1a–2d, 4b, 5a–5c) |
+| Where the interaction acts | Everywhere in the bulk | Possibly at the Field Origin, the throat between TetA and TetB | Not attempted |
 
 What remains open:
-1. **An action that selects this second chamber.** f is built from g's first derivatives, not an independent field with its own Einstein–Hilbert term. The open step is an action whose second-metric equation has f = h − y uu as its solution.
-2. **Ghost freedom.** HR's freedom from the Boulware–Deser ghost relies on the interaction being linear in the lapse. A logarithm of V is not, so whether this construction avoids the ghost has to be checked.
-3. **The exchange symmetry of the energy.** The partition is symmetric under swapping the chambers, but the energy D is not (check 4a). That fits matter living in TetA, but the asymmetry has to come from the action.
-4. **The interaction at the Field Origin.** The archive describes TetB as the interior reached only through the Field Origin, beyond a galaxy's central throat. That is a region, not only a tangent subspace. A faithful algebra may need the vertex at the throat, as a junction between two regions, closer to Einstein and Rosen's two sheets joined at a bridge than to HR's bulk potential.
+1. **The chambers themselves.** Replace the auxiliary metric by TetB as its own chamber and find what makes the TetA : TetB odds equal x.
+2. **Ghost freedom.** HR's freedom from the Boulware–Deser ghost relies on the interaction being linear in the lapse. A logarithm of V is not, so whether a nonlinear vertex avoids the ghost has to be checked.
+3. **The exchange symmetry of the energy.** The partition is symmetric under swapping the metrics, but the energy D is not (check 4a). That fits matter living in TetA, but the asymmetry has to come from an action.
+4. **The interaction at the Field Origin.** The archive describes TetB as the interior reached only through the Field Origin, beyond a galaxy's central throat. A faithful algebra may need the vertex at the throat, as a junction between the two chambers, closer to Einstein and Rosen's two sheets joined at a bridge than to HR's bulk potential.
 
 ## Three routes tested
 
-*The previous section built the second chamber by hand. This section tries three ways to understand it: what its logarithm is, how to put it in an action, and what it means physically. Checks: `verify_three_routes.py`. Throughout, x = g/a₀, μ = x/(1 + x), and Z = V/V₀ = 1 + x on the second chamber of the previous section.*
+*The previous section built the auxiliary metric by hand. This section tries three ways to understand it: what its logarithm is, how to put it in an action, and what it means physically. Checks: `verify_three_routes.py`. Throughout, x = g/a₀, μ = x/(1 + x) is TetA's share and 1 − μ TetB's, and Z = V/V₀ = 1 + x on the auxiliary metric of the previous section.*
 
 ### Route 1: the two chambers as a two-state system (what the logarithm is)
 
-Treat TetA and TetB as two states with statistical weights 1 and x. Their partition function is
+Treat TetA and TetB as two states with statistical weights x and 1. Their partition function is
 
   Z = 1 + x,
 
 which is exactly V/V₀, the locked potential on the second chamber divided by its subspace value (checks 1a–1c).
-- **TetB's occupation is μ.** The fraction of the system in TetB, d ln Z/d ln x, is x/(1 + x).
-- **The SST's logarithm is ln Z.** The energy is F = y − 2(Z − 1) + 2 ln Z. The logarithm appears because F adds up TetB's occupation as the field grows, F(y) = ∫ μ dy, and partial fractions of that integral produce ln Z.
+- **TetA's occupation is μ.** The fraction of the system in TetA, d ln Z/d ln x, is x/(1 + x); TetB's is 1/(1 + x).
+- **The SST's logarithm is ln Z.** The energy is F = y − 2(Z − 1) + 2 ln Z. The logarithm appears because F adds up TetA's occupation as the field grows, F(y) = ∫ μ dy, and partial fractions of that integral produce ln Z.
 
 Three algebraic facts sharpen this (checks 1g–1i):
 - **In the log-odds λ = ln x,** ln Z = ln(1 + e^λ) and its slope is the logistic share. Its Legendre dual is the mixing entropy of the two chambers, μ ln μ + (1 − μ) ln(1 − μ). So the shares μ and 1 − μ are the maximum-entropy split for given log-odds.
 - **The time-leg energy is a Gaussian relative entropy:** F − y = −4 KL(𝒩(0, Z) ‖ 𝒩(0, 1)), with Z = 1 + x.
-- **What sets the weights.** If each chamber's weight is a horizon temperature (TetA's set by a₀, TetB's the Unruh temperature of the local acceleration, T_U = ħg/2πck), the odds are g/a₀ and the TetB share is g/(g + a₀) = μ (check 1d).
+- **What sets the weights.** If each chamber's weight is a horizon temperature (TetA's the Unruh temperature of the local acceleration, T_U = ħg/2πck; TetB's set by a₀), the odds are g/a₀ and TetA's share is g/(g + a₀) = μ (check 1d).
 
 Two cautions (checks 1e–1f):
 - **It is not a Boltzmann factor.** A single temperature with a fixed energy gap gives odds below 1 only, so it cannot reach x > 1. The weights are a ratio of temperatures, linear in x.
@@ -155,14 +153,14 @@ Two cautions (checks 1e–1f):
 
 **What it explains, and what it does not.** It explains why the vertex is a logarithm: ln Z is the log-partition function of two chambers. It does not explain why the weights are temperatures, or derive a₀ as one.
 
-### Route 2: TetB's clock rate as a field (how to put it in an action)
+### Route 2: the clock factor as a field (how to put it in an action)
 
-Make TetB's clock factor w a field of its own, with no derivatives (checks 2a–2e). Write the SST's time-leg term as
+Make the auxiliary metric's clock factor w a field of its own, with no derivatives (checks 2a–2e). Write the SST's time-leg term as
 
   F(y) − y = max over w of [ −y/w − w + 1/w + 2 ln w ].
 
 - **The w-equation is algebraic** and gives w = 1 + x exactly. The value there is exactly F − y, and the point is a maximum.
-- **For fixed w the field equation is linear,** as in Milgrom's QUMOND. Its conductivity is 1 − 1/w = 1 − V₀/V, the TetB volume share, which equals μ at w = 1 + x.
+- **For fixed w the field equation is linear,** as in Milgrom's QUMOND. Its conductivity is 1 − 1/w = 1 − V₀/V, the share of the deformed part, which equals μ (TetA's share) at w = 1 + x.
 - **The SST is recovered.** Treating w as an independent field gives the same equation for Φ as the SST (by the envelope theorem).
 
 The covariant form is
@@ -205,7 +203,7 @@ They describe one structure from three sides:
 
 | Route | What it gives | What it still needs |
 |---|---|---|
-| 1. Two-state system | The logarithm is the log-partition function of the two chambers; the shares are maximum-entropy; the energy is a Gaussian relative entropy | Why the weights are temperatures (TetA's at a₀, TetB's Unruh at g) |
+| 1. Two-state system | The logarithm is the log-partition function of the two chambers; the shares are maximum-entropy; the energy is a Gaussian relative entropy | Why the weights are temperatures (TetA's Unruh at g, TetB's at a₀) |
 | 2. Auxiliary field | An action, with no new propagating mode; the constitutive law as the stationarity of the share; F and K as a conjugate pair | Where the cost K = 2(sinh u − u) comes from; the khronon's stability |
 | 4. Throat channel | The spherical field equation as a series law with throat capacity a₀; the bound law as the two-channel case; an area bound on TetB mass | A junction condition that yields the series law; QUMOND versus AQUAL away from symmetry |
 
@@ -218,7 +216,7 @@ They describe one structure from three sides:
 | Axial torsion is zero for static fields and opposite on the two roots under rotation | Exact (checks 2.1, 2.2), for the tetrads tested |
 | Two tetrads on opposite roots have BIMOND's connection difference; the det sign gives α + β = 0 | Exact in the static weak field (checks 3.1, 3.2) |
 | The two fields compose the total as μg + (1 − μ)g, with odds x and exchange symmetry | Exact, **given** μ: the interaction function is fixed by requiring μ (two-potential proof), not derived |
-| A second chamber f = g − (y − 1)uu = h − y uu gives Ω = x, the TetB share μ(x), and the SST's energy as the relative entropy of the locked potential, F − y = −2D(V/V₀) | Exact (`verify_dual_chamber_bimetric.py`) |
+| An auxiliary metric f = g − (y − 1)uu = h − y uu, built on TetA's time leg (not TetB), gives odds x, the logistic share μ(x), and the SST's energy as the relative entropy of the locked potential, F − y = −2D(V/V₀) | Exact (`verify_dual_chamber_bimetric.py`) |
 | Three readings of that structure: a two-state partition function (the logarithm), an auxiliary-field action with no new mode (the share as the conjugate of y), and a throat channel of capacity a₀ (the field equation as a series law) | Exact (`verify_three_routes.py`); each still needs the item listed in its row above |
 | A covariant action for the two-tetrad theory | Not written |
 | μ derived from the exchange of the two tetrads | **Open: the central step** |
@@ -230,7 +228,7 @@ They describe one structure from three sides:
    S = ∫ det(e) L_T(e) + ∫ det(ẽ) L_T(ẽ) + ∫ (interaction in C = Γ(e) − Γ(ẽ)) + matter on TetA,
 
    with det ẽ < 0 supplying the opposite sign. Vary it, and check that the static weak field gives BIMOND's two equations with α + β = 0.
-2. **Supply Ω = x from an action.** A second chamber f = h − y uu gives Ω = x exactly, but it is built by hand. Route 2 gives it an auxiliary-field action with no new mode; what remains is to derive that action (its cost K) from the two chambers, and to settle the time-leg mode's stability. Route 4's open step, a junction condition at the throat that yields the series law, is the alternative.
+2. **Supply Ω = x from the chambers.** An auxiliary metric f = h − y uu gives odds x exactly, but it is built by hand and is not TetB. Route 2 gives it an auxiliary-field action with no new mode; what remains is to derive that action (its cost K) from the two chambers, and to settle the time-leg mode's stability. Route 4's open step, a junction condition at the throat that yields the series law, is the alternative.
 3. **Derive the interaction from exchange.** Exchanging e and ẽ inverts the odds of their fields. Show that requiring this symmetry of the action, as Letter 2's supplement requires it of the shares, fixes the interaction to the function M of the two-potential proof. That would derive μ from the two chambers instead of putting it in, and it is the step that would make the bridge a derivation.
 4. **The vacuum.** When no matter is present, does the theory relax to ẽ = Pe (C = 0, one metric, two roots)? Matter would then pull the roots apart, which is how the dual chamber is described in the archive.
 5. **The solar system.** The same net-field question as in the covariant proof: a local two-tetrad theory gives each star a TetB field up to a₀, which the archive excludes (Coles Notes §5.4).
@@ -243,7 +241,7 @@ They describe one structure from three sides:
 |---|---|
 | [`verify_two_connection.py`](verify_two_connection.py) | 13 checks: the Weitzenböck connection and torsion of both roots, the torsion scalar (validated against R), the vector and axial torsion, the two-tetrad connection difference, and the composition |
 | [`verify_three_routes.py`](verify_three_routes.py) | 25 checks for the three routes: the two-state partition function, its entropy dual and the Gaussian relative entropy; the auxiliary-field action and the share-cost conjugate pair; the throat channel, the family of channel laws, the area bound and the QUMOND form |
-| [`verify_dual_chamber_bimetric.py`](verify_dual_chamber_bimetric.py) | 16 checks for the GFD-faithful bimetric algebra: the disformal second chamber and its eigenvalues, Ω = x and the share μ(x), the relative-entropy energy and its linear and logarithmic pieces, the exchange asymmetry of the energy, and TetB as the spatial subspace |
+| [`verify_dual_chamber_bimetric.py`](verify_dual_chamber_bimetric.py) | 16 checks for the auxiliary time-leg metric: the disformal metric and its eigenvalues, Ω = x and the share μ(x), the relative-entropy energy and its linear and logarithmic pieces, the exchange asymmetry of the energy, and TetB as the spatial subspace |
 
 ## References
 

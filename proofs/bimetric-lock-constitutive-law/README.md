@@ -20,7 +20,7 @@ That is **the lock**, β = (1, 0, 16, 0, 1). Paper XII then adds a further claim
 
 ## The answer in one paragraph
 
-**The lock largely holds as geometry, and it even contains μ, but in the wrong variable.** The potential splits into a TetA part and a TetB part. Exchanging the two metrics inverts their odds Ω, so the TetB share is exactly Ω/(1 + Ω): the form of μ. But μ(x) needs those odds to *be the acceleration*, Ω = x = g/a₀. HR's potential has no derivatives, so in any weak field its odds stay at 1. Deriving μ therefore takes two steps:
+**The lock largely holds as geometry, and it even contains μ, but in the wrong variable.** Reading HR's two metrics as TetA (g) and TetB (f), each its own chamber, the potential splits into a TetA part and a TetB part. Exchanging the two metrics inverts their odds Ω (TetA : TetB), so TetA's share is exactly Ω/(1 + Ω) and TetB's is 1/(1 + Ω): the form of μ and 1 − μ. But μ(x) needs those odds to *be the acceleration*, Ω = x = g/a₀. HR's potential has no derivatives, so in any weak field its odds stay at 1. Deriving μ therefore takes two steps:
 1. **Exchange symmetry of the partition gives μ(Ω).** HR contains this.
 2. **The odds equal the acceleration, Ω = x.** HR cannot supply this; the SST supplies it through the acceleration of the tetrad's time leg.
 
@@ -31,21 +31,21 @@ That is **the lock**, β = (1, 0, 16, 0, 1). Paper XII then adds a further claim
 - **The partition carries μ.**
   - The two volume terms (four TetA legs; four TetB legs, = det S) stand in the ratio 1 : det S.
   - Weighting every term by its number of TetB legs gives the same structure.
-  - In both cases the TetB share is exactly Ω/(1 + Ω), with the metric exchange inverting Ω. The value 16 plays no part.
-- **The stellated octahedron sits at the pole.** In HR's language the compound is S = P, with odds Ω = det P = −1, where Ω/(1 + Ω) has its pole. Its two volume terms cancel (1 − 1 = 0), and that is exactly why V(P) = 0. The total-inversion image −I sits at Ω = 1, the ring x = 1.
+  - In both cases TetA's share is exactly Ω/(1 + Ω) and TetB's is 1/(1 + Ω), with Ω the TetA : TetB odds (1/det S for the volume terms) and the metric exchange inverting Ω. The value 16 plays no part.
+- **The stellated octahedron sits at the pole.** In HR's language the compound is S = P, with odds Ω = 1/det P = −1, where Ω/(1 + Ω) has its pole. Its two volume terms cancel (1 − 1 = 0), and that is exactly why V(P) = 0. The total-inversion image −I sits at Ω = 1, the ring x = 1.
 - **The exchange is the metric swap.** In the potential, the operation that inverts the odds is the exchange of the two metrics (S → S⁻¹). Spatial parity negates the odds instead (Ω → −Ω), and the compound P is its own inverse, a fixed point of the exchange. The null-rotation proof found the same distinction: TetB's count of 13 comes from total inversion, not parity.
 - **β₂ = 16 is supported, not forced.** The Hessian of e₂ over the 16 entries of S has rank 16 (spectrum +3, +1 ×6, −1 ×9), as Paper XII states, but Paper XII takes β₂ = 16 as an axiom and it drops out of μ. What it does fix: the background, the graviton mass and the Higuchi margin.
 
 ## What does not hold
 
-- **The odds are not the acceleration.** For two static weak-field metrics the volume odds are the lapse ratio N̂/N = 1 + O(Φ/c²), so the shares stay at ½: μ is reached only at x = 1. By leg count it is worse: the locked odds are (25n + 24)/(24n + 25), confined to [24/25, 25/24].
+- **The odds are not the acceleration.** For two static weak-field metrics the volume odds are the inverse lapse ratio N/N̂ = 1 + O(Φ/c²), so the shares stay at ½: μ is reached only at x = 1. By leg count it is worse: the locked odds are (24n + 25)/(25n + 24), confined to [24/25, 25/24].
 - **The standard reduction gives a density law, for any β.** Around a static mass the response depends on the enclosed mass only through M/r³, on every branch. No function of M/r³ equals a function of x ∝ M/r² for all masses and radii. On the branch that matches the weak-field solution the enhancement is below 1.71; the other roots weaken gravity or give a mass-independent force growing like r. None is MOND.
 - **HR cannot see the two roots.** By Letter 2's Lemma, TetA = e and TetB = Pe have the same metric, so HR's g⁻¹f = I on either root. The two roots are the two square-root branches of the identity, and HR's metric form uses only the principal one.
 - **A hand-built frame supplies Ω = x, but it is not HR.** Deforming one leg of a single frame by w = |a|/a₀ gives V = 49(1 + w) and the share w/(1 + w) = μ(x). It works only because it builds step 2 in by hand: the deformation is not an HR metric, its two shares are not the two roots, and the energy F is not HR's linear vertex: it is a nonlinear function of V, F − y = −2D(V/V₀), the relative entropy of the potential (see the research note).
 
 **What remains open** is an action that supplies Ω = x from the two chambers themselves. Letter 2 places the partition in the torsion sector, where the time leg's acceleration is the torsion component T⁰ᵢ₀. That is the subject of the research note [`research/two-connection-dual-chamber/`](../../research/two-connection-dual-chamber/). Its section *A GFD-faithful bimetric algebra* shows what Hassan–Rosen has to become to reproduce μ(x): a second chamber whose clock runs at the acceleration ratio (TetB as the spatial subspace, f = h − y uu), giving Ω = x, with a nonlinear vertex, the relative entropy of the locked potential, in place of Hassan–Rosen's linear one.
 
-**One definitional question this raises.** That construction's second chamber is built along the time leg, with det S = x > 0. It is not the parity root Pe that Letters 1–2 call TetB: the parity root has det S = −1, and the deformed family never reaches it (Theorem 9, check D18). So the proof's results about the parity root and the research note's results about the time-leg chamber are about two different objects, and which one is TetB, or how they relate, is open.
+**What that construction's second chamber is not.** The research note's second metric is built along TetA's time leg, with det S > 0. It is not TetB. In the archive TetB is its own chamber, the parity component of the tetrad equation reached through the Field Origin (det S = −1), not a time leg and not reverse time (Coles Notes, naming table; `EINSTEIN_TETA_PARTITION.md`). The time-leg metric is an auxiliary device that shows what Hassan–Rosen's algebra would need in order to carry the acceleration; the deformed family never reaches TetB's root (Theorem 9, check D18).
 
 ## Results
 
@@ -60,9 +60,9 @@ That is **the lock**, β = (1, 0, 16, 0, 1). Paper XII then adds a further claim
 | Corollary 1 | The g ↔ f symmetry holds iff β is palindromic, and palindromic β satisfies the condition. The share is canonical: it is the elasticity w d ln V/dw. Then and V = (β₀ + 4β₁ + 3β₂)(1 + w). For the lock, V = 49(1 + w), with β₂ cancelling from the share. V/V(I) = det[(I + S)/2], the volume of the midpoint frame |
 | Remark: not the two chambers | The shares w/(1+w) and 1/(1+w) sum to 1, have odds w and swap under w → 1/w, but they are the deformed leg and the three undeformed legs of one frame. On the roots V(I) = 98 and V(P) = 0; on the path between them V = (1+s)(s² + 47s + 1), with no exchange symmetry |
 | 7. The time leg, and what V does not supply | With w = \|a\|/a₀ for the time leg's acceleration, w = x exactly in a static field (see [`../sst-covariant-time-leg/`](../sst-covariant-time-leg/)). The auxiliary energy E(u; y) = (1 − e^{−u})y − 2(sinh u − u), with u = ln(V/V₀), is stationary at V/V₀ = 1 + x, with value F(y) and slope μ. Its u-dependence contains no β: the potential supplies the variable, not the energy |
-| 8. The partition carries μ | For palindromic β, the volume terms split 1 : det S, and the leg-weighted share sum n βₙeₙ/(4V) has the same structure. In both the TetB share is Ω/(1 + Ω), the metric exchange inverts Ω, and total inversion fixes it |
-| 9. Which operation exchanges the chambers | β₁ = β₃ = 0 iff V(−S) = V(S). Spatial parity negates the odds; only the metric exchange inverts them. S = P sits at Ω = −1, the pole, which is why V(P) = 0; −I sits at Ω = 1, the ring |
-| 10. The odds are not the acceleration | For two static weak-field metrics the volume odds are N̂/N → 1 and the locked leg odds are (25n + 24)/(24n + 25) ∈ [24/25, 25/24]. μ across all x needs Ω = g/a₀, the deformed frame |
+| 8. The partition carries μ | For palindromic β, the volume terms split 1 : det S, and the leg-weighted share has the same structure. In both TetA's share is Ω/(1 + Ω) and TetB's 1/(1 + Ω), with Ω the TetA : TetB odds; the metric exchange inverts Ω, and total inversion fixes it |
+| 9. Which operation exchanges the chambers | β₁ = β₃ = 0 iff V(−S) = V(S). Spatial parity negates the odds; only the metric exchange inverts them. S = P sits at Ω = 1/det P = −1, the pole, which is why V(P) = 0; −I sits at Ω = 1, the ring |
+| 10. The odds are not the acceleration | For two static weak-field metrics the volume odds are N/N̂ → 1 and the locked leg odds are (24n + 25)/(25n + 24) ∈ [24/25, 25/24]. μ across all x needs Ω = g/a₀, the deformed frame |
 | Corollary 2: β₂ | The Hessian of e₂ has rank 16 (spectrum +3, +1 ×6, −1 ×9); β₂ drops out of μ(Ω) and is an axiom in Paper XII |
 
 ## Further checks (Part D of the script)

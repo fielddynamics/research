@@ -1,6 +1,6 @@
 """Checks for the section 'A GFD-faithful bimetric algebra' of the research note 'Two connections and the dual chamber'.
-Keep Hassan-Rosen's partition (bimetric proof, Theorem 8: TetB share = Omega/(1+Omega), Omega = det S) and let the second chamber's
-metric be built on the first one's time leg: f = g - (y - 1) u u = h - y u u, i.e. TetB is the spatial subspace with its clock
+Keep Hassan-Rosen's partition (bimetric proof, Theorem 8) and evaluate it on an auxiliary metric built on TetA's time leg:
+f = g - (y - 1) u u = h - y u u, i.e. TetA's spatial subspace with its clock
 running at rate x = c^2|a|/a0. Exact sympy. Run: python verify_dual_chamber_bimetric.py"""
 import sympy as sp
 from itertools import combinations
@@ -34,14 +34,14 @@ Ms=sp.simplify(gs.inv()*fs)
 check("1b on a static metric, g^-1 f = diag(y, 1, 1, 1), so S = sqrt(g^-1 f) = diag(x, 1, 1, 1) with x = sqrt(y) > 0: the principal root, "
       "which Hassan-Rosen's metric form does see", Ms==sp.diag(y,1,1,1) and sp.diag(x,1,1,1)**2==Ms.subs(y,x**2))
 check("1c f is a disformal transformation of g along the time leg (the form Bekenstein's disformal and TeVeS metrics take); f(u,u) = -y, so "
-      "TetB's proper time along u runs at rate x relative to TetA's",
+      "the auxiliary metric's proper time along u runs at rate x relative to TetA's (it is a device, not TetB)",
       sp.simplify(-1-(y-1)*(-1)**2 - (-y))==0)
 
 # 2. the locked potential on this second chamber, and the partition
 ev=[x,1,1,1]
 check("2a the locked potential is V = 49 (1 + x), and V/V(I) = det[(I + S)/2] = (1 + x)/2",
       sp.expand(V(ev)-49*(1+x))==0 and sp.simplify(V(ev)/V([1]*4)-sp.prod([(1+t)/2 for t in ev]))==0)
-check("2b the odds of the two volume terms are Omega = det S = x, so Theorem 8's TetB share is Omega/(1 + Omega) = x/(1 + x) = mu(x): "
+check("2b the two volume terms stand in the ratio 1 : det S = 1 : x, so the deformed part's share is x/(1 + x) = mu(x), TetA's share in the archive: "
       "the dual-chamber partition and GFD's constitutive law coincide, with Omega = x supplied by the time leg",
       sp.prod(ev)==x and sp.simplify(mu(sp.prod(ev))-x/(1+x))==0)
 check("2c the share is the SST's own slope: F'(y) = mu(sqrt y) = det S/(1 + det S)", sp.simplify(sp.diff(F(y),y)-mu(sp.sqrt(y)))==0)
@@ -74,11 +74,11 @@ Phi=sp.symbols('Phi_over_c2',real=True)
 check("4b f is far from g in a galaxy: f(u,u)/g(u,u) = y, of order 1 even though Phi/c^2 ~ 1e-6. The second chamber differs from the "
       "first at O(1) in its clock, not at O(Phi/c^2) as an HR weak-field solution would",
       sp.simplify((us.T*fs*us)[0]/(us.T*gs*us)[0]-y)==0)
-# 5. TetB as a subspace
+# 5. the auxiliary metric degenerates onto TetA's spatial subspace
 hS=gs+(gs*us)*(gs*us).T                     # spatial metric h = g + u u
-check("5a f = h - y u u: TetB's metric is the spatial subspace orthogonal to the time leg, with its time direction weighted by y",
+check("5a f = h - y u u: the auxiliary metric is the spatial subspace orthogonal to the time leg, with its time direction weighted by y",
       sp.simplify(fs-(hS-y*(gs*us)*(gs*us).T))==sp.zeros(4))
-check("5b in the deep field (y -> 0) TetB collapses onto that subspace: f has rank 3 while g has rank 4", fs.subs(y,0).rank()==3 and gs.rank()==4)
+check("5b as y -> 0 the auxiliary metric collapses onto that subspace: f has rank 3 while g has rank 4", fs.subs(y,0).rank()==3 and gs.rank()==4)
 check("5c the reference value of the vertex is the subspace: V(diag(0,1,1,1)) = 49 = V0, against V(I) = 98 at f = g",
       V([0,1,1,1])==49 and V([1,1,1,1])==98)
 

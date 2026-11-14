@@ -29,8 +29,8 @@ palindromic. Its odd coefficients vanish exactly under total inversion
 $S\to-S$, not spatial parity. And the partition it defines carries
 $\mu$: the two volume terms, and every term weighted by its number of
 TetB legs, split in a ratio whose odds $\Omega$ are inverted by the
-metric exchange, so the TetB share is exactly $\mu(\Omega) =
-\Omega/(1+\Omega)$. The stellated octahedron ($S = P$) sits at the pole
+metric exchange, so the TetA share is exactly $\mu(\Omega) =
+\Omega/(1+\Omega)$ and the TetB share $1-\mu(\Omega)$. The stellated octahedron ($S = P$) sits at the pole
 $\Omega = -1$, which is why the potential vanishes there.
 \emph{The bridge to the SST does not hold.} $\mu$ needs a second
 ingredient: odds equal to the acceleration, $\Omega = x = g/a_0$. HR's
@@ -261,8 +261,11 @@ A vertex of this form is not HR's.
 
 \section*{Part C: what the lock establishes}
 
-Write $\Omega$ for the odds between a TetB share and a TetA share, so
-that the TetB share is $\Omega/(1+\Omega)$. Letter~2's
+Write $\Omega$ for the odds between the TetA share and the TetB share,
+so that, as in the archive, TetA carries $\mu(\Omega) = \Omega/(1+\Omega)$
+and TetB carries $1 - \mu(\Omega) = 1/(1+\Omega)$. Here HR's first metric
+$g$ is read as TetA and its second metric $f$ as TetB, each its own
+chamber. Letter~2's
 supplement~\cite{NelsonL2} derives $\mu$ from two ingredients: an
 exchange that inverts $\Omega$, and odds of degree one in the
 acceleration, $\Omega = x$. This part asks which of the two the locked
@@ -273,10 +276,10 @@ $\beta$:
 \begin{enumerate}
 \item the volume terms $\beta_0e_0$ (four TetA legs) and
 $\beta_4e_4 = \beta_0\det S$ (four TetB legs) stand in the ratio
-$1:\det S$, so with $\Omega = \det S$ the TetB share of the pair is
-$\Omega/(1+\Omega)$;
-\item weighting every term by its number of TetB legs gives the share
-$\sum_n n\beta_ne_n/(4V)$, which in its own odds is exactly
+$1:\det S$, so with $\Omega = 1/\det S$ the TetA share of the pair is
+$\Omega/(1+\Omega)$ and the TetB share $\det S/(1+\det S)$;
+\item weighting every term by its number of TetA legs gives the share
+$\sum_n (4-n)\beta_ne_n/(4V)$, which in its own odds is exactly
 $\Omega/(1+\Omega)$, for every $S$ and every $\beta_2$;
 \item in both cases the metric exchange $S\to S^{-1}$ inverts $\Omega$
 and swaps the shares, and total inversion $S\to-S$ leaves them
@@ -293,7 +296,7 @@ $V(-S) - V(S) = -2(\beta_1e_1 + \beta_3e_3)$: the lock is symmetric
 under total inversion, $V(-I) = V(I) = 98$, not under spatial parity,
 $V(P) = 0$. (ii) Spatial parity of one tetrad negates the odds,
 $\Omega\to-\Omega$; only the metric exchange inverts them. (iii) The
-stellated octahedron $S = P$ has $\Omega = \det P = -1$, the pole of
+stellated octahedron $S = P$ has $\Omega = 1/\det P = -1$, the pole of
 $\Omega/(1+\Omega)$: its two volume terms cancel and $e_2(P) = 0$,
 which is why $V(P) = 0$. $P$ is its own inverse, so it is a fixed
 point of the exchange. The total-inversion image $-I$ has $\Omega = 1$:
@@ -310,12 +313,12 @@ count is reproduced by total inversion.
 
 \textbf{Theorem 10 (the odds are not the acceleration).} \emph{For two
 static weak-field metrics, $S = \mathrm{diag}(n,1,1,1)$ with
-$n = \hat N/N$. The volume odds are $n$; the locked leg odds are
-$(25n+24)/(24n+25)$, confined to $[24/25,\,25/24]$. In the weak field
-$n = \exp[(\hat\phi-\phi)/c^2]\to1$, so the odds stay at 1 and the
-shares at $\tfrac12$: $\mu$ is reached only at $x = 1$. Reaching every
-$x$ requires $\Omega = n = g/a_0$, a second lapse built from the
-gradient of the first, which is the deformed frame of Part~B.}
+$n = \hat N/N$. The volume odds are $\Omega = 1/n$; by leg count the
+locked odds are $(24n+25)/(25n+24)$, confined to $[24/25,\,25/24]$. In
+the weak field $n = \exp[(\hat\phi-\phi)/c^2]\to1$, so the odds stay at
+1 and the shares at $\tfrac12$: $\mu$ is reached only at $x = 1$.
+Reaching every $x$ requires $\Omega = 1/n = g/a_0$, a second lapse built
+from the gradient of the first, which is the deformed frame of Part~B.}
 
 \begin{proof}
 Checked (E10--E12).
@@ -351,10 +354,11 @@ because it builds in step~(2) by hand.
 \item \emph{Open.} An action that supplies $\Omega = x$ from the two
 chambers themselves. The research note~\cite{NelsonTwoConn} gives one
 with an auxiliary field and a relative-entropy vertex, on a second
-chamber built along the time leg ($\det S = x > 0$). That chamber is not
-the parity root $Pe$ of Letters~1--2 (Theorem~9 and check~D18 show the
-deformed family never reaches $\det S < 0$); which object is TetB is
-itself open. Letter~2 places the partition in the torsion
+chamber built along the time leg ($\det S = x > 0$). That metric is an
+auxiliary device, not TetB: in the archive TetB is its own chamber, the
+parity root $Pe$ of Letters~1--2, reached through the Field Origin
+($\det S = -1$), and the deformed family never reaches it (Theorem~9,
+check~D18). Letter~2 places the partition in the torsion
 sector, where the time leg's acceleration is the torsion component
 $T^0{}_{i0}$; that is the subject of~\cite{NelsonTwoConn}. Also not done
 here: the full bimetric (dynamical $f$) decoupling limit.
