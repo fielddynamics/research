@@ -50,6 +50,18 @@ check("A7 the locked potential is not the coupling polynomial: on S = diag(1,s,s
       "not 1 + 4 s + 16 s^2 (21, 17, 13)",
       sp.expand(V([1, s, s, s], LOCK) - (1 + 48*s + 48*s**2 + s**3)) == 0 and [V([1, t, t, t], LOCK) for t in (1, 0, -1)] == [98, 1, 0])
 
+# A8-A9 Letter 2's lemma applied to Hassan-Rosen: the potential is root-blind
+Nn = sp.Function("N")(*sp.symbols("X Y Z")); cc = sp.symbols("c", positive=True)
+eta = sp.diag(-1, 1, 1, 1); Pm = sp.diag(1, -1, -1, -1)
+eA = sp.diag(Nn*cc, 1 + sp.Function("h")(*sp.symbols("X Y Z")), 1, 1)   # a static tetrad (TetA)
+eB = Pm*eA                                                                # its parity root (TetB)
+gA, gB = eA.T*eta*eA, eB.T*eta*eB
+check("A8 Letter 2's Lemma: TetA = e and TetB = Pe give the same metric, while det e changes sign (the two roots of one metric)",
+      sp.simplify(gA - gB) == sp.zeros(4) and sp.simplify(eA.det() + eB.det()) == 0)
+check("A9 so Hassan-Rosen's metric-form matrix g^-1 f is the identity when f is built from TetB: the potential takes the same value for "
+      "either root and cannot tell TetA from TetB; only the vielbein form e^-1(Pe) = P sees the second root, where V(P) = 0 (A6)",
+      sp.simplify(gA.inv()*gB) == sp.eye(4) and sp.simplify(eA.inv()*eB) == Pm)
+
 # ---------------- Part B: the acceleration-deformed frame
 Vw = V([1, 1, 1, w], b); A = Vw.subs(w, 0); B = sp.expand(Vw.coeff(w))
 check("B1 on the rank-one deformation S = diag(1,1,1,w), V = A + B w for every beta, with A = b0+3b1+3b2+b3 and B = b1+3b2+3b3+b4",
@@ -70,6 +82,12 @@ check("B5 for the locked set V = 49(1 + w), and b2 = 16 cancels from the share: 
 check("B6 the condition is not implied by beta2 or by vanishing odd terms alone: b = (1, 0, 16, 0, 2) fails it", (1 + 0 - 0 - 2) != 0)
 check("B7 on this family V/V(I) = det[(I + S)/2]: the ratio is the volume of the midpoint (Field-Origin) frame",
       sp.simplify(V([1, 1, 1, w], LOCK)/V([1, 1, 1, 1], LOCK) - sp.prod([(1 + t)/2 for t in (1, 1, 1, w)])) == 0)
+
+# B8 the deformed-frame shares are not the two roots
+check("B8 the two shares of Theorem 5 are two parts of one deformed frame, not the two roots: on the actual roots the locked potential is "
+      "V(I) = 98 and V(P) = 0, and on the path between them, diag(1,s,s,s), it is (1+s)(s^2+47s+1), with no exchange symmetry between the ends",
+      V([1, 1, 1, 1], LOCK) == 98 and V(P, LOCK) == 0
+      and sp.expand(V([1, s, s, s], LOCK) - (1 + s)*(s**2 + 47*s + 1)) == 0)
 
 # ---------------- Part C: the dynamics, and the time leg
 E = (1 - sp.exp(-u))*y - 2*(sp.sinh(u) - u)
