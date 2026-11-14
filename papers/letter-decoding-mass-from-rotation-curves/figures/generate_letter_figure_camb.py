@@ -1,6 +1,6 @@
 """
 Four-panel CamB figure (Figure 2): rotation curve, enclosed mass, mass deficit,
-and power output. Hardcoded CamB data from SPARC Lelli+2016.
+and brake. Hardcoded CamB data from SPARC Lelli+2016.
 
 For submission, Figure 2 is generated together with Figures 1 and 3 by
 generate_letter_figures.py. This script remains available for standalone
@@ -126,7 +126,7 @@ M_nfw = np.array([nfw_enclosed_mass_simple(float(rk), m200) for rk in r_model])
 M_cdm = camb_M_enc(r_model * KPC) + M_nfw
 v_cdm = np.sqrt(G * M_cdm / (r_model * KPC)) / 1e3
 
-# Power output / mass deficit — observation-based only
+# Brake / mass deficit — observation-based only
 M_phot_on_decode = np.interp(r_decode, r_model, M_phot / MSUN)
 M_dec_Msun = M_dec / MSUN
 Delta_M = M_phot_on_decode - M_dec_Msun  # Equation from the letter
@@ -156,7 +156,7 @@ ax1 = fig.add_subplot(gs[0, 0])
 ax1.plot(r_model, v_newt, "--", color="0.6", lw=1.2,
          label=r"Newtonian (standard $G$)")
 ax1.plot(r_model, v_cdm, ":", color="C3", lw=1.5, alpha=0.8,
-         label=r"$\Lambda$CDM (NFW halo fit)")
+         label=r"$\Lambda$CDM (NFW, abundance matching; not fitted)")
 ax1.plot(r_model, v_gfd, "--", color="C2", lw=1.5, alpha=0.8,
          label="GFD (photometric)")
 ax1.plot(r_decode, v_dec, "-", color="C2", lw=2.0,
@@ -187,7 +187,7 @@ ax2.semilogy(r_decode, M_dec_Msun, "-", color="C2", lw=2.0,
 # Shade the gap between photometric and decoded
 ax2.fill_between(r_decode, M_dec_Msun, M_phot_on_decode,
                  alpha=0.15, color="C0",
-                 label=r"$\Delta M_{\rm enc}$ (interior contribution)")
+                 label=r"$\Delta M_{\rm enc}$ (brake)")
 ax2.set_xlabel(r"$r$ [kpc]")
 ax2.set_ylabel(r"$M_{\rm enc}$ [$M_\odot$]")
 ax2.set_xlim(0, r_model[-1])
@@ -267,7 +267,7 @@ ax3.text(0.0, 1.05,
 ax3.grid(True, alpha=0.2)
 
 # =========================================================================
-# Panel (d): Decoded mass + power output (observed range only)
+# Panel (d): Decoded mass + brake (observed range only)
 # M_dec(r) + Delta_M(r) reconstructs M_phot(r) over 0.16–1.79 kpc.
 # =========================================================================
 ax4 = fig.add_subplot(gs[1, 1])
@@ -275,7 +275,7 @@ ax4 = fig.add_subplot(gs[1, 1])
 # Boosted decoded mass: observation range
 M_boosted_Msun = M_dec_Msun + Delta_M
 
-# Total power output at outermost observed radius
+# Total brake at outermost observed radius
 Delta_total = Delta_M[-1]
 r_outer_val = r_decode[-1]
 
@@ -291,10 +291,10 @@ ax4.semilogy(r_decode, M_dec_Msun, "-", color="C2", lw=2.0, alpha=0.5,
 ax4.semilogy(r_decode, M_boosted_Msun, "-", color="C0", lw=2.5,
              label=r"$M_{\rm dec} + \Delta M_{\rm enc}(r)$")
 
-# Shade the power output region
+# Shade the brake region
 ax4.fill_between(r_decode, M_dec_Msun, M_boosted_Msun,
                  alpha=0.18, color="C0",
-                 label=r"$\Delta M_{\rm enc}(r)$ (power output)")
+                 label=r"$\Delta M_{\rm enc}(r)$ (brake)")
 
 ax4.set_xlabel(r"$r$ [kpc]")
 ax4.set_ylabel(r"$M_{\rm enc}$ [$M_\odot$]")
@@ -318,7 +318,7 @@ ax4.text(0.04, 0.77,
          bbox=dict(boxstyle="round,pad=0.3", fc="white", ec="#2166ac", alpha=0.85))
 
 ax4.text(0.0, 1.05,
-         r"(d) Decoded mass + power output $\Delta M_{\rm enc}(r)$",
+         r"(d) Decoded mass + brake $\Delta M_{\rm enc}(r)$",
          transform=ax4.transAxes, fontweight="bold", fontsize=9)
 ax4.grid(True, alpha=0.2, which="both")
 

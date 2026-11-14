@@ -28,12 +28,12 @@ Figure 1 (fig1_mw_m33): 4-panel, two-column figure.
   (d) M33 velocity-decoded effective mass (covariant) (same encoding as (b)).
 
 Figure 2 (fig2_camb): 4-panel, two-column figure. Low-surface-brightness
-  galaxy CamB: exterior vs effective mass; mass deficit and power output.
+  galaxy CamB: exterior vs effective mass; mass deficit (a brake).
   (a) CamB rotation curve.
   (b) CamB mass: LambdaCDM, GFD photometric, velocity-decoded
-      effective mass; shaded gap = interior contribution.
+      effective mass; shaded gap = the brake.
   (c) Mass gap M_phot/M_dec (observed range).
-  (d) Decoded mass + power output Delta M_eff(r).
+  (d) Decoded mass + brake Delta M_eff(r).
 
 Figure 3 (fig3_ngc3198): 2-panel, single-column figure for the conclusion.
   (a) NGC 3198 rotation curve (same curve encoding as Figure 1).
@@ -472,7 +472,7 @@ plt.savefig(os.path.join(_figdir, 'fig1_mw_m33.pdf'), bbox_inches='tight')
 plt.close()
 
 # ===========================================================================
-# FIGURE 2: CamB — 4-panel (rotation curve, effective mass, mass gap, power output)
+# FIGURE 2: CamB — 4-panel (rotation curve, effective mass, mass gap, brake)
 #
 # CamB is a low-surface-brightness dwarf galaxy (SPARC, Lelli+2016).
 # It demonstrates the OPPOSITE case from MW/M33: the effective mass
@@ -480,7 +480,8 @@ plt.close()
 #
 # In the GFD framework this is expected: the spacetime topology (throat
 # interior) modifies the exterior field, and Delta_M = M_phot - M_dec
-# measures the power output from the interior.
+# measures the interior's brake (TetB holding the field
+# below what the baryons alone would produce).
 #
 # All panels use data only over the observed range (0.16–1.79 kpc).
 # ===========================================================================
@@ -550,10 +551,10 @@ camb_M_nfw = np.array([nfw_enclosed_mass_simple(float(rk), camb_m200) for rk in 
 camb_M_cdm = camb_M_enc(camb_r_model * KPC) + camb_M_nfw
 camb_v_cdm = np.sqrt(G * camb_M_cdm / (camb_r_model * KPC)) / 1e3
 
-# POWER OUTPUT / MASS DEFICIT
+# BRAKE / MASS DEFICIT
 # Delta_M(r) = M_phot(r) - M_dec(r)
 # When M_dec < M_phot (as in CamB), the field is weaker than the baryons
-# alone should produce.  Delta_M measures the power output from the throat
+# alone should produce.  Delta_M measures the brake from the throat
 # interior.  Computed ONLY over the observed range — no extrapolation.
 camb_M_phot_on_decode = np.interp(camb_r_decode, camb_r_model, camb_M_phot / MSUN)
 camb_M_dec_Msun = camb_M_dec / MSUN
@@ -566,7 +567,7 @@ gs2 = GridSpec(2, 2, hspace=0.36, wspace=0.36, left=0.10, right=0.96, top=0.94, 
 # Panel (a): CamB rotation curve
 ax2a = fig2.add_subplot(gs2[0, 0])
 ax2a.plot(camb_r_model, camb_v_newt, "--", color="0.6", lw=1.2, label=r"Newtonian (standard $G$)")
-ax2a.plot(camb_r_model, camb_v_cdm, ":", color="C3", lw=1.5, alpha=0.8, label=r"$\Lambda$CDM (NFW halo fit)")
+ax2a.plot(camb_r_model, camb_v_cdm, ":", color="C3", lw=1.5, alpha=0.8, label=r"$\Lambda$CDM (NFW, abundance matching; not fitted)")
 ax2a.plot(camb_r_model, camb_v_gfd, "--", color="C2", lw=1.5, alpha=0.8, label="GFD (photometric)")
 ax2a.plot(camb_r_decode, camb_v_dec, "-", color="C2", lw=2.0, label="GFD velocity decode (no mass input)")
 ax2a.errorbar(camb_r_obs, camb_v_obs, yerr=camb_e_obs, fmt="o", ms=3, color="k", ecolor="0.4",
@@ -590,7 +591,7 @@ ax2b.fill_between(camb_r_decode, camb_M_dec_lo / MSUN, camb_M_dec_hi / MSUN,
 ax2b.semilogy(camb_r_decode, camb_M_dec_Msun, "-", color="C2", lw=2.0,
               label=r"$M_{\rm dec}$ (velocity decoded = effective mass)")
 ax2b.fill_between(camb_r_decode, camb_M_dec_Msun, camb_M_phot_on_decode,
-                  alpha=0.15, color="C0", label=r"$\Delta M_{\rm eff}$ (interior contribution)")
+                  alpha=0.15, color="C0", label=r"$\Delta M_{\rm eff}$ (brake)")
 ax2b.set_xlabel(r"$r$ [kpc]")
 ax2b.set_ylabel(r"$M_{\rm dec}$ [$M_\odot$]")
 ax2b.set_xlim(0, camb_r_model[-1])
@@ -640,7 +641,7 @@ ax2c.text(0.0, 1.05, r"(c) Mass gap $M_{\rm phot}\,/\,M_{\rm dec}$ (observed ran
           transform=ax2c.transAxes, fontweight="bold", fontsize=9)
 ax2c.grid(True, alpha=0.2)
 
-# Panel (d): Decoded mass + power output
+# Panel (d): Decoded mass + brake
 ax2d = fig2.add_subplot(gs2[1, 1])
 camb_M_boosted_Msun = camb_M_dec_Msun + camb_Delta_M
 camb_Delta_total = camb_Delta_M[-1]
@@ -656,7 +657,7 @@ ax2d.semilogy(camb_r_decode, camb_M_dec_Msun, "-", color="C2", lw=2.0, alpha=0.5
 ax2d.semilogy(camb_r_decode, camb_M_boosted_Msun, "-", color="C0", lw=2.5,
               label=r"$M_{\rm dec} + \Delta M_{\rm eff}(r)$")
 ax2d.fill_between(camb_r_decode, camb_M_dec_Msun, camb_M_boosted_Msun,
-                 alpha=0.18, color="C0", label=r"$\Delta M_{\rm eff}(r)$ (power output)")
+                 alpha=0.18, color="C0", label=r"$\Delta M_{\rm eff}(r)$ (brake)")
 ax2d.set_xlabel(r"$r$ [kpc]")
 ax2d.set_ylabel(r"$M_{\rm dec}$ [$M_\odot$]")
 ax2d.set_xlim(0, camb_r_model[-1])
@@ -671,7 +672,7 @@ ax2d.text(0.04, 0.84, f"Over observed $r = {camb_r_decode[0]:.2f}$–${camb_r_ou
 ax2d.text(0.04, 0.77, f"$\\Delta M_{{\\rm eff}} = {mantissa:.2f} \\times 10^{exp}\\;M_\\odot$",
          transform=ax2d.transAxes, fontsize=9, fontweight="bold", color="#2166ac", va="top",
          bbox=dict(boxstyle="round,pad=0.3", fc="white", ec="#2166ac", alpha=0.85))
-ax2d.text(0.0, 1.05, r"(d) Decoded mass + power output $\Delta M_{\rm eff}(r)$",
+ax2d.text(0.0, 1.05, r"(d) Decoded mass + brake $\Delta M_{\rm eff}(r)$",
           transform=ax2d.transAxes, fontweight="bold", fontsize=9)
 ax2d.grid(True, alpha=0.2, which="both")
 

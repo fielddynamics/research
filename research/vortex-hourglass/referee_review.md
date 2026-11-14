@@ -179,12 +179,12 @@ It found the following, and each is now corrected:
 | **m2.** The CamB provenance: the columns are two over, and the /2.5 divisor is unexplained. | F1 reworded. |
 | **m9.** "The only parity-invariant case" holds for the swirl only, and the script's check was trivial. | `LEMMA.md` and the README reworded; the check replaced with a real one (21/21). |
 
-**Findings for the decoding-mass letter** (not changed; for the author):
-- **M7. CamB's Figure 2, after the correction.** The Newtonian baryonic curve lies above the observed velocities inside about 1 kpc (12.4 against 8.9 km/s), which usually signals non-circular motion in a Q = 2 dwarf. Also, the curve labelled "NFW halo fit" is abundance-matched, not fitted, and it misses the inner points.
-- **F5, again.** The letter presents CamB, a brake by the framework's definition, as the example of "power output".
-- **m3.** `run_all_validations.py` checks no CamB number.
+**Findings for the decoding-mass letter** (M7 and F5 fixed in the letter on 2026-11-14, with the author's approval):
+- **M7. CamB's Figure 2, after the correction.** The Newtonian baryonic curve lies above the observed velocities inside about 1 kpc (12.4 against 8.9 km/s), which usually signals non-circular motion in a Q = 2 dwarf. Also, the curve labelled "NFW halo fit" is abundance-matched, not fitted, and it misses the inner points. *Fixed:* the legend and caption now say "NFW halo sized by abundance matching, not fitted". The caption states that the Newtonian curve lies above the data inside 1 kpc and that CamB's SPARC quality flag is 2, so non-circular motion may contribute there.
+- **F5, again.** The letter presented CamB, a brake by the framework's definition, as the example of "power output". *Fixed:* §4 now says the sign of $\Delta M_{\rm eff}$ tells what the interior is doing (negative: drive; positive: brake), and calls CamB a brake: its decoded mass lies below the photometric mass at every observed radius, by 0.77 dex at 1.79 kpc. Figure 2's panel (d) and its legends say "brake", and the vortex paragraph says the drain drives or brakes. The letter is still 5 pages.
+- **m3.** `run_all_validations.py` checks no CamB number. *Still open.*
 
-**Finding for Letter 2** (not changed): **M8.** Its Proposition, "a torsionful connection … is therefore root-resolving", is contradicted by the Gram-matrix proof's Proposition 2(a). Its Lemma and its "necessary carrier" Corollary are correct.
+**Finding for Letter 2** (not changed; explained to the author, awaiting a decision): **M8.** Its Proposition, "a torsionful connection … is therefore root-resolving", is contradicted by the Gram-matrix proof's Proposition 2(a). Its Lemma and its "necessary carrier" Corollary are correct.
 
 **Gram-matrix proof** (m5–m8): its script labels are realigned with the paper, and its wording is tightened (see the proof's folder).
 
