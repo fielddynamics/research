@@ -43,7 +43,7 @@ That is **the lock**, β = (1, 0, 16, 0, 1). Paper XII then adds a further claim
 - **HR cannot see the two roots.** By Letter 2's Lemma, TetA = e and TetB = Pe have the same metric, so HR's g⁻¹f = I on either root. The two roots are the two square-root branches of the identity, and HR's metric form uses only the principal one.
 - **A hand-built frame supplies Ω = x, but it is not HR.** Deforming one leg of a single frame by w = |a|/a₀ gives V = 49(1 + w) and the share w/(1 + w) = μ(x). It works only because it builds step 2 in by hand: the deformation is not an HR metric, its two shares are not the two roots, and the energy F is not in V.
 
-**What remains open** is an action that supplies Ω = x from the two chambers themselves. Letter 2 places the partition in the torsion sector, where the time leg's acceleration is the torsion component T⁰ᵢ₀. That is the subject of the research note [`research/two-connection-dual-chamber/`](../../research/two-connection-dual-chamber/).
+**What remains open** is an action that supplies Ω = x from the two chambers themselves. Letter 2 places the partition in the torsion sector, where the time leg's acceleration is the torsion component T⁰ᵢ₀. That is the subject of the research note [`research/two-connection-dual-chamber/`](../../research/two-connection-dual-chamber/). Its section *A GFD-faithful bimetric algebra* shows what Hassan–Rosen has to become to reproduce μ(x): a second chamber whose clock runs at the acceleration ratio (TetB as the spatial subspace, f = h − y uu), giving Ω = x, with a nonlinear vertex, the relative entropy of the locked potential, in place of Hassan–Rosen's linear one.
 
 ## Results
 
