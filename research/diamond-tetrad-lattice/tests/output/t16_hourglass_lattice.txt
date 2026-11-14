@@ -1,0 +1,5 @@
+sites in the ball: 190; helicity H = -104.922222, after inversion H' = 104.922222, |H'+H|/|H| = 2.7e-16
+swirl kept (azimuthal part at s equals that at its image): True
+through-flow reversed (axial part at s is minus that at its image): True
+
+T16 PASS - on the diamond net the bond-midpoint inversion keeps the swirl, reverses the through-flow and reverses the helicity, as the hourglass lemma says

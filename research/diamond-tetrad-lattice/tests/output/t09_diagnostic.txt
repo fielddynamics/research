@@ -1,0 +1,5 @@
+x=   0.1: share(x) + share(1/x) - 1 = +0.00e+00
+x= 0.316: share(x) + share(1/x) - 1 = +0.00e+00
+x=  3.16: share(x) + share(1/x) - 1 = +0.00e+00
+x=    10: share(x) + share(1/x) - 1 = +0.00e+00
+absolute deviation at x=0.316 vs V1: V1=0.025: 1.95e-04, V1=0.050: 7.78e-04, V1=0.100: 3.11e-03 | ratio for doubling V1: 4.00, 3.99 (4 = quadratic)

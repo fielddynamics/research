@@ -1,0 +1,3 @@
+theta along TetA leg +1.635307, along TetB leg -1.635307: opposite by definition
+
+T15 NOT RUN - not informative as designed (see docstring); needs a lattice tetrad and spin connection

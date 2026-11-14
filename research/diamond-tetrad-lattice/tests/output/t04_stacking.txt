@@ -1,0 +1,4 @@
+diamond      sites  4096000  A*pi = 1.00001  linear anisotropy (axis - plane) = +0.00023  [1134 / 6459 sites]
+lonsdaleite  sites  3524244  A*pi = 0.99999  linear anisotropy (axis - plane) = +0.00103  [1125 / 6484 sites]
+
+T04 (linear part) FAIL - lonsdaleite +0.00103, diamond +0.00023 (criterion: lonsdaleite > 1%, diamond < 0.1%)

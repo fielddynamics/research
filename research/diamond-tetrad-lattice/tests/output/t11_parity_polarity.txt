@@ -1,0 +1,5 @@
+chiral: Sigma H(V3) Sigma = -H(-V3): True
+inversion (k -> -k, swap): H(V3) -> H(-V3): True
+V3 = 0: eigenvalues sum to zero (E <-> -E): True [-t*sqrt((exp(2*I*kx)*exp(2*I*ky) + exp(2*I*kx)*exp(2*I*kz) + exp(2*I*ky)*exp(2*I*kz) + 1)*(exp(2*I*kx)*exp(2*I*ky)*exp(2*I*kz) + exp(2*I*kx) + exp(2*I*ky) + exp(2*I*kz))*exp(-2*I*kx)*exp(-2*I*ky)*exp(-2*I*kz))]
+
+T11 PASS - swapping the ends reverses the polarity everywhere in the crystal, not only on one bond

@@ -1,0 +1,7 @@
+bond odds: (t**2 + sqrt(4*t**2 + (t**2 - 1)**2) - 1)**2/(4*t**2)
+map u = (x-1)/(2 sqrt x) gives bond odds = x: True
+detailed balance gives eps = x/(1+x): True
+Boltzmann gap: ln x = 2 asinh(V3/V2): True
+exchange x -> 1/x is u -> -u in the bond and eps -> 1 - eps in detailed balance: True
+
+T07 PASS - the driving intensity x of detailed balance is the bond's odds; same mu, same exchange

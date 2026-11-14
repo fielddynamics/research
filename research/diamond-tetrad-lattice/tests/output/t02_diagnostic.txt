@@ -1,0 +1,10 @@
+/home/claude/research/research/diamond-tetrad-lattice/tests/t02_diagnostic.py:17: RuntimeWarning: divide by zero encountered in divide
+  dev = (phi - (A/r + B))/(A/r)
+/home/claude/research/research/diamond-tetrad-lattice/tests/t02_diagnostic.py:17: RuntimeWarning: invalid value encountered in divide
+  dev = (phi - (A/r + B))/(A/r)
+n=40: A*pi=1.00009; shell spread at r/d = 5:0.0138, 10:0.0034, 15:0.0035, 20:0.0073, 25:0.0154, 44.7-48:0.0166
+/home/claude/research/research/diamond-tetrad-lattice/tests/t02_diagnostic.py:17: RuntimeWarning: divide by zero encountered in divide
+  dev = (phi - (A/r + B))/(A/r)
+/home/claude/research/research/diamond-tetrad-lattice/tests/t02_diagnostic.py:17: RuntimeWarning: invalid value encountered in divide
+  dev = (phi - (A/r + B))/(A/r)
+n=80: A*pi=1.00008; shell spread at r/d = 5:0.0137, 10:0.0030, 15:0.0014, 20:0.0010, 25:0.0012, 44.7-48:0.0012

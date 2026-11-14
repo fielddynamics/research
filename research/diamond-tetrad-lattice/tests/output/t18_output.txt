@@ -1,0 +1,6 @@
+diamond       r=0.2500 filling 0.4959  gaps [(2, np.float64(10.78))]  largest 10.78% (26s)
+fcc           r=0.2455 filling 0.4961  gaps []  largest 0.00% (4s)
+simple cubic  r=0.2454 filling 0.4959  gaps []  largest 0.00% (4s)
+lonsdaleite   r=0.2500 filling 0.4965  gaps [(4, np.float64(1.14))]  largest 1.14% (218s)
+
+T18 PASS - diamond 10.78%, next largest 1.14% (criterion: diamond at least twice the next)

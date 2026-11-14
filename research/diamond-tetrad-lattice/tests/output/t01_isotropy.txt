@@ -1,0 +1,10 @@
+tight frame  sum v v^T = [[4, 0, 0], [0, 4, 0], [0, 0, 4]]
+diamond acoustic branch, O(k^2): 2*kx**2 + 2*ky**2 + 2*kz**2  (bond^2 = 3, so per bond length: 2*kx**2/3 + 2*ky**2/3 + 2*kz**2/3 )
+diamond acoustic branch, O(k^4): -(kx**4 + 6*kx**2*ky**2 + 6*kx**2*kz**2 + ky**4 + 6*ky**2*kz**2 + kz**4)/6
+
+per lattice, lambda(k n) = A(n) k^2 + B(n) k^4 fitted at small k (bond length 1)
+  diamond       A mean 0.666667, spread 3.6e-09 | B mean -0.03328, spread (max-min)/|mean| 0.742
+  simple cubic  A mean 1.000000, spread 2.7e-09 | B mean -0.05011, spread (max-min)/|mean| 1.109
+  lonsdaleite   A mean 0.666667, spread 3.6e-09 | B mean -0.03349, spread (max-min)/|mean| 0.421
+
+T01 PASS - O(k^2) isotropic (exact for diamond, numerically for all three); k^4 anisotropy reported

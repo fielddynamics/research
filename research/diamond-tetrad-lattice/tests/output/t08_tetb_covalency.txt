@@ -1,0 +1,3 @@
+identity: True | limits (ratio to g -> 1 as g -> 0; -> a0 as g -> oo): True
+
+T08 PASS - the TetB part of the field is half the covalency times the covalent scale sqrt(g a0)

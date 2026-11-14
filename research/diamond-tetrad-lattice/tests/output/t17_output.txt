@@ -1,0 +1,4 @@
+npw   800: gaps [(2, np.float64(10.78), np.float64(0.3918), np.float64(0.4364))]  (24s)
+npw  1600: gaps [(2, np.float64(10.79), np.float64(0.3932), np.float64(0.438))]  (210s)
+
+T17 PASS - gap 2-3 = 10.79% (benchmark 10.62%, tolerance +-1.06); change on last doubling 0.02 points

@@ -1,0 +1,9 @@
+radius   TetA-only: filling, largest gap (bands)      full pixel: filling, largest gap (bands)
+ 0.05    0.026    0.00% (None)              0.049    0.00% (None)
+ 0.10    0.099    0.00% (None)              0.178    0.00% (None)
+ 0.15    0.211    0.00% (2)              0.356    0.00% (None)
+ 0.20    0.356    0.00% (2)              0.555    0.00% (None)
+ 0.25    0.527    0.00% (None)              0.748    0.00% (None)
+ 0.30    0.711    0.00% (None)              0.897    0.00% (None)
+
+T19 PASS (reported) - gaps against rod radius for one root's legs and for the full pixel

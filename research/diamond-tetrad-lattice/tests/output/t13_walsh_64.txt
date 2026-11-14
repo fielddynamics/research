@@ -1,0 +1,8 @@
+W W^T = 8 I: True
+Gamma: entries outside the four 2x2 blocks: 0
+  block {1, xyz} (A1, s-like): [[-3*V1 - V2, -V3], [-V3, -3*V1 + V2]]
+  block {x, yz} (T2, p-like): [[V1 + V2, -V3], [-V3, V1 - V2]]
+X: entries outside the four 2x2 blocks: 8
+L: entries outside the four 2x2 blocks: 48
+
+T13 PASS - at Gamma the cube's Walsh basis block-diagonalises the 64-entry cell Hamiltonian into A1 + 3 T2, each 2x2 block a TetA-TetB bond

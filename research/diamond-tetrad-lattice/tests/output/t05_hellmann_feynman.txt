@@ -1,0 +1,3 @@
+dE/dV3 = -alpha_p: True | dE/dV2 = -alpha_c: True | mu = (1 - dE/dV3)/2: True
+
+T05 PASS - polarity and covalency are the bond energy's responses; mu is a derivative of E

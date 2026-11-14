@@ -1,0 +1,6 @@
+bond energy under the dictionary: -sqrt(4*a0*g + (a0 - g)**2)/2
+dE/dg = (-a0 - g)/(2*sqrt(4*a0*g + (a0 - g)**2))  ; needed (up to a constant factor): mu g = g**2/(a0 + g)
+ratio dE/dg / (mu g) = -(a0 + g)**2/(2*g**2*sqrt(4*a0*g + (a0 - g)**2))  -> constant? False
+integral of mu g dg = a0**2*log(a0 + g) - a0*g + g**2/2  ; equals a0^2 F(g/a0)/2 up to a constant: True
+
+T06 FAIL - as expected, the dictionary fixes the shares but not the energy: E is linear in g, the AQUAL energy is not

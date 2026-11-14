@@ -80,23 +80,36 @@ So any given $x$ needs $V_3/V_2 = (x-1)/(2\sqrt x)$ (9.9). For $x = g/a_0$, that
 - **That the vacuum is this lattice.** The algebra gives a lattice from the two roots once the legs are read as bonds of a spatial net. That reading, and the identification of the sites or bonds with photons, are the framework's, not consequences of the checks.
 - **That "photonic" follows.** The diamond structure's band gap is a statement about light in a dielectric lattice. It is suggestive for the framework, not a derivation of it.
 - **That the bond picture is the mechanism.** Any two-state system gives a share $x/(1+x)$; that algebra alone is generic. What is specific here is the identification: the two states are the TetA and TetB ends of a lattice bond, and parity is polarity reversal. Result 9 shows what the energies would have to be, not that they are.
-- **Any GFD observable.** Nothing here derives $a_0$, the scaling of the bond energies with $g$, or the 64 field-closure states. [`TEST_PLAN.md`](TEST_PLAN.md) sets out 20 tests aimed at these.
+- **Any GFD observable.** Nothing here derives $a_0$, the scaling of the bond energies with $g$, or the 64 field-closure states. The 20 tests below address what can be tested now.
+
+## Tests run
+
+[`TEST_PLAN.md`](TEST_PLAN.md) set out 20 tests with their criteria fixed in advance; [`tests/RESULTS.md`](tests/RESULTS.md) records the run: 14 pass (3 reported), 5 fail (one predicted), 1 not run. In brief:
+- **The lattice can carry the field.** With $\mu(x)$ on every bond, the diamond net reproduces $g_N = g^2/(g + a_0)$ and $v^4 \to GMa_0$ to within 0.5% beyond about 8 bond lengths (T03). The fixed criteria began at 5 bond lengths, where the lattice's graininess is 1–2%, so T02 and T03 are recorded as failures.
+- **The bond reading holds exactly for one bond and approximately in a crystal.** Exchange is parity across the whole crystal (T11, T12). Coupling between bonds on one atom shifts the share by order $(V_1/V_2)^2$, up to 8% at $V_1/V_2 = 0.25$, but keeps the exchange symmetry exactly (T09).
+- **The energy is open.** Result 9's dictionary fixes the shares but not the field's energy (T06), and its absolute scale needs a constant the framework does not yet supply (T20).
+- **Stacking matters for light, not for the field.** Diamond's photonic gap (10.8%, solver validated in T17) is about ten times lonsdaleite's (T18), but the field cannot tell the two apart beyond 10 bond lengths (T04).
+- **The 64 entries.** At $\Gamma$ the cube's Walsh–Hadamard basis splits the 8×8 cell Hamiltonian into four TetA–TetB bonds (T13).
 
 ## Next
 
-[`TEST_PLAN.md`](TEST_PLAN.md) sets out 20 Python tests, each with its question, method and pass criterion fixed in advance. Once the statements here are settled, the exact parts (results 1–4 and 6–9) can move into `proofs/` as a short proof.
+- **The energy (T06).** Find what gives the field's energy, since the bond dictionary does not. This is the main open step.
+- **A lattice tetrad (T15).** Rotation and torsion on the lattice need independent frame data at each site, not a phase on each bond.
+- **A proof.** The exact parts (results 1–4 and 6–9, and T05, T07, T08, T11–T14) can move into `proofs/` as a short proof.
 
 ## Files
 
 | File | What it does |
 |---|---|
 | [`verify_diamond_tetrad_lattice.py`](verify_diamond_tetrad_lattice.py) | 52 exact checks, labelled by the result numbers above |
-| [`TEST_PLAN.md`](TEST_PLAN.md) | 20 planned tests to take the lattice and the bond reading further |
+| [`TEST_PLAN.md`](TEST_PLAN.md) | The 20 tests, with criteria fixed before running |
+| [`tests/`](tests/) | One script per test, shared modules (`lattice.py`, `bz.py`, `pwe.py`), outputs, and [`RESULTS.md`](tests/RESULTS.md) |
 
 ## Reproduce
 
 ```
 python verify_diamond_tetrad_lattice.py    # 52/52
+cd tests && python t01_isotropy.py          # and so on; see tests/RESULTS.md
 ```
 
 ## Related

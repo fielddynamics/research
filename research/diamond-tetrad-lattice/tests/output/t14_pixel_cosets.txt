@@ -1,0 +1,4 @@
+stellated octahedron: 48 symmetries; one tetrahedron: 24; index 2
+every other symmetry swaps TetA and TetB, and is -I times a tetrahedral one; -I is not tetrahedral
+
+T14 PASS - Sym(S) = Sym(TetA) x {+-I}: the tiling's TetA/TetB swap is the proofs' parity

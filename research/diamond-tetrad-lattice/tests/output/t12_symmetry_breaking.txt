@@ -1,0 +1,5 @@
+V3 = 0: 48 operations; V3 != 0: 24; lost 24
+kept ones are Td (preserve the TetA star): True
+lost ones swap the sublattices: True | and are -I . Td: True
+
+T12 PASS - the polar bond (x != 1) halves the symmetry, from diamond's 48 to zincblende's 24; the lost half is parity

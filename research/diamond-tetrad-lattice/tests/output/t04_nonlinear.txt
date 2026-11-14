@@ -1,0 +1,4 @@
+diamond      sites  262144 iters  27  mean |g| error -0.0004  anisotropy (axis - plane) -0.00757
+lonsdaleite  sites  258048 iters  56  mean |g| error -0.0002  anisotropy (axis - plane) -0.00700
+
+T04 (nonlinear part) FAIL - lonsdaleite -0.00700, diamond -0.00757

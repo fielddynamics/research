@@ -1,6 +1,6 @@
 # Test Plan: Taking the Pixel Lattice Further
 
-*Field Dynamics Research, research folder, 2026-11-14. Status: plan, written before any test is run. Each test's pass criterion is fixed here; a result that misses it is recorded as a failure, not re-tuned.*
+*Field Dynamics Research, research folder, 2026-11-14. Status: plan, written before any test was run; the run is recorded in [`tests/RESULTS.md`](tests/RESULTS.md). Each test's pass criterion is fixed here; a result that misses it is recorded as a failure, not re-tuned.*
 
 The note ([`README.md`](README.md)) establishes that:
 - the tetrad's roots tile as one stellated octahedron per cube;

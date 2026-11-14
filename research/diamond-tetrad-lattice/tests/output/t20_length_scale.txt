@@ -1,0 +1,5 @@
+d(g) = sqrt(eta)*hbar/(a0**(1/4)*g**(1/4)*sqrt(kappa)*sqrt(m)) ; d log d / d log g = -1/4
+with kappa = m_e r_e, m = m_e, a0 = 1.2e-10 m/s^2: d(g = a0) = 3.572e+08 m
+identity: d(a0) = sqrt(eta * a_Bohr * c^2/a0) = sqrt(3.22 * 5.292e-11 m * 7.490e+26 m) = 3.572e+08 m  (the geometric mean of the Bohr radius and the length c^2/a0)
+
+T20 PASS (reported) - d ~ (g a0)^(-1/4) is exact; the number depends entirely on the choice of kappa, which the framework does not yet fix. No match is claimed.
