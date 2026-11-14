@@ -1,13 +1,13 @@
 # Drive and Brake from Full Decoded Profiles: Audit and Results
 
-*Field Dynamics Research, 2026-11-14. Criteria fixed and committed first ([`CRITERIA.md`](CRITERIA.md), commit `10ada6b`), then every SPARC galaxy measured. Pipeline: [`decode_audit.py`](decode_audit.py); post-hoc checks: [`posthoc_checks.py`](posthoc_checks.py).*
+*Field Dynamics Research, 2026-11-14. The H3 criteria were committed ([`CRITERIA.md`](CRITERIA.md), commit `10ada6b`) before H3 was measured, but after the earlier tests H2 and H2′ had been run on the same galaxies (see the note in `CRITERIA.md`). Pipeline: [`decode_audit.py`](decode_audit.py); post-hoc checks: [`posthoc_checks.py`](posthoc_checks.py).*
 
 ---
 
 > **Current result.**
 > - **The decode is verified.** The decoding-mass letter's own pipeline was run on all 175 SPARC galaxies, and it reproduces the letter's published values exactly.
-> - **Across SPARC:** 51% quiet, 19% drive, 30% brake (quality cut).
-> - **Drive and brake against the ring (H3)** pass under the letter's photometric method ($\rho = +0.47$). With SPARC's own Newtonian $g_{\rm bar}$ the signal mostly goes ($\rho = +0.16$; not significant in star-dominated galaxies, Diagnostic D1), so the pattern is not established.
+> - **What the interiors are doing, as the letter's decode reads them (quality cut):** 51% quiet, 19% drive, 30% brake. Individual readings are fragile: a third change with ±20% in the stellar M/L.
+> - **H3 (drive and brake against the share of a galaxy inside the ring $x = 1$) is the analyst's hypothesis, not a GFD claim.** No GFD paper links drive or brake to the ring; in GFD they happen in the interior TetB, at the drain. H3 passes under the letter's photometric method ($\rho = +0.47$), but with SPARC's own Newtonian $g_{\rm bar}$ the signal mostly goes ($\rho = +0.16$; not significant in star-dominated galaxies, Diagnostic D1). It says nothing for or against the framework.
 > - **CamB** in the letter is corrected (finding F1 in [`../referee_review.md`](../referee_review.md)).
 > - Version 1, below Version 2, is superseded and kept as the record.
 
@@ -67,7 +67,7 @@ Reproduce: `python decode_audit_paper_mphot.py GRAVIS_DIR` then `python posthoc_
 - **The decode is correct.** It runs the [decoding-mass letter](../../../papers/letter-decoding-mass-from-rotation-curves/)'s own functions and constants, loaded from its script rather than re-typed. It matches the closed form to machine precision at all 3,391 SPARC points, and it reproduces the letter's published M33 value, $1.381\times10^{10}\,M_\odot$ against the quoted $1.38\times10^{10}$.
 - **Full profiles replace the single outer point.** For each of 174 galaxies, $M_{\rm dec}(r)$ and $M_{\rm phot}(r)$ are compared at every observed radius, 3,366 in all. The new metric is the area of the profile above and below its baryons.
 - **Across SPARC (quality cut, 148 galaxies):** 59% quiet, 19% drive, 22% brake, none mixed. A third of the classes change when the stellar M/L moves by ±20%, so individual classifications are fragile. Brakes are the most robust (30 of 33).
-- **H3 passes as pre-registered.** The more of a galaxy lies inside the ring $x = 1$, the higher its net area: $\rho = +0.29$ ($p = 0.0001$) over all galaxies and $\rho = +0.36$ ($p = 0.001$) over galaxies that are not gas-dominated. *(Numbers updated 2026-11-14 after a tie-handling bug in the rank correlation was fixed; see [`../referee_review.md`](../referee_review.md), M9.)*
+- **H3 passes its criteria** (the analyst's hypothesis, set after H2 and H2′ had been run on the same data). The more of a galaxy lies inside the ring $x = 1$, the higher its net area: $\rho = +0.29$ ($p = 0.0001$) over all galaxies and $\rho = +0.36$ ($p = 0.001$) over galaxies that are not gas-dominated. *(Numbers updated 2026-11-14 after a tie-handling bug in the rank correlation was fixed; see [`../referee_review.md`](../referee_review.md), M9.)*
 - **Post-hoc, the effect has two parts.** Most of it, across the whole sample, is a gap that depends on acceleration in the same way in every galaxy. In star-dominated galaxies, a galaxy-level part survives with that shared trend removed ($\rho = +0.35$, $p = 0.002$). The form of μ is not the cause: decoding with McGaugh et al.'s empirical relation instead gives the same result.
 
 ## 1. Audit
@@ -80,16 +80,16 @@ Reproduce: `python decode_audit_paper_mphot.py GRAVIS_DIR` then `python posthoc_
 | A4 | Constants $G$, $a_0$, kpc, $M_\odot$ as in the letter | identical ✓ |
 | A5 | Integrated SPARC surface photometry against SPARC's $L_{[3.6]}$, 175 galaxies | median −0.024 dex ✓ |
 | A6 | Velocity smoothing: the letter's `diffraction_smooth`, width 6.2% of the span | loaded from its source ✓ |
-| A7 (added) | CamB, which the letter shows with decoded mass below photometric | decode identical; brake in both, by −0.83 dex here and −0.42 dex with the letter's own mass model |
+| A7 (added) | CamB, which the letter shows with decoded mass below photometric | decode identical; brake in both: −0.83 dex at 1.79 kpc with the SPARC-built mass of Version 1, −0.77 dex with the letter's corrected model (−0.42 dex before the correction, commit `cec64d5`) |
 | A8 (added) | The letter's own `run_all_validations.py` reference values, recomputed in dex from its data, mass models and decode ([`verify_against_letter.py`](verify_against_letter.py)) | MW 25 kpc −0.046, M33 17 kpc +0.304, NGC 3198 30 kpc −0.104: all identical to the validations ✓ |
 
 **A8 in detail** ([`results/verify_against_letter_output.txt`](results/verify_against_letter_output.txt)):
 - **The letter's reference values reproduce exactly in dex.** MW at 25 kpc, $6.58\times10^{10}$ against $7.31\times10^{10}$, is −0.046. M33 at 17 kpc, $1.38\times10^{10}$ against $6.85\times10^{9}$, is +0.304. NGC 3198 at 30 kpc, $2.60\times10^{10}$ against $3.30\times10^{10}$, is −0.104.
-- **On the letter's own four galaxies the area metric gives** MW quiet ($A = +0.01$), M33 quiet ($A = -0.19$), NGC 3198 quiet ($A = -0.07$) and CamB brake ($A = -1.42$).
+- **On the letter's own four galaxies the area metric gives** MW quiet ($A = +0.01$), M33 quiet ($A = -0.19$), NGC 3198 quiet ($A = -0.07$) and CamB brake ($A = -2.04$; −1.42 before the CamB correction).
 - **M33 shows why the profile matters.** Its outermost point sits +0.30 dex above its baryons, which read alone would be a drive. Its profile, though, lies mostly *below* them inside, so it averages to quiet.
-- **Galaxies in both.** For CamB the decoded mass is identical at all nine radii. The dex differ only through $M_{\rm phot}$, which is 3–3.5 times higher from SPARC photometry than in the letter's model. For NGC 3198, the decoded masses agree within about 0.03 dex beyond 8 kpc, and at 30 kpc the dex are −0.10 (letter) and −0.13 (SPARC). Inside 8 kpc the velocity data differ: the letter uses Begeman's 8-point curve, SPARC 43 points. Both call NGC 3198 quiet.
+- **Galaxies in both.** For CamB the decoded mass is identical at all nine radii. The dex differ only through $M_{\rm phot}$: the SPARC-built mass is 1.1–1.3 times the letter's corrected model (3–3.5 times its pre-correction model). For NGC 3198, the decoded masses agree within about 0.03 dex beyond 8 kpc, and at 30 kpc the dex are −0.10 (letter) and −0.13 (SPARC). Inside 8 kpc the velocity data differ: the letter uses Begeman's 8-point curve, SPARC 43 points. Both call NGC 3198 quiet.
 
-A7 locates the uncertainty. The decode is exact; $M_{\rm phot}$ is not. For CamB, the SPARC-built photometric mass is about 2.5 times the letter's model, mainly from the gas term (SPARC gives no gas surface-density profile, so gas is estimated as $|V_{\rm gas}|V_{\rm gas}r/G$) and the disk model. The sign agrees; the depth depends on $M_{\rm phot}$.
+A7 locates the uncertainty. The decode is exact; $M_{\rm phot}$ is not. For CamB, the SPARC-built photometric mass was about 2.5 times the letter's pre-correction model, mainly from the gas term (SPARC gives no gas surface-density profile, so gas is estimated as $|V_{\rm gas}|V_{\rm gas}r/G$) and the disk model. The sign agrees; the depth depends on $M_{\rm phot}$.
 
 ## 2. Population
 
@@ -124,7 +124,7 @@ Every profile is drawn in [`results/profile_atlas.pdf`](results/profile_atlas.pd
 | Ring inside the data | 72 | +0.029 | 17 | 49 | 6 |
 | Whole galaxy inside the ring | 3 | +0.075 | 0 | 3 | 0 |
 
-Locally, in the 72 galaxies that contain the ring, $\Delta$ is higher inside the ring than outside in 67% of them (median +0.064 dex). This is the hourglass direction: drive inside, drag outside.
+Locally, in the 72 galaxies that contain the ring, $\Delta$ is higher inside the ring than outside in 67% of them (median +0.064 dex). ("Drive inside, drag outside" was the analyst's hypothesis, not a GFD claim; see [`../referee_review.md`](../referee_review.md).)
 
 ## 4. Post-hoc checks (after the result; no pass conditions)
 
@@ -147,7 +147,7 @@ The field sits above its baryons around the ring, at about its baryons in the hi
 
 **Shows:**
 - **The decode is right,** and full profiles are now measured for all of SPARC, with an area metric and classes.
-- **The predicted direction holds.** Galaxies with more of their mass inside the ring sit higher above their baryons, and within a galaxy the field is higher inside the ring than outside. This holds as pre-registered, and it is not an artefact of the interpolation function.
+- **The analyst's predicted direction holds** (not a framework prediction). Galaxies with more of their mass inside the ring sit higher above their baryons, and within a galaxy the field is higher inside the ring than outside. This holds as pre-registered, and it is not an artefact of the interpolation function.
 - **A galaxy-level part survives in star-dominated galaxies,** where $M_{\rm phot}$ is most reliable.
 
 **Does not show:**

@@ -2,6 +2,8 @@
 
 *Fixed and committed on 2026-11-14 before any galaxy is measured. Pipeline: [`decode_audit.py`](decode_audit.py). Results: [`README.md`](README.md).*
 
+> **Note added 2026-11-14, after an independent review.** These criteria were committed before H3 was measured, but the hypothesis was not new. It had already been tested twice on the same 175 galaxies, as H2 and H2′. The hypothesis, that drive and brake follow a galaxy's share inside the ring $x = 1$, is the analyst's, not a claim of any GFD paper. In GFD, drive and brake happen in the interior TetB, at the drain. The text below is left as committed.
+
 ---
 
 ## Why this replaces the earlier test

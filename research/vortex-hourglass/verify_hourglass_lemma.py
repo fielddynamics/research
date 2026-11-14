@@ -123,8 +123,10 @@ check("(f) far from the throat TetA turns at Ob + delta, TetB at Ob - delta",
 ex = {Ob: 1, d: sp.Rational(1, 4)}
 check("(f) slower co-rotation: with 0 < delta < Ob both chambers turn the same way, TetB slower",
       far_B.subs(ex) > 0 and far_B.subs(ex) < far_A.subs(ex))
-check("(f) the pure parity image co-rotates at one rate: delta = 0 is the only Pi-invariant case",
-      sp.solve(sp.Eq(d, -d), d) == [0])
+Vsw = field(0, vphi_db, 0)
+diff_sw = sp.simplify(parity(Vsw) - Vsw)
+check("(f) the swirl alone is parity-invariant exactly when delta = 0",
+      zero(diff_sw.subs(d, 0)) and not zero(diff_sw.subs(d, sp.Rational(1, 4))))
 omega_r = (curl(Vdb).T * rhat)[0]
 check("(f) the rate difference is a shear across the throat: radial vorticity there is nonzero iff delta != 0",
       sp.simplify(at(omega_r, (1, 0, 0)).subs(d, 0)) == 0

@@ -1,121 +1,92 @@
 # The Roll Ratio as the Rate Ratio of the Two Chambers
 
-*Working note, Field Dynamics Research, 2026-11-14. Status: research, not a paper. Verification: `python verify_roll_ratio.py` (18 checks, exact sympy). Data: `python measured_partition.py` (Letter 3's discs from SPARC, exploratory). The superseded first comparison is [`archive/compare_roll_ratio_sparc.py`](archive/compare_roll_ratio_sparc.py), kept for the record.*
+*Working note, Field Dynamics Research, 2026-11-14 (corrected after an independent review, [`independent_review.md`](independent_review.md)). Status: research, not a paper. Verification: `python verify_roll_ratio.py` (18 exact sympy checks). Data: `python measured_partition.py` and `python null_simulation.py` (Letter 3's discs from SPARC, exploratory).*
 
 ---
 
-## Question
+## What this note is
 
-Four results in the repo each describe TetA and TetB, and nothing yet ties them together:
-
-- **[Letter 2](../../papers/letter-2-other-half-of-gravity-torsion/):** exchanging the chambers inverts their odds, Ω → 1/Ω, and that forces Ω = μ/(1 − μ) = x.
-- **The [roulette](../constitutive-law-u(x)/tetA_tetB_roulette_roll_ratio.html):** TetA is a fixed circle of radius μ and TetB a circle of radius 1 − μ rolling on it, with roll ratio μ/(1 − μ).
-- **The [hourglass lemma](LEMMA.md):** parity keeps the mean swirl rate of the two chambers and flips their half-difference.
-- **[Letter 3](../../papers/letter-3-field-closure-of-tetrad-frame/)'s figure:** the two shares as surfaces that meet on the ring $x = 1$.
-
-The question is whether the roll ratio is the rate ratio of the vortex's two chambers, and what follows if it is.
+The author's [roulette](../constitutive-law-u(x)/tetA_tetB_roulette_roll_ratio.html) draws TetA as a fixed circle of radius μ and TetB as a circle of radius 1 − μ rolling on it, with roll ratio μ/(1 − μ). This note writes that picture down as algebra, with its premise stated explicitly, and works out what follows. The algebra is exact. It is a restatement of the roulette, not a new physical result, and its premise is not derived.
 
 ## Premise
 
-The two chambers meet at one point, the Field Origin, where both are evaluated together (Coles Notes §2–3: "the neck of the hourglass"). At a shared contact point the velocity is shared from both sides, so the chambers roll on each other without slipping. Their radii are their shares, as in the roulette: $R_A = \mu$ and $R_B = 1 - \mu$, which together fill the unit.
-
-The no-slip reading of the Field Origin is the premise. It is the framework's reading, not derived here.
+The two chambers meet at the Field Origin, where both are evaluated together (Coles Notes §2–3). Reading that contact as shared, the chambers roll on each other without slipping, with radii equal to their shares: $R_A = \mu$ and $R_B = 1 - \mu$. Both the no-slip reading and the identification of radii with shares come from the roulette. Neither is derived here.
 
 ## Theorem
 
 With $\mu = x/(x+1)$ and no slip, $R_A\,\omega_A = R_B\,\omega_B$:
 
-**(i) The roll ratio is the rate ratio, and it is the odds.** $\omega_B/\omega_A = R_A/R_B = \mu/(1-\mu) = x$.
+**(i) The rate ratio is the odds.** $\omega_B/\omega_A = R_A/R_B = \mu/(1-\mu) = x$. Given the premise this is an identity: setting the radii equal to the shares makes the rate ratio the odds by definition.
 
-**(ii) Exchange is parity.** Let $\bar\omega$ be the mean rate and $\delta$ the half-difference of the two chambers. Then
+**(ii) Exchanging the chambers.** Let $\bar\omega$ be the mean rate and $\delta$ the half-difference. Then $\delta/\bar\omega = (1 - x)/(1 + x) = 1 - 2\mu$. Swapping the two chambers, each taking the other's radius and rate, still rolls without slip, sends $x \to 1/x$, keeps $\bar\omega$ and flips $\delta$. That is Letter 2's exchange, $\Omega \to 1/\Omega$, written in rates.
 
-$$\frac{\delta}{\bar\omega} = \frac{1 - x}{1 + x} = 1 - 2\mu .$$
+The [hourglass lemma](LEMMA.md)'s parity has the same algebraic form: it also keeps a mean rate and flips a half-difference. But any swap of two labelled things does that, and the two half-differences live in different settings. The lemma's is across the throat, along the vortex axis; this one is between the chambers at a given galactic radius, as a function of $x$. **That they are the same operation is a reading, not shown here.**
 
-Exchanging the chambers swaps the radii, so $x \to 1/x$. That keeps $\bar\omega$ and flips $\delta$, which is exactly what parity does to the hourglass (lemma (f)). Letter 2's exchange of the chambers and the vortex's parity are the same operation.
+**(iii) The chambers turn at one rate only at $x = 1$.** $\delta = 0$ exactly at $x = 1$, where $\mu = \tfrac12$. For $x > 1$, TetB turns faster than TetA; for $x < 1$, slower. This is the partition $\mu(x)$ itself, the quiet state, with no drive or brake anywhere. The point $x = 1$ is Letter 3's white ring, where the two shares are equal and the interaction core peaks, out in the disk. **It is not the throat**, which is the Field Origin at the drain. (An earlier version called the ring "the quiet throat"; that conflated the two.)
 
-**(iii) The chambers turn at one rate only at the ring.** $\delta = 0$ exactly at $x = 1$, where $\mu = \tfrac12$. Inside the ring ($x > 1$) TetB turns faster than TetA; outside it ($x < 1$), slower. This is the quiet state, with no drive or brake anywhere: it is the partition $\mu(x)$ itself.
+**(iv) The rate difference changes fastest at $x = 1$.** $d(\delta/\bar\omega)/d\ln x = -2\mu(1-\mu)$. This is the logistic law's core term, $x\,d\mu/dx = \mu(1-\mu)$, largest at $x = 1$, where $\mu(1-\mu) = \tfrac14$: Letter 3's interaction core.
 
-**(iv) The shear changes fastest at the ring.** $\dfrac{d(\delta/\bar\omega)}{d\ln x} = -2\mu(1-\mu)$. This is the logistic law's core term, $x\,d\mu/dx = \mu(1-\mu)$, and it is largest at $x = 1$, where $\mu(1-\mu) = \tfrac14$: the interaction core of Letters 2 and 3.
+**(v) The chiral-holonomy twist.** The share difference $\sigma = (x-1)/(x+1)$ in the [chiral-holonomy proof](../../proofs/chiral-holonomy-closed-frame/) is $\sigma = 2\mu - 1 = -\delta/\bar\omega$.
 
-**(v) The chiral-holonomy twist.** The share difference $\sigma = (x-1)/(x+1)$ that weights the steps of the [chiral-holonomy proof](../../proofs/chiral-holonomy-closed-frame/) is $\sigma = 2\mu - 1 = -\delta/\bar\omega$.
+All of (i)–(v) are exact ([`verify_roll_ratio.py`](verify_roll_ratio.py)).
 
-All of (i)–(v) are exact ([`verify_roll_ratio.py`](verify_roll_ratio.py), 18 checks). Given the premise, (i) is an identity: setting the radii equal to the shares makes the rate ratio the odds by definition. The content of the theorem is the identification, and what the premise then implies in (ii)–(v).
+## Drive and brake, and what the decode sees
 
-**Drive and brake, and what the decode sees.** **Drive and brake happen in the interior TetB** (the framework's definition, Stephen Nelson, 2026-11-14). What we observe is their result: the decoded mass sits above the photometric mass when the interior drives ($M_{\rm dec} > M_{\rm phot}$), below it when it brakes ($M_{\rm dec} < M_{\rm phot}$), and equal to it when the interior is quiet. Reading that result, across a galaxy's profile, tells what the interior is doing. With no slip at $\mu(x)$, the decoded mass equals the photometric mass everywhere, even though the chambers turn at different rates everywhere except the ring. So the rate difference of (iii) is the quiet baseline. A drive or brake is the interior TetB departing from it. In the theorem's terms that departure is slip, and the decode sees it as $M_{\rm dec}$ above or below $M_{\rm phot}$. This matches the decoding-mass letter's own terms. The decode already contains $\mu(x)$ ($g_{\rm s} = \mu\,g_{\rm t}$), so a **quiet interior** ($\Delta M_{\rm eff} = 0$, effective mass equal to the baryons) is no slip, and an **active interior** ($\Delta M_{\rm eff} \neq 0$, the drain's power output) is slip.
+**Drive and brake happen in the interior TetB** (the framework's definition, Stephen Nelson, 2026-11-14). What we observe is their result:
+- the decoded mass sits above the photometric mass when the interior drives ($M_{\rm dec} > M_{\rm phot}$);
+- below it when the interior brakes ($M_{\rm dec} < M_{\rm phot}$);
+- equal to it when the interior is quiet.
 
-## What it shows
+Reading that result across a galaxy's profile tells what the interior is doing.
 
-Given the no-slip premise, the roulette is a theorem, not an illustration. One premise turns four objects already in the repo into one:
-- Letter 2's odds become the rate ratio;
-- Letter 2's exchange becomes the vortex's parity;
-- Letter 3's ring becomes where the chambers turn at one rate;
-- the chiral-holonomy twist becomes the rate difference.
+Under the premise, the partition $\mu(x)$ is quiet: the decode, which already contains $\mu(x)$ ($g_{\rm s} = \mu\,g_{\rm t}$), returns $M_{\rm dec} = M_{\rm phot}$ everywhere, even though the chambers turn at different rates everywhere except $x = 1$. So the rate difference in (iii) is not a drive. In the theorem's terms, a drive or brake is the interior departing from the no-slip rate: slip. In the decoding-mass letter's terms, a **quiet interior** ($\Delta M_{\rm eff} = 0$) is no slip, and an **active interior** ($\Delta M_{\rm eff} \neq 0$, the drain's power output) is slip.
 
-## What it does not show
+## What it shows, and what it does not
 
-- **Why the contact does not slip.** That is the framework's reading of the Field Origin.
-- **The size of anything.** The theorem gives rates, not masses or forces. It predicts where the chambers' rates cross (at $x = 1$), not by how much they differ. It predicts no drive or brake at all: those are departures from it.
+**Shows.** Under one stated premise, four objects already in the repo have a single algebraic description:
+- Letter 2's odds;
+- Letter 2's exchange of the chambers;
+- Letter 3's equal-share point $x = 1$;
+- the chiral-holonomy twist.
 
-## What the data can test (correction, 2026-11-14)
+**Does not show:**
+- why the contact does not slip, or why the radii are the shares;
+- that Letter 2's exchange and the hourglass lemma's parity are the same operation;
+- anything about sizes: the theorem gives rate ratios, not masses or forces.
 
-An earlier version of this note compared the theorem's rate pattern (TetB faster inside the ring, slower outside) with the decode audit's gap $\Delta = \log_{10}(M_{\rm dec}/M_{\rm phot})$, and reported that "the sign structure matches". **That comparison was wrong.** If the chambers roll without slipping at $\mu(x)$, the decode returns $M_{\rm dec} = M_{\rm phot}$ at every radius: every galaxy is quiet, even though the chambers turn at different rates everywhere except the ring. The rate difference in (iii) does not produce a mass gap. What $\Delta$ measures is the departure of the measured shares from $\mu(x)$:
+## Letter 3's discs, measured (exploratory)
 
-$$\Delta = \log_{10}\frac{\mu(x)}{\mu_{\rm obs}}, \qquad \mu_{\rm obs} = \frac{g_{\rm bar}}{g_{\rm obs}}, \qquad \Omega_{\rm obs} = \frac{\mu_{\rm obs}}{1 - \mu_{\rm obs}} .$$
+[`measured_partition.py`](measured_partition.py) builds Letter 3's two surfaces from SPARC for the 149 quality-cut galaxies: blue $\mu_{\rm obs} = g_{\rm bar}/g_{\rm obs}$ and red $1 - \mu_{\rm obs}$, as medians in bins of $\log_{10}x$. It uses two versions of $g_{\rm bar}$:
+- **(a) the decoding-mass letter's photometric mass,** as $GM_{\rm phot}/r^2$, the letter's declared spherical limit;
+- **(b) SPARC's own Newtonian $g_{\rm bar}$** (thin disks, measured HI maps), a diagnostic.
 
-With no slip at the *measured* radii, $\Omega_{\rm obs}$ is the measured roll ratio, and $\log_{10}(\Omega_{\rm obs}/x)$ is the **slip**. So the data test the theorem through the shares themselves: where they meet, how far apart they are, and how far the measured roll ratio slips from $x$. That is Letter 3's figure, built from data.
+The measured quantity is the paper's own: $\log_{10}(M_{\rm dec}/M_{\rm phot}) = \log_{10}(\mu(x)/\mu_{\rm obs})$, verified at all 3,391 radii. Outputs: [`measured_partition_output.txt`](measured_partition_output.txt), [`measured_partition.png`](measured_partition.png), [`null_simulation_output.txt`](null_simulation_output.txt), [`referee_checks_output.txt`](referee_checks_output.txt).
 
-## The red and blue discs, measured (exploratory)
+**T1. Where the measured discs meet** (median $\mu_{\rm obs} = \tfrac12$), with 95% bootstrap intervals over galaxies:
 
-[`measured_partition.py`](measured_partition.py) builds Letter 3's two surfaces from SPARC: blue $\mu_{\rm obs}$ and red $1 - \mu_{\rm obs}$, as medians over $\log_{10}x$ for the 149 quality-cut galaxies. It uses $g_{\rm obs}$ from the letter's smoothed velocities and two versions of $g_{\rm bar}$:
-- **(a) the decoding-mass letter's photometric mass,** as the spherical $GM_{\rm phot}/r^2$ (decode audit v2);
-- **(b) SPARC's own Newtonian $g_{\rm bar}$,** computed by Lelli et al. for thin disks with the measured HI maps (a diagnostic, not the letter's method).
-
-Nothing is fitted. Output: [`measured_partition_output.txt`](measured_partition_output.txt); figure: [`measured_partition.png`](measured_partition.png).
-
-**T1. Where the discs meet** (median $\mu_{\rm obs} = \tfrac12$; theory: the ring, $x = 1$):
-
-| $g_{\rm bar}$ | All (149) | Not gas-dominated (90) |
-|---|---|---|
-| (a) letter's $M_{\rm phot}$, spherical | $x = 1.62$ (0.99–2.72) | $x = 1.33$ (0.92–2.66) |
-| (b) SPARC, thin disk | $x = 1.03$ (0.83–1.43) | $x = 0.97$ (0.77–1.33) |
-
-With SPARC's $g_{\rm bar}$ the measured discs meet within 3% of $x = 1$. The robustness checks ([`referee_checks.py`](referee_checks.py), [`referee_checks_output.txt`](referee_checks_output.txt)) are:
-- **R1:** every galaxy weighted equally, instead of every point;
-- **R2:** bins shifted by half a bin;
-- **R3:** unsmoothed velocities.
-
-| $g_{\rm bar}$ | point-weighted | galaxy-weighted (R1) | bins shifted (R2) |
+| $g_{\rm bar}$ | point-weighted | galaxy-weighted | bins shifted |
 |---|---|---|---|
-| (a) letter's $M_{\rm phot}$ | 1.62 (1.05–2.50) | **1.83 (1.54–3.10)** | 1.50 |
-| (b) SPARC | 1.03 (0.88–1.24) | 1.07 (0.92–1.21) | 1.02 |
-| (b), unsmoothed $g_{\rm obs}$ (R3) | 1.07 (0.88–1.29) | 1.00 (0.88–1.13) | 1.00 |
+| (a) letter's $M_{\rm phot}$ | 1.62 (1.00–2.75) | 1.83 (1.11–3.18) | 1.50 |
+| (b) SPARC | 1.03 (0.83–1.41) | 1.07 (0.91–1.28) | 1.02 |
+| (b), unsmoothed $g_{\rm obs}$ | 1.07 (0.83–1.44) | 1.00 (0.81–1.19) | 1.00 |
 
-With SPARC's $g_{\rm bar}$ the crossing stays at $x = 1.00$–1.07 under every variant. With the letter's photometric mass and every galaxy weighted equally, it is at $x = 1.83$, and the 95% interval **excludes** the ring. (The bootstrap intervals in this table use 1,000 draws, and those in the table above 2,000; they differ by Monte Carlo noise.)
+With SPARC's $g_{\rm bar}$, the discs meet at $x \approx 1$, as Letter 3 draws them. **This carries little evidential weight.** $a_0$ was calibrated on the same SPARC radial acceleration relation, so any law fitting it puts $\mu = \tfrac12$ near $g_{\rm obs} = a_0$ (McGaugh's function gives $x = 0.96$). It is a consistency check, not a test. With the letter's spherical photometric mass and galaxies weighted equally, the crossing moves to $x = 1.83$, and its interval excludes 1. That is the cost of the spherical limit on disk galaxies.
 
-**T2. The gap between the discs**, $|2\mu_{\rm obs} - 1|$, against the theory's $|2\mu - 1| = |\delta/\bar\omega|$, with (b):
+**T2 and T3. The gap between the discs and the "slip" are what measurement scatter produces.** The same error in $g_{\rm obs}$ enters both $x$ and $\mu_{\rm obs}$, which biases binned medians away from saturation on both sides. [`null_simulation.py`](null_simulation.py) shows this with galaxies that obey $\mu(x)$ **exactly**: SPARC's own $g_{\rm bar}$, each point's real velocity error and a per-galaxy scatter. Compare the null model (0.10 dex per-galaxy scatter, median of 20 realisations) with the measurement, (b):
 
-| $\log_{10}x$ | −0.88 | −0.62 | −0.38 | −0.12 | +0.12 | +0.38 | +0.62 | +0.88 |
-|---|---|---|---|---|---|---|---|---|
-| measured | 0.55 | 0.55 | 0.42 | 0.16 | 0.14 | 0.22 | 0.56 | 0.66 |
-| theory | 0.76 | 0.62 | 0.41 | 0.14 | 0.14 | 0.41 | 0.62 | 0.76 |
+| $\log_{10}x$ | −0.88 | −0.62 | −0.38 | −0.12 | +0.12 | +0.38 | +0.62 | +0.88 | +1.12 |
+|---|---|---|---|---|---|---|---|---|---|
+| slip, measured | +0.30 | +0.08 | −0.02 | −0.03 | −0.03 | −0.23 | −0.16 | −0.25 | −0.62 |
+| slip, null | +0.17 | +0.04 | −0.05 | −0.02 | −0.05 | −0.13 | −0.22 | −0.42 | −0.62 |
+| gap, measured | 0.55 | 0.55 | 0.42 | 0.16 | 0.14 | 0.22 | 0.56 | 0.66 | 0.67 |
+| gap, null | 0.64 | 0.59 | 0.46 | 0.15 | 0.10 | 0.33 | 0.52 | 0.64 | 0.73 |
 
-- **In the two bins either side of the ring** ($\log_{10}x = \pm0.12$) the measured gap equals the theory (0.16 and 0.14, against 0.14). At $-0.38$ it matches (0.42 against 0.41). At $+0.38$, just inside the ring, it is low (0.22 against 0.41). At $\pm0.62$ the two sides equal each other (0.55 and 0.56), below the theory's 0.62. Exchange symmetry, $\mu(1/x) = 1 - \mu(x)$, therefore holds at the ring and at $\pm0.62$, but not at $\pm0.38$.
-- **Further out on both sides** the measured discs stay closer together than the theory: the measured shares saturate less.
+The null model reproduces the sign, the rough size and the flat stretch across $x = 1$, and its crossing is at $x = 1.07$. So the measured shares are **consistent with $\mu(x)$ within the measurement scatter**. The departures away from the ring are not evidence of slip. (Earlier versions of this note read them as slip and as "saturating less than $\mu(x)$", and said measurement errors do not move the medians; both were wrong.) Reading slip pointwise as interior activity would need the errors modelled forward first.
 
-With (a), the inner side flattens: the measured TetA share stays near 0.5–0.6 inside the ring. That is the spherical $GM/r^2$, which understates a thin disk's pull inside a few scale lengths, not a property of the shares.
-
-**T3. The slip**, $\log_{10}(\Omega_{\rm obs}/x)$, with (b), all 149 galaxies: −0.016, −0.028 and −0.026 at $\log_{10}x = -0.38$, $-0.12$ and $+0.12$. That is, under 0.03 dex across $-0.5 < \log_{10}x < +0.25$. It then grows: −0.23 at $+0.38$, +0.08 and −0.16 at ∓0.62, +0.30 and −0.25 at ∓0.88. The chambers roll at the theorem's ratio across the ring, and slip away from it, more steeply on the inner side.
-
-**What this shows.** With SPARC's $g_{\rm bar}$, Letter 3's ring is where the measured shares meet, robust to weighting, binning and smoothing. Across the ring the shares follow $\mu(x)$, and the roll ratio holds without measurable slip. Away from it they depart, and exchange symmetry holds only in part.
-
-**What it does not show.**
-- **Whether the outer departures are physical.** At the rim they sit in gas-rich dwarfs. At the centre they sit in bulges and inner disks, where the fixed stellar M/L matters most.
-- **Anything unique to GFD.** Any law that fits the radial acceleration relation puts $\mu = \tfrac12$ near $g_{\rm obs} = a_0$. T1 is a consistency check of the ring, not a test that singles GFD out.
-
-**Drive and brake depend on the photometric method.** Under the letter's method, the decode audit's H3 passes ($\rho = +0.47$). With SPARC's $g_{\rm bar}$ the same test gives $\rho = +0.16$ ($p = 0.02$) over all galaxies and $+0.14$ ($p = 0.10$) in galaxies that are not gas-dominated ([`decode_audit/diagnostic_d1.py`](decode_audit/diagnostic_d1.py)). The median net area of galaxies entirely outside the ring moves from −0.24 dex (brake) to −0.03 dex (quiet). Most of the drive–brake pattern in the audit comes from the spherical photometric approximation and the model gas disks, not from the galaxies.
+**Drive and brake against the ring.** The decode audit's test of whether drive and brake follow a galaxy's share inside the ring was the analyst's hypothesis, not a GFD claim. In GFD they happen in the interior TetB, at the drain, and the decode already contains $\mu(x)$, so a quiet galaxy shows no gap whatever its share inside the ring. See [`decode_audit/`](decode_audit/).
 
 ## Next
 
-1. **Justify no slip.** Derive the shared contact from the Field Origin as the point where both tetrads are evaluated, rather than assuming it.
-2. **The outer departures.** Test whether the measured shares' weaker saturation, at the rim and at the centre, survives colour-based stellar M/L and asymmetric-drift corrections. If it does, it is a slip the theorem must account for.
-3. **Drive and brake from the throat.** The pointwise slip does not give a robust galaxy-level drive or brake. A measure of the drain itself is needed, not of the disk's share.
+1. **Justify the premise.** Derive the shared contact at the Field Origin, and the radii as shares, rather than taking them from the roulette.
+2. **Forward-model the errors** before reading any pointwise departure from $\mu(x)$ as interior activity.
+3. **Drive and brake from the drain.** A galaxy-level measure of what the interior TetB is doing, read from $M_{\rm dec}$ against $M_{\rm phot}$.

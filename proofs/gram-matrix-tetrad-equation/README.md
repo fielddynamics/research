@@ -6,7 +6,7 @@
 
 ---
 
-This folder holds a four-page proof and a script that checks every step (66 checks, exact algebra, exhaustive where the cases are finite). It was revised after an internal referee-style review ([`referee_review.md`](referee_review.md)). It is the revised version of the [Gram-matrix note](../../papers/gram-matrix-of-tetrad-equation/), which is unchanged in its own folder. This page explains the argument for a reader with first-year linear algebra.
+This folder holds a five-page proof and a script that checks every step (66 checks, exact algebra, exhaustive where the cases are finite, and exact spot checks for the rigidity converse and Theorem 3(ii)). It was revised after an internal referee-style review ([`referee_review.md`](referee_review.md)). It is the revised version of the [Gram-matrix note](../../papers/gram-matrix-of-tetrad-equation/), which is unchanged in its own folder. This page explains the argument for a reader with first-year linear algebra.
 
 ## The question
 
@@ -88,7 +88,7 @@ The original note, [`supplementary_gram_stellated_octahedron.tex`](../../papers/
 
 | File | Contents |
 |---|---|
-| [`gram_matrix_tetrad_equation.pdf`](gram_matrix_tetrad_equation.pdf) | The proof, four pages |
+| [`gram_matrix_tetrad_equation.pdf`](gram_matrix_tetrad_equation.pdf) | The proof, five pages |
 | [`gram_matrix_tetrad_equation.tex`](gram_matrix_tetrad_equation.tex) | LaTeX source (IOP journal class, included) |
 | [`verify_gram_matrix_tetrad_equation.py`](verify_gram_matrix_tetrad_equation.py) | Exact checks of every lemma, proposition and theorem: the Hadamard identity, exact rational rotations and reflections for invariance and rigidity, orientation of all four leg triples, the symmetry groups over all $8!$ relabellings of the cube, the exchange split and its coordinate independence, the metric-connection bijection for $\eta$ and a generic Lorentzian metric, and both cases of Proposition 2 |
 | [`referee_review.md`](referee_review.md) | Internal referee-style review and the change made for each point |
@@ -111,4 +111,4 @@ pdflatex -interaction=nonstopmode gram_matrix_tetrad_equation.tex
 
 ---
 
-*The algebra is complete and machine-checked, exhaustively where the cases are finite. The physical reading of the roots and the index grid is GFD's, stated so that it can be tested.*
+*The algebra is complete and exact. The script checks every step, exhaustively where the cases are finite and by exact spot checks for the rigidity converse and Theorem 3(ii). The physical reading of the roots and the index grid is GFD's, stated so that it can be tested.*

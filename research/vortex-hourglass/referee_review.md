@@ -10,8 +10,8 @@
 - **The hourglass lemma** (21 exact checks). Parity keeps a vortex's swirl and reverses its through-flow. Its helicity, the swirl × through-flow cross term, flips sign. Drive and brake, in the rate sense, are the swirl's half-difference across the throat.
 - **The roll-ratio theorem** (18 exact checks). If the two chambers roll without slipping, with radii equal to their shares, then:
   - the rate ratio is the odds, $x$;
-  - exchange is parity;
-  - the ring $x = 1$ is the quiet throat;
+  - exchanging the chambers keeps the mean and flips the half-difference (its identification with the lemma's parity is a reading);
+  - the chambers turn at one rate only at $x = 1$, Letter 3's equal-share ring *(an earlier wording, "the quiet throat", was withdrawn: see the independent-review section)*;
   - the shear changes at $2\mu(1-\mu)$, fastest at the ring.
 
 **Tested against SPARC.**
@@ -114,7 +114,7 @@ Only H1, H2 and H3 had criteria fixed before measurement. Everything else is exp
 - **m1. Points with $\mu_{\rm obs}$ outside (0, 1).** These are 157–192 points (5–6%) where $g_{\rm bar} > g_{\rm obs}$. They are kept in the median shares and excluded from the slip, since $\Omega$ is undefined there. The scripts print the counts, and this review now states it.
 - **m2. Points within a galaxy are correlated.** Every bootstrap resamples galaxies, not points (2,000 draws for T1, and 1,000 and 400 for R1).
 - **m3. Bootstrap noise.** The intervals from `measured_partition.py` (2,000 draws) and `referee_checks.py` (1,000 draws) differ slightly for the same quantity: 0.99–2.72 and 1.05–2.50 for the letter's method. The note says which is which.
-- **m4. Errors not propagated.** Distance and inclination errors are not carried through. They add scatter to $x$ and $\mu_{\rm obs}$, but do not change medians at this sample size. They would matter for per-galaxy classes, which the decode audit already reports as fragile to M/L.
+- **m4. Errors not propagated.** Distance and inclination errors are not carried through. *(Corrected after the independent review: they do change the binned medians. See M2 in the section below and [`null_simulation.py`](null_simulation.py).)* They would matter for per-galaxy classes, which the decode audit already reports as fragile to M/L.
 - **m5. Smoothing mismatch in the diagnostic.** Diagnostic (b) used smoothed $g_{\rm obs}$ against SPARC's unsmoothed $g_{\rm bar}$. R3 reruns it unsmoothed: the crossing is $x = 1.07$ (point-weighted) and $x = 1.00$ (galaxy-weighted). No change.
 - **m6. The hourglass example is local.** Its axial velocity grows as $z^2$ away from the throat. That is fine for a local, exact check of the lemma; it is not a global model.
 
@@ -122,13 +122,13 @@ Only H1, H2 and H3 had criteria fixed before measurement. Everything else is exp
 
 These come from reproducing the letter. None changes its text. They are recorded for whoever revises it.
 
-- **F1. CamB's mass model (corrected).** The letter's CamB values had been read from the neighbouring columns of SPARC table 1. They are corrected to the catalogue values, Figure 2 is regenerated and `run_all_validations.py` passes (commit `cec64d5`):
+- **F1. CamB's mass model (corrected).** The letter's old CamB values match other columns of SPARC table 1 exactly: R_disk and SB_disk, two places over from M_HI and R_HI. The /2.5 divisor is not Gravis's R_HI/3, so the builder that produced them is unknown. They are corrected to the catalogue values, Figure 2 is regenerated and `run_all_validations.py` passes (commit `cec64d5`):
 
   | | Was | Equals | Now |
   |---|---|---|---|
   | Gas mass | $6.251\times10^8$ | $1.33 \times R_{\rm disk}$ | $1.596\times10^7$ (1.33 × $M_{\rm HI}$) |
   | Gas $R_d$ | 26.48 kpc | ${\rm SB}_{\rm disk}/2.5$ | 0.40 kpc |
-  | Disk $R_d$ | 1.0 kpc | parser default | 0.47 kpc |
+  | Disk $R_d$ | 1.0 kpc | Gravis's parser default (plausible, unproven) | 0.47 kpc |
 
   One consequence for the text: with the corrected baryons, the ΛCDM curve in panel (a) now passes through CamB's outermost point.
 - **F2. Bulge light is counted twice in the SPARC catalogue.** The letter's pipeline (Gravis, `data/build_sparc_sources.py`) sets the disk mass to $0.5\,L_{[3.6]}$ of the *total* light, then adds a bulge on top. In the 29 SPARC galaxies with a bulge, the median bulge share of the light is 0.19. Gravis's stellar mass is a median 1.19 times SPARC's ($0.5L_{\rm disk} + 0.7L_{\rm bulge}$), and up to 2.09 times (R4). That biases bulge galaxies toward brake in the letter's pipeline.
@@ -143,18 +143,50 @@ These come from reproducing the letter. None changes its text. They are recorded
 
 **The proved parts stand as proved, given their stated premises.** The lemma is exact kinematics. The theorem is exact once no slip and radii = shares are granted, and its exchange step is now checked correctly.
 
-**The data support one thing robustly:** with SPARC's own Newtonian $g_{\rm bar}$, the measured TetA and TetB shares meet at Letter 3's ring, $x = 1.00$–1.07, under every weighting, binning and smoothing variant. Across the ring they follow $\mu(x)$, with under 0.03 dex of slip for $-0.5 < \log_{10}x < +0.25$. Two cautions:
-- this is consistent with GFD but not unique to it;
-- away from the ring the shares saturate less than $\mu(x)$, and exchange symmetry holds only in part.
+**What the data show** *(revised after the independent review)*: with SPARC's own Newtonian $g_{\rm bar}$, the measured TetA and TetB shares are consistent with $\mu(x)$ within the measurement scatter, including where they meet ($x \approx 1$). A null model that obeys $\mu(x)$ exactly reproduces the departures away from the ring. Two cautions:
+- the crossing at $x \approx 1$ carries little weight, because $a_0$ was calibrated on these same galaxies;
+- an earlier version of this assessment claimed under 0.03 dex of slip near the ring and "saturation" away from it; both readings are withdrawn.
 
 **Not established:**
-- that drive and brake follow the ring;
+- that drive and brake follow the ring (and no GFD paper claims they do);
 - that the vortex's helicity is the axial torsion;
 - that the chambers do not slip.
 
 **For the decoding-mass letter:**
 - CamB is corrected;
 - the bulge double count, the sphere approximation and the gas scale length are recorded as F2–F4 for its next revision.
+
+## Independent review (2026-11-14) and the corrections it led to
+
+A separate reviewer, with no access to this analysis's reasoning, reread the papers, reran every script and reported in [`independent_review.md`](independent_review.md). It confirmed:
+- the Gram-matrix proof;
+- the lemma and roll-ratio algebra;
+- the decode and its byte-for-byte reproducibility;
+- the substance of the CamB correction.
+
+It found the following, and each is now corrected:
+
+| Finding | Correction |
+|---|---|
+| **C1.** The ring tests (H2, H2′, H3) test the analyst's premise, not GFD. No paper links drive or brake to the ring; in GFD they happen in the interior TetB at the drain. | The README, the decode-audit README, `ROLL_RATIO.md` and `CRITERIA.md` (with a dated note) now say this plainly. The results stay in the record as the analyst's hypothesis. |
+| **M1.** A bootstrap bug in `referee_checks.py`: resampled galaxies collapsed onto one key. | Fixed and rerun. SPARC $g_{\rm bar}$: $x = 1.03$ (0.83–1.41). The letter's method, galaxy-weighted: 1.83 (1.11–3.18), still excluding 1. |
+| **M2.** The "slip" and "saturation" away from $x = 1$ are what binning on a noisy $g_{\rm obs}$ produces. This review's m4 ("errors do not change medians") was wrong. | Added [`null_simulation.py`](null_simulation.py): galaxies obeying $\mu(x)$ exactly reproduce the pattern and the crossing ($x = 1.07$). The notes now say the measured shares are consistent with $\mu(x)$ within the scatter, and no slip is claimed. |
+| **M3.** "Pre-registered" overstated it: H3's criteria came after H2 and H2′ had been run on the same galaxies. Also, H2′'s criterion was in fact fixed before running, contrary to M8 above. | Wording corrected in the decode audit and in `CRITERIA.md`'s note. |
+| **M4.** The crossing at $x \approx 1$ is close to circular, since $a_0$ was calibrated on SPARC. | Called a consistency check with little evidential weight. |
+| **M5.** The "quiet throat" conflated the ring (the interaction core, out in the disk) with the throat (the Field Origin, at the drain), and merged two different "half-differences". | Removed; `ROLL_RATIO.md` (ii) and (iii) rewritten. |
+| **M6.** The roll-ratio "unification" was overclaimed. | Restated as the roulette written as algebra under a stated premise. |
+| **m1.** The A8 output was stale after the CamB fix. | Rerun: CamB is −0.771 dex at its outer point, $A = -2.04$. Text updated. |
+| **m2.** The CamB provenance: the columns are two over, and the /2.5 divisor is unexplained. | F1 reworded. |
+| **m9.** "The only parity-invariant case" holds for the swirl only, and the script's check was trivial. | `LEMMA.md` and the README reworded; the check replaced with a real one (21/21). |
+
+**Findings for the decoding-mass letter** (not changed; for the author):
+- **M7. CamB's Figure 2, after the correction.** The Newtonian baryonic curve lies above the observed velocities inside about 1 kpc (12.4 against 8.9 km/s), which usually signals non-circular motion in a Q = 2 dwarf. Also, the curve labelled "NFW halo fit" is abundance-matched, not fitted, and it misses the inner points.
+- **F5, again.** The letter presents CamB, a brake by the framework's definition, as the example of "power output".
+- **m3.** `run_all_validations.py` checks no CamB number.
+
+**Finding for Letter 2** (not changed): **M8.** Its Proposition, "a torsionful connection … is therefore root-resolving", is contradicted by the Gram-matrix proof's Proposition 2(a). Its Lemma and its "necessary carrier" Corollary are correct.
+
+**Gram-matrix proof** (m5–m8): its script labels are realigned with the paper, and its wording is tightened (see the proof's folder).
 
 ## Reproduce
 

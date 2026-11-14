@@ -61,8 +61,7 @@ exchange of the lower indices splits the 64 components into 40 and
 a metric connection the discarded 24, the torsion, are the only place
 a connection can tell the roots apart. A connection carried
 covariantly with the frame does not; one that keeps its spin
-connection in general does, through its torsion. Every step is exact and
-machine-checked.
+connection in general does, through its torsion. Every step is exact. The script checks each one, exhaustively where the cases are finite, and by exact spot checks for the converse of Lemma~5 and for Theorem~3(ii).
 \end{abstract}
 
 \keywords{tetrad, Gram matrix, spatial parity, Hadamard matrix,
@@ -371,9 +370,9 @@ Theorem~\ref{thm:proj}(iii).
 \begin{theorem}[Torsion-free projection]
 \label{thm:proj}
 \begin{enumerate}
-\item[(i)] The torsion-free condition is the projection $\Pi_+$ of
-  the 64 components onto 40, with the 24 torsion components as
-  kernel. It is not injective, so it is not an isomorphism:
+\item[(i)] The torsion-free condition $T = 0$ is the constraint
+  whose solutions are the image of the projection $\Pi_+$: 40 of the
+  64 components, with the 24 torsion components as the kernel of $\Pi_+$. It is not injective, so it is not an isomorphism:
   \begin{equation}
     \boxed{16 + 24 = 40 \;\neq\; 64 = 24 + 16 + 24.}
     \label{eq:noniso}

@@ -49,7 +49,7 @@ def boot(D, fn, n=1000):
     out = []
     for _ in range(n):
         b = rng.choice(len(gal), len(gal))
-        out.append(fn({f"{i}_{gal[i]}": D[gal[i]] for i in b}))
+        out.append(fn({f"{k}_{gal[i]}": D[gal[i]] for k, i in enumerate(b)}))  # one key per draw: a true bootstrap
     out = np.array(out); out = out[np.isfinite(out)]
     return np.percentile(out, [2.5, 97.5])
 
