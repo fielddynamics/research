@@ -1,0 +1,5 @@
+n = 1/2: g ~ g_N^2/3; flat rotation: False
+n = 1: g ~ g_N^1/2; flat rotation: True; v^4 = G*M*a0
+n = 2: g ~ g_N^1/3; flat rotation: False
+
+S5 PASS - only tA^2 ~ g (n = 1) gives flat rotation curves with v^4 = G M a0; the remaining exponent is fixed by baryonic Tully-Fisher, as in the detailed-balance route

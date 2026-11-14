@@ -1,0 +1,5 @@
+L' = mu g: True | gap = g + a0: True | L = 2 V3^2 + a0^2 ln(gap/a0) + const: True
+L = 2 V3^2 + (a0^2/2) ln|det H_bond| + const: True | L = a0^2 F(y)/2 + const (AQUAL): True
+ln(1 + x) = ln Z, mu = d ln Z / d ln x: True
+
+S3 PASS - the field's energy is a polarity term plus the log of the bond gap (the bond's log-determinant), not the bond energy that T06 tried

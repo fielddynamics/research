@@ -1,0 +1,2 @@
+a0 = 1e-04: max |g_Lambda/g_formula - 1| over the window = 2.0e-14; worst shell error of the formula model = 0.0061
+a0 = 1e-02: max |g_Lambda/g_formula - 1| over the window = 1.3e-14; worst shell error of the formula model = 0.0038

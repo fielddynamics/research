@@ -93,7 +93,7 @@ So any given $x$ needs $V_3/V_2 = (x-1)/(2\sqrt x)$ (9.9). For $x = g/a_0$, that
 
 ## Next
 
-- **The energy (T06).** Find what gives the field's energy, since the bond dictionary does not. This is the main open step.
+- **Can the lattice produce μ?** Followed up in [`self-consistent/`](self-consistent/) ([plan](self-consistent/PLAN.md), [results](self-consistent/RESULTS.md)). μ comes out of each bond's own spectrum given one assumption: the TetA and TetB ends both couple to a common Field Origin state, with squared couplings in the ratio $g : a_0$ (a Λ system, with exchange as bright ↔ dark). Baryonic Tully–Fisher forces the linear exponent, and the field's energy is a polarity term plus the log of the bond gap, which answers T06 in form. Still open: why the TetA coupling grows as $g$ while the TetB coupling stays at $a_0$.
 - **A lattice tetrad (T15).** Rotation and torsion on the lattice need independent frame data at each site, not a phase on each bond.
 - **A proof.** The exact parts (results 1–4 and 6–9, and T05, T07, T08, T11–T14) can move into `proofs/` as a short proof.
 
@@ -103,6 +103,7 @@ So any given $x$ needs $V_3/V_2 = (x-1)/(2\sqrt x)$ (9.9). For $x = g/a_0$, that
 |---|---|
 | [`verify_diamond_tetrad_lattice.py`](verify_diamond_tetrad_lattice.py) | 52 exact checks, labelled by the result numbers above |
 | [`TEST_PLAN.md`](TEST_PLAN.md) | The 20 tests, with criteria fixed before running |
+| [`self-consistent/`](self-consistent/) | Can the lattice produce μ: the Λ-system mechanism, the field's energy in bond terms, and the lattice run with μ computed |
 | [`tests/`](tests/) | One script per test, shared modules (`lattice.py`, `bz.py`, `pwe.py`), outputs, and [`RESULTS.md`](tests/RESULTS.md) |
 
 ## Reproduce

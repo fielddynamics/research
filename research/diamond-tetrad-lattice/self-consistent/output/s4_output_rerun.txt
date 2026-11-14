@@ -1,0 +1,9 @@
+ a0      Delta/a0   iters   x range         worst shell |rel err| (r >= 8d)
+  1e-02     0.01     34   0.311-0.966      0.0038
+  1e-02     1.00     34   0.311-0.966      0.0038
+  1e-02   100.00     34   0.311-0.966      0.0038
+  1e-04     1.00     24   8.28-48.4       0.0061
+  1e+00     1.00     39   0.0275-0.0713     0.0039
+
+largest relative difference between Delta runs (a0 = 1e-2): 2.2e-14
+S4 FAIL - mu computed from each bond's Lambda spectrum reproduces the field law within 0.61% beyond 8 bond lengths; independent of Delta to 2e-14

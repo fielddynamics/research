@@ -1,0 +1,7 @@
+bright state is the lowest eigenvector, odds tA^2 : tB^2: True
+dark state (tB, -tA, 0) at E = 0, decoupled, shares exchanged: True
+tA^2 = c g, tB^2 = c a0: bright share = g/(g + a0) for every Delta: True | dark share = mu(1/x): True
+eliminating the Field Origin: polar energy (c/Delta)(g - a0)/2, coupling (c/Delta) sqrt(g a0): True
+bright energy Delta/2 - sqrt(Delta**2 + 4*a0*c + 4*c*g)/2 -> -(c/Delta)(g + a0) at large Delta
+
+S2 PASS - one assumption, tA^2 : tB^2 = g : a0, gives both of result 9's requirements; the share is exact for every Delta; exchange is bright <-> dark

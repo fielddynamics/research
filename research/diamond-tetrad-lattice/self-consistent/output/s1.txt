@@ -1,0 +1,5 @@
+(a) constant V2: mu(g -> 0) = -g_s*kappa/(2*sqrt(4*V**2 + g_s**2*kappa**2)) + 1/2 (nonzero: no deep field)
+(b) V2^2 = C g: mu/g -> C/(kappa^2 gs^2); = 1/a0 iff C = kappa^2 gs^2/a0: True
+(c) gs = a0 and V2 = kappa sqrt(g a0) give mu exactly: True | forced: True | gs != a0 would need V2 < 0 somewhere: True (e.g. -sqrt(6)*a0/2)
+
+S1 PASS - a fixed coupling cannot give the deep field; the coupling must vanish as sqrt(g); exactness forces threshold a0 and coupling kappa sqrt(g a0)
