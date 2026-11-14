@@ -27,8 +27,10 @@ does not: Hassan--Rosen's two metrics are not GFD's two chambers.
 reduction (decoupling limit, static spherical weak field) the response
 depends on the enclosed mass only through $M/r^3$, for every $\beta$;
 no function of $M/r^3$ equals a function of $x \propto M/r^2$ for all
-masses and radii; the enhancement is bounded,
-$g_{\rm tot}/g_N < 1 + 1/\sqrt2 < 1.71$; and the potential vanishes at
+masses and radii; on the branch that matches the linear solution the
+enhancement is bounded, $g_{\rm tot}/g_N \le 1 + 1/\sqrt2 < 1.71$, and
+the other real roots give either $g_{\rm tot}/g_N \le 1/3$ or a
+mass-independent force growing like $r$; and the potential vanishes at
 GFD's parity configuration. Letter~2's Lemma explains why: TetA and
 TetB are two roots of one metric, so a potential built from
 $\sqrt{g^{-1}f}$ takes the same value on either root
@@ -62,9 +64,9 @@ $\beta = (1,0,16,0,1)$~\cite{NelsonVIII,NelsonXII}. The SST's scalar
 sector is $-(a_0^2/8\pi G)F(y)$, $F(y) = y - 2\sqrt y + 2\ln(1+\sqrt y)$,
 $\mu(x) = F'(x^2) = x/(x+1)$~\cite{NelsonL3,NelsonPqs}. The question,
 listed as open in Papers~VIII and IX, is whether the first reduces to
-the second. Each step is checked by the accompanying script, 21 checks,
-exact algebra~\cite{NelsonScript}; the decoupling-limit derivation is
-in~\cite{NelsonBimetric} (23 checks).
+the second. Each step is checked by the accompanying script, 27 checks,
+exact algebra~\cite{NelsonScript}, including the decoupling-limit
+derivation itself, done independently of~\cite{NelsonBimetric}.
 
 \section*{Part A: the standard reduction}
 
@@ -83,31 +85,56 @@ Q^2s^3 + 6Qs^2 + 6s - 2 = 0,\qquad g_{\rm tot}/g_N = 1 + s,
 with $q = M_{\rm enc}/4\pi r^3$. The radius enters only through $q$.}
 
 \begin{proof}
-The coefficients follow from expanding
-$\sum(-1)^n\beta_nY_n(1-\Pi)$ in the identically conserved basis; the
-reduced first integrals are in~\cite{NelsonBimetric}. The substitution
-is checked exactly.
+The identity $\sum_n(-1)^n\beta_nY_n(1-\Pi) = \sum_kd_kY_k(\Pi)$, with
+$Y_n(X) = \sum_k(-1)^ke_k(X)X^{n-k}$, is checked for general $\beta$
+on an exact random symmetric $\Pi$ ($Y_4 = 0$ by Cayley--Hamilton). From
+$-\tfrac12h\mathcal Eh + h\cdot\sum_ka_kY_k(\Pi) + h_{00}\rho/2M$ with
+$h = \mathrm{diag}(A,B,B,B)(r)$ and $\pi(r)$, all three Euler--Lagrange
+equations are $r^{-2}$ times the derivative of a current (checked), so
+they integrate exactly. Regularity at the origin gives the
+$\pi$-equation
+$\tfrac32a_1^2\lambda - (3a_1a_2 + a_3q/4M)\lambda^2 +
+(a_2^2 + \tfrac23a_1a_3)\lambda^3 - \tfrac16a_3^2\lambda^5 + a_1q/4M = 0$,
+which contains no $r$, and
+$g_{\rm tot}/g_N = 1 - 2Ma_1\lambda/q + \tfrac23Ma_3\lambda^3/q$
+(checked). Setting $a_3 = 0$ and substituting gives~(\ref{eq:screen}).
 \end{proof}
 
 $d_1 = 32$ is the Fierz--Pauli combination and $d_3 = 0$ removes the
 quintic mixing; $d_2 = 16$ keeps the cubic Galileon term (Paper~XII
 states that both vanish).
 
-\textbf{Theorem 2 (bounded enhancement).} \emph{As $Q\to0$, $s = 1/3$:
-$g_{\rm tot}/g_N = 4/3$ (vDVZ). As $Q\to+\infty$, $s\to0$: screened to
-general relativity. On the $Q<0$ branch the turning point is
-$Q_* = 2 - 2\sqrt2$, where $s = 1/\sqrt2$. So
-$g_{\rm tot}/g_N < 1.71$ on every branch.}
+\textbf{Theorem 2 (the branches).} \emph{Every real root
+of~(\ref{eq:screen}) is $s = 2/D(v)$, $Q = vD(v)/2$, with
+$D = v^2 + 6v + 6$.
+\begin{enumerate}
+\item The branch that matches the linear solution ($v\to0$: $s = 1/3$,
+$g_{\rm tot}/g_N = 4/3$, vDVZ) is screened for $Q>0$ ($s\to0$). For
+$Q<0$ it turns at $Q_* = 2 - 2\sqrt2$, where $s = 1/\sqrt2$, and does
+not continue past it. On it, $g_{\rm tot}/g_N \le 1 + 1/\sqrt2 < 1.71$.
+\item Where $D<0$, $s\le -2/3$, so $g_{\rm tot}/g_N\le 1/3$.
+\item As $D\to0^+$ ($v\to-3\pm\sqrt3$), $Q\to0$ and $s\simeq v/Q\to\infty$.
+There $g_{\rm tot}\simeq g_Nv/Q \propto (M/r^2)(r^3/M) = r$,
+independent of the mass.
+\end{enumerate}}
 
 \begin{proof}
-With $v = Qs$, (\ref{eq:screen}) is $v(v^2+6v+6) = 2Q$, whose turning
-points are $v = -2\pm\sqrt2$; all values are checked exactly.
+Substituting the parametrisation solves~(\ref{eq:screen}) identically;
+the turning points are $v = -2\pm\sqrt2$, $\min D = -3$, and the
+roots of $D$ are $-3\pm\sqrt3$, where $Q = 0$ (all checked).
 \end{proof}
+
+The unbounded roots of~(\ref{eq:screen}) do not match the linear solution at large
+$r$, and their force grows like $r$ whatever the mass: a
+self-accelerating-type branch, not the deep-MOND form
+$\sqrt{GMa_0}/r$. So no branch gives flat rotation curves. Theorem~3
+shows this for every branch at once.
 
 \textbf{Theorem 3 (no change of variable).} \emph{No function of
 $M/r^3$ equals a function of $x = GM/(a_0r^2)$ for all $M$ and $r$,
-unless both are constant. Hence the standard response cannot be
-$1/\mu(x)$, for any $\beta$.}
+unless both are constant. Since every root of the $\pi$-equation is a
+function of $q$ alone (Theorem~1), the standard response cannot be
+$1/\mu(x)$ on any branch, for any $\beta$.}
 
 \begin{proof}
 Along $M = Lr^3$ the density is fixed while $x = GLr/a_0$ varies, and
@@ -116,8 +143,7 @@ Vainshtein radius scales as $M^{1/3}$ and the MOND radius
 $\sqrt{GM/a_0}$ as $M^{1/2}$.
 \end{proof}
 
-Flat rotation curves need $g_{\rm tot}/g_N\to\infty$ as $g_N\to0$,
-which Theorem~2 excludes. With $m\sim H_0$, galaxies also lie well
+With $m\sim H_0$, galaxies also lie well
 inside the Vainshtein radius ($\sim$260~kpc at $10^{10}M_\odot$), where
 $\mu_{\rm eff}\to1$~\cite{NelsonBimetric}. Dimensionally, the Galileon
 variable is $\Phi/(mr)^2$ and the MOND variable $\Phi/(mr)$: both small
@@ -150,6 +176,13 @@ second root, and there $V(P) = 0$.}
 $P^{\mathsf T}\eta P = \eta$; checked for a general static tetrad.
 \end{proof}
 
+The two roots are the two square-root branches of $g^{-1}f = I$: $P$
+satisfies $P^2 = I$ but is not the principal root (its spatial
+eigenvalues are $-1$), and $e^{\mathsf T}\eta(Pe)$ is symmetric, so the
+vielbein form with $S = P$ meets the symmetric-vielbein condition
+(checked). The metric form, defined with the principal root, sees only
+$S = I$.
+
 This is Letter~2's Lemma~\cite{NelsonL2}: objects built from the
 metric (the metric, a torsion-free connection) cannot tell TetA from
 TetB, and only the torsion sector can. The HR interaction is built from
@@ -180,9 +213,13 @@ $s(1/w) - [1 - s(w)] = -w(A-B)(A+B)/[(A+Bw)(Aw+B)]$ (checked), which
 vanishes iff $A = B$ since $A + B > 0$.
 \end{proof}
 
-\textbf{Corollary 1 (the lock and $\beta_2$).} \emph{Palindromic
-$\beta$, equivalent to HR's $g\leftrightarrow f$ symmetry
-$\det S\,V(S^{-1}) = V(S)$, satisfies (\ref{eq:cond}), and then
+The share is not an arbitrary choice: $Bw/(A+Bw) = w\,\mathrm d\ln
+V/\mathrm dw$, the elasticity of $V$ on this family (checked).
+
+\textbf{Corollary 1 (the lock and $\beta_2$).} \emph{HR's $g\leftrightarrow f$ symmetry
+$\det S\,V(S^{-1}) = V(S)$ holds iff $\beta$ is palindromic (the
+difference is $\sum_n(\beta_{4-n}-\beta_n)e_n(S)$). Palindromic $\beta$
+satisfies (\ref{eq:cond}), and then
 $V = (\beta_0 + 4\beta_1 + 3\beta_2)(1+w)$. The locked set gives
 $V = 49(1+w)$, and $\beta_2$ cancels from $s$. On this family
 $V/V(I) = \det[(I+S)/2]$, the volume of the midpoint frame.}
