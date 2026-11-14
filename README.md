@@ -32,7 +32,7 @@ Each claim is graded by what supports it. **Theorem**: proved, with a script tha
 | Claim | Status | How to check |
 |---|---|---|
 | The radial acceleration relation follows from the covariant action, with no parameter fitted to galaxies | Derived; tested on SPARC | [`sparc_rar.py`](papers/letter-radial-acceleration-relation-sparc/sparc_rar.py) |
-| Under common norm, closure and S₄ symmetry, the regular tetrahedron, and hence the stellated octahedron, is the unique spatial realisation of the tetrad | Theorem | [forced tetrahedral frame](proofs/forced-tetrahedral-frame/) (27 checks); [`verify_gram_theorems.py`](papers/gram-matrix-of-tetrad-equation/verify_gram_theorems.py) (32 checks) |
+| Under common norm, closure and S₄ symmetry, the regular tetrahedron, and hence the stellated octahedron, is the unique spatial realisation of the tetrad | Theorem | [forced tetrahedral frame](proofs/forced-tetrahedral-frame/) (27 checks); [`verify_gram_theorems.py`](papers/gram-matrix-of-tetrad-equation/verify_gram_theorems.py) (32 checks); [Gram matrix of the tetrad equation](proofs/gram-matrix-tetrad-equation/) (66 checks) |
 | The spatial sector of a single tetrad bounds exactly two parity-related regions | Theorem | [two bounded regions](proofs/tetrad-scheme-two-bounded-regions/) (39 checks) |
 | μ(x) = x/(x + 1) is the unique law with exchange symmetry between those regions | Theorem, within the stated class of maps | [exchange symmetry](proofs/constitutive-law-exchange-symmetry/) (34 checks) |
 | The kinetic functional has the closed form F(y) = y − 2√y + 2 ln(1 + √y), so the action can be written explicitly | Theorem | [AQUAL energy functional](proofs/aqual-energy-functional/) (24 checks) |
@@ -124,7 +124,7 @@ pip install numpy scipy sympy mpmath matplotlib
 | Script | Checks |
 |---|---|
 | [`papers/letter-radial-acceleration-relation-sparc/sparc_rar.py`](papers/letter-radial-acceleration-relation-sparc/sparc_rar.py) `--from-csv supplementary/sparc_rar.csv` | SPARC radial acceleration relation: figure, mean and scatter |
-| [`proofs/*/verify_*.py`](proofs/README.md) | The thirteen formal proofs: 24 + 34 + 27 + 25 + 39 + 36 + 39 + 32 + 61 + 41 + 26 + 16 + 64 = 464 checks |
+| [`proofs/*/verify_*.py`](proofs/README.md) | The fourteen formal proofs: 24 + 34 + 27 + 25 + 39 + 36 + 39 + 32 + 61 + 41 + 26 + 16 + 64 + 66 = 530 checks |
 | [`papers/letter-1-tetrad-frame-geometry/Supplementary/run_all_validations.py`](papers/letter-1-tetrad-frame-geometry/Supplementary/run_all_validations.py) | Letter 1: tetrad frame geometry (29 claims) |
 | [`papers/letter-2-other-half-of-gravity-torsion/v2/Supplementary/run_all_validations.py`](papers/letter-2-other-half-of-gravity-torsion/v2/Supplementary/run_all_validations.py) | Letters 1–2: geometry, torsion = TetB (52 claims) |
 | [`papers/letter-3-field-closure-of-tetrad-frame/Supplementary/run_all_validations.py`](papers/letter-3-field-closure-of-tetrad-frame/Supplementary/run_all_validations.py) | Letter 3: 40/24 split, polynomial identity, partition (52 claims) |
@@ -238,7 +238,7 @@ Runs the field equations in reverse: the same algebraically invertible relations
 
 ### Manuscripts in preparation (sources only)
 
-**The Gram Matrix of the Tetrad Equation** — [`papers/gram-matrix-of-tetrad-equation/`](papers/gram-matrix-of-tetrad-equation/)
+**The Gram Matrix of the Tetrad Equation** — [`papers/gram-matrix-of-tetrad-equation/`](papers/gram-matrix-of-tetrad-equation/); revised, referee-reviewed version in [`proofs/gram-matrix-tetrad-equation/`](proofs/gram-matrix-tetrad-equation/)
 Treats the tetrad equation as a Gram matrix, $G = M^TM$. Its two sign-related solutions give root-blind self-coupling and sign-reversing cross-coupling; their columns form a tetrahedron, its inverse and their stellated-octahedron compound. The affine connection splits canonically as 24 + 16 + 24 = 64, and the torsion-free projection retains 40 and discards the TetB sector. The companion *forced Gram-matrix theorem* (supplement to the radial acceleration relation letter) proves the regular tetrahedron, and hence the stellated octahedron, is the unique spatial realisation of the Lorentz tetrad under common norm, closure and $S_4$-invariance. A third proof, [*The Coupling Polynomial Generates the 40/24 Split*](papers/letter-3-field-closure-of-tetrad-frame/Supplementary/proof_polynomial_40_24.tex) (Letter 3 supplement), shows that the torsion-free split is the coupling polynomial at its two opposite states: $(f(K,+1)-1)/2 = 10$ retained and $(f(K,-1)-1)/2 = 6$ discarded per face, restoring $K^3 = 64$ when both are active. The counting and polynomial results are checked by the letters' `run_all_validations.py` scripts (Letter 3: 52/52), and the Gram products and forced-Gram theorem by [`verify_gram_theorems.py`](papers/gram-matrix-of-tetrad-equation/verify_gram_theorems.py) (32/32).
 
 **Tully–Fisher Velocity Evolution from Dual-Tetrad Gravity: A Zero-Parameter Prediction Compared to IFU Survey Data** — [`papers/tully-fisher-velocity-evolution/`](papers/tully-fisher-velocity-evolution/)
