@@ -40,18 +40,20 @@ check("(ii) half-difference over mean: delta / omega_bar = (1 - x)/(1 + x)", sp.
 check("(ii) which is 1 - 2 mu", sp.simplify(ratio - (1 - 2 * mu)) == 0)
 check("(ii) exchange of the chambers (x -> 1/x) flips delta / omega_bar",
       sp.simplify(ratio.subs(x, 1 / x) + ratio) == 0)
-# Exchange swaps the radii, hence the rates: the mean is kept, the half-difference flips (hourglass lemma (f))
-RA2, RB2 = RB, RA
-wB2 = RA2 * wA / RB2                     # same TetA reference rate, radii exchanged
-check("(ii) exchanging the radii gives rate ratio 1/x", sp.simplify(wB2 / wA - 1 / x) == 0)
-check("(ii) so the exchange is the parity action of the hourglass lemma: delta/omega_bar -> -(delta/omega_bar)",
-      sp.simplify(((wA - wB2) / (wA + wB2)) + ratio) == 0)
+# Exchange swaps the two chambers: each takes the other's radius and rate.
+RA2, RB2, wA2, wB2 = RB, RA, wB, wA
+check("(ii) the exchanged pair still rolls without slip: R_A' omega_A' = R_B' omega_B'",
+      sp.simplify(RA2 * wA2 - RB2 * wB2) == 0)
+check("(ii) its rate ratio is 1/x, i.e. x -> 1/x", sp.simplify(wB2 / wA2 - 1 / x) == 0)
+check("(ii) the mean rate is kept", sp.simplify((wA2 + wB2) / 2 - wbar) == 0)
+check("(ii) the half-difference flips: the parity action of the hourglass lemma (f)",
+      sp.simplify((wA2 - wB2) / 2 + delta) == 0)
 
 # (iii) the quiet throat
 check("(iii) delta = 0 exactly at x = 1", sp.solve(sp.Eq(ratio, 0), x) == [1])
 check("(iii) where mu = 1/2 (the ring)", mu.subs(x, 1) == sp.Rational(1, 2))
-check("(iii) TetB turns faster inside the ring (x > 1): drive", sp.simplify(wB.subs(x, 2) / wA) > 1)
-check("(iii) and slower outside it (x < 1): drag", sp.simplify(wB.subs(x, sp.Rational(1, 2)) / wA) < 1)
+check("(iii) TetB turns faster inside the ring (x > 1): drive in the rate sense", sp.simplify(wB.subs(x, 2) / wA) > 1)
+check("(iii) and slower outside it (x < 1): drag in the rate sense", sp.simplify(wB.subs(x, sp.Rational(1, 2)) / wA) < 1)
 
 # (iv) the shear's rate of change is the logistic core
 t = sp.symbols("t", real=True)

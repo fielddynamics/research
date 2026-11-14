@@ -1,0 +1,9 @@
+Crossing of the shares (median mu_obs = 1/2), log10 x and x, 95% bootstrap over galaxies
+  (a) letter's M_phot                      point-weighted x = 1.62 (1.05-2.50)   galaxy-weighted [R1] x = 1.83 (1.54-3.10)   bins shifted [R2] x = 1.50
+  (b) SPARC g_bar                          point-weighted x = 1.03 (0.88-1.24)   galaxy-weighted [R1] x = 1.07 (0.92-1.21)   bins shifted [R2] x = 1.02
+  (b) SPARC g_bar, unsmoothed g_obs [R3]   point-weighted x = 1.07 (0.88-1.29)   galaxy-weighted [R1] x = 1.00 (0.88-1.13)   bins shifted [R2] x = 1.00
+
+R4  bulge light in the letter's (Gravis) photometric mass
+  29 galaxies with a bulge. Bulge share of 3.6um light: median 0.19
+  Gravis stars (0.5 L_total + bulge) / SPARC stars (0.5 L_disk + 0.7 L_bulge): median 1.19, range 1.02-2.09
+  Gravis bulge mass / SPARC bulge mass (0.7 L_bulge): median 1.09

@@ -6,6 +6,11 @@
 
 ---
 
+> **Status (2026-11-14, after a referee-style review: [`referee_review.md`](referee_review.md)).**
+> - **Proved, given stated premises:** the hourglass lemma (21 exact checks) and the roll-ratio theorem (18 exact checks), whose premise of no slip and radii equal to the shares is not derived.
+> - **Supported by data:** with SPARC's own Newtonian $g_{\rm bar}$, the measured TetA and TetB shares meet at Letter 3's ring ($x = 1.00$–1.07, robust to weighting, binning and smoothing) and follow $\mu(x)$ across it. This is consistent with GFD but not unique to it.
+> - **Not established:** drive and brake against the ring (they depend on the photometric method), the helicity as the axial torsion, and the no-slip premise.
+
 ## Question
 
 In GFD, TetA and TetB together form a vortex: spiral → throat → spiral, like water through a drain. The throat is the Field Origin, the neck of the hourglass (Coles Notes §2–3). TetB is the chamber beyond it, reached only through the Field Origin. The exchange of TetA and TetB is spatial parity, −I, the element that doubles the symmetry of one tetrahedron to that of the stellated octahedron ([Gram-matrix proof](../../proofs/gram-matrix-tetrad-equation/), Theorem 2).
@@ -89,18 +94,18 @@ Letter 3's figure, seen from above, looks like a galaxy: a red dome in the middl
 
 **What follows.**
 - The roll-ratio algebra is untouched: the exchange is parity, the ring is the quiet throat, and the rate difference is the share difference. What failed is the identification of the figure's regions with a galaxy's bulge and disk (H1).
-- Drive and brake against the ring: see [`decode_audit/`](decode_audit/). With full profiles the predicted direction holds as pre-registered (H3), and part of it survives the shared acceleration trend in star-dominated galaxies. Whether the shared trend is physical needs HI profiles, colour-based M/L and asymmetric-drift corrections. (Earlier, single-point reading:) drive and brake against the ring are undecided, not refuted. With the letter's decode the trend has the predicted sign and survives in star-dominated galaxies at about 2.5σ, but most brakes sit where the gas estimate is weakest (H2′). The archive's other position, that drive or brake is set at the drain by the TetB in the galaxy's central throat, is not tested here.
+- Drive and brake against the ring: see [`decode_audit/`](decode_audit/). Under the letter's photometric pipeline, H3 passes. With SPARC's own Newtonian $g_{\rm bar}$, most of the signal goes (Diagnostic D1): $\rho = +0.18$ over all galaxies, and not significant in star-dominated ones. The drive/brake pattern against the ring is therefore not established.
 - Letter 3 describes the figure's "disk-and-bulge morphology" as the field configuration of any bound mass. These checks say that morphology is the shares' high-acceleration core and low-acceleration exterior, not the stellar bulge and disk. Any reading of the figure as a galaxy's stellar structure should say so.
 
 ## The roll ratio
 
-[`ROLL_RATIO.md`](ROLL_RATIO.md) rests on one premise: the two chambers roll on each other without slipping at the Field Origin, with radii equal to their shares. From that, four things follow (16 exact checks):
+[`ROLL_RATIO.md`](ROLL_RATIO.md) rests on one premise: the two chambers roll on each other without slipping at the Field Origin, with radii equal to their shares. From that, four things follow (18 exact checks):
 - the roulette's roll ratio becomes the rate ratio, $\omega_B/\omega_A = x$;
 - exchange becomes parity;
 - the ring $x = 1$ becomes the quiet throat;
 - the shear's rate of change becomes the logistic core $2\mu(1-\mu)$.
 
-**Against SPARC.** Letter 3's red and blue discs, built from measured shares ([`measured_partition.py`](measured_partition.py)), meet at $x = 1.03$ (0.83–1.43) with SPARC's $g_{\rm bar}$. Within about 0.5 dex of the ring they are mirror images, and the roll ratio slips by less than 0.03 dex there. Further out the measured shares saturate less than $\mu(x)$.
+**Against SPARC.** Letter 3's red and blue discs, built from measured shares ([`measured_partition.py`](measured_partition.py)), meet at $x = 1.03$ (0.88–1.24) with SPARC's $g_{\rm bar}$, robust to weighting, binning and smoothing ([`referee_checks.py`](referee_checks.py)). Across the ring the shares follow $\mu(x)$, and the roll ratio slips by under 0.03 dex for $-0.5 < \log_{10}x < +0.25$. Away from it they depart, and exchange symmetry holds only in part. With the letter's photometric mass and galaxies weighted equally, the crossing ($x = 1.83$) excludes the ring.
 
 **Drive and brake.** The drive/brake pattern of the decode audit depends mostly on the letter's photometric approximations (Diagnostic D1). An earlier comparison in the note, which read the audit's gap as the theorem's rate difference, is corrected there.
 
@@ -108,7 +113,8 @@ Letter 3's figure, seen from above, looks like a galaxy: a red dome in the middl
 
 | File | Contents |
 |---|---|
-| [`ROLL_RATIO.md`](ROLL_RATIO.md), [`verify_roll_ratio.py`](verify_roll_ratio.py) | Roll-ratio theorem (16 checks) |
+| [`ROLL_RATIO.md`](ROLL_RATIO.md), [`verify_roll_ratio.py`](verify_roll_ratio.py) | Roll-ratio theorem (18 checks) |
+| [`referee_review.md`](referee_review.md), [`referee_checks.py`](referee_checks.py), [`referee_checks_output.txt`](referee_checks_output.txt) | Referee-style review of this folder and the letter's pipeline; robustness checks R1–R4 |
 | [`measured_partition.py`](measured_partition.py), [`measured_partition.png`](measured_partition.png), [`measured_partition_output.txt`](measured_partition_output.txt) | Letter 3's discs from SPARC: where the shares meet, their gap, the slip; letter's photometric mass and SPARC's $g_{\rm bar}$ |
 | [`compare_roll_ratio_sparc.py`](compare_roll_ratio_sparc.py) | Superseded first comparison (read $\Delta$ as the rate difference; see the correction in `ROLL_RATIO.md`) |
 | [`check_drive_brake_photometric.py`](check_drive_brake_photometric.py) | H2′: drive and brake decoded as in the decoding-mass letter ($M_{\rm dec}$ against enclosed photometric mass), the ring correlation, and robustness to the gas estimate |

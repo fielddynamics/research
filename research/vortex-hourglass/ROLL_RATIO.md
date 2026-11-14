@@ -1,6 +1,6 @@
 # The Roll Ratio as the Rate Ratio of the Two Chambers
 
-*Working note, Field Dynamics Research, 2026-11-14. Status: research, not a paper. Verification: `python verify_roll_ratio.py` (16 checks, exact sympy). Data: `python measured_partition.py` (Letter 3's discs from SPARC, exploratory). `compare_roll_ratio_sparc.py` is the superseded first comparison, kept for the record.*
+*Working note, Field Dynamics Research, 2026-11-14. Status: research, not a paper. Verification: `python verify_roll_ratio.py` (18 checks, exact sympy). Data: `python measured_partition.py` (Letter 3's discs from SPARC, exploratory). `compare_roll_ratio_sparc.py` is the superseded first comparison, kept for the record.*
 
 ---
 
@@ -39,7 +39,9 @@ Exchanging the chambers swaps the radii, so $x \to 1/x$. That keeps $\bar\omega$
 
 **(v) The chiral-holonomy twist.** The share difference $\sigma = (x-1)/(x+1)$ that weights the steps of the [chiral-holonomy proof](../../proofs/chiral-holonomy-closed-frame/) is $\sigma = 2\mu - 1 = -\delta/\bar\omega$.
 
-All of (i)–(v) are exact ([`verify_roll_ratio.py`](verify_roll_ratio.py), 16 checks).
+All of (i)–(v) are exact ([`verify_roll_ratio.py`](verify_roll_ratio.py), 18 checks). Given the premise, (i) is an identity: setting the radii equal to the shares makes the rate ratio the odds by definition. The content of the theorem is the identification, and what the premise then implies in (ii)–(v).
+
+**Two senses of drive.** In (iii), "drive" and "drag" refer to *rates*: TetB turning faster or slower than TetA, the hourglass lemma's sense. In the decoding-mass letter, drive and brake are *masses*: $M_{\rm dec}$ above or below $M_{\rm phot}$. Under the premise these come apart. The chambers turn at different rates everywhere except the ring, yet with no slip at $\mu(x)$ the decoded mass equals the photometric mass everywhere. A decoded drive or brake therefore measures slip, not the rate difference of (iii). Which sense the framework means by drive and brake is a question for the framework, recorded here, not settled.
 
 ## What it shows
 
@@ -77,7 +79,18 @@ Nothing is fitted. Output: [`measured_partition_output.txt`](measured_partition_
 | (a) letter's $M_{\rm phot}$, spherical | $x = 1.62$ (0.99–2.72) | $x = 1.33$ (0.92–2.66) |
 | (b) SPARC, thin disk | $x = 1.03$ (0.83–1.43) | $x = 0.97$ (0.77–1.33) |
 
-The ring is inside every 95% interval. With SPARC's $g_{\rm bar}$ the measured discs meet within 3% of $x = 1$.
+With SPARC's $g_{\rm bar}$ the measured discs meet within 3% of $x = 1$. The robustness checks ([`referee_checks.py`](referee_checks.py), [`referee_checks_output.txt`](referee_checks_output.txt)) are:
+- **R1:** every galaxy weighted equally, instead of every point;
+- **R2:** bins shifted by half a bin;
+- **R3:** unsmoothed velocities.
+
+| $g_{\rm bar}$ | point-weighted | galaxy-weighted (R1) | bins shifted (R2) |
+|---|---|---|---|
+| (a) letter's $M_{\rm phot}$ | 1.62 (1.05–2.50) | **1.83 (1.54–3.10)** | 1.50 |
+| (b) SPARC | 1.03 (0.88–1.24) | 1.07 (0.92–1.21) | 1.02 |
+| (b), unsmoothed $g_{\rm obs}$ (R3) | 1.07 (0.88–1.29) | 1.00 (0.88–1.13) | 1.00 |
+
+With SPARC's $g_{\rm bar}$ the crossing stays at $x = 1.00$–1.07 under every variant. With the letter's photometric mass and every galaxy weighted equally, it is at $x = 1.83$, and the 95% interval **excludes** the ring. (The bootstrap intervals in this table use 1,000 draws, and those in the table above 2,000; they differ by Monte Carlo noise.)
 
 **T2. The gap between the discs**, $|2\mu_{\rm obs} - 1|$, against the theory's $|2\mu - 1| = |\delta/\bar\omega|$, with (b):
 
@@ -86,14 +99,14 @@ The ring is inside every 95% interval. With SPARC's $g_{\rm bar}$ the measured d
 | measured | 0.55 | 0.55 | 0.42 | 0.16 | 0.14 | 0.22 | 0.56 | 0.66 |
 | theory | 0.76 | 0.62 | 0.41 | 0.14 | 0.14 | 0.41 | 0.62 | 0.76 |
 
-- **Within about 0.5 dex of the ring** the measured gap follows the theory, and the two sides mirror each other (0.55 and 0.56 at ±0.62). That is the exchange symmetry $\mu(1/x) = 1 - \mu(x)$ seen in data.
+- **In the two bins either side of the ring** ($\log_{10}x = \pm0.12$) the measured gap equals the theory (0.16 and 0.14, against 0.14). At $-0.38$ it matches (0.42 against 0.41). At $+0.38$, just inside the ring, it is low (0.22 against 0.41). At $\pm0.62$ the two sides equal each other (0.55 and 0.56), below the theory's 0.62. Exchange symmetry, $\mu(1/x) = 1 - \mu(x)$, therefore holds at the ring and at $\pm0.62$, but not at $\pm0.38$.
 - **Further out on both sides** the measured discs stay closer together than the theory: the measured shares saturate less.
 
 With (a), the inner side flattens: the measured TetA share stays near 0.5–0.6 inside the ring. That is the spherical $GM/r^2$, which understates a thin disk's pull inside a few scale lengths, not a property of the shares.
 
-**T3. The slip**, $\log_{10}(\Omega_{\rm obs}/x)$, with (b): close to zero within ±0.4 dex of the ring (−0.03 to +0.03), then growing on both sides (+0.24 at $\log_{10}x = -0.88$, −0.25 at +0.88). The chambers roll at the theorem's ratio near the ring and slip further from it.
+**T3. The slip**, $\log_{10}(\Omega_{\rm obs}/x)$, with (b), all 149 galaxies: −0.016, −0.028 and −0.026 at $\log_{10}x = -0.38$, $-0.12$ and $+0.12$. That is, under 0.03 dex across $-0.5 < \log_{10}x < +0.25$. It then grows: −0.23 at $+0.38$, +0.08 and −0.16 at ∓0.62, +0.30 and −0.25 at ∓0.88. The chambers roll at the theorem's ratio across the ring, and slip away from it, more steeply on the inner side.
 
-**What this shows.** Letter 3's ring is where the measured shares meet. The two discs are mirror images near the ring, as exchange symmetry requires. The roll ratio holds there without measurable slip. Away from the ring, the measured shares saturate less than $\mu(x)$ on both sides.
+**What this shows.** With SPARC's $g_{\rm bar}$, Letter 3's ring is where the measured shares meet, robust to weighting, binning and smoothing. Across the ring the shares follow $\mu(x)$, and the roll ratio holds without measurable slip. Away from it they depart, and exchange symmetry holds only in part.
 
 **What it does not show.**
 - **Whether the outer departures are physical.** At the rim they sit in gas-rich dwarfs. At the centre they sit in bulges and inner disks, where the fixed stellar M/L matters most.
