@@ -23,6 +23,13 @@
 | A5 | Integrated SPARC surface photometry against SPARC's $L_{[3.6]}$, 175 galaxies | median −0.024 dex ✓ |
 | A6 | Velocity smoothing: the letter's `diffraction_smooth`, width 6.2% of the span | loaded from its source ✓ |
 | A7 (added) | CamB, which the letter shows with decoded mass below photometric | decode identical; brake in both, by −0.83 dex here and −0.42 dex with the letter's own mass model |
+| A8 (added) | The letter's own `run_all_validations.py` reference values, recomputed in dex from its data, mass models and decode ([`verify_against_letter.py`](verify_against_letter.py)) | MW 25 kpc −0.046, M33 17 kpc +0.304, NGC 3198 30 kpc −0.104: all identical to the validations ✓ |
+
+**A8 in detail** ([`results/verify_against_letter_output.txt`](results/verify_against_letter_output.txt)):
+- **The letter's reference values reproduce exactly in dex.** MW at 25 kpc, $6.58\times10^{10}$ against $7.31\times10^{10}$, is −0.046. M33 at 17 kpc, $1.38\times10^{10}$ against $6.85\times10^{9}$, is +0.304. NGC 3198 at 30 kpc, $2.60\times10^{10}$ against $3.30\times10^{10}$, is −0.104.
+- **On the letter's own four galaxies the area metric gives** MW quiet ($A = +0.01$), M33 quiet ($A = -0.19$), NGC 3198 quiet ($A = -0.07$) and CamB brake ($A = -1.42$).
+- **M33 shows why the profile matters.** Its outermost point sits +0.30 dex above its baryons, which read alone would be a drive. Its profile, though, lies mostly *below* them inside, so it averages to quiet.
+- **Galaxies in both.** For CamB the decoded mass is identical at all nine radii. The dex differ only through $M_{\rm phot}$, which is 3–3.5 times higher from SPARC photometry than in the letter's model. For NGC 3198, the decoded masses agree within about 0.03 dex beyond 8 kpc, and at 30 kpc the dex are −0.10 (letter) and −0.13 (SPARC). Inside 8 kpc the velocity data differ: the letter uses Begeman's 8-point curve, SPARC 43 points. Both call NGC 3198 quiet.
 
 A7 locates the uncertainty. The decode is exact; $M_{\rm phot}$ is not. For CamB, the SPARC-built photometric mass is about 2.5 times the letter's model, mainly from the gas term (SPARC gives no gas surface-density profile, so gas is estimated as $|V_{\rm gas}|V_{\rm gas}r/G$) and the disk model. The sign agrees; the depth depends on $M_{\rm phot}$.
 
@@ -101,6 +108,7 @@ Each of these removes one systematic that could fake the shared trend. If the tr
 ```bash
 python decode_audit.py ROTMOD_DIR TABLE1      # audit A1-A6, all galaxies, H3, atlas -> results/
 python posthoc_checks.py results              # P1-P3
+python verify_against_letter.py results       # A8: dex against the letter's validations
 ```
 
 `ROTMOD_DIR` holds SPARC's `*_rotmod.dat` mass models (Lelli, McGaugh & Schombert 2016). They are taken from a GitHub mirror of `Rotmod_LTG`, because CDS is not reachable from the build environment; the mirror reproduces all 3,284 points of the repo's cached RAR file to 0.001 dex. `TABLE1` is SPARC table 1, cached in the repo at `papers/07-dual-tetrad-topology-field-origin/v7/python/sparc_tully_fisher_table.dat`. Outputs as run are in [`results/`](results/), including the console logs.

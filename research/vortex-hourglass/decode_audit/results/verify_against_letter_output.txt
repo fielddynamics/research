@@ -1,0 +1,35 @@
+1. The letter's reference values (run_all_validations.py, section 3.2), in dex
+   MW       r =   25 kpc  M_dec 6.576e+10 (ref 6.58e+10)  M_phot 7.307e+10 (ref 7.31e+10)  dex -0.046 (ref -0.046)  PASS
+   M33      r =   17 kpc  M_dec 1.381e+10 (ref 1.38e+10)  M_phot 6.851e+09 (ref 6.85e+09)  dex +0.304 (ref +0.304)  PASS
+   NGC3198  r =   30 kpc  M_dec 2.596e+10 (ref 2.60e+10)  M_phot 3.296e+10 (ref 3.30e+10)  dex -0.104 (ref -0.104)  PASS
+
+2. The letter's four galaxies, scored with the audit's area metric
+   MW        6.30- 50.0 kpc  outermost -0.105 dex  A+ 0.027  A- 0.016  A +0.011  f+ 0.52  f- 0.13  -> quiet
+   M33       0.50- 17.0 kpc  outermost +0.304 dex  A+ 0.043  A- 0.231  A -0.188  f+ 0.35  f- 0.29  -> quiet
+   NGC3198   3.00- 30.0 kpc  outermost -0.104 dex  A+ 0.002  A- 0.068  A -0.066  f+ 0.00  f- 0.88  -> quiet
+   CamB      0.16-  1.8 kpc  outermost -0.416 dex  A+ 0.000  A- 1.415  A -1.415  f+ 0.00  f- 1.00  -> brake
+
+3. Galaxies in both: the letter's profile against the audit's SPARC profile
+   NGC3198: letter 8 points, SPARC 43 points
+         r M_dec letter      SPARC M_phot letter      SPARC dex letter   SPARC
+      3.00    7.139e+09  3.012e+09     6.850e+09  4.026e+09     +0.018  -0.126
+      5.00    1.113e+10  7.045e+09     1.272e+10  8.603e+09     -0.058  -0.087
+      8.00    1.771e+10  1.517e+10     1.987e+10  1.403e+10     -0.050  +0.034
+     10.00    2.020e+10  1.959e+10     2.332e+10  1.668e+10     -0.062  +0.070
+     15.00    2.276e+10  2.492e+10     2.857e+10  2.234e+10     -0.099  +0.048
+     20.00    2.438e+10  2.613e+10     3.109e+10  2.604e+10     -0.106  +0.001
+     25.00    2.549e+10  2.554e+10     3.233e+10  2.953e+10     -0.103  -0.063
+     30.00    2.596e+10  2.482e+10     3.296e+10  3.328e+10     -0.104  -0.127
+     SPARC audit: A +0.003, class quiet
+   CamB: letter 9 points, SPARC 9 points
+         r M_dec letter      SPARC M_phot letter      SPARC dex letter   SPARC
+      0.16    4.378e+03  4.378e+03     4.431e+05  1.348e+06     -2.005  -2.488
+      0.41    3.501e+04  3.501e+04     2.484e+06  8.665e+06     -1.851  -2.394
+      0.57    1.330e+05  1.330e+05     4.347e+06  1.584e+07     -1.514  -2.076
+      0.73    3.710e+05  3.710e+05     6.469e+06  2.400e+07     -1.241  -1.811
+      0.90    8.610e+05  8.610e+05     8.885e+06  3.359e+07     -1.014  -1.591
+      1.06    1.640e+06  1.640e+06     1.122e+07  4.225e+07     -0.835  -1.411
+      1.22    2.711e+06  2.711e+06     1.357e+07  4.902e+07     -0.699  -1.257
+      1.47    4.839e+06  4.839e+06     1.713e+07  5.439e+07     -0.549  -1.051
+      1.79    8.209e+06  8.209e+06     2.140e+07  5.497e+07     -0.416  -0.826
+     SPARC audit: A -1.948, class brake
