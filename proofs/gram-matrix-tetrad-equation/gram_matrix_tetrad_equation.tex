@@ -1,0 +1,495 @@
+\documentclass[twocolumn]{iopjournal}
+
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{amsthm}
+
+\fancyhfoffset[L]{0mm}
+\setlength{\marginparwidth}{0pt}
+\setlength{\marginparsep}{0pt}
+
+% ==========================================
+% ZENODO PREPRINT HEADERS (ACTIVE)
+% ==========================================
+\renewcommand{\articletype}[1]{%
+  {\vspace*{-8mm}\noindent \Large \sf Preprint}\par
+  \vspace*{6mm}\noindent{\scriptsize \sf{\bfseries \MakeUppercase{#1}}}}
+
+\fancyhead[L]{}
+\fancyhead[R]{}
+
+\hypersetup{pdftitle={The Gram Matrix of the Tetrad Equation}, pdfauthor={Stephen Nelson}, pdfsubject={Gravity Field Dynamics (GFD)}, pdfkeywords={tetrad, Gram matrix, spatial parity, stellated octahedron, torsion, proof}}
+
+\newtheorem{lemma}{Lemma}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+\begin{document}
+
+\articletype{Supplementary Material}
+
+\title{The Gram Matrix of the Tetrad Equation}
+
+\author{Stephen Nelson}
+
+\affil{Field Dynamics Research}
+
+\ead{stephen@fielddynamics.org}
+
+\begin{abstract}
+The tetrad equation $g = e^T\eta\,e$ is even in the spatial frame,
+so its spatial realisation $M$ comes with a parity partner $-M$. We
+study the Gram matrices of the pair. Self-coupling is root-blind and
+cross-coupling reverses every sign; since the cross-coupling is also
+unchanged by exchanging the roots, Gram data resolve whether two
+factors come from the same root or from opposite roots, never which
+root is which. For the tetrahedral frame, bordering $M$ with a row of
+ones gives a Hadamard matrix, which yields $M^TM = 4I - J$, the
+spectral split $I = \tfrac14 G + \tfrac14 J$ and the rows of $M$ as
+eigenvectors, at once. The Gram matrix fixes $M$ up to a unique
+element of $O(3)$, and that element is $-I$ for the two roots: the
+roots are told apart by orientation alone, which flips because three
+is odd. The two roots are the parity classes $xyz = \pm1$ of the cube,
+and the symmetry group of their compound, the stellated octahedron,
+is that of one tetrahedron times $\{\pm I\}$. On the connection,
+exchange of the lower indices splits the 64 components into 40 and
+24; the torsion-free condition is the projection onto the 40, and for
+a metric connection the discarded 24 are exactly the torsion, the
+only place a connection can tell the roots apart. Every step is exact
+and machine-checked.
+\end{abstract}
+
+\keywords{tetrad, Gram matrix, spatial parity, Hadamard matrix,
+stellated octahedron, torsion, proof}
+
+% ======================================================================
+
+\section*{Setting}
+
+A Lorentz tetrad $e$ satisfies the tetrad equation
+\begin{equation}
+  g = e^T\eta\,e, \qquad \eta = \mathrm{diag}(-1,+1,+1,+1).
+  \label{eq:tetrad}
+\end{equation}
+Spatial parity $P = \mathrm{diag}(1,-1,-1,-1)$ acts on the frame
+index, $e \mapsto Pe$. Since $P^T\eta P = \eta$, the metric is
+unchanged, $(Pe)^T\eta(Pe) = g$, while $\det(Pe) = -\det e$: the
+equation has two roots, carried into each other by $P$, and the
+metric sees only $(\det e)^2$~\cite{NelsonScheme}.
+
+The four legs are realised in space as in~\cite{NelsonForced}: a
+\emph{spatial realisation} is a matrix $M \in \mathbb{R}^{3\times4}$
+whose column $v_a$ represents leg $a$, with every pair of legs in the
+same relation and every leg of the same magnitude. Those premises
+force the Gram matrix and the regular tetrahedron, unique up to
+$O(3)$. We take that result as given, normalise the magnitude to
+$|v_a|^2 = 3$, and use the representative
+\begin{equation}
+  M_1 = \begin{pmatrix}
+    +1 & +1 & -1 & -1 \\
+    +1 & -1 & +1 & -1 \\
+    +1 & -1 & -1 & +1
+  \end{pmatrix}.
+  \label{eq:M1}
+\end{equation}
+Parity reflects the realisation, $v_a \mapsto -v_a$, so the second
+root is realised by $M_2 = -M_1$. We write $I$ for the identity,
+$J$ for the $4\times4$ all-ones matrix and $\mathbf{1} = (1,1,1,1)^T$.
+
+% ======================================================================
+
+\section*{Part I: The three Gram products}
+
+\begin{definition}
+For realisations $U, W$ the Gram product is
+$G_{UW} = U^T W$, with entries $v_a \cdot w_b$. From the parity pair
+we form $G_{M_1M_1}$, $G_{M_2M_2}$, $G_{M_1M_2}$ and
+$G_{M_2M_1} = G_{M_1M_2}^T$. We write $G = G_{M_1M_1}$.
+\end{definition}
+
+\begin{lemma}[Root-blindness]
+\label{lem:blind}
+$G_{M_2M_2} = G_{M_1M_1}$.
+\end{lemma}
+
+\begin{proof}
+$(-M_1)^T(-M_1) = M_1^TM_1$.
+\end{proof}
+
+\begin{lemma}[Cross-coupling]
+\label{lem:cross}
+$G_{M_1M_2} = G_{M_2M_1} = -G$. Hence the Gram products take the
+value $G$ on a same-root pair and $-G$ on a cross-root pair, and each
+value is unchanged when the two roots are exchanged.
+\end{lemma}
+
+\begin{proof}
+$M_1^T(-M_1) = -G = (-M_1)^TM_1$. Exchanging the roots sends
+$G_{M_1M_1} \leftrightarrow G_{M_2M_2}$ and
+$G_{M_1M_2} \leftrightarrow G_{M_2M_1}$, which are equal pairs.
+\end{proof}
+
+\noindent
+So the cross-coupling is \emph{root-resolving} in a precise sense: it
+resolves the \emph{relative} root of two factors. No Gram product
+says which root a single frame is; Proposition~\ref{prop:orient}
+gives the quantity that does.
+
+\begin{lemma}[Explicit Gram matrix]
+\label{lem:explicit}
+Let $\hat H = \bigl(\begin{smallmatrix}\mathbf{1}^T \\ M_1
+\end{smallmatrix}\bigr)$. Then $\hat H\hat H^T = 4I$, hence
+$\hat H^T\hat H = 4I$, $M_1\mathbf{1} = 0$ and
+\begin{equation}
+  G = M_1^TM_1 = 4I - J, \qquad M_1M_1^T = 4I_3,
+  \label{eq:G}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+The rows of $M_1$ sum to zero and are mutually orthogonal with
+squared norm 4, by inspection of~(\ref{eq:M1}); with the row
+$\mathbf{1}^T$, of squared norm 4, this is $\hat H\hat H^T = 4I$.
+A square matrix with $\hat H\hat H^T = 4I$ has
+$\hat H^{-1} = \tfrac14\hat H^T$, so $\hat H^T\hat H = 4I$. Its
+left side is $\mathbf{1}\mathbf{1}^T + M_1^TM_1 = J + G$.
+\end{proof}
+
+\noindent
+$\hat H$ is the $4\times4$ Hadamard matrix~\cite{NelsonHadamard}.
+Entrywise, $G$ has diagonal $3$ and off-diagonal $-1$; with
+Lemmas~\ref{lem:blind} and~\ref{lem:cross} all three products are
+determined:
+\begin{equation}
+  G_{M_1M_1} = G_{M_2M_2} = 4I - J, \qquad G_{M_1M_2} = J - 4I.
+  \label{eq:three}
+\end{equation}
+
+\begin{lemma}[Eigenstructure]
+\label{lem:eigen}
+$\tfrac14G$ and $\tfrac14J$ are complementary orthogonal projections,
+$I = \tfrac14G + \tfrac14J$. Thus $G$ has eigenvalue $0$ on
+$\mathbf{1}$ (closure) and eigenvalue $4$ with multiplicity $3$ on
+$\mathbf{1}^\perp$, which is spanned by the rows of $M_1$:
+$G M_1^T = 4M_1^T$. The cross-coupling has eigenvalues $0$ and $-4$
+on the same spaces.
+\end{lemma}
+
+\begin{proof}
+$J^2 = 4J$ gives $(\tfrac14J)^2 = \tfrac14J$, and
+$\tfrac14G = I - \tfrac14J$ is the complementary projection.
+$GM_1^T = M_1^T(M_1M_1^T) = 4M_1^T$, and the three rows are
+independent by $M_1M_1^T = 4I_3$.
+\end{proof}
+
+\begin{lemma}[Invariance and rigidity]
+\label{lem:orth}
+For $Q \in O(3)$ the three products are unchanged by
+$(M_1,M_2) \mapsto (QM_1, QM_2)$. Conversely, if $W$ has
+$W^TW = G$, then $W = QM_1$ for a unique $Q \in O(3)$, namely
+$Q = \tfrac14 WM_1^T$. For $W = M_2$, $Q = -I$.
+\end{lemma}
+
+\begin{proof}
+$(QU)^T(QW) = U^TQ^TQW = U^TW$. The converse is the rigidity lemma
+of~\cite{NelsonForced}, since $G$ has rank 3; multiplying
+$W = QM_1$ on the right by $M_1^T$ and using $M_1M_1^T = 4I_3$ gives
+$Q$. For $W = -M_1$ this is $-I$.
+\end{proof}
+
+\noindent
+So the Gram matrix is the complete invariant of a realisation under
+$O(3)$, and the two roots are one $O(3)$ orbit: they are related by
+$-I$, which has determinant $-1$ and lies outside $SO(3)$.
+
+\begin{proposition}[Orientation]
+\label{prop:orient}
+For each triple of legs $a<b<c$, the orientation
+$\omega_{abc}(M) = \det(v_a, v_b, v_c)$ is nonzero on $M_1$,
+invariant under $SO(3)$, and satisfies
+$\omega_{abc}(M_2) = -\omega_{abc}(M_1)$.
+\end{proposition}
+
+\begin{proof}
+Any three columns of $M_1$ are independent, since $\mathbf{1}$ spans
+the null space of $M_1$. $\det(Qv_a,Qv_b,Qv_c) = \det Q\,\omega_{abc}$,
+and $\det(-I_3) = (-1)^3 = -1$.
+\end{proof}
+
+\noindent
+This is the spatial counterpart of $\det(Pe) = -\det e$: the roots
+differ only in orientation, and orientation flips because $D = 3$ is
+odd.
+
+% ======================================================================
+
+\section*{Part II: Geometric identification}
+
+\begin{theorem}[Tetrahedra in the cube]
+\label{thm:cube}
+The columns of $M_1$ are the four corners of the cube $\{\pm1\}^3$
+with $xyz = +1$, and those of $M_2$ the four with $xyz = -1$. Each
+set is a regular tetrahedron centred at the origin, with every edge
+of squared length $8$. The two sets are disjoint and together are the
+eight corners of the cube; their compound is the stellated
+octahedron $S = [\,M_1 \mid M_2\,]$~\cite{Kepler1619,Coxeter1973}.
+\end{theorem}
+
+\begin{proof}
+Each column of~(\ref{eq:M1}) has an even number of entries $-1$, so
+$xyz = +1$; negating three coordinates multiplies $xyz$ by
+$(-1)^3$. The corners with $xyz = +1$ are four in number, so they are
+exactly the columns of $M_1$, and the rest are those of $M_2$. By
+Lemma~\ref{lem:explicit},
+$|v_a - v_b|^2 = 3 + 3 - 2(-1) = 8$ for $a \neq b$, and
+$\sum_a v_a = M_1\mathbf{1} = 0$.
+\end{proof}
+
+\noindent
+Following~\cite{NelsonLetter1,NelsonScheme}, the first tetrahedron is
+TetA (the identity component under spatial parity) and the second
+TetB (the parity component).
+
+\begin{theorem}[Symmetry and non-isomorphism]
+\label{thm:sym}
+The orthogonal maps permuting the corners of TetA form a group of
+order 24, acting on the four legs as the whole of $S_4$. Those
+permuting the corners of $S$ form the group
+\begin{equation}
+  \mathrm{Sym}(S) = \mathrm{Sym}(\mathrm{TetA}) \times \{I, -I\},
+  \label{eq:sym}
+\end{equation}
+of order 48, and every element outside $\mathrm{Sym}(\mathrm{TetA})$
+carries TetA onto TetB. In particular TetA is not congruent to $S$.
+\end{theorem}
+
+\begin{proof}
+A map in $\mathrm{Sym}(\mathrm{TetA})$ is fixed by the permutation it
+induces, as the corners span $\mathbb{R}^3$. Every permutation
+occurs: by Lemma~\ref{lem:orth}, $M_1\Pi$ has Gram matrix
+$\Pi^TG\Pi = G$ for any permutation matrix $\Pi$, so
+$M_1\Pi = QM_1$ for some $Q \in O(3)$. Hence the order is 24.
+Two corners of the cube are at squared distance $8$ exactly when
+they differ in two coordinates, that is, when they have the same
+$xyz$. A map $L \in \mathrm{Sym}(S)$ is an isometry, so it carries
+TetA, four corners at mutual squared distance $8$, onto four such
+corners, all with one value of $xyz$: onto TetA or onto TetB, and
+then TetB $= -$TetA onto the other. Those of the first kind form
+$\mathrm{Sym}(\mathrm{TetA})$. If $L$ is of the second kind, $-L$ is
+of the first, since $-I$ exchanges TetA and TetB; and $-I$ commutes
+with every map, which gives~(\ref{eq:sym}). The verification script
+confirms the count exhaustively over all $8!$ relabellings of the
+corners.
+\end{proof}
+
+\noindent
+The extra factor is exactly parity: the compound has twice the
+symmetry of either root, and the doubling is the element that
+exchanges them.
+
+% ======================================================================
+
+\section*{Part III: The index grid}
+
+The affine connection $\Gamma^\lambda{}_{\mu\nu}$ has $K^3 = 64$
+components. Fixing $\lambda$ gives a $4\times4$ \emph{slice} in
+$(\mu,\nu)$, with $4$ diagonal entries, $6$ in the strict upper
+triangle and $6$ in the strict lower triangle. Over the four slices,
+\begin{equation}
+  \underbrace{4\times6}_{24} + \underbrace{4\times4}_{16}
+  + \underbrace{4\times6}_{24} = 64 .
+  \label{eq:grid}
+\end{equation}
+In the framework's reading of the grid the upper triangle is TetA,
+the lower triangle TetB and the diagonal shared, and exchanging the
+triangles is the TetB step~\cite{NelsonLetter2,NelsonChiral}.
+
+\begin{lemma}[The exchange split]
+\label{lem:tau}
+Let $\tau$ exchange the lower indices,
+$(\tau\Gamma)^\lambda{}_{\mu\nu} = \Gamma^\lambda{}_{\nu\mu}$. Then
+$\tau^2 = 1$, $\tau$ fixes the diagonal and exchanges the two
+triangles, and $\Pi_+ = \tfrac12(1+\tau)$ is a projection of rank
+$40$ whose kernel, the $\tau$-odd part, has dimension $24$ and is the
+torsion $T^\lambda{}_{\mu\nu} = \Gamma^\lambda{}_{\mu\nu}
+- \Gamma^\lambda{}_{\nu\mu}$.
+\end{lemma}
+
+\begin{proof}
+On a mirror pair with upper entry $u$ and lower entry $l$, $\tau$
+swaps $u$ and $l$; the even combination $\tfrac12(u+l)$ is kept and
+the odd one $u - l$, the torsion, is removed. Each slice has $4 + 6$
+even and $6$ odd directions; times four slices, $40$ and $24$.
+\end{proof}
+
+\noindent
+Written in the coordinates of~(\ref{eq:grid}), the torsion-free
+condition is $l = u$: it keeps the diagonal and one triangle and
+makes the other a copy, the form in which it reads as keeping shared
+and TetA and discarding TetB. Independently of which triangle is
+written down, what is kept is the exchange-even combination
+$\tfrac12(u+l)$, which does not change when the triangles are
+exchanged, and what is discarded is the exchange-odd difference
+$u - l$.
+
+% ======================================================================
+
+\section*{Part IV: The torsion-free projection}
+
+\begin{theorem}[Torsion-free projection]
+\label{thm:proj}
+\begin{enumerate}
+\item[(i)] The torsion-free condition is the projection $\Pi_+$ of
+  the 64 components onto 40, with the 24 torsion components as
+  kernel. It is not injective, so it is not an isomorphism:
+  \begin{equation}
+    \boxed{16 + 24 = 40 \;\neq\; 64 = 24 + 16 + 24.}
+    \label{eq:noniso}
+  \end{equation}
+\item[(ii)] For any metric $g$, a connection compatible with $g$ is
+  determined by $g$ and its torsion: the differences of two
+  $g$-compatible connections form a 24-dimensional space, mapped
+  bijectively onto the 24-dimensional space of torsions.
+\item[(iii)] Hence, if each root is given a $g$-compatible connection,
+  the two connections differ only through their torsion. A
+  torsion-free metric connection is the Levi-Civita connection of
+  $g$, which by~(\ref{eq:tetrad}) is the same on both roots.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(i) is Lemma~\ref{lem:tau}. (ii) The difference $\Delta$ of two
+$g$-compatible connections satisfies
+$\Delta_{\lambda\mu\nu} + \Delta_{\nu\mu\lambda} = 0$, with the first
+index lowered by $g$: antisymmetry in two of three indices, $4\times6
+= 24$ dimensions. If its torsion vanishes, $\Delta$ is also symmetric
+in the last two, and a tensor symmetric in one pair of slots and
+antisymmetric in another vanishes; so $\Delta \mapsto T(\Delta)$ is
+injective between spaces of equal dimension, and bijective. Its
+inverse is the contorsion~\cite{Hehl1976}. (iii) The metric is the
+same on both roots (Setting), so both connections are the Levi-Civita
+connection of $g$ plus the contorsion of their torsion, which
+vanishes in the torsion-free case. The verification script checks (ii)
+exactly for $\eta$ and for a generic Lorentzian metric.
+\end{proof}
+
+\begin{remark}
+Parts I and IV say the same thing at two levels. The metric, and
+every Gram product, cannot tell the roots apart; neither can any
+torsion-free metric connection, since it is built from the metric.
+At the connection level the only room for the distinction is the 24
+torsion components that general relativity sets to
+zero~\cite{LeviCivita1917} and Einstein--Cartan theory
+keeps~\cite{Cartan1922,Hehl1976}. GFD reads the torsion as where
+TetA and TetB are told apart~\cite{NelsonLetter2,NelsonTorsion}. The
+theorem proves that the torsion is the only place available; it does
+not prove that the torsion is nonzero, nor how it transforms under
+parity.
+\end{remark}
+
+% ======================================================================
+
+\section*{Summary}
+
+\vspace{4pt}
+\noindent
+{\footnotesize
+\begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}lll@{}}
+\hline
+Result & Proves & Requires \\
+\hline
+Lemma 1 & $G_{M_2M_2} = G_{M_1M_1}$ & $M_2 = -M_1$ \\
+Lemma 2 & $G_{M_1M_2} = G_{M_2M_1} = -G$ & idem \\
+Lemma 3 & $G = 4I - J$ & Hadamard \\
+Lemma 4 & $I = \tfrac14G + \tfrac14J$ & Lemma 3 \\
+Lemma 5 & Invariance, rigidity & \cite{NelsonForced} \\
+Prop.\ 1 & Orientation flips & $D = 3$ odd \\
+Thm.\ 1 & $xyz = \pm1$; cube & Lemma 3 \\
+Thm.\ 2 & Symmetry $\times\{\pm I\}$ & Lemma 5 \\
+Lemma 6 & $64 = 40 + 24$ under $\tau$ & Indices \\
+Thm.\ 3 & Roots differ only by $T$ & Lemma 6 \\
+\hline
+\end{tabular*}}
+\vspace{4pt}
+
+% ======================================================================
+
+\sloppy
+\begin{thebibliography}{99}
+
+\bibitem{NelsonLetter1}
+S.~Nelson,
+\textit{The Coordinate-Space Geometry of the Tetrad Frame},
+Field Dynamics Research (2026), submitted.
+
+\bibitem{NelsonLetter2}
+S.~Nelson,
+\textit{The Other Half of Gravity: Torsion and the Two-Chamber
+Structure of the Tetrad Frame},
+Field Dynamics Research (2026), submitted.
+
+\bibitem{NelsonScheme}
+S.~Nelson,
+\textit{The Tetrad Scheme and the Two Bounded Regions},
+Field Dynamics Research (2026),
+\url{proofs/tetrad-scheme-two-bounded-regions}.
+
+\bibitem{NelsonForced}
+S.~Nelson,
+\textit{The Spatial Geometry of the Lorentz Tetrad},
+Field Dynamics Research (2026),
+\url{proofs/forced-tetrahedral-frame}.
+
+\bibitem{NelsonHadamard}
+S.~Nelson,
+\textit{The Stellated Octahedron, the Cube and the Hadamard Matrix},
+Field Dynamics Research (2026),
+\url{proofs/hadamard-cube-frame}.
+
+\bibitem{NelsonTorsion}
+S.~Nelson,
+\textit{The Torsion Sector of the Tetrad Connection as the Regular
+Representation of $S_4$},
+Field Dynamics Research (2026),
+\url{proofs/torsion-regular-representation}.
+
+\bibitem{NelsonChiral}
+S.~Nelson,
+\textit{Chiral Holonomy of the Closed Tetrad Frame},
+Field Dynamics Research (2026),
+\url{proofs/chiral-holonomy-closed-frame}.
+
+\bibitem{LeviCivita1917}
+T.~Levi-Civita,
+\textit{Nozione di parallelismo in una variet\`{a} qualunque e
+conseguente specificazione geometrica della curvatura Riemanniana},
+Rend.\ Circ.\ Mat.\ Palermo \textbf{42} (1917) 173.
+
+\bibitem{Cartan1922}
+\'E.~Cartan,
+\textit{Sur une g\'en\'eralisation de la notion de courbure de
+Riemann et les espaces \`a torsion},
+C.\ R.\ Acad.\ Sci.\ Paris \textbf{174} (1922) 593.
+
+\bibitem{Hehl1976}
+F.~W.~Hehl, P.~von der Heyde, G.~D.~Kerlick and J.~M.~Nester,
+\textit{General relativity with spin and torsion: foundations and
+prospects},
+Rev.\ Mod.\ Phys.\ \textbf{48} (1976) 393.
+
+\bibitem{Kepler1619}
+J.~Kepler,
+\textit{Harmonices Mundi} (1619).
+
+\bibitem{Coxeter1973}
+H.~S.~M.~Coxeter,
+\textit{Regular Polytopes},
+3rd ed.\ (Dover, New York, 1973).
+
+\end{thebibliography}
+
+\end{document}
