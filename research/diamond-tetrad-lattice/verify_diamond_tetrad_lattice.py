@@ -163,5 +163,41 @@ check("6.2 but it is no longer the parity root -TetA (a turn of this kind gives 
 check("6.3 and its Gram matrix is unchanged, so the metric cannot tell the two stackings apart",
       sp.simplify(sp.Matrix.hstack(*rot_star).T * sp.Matrix.hstack(*rot_star)) == G)
 
+# 7. The cubic tiling of pixels --------------------------------------------
+# Cubes of side 2 centred on the odd points; each holds a stellated octahedron
+# whose 8 vertices are its corners (the even points), shared with neighbours.
+centres = [p for p in itertools.product(range(-5, 6), repeat=3) if all(c % 2 for c in p)]
+o = (0, 0, 0)
+around = [c for c in centres if max(map(abs, c)) == 1]
+roles = [add(o, c, -1) in TETA for c in around]
+check("7.1 each corner is shared by 8 pixels: a TetA vertex of 4 and a TetB vertex of the other 4",
+      len(around) == 8 and roles.count(True) == 4)
+face = [(0, 0, 0), (2, 0, 0), (0, 2, 0), (2, 2, 0)]
+check("7.2 across every face the pixels swap: a shared corner is TetA in one, TetB in the other",
+      all((add(k, (1, 1, 1), -1) in TETA) != (add(k, (1, 1, -1), -1) in TETA) for k in face))
+
+Rb = 7
+sites = [p for p in itertools.product(range(-Rb, Rb + 1), repeat=3) if len({c % 2 for c in p}) == 1]
+D1 = {p for p in sites if (all(c % 2 == 0 for c in p) and sum(p) % 4 == 0) or (all(c % 2 for c in p) and sum(p) % 4 == 3)}
+D2 = set(sites) - D1
+interior = [p for p in sites if max(map(abs, p)) <= Rb - 1]
+check("7.3 if every centre and corner carries a full pixel (8 legs), the sites form a body-centred cubic lattice",
+      all(sum(add(p, v) in set(sites) for v in TETA + TETB) == 8 for p in interior))
+
+
+def split(p):
+    own = D1 if p in D1 else D2
+    a = [add(p, v) in own for v in TETA]
+    b = [add(p, v) in own for v in TETB]
+    return (all(a) and not any(b)) or (all(b) and not any(a))
+
+
+check("7.4 it is two interpenetrating diamond lattices: at every site one root's 4 legs stay in its own "
+      "diamond and the other root's 4 legs reach the other", all(split(p) for p in interior))
+check("7.5 inside each diamond the roots alternate (TetA legs at one sublattice, TetB at the other)",
+      all(add((0, 0, 0), v) in D1 for v in TETA) and all(add((1, 1, 1), v) in D1 for v in TETB))
+check("7.6 the first diamond is the lattice of results 3-4",
+      {p for p in D1 if max(map(abs, p)) <= r} == fcc_a | fcc_b)
+
 print(f"\n{passed}/{passed + failed} checks passed")
 raise SystemExit(failed)

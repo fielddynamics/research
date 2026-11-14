@@ -1,6 +1,6 @@
-# The Tetrad's Two Roots Build the Diamond Lattice
+# The Pixel Lattice: Stellated Octahedra in a Cubic Tiling, and the Diamond Nets Inside It
 
-*Field Dynamics Research, research folder, 2026-11-14. Status: research, not a paper. Verification: `python verify_diamond_tetrad_lattice.py` (23 checks, exact).*
+*Field Dynamics Research, research folder, 2026-11-14. Status: research, not a paper. Verification: `python verify_diamond_tetrad_lattice.py` (29 checks, exact).*
 
 `lattice` `diamond` `photonic-crystal` `bond-reciprocity` `stellated-octahedron` `TetA` `TetB` `parity` `research`
 
@@ -14,7 +14,7 @@ The tetrad equation $g = e^T\eta e$ has two roots ([Gram-matrix proof](../../pro
 - **TetA**, the legs $M$: the cube corners with $xyz = +1$, $(1,1,1), (1,-1,-1), (-1,1,-1), (-1,-1,1)$.
 - **TetB**, the parity root $-M$: the corners with $xyz = -1$.
 
-Together they are the stellated octahedron in its cube. This note uses each root as the bond star of a lattice site, a site's four bonds pointing along its legs, and asks what lattice they build.
+Together they are the stellated octahedron in its cube. The lattice is cubic: pixels tile space as cubes, and inside each cube is still the stellated octahedron. This note asks what that tiling looks like from the tetrad's side. It reads each root as the bond star of a site, its four bonds pointing along its legs, and finds the diamond lattice running through the cubic tiling (results 1–6), then shows how the two fit together (result 7).
 
 ## Results
 
@@ -45,12 +45,19 @@ In lattice terms, the tetrad equation needs both roots for its bonds to close.
 - The turned star has the same Gram matrix (6.3), so the metric cannot tell the two stackings apart.
 - The tetrad's own second root, the parity image $-M$, is what selects the diamond lattice. This is the root-blindness of the metric again, now at the level of the lattice: the frame decides, the metric does not.
 
+**7. The cubic tiling of pixels, and the diamonds inside it.** Tile space with cubes, each holding a stellated octahedron whose eight vertices are its corners.
+- **Every corner is shared evenly.** It belongs to 8 pixels: it is a TetA vertex of 4 of them and a TetB vertex of the other 4 (7.1).
+- **Neighbouring pixels swap.** Across every face, a shared corner is TetA in one pixel and TetB in the other (7.2). The tiling alternates TetA and TetB from pixel to pixel, as the diamond's sites do.
+- **If every centre and corner carries a full pixel,** with all eight legs, the sites form a body-centred cubic lattice (7.3). That lattice is exactly two interpenetrating diamond lattices. At every site one root's four legs stay in its own diamond and the other root's four legs reach into the other diamond (7.4). Within each diamond the roots alternate (7.5), and one of the two is the diamond of results 3–4 (7.6).
+
+So the cubic lattice and the stellated octahedron are the whole picture. The diamond is what one root traces through it, each site handing on to the other root. Each pixel holds both roots, and its two halves lead into the two diamond nets.
+
 ## What this adds to GFD
 
-- **A named lattice.** The "lattice the pixel's geometry determines" is the diamond lattice, derived from the two roots with no further input. The pixel, the stellated octahedron in its cube, is the two bond stars placed at one point.
+- **The structure inside the cubic lattice, named.** Pixels tiled as cubes, each holding a stellated octahedron, alternate TetA and TetB across every face. Read as bonds, the roots run through the tiling as diamond nets: one diamond when each site holds one root, two interpenetrating diamonds when each site holds the full pixel.
 - **TetB is required, not optional.** The usual reading of the tetrad equation keeps one root and drops the other by convention. As a lattice, one root cannot close; both are needed.
 - **A photonic link.** The diamond structure is the landmark photonic crystal. Ho, Chan and Soukoulis (1990) showed that dielectric spheres on a diamond lattice have a complete photonic band gap, which simple fcc structures lack. The widest gap came from structures built from the bonds alone, the rods between sites, which are the TetA and TetB legs here.
-- **The ice analogy made exact.** Water's tetrahedral bonding builds the same two nets: cubic ice is a diamond net of oxygen atoms, and ordinary hexagonal ice is the lonsdaleite-type net. Result 6 is the same choice for the tetrad, settled by the parity root.
+- **The ice analogy made exact.** Water's tetrahedral bonding builds the same two nets: cubic ice is a diamond net of oxygen atoms, and ordinary hexagonal ice is the lonsdaleite-type net. Result 6 is the same choice for the tetrad, settled by the parity root. High-pressure ice VII is two interpenetrating diamond networks on a body-centred cubic lattice of oxygen atoms, which is the full-pixel tiling of result 7.
 
 ## What is not established
 
@@ -62,18 +69,18 @@ In lattice terms, the tetrad equation needs both roots for its bonds to close.
 
 1. **Coupling between the two sites.** Build the simplest wave model on this lattice (one mode per site, coupling along the bonds), and ask whether the share of a mode on TetA sites against TetB sites can give $\mu = x/(x+1)$ for some physically defined $x$. If it can, the lattice becomes the mechanism behind the constitutive law rather than a picture of it.
 2. **The 64 states as lattice modes.** Ask whether the 64 field-closure states appear among the lattice's modes or symmetries (the cube's $8 \times 8$ Walsh–Hadamard structure is the natural candidate).
-3. **Then a proof.** Once the statements here are settled, move the exact parts (results 1–4 and 6) into `proofs/` as a short proof.
+3. **Then a proof.** Once the statements here are settled, move the exact parts (results 1–4, 6 and 7) into `proofs/` as a short proof.
 
 ## Files
 
 | File | What it does |
 |---|---|
-| [`verify_diamond_tetrad_lattice.py`](verify_diamond_tetrad_lattice.py) | 23 exact checks, labelled by the result numbers above |
+| [`verify_diamond_tetrad_lattice.py`](verify_diamond_tetrad_lattice.py) | 29 exact checks, labelled by the result numbers above |
 
 ## Reproduce
 
 ```
-python verify_diamond_tetrad_lattice.py    # 23/23
+python verify_diamond_tetrad_lattice.py    # 29/29
 ```
 
 ## Related
