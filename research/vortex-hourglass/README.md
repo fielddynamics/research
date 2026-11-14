@@ -92,10 +92,15 @@ Letter 3's figure, seen from above, looks like a galaxy: a red dome in the middl
 - Drive and brake against the ring: see [`decode_audit/`](decode_audit/). With full profiles the predicted direction holds as pre-registered (H3), and part of it survives the shared acceleration trend in star-dominated galaxies. Whether the shared trend is physical needs HI profiles, colour-based M/L and asymmetric-drift corrections. (Earlier, single-point reading:) drive and brake against the ring are undecided, not refuted. With the letter's decode the trend has the predicted sign and survives in star-dominated galaxies at about 2.5σ, but most brakes sit where the gas estimate is weakest (H2′). The archive's other position, that drive or brake is set at the drain by the TetB in the galaxy's central throat, is not tested here.
 - Letter 3 describes the figure's "disk-and-bulge morphology" as the field configuration of any bound mass. These checks say that morphology is the shares' high-acceleration core and low-acceleration exterior, not the stellar bulge and disk. Any reading of the figure as a galaxy's stellar structure should say so.
 
+## The roll ratio
+
+[`ROLL_RATIO.md`](ROLL_RATIO.md) takes one premise: the two chambers roll on each other without slipping at the Field Origin, with radii equal to their shares. From that, the roulette's roll ratio becomes the rate ratio, $\omega_B/\omega_A = x$. Exchange becomes parity, the ring $x = 1$ becomes the quiet throat (drive inside, drag outside), and the shear's rate of change becomes the logistic core $2\mu(1-\mu)$ (16 exact checks). Against the decode audit, the sign structure matches (median $\Delta$ +0.09 dex inside the ring, below zero outside), but the drive–drag crossing sits at $x \approx 0.34$ in all galaxies. In star-dominated galaxies the interval reaches $x = 1$ (exploratory).
+
 ## Files
 
 | File | Contents |
 |---|---|
+| [`ROLL_RATIO.md`](ROLL_RATIO.md), [`verify_roll_ratio.py`](verify_roll_ratio.py), [`compare_roll_ratio_sparc.py`](compare_roll_ratio_sparc.py) | Roll-ratio theorem (16 checks) and its exploratory comparison with the decode audit |
 | [`check_drive_brake_photometric.py`](check_drive_brake_photometric.py) | H2′: drive and brake decoded as in the decoding-mass letter ($M_{\rm dec}$ against enclosed photometric mass), the ring correlation, and robustness to the gas estimate |
 | [`check_ring_bulge_sparc.py`](check_ring_bulge_sparc.py) | SPARC tests H1 and H2, hypotheses fixed in the docstring. Usage: `python check_ring_bulge_sparc.py ROTMOD_DIR TABLE1` (bulge M/L via `UPS_BULGE`, default 0.7) |
 | [`verify_hourglass_lemma.py`](verify_hourglass_lemma.py) | Exact checks of (a)–(f): general axisymmetric field, an explicit incompressible hourglass, and two chambers co-rotating at different rates |
