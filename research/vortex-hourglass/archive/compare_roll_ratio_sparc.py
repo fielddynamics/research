@@ -75,4 +75,4 @@ def main(res):
 
 
 if __name__ == "__main__":
-    main(sys.argv[1] if len(sys.argv) > 1 else os.path.join(HERE, "decode_audit", "results_paper_mphot"))
+    main(sys.argv[1] if len(sys.argv) > 1 else os.path.join(HERE, "..", "decode_audit", "results_paper_mphot"))

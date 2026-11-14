@@ -4,6 +4,13 @@
 
 ---
 
+> **Current result.**
+> - **The decode is verified.** The decoding-mass letter's own pipeline was run on all 175 SPARC galaxies, and it reproduces the letter's published values exactly.
+> - **Across SPARC:** 51% quiet, 19% drive, 30% brake (quality cut).
+> - **Drive and brake against the ring (H3)** pass under the letter's photometric method ($\rho = +0.47$). With SPARC's own Newtonian $g_{\rm bar}$ the signal mostly goes ($\rho = +0.16$; not significant in star-dominated galaxies, Diagnostic D1), so the pattern is not established.
+> - **CamB** in the letter is corrected (finding F1 in [`../referee_review.md`](../referee_review.md)).
+> - Version 1, below Version 2, is superseded and kept as the record.
+
 ## Version 2 (canonical): the photometric mass exactly as the letter's pipeline builds it
 
 *Added 2026-11-14 at Stephen Nelson's instruction. Version 1 below built $M_{\rm phot}$ itself, from SPARC surface brightness for the stars and a velocity-based estimate for the gas. That was not what the letter does, and Version 2 replaces it.*
@@ -43,7 +50,7 @@ By ring position:
 **Post-hoc** ([`results_paper_mphot/posthoc_output.txt`](results_paper_mphot/posthoc_output.txt)):
 - **The shared trend is still there.** $\Delta$ follows acceleration in every galaxy: −0.95 dex in the deepest field, rising to +0.10 to +0.12 around and inside the ring.
 - **A galaxy-level part survives its removal:** $\rho = +0.27$ ($p = 0.0005$) over all galaxies and $+0.22$ ($p = 0.019$) not gas-dominated.
-- **Not the form of μ.** McGaugh's empirical relation gives the same result: $\rho = +0.48$ and $+0.33$. *(Numbers updated 2026-11-14 after a tie-handling bug in the rank correlation was fixed; see [`referee_review.md`](referee_review.md), M9.)*
+- **Not the form of μ.** McGaugh's empirical relation gives the same result: $\rho = +0.48$ and $+0.33$. *(Numbers updated 2026-11-14 after a tie-handling bug in the rank correlation was fixed; see [`../referee_review.md`](../referee_review.md), M9.)*
 
 **CamB.** With the letter's pipeline the gap at 1.79 kpc is 0.77 dex (5.9×), not the 0.42 dex of the letter's Figure 2. The reason is that the letter's CamB figure uses a hand-set mass model in `generate_letter_figures.py`: a disk of $3.75\times10^7$ with $R_d = 1.0$ kpc, and gas of $6.25\times10^8$ with $R_d = 26.48$ kpc. Its own catalogue has CamB's disk at $R_d = 0.47$ kpc (SPARC's measured value) and its gas at $1.6\times10^7$, $R_d = 0.40$ kpc (1.33 × SPARC's $M_{\rm HI}$). The figure's gas mass is 39 times SPARC's. Both versions show CamB as a brake; the figure's depth comes from parameters that differ from the catalogue. **Corrected 2026-11-14:** the figure's CamB values had been read from the neighbouring columns of SPARC table 1 (gas $6.251\times10^8 = 1.33\times R_{\rm disk}$, gas $R_d = 26.48 = {\rm SB}_{\rm disk}/2.5$, disk $R_d = 1.0$ = parser default). The letter's scripts now use the catalogue values, and Figure 2 is regenerated: 0.77 dex at 1.79 kpc, matching this audit.
 
@@ -60,7 +67,7 @@ Reproduce: `python decode_audit_paper_mphot.py GRAVIS_DIR` then `python posthoc_
 - **The decode is correct.** It runs the [decoding-mass letter](../../../papers/letter-decoding-mass-from-rotation-curves/)'s own functions and constants, loaded from its script rather than re-typed. It matches the closed form to machine precision at all 3,391 SPARC points, and it reproduces the letter's published M33 value, $1.381\times10^{10}\,M_\odot$ against the quoted $1.38\times10^{10}$.
 - **Full profiles replace the single outer point.** For each of 174 galaxies, $M_{\rm dec}(r)$ and $M_{\rm phot}(r)$ are compared at every observed radius, 3,366 in all. The new metric is the area of the profile above and below its baryons.
 - **Across SPARC (quality cut, 148 galaxies):** 59% quiet, 19% drive, 22% brake, none mixed. A third of the classes change when the stellar M/L moves by ±20%, so individual classifications are fragile. Brakes are the most robust (30 of 33).
-- **H3 passes as pre-registered.** The more of a galaxy lies inside the ring $x = 1$, the higher its net area: $\rho = +0.29$ ($p = 0.0001$) over all galaxies and $\rho = +0.36$ ($p = 0.001$) over galaxies that are not gas-dominated. *(Numbers updated 2026-11-14 after a tie-handling bug in the rank correlation was fixed; see [`referee_review.md`](referee_review.md), M9.)*
+- **H3 passes as pre-registered.** The more of a galaxy lies inside the ring $x = 1$, the higher its net area: $\rho = +0.29$ ($p = 0.0001$) over all galaxies and $\rho = +0.36$ ($p = 0.001$) over galaxies that are not gas-dominated. *(Numbers updated 2026-11-14 after a tie-handling bug in the rank correlation was fixed; see [`../referee_review.md`](../referee_review.md), M9.)*
 - **Post-hoc, the effect has two parts.** Most of it, across the whole sample, is a gap that depends on acceleration in the same way in every galaxy. In star-dominated galaxies, a galaxy-level part survives with that shared trend removed ($\rho = +0.35$, $p = 0.002$). The form of μ is not the cause: decoding with McGaugh et al.'s empirical relation instead gives the same result.
 
 ## 1. Audit

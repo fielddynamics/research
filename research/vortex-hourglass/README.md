@@ -1,122 +1,127 @@
-# The Hourglass Vortex Under Parity
+# TetA and TetB as One Vortex
 
-*Working note, Field Dynamics Research, 2026-11-13. Status: research, not a paper. Verification: `python verify_hourglass_lemma.py` (21 checks, exact sympy).*
+*Field Dynamics Research, research folder, 2026-11-13 to 2026-11-14. Status: research, not a paper. Reviewed referee-style: [`referee_review.md`](referee_review.md).*
 
-`vortex` `hourglass` `throat` `Field-Origin` `spatial-parity` `helicity` `chirality` `TetA` `TetB` `research`
+`vortex` `hourglass` `throat` `Field-Origin` `spatial-parity` `roll-ratio` `constitutive-law` `SPARC` `decoding-mass` `TetA` `TetB`
 
 ---
 
-> **Status (2026-11-14, after a referee-style review: [`referee_review.md`](referee_review.md)).**
-> - **Proved, given stated premises:** the hourglass lemma (21 exact checks) and the roll-ratio theorem (18 exact checks), whose premise of no slip and radii equal to the shares is not derived.
-> - **Supported by data:** with SPARC's own Newtonian $g_{\rm bar}$, the measured TetA and TetB shares meet at Letter 3's ring ($x = 1.00$–1.07, robust to weighting, binning and smoothing) and follow $\mu(x)$ across it. This is consistent with GFD but not unique to it.
-> - **Not established:** drive and brake against the ring (they depend on the photometric method), the helicity as the axial torsion, and the no-slip premise.
+In GFD, TetA and TetB together form a vortex: spiral → throat → spiral, like water through a drain. The throat is the Field Origin. TetB lies beyond it and cannot be seen from our 3+1 spacetime; it is read from its share of the field, $1 - \mu(x)$. This folder puts that picture into exact mathematics and tests what can be tested of it against 175 SPARC galaxies.
 
-## Question
+## What this adds to GFD
 
-In GFD, TetA and TetB together form a vortex: spiral → throat → spiral, like water through a drain. The throat is the Field Origin, the neck of the hourglass (Coles Notes §2–3). TetB is the chamber beyond it, reached only through the Field Origin. The exchange of TetA and TetB is spatial parity, −I, the element that doubles the symmetry of one tetrahedron to that of the stellated octahedron ([Gram-matrix proof](../../proofs/gram-matrix-tetrad-equation/), Theorem 2).
+1. **Exact mathematics for the vortex.** The [hourglass lemma](LEMMA.md) proves what parity does to any spiral → throat → spiral flow:
+   - it keeps the swirl;
+   - it reverses the through-flow, so the two spirals swap which one feeds the throat;
+   - it flips the handedness, which needs both swirl and through-flow.
 
-So: what does parity do to an hourglass vortex? Which parts of the flow does it keep, which does it reverse, and where does the vortex's handedness sit?
+   Drive and brake, in the rate sense, are the difference in swirl rate across the throat. An equal rate is the quiet vortex.
+2. **One premise ties four existing results together.** The [roll-ratio theorem](ROLL_RATIO.md) assumes that the chambers roll without slipping at the Field Origin, with radii equal to their shares. Then:
+   - the roulette's roll ratio is the rate ratio $x$;
+   - Letter 2's exchange of the chambers is the vortex's parity;
+   - Letter 3's ring $x = 1$ is the quiet throat;
+   - the chiral-holonomy twist $(x-1)/(x+1)$ is the rate difference.
+3. **Letter 3's red and blue discs hold on real galaxies.** The measured TetA and TetB shares meet at the ring, $x = 1.00$–1.07, and follow $\mu(x)$ across it, mirroring each other there as exchange symmetry requires (figure below).
+4. **The decoding-mass letter is verified and corrected before review.** Its decode reproduces exactly, including every published value. CamB's mass model, which had been read from the wrong table columns, is fixed. Three further issues in its photometric pipeline are recorded for its next revision.
+5. **A clear reading of quiet and active.** The decode already contains $\mu(x)$. So the letter's quiet interior ($M_{\rm dec} = M_{\rm phot}$) means the chambers roll at $\mu(x)$ without slip, and an active interior means slip.
 
-The constitutive law is not in question here. μ(x) = x/(x+1) is proved ([exchange symmetry](../../proofs/constitutive-law-exchange-symmetry/)), and the [two-connection note](../two-connection-dual-chamber/) shows two fields on the two roots composing as TetA μg plus TetB (1 − μ)g, with odds x. That note also finds the chirality: the axial torsion is zero for any static tetrad, appears only with rotation, and is opposite on the two roots. *If chirality has a role, it is in the rotating (vortex) sector.* This note starts on that sector.
+## What is not established
 
-## Set-up
+- **That the vortex *is* the tetrad's structure.** The lemma is exact kinematics. Identifying its spirals with TetA and TetB, and its throat with the Field Origin, is the framework's reading. The no-slip premise and the link between helicity and axial torsion are not derived. The transport theorem (below) is the step that would derive them.
+- **Drive and brake against the ring.** Under the letter's photometric method, galaxies with more mass inside the ring sit further above their baryons. With SPARC's own Newtonian accelerations, most of that signal goes. It comes mainly from the method's spherical approximation and model gas disks.
+- **Uniqueness.** Any law that fits the radial acceleration relation puts the crossing of the shares near $x = 1$. The ring result is consistent with GFD; it does not single GFD out.
+- **Which sense of "drive".** In the rate sense, TetB turns faster or slower. In the mass sense, $M_{\rm dec}$ sits above or below $M_{\rm phot}$. Under the roll-ratio theorem the two come apart. **This is a decision for the framework.**
 
-Put the throat at the origin and the axis along z. Split the velocity of an axisymmetric vortex into two parts:
-- **the swirl,** the azimuthal component $v_\varphi$, which turns about the axis;
-- **the through-flow,** the meridional components $(v_r, v_z)$, which carry the flow in through one spiral, through the throat, and out through the other.
+## The results in brief
 
-Parity sends every point to its opposite and carries the flow along with it: $(\Pi v)(\mathbf x) = -v(-\mathbf x)$.
+### 1. The hourglass lemma ([`LEMMA.md`](LEMMA.md), 21 exact checks)
 
-## Lemma (the hourglass under parity)
+For any axisymmetric flow, parity $(\Pi v)(\mathbf x) = -v(-\mathbf x)$ sends $(v_r, v_\varphi, v_z)(r,z) \mapsto (v_r, v_\varphi, -v_z)(r,-z)$:
+- **swirl:** kept;
+- **through-flow:** reversed;
+- **vorticity:** kept, $\boldsymbol\omega(-\mathbf x)$;
+- **helicity:** flips, $h \to -h$. It is exactly the cross term between swirl and through-flow, so a pure swirl or a pure through-flow has none;
+- **the swirl's mean rate:** kept. Its half-difference across the throat flips, so the quiet vortex (one rate on both sides) is the only one parity leaves unchanged.
 
-For any axisymmetric velocity field:
+### 2. The roll-ratio theorem ([`ROLL_RATIO.md`](ROLL_RATIO.md), 18 exact checks)
 
-**(a)** Π is an involution, and in cylindrical components
+Grant no slip and radii $\mu$ and $1 - \mu$. Then:
+- **rate ratio:** $\omega_B/\omega_A = \mu/(1-\mu) = x$;
+- **exchange is parity:** swapping the chambers keeps the mean rate, flips the half-difference, and sends $x \to 1/x$;
+- **quiet throat:** the rates are equal only at $x = 1$;
+- **shear:** $\delta/\bar\omega = 1 - 2\mu$, changing at $-2\mu(1-\mu)$ per unit $\ln x$, fastest at the ring;
+- **chiral-holonomy twist:** $\sigma = 2\mu - 1$.
 
-$$\Pi:\ (v_r,\ v_\varphi,\ v_z)(r, z) \;\mapsto\; (v_r,\ v_\varphi,\ -v_z)(r, -z).$$
+### 3. Letter 3's discs, measured ([`measured_partition.py`](measured_partition.py))
 
-**(b) The rotation is preserved.** The vorticity of the image is $\boldsymbol\omega(-\mathbf x)$: the vortex turns the same way after the exchange. On the axis the vorticity points the same way above and below the throat.
+![Letter 3's red and blue discs: theory (top), then the measured TetA share (blue) and TetB share (red) from SPARC, first with the decoding-mass letter's photometric mass and then with SPARC's own Newtonian accelerations, and the shares against log x](measured_partition.png)
 
-**(c) The through-flow is reversed.** A drain becomes a fountain with the same swirl. The spiral that fed the throat now leaves it, and the one that left it now feeds it. Parity exchanges *which spiral feeds which*; it does not change the turning.
+The measured TetA share is $\mu_{\rm obs} = g_{\rm bar}/g_{\rm obs}$ at every radius of the 149 quality-cut galaxies. With SPARC's own Newtonian $g_{\rm bar}$ (thin disks, measured HI maps):
 
-**(d) The handedness is the swirl times the through-flow.** The helicity density $h = \mathbf v \cdot \boldsymbol\omega$ is exactly the cross term
+| | Result |
+|---|---|
+| Where the shares meet | $x = 1.03$ (95%: 0.88–1.24); 1.00–1.07 under every weighting, binning and smoothing variant |
+| Gap between the discs, $\lvert 2\mu_{\rm obs} - 1\rvert$ | equals the theory at $\log_{10}x = \pm0.12$ (0.16 and 0.14 against 0.14); the two sides equal each other at ±0.62 (0.55 and 0.56, against 0.62) |
+| Slip, $\log_{10}(\Omega_{\rm obs}/x)$ | under 0.03 dex for $-0.5 < \log_{10}x < +0.25$; grows outside that range |
+| Far from the ring | the measured shares saturate less than $\mu(x)$, on both sides |
 
-$$h = \mathbf v_{\rm swirl}\cdot\nabla\times\mathbf v_{\rm through} + \mathbf v_{\rm through}\cdot\nabla\times\mathbf v_{\rm swirl},$$
+With the letter's spherical $GM_{\rm phot}/r^2$, the inner side flattens and the crossing moves to $x \approx 1.6$–1.8. That is the cost of the letter's declared spherical limit on disk galaxies.
 
-so pure swirl is achiral and pure through-flow is achiral. Under parity, $h[\Pi v](\mathbf x) = -h[v](-\mathbf x)$: the helicity is a pseudoscalar, and the mirror vortex has the opposite handedness. Reversing the swirl alone also reverses it.
+### 4. Drive and brake from decoded mass ([`decode_audit/`](decode_audit/))
 
-**(e)** The throat is the only fixed point of parity.
+The decoding-mass letter's own pipeline was run on every SPARC galaxy, comparing the full $M_{\rm dec}(r)$ and $M_{\rm phot}(r)$ profiles. The new metric is the area above and below, with criteria committed before measurement. In the quality cut:
+- **classes:** 51% quiet, 19% drive, 30% brake;
+- **ring test (H3):** passes, $\rho = +0.47$;
+- **with SPARC's own $g_{\rm bar}$:** $\rho = +0.16$, and not significant in star-dominated galaxies.
 
-**(f) Drive and brake are the rate difference.** Let the swirl turn at the mean rate $\bar\Omega$ plus a half-difference $\delta$ that takes opposite signs on the two sides of the throat. Far from it, TetA then turns at $\bar\Omega + \delta$ and TetB at $\bar\Omega - \delta$. Parity keeps $\bar\Omega$ and flips $\delta$, so $\delta = 0$, one rate on both sides, is the only case parity leaves unchanged. With $0 < |\delta| < \bar\Omega$ both chambers turn the same way at different rates, and the difference is a shear across the throat: the radial vorticity there is nonzero exactly when $\delta \neq 0$.
+So the drive/brake pattern against the ring is **not established**. A measure of the drain itself is needed. The full audit, its checks against the letter's validations, and the atlas of every galaxy's profile are in [`decode_audit/README.md`](decode_audit/README.md).
 
-The checks verify (a), (b) and (d) for a general axisymmetric field (arbitrary component functions), and (c), (d) on an explicit smooth, incompressible hourglass: $v_r = -arz$, $v_z = az^2 - w$, $v_\varphi = \Omega r/(1 + r^2)$. For (f) the swirl is $v_\varphi = \frac{r}{1+r^2}\bigl(\bar\Omega + \delta\, z/\sqrt{1+z^2}\bigr)$.
+### 5. Corrections and findings for the decoding-mass letter
 
-## Reading in GFD
+- **CamB, corrected in the letter.** Its gas mass ($6.251\times10^8 = 1.33 \times R_{\rm disk}$) and gas scale length ($26.48 = {\rm SB}_{\rm disk}/2.5$) had been read from neighbouring columns of SPARC table 1, and its disk scale length (1.0 kpc) was a parser default. It now uses the catalogue values. Figure 2 is regenerated, and the letter's validations pass.
+- **Recorded for the next revision:**
+  - the catalogue counts bulge light twice (stars overstated by a median 19% in bulge galaxies);
+  - every gas disk gets a scale length of $R_{\rm HI}/3$;
+  - the sign wording of $\Delta M_{\rm eff}$ is ambiguous.
 
-Read with the upper spiral as TetA, the throat as the Field Origin, and the lower spiral as TetB (the framework's reading, not derived here):
-
-- **TetA and TetB share the turning** (b). The rotation is the part of the vortex that parity leaves alone.
-- **They exchange roles in the through-flow** (c). Which chamber feeds which is the part parity reverses, so the direction of flow through the Field Origin is what tells the two chambers apart.
-- **The vortex's handedness is parity-odd and needs both parts** (d). A vortex that only turns, or only flows through, has no handedness. This is the flow-level counterpart of two results already in the repo:
-  - the [Gram-matrix proof](../../proofs/gram-matrix-tetrad-equation/)'s Proposition 1: the two roots differ only in orientation, which flips under parity;
-  - the [two-connection note](../two-connection-dual-chamber/)'s chirality: axial torsion is zero when static, switched on by rotation, and opposite on the two roots.
-
-  The helicity adds one thing to these. Rotation alone is not enough; the chirality needs rotation *and* through-flow.
-- **Drive and brake are the rate difference across the throat** (f). TetB turns the same way as TetA. Slower, it drags the vortex (brake); faster, it drives it; at the same rate the interior is quiet. Counter-rotation is only the extreme of a brake. The quiet vortex is the pure parity image, and drive or brake is the part of the swirl parity does not produce. It shows up as a shear at the Field Origin. (The framework's position, Stephen Nelson, 2026-11-14.)
-
-## What it does not do
-
-- It is about a velocity field in an observer's space. It does not yet connect the flow to the tetrad's connection, so it does not show that the helicity *is* the axial torsion. That identification is the next step (below), and it has to be derived, not matched.
-- The assignment of the upper spiral to TetA and the lower to TetB is the framework's reading.
-- It makes no dynamical claim. Nothing here says how fast the vortex turns or what drives it.
+  Details are in [`referee_review.md`](referee_review.md), findings F1–F5.
 
 ## Next
 
-1. **Transport theorem.** Carry a tetrad along a streamline from the TetA spiral through the throat into the TetB spiral. Show that it arrives as Proposition 2(b) of the Gram-matrix proof (connections that differ, by a torsion), not 2(a) (the covariant mirror, identical). Then compute its axial torsion and compare it with the helicity of (d).
-2. **Drive and brake against the decoded mass.** By (f), drive and brake are the half-difference $\delta$ of the swirl rates. The archive already measures the drain's output as $\Delta M_{\rm eff} = M_{\rm phot} - M_{\rm dec}$: zero when the interior is quiet, positive or negative when it drives or brakes. The question is whether $\Delta M_{\rm eff}$ is a function of $\delta$, and with which sign convention.
+1. **Transport theorem.** Carry a tetrad along a streamline from TetA through the Field Origin into TetB. Show that it arrives with a torsion difference (Gram-matrix proof, Proposition 2(b)), and compare its axial torsion with the lemma's helicity. This is the step that would make the vortex a consequence of the tetrad equation rather than a reading of it.
+2. **Derive no slip** from the Field Origin as the point where both tetrads are evaluated together.
+3. **Decide the sense of drive** (rate or decoded mass), and build a drive/brake measure from the drain, not from the disk's share.
+4. **Reduce the photometric systematics** that make the shares saturate less far from the ring: colour-based stellar M/L, asymmetric-drift corrections and HI surface-density profiles. Then test whether the departures are physical.
 
-## SPARC checks of the galaxy reading (2026-11-14)
+## Related
 
-Letter 3's figure, seen from above, looks like a galaxy: a red dome in the middle, a blue disk around it, and the white ring at $x = 1$ between them. Two readings were tested against SPARC, with the hypotheses and pass criteria fixed before the data were examined ([`check_ring_bulge_sparc.py`](check_ring_bulge_sparc.py)). The data are the SPARC mass models (Lelli, McGaugh & Schombert 2016), taken from a GitHub mirror of `Rotmod_LTG` because CDS is not reachable from the build environment. The mirror reproduces all 3,284 points of the repo's cached RAR file to 0.001 dex.
-
-**H1: the ring is the bulge–disk boundary. Fails.** In the 18 galaxies where both crossings lie inside the data, the radius where bulge and disk contribute equally sits a median **0.48 dex (about 3×) inside the ring**. That is worse than the plain baseline of 2.2 disk scale lengths (0.36 dex). The result holds for a bulge M/L of 0.5, 0.7 and 1.0 (0.52, 0.48 and 0.43 dex). The ring lies out in the disk, where the acceleration falls to $a_0$. So the figure's inner region is the high-acceleration, baryon-dominated part of the galaxy, which contains the bulge and much of the disk. It is not the photometric bulge.
-
-**H2: drive and brake follow the share inside the ring. Fails.** Across 148 galaxies, the rank correlation between the mass fraction inside the ring and the outer-half $\log_{10}(M_{\rm dec}/M_{\rm bar})$ is $\rho = +0.20$ ($p = 0.008$). Without bulges it is $\rho = +0.11$ ($p = 0.11$), so H2 fails its criterion. *(Numbers updated 2026-11-14 after a tie-handling bug in the rank correlation was fixed; see [`referee_review.md`](referee_review.md), M9.)* Galaxies with no ring in the data (all below $a_0$, mostly dwarfs) sit at a median of −0.11 dex, and those with a ring at −0.03 dex. That is the predicted direction. The pipeline has a flat M/L and about 0.18 dex of point scatter, so it can resolve the sign of a trend of this size only weakly.
-
-> **Superseded.** H2 and H2′ below use the outermost point only, without the letter's smoothing. The full-profile audit in [`decode_audit/`](decode_audit/) replaces them: it decodes every radius, uses an area metric, and was criteria-first. Its H3 passes, and a galaxy-level part survives in star-dominated galaxies. Read that first.
-
-**H2′: the same test, decoded as in the decoding-mass letter.** Drive and brake are only known by setting the decoded mass against each galaxy's photometric mass. So H2 was re-run that way, with the criterion fixed before running ([`check_drive_brake_photometric.py`](check_drive_brake_photometric.py)):
-- **Method.** $M_{\rm dec}(r) = rv^4/[G(a_0r + v^2)]$ at the outermost point, against the enclosed photometric mass $M_{\rm phot}$. The stellar part integrates SPARC's own disk and bulge surface-brightness profiles; this reproduces SPARC's 3.6 µm luminosities to −0.02 dex. Drive means $M_{\rm dec} > M_{\rm phot}$; brake means the reverse.
-- **Population.** Of 149 galaxies, 80% are quiet (within a factor of 2), 7% drive and 13% brake.
-- **Result.** The share inside the ring correlates with drive across all galaxies: $\rho = +0.33$, $p < 10^{-4}$. Galaxies entirely outside the ring brake 22% of the time and drive 3%; galaxies with a ring brake 2% and drive 10%. That is the predicted direction. Without bulges the correlation is $\rho = +0.21$ ($p = 0.0094$), so **H2′ passes** its pre-set criterion, narrowly. *(Numbers updated 2026-11-14 after a tie-handling bug in the rank correlation was fixed; see [`referee_review.md`](referee_review.md), M9.)* An earlier version of this note reported $+0.23$ and $+0.05$, and a fail.
-- **Confound.** SPARC gives no gas surface-density profile, so the gas mass is estimated as $|V_{\rm gas}|V_{\rm gas}r/G$, which overstates a gas disk's enclosed mass inside its extent. Gas share alone predicts braking ($\rho = +0.35$, $p < 10^{-4}$), and 68 of the 87 all-outside galaxies are gas-dominated. In star-dominated galaxies (gas share < 0.3 or < 0.5), the ring–drive correlation is $\rho = +0.29$ ($p = 0.02$) and $+0.31$ ($p = 0.005$). In gas-dominated galaxies it is $+0.24$ ($p = 0.02$).
-- **Reading.** The direction matches the hourglass (outside the ring, drag; inside, drive), and it survives in star-dominated galaxies at about 2.5σ. Most of the brakes, though, are in gas-dominated dwarfs, where this gas estimate cannot separate a real brake from an overestimated $M_{\rm phot}$. Deciding needs HI surface-density profiles for $M_{\rm phot}$, which are not in SPARC's mass-model files.
-
-**What follows.**
-- The roll-ratio algebra is untouched: the exchange is parity, the ring is the quiet throat, and the rate difference is the share difference. What failed is the identification of the figure's regions with a galaxy's bulge and disk (H1).
-- Drive and brake against the ring: see [`decode_audit/`](decode_audit/). Under the letter's photometric pipeline, H3 passes. With SPARC's own Newtonian $g_{\rm bar}$, most of the signal goes (Diagnostic D1): $\rho = +0.16$ ($p = 0.02$) over all galaxies, and not significant in star-dominated ones ($+0.14$, $p = 0.10$). The drive/brake pattern against the ring is therefore not established.
-- Letter 3 describes the figure's "disk-and-bulge morphology" as the field configuration of any bound mass. These checks say that morphology is the shares' high-acceleration core and low-acceleration exterior, not the stellar bulge and disk. Any reading of the figure as a galaxy's stellar structure should say so.
-
-## The roll ratio
-
-[`ROLL_RATIO.md`](ROLL_RATIO.md) rests on one premise: the two chambers roll on each other without slipping at the Field Origin, with radii equal to their shares. From that, four things follow (18 exact checks):
-- the roulette's roll ratio becomes the rate ratio, $\omega_B/\omega_A = x$;
-- exchange becomes parity;
-- the ring $x = 1$ becomes the quiet throat;
-- the shear's rate of change becomes the logistic core $2\mu(1-\mu)$.
-
-**Against SPARC.** Letter 3's red and blue discs, built from measured shares ([`measured_partition.py`](measured_partition.py)), meet at $x = 1.03$ (0.88–1.24) with SPARC's $g_{\rm bar}$, robust to weighting, binning and smoothing ([`referee_checks.py`](referee_checks.py)). Across the ring the shares follow $\mu(x)$, and the roll ratio slips by under 0.03 dex for $-0.5 < \log_{10}x < +0.25$. Away from it they depart, and exchange symmetry holds only in part. With the letter's photometric mass and galaxies weighted equally, the crossing ($x = 1.83$) excludes the ring.
-
-**Drive and brake.** The drive/brake pattern of the decode audit depends mostly on the letter's photometric approximations (Diagnostic D1). An earlier comparison in the note, which read the audit's gap as the theorem's rate difference, is corrected there.
+- [Gram matrix of the tetrad equation](../../proofs/gram-matrix-tetrad-equation/): the two roots differ only in orientation; torsion is the only place a metric connection can tell them apart.
+- [Exchange symmetry](../../proofs/constitutive-law-exchange-symmetry/): $\mu(x) = x/(x+1)$.
+- [Chiral holonomy](../../proofs/chiral-holonomy-closed-frame/): the twist $\sigma = (x-1)/(x+1)$.
+- [Two connections and the dual chamber](../two-connection-dual-chamber/): axial torsion zero when static and opposite on the two roots; TetA $\mu g$ plus TetB $(1-\mu)g$.
+- [Decoding-mass letter](../../papers/letter-decoding-mass-from-rotation-curves/) and [Letter 3](../../papers/letter-3-field-closure-of-tetrad-frame/) (the red and blue discs).
 
 ## Files
 
 | File | Contents |
 |---|---|
-| [`ROLL_RATIO.md`](ROLL_RATIO.md), [`verify_roll_ratio.py`](verify_roll_ratio.py) | Roll-ratio theorem (18 checks) |
-| [`referee_review.md`](referee_review.md), [`referee_checks.py`](referee_checks.py), [`referee_checks_output.txt`](referee_checks_output.txt) | Referee-style review of this folder and the letter's pipeline; robustness checks R1–R4 |
-| [`measured_partition.py`](measured_partition.py), [`measured_partition.png`](measured_partition.png), [`measured_partition_output.txt`](measured_partition_output.txt) | Letter 3's discs from SPARC: where the shares meet, their gap, the slip; letter's photometric mass and SPARC's $g_{\rm bar}$ |
-| [`compare_roll_ratio_sparc.py`](compare_roll_ratio_sparc.py) | Superseded first comparison (read $\Delta$ as the rate difference; see the correction in `ROLL_RATIO.md`) |
-| [`check_drive_brake_photometric.py`](check_drive_brake_photometric.py) | H2′: drive and brake decoded as in the decoding-mass letter ($M_{\rm dec}$ against enclosed photometric mass), the ring correlation, and robustness to the gas estimate |
-| [`check_ring_bulge_sparc.py`](check_ring_bulge_sparc.py) | SPARC tests H1 and H2, hypotheses fixed in the docstring. Usage: `python check_ring_bulge_sparc.py ROTMOD_DIR TABLE1` (bulge M/L via `UPS_BULGE`, default 0.7) |
-| [`verify_hourglass_lemma.py`](verify_hourglass_lemma.py) | Exact checks of (a)–(f): general axisymmetric field, an explicit incompressible hourglass, and two chambers co-rotating at different rates |
+| [`LEMMA.md`](LEMMA.md), [`verify_hourglass_lemma.py`](verify_hourglass_lemma.py) | The hourglass lemma (21 checks) |
+| [`ROLL_RATIO.md`](ROLL_RATIO.md), [`verify_roll_ratio.py`](verify_roll_ratio.py) | The roll-ratio theorem (18 checks) and the measured discs |
+| [`measured_partition.py`](measured_partition.py), [`measured_partition.png`](measured_partition.png), [`measured_partition_output.txt`](measured_partition_output.txt) | Letter 3's discs from SPARC |
+| [`decode_audit/`](decode_audit/) | The decoding-mass letter's pipeline on every SPARC galaxy: criteria, audit, diagnostics, atlas |
+| [`referee_review.md`](referee_review.md), [`referee_checks.py`](referee_checks.py), [`referee_checks_output.txt`](referee_checks_output.txt) | Referee-style review of this folder and of the letter's pipeline |
+| [`archive/`](archive/) | The full chronological record ([`HISTORY.md`](archive/HISTORY.md)), including the superseded tests H1, H2 and H2′ and the scripts that ran them |
+
+## Reproduce
+
+```bash
+python verify_hourglass_lemma.py                                   # 21/21
+python verify_roll_ratio.py                                        # 18/18
+python decode_audit/decode_audit_paper_mphot.py GRAVIS_DIR         # the letter's pipeline on SPARC
+python decode_audit/posthoc_checks.py decode_audit/results_paper_mphot
+python decode_audit/diagnostic_d1.py ROTMOD_DIR                    # SPARC's own g_bar
+python measured_partition.py decode_audit/results_paper_mphot measured_partition.png ROTMOD_DIR
+python referee_checks.py ROTMOD_DIR GRAVIS_DIR                     # robustness
+```
+
+`GRAVIS_DIR` is a checkout of [fielddynamics/gravis](https://github.com/fielddynamics/gravis), commit `c19da3a`. `ROTMOD_DIR` holds SPARC's `*_rotmod.dat` mass models (Lelli, McGaugh & Schombert 2016); the source and its validation are in [`decode_audit/README.md`](decode_audit/README.md).

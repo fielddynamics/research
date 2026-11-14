@@ -1,6 +1,6 @@
 # The Roll Ratio as the Rate Ratio of the Two Chambers
 
-*Working note, Field Dynamics Research, 2026-11-14. Status: research, not a paper. Verification: `python verify_roll_ratio.py` (18 checks, exact sympy). Data: `python measured_partition.py` (Letter 3's discs from SPARC, exploratory). `compare_roll_ratio_sparc.py` is the superseded first comparison, kept for the record.*
+*Working note, Field Dynamics Research, 2026-11-14. Status: research, not a paper. Verification: `python verify_roll_ratio.py` (18 checks, exact sympy). Data: `python measured_partition.py` (Letter 3's discs from SPARC, exploratory). The superseded first comparison is [`archive/compare_roll_ratio_sparc.py`](archive/compare_roll_ratio_sparc.py), kept for the record.*
 
 ---
 
@@ -10,7 +10,7 @@ Four results in the repo each describe TetA and TetB, and nothing yet ties them 
 
 - **[Letter 2](../../papers/letter-2-other-half-of-gravity-torsion/):** exchanging the chambers inverts their odds, Ω → 1/Ω, and that forces Ω = μ/(1 − μ) = x.
 - **The [roulette](../constitutive-law-u(x)/tetA_tetB_roulette_roll_ratio.html):** TetA is a fixed circle of radius μ and TetB a circle of radius 1 − μ rolling on it, with roll ratio μ/(1 − μ).
-- **The [hourglass lemma](README.md):** parity keeps the mean swirl rate of the two chambers and flips their half-difference. Drive and brake are that rate difference.
+- **The [hourglass lemma](LEMMA.md):** parity keeps the mean swirl rate of the two chambers and flips their half-difference. Drive and brake are that rate difference.
 - **[Letter 3](../../papers/letter-3-field-closure-of-tetrad-frame/)'s figure:** the two shares as surfaces that meet on the ring $x = 1$.
 
 The question is whether the roll ratio is the rate ratio of the vortex's two chambers, and what follows if it is.

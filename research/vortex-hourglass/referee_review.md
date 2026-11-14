@@ -34,7 +34,7 @@ The verifications are exact and reproducible: every script reruns to identical o
 - throat = Field Origin;
 - the lemma's Π = the frame's parity.
 
-*Response.* The README already labels the assignment "the framework's reading, not derived here". This review records explicitly that the lemma is exact as kinematics, and that its use for TetA and TetB depends on that reading. The transport theorem in the README's Next list is the step that would derive it.
+*Response.* [`LEMMA.md`](LEMMA.md) already labels the assignment "the framework's reading, not derived here". This review records explicitly that the lemma is exact as kinematics, and that its use for TetA and TetB depends on that reading. The transport theorem, the first item under Next in [`README.md`](README.md) and [`LEMMA.md`](LEMMA.md), is the step that would derive it.
 
 **M2. The roll-ratio theorem's content is its premise.** Once the radii are set equal to the shares, $\omega_B/\omega_A = \mu/(1-\mu)$ is an identity. The physics sits in two assumptions:
 - no slip at the Field Origin;
