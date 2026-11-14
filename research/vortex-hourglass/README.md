@@ -78,14 +78,22 @@ Letter 3's figure, seen from above, looks like a galaxy: a red dome in the middl
 
 **H2: drive and brake follow the share inside the ring. Fails.** Across 148 galaxies, the rank correlation between the mass fraction inside the ring and the outer-half $\log_{10}(M_{\rm dec}/M_{\rm bar})$ is $\rho = +0.08$ ($p = 0.16$). Without bulges it is $\rho = -0.07$ ($p = 0.77$). Galaxies with no ring in the data (all below $a_0$, mostly dwarfs) sit at a median of −0.11 dex, and those with a ring at −0.03 dex. That is the predicted direction, but it is small and not significant. The pipeline has a flat M/L and about 0.18 dex of point scatter, so it can resolve the sign of a trend of this size only weakly.
 
+**H2′: the same test, decoded as in the decoding-mass letter.** Drive and brake are only known by setting the decoded mass against each galaxy's photometric mass. So H2 was re-run that way, with the criterion fixed before running ([`check_drive_brake_photometric.py`](check_drive_brake_photometric.py)):
+- **Method.** $M_{\rm dec}(r) = rv^4/[G(a_0r + v^2)]$ at the outermost point, against the enclosed photometric mass $M_{\rm phot}$. The stellar part integrates SPARC's own disk and bulge surface-brightness profiles; this reproduces SPARC's 3.6 µm luminosities to −0.02 dex. Drive means $M_{\rm dec} > M_{\rm phot}$; brake means the reverse.
+- **Population.** Of 149 galaxies, 80% are quiet (within a factor of 2), 7% drive and 13% brake.
+- **Result.** The share inside the ring correlates with drive across all galaxies: $\rho = +0.23$, $p = 0.003$. Galaxies entirely outside the ring brake 22% of the time and drive 3%; galaxies with a ring brake 2% and drive 10%. That is the predicted direction. But without bulges the correlation is $\rho = +0.05$ ($p = 0.30$), so **H2′ fails** its pre-set criterion.
+- **Confound.** SPARC gives no gas surface-density profile, so the gas mass is estimated as $|V_{\rm gas}|V_{\rm gas}r/G$, which overstates a gas disk's enclosed mass inside its extent. Gas share alone predicts braking ($\rho = +0.35$, $p < 10^{-4}$), and 68 of the 87 all-outside galaxies are gas-dominated. In star-dominated galaxies (gas share < 0.3 or < 0.5), the ring–drive correlation is $\rho = +0.28$ ($p = 0.02$) and $+0.27$ ($p = 0.01$): positive, but marginal at these sample sizes.
+- **Reading.** The direction matches the hourglass (outside the ring, drag; inside, drive), and it survives in star-dominated galaxies at about 2.5σ. Most of the brakes, though, are in gas-dominated dwarfs, where this gas estimate cannot separate a real brake from an overestimated $M_{\rm phot}$. Deciding needs HI surface-density profiles for $M_{\rm phot}$, which are not in SPARC's mass-model files.
+
 **What follows.**
-- The roll-ratio algebra is untouched: the exchange is parity, the ring is the quiet throat, and the rate difference is the share difference. What failed is the identification of the figure's regions with a galaxy's bulge and disk, and the idea that a galaxy's net drive or brake is the pointwise roll ratio summed over its ring.
-- This fits the archive's other position: the drive or brake is set at the drain, by the TetB in the galaxy's central throat, not by the share of the disk inside the ring.
+- The roll-ratio algebra is untouched: the exchange is parity, the ring is the quiet throat, and the rate difference is the share difference. What failed is the identification of the figure's regions with a galaxy's bulge and disk (H1).
+- Drive and brake against the ring are undecided, not refuted. With the letter's decode the trend has the predicted sign and survives in star-dominated galaxies at about 2.5σ, but most brakes sit where the gas estimate is weakest (H2′). The archive's other position, that drive or brake is set at the drain by the TetB in the galaxy's central throat, is not tested here.
 - Letter 3 describes the figure's "disk-and-bulge morphology" as the field configuration of any bound mass. These checks say that morphology is the shares' high-acceleration core and low-acceleration exterior, not the stellar bulge and disk. Any reading of the figure as a galaxy's stellar structure should say so.
 
 ## Files
 
 | File | Contents |
 |---|---|
+| [`check_drive_brake_photometric.py`](check_drive_brake_photometric.py) | H2′: drive and brake decoded as in the decoding-mass letter ($M_{\rm dec}$ against enclosed photometric mass), the ring correlation, and robustness to the gas estimate |
 | [`check_ring_bulge_sparc.py`](check_ring_bulge_sparc.py) | SPARC tests H1 and H2, hypotheses fixed in the docstring. Usage: `python check_ring_bulge_sparc.py ROTMOD_DIR TABLE1` (bulge M/L via `UPS_BULGE`, default 0.7) |
 | [`verify_hourglass_lemma.py`](verify_hourglass_lemma.py) | Exact checks of (a)–(f): general axisymmetric field, an explicit incompressible hourglass, and two chambers co-rotating at different rates |
