@@ -48,6 +48,8 @@ By ring position:
 
 Reproduce: `python decode_audit_paper_mphot.py GRAVIS_DIR` then `python posthoc_checks.py results_paper_mphot`.
 
+**Diagnostic D1: dependence on the photometric method** (added 2026-11-14; [`../measured_partition.py`](../measured_partition.py), [`../ROLL_RATIO.md`](../ROLL_RATIO.md)). The letter turns $M_{\rm phot}$ into an acceleration as $GM_{\rm phot}/r^2$, which understates a thin disk's pull inside a few scale lengths, and its gas is a model exponential disk. Replacing that $g_{\rm bar}$ by SPARC's own Newtonian $g_{\rm bar}$ (thin disks, measured HI maps) weakens H3 from $\rho = +0.47$ to $+0.18$ ($p = 0.014$), and in galaxies that are not gas-dominated from $+0.32$ to $+0.12$ ($p = 0.13$, not significant). Galaxies entirely outside the ring move from a median net area of −0.24 dex (brake) to −0.03 dex (quiet). **H3 passes under the letter's method, but most of its signal comes from that method's approximations.**
+
 ---
 
 # Version 1 (superseded: photometric mass built by the audit)

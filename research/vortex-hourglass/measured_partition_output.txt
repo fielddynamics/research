@@ -1,0 +1,22 @@
+all quality-cut: 149 galaxies, 3152 points (192 with mu_obs outside (0,1), kept for the median, excluded from Omega)
+  T1 measured surfaces cross (median mu_obs = 1/2) at log10 x = +0.21 (x = 1.62); 95% interval x 0.99-2.72; theory x = 1: inside
+  T2 gap |2mu-1|, measured (theory):  -1.38: 1.37 (0.92)  -1.12: 0.10 (0.86)  -0.88: 0.60 (0.76)  -0.62: 0.56 (0.62)  -0.38: 0.45 (0.41)  -0.12: 0.23 (0.14)  +0.12: 0.02 (0.14)  +0.38: 0.04 (0.41)  +0.62: 0.19 (0.62)  +0.88: 0.50 (0.76)  +1.12: 0.52 (0.86)  +1.38: 0.76 (0.92)
+  T3 slip median log10(Omega_obs / x):  -1.12: +0.826  -0.88: +0.246  -0.62: +0.072  -0.38: -0.053  -0.12: -0.099  +0.12: -0.166  +0.38: -0.354  +0.62: -0.438  +0.88: -0.579  +1.12: -0.798
+
+not gas-dominated: 90 galaxies, 2268 points (159 with mu_obs outside (0,1), kept for the median, excluded from Omega)
+  T1 measured surfaces cross (median mu_obs = 1/2) at log10 x = +0.12 (x = 1.33); 95% interval x 0.92-2.66; theory x = 1: inside
+  T2 gap |2mu-1|, measured (theory):  -0.88: 0.65 (0.76)  -0.62: 0.53 (0.62)  -0.38: 0.42 (0.41)  -0.12: 0.21 (0.14)  +0.12: 0.00 (0.14)  +0.38: 0.04 (0.41)  +0.62: 0.19 (0.62)  +0.88: 0.50 (0.76)  +1.12: 0.52 (0.86)  +1.38: 0.76 (0.92)
+  T3 slip median log10(Omega_obs / x):  -0.88: +0.193  -0.62: +0.084  -0.38: -0.027  -0.12: -0.073  +0.12: -0.155  +0.38: -0.353  +0.62: -0.437  +0.88: -0.579  +1.12: -0.798
+
+DIAGNOSTIC (not the letter's method): SPARC thin-disk g_bar instead of the spherical G M_phot / r^2
+all quality-cut, thin-disk g_bar: 149 galaxies, 3152 points (157 with mu_obs outside (0,1), kept for the median, excluded from Omega)
+  T1 measured surfaces cross (median mu_obs = 1/2) at log10 x = +0.01 (x = 1.03); 95% interval x 0.83-1.43; theory x = 1: inside
+  T2 gap |2mu-1|, measured (theory):  -1.38: 0.03 (0.92)  -1.12: 0.46 (0.86)  -0.88: 0.55 (0.76)  -0.62: 0.55 (0.62)  -0.38: 0.42 (0.41)  -0.12: 0.16 (0.14)  +0.12: 0.14 (0.14)  +0.38: 0.22 (0.41)  +0.62: 0.56 (0.62)  +0.88: 0.66 (0.76)  +1.12: 0.67 (0.86)  +1.38: 0.53 (0.92)
+  T3 slip median log10(Omega_obs / x):  -1.12: +0.609  -0.88: +0.301  -0.62: +0.080  -0.38: -0.016  -0.12: -0.028  +0.12: -0.026  +0.38: -0.228  +0.62: -0.163  +0.88: -0.252  +1.12: -0.623  +1.38: -0.886
+
+not gas-dominated, thin-disk g_bar: 90 galaxies, 2268 points (154 with mu_obs outside (0,1), kept for the median, excluded from Omega)
+  T1 measured surfaces cross (median mu_obs = 1/2) at log10 x = -0.01 (x = 0.97); 95% interval x 0.77-1.33; theory x = 1: inside
+  T2 gap |2mu-1|, measured (theory):  -0.88: 0.57 (0.76)  -0.62: 0.48 (0.62)  -0.38: 0.36 (0.41)  -0.12: 0.12 (0.14)  +0.12: 0.15 (0.14)  +0.38: 0.24 (0.41)  +0.62: 0.56 (0.62)  +0.88: 0.66 (0.76)  +1.12: 0.67 (0.86)  +1.38: 0.53 (0.92)
+  T3 slip median log10(Omega_obs / x):  -0.88: +0.241  -0.62: +0.137  -0.38: +0.032  -0.12: -0.001  +0.12: -0.015  +0.38: -0.226  +0.62: -0.161  +0.88: -0.252  +1.12: -0.623  +1.38: -0.886
+
+Figure: measured_partition.png

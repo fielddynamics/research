@@ -94,13 +94,23 @@ Letter 3's figure, seen from above, looks like a galaxy: a red dome in the middl
 
 ## The roll ratio
 
-[`ROLL_RATIO.md`](ROLL_RATIO.md) takes one premise: the two chambers roll on each other without slipping at the Field Origin, with radii equal to their shares. From that, the roulette's roll ratio becomes the rate ratio, $\omega_B/\omega_A = x$. Exchange becomes parity, the ring $x = 1$ becomes the quiet throat (drive inside, drag outside), and the shear's rate of change becomes the logistic core $2\mu(1-\mu)$ (16 exact checks). Against the decode audit, the sign structure matches (median $\Delta$ +0.09 dex inside the ring, below zero outside), but the drive–drag crossing sits at $x \approx 0.34$ in all galaxies. In star-dominated galaxies the interval reaches $x = 1$ (exploratory).
+[`ROLL_RATIO.md`](ROLL_RATIO.md) rests on one premise: the two chambers roll on each other without slipping at the Field Origin, with radii equal to their shares. From that, four things follow (16 exact checks):
+- the roulette's roll ratio becomes the rate ratio, $\omega_B/\omega_A = x$;
+- exchange becomes parity;
+- the ring $x = 1$ becomes the quiet throat;
+- the shear's rate of change becomes the logistic core $2\mu(1-\mu)$.
+
+**Against SPARC.** Letter 3's red and blue discs, built from measured shares ([`measured_partition.py`](measured_partition.py)), meet at $x = 1.03$ (0.83–1.43) with SPARC's $g_{\rm bar}$. Within about 0.5 dex of the ring they are mirror images, and the roll ratio slips by less than 0.03 dex there. Further out the measured shares saturate less than $\mu(x)$.
+
+**Drive and brake.** The drive/brake pattern of the decode audit depends mostly on the letter's photometric approximations (Diagnostic D1). An earlier comparison in the note, which read the audit's gap as the theorem's rate difference, is corrected there.
 
 ## Files
 
 | File | Contents |
 |---|---|
-| [`ROLL_RATIO.md`](ROLL_RATIO.md), [`verify_roll_ratio.py`](verify_roll_ratio.py), [`compare_roll_ratio_sparc.py`](compare_roll_ratio_sparc.py) | Roll-ratio theorem (16 checks) and its exploratory comparison with the decode audit |
+| [`ROLL_RATIO.md`](ROLL_RATIO.md), [`verify_roll_ratio.py`](verify_roll_ratio.py) | Roll-ratio theorem (16 checks) |
+| [`measured_partition.py`](measured_partition.py), [`measured_partition.png`](measured_partition.png), [`measured_partition_output.txt`](measured_partition_output.txt) | Letter 3's discs from SPARC: where the shares meet, their gap, the slip; letter's photometric mass and SPARC's $g_{\rm bar}$ |
+| [`compare_roll_ratio_sparc.py`](compare_roll_ratio_sparc.py) | Superseded first comparison (read $\Delta$ as the rate difference; see the correction in `ROLL_RATIO.md`) |
 | [`check_drive_brake_photometric.py`](check_drive_brake_photometric.py) | H2′: drive and brake decoded as in the decoding-mass letter ($M_{\rm dec}$ against enclosed photometric mass), the ring correlation, and robustness to the gas estimate |
 | [`check_ring_bulge_sparc.py`](check_ring_bulge_sparc.py) | SPARC tests H1 and H2, hypotheses fixed in the docstring. Usage: `python check_ring_bulge_sparc.py ROTMOD_DIR TABLE1` (bulge M/L via `UPS_BULGE`, default 0.7) |
 | [`verify_hourglass_lemma.py`](verify_hourglass_lemma.py) | Exact checks of (a)–(f): general axisymmetric field, an explicit incompressible hourglass, and two chambers co-rotating at different rates |
