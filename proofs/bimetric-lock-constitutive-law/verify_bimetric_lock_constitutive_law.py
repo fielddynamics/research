@@ -162,6 +162,11 @@ check("B8 the two shares of Theorem 5 are two parts of one deformed frame, not t
       V([1, 1, 1, 1], LOCK) == 98 and V(P, LOCK) == 0
       and sp.expand(V([1, s, s, s], LOCK) - (1 + s)*(s**2 + 47*s + 1)) == 0)
 
+Dw = lambda t: t - 1 - sp.log(t)
+check("B9 on the deformed family the SST energy is a nonlinear function of the potential: F(w^2) - w^2 = -2 D(V/49), D(t) = t - 1 - ln t, "
+      "whose linear part -2w is the a0 tail and whose logarithm produces mu: not HR's linear vertex",
+      sp.simplify((w**2 - 2*w + 2*sp.log(1 + w) - w**2) + 2*Dw(V([1, 1, 1, w], LOCK)/49)) == 0)
+
 # ---------------- Part C: the dynamics, and the time leg
 E = (1 - sp.exp(-u))*y - 2*(sp.sinh(u) - u)
 ust = sp.log(1 + sp.sqrt(y))

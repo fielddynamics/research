@@ -58,7 +58,7 @@ $\beta = (1,0,16,0,1)$~\cite{NelsonVIII,NelsonXII}. The SST's scalar
 sector is $-(a_0^2/8\pi G)F(y)$, $F(y) = y - 2\sqrt y + 2\ln(1+\sqrt y)$,
 $\mu(x) = F'(x^2) = x/(x+1)$~\cite{NelsonL3,NelsonPqs}. The question,
 listed as open in Papers~VIII and IX, is whether the first reduces to
-the second. Each step is checked by the accompanying script, 63 checks,
+the second. Each step is checked by the accompanying script, 64 checks,
 exact algebra~\cite{NelsonScript}, including the decoupling-limit
 derivation itself, done independently of~\cite{NelsonBimetric}.
 
@@ -252,8 +252,12 @@ contains no $\beta$.}
 All checked exactly.
 \end{proof}
 
-So the potential supplies the variable $V/V_0 = 1 + x$; the energy
-$F$, and with it the dynamics, comes from the SST's own scalar term.
+So HR's linear vertex supplies only the variable $V/V_0 = 1 + x$. The
+energy is a \emph{nonlinear} function of $V$: on this family
+$F(y) - y = -2D(V/V_0)$ with $D(w) = w - 1 - \ln w$, the relative entropy
+of the potential from $V_0 = 49$ (checked). Its linear part is the
+constant $a_0$ tail; its logarithm produces $\mu$~\cite{NelsonTwoConn}.
+A vertex of this form is not HR's.
 
 \section*{Part C: what the lock establishes}
 
@@ -345,7 +349,12 @@ cannot supply it, and the SST supplies it through the time leg's
 acceleration~\cite{NelsonTL}. Part~B's deformed frame works only
 because it builds in step~(2) by hand.
 \item \emph{Open.} An action that supplies $\Omega = x$ from the two
-chambers themselves. Letter~2 places the partition in the torsion
+chambers themselves. The research note~\cite{NelsonTwoConn} gives one
+with an auxiliary field and a relative-entropy vertex, on a second
+chamber built along the time leg ($\det S = x > 0$). That chamber is not
+the parity root $Pe$ of Letters~1--2 (Theorem~9 and check~D18 show the
+deformed family never reaches $\det S < 0$); which object is TetB is
+itself open. Letter~2 places the partition in the torsion
 sector, where the time leg's acceleration is the torsion component
 $T^0{}_{i0}$; that is the subject of~\cite{NelsonTwoConn}. Also not done
 here: the full bimetric (dynamical $f$) decoupling limit.

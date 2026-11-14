@@ -112,7 +112,9 @@ So the nonlinearity of the vertex is not a detail. It is exactly what turns HR's
 
 ### The result, and what it does not yet do
 
-**The unified statement.** GFD's SST is two-chamber gravity in which TetB is the spatial subspace with its clock running at the acceleration ratio x. HR's locked partition then gives μ(x) as TetB's volume share, and the SST's energy is the relative entropy of the locked potential measured from the subspace.
+**The unified statement.** GFD's SST is two-chamber gravity in which TetB is the spatial subspace with its clock running at the acceleration ratio x.
+
+*A caution on the word TetB.* This second chamber has det S = x > 0. It is not the parity root Pe that Letters 1–2 call TetB (det S = −1); the [bimetric proof](../../proofs/bimetric-lock-constitutive-law/) shows the time-leg family never reaches that root. So "TetB" here names the time-leg chamber, and how it relates to the parity root is open. HR's locked partition then gives μ(x) as TetB's volume share, and the SST's energy is the relative entropy of the locked potential measured from the subspace.
 
 Compared with standard HR, three things change:
 

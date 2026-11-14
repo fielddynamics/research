@@ -6,7 +6,7 @@
 
 ---
 
-This folder holds a four-page proof and a script that checks every step (63 checks, exact algebra).
+This folder holds a four-page proof and a script that checks every step (64 checks, exact algebra).
 
 ## Background
 
@@ -41,9 +41,11 @@ That is **the lock**, β = (1, 0, 16, 0, 1). Paper XII then adds a further claim
 - **The odds are not the acceleration.** For two static weak-field metrics the volume odds are the lapse ratio N̂/N = 1 + O(Φ/c²), so the shares stay at ½: μ is reached only at x = 1. By leg count it is worse: the locked odds are (25n + 24)/(24n + 25), confined to [24/25, 25/24].
 - **The standard reduction gives a density law, for any β.** Around a static mass the response depends on the enclosed mass only through M/r³, on every branch. No function of M/r³ equals a function of x ∝ M/r² for all masses and radii. On the branch that matches the weak-field solution the enhancement is below 1.71; the other roots weaken gravity or give a mass-independent force growing like r. None is MOND.
 - **HR cannot see the two roots.** By Letter 2's Lemma, TetA = e and TetB = Pe have the same metric, so HR's g⁻¹f = I on either root. The two roots are the two square-root branches of the identity, and HR's metric form uses only the principal one.
-- **A hand-built frame supplies Ω = x, but it is not HR.** Deforming one leg of a single frame by w = |a|/a₀ gives V = 49(1 + w) and the share w/(1 + w) = μ(x). It works only because it builds step 2 in by hand: the deformation is not an HR metric, its two shares are not the two roots, and the energy F is not in V.
+- **A hand-built frame supplies Ω = x, but it is not HR.** Deforming one leg of a single frame by w = |a|/a₀ gives V = 49(1 + w) and the share w/(1 + w) = μ(x). It works only because it builds step 2 in by hand: the deformation is not an HR metric, its two shares are not the two roots, and the energy F is not HR's linear vertex: it is a nonlinear function of V, F − y = −2D(V/V₀), the relative entropy of the potential (see the research note).
 
 **What remains open** is an action that supplies Ω = x from the two chambers themselves. Letter 2 places the partition in the torsion sector, where the time leg's acceleration is the torsion component T⁰ᵢ₀. That is the subject of the research note [`research/two-connection-dual-chamber/`](../../research/two-connection-dual-chamber/). Its section *A GFD-faithful bimetric algebra* shows what Hassan–Rosen has to become to reproduce μ(x): a second chamber whose clock runs at the acceleration ratio (TetB as the spatial subspace, f = h − y uu), giving Ω = x, with a nonlinear vertex, the relative entropy of the locked potential, in place of Hassan–Rosen's linear one.
+
+**One definitional question this raises.** That construction's second chamber is built along the time leg, with det S = x > 0. It is not the parity root Pe that Letters 1–2 call TetB: the parity root has det S = −1, and the deformed family never reaches it (Theorem 9, check D18). So the proof's results about the parity root and the research note's results about the time-leg chamber are about two different objects, and which one is TetB, or how they relate, is open.
 
 ## Results
 
@@ -98,7 +100,7 @@ The papers themselves are not changed here.
 |---|---|
 | [`bimetric_lock_constitutive_law.pdf`](bimetric_lock_constitutive_law.pdf) | The proof (4 pages) |
 | [`bimetric_lock_constitutive_law.tex`](bimetric_lock_constitutive_law.tex) | LaTeX source (IOP class, [`iopjournal.cls`](iopjournal.cls)) |
-| [`verify_bimetric_lock_constitutive_law.py`](verify_bimetric_lock_constitutive_law.py) | 63 checks, sympy exact algebra: Part A (the standard reduction, derived from the decoupling-limit Lagrangian), Part B (the deformed frame), Part D (further checks), Part E (what the lock establishes) |
+| [`verify_bimetric_lock_constitutive_law.py`](verify_bimetric_lock_constitutive_law.py) | 64 checks, sympy exact algebra: Part A (the standard reduction, derived from the decoupling-limit Lagrangian), Part B (the deformed frame), Part D (further checks), Part E (what the lock establishes) |
 
 The full decoupling-limit derivation (variation of the potential, reduced first integrals, the 23 checks of `verify_bimetric_projection.py`) is in [`research/bimetric-projection/`](../../research/bimetric-projection/).
 
@@ -108,4 +110,4 @@ The full decoupling-limit derivation (variation of the potential, reduced first 
 python verify_bimetric_lock_constitutive_law.py
 ```
 
-It needs sympy, takes a few minutes, and ends with `63/63 checks passed`.
+It needs sympy, takes a few minutes, and ends with `64/64 checks passed`.
