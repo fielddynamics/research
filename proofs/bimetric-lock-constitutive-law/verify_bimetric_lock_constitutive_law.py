@@ -255,4 +255,54 @@ check("D20 F is convex for y > 0: F''(y) = 1/(2 sqrt(y) (1 + sqrt(y))^2) > 0, as
 check("D21 at the stationary point dE/dy = 1 - V0/V = mu: the slope is the deformed leg's share, so the share enters the energy only as "
       "the slope, not through any beta", sp.simplify((1 - 1/(1 + sp.sqrt(y))) - sp.sqrt(y)/(1 + sp.sqrt(y))) == 0)
 
+# ---------------- Part E: what the lock establishes (the partition and its odds)
+lE = sp.symbols("m1:5", positive=True); nE, xE, cE = sp.symbols("n_E x_E c_E", positive=True); phE = sp.symbols("dphi_E", real=True)
+invE = [1/t for t in lE]; negE = [-t for t in lE]; parE = [lE[0], -lE[1], -lE[2], -lE[3]]
+detE = lambda evs: sp.prod(evs)
+muE = lambda Xv: Xv/(1 + Xv)
+numE = lambda evs, bb: sp.expand(sum(n*bb[n]*e(evs, n) for n in range(5)))        # weighted by TetB legs
+denE = lambda evs, bb: sp.expand(sum((4 - n)*bb[n]*e(evs, n) for n in range(5)))  # weighted by TetA legs
+OmL = lambda evs, bb: numE(evs, bb)/denE(evs, bb)
+check("E1 the two volume terms of a palindromic potential, b0 e0 (four TetA legs) and b4 e4 = b0 det S (four TetB legs), stand in the ratio "
+      "1 : det S, so the TetB share of the pair is mu(Omega) = Omega/(1 + Omega) with odds Omega = det S",
+      sp.simplify(b[0]*detE(lE)/(b[0] + b[0]*detE(lE)) - muE(detE(lE))) == 0)
+check("E2 metric exchange S -> S^-1 inverts these odds and swaps the two shares; total inversion S -> -S leaves them unchanged",
+      sp.simplify(detE(invE)*detE(lE) - 1) == 0 and sp.simplify(muE(detE(invE)) - (1 - muE(detE(lE)))) == 0
+      and sp.simplify(detE(negE) - detE(lE)) == 0)
+check("E3 spatial parity of one tetrad (S -> P S) does not invert the odds: it negates them, Omega -> -Omega",
+      sp.simplify(detE(parE) + detE(lE)) == 0)
+check("E4 the stellated octahedron (S = P) sits at Omega = -1, the pole of Omega/(1 + Omega): the volume terms cancel, 1 + (-1) = 0, "
+      "and e2(P) = 0, which is why V(P) = 0", detE([1, -1, -1, -1]) == -1 and e([1, -1, -1, -1], 2) == 0 and V([1, -1, -1, -1], LOCK) == 0)
+check("E5 the total-inversion image S = -I sits at Omega = +1: shares 1/2 and 1/2, the ring x = 1", detE([-1]*4) == 1 and muE(sp.Integer(1)) == sp.Rational(1, 2))
+check("E6 weighting every term of a palindromic potential by its number of TetB legs gives a share sum n b_n e_n/(4V) whose odds "
+      "invert under exchange, for any S", sp.simplify(OmL(invE, pal)*OmL(lE, pal) - 1) == 0)
+check("E7 and are unchanged by total inversion when b1 = b3 = 0", sp.simplify(OmL(negE, [b[0], 0, b[2], 0, b[0]]) - OmL(lE, [b[0], 0, b[2], 0, b[0]])) == 0)
+check("E8 in its own odds this share is exactly Omega/(1 + Omega): the partition carries mu(Omega) identically, whatever b2 is",
+      sp.simplify(numE(lE, pal)/(4*V(list(lE), pal)) - muE(OmL(lE, pal))) == 0)
+check("E9 on S = sigma I the locked leg odds are (48 sigma^2 + sigma^4)/(1 + 48 sigma^2): 1 at sigma = 1 and inverted by sigma -> 1/sigma",
+      sp.simplify(OmL([nE]*4, LOCK) - (48*nE**2 + nE**4)/(1 + 48*nE**2)) == 0 and OmL([1]*4, LOCK) == 1
+      and sp.simplify(OmL([1/nE]*4, LOCK)*OmL([nE]*4, LOCK) - 1) == 0)
+SwE = [nE, 1, 1, 1]
+check("E10 two static metrics differ in their lapses, S = diag(n, 1, 1, 1) with n = Nh/N. The volume odds are n and the elasticity share is "
+      "n/(1 + n); but the locked leg odds are (25n + 24)/(24n + 25), confined to [24/25, 25/24], so by leg count the shares stay within "
+      "24/49 .. 25/49: the 16 e2 term holds them near 1/2",
+      sp.simplify(detE(SwE) - nE) == 0 and sp.simplify(nE*sp.diff(sp.log(V(SwE, LOCK)), nE) - nE/(1 + nE)) == 0
+      and sp.simplify(OmL(SwE, LOCK) - (25*nE + 24)/(24*nE + 25)) == 0
+      and sp.limit(OmL(SwE, LOCK), nE, 0) == sp.Rational(24, 25) and sp.limit(OmL(SwE, LOCK), nE, sp.oo) == sp.Rational(25, 24))
+check("E11 in the weak field n = Nh/N = exp(dphi/c^2) -> 1: the odds stay at 1 and the shares at 1/2, so mu is reached only at x = 1",
+      sp.limit(sp.exp(phE/cE**2), cE, sp.oo) == 1)
+check("E12 mu(x) for all x needs Omega = n = g/a0: a second lapse built from the gradient of the first, which is the deformed frame of "
+      "Part B, not an independent Hassan-Rosen metric", sp.simplify(muE(detE([xE, 1, 1, 1])) - xE/(1 + xE)) == 0)
+check("E13 P is its own inverse, so the compound is a fixed point of the exchange: the operation that inverts the odds (Letter 2's "
+      "supplement) is the metric exchange, not spatial parity", sp.diag(1, -1, -1, -1).inv() == sp.diag(1, -1, -1, -1))
+check("E14 the odd coefficients vanish iff V(-S) = V(S): V(-S) - V(S) = -2 (b1 e1 + b3 e3). So b1 = b3 = 0 is total-inversion symmetry, "
+      "and V(I) = V(-I) = 98 while V(P) = 0",
+      sp.expand(V(negE, b) - V(list(lE), b) + 2*(b[1]*e(list(lE), 1) + b[3]*e(list(lE), 3))) == 0
+      and V([-1]*4, LOCK) == 98 and V([1]*4, LOCK) == 98)
+SE = sp.Matrix(4, 4, lambda i, j: sp.Symbol(f"S{i}{j}"))
+HE = sp.hessian(((SE.trace())**2 - (SE*SE).trace())/2, list(SE))
+check("E15 the Hessian of e2 over the 16 entries of S has rank 16 with spectrum +3 (once), +1 (six times), -1 (nine times), as Paper XII "
+      "states: 16 is the number of components of S, which Paper XII still takes as an axiom for b2",
+      HE.rank() == 16 and HE.eigenvals() == {3: 1, 1: 6, -1: 9})
+
 print(f"\n{sum(ok)}/{len(ok)} checks passed")

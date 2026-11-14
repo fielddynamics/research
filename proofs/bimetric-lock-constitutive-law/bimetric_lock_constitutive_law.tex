@@ -18,38 +18,32 @@
 \ead{stephen@fielddynamics.org}
 
 \begin{abstract}
-Papers~VIII, IX and XII fix the Hassan--Rosen coefficients to
-$\beta = (1,0,16,0,1)$ and state that the locked bimetric theory and
-the SST are two projections of one geometry, so that the bimetric
-theory's quasi-static limit should give $\mu(x) = x/(x+1)$. We show it
-does not: Hassan--Rosen's two metrics are not GFD's two chambers.
-\emph{Negative:} in the standard
-reduction (decoupling limit, static spherical weak field) the response
-depends on the enclosed mass only through $M/r^3$, for every $\beta$;
-no function of $M/r^3$ equals a function of $x \propto M/r^2$ for all
-masses and radii; on the branch that matches the linear solution the
-enhancement is bounded, $g_{\rm tot}/g_N \le 1 + 1/\sqrt2 < 1.71$, and
-the other real roots give either $g_{\rm tot}/g_N \le 1/3$ or a
-mass-independent force growing like $r$; and the potential vanishes at
-GFD's parity configuration. Letter~2's Lemma explains why: TetA and
-TetB are two roots of one metric, so a potential built from
-$\sqrt{g^{-1}f}$ takes the same value on either root
-($g^{-1}f = I$) and cannot see the partition. The obstruction is
-structural, not specific to the lock.
-\emph{Diagnostic:} on the frame deformed along a single leg by a
-ratio $w$, every potential is $V = A + Bw$, and the deformed leg's share
-$Bw/(A + Bw)$ obeys exchange closure $s(1/w) = 1 - s(w)$ if and only
-if $\beta_0 + 2\beta_1 = \beta_4 + 2\beta_3$. It is then exactly
-$w/(1+w)$. Palindromic coefficients (the $g\leftrightarrow f$
-symmetry) satisfy the condition, the locked set gives $V = 49(1+w)$,
-and $\beta_2 = 16$ cancels. With $w = |a|/a_0$, $a$ the acceleration
-of the tetrad's time leg, this is $\mu(x)$. The deformation is not a
-Hassan--Rosen reference metric, the two shares are parts of one
-deformed frame rather than the two roots (on the roots the potential is
-98 and 0), and the energy $F$ is not supplied by the potential. So this
-reproduces the algebra of the partition, not its two-chamber mechanism.
-The constitutive law's origin remains the two-root partition under
-exchange (Letter~2).
+Papers~VIII and XII lock the five Hassan--Rosen (HR) coefficients to
+$\beta = (1,0,16,0,1)$ from the stellated-octahedron geometry, and
+Paper~XII adds that the locked theory and the SST are two projections
+of one geometry, so the bimetric theory should give
+$\mu(x) = x/(x+1)$. We separate what holds from what does not.
+\emph{The geometric lock largely holds.} Its exchange symmetry is
+exact: the $g\leftrightarrow f$ symmetry holds if and only if $\beta$ is
+palindromic. Its odd coefficients vanish exactly under total inversion
+$S\to-S$, not spatial parity. And the partition it defines carries
+$\mu$: the two volume terms, and every term weighted by its number of
+TetB legs, split in a ratio whose odds $\Omega$ are inverted by the
+metric exchange, so the TetB share is exactly $\mu(\Omega) =
+\Omega/(1+\Omega)$. The stellated octahedron ($S = P$) sits at the pole
+$\Omega = -1$, which is why the potential vanishes there.
+\emph{The bridge to the SST does not hold.} $\mu$ needs a second
+ingredient: odds equal to the acceleration, $\Omega = x = g/a_0$. HR's
+potential has no derivatives, so in any weak field its odds stay at 1.
+In the standard reduction the response depends on the enclosed mass
+only through $M/r^3$, on every branch and for every $\beta$, and no
+function of $M/r^3$ equals a function of $x\propto M/r^2$. By Letter~2's
+Lemma, HR cannot even see the two roots in metric form ($g^{-1}f = I$).
+A frame deformed by hand along the time leg's acceleration supplies
+$\Omega = x$ and reproduces $\mu$, but it is not an HR metric.
+\emph{The result in two steps:} (1) exchange symmetry of the partition
+gives $\mu(\Omega)$, which HR contains; (2) $\Omega = x$, which HR
+cannot supply and the SST supplies through the time leg's acceleration.
 \end{abstract}
 
 \keywords{Hassan--Rosen, bimetric gravity, Vainshtein, Galileon, exchange symmetry, constitutive law, MOND, proof}
@@ -64,7 +58,7 @@ $\beta = (1,0,16,0,1)$~\cite{NelsonVIII,NelsonXII}. The SST's scalar
 sector is $-(a_0^2/8\pi G)F(y)$, $F(y) = y - 2\sqrt y + 2\ln(1+\sqrt y)$,
 $\mu(x) = F'(x^2) = x/(x+1)$~\cite{NelsonL3,NelsonPqs}. The question,
 listed as open in Papers~VIII and IX, is whether the first reduces to
-the second. Each step is checked by the accompanying script, 48 checks,
+the second. Each step is checked by the accompanying script, 63 checks,
 exact algebra~\cite{NelsonScript}, including the decoupling-limit
 derivation itself, done independently of~\cite{NelsonBimetric}.
 
@@ -261,29 +255,100 @@ All checked exactly.
 So the potential supplies the variable $V/V_0 = 1 + x$; the energy
 $F$, and with it the dynamics, comes from the SST's own scalar term.
 
+\section*{Part C: what the lock establishes}
+
+Write $\Omega$ for the odds between a TetB share and a TetA share, so
+that the TetB share is $\Omega/(1+\Omega)$. Letter~2's
+supplement~\cite{NelsonL2} derives $\mu$ from two ingredients: an
+exchange that inverts $\Omega$, and odds of degree one in the
+acceleration, $\Omega = x$. This part asks which of the two the locked
+potential supplies.
+
+\textbf{Theorem 8 (the partition carries $\mu$).} \emph{For palindromic
+$\beta$:
+\begin{enumerate}
+\item the volume terms $\beta_0e_0$ (four TetA legs) and
+$\beta_4e_4 = \beta_0\det S$ (four TetB legs) stand in the ratio
+$1:\det S$, so with $\Omega = \det S$ the TetB share of the pair is
+$\Omega/(1+\Omega)$;
+\item weighting every term by its number of TetB legs gives the share
+$\sum_n n\beta_ne_n/(4V)$, which in its own odds is exactly
+$\Omega/(1+\Omega)$, for every $S$ and every $\beta_2$;
+\item in both cases the metric exchange $S\to S^{-1}$ inverts $\Omega$
+and swaps the shares, and total inversion $S\to-S$ leaves them
+unchanged (when $\beta_1 = \beta_3 = 0$).
+\end{enumerate}}
+
+\begin{proof}
+All identities checked for general eigenvalues (checks E1--E9).
+\end{proof}
+
+\textbf{Theorem 9 (which operation exchanges the chambers).}
+\emph{(i) The odd coefficients vanish iff $V(-S) = V(S)$, since
+$V(-S) - V(S) = -2(\beta_1e_1 + \beta_3e_3)$: the lock is symmetric
+under total inversion, $V(-I) = V(I) = 98$, not under spatial parity,
+$V(P) = 0$. (ii) Spatial parity of one tetrad negates the odds,
+$\Omega\to-\Omega$; only the metric exchange inverts them. (iii) The
+stellated octahedron $S = P$ has $\Omega = \det P = -1$, the pole of
+$\Omega/(1+\Omega)$: its two volume terms cancel and $e_2(P) = 0$,
+which is why $V(P) = 0$. $P$ is its own inverse, so it is a fixed
+point of the exchange. The total-inversion image $-I$ has $\Omega = 1$:
+equal shares, the ring $x = 1$.}
+
+\begin{proof}
+Checked (E2--E5, E13, E14).
+\end{proof}
+
+So the exchange that Letter~2's derivation needs acts, in HR's algebra,
+as the metric exchange, not as spatial parity; the same distinction
+appears in the null-rotation proof~\cite{NelsonNull}, where TetB's
+count is reproduced by total inversion.
+
+\textbf{Theorem 10 (the odds are not the acceleration).} \emph{For two
+static weak-field metrics, $S = \mathrm{diag}(n,1,1,1)$ with
+$n = \hat N/N$. The volume odds are $n$; the locked leg odds are
+$(25n+24)/(24n+25)$, confined to $[24/25,\,25/24]$. In the weak field
+$n = \exp[(\hat\phi-\phi)/c^2]\to1$, so the odds stay at 1 and the
+shares at $\tfrac12$: $\mu$ is reached only at $x = 1$. Reaching every
+$x$ requires $\Omega = n = g/a_0$, a second lapse built from the
+gradient of the first, which is the deformed frame of Part~B.}
+
+\begin{proof}
+Checked (E10--E12).
+\end{proof}
+
+\textbf{Corollary 2 ($\beta_2$).} \emph{The Hessian of $e_2$ over the
+16 entries of $S$ has rank 16 and spectrum $+3^1, +1^6, -1^9$, as
+Paper~XII states (E15). But $\beta_2$ drops out of $\mu(\Omega)$
+(Theorem~8), and Paper~XII itself takes $\beta_2 = 16$ as an axiom;
+its effects are on the background, the graviton mass and the Higuchi
+margin (Part~D of the script).}
+
 \section*{Conclusion and scope}
 
 \begin{itemize}
-\item The locked HR theory does not reduce to $\mu(x)$ by the standard
-reduction (Theorems~1--3), and no choice of $\beta$ would change that.
+\item \emph{What holds.} The lock's exchange symmetry is exact
+(Corollary~1), its odd terms vanish by total inversion (Theorem~9), and
+its partition carries $\mu(\Omega) = \Omega/(1+\Omega)$ in its own odds,
+with the metric exchange inverting them (Theorem~8). The stellated
+octahedron is the pole $\Omega = -1$. The lock also fixes bimetric
+physics: the background, the Fierz--Pauli mass, the Higuchi margin and
+the screening cubic.
+\item \emph{What does not.} The locked HR theory does not give
+$\mu(x)$: its odds are not the acceleration (Theorem~10); in the
+standard reduction the response depends on $M/r^3$ on every branch, for
+every $\beta$ (Theorems~1--3); and HR is root-blind (Theorem~5).
 Papers~VIII, IX and XII overstate the equivalence.
-\item What the lock does fix is bimetric physics: the de~Sitter
-background $\Lambda = m^2(1+48c^2)$, the Fierz--Pauli mass, the Higuchi
-bound and the screening cubic~(\ref{eq:screen})~\cite{NelsonBimetric}.
-\item HR is root-blind (Theorem~5), so its two metrics are not GFD's
-two chambers.
-\item On a frame deformed along the time leg's acceleration the
-potential reproduces the partition's algebra (Theorem~6, Corollary~1,
-Theorem~7), but not its mechanism: the shares are not the two roots,
-the frame is not an HR reference metric, and $F$ is not in $V$. The
-constitutive law's origin remains the two-root partition under
-exchange~\cite{NelsonL2,NelsonExch}.
-\item Letter~2 locates the partition in the torsion sector. A
-dual-chamber bridge would therefore couple connections, not metrics;
-that is the subject of~\cite{NelsonTwoConn}.
-\item Not done here: the full bimetric (dynamical $f$) decoupling
-limit, which keeps the linear enhancement below $4/3$; and a
-derivation of the deformation $w = |a|/a_0$ from an action.
+\item \emph{The result in two steps.} (1) Exchange symmetry of the
+partition gives $\mu(\Omega)$; HR contains this. (2) $\Omega = x$; HR
+cannot supply it, and the SST supplies it through the time leg's
+acceleration~\cite{NelsonTL}. Part~B's deformed frame works only
+because it builds in step~(2) by hand.
+\item \emph{Open.} An action that supplies $\Omega = x$ from the two
+chambers themselves. Letter~2 places the partition in the torsion
+sector, where the time leg's acceleration is the torsion component
+$T^0{}_{i0}$; that is the subject of~\cite{NelsonTwoConn}. Also not done
+here: the full bimetric (dynamical $f$) decoupling limit.
 \end{itemize}
 
 \begin{thebibliography}{99}
@@ -298,6 +363,9 @@ Letter~2 (2026), CQG-115447.
 \bibitem{NelsonTwoConn} S.~Nelson, \textit{Two connections and the
 dual chamber} (2026), research note,
 \texttt{research/two-connection-\linebreak dual-chamber/}.
+\bibitem{NelsonNull} S.~Nelson, \textit{The Sierpiński Blocks of G's
+Graded Operator Are a Null Rotation} (2026),
+\texttt{proofs/g-null-rotation/}.
 \bibitem{NelsonL3} S.~Nelson, \textit{Field Closure of the Tetrad
 Frame}, Letter~3 (2026).
 \bibitem{NelsonPqs} S.~Nelson, \textit{The SST Covariant Completion in

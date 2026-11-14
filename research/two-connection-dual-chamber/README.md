@@ -72,11 +72,12 @@ This is Letter 3's chirality made explicit. It also sets a limit: **the chiralit
    S = ∫ det(e) L_T(e) + ∫ det(ẽ) L_T(ẽ) + ∫ (interaction in C = Γ(e) − Γ(ẽ)) + matter on TetA,
 
    with det ẽ < 0 supplying the opposite sign. Vary it, and check that the static weak field gives BIMOND's two equations with α + β = 0.
-2. **Derive the interaction from exchange.** Exchanging e and ẽ inverts the odds of their fields. Show that requiring this symmetry of the action, as Letter 2's supplement requires it of the shares, fixes the interaction to the function M of the two-potential proof. That would derive μ from the two chambers instead of putting it in, and it is the step that would make the bridge a derivation.
-3. **The vacuum.** When no matter is present, does the theory relax to ẽ = Pe (C = 0, one metric, two roots)? Matter would then pull the roots apart, which is how the dual chamber is described in the archive.
-4. **The solar system.** The same net-field question as in the covariant proof: a local two-tetrad theory gives each star a TetB field up to a₀, which the archive excludes (Coles Notes §5.4).
-5. **Rotation.** The axial torsion is the only root-odd torsion, and it switches on with rotation. Compute what it contributes for a rotating disk: whether it acts like the archive's drive and brake (the interior's active contribution, ΔM = M_phot − M_dec), and whether it is small enough not to disturb the static test.
-6. **Local Lorentz invariance.** Teleparallel theories beyond TEGR, and theories with a preferred time leg, break it. Compute the preferred-frame parameters, as listed for the covariant SST.
+2. **Supply Ω = x.** The [bimetric proof](../../proofs/bimetric-lock-constitutive-law/) (Part C) shows that exchange symmetry of a partition gives μ(Ω) = Ω/(1 + Ω) in its own odds, but μ(x) also needs the odds to be the acceleration, Ω = x, which a derivative-free potential cannot supply. Here the candidate is the ratio of the two chambers' fields, whose odds are x in the two-potential limit (check 4.1). The task is to show that the action makes those odds the acceleration rather than assuming it.
+3. **Derive the interaction from exchange.** Exchanging e and ẽ inverts the odds of their fields. Show that requiring this symmetry of the action, as Letter 2's supplement requires it of the shares, fixes the interaction to the function M of the two-potential proof. That would derive μ from the two chambers instead of putting it in, and it is the step that would make the bridge a derivation.
+4. **The vacuum.** When no matter is present, does the theory relax to ẽ = Pe (C = 0, one metric, two roots)? Matter would then pull the roots apart, which is how the dual chamber is described in the archive.
+5. **The solar system.** The same net-field question as in the covariant proof: a local two-tetrad theory gives each star a TetB field up to a₀, which the archive excludes (Coles Notes §5.4).
+6. **Rotation.** The axial torsion is the only root-odd torsion, and it switches on with rotation. Compute what it contributes for a rotating disk: whether it acts like the archive's drive and brake (the interior's active contribution, ΔM = M_phot − M_dec), and whether it is small enough not to disturb the static test.
+7. **Local Lorentz invariance.** Teleparallel theories beyond TEGR, and theories with a preferred time leg, break it. Compute the preferred-frame parameters, as listed for the covariant SST.
 
 ## Files
 

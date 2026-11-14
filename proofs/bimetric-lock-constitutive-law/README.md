@@ -1,24 +1,49 @@
 # The Locked Bimetric Potential and the Constitutive Law
 
-*Why the Hassan–Rosen lock β = (1, 0, 16, 0, 1) does not give the constitutive law μ(x) = x/(x + 1), and what a dual-chamber bridge would need · Gravity Field Dynamics (GFD) · Field Dynamics Research*
+*What the Hassan–Rosen lock β = (1, 0, 16, 0, 1) establishes about the stellated octahedron, and why it still does not give the constitutive law μ(x) = x/(x + 1) · Gravity Field Dynamics (GFD) · Field Dynamics Research*
 
-`Hassan-Rosen` `bimetric-gravity` `Vainshtein` `Galileon` `exchange-symmetry` `constitutive-law` `MOND` `proof`
+`Hassan-Rosen` `bimetric-gravity` `stellated-octahedron` `exchange-symmetry` `constitutive-law` `Vainshtein` `MOND` `proof`
 
 ---
 
-This folder holds a three-page proof and a script that checks every step (48 checks, exact algebra).
+This folder holds a four-page proof and a script that checks every step (63 checks, exact algebra).
 
-Papers VIII, IX and XII lock the Hassan–Rosen coefficients to β = (1, 0, 16, 0, 1). They state that the locked bimetric theory and the SST are two projections of one geometry. If so, the bimetric theory's quasi-static limit should give μ(x) = x/(x + 1). Papers VIII and IX list that match as open. This proof settles what can and cannot be shown.
+## Background
 
-## The answer
+Hassan–Rosen (HR) bimetric gravity couples two metrics through a potential with five free coefficients β₀ … β₄. Papers VIII and XII fix them from the stellated-octahedron geometry:
+- the two tetrads of the theory are the two tetrahedra;
+- β₂ = 16 gives one unit of weight to each of the 16 boundary channels;
+- exchanging the two metrics gives β₀ = β₄;
+- an orientation argument gives β₁ = β₃ = 0.
 
-**No: Hassan–Rosen's two metrics are not GFD's two chambers, and the locked theory does not give μ(x).**
+That is **the lock**, β = (1, 0, 16, 0, 1). Paper XII then adds a further claim: that the locked theory and the SST are "two projections of one geometry". If so, HR gravity should reproduce μ(x) = x/(x + 1). This proof tests both.
 
-- **The standard reduction cannot give μ, for any coefficients.** Around a static mass the response depends on the enclosed mass only through M/r³. No function of M/r³ equals a function of x ∝ M/r² for all masses and radii, and on the branch that matches the linear solution the enhancement is capped below 1.71. The other real roots either weaken gravity or give a force growing like r whatever the mass. None has the deep-MOND form.
-- **Letter 2 explains why.** TetA = e and TetB = Pe are two roots of one metric. A potential built from √(g⁻¹f) therefore takes the same value on either root (g⁻¹f = I) and cannot see the partition. Only the torsion sector can, and the Hassan–Rosen interaction has none.
-- **A deformed frame reproduces the algebra, not the mechanism.** Deform one leg of a single frame by a ratio w. Every potential is then V = A + Bw, and the deformed leg's share is exchange-closed iff β₀ + 2β₁ = β₄ + 2β₃, giving exactly w/(1 + w). The lock gives V = 49(1 + w), with β₂ = 16 cancelling. But the two shares are parts of one frame, not TetA and TetB: on the actual roots the potential is 98 and 0. The deformation is also not a Hassan–Rosen reference metric.
+## The answer in one paragraph
 
-The constitutive law's origin remains the two-root partition under exchange (Letter 2, the [exchange-symmetry proof](../constitutive-law-exchange-symmetry/)). Because Letter 2 locates the partition in torsion, a dual-chamber bridge would couple two connections, not two metrics. That is the subject of the research note [`research/two-connection-dual-chamber/`](../../research/two-connection-dual-chamber/).
+**The lock largely holds as geometry, and it even contains μ, but in the wrong variable.** The potential splits into a TetA part and a TetB part. Exchanging the two metrics inverts their odds Ω, so the TetB share is exactly Ω/(1 + Ω): the form of μ. But μ(x) needs those odds to *be the acceleration*, Ω = x = g/a₀. HR's potential has no derivatives, so in any weak field its odds stay at 1. Deriving μ therefore takes two steps:
+1. **Exchange symmetry of the partition gives μ(Ω).** HR contains this.
+2. **The odds equal the acceleration, Ω = x.** HR cannot supply this; the SST supplies it through the acceleration of the tetrad's time leg.
+
+## What holds
+
+- **The exchange symmetry is exact.** The g ↔ f symmetry holds if and only if β is palindromic (β₀ = β₄, β₁ = β₃).
+- **The odd coefficients vanish by total inversion, not parity.** β₁ = β₃ = 0 is exactly the condition V(−S) = V(S): flip the second tetrad completely, time leg included. Under spatial parity alone the locked potential is not symmetric: V(I) = 98, V(−I) = 98, but V(P) = 0.
+- **The partition carries μ.**
+  - The two volume terms (four TetA legs; four TetB legs, = det S) stand in the ratio 1 : det S.
+  - Weighting every term by its number of TetB legs gives the same structure.
+  - In both cases the TetB share is exactly Ω/(1 + Ω), with the metric exchange inverting Ω. The value 16 plays no part.
+- **The stellated octahedron sits at the pole.** In HR's language the compound is S = P, with odds Ω = det P = −1, where Ω/(1 + Ω) has its pole. Its two volume terms cancel (1 − 1 = 0), and that is exactly why V(P) = 0. The total-inversion image −I sits at Ω = 1, the ring x = 1.
+- **The exchange is the metric swap.** In the potential, the operation that inverts the odds is the exchange of the two metrics (S → S⁻¹). Spatial parity negates the odds instead (Ω → −Ω), and the compound P is its own inverse, a fixed point of the exchange. The null-rotation proof found the same distinction: TetB's count of 13 comes from total inversion, not parity.
+- **β₂ = 16 is supported, not forced.** The Hessian of e₂ over the 16 entries of S has rank 16 (spectrum +3, +1 ×6, −1 ×9), as Paper XII states, but Paper XII takes β₂ = 16 as an axiom and it drops out of μ. What it does fix: the background, the graviton mass and the Higuchi margin.
+
+## What does not hold
+
+- **The odds are not the acceleration.** For two static weak-field metrics the volume odds are the lapse ratio N̂/N = 1 + O(Φ/c²), so the shares stay at ½: μ is reached only at x = 1. By leg count it is worse: the locked odds are (25n + 24)/(24n + 25), confined to [24/25, 25/24].
+- **The standard reduction gives a density law, for any β.** Around a static mass the response depends on the enclosed mass only through M/r³, on every branch. No function of M/r³ equals a function of x ∝ M/r² for all masses and radii. On the branch that matches the weak-field solution the enhancement is below 1.71; the other roots weaken gravity or give a mass-independent force growing like r. None is MOND.
+- **HR cannot see the two roots.** By Letter 2's Lemma, TetA = e and TetB = Pe have the same metric, so HR's g⁻¹f = I on either root. The two roots are the two square-root branches of the identity, and HR's metric form uses only the principal one.
+- **A hand-built frame supplies Ω = x, but it is not HR.** Deforming one leg of a single frame by w = |a|/a₀ gives V = 49(1 + w) and the share w/(1 + w) = μ(x). It works only because it builds step 2 in by hand: the deformation is not an HR metric, its two shares are not the two roots, and the energy F is not in V.
+
+**What remains open** is an action that supplies Ω = x from the two chambers themselves. Letter 2 places the partition in the torsion sector, where the time leg's acceleration is the torsion component T⁰ᵢ₀. That is the subject of the research note [`research/two-connection-dual-chamber/`](../../research/two-connection-dual-chamber/).
 
 ## Results
 
@@ -33,6 +58,10 @@ The constitutive law's origin remains the two-root partition under exchange (Let
 | Corollary 1 | The g ↔ f symmetry holds iff β is palindromic, and palindromic β satisfies the condition. The share is canonical: it is the elasticity w d ln V/dw. Then and V = (β₀ + 4β₁ + 3β₂)(1 + w). For the lock, V = 49(1 + w), with β₂ cancelling from the share. V/V(I) = det[(I + S)/2], the volume of the midpoint frame |
 | Remark: not the two chambers | The shares w/(1+w) and 1/(1+w) sum to 1, have odds w and swap under w → 1/w, but they are the deformed leg and the three undeformed legs of one frame. On the roots V(I) = 98 and V(P) = 0; on the path between them V = (1+s)(s² + 47s + 1), with no exchange symmetry |
 | 7. The time leg, and what V does not supply | With w = \|a\|/a₀ for the time leg's acceleration, w = x exactly in a static field (see [`../sst-covariant-time-leg/`](../sst-covariant-time-leg/)). The auxiliary energy E(u; y) = (1 − e^{−u})y − 2(sinh u − u), with u = ln(V/V₀), is stationary at V/V₀ = 1 + x, with value F(y) and slope μ. Its u-dependence contains no β: the potential supplies the variable, not the energy |
+| 8. The partition carries μ | For palindromic β, the volume terms split 1 : det S, and the leg-weighted share sum n βₙeₙ/(4V) has the same structure. In both the TetB share is Ω/(1 + Ω), the metric exchange inverts Ω, and total inversion fixes it |
+| 9. Which operation exchanges the chambers | β₁ = β₃ = 0 iff V(−S) = V(S). Spatial parity negates the odds; only the metric exchange inverts them. S = P sits at Ω = −1, the pole, which is why V(P) = 0; −I sits at Ω = 1, the ring |
+| 10. The odds are not the acceleration | For two static weak-field metrics the volume odds are N̂/N → 1 and the locked leg odds are (25n + 24)/(24n + 25) ∈ [24/25, 25/24]. μ across all x needs Ω = g/a₀, the deformed frame |
+| Corollary 2: β₂ | The Hessian of e₂ has rank 16 (spectrum +3, +1 ×6, −1 ×9); β₂ drops out of μ(Ω) and is an axiom in Paper XII |
 
 ## Further checks (Part D of the script)
 
@@ -56,7 +85,8 @@ Twenty-one further checks test consequences and limits, not restatements:
 
 ## What this means for the papers
 
-- **The equivalence does not hold.** Papers VIII, IX and XII state that the locked theory and the SST are two projections of one geometry. In the standard reduction they are not (Theorems 1–3), Letter 2's Lemma shows why (Theorem 5), and no choice of β would change that.
+- **The geometric lock stands, with one correction.** Its exchange symmetry and palindrome are exact, and its partition carries μ(Ω) (Theorems 8–9). The correction: the odd terms vanish by total inversion, not by the spatial parity the papers cite.
+- **The equivalence does not hold.** Papers VIII, IX and XII state that the locked theory and the SST are two projections of one geometry. The locked theory supplies μ only in its own odds, which stay at 1 in any weak field (Theorem 10); in the standard reduction it gives a density law (Theorems 1–3); and it cannot see the two roots (Theorem 5).
 - **The lock still fixes real bimetric physics:** the de Sitter background Λ = m²(1 + 48c²), the Fierz–Pauli mass, the Higuchi bound and the screening cubic. See [`research/bimetric-projection/`](../../research/bimetric-projection/).
 - **The value 16 does not enter μ** in any construction here.
 
@@ -66,9 +96,9 @@ The papers themselves are not changed here.
 
 | File | What it is |
 |---|---|
-| [`bimetric_lock_constitutive_law.pdf`](bimetric_lock_constitutive_law.pdf) | The proof (3 pages) |
+| [`bimetric_lock_constitutive_law.pdf`](bimetric_lock_constitutive_law.pdf) | The proof (4 pages) |
 | [`bimetric_lock_constitutive_law.tex`](bimetric_lock_constitutive_law.tex) | LaTeX source (IOP class, [`iopjournal.cls`](iopjournal.cls)) |
-| [`verify_bimetric_lock_constitutive_law.py`](verify_bimetric_lock_constitutive_law.py) | 48 checks, sympy exact algebra, including the decoupling-limit derivation and the further checks below |
+| [`verify_bimetric_lock_constitutive_law.py`](verify_bimetric_lock_constitutive_law.py) | 63 checks, sympy exact algebra: Part A (the standard reduction, derived from the decoupling-limit Lagrangian), Part B (the deformed frame), Part D (further checks), Part E (what the lock establishes) |
 
 The full decoupling-limit derivation (variation of the potential, reduced first integrals, the 23 checks of `verify_bimetric_projection.py`) is in [`research/bimetric-projection/`](../../research/bimetric-projection/).
 
@@ -78,4 +108,4 @@ The full decoupling-limit derivation (variation of the potential, reduced first 
 python verify_bimetric_lock_constitutive_law.py
 ```
 
-It needs sympy, takes a few minutes, and ends with `48/48 checks passed`.
+It needs sympy, takes a few minutes, and ends with `63/63 checks passed`.
