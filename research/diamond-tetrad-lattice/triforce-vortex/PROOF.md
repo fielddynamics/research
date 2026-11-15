@@ -2,6 +2,12 @@
 
 *Field Dynamics Research, research folder, 2026-11-15. Status: theorem with proof, checked by [`verify_triforce_vortex.py`](verify_triforce_vortex.py) (15 checks: exact geometry and symmetry, plus a numerical check of the circulation over 20 random parameter sets). Output: [`verify_output.txt`](verify_output.txt). Builds on [`../pixel-vortex/PROOF.md`](../pixel-vortex/PROOF.md); the Triforce is defined in [`research/faces/`](../../faces/enterprise_triforce_synthesis.md).*
 
+> **Correction (2026-11-15).** The theorem below overstated one point. It said every winding eigenstate circulates and turns the star point's ring, on the strength of 20 numerical samples. Exact certificates show the winding space splits as $W \oplus W'$:
+> - **On $W'$ (dimension 6)**, every eigenstate is a vortex that turns the ring, for generic parameters.
+> - **On $W$ (dimension 4)**, every energy is doubled, and whether every combination circulates depends on the parameters.
+>
+> The exact statement and proof are in [`../vortex-theorem/THEOREM.md`](../vortex-theorem/THEOREM.md), which supersedes this document where they differ.
+
 ## Statement in brief
 
 Each face of each tetrahedron is a Triforce: three outer tiles, one at each corner, and one central tile. Read on the actual tiles:

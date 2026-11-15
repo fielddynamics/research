@@ -2,6 +2,8 @@
 
 *Field Dynamics Research, research folder, 2026-11-15. Status: theorem with proof; every step is checked by [`verify_pixel_vortex.py`](verify_pixel_vortex.py) (28 checks, exact algebra, plus a numerical cross-check). Output: [`verify_output.txt`](verify_output.txt).*
 
+> The consolidated theorem, with an independent exact certifier, a closed form for the current through any half-plane bounded by the axis, $I = -\tfrac14(E - \Delta_f)\lvert r\rvert^2$, and the Triforce case, is [`../vortex-theorem/THEOREM.md`](../vortex-theorem/THEOREM.md).
+
 ## Statement in brief
 
 The pixel has vortices. Take the stellated octahedron in its cube, with the octahedron inside, and any couplings that respect the tetrahedral symmetry, so that TetA and TetB may differ. Then, about each of the octahedron's three axes:

@@ -1,0 +1,4 @@
+half-plane u = [2, 1, 0]: I = -r**2*(E*c_A**2 + E*c_B**2 - c_A**2*epsilon_B - c_B**2*epsilon_A)/(2*(E - epsilon_A)*(E - epsilon_B))
+half-plane u = [1, 3, 0]: I = -r**2*(E*c_A**2 + E*c_B**2 - c_A**2*epsilon_B - c_B**2*epsilon_A)/(2*(E - epsilon_A)*(E - epsilon_B))
+half-plane u = [-1, 2, 0]: I = -r**2*(E*c_A**2 + E*c_B**2 - c_A**2*epsilon_B - c_B**2*epsilon_A)/(2*(E - epsilon_A)*(E - epsilon_B))
+I = -(E - Delta_f)|r|^2 / 4 for every half-plane: True
