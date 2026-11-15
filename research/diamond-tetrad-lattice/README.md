@@ -103,6 +103,7 @@ So any given $x$ needs $V_3/V_2 = (x-1)/(2\sqrt x)$ (9.9). For $x = g/a_0$, that
 |---|---|
 | [`verify_diamond_tetrad_lattice.py`](verify_diamond_tetrad_lattice.py) | 52 exact checks, labelled by the result numbers above |
 | [`TEST_PLAN.md`](TEST_PLAN.md) | The 20 tests, with criteria fixed before running |
+| [`triforce-vortex/`](triforce-vortex/PROOF.md) | Proof that each Triforce face is a vortex about its leg: the star point's three outer tiles turn, the core runs through the central tile to the Field Origin; the TetA and TetB strands do not braid (15 checks) |
 | [`pixel-vortex/`](pixel-vortex/PROOF.md) | Proof that the pixel (with its octahedron) has vortices: stationary states winding about each octahedron axis, empty on the axis, carrying a persistent current through the octahedron, with corners and core locked together (28 checks) |
 | [`pixel-horizon/`](pixel-horizon/) | Energies against phases, the parity-odd phase that changes sign at the ring, and the horizon reading of the fixed TetB coupling |
 | [`pixel-lambda/`](pixel-lambda/) | The pixel as a Λ system: bright and dark states, the Walsh basis, and which coupling law the cubic tiling needs |
