@@ -1,0 +1,47 @@
+
+=== A. The read is the rotation
+  [PASS] CLASSICAL   1 + K + K^2 = (K^3 - 1)/(K - 1) for all K (the depth-3 read is a geometric series)
+  [PASS] CLASSICAL   (K^3 - 1)/(K - 1) = (K - w)(K - w*), the product over the nontrivial cube roots of unity
+  [PASS] CLASSICAL   (K - w)(K - w*) = det(K - R_120): the characteristic polynomial at K of the 120-degree rotation, whose eigenvalues are w, w*
+  [PASS] CLASSICAL   and (K^3 - 1)/(K - 1) is the number of points of PG(2, K) for K a prime power: 21 at K = 4 (the 21 orbits are certified in coupling-algebra, section I)
+  [PASS] NEW         so the archive's four readings of 21 are one identity: the depth-3 read 1 + K + K^2 (scalar, legs, couplings) = the projective count = the characteristic polynomial of the 120-degree rotation at K = the trace of the graded operator at TetA; they agree because the read has D = 3 levels and the rotation has order D
+
+=== B. Why D = 3 gives exactly one winding pair
+  [PASS] CLASSICAL   for n > 1, (K^n - 1)/(K - 1) = product of Phi_d(K) over d | n, d > 1; it is a single cyclotomic factor exactly when n is prime
+  [PASS] CLASSICAL   a cyclotomic factor Phi_n is one conjugate pair of roots (one vortex-antivortex pair) exactly when phi(n) = 2, i.e. n = 3, 4, 6
+  [PASS] NEW         so the depth-D read 1 + K + ... + K^(D-1) is exactly one winding pair only for D = 3 (prime and phi = 2), the solution of the uniqueness equation 2(D + 1) = 2^D
+  [PASS] AUTOMATIC   that the uniqueness equation and 'one winding pair' both select D = 3 is two conditions on small integers meeting at 3; no implication between them is claimed
+
+=== C. The ring determinants
+  [PASS] CLASSICAL   on a ring of n sites, det(K - shift) = K^n - 1, the product of K - z over all n-th roots z
+  [PASS] NEW         at K = 4: 63 = 3 x 21 (3-ring), 255 = 3 x 5 x 17 (4-ring), 4095 = 3 x 5 x 13 x 21 (6-ring); the factor K - 1 = 3 is the non-winding mode, and each structural number is the determinant on one winding pair
+  [PASS] CLASSICAL   63 = 4^3 - 1 is also the number of nonzero vectors of F4^3, so 64 = 3 x 21 + 1 is the same factorisation (coupling algebra, section I)
+  [PASS] NEW         restricted to the primitive (winding) roots: 3-ring -> 21, 4-ring -> 17, 6-ring -> 13
+
+=== D. The parity split
+  [PASS] NEW         f(K, s) = E + s O with E = 1 + K^2 (the scalar and the couplings) and O = K (the legs)
+  [PASS] NEW         the root exchange is K -> -K: f(-K, s) = f(K, -s), so TetB = TetA with the legs reversed (M -> -M); E is even in K (root-blind), O odd (root-resolving)
+  [PASS] NEW         the Field Origin's value is the average of the two roots: f(K, 0) = (f(K, 1) + f(K, -1))/2 = E, the root-blind part alone (the legs cancel, as (M + (-M))/2 = 0)
+  [PASS] CLASSICAL   the same split in Letter 2's frame: the frame M flips with the root and its Gram matrix M^T M = 4I - J does not (root-blind)
+
+=== E. The winding eigenvalues on the cube's corners
+  [PASS] NEW         on the eight corners the closure rotation C3 has winding eigenvalues w, w* (twice each: two 3-cycles); the 6-fold rotoreflection S6 = -C3 has -w, -w* once each (its one 6-cycle; it also has w, w* once, since S6^2 is a 3-fold rotation); the order-4 elements C4, S4 have i, -i (twice each)
+  [PASS] NEW         each class's value is |K - lambda|^2 for its winding eigenvalue: |4 - w|^2 = 21, |4 - i|^2 = 17, |4 + w|^2 = 13
+  [PASS] NEW         these are the vortex proof's winding eigenvalues: w for the leg (Triforce) vortices under C3, i for the core vortices under the rotoreflection S4; both elements keep the chambers
+  [PASS] NEW         the 13-class (S6) and the quarter turn C4 exchange the chambers: they are symmetries only when TetA and TetB are alike, so with the chambers distinct the vortices that exist are exactly those of the 21- and 17-classes, and the 13-class maps a TetA configuration to a TetB one
+  [PASS] CLASSICAL   crystallographic restriction: of the lattice rotations (orders 1, 2, 3, 4, 6) exactly orders 3, 4, 6 have non-real eigenvalues, the only ones that can carry a circulating state; orders 1, 2 (s = -2, +2) have eigenvalues +-1, and real winding states carry no current
+
+=== F. G in parity form and in vortex form
+  [PASS] NEW         alpha_G = (17/13) alpha^21 = (E/(E - O)) alpha^(E + O): the root-blind read over TetB's read, times alpha to TetA's full read
+  [PASS] NEW         and in vortex form: alpha_G = (|K - i|^2 / |K + w|^2) alpha^(|K - w|^2)
+  [PASS] NEW         the hierarchy exponent (gravity over electromagnetism, one level) is E + O - 1 = K + K^2 = K(K + 1) = 20
+  [PASS] CLASSICAL   the gap between the 3-fold and 6-fold pairs is 2O: |K - w|^2 - |K + w|^2 = 2K
+  [PASS] CLASSICAL   numerically (CODATA 2022 alpha, hbar c, m_e) the tree-level value is 6.6665e-11 m^3 kg^-1 s^-2, 0.12% below the measured 6.6743e-11 (as in the parent folder)
+
+=== G. Open steps, probed
+  [PASS] OPEN        why each level costs one factor of alpha: not addressed here (the parent folder's single physical assumption); recorded only
+  [PASS] OPEN        the combination rule alpha^(TetA) x (Field Origin / TetB): in parity form it is alpha^(E+O) E/(E-O); this rewriting does not derive it (fitted after the fact among 21 rules, g_from_the_closure_climb.md)
+  [PASS] OPEN        can E/(E - O) come from the connection's split 64 = 40 (root-blind Christoffel) + 24 (torsion, TetB)? the counts do not match the read directly (64 = 1 + 3 x 21 states, not 21); a derivation would need a map from the 64 components onto the 21 read states sending torsion to the legs block; none is constructed
+  [PASS] AUTOMATIC   the parent folder's one-loop split alpha/2pi = (2/17)(17 alpha/4pi) reads as (2/E)(E alpha/(K pi)); it holds for any E and carries no information
+
+31/31 checks passed   by tag: {'CLASSICAL': 12, 'NEW': 14, 'AUTOMATIC': 2, 'OPEN': 3}
