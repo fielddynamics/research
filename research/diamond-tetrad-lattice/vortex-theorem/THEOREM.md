@@ -2,6 +2,8 @@
 
 *Field Dynamics Research, research folder, 2026-11-15. The formal version is [`proofs/vortices-of-the-stellated-octahedron/`](../../../proofs/vortices-of-the-stellated-octahedron/). Supersedes the statements in [`../pixel-vortex/PROOF.md`](../pixel-vortex/PROOF.md) and [`../triforce-vortex/PROOF.md`](../triforce-vortex/PROOF.md) where they differ; see the correction in §6.*
 
+> **Correction, 2026-11-15 (sign of the current).** The scripts in this folder count $2\,\mathrm{Im}(\bar\psi_i H_{ij}\psi_j)$ as the flow from $i$ to $j$. Under $i\,\dot\psi = H\psi$ it is the flow from $j$ to $i$, so every current sign below is reversed relative to the physical flow; magnitudes and every "nonzero" statement are unaffected. The physical current is $I = +(E - \Delta_f)\rho^2$. The formal proof also adds the octahedron's own edges (hopping $h$), with $I = (E - \Delta_f - 2h)\rho^2$. See the [referee review](../../../proofs/vortices-of-the-stellated-octahedron/referee_review.md), M1 and M2.
+
 **How this is verified.** Every claim below is either proved by hand in this document or certified exactly by a computation that anyone can rerun. Three independent pieces of code do the checking:
 
 | Script | Method | Result |
@@ -72,7 +74,7 @@ Here $\Delta_f$ is the octahedron-vertex energy, $\epsilon_{A,B}$ are the corner
 **Theorem A.** Let $c_Ac_B \neq 0$ and $\epsilon_A \neq \epsilon_B$. Then:
 1. **Three vortex energies.** There are exactly three stationary winding states with $\lambda = +i$, with distinct energies, the roots of $E - \Delta_f = \dfrac{2c_A^2}{E-\epsilon_A} + \dfrac{2c_B^2}{E-\epsilon_B}$. By Lemma 3 there are three antivortices.
 2. **Corners locked to the ring.** Each state has ring amplitude $r \neq 0$, with the corners locked to it: $p = \bar a r/(E - \epsilon_A)$, $q = \bar b r/(E - \epsilon_B)$.
-3. **The current in closed form.** The circulating current is $I = -\tfrac14(E - \Delta_f)\lvert r\rvert^2$. With $\rho = \lvert r\rvert/2$ the amplitude on each ring vertex, this is $I = -(E - \Delta_f)\rho^2$, the form used in the formal proof [`proofs/vortices-of-the-stellated-octahedron/`](../../../proofs/vortices-of-the-stellated-octahedron/).
+3. **The current in closed form.** In this folder's sign convention the circulating current is $I = -\tfrac14(E - \Delta_f)\lvert r\rvert^2$. With $\rho = \lvert r\rvert/2$ the amplitude on each ring vertex, and the physical flow direction (see the correction above), this is $I = (E - \Delta_f)\rho^2$, the form used in the formal proof [`proofs/vortices-of-the-stellated-octahedron/`](../../../proofs/vortices-of-the-stellated-octahedron/).
 4. **Every state circulates.** Each is a vortex, $I \neq 0$, unless $E = \Delta_f$. That happens only when $c_A^2(\Delta_f - \epsilon_B) + c_B^2(\Delta_f - \epsilon_A) = 0$.
 5. **TetA = TetB.** At $\epsilon_A = \epsilon_B$, one of the three has $r = 0$ and $I = 0$.
 

@@ -2,7 +2,7 @@
 
 *Field Dynamics Research, research folder, 2026-11-15. Status: theorem with proof; every step is checked by [`verify_pixel_vortex.py`](verify_pixel_vortex.py) (28 checks, exact algebra, plus a numerical cross-check). Output: [`verify_output.txt`](verify_output.txt).*
 
-> The consolidated theorem, with an independent exact certifier, a closed form for the current through any half-plane bounded by the axis, $I = -\tfrac14(E - \Delta_f)\lvert r\rvert^2$, and the Triforce case, is [`../vortex-theorem/THEOREM.md`](../vortex-theorem/THEOREM.md).
+> The consolidated theorem, with an independent exact certifier, a closed form for the current through any half-plane bounded by the axis, $I = (E - \Delta_f)\rho^2$ for the physical flow (this folder's scripts use the reversed sign; see the correction there), and the Triforce case, is [`../vortex-theorem/THEOREM.md`](../vortex-theorem/THEOREM.md).
 
 ## Statement in brief
 

@@ -6,7 +6,7 @@ What comes from the proofs (computed here from the same models):
  - empty cores: no particle is placed on an axis (the proven zero-amplitude line);
  - the swirl sense at each end of a leg, and the relative swirl strength of the TetA and TetB ends,
    from the bond currents of an exact vortex eigenstate of the 33-tile model;
- - the core: the octahedron's equatorial ring turning, driven by the corner strands (TetA, TetB),
+ - the core: the octahedron's equatorial ring turning, locked to the corner strands (TetA, TetB),
    which zigzag above and below the equator as the rotoreflection requires.
 What is drawn for display only (not fixed by the proofs): the funnel shapes, the particle density,
 and the direction of the through-flow along an axis (drawn TetA -> Field Origin -> TetB).
@@ -58,7 +58,7 @@ def circ(ring):
     for a in ring:
         for b in ring:
             if a < b and Ht[a, b] != 0:
-                J = 2 * np.imag(np.conj(psi[a]) * Ht[a, b] * psi[b])
+                J = 2 * np.imag(np.conj(psi[b]) * Ht[b, a] * psi[a])     # physical flow a -> b (i dpsi/dt = H psi)
                 tot += J * np.dot(np.cross(tpos[a], tpos[b]), nleg)
     return tot
 cA, cB = circ(starA), circ(starB)
@@ -78,7 +78,7 @@ E, W = np.linalg.eigh(B.conj().T @ Hn @ B)
 k = int(np.argmax([abs(W[0, q]) for q in range(3)]))
 ps = B @ W[:, k]
 sites = [np.array(s, float) for s in P["sites"]]
-Lz = sum(2 * np.imag(np.conj(ps[i]) * Hn[i, j] * ps[j]) * np.cross(sites[i], sites[j])[2]
+Lz = sum(2 * np.imag(np.conj(ps[j]) * Hn[j, i] * ps[i]) * np.cross(sites[i], sites[j])[2]   # flow i -> j
          for i in range(len(ps)) for j in range(i + 1, len(ps)) if Hn[i, j] != 0)
 sense_core = np.sign(Lz)
 print(f"core vortex about z: L = {Lz:+.4f}, sense {sense_core:+.0f}")
@@ -188,7 +188,7 @@ for v in TAc:
 wire(ax)
 finish(ax, 18, 35, "Eight Triforce vortices, one along each leg,\nconverging on the Field Origin (empty cores)")
 
-# panel 2: the core vortex about an octahedron axis, driven by the corner flywheel
+# panel 2: the core vortex about an octahedron axis, with the corner strands locked to the ring
 ax = fig.add_subplot(1, 3, 2, projection="3d")
 Pp, f = core_ring(sense_core); draw_points(ax, Pp, f, AQUA, size=0.45, alpha=0.6)
 for ch, col in (("A", BLUE), ("B", ORANGE)):
@@ -197,7 +197,7 @@ for sgn in (1, -1):
     Pp, f = funnel(np.array([0, 0, sgn * 1.0]), 1.05, sense_core * sgn, 0.8, n_lines=170, r_mouth=0.3, r_throat=0.03, ax=ax, col=YELLOW)
     draw_points(ax, Pp, f, YELLOW, size=0.4, alpha=0.55)
 wire(ax)
-finish(ax, 24, 30, "Core vortex about an octahedron axis:\ncorner flywheel (TetA, TetB strands), turning octahedron ring,\naxial pair along the empty axis")
+finish(ax, 24, 30, "Core vortex about an octahedron axis:\nTetA, TetB corner strands locked to the turning octahedron ring,\naxial pair along the empty axis")
 
 # panel 3: together
 ax = fig.add_subplot(1, 3, 3, projection="3d")

@@ -1,12 +1,24 @@
 # Vortices of the Stellated Octahedron
 
-*The pixel holds vortices: standing waves of the cube that rotate about an empty axis · Gravity Field Dynamics (GFD) · Field Dynamics Research*
+*The pixel holds vortices: circulating states around an empty axis, which read as rotating waves of the cube · Gravity Field Dynamics (GFD) · Field Dynamics Research*
 
-`stellated-octahedron` `vortex` `standing-wave` `tetrahedral-symmetry` `Field-Origin` `Triforce` `proof`
+`stellated-octahedron` `vortex` `ring-current` `standing-wave` `tetrahedral-symmetry` `Field-Origin` `Triforce` `proof`
 
 ---
 
-This folder holds a four-page proof ([PDF](vortices_of_the_stellated_octahedron.pdf), [LaTeX](vortices_of_the_stellated_octahedron.tex)) and a script that checks every step ([`verify_vortices_stellated_octahedron.py`](verify_vortices_stellated_octahedron.py), 72 checks, [output](verify_output.txt)). It consolidates the research in [`research/diamond-tetrad-lattice/vortex-theorem/`](../../research/diamond-tetrad-lattice/vortex-theorem/THEOREM.md).
+This folder holds:
+- a five-page proof ([PDF](vortices_of_the_stellated_octahedron.pdf), [LaTeX](vortices_of_the_stellated_octahedron.tex)): four pages of proof and one of figures;
+- a script that checks every step ([`verify_vortices_stellated_octahedron.py`](verify_vortices_stellated_octahedron.py), 81 checks, [output](verify_output.txt));
+- an internal referee review ([`referee_review.md`](referee_review.md)), with the change made for each point.
+
+The revision after review made five changes:
+- it corrected the sign of the current;
+- it added the octahedron's own edges to the pixel;
+- it stated the time-reversal degeneracy;
+- it read the rotating wave in the coupled-oscillator sense;
+- it gave hand proofs for the Triforce split.
+
+The proof consolidates the research in [`research/diamond-tetrad-lattice/vortex-theorem/`](../../research/diamond-tetrad-lattice/vortex-theorem/THEOREM.md).
 
 ## The question
 
@@ -14,77 +26,95 @@ The pixel of GFD is the stellated octahedron in its cube. TetA and TetB interloc
 
 ## What a vortex means here
 
-The proof works with the waves (stationary states) the pixel can hold.
-- **Stationary state:** a state whose intensity pattern never changes. It is a standing wave of the cube.
-- **Vortex:** a stationary state that winds once around an axis and carries a current circulating around it.
-- **How the current is measured:** through any half-plane whose edge is the axis. The proof shows every such half-plane gives the same value, so nothing depends on how it is measured.
+The proof works with the stationary states, the waves the pixel can hold.
+- **Stationary state:** an energy eigenstate. Its intensity pattern never changes.
+- **Vortex:** a stationary state that winds around an axis and carries a current circulating around it.
+- **How the current is measured:** as the physical flow through any half-plane whose edge is the axis. The proof shows every such half-plane gives the same value, so nothing depends on how it is measured.
 
-The proof covers every model of the pixel with the tetrahedral symmetry, which keeps TetA and TetB distinct and lets them differ.
+The proof covers every Hamiltonian with the tetrahedral symmetry on two graphs:
+- **the 15-site pixel:** the Field Origin, the octahedron with its edges, and the corners;
+- **the 33-tile Triforce pixel.**
+
+The symmetry keeps TetA and TetB distinct and lets them differ. The graphs fix which sites are coupled. They are not nearest-neighbour graphs: the pixel couples the corners through the Field Origin and the octahedron, not along the cube's edges.
 
 ## The answer
 
 **Yes. About each axis of the octahedron:**
-- there are exactly three vortices and three antivortices, with distinct energies;
-- the axis is empty: every vortex is zero at the Field Origin and at the octahedron's two vertices on the axis;
-- the current is $I = -(E - \Delta_f)\rho^2$, where $\rho$ is how strongly the octahedron's ring moves;
-- the cube's 8 corners act as a flywheel, locked to that ring;
-- without the octahedron nothing circulates. The octahedron is what turns.
+- **Energies.** There are exactly three vortices and three antivortices, with distinct energies, one between each pair of the corner energies.
+- **Empty axis.** Every vortex is zero at the Field Origin and at the octahedron's two vertices on the axis.
+- **Current.** The current is $I = (E - \Delta_f - 2h)\lvert\rho\rvert^2$, where:
+  - $\rho$ is the amplitude on each vertex of the octahedron's ring;
+  - $h$ is the hopping along the octahedron's edges.
+- **Locking.** The cube's 8 corners are locked to that ring, and turn with it.
+- **Without the octahedron nothing circulates,** in this graph. If the cube's edges are added, the corners can circulate on their own.
 
-**The standing-wave picture holds exactly.**
-- **A vortex is a standing wave that rotates.** Its intensity never changes, and turning it a quarter turn about the axis gives the same pattern a fixed time earlier.
-- **A pair makes a fixed standing wave.** A vortex plus its antivortex is an ordinary standing wave that oscillates in place and carries no current.
+**Waves.** Read as modes of a network of coupled oscillators:
+- **A vortex is a rotating wave.** A quarter turn of the pattern equals a fixed delay, so the pattern turns once per period.
+- **A pair makes a standing wave.** A vortex plus its antivortex oscillates in place and carries no current.
+- **In the quantum reading, nothing visibly rotates.** A stationary state's density and currents are constant, and the quarter turn is only a phase.
+
+**Time reversal.** Every vortex level is shared with its antivortex. The theorems say which circulating states exist. Which one the system is in is set by its initial state, or by something that breaks time reversal.
 
 **About each leg (the Triforce faces):**
-- the three outer tiles of a star point turn around an empty core;
-- the core runs through the central tiles and the Field Origin to the opposite star point;
-- six such vortices exist for all parameter values except a measure-zero set;
-- a further four winding states have doubled energies, and whether every combination of them circulates depends on the parameters.
+- **Six vortices on W′.** The three outer tiles of a star point turn around an empty core that runs through the central tiles and the Field Origin to the opposite star point. Six such vortices exist for all parameter values except a measure-zero set.
+- **Four doubled states on W.** Four further winding states have doubled energies, given in closed form by a 2×2 matrix. Whether every combination of them circulates depends on the parameters.
 
 ## The vortices, rendered
 
 ![Particle render of the pixel's vortices](vortex_render.png)
 
-*Left: the eight leg (Triforce) vortices. Centre: the core vortex about an octahedron axis, with the turning octahedron ring (aqua), the TetA (blue) and TetB (orange) corner strands acting as the flywheel, and the empty axis. Right: both together.* The axes, the empty cores, the turning ring, the corner strands, and each end's swirl sense and relative strength come from exact vortex states of the proof's models. The funnel shapes, particle density and the direction of flow along an axis are drawn for display only; the theorems do not fix them.
+*Left: the eight leg (Triforce) vortices. Centre: the core vortex about an octahedron axis, with the turning octahedron ring (aqua), the TetA (blue) and TetB (orange) corner strands locked to it, and the empty axis. Right: both together.*
+
+**Taken from exact vortex states of the proof's models:** the axes, the empty cores, the turning ring, the corner strands, and each end's swirl sense and relative strength.
+
+**Drawn for display only:** the funnel shapes, the particle density and the direction of flow along an axis. The theorems do not fix these.
 
 ![Bond currents of exact vortex states](vortex_figure.png)
 
-*The same vortices as currents.* Each arrow is the current on a bond in an exact vortex eigenstate; marker size is amplitude. (a) A pixel vortex about an octahedron axis, with TetA and TetB unequal: the corners and the octahedron ring circulate together around the empty axis. (b) The same vortex from above. (c) A Triforce vortex, looking down a leg: the star point's three outer tiles circulate around the empty leg.
+*The same vortices as currents.* Each arrow is the physical current on a bond in an exact vortex eigenstate, and marker size is amplitude.
+- **(a)** A pixel vortex about an octahedron axis, with TetA and TetB unequal: the corners and the octahedron ring carry the current together around the empty axis.
+- **(b)** The same vortex from above.
+- **(c)** A Triforce vortex, looking down a leg: the star point's three outer tiles circulate around the empty leg.
 
-Both images are generated by [`make_vortex_render.py`](../../research/diamond-tetrad-lattice/pixel-vortex/make_vortex_render.py) and [`make_vortex_figure.py`](../../research/diamond-tetrad-lattice/pixel-vortex/make_vortex_figure.py) and appear as figures 1 and 2 of the PDF.
+Both images are generated by [`make_vortex_render.py`](../../research/diamond-tetrad-lattice/pixel-vortex/make_vortex_render.py) and [`make_vortex_figure.py`](../../research/diamond-tetrad-lattice/pixel-vortex/make_vortex_figure.py). They appear as figures 1 and 2 of the PDF.
 
 ## Why it holds
 
 1. **The axis symmetry is exact.** A quarter turn about an octahedron axis swaps TetA and TetB, so when they differ it is not a symmetry. The rotoreflection is: a quarter turn plus a top–bottom flip. A 120° turn about a leg is a symmetry in every case.
-2. **Winding forces an empty axis.** A state that picks up a phase under the symmetry must vanish wherever the symmetry leaves a point in place, so the Field Origin and the axis are always empty.
-3. **Conservation makes the current well defined.** In a stationary state, current is conserved at every site, so the same total crosses every half-plane bounded by the axis.
-4. **The pixel reduces to a 3×3 problem.** About an octahedron axis it is solved exactly, for all parameters, giving the energies, the locking of corners to the ring, and the current in closed form.
-5. **The Triforce case is certified exactly.** The winding space about a leg is 10-dimensional. It splits exactly into a 6-dimensional part, where every state circulates and turns the ring, and a 4-dimensional part with doubled energies. The generic statements are certified by exact polynomial calculations over $\mathbb Q(i)$ and $\mathbb Q(\omega)$, written without any computer-algebra system.
+2. **Winding forces an empty axis.** A state that picks up a phase under the symmetry must vanish wherever the symmetry leaves a point in place. So the Field Origin and the axis are always empty.
+3. **Conservation makes the current well defined.** In a stationary state the current is conserved at every site, so the same total crosses every half-plane bounded by the axis.
+4. **The pixel reduces to a 3×3 problem.** About an octahedron axis it is solved exactly, for all parameters. This gives the energies, the locking of the corners to the ring, and the current in closed form. The octahedron's edges leave the energies unchanged and add $-2h\lvert\rho\rvert^2$ to the current.
+5. **The Triforce splits by symmetry.** The winding space about a leg is 10-dimensional, and representation theory splits it into two parts:
+   - **W′ (6 dimensions):** every state circulates and turns the ring, for generic parameters. This is certified by exact polynomial calculations over $\mathbb Q(i)$ and $\mathbb Q(\omega)$, written without any computer-algebra system.
+   - **W (4 dimensions):** it lives on the star points. There the Hamiltonian is two copies of one 2×2 matrix, which is why its energies are doubled.
 
 ## What it does not claim
 
 - That the GFD field occupies these states.
-- That these models are the field's dynamics. The theorems concern the stated class of models.
-- That anything braids. The strands checked are unlinked, and the legs meet at the Field Origin.
+- That these models are the field's dynamics. The theorems concern the stated graphs and class of models.
+- That anything braids.
+- That the currents are persistent in the equilibrium sense. Every vortex level is shared with its antivortex.
 
 ## Contents
 
 | File | Contents |
 |---|---|
-| [`vortices_of_the_stellated_octahedron.pdf`](vortices_of_the_stellated_octahedron.pdf) | The proof, 4 pages (3 of proof, 1 of figures) |
+| [`vortices_of_the_stellated_octahedron.pdf`](vortices_of_the_stellated_octahedron.pdf) | The proof, 5 pages (4 of proof, 1 of figures) |
 | [`vortices_of_the_stellated_octahedron.tex`](vortices_of_the_stellated_octahedron.tex) | LaTeX source |
-| [`verify_vortices_stellated_octahedron.py`](verify_vortices_stellated_octahedron.py) | 72 checks: 54 exact certificates (pure Python, no computer algebra) and 18 symbolic checks in all parameters |
+| [`verify_vortices_stellated_octahedron.py`](verify_vortices_stellated_octahedron.py) | 81 checks: 54 exact certificates (pure Python, no computer algebra) and 27 symbolic checks in all parameters (sympy) |
 | [`verify_output.txt`](verify_output.txt) | Output of the script |
+| [`referee_review.md`](referee_review.md) | Internal referee review and the response to each point |
 | [`vortex_render.png`](vortex_render.png) | Particle render of the vortices |
 | [`vortex_figure.png`](vortex_figure.png) | Bond currents of exact vortex states |
 
 ## Reproduce
 
 ```
-python verify_vortices_stellated_octahedron.py      # 72/72
+python verify_vortices_stellated_octahedron.py      # 81/81
 pdflatex -jobname=vortices_of_the_stellated_octahedron '\providecommand\ead[1]{\email{#1}}\input{vortices_of_the_stellated_octahedron.tex}'
 ```
 
 ## Related
 
-- [Research note and theorem](../../research/diamond-tetrad-lattice/vortex-theorem/THEOREM.md), with the earlier pixel and Triforce notes and the scripts that make the renders.
+- [Research note and theorem](../../research/diamond-tetrad-lattice/vortex-theorem/THEOREM.md), with the earlier pixel and Triforce notes and the scripts that make the renders. Those scripts use the reversed current sign; the note carries a correction.
 - [The Gram matrix of the tetrad equation](../gram-matrix-tetrad-equation/): TetA and TetB as the two roots, and the stellated octahedron's symmetry.

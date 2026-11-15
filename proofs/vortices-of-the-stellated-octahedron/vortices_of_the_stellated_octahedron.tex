@@ -30,7 +30,7 @@
 
 \begin{document}
 
-\articletype{Supplementary Material}
+\articletype{Proof}
 
 \title{Vortices of the Stellated Octahedron}
 
@@ -43,35 +43,32 @@
 \begin{abstract}
 The pixel of Gravity Field Dynamics is the stellated octahedron in its
 cube: two tetrahedra, TetA and TetB, whose overlap is an octahedron
-around the Field Origin. We prove that the pixel supports vortices:
-stationary states that wind once about an axis and carry a persistent
-circulating current, around an axis on which they vanish. The models
-are the most general nearest-neighbour Hamiltonians with the
-tetrahedral symmetry $T_d$, on two graphs: the 15-site pixel (Field
-Origin, octahedron, corners) and the 33-tile pixel of the Triforce
-faces. TetA and TetB may differ. For the 15-site pixel, about each
-octahedron axis there are exactly three vortices and three
-antivortices, with distinct energies, for all parameters outside an
-explicit exceptional set. Their current through any half-plane bounded
-by the axis is $I = -(E - \Delta_f)\rho^2$, where $\rho$ is the
-amplitude on each vertex of the octahedron's equatorial ring, and the
-corners are locked to that ring. Without the octahedron nothing
-circulates. Each vortex is a standing wave of the cube that rotates: a
-quarter turn of the pattern equals a fixed shift in time. A vortex plus
-its antivortex is a real standing wave with no current. For the
-Triforce pixel, the winding space about a leg splits, for all
-parameters, as $W \oplus W'$. On $W'$ there are six vortices, generically,
-each turning the star point's three outer tiles around an empty core
-through the central tiles and the Field Origin. On $W$ every energy is
-doubled, and whether every combination circulates depends on the
-parameters. General steps are proved by hand. Statements for all
-parameters are checked symbolically, and generic statements are
-certified exactly by polynomial gcds over $\mathbb Q(i)$ and
-$\mathbb Q(\omega)$, in code that uses no computer algebra.
+around the Field Origin. We study real symmetric Hamiltonians with the
+tetrahedral symmetry $T_d$ on two graphs built from it, the 15-site
+pixel and the 33-tile pixel of the Triforce faces, with TetA and TetB
+free to differ. We prove that they carry vortices: stationary states
+that wind about an axis and carry a circulating current around an
+axis on which they vanish. In the pixel, about each octahedron axis,
+there are exactly three vortices and three antivortices, with distinct
+energies interlacing the corner energies, outside an explicit
+exceptional set. Their current through any half-plane bounded by the
+axis is $I = (E - \Delta_f - 2h)\lvert\rho\rvert^2$, where $\rho$ is
+the amplitude on each vertex of the octahedron's equatorial ring and
+$h$ the hopping along the octahedron's edges, and the corners are
+locked to that ring. Read as modes of a network of coupled
+oscillators, each vortex is a rotating wave, and a vortex plus its
+antivortex is a standing wave. In the Triforce pixel the winding space
+about a leg splits as $W \oplus W'$ by representation theory. On $W$
+every energy is doubled, with the two energies in closed form; on $W'$
+there are generically six vortices, each turning the star point's
+three outer tiles around the leg. Hand proofs are given throughout;
+the all-parameter statements are also checked symbolically, and the
+generic statements are certified exactly over $\mathbb Q(i)$ and
+$\mathbb Q(\omega)$ in code that uses no computer algebra.
 \end{abstract}
 
-\keywords{stellated octahedron, vortex, standing wave, tetrahedral
-symmetry, Field Origin, Triforce, proof}
+\keywords{stellated octahedron, vortex, ring current, standing wave,
+tetrahedral symmetry, Field Origin, Triforce, proof}
 
 % ======================================================================
 
@@ -80,9 +77,10 @@ symmetry, Field Origin, Triforce, proof}
 \textbf{Pixel graph $\mathcal P$} (15 sites): the Field Origin $O$; the
 six vertices of the octahedron, at the cube's face centres
 $\pm\hat x,\pm\hat y,\pm\hat z$; the eight corners $(\pm1,\pm1,\pm1)$,
-with TetA the four with $xyz = +1$ and TetB the four with $xyz = -1$.
-Bonds: $O$ to every other site, and each octahedron vertex to the four
-corners of its face.
+with TetA the four with $xyz = +1$ and TetB the four with
+$xyz = -1$~\cite{NelsonGram,Coxeter1973}. Bonds: $O$ to every other
+site; each octahedron vertex to the four corners of its face; and the
+twelve edges of the octahedron.
 
 \textbf{Triforce graph $\mathcal T$} (33 sites): $O$; the eight central
 tiles, the medial triangles of the eight tetrahedron faces (these are
@@ -91,29 +89,45 @@ are the exposed faces of the eight star points. Bonds: two tiles
 sharing an edge, and each central tile to $O$. A tile's position is
 its centroid.
 
+\textbf{The bond sets.} These graphs are not nearest-neighbour graphs of
+the point set: $\mathcal P$ contains the $O$--corner bonds (length
+$\sqrt3$) and leaves out the cube's twelve edges (length 2, each joining
+a TetA corner to a TetB corner). They encode coupling through the Field
+Origin and across the octahedron, and every result below is a result
+about these graphs. The remark \emph{Other bonds} (Section~5) records what changes with the cube's edges.
+
 \textbf{Hamiltonians.} $H$ is real symmetric, supported on the diagonal
-and the bonds, and invariant under the tetrahedral group $T_d$ (24
-elements, the symmetries that keep TetA and TetB). Equivalently, $H$
-has one free real parameter per $T_d$-orbit of sites and of bonds: 9 for
-$\mathcal P$ and 15 for $\mathcal T$. Every statement below holds for this
-whole class.
+and the bonds, and invariant under $T_d$ (24 elements, the symmetries
+that keep TetA and TetB). We write site energies on the diagonal and
+$H_{ij} = -t_{ij}$ on bonds. $H$ has one free real parameter per
+$T_d$-orbit of sites and of bonds: 10 for $\mathcal P$ and 15 for
+$\mathcal T$. The statements below hold for this class, under the
+hypotheses stated with each.
 
 \textbf{Axes.} In $\mathcal P$ the axis is an octahedron axis $\hat z$,
-with symmetry the rotoreflection
-$S:(x,y,z)\mapsto(-y,x,-z)$, of order 4. In $\mathcal T$ it is a leg
-$\hat n = (1,1,1)/\sqrt3$, with symmetry the rotation
-$C:(x,y,z)\mapsto(z,x,y)$, of order 3. Both lie in $T_d$.
+with symmetry the rotoreflection $S:(x,y,z)\mapsto(-y,x,-z)$, of order
+4. In $\mathcal T$ it is a leg $\hat n = (1,1,1)/\sqrt3$, with symmetry
+the rotation $C:(x,y,z)\mapsto(z,x,y)$, of order 3. Both lie in $T_d$.
+The symmetry acts on states by $(S\psi)_{\sigma(i)} = \psi_i$, with
+$\sigma$ the induced permutation of sites.
+
+\textbf{Half-planes.} Bonds are straight segments. A half-plane $\Pi$
+bounded by the axis is taken in general position: no site off the axis
+lies on it. In both graphs no bond joining two off-axis sites meets the
+axis (checked), so each such bond sweeps an angle less than $\pi$ about
+the axis and crosses $\Pi$ at most once.
 
 \begin{definition}
 A \emph{winding state} satisfies $S\psi = \lambda\psi$ (or
 $C\psi = \lambda\psi$) with $\lambda$ a primitive root of unity:
-$\lambda = \pm i$ for $S$, $\lambda = \omega^{\pm1}$ for $C$. For a
-stationary state, $H\psi = E\psi$, the \emph{bond current} is
-$J_{ij} = 2\,\mathrm{Im}(\bar\psi_iH_{ij}\psi_j)$. The
-\emph{circulating current} $I(\psi)$ is the total current through a
-half-plane bounded by the axis, counted positive in the right-handed
-sense. A \emph{vortex} is a stationary winding state with
-$I(\psi) \neq 0$.
+$\lambda = \pm i$ for $S$, $\lambda = \omega^{\pm1}$ for $C$. Under
+$i\dot\psi = H\psi$, the \emph{bond current} from $i$ to $j$ is
+$J_{i\to j} = 2\,\mathrm{Im}(\bar\psi_jH_{ji}\psi_i) = -J_{j\to i}$.
+The \emph{circulating current} $I(\psi)$ of a stationary state,
+$H\psi = E\psi$, is the total current through a half-plane bounded by
+the axis, counted in the right-handed sense about the axis. A
+\emph{vortex} is a stationary winding state with $I(\psi) \neq 0$; its
+complex conjugate is its \emph{antivortex}.
 \end{definition}
 
 % ======================================================================
@@ -121,29 +135,33 @@ $I(\psi) \neq 0$.
 \section{General lemmas}
 
 \begin{lemma}[Conservation]
-If $H\psi = E\psi$, then $\sum_j J_{ij} = 0$ at every site $i$.
+$d\lvert\psi_j\rvert^2/dt = \sum_i J_{i\to j}$. Hence for a stationary
+state the net current into every site is zero.
 \end{lemma}
 
 \begin{proof}
-$\sum_j J_{ij} = 2\,\mathrm{Im}(\bar\psi_i(H\psi)_i)
-- 2\,\mathrm{Im}(H_{ii}\lvert\psi_i\rvert^2)
-= 2\,\mathrm{Im}(E\lvert\psi_i\rvert^2) = 0$.
+$d\lvert\psi_j\rvert^2/dt = 2\,\mathrm{Re}(\bar\psi_j\dot\psi_j)
+= 2\,\mathrm{Im}(\bar\psi_j(H\psi)_j)$, and the diagonal term
+$2\,\mathrm{Im}(H_{jj}\lvert\psi_j\rvert^2)$ vanishes. For
+$\psi(t) = e^{-iEt}\psi$ the density is constant.
 \end{proof}
 
 \begin{lemma}[Empty axis; well-defined current]
 \label{lem:axis}
-Every winding state vanishes at every site on the axis. Hence, for a
+Every winding state vanishes at every site on the axis. For a
 stationary winding state, $I(\psi)$ is the same for every half-plane
 bounded by the axis.
 \end{lemma}
 
 \begin{proof}
 A site on the axis lies in an orbit of the symmetry of length $\ell$
-smaller than its order ($O$ is fixed; in $\mathcal P$ the axial vertices
-$\pm\hat z$ form an orbit of length 2). There
-$\psi = \lambda^\ell\psi$ with $\lambda^\ell \neq 1$, so $\psi = 0$, and
-bonds at axis sites carry no current. Between two half-planes, the
-net outflow is zero by Lemma~1, and none passes through the axis.
+smaller than its order ($O$ is fixed; in $\mathcal P$ the axial
+vertices $\pm\hat z$ form an orbit of length 2). There
+$\psi = \lambda^\ell\psi$ with $\lambda^\ell \neq 1$, so $\psi = 0$,
+and bonds at axis sites carry no current. Sum Lemma~1 over the sites
+in the wedge between two half-planes: bonds inside the wedge cancel,
+each remaining bond crosses one boundary once, and none passes through
+the axis. So the two half-planes carry the same current.
 \end{proof}
 
 \begin{lemma}[Antivortices]
@@ -154,28 +172,44 @@ $I(\bar\psi) = -I(\psi)$.
 
 \begin{proof}
 $H$ is real and the symmetry is a real permutation; and
-$J_{ij}(\bar\psi) = -J_{ij}(\psi)$.
+$J_{i\to j}(\bar\psi) = -J_{i\to j}(\psi)$.
 \end{proof}
 
 \begin{lemma}[Existence]
 $H$ preserves the winding space $V_\lambda$, which has an orthogonal
-basis $v_k[\sigma^jx_k] = \lambda^{-j}$, one vector per orbit of full
-length. So $V_\lambda$ has an orthonormal basis of stationary winding
-states. $\dim V_{+i} = 3$ in $\mathcal P$, and $\dim V_\omega = 10$ in
-$\mathcal T$.
+basis $v_k$ with $v_k[\sigma^jx_k] = \lambda^{-j}$, one vector per orbit
+of full length. So $V_\lambda$ has an orthonormal basis of stationary
+winding states. $\dim V_{\pm i} = 3$ in $\mathcal P$, and
+$\dim V_{\omega^{\pm1}} = 10$ in $\mathcal T$.
 \end{lemma}
 
 \begin{proof}
-$H$ commutes with the symmetry. The vectors $v_k$ are eigenvectors with
-eigenvalue $\lambda$ and have disjoint supports.
+$H$ commutes with the symmetry; the $v_k$ are eigenvectors with
+eigenvalue $\lambda$ and have disjoint supports. The orbits of full
+length number $(15-3)/4 = 3$ and $(33-3)/3 = 10$.
 \end{proof}
+
+\begin{remark}[Time reversal]
+By Lemma~3 every vortex level is at least doubly degenerate, shared
+with its antivortex. Within such a level the vortex, the antivortex
+and the real combination of Proposition~1(ii) are equally good
+eigenstates, and any time-reversal-invariant mixed state (thermal,
+say) carries no net current. The theorems show which current-carrying
+states exist; a particular vortex is selected only by an initial
+condition or by breaking time reversal (a flux, a rotation). These are
+the discrete analogues of the degenerate $m = \pm1$ orbitals behind
+the ring currents of aromatic molecules~\cite{London1937,Pople1956,
+SteinerFowler2001}, and they are not persistent currents in the
+equilibrium sense of~\cite{BIL1983}.
+\end{remark}
 
 % ======================================================================
 
 \section{The pixel}
 
-In the basis (equatorial ring $\pm\hat x,\pm\hat y$; TetA corners;
-TetB corners) of $V_{+i}$, normalised, every $H$ in the class acts as
+Take $\lambda = +i$. In the normalised basis (equatorial ring
+$\pm\hat x,\pm\hat y$; TetA corners; TetB corners) of $V_{+i}$, every
+$H$ in the class acts as
 \begin{equation}
 H_+ = \begin{pmatrix}\Delta_f & a & b\\ \bar a & \epsilon_A & 0\\
 \bar b & 0 & \epsilon_B\end{pmatrix},\quad
@@ -183,29 +217,39 @@ H_+ = \begin{pmatrix}\Delta_f & a & b\\ \bar a & \epsilon_A & 0\\
 \label{eq:block}
 \end{equation}
 with $\Delta_f$ the octahedron-vertex energy, $\epsilon_{A,B}$ the
-corner energies, and $c_{A,B}$ the vertex-to-corner couplings. The
-Field Origin's energy and the couplings through it drop out.
+corner energies, and $c_{A,B}$ the vertex-to-corner hoppings. Indeed
+the ring vertex $\hat x$ meets the TetA corners $(1,-1,-1)$ and
+$(1,1,1) = \sigma(1,-1,-1)$, consecutive in their orbit, so
+$\lvert a\rvert = c_A\lvert 1 + \lambda\rvert = \sqrt2\,c_A$, and
+likewise for $b$. The octahedron edges add $-h(\lambda + \bar\lambda) =
+0$ on the ring and couple it otherwise only to $\pm\hat z$, where
+winding states vanish; the Field Origin's energy and hoppings drop out
+for the same reason. No bond joins a TetA corner to a TetB corner.
 
 \begin{theorem}[Vortices of the pixel]
 \label{thm:pixel}
 Let $c_Ac_B \neq 0$ and $\epsilon_A \neq \epsilon_B$. Then:
 \begin{enumerate}
-\item[(i)] there are exactly three stationary winding states with
-  $\lambda = +i$, at the three distinct roots of
+\item[(i)] up to scale there are exactly three stationary winding
+  states with $\lambda = +i$, one at each root of
   \begin{equation}
   E - \Delta_f = \frac{2c_A^2}{E - \epsilon_A} + \frac{2c_B^2}{E - \epsilon_B},
   \label{eq:secular}
   \end{equation}
-  and three antivortices at the same energies;
-\item[(ii)] each has amplitude $\rho \neq 0$ on every vertex of the
-  octahedron's ring, and the corners are locked to it:
+  with one root in each of the three intervals cut by $\epsilon_A$ and
+  $\epsilon_B$; and three antivortices at the same energies;
+\item[(ii)] each has amplitude of modulus $\lvert\rho\rvert \neq 0$ on
+  every vertex of the octahedron's ring, and the corners are locked to
+  it: with $\rho, p, q$ the amplitudes on $\hat x$, on a TetA corner and
+  on a TetB corner (up to the winding phase),
   $p = \bar a\rho/(E - \epsilon_A)$, $q = \bar b\rho/(E - \epsilon_B)$;
 \item[(iii)] its circulating current is
   \begin{equation}
-  I = -(E - \Delta_f)\,\rho^2 ;
+  I = (E - \Delta_f - 2h)\,\lvert\rho\rvert^2 ;
   \label{eq:current}
   \end{equation}
-\item[(iv)] it is a vortex unless $E = \Delta_f$, which requires
+\item[(iv)] it is a vortex unless $E = \Delta_f + 2h$, which requires
+  $\Delta_f + 2h$ to solve (\ref{eq:secular}); at $h = 0$ this is
   $c_A^2(\Delta_f - \epsilon_B) + c_B^2(\Delta_f - \epsilon_A) = 0$.
 \end{enumerate}
 At $\epsilon_A = \epsilon_B$ one of the three has $\rho = 0$ and
@@ -213,50 +257,66 @@ $I = 0$.
 \end{theorem}
 
 \begin{proof}
-The rows of $H_+w = Ew$, with $w = (\rho, p, q)$, give
+The rows of $H_+w = Ew$, with $w = (\rho, p, q)$ (site amplitudes,
+proportional to the basis coordinates), give
 $a p + b q = (E - \Delta_f)\rho$, $\bar a\rho = (E - \epsilon_A)p$ and
-$\bar b\rho = (E - \epsilon_B)q$. Next,
-$\det(H_+ - E)$ is $2c_A^2(\epsilon_A - \epsilon_B)$ at
-$E = \epsilon_A$ and $2c_B^2(\epsilon_B - \epsilon_A)$ at
-$E = \epsilon_B$, both nonzero. So no root equals $\epsilon_{A,B}$, and
-$\rho = 0$ would force $p = q = 0$; eliminating $p, q$ gives
-(\ref{eq:secular}). Its right side minus its left is strictly
-monotone between the poles (derivative
-$-1 - 2c_A^2/(E-\epsilon_A)^2 - 2c_B^2/(E-\epsilon_B)^2$), so the
-three roots are distinct. Summing $J_{ij}$ over the bonds that cross a
-half-plane and using (\ref{eq:secular}) gives (\ref{eq:current}),
-identically for every half-plane, as Lemma~\ref{lem:axis} requires.
-At $\epsilon_A = \epsilon_B$, $E = \epsilon_A$ is a root of
-$\det(H_+ - E)$ with $\rho = 0$.
+$\bar b\rho = (E - \epsilon_B)q$. Now $\det(H_+ - E)$ is
+$2c_A^2(\epsilon_A - \epsilon_B)$ at $E = \epsilon_A$ and
+$2c_B^2(\epsilon_B - \epsilon_A)$ at $E = \epsilon_B$, both nonzero, so
+no root equals $\epsilon_{A,B}$, and $\rho = 0$ would force
+$p = q = 0$. Eliminating $p, q$ gives (\ref{eq:secular}). The function
+$F(E) = E - \Delta_f - 2c_A^2/(E-\epsilon_A) - 2c_B^2/(E-\epsilon_B)$
+has $F' = 1 + 2c_A^2/(E-\epsilon_A)^2 + 2c_B^2/(E-\epsilon_B)^2 > 0$,
+runs from $-\infty$ to $+\infty$ on each of the three intervals, and
+so has exactly one root in each. For (iii), a half-plane crosses one
+edge of the ring, from $\hat x$ to $\sigma(\hat x) = \hat y$ in the
+positive sense, carrying
+$2\,\mathrm{Im}(\overline{\lambda^{-1}\rho}\,(-h)\,\rho) = -2h\lvert\rho\rvert^2$,
+and vertex--corner bonds, whose sum, by the row equations and
+(\ref{eq:secular}), is $(E - \Delta_f)\lvert\rho\rvert^2$ (verified
+symbolically for three half-planes; Lemma~\ref{lem:axis} makes it
+independent of the half-plane). At $\epsilon_A = \epsilon_B$,
+$E = \epsilon_A$ is a root of $\det(H_+ - E)$ with $\rho = 0$.
 \end{proof}
 
-\begin{corollary}[The octahedron circulates]
-Without the octahedron (the 9 sites $O$ and the corners), winding
-states exist ($\dim V_{+i} = 2$), but they vanish at $O$ and every bond
-touches $O$, so $I = 0$: there are no vortices.
+\begin{corollary}[Without the octahedron]
+Remove the octahedron (keep $O$ and the corners, with the bonds of
+$\mathcal P$). Winding states exist ($\dim V_{+i} = 2$), but they
+vanish at $O$ and every remaining bond touches $O$, so $I = 0$: there
+are no vortices.
 \end{corollary}
 
-\begin{proposition}[A vortex is a rotating standing wave]
+The corollary depends on the bond set. With the cube's edges added,
+the corners circulate on their own: at $\epsilon_A = 0$,
+$\epsilon_B = 1$ and cube hopping 1, the two winding eigenstates carry
+currents $\pm1/\sqrt5$ (normalised, exact).
+
+\begin{proposition}[Rotating and standing waves]
 \label{prop:standing}
-Let $\psi$ be a vortex at energy $E$, evolving as
-$\psi(t) = e^{-iEt}\psi$. Then:
+Read a vortex $\psi$ at energy $E > 0$ as the complex amplitude of a
+real field $u(t) = \mathrm{Re}(e^{-iEt}\psi)$, a mode of frequency $E$
+of a network of coupled oscillators (in coupled-mode theory $J_{i\to
+j}$ is then the power carried along the bond). Then:
 \begin{enumerate}
-\item[(i)] $\lvert\psi(t)\rvert^2$ is independent of $t$: the mode is a
-  standing pattern of the cube;
-\item[(ii)] $S\psi(t) = \psi(t - \tfrac{\pi}{2E})$: a quarter turn of
-  the pattern (with the top--bottom flip) equals a fixed shift in
-  time, so the pattern rotates about the axis;
-\item[(iii)] $\psi + \bar\psi$ is real and stationary at the same energy,
-  and carries no current on any bond: vortex and antivortex together
-  make a standing wave that oscillates in place.
+\item[(i)] $Su(t) = u(t - \tfrac{\pi}{2E})$: a quarter turn of the
+  pattern (with the top--bottom flip) equals a fixed delay, so the
+  pattern rotates about the axis, once per period;
+\item[(ii)] $\phi = \psi + \bar\psi$ is real and stationary at the same
+  energy, carries no current on any bond, and its field
+  $\cos(Et)\,\phi$ oscillates in place: vortex and antivortex together
+  make a standing wave.
 \end{enumerate}
+In the quantum reading $\psi(t) = e^{-iEt}\psi$, by contrast,
+$S\psi(t) = i\psi(t)$: the quarter turn is a global phase, and the
+density and every bond current are constant in time.
 \end{proposition}
 
 \begin{proof}
-(i) is immediate. (ii) $S\psi = i\psi$ and
-$e^{-iE(t-\tau)} = ie^{-iEt}$ for $\tau = \pi/2E$. (iii) uses Lemma~3:
-$\bar\psi$ is stationary at $E$; a real vector has
-$\mathrm{Im}(\phi_iH_{ij}\phi_j) = 0$.
+(i) $Su(t) = \mathrm{Re}(e^{-iEt}\,i\psi) = \mathrm{Re}(e^{-iE(t-\tau)}
+\psi)$ for $E\tau = \pi/2$. (ii) uses Lemma~3: $\bar\psi$ is
+stationary at $E$; a real vector has
+$\mathrm{Im}(\phi_jH_{ji}\phi_i) = 0$; and
+$\mathrm{Re}(e^{-iEt}\phi) = \cos(Et)\phi$.
 \end{proof}
 
 % ======================================================================
@@ -270,43 +330,73 @@ In $\mathcal T$, with $\lambda = \omega$ about a leg:
 \item[(i)] $V_\omega$ has dimension 10, and every vector in it vanishes
   on the leg: at $O$ and at the two central tiles it passes through;
 \item[(ii)] $V_\omega = W\oplus W'$, an orthogonal sum preserved by every
-  $H$ in the class. Here $W$ ($\dim 4$) is the fixed space of winding
-  vectors on outer tiles that no parameter couples to a central tile;
-\item[(iii)] on $W$, $H$ acts as two copies of the same $2\times2$
-  problem, so every energy on $W$ is doubled. On a doubled level the
-  current is a Hermitian form that is definite at some parameter
-  points and indefinite at others;
+  $H$ in the class, with $W = V_\omega \cap (E \oplus T_1)$ ($\dim 4$,
+  supported on the outer tiles) and $W' = V_\omega \cap T_2$ ($\dim 6$),
+  where $E, T_1, T_2$ denote the isotypic components of those irreducible representations of $T_d$;
+\item[(iii)] on $W$, $H$ acts as two copies of
+  \begin{equation}
+  M = \begin{pmatrix}\epsilon^{\rm o}_A + t_A & -t_{AB}\\ -t_{AB} &
+  \epsilon^{\rm o}_B + t_B\end{pmatrix},
+  \label{eq:M}
+  \end{equation}
+  with $\epsilon^{\rm o}_A, \epsilon^{\rm o}_B$ the outer-tile energies, $t_A,
+  t_B$ the hoppings between faces of one star point, and $t_{AB}$ the
+  hopping between a TetA and a TetB outer tile; so every energy on $W$
+  is doubled. On a doubled level the current is a Hermitian form that
+  is definite at some parameter points and indefinite at others;
 \item[(iv)] for all parameters outside a proper algebraic subset, $H$ on
   $W'$ has six distinct energies, and each of the six stationary
-  states is a vortex with nonzero weight on the three outer tiles of
-  the star point on the leg. That ring turns.
+  states is a vortex with nonzero amplitude on the three outer tiles of
+  the star point on the leg, around which it carries a current of
+  magnitude $\sqrt3\,\lvert t_A\rvert\lvert r\rvert^2$ on each bond, all
+  in one sense ($r$ the amplitude there).
 \end{enumerate}
 \end{theorem}
 
 \begin{proof}
-(i) is Lemmas~\ref{lem:axis} and~4. For (ii) and (iii), $A = B^\dagger HB$
-is linear in the parameters. $W$ is the common kernel of the
-parameter-wise couplings from outer to central orbits, and it is
-invariant; the script checks invariance and the two identical blocks
-symbolically, in all 15 parameters. For (iv), $W$ is fixed, so on $W'$
-the matrices $A' = W'^\dagger HW'$ and the Gram matrix $G$ give
-polynomials whose coefficients are polynomials in the parameters:
-\[
-p(x) = \det(xG - A'),\quad f(x) = \mathrm{Tr}\,K\,\mathrm{adj}(xG - A'),
-\]
-\[
-g(x) = \mathrm{adj}(xG - A')_{\rm ring,ring}.
-\]
-Here $K$ is the half-plane current form. For a simple root $E$ with
-eigenvector $y$,
+(i) is Lemmas~\ref{lem:axis} and~4.
+
+(ii) The 33 tiles carry $5A_1 \oplus 2E \oplus 2T_1 \oplus 6T_2$; $O$
+carries $A_1$ and each chamber's four central tiles carry $A_1 \oplus
+T_2$. By Schur's lemma~\cite{Serre1977} every $H$ maps each isotypic
+component into itself, and the $E \oplus T_1$ component $X$ has no
+weight on $O$ or the central tiles. The trivial character meets
+$V_\omega$ in $0$, and each copy of $E$, $T_1$ or $T_2$ meets it in one
+dimension, giving $\dim W = 4$ and $\dim W' = 6$. ($W$ is also the set
+of winding vectors on the outer tiles that no parameter couples to a
+central tile.)
+
+(iii) The four star-point sums of a chamber carry $A_1 \oplus T_2$, so
+every vector of $X$ sums to zero on each star point. Every bond between
+outer tiles of one chamber joins two faces of one star point, a
+triangle, whose adjacency acts as $-1$ on zero-sum vectors; and each
+outer tile shares an edge with exactly one outer tile of the other
+chamber, a $T_d$-equivariant bijection, which identifies $X_B$ with
+$X_A$ and commutes with $C$. So $X \cong \mathbb C^2 \otimes X_A$ with
+$H = M \otimes 1$, and $W \cong \mathbb C^2 \otimes (V_\omega \cap X_A)$,
+with $\dim V_\omega \cap X_A = 2$: two copies of $M$. The current form on a doubled level takes both
+signs of determinant at exact rational points.
+
+(iv) $W'$ is fixed, so with a basis of it, $A' = W'^\dagger HW'$ and
+the constant Gram matrix $G$ give polynomials whose coefficients are
+polynomials in the parameters:
+$p(x) = \det(xG - A')$, $f(x) = \mathrm{Tr}\,K\,\mathrm{adj}(xG - A')$,
+$g(x) = \mathrm{Tr}\,R\,\mathrm{adj}(xG - A')$, with $K$ the
+half-plane current form and $R$ the weight on the star point's three
+outer tiles, both written in the basis of $W'$. For a simple root $E$
+with eigenvector $y$,
 $\mathrm{adj}(EG - A') = p'(E)\,yy^\dagger/y^\dagger Gy$, so
-$I(y)/\lVert y\rVert^2 = f(E)/p'(E)$ and the ring weight is
-$g(E)/p'(E)$. The claims hold wherever
-$\mathrm{Res}(p, p')\,\mathrm{Res}(p, f)\,\mathrm{Res}(p, g) \neq 0$,
-which is a polynomial in the parameters. Exact gcd computations in
-$\mathbb Q(\omega)$ show it is nonzero at three random rational
-points. So it is not identically zero, and its zero set is a proper
-algebraic subset of measure zero~\cite{CLO}.
+$I(y)/\lVert y\rVert^2 = f(E)/p'(E)$ and the weight is $g(E)/p'(E)$.
+The claims hold wherever
+$\mathrm{Res}(p, p')\,\mathrm{Res}(p, f)\,\mathrm{Res}(p, g) \neq 0$;
+since $p$ has the constant leading coefficient $\det G$, this is a
+polynomial in the parameters. Exact gcd computations in
+$\mathbb Q(\omega)$ show it is nonzero at three rational points, so its
+zero set is a proper algebraic subset of measure zero~\cite{CLO}. The
+star point's three outer tiles form one orbit, so a winding state with
+amplitude $r\omega^{-j}$ there carries, from each tile to the next,
+$2\,\mathrm{Im}(\overline{\omega^{-1}r}\,(-t_A)\,r) = -\sqrt3\,t_A\lvert
+r\rvert^2$, nonzero for $t_A \neq 0$.
 \end{proof}
 
 % ======================================================================
@@ -315,20 +405,21 @@ algebraic subset of measure zero~\cite{CLO}.
 
 Figure~\ref{fig:currents} draws the bond currents of exact vortex
 eigenstates of the two models; figure~\ref{fig:render} renders the
-same vortices as particle funnels.
+same vortices as particle funnels. Both use the physical current
+$J_{i\to j}$, for parameter points with $h = 0$.
 
 \begin{figure*}[h]
 \centering
 \includegraphics[width=\textwidth]{vortex_figure.png}
-\caption{Bond currents $J_{ij}$ of exact vortex eigenstates (arrow
+\caption{Bond currents $J_{i\to j}$ of exact vortex eigenstates (arrow
 width: size; marker size: amplitude). (a) A vortex of the 15-site
 pixel about an octahedron axis, with TetA and TetB parameters
-unequal: the corners (flywheel) and the octahedron's ring circulate
+unequal: the corners and the octahedron's ring carry the current
 together, and the axis carries zero amplitude (Lemma~2,
 Theorem~\ref{thm:pixel}). (b) The same state from above. (c) A
 Triforce vortex of the 33-tile model, looking down a leg: the star
 point's three outer tiles circulate around the empty leg
-(Theorem~2).}
+(Theorem~\ref{thm:triforce}).}
 \label{fig:currents}
 \end{figure*}
 
@@ -338,12 +429,12 @@ point's three outer tiles circulate around the empty leg
 \caption{Particle render of the vortices. Left: the eight leg
 (Triforce) vortices. Centre: the core vortex about an octahedron
 axis, with the turning octahedron ring (aqua), the TetA and TetB
-corner strands, and the empty axis. Right: both together. The axes,
-the empty cores, the turning ring, the corner strands and each end's
-swirl sense and relative strength come from exact vortex states of
-the models. The funnel shapes, particle density and the direction of
-flow along an axis are drawn for display only; the theorems do not
-fix them.}
+corner strands locked to it, and the empty axis. Right: both together.
+The axes, the empty cores, the turning ring, the corner strands and
+each end's swirl sense and relative strength come from exact vortex
+states of the models. The funnel shapes, particle density and the
+direction of flow along an axis are drawn for display only; the
+theorems do not fix them.}
 \label{fig:render}
 \end{figure*}
 
@@ -351,45 +442,65 @@ fix them.}
 
 \section{Remarks}
 
-\begin{remark}
-In GFD terms: the Field Origin is the eye of every vortex; in the pixel,
-the eight corners are a flywheel that drives the octahedron's ring, and
-the octahedron is what circulates; about a leg, the star point's three
-outer tiles turn around a core that runs through the central tiles and
-the Field Origin to the opposite star point. Away from the ring
-$x = 1$ the symmetry about an octahedron axis is the rotoreflection,
-so each quarter turn also exchanges top and bottom; at $x = 1$ it is a
-plain rotation.
+\begin{remark}[Positioning]
+That a real Hamiltonian with a cyclic symmetry has winding eigenstates
+that carry ring currents is standard (see the remark \emph{Time reversal}, Section~1). What is specific here
+is the structure on these graphs: the closed-form block and current of
+the pixel, the locking of the corners to the octahedron's ring, the
+interlacing and the explicit exceptional set, and the exact
+$W \oplus W'$ structure of the Triforce with $W$ in closed form.
 \end{remark}
 
-\begin{remark}
-Not claimed: that the GFD field occupies these states; that these
-models are its dynamics (the theorems concern the stated class); or
-any braiding. The TetA and TetB strands about an octahedron axis
-have linking number 0, and the legs meet at $O$.
+\begin{remark}[Other bonds]
+Adding the cube's edges gives the block (\ref{eq:block}) a TetA--TetB
+entry and changes the secular equation; vortices still exist at random
+parameter points, but Theorem~\ref{thm:pixel} is not claimed for that
+graph, and the corollary fails.
 \end{remark}
 
-\begin{remark}
+\begin{remark}[GFD reading]
+The following is interpretation, not part of the theorems. In GFD the
+Field Origin is the eye of every vortex; in the pixel the octahedron's
+ring and the eight corners turn together, the corners acting as a
+flywheel locked to the ring; about a leg, the star point's three outer
+tiles turn around a core that runs through the central tiles and the
+Field Origin to the opposite star point. GFD takes TetA and TetB to
+differ away from its transition $g/a_0 = 1$. If all TetA and TetB
+parameters are equal, a plain quarter turn about an octahedron axis
+becomes a symmetry, and Theorem~\ref{thm:pixel}'s hypothesis
+$\epsilon_A \neq \epsilon_B$ fails.
+\end{remark}
+
+\begin{remark}[Not claimed]
+That the GFD field occupies these states, that these models are its
+dynamics (the theorems concern the stated class), or any braiding.
+\end{remark}
+
+\begin{remark}[History]
 This proof supersedes an earlier research note that sampled the
 Triforce model numerically and stated that every winding eigenstate
-circulates. Exact certificates show that holds on $W'$, not on all
-of $W$.
+circulates; that holds on $W'$, not on all of $W$. The first version
+of this proof counted currents with the reversed sign and omitted the
+octahedron's edges; see the referee review in the same folder.
 \end{remark}
 
 % ======================================================================
 
 \section*{Verification}
 
-\texttt{verify\_vortices\_stellated\_octahedron.py} runs 72 checks. Part~I
-(54) is exact arithmetic in $\mathbb Q(i)$ and $\mathbb Q(\omega)$ with
-Python fractions and no computer algebra: the geometry, $T_d$, the
+\texttt{verify\_vortices\_stellated\_octahedron.py} runs 81 checks.
+Part~I (54) is exact arithmetic in $\mathbb Q(i)$ and $\mathbb Q(\omega)$
+with Python fractions and no computer algebra: the geometry, $T_d$, the
 Hamiltonians, the winding spaces, the empty axis, current conservation
 across three half-planes, squarefreeness, nonzero current and ring
-weight, antivortices, and the split $W\oplus W'$, at three random
-rational points per model. Part~II (18) is symbolic in all parameters:
-the block (\ref{eq:block}), (\ref{eq:secular}), (\ref{eq:current}) for
-three half-planes, Corollary~1, Proposition~\ref{prop:standing}, and
-Theorem~\ref{thm:triforce}(ii)--(iii).
+weight, antivortices, and the split $W\oplus W'$, at three fixed
+pseudo-random rational points per model. Part~II (27) uses sympy, in
+all parameters: the current convention, the block (\ref{eq:block}),
+(\ref{eq:secular}), the interlacing, (\ref{eq:current}) for three
+half-planes, Corollary~1 and its dependence on the bond set,
+Proposition~\ref{prop:standing}, and Theorem~\ref{thm:triforce}(ii)--(iv),
+including the representation-theoretic decomposition and the closed
+form (\ref{eq:M}).
 
 \begin{thebibliography}{9}
 
@@ -399,15 +510,36 @@ S.~Nelson,
 Field Dynamics Research (2026),
 \url{proofs/gram-matrix-tetrad-equation}.
 
-\bibitem{CLO}
-D.~A.~Cox, J.~Little and D.~O'Shea,
-\textit{Ideals, Varieties, and Algorithms},
-4th ed.\ (Springer, Cham, 2015), ch.~3 (resultants).
-
 \bibitem{Coxeter1973}
 H.~S.~M.~Coxeter,
 \textit{Regular Polytopes},
 3rd ed.\ (Dover, New York, 1973).
+
+\bibitem{London1937}
+F.~London,
+J.\ Phys.\ Radium \textbf{8}, 397 (1937).
+
+\bibitem{Pople1956}
+J.~A.~Pople,
+J.\ Chem.\ Phys.\ \textbf{24}, 1111 (1956).
+
+\bibitem{SteinerFowler2001}
+E.~Steiner and P.~W.~Fowler,
+J.\ Phys.\ Chem.\ A \textbf{105}, 9553 (2001).
+
+\bibitem{BIL1983}
+M.~B\"uttiker, Y.~Imry and R.~Landauer,
+Phys.\ Lett.\ A \textbf{96}, 365 (1983).
+
+\bibitem{Serre1977}
+J.-P.~Serre,
+\textit{Linear Representations of Finite Groups}
+(Springer, New York, 1977).
+
+\bibitem{CLO}
+D.~A.~Cox, J.~Little and D.~O'Shea,
+\textit{Ideals, Varieties, and Algorithms},
+4th ed.\ (Springer, Cham, 2015), ch.~3 (resultants).
 
 \end{thebibliography}
 

@@ -174,6 +174,8 @@ def build(model):
             for j, (kj, cj) in enumerate(sites):
                 if ki == "F" and kj in "AB" and dot(fi, cj) == 1:
                     edges.append((i, j))
+                if ki == "F" and kj == "F" and i < j and dot(fi, cj) == 0:
+                    edges.append((i, j))            # the octahedron's own edges (length sqrt2, as vertex-corner)
         def image(R, s): return (s[0], act(R, s[1]))
     else:
         tiles = []
@@ -293,10 +295,11 @@ def certify(model, axis, Rsym, order, c, lam, us, seeds, split=False):
                 t = si / (si - sj)
                 x = tuple(pi + t * (pj - pi) for pi, pj in zip(pos[i], pos[j]))
                 if dot(u, x) > 0:
-                    sg = 1 if si < 0 else -1                 # crossing in the positive sense about the axis, i -> j
+                    sg = 1 if si < 0 else -1                 # +1: the bond crosses in the positive sense going i -> j
                     th = Q(0, 1)                             # theta = i (c = -1) or i*sqrt3 (c = -3): a positive multiple of i
-                    K[i][j] = K[i][j] + (-th) * cv(sg)       # J_ij = -i(psi_i* H_ij psi_j - c.c.); H_ij folded in below
-                    K[j][i] = K[j][i] + th * cv(sg)
+                    # flow i -> j: J_{i->j} = 2 Im(psi_j* H_ji psi_i) = i(psi_i* H_ij psi_j - c.c.); H_ij folded in below
+                    K[i][j] = K[i][j] + th * cv(sg)
+                    K[j][i] = K[j][i] + (-th) * cv(sg)
         return K
     for seed in seeds:
         rng = random.Random(seed)
@@ -437,33 +440,49 @@ def flux_matrix(H, pos, edges, axis, u, n):
         if s_[i] * s_[j] < 0:
             t = s_[i] / (s_[i] - s_[j]); x = P_[i] + t * (P_[j] - P_[i])
             if (u.T * x)[0] > 0:
-                sg = 1 if s_[i] < 0 else -1
-                K[i, j] += -sp.I * sg * H[i, j]; K[j, i] += sp.I * sg * H[j, i]
+                sg = 1 if s_[i] < 0 else -1          # +1: crossing in the positive sense going i -> j
+                # flow i -> j: J_{i->j} = 2 Im(psi_j* H_ji psi_i)
+                K[i, j] += sp.I * sg * H[i, j]; K[j, i] += -sp.I * sg * H[j, i]
     return K
 
+
+# ---------------- convention ----------------
+_n = 3; _H = sp.Matrix(_n, _n, lambda i, j: sp.Symbol(f"H{min(i, j)}{max(i, j)}", real=True))
+_x = sp.symbols("x0:3", real=True); _y = sp.symbols("y0:3", real=True)
+_psi = sp.Matrix([_x[k] + sp.I * _y[k] for k in range(_n)])
+_dens = [sp.expand(2 * sp.re(sp.conjugate(_psi[j]) * (-sp.I) * (_H * _psi)[j])) for j in range(_n)]   # d|psi_j|^2/dt, i psi' = H psi
+_J = lambda i, j: 2 * sp.im(sp.conjugate(_psi[j]) * _H[j, i] * _psi[i])                               # flow i -> j
+check("CV [convention] with i dpsi/dt = H psi, the bond current J_{i->j} = 2 Im(psi_j* H_ji psi_i) is the flow from i to j: "
+      "d|psi_j|^2/dt = sum_i J_{i->j}, and J_{j->i} = -J_{i->j}",
+      all(sp.simplify(_dens[j] - sum(_J(i, j) for i in range(_n) if i != j)) == 0 for j in range(_n))
+      and sp.simplify(_J(0, 1) + _J(1, 0)) == 0)
+_ring = sp.Matrix([sp.exp(2 * sp.pi * sp.I * k / 3) for k in range(3)]); _t = sp.Symbol("t", positive=True)
+_Hr = -_t * sp.Matrix([[0, 1, 1], [1, 0, 1], [1, 1, 0]])
+check("CV [convention] sanity: on a 3-site ring with hopping -t, the +k Bloch state e^{2 pi i k/3} flows toward increasing k",
+      sp.simplify(2 * sp.im(sp.conjugate(_ring[1]) * _Hr[1, 0] * _ring[0]) - sp.sqrt(3) * _t) == 0)
 
 # ---------------- the pixel ----------------
 pix_site = lambda s, k: {"O": "Delta", "F": "Delta_f", "A": "epsilon_A", "B": "epsilon_B"}[s[0]]
 pix_bond = lambda a, b, k: {frozenset("OF"): "t_f", frozenset("OA"): "t_A", frozenset("OB"): "t_B",
-                            frozenset("FA"): "c_A", frozenset("FB"): "c_B"}[frozenset(a[0] + b[0])]
+                            frozenset("FA"): "c_A", frozenset("FB"): "c_B", frozenset("F"): "h"}[frozenset(a[0] + b[0])]
 sites, pos, edges, perms, index, image, Hs, ssyms, bsyms = symbolic("pixel", pix_site, pix_bond)
 n = len(sites)
 D_, Df, eA, eB = [sp.Symbol(x, real=True) for x in ("Delta", "Delta_f", "epsilon_A", "epsilon_B")]
-tf_, tA_, tB_, cA, cB = [sp.Symbol(x, real=True) for x in ("t_f", "t_A", "t_B", "c_A", "c_B")]
+tf_, tA_, tB_, cA, cB, hh = [sp.Symbol(x, real=True) for x in ("t_f", "t_A", "t_B", "c_A", "c_B", "h")]
 S4 = [[0, -1, 0], [1, 0, 0], [0, 0, -1]]
 B, full, P = winding_basis(sites, index, image, S4, sp.I, 4)
 kinds = [sites[o[0]][0] for o in full]
 order_idx = [kinds.index("F"), kinds.index("A"), kinds.index("B")]
 B = B.extract(list(range(n)), order_idx)
-check("T1 [pixel] the most general Td-invariant H has 9 parameters and commutes with the rotoreflection S",
-      len(ssyms) + len(bsyms) == 9 and P * Hs == Hs * P)
+check("T1 [pixel] the most general Td-invariant H on the pixel graph (with the octahedron's edges) has 10 parameters "
+      "and commutes with the rotoreflection S", len(ssyms) + len(bsyms) == 10 and P * Hs == Hs * P)
 Ap = (B.H * Hs * B / 4).applyfunc(sp.simplify)
 a_, b_ = Ap[0, 1], Ap[0, 2]
 check("T1 [pixel] the winding block (ring, TetA, TetB) is [[Delta_f, a, b], [conj a, eps_A, 0], [conj b, 0, eps_B]] "
-      "with |a|^2 = 2 c_A^2, |b|^2 = 2 c_B^2; Delta, t_f, t_A, t_B drop out",
+      "with |a|^2 = 2 c_A^2, |b|^2 = 2 c_B^2; Delta, t_f, t_A, t_B and the octahedron-edge hopping h drop out",
       Ap[0, 0] == Df and Ap[1, 1] == eA and Ap[2, 2] == eB and Ap[1, 2] == 0 and Ap[2, 1] == 0
       and sp.simplify(a_ * sp.conjugate(a_) - 2 * cA**2) == 0 and sp.simplify(b_ * sp.conjugate(b_) - 2 * cB**2) == 0
-      and not (Ap.free_symbols & {D_, tf_, tA_, tB_}))
+      and not (Ap.free_symbols & {D_, tf_, tA_, tB_, hh}))
 E = sp.Symbol("E", real=True); rr = sp.Symbol("r", positive=True)
 charp = sp.expand((E * sp.eye(3) - Ap).det())
 check("T1 [pixel] its characteristic polynomial is (E - Delta_f)(E - eps_A)(E - eps_B) - 2c_A^2(E - eps_B) - 2c_B^2(E - eps_A)",
@@ -486,11 +505,18 @@ ok_I = True
 for u in ([2, 1, 0], [1, 3, 0], [-1, 2, 0]):
     K = flux_matrix(Hs, pos, edges, (0, 0, 1), u, n)
     Iu = sp.simplify((psi.H * K * psi)[0])
-    ok_I &= sp.simplify((Iu - (-(E - Df) * rr**2)).subs(Df, Dfsol)) == 0
-check("T1 [pixel] the circulating current through each of three half-planes is I = -(E - Delta_f) r^2 "
-      "(r: amplitude on each site of the octahedron's ring)", ok_I)
-check("T1 [pixel] so I != 0 unless E = Delta_f, which needs c_A^2 (Delta_f - eps_B) + c_B^2 (Delta_f - eps_A) = 0",
-      sp.simplify(charp.subs(E, Df) - (-2 * cA**2 * (Df - eB) - 2 * cB**2 * (Df - eA))) == 0)
+    ok_I &= sp.simplify((Iu - ((E - Df - 2 * hh) * rr**2)).subs(Df, Dfsol)) == 0
+check("T1 [pixel] the circulating current (physical flow, right-handed about +z) through each of three half-planes is "
+      "I = (E - Delta_f - 2h) r^2 (r: amplitude on each site of the octahedron's ring; h = 0 without octahedron edges)", ok_I)
+check("T1 [pixel] so I != 0 unless E = Delta_f + 2h is a root, i.e. 2h(Delta_f + 2h - eps_A)(Delta_f + 2h - eps_B) "
+      "= 2c_A^2 (Delta_f + 2h - eps_B) + 2c_B^2 (Delta_f + 2h - eps_A)",
+      sp.simplify(charp.subs(E, Df + 2 * hh) - (2 * hh * (Df + 2 * hh - eA) * (Df + 2 * hh - eB)
+                  - 2 * cA**2 * (Df + 2 * hh - eB) - 2 * cB**2 * (Df + 2 * hh - eA))) == 0)
+check("T1 [pixel] the three energies interlace with the corner energies: the secular function runs from -inf to +inf on "
+      "each of the three intervals cut by eps_A, eps_B (residues -2c_A^2, -2c_B^2 at the poles; ~E at infinity)",
+      sp.simplify(sp.cancel((E - eA) * sec).subs(E, eA) + 2 * cA**2) == 0
+      and sp.simplify(sp.cancel((E - eB) * sec).subs(E, eB) + 2 * cB**2) == 0
+      and sp.limit(sec / E, E, sp.oo) == 1 and sp.limit(sec / E, E, -sp.oo) == 1)
 check("T1 [pixel] at eps_A = eps_B, E = eps_A is a vortex energy with r = 0 (no current)",
       sp.simplify(charp.subs(eB, eA).subs(E, eA)) == 0)
 keep = [i for i in range(n) if sites[i][0] != "F"]
@@ -499,15 +525,40 @@ check("C1 [pixel without the octahedron] winding states exist (dimension 2) but 
       "bond touches it: no current, no vortex",
       all(B9[0, k] == 0 for k in range(2)) and all(H9[i, j] == 0 for i in range(1, 9) for j in range(1, 9) if i != j))
 
+# Corollary 1 depends on the bond set: add the cube's edges (corner-corner, TetA-TetB) and remove the octahedron
+cube = [(i, j) for i in keep for j in keep if i < j and sites[i][0] in "AB" and sites[j][0] in "AB"
+        and sum((pos[i][k] - pos[j][k])**2 for k in range(3)) == 4]
+s_cube = sp.Symbol("s", real=True)
+Hc = H9.copy()
+for (i, j) in cube:
+    a9, b9 = keep.index(i), keep.index(j); Hc[a9, b9] = Hc[b9, a9] = -s_cube
+pos9 = [pos[i] for i in keep]; edges9 = [(keep.index(i), keep.index(j)) for (i, j) in edges if i in keep and j in keep]
+edges9 += [(keep.index(i), keep.index(j)) for (i, j) in cube]
+Ac = (B9.H * Hc * B9 / 4).applyfunc(sp.simplify)
+Kc9 = flux_matrix(Hc, pos9, edges9, (0, 0, 1), [2, 1, 0], 9)
+val = {eA: 0, eB: 1, s_cube: 1}
+evs = (Ac.subs(val)).eigenvects()
+cur = [sp.nsimplify(sp.simplify(((B9 * v[2][0]).H * Kc9.subs(val) * (B9 * v[2][0]))[0] / ((B9 * v[2][0]).H * (B9 * v[2][0]))[0]))
+       for v in evs]
+check(f"C1' [pixel without the octahedron, with the cube's 12 edges] the corners circulate on their own: exact winding "
+      f"eigenstates at eps_A = 0, eps_B = 1, cube hopping 1 carry currents {cur}, so Corollary 1 needs the bond set "
+      f"without corner-corner bonds", len(cube) == 12 and all(c != 0 for c in cur))
+
 # standing waves
 tt = sp.Symbol("t", real=True)
 psi_t = sp.exp(-sp.I * E * tt) * psi
-tau = sp.pi / (2 * E)
-check("P1 [standing wave] applying the quarter-turn symmetry to the evolving vortex equals shifting it in time: "
-      "S psi(t) = psi(t - pi/(2E)), so the stationary pattern rotates",
-      sp.simplify(P * psi_t - sp.exp(-sp.I * E * (tt - tau)) * psi) == sp.zeros(n, 1))
+Ep = sp.Symbol("omega", positive=True)
+u_t = (sp.exp(-sp.I * Ep * tt) * psi).applyfunc(lambda z: sp.re(sp.expand_complex(z.subs(Df, Dfsol).subs(E, Ep))))
+u_shift = u_t.subs(tt, tt - sp.pi / (2 * Ep))
+check("P1 [rotating wave, classical reading] for the real field u(t) = Re(e^{-i omega t} psi) of a mode with frequency "
+      "omega = E > 0, the quarter turn S equals a time shift: S u(t) = u(t - pi/(2 omega)), so the pattern rotates",
+      (P * u_t - u_shift).applyfunc(sp.simplify) == sp.zeros(n, 1))
+check("P1 [quantum reading] S psi(t) = e^{i pi/2} psi(t): the quarter turn only changes the global phase, so nothing "
+      "observable rotates (density and bond currents are constant in time)",
+      sp.simplify(P * psi_t - sp.I * psi_t) == sp.zeros(n, 1))
 phi = (psi + psi.applyfunc(sp.conjugate)).applyfunc(sp.simplify)
-check("P1 [standing wave] vortex + antivortex is real, stationary at the same energy, and carries no current on any bond",
+check("P1 [standing wave] vortex + antivortex is real, stationary at the same energy, and carries no current on any bond; "
+      "its classical field cos(omega t) phi oscillates in place",
       all(sp.simplify(sp.im(x)) == 0 for x in phi)
       and sp.simplify((Hs * phi - E * phi).subs(Df, Dfsol)) == sp.zeros(n, 1)
       and all(sp.simplify(sp.im(sp.conjugate(phi[i]) * Hs[i, j] * phi[j])) == 0 for (i, j) in edges))
@@ -547,6 +598,50 @@ check("T2 [Triforce] on W, H is two copies of the same 2x2 problem: every energy
 Wp_ = (W.H).nullspace()
 check("T2 [Triforce] the orthogonal complement W' has dimension 6 and every H maps it into itself",
       len(Wp_) == 6 and all(Ssimp(x) == 0 for x in (sp.Matrix.hstack(*Wp_).H * A * W)))
+
+# hand proof of the split (representation theory) and of the doubling (local structure)
+cls_of = lambda R: {(3, 1): "E", (0, 1): "C3", (-1, 1): "C2", (-1, -1): "S4", (1, -1): "sd"}[
+    (sum(R[i][i] for i in range(3)), round(sp.Matrix(R).det()))]
+irr = {"A1": dict(E=1, C3=1, C2=1, S4=1, sd=1), "A2": dict(E=1, C3=1, C2=1, S4=-1, sd=-1),
+       "E": dict(E=2, C3=-1, C2=2, S4=0, sd=0), "T1": dict(E=3, C3=0, C2=-1, S4=1, sd=-1),
+       "T2": dict(E=3, C3=0, C2=-1, S4=-1, sd=1)}
+cl = [cls_of(R) for R in Td]
+def decompose(idx):
+    ch = [sum(1 for i in idx if pm[i] == i) for pm in perms]
+    return {k: sum(c * v[x] for c, x in zip(ch, cl)) // 24 for k, v in irr.items()}
+inner = [i for i in range(n) if sites[i][0] == "O" or sites[i][0][0] == "C"]
+outer = [i for i in range(n) if sites[i][0][0] == "E"]
+check("T2 [Triforce] hand proof of the split: the 33 tiles carry 5A1 + 2E + 2T1 + 6T2 and the Field Origin with the central "
+      "tiles carry only A1 and T2, so by Schur no H couples the E and T1 parts to them; W = V_omega in (E + T1), dim 2 + 2",
+      decompose(range(n)) == {"A1": 5, "A2": 0, "E": 2, "T1": 2, "T2": 6}
+      and decompose(inner)["E"] == 0 and decompose(inner)["T1"] == 0)
+vert = lambda i: next(p_ for p_ in sites[i][1] if all(abs(c) == 1 for c in p_))
+same = [(i, j) for (i, j) in edges if i in outer and j in outer and sites[i][0] == sites[j][0]]
+cross_ = [(i, j) for (i, j) in edges if i in outer and j in outer and sites[i][0] != sites[j][0]]
+check("T2 [Triforce] the local structure: every outer-outer bond within a chamber joins two exposed faces of one star point "
+      "(a triangle), and each outer tile shares an edge with exactly one outer tile of the other chamber",
+      all(vert(i) == vert(j) for (i, j) in same)
+      and all(sum(i in e for e in cross_) == 1 for i in outer))
+sym_of = lambda i, j: -Ht[i, j]
+iA = next(i for i in outer if sites[i][0] == "EA"); iB = next(i for i in outer if sites[i][0] == "EB")
+tAA = sym_of(*next(e for e in same if iA in e)); tBB = sym_of(*next(e for e in same if iB in e))
+tAB = sym_of(*next(e for e in cross_ if iA in e))
+Mloc = sp.Matrix([[Ht[iA, iA] + tAA, -tAB], [-tAB, Ht[iB, iB] + tBB]])
+check("T2 [Triforce] closed form for W: on both copies H acts as [[eps_EA + t_A, -t_AB], [-t_AB, eps_EB + t_B]] "
+      "(zero-sum vectors on each star point's triangle have adjacency eigenvalue -1), for all parameters",
+      Ssimp(cp1 - (E * sp.eye(2) - 3 * Mloc).det()) == 0 and Ssimp(cp2 - (E * sp.eye(2) - 3 * Mloc).det()) == 0)
+# (A = B^H H B with B^H B = 3 I, so the blocks M1, M2 are 3 H)
+ring_t = [full[k] for k in range(len(full)) if sites[full[k][0]][0] == "EA" and
+          (1, 1, 1) in {tuple(int(c) for c in p_) for p_ in sites[full[k][0]][1] if all(abs(c) == 1 for c in p_)}][0]
+rr3 = sp.Symbol("r", positive=True)
+vring = sp.zeros(n, 1)
+for j_, i_ in enumerate(ring_t):
+    vring[i_] = rr3 * w3 ** (-j_)
+Jring = [Ssimp(2 * sp.im(sp.conjugate(vring[ring_t[(k + 1) % 3]]) * Ht[ring_t[(k + 1) % 3], ring_t[k]] * vring[ring_t[k]]))
+         for k in range(3)]
+check("T2 [Triforce] the ring turns: a winding state with amplitude r on the star point's three outer tiles carries the same "
+      "current sqrt3 t_A r^2 on each of the three ring bonds (in the sense of the winding), nonzero whenever r t_A != 0",
+      all(Ssimp(Jr - Jring[0]) == 0 for Jr in Jring) and Ssimp(sp.Abs(Jring[0]) - sp.sqrt(3) * sp.Abs(tAA) * rr3**2) == 0)
 
 # circulation on W's doubled levels depends on the parameters: exact points of both signs
 Kt = flux_matrix(Ht, pos, edges, (1, 1, 1), (3, -1, -2), n)

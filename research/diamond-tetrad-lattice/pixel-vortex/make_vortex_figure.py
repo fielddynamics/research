@@ -1,6 +1,6 @@
 """Figure for PROOF.md and ../triforce-vortex/PROOF.md: the pixel's vortices, drawn from the proofs' own models.
 
-Every arrow is a bond current J_ij = 2 Im(psi_i* H_ij psi_j) of an actual vortex eigenstate:
+Every arrow is a bond current J_{i->j} = 2 Im(psi_j* H_ji psi_i), the physical flow from i to j under i dpsi/dt = H psi, of an actual vortex eigenstate:
  - panels a, b: the 15-site pixel of pixel-vortex/PROOF.md (Field Origin, octahedron, corners),
    a vortex about the octahedron axis z, at one parameter set with TetA != TetB;
  - panel c: the 33-tile Triforce model of triforce-vortex/PROOF.md, a vortex about the leg (1,1,1).
@@ -40,7 +40,7 @@ def currents(Hn, psi):
     for i in range(n):
         for j in range(i + 1, n):
             if Hn[i, j] != 0:
-                J = 2 * np.imag(np.conj(psi[i]) * Hn[i, j] * psi[j])
+                J = 2 * np.imag(np.conj(psi[j]) * Hn[j, i] * psi[i])     # physical flow i -> j (i dpsi/dt = H psi)
                 if abs(J) > 1e-12:
                     out.append((i, j, J) if J > 0 else (j, i, -J))   # arrow along the flow
     return out
@@ -139,7 +139,7 @@ for idx, s in enumerate(sites):
                    edgecolors="white", linewidths=0.8, depthshade=False)
 ax.text(0.08, 0.05, 1.32, "axis: empty core", color=MUTED, fontsize=8.5)
 style3d(ax, 22, 35)
-ax.set_title("a  Vortex about an octahedron axis\ncorners (flywheel) drive the octahedron's ring (core)",
+ax.set_title("a  Vortex about an octahedron axis\ncorners and the octahedron ring carry the current together",
              loc="left", fontsize=10.5, color=INK)
 
 # ---- panel b: top view of the same vortex ----
