@@ -1,0 +1,31 @@
+PASS L1 Td has 24 elements and every one commutes with H, for all parameters
+PASS L1 the rotoreflection S is in Td, so SH = HS for every x
+PASS L1 the quarter turn C is not: it swaps TetA and TetB corners
+PASS L1 CH = HC exactly when the TetA and TetB parameters are equal (the ring, x = 1)
+PASS L1 H is real symmetric, so complex conjugation K commutes with H
+PASS L1 S^4 = 1, S^2 = C^2 (the half turn), S is not a rotation (det -1)
+PASS L2 P(+i), P(-i) are projectors onto the S-eigenspaces with eigenvalues +i, -i
+PASS L2 each has dimension 3
+PASS L2 every vector with winding +-i vanishes at the Field Origin and on both axial vertices
+PASS L2 S-orbits: O (1), the axial pair (2), the equatorial ring (4), TetA corners (4), TetB corners (4)
+PASS L2 the TetA orbit alternates above and below the equator (z = +, -, +, -)
+PASS T1 the three orbit vectors with phase i^-k are an orthonormal basis of the +i space
+PASS T1 H maps the +i space into itself (block form), so H has eigenvectors in it
+PASS T1 the +i block is Hermitian
+     +i block (basis: ring, TetA corners, TetB corners): [[Delta_f, c_A*(-1 - I), c_B*(-1 - I)], [c_A*(-1 + I), epsilon_A, 0], [c_B*(-1 + I), 0, epsilon_B]]
+PASS T1 complex conjugation maps the +i space onto the -i space with the same block: vortex and antivortex at the same energy
+PASS T2 for every psi = B w in the +i space, the circulation is L = -w^H V w: minus the ring-corner coupling energy
+PASS T2 the eigenvectors are w = (r, conj(a) r/(E - eps_A), conj(b) r/(E - eps_B)) with E a root of E - Delta_f = 2c_A^2/(E - eps_A) + 2c_B^2/(E - eps_B)
+PASS T2 on an eigenvector, L = -2 (E - Delta_f) |r|^2 exactly (r: the core ring's amplitude)
+PASS T2 the -i antivortex (complex conjugate) has the same energy and the opposite circulation
+PASS T2 three vortex energies (a cubic), so three vortices with +i winding and three antivortices with -i
+PASS T3 if c_A, c_B != 0 and eps_A != eps_B, no vortex energy equals eps_A or eps_B (det(H+ - E) at E = eps_A is 2 c_A^2 (eps_A - eps_B), at E = eps_B it is 2 c_B^2 (eps_B - eps_A): nonzero)
+PASS T3 so every vortex has r != 0: the octahedron ring always turns, and the corners are locked to it, p = conj(a) r/(E - eps_A), q = conj(b) r/(E - eps_B) (if r = 0 then p = q = 0)
+PASS T3 and L != 0 unless E = Delta_f, which needs c_A^2 (Delta_f - eps_B) + c_B^2 (Delta_f - eps_A) = 0 (a single condition on the parameters, not an identity)
+PASS T3 at eps_A = eps_B (TetA and TetB corners alike, the ring x = 1) one vortex has a still core: E = eps_A is then a root with r = 0, and that vortex carries no current
+PASS T3 numerical cross-check, 20 random parameter sets: every vortex is a stationary state of the full pixel, its core ring turns, and L = -2 (E - Delta_f)|r|^2
+PASS C1 the 9-site Lambda pixel (Field Origin + corners) also has vortices (+i space of dimension 2)
+PASS C1 but they vanish at the Field Origin, and every bond of the 9-site pixel touches the Field Origin
+PASS C1 so they carry no current at all: without the octahedron, winding states exist but nothing circulates
+
+28/28 checks passed
