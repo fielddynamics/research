@@ -132,6 +132,8 @@ One oscillation fills the whole spectrum of the cube. The forward pass generates
 | Full adder | sum from grade 3, carry from grade 1 | 8/8 and 8/8 |
 | XOR through a lattice of nodes (2×2, 3×2, 4×2, 4×4) | grade-2 coefficient at the output edge | 4/4 each |
 
+**The Walsh functions are the cube's standing waves, and that is established.** The analysis of Boolean functions in theoretical computer science shows that the Walsh–Hadamard functions are the eigenmodes of the Boolean cube. They are the eigenvectors of its Laplacian, with eigenvalue 2|S| for the function on the bit set S (R. O'Donnell, *Analysis of Boolean Functions*, Cambridge University Press, 2014). Read as modes of coupled oscillators, each one is a real standing wave, so the node's Walsh readout is a readout of the cube's standing waves. Combinations of degenerate modes with complex phases can circulate instead; [`proofs/vortices-of-the-stellated-octahedron/`](../../proofs/vortices-of-the-stellated-octahedron/) proves when the pixel's do.
+
 **A standing wave has to be read as one.** The node's chambers are oscillators, so its state at any instant is the input-driven signal riding on a carrier wave. Two things decide whether the computation survives over many oscillations:
 
 - **The readout.** A snapshot samples the carrier at an arbitrary phase. Averaging the Walsh coefficients over one full period ($2\pi / (\omega\,\Delta t) \approx 63$ ticks) cancels the carrier and leaves the standing signal.
@@ -230,7 +232,7 @@ The two constructions are built the same way. The Hadamard matrix is a tensor po
 
 | Statement | Status |
 |---|---|
-| The Walsh functions are the harmonics of the binary cube; there are 256 three-input operations, each with an 8-value spectrum of total power 64 | Established mathematics |
+| The Walsh functions are the harmonics of the binary cube, its standing waves: the eigenvectors of the cube graph, eigenvalue 3 − 2·grade (O'Donnell 2014); there are 256 three-input operations, each with an 8-value spectrum of total power 64 | Established mathematics |
 | The parity harmonic splits the cube into the two tetrahedra; the cube's modes split the same way; a tetrahedron and the body diagonal are Walsh duals | Established mathematics |
 | The tetrad directions are Hadamard rows, and the octahedron is bounded by the eight directions of the two tetrads | Established mathematics |
 | The tetrad directions are null directions, and the cube is the local frame of spacetime | Derived in Letter 1 and Paper IX |

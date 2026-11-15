@@ -55,6 +55,8 @@ The symmetry keeps TetA and TetB distinct and lets them differ. The graphs fix w
 
 **Time reversal.** Every vortex level is shared with its antivortex. The theorems say which circulating states exist. Which one the system is in is set by its initial state, or by something that breaks time reversal.
 
+**Context.** That the Walsh–Hadamard functions are standing waves is established mathematics. They are the eigenmodes of the Boolean cube: the eigenvectors of its Laplacian, with eigenvalue 2|S| (O'Donnell, *Analysis of Boolean Functions*, Cambridge University Press, 2014). Each one is real, so on its own it carries no current. What the proof adds is that the pixel's symmetry combines degenerate modes into circulating states.
+
 **About each leg (the Triforce faces):**
 - **Six vortices on W′.** The three outer tiles of a star point turn around an empty core that runs through the central tiles and the Field Origin to the opposite star point. Six such vortices exist for all parameter values except a measure-zero set.
 - **Four doubled states on W.** Four further winding states have doubled energies, given in closed form by a 2×2 matrix. Whether every combination of them circulates depends on the parameters.
