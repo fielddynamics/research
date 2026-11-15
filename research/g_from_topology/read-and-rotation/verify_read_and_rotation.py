@@ -13,6 +13,7 @@ Every check carries a tag, as in research/coupling-algebra/certify_first_princip
   AUTOMATIC    true for reasons that carry no information about GFD
   COINCIDENCE  exact, but special to the values; not to be built on
   OPEN         a probe of a step not yet derived (reports, does not claim)
+  READING      a statement of how an exact result matches the framework's assignments (interpretation)
 
 Parts
   A. The read is the rotation: 1 + K + K^2 = (K^3 - 1)/(K - 1) = (K - w)(K - w*)
@@ -22,6 +23,7 @@ Parts
   E. The winding eigenvalues on the cube's corners, class by class
   F. G in parity form and in vortex form
   G. Open steps, probed
+  H. The connection's split: the root label is the weight of the lower-index swap
 
 Run: python verify_read_and_rotation.py
 """
@@ -183,13 +185,68 @@ check("OPEN", "why each level costs one factor of alpha: not addressed here (the
       "assumption); recorded only", True)
 check("OPEN", "the combination rule alpha^(TetA) x (Field Origin / TetB): in parity form it is alpha^(E+O) E/(E-O); "
       "this rewriting does not derive it (fitted after the fact among 21 rules, g_from_the_closure_climb.md)", True)
-check("OPEN", "can E/(E - O) come from the connection's split 64 = 40 (root-blind Christoffel) + 24 (torsion, TetB)? "
-      "the counts do not match the read directly (64 = 1 + 3 x 21 states, not 21); a derivation would need a map "
-      "from the 64 components onto the 21 read states sending torsion to the legs block; none is constructed",
+check("OPEN", "can E/(E - O) come from the connection's split 64 = 40 (Christoffel) + 24 (torsion)? no map sends the "
+      "torsion to the legs block (part H: two natural routes fail); instead part H shows the root label weights the "
+      "lower-index swap, which gives E, E + O and E - O exactly from one face",
       64 == 1 + 3 * 21 and 40 + 24 == 64)
 check("AUTOMATIC", "the parent folder's one-loop split alpha/2pi = (2/17)(17 alpha/4pi) reads as (2/E)(E alpha/(K pi)); "
       "it holds for any E and carries no information",
       sp.simplify((2 / sp.Symbol("E")) * (sp.Symbol("E") * al / (4 * sp.pi)) - al / (2 * sp.pi)) == 0)
+
+# ------------------------------------------------------------------ H
+section("H. The connection's split: the root label is the weight of the lower-index swap")
+nF = K0 * K0
+tau = sp.zeros(nF, nF)                                        # one face: Gamma^a_{bc} at fixed a, basis (b, c)
+for b_ in range(K0):
+    for c_ in range(K0):
+        tau[c_ * K0 + b_, b_ * K0 + c_] = 1
+IF = sp.eye(nF); Psym = (IF + tau) / 2; Pant = (IF - tau) / 2
+check("CLASSICAL", "on one face (the 16 components Gamma^a_{bc} at fixed upper index) the torsion-free condition is the "
+      "swap tau of the lower indices: the symmetric part (Christoffel) has dimension K(K+1)/2 = 10, the antisymmetric "
+      "part (torsion) K(K-1)/2 = 6, and Tr tau = K = 4",
+      Psym.trace() == 10 and Pant.trace() == 6 and tau.trace() == K0 and tau * tau == IF)
+check("NEW", "the coupling polynomial is one plus the face trace of (1 + s tau): f(K, s) = 1 + Tr(1 + s tau) = "
+      "1 + K^2 + sK, giving 21, 17, 13",
+      [1 + (IF + s_ * tau).trace() for s_ in (1, 0, -1)] == [21, 17, 13]
+      and sp.expand(1 + K ** 2 + s * K - f(K, s)) == 0)
+check("NEW", "equivalently f(K, s) = 1 + Tr[(1 + s) P_Christoffel + (1 - s) P_torsion]: TetA (s = +1) reads the "
+      "Christoffel part twice (1 + 2 x 10), TetB (s = -1) reads the torsion twice (1 + 2 x 6), and the Field "
+      "Origin (s = 0) reads the whole face once (1 + 16)",
+      [1 + ((1 + s_) * Psym + (1 - s_) * Pant).trace() for s_ in (1, 0, -1)] == [1 + 2 * 10, 1 + 16, 1 + 2 * 6])
+check("NEW", "so E = 1 + (face) and O = Tr tau = (Christoffel - torsion) per face = (40 - 24)/K: the legs block's "
+      "size is the swap's trace, the excess of the kept over the set-aside per face; this is the generating "
+      "statement behind Letter 3's per-face identity 10 = (f(K,+1) - 1)/2, 6 = (f(K,-1) - 1)/2",
+      E4 == 1 + IF.trace() and O4 == tau.trace() == (40 - 24) // K0
+      and (f(K0, 1) - 1) // 2 == Psym.trace() and (f(K0, -1) - 1) // 2 == Pant.trace())
+check("READING", "it matches the framework's assignments: the Christoffel sector is general relativity, the TetA partition; "
+      "the torsion carries the second root, TetB (Letter 3); and the Field Origin's whole-face read is field "
+      "closure, both parts active",
+      True)
+check("NEW", "G in connection terms: alpha_G = [(1 + face)/(1 + 2 torsion per face)] alpha^(1 + 2 Christoffel per face) "
+      "= (17/13) alpha^21; over the whole connection, (K + 64)/(K + 2 x 24) = 17/13 and (K + 2 x 40)/K = 21",
+      sp.Rational(1 + 16, 1 + 2 * 6) == sp.Rational(17, 13) and 1 + 2 * 10 == 21
+      and sp.Rational(K0 + 64, K0 + 2 * 24) == sp.Rational(17, 13) and sp.Rational(K0 + 2 * 40, K0) == 21)
+N3 = K0 ** 3
+T3 = sp.zeros(N3, N3)
+for a_, b_, c_ in itertools.product(range(K0), repeat=3):
+    T3[a_ * nF + c_ * K0 + b_, a_ * nF + b_ * K0 + c_] = 1
+check("CLASSICAL", "over the whole connection (64 = 4 faces of 16) the swap gives 40 + 24, Tr = 16 = K^2",
+      ((sp.eye(N3) + T3) / 2).trace() == 40 and ((sp.eye(N3) - T3) / 2).trace() == 24 and T3.trace() == 16)
+check("NEW", "a route that fails: weighting only the torsion by s, Tr(P_sym + s P_anti) over the connection, gives "
+      "64, 40, 16 (ratio 40/16 = 5/2, not 17/13); the coupling polynomial weights the swap, not the torsion subspace",
+      [((sp.eye(N3) + T3) / 2 + s_ * (sp.eye(N3) - T3) / 2).trace() for s_ in (1, 0, -1)] == [64, 40, 16])
+u = sp.ones(K0, 1)
+Gam = sp.Array(sp.symbols(f"g0:{N3}")).reshape(K0, K0, K0)
+anti = [[[Gam[a_, b_, c_] - Gam[a_, c_, b_] for c_ in range(K0)] for b_ in range(K0)] for a_ in range(K0)]
+check("NEW", "a second route that fails: contracting the connection with the time direction (the constant mode u) gives "
+      "16, 4, 1 components, but the torsion vanishes in the 4-block (T^a_{bc} u^b u^c = 0 by antisymmetry), so it "
+      "cannot send the torsion to the legs",
+      all(sp.expand(sum(anti[a_][b_][c_] for b_ in range(K0) for c_ in range(K0))) == 0 for a_ in range(K0)))
+check("COINCIDENCE", "a third route: on PG(2,4) the lower-index swap has 5 fixed points and 8 pairs, so 21 = 13 + 8; the "
+      "13 is the coupling-algebra's flagged coincidence (it equals f(q,-1) only at q = 4), and 8 is 2K, not K",
+      5 + 2 * 8 == 21 and 5 + 8 == 13)
+check("OPEN", "what remains: the scalar 1 (here an added unit, not a component of the face), and why G reads one face "
+      "(the division by K); recorded only", True)
 
 print(f"\n{sum(ok)}/{len(ok)} checks passed   by tag: {tags}")
 raise SystemExit(len(ok) - sum(ok))

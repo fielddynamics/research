@@ -41,7 +41,20 @@
 === G. Open steps, probed
   [PASS] OPEN        why each level costs one factor of alpha: not addressed here (the parent folder's single physical assumption); recorded only
   [PASS] OPEN        the combination rule alpha^(TetA) x (Field Origin / TetB): in parity form it is alpha^(E+O) E/(E-O); this rewriting does not derive it (fitted after the fact among 21 rules, g_from_the_closure_climb.md)
-  [PASS] OPEN        can E/(E - O) come from the connection's split 64 = 40 (root-blind Christoffel) + 24 (torsion, TetB)? the counts do not match the read directly (64 = 1 + 3 x 21 states, not 21); a derivation would need a map from the 64 components onto the 21 read states sending torsion to the legs block; none is constructed
+  [PASS] OPEN        can E/(E - O) come from the connection's split 64 = 40 (Christoffel) + 24 (torsion)? no map sends the torsion to the legs block (part H: two natural routes fail); instead part H shows the root label weights the lower-index swap, which gives E, E + O and E - O exactly from one face
   [PASS] AUTOMATIC   the parent folder's one-loop split alpha/2pi = (2/17)(17 alpha/4pi) reads as (2/E)(E alpha/(K pi)); it holds for any E and carries no information
 
-31/31 checks passed   by tag: {'CLASSICAL': 12, 'NEW': 14, 'AUTOMATIC': 2, 'OPEN': 3}
+=== H. The connection's split: the root label is the weight of the lower-index swap
+  [PASS] CLASSICAL   on one face (the 16 components Gamma^a_{bc} at fixed upper index) the torsion-free condition is the swap tau of the lower indices: the symmetric part (Christoffel) has dimension K(K+1)/2 = 10, the antisymmetric part (torsion) K(K-1)/2 = 6, and Tr tau = K = 4
+  [PASS] NEW         the coupling polynomial is one plus the face trace of (1 + s tau): f(K, s) = 1 + Tr(1 + s tau) = 1 + K^2 + sK, giving 21, 17, 13
+  [PASS] NEW         equivalently f(K, s) = 1 + Tr[(1 + s) P_Christoffel + (1 - s) P_torsion]: TetA (s = +1) reads the Christoffel part twice (1 + 2 x 10), TetB (s = -1) reads the torsion twice (1 + 2 x 6), and the Field Origin (s = 0) reads the whole face once (1 + 16)
+  [PASS] NEW         so E = 1 + (face) and O = Tr tau = (Christoffel - torsion) per face = (40 - 24)/K: the legs block's size is the swap's trace, the excess of the kept over the set-aside per face; this is the generating statement behind Letter 3's per-face identity 10 = (f(K,+1) - 1)/2, 6 = (f(K,-1) - 1)/2
+  [PASS] READING     it matches the framework's assignments: the Christoffel sector is general relativity, the TetA partition; the torsion carries the second root, TetB (Letter 3); and the Field Origin's whole-face read is field closure, both parts active
+  [PASS] NEW         G in connection terms: alpha_G = [(1 + face)/(1 + 2 torsion per face)] alpha^(1 + 2 Christoffel per face) = (17/13) alpha^21; over the whole connection, (K + 64)/(K + 2 x 24) = 17/13 and (K + 2 x 40)/K = 21
+  [PASS] CLASSICAL   over the whole connection (64 = 4 faces of 16) the swap gives 40 + 24, Tr = 16 = K^2
+  [PASS] NEW         a route that fails: weighting only the torsion by s, Tr(P_sym + s P_anti) over the connection, gives 64, 40, 16 (ratio 40/16 = 5/2, not 17/13); the coupling polynomial weights the swap, not the torsion subspace
+  [PASS] NEW         a second route that fails: contracting the connection with the time direction (the constant mode u) gives 16, 4, 1 components, but the torsion vanishes in the 4-block (T^a_{bc} u^b u^c = 0 by antisymmetry), so it cannot send the torsion to the legs
+  [PASS] COINCIDENCE a third route: on PG(2,4) the lower-index swap has 5 fixed points and 8 pairs, so 21 = 13 + 8; the 13 is the coupling-algebra's flagged coincidence (it equals f(q,-1) only at q = 4), and 8 is 2K, not K
+  [PASS] OPEN        what remains: the scalar 1 (here an added unit, not a component of the face), and why G reads one face (the division by K); recorded only
+
+42/42 checks passed   by tag: {'CLASSICAL': 14, 'NEW': 20, 'AUTOMATIC': 2, 'OPEN': 4, 'READING': 1, 'COINCIDENCE': 1}

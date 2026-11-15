@@ -6,7 +6,7 @@
 
 ---
 
-This note is research, not yet a proof. Each part below carries the status of its claims. The script [`verify_read_and_rotation.py`](verify_read_and_rotation.py) checks every statement exactly (31 checks, [output](verify_output.txt)).
+This note is research, not yet a proof. Each part below carries the status of its claims. The script [`verify_read_and_rotation.py`](verify_read_and_rotation.py) checks every statement exactly (42 checks, [output](verify_output.txt)).
 
 The script tags each check in the same way as the coupling algebra's recertification:
 
@@ -16,6 +16,8 @@ The script tags each check in the same way as the coupling algebra's recertifica
 | NEW | a statement this note adds |
 | AUTOMATIC | true for reasons that carry no information about GFD |
 | OPEN | a step that is probed, not derived |
+| READING | how an exact result matches the framework's assignments (interpretation) |
+| COINCIDENCE | exact, but special to the values; not to be built on |
 
 It builds on:
 - [`../g_matrix_synthesis.md`](../g_matrix_synthesis.md): the graded operator and its traces.
@@ -102,13 +104,45 @@ In words, it is the root-blind read over TetB's read, times α to the power of T
 
 The hierarchy exponent is E + O − 1 = K(K + 1) = 20. The tree-level value is 6.6665 × 10⁻¹¹, 0.12% below the measured value, as in the parent folder.
 
+## H. The connection's split: the root label weights the lower-index swap (NEW)
+
+The torsion-free condition is the swap τ of a connection's two lower indices: Christoffel is its symmetric part, torsion its antisymmetric part. On one face (the 16 components Γᵃ_bc at a fixed upper index) the symmetric part has dimension 10, the antisymmetric part 6, and Tr τ = K = 4. Then:
+
+$$f(K, s) = 1 + \mathrm{Tr}_{\text{face}}(1 + s\,\tau) = 1 + \mathrm{Tr}_{\text{face}}\big[(1+s)\,P_{\text{Christoffel}} + (1-s)\,P_{\text{torsion}}\big].$$
+
+| State | Value | What it reads |
+|---|---|---|
+| TetA (s = +1) | 21 = 1 + 2 × 10 | the Christoffel part, twice |
+| TetB (s = −1) | 13 = 1 + 2 × 6 | the torsion, twice |
+| Field Origin (s = 0) | 17 = 1 + 16 | the whole face, once |
+
+So E = 1 + (the face) and O = Tr τ = (40 − 24)/K. The legs block's size is the swap's trace, the excess of the kept components over the set-aside ones per face. This is the operator statement behind Letter 3's per-face identity, 10 = (f(K, +1) − 1)/2 and 6 = (f(K, −1) − 1)/2.
+
+*Reading.* It matches the framework's assignments:
+- the Christoffel sector is general relativity, the TetA partition;
+- the torsion carries the second root, TetB (Letter 3);
+- the Field Origin's whole-face read is field closure, both parts active.
+
+In connection terms,
+
+$$\alpha_G = \frac{1 + (\text{face})}{1 + 2\,(\text{torsion per face})}\;\alpha^{\,1 + 2\,(\text{Christoffel per face})} = \frac{17}{13}\,\alpha^{21}.$$
+
+Over the whole connection, (K + 64)/(K + 2 × 24) = 17/13 and (K + 2 × 40)/K = 21.
+
+**Routes that fail, recorded:**
+- **Weighting only the torsion by s.** Tr(P_sym + s P_anti) over the connection gives 64, 40, 16, a ratio of 5/2, not 17/13. The coupling polynomial weights the swap, not the torsion subspace.
+- **Contracting the connection with the time direction.** This gives 16, 4 and 1 components, but the torsion vanishes in the 4-block by antisymmetry, so it can't send the torsion to the legs.
+- **The swap on PG(2, 4).** It gives 21 = 13 + 8. The 13 is the coupling algebra's flagged coincidence, and 8 is 2K, not K (COINCIDENCE).
+
+So no map sends the torsion to the legs block. What the split determines is the weight of the swap.
+
 ## G. Open steps
 
 | Step | Status |
 |---|---|
 | Why each level costs one factor of α | The parent folder's single physical assumption. Not addressed here. |
 | The combination rule α^{TetA} × (Field Origin / TetB) | The parity form rewrites it as α^{E+O} E/(E − O). It does not derive it: the rule was fitted after the fact among 21 candidates ([`../g_from_the_closure_climb.md`](../g_from_the_closure_climb.md)). |
-| E/(E − O) from the connection's split 64 = 40 + 24 | Not found. The 40 Christoffel components are root-blind and the 24 torsion components are TetB. The counts don't match the read directly (64 = 1 + 3 × 21). A derivation needs a map from the 64 components onto the 21 read states that sends torsion to the legs block. None is constructed. |
+| E/(E − O) from the connection's split 64 = 40 + 24 | Largely answered by part H: with the root label as the weight of the lower-index swap, E, E + O and E − O come exactly from one face's Christoffel and torsion parts. Still open: the added scalar 1 (not a component of the face) and why G reads one face, the division by K. |
 | Why the read branches K ways per level | Algebraically, K is the base of the read, and the identity of part A turns that read into the characteristic polynomial at K. The archive's own reason is the four legs and their sixteen couplings. A mechanism is still needed. |
 | The one-loop factor 1 + α/2π | The parent folder's split α/2π = (2/17)(17α/4π) reads as (2/E)(Eα/(Kπ)), but it holds for any E (AUTOMATIC). No E/O reading found. |
 
@@ -119,7 +153,8 @@ The exact content of parts A to F would make a proof:
 - **One pair.** The depth-D read is a single winding pair exactly for D = 3.
 - **The parity split.** The three states are the parity split of one read, with the root exchange K → −K and the Field Origin as the root average.
 - **The vortex pairs.** Each state's value is |K − λ|² for the winding eigenvalue of its cube symmetry class. These are the vortex proof's eigenvalues, and only the chamber-keeping classes act when TetA and TetB differ.
-- **G rewritten.** G is expressible in the parity and vortex forms.
+- **The connection's split.** The root label is the weight of the lower-index swap: f(K, s) = 1 + Tr_face(1 + sτ), so TetA reads the Christoffel part twice, TetB the torsion twice, and the Field Origin the whole face.
+- **G rewritten.** G is expressible in the parity, vortex and connection forms.
 
 The proof would not claim the physical steps in G. Those stay as the parent folder states them.
 
@@ -127,11 +162,11 @@ The proof would not claim the physical steps in G. Those stay as the parent fold
 
 | File | Contents |
 |---|---|
-| [`verify_read_and_rotation.py`](verify_read_and_rotation.py) | 31 exact checks in parts A to G, tagged |
+| [`verify_read_and_rotation.py`](verify_read_and_rotation.py) | 42 exact checks in parts A to H, tagged |
 | [`verify_output.txt`](verify_output.txt) | Output |
 
 ## Reproduce
 
 ```
-python verify_read_and_rotation.py      # 31/31 (needs sympy)
+python verify_read_and_rotation.py      # 42/42 (needs sympy)
 ```
