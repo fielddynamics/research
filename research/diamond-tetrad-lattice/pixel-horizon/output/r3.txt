@@ -1,0 +1,12 @@
+tiling, amplitudes ~ temperatures:  x = tA/tB = g/(H*c)  -> mu(x) = x/(1+x) with a0 = H*c
+isolated pixel, squares ~ temperatures: share variable (tA/tB)^2 = g**2/(H**2*c**2)  -> mu would need g/a0 itself, not its square: no Tully-Fisher (Q4)
+T_U(a) = T_GH  gives a = H*c
+dimension check of the repo's T_GH = hbar H/(2 pi kB c): T_GH_repo / T_GH = 1/c (a temperature divided by a speed: not a temperature)
+T_U(a) = T_GH_repo gives a = H (not an acceleration either)
+
+numbers, H0 = 70 km/s/Mpc = 2.2685e-18 /s:
+  cH0       = 6.801e-10 m/s^2  (what the temperature ratio gives)
+  cH0/2pi   = 1.082e-10 m/s^2  (the repo's a0)
+  empirical a0 = 1.2e-10 m/s^2: ratio cH0/a0 = 5.67, (cH0/2pi)/a0 = 0.902
+
+R3 PASS (reported) - in the tiling picture the temperature ratio has the right form, x = g/(cH), so the fixed TetB coupling would be the horizon temperature; but the scale it gives is a0 = cH (5.7 x too large), not cH/2pi. The repo's cH/2pi needs a further 1/(2 pi) that the standard temperatures do not supply.

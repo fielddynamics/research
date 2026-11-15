@@ -1,0 +1,6 @@
+isolated pixel: characteristic polynomial depends only on tA^2 + tB^2: True | symmetric under exchange: True
+tiling: exchange sends F(k) to F(k)* (conjugates the Bloch phase): True
+tiling: |F(k)|^2, hence both bands E(k) = (Delta -+ sqrt(Delta^2 + 4|F|^2))/2, unchanged by exchange: True
+tiling: at a generic k the phase changes sign under exchange: arg F = +0.016712, after exchange -0.016712: True
+
+R1 PASS - no energy tells TetA from TetB; exchange conjugates the tiling's Bloch phase. Energies are root-blind, phases root-resolving, as metric and frame in the Gram-matrix proof

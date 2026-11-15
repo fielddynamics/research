@@ -1,0 +1,7 @@
+even part: 4(tA + tB) - (tA + tB) k^2/2 + O(k^4): True | O(k^4) coefficient (t_A + t_B)*(k_x**4 + 6*k_x**2*k_y**2 + 6*k_x**2*k_z**2 + k_y**4 + 6*k_y**2*k_z**2 + k_z**4)/96
+odd part: only -(i/2)(tA - tB) kx ky kz at third order (nothing at first): True | O(k^4) real: True
+arg F = -(sigma/8) kx ky kz + O(k^5): True
+with the tiling law tA : tB = g : a0, sigma = 2 mu - 1 = (x - 1)/(x + 1): True | zero at the ring, opposite signs inside and outside, odd under exchange x -> 1/x
+the phase's k-dependence kx ky kz is odd under parity k -> -k: True
+
+R2 PASS - the TetA/TetB asymmetry enters the tiling's waves only through the parity character kx ky kz, with strength 2 mu - 1, vanishing at the ring and reversing across it
