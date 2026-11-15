@@ -1,0 +1,381 @@
+\documentclass[twocolumn]{iopjournal}
+
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{amsthm}
+
+\fancyhfoffset[L]{0mm}
+\setlength{\marginparwidth}{0pt}
+\setlength{\marginparsep}{0pt}
+
+% ==========================================
+% ZENODO PREPRINT HEADERS (ACTIVE)
+% ==========================================
+\renewcommand{\articletype}[1]{%
+  {\vspace*{-8mm}\noindent \Large \sf Preprint}\par
+  \vspace*{6mm}\noindent{\scriptsize \sf{\bfseries \MakeUppercase{#1}}}}
+
+\fancyhead[L]{}
+\fancyhead[R]{}
+
+\hypersetup{pdftitle={Vortices of the Stellated Octahedron}, pdfauthor={Stephen Nelson}, pdfsubject={Gravity Field Dynamics (GFD)}, pdfkeywords={stellated octahedron, vortex, standing wave, tetrahedral symmetry, Field Origin, proof}}
+
+\newtheorem{lemma}{Lemma}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+\begin{document}
+
+\articletype{Proof}
+
+\title{The Walsh Eigenmodes of the Pixel, and What Closure Reads}
+
+\author{Stephen Nelson}
+
+\affil{Field Dynamics Research}
+
+\ead{stephen@fielddynamics.org}
+
+\begin{abstract}
+The eight Walsh functions $1, x, y, z, yz, xz, xy, xyz$ on the corners of
+the cube are known to be its eigenmodes. We ask which of them the GFD
+pixel holds, and which of them closure can read. Under the pixel's
+symmetry $T_d$ the corners carry $2A_1 \oplus 2T_2$: the \emph{uniform and
+parity modes} $1$ and $xyz$ span $A_1$, and the six \emph{direction modes}
+span two copies of $T_2$. We prove that every Walsh function is an
+eigenmode of a $T_d$-invariant operator exactly when TetA and TetB are
+alike (full cube symmetry); otherwise the grades pair, $1 \leftrightarrow
+xyz$ and $x \leftrightarrow yz$, $y \leftrightarrow xz$, $z \leftrightarrow
+xy$, with mixing angles in closed form. The pixel's vortices lie entirely
+in the direction modes, and on the plain cube two degenerate Walsh
+standing waves combine into a circulating one. Closure reads the two
+sectors separately and completely: every $T_d$-equivariant linear
+direction readout of a tetrahedron is Letter~1's frame readout, which by
+closure is blind to the uniform mode and reads exactly the direction
+modes; every equivariant scalar readout reads only $1$ and $xyz$. In the
+archive's oscillator node, the closure's $\mu$ is the TetA share, a
+function of $1$ and $xyz$ alone, and its amplitude closure sees only the
+total Walsh power, by Parseval. For an eigenmode of the $A_1$ block,
+$\mu = x/(1+x)$ holds exactly when the mixing angle satisfies
+$\tan\theta = 1/x$. Every statement is checked exactly, or on the node's
+own code.
+\end{abstract}
+
+\keywords{Walsh functions, Hadamard, eigenmodes, standing wave,
+tetrahedral symmetry, closure, stellated octahedron, proof}
+
+% ======================================================================
+
+\section*{Setting}
+
+\textbf{The cube.} The corners are $s \in \{\pm1\}^3$; TetA is the four
+with $xyz = +1$ and TetB the four with $xyz = -1$~\cite{NelsonHadamard}.
+The Walsh functions are $w_S(s) = \prod_{d\in S}s_d$ for
+$S \subseteq \{x, y, z\}$, of \emph{grade} $\lvert S\rvert$; they are
+orthogonal, $w_S\cdot w_T = 8\delta_{ST}$. We call $1$ and $xyz$ the
+\emph{uniform and parity modes}, and $x, y, z, yz, xz, xy$ the
+\emph{direction modes}. On TetA, $yz = x$, $xz = y$, $xy = z$, and the
+Walsh matrix factorises as $H_2 \otimes \hat H$, with $H_2$ spatial
+parity and $\hat H$ the bordered frame~\cite{NelsonHadamard}.
+
+\textbf{Symmetries.} $F \cong \mathbb Z_2^3$ is the group of coordinate
+sign flips, the cube's bit flips. $T_d$ (24 elements) is the group of
+signed permutations that keep TetA, and hence TetB; $O_h = T_d \times
+\{\pm I\}$, where the inversion $-I$ swaps TetA and TetB. A group acts on
+corner amplitudes by $(g\psi)(gs) = \psi(s)$.
+
+\textbf{Operators.} $H$ is a real symmetric operator on the eight corner
+amplitudes: a Hamiltonian, or the coupling matrix of eight oscillators,
+whose real eigenmodes are standing waves~\cite{NelsonVortex}.
+
+% ======================================================================
+
+\section{The Walsh functions are the cube's eigenmodes}
+
+\begin{theorem}[Known]
+\label{thm:walsh}
+$H$ commutes with every bit flip if and only if every Walsh function is
+an eigenmode of $H$; such $H$ have 8 free parameters, one eigenvalue per
+Walsh function. In particular the cube graph has $Aw_S = (3 -
+2\lvert S\rvert)w_S$, and its Laplacian $L = 3I - A$ has $Lw_S =
+2\lvert S\rvert\,w_S$~\cite{ODonnell2014}. Each $w_S$ is real, so as a
+mode of coupled oscillators it is a standing wave and carries no current.
+\end{theorem}
+
+\begin{proof}
+The $w_S$ are the eight distinct characters of $F$, so $F$ acts on the
+corner space without multiplicity, and by Schur's
+lemma~\cite{Serre1977} an operator commuting with $F$ is diagonal in the
+character basis; conversely a Walsh-diagonal operator commutes with $F$.
+A bit flip at $s$ changes $w_S$ by the factor $-1$ for each of the
+$\lvert S\rvert$ coordinates in $S$, which gives $A$.
+\end{proof}
+
+% ======================================================================
+
+\section{The pixel pairs the grades}
+
+\begin{theorem}[Walsh modes of the pixel]
+\label{thm:pairing}
+\begin{enumerate}
+\item[(i)] Under $T_d$ the corners carry $2A_1 \oplus 2T_2$: $1$ and
+  $xyz$ are each invariant and span $A_1$; grade 1 ($x, y, z$) and grade 2
+  ($yz, xz, xy$) are each a copy of $T_2$. Multiplying by $xyz$ commutes
+  with $T_d$ and maps grade 1 onto grade 2.
+\item[(ii)] The most general $T_d$-invariant $H$ has six parameters:
+  corner energies $\epsilon_A, \epsilon_B$; face-diagonal couplings
+  $h_{AA}, h_{BB}$ inside each chamber; cube-edge and body-diagonal
+  couplings $h_e, h_d$ between the chambers. In the chamber basis
+  ($u_{A,B}$, the normalised indicators; $f^d_{A,B}$, the coordinate $s_d$
+  restricted to a chamber and normalised),
+  \begin{equation}
+  H = \begin{pmatrix}\alpha_A & \beta\\ \beta & \alpha_B\end{pmatrix}
+  \oplus
+  \begin{pmatrix}\gamma_A & \delta\\ \delta & \gamma_B\end{pmatrix}^{\oplus 3},
+  \label{eq:blocks}
+  \end{equation}
+  with $\alpha_{A,B} = \epsilon_{A,B} + 3h_{AA,BB}$, $\beta = 3h_e + h_d$,
+  $\gamma_{A,B} = \epsilon_{A,B} - h_{AA,BB}$ and $\delta = h_e - h_d$.
+  In this basis $1 \propto u_A + u_B$, $xyz \propto u_A - u_B$,
+  $x \propto f^x_A + f^x_B$ and $yz \propto f^x_A - f^x_B$.
+\item[(iii)] Every Walsh function is an eigenmode of $H$ if and only if
+  $\epsilon_A = \epsilon_B$ and $h_{AA} = h_{BB}$, that is, if and only
+  if $H$ is $O_h$-invariant (TetA and TetB alike). The eigenvalues are
+  then $\alpha \pm \beta$ on $1$ and $xyz$, and $\gamma + \delta$,
+  $\gamma - \delta$ on grades 1 and 2.
+\item[(iv)] Otherwise $H$ mixes exactly the pairs $1 \leftrightarrow
+  xyz$ and $x \leftrightarrow yz$, $y \leftrightarrow xz$, $z
+  \leftrightarrow xy$, the pairs related by multiplying by $xyz$. The
+  eigenmodes are $(\cos\theta, \sin\theta)$ in the chamber basis of each
+  block, with
+  \begin{equation}
+  \tan 2\theta_{A_1} = \frac{2\beta}{\alpha_A - \alpha_B},\quad
+  \tan 2\theta_{T_2} = \frac{2\delta}{\gamma_A - \gamma_B},
+  \label{eq:mixing}
+  \end{equation}
+  and a mode's weight on the lower Walsh grade of its pair is
+  $(\cos\theta + \sin\theta)^2/2$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(i) By characters: $1$ and $xyz$ are $T_d$-invariant (every element of
+$T_d$ keeps the chambers); grade 1 transforms as the coordinates, which is
+$T_2$ of $T_d$; $xyz$ is invariant, so multiplication by it is
+equivariant and carries grade 1 to grade 2. (ii) $T_d$ has two orbits of
+corners and four of corner pairs (distances $2\sqrt2$ inside each
+chamber, $2$ and $2\sqrt3$ between them). By Schur, $H$ preserves the
+$A_1$ and $T_2$ parts and acts on $T_2$ as a $2\times2$ matrix tensored
+with $I_3$; the entries follow from row sums (each corner has three
+chamber partners, three edge partners and one diagonal partner) and, on
+$T_2$, from $\sum_{b \sim a} s_d(b) = s_d(a)$ along edges and $s_d(-a) =
+-s_d(a)$. (iii) In each block, $(1, \pm1)$ are eigenvectors if and only
+if the diagonal entries agree, i.e.\ $\alpha_A = \alpha_B$ and $\gamma_A =
+\gamma_B$; this is $\epsilon_A = \epsilon_B$, $h_{AA} = h_{BB}$, which is
+invariance under $-I$, since $-I$ swaps the chambers and fixes the
+edge and diagonal pairs. Under $O_h$ the four grades are four
+inequivalent representations ($-I$ gives grade $\lvert S\rvert$ the sign
+$(-1)^{\lvert S\rvert}$). (iv) is the eigenproblem of a real symmetric
+$2\times2$ matrix.
+\end{proof}
+
+\begin{corollary}[Vortices are made of direction modes]
+In the 15-site pixel (Field Origin, octahedron, corners)~\cite{NelsonVortex}
+the sites carry $4A_1 \oplus E \oplus 3T_2$: two $T_2$ copies on the
+corners and one on the octahedron. The rotoreflection $S$ has eigenvalue
+$+i$ only on $T_2$, so the winding space $V_{+i}$ takes one vector from
+each $T_2$ copy. Every vortex of the pixel is therefore built from the
+direction modes: its corner part has no component on $1$ or $xyz$, and
+the uniform and parity modes never wind.
+\end{corollary}
+
+\begin{proof}
+Characters, as in Theorem~\ref{thm:pairing}(i). $S$ acts as the identity
+on $A_1$, has eigenvalues $\pm1$ on $E$ ($S^2$ is a rotation by $\pi$,
+which acts trivially on $E$), and has eigenvalues $i, -i, -1$ on each
+$T_2$.
+\end{proof}
+
+\begin{proposition}[Two standing waves make a vortex]
+\label{prop:cube}
+On the cube graph, $H = tA$ with $t > 0$ (full cube symmetry), $\psi = x +
+iy$ is an eigenmode at the doubly degenerate grade-1 energy $t$. It winds
+under the quarter turn $C_4$ about $\hat z$, $C_4\psi = -i\psi$, and
+carries the circulating current $-8t$ (that is, $-t/2$ per unit norm)
+through every half-plane bounded by the $z$ axis, counted as the physical
+flow $J_{i\to j} = 2\,\mathrm{Im}(\bar\psi_jH_{ji}\psi_i)$ in the
+right-handed sense~\cite{NelsonVortex}. The Walsh modes $x$ and $y$
+alone carry none.
+\end{proposition}
+
+\begin{proof}
+$Ax = x$ and $Ay = y$ (Theorem~\ref{thm:walsh}); $C_4$ sends $x \mapsto y$
+and $y \mapsto -x$ on functions, so $C_4\psi = y - ix = -i\psi$. The
+current through three half-planes is computed exactly; a real mode has
+$\mathrm{Im}(\psi_jH_{ji}\psi_i) = 0$.
+\end{proof}
+
+When TetA and TetB differ, the plain quarter turn is no longer a
+symmetry and grade 1 mixes with grade 2 (Theorem~\ref{thm:pairing}); the
+pixel's vortices then wind under $S$ instead~\cite{NelsonVortex}.
+
+% ======================================================================
+
+\section{Closure reads exactly the direction modes}
+
+\begin{theorem}[What closure reads]
+\label{thm:closure}
+\begin{enumerate}
+\item[(i)] Every linear map $R$ from TetA's four corner amplitudes to
+  $\mathbb R^3$ with $R(g\psi) = gR(\psi)$ for all $g \in T_d$ is a
+  multiple of Letter~1's frame readout $\psi \mapsto \sum_i \psi_iv_i$,
+  where $v_1, \dots, v_4$ are the legs (the TetA corners)~\cite{NelsonL1}.
+\item[(ii)] The frame readout annihilates the uniform mode exactly
+  because of closure, $v_1 + v_2 + v_3 + v_4 = 0$, and is injective on
+  the sum-zero modes. These are the direction modes on TetA, where its
+  three rows are $x = yz$, $y = xz$ and $z = xy$.
+\item[(iii)] On all eight corners the equivariant direction readouts form
+  a two-dimensional space, spanned by the grade-1 readout
+  $\sum_k\psi_k s_k$ and the grade-2 readout $\sum_k\psi_k\,(xyz)(s_k)\,
+  s_k$, equivalently by the TetA and TetB frames. Both vanish on $1$ and
+  $xyz$. Every equivariant scalar readout, conversely, is constant on each
+  chamber, so it reads only $1$ and $xyz$.
+\end{enumerate}
+So the symmetric linear readouts split the eight Walsh functions
+completely: directions read exactly the six direction modes, scalars read
+exactly the uniform and parity modes, and no symmetric linear readout
+does anything else.
+\end{theorem}
+
+\begin{proof}
+TetA's corners carry $A_1 \oplus T_2$ and $\mathbb R^3$ carries $T_2$, so
+$\mathrm{Hom}_{T_d}$ is one-dimensional (Schur), and the frame readout is
+equivariant and nonzero. Its kernel is the $A_1$ part, the uniform mode,
+and $\sum_i v_i = 0$ is the statement that the uniform mode maps to zero.
+On eight corners $\mathrm{Hom}_{T_d}(2A_1 \oplus 2T_2, T_2)$ has
+dimension 2 and $\mathrm{Hom}_{T_d}(2A_1 \oplus 2T_2, A_1)$ has dimension
+2; the stated readouts are equivariant and independent. All three
+statements are also solved directly from the linear equivariance
+equations.
+\end{proof}
+
+% ======================================================================
+
+\section{What the oscillator node's closure reads}
+
+The archive's octahedral resonance node~\cite{NelsonPixelated} drives
+eight corner oscillators, mixes them, and forms a vertex state $v_k$ with
+Walsh coefficients $c_S = \frac18\sum_k w_S(s_k)v_k$. Its closure has two
+parts: it computes $\mu = (1 + c_{xyz}/c_1)/2$, and it relaxes every
+corner amplitude toward a target $a^*$ at rate $\kappa = 0.02$, where $a^*
+= r/(1 + r)$ in the bounded rule and $\min(r, 5)$ in the original, with
+$r^2$ the mean energy of the two mixes.
+
+\begin{theorem}[The node's closure]
+\label{thm:node}
+\begin{enumerate}
+\item[(i)] $\mu = S_A/(S_A + S_B)$, the TetA share of the vertex state
+  ($S_{A,B}$ the sums over each chamber). It depends only on the uniform
+  and parity modes, so adding any direction modes, in particular any
+  vortex (Corollary~1), leaves it unchanged.
+\item[(ii)] The energy that drives the closure is
+  $\sum_kv_k^2 = 8\sum_Sc_S^2$ (Parseval), the total Walsh power. Every
+  corner has the same target, so while no clamp is active the spread
+  between corner amplitudes contracts by exactly $1 - \kappa$ per step,
+  whatever the signal; and at equal amplitudes a step multiplies the
+  carrier's whole Walsh spectrum by one factor.
+\item[(iii)] For an eigenmode $(\cos\theta, \sin\theta)$ of the $A_1$
+  block (\ref{eq:blocks}), $\mu = 1/(1 + \tan\theta)$. Hence $\mu =
+  x/(1+x)$ exactly when $\tan\theta_{A_1} = 1/x$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(i) $c_1 = (S_A + S_B)/8$ and $c_{xyz} = (S_A - S_B)/8$, since $xyz = \pm1$
+on the two chambers. (ii) Parseval for the orthogonal Walsh basis. The
+update $a_k \leftarrow a_k + \kappa(a^* - a_k)$ with one $a^*$ for all
+$k$ gives $a_k - a_j \leftarrow (1-\kappa)(a_k - a_j)$; the carrier is
+linear in a common amplitude. (iii) The mode has $S_A = 2\cos\theta$ and
+$S_B = 2\sin\theta$. Checked on the node's own code for 800 steps in both
+modes.
+\end{proof}
+
+% ======================================================================
+
+\section{Remarks}
+
+\begin{remark}[What has been proved]
+Within the stated class, three things are now theorems. The pixel holds
+the Walsh modes exactly when TetA and TetB are alike, and holds them in
+pairs, rotated by (\ref{eq:mixing}), when they differ. Its vortices are
+made of the direction modes. And any symmetric linear readout must read
+the Walsh spectrum in two sectors: closure of the frame reads the six
+direction modes and is blind to the uniform and parity modes, while
+$\mu$ reads those two and is blind to the directions. The node's closure
+sees the rest of the spectrum only through its total power.
+\end{remark}
+
+\begin{remark}[Not claimed]
+That the physical field is this node, or closes this way; that its
+readouts are linear; or that the field's $A_1$ mixing angle satisfies
+$\tan\theta = a_0/g$. Theorem~\ref{thm:node}(iii) turns that last
+question into a test: it is what $\mu = x/(1+x)$ requires of the uniform
+and parity block.
+\end{remark}
+
+% ======================================================================
+
+\section*{Verification}
+
+\texttt{verify\_walsh\_eigenmodes.py} runs 34 checks: exact
+representation theory over $T_d$ and $O_h$, the general bit-flip and
+$T_d$-invariant operators solved symbolically in all parameters, the
+blocks (\ref{eq:blocks}) and the condition of
+Theorem~\ref{thm:pairing}(iii) solved exactly, the pixel's
+decomposition and winding space, Proposition~\ref{prop:cube} through
+three half-planes, the equivariant readouts solved from their linear
+equations, and Theorem~\ref{thm:node} both symbolically and on the node's
+code (\texttt{octahedral\_node.py} in~\cite{NelsonPixelated}).
+
+\begin{thebibliography}{9}
+
+\bibitem{NelsonHadamard}
+S.~Nelson,
+\textit{The Stellated Octahedron, the Cube and the Hadamard Matrix},
+Field Dynamics Research (2026),
+\url{proofs/hadamard-cube-frame}.
+
+\bibitem{NelsonVortex}
+S.~Nelson,
+\textit{Vortices of the Stellated Octahedron},
+Field Dynamics Research (2026),
+\url{proofs/vortices-of-the-stellated-octahedron}.
+
+\bibitem{NelsonL1}
+S.~Nelson,
+\textit{The Coordinate-Space Geometry of the Tetrad Frame} (Letter~1),
+Field Dynamics Research (2026).
+
+\bibitem{NelsonPixelated}
+S.~Nelson,
+\textit{The Universe Is Pixelated}, research note with the octahedral
+resonance node, Field Dynamics Research (2026),
+\url{research/universe-is-pixelated}.
+
+\bibitem{ODonnell2014}
+R.~O'Donnell,
+\textit{Analysis of Boolean Functions}
+(Cambridge University Press, Cambridge, 2014).
+
+\bibitem{Serre1977}
+J.-P.~Serre,
+\textit{Linear Representations of Finite Groups}
+(Springer, New York, 1977).
+
+\end{thebibliography}
+
+\end{document}
