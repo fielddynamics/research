@@ -1,0 +1,70 @@
+==============================================================================
+A. The Walsh functions are the cube's eigenmodes
+==============================================================================
+  [PASS] the 8 Walsh functions are orthogonal, w_S . w_T = 8 delta_ST
+  [PASS] each is a character of the bit-flip group Z2^3 (sign flips of the coordinates): F w_S = chi_S(F) w_S
+  [PASS] an operator commutes with every bit flip iff it is diagonal in the Walsh basis: 8 free parameters (one eigenvalue per Walsh function), all off-diagonal Walsh entries vanish
+  [PASS] cube graph: A w_S = (3 - 2|S|) w_S and the Laplacian L = 3I - A has L w_S = 2|S| w_S (O'Donnell 2014)
+
+==============================================================================
+B. T_d pairs the Walsh grades: on the cube, and in the pixel
+==============================================================================
+  [PASS] T_d (signed permutations keeping TetA) has 24 elements, and keeps TetB; O_h = T_d x {I, -I} has 48
+  [PASS] the 8 corners carry 2A1 + 2T2 under T_d
+  [PASS] grades 0 and 3 (1 and xyz) are each T_d-invariant: they span the A1 part
+  [PASS] grade 1 (x, y, z) and grade 2 (yz, xz, xy) are each T_d-invariant and each carries T2
+  [PASS] multiplying by xyz maps grade 1 onto grade 2 (x -> yz, y -> xz, z -> xy) and commutes with T_d
+  [PASS] with full cube symmetry O_h the four grades are four different representations (spatial inversion -I gives grade |S| the sign (-1)^|S|), so no O_h-invariant operator mixes grades
+  [PASS] the most general T_d-invariant real symmetric operator on the corners has 6 parameters: corner energies eps_A, eps_B; couplings h_AA, h_BB (face diagonals in a chamber), h_e (cube edges), h_d (body diagonals)
+  [PASS] Q orthonormal, and in the chamber basis H = [[eps_A + 3h_AA, 3h_e + h_d], [3h_e + h_d, eps_B + 3h_BB]] on A1 plus three copies of [[eps_A - h_AA, h_e - h_d], [h_e - h_d, eps_B - h_BB]] on T2
+  [PASS] Walsh grades in the chamber basis: 1 = sqrt2 (uA + uB), xyz = sqrt2 (uA - uB), x = fA_x + fB_x, yz = fA_x - fB_x
+  [PASS] every Walsh function is an eigenmode of H iff eps_A = eps_B and h_AA = h_BB (TetA and TetB alike); the A-B couplings h_e, h_d are unrestricted
+  [PASS] and then the eigenvalues are: 1 -> alpha + beta, xyz -> alpha - beta, grade 1 -> gamma + delta, grade 2 -> gamma - delta (alpha = eps + 3h_AA, beta = 3h_e + h_d, gamma = eps - h_AA, delta = h_e - h_d)
+  [PASS] mixing: (cos t, sin t) in the chamber basis is an eigenvector of [[a, c], [c, b]] iff (b - a) sin 2t / 2 + c cos 2t = 0, i.e. tan 2t = 2c/(a - b); Walsh content: weight of 1 (resp. x) is (cos t + sin t)^2/2
+  [PASS] when TetA and TetB differ, H mixes exactly the pairs 1 <-> xyz and x <-> yz, y <-> xz, z <-> xy (the pairs related by multiplying by xyz) and nothing else (exact point)
+
+==============================================================================
+C. The vortices are built from the T2 modes
+==============================================================================
+  [PASS] the octahedron's six vertices carry A1 + E + T2, and the 15-site pixel carries 4A1 + E + 3T2 (two T2 copies on the corners, one on the octahedron)
+  [PASS] the pixel Hamiltonian (Field Origin, octahedron with its edges, corners; 10 parameters) is T_d-invariant
+  [PASS] Proposition 1(i) [pixel, TetA and TetB alike]: the four projectors (T_d type x inversion parity) commute with every O_h-invariant pixel H, and the corner part of each lies in one Walsh grade (0: A1 even, 3: A1 odd, 1: T2 odd, 2: T2 even); so the pixel has an eigenbasis whose corner parts are pure Walsh grades
+  [PASS] Proposition 1(ii) [pixel, TetA and TetB differ; numerical, 1e-9]: each T2 eigenmode's corner part is an eigenvector of the energy-dependent corner operator H_eff(E) = H_cc + H_cr (E - H_rr)^-1 H_rc, so its grade-1/grade-2 mix depends on the mode: shares [np.float64(0.0073), np.float64(0.8289), np.float64(0.9787)] at one parameter point
+  [PASS] and H_eff(E) is T_d-invariant (it is built from T_d-invariant blocks; checked at E = 0.37), so it has the cube's block form (Theorem 2) with E-dependent entries: the pairing holds in the pixel, mode by mode
+  [PASS] the rotoreflection S has eigenvalue +i only in the T2 part: V_{+i} has dimension 3, lies in the T2 isotypic part, and A1 and E contain no +i vector (S acts on them with eigenvalues 1 and +-1)
+  [PASS] so on the corners every winding state (hence every vortex) has no grade-0 or grade-3 component: its corner part is a combination of the six T2 modes x, y, z, yz, xz, xy
+  [PASS] Proposition 2: on the cube graph (H = t A, full cube symmetry), x + i y is an eigenmode at the triply degenerate grade-1 energy t (x, y, z), winds under the quarter turn C4 about z (C4 psi = -i psi), and carries the same nonzero current -8*t through three half-planes; x and y alone carry none
+
+==============================================================================
+D. What frame closure and field closure read
+==============================================================================
+  [PASS] Theorem 3(i): every T_d-equivariant linear map from TetA's four corner amplitudes to a 3-vector is a multiple of the frame readout psi -> sum_i psi_i v_i (one free constant, Schur)
+  [PASS] Theorem 3(ii): frame closure is forced by the symmetry: the legs are one T_d-orbit and T_d fixes no nonzero vector (T2 has no invariant), so v1 + v2 + v3 + v4 = 0; and frame closure is the same equation as the frame readout's blindness to the uniform mode (frame * 1 = sum v_i). The readout is injective on the sum-zero modes
+  [PASS] Theorem 3(iii), one root: TetA's readouts (its sum S_A and its frame) have rank 4 on the 8 corners and kill every amplitude on TetB; in Walsh terms they see only the sums w_S + w_complement(S) (the collapse of the Hadamard cube frame proof), so they read half of the spectrum
+  [PASS] Theorem 3(iv), field closure (both roots active): S_A, S_B and the TetA and TetB frames together form an invertible 8 x 8 readout, so they read all eight Walsh functions; S_A, S_B read exactly 1 and xyz, and the two frames exactly the six T2 modes
+  [PASS] and these are all of them: the T_d-equivariant direction readouts of the 8 corners form a 2-dimensional space (spanned by the two frames) and the invariant scalar readouts a 2-dimensional space (spanned by S_A and S_B); every equivariant linear readout factors through the field-closed readout
+  [PASS] the split into the two sectors is a property of linear readouts: a quadratic invariant such as the squared length of TetA's frame readout is a scalar that reads the T2 modes (it is not a function of S_A, S_B)
+  [PASS] mu = S_A / (S_A + S_B) uses S_B: no readout of TetA alone determines it (two states with the same TetA readouts and different mu)
+
+==============================================================================
+E. What the oscillator node's closure rule reads (research/universe-is-pixelated/octahedral_node.py)
+==============================================================================
+  [PASS] the node's corner order and Walsh table match: its TetA indices [0,3,5,6] are the xyz = +1 corners and its 8 Walsh columns are 1, x, y, z, xy, xz, yz, xyz
+  [PASS] Theorem 4(i): the node's mu = (1 + c_xyz / c_1)/2 is the TetA share S_A/(S_A + S_B) of the vertex state
+  [PASS] so mu reads only the A1 modes (grades 0 and 3): adding any combination of the six T2 modes x, y, z, xy, xz, yz to the vertex state leaves mu unchanged
+  [PASS] Theorem 4(ii), Parseval: the energy sum_k v_k^2 that drives the closure rule equals 8 sum_c c_c^2, the total Walsh power
+  [PASS] the node's closure rule has three updates. Run for 800 ticks in both modes: (1) every corner amplitude relaxes toward one target, a function of the total Walsh power only (r/(1+r) bounded, min(r, 5) original; r^2 = mean power); (2) every outward coupling relaxes toward one target (1 bounded, min(r, 5) original)
+  [PASS] (3) the inward couplings follow c_k += rate * sign(f_k b_k) (1 - |c_k|): a corner-local, signal-dependent rule, inert in the archive only because every c_k starts at its fixed point 1 (all stay 1 over 800 ticks); started at 0.5 they spread across corners (0.0020 after 300 ticks) while relaxing to 1
+  [PASS] so the spread between corner amplitudes contracts by exactly (1 - rate) = 0.98 per tick, whatever the signal: the closure drives the carrier toward equal amplitudes and cannot favour any Walsh mode
+  [PASS] at equal amplitudes a closure step rescales the carrier's whole Walsh spectrum by one factor: the 8 coefficients at amplitude 0.9 are exactly 3 times those at 0.3, so the spectrum's shape is kept
+
+==============================================================================
+F. mu and the mixing angle: the linear and quadratic readings
+==============================================================================
+  [PASS] for the bonding A1 mode (cos t, sin t), 0 < t < pi/2, the node's mu (amplitude share) is 1/(1 + tan t), in (0, 1); for the antibonding mode (-sin t, cos t) it is 1/(1 - cot t), outside [0, 1]
+  [PASS] Proposition 3(i), linear reading (corner values are field values): mu = x/(1+x) with x = g/a_0 iff tan t = a_0/g, i.e. the mode is proportional to (g, a_0) and the coupling ratio is beta/(alpha_A - alpha_B) = x/(x^2 - 1)
+  [PASS] Proposition 3(ii): in the linear reading the mode's two chamber parts, scaled to total g, are g^2/(g + a_0) and g a_0/(g + a_0): mu g and (1 - mu) g, the TetA part being g_N of the field equation g_N = g^2/(g + a_0)
+  [PASS] Proposition 3(iii), quadratic reading (the field is the intensity): mu = x/(1+x) iff tan t = sqrt(a_0/g), the mode proportional to (sqrt g, sqrt a_0), with beta/(alpha_A - alpha_B) = sqrt(x)/(x - 1): exactly the diamond lattice's bond-orbital dictionary V_3/V_2 = (x - 1)/(2 sqrt x)
+  [PASS] the two readings cannot both hold: if the amplitude share is x/(1+x) the intensity share is x^2/(1+x^2), and they agree only at x = 1 (t = pi/4, mu = 1/2), where TetA and TetB are alike
+
+45/45 checks passed

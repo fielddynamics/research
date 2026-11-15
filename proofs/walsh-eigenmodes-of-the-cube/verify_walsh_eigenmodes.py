@@ -1,17 +1,18 @@
 #!/usr/bin/env python3
 """
-Verification: The Walsh Eigenmodes of the Pixel, and What Closure Reads
-========================================================================
+Verification: The Walsh Eigenmodes of the Cube, and What Field Closure Reads
+=============================================================================
 
 Every statement of the proof is checked here, exactly (sympy, in all
 parameters, or exhaustively over finite sets), except Part E, which runs the
 archive's octahedral resonance node itself and checks identities of its code.
 
   A. The Walsh functions are the cube's eigenmodes (Theorem 1).
-  B. The pixel's symmetry T_d pairs the Walsh grades (Theorem 2).
-  C. The vortices are built from the direction modes (Corollary 1, Proposition 1).
-  D. Closure reads exactly the direction modes (Theorem 3).
-  E. What the oscillator node's closure reads (Theorem 4).
+  B. T_d pairs the Walsh grades on the cube (Theorem 2), and in the pixel (Proposition 1).
+  C. The vortices are built from the T2 modes (Corollary 1, Proposition 2).
+  D. What frame closure and field closure read (Theorem 3).
+  E. What the oscillator node's closure rule reads (Theorem 4).
+  F. mu and the mixing angle: the linear and quadratic readings (Proposition 3).
 
 Run: python verify_walsh_eigenmodes.py
 """
@@ -94,7 +95,7 @@ check("cube graph: A w_S = (3 - 2|S|) w_S and the Laplacian L = 3I - A has L w_S
 
 print()
 print("=" * 78)
-print("B. The pixel's symmetry T_d pairs the Walsh grades")
+print("B. T_d pairs the Walsh grades: on the cube, and in the pixel")
 print("=" * 78)
 check(f"T_d (signed permutations keeping TetA) has 24 elements, and keeps TetB; O_h = T_d x {{I, -I}} has 48",
       len(TD) == 24 and all(maps_to(g, s) in TETB for g in TD for s in TETB) and len(OH) == 48
@@ -201,7 +202,7 @@ check("when TetA and TetB differ, H mixes exactly the pairs 1 <-> xyz and x <-> 
 
 print()
 print("=" * 78)
-print("C. The vortices are built from the direction modes")
+print("C. The vortices are built from the T2 modes")
 print("=" * 78)
 # the 15-site pixel: O, octahedron vertices, corners
 OCT = [tuple(v) for v in ([1, 0, 0], [-1, 0, 0], [0, 1, 0], [0, -1, 0], [0, 0, 1], [0, 0, -1])]
@@ -218,21 +219,77 @@ check("the octahedron's six vertices carry A1 + E + T2, and the 15-site pixel ca
       "(two T2 copies on the corners, one on the octahedron)",
       oct_dec == {"A1": 1, "A2": 0, "E": 1, "T1": 0, "T2": 1}
       and pix_dec == {"A1": 4, "A2": 0, "E": 1, "T1": 0, "T2": 3})
-S4 = [[0, -1, 0], [1, 0, 0], [0, 0, -1]]
-PS = pperm(S4)
-Vi = (PS - sp.I * sp.eye(15)).nullspace()
 def iso_projector(name):
     chi = IRR[name]
     return sum((sp.Rational(chi["E"], 24) * chi[cls_of(g)] * pperm(g) for g in TD), sp.zeros(15, 15))
 PT2, PA1, PE = iso_projector("T2"), iso_projector("A1"), iso_projector("E")
+corner_rows = [pidx[s] for s in CORNERS]; rest_rows = [k for k in range(15) if k not in corner_rows]
+# the pixel's Hamiltonians (the vortex proof's class, with the octahedron's edges)
+pe = dict(zip(("eO", "ef", "eA", "eB", "tf", "tA", "tB", "cA", "cB", "h"),
+              sp.symbols("e_O e_f e_A e_B t_f t_A t_B c_A c_B h", real=True)))
+def H_pixel(p_):
+    Hp = sp.zeros(15, 15); Hp[0, 0] = p_["eO"]
+    for v in OCT:
+        i = pidx[v]; Hp[i, i] = p_["ef"]; Hp[0, i] = Hp[i, 0] = -p_["tf"]
+        for w in OCT:
+            if sum(a * b for a, b in zip(v, w)) == 0:
+                Hp[i, pidx[w]] = -p_["h"]
+    for c_ in CORNERS:
+        k = pidx[c_]; A_ = c_ in TETA
+        Hp[k, k] = p_["eA"] if A_ else p_["eB"]; Hp[0, k] = Hp[k, 0] = -(p_["tA"] if A_ else p_["tB"])
+        for v in OCT:
+            if sum(a * b for a, b in zip(v, c_)) == 1:
+                Hp[pidx[v], k] = Hp[k, pidx[v]] = -(p_["cA"] if A_ else p_["cB"])
+    return Hp
+Hpix = H_pixel(pe)
+check("the pixel Hamiltonian (Field Origin, octahedron with its edges, corners; 10 parameters) is T_d-invariant",
+      all(pperm(g) * Hpix == Hpix * pperm(g) for g in TD))
+Pinv = pperm([[-1, 0, 0], [0, -1, 0], [0, 0, -1]])
+Hoh = Hpix.subs({pe["eB"]: pe["eA"], pe["tB"]: pe["tA"], pe["cB"]: pe["cA"]})
+Qs = {0: PA1 * (sp.eye(15) + Pinv) / 2, 3: PA1 * (sp.eye(15) - Pinv) / 2,
+      1: PT2 * (sp.eye(15) - Pinv) / 2, 2: PT2 * (sp.eye(15) + Pinv) / 2}
+grade_proj = {g_: sum((W[S] * W[S].T / 8 for S in SUBSETS if grade[S] == g_), sp.zeros(8, 8)) for g_ in range(4)}
+pure = all((Qs[g_] * Hoh - Hoh * Qs[g_]).applyfunc(sp.expand) == sp.zeros(15, 15)
+           and ((sp.eye(8) - grade_proj[g_]) * Qs[g_].extract(corner_rows, list(range(15)))).applyfunc(sp.simplify)
+           == sp.zeros(8, 15) for g_ in range(4))
+check("Proposition 1(i) [pixel, TetA and TetB alike]: the four projectors (T_d type x inversion parity) commute with "
+      "every O_h-invariant pixel H, and the corner part of each lies in one Walsh grade (0: A1 even, 3: A1 odd, "
+      "1: T2 odd, 2: T2 even); so the pixel has an eigenbasis whose corner parts are pure Walsh grades", pure)
+import numpy as np
+num = {pe["eO"]: 0.1, pe["ef"]: -0.2, pe["eA"]: 0.0, pe["eB"]: 1.0, pe["tf"]: 0.5, pe["tA"]: 0.7, pe["tB"]: 0.4,
+       pe["cA"]: 1.0, pe["cB"]: 0.6, pe["h"]: 0.3}
+Hn_pix = np.array(Hpix.subs(num).tolist(), dtype=float)
+Ev, Vv = np.linalg.eigh(Hn_pix)
+Wn = {S: np.array(W[S].tolist(), dtype=float).ravel() for S in SUBSETS}
+PT2n = np.array(PT2.tolist(), dtype=float)
+shares, eff_ok = [], True
+Hcc = Hn_pix[np.ix_(corner_rows, corner_rows)]; Hcr = Hn_pix[np.ix_(corner_rows, rest_rows)]; Hrr = Hn_pix[np.ix_(rest_rows, rest_rows)]
+for e_, v_ in zip(Ev, Vv.T):
+    if np.linalg.norm(PT2n @ v_ - v_) < 1e-9:
+        cpart = v_[corner_rows]
+        w1 = sum((Wn[S] @ cpart) ** 2 for S in SUBSETS if grade[S] == 1); w2 = sum((Wn[S] @ cpart) ** 2 for S in SUBSETS if grade[S] == 2)
+        shares.append(round(w1 / (w1 + w2), 4))
+        Heff = Hcc + Hcr @ np.linalg.solve(e_ * np.eye(7) - Hrr, Hcr.T)
+        eff_ok &= np.linalg.norm(Heff @ cpart - e_ * cpart) < 1e-9 * max(1, np.linalg.norm(cpart))
+shares = sorted(set(shares))
+check(f"Proposition 1(ii) [pixel, TetA and TetB differ; numerical, 1e-9]: each T2 eigenmode's corner part is an "
+      f"eigenvector of the energy-dependent corner operator H_eff(E) = H_cc + H_cr (E - H_rr)^-1 H_rc, so its "
+      f"grade-1/grade-2 mix depends on the mode: shares {shares} at one parameter point", eff_ok and len(shares) == 3)
+Heff_sym_ok = all(np.allclose(np.array(perm_matrix(g).tolist(), dtype=float) @ (Hcc + Hcr @ np.linalg.solve(0.37 * np.eye(7) - Hrr, Hcr.T)),
+                              (Hcc + Hcr @ np.linalg.solve(0.37 * np.eye(7) - Hrr, Hcr.T)) @ np.array(perm_matrix(g).tolist(), dtype=float))
+                  for g in TD)
+check("and H_eff(E) is T_d-invariant (it is built from T_d-invariant blocks; checked at E = 0.37), so it has the cube's block form (Theorem 2) "
+      "with E-dependent entries: the pairing holds in the pixel, mode by mode", Heff_sym_ok)
+S4 = [[0, -1, 0], [1, 0, 0], [0, 0, -1]]
+PS = pperm(S4)
+Vi = (PS - sp.I * sp.eye(15)).nullspace()
 check("the rotoreflection S has eigenvalue +i only in the T2 part: V_{+i} has dimension 3, lies in the T2 "
       "isotypic part, and A1 and E contain no +i vector (S acts on them with eigenvalues 1 and +-1)",
       len(Vi) == 3 and all((PT2 * v - v).applyfunc(sp.simplify) == sp.zeros(15, 1) for v in Vi)
       and (PS * PA1 - PA1).applyfunc(sp.simplify) == sp.zeros(15, 15)
       and ((PS * PS - sp.eye(15)) * PE).applyfunc(sp.simplify) == sp.zeros(15, 15))
-corner_rows = [pidx[s] for s in CORNERS]
 check("so on the corners every winding state (hence every vortex) has no grade-0 or grade-3 component: "
-      "its corner part is a combination of the direction modes x, y, z, yz, xz, xy",
+      "its corner part is a combination of the six T2 modes x, y, z, yz, xz, xy",
       all(sp.simplify((W[S].T * sp.Matrix([v[r] for r in corner_rows]))[0]) == 0 for v in Vi for S in [(), (0, 1, 2)]))
 # Proposition: on the bare cube the degenerate grade-1 modes combine into a circulating state
 t_ = sp.Symbol("t", positive=True)
@@ -255,8 +312,8 @@ def flux_phys(H_, psi_, edges, u):
     return sp.simplify(tot)
 cube_edges = [(a, b) for a in range(8) for b in range(a + 1, 8) if Acube[a, b]]
 fl = [flux_phys(Hcube, psi, cube_edges, u) for u in ((2, 1), (1, 3), (-1, 2))]
-check("Proposition 1: on the cube graph (H = t A, full cube symmetry), x + i y is an eigenmode at the doubly "
-      "degenerate grade-1 energy t, winds under the quarter turn C4 about z (C4 psi = -i psi), and carries the "
+check("Proposition 2: on the cube graph (H = t A, full cube symmetry), x + i y is an eigenmode at the triply "
+      "degenerate grade-1 energy t (x, y, z), winds under the quarter turn C4 about z (C4 psi = -i psi), and carries the "
       f"same nonzero current {fl[0]} through three half-planes; x and y alone carry none",
       (Hcube * psi - t_ * psi).expand() == sp.zeros(8, 1) and (perm_matrix(C4) * psi + sp.I * psi).expand() == sp.zeros(8, 1)
       and fl[0] != 0 and fl[0] == fl[1] == fl[2]
@@ -264,7 +321,7 @@ check("Proposition 1: on the cube graph (H = t A, full cube symmetry), x + i y i
 
 print()
 print("=" * 78)
-print("D. Closure reads exactly the direction modes")
+print("D. What frame closure and field closure read")
 print("=" * 78)
 rs = sp.symbols("r0:12")
 R = sp.Matrix(3, 4, rs)
@@ -280,40 +337,59 @@ solR = sp.solve(eqsR, rs, dict=True)[0]
 Rg = R.subs(solR)
 frame = sp.Matrix.hstack(*[sp.Matrix(s) for s in TETA])          # Letter 1's legs v_1..v_4 as columns
 free_R = sorted(Rg.free_symbols, key=str)
-check("Theorem 3: every T_d-equivariant linear map from TetA's four corner amplitudes to a 3-vector is a "
+check("Theorem 3(i): every T_d-equivariant linear map from TetA's four corner amplitudes to a 3-vector is a "
       "multiple of the frame readout psi -> sum_i psi_i v_i (one free constant, Schur)",
       len(free_R) == 1 and Rg[0, 0] != 0
       and (Rg - (Rg[0, 0] / frame[0, 0]) * frame).applyfunc(sp.simplify) == sp.zeros(3, 4))
-check("the frame readout annihilates the uniform mode exactly because of closure v1 + v2 + v3 + v4 = 0, and is "
-      "injective on the sum-zero (T2) modes: it reads those and only those",
-      frame * sp.ones(4, 1) == sp.zeros(3, 1) and frame.rank() == 3)
-check("on TetA the direction modes are the Walsh functions: the frame's rows are x, y, z on TetA, and there "
-      "x = yz, y = xz, z = xy (the collapse of the Hadamard cube frame proof)",
-      all(frame[d, k] == TETA[k][d] for d in range(3) for k in range(4))
-      and all(s[0] == s[1] * s[2] and s[1] == s[0] * s[2] and s[2] == s[0] * s[1] for s in TETA))
+orbit_v1 = {maps_to(g, TETA[0]) for g in TD}
+check("Theorem 3(ii): frame closure is forced by the symmetry: the legs are one T_d-orbit and T_d fixes no nonzero "
+      "vector (T2 has no invariant), so v1 + v2 + v3 + v4 = 0; and frame closure is the same equation as the "
+      "frame readout's blindness to the uniform mode (frame * 1 = sum v_i). The readout is injective on the "
+      "sum-zero modes",
+      orbit_v1 == set(TETA) and sp.Matrix.hstack(*[sp.Matrix(g) - sp.eye(3) for g in TD]).rank() == 3
+      and frame * sp.ones(4, 1) == sp.zeros(3, 1) and frame.rank() == 3)
+# readouts of one root and of both roots, on all 8 corners
+SA_row = sp.Matrix([[1 if s in TETA else 0 for s in CORNERS]]); SB_row = sp.Matrix([[1 if s in TETB else 0 for s in CORNERS]])
+RA = sp.Matrix([[s[d] if s in TETA else 0 for s in CORNERS] for d in range(3)])
+RB = sp.Matrix([[s[d] if s in TETB else 0 for s in CORNERS] for d in range(3)])
+one_root = sp.Matrix.vstack(SA_row, RA); both = sp.Matrix.vstack(SA_row, SB_row, RA, RB)
+Wmat = sp.Matrix.hstack(*[W[S] for S in SUBSETS])
+check("Theorem 3(iii), one root: TetA's readouts (its sum S_A and its frame) have rank 4 on the 8 corners and "
+      "kill every amplitude on TetB; in Walsh terms they see only the sums w_S + w_complement(S) (the "
+      "collapse of the Hadamard cube frame proof), so they read half of the spectrum",
+      one_root.rank() == 4 and all(one_root * W[S] == one_root * W[tuple(sorted(set(range(3)) - set(S)))] for S in SUBSETS))
+check("Theorem 3(iv), field closure (both roots active): S_A, S_B and the TetA and TetB frames together form an "
+      "invertible 8 x 8 readout, so they read all eight Walsh functions; S_A, S_B read exactly 1 and xyz, and "
+      "the two frames exactly the six T2 modes",
+      both.det() != 0 and (sp.Matrix.vstack(SA_row, SB_row) * Wmat).extract([0, 1], [i for i, S in enumerate(SUBSETS) if grade[S] in (1, 2)]) == sp.zeros(2, 6)
+      and (sp.Matrix.vstack(RA, RB) * Wmat).extract(list(range(6)), [i for i, S in enumerate(SUBSETS) if grade[S] in (0, 3)]) == sp.zeros(6, 2))
 rs8 = sp.symbols("q0:24"); R8 = sp.Matrix(3, 8, rs8)
 eqs8 = []
 for g in TD:
     eqs8 += list(R8 * perm_matrix(g) - sp.Matrix(g) * R8)
 R8g = R8.subs(sp.solve(eqs8, rs8, dict=True)[0])
-grade1_read = sp.Matrix([[s[d] for s in CORNERS] for d in range(3)])
-grade2_read = sp.Matrix([[s[d] * s[0] * s[1] * s[2] for s in CORNERS] for d in range(3)])
-check("on all eight corners the T_d-equivariant direction readouts form a 2-dimensional space, spanned by the "
-      "grade-1 readout (sum psi_k s_k) and the grade-2 readout (sum psi_k xyz(s_k) s_k), i.e. by the TetA "
-      "and TetB frames",
-      len(R8g.free_symbols) == 2 and
-      all(any(sp.solve(list(R8g - grade1_read * a1 - grade2_read * a2), list(R8g.free_symbols), dict=True)) for a1, a2 in [(1, 0), (0, 1)]))
-check("both readouts vanish on the A1 modes (1 and xyz) and are blind to them; every T_d-equivariant scalar "
-      "readout, conversely, sees only 1 and xyz (it is constant on each chamber)",
-      grade1_read * W[()] == sp.zeros(3, 1) and grade1_read * W[(0, 1, 2)] == sp.zeros(3, 1)
-      and grade2_read * W[()] == sp.zeros(3, 1) and grade2_read * W[(0, 1, 2)] == sp.zeros(3, 1)
-      and len(sp.Matrix(1, 8, sp.symbols("z0:8")).subs(sp.solve(
-          sum((list(sp.Matrix(1, 8, sp.symbols("z0:8")) * perm_matrix(g) - sp.Matrix(1, 8, sp.symbols("z0:8"))) for g in TD), []),
-          sp.symbols("z0:8"), dict=True)[0]).free_symbols) == 2)
+zs = sp.symbols("z0:8"); Z = sp.Matrix(1, 8, zs)
+Zg = Z.subs(sp.solve(sum((list(Z * perm_matrix(g) - Z) for g in TD), []), zs, dict=True)[0])
+check("and these are all of them: the T_d-equivariant direction readouts of the 8 corners form a 2-dimensional "
+      "space (spanned by the two frames) and the invariant scalar readouts a 2-dimensional space (spanned by "
+      "S_A and S_B); every equivariant linear readout factors through the field-closed readout",
+      len(R8g.free_symbols) == 2 and len(Zg.free_symbols) == 2
+      and all(RX * perm_matrix(g) == sp.Matrix(g) * RX for RX in (RA, RB) for g in TD)
+      and all(SX * perm_matrix(g) == SX for SX in (SA_row, SB_row) for g in TD)
+      and sp.Matrix.vstack(RA, RB).rank() == 6 and sp.Matrix.vstack(SA_row, SB_row).rank() == 2)
+vsym = sp.Matrix(sp.symbols("p0:8"))
+quad = (RA * vsym).dot(RA * vsym)
+check("the split into the two sectors is a property of linear readouts: a quadratic invariant such as the squared "
+      "length of TetA's frame readout is a scalar that reads the T2 modes (it is not a function of S_A, S_B)",
+      sp.simplify(quad.subs({vsym[k]: Wn_ for k, Wn_ in enumerate(W[(0,)])})) != 0
+      and SA_row * W[(0,)] == sp.Matrix([[0]]) and SB_row * W[(0,)] == sp.Matrix([[0]]))
+check("mu = S_A / (S_A + S_B) uses S_B: no readout of TetA alone determines it (two states with the same TetA "
+      "readouts and different mu)",
+      (one_root * sp.Matrix([1 if s in TETA else 0 for s in CORNERS])) == (one_root * sp.Matrix([1 for s in CORNERS])))
 
 print()
 print("=" * 78)
-print("E. What the oscillator node's closure reads (research/universe-is-pixelated/octahedral_node.py)")
+print("E. What the oscillator node's closure rule reads (research/universe-is-pixelated/octahedral_node.py)")
 print("=" * 78)
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, "..", "..", "research", "universe-is-pixelated"))
@@ -332,27 +408,19 @@ check("Theorem 4(i): the node's mu = (1 + c_xyz / c_1)/2 is the TetA share S_A/(
       sp.simplify(mu_node - SA / (SA + SB)) == 0)
 dirs = sp.symbols("d0:6")
 shift = [sum(dirs[i] * on.H[k][1 + i] for i in range(6)) for k in range(8)]
-check("so mu reads only the A1 modes (grades 0 and 3): adding any combination of the six direction modes "
-      "x, y, z, xy, xz, yz to the vertex state leaves mu unchanged, so mu is blind to every vortex",
+check("so mu reads only the A1 modes (grades 0 and 3): adding any combination of the six T2 modes "
+      "x, y, z, xy, xz, yz to the vertex state leaves mu unchanged",
       sp.simplify(mu_node.subs({vs[k]: vs[k] + shift[k] for k in range(8)}, simultaneous=True) - mu_node) == 0)
-check("Theorem 4(ii), Parseval: the energy sum_k v_k^2 that drives the closure equals 8 sum_c c_c^2, the total "
-      "Walsh power",
+check("Theorem 4(ii), Parseval: the energy sum_k v_k^2 that drives the closure rule equals 8 sum_c c_c^2, the "
+      "total Walsh power",
       sp.expand(sum(v ** 2 for v in vs) - 8 * sum(cc ** 2 for cc in coef)) == 0)
-thp = sp.Symbol("theta", positive=True); xg = sp.Symbol("x", positive=True)
-modeA1 = sp.cos(thp) * uA + sp.sin(thp) * uB
-vals = {vs[k]: modeA1[idx[tuple(on.SIGNS[k])]] for k in range(8)}
-mu_mode = sp.simplify(mu_node.subs(vals))
-check("for an eigenmode (cos t, sin t) of the A1 block the node's mu is 1/(1 + tan t); hence mu = x/(1 + x) "
-      "exactly when tan t = 1/x (the test linking the A1 mixing angle to the constitutive law)",
-      sp.simplify(mu_mode - 1 / (1 + sp.tan(thp))) == 0
-      and sp.simplify((1 / (1 + sp.tan(thp))).subs(thp, sp.atan(1 / xg)) - xg / (1 + xg)) == 0)
 random.seed(7)
-ok_target = ok_contract = ok_parseval = True; ticks = 0
+ok_target = ok_contract = ok_parseval = ok_out = ok_in = True; ticks = 0
 for standing in (True, False):
     node = on.OctahedralNode(standing=standing)
     for n_ in range(400):
         node.inject([random.uniform(-1, 1) for _ in range(3)])
-        a0 = list(node.amp_a); b0 = list(node.amp_b); r = node.closure_rate
+        a0 = list(node.amp_a); b0 = list(node.amp_b); co0 = list(node.coupling_out); r = node.closure_rate
         node.tick(); ticks += 1
         mean_e = (node.energy_a + node.energy_b) / (2 * on.N)
         fw = [sum(on.H[k][cc] * node.forward_mix[k] for k in range(8)) / 8 for cc in range(8)]
@@ -361,12 +429,25 @@ for standing in (True, False):
         rr = math.sqrt(max(mean_e, 1e-12))
         tgt = rr / (1 + rr) if standing else min(rr, 5.0)
         unclamped = all(0.01 < x < 5.0 for x in node.amp_a + node.amp_b)
+        tgt_out = 1.0 if standing else min(rr, 5.0)
+        ok_out &= all(abs(node.coupling_out[k] - min(max(co0[k] + r * (tgt_out - co0[k]), 0.01), 5.0)) < 1e-12 for k in range(8))
+        ok_in &= all(c == 1.0 for c in node.coupling_in)
         if unclamped:
             ok_target &= all(abs(node.amp_a[k] - (a0[k] + r * (tgt - a0[k]))) < 1e-12 for k in range(8))
             ok_contract &= all(abs((node.amp_a[k] - node.amp_a[0]) - (1 - r) * (a0[k] - a0[0])) < 1e-12 for k in range(8))
-check(f"the node's amplitude closure, run for {ticks} ticks in both modes: every corner relaxes toward the same "
-      "target, a function of the total Walsh power only (r/(1+r) bounded, min(r, 5) original; r^2 = mean power)",
-      ok_target and ok_parseval)
+check(f"the node's closure rule has three updates. Run for {ticks} ticks in both modes: (1) every corner amplitude "
+      "relaxes toward one target, a function of the total Walsh power only (r/(1+r) bounded, min(r, 5) original; "
+      "r^2 = mean power); (2) every outward coupling relaxes toward one target (1 bounded, min(r, 5) original)",
+      ok_target and ok_parseval and ok_out)
+random.seed(2)
+node_in = on.OctahedralNode(standing=True); node_in.coupling_in = [0.5] * 8
+for n_ in range(300):
+    node_in.inject([random.uniform(-1, 1) for _ in range(3)]); node_in.tick()
+spread_in = max(node_in.coupling_in) - min(node_in.coupling_in)
+check(f"(3) the inward couplings follow c_k += rate * sign(f_k b_k) (1 - |c_k|): a corner-local, signal-dependent "
+      f"rule, inert in the archive only because every c_k starts at its fixed point 1 (all stay 1 over {ticks} "
+      f"ticks); started at 0.5 they spread across corners ({spread_in:.4f} after 300 ticks) while relaxing to 1",
+      ok_in and spread_in > 1e-4 and min(node_in.coupling_in) > 0.99)
 check("so the spread between corner amplitudes contracts by exactly (1 - rate) = 0.98 per tick, whatever the "
       "signal: the closure drives the carrier toward equal amplitudes and cannot favour any Walsh mode",
       ok_contract)
@@ -379,6 +460,42 @@ c1, c2 = carrier_coeffs(0.3), carrier_coeffs(0.9)
 check("at equal amplitudes a closure step rescales the carrier's whole Walsh spectrum by one factor: the 8 "
       "coefficients at amplitude 0.9 are exactly 3 times those at 0.3, so the spectrum's shape is kept",
       all(abs(y - 3 * x) < 1e-12 for x, y in zip(c1, c2)))
+
+print()
+print("=" * 78)
+print("F. mu and the mixing angle: the linear and quadratic readings")
+print("=" * 78)
+thp = sp.Symbol("theta", positive=True); xg = sp.Symbol("x", positive=True)
+g_, a0_ = sp.symbols("g a_0", positive=True)
+modeA1 = sp.cos(thp) * uA + sp.sin(thp) * uB
+vals = {vs[k]: modeA1[idx[tuple(on.SIGNS[k])]] for k in range(8)}
+mu_mode = sp.simplify(mu_node.subs(vals))
+mu_other = sp.simplify(mu_node.subs({vs[k]: (sp.cos(thp) * uB - sp.sin(thp) * uA)[idx[tuple(on.SIGNS[k])]] for k in range(8)}))
+check("for the bonding A1 mode (cos t, sin t), 0 < t < pi/2, the node's mu (amplitude share) is 1/(1 + tan t), in "
+      "(0, 1); for the antibonding mode (-sin t, cos t) it is 1/(1 - cot t), outside [0, 1]",
+      sp.simplify(mu_mode - 1 / (1 + sp.tan(thp))) == 0 and sp.simplify(mu_other - 1 / (1 - 1 / sp.tan(thp))) == 0)
+amp_share = sp.cos(thp) / (sp.cos(thp) + sp.sin(thp)); prob_share = sp.cos(thp) ** 2
+t_lin = sp.atan(a0_ / g_); t_quad = sp.atan(sp.sqrt(a0_ / g_))
+tan2 = lambda T: 2 * T / (1 - T ** 2)          # tan 2t from tan t
+check("Proposition 3(i), linear reading (corner values are field values): mu = x/(1+x) with x = g/a_0 iff "
+      "tan t = a_0/g, i.e. the mode is proportional to (g, a_0) and the coupling ratio is beta/(alpha_A - alpha_B) "
+      "= x/(x^2 - 1)",
+      sp.simplify(amp_share.subs(thp, t_lin) - g_ / (g_ + a0_)) == 0
+      and sp.simplify(tan2(a0_ / g_) / 2 - (g_ / a0_) / ((g_ / a0_) ** 2 - 1)) == 0)
+check("Proposition 3(ii): in the linear reading the mode's two chamber parts, scaled to total g, are g^2/(g + a_0) "
+      "and g a_0/(g + a_0): mu g and (1 - mu) g, the TetA part being g_N of the field equation g_N = g^2/(g + a_0)",
+      sp.simplify(g_ * sp.cos(t_lin) / (sp.cos(t_lin) + sp.sin(t_lin)) - g_ ** 2 / (g_ + a0_)) == 0
+      and sp.simplify(g_ * sp.sin(t_lin) / (sp.cos(t_lin) + sp.sin(t_lin)) - g_ * a0_ / (g_ + a0_)) == 0)
+check("Proposition 3(iii), quadratic reading (the field is the intensity): mu = x/(1+x) iff tan t = sqrt(a_0/g), "
+      "the mode proportional to (sqrt g, sqrt a_0), with beta/(alpha_A - alpha_B) = sqrt(x)/(x - 1): exactly the "
+      "diamond lattice's bond-orbital dictionary V_3/V_2 = (x - 1)/(2 sqrt x)",
+      sp.simplify(prob_share.subs(thp, t_quad) - g_ / (g_ + a0_)) == 0
+      and sp.simplify(tan2(sp.sqrt(a0_ / g_)) / 2 - sp.sqrt(g_ / a0_) / (g_ / a0_ - 1)) == 0
+      and sp.simplify((1 / ((xg - 1) / (2 * sp.sqrt(xg)))) / 2 - sp.sqrt(xg) / (xg - 1)) == 0)
+check("the two readings cannot both hold: if the amplitude share is x/(1+x) the intensity share is x^2/(1+x^2), and "
+      "they agree only at x = 1 (t = pi/4, mu = 1/2), where TetA and TetB are alike",
+      sp.simplify(prob_share.subs(thp, sp.atan(1 / xg)) - xg ** 2 / (1 + xg ** 2)) == 0
+      and sp.solve(sp.Eq(xg ** 2 / (1 + xg ** 2), xg / (1 + xg)), xg) == [1])
 
 print()
 print(f"{PASS}/{PASS + FAIL} checks passed")
