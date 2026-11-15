@@ -5,7 +5,7 @@ Self-contained. Two independent parts:
 Part I  (exact, no computer algebra): arithmetic in Q(i) and Q(omega) with Python fractions; the
         geometry, the group Td and the most general Td-invariant Hamiltonians are built from scratch.
         Certificates C1-C7 (and S1-S2 for the Triforce split) at random rational parameter points.
-Part II (symbolic, sympy, all parameters at once): the pixel's winding block, its secular equation,
+Part II (symbolic, sympy, all parameters at once): the cube graph's winding block, its secular equation,
         the closed-form circulating current through any half-plane, the corollary without the
         octahedron, the Triforce split W + W' with doubled energies on W, and the standing-wave
         proposition.
@@ -164,7 +164,7 @@ Td = [R for R in signed_perms if {act(R, v) for v in TA} == set(TA)]
 
 def build(model):
     """sites (as hashable descriptors), positions, edges, Td action on sites."""
-    if model == "pixel":
+    if model == "cube":
         faces = [(1, 0, 0), (-1, 0, 0), (0, 1, 0), (0, -1, 0), (0, 0, 1), (0, 0, -1)]
         corners = list(itertools.product((1, -1), repeat=3))
         sites = [("O", (0, 0, 0))] + [("F", f) for f in faces] + [("A" if isA(c) else "B", c) for c in corners]
@@ -278,7 +278,7 @@ def certify(model, axis, Rsym, order, c, lam, us, seeds, split=False):
           all(PB[i][k] == lam * B[i][k] for i in range(n) for k in range(m)))
     check(f"[{model}] every winding vector vanishes on the axis (sites {on_axis})",
           all(B[i][k].iszero() for i in on_axis for k in range(m)))
-    ring = next(k for k, orb in enumerate(full) if (model == "pixel" and sites[orb[0]][0] == "F")
+    ring = next(k for k, orb in enumerate(full) if (model == "cube" and sites[orb[0]][0] == "F")
                 or (model == "triforce" and sites[orb[0]][0] == "EA" and (Fr(1), Fr(1), Fr(1)) in sites[orb[0]][1]))
 
     # half-plane flux operators
@@ -375,7 +375,7 @@ def certify(model, axis, Rsym, order, c, lam, us, seeds, split=False):
 
 print("PART I: exact certificates (pure Python, no computer algebra)")
 omega = Q(Fr(-1, 2), Fr(1, 2))     # (-1 + theta)/2 with theta^2 = -3
-certify("pixel", axis=(0, 0, 1), Rsym=[[0, -1, 0], [1, 0, 0], [0, 0, -1]], order=4, c=-1, lam=Q(0, 1),
+certify("cube", axis=(0, 0, 1), Rsym=[[0, -1, 0], [1, 0, 0], [0, 0, -1]], order=4, c=-1, lam=Q(0, 1),
         us=[(2, 1, 0), (1, 3, 0), (-1, 2, 0)], seeds=[1, 2, 3])
 Q.c = -3
 certify("triforce", axis=(1, 1, 1), Rsym=[[0, 0, 1], [1, 0, 0], [0, 1, 0]], order=3, c=-3, lam=omega,
@@ -461,11 +461,11 @@ _Hr = -_t * sp.Matrix([[0, 1, 1], [1, 0, 1], [1, 1, 0]])
 check("CV [convention] sanity: on a 3-site ring with hopping -t, the +k Bloch state e^{2 pi i k/3} flows toward increasing k",
       sp.simplify(2 * sp.im(sp.conjugate(_ring[1]) * _Hr[1, 0] * _ring[0]) - sp.sqrt(3) * _t) == 0)
 
-# ---------------- the pixel ----------------
+# ---------------- the cube graph ----------------
 pix_site = lambda s, k: {"O": "Delta", "F": "Delta_f", "A": "epsilon_A", "B": "epsilon_B"}[s[0]]
 pix_bond = lambda a, b, k: {frozenset("OF"): "t_f", frozenset("OA"): "t_A", frozenset("OB"): "t_B",
                             frozenset("FA"): "c_A", frozenset("FB"): "c_B", frozenset("F"): "h"}[frozenset(a[0] + b[0])]
-sites, pos, edges, perms, index, image, Hs, ssyms, bsyms = symbolic("pixel", pix_site, pix_bond)
+sites, pos, edges, perms, index, image, Hs, ssyms, bsyms = symbolic("cube", pix_site, pix_bond)
 n = len(sites)
 D_, Df, eA, eB = [sp.Symbol(x, real=True) for x in ("Delta", "Delta_f", "epsilon_A", "epsilon_B")]
 tf_, tA_, tB_, cA, cB, hh = [sp.Symbol(x, real=True) for x in ("t_f", "t_A", "t_B", "c_A", "c_B", "h")]
@@ -474,30 +474,30 @@ B, full, P = winding_basis(sites, index, image, S4, sp.I, 4)
 kinds = [sites[o[0]][0] for o in full]
 order_idx = [kinds.index("F"), kinds.index("A"), kinds.index("B")]
 B = B.extract(list(range(n)), order_idx)
-check("T1 [pixel] the most general Td-invariant H on the pixel graph (with the octahedron's edges) has 10 parameters "
+check("T1 [cube] the most general Td-invariant H on the cube graph (with the octahedron's edges) has 10 parameters "
       "and commutes with the rotoreflection S", len(ssyms) + len(bsyms) == 10 and P * Hs == Hs * P)
 Ap = (B.H * Hs * B / 4).applyfunc(sp.simplify)
 a_, b_ = Ap[0, 1], Ap[0, 2]
-check("T1 [pixel] the winding block (ring, TetA, TetB) is [[Delta_f, a, b], [conj a, eps_A, 0], [conj b, 0, eps_B]] "
+check("T1 [cube] the winding block (ring, TetA, TetB) is [[Delta_f, a, b], [conj a, eps_A, 0], [conj b, 0, eps_B]] "
       "with |a|^2 = 2 c_A^2, |b|^2 = 2 c_B^2; Delta, t_f, t_A, t_B and the octahedron-edge hopping h drop out",
       Ap[0, 0] == Df and Ap[1, 1] == eA and Ap[2, 2] == eB and Ap[1, 2] == 0 and Ap[2, 1] == 0
       and sp.simplify(a_ * sp.conjugate(a_) - 2 * cA**2) == 0 and sp.simplify(b_ * sp.conjugate(b_) - 2 * cB**2) == 0
       and not (Ap.free_symbols & {D_, tf_, tA_, tB_, hh}))
 E = sp.Symbol("E", real=True); rr = sp.Symbol("r", positive=True)
 charp = sp.expand((E * sp.eye(3) - Ap).det())
-check("T1 [pixel] its characteristic polynomial is (E - Delta_f)(E - eps_A)(E - eps_B) - 2c_A^2(E - eps_B) - 2c_B^2(E - eps_A)",
+check("T1 [cube] its characteristic polynomial is (E - Delta_f)(E - eps_A)(E - eps_B) - 2c_A^2(E - eps_B) - 2c_B^2(E - eps_A)",
       sp.simplify(charp - ((E - Df) * (E - eA) * (E - eB) - 2 * cA**2 * (E - eB) - 2 * cB**2 * (E - eA))) == 0)
 sec = (E - Df) - 2 * cA**2 / (E - eA) - 2 * cB**2 / (E - eB)
-check("T1 [pixel] the secular function is strictly increasing between its poles, so the three energies are distinct "
+check("T1 [cube] the secular function is strictly increasing between its poles, so the three energies are distinct "
       "(derivative 1 + 2c_A^2/(E - eps_A)^2 + 2c_B^2/(E - eps_B)^2 > 0)",
       sp.simplify(sp.diff(sec, E) - (1 + 2 * cA**2 / (E - eA)**2 + 2 * cB**2 / (E - eB)**2)) == 0)
-check("T1 [pixel] det(H+ - E) is 2c_A^2(eps_A - eps_B) at E = eps_A and 2c_B^2(eps_B - eps_A) at E = eps_B",
+check("T1 [cube] det(H+ - E) is 2c_A^2(eps_A - eps_B) at E = eps_A and 2c_B^2(eps_B - eps_A) at E = eps_B",
       sp.simplify((Ap - E * sp.eye(3)).det().subs(E, eA) - 2 * cA**2 * (eA - eB)) == 0
       and sp.simplify((Ap - E * sp.eye(3)).det().subs(E, eB) - 2 * cB**2 * (eB - eA)) == 0)
 w = sp.Matrix([rr, sp.conjugate(a_) * rr / (E - eA), sp.conjugate(b_) * rr / (E - eB)])
 psi = B * w
 Dfsol = E - 2 * cA**2 / (E - eA) - 2 * cB**2 / (E - eB)                    # Delta_f from the secular equation
-check("T1 [pixel] on a root of the secular equation, psi = B w is an exact stationary state of the full 15-site H, "
+check("T1 [cube] on a root of the secular equation, psi = B w is an exact stationary state of the full 15-site H, "
       "with amplitude r on every ring site and the corners locked to it",
       sp.simplify((Hs * psi - E * psi).subs(Df, Dfsol)) == sp.zeros(n, 1)
       and all(sp.simplify(sp.Abs(psi[i]) - rr) == 0 for i in range(n) if sites[i][0] == "F" and sites[i][1][2] == 0))
@@ -506,22 +506,22 @@ for u in ([2, 1, 0], [1, 3, 0], [-1, 2, 0]):
     K = flux_matrix(Hs, pos, edges, (0, 0, 1), u, n)
     Iu = sp.simplify((psi.H * K * psi)[0])
     ok_I &= sp.simplify((Iu - ((E - Df - 2 * hh) * rr**2)).subs(Df, Dfsol)) == 0
-check("T1 [pixel] the circulating current (physical flow, right-handed about +z) through each of three half-planes is "
+check("T1 [cube] the circulating current (physical flow, right-handed about +z) through each of three half-planes is "
       "I = (E - Delta_f - 2h) r^2 (r: amplitude on each site of the octahedron's ring; h = 0 without octahedron edges)", ok_I)
-check("T1 [pixel] so I != 0 unless E = Delta_f + 2h is a root, i.e. 2h(Delta_f + 2h - eps_A)(Delta_f + 2h - eps_B) "
+check("T1 [cube] so I != 0 unless E = Delta_f + 2h is a root, i.e. 2h(Delta_f + 2h - eps_A)(Delta_f + 2h - eps_B) "
       "= 2c_A^2 (Delta_f + 2h - eps_B) + 2c_B^2 (Delta_f + 2h - eps_A)",
       sp.simplify(charp.subs(E, Df + 2 * hh) - (2 * hh * (Df + 2 * hh - eA) * (Df + 2 * hh - eB)
                   - 2 * cA**2 * (Df + 2 * hh - eB) - 2 * cB**2 * (Df + 2 * hh - eA))) == 0)
-check("T1 [pixel] the three energies interlace with the corner energies: the secular function runs from -inf to +inf on "
+check("T1 [cube] the three energies interlace with the corner energies: the secular function runs from -inf to +inf on "
       "each of the three intervals cut by eps_A, eps_B (residues -2c_A^2, -2c_B^2 at the poles; ~E at infinity)",
       sp.simplify(sp.cancel((E - eA) * sec).subs(E, eA) + 2 * cA**2) == 0
       and sp.simplify(sp.cancel((E - eB) * sec).subs(E, eB) + 2 * cB**2) == 0
       and sp.limit(sec / E, E, sp.oo) == 1 and sp.limit(sec / E, E, -sp.oo) == 1)
-check("T1 [pixel] at eps_A = eps_B, E = eps_A is a vortex energy with r = 0 (no current)",
+check("T1 [cube] at eps_A = eps_B, E = eps_A is a vortex energy with r = 0 (no current)",
       sp.simplify(charp.subs(eB, eA).subs(E, eA)) == 0)
 keep = [i for i in range(n) if sites[i][0] != "F"]
 H9 = Hs.extract(keep, keep); B9 = B.extract(keep, [1, 2])
-check("C1 [pixel without the octahedron] winding states exist (dimension 2) but vanish at the Field Origin, and every "
+check("C1 [cube without the octahedron] winding states exist (dimension 2) but vanish at the Field Origin, and every "
       "bond touches it: no current, no vortex",
       all(B9[0, k] == 0 for k in range(2)) and all(H9[i, j] == 0 for i in range(1, 9) for j in range(1, 9) if i != j))
 
@@ -540,7 +540,7 @@ val = {eA: 0, eB: 1, s_cube: 1}
 evs = (Ac.subs(val)).eigenvects()
 cur = [sp.nsimplify(sp.simplify(((B9 * v[2][0]).H * Kc9.subs(val) * (B9 * v[2][0]))[0] / ((B9 * v[2][0]).H * (B9 * v[2][0]))[0]))
        for v in evs]
-check(f"C1' [pixel without the octahedron, with the cube's 12 edges] the corners circulate on their own: exact winding "
+check(f"C1' [cube without the octahedron, with the cube's 12 edges] the corners circulate on their own: exact winding "
       f"eigenstates at eps_A = 0, eps_B = 1, cube hopping 1 carry currents {cur}, so Corollary 1 needs the bond set "
       f"without corner-corner bonds", len(cube) == 12 and all(c != 0 for c in cur))
 

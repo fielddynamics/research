@@ -41,15 +41,16 @@
 \ead{stephen@fielddynamics.org}
 
 \begin{abstract}
-The pixel of Gravity Field Dynamics is the stellated octahedron in its
-cube: two tetrahedra, TetA and TetB, whose overlap, the central
-octahedron, is the Field Origin. We study real symmetric Hamiltonians with the
-tetrahedral symmetry $T_d$ on two graphs built from it, the 15-site
-pixel and the 33-tile pixel of the Triforce faces, with TetA and TetB
-free to differ. We prove that they carry vortices: stationary states
+Gravity Field Dynamics works with a cube holding a stellated
+octahedron: two tetrahedra, TetA and TetB, whose overlap, the central
+octahedron, is the Field Origin. We study real symmetric Hamiltonians
+with the tetrahedral symmetry $T_d$ on two graphs built from the cube,
+with TetA and TetB free to differ: one on its points (the corners, and
+the Field Origin's octahedron and centre), and one on its faces (the
+Triforce sub-channels and the centre). We prove that they carry vortices: stationary states
 that wind about an axis and carry a circulating current around an
-axis on which they vanish. In the pixel, about each axis of the Field
-Origin's octahedron,
+axis on which they vanish. On the cube's points, about each axis of the
+Field Origin's octahedron,
 there are exactly three vortices and three antivortices, with distinct
 energies interlacing the corner energies, outside an explicit
 exceptional set. Their current through any half-plane bounded by the
@@ -59,7 +60,7 @@ $h$ the hopping along the octahedron's edges, and the corners are
 locked to that ring: the circulation runs through the Field Origin
 around its empty centre. Read as modes of a network of coupled
 oscillators, each vortex is a rotating wave, and a vortex plus its
-antivortex is a standing wave. In the Triforce pixel the winding space
+antivortex is a standing wave. On the Triforce faces the winding space
 about a leg splits as $W \oplus W'$ by representation theory. On $W$
 every energy is doubled, with the two energies in closed form; on $W'$
 there are generically six vortices, each turning a star point's outer
@@ -77,7 +78,8 @@ tetrahedral symmetry, Field Origin, Triforce, proof}
 
 \section*{Setting}
 
-\textbf{Pixel graph $\mathcal P$} (15 sites): the Field Origin, the
+\textbf{The cube graph $\mathcal C$} ($1 + 6 + 8 = 15$ sites, the cube's
+points): the Field Origin, the
 central octahedron in which the chambers intersect~\cite{NelsonColes},
 given by its centre $O$ and its six vertices at the cube's face centres
 $\pm\hat x,\pm\hat y,\pm\hat z$; and the eight corners $(\pm1,\pm1,\pm1)$,
@@ -86,7 +88,8 @@ $xyz = -1$~\cite{NelsonGram,Coxeter1973}. Bonds: $O$ to every other
 site; each octahedron vertex to the four corners of its face; and the
 twelve edges of the octahedron.
 
-\textbf{Triforce graph $\mathcal T$} (33 sites): $O$; the eight central
+\textbf{The Triforce graph $\mathcal T$} ($1 + 8 + 24 = 33$ sites, the
+cube's faces): $O$; the eight central
 tiles, the medial triangles of the eight tetrahedron faces (these are
 the octahedron's faces); the 24 outer tiles, three per face, which
 are the exposed faces of the eight star points. Bonds: two tiles
@@ -100,7 +103,7 @@ $\to$ centroid $\to O \to$ partner centroid $\to$ partner penetrator
 (gravitational coupling).
 
 \textbf{The bond sets.} These graphs are not nearest-neighbour graphs of
-the point set: $\mathcal P$ contains the $O$--corner bonds (length
+the point set: $\mathcal C$ contains the $O$--corner bonds (length
 $\sqrt3$) and leaves out the cube's twelve edges (length 2, each joining
 a TetA corner to a TetB corner). In both graphs TetA and TetB are
 coupled only through the Field Origin, its octahedron and its centre,
@@ -113,11 +116,11 @@ these graphs. The remark \emph{Other bonds} (Section~5) records what changes wit
 and the bonds, and invariant under $T_d$ (24 elements, the symmetries
 that keep TetA and TetB). We write site energies on the diagonal and
 $H_{ij} = -t_{ij}$ on bonds. $H$ has one free real parameter per
-$T_d$-orbit of sites and of bonds: 10 for $\mathcal P$ and 15 for
+$T_d$-orbit of sites and of bonds: 10 for $\mathcal C$ and 15 for
 $\mathcal T$. The statements below hold for this class, under the
 hypotheses stated with each.
 
-\textbf{Axes.} In $\mathcal P$ the axis is an octahedron axis $\hat z$,
+\textbf{Axes.} In $\mathcal C$ the axis is an octahedron axis $\hat z$,
 with symmetry the rotoreflection $S:(x,y,z)\mapsto(-y,x,-z)$, of order
 4. In $\mathcal T$ it is a leg $\hat n = (1,1,1)/\sqrt3$, with symmetry
 the rotation $C:(x,y,z)\mapsto(z,x,y)$, of order 3. Both lie in $T_d$.
@@ -168,7 +171,7 @@ bounded by the axis.
 
 \begin{proof}
 A site on the axis lies in an orbit of the symmetry of length $\ell$
-smaller than its order ($O$ is fixed; in $\mathcal P$ the axial
+smaller than its order ($O$ is fixed; in $\mathcal C$ the axial
 vertices $\pm\hat z$ form an orbit of length 2). There
 $\psi = \lambda^\ell\psi$ with $\lambda^\ell \neq 1$, so $\psi = 0$,
 and bonds at axis sites carry no current. Sum Lemma~1 over the sites
@@ -192,7 +195,7 @@ $J_{i\to j}(\bar\psi) = -J_{i\to j}(\psi)$.
 $H$ preserves the winding space $V_\lambda$, which has an orthogonal
 basis $v_k$ with $v_k[\sigma^jx_k] = \lambda^{-j}$, one vector per orbit
 of full length. So $V_\lambda$ has an orthonormal basis of stationary
-winding states. $\dim V_{\pm i} = 3$ in $\mathcal P$, and
+winding states. $\dim V_{\pm i} = 3$ in $\mathcal C$, and
 $\dim V_{\omega^{\pm1}} = 10$ in $\mathcal T$.
 \end{lemma}
 
@@ -218,7 +221,7 @@ equilibrium sense of~\cite{BIL1983}.
 
 % ======================================================================
 
-\section{The pixel}
+\section{The cube's points}
 
 Take $\lambda = +i$. In the normalised basis (equatorial ring
 $\pm\hat x,\pm\hat y$; TetA corners; TetB corners) of $V_{+i}$, every
@@ -239,8 +242,8 @@ likewise for $b$. The octahedron edges add $-h(\lambda + \bar\lambda) =
 winding states vanish; the energy and hoppings of the Field Origin's
 centre $O$ drop out for the same reason. No bond joins a TetA corner to a TetB corner.
 
-\begin{theorem}[Vortices of the pixel]
-\label{thm:pixel}
+\begin{theorem}[Vortices of the cube]
+\label{thm:cube}
 Let $c_Ac_B \neq 0$ and $\epsilon_A \neq \epsilon_B$. Then:
 \begin{enumerate}
 \item[(i)] up to scale there are exactly three stationary winding
@@ -294,7 +297,7 @@ $E = \epsilon_A$ is a root of $\det(H_+ - E)$ with $\rho = 0$.
 
 \begin{corollary}[Without the Field Origin's octahedron]
 Remove the octahedron, keeping the Field Origin's centre $O$ and the
-corners, with the bonds of $\mathcal P$. Winding states exist ($\dim V_{+i} = 2$), but they
+corners, with the bonds of $\mathcal C$. Winding states exist ($\dim V_{+i} = 2$), but they
 vanish at $O$ and every remaining bond touches $O$, so $I = 0$: there
 are no vortices.
 \end{corollary}
@@ -335,7 +338,7 @@ $\mathrm{Re}(e^{-iEt}\phi) = \cos(Et)\phi$.
 
 % ======================================================================
 
-\section{The Triforce pixel}
+\section{The Triforce faces}
 
 \begin{theorem}[Vortices of the Triforce faces]
 \label{thm:triforce}
@@ -427,12 +430,12 @@ $J_{i\to j}$, for parameter points with $h = 0$.
 \centering
 \includegraphics[width=\textwidth]{vortex_figure.png}
 \caption{Bond currents $J_{i\to j}$ of exact vortex eigenstates (arrow
-width: size; marker size: amplitude). (a) A vortex of the 15-site
-pixel about an octahedron axis, with TetA and TetB parameters
+width: size; marker size: amplitude). (a) A vortex of the cube graph
+$\mathcal C$ about an octahedron axis, with TetA and TetB parameters
 unequal: the corners and the Field Origin's equatorial ring carry the
 current together, and the axis carries zero amplitude (Lemma~2,
-Theorem~\ref{thm:pixel}). (b) The same state from above. (c) A
-Triforce vortex of the 33-tile model, looking down a leg: the star
+Theorem~\ref{thm:cube}). (b) The same state from above. (c) A
+Triforce vortex on the cube's faces ($\mathcal T$), looking down a leg: the star
 point's three outer tiles, its outer sub-channel, circulate around
 the empty leg (Theorem~\ref{thm:triforce}).}
 \label{fig:currents}
@@ -461,7 +464,7 @@ theorems do not fix them.}
 That a real Hamiltonian with a cyclic symmetry has winding eigenstates
 that carry ring currents is standard (see the remark \emph{Time reversal}, Section~1). What is specific here
 is the structure on these graphs: the closed-form block and current of
-the pixel, the locking of the corners to the octahedron's ring, the
+the cube graph, the locking of the corners to the Field Origin's ring, the
 interlacing and the explicit exceptional set, and the exact
 $W \oplus W'$ structure of the Triforce with $W$ in closed form.
 The standing waves are standard too: the Walsh--Hadamard functions are
@@ -477,7 +480,7 @@ order 4 and 3.
 \begin{remark}[Other bonds]
 Adding the cube's edges gives the block (\ref{eq:block}) a TetA--TetB
 entry and changes the secular equation; vortices still exist at random
-parameter points, but Theorem~\ref{thm:pixel} is not claimed for that
+parameter points, but Theorem~\ref{thm:cube} is not claimed for that
 graph, and the corollary fails.
 \end{remark}
 
@@ -485,7 +488,7 @@ graph, and the corollary fails.
 The following is interpretation, not part of the theorems. GFD
 describes the Field Origin as the octahedral core where angular momentum
 transfers, and as the eye of a self-sustaining vortex~\cite{NelsonColes}.
-In the pixel the circulation runs through the Field Origin, around its
+On the cube's points the circulation runs through the Field Origin, around its
 equator, with its centre empty, and the eight corners turn with it, as a
 flywheel locked to the ring. About a leg, the star point's outer
 sub-channel (spatial coupling) turns around a core that is exactly the
@@ -495,7 +498,7 @@ the swirl, not any flow along the axis, which in the hourglass picture
 of GFD is the through-flow at the throat~\cite{NelsonHourglass}. GFD takes TetA and TetB to
 differ away from its transition $g/a_0 = 1$. If all TetA and TetB
 parameters are equal, a plain quarter turn about an octahedron axis
-becomes a symmetry, and Theorem~\ref{thm:pixel}'s hypothesis
+becomes a symmetry, and Theorem~\ref{thm:cube}'s hypothesis
 $\epsilon_A \neq \epsilon_B$ fails.
 \end{remark}
 

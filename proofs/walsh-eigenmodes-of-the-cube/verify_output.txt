@@ -7,7 +7,7 @@ A. The Walsh functions are the cube's eigenmodes
   [PASS] cube graph: A w_S = (3 - 2|S|) w_S and the Laplacian L = 3I - A has L w_S = 2|S| w_S (O'Donnell 2014)
 
 ==============================================================================
-B. T_d pairs the Walsh grades: on the cube, and in the pixel
+B. T_d pairs the Walsh grades: on the cube's corners, and in the whole cube
 ==============================================================================
   [PASS] T_d (signed permutations keeping TetA) has 24 elements, and keeps TetB; O_h = T_d x {I, -I} has 48
   [PASS] the 8 corners carry 2A1 + 2T2 under T_d
@@ -26,11 +26,11 @@ B. T_d pairs the Walsh grades: on the cube, and in the pixel
 ==============================================================================
 C. The vortices are built from the T2 modes
 ==============================================================================
-  [PASS] the octahedron's six vertices carry A1 + E + T2, and the 15-site pixel carries 4A1 + E + 3T2 (two T2 copies on the corners, one on the octahedron)
-  [PASS] the pixel Hamiltonian (Field Origin, octahedron with its edges, corners; 10 parameters) is T_d-invariant
-  [PASS] Proposition 1(i) [pixel, TetA and TetB alike]: the four projectors (T_d type x inversion parity) commute with every O_h-invariant pixel H, and the corner part of each lies in one Walsh grade (0: A1 even, 3: A1 odd, 1: T2 odd, 2: T2 even); so the pixel has an eigenbasis whose corner parts are pure Walsh grades
-  [PASS] Proposition 1(ii) [pixel, TetA and TetB differ; numerical, 1e-9]: each T2 eigenmode's corner part is an eigenvector of the energy-dependent corner operator H_eff(E) = H_cc + H_cr (E - H_rr)^-1 H_rc, so its grade-1/grade-2 mix depends on the mode: shares [np.float64(0.0073), np.float64(0.8289), np.float64(0.9787)] at one parameter point
-  [PASS] and H_eff(E) is T_d-invariant (it is built from T_d-invariant blocks; checked at E = 0.37), so it has the cube's block form (Theorem 2) with E-dependent entries: the pairing holds in the pixel, mode by mode
+  [PASS] the octahedron's six vertices carry A1 + E + T2, and the whole cube (1 + 6 + 8 sites) carries 4A1 + E + 3T2 (two T2 copies on the corners, one on the octahedron)
+  [PASS] the whole-cube Hamiltonian (Field Origin: centre and octahedron with its edges; corners; 10 parameters) is T_d-invariant
+  [PASS] Proposition 1(i) [whole cube, TetA and TetB alike]: the four projectors (T_d type x inversion parity) commute with every O_h-invariant whole-cube H, and the corner part of each lies in one Walsh grade (0: A1 even, 3: A1 odd, 1: T2 odd, 2: T2 even); so the whole cube has an eigenbasis whose corner parts are pure Walsh grades
+  [PASS] Proposition 1(ii) [whole cube, TetA and TetB differ; numerical, 1e-9]: each T2 eigenmode's corner part is an eigenvector of the energy-dependent corner operator H_eff(E) = H_cc + H_cr (E - H_rr)^-1 H_rc, so its grade-1/grade-2 mix depends on the mode: shares [np.float64(0.0073), np.float64(0.8289), np.float64(0.9787)] at one parameter point
+  [PASS] and H_eff(E) is T_d-invariant (it is built from T_d-invariant blocks; checked at E = 0.37), so it has the cube's block form (Theorem 2) with E-dependent entries: the pairing holds in the whole cube, mode by mode
   [PASS] the rotoreflection S has eigenvalue +i only in the T2 part: V_{+i} has dimension 3, lies in the T2 isotypic part, and A1 and E contain no +i vector (S acts on them with eigenvalues 1 and +-1)
   [PASS] so on the corners every winding state (hence every vortex) has no grade-0 or grade-3 component: its corner part is a combination of the six T2 modes x, y, z, yz, xz, xy
   [PASS] Proposition 2: on the cube graph (H = t A, full cube symmetry), x + i y is an eigenmode at the triply degenerate grade-1 energy t (x, y, z), winds under the quarter turn C4 about z (C4 psi = -i psi), and carries the same nonzero current -8*t through three half-planes; x and y alone carry none

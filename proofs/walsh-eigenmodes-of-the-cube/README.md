@@ -1,6 +1,6 @@
 # The Walsh Eigenmodes of the Cube, and What Field Closure Reads
 
-*Which Walsh standing waves the cube holds when TetA and TetB are kept distinct, how they make the pixel's vortices, and why field closure is what reads all of them · Gravity Field Dynamics (GFD) · Field Dynamics Research*
+*Which Walsh standing waves the cube holds when TetA and TetB are kept distinct, how they make the cube's vortices, and why field closure is what reads all of them · Gravity Field Dynamics (GFD) · Field Dynamics Research*
 
 `Walsh-functions` `Hadamard` `eigenmodes` `standing-wave` `tetrahedral-symmetry` `field-closure` `stellated-octahedron` `proof`
 
@@ -41,11 +41,11 @@ As angular shapes the four grades are s, p, d and f. Under the stellated octahed
 
 ## The answers
 
-**1. The cube holds the Walsh modes exactly when TetA and TetB are alike.** For any coupling on the cube with T_d symmetry:
+**1. The cube's corners hold the Walsh modes exactly when TetA and TetB are alike.** For any coupling on the corners with T_d symmetry:
 - **Alike.** If TetA and TetB have equal energies and internal couplings, all eight functions are exact eigenmodes. This is the coupling algebra's case.
 - **Different.** If they differ, the modes pair up and rotate: 1 with xyz, x with yz, y with xz, z with xy. The angles are in closed form.
 
-This is the cube's version of the standard s–f and p–d mixing of tetrahedral chemistry. In the full pixel the pairing holds mode by mode, each mode with its own angle.
+This is the cube's version of the standard s–f and p–d mixing of tetrahedral chemistry. In the whole cube, with its Field Origin, the pairing holds mode by mode, each mode with its own angle.
 
 **2. The vortices are made of T₂ modes.** The constant mode and the chamber sign never circulate. On the plain cube, x + iy circulates, while x and y alone don't.
 
@@ -100,7 +100,7 @@ The models here are linear, while GFD's Field Origin is nonlinear.
 |---|---|
 | [`walsh_eigenmodes_of_the_cube.pdf`](walsh_eigenmodes_of_the_cube.pdf) | The proof |
 | [`walsh_eigenmodes_of_the_cube.tex`](walsh_eigenmodes_of_the_cube.tex) | LaTeX source |
-| [`verify_walsh_eigenmodes.py`](verify_walsh_eigenmodes.py) | 47 checks, in six parts: (A) the cube's eigenmodes; (B) the pairing, on the cube in all parameters and in the pixel; (C) the vortices and x + iy; (D) closure and field closure, with the metric's view of the grades; (E) the node, symbolically and on its own code; (F) the two readings of μ, with the exchange |
+| [`verify_walsh_eigenmodes.py`](verify_walsh_eigenmodes.py) | 47 checks, in six parts: (A) the cube's eigenmodes; (B) the pairing, on the cube's corners in all parameters and in the whole cube; (C) the vortices and x + iy; (D) closure and field closure, with the metric's view of the grades; (E) the node, symbolically and on its own code; (F) the two readings of μ, with the exchange |
 | [`verify_output.txt`](verify_output.txt) | Output of the script |
 | [`referee_review.md`](referee_review.md) | Internal referee review and the response to each point |
 

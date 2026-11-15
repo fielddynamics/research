@@ -8,7 +8,7 @@ parameters, or exhaustively over finite sets), except Part E, which runs the
 archive's octahedral resonance node itself and checks identities of its code.
 
   A. The Walsh functions are the cube's eigenmodes (Theorem 1).
-  B. T_d pairs the Walsh grades on the cube (Theorem 2), and in the pixel (Proposition 1).
+  B. T_d pairs the Walsh grades on the cube's corners (Theorem 2), and in the whole cube (Proposition 1).
   C. The vortices are built from the T2 modes (Corollary 1, Proposition 2).
   D. What frame closure and field closure read (Theorem 3).
   E. What the oscillator node's closure rule reads (Theorem 4).
@@ -95,7 +95,7 @@ check("cube graph: A w_S = (3 - 2|S|) w_S and the Laplacian L = 3I - A has L w_S
 
 print()
 print("=" * 78)
-print("B. T_d pairs the Walsh grades: on the cube, and in the pixel")
+print("B. T_d pairs the Walsh grades: on the cube's corners, and in the whole cube")
 print("=" * 78)
 check(f"T_d (signed permutations keeping TetA) has 24 elements, and keeps TetB; O_h = T_d x {{I, -I}} has 48",
       len(TD) == 24 and all(maps_to(g, s) in TETB for g in TD for s in TETB) and len(OH) == 48
@@ -204,7 +204,7 @@ print()
 print("=" * 78)
 print("C. The vortices are built from the T2 modes")
 print("=" * 78)
-# the 15-site pixel: O, octahedron vertices, corners
+# the whole cube: the Field Origin (centre O and octahedron vertices) and the corners
 OCT = [tuple(v) for v in ([1, 0, 0], [-1, 0, 0], [0, 1, 0], [0, -1, 0], [0, 0, 1], [0, 0, -1])]
 PIX = [(0, 0, 0)] + OCT + CORNERS
 pidx = {s: k for k, s in enumerate(PIX)}
@@ -215,7 +215,7 @@ def pperm(g):
     return P
 pix_dec = decompose([pperm(g).trace() for g in TD])
 oct_dec = decompose([sum(1 for s in OCT if maps_to(g, s) == s) for g in TD])
-check("the octahedron's six vertices carry A1 + E + T2, and the 15-site pixel carries 4A1 + E + 3T2 "
+check("the octahedron's six vertices carry A1 + E + T2, and the whole cube (1 + 6 + 8 sites) carries 4A1 + E + 3T2 "
       "(two T2 copies on the corners, one on the octahedron)",
       oct_dec == {"A1": 1, "A2": 0, "E": 1, "T1": 0, "T2": 1}
       and pix_dec == {"A1": 4, "A2": 0, "E": 1, "T1": 0, "T2": 3})
@@ -224,7 +224,7 @@ def iso_projector(name):
     return sum((sp.Rational(chi["E"], 24) * chi[cls_of(g)] * pperm(g) for g in TD), sp.zeros(15, 15))
 PT2, PA1, PE = iso_projector("T2"), iso_projector("A1"), iso_projector("E")
 corner_rows = [pidx[s] for s in CORNERS]; rest_rows = [k for k in range(15) if k not in corner_rows]
-# the pixel's Hamiltonians (the vortex proof's class, with the octahedron's edges)
+# the whole cube's Hamiltonians (the vortex proof's class, with the octahedron's edges)
 pe = dict(zip(("eO", "ef", "eA", "eB", "tf", "tA", "tB", "cA", "cB", "h"),
               sp.symbols("e_O e_f e_A e_B t_f t_A t_B c_A c_B h", real=True)))
 def H_pixel(p_):
@@ -242,7 +242,7 @@ def H_pixel(p_):
                 Hp[pidx[v], k] = Hp[k, pidx[v]] = -(p_["cA"] if A_ else p_["cB"])
     return Hp
 Hpix = H_pixel(pe)
-check("the pixel Hamiltonian (Field Origin, octahedron with its edges, corners; 10 parameters) is T_d-invariant",
+check("the whole-cube Hamiltonian (Field Origin: centre and octahedron with its edges; corners; 10 parameters) is T_d-invariant",
       all(pperm(g) * Hpix == Hpix * pperm(g) for g in TD))
 Pinv = pperm([[-1, 0, 0], [0, -1, 0], [0, 0, -1]])
 Hoh = Hpix.subs({pe["eB"]: pe["eA"], pe["tB"]: pe["tA"], pe["cB"]: pe["cA"]})
@@ -252,9 +252,9 @@ grade_proj = {g_: sum((W[S] * W[S].T / 8 for S in SUBSETS if grade[S] == g_), sp
 pure = all((Qs[g_] * Hoh - Hoh * Qs[g_]).applyfunc(sp.expand) == sp.zeros(15, 15)
            and ((sp.eye(8) - grade_proj[g_]) * Qs[g_].extract(corner_rows, list(range(15)))).applyfunc(sp.simplify)
            == sp.zeros(8, 15) for g_ in range(4))
-check("Proposition 1(i) [pixel, TetA and TetB alike]: the four projectors (T_d type x inversion parity) commute with "
-      "every O_h-invariant pixel H, and the corner part of each lies in one Walsh grade (0: A1 even, 3: A1 odd, "
-      "1: T2 odd, 2: T2 even); so the pixel has an eigenbasis whose corner parts are pure Walsh grades", pure)
+check("Proposition 1(i) [whole cube, TetA and TetB alike]: the four projectors (T_d type x inversion parity) commute with "
+      "every O_h-invariant whole-cube H, and the corner part of each lies in one Walsh grade (0: A1 even, 3: A1 odd, "
+      "1: T2 odd, 2: T2 even); so the whole cube has an eigenbasis whose corner parts are pure Walsh grades", pure)
 import numpy as np
 num = {pe["eO"]: 0.1, pe["ef"]: -0.2, pe["eA"]: 0.0, pe["eB"]: 1.0, pe["tf"]: 0.5, pe["tA"]: 0.7, pe["tB"]: 0.4,
        pe["cA"]: 1.0, pe["cB"]: 0.6, pe["h"]: 0.3}
@@ -272,14 +272,14 @@ for e_, v_ in zip(Ev, Vv.T):
         Heff = Hcc + Hcr @ np.linalg.solve(e_ * np.eye(7) - Hrr, Hcr.T)
         eff_ok &= np.linalg.norm(Heff @ cpart - e_ * cpart) < 1e-9 * max(1, np.linalg.norm(cpart))
 shares = sorted(set(shares))
-check(f"Proposition 1(ii) [pixel, TetA and TetB differ; numerical, 1e-9]: each T2 eigenmode's corner part is an "
+check(f"Proposition 1(ii) [whole cube, TetA and TetB differ; numerical, 1e-9]: each T2 eigenmode's corner part is an "
       f"eigenvector of the energy-dependent corner operator H_eff(E) = H_cc + H_cr (E - H_rr)^-1 H_rc, so its "
       f"grade-1/grade-2 mix depends on the mode: shares {shares} at one parameter point", eff_ok and len(shares) == 3)
 Heff_sym_ok = all(np.allclose(np.array(perm_matrix(g).tolist(), dtype=float) @ (Hcc + Hcr @ np.linalg.solve(0.37 * np.eye(7) - Hrr, Hcr.T)),
                               (Hcc + Hcr @ np.linalg.solve(0.37 * np.eye(7) - Hrr, Hcr.T)) @ np.array(perm_matrix(g).tolist(), dtype=float))
                   for g in TD)
 check("and H_eff(E) is T_d-invariant (it is built from T_d-invariant blocks; checked at E = 0.37), so it has the cube's block form (Theorem 2) "
-      "with E-dependent entries: the pairing holds in the pixel, mode by mode", Heff_sym_ok)
+      "with E-dependent entries: the pairing holds in the whole cube, mode by mode", Heff_sym_ok)
 S4 = [[0, -1, 0], [1, 0, 0], [0, 0, -1]]
 PS = pperm(S4)
 Vi = (PS - sp.I * sp.eye(15)).nullspace()
