@@ -16,6 +16,12 @@ Without the octahedron, the pixel has winding states but nothing circulates. The
 
 *Every arrow is a bond current of an exact vortex eigenstate of the proofs' models. Arrow width shows the current's size, marker size the amplitude; [`make_vortex_figure.py`](make_vortex_figure.py) regenerates the figure. **a, b:** a vortex about the octahedron axis $z$ in the 15-site pixel, with TetA and TetB parameters unequal. The corners (the flywheel) and the octahedron's equatorial ring (the core) turn together, while the axis and the Field Origin carry zero amplitude. **c:** a Triforce vortex in the 33-tile model, seen down the leg $(1,1,1)$. The star point's three outer tiles circulate around the empty leg. The strip below shows the whole leg: both star points turn, and the central tiles and the Field Origin between them are empty.*
 
+![The pixel's vortices rendered as particle funnels](vortex_render.png)
+
+*The same vortices rendered in the style of [`convergent_vortex.png`](../../universe-is-pixelated/convergent_vortex.png); [`make_vortex_render.py`](make_vortex_render.py) regenerates the image. **Left:** the eight Triforce vortices, one along each leg, converging on the Field Origin with empty cores. **Middle:** the core vortex about an octahedron axis: the corner flywheel (TetA and TetB strands zigzagging above and below the equator), the turning octahedron ring, and the axial pair along the empty axis. **Right:** both together.*
+
+*Taken from exact vortex states of the proofs' models: the axes, the empty cores, the turning ring, the corner strands, and each end's swirl sense and relative strength. In the state computed, the TetB end of a leg turns about 0.07 times as strongly as the TetA end, and the opposite way about its own outward axis. Drawn for display only, and not fixed by the proofs: the funnel shapes, the particle density, and the direction of the through-flow.*
+
 ## Setting
 
 **Sites (15).**
