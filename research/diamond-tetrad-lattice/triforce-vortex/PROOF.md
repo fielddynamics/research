@@ -13,6 +13,10 @@ Along each leg the vortex's empty core runs from a TetA star point, through the 
 
 **Braiding does not hold.** The TetA and TetB strands that wind around an octahedron axis are not linked, and the four legs all meet at the Field Origin. In the topological sense, nothing braids.
 
+![The pixel's vortices, drawn from the proofs' models](vortex_figure.png)
+
+*Every arrow is a bond current of an exact vortex eigenstate of the proofs' models. Arrow width shows the current's size, marker size the amplitude; [`../pixel-vortex/make_vortex_figure.py`](../pixel-vortex/make_vortex_figure.py) regenerates the figure. **a, b:** a vortex about the octahedron axis $z$ in the 15-site pixel, with TetA and TetB parameters unequal. The corners (the flywheel) and the octahedron's equatorial ring (the core) turn together, while the axis and the Field Origin carry zero amplitude. **c:** a Triforce vortex in the 33-tile model, seen down the leg $(1,1,1)$. The star point's three outer tiles circulate around the empty leg. The strip below shows the whole leg: both star points turn, and the central tiles and the Field Origin between them are empty.*
+
 ## Setting
 
 **Sites (33).**
