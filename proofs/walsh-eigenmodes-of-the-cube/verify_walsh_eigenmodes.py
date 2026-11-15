@@ -342,21 +342,26 @@ check("Theorem 3(i): every T_d-equivariant linear map from TetA's four corner am
       len(free_R) == 1 and Rg[0, 0] != 0
       and (Rg - (Rg[0, 0] / frame[0, 0]) * frame).applyfunc(sp.simplify) == sp.zeros(3, 4))
 orbit_v1 = {maps_to(g, TETA[0]) for g in TD}
-check("Theorem 3(ii): frame closure is forced by the symmetry: the legs are one T_d-orbit and T_d fixes no nonzero "
-      "vector (T2 has no invariant), so v1 + v2 + v3 + v4 = 0; and frame closure is the same equation as the "
-      "frame readout's blindness to the uniform mode (frame * 1 = sum v_i). The readout is injective on the "
-      "sum-zero modes",
+check("Theorem 3(ii): closure v1 + v2 + v3 + v4 = 0 is the same equation as the frame readout's blindness to the "
+      "constant mode (frame * 1 = sum v_i); with T_d it also follows from the orbit sum (the legs are one T_d-orbit "
+      "and T_d fixes no nonzero vector). The readout is injective on the sum-zero modes",
       orbit_v1 == set(TETA) and sp.Matrix.hstack(*[sp.Matrix(g) - sp.eye(3) for g in TD]).rank() == 3
       and frame * sp.ones(4, 1) == sp.zeros(3, 1) and frame.rank() == 3)
+# the metric on the eight null directions n_v = (1, v/sqrt3) (coupling algebra, Result 9)
+Geta = sp.Matrix(8, 8, lambda i, j: -1 + sp.Rational(1, 3) * sum(CORNERS[i][k] * CORNERS[j][k] for k in range(3)))
+check("the metric read on the eight null directions has eigenvalue -8 on the constant mode (time), 8/3 on the "
+      "vector modes (space) and 0 on the bivector modes and the chamber sign: the four modes it cannot see "
+      "(coupling algebra, Result 9)",
+      all(Geta * W[S] == {0: -8, 1: sp.Rational(8, 3), 2: 0, 3: 0}[grade[S]] * W[S] for S in SUBSETS))
 # readouts of one root and of both roots, on all 8 corners
 SA_row = sp.Matrix([[1 if s in TETA else 0 for s in CORNERS]]); SB_row = sp.Matrix([[1 if s in TETB else 0 for s in CORNERS]])
 RA = sp.Matrix([[s[d] if s in TETA else 0 for s in CORNERS] for d in range(3)])
 RB = sp.Matrix([[s[d] if s in TETB else 0 for s in CORNERS] for d in range(3)])
 one_root = sp.Matrix.vstack(SA_row, RA); both = sp.Matrix.vstack(SA_row, SB_row, RA, RB)
 Wmat = sp.Matrix.hstack(*[W[S] for S in SUBSETS])
-check("Theorem 3(iii), one root: TetA's readouts (its sum S_A and its frame) have rank 4 on the 8 corners and "
-      "kill every amplitude on TetB; in Walsh terms they see only the sums w_S + w_complement(S) (the "
-      "collapse of the Hadamard cube frame proof), so they read half of the spectrum",
+check("Theorem 3(iii), one root: TetA's readouts (its sum S_A and its frame) have rank 4 on the 8 corners, kill "
+      "every amplitude on TetB and cannot tell w_S from its complement (the collapse of the Hadamard cube frame "
+      "proof); they read the four modes 1, x, y, z (time and space on the null cone), half of the spectrum",
       one_root.rank() == 4 and all(one_root * W[S] == one_root * W[tuple(sorted(set(range(3)) - set(S)))] for S in SUBSETS))
 check("Theorem 3(iv), field closure (both roots active): S_A, S_B and the TetA and TetB frames together form an "
       "invertible 8 x 8 readout, so they read all eight Walsh functions; S_A, S_B read exactly 1 and xyz, and "
@@ -411,8 +416,8 @@ shift = [sum(dirs[i] * on.H[k][1 + i] for i in range(6)) for k in range(8)]
 check("so mu reads only the A1 modes (grades 0 and 3): adding any combination of the six T2 modes "
       "x, y, z, xy, xz, yz to the vertex state leaves mu unchanged",
       sp.simplify(mu_node.subs({vs[k]: vs[k] + shift[k] for k in range(8)}, simultaneous=True) - mu_node) == 0)
-check("Theorem 4(ii), Parseval: the energy sum_k v_k^2 that drives the closure rule equals 8 sum_c c_c^2, the "
-      "total Walsh power",
+check("Theorem 4(ii), Parseval: the quantity sum_k v_k^2 that sets the closure rule's targets equals 8 sum_c c_c^2, "
+      "the total Walsh weight",
       sp.expand(sum(v ** 2 for v in vs) - 8 * sum(cc ** 2 for cc in coef)) == 0)
 random.seed(7)
 ok_target = ok_contract = ok_parseval = ok_out = ok_in = True; ticks = 0
@@ -436,8 +441,8 @@ for standing in (True, False):
             ok_target &= all(abs(node.amp_a[k] - (a0[k] + r * (tgt - a0[k]))) < 1e-12 for k in range(8))
             ok_contract &= all(abs((node.amp_a[k] - node.amp_a[0]) - (1 - r) * (a0[k] - a0[0])) < 1e-12 for k in range(8))
 check(f"the node's closure rule has three updates. Run for {ticks} ticks in both modes: (1) every corner amplitude "
-      "relaxes toward one target, a function of the total Walsh power only (r/(1+r) bounded, min(r, 5) original; "
-      "r^2 = mean power); (2) every outward coupling relaxes toward one target (1 bounded, min(r, 5) original)",
+      "relaxes toward one target, a function of the total Walsh weight only (r/(1+r) bounded, min(r, 5) original; "
+      "r^2 = mean square); (2) every outward coupling relaxes toward one target (1 bounded, min(r, 5) original)",
       ok_target and ok_parseval and ok_out)
 random.seed(2)
 node_in = on.OctahedralNode(standing=True); node_in.coupling_in = [0.5] * 8
@@ -449,7 +454,7 @@ check(f"(3) the inward couplings follow c_k += rate * sign(f_k b_k) (1 - |c_k|):
       f"ticks); started at 0.5 they spread across corners ({spread_in:.4f} after 300 ticks) while relaxing to 1",
       ok_in and spread_in > 1e-4 and min(node_in.coupling_in) > 0.99)
 check("so the spread between corner amplitudes contracts by exactly (1 - rate) = 0.98 per tick, whatever the "
-      "signal: the closure drives the carrier toward equal amplitudes and cannot favour any Walsh mode",
+      "signal: the closure rule moves the carrier toward equal amplitudes and cannot favour any Walsh mode",
       ok_contract)
 node = on.OctahedralNode(standing=True)
 def carrier_coeffs(a):
@@ -477,17 +482,23 @@ check("for the bonding A1 mode (cos t, sin t), 0 < t < pi/2, the node's mu (ampl
 amp_share = sp.cos(thp) / (sp.cos(thp) + sp.sin(thp)); prob_share = sp.cos(thp) ** 2
 t_lin = sp.atan(a0_ / g_); t_quad = sp.atan(sp.sqrt(a0_ / g_))
 tan2 = lambda T: 2 * T / (1 - T ** 2)          # tan 2t from tan t
-check("Proposition 3(i), linear reading (corner values are field values): mu = x/(1+x) with x = g/a_0 iff "
-      "tan t = a_0/g, i.e. the mode is proportional to (g, a_0) and the coupling ratio is beta/(alpha_A - alpha_B) "
-      "= x/(x^2 - 1)",
+check("Proposition 3(i), linear reading (corner values are field values): mu = x/(1+x) with x = g_t/a_0 iff "
+      "tan t = a_0/g_t, i.e. the mode is proportional to (g_t, a_0) and the coupling ratio is "
+      "beta/(alpha_A - alpha_B) = x/(x^2 - 1)",
       sp.simplify(amp_share.subs(thp, t_lin) - g_ / (g_ + a0_)) == 0
       and sp.simplify(tan2(a0_ / g_) / 2 - (g_ / a0_) / ((g_ / a0_) ** 2 - 1)) == 0)
-check("Proposition 3(ii): in the linear reading the mode's two chamber parts, scaled to total g, are g^2/(g + a_0) "
-      "and g a_0/(g + a_0): mu g and (1 - mu) g, the TetA part being g_N of the field equation g_N = g^2/(g + a_0)",
-      sp.simplify(g_ * sp.cos(t_lin) / (sp.cos(t_lin) + sp.sin(t_lin)) - g_ ** 2 / (g_ + a0_)) == 0
-      and sp.simplify(g_ * sp.sin(t_lin) / (sp.cos(t_lin) + sp.sin(t_lin)) - g_ * a0_ / (g_ + a0_)) == 0)
-check("Proposition 3(iii), quadratic reading (the field is the intensity): mu = x/(1+x) iff tan t = sqrt(a_0/g), "
-      "the mode proportional to (sqrt g, sqrt a_0), with beta/(alpha_A - alpha_B) = sqrt(x)/(x - 1): exactly the "
+check("Proposition 3(ii): in the linear reading the mode's two chamber parts, scaled to total g_t, are mu g_t and "
+      "(1 - mu) g_t: the TetA part is the TetA partition g_s = mu g_t (Letter 3, kinematic), written out "
+      "g_t^2/(g_t + a_0), and the TetB part is the TetB share",
+      sp.simplify(g_ * sp.cos(t_lin) / (sp.cos(t_lin) + sp.sin(t_lin)) - (g_ / (g_ + a0_)) * g_) == 0
+      and sp.simplify(g_ * sp.sin(t_lin) / (sp.cos(t_lin) + sp.sin(t_lin)) - (a0_ / (g_ + a0_)) * g_) == 0
+      and sp.simplify((g_ / (g_ + a0_)) * g_ - g_ ** 2 / (g_ + a0_)) == 0)
+check("Proposition 3(i), exchange: x -> 1/x sends tan t = 1/x to tan t = x, i.e. t -> pi/2 - t, swapping the two "
+      "chambers' amplitudes, and the TetA share becomes 1 - mu(x) = mu(1/x)",
+      sp.simplify(amp_share.subs(thp, sp.atan(xg)) - (1 - xg / (1 + xg))) == 0
+      and sp.simplify(sp.cot(sp.atan(1 / xg)) - xg) == 0)
+check("Proposition 3(iii), quadratic reading (the field is the intensity): mu = x/(1+x) iff tan t = sqrt(a_0/g_t), "
+      "the mode proportional to (sqrt g_t, sqrt a_0), with beta/(alpha_A - alpha_B) = sqrt(x)/(x - 1): exactly the "
       "diamond lattice's bond-orbital dictionary V_3/V_2 = (x - 1)/(2 sqrt x)",
       sp.simplify(prob_share.subs(thp, t_quad) - g_ / (g_ + a0_)) == 0
       and sp.simplify(tan2(sp.sqrt(a0_ / g_)) / 2 - sp.sqrt(g_ / a0_) / (g_ / a0_ - 1)) == 0

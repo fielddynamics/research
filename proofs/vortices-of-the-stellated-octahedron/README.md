@@ -22,7 +22,7 @@ The proof consolidates the research in [`research/diamond-tetrad-lattice/vortex-
 
 ## The question
 
-The pixel of GFD is the stellated octahedron in its cube. TetA and TetB interlock, and their overlap is an octahedron around the Field Origin. Can this shape hold a vortex: something that circulates around an axis, with an empty core?
+The pixel of GFD is the stellated octahedron in its cube. TetA and TetB interlock, and their overlap, the central octahedron, is the Field Origin, with centre O. Can this shape hold a vortex: something that circulates around an axis, with an empty core?
 
 ## What a vortex means here
 
@@ -32,21 +32,21 @@ The proof works with the stationary states, the waves the pixel can hold.
 - **How the current is measured:** as the physical flow through any half-plane whose edge is the axis. The proof shows every such half-plane gives the same value, so nothing depends on how it is measured.
 
 The proof covers every Hamiltonian with the tetrahedral symmetry on two graphs:
-- **the 15-site pixel:** the Field Origin, the octahedron with its edges, and the corners;
+- **the 15-site pixel:** the Field Origin (its centre O and its octahedron, with the octahedron's edges) and the corners;
 - **the 33-tile Triforce pixel.**
 
-The symmetry keeps TetA and TetB distinct and lets them differ. The graphs fix which sites are coupled. They are not nearest-neighbour graphs: the pixel couples the corners through the Field Origin and the octahedron, not along the cube's edges.
+The symmetry keeps TetA and TetB distinct and lets them differ. The graphs fix which sites are coupled. They are not nearest-neighbour graphs. In both, TetA and TetB couple only through the Field Origin, never along the cube's edges. This matches GFD's position that TetB is reached only through the Field Origin. The coupling algebra notes that symmetry alone would also allow the cube's edges.
 
 ## The answer
 
 **Yes. About each axis of the octahedron:**
 - **Energies.** There are exactly three vortices and three antivortices, with distinct energies, one between each pair of the corner energies.
-- **Empty axis.** Every vortex is zero at the Field Origin and at the octahedron's two vertices on the axis.
+- **Empty axis.** Every vortex is zero at the Field Origin's centre and at the octahedron's two vertices on the axis.
 - **Current.** The current is $I = (E - \Delta_f - 2h)\lvert\rho\rvert^2$, where:
-  - $\rho$ is the amplitude on each vertex of the octahedron's ring;
+  - $\rho$ is the amplitude on each vertex of the Field Origin's equatorial ring;
   - $h$ is the hopping along the octahedron's edges.
-- **Locking.** The cube's 8 corners are locked to that ring, and turn with it.
-- **Without the octahedron nothing circulates,** in this graph. If the cube's edges are added, the corners can circulate on their own.
+- **Locking.** The cube's 8 corners are locked to that ring, and turn with it. The circulation runs through the Field Origin, around its empty centre.
+- **Without the Field Origin's octahedron nothing circulates,** in this graph, where TetB is reached only through the Field Origin. If the cube's edges are added, the corners can circulate on their own.
 
 **Waves.** Read as modes of a network of coupled oscillators:
 - **A vortex is a rotating wave.** A quarter turn of the pattern equals a fixed delay, so the pattern turns once per period.
@@ -58,7 +58,7 @@ The symmetry keeps TetA and TetB distinct and lets them differ. The graphs fix w
 **Context.** That the Walsh–Hadamard functions are standing waves is established mathematics. They are the eigenmodes of the Boolean cube: the eigenvectors of its Laplacian, with eigenvalue 2|S| (O'Donnell, *Analysis of Boolean Functions*, Cambridge University Press, 2014). Each one is real, so on its own it carries no current. What the proof adds is that the pixel's symmetry combines degenerate modes into circulating states.
 
 **About each leg (the Triforce faces):**
-- **Six vortices on W′.** The three outer tiles of a star point turn around an empty core that runs through the central tiles and the Field Origin to the opposite star point. Six such vortices exist for all parameter values except a measure-zero set.
+- **Six vortices on W′.** In the archive's Triforce terms, a star point's outer sub-channel (its three outer tiles, spatial coupling) turns around an empty core. That core is exactly the gravitational coupling line: penetrator → central tile → Field Origin → partner central tile → partner penetrator. Six such vortices exist for all parameter values except a measure-zero set.
 - **Four doubled states on W.** Four further winding states have doubled energies, given in closed form by a 2×2 matrix. Whether every combination of them circulates depends on the parameters.
 
 ## The vortices, rendered
@@ -76,14 +76,14 @@ The symmetry keeps TetA and TetB distinct and lets them differ. The graphs fix w
 *The same vortices as currents.* Each arrow is the physical current on a bond in an exact vortex eigenstate, and marker size is amplitude.
 - **(a)** A pixel vortex about an octahedron axis, with TetA and TetB unequal: the corners and the octahedron ring carry the current together around the empty axis.
 - **(b)** The same vortex from above.
-- **(c)** A Triforce vortex, looking down a leg: the star point's three outer tiles circulate around the empty leg.
+- **(c)** A Triforce vortex, looking down a leg: the star point's outer sub-channel (its three outer tiles) circulates around the empty leg.
 
 Both images are generated by [`make_vortex_render.py`](../../research/diamond-tetrad-lattice/pixel-vortex/make_vortex_render.py) and [`make_vortex_figure.py`](../../research/diamond-tetrad-lattice/pixel-vortex/make_vortex_figure.py). They appear as figures 1 and 2 of the PDF.
 
 ## Why it holds
 
 1. **The axis symmetry is exact.** A quarter turn about an octahedron axis swaps TetA and TetB, so when they differ it is not a symmetry. The rotoreflection is: a quarter turn plus a top–bottom flip. A 120° turn about a leg is a symmetry in every case.
-2. **Winding forces an empty axis.** A state that picks up a phase under the symmetry must vanish wherever the symmetry leaves a point in place. So the Field Origin and the axis are always empty.
+2. **Winding forces an empty axis.** A state that picks up a phase under the symmetry must vanish wherever the symmetry leaves a point in place. So the Field Origin's centre and the axis are always empty.
 3. **Conservation makes the current well defined.** In a stationary state the current is conserved at every site, so the same total crosses every half-plane bounded by the axis.
 4. **The pixel reduces to a 3×3 problem.** About an octahedron axis it is solved exactly, for all parameters. This gives the energies, the locking of the corners to the ring, and the current in closed form. The octahedron's edges leave the energies unchanged and add $-2h\lvert\rho\rvert^2$ to the current.
 5. **The Triforce splits by symmetry.** The winding space about a leg is 10-dimensional, and representation theory splits it into two parts:
@@ -96,6 +96,8 @@ Both images are generated by [`make_vortex_render.py`](../../research/diamond-te
 - That these models are the field's dynamics. The theorems concern the stated graphs and class of models.
 - That anything braids.
 - That the currents are persistent in the equilibrium sense. Every vortex level is shared with its antivortex.
+- That linear models capture the Field Origin. In GFD it is nonlinear, non-analytic at zero field.
+- Anything about flow along the axis. In GFD's hourglass picture, that is the through-flow at the throat; the theorems fix only the swirl.
 
 ## Contents
 
@@ -120,3 +122,5 @@ pdflatex -jobname=vortices_of_the_stellated_octahedron '\providecommand\ead[1]{\
 
 - [Research note and theorem](../../research/diamond-tetrad-lattice/vortex-theorem/THEOREM.md), with the earlier pixel and Triforce notes and the scripts that make the renders. Those scripts use the reversed current sign; the note carries a correction.
 - [The Gram matrix of the tetrad equation](../gram-matrix-tetrad-equation/): TetA and TetB as the two roots, and the stellated octahedron's symmetry.
+- [The Walsh eigenmodes of the cube](../walsh-eigenmodes-of-the-cube/): the vortices are made of the T₂ (vector and bivector) modes.
+- [The coupling algebra](../../research/coupling-algebra/), [the Triforce synthesis](../../research/faces/enterprise_triforce_synthesis.md) and [TetA and TetB as one vortex](../../research/vortex-hourglass/): the framework context for the bond set, the sub-channels and the hourglass.

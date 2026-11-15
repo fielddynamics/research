@@ -39,8 +39,9 @@ C. The vortices are built from the T2 modes
 D. What frame closure and field closure read
 ==============================================================================
   [PASS] Theorem 3(i): every T_d-equivariant linear map from TetA's four corner amplitudes to a 3-vector is a multiple of the frame readout psi -> sum_i psi_i v_i (one free constant, Schur)
-  [PASS] Theorem 3(ii): frame closure is forced by the symmetry: the legs are one T_d-orbit and T_d fixes no nonzero vector (T2 has no invariant), so v1 + v2 + v3 + v4 = 0; and frame closure is the same equation as the frame readout's blindness to the uniform mode (frame * 1 = sum v_i). The readout is injective on the sum-zero modes
-  [PASS] Theorem 3(iii), one root: TetA's readouts (its sum S_A and its frame) have rank 4 on the 8 corners and kill every amplitude on TetB; in Walsh terms they see only the sums w_S + w_complement(S) (the collapse of the Hadamard cube frame proof), so they read half of the spectrum
+  [PASS] Theorem 3(ii): closure v1 + v2 + v3 + v4 = 0 is the same equation as the frame readout's blindness to the constant mode (frame * 1 = sum v_i); with T_d it also follows from the orbit sum (the legs are one T_d-orbit and T_d fixes no nonzero vector). The readout is injective on the sum-zero modes
+  [PASS] the metric read on the eight null directions has eigenvalue -8 on the constant mode (time), 8/3 on the vector modes (space) and 0 on the bivector modes and the chamber sign: the four modes it cannot see (coupling algebra, Result 9)
+  [PASS] Theorem 3(iii), one root: TetA's readouts (its sum S_A and its frame) have rank 4 on the 8 corners, kill every amplitude on TetB and cannot tell w_S from its complement (the collapse of the Hadamard cube frame proof); they read the four modes 1, x, y, z (time and space on the null cone), half of the spectrum
   [PASS] Theorem 3(iv), field closure (both roots active): S_A, S_B and the TetA and TetB frames together form an invertible 8 x 8 readout, so they read all eight Walsh functions; S_A, S_B read exactly 1 and xyz, and the two frames exactly the six T2 modes
   [PASS] and these are all of them: the T_d-equivariant direction readouts of the 8 corners form a 2-dimensional space (spanned by the two frames) and the invariant scalar readouts a 2-dimensional space (spanned by S_A and S_B); every equivariant linear readout factors through the field-closed readout
   [PASS] the split into the two sectors is a property of linear readouts: a quadratic invariant such as the squared length of TetA's frame readout is a scalar that reads the T2 modes (it is not a function of S_A, S_B)
@@ -52,19 +53,20 @@ E. What the oscillator node's closure rule reads (research/universe-is-pixelated
   [PASS] the node's corner order and Walsh table match: its TetA indices [0,3,5,6] are the xyz = +1 corners and its 8 Walsh columns are 1, x, y, z, xy, xz, yz, xyz
   [PASS] Theorem 4(i): the node's mu = (1 + c_xyz / c_1)/2 is the TetA share S_A/(S_A + S_B) of the vertex state
   [PASS] so mu reads only the A1 modes (grades 0 and 3): adding any combination of the six T2 modes x, y, z, xy, xz, yz to the vertex state leaves mu unchanged
-  [PASS] Theorem 4(ii), Parseval: the energy sum_k v_k^2 that drives the closure rule equals 8 sum_c c_c^2, the total Walsh power
-  [PASS] the node's closure rule has three updates. Run for 800 ticks in both modes: (1) every corner amplitude relaxes toward one target, a function of the total Walsh power only (r/(1+r) bounded, min(r, 5) original; r^2 = mean power); (2) every outward coupling relaxes toward one target (1 bounded, min(r, 5) original)
+  [PASS] Theorem 4(ii), Parseval: the quantity sum_k v_k^2 that sets the closure rule's targets equals 8 sum_c c_c^2, the total Walsh weight
+  [PASS] the node's closure rule has three updates. Run for 800 ticks in both modes: (1) every corner amplitude relaxes toward one target, a function of the total Walsh weight only (r/(1+r) bounded, min(r, 5) original; r^2 = mean square); (2) every outward coupling relaxes toward one target (1 bounded, min(r, 5) original)
   [PASS] (3) the inward couplings follow c_k += rate * sign(f_k b_k) (1 - |c_k|): a corner-local, signal-dependent rule, inert in the archive only because every c_k starts at its fixed point 1 (all stay 1 over 800 ticks); started at 0.5 they spread across corners (0.0020 after 300 ticks) while relaxing to 1
-  [PASS] so the spread between corner amplitudes contracts by exactly (1 - rate) = 0.98 per tick, whatever the signal: the closure drives the carrier toward equal amplitudes and cannot favour any Walsh mode
+  [PASS] so the spread between corner amplitudes contracts by exactly (1 - rate) = 0.98 per tick, whatever the signal: the closure rule moves the carrier toward equal amplitudes and cannot favour any Walsh mode
   [PASS] at equal amplitudes a closure step rescales the carrier's whole Walsh spectrum by one factor: the 8 coefficients at amplitude 0.9 are exactly 3 times those at 0.3, so the spectrum's shape is kept
 
 ==============================================================================
 F. mu and the mixing angle: the linear and quadratic readings
 ==============================================================================
   [PASS] for the bonding A1 mode (cos t, sin t), 0 < t < pi/2, the node's mu (amplitude share) is 1/(1 + tan t), in (0, 1); for the antibonding mode (-sin t, cos t) it is 1/(1 - cot t), outside [0, 1]
-  [PASS] Proposition 3(i), linear reading (corner values are field values): mu = x/(1+x) with x = g/a_0 iff tan t = a_0/g, i.e. the mode is proportional to (g, a_0) and the coupling ratio is beta/(alpha_A - alpha_B) = x/(x^2 - 1)
-  [PASS] Proposition 3(ii): in the linear reading the mode's two chamber parts, scaled to total g, are g^2/(g + a_0) and g a_0/(g + a_0): mu g and (1 - mu) g, the TetA part being g_N of the field equation g_N = g^2/(g + a_0)
-  [PASS] Proposition 3(iii), quadratic reading (the field is the intensity): mu = x/(1+x) iff tan t = sqrt(a_0/g), the mode proportional to (sqrt g, sqrt a_0), with beta/(alpha_A - alpha_B) = sqrt(x)/(x - 1): exactly the diamond lattice's bond-orbital dictionary V_3/V_2 = (x - 1)/(2 sqrt x)
+  [PASS] Proposition 3(i), linear reading (corner values are field values): mu = x/(1+x) with x = g_t/a_0 iff tan t = a_0/g_t, i.e. the mode is proportional to (g_t, a_0) and the coupling ratio is beta/(alpha_A - alpha_B) = x/(x^2 - 1)
+  [PASS] Proposition 3(ii): in the linear reading the mode's two chamber parts, scaled to total g_t, are mu g_t and (1 - mu) g_t: the TetA part is the TetA partition g_s = mu g_t (Letter 3, kinematic), written out g_t^2/(g_t + a_0), and the TetB part is the TetB share
+  [PASS] Proposition 3(i), exchange: x -> 1/x sends tan t = 1/x to tan t = x, i.e. t -> pi/2 - t, swapping the two chambers' amplitudes, and the TetA share becomes 1 - mu(x) = mu(1/x)
+  [PASS] Proposition 3(iii), quadratic reading (the field is the intensity): mu = x/(1+x) iff tan t = sqrt(a_0/g_t), the mode proportional to (sqrt g_t, sqrt a_0), with beta/(alpha_A - alpha_B) = sqrt(x)/(x - 1): exactly the diamond lattice's bond-orbital dictionary V_3/V_2 = (x - 1)/(2 sqrt x)
   [PASS] the two readings cannot both hold: if the amplitude share is x/(1+x) the intensity share is x^2/(1+x^2), and they agree only at x = 1 (t = pi/4, mu = 1/2), where TetA and TetB are alike
 
-45/45 checks passed
+47/47 checks passed

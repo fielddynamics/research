@@ -17,7 +17,7 @@
 \fancyhead[L]{}
 \fancyhead[R]{}
 
-\hypersetup{pdftitle={Vortices of the Stellated Octahedron}, pdfauthor={Stephen Nelson}, pdfsubject={Gravity Field Dynamics (GFD)}, pdfkeywords={stellated octahedron, vortex, standing wave, tetrahedral symmetry, Field Origin, proof}}
+\hypersetup{pdftitle={The Walsh Eigenmodes of the Cube, and What Field Closure Reads}, pdfauthor={Stephen Nelson}, pdfsubject={Gravity Field Dynamics (GFD)}, pdfkeywords={Walsh functions, Hadamard, eigenmodes, tetrahedral symmetry, field closure, stellated octahedron, proof}}
 
 \newtheorem{lemma}{Lemma}
 \newtheorem{theorem}{Theorem}
@@ -42,26 +42,28 @@
 
 \begin{abstract}
 The eight Walsh functions $1, x, y, z, yz, xz, xy, xyz$ on the corners of
-the cube, the rows of the Hadamard matrix, are known to be its
-eigenmodes. Under the tetrahedral symmetry $T_d$ of the stellated
-octahedron they fall into two sectors: the uniform and parity modes $1,
-xyz$ ($A_1$), and the six $T_2$ modes, three vector modes $x, y, z$ and
-three quadrupole modes $yz, xz, xy$. We prove four things. Every Walsh
-function is an eigenmode of a $T_d$-invariant coupling on the cube exactly
-when TetA and TetB are alike; otherwise $1 \leftrightarrow xyz$ and
-$x \leftrightarrow yz$, $y \leftrightarrow xz$, $z \leftrightarrow xy$ mix,
-with angles in closed form, and in the full pixel the same pairing holds
-mode by mode. The pixel's vortices are made of $T_2$ modes. Field closure,
-with both roots of the tetrad active, is what reads the whole spectrum: the
-linear readouts of one tetrahedron see only half of it, while those of both
-see all eight modes, scalars reading $1$ and $xyz$ and the two frames the
-six $T_2$ modes; frame closure, $\sum v_i = 0$, is forced by the symmetry
-and is the same statement as the frame's blindness to the uniform mode. In
-the archive's oscillator node, $\mu$ is the TetA share and depends on $1$
-and $xyz$ alone, and the closure rule sees the rest only through its total
-power. Finally, $\mu = x/(1+x)$ fixes the bonding $A_1$ mode: if the corner
-values are field values it is proportional to $(g, a_0)$, and its chamber
-parts are $g_N$ and $g - g_N$ of the field equation.
+the cube, the rows of the Hadamard matrix, are its eigenmodes, and under
+the cube's full symmetry they diagonalise the archive's coupling
+algebra. Here the two chambers are kept distinct. Under the tetrahedral
+symmetry $T_d$ the modes fall into two sectors: the constant mode $1$ and
+the chamber sign $xyz$ ($A_1$), and the six $T_2$ modes, three vector
+modes $x, y, z$ and three bivector modes $yz, xz, xy$. We prove four
+things. Every Walsh function is an eigenmode of a $T_d$-invariant coupling
+on the cube exactly when TetA and TetB are alike; otherwise $1
+\leftrightarrow xyz$ and $x \leftrightarrow yz$, $y \leftrightarrow xz$, $z
+\leftrightarrow xy$ mix, with angles in closed form, and in the full pixel
+the pairing holds mode by mode. The pixel's vortices are made of $T_2$
+modes. Among linear symmetric readouts of the eight corner states, one
+root reads half of the spectrum, the four modes that are time and space on
+the null cone, and field closure, with both roots active, reads all of it:
+scalars read $1$ and $xyz$ and give $\mu$, and the two frames read the six
+$T_2$ modes. Letter~1's closure $\sum v_i = 0$ is the same equation as the
+frame's blindness to the constant mode. In the archive's oscillator node,
+$\mu$ is the TetA share and depends on $1$ and $xyz$ alone, and the
+closure rule sees the rest only through the total Walsh weight. Finally,
+with corner values read as field values, $\mu = x/(1+x)$ makes the bonding
+$A_1$ mode proportional to $(g_t, a_0)$, whose TetA part is the TetA
+partition $g_s = \mu g_t$.
 \end{abstract}
 
 \keywords{Walsh functions, Hadamard, eigenmodes, standing wave,
@@ -75,30 +77,36 @@ tetrahedral symmetry, field closure, stellated octahedron, proof}
 with $xyz = +1$ and TetB the four with $xyz = -1$~\cite{NelsonHadamard}.
 The Walsh functions $w_S(s) = \prod_{d\in S}s_d$, $S \subseteq \{x, y,
 z\}$, have \emph{grade} $\lvert S\rvert$ and are orthogonal, $w_S \cdot
-w_T = 8\delta_{ST}$. On TetA, $yz = x$, $xz = y$, $xy = z$, and the Walsh
-matrix is $H_2 \otimes \hat H$, with $H_2$ spatial parity and $\hat H$ the
-bordered frame~\cite{NelsonHadamard}. As functions of direction the
-grades have the angular characters s, p, d($t_{2g}$) and f($xyz$): grade 1
-is a vector, odd under inversion, and grade 2 a quadratic form, even.
+w_T = 8\delta_{ST}$. We use the archive's names~\cite{NelsonCoupling}: the
+\emph{constant mode} $1$; the \emph{vector modes} $x, y, z$; the
+\emph{bivector modes} $yz, xz, xy$, which correspond to the Clifford
+bivectors, the rotation generators; and the \emph{chamber sign} $xyz$. On
+TetA, $yz = x$, $xz = y$, $xy = z$, and the Walsh matrix is $H_2 \otimes
+\hat H$, with $H_2$ spatial parity and $\hat H$ the bordered
+frame~\cite{NelsonHadamard}. As functions of direction the grades have the
+angular characters s, p, d($t_{2g}$) and f($xyz$).
 
 \textbf{Symmetries.} $F \cong \mathbb Z_2^3$ is the group of coordinate
 sign flips (the cube's bit flips); $T_d$ (24 elements) the signed
-permutations that keep TetA, and so TetB; $O_h = T_d \times \{\pm I\}$, the
-inversion $-I$ swapping the chambers. A group acts on corner amplitudes by
-$(g\psi)(gs) = \psi(s)$.
+permutations that keep TetA, and so TetB; $O_h = T_d \times \{\pm I\}$,
+the inversion $-I$ exchanging the roots. A group acts on corner amplitudes
+by $(g\psi)(gs) = \psi(s)$.
 
 \textbf{The cube and the pixel.} An operator $H$ on the cube is a real
 symmetric operator on the eight corner amplitudes: a Hamiltonian, or the
 coupling matrix of eight oscillators, whose real eigenmodes are standing
-waves. The \emph{pixel} is the cube with the octahedron and the Field
-Origin, 15 sites, with the Hamiltonians of~\cite{NelsonVortex}.
+waves. The \emph{pixel} adds the Field Origin, the central octahedron in
+which the chambers intersect, with centre $O$~\cite{NelsonColes}: 15
+sites, with the Hamiltonians of~\cite{NelsonVortex}.
 
-\textbf{Two closures.} \emph{Frame closure} is Letter~1's
-$v_1 + v_2 + v_3 + v_4 = 0$ for the four legs, the TetA
-corners~\cite{NelsonL1}. \emph{Field closure} is Letter~3's: both roots of
-the tetrad equation, TetA and TetB, active, nothing held at
-zero~\cite{NelsonL3}. The oscillator node's update rule
-(Section~5) is a third thing, which we call its \emph{closure rule}.
+\textbf{Closure.} Letter~1's closure condition $v_1 + v_2 + v_3 + v_4 = 0$,
+for the four legs (the TetA corners), seals TetA, and the same four walls
+seal TetB~\cite{NelsonL1, NelsonFieldClosure}; the forced tetrahedral frame
+proof derives it from the metric's pattern rather than assuming
+it~\cite{NelsonForced}. \emph{Field closure} keeps both roots, TetA and
+TetB, active, nothing held at zero~\cite{NelsonL3}. The oscillator node's
+update rule (Section~5) is a separate thing, which we call its
+\emph{closure rule}.
 
 % ======================================================================
 
@@ -121,6 +129,11 @@ basis, and conversely. A bit flip changes $w_S$ by $-1$ for each
 coordinate in $S$, which gives $A$.
 \end{proof}
 
+Under the full symmetry $O_h$ the couplings are the four distance
+relations $A_0, \dots, A_3$ of the coupling algebra, diagonalised by the
+Walsh grades~\cite{NelsonCoupling}. What follows keeps the chambers
+distinct.
+
 % ======================================================================
 
 \section{The pairing of the grades}
@@ -129,15 +142,16 @@ coordinate in $S$, which gives $A$.
 \label{thm:pairing}
 \begin{enumerate}
 \item[(i)] Under $T_d$ the corners carry $2A_1 \oplus 2T_2$: $1$ and
-  $xyz$ are invariant and span $A_1$; the vector modes and the quadrupole
+  $xyz$ are invariant and span $A_1$; the vector modes and the bivector
   modes are each a copy of $T_2$. Multiplying by $xyz$ commutes with $T_d$
   and maps grade 1 onto grade 2.
-\item[(ii)] The most general $T_d$-invariant $H$ has six parameters:
-  corner energies $\epsilon_A, \epsilon_B$; face-diagonal couplings
-  $h_{AA}, h_{BB}$ inside each chamber; cube-edge and body-diagonal
-  couplings $h_e, h_d$ between them. In the chamber basis ($u_{A,B}$ the
-  normalised indicators, $f^d_{A,B}$ the coordinate $s_d$ restricted to a
-  chamber and normalised),
+\item[(ii)] The most general $T_d$-invariant $H$ has six parameters (the
+  coupling algebra's eight directed relations~\cite{NelsonCoupling}, with
+  A$\to$B and B$\to$A equal): corner energies $\epsilon_A, \epsilon_B$;
+  face-diagonal couplings $h_{AA}, h_{BB}$ inside each chamber; cube-edge
+  and body-diagonal couplings $h_e, h_d$ between them. In the chamber basis
+  ($u_{A,B}$ the normalised indicators, $f^d_{A,B}$ the coordinate $s_d$
+  restricted to a chamber and normalised),
   \begin{equation}
   H = \begin{pmatrix}\alpha_A & \beta\\ \beta & \alpha_B\end{pmatrix}
   \oplus
@@ -174,16 +188,15 @@ $2\times2$ matrix tensored with $I_3$; the entries follow from row sums and,
 on $T_2$, from $\sum_{b \sim a}s_d(b) = s_d(a)$ along edges and $s_d(-a) =
 -s_d(a)$. (iii) $(1, \pm1)$ are eigenvectors of a block iff its diagonal
 entries agree, i.e.\ $\epsilon_A = \epsilon_B$ and $h_{AA} = h_{BB}$:
-invariance under $-I$, which swaps the chambers and fixes the edge and
+invariance under $-I$, which exchanges the chambers and fixes the edge and
 diagonal pairs. Under $O_h$ the grades are four inequivalent
 representations. (iv) is a real symmetric $2\times2$ eigenproblem.
 \end{proof}
 
 This is the cube's form of a standard fact of tetrahedral chemistry: in
 $T_d$, s and f$_{xyz}$ both carry $A_1$ and mix, and p and d($t_2$) both
-carry $T_2$ and mix~\cite{Cotton1990}. The quadrupole modes behave as
-directions only because $T_d$, having no inversion, cannot tell them from
-vectors.
+carry $T_2$ and mix~\cite{Cotton1990}. Vectors and bivectors both carry
+$T_2$ only because $T_d$ has no inversion.
 
 \begin{proposition}[The pixel]
 \label{prop:pixel}
@@ -193,19 +206,21 @@ vectors.
   odd), 1 ($T_2$, odd), 2 ($T_2$, even).
 \item[(ii)] In general the corner part $c$ of an eigenmode at energy $E$
   satisfies $H_{\rm eff}(E)c = Ec$, with $H_{\rm eff}(E) = H_{cc} +
-  H_{cr}(E - H_{rr})^{-1}H_{rc}$ ($r$: Field Origin and octahedron). This
-  operator is $T_d$-invariant, so it has the form (\ref{eq:blocks}) with
-  $E$-dependent entries: the pairing holds mode by mode, and each mode
-  has its own angle.
+  H_{cr}(E - H_{rr})^{-1}H_{rc}$, where $r$ is the Field Origin's seven
+  sites (its six octahedron vertices and its centre). This operator is
+  $T_d$-invariant, so it has the form (\ref{eq:blocks}) with
+  $E$-dependent entries: the pairing holds mode by mode, and each mode has
+  its own angle.
 \end{enumerate}
 \end{proposition}
 
 \begin{proof}
 (i) The four projectors $P_{A_1}(1 \pm P_{-I})/2$ and $P_{T_2}(1 \pm
 P_{-I})/2$ commute with every $O_h$-invariant $H$, and the corner part of
-each lies in one grade (checked exactly). (ii) Eliminate the 7 non-corner
-sites; the blocks are $T_d$-equivariant. At one parameter point the three
-$T_2$ levels have grade-1 shares 0.83, 0.007 and 0.98 (numerical).
+each lies in one grade (checked exactly). (ii) Eliminate the Field
+Origin's sites; the blocks are $T_d$-equivariant. At one parameter point
+the three $T_2$ levels have grade-1 shares 0.83, 0.007 and 0.98
+(numerical).
 \end{proof}
 
 % ======================================================================
@@ -213,12 +228,13 @@ $T_2$ levels have grade-1 shares 0.83, 0.007 and 0.98 (numerical).
 \section{The vortices are made of $T_2$ modes}
 
 \begin{corollary}
-The pixel carries $4A_1 \oplus E \oplus 3T_2$ (two $T_2$ copies on the
-corners, one on the octahedron). The rotoreflection $S$ has eigenvalue
-$+i$ only on $T_2$, so the winding space $V_{+i}$~\cite{NelsonVortex}
-takes one vector from each $T_2$ copy. Every vortex's corner part is a
-combination of the six $T_2$ modes, and its octahedron part lies in the
-octahedron's $T_2$ copy; the uniform and parity modes never wind.
+The pixel carries $4A_1 \oplus E \oplus 3T_2$: two $T_2$ copies on the
+corners and one on the Field Origin's octahedron. The rotoreflection $S$
+has eigenvalue $+i$ only on $T_2$, so the winding space
+$V_{+i}$~\cite{NelsonVortex} takes one vector from each $T_2$ copy. Every
+vortex's corner part is a combination of the six $T_2$ modes, and its
+octahedron part lies in the octahedron's $T_2$ copy; the constant mode and
+the chamber sign never wind.
 \end{corollary}
 
 \begin{proof}
@@ -232,7 +248,7 @@ On the cube graph, $H = tA$ with $t > 0$, $\psi = x + iy$ is an eigenmode at
 the triply degenerate grade-1 energy $t$ (spanned by $x, y, z$). It winds
 under the quarter turn about $\hat z$, $C_4\psi = -i\psi$, and carries the
 current $-8t$ ($-t/2$ per unit norm) through every half-plane bounded by
-the $z$ axis, counted as the physical flow $J_{i\to j} =
+the $z$ axis, counted as the flow $J_{i\to j} =
 2\,\mathrm{Im}(\bar\psi_jH_{ji}\psi_i)$ in the right-handed
 sense~\cite{NelsonVortex}. The standing waves $x$ and $y$ alone carry none.
 \end{proposition}
@@ -244,24 +260,30 @@ $Ax = x$, $Ay = y$; $C_4$ sends $x \mapsto y$, $y \mapsto -x$, so $C_4\psi =
 
 % ======================================================================
 
-\section{What frame closure and field closure read}
+\section{What closure and field closure read}
 
 Write $S_{A,B}$ for the sum of the amplitudes over a chamber and $R_{A,B}$
 for its frame readout, $\psi \mapsto \sum_{s\in{\rm chamber}}\psi(s)\,s$.
+These are readouts of the eight corner states.
 
 \begin{theorem}[Readouts]
 \label{thm:closure}
 \begin{enumerate}
 \item[(i)] Every $T_d$-equivariant linear map from TetA's four amplitudes
   to $\mathbb R^3$ is a multiple of the frame readout $R_A$.
-\item[(ii)] Frame closure is forced by the symmetry: the legs are one
-  $T_d$-orbit and $T_d$ fixes no nonzero vector, so $\sum v_i = 0$. It is
-  the same equation as $R_A(1) = 0$, the frame's blindness to the uniform
-  mode; $R_A$ is injective on the sum-zero modes.
+\item[(ii)] Closure, $\sum v_i = 0$, is the same equation as $R_A(1) = 0$:
+  the frame is blind to the constant mode, which is the Hadamard frame's
+  bordering row of ones and, on the null cone, the time
+  direction~\cite{NelsonHadamard, NelsonCoupling}. With $T_d$ it also
+  follows from the orbit sum, since the legs are one $T_d$-orbit and $T_d$
+  fixes no nonzero vector. $R_A$ is injective on the sum-zero modes.
 \item[(iii)] One root: TetA's readouts $S_A, R_A$ have rank 4 on the eight
   corners and cannot tell $w_S$ from $w_{\bar S}$ ($\bar S$ the
-  complement), the collapse on one tetrahedron~\cite{NelsonHadamard}: they
-  read half of the spectrum.
+  complement), the collapse on one tetrahedron~\cite{NelsonHadamard}. They
+  read four modes, $1$ and $x, y, z$, which on the null cone are time and
+  the three directions of space, TetA's $3+1$~\cite{NelsonCoupling}; the
+  bivector modes and the chamber sign, which they confuse with these, are
+  also the four the metric cannot see.
 \item[(iv)] Field closure: $(S_A, S_B, R_A, R_B)$ is an invertible readout
   of all eight corners. $S_A, S_B$ read exactly $1$ and $xyz$; $R_A, R_B$
   read exactly the six $T_2$ modes. The $T_d$-equivariant linear readouts
@@ -273,33 +295,39 @@ for its frame readout, $\psi \mapsto \sum_{s\in{\rm chamber}}\psi(s)\,s$.
 \begin{proof}
 TetA's corners carry $A_1 \oplus T_2$ and $\mathbb R^3$ carries $T_2$, so
 $\mathrm{Hom}_{T_d}$ is one-dimensional (Schur). The $T_d$-orbit of $v_1$ is
-the four legs; the stacked $g - I$ have rank 3. On eight corners
-$\mathrm{Hom}_{T_d}(2A_1 \oplus 2T_2, T_2)$ and $\mathrm{Hom}_{T_d}(2A_1
-\oplus 2T_2, A_1)$ are two-dimensional, and $R_{A,B}$, $S_{A,B}$ are
-equivariant and independent. All four statements are also solved directly
-from the linear equations.
+the four legs; the stacked $g - I$ have rank 3. On TetA, $xyz = 1$ and $yz
+= x$, $xz = y$, $xy = z$. On eight corners $\mathrm{Hom}_{T_d}(2A_1
+\oplus 2T_2, T_2)$ and $\mathrm{Hom}_{T_d}(2A_1 \oplus 2T_2, A_1)$ are
+two-dimensional, and $R_{A,B}$, $S_{A,B}$ are equivariant and independent.
+The metric's kernel on the null directions is grades 2 and
+3~\cite{NelsonCoupling}. All statements are also solved directly from the
+linear equations.
 \end{proof}
 
-So a readout that uses one root reads half of the Walsh spectrum, and
-field closure is what makes the reading complete. $\mu = S_A/(S_A + S_B)$
-cannot be formed from TetA alone: an amplitude supported on TetA and the
-uniform amplitude have the same TetA readouts and $\mu = 1$, $\frac12$.
-The division into two sectors is a property of \emph{linear} readouts: a
-quadratic invariant, such as $\lvert R_A\psi\rvert^2$, is a scalar that
-reads the $T_2$ modes.
+So a readout that uses one root reads half of the Walsh spectrum, the
+$3+1$ part, and field closure is what makes the reading complete. $\mu =
+S_A/(S_A + S_B)$ cannot be formed from TetA alone: an amplitude supported
+on TetA and the constant amplitude have the same TetA readouts and $\mu =
+1$, $\frac12$. The division into two sectors is a property of
+\emph{linear} readouts: a quadratic invariant, such as $\lvert
+R_A\psi\rvert^2$, is a scalar that reads the $T_2$ modes. And it concerns
+the eight corner \emph{states}: in GFD field closure reads the 64 ordered
+transitions between corners~\cite{NelsonFieldClosure}, which the coupling
+algebra sorts $8 + 24 + 24 + 8$ by distance~\cite{NelsonCoupling}; those
+are not treated here.
 
 % ======================================================================
 
 \section{What the oscillator node's closure rule reads}
 
-The archive's octahedral resonance node~\cite{NelsonPixelated} drives eight
+The archive's octahedral resonance node~\cite{NelsonPixelated} runs eight
 corner oscillators, mixes them, and forms a vertex state $v_k$ with Walsh
 coefficients $c_S = \frac18\sum_kw_S(s_k)v_k$. It computes $\mu = (1 +
 c_{xyz}/c_1)/2$, and its closure rule makes three updates at rate $\kappa =
 0.02$: amplitudes toward $a^* = r/(1+r)$ (bounded rule) or $\min(r, 5)$
-(original), with $r^2$ the mean energy of the two mixes; outward couplings
-toward 1 or $\min(r, 5)$; inward couplings by $c_k \leftarrow c_k +
-\kappa\,\mathrm{sign}(f_kb_k)(1 - \lvert c_k\rvert)$.
+(original), with $r^2$ the mean squared value of the two mixes; outward
+couplings toward 1 or $\min(r, 5)$; inward couplings by $c_k \leftarrow c_k
++ \kappa\,\mathrm{sign}(f_kb_k)(1 - \lvert c_k\rvert)$.
 
 \begin{theorem}[The node]
 \label{thm:node}
@@ -307,11 +335,12 @@ toward 1 or $\min(r, 5)$; inward couplings by $c_k \leftarrow c_k +
 \item[(i)] $\mu = S_A/(S_A + S_B)$, the TetA share of the vertex state; it
   depends only on $1$ and $xyz$, and adding any $T_2$ modes leaves it
   unchanged.
-\item[(ii)] The energy that drives the rule is $\sum_kv_k^2 = 8\sum_Sc_S^2$
-  (Parseval), the total Walsh power. Amplitudes and outward couplings each
-  have one target for all corners, so while no clamp acts the spread
-  between corners contracts by exactly $1 - \kappa$ per step, and at equal
-  amplitudes a step rescales the carrier's whole spectrum by one factor.
+\item[(ii)] The quantity that sets the rule's targets is $\sum_kv_k^2 =
+  8\sum_Sc_S^2$ (Parseval), the total Walsh weight. Amplitudes and outward
+  couplings each have one target for all corners, so while no clamp acts
+  the spread between corners contracts by exactly $1 - \kappa$ per step,
+  and at equal amplitudes a step rescales the carrier's whole spectrum by
+  one factor.
 \item[(iii)] The inward-coupling update is corner-local and depends on the
   signal; it is inert in the archive only because every $c_k$ starts at its
   fixed point 1.
@@ -336,17 +365,20 @@ both modes.
 Let $(\cos\theta, \sin\theta)$, $0 < \theta < \pi/2$, be the bonding mode
 of the $A_1$ block (\ref{eq:blocks}). Its TetA share of amplitude is $1/(1
 + \tan\theta)$; the antibonding mode's, $1/(1 - \cot\theta)$, lies outside
-$[0, 1]$. With $x = g/a_0$:
+$[0, 1]$. With $x = g_t/a_0$:
 \begin{enumerate}
 \item[(i)] \emph{Linear reading} (corner values are field values): $\mu =
-  x/(1+x)$ if and only if $\tan\theta = a_0/g$, the mode proportional to
-  $(g, a_0)$; equivalently $\beta/(\alpha_A - \alpha_B) = x/(x^2-1)$.
-\item[(ii)] In that reading the mode's chamber parts, scaled to total $g$,
-  are $\mu g = g^2/(g + a_0)$ and $(1-\mu)g = ga_0/(g + a_0)$: the TetA part
-  is $g_N$ of the field equation $g_N = g^2/(g + a_0)$.
+  x/(1+x)$ if and only if $\tan\theta = a_0/g_t$, the mode proportional to
+  $(g_t, a_0)$; equivalently $\beta/(\alpha_A - \alpha_B) = x/(x^2-1)$. The
+  exchange $x \to 1/x$ sends $\theta \to \pi/2 - \theta$, swapping the
+  chambers, which is $\mu(1/x) = 1 - \mu(x)$.
+\item[(ii)] In that reading the mode's chamber parts, scaled to total
+  $g_t$, are $\mu g_t$ and $(1 - \mu)g_t$: the TetA part is the TetA
+  partition $g_s = \mu g_t$ of Letter~3, and the TetB part is the TetB
+  share. Written out, $\mu g_t = g_t^2/(g_t + a_0)$.
 \item[(iii)] \emph{Quadratic reading} (the field is the intensity): $\mu =
-  x/(1+x)$ if and only if $\tan\theta = \sqrt{a_0/g}$, the mode
-  proportional to $(\sqrt g, \sqrt{a_0})$, with $\beta/(\alpha_A -
+  x/(1+x)$ if and only if $\tan\theta = \sqrt{a_0/g_t}$, the mode
+  proportional to $(\sqrt{g_t}, \sqrt{a_0})$, with $\beta/(\alpha_A -
   \alpha_B) = \sqrt x/(x-1)$: the bond-orbital dictionary $V_3/V_2 = (x -
   1)/(2\sqrt x)$ of the diamond lattice.
 \item[(iv)] The readings agree only at $x = 1$ ($\theta = \pi/4$, $\mu =
@@ -360,15 +392,24 @@ and chamber weights $\cos^2\theta$ and $\sin^2\theta$; the rest is algebra
 with $\tan 2\theta = 2\tan\theta/(1 - \tan^2\theta)$ and (\ref{eq:mixing}).
 \end{proof}
 
+The expression $g_t^2/(g_t + a_0)$ in (ii) is also the right-hand side of
+the spherical field equation $g_s = g_t^2/(g_t + a_0)$. The two are
+different statements, the kinematic partition and the dynamic equation,
+linked by the AQUAL identity $\mu = dF/dy$~\cite{NelsonColes}; the
+proposition uses only the partition.
+
 \begin{remark}[Which reading]
 For the cube the linear reading is the consistent one. Every readout in
-Sections~4 and~5 is linear in the corner values, and Letter~3 divides the
-field itself, TetA carrying $\mu$ of $g$ and TetB $1 - \mu$, with general
-relativity seeing $\mu g = g_N$~\cite{NelsonL3}; Proposition~\ref{prop:mu}(ii)
-reproduces that division and the field equation exactly. The quadratic
-reading is the right one when the field is the intensity of a lattice
-wave, as in the diamond lattice's bond orbital. Which applies is a
-statement about what the mode's amplitude represents, not about $\mu$.
+Sections~4 and~5 is linear in the corner values; Letter~3 states the
+partition as a division of the field itself, $g_s = \mu g_t$, with general
+relativity the case $\mu = 1$~\cite{NelsonL3}; the archive measures the
+TetA share as $g_{\rm bar}/g_{\rm obs}$~\cite{NelsonHourglass}; and the
+coupling algebra obtains $\mu$ as a linear stationary share of a two-rate
+flow~\cite{NelsonCoupling}. Proposition~\ref{prop:mu}(ii) reproduces the
+partition exactly. The quadratic reading is the right one when the field
+is the intensity of a lattice wave, as in the diamond lattice's bond
+orbital. Which applies is a statement about what the mode's amplitude
+represents, not about $\mu$.
 \end{remark}
 
 % ======================================================================
@@ -379,24 +420,26 @@ statement about what the mode's amplitude represents, not about $\mu$.
 The cube holds the Walsh standing waves exactly when TetA and TetB are
 alike, and in rotated pairs when they differ; in the pixel the pairing
 holds mode by mode. The pixel's vortices are made of $T_2$ modes. Among
-linear symmetric readouts, one root reads half of the spectrum, and field
-closure reads all of it, in two sectors: the scalars read $1$ and $xyz$
-and give $\mu$; the frames read the six $T_2$ modes. The node's closure
-rule sees the rest only through the total power.
+linear symmetric readouts of the corner states, one root reads half of the
+spectrum, the $3+1$ part, and field closure reads all of it, in two
+sectors: the scalars read $1$ and $xyz$ and give $\mu$; the frames read the
+six $T_2$ modes. The node's closure rule sees the rest only through the
+total Walsh weight.
 \end{remark}
 
 \begin{remark}[Not claimed]
-That the physical field is this node or reads linearly, or that any model's
-bonding $A_1$ mode satisfies $\tan\theta = a_0/g$. Proposition~\ref{prop:mu}
-makes that the test: compute the bonding mode of a lattice model and
-compare its angle with $a_0/g$.
+That the physical field is this node or reads linearly; anything about the
+64 transitions that field closure reads; or that any model's bonding $A_1$
+mode satisfies $\tan\theta = a_0/g_t$, which Proposition~\ref{prop:mu}
+makes the test. The models here are linear, while GFD's Field Origin is
+nonlinear, non-analytic at zero field~\cite{NelsonColes}.
 \end{remark}
 
 % ======================================================================
 
 \section*{Verification}
 
-\texttt{verify\_walsh\_eigenmodes.py} runs 45 checks in six parts: the
+\texttt{verify\_walsh\_eigenmodes.py} runs 47 checks in six parts: the
 cube's eigenmodes; the pairing on the cube, in all parameters, and in the
 pixel (exactly for alike chambers, numerically mode by mode otherwise); the
 vortices and the cube vortex; the readouts, solved from their equivariance
@@ -404,7 +447,7 @@ equations; the node, symbolically and on its own code
 (\texttt{octahedral\_node.py} in~\cite{NelsonPixelated}); and the two
 readings of $\mu$.
 
-\begin{thebibliography}{9}
+\begin{thebibliography}{99}
 
 \bibitem{NelsonHadamard}
 S.~Nelson,
@@ -412,11 +455,22 @@ S.~Nelson,
 Field Dynamics Research (2026),
 \url{proofs/hadamard-cube-frame}.
 
+\bibitem{NelsonCoupling}
+S.~Nelson,
+\textit{The Coupling Algebra}, research note, Field Dynamics Research
+(2026), \url{research/coupling-algebra}.
+
 \bibitem{NelsonVortex}
 S.~Nelson,
 \textit{Vortices of the Stellated Octahedron},
 Field Dynamics Research (2026),
 \url{proofs/vortices-of-the-stellated-octahedron}.
+
+\bibitem{NelsonForced}
+S.~Nelson,
+\textit{The Forced Tetrahedral Frame},
+Field Dynamics Research (2026),
+\url{proofs/forced-tetrahedral-frame}.
 
 \bibitem{NelsonL1}
 S.~Nelson,
@@ -427,6 +481,21 @@ Field Dynamics Research (2026).
 S.~Nelson,
 \textit{Gravity Field Dynamics: Field Closure of the Tetrad Frame}
 (Letter~3), Field Dynamics Research (2026).
+
+\bibitem{NelsonFieldClosure}
+S.~Nelson,
+\textit{Field Closure}, research note, Field Dynamics Research (2026),
+\url{research/field-closure}.
+
+\bibitem{NelsonColes}
+S.~Nelson,
+\textit{GFD Coles Notes}, Field Dynamics Research (2026),
+\url{GFD_COLES_NOTES.md}.
+
+\bibitem{NelsonHourglass}
+S.~Nelson,
+\textit{TetA and TetB as One Vortex}, research note, Field Dynamics
+Research (2026), \url{research/vortex-hourglass}.
 
 \bibitem{NelsonPixelated}
 S.~Nelson,

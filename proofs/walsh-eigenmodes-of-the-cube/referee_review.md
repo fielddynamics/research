@@ -160,3 +160,18 @@ The mathematics is correct. What needs care is the concepts.
 ## Reference added
 
 - F. A. Cotton, *Chemical Applications of Group Theory*, 3rd ed. (Wiley, New York, 1990): orbital symmetries in $T_d$, and the mixing of p with d($t_2$).
+
+
+## Framework alignment (2026-11-15)
+
+A later check of every concept against the framework's own documents (the coupling algebra, the Coles notes, Letter 3, the field-closure and hourglass notes, the forced-frame proof) changed wording and scope, not results. One check was added for the metric's view of the grades, and one for the exchange $x \to 1/x$, giving 47 in all. The changes:
+- **Prior work.** The coupling algebra already treats the cube under full symmetry, so it is cited, and the proof's new step is stated as keeping the chambers distinct.
+- **Names.** The archive's names are used: constant mode, vector modes, bivector modes, chamber sign.
+- **The Field Origin.** It is the central octahedron, with centre $O$.
+- **Closure.** Letter 1's closure seals both chambers. Field closure keeps both roots. The forced-frame proof derives closure rather than assuming it.
+- **One root.** One root reads time and space on the null cone, TetA's 3+1. The four modes it confuses with these are the four the metric cannot see.
+- **The partition.** Proposition 3(ii) now states the TetA partition $g_s = \mu g_t$ (kinematic). It says the identical expression in the spherical field equation (dynamic) is a different statement, linked by the AQUAL identity.
+- **Terms with GFD meanings.** "Drive" and "power" are replaced.
+- **Scope.** The proof concerns the eight corner states, not the 64 transitions that field closure reads.
+- **Nonlinearity.** The models are linear, while the Field Origin is nonlinear.
+- **Metadata.** The PDF's title metadata is fixed.

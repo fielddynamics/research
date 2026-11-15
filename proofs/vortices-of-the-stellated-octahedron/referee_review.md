@@ -234,3 +234,13 @@ With those changes the paper makes a correct and modest claim: these symmetric p
 - E. Steiner and P. W. Fowler, *J. Phys. Chem. A* **105**, 9553 (2001): orbital contributions to ring currents.
 - M. Büttiker, Y. Imry and R. Landauer, *Phys. Lett. A* **96**, 365 (1983): persistent currents in rings.
 - J.-P. Serre, *Linear Representations of Finite Groups* (Springer, 1977): Schur's lemma and isotypic components.
+
+
+## Framework alignment (2026-11-15)
+
+A later check of every concept against the framework's own documents changed wording, not results; the 81 checks are unchanged. The changes:
+- **The Field Origin.** It is the central octahedron in which the chambers intersect, with centre $O$ (Coles notes). The proof called only the centre "the Field Origin". It now speaks of the Field Origin's centre and equator.
+- **The bond set.** It is now justified by GFD's position that TetB is reached only through the Field Origin. Corollary 1 is read in that light.
+- **The Triforce.** Its tiles are named as the archive's outer sub-channels (spatial coupling) and central sub-channels (gravitational coupling). The leg vortex's empty core is the gravitational coupling line.
+- **"Power".** Proposition 1 no longer calls $J$ "power".
+- **"Not claimed".** It now records that the Field Origin is nonlinear in GFD, and that flow along the axis, the hourglass's through-flow, is not fixed.

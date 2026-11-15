@@ -42,26 +42,29 @@
 
 \begin{abstract}
 The pixel of Gravity Field Dynamics is the stellated octahedron in its
-cube: two tetrahedra, TetA and TetB, whose overlap is an octahedron
-around the Field Origin. We study real symmetric Hamiltonians with the
+cube: two tetrahedra, TetA and TetB, whose overlap, the central
+octahedron, is the Field Origin. We study real symmetric Hamiltonians with the
 tetrahedral symmetry $T_d$ on two graphs built from it, the 15-site
 pixel and the 33-tile pixel of the Triforce faces, with TetA and TetB
 free to differ. We prove that they carry vortices: stationary states
 that wind about an axis and carry a circulating current around an
-axis on which they vanish. In the pixel, about each octahedron axis,
+axis on which they vanish. In the pixel, about each axis of the Field
+Origin's octahedron,
 there are exactly three vortices and three antivortices, with distinct
 energies interlacing the corner energies, outside an explicit
 exceptional set. Their current through any half-plane bounded by the
 axis is $I = (E - \Delta_f - 2h)\lvert\rho\rvert^2$, where $\rho$ is
-the amplitude on each vertex of the octahedron's equatorial ring and
+the amplitude on each vertex of the Field Origin's equatorial ring and
 $h$ the hopping along the octahedron's edges, and the corners are
-locked to that ring. Read as modes of a network of coupled
+locked to that ring: the circulation runs through the Field Origin
+around its empty centre. Read as modes of a network of coupled
 oscillators, each vortex is a rotating wave, and a vortex plus its
 antivortex is a standing wave. In the Triforce pixel the winding space
 about a leg splits as $W \oplus W'$ by representation theory. On $W$
 every energy is doubled, with the two energies in closed form; on $W'$
-there are generically six vortices, each turning the star point's
-three outer tiles around the leg. Hand proofs are given throughout;
+there are generically six vortices, each turning a star point's outer
+sub-channel around the leg, whose empty core is the gravitational
+coupling line through the Field Origin. Hand proofs are given throughout;
 the all-parameter statements are also checked symbolically, and the
 generic statements are certified exactly over $\mathbb Q(i)$ and
 $\mathbb Q(\omega)$ in code that uses no computer algebra.
@@ -74,9 +77,10 @@ tetrahedral symmetry, Field Origin, Triforce, proof}
 
 \section*{Setting}
 
-\textbf{Pixel graph $\mathcal P$} (15 sites): the Field Origin $O$; the
-six vertices of the octahedron, at the cube's face centres
-$\pm\hat x,\pm\hat y,\pm\hat z$; the eight corners $(\pm1,\pm1,\pm1)$,
+\textbf{Pixel graph $\mathcal P$} (15 sites): the Field Origin, the
+central octahedron in which the chambers intersect~\cite{NelsonColes},
+given by its centre $O$ and its six vertices at the cube's face centres
+$\pm\hat x,\pm\hat y,\pm\hat z$; and the eight corners $(\pm1,\pm1,\pm1)$,
 with TetA the four with $xyz = +1$ and TetB the four with
 $xyz = -1$~\cite{NelsonGram,Coxeter1973}. Bonds: $O$ to every other
 site; each octahedron vertex to the four corners of its face; and the
@@ -87,14 +91,23 @@ tiles, the medial triangles of the eight tetrahedron faces (these are
 the octahedron's faces); the 24 outer tiles, three per face, which
 are the exposed faces of the eight star points. Bonds: two tiles
 sharing an edge, and each central tile to $O$. A tile's position is
-its centroid.
+its centroid. In the archive's terms~\cite{NelsonTriforce} each face is
+a triforce of 3 outer sub-channels and 1 central sub-channel: a star
+point's three outer tiles form the outer sub-channel at that vertex,
+shared by its three faces (spatial coupling), and a central tile couples
+through the Field Origin to its partner face, along the line penetrator
+$\to$ centroid $\to O \to$ partner centroid $\to$ partner penetrator
+(gravitational coupling).
 
 \textbf{The bond sets.} These graphs are not nearest-neighbour graphs of
 the point set: $\mathcal P$ contains the $O$--corner bonds (length
 $\sqrt3$) and leaves out the cube's twelve edges (length 2, each joining
-a TetA corner to a TetB corner). They encode coupling through the Field
-Origin and across the octahedron, and every result below is a result
-about these graphs. The remark \emph{Other bonds} (Section~5) records what changes with the cube's edges.
+a TetA corner to a TetB corner). In both graphs TetA and TetB are
+coupled only through the Field Origin, its octahedron and its centre,
+which is GFD's position that TetB is reached only through the Field
+Origin~\cite{NelsonColes}; by symmetry alone the cube's edges would also
+be allowed~\cite{NelsonCoupling}. Every result below is a result about
+these graphs. The remark \emph{Other bonds} (Section~5) records what changes with the cube's edges.
 
 \textbf{Hamiltonians.} $H$ is real symmetric, supported on the diagonal
 and the bonds, and invariant under $T_d$ (24 elements, the symmetries
@@ -223,8 +236,8 @@ $(1,1,1) = \sigma(1,-1,-1)$, consecutive in their orbit, so
 $\lvert a\rvert = c_A\lvert 1 + \lambda\rvert = \sqrt2\,c_A$, and
 likewise for $b$. The octahedron edges add $-h(\lambda + \bar\lambda) =
 0$ on the ring and couple it otherwise only to $\pm\hat z$, where
-winding states vanish; the Field Origin's energy and hoppings drop out
-for the same reason. No bond joins a TetA corner to a TetB corner.
+winding states vanish; the energy and hoppings of the Field Origin's
+centre $O$ drop out for the same reason. No bond joins a TetA corner to a TetB corner.
 
 \begin{theorem}[Vortices of the pixel]
 \label{thm:pixel}
@@ -279,15 +292,16 @@ independent of the half-plane). At $\epsilon_A = \epsilon_B$,
 $E = \epsilon_A$ is a root of $\det(H_+ - E)$ with $\rho = 0$.
 \end{proof}
 
-\begin{corollary}[Without the octahedron]
-Remove the octahedron (keep $O$ and the corners, with the bonds of
-$\mathcal P$). Winding states exist ($\dim V_{+i} = 2$), but they
+\begin{corollary}[Without the Field Origin's octahedron]
+Remove the octahedron, keeping the Field Origin's centre $O$ and the
+corners, with the bonds of $\mathcal P$. Winding states exist ($\dim V_{+i} = 2$), but they
 vanish at $O$ and every remaining bond touches $O$, so $I = 0$: there
 are no vortices.
 \end{corollary}
 
-The corollary depends on the bond set. With the cube's edges added,
-the corners circulate on their own: at $\epsilon_A = 0$,
+The corollary depends on the bond set, and so on GFD's position that
+TetB is reached only through the Field Origin. With the cube's edges
+added, the corners circulate on their own: at $\epsilon_A = 0$,
 $\epsilon_B = 1$ and cube hopping 1, the two winding eigenstates carry
 currents $\pm1/\sqrt5$ (normalised, exact).
 
@@ -295,8 +309,8 @@ currents $\pm1/\sqrt5$ (normalised, exact).
 \label{prop:standing}
 Read a vortex $\psi$ at energy $E > 0$ as the complex amplitude of a
 real field $u(t) = \mathrm{Re}(e^{-iEt}\psi)$, a mode of frequency $E$
-of a network of coupled oscillators (in coupled-mode theory $J_{i\to
-j}$ is then the power carried along the bond). Then:
+of a network of coupled oscillators ($J_{i\to j}$ is then the rate at
+which amplitude moves along the bond). Then:
 \begin{enumerate}
 \item[(i)] $Su(t) = u(t - \tfrac{\pi}{2E})$: a quarter turn of the
   pattern (with the top--bottom flip) equals a fixed delay, so the
@@ -347,7 +361,8 @@ In $\mathcal T$, with $\lambda = \omega$ about a leg:
 \item[(iv)] for all parameters outside a proper algebraic subset, $H$ on
   $W'$ has six distinct energies, and each of the six stationary
   states is a vortex with nonzero amplitude on the three outer tiles of
-  the star point on the leg, around which it carries a current of
+  the star point on the leg, its outer sub-channel, around which it
+  carries a current of
   magnitude $\sqrt3\,\lvert t_A\rvert\lvert r\rvert^2$ on each bond, all
   in one sense ($r$ the amplitude there).
 \end{enumerate}
@@ -414,12 +429,12 @@ $J_{i\to j}$, for parameter points with $h = 0$.
 \caption{Bond currents $J_{i\to j}$ of exact vortex eigenstates (arrow
 width: size; marker size: amplitude). (a) A vortex of the 15-site
 pixel about an octahedron axis, with TetA and TetB parameters
-unequal: the corners and the octahedron's ring carry the current
-together, and the axis carries zero amplitude (Lemma~2,
+unequal: the corners and the Field Origin's equatorial ring carry the
+current together, and the axis carries zero amplitude (Lemma~2,
 Theorem~\ref{thm:pixel}). (b) The same state from above. (c) A
 Triforce vortex of the 33-tile model, looking down a leg: the star
-point's three outer tiles circulate around the empty leg
-(Theorem~\ref{thm:triforce}).}
+point's three outer tiles, its outer sub-channel, circulate around
+the empty leg (Theorem~\ref{thm:triforce}).}
 \label{fig:currents}
 \end{figure*}
 
@@ -428,7 +443,7 @@ point's three outer tiles circulate around the empty leg
 \includegraphics[width=\textwidth]{vortex_render.png}
 \caption{Particle render of the vortices. Left: the eight leg
 (Triforce) vortices. Centre: the core vortex about an octahedron
-axis, with the turning octahedron ring (aqua), the TetA and TetB
+axis, with the Field Origin's turning equatorial ring (aqua), the TetA and TetB
 corner strands locked to it, and the empty axis. Right: both together.
 The axes, the empty cores, the turning ring, the corner strands and
 each end's swirl sense and relative strength come from exact vortex
@@ -467,12 +482,17 @@ graph, and the corollary fails.
 \end{remark}
 
 \begin{remark}[GFD reading]
-The following is interpretation, not part of the theorems. In GFD the
-Field Origin is the eye of every vortex; in the pixel the octahedron's
-ring and the eight corners turn together, the corners acting as a
-flywheel locked to the ring; about a leg, the star point's three outer
-tiles turn around a core that runs through the central tiles and the
-Field Origin to the opposite star point. GFD takes TetA and TetB to
+The following is interpretation, not part of the theorems. GFD
+describes the Field Origin as the octahedral core where angular momentum
+transfers, and as the eye of a self-sustaining vortex~\cite{NelsonColes}.
+In the pixel the circulation runs through the Field Origin, around its
+equator, with its centre empty, and the eight corners turn with it, as a
+flywheel locked to the ring. About a leg, the star point's outer
+sub-channel (spatial coupling) turns around a core that is exactly the
+gravitational coupling line, through the central tiles and the Field
+Origin to the opposite star point~\cite{NelsonTriforce}. The theorems fix
+the swirl, not any flow along the axis, which in the hourglass picture
+of GFD is the through-flow at the throat~\cite{NelsonHourglass}. GFD takes TetA and TetB to
 differ away from its transition $g/a_0 = 1$. If all TetA and TetB
 parameters are equal, a plain quarter turn about an octahedron axis
 becomes a symmetry, and Theorem~\ref{thm:pixel}'s hypothesis
@@ -481,7 +501,9 @@ $\epsilon_A \neq \epsilon_B$ fails.
 
 \begin{remark}[Not claimed]
 That the GFD field occupies these states, that these models are its
-dynamics (the theorems concern the stated class), or any braiding.
+dynamics (the theorems concern the stated class), or any braiding. The
+models are linear, while GFD's Field Origin is nonlinear, non-analytic
+at zero field~\cite{NelsonColes}.
 \end{remark}
 
 \begin{remark}[History]
@@ -510,7 +532,27 @@ Proposition~\ref{prop:standing}, and Theorem~\ref{thm:triforce}(ii)--(iv),
 including the representation-theoretic decomposition and the closed
 form (\ref{eq:M}).
 
-\begin{thebibliography}{9}
+\begin{thebibliography}{99}
+
+\bibitem{NelsonColes}
+S.~Nelson,
+\textit{GFD Coles Notes}, Field Dynamics Research (2026),
+\url{GFD_COLES_NOTES.md}.
+
+\bibitem{NelsonCoupling}
+S.~Nelson,
+\textit{The Coupling Algebra}, research note, Field Dynamics Research
+(2026), \url{research/coupling-algebra}.
+
+\bibitem{NelsonTriforce}
+S.~Nelson,
+\textit{Enterprise Triforce Synthesis}, Field Dynamics Research (2026),
+\url{research/faces}.
+
+\bibitem{NelsonHourglass}
+S.~Nelson,
+\textit{TetA and TetB as One Vortex}, research note, Field Dynamics
+Research (2026), \url{research/vortex-hourglass}.
 
 \bibitem{NelsonGram}
 S.~Nelson,
