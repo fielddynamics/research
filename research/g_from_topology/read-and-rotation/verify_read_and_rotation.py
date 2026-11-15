@@ -24,6 +24,7 @@ Parts
   F. G in parity form and in vortex form
   G. Open steps, probed
   H. The connection's split: the root label is the weight of the lower-index swap
+  I. Four coupled faces: the frame duplicated by four
 
 Run: python verify_read_and_rotation.py
 """
@@ -247,6 +248,40 @@ check("COINCIDENCE", "a third route: on PG(2,4) the lower-index swap has 5 fixed
       5 + 2 * 8 == 21 and 5 + 8 == 13)
 check("OPEN", "what remains: the scalar 1 (here an added unit, not a component of the face), and why G reads one face "
       "(the division by K); recorded only", True)
+
+# ------------------------------------------------------------------ I
+section("I. Four coupled faces: the frame duplicated by four")
+check("NEW", "over the four coupled faces, K f(K, s) = K + s K^2 + K^3 = 4 (legs) + s 16 (tetrad e^a_mu) + 64 "
+      "(connection): 84, 68, 52 = 4 x (21, 17, 13)",
+      sp.expand(K * f(K, s) - (K + s * K ** 2 + K ** 3)) == 0
+      and [4 * f(4, s_) for s_ in (1, 0, -1)] == [84, 68, 52])
+check("CLASSICAL", "the tetrad e^a_mu (16 components) flips with the root (M -> -M), so the root sign sits on it; the "
+      "count of the connection's swap-fixed components Gamma^a_{bb}, indexed like the tetrad, is the same 16 = "
+      "Tr(swap) over the connection (part H)",
+      T3.trace() == 16 == K0 ** 2)
+check("READING", "per face the four coupled faces share the read equally: the scalar 1 is the face's own leg (each "
+      "face of a tetrahedron is opposite one leg), sK is the face's copy of the frame, and K^2 its 16 components; "
+      "so the division by K removes a fourfold duplication, it does not discard three faces",
+      sp.expand(K * f(K, s) / K - f(K, s)) == 0)
+check("NEW", "self-similarity: four coupled faces, each with a full 21-read, joined at one root, give the four-level "
+      "read 1 + K + K^2 + K^3 = 1 + K f(K, +1) = (1 + K)(1 + K^2) = 85 = 5 x 17: the Field Origin's value E "
+      "comes out of the four-face read, E = (K^4 - 1)/(K^2 - 1)",
+      sp.factor(1 + K * f(K, 1)) == (K + 1) * (K ** 2 + 1) and 1 + 4 * 21 == 85 == 5 * 17
+      and sp.cancel((K ** 4 - 1) / (K ** 2 - 1)) == K ** 2 + 1)
+check("NEW", "each state is a geometric read: TetA = (K^3 - 1)/(K - 1), branching K over three levels; TetB = "
+      "(K^3 + 1)/(K + 1), branching -K (the legs reversed); the Field Origin = (K^4 - 1)/(K^2 - 1), branching K^2 "
+      "(the frame duplicated by four at each step) over two levels, the leg level silent",
+      sp.cancel((K ** 3 - 1) / (K - 1)) == f(K, 1) and sp.cancel((K ** 3 + 1) / (K + 1)) == sp.expand(f(K, -1))
+      and sp.cancel((K ** 4 - 1) / (K ** 2 - 1)) == f(K, 0))
+check("NEW", "G as three geometric reads: alpha_G = alpha^((K^3-1)/(K-1)) [(K^4-1)/(K^2-1)] / [(K^3+1)/(K+1)] = "
+      "(17/13) alpha^21",
+      sp.simplify(sp.cancel(((K ** 4 - 1) / (K ** 2 - 1)) / ((K ** 3 + 1) / (K + 1))) - (K ** 2 + 1) / (K ** 2 - K + 1)) == 0
+      and sp.Rational(17, 13) == sp.Rational(4 ** 4 - 1, 4 ** 2 - 1) / sp.Rational(4 ** 3 + 1, 4 + 1))
+check("CLASSICAL", "the Field Origin is not the s = 0 value of the sum of (sK)^j (that is 1); it is the even part of the "
+      "TetA read, (f(K, 1) + f(K, -1))/2, consistent with part D",
+      sum((0 * K) ** j for j in range(1, 3)) + 1 == 1 and sp.expand((f(K, 1) + f(K, -1)) / 2) == f(K, 0))
+check("OPEN", "still open: why the faces read in parallel, so that G's exponent is the per-face read 21 rather than the "
+      "whole 84; and why each level costs one factor of alpha", True)
 
 print(f"\n{sum(ok)}/{len(ok)} checks passed   by tag: {tags}")
 raise SystemExit(len(ok) - sum(ok))

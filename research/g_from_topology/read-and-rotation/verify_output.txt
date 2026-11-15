@@ -57,4 +57,14 @@
   [PASS] COINCIDENCE a third route: on PG(2,4) the lower-index swap has 5 fixed points and 8 pairs, so 21 = 13 + 8; the 13 is the coupling-algebra's flagged coincidence (it equals f(q,-1) only at q = 4), and 8 is 2K, not K
   [PASS] OPEN        what remains: the scalar 1 (here an added unit, not a component of the face), and why G reads one face (the division by K); recorded only
 
-42/42 checks passed   by tag: {'CLASSICAL': 14, 'NEW': 20, 'AUTOMATIC': 2, 'OPEN': 4, 'READING': 1, 'COINCIDENCE': 1}
+=== I. Four coupled faces: the frame duplicated by four
+  [PASS] NEW         over the four coupled faces, K f(K, s) = K + s K^2 + K^3 = 4 (legs) + s 16 (tetrad e^a_mu) + 64 (connection): 84, 68, 52 = 4 x (21, 17, 13)
+  [PASS] CLASSICAL   the tetrad e^a_mu (16 components) flips with the root (M -> -M), so the root sign sits on it; the count of the connection's swap-fixed components Gamma^a_{bb}, indexed like the tetrad, is the same 16 = Tr(swap) over the connection (part H)
+  [PASS] READING     per face the four coupled faces share the read equally: the scalar 1 is the face's own leg (each face of a tetrahedron is opposite one leg), sK is the face's copy of the frame, and K^2 its 16 components; so the division by K removes a fourfold duplication, it does not discard three faces
+  [PASS] NEW         self-similarity: four coupled faces, each with a full 21-read, joined at one root, give the four-level read 1 + K + K^2 + K^3 = 1 + K f(K, +1) = (1 + K)(1 + K^2) = 85 = 5 x 17: the Field Origin's value E comes out of the four-face read, E = (K^4 - 1)/(K^2 - 1)
+  [PASS] NEW         each state is a geometric read: TetA = (K^3 - 1)/(K - 1), branching K over three levels; TetB = (K^3 + 1)/(K + 1), branching -K (the legs reversed); the Field Origin = (K^4 - 1)/(K^2 - 1), branching K^2 (the frame duplicated by four at each step) over two levels, the leg level silent
+  [PASS] NEW         G as three geometric reads: alpha_G = alpha^((K^3-1)/(K-1)) [(K^4-1)/(K^2-1)] / [(K^3+1)/(K+1)] = (17/13) alpha^21
+  [PASS] CLASSICAL   the Field Origin is not the s = 0 value of the sum of (sK)^j (that is 1); it is the even part of the TetA read, (f(K, 1) + f(K, -1))/2, consistent with part D
+  [PASS] OPEN        still open: why the faces read in parallel, so that G's exponent is the per-face read 21 rather than the whole 84; and why each level costs one factor of alpha
+
+50/50 checks passed   by tag: {'CLASSICAL': 16, 'NEW': 24, 'AUTOMATIC': 2, 'OPEN': 5, 'READING': 2, 'COINCIDENCE': 1}

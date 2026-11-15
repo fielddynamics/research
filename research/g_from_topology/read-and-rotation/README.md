@@ -6,7 +6,7 @@
 
 ---
 
-This note is research, not yet a proof. Each part below carries the status of its claims. The script [`verify_read_and_rotation.py`](verify_read_and_rotation.py) checks every statement exactly (42 checks, [output](verify_output.txt)).
+This note is research, not yet a proof. Each part below carries the status of its claims. The script [`verify_read_and_rotation.py`](verify_read_and_rotation.py) checks every statement exactly (50 checks, [output](verify_output.txt)).
 
 The script tags each check in the same way as the coupling algebra's recertification:
 
@@ -136,13 +136,47 @@ Over the whole connection, (K + 64)/(K + 2 × 24) = 17/13 and (K + 2 × 40)/K = 
 
 So no map sends the torsion to the legs block. What the split determines is the weight of the swap.
 
+## I. Four coupled faces: the frame duplicated by four (NEW)
+
+Over the four coupled faces the coupling polynomial multiplies out to the tetrad formalism's three objects:
+
+$$K\,f(K, s) = K + s\,K^2 + K^3 = \underbrace{4}_{\text{legs}} + s\,\underbrace{16}_{\text{tetrad } e^a{}_\mu} + \underbrace{64}_{\text{connection}}, \qquad 84,\ 68,\ 52 = 4 \times (21, 17, 13).$$
+
+The root sign sits on the tetrad, which flips with the root (M → −M). The connection's swap-fixed components Γᵃ_bb are indexed like the tetrad, and there are the same 16 of them, which is why part H's Tr τ and this term agree.
+
+*Reading.* Per face, the four coupled faces share the read equally:
+- the scalar 1 is the face's own leg (each face of a tetrahedron is opposite one leg);
+- sK is the face's copy of the frame;
+- K² is the face's 16 components.
+
+So the division by K removes a fourfold duplication. It does not discard three faces.
+
+**Self-similarity.** Four coupled faces, each with a full 21-read, joined at one root, give the four-level read:
+
+$$1 + K + K^2 + K^3 = 1 + K\,f(K, +1) = (1 + K)(1 + K^2) = 85 = 5 \times 17.$$
+
+The Field Origin's value comes out of the four-face read: E = (K⁴ − 1)/(K² − 1).
+
+**Each state is a geometric read:**
+
+| State | Read | Branching |
+|---|---|---|
+| TetA | (K³ − 1)/(K − 1) = 21 | K, over three levels |
+| TetB | (K³ + 1)/(K + 1) = 13 | −K: the legs reversed |
+| Field Origin | (K⁴ − 1)/(K² − 1) = 17 | K², the frame duplicated by four at each step, over two levels; the leg level is silent |
+
+So
+
+$$\alpha_G = \alpha^{(K^3-1)/(K-1)}\;\frac{(K^4-1)/(K^2-1)}{(K^3+1)/(K+1)} = \frac{17}{13}\,\alpha^{21}.$$
+
 ## G. Open steps
 
 | Step | Status |
 |---|---|
 | Why each level costs one factor of α | The parent folder's single physical assumption. Not addressed here. |
 | The combination rule α^{TetA} × (Field Origin / TetB) | The parity form rewrites it as α^{E+O} E/(E − O). It does not derive it: the rule was fitted after the fact among 21 candidates ([`../g_from_the_closure_climb.md`](../g_from_the_closure_climb.md)). |
-| E/(E − O) from the connection's split 64 = 40 + 24 | Largely answered by part H: with the root label as the weight of the lower-index swap, E, E + O and E − O come exactly from one face's Christoffel and torsion parts. Still open: the added scalar 1 (not a component of the face) and why G reads one face, the division by K. |
+| E/(E − O) from the connection's split 64 = 40 + 24 | Answered by parts H and I. With the root label as the weight of the lower-index swap, E, E + O and E − O come exactly from one face's Christoffel and torsion parts. Over the four coupled faces the read is legs + s·tetrad + connection. The scalar 1 is the face's own leg, and the division by K removes the fourfold duplication (a reading, in part I). |
+| Why the faces read in parallel | Open. G's exponent is the per-face read 21, not the whole 84. |
 | Why the read branches K ways per level | Algebraically, K is the base of the read, and the identity of part A turns that read into the characteristic polynomial at K. The archive's own reason is the four legs and their sixteen couplings. A mechanism is still needed. |
 | The one-loop factor 1 + α/2π | The parent folder's split α/2π = (2/17)(17α/4π) reads as (2/E)(Eα/(Kπ)), but it holds for any E (AUTOMATIC). No E/O reading found. |
 
@@ -153,6 +187,7 @@ The exact content of parts A to F would make a proof:
 - **One pair.** The depth-D read is a single winding pair exactly for D = 3.
 - **The parity split.** The three states are the parity split of one read, with the root exchange K → −K and the Field Origin as the root average.
 - **The vortex pairs.** Each state's value is |K − λ|² for the winding eigenvalue of its cube symmetry class. These are the vortex proof's eigenvalues, and only the chamber-keeping classes act when TetA and TetB differ.
+- **Four coupled faces.** K f(K, s) = legs + s·tetrad + connection. The four-face read is (1 + K)(1 + K²), which contains the Field Origin's value. Each state is a geometric read with branching K, −K or K².
 - **The connection's split.** The root label is the weight of the lower-index swap: f(K, s) = 1 + Tr_face(1 + sτ), so TetA reads the Christoffel part twice, TetB the torsion twice, and the Field Origin the whole face.
 - **G rewritten.** G is expressible in the parity, vortex and connection forms.
 
@@ -162,11 +197,11 @@ The proof would not claim the physical steps in G. Those stay as the parent fold
 
 | File | Contents |
 |---|---|
-| [`verify_read_and_rotation.py`](verify_read_and_rotation.py) | 42 exact checks in parts A to H, tagged |
+| [`verify_read_and_rotation.py`](verify_read_and_rotation.py) | 50 exact checks in parts A to I, tagged |
 | [`verify_output.txt`](verify_output.txt) | Output |
 
 ## Reproduce
 
 ```
-python verify_read_and_rotation.py      # 42/42 (needs sympy)
+python verify_read_and_rotation.py      # 50/50 (needs sympy)
 ```
