@@ -1,0 +1,6 @@
+amplitude ~ field  | isolated pixel: share = x**2/(x**2 + 1); deep-field mu ~ x^2; = mu: False; g ~ g_N^1/3; Tully-Fisher: False
+amplitude ~ field  | tiling        : share = x/(x + 1); deep-field mu ~ x^1; = mu: True; g ~ g_N^1/2; Tully-Fisher: True
+squared ~ field    | isolated pixel: share = x/(x + 1); deep-field mu ~ x^1; = mu: True; g ~ g_N^1/2; Tully-Fisher: True
+squared ~ field    | tiling        : share = sqrt(x)/(sqrt(x) + 1); deep-field mu ~ x^1/2; = mu: False; g ~ g_N^2/3; Tully-Fisher: False
+
+Q4 PASS - each coupling law gives mu in exactly one picture: in the cubic tiling with shared corners, mu needs the coupling amplitude proportional to the field

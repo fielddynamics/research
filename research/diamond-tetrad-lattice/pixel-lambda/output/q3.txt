@@ -1,0 +1,7 @@
+k = 0 ground state; TetA leg-energy share = t_A/(t_A + t_B) : True
+  tA=1.0, tB=0.3, Delta=0.5: minimum at k = [0. 0. 0.], Gamma: True
+  tA=0.2, tB=1.0, Delta=2.0: minimum at k = [0. 0. 0.], Gamma: True
+  tA=1.0, tB=1.0, Delta=0.1: minimum at k = [0. 0. 0.], Gamma: True
+  tA=5.0, tB=0.1, Delta=10.0: minimum at k = [0. 0. 0.], Gamma: True
+
+Q3 PASS - in the tiling the ground state is at k = 0 and its TetA share is tA/(tA + tB), linear in the couplings

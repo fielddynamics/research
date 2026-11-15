@@ -1,0 +1,6 @@
+Field Origin coupling of each Walsh function: {'1': -4*t_A - 4*t_B, 'x': 0, 'y': 0, 'z': 0, 'xy': 0, 'yz': 0, 'xz': 0, 'xyz': -4*t_A + 4*t_B}
+six Walsh functions x, y, z, xy, yz, xz are dark for any tA, tB: True
+seventh dark state is ((tB - tA)/2) 1 + ((tB + tA)/2) xyz: True
+at the ring tA = tB the bright state is 1 and the seventh dark state is xyz, the parity character: True
+
+Q2 PASS - the Field Origin couples only through the Walsh pair {1, xyz}; six dark states by symmetry, the seventh is the parity character at the ring

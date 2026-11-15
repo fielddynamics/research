@@ -1,0 +1,6 @@
+bright state is an eigenvector with E = (Delta - sqrt(Delta^2 + 16(tA^2 + tB^2)))/2: True
+rank H = 2, so 7 dark states at E = 0: True | numerically: lowest = bright, seven zeros: True
+TetA share of the bright state, by weight and by leg energy, = tA^2/(tA^2 + tB^2): True
+with tA^2 : tB^2 = g : a0 the share is mu(g/a0) for every Delta: True
+
+Q1 PASS - the pixel is a Lambda system: one bright state with TetA share tA^2/(tA^2+tB^2), seven dark states
