@@ -1,0 +1,87 @@
+PART I: exact certificates (pure Python, no computer algebra)
+
+=== pixel: 15 sites, 38 bonds; axis (0, 0, 1); symmetry of order 4; eigenvalue (0+1t) ===
+PASS [pixel] the axis symmetry is in Td (keeps TetA): a symmetry of every Td-invariant H
+PASS [pixel] every site off the axis lies in an orbit of full length 4; the axis sites lie in shorter orbits, so no winding state can live there
+PASS [pixel] the eigenvalue is a primitive 4th root of unity
+PASS [pixel] winding space has dimension 3, basis orthogonal with B^H B = 4 I
+PASS [pixel] each basis vector is an eigenvector of the symmetry with eigenvalue (0+1t)
+PASS [pixel] every winding vector vanishes on the axis (sites [0, 5, 6])
+  seed 1: 4 site and 5 bond parameters (random rationals); deg p = 3
+PASS [pixel/1] C1 H is real symmetric, Td-invariant, and commutes with the axis symmetry
+PASS [pixel/1] C3 on the winding space the characteristic polynomial is real and squarefree (gcd(p, p') = 1: 3 distinct vortex energies)
+PASS [pixel/1] C4 on the winding space: the flux through the half-plane is the same for 3 different half-planes (p divides each difference)
+PASS [pixel/1] C5 on the winding space: every eigenstate carries a nonzero circulating current (gcd(p, flux) = 1)
+PASS [pixel/1] C6 on the winding space: the ring turns in every eigenstate (gcd(p, ring) = 1)
+PASS [pixel/1] C7 the complex conjugate is an antivortex: conjugate block, opposite flux
+  seed 2: 4 site and 5 bond parameters (random rationals); deg p = 3
+PASS [pixel/2] C1 H is real symmetric, Td-invariant, and commutes with the axis symmetry
+PASS [pixel/2] C3 on the winding space the characteristic polynomial is real and squarefree (gcd(p, p') = 1: 3 distinct vortex energies)
+PASS [pixel/2] C4 on the winding space: the flux through the half-plane is the same for 3 different half-planes (p divides each difference)
+PASS [pixel/2] C5 on the winding space: every eigenstate carries a nonzero circulating current (gcd(p, flux) = 1)
+PASS [pixel/2] C6 on the winding space: the ring turns in every eigenstate (gcd(p, ring) = 1)
+PASS [pixel/2] C7 the complex conjugate is an antivortex: conjugate block, opposite flux
+  seed 3: 4 site and 5 bond parameters (random rationals); deg p = 3
+PASS [pixel/3] C1 H is real symmetric, Td-invariant, and commutes with the axis symmetry
+PASS [pixel/3] C3 on the winding space the characteristic polynomial is real and squarefree (gcd(p, p') = 1: 3 distinct vortex energies)
+PASS [pixel/3] C4 on the winding space: the flux through the half-plane is the same for 3 different half-planes (p divides each difference)
+PASS [pixel/3] C5 on the winding space: every eigenstate carries a nonzero circulating current (gcd(p, flux) = 1)
+PASS [pixel/3] C6 on the winding space: the ring turns in every eigenstate (gcd(p, ring) = 1)
+PASS [pixel/3] C7 the complex conjugate is an antivortex: conjugate block, opposite flux
+
+=== triforce: 33 sites, 104 bonds; axis (1, 1, 1); symmetry of order 3; eigenvalue (-1/2+1/2t) ===
+PASS [triforce] the axis symmetry is in Td (keeps TetA): a symmetry of every Td-invariant H
+PASS [triforce] every site off the axis lies in an orbit of full length 3; the axis sites lie in shorter orbits, so no winding state can live there
+PASS [triforce] the eigenvalue is a primitive 3th root of unity
+PASS [triforce] winding space has dimension 10, basis orthogonal with B^H B = 3 I
+PASS [triforce] each basis vector is an eigenvector of the symmetry with eigenvalue (-1/2+1/2t)
+PASS [triforce] every winding vector vanishes on the axis (sites [0, 1, 17])
+PASS [triforce/1] S1 W (winding vectors on outer tiles uncoupled to every central tile) has dimension 4 and A maps it into itself; so does its orthogonal complement W' (dimension 6)
+PASS [triforce/1] S2 on W every energy is doubled: det(xG - A_W) is the square of a quadratic (gcd(p_W, p_W') has degree 2)
+  seed 1: 5 site and 10 bond parameters (random rationals); deg p = 6
+PASS [triforce/1] C1 H is real symmetric, Td-invariant, and commutes with the axis symmetry
+PASS [triforce/1] C3 on W' the characteristic polynomial is real and squarefree (gcd(p, p') = 1: 6 distinct vortex energies)
+PASS [triforce/1] C4 on W': the flux through the half-plane is the same for 3 different half-planes (p divides each difference)
+PASS [triforce/1] C5 on W': every eigenstate carries a nonzero circulating current (gcd(p, flux) = 1)
+PASS [triforce/1] C6 on W': the ring turns in every eigenstate (gcd(p, ring) = 1)
+PASS [triforce/1] C7 the complex conjugate is an antivortex: conjugate block, opposite flux
+PASS [triforce/2] S1 W (winding vectors on outer tiles uncoupled to every central tile) has dimension 4 and A maps it into itself; so does its orthogonal complement W' (dimension 6)
+PASS [triforce/2] S2 on W every energy is doubled: det(xG - A_W) is the square of a quadratic (gcd(p_W, p_W') has degree 2)
+  seed 2: 5 site and 10 bond parameters (random rationals); deg p = 6
+PASS [triforce/2] C1 H is real symmetric, Td-invariant, and commutes with the axis symmetry
+PASS [triforce/2] C3 on W' the characteristic polynomial is real and squarefree (gcd(p, p') = 1: 6 distinct vortex energies)
+PASS [triforce/2] C4 on W': the flux through the half-plane is the same for 3 different half-planes (p divides each difference)
+PASS [triforce/2] C5 on W': every eigenstate carries a nonzero circulating current (gcd(p, flux) = 1)
+PASS [triforce/2] C6 on W': the ring turns in every eigenstate (gcd(p, ring) = 1)
+PASS [triforce/2] C7 the complex conjugate is an antivortex: conjugate block, opposite flux
+PASS [triforce/3] S1 W (winding vectors on outer tiles uncoupled to every central tile) has dimension 4 and A maps it into itself; so does its orthogonal complement W' (dimension 6)
+PASS [triforce/3] S2 on W every energy is doubled: det(xG - A_W) is the square of a quadratic (gcd(p_W, p_W') has degree 2)
+  seed 3: 5 site and 10 bond parameters (random rationals); deg p = 6
+PASS [triforce/3] C1 H is real symmetric, Td-invariant, and commutes with the axis symmetry
+PASS [triforce/3] C3 on W' the characteristic polynomial is real and squarefree (gcd(p, p') = 1: 6 distinct vortex energies)
+PASS [triforce/3] C4 on W': the flux through the half-plane is the same for 3 different half-planes (p divides each difference)
+PASS [triforce/3] C5 on W': every eigenstate carries a nonzero circulating current (gcd(p, flux) = 1)
+PASS [triforce/3] C6 on W': the ring turns in every eigenstate (gcd(p, ring) = 1)
+PASS [triforce/3] C7 the complex conjugate is an antivortex: conjugate block, opposite flux
+
+PART II: symbolic, all parameters at once (sympy)
+PASS T1 [pixel] the most general Td-invariant H has 9 parameters and commutes with the rotoreflection S
+PASS T1 [pixel] the winding block (ring, TetA, TetB) is [[Delta_f, a, b], [conj a, eps_A, 0], [conj b, 0, eps_B]] with |a|^2 = 2 c_A^2, |b|^2 = 2 c_B^2; Delta, t_f, t_A, t_B drop out
+PASS T1 [pixel] its characteristic polynomial is (E - Delta_f)(E - eps_A)(E - eps_B) - 2c_A^2(E - eps_B) - 2c_B^2(E - eps_A)
+PASS T1 [pixel] the secular function is strictly increasing between its poles, so the three energies are distinct (derivative 1 + 2c_A^2/(E - eps_A)^2 + 2c_B^2/(E - eps_B)^2 > 0)
+PASS T1 [pixel] det(H+ - E) is 2c_A^2(eps_A - eps_B) at E = eps_A and 2c_B^2(eps_B - eps_A) at E = eps_B
+PASS T1 [pixel] on a root of the secular equation, psi = B w is an exact stationary state of the full 15-site H, with amplitude r on every ring site and the corners locked to it
+PASS T1 [pixel] the circulating current through each of three half-planes is I = -(E - Delta_f) r^2 (r: amplitude on each site of the octahedron's ring)
+PASS T1 [pixel] so I != 0 unless E = Delta_f, which needs c_A^2 (Delta_f - eps_B) + c_B^2 (Delta_f - eps_A) = 0
+PASS T1 [pixel] at eps_A = eps_B, E = eps_A is a vortex energy with r = 0 (no current)
+PASS C1 [pixel without the octahedron] winding states exist (dimension 2) but vanish at the Field Origin, and every bond touches it: no current, no vortex
+PASS P1 [standing wave] applying the quarter-turn symmetry to the evolving vortex equals shifting it in time: S psi(t) = psi(t - pi/(2E)), so the stationary pattern rotates
+PASS P1 [standing wave] vortex + antivortex is real, stationary at the same energy, and carries no current on any bond
+PASS P1 [standing wave] the vortex's density |psi(t)|^2 is the same at all times
+PASS T2 [Triforce] the most general Td-invariant H has 15 parameters and commutes with the 120-degree rotation about the leg
+PASS T2 [Triforce] W (winding vectors on outer tiles that no parameter couples to a central tile) has dimension 4 and every H maps it into itself
+PASS T2 [Triforce] on W, H is two copies of the same 2x2 problem: every energy on W is doubled, for all parameters
+PASS T2 [Triforce] the orthogonal complement W' has dimension 6 and every H maps it into itself
+PASS T2 [Triforce] on W, the circulation form of a doubled level is definite at some parameter points (every combination circulates) and indefinite at others (a standing combination exists): exact roots, both found
+
+72/72 checks passed

@@ -1,0 +1,376 @@
+\documentclass[twocolumn]{iopjournal}
+
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{amsthm}
+
+\fancyhfoffset[L]{0mm}
+\setlength{\marginparwidth}{0pt}
+\setlength{\marginparsep}{0pt}
+
+% ==========================================
+% ZENODO PREPRINT HEADERS (ACTIVE)
+% ==========================================
+\renewcommand{\articletype}[1]{%
+  {\vspace*{-8mm}\noindent \Large \sf Preprint}\par
+  \vspace*{6mm}\noindent{\scriptsize \sf{\bfseries \MakeUppercase{#1}}}}
+
+\fancyhead[L]{}
+\fancyhead[R]{}
+
+\hypersetup{pdftitle={Vortices of the Stellated Octahedron}, pdfauthor={Stephen Nelson}, pdfsubject={Gravity Field Dynamics (GFD)}, pdfkeywords={stellated octahedron, vortex, standing wave, tetrahedral symmetry, Field Origin, proof}}
+
+\newtheorem{lemma}{Lemma}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+\begin{document}
+
+\articletype{Supplementary Material}
+
+\title{Vortices of the Stellated Octahedron}
+
+\author{Stephen Nelson}
+
+\affil{Field Dynamics Research}
+
+\ead{stephen@fielddynamics.org}
+
+\begin{abstract}
+The pixel of Gravity Field Dynamics is the stellated octahedron in its
+cube: two tetrahedra, TetA and TetB, whose overlap is an octahedron
+around the Field Origin. We prove that the pixel supports vortices:
+stationary states that wind once about an axis and carry a persistent
+circulating current, around an axis on which they vanish. The models
+are the most general nearest-neighbour Hamiltonians with the
+tetrahedral symmetry $T_d$, on two graphs: the 15-site pixel (Field
+Origin, octahedron, corners) and the 33-tile pixel of the Triforce
+faces. TetA and TetB may differ. For the 15-site pixel, about each
+octahedron axis there are exactly three vortices and three
+antivortices, with distinct energies, for all parameters outside an
+explicit exceptional set. Their current through any half-plane bounded
+by the axis is $I = -(E - \Delta_f)\rho^2$, where $\rho$ is the
+amplitude on each vertex of the octahedron's equatorial ring, and the
+corners are locked to that ring. Without the octahedron nothing
+circulates. Each vortex is a standing wave of the cube that rotates: a
+quarter turn of the pattern equals a fixed shift in time. A vortex plus
+its antivortex is a real standing wave with no current. For the
+Triforce pixel, the winding space about a leg splits, for all
+parameters, as $W \oplus W'$. On $W'$ there are six vortices, generically,
+each turning the star point's three outer tiles around an empty core
+through the central tiles and the Field Origin. On $W$ every energy is
+doubled, and whether every combination circulates depends on the
+parameters. General steps are proved by hand. Statements for all
+parameters are checked symbolically, and generic statements are
+certified exactly by polynomial gcds over $\mathbb Q(i)$ and
+$\mathbb Q(\omega)$, in code that uses no computer algebra.
+\end{abstract}
+
+\keywords{stellated octahedron, vortex, standing wave, tetrahedral
+symmetry, Field Origin, Triforce, proof}
+
+% ======================================================================
+
+\section*{Setting}
+
+\textbf{Pixel graph $\mathcal P$} (15 sites): the Field Origin $O$; the
+six vertices of the octahedron, at the cube's face centres
+$\pm\hat x,\pm\hat y,\pm\hat z$; the eight corners $(\pm1,\pm1,\pm1)$,
+with TetA the four with $xyz = +1$ and TetB the four with $xyz = -1$.
+Bonds: $O$ to every other site, and each octahedron vertex to the four
+corners of its face.
+
+\textbf{Triforce graph $\mathcal T$} (33 sites): $O$; the eight central
+tiles, the medial triangles of the eight tetrahedron faces (these are
+the octahedron's faces); the 24 outer tiles, three per face, which
+are the exposed faces of the eight star points. Bonds: two tiles
+sharing an edge, and each central tile to $O$. A tile's position is
+its centroid.
+
+\textbf{Hamiltonians.} $H$ is real symmetric, supported on the diagonal
+and the bonds, and invariant under the tetrahedral group $T_d$ (24
+elements, the symmetries that keep TetA and TetB). Equivalently, $H$
+has one free real parameter per $T_d$-orbit of sites and of bonds: 9 for
+$\mathcal P$ and 15 for $\mathcal T$. Every statement below holds for this
+whole class.
+
+\textbf{Axes.} In $\mathcal P$ the axis is an octahedron axis $\hat z$,
+with symmetry the rotoreflection
+$S:(x,y,z)\mapsto(-y,x,-z)$, of order 4. In $\mathcal T$ it is a leg
+$\hat n = (1,1,1)/\sqrt3$, with symmetry the rotation
+$C:(x,y,z)\mapsto(z,x,y)$, of order 3. Both lie in $T_d$.
+
+\begin{definition}
+A \emph{winding state} satisfies $S\psi = \lambda\psi$ (or
+$C\psi = \lambda\psi$) with $\lambda$ a primitive root of unity:
+$\lambda = \pm i$ for $S$, $\lambda = \omega^{\pm1}$ for $C$. For a
+stationary state, $H\psi = E\psi$, the \emph{bond current} is
+$J_{ij} = 2\,\mathrm{Im}(\bar\psi_iH_{ij}\psi_j)$. The
+\emph{circulating current} $I(\psi)$ is the total current through a
+half-plane bounded by the axis, counted positive in the right-handed
+sense. A \emph{vortex} is a stationary winding state with
+$I(\psi) \neq 0$.
+\end{definition}
+
+% ======================================================================
+
+\section{General lemmas}
+
+\begin{lemma}[Conservation]
+If $H\psi = E\psi$, then $\sum_j J_{ij} = 0$ at every site $i$.
+\end{lemma}
+
+\begin{proof}
+$\sum_j J_{ij} = 2\,\mathrm{Im}(\bar\psi_i(H\psi)_i)
+- 2\,\mathrm{Im}(H_{ii}\lvert\psi_i\rvert^2)
+= 2\,\mathrm{Im}(E\lvert\psi_i\rvert^2) = 0$.
+\end{proof}
+
+\begin{lemma}[Empty axis; well-defined current]
+\label{lem:axis}
+Every winding state vanishes at every site on the axis. Hence, for a
+stationary winding state, $I(\psi)$ is the same for every half-plane
+bounded by the axis.
+\end{lemma}
+
+\begin{proof}
+A site on the axis lies in an orbit of the symmetry of length $\ell$
+smaller than its order ($O$ is fixed; in $\mathcal P$ the axial vertices
+$\pm\hat z$ form an orbit of length 2). There
+$\psi = \lambda^\ell\psi$ with $\lambda^\ell \neq 1$, so $\psi = 0$, and
+bonds at axis sites carry no current. Between two half-planes, the
+net outflow is zero by Lemma~1, and none passes through the axis.
+\end{proof}
+
+\begin{lemma}[Antivortices]
+If $\psi$ is a stationary winding state with eigenvalue $\lambda$, then
+$\bar\psi$ is one with eigenvalue $\bar\lambda$, at the same energy, and
+$I(\bar\psi) = -I(\psi)$.
+\end{lemma}
+
+\begin{proof}
+$H$ is real and the symmetry is a real permutation; and
+$J_{ij}(\bar\psi) = -J_{ij}(\psi)$.
+\end{proof}
+
+\begin{lemma}[Existence]
+$H$ preserves the winding space $V_\lambda$, which has an orthogonal
+basis $v_k[\sigma^jx_k] = \lambda^{-j}$, one vector per orbit of full
+length. So $V_\lambda$ has an orthonormal basis of stationary winding
+states. $\dim V_{+i} = 3$ in $\mathcal P$, and $\dim V_\omega = 10$ in
+$\mathcal T$.
+\end{lemma}
+
+\begin{proof}
+$H$ commutes with the symmetry. The vectors $v_k$ are eigenvectors with
+eigenvalue $\lambda$ and have disjoint supports.
+\end{proof}
+
+% ======================================================================
+
+\section{The pixel}
+
+In the basis (equatorial ring $\pm\hat x,\pm\hat y$; TetA corners;
+TetB corners) of $V_{+i}$, normalised, every $H$ in the class acts as
+\begin{equation}
+H_+ = \begin{pmatrix}\Delta_f & a & b\\ \bar a & \epsilon_A & 0\\
+\bar b & 0 & \epsilon_B\end{pmatrix},\quad
+\lvert a\rvert^2 = 2c_A^2,\ \lvert b\rvert^2 = 2c_B^2,
+\label{eq:block}
+\end{equation}
+with $\Delta_f$ the octahedron-vertex energy, $\epsilon_{A,B}$ the
+corner energies, and $c_{A,B}$ the vertex-to-corner couplings. The
+Field Origin's energy and the couplings through it drop out.
+
+\begin{theorem}[Vortices of the pixel]
+\label{thm:pixel}
+Let $c_Ac_B \neq 0$ and $\epsilon_A \neq \epsilon_B$. Then:
+\begin{enumerate}
+\item[(i)] there are exactly three stationary winding states with
+  $\lambda = +i$, at the three distinct roots of
+  \begin{equation}
+  E - \Delta_f = \frac{2c_A^2}{E - \epsilon_A} + \frac{2c_B^2}{E - \epsilon_B},
+  \label{eq:secular}
+  \end{equation}
+  and three antivortices at the same energies;
+\item[(ii)] each has amplitude $\rho \neq 0$ on every vertex of the
+  octahedron's ring, and the corners are locked to it:
+  $p = \bar a\rho/(E - \epsilon_A)$, $q = \bar b\rho/(E - \epsilon_B)$;
+\item[(iii)] its circulating current is
+  \begin{equation}
+  I = -(E - \Delta_f)\,\rho^2 ;
+  \label{eq:current}
+  \end{equation}
+\item[(iv)] it is a vortex unless $E = \Delta_f$, which requires
+  $c_A^2(\Delta_f - \epsilon_B) + c_B^2(\Delta_f - \epsilon_A) = 0$.
+\end{enumerate}
+At $\epsilon_A = \epsilon_B$ one of the three has $\rho = 0$ and
+$I = 0$.
+\end{theorem}
+
+\begin{proof}
+The rows of $H_+w = Ew$, with $w = (\rho, p, q)$, give
+$a p + b q = (E - \Delta_f)\rho$, $\bar a\rho = (E - \epsilon_A)p$ and
+$\bar b\rho = (E - \epsilon_B)q$. Next,
+$\det(H_+ - E)$ is $2c_A^2(\epsilon_A - \epsilon_B)$ at
+$E = \epsilon_A$ and $2c_B^2(\epsilon_B - \epsilon_A)$ at
+$E = \epsilon_B$, both nonzero. So no root equals $\epsilon_{A,B}$, and
+$\rho = 0$ would force $p = q = 0$; eliminating $p, q$ gives
+(\ref{eq:secular}). Its right side minus its left is strictly
+monotone between the poles (derivative
+$-1 - 2c_A^2/(E-\epsilon_A)^2 - 2c_B^2/(E-\epsilon_B)^2$), so the
+three roots are distinct. Summing $J_{ij}$ over the bonds that cross a
+half-plane and using (\ref{eq:secular}) gives (\ref{eq:current}),
+identically for every half-plane, as Lemma~\ref{lem:axis} requires.
+At $\epsilon_A = \epsilon_B$, $E = \epsilon_A$ is a root of
+$\det(H_+ - E)$ with $\rho = 0$.
+\end{proof}
+
+\begin{corollary}[The octahedron circulates]
+Without the octahedron (the 9 sites $O$ and the corners), winding
+states exist ($\dim V_{+i} = 2$), but they vanish at $O$ and every bond
+touches $O$, so $I = 0$: there are no vortices.
+\end{corollary}
+
+\begin{proposition}[A vortex is a rotating standing wave]
+\label{prop:standing}
+Let $\psi$ be a vortex at energy $E$, evolving as
+$\psi(t) = e^{-iEt}\psi$. Then:
+\begin{enumerate}
+\item[(i)] $\lvert\psi(t)\rvert^2$ is independent of $t$: the mode is a
+  standing pattern of the cube;
+\item[(ii)] $S\psi(t) = \psi(t - \tfrac{\pi}{2E})$: a quarter turn of
+  the pattern (with the top--bottom flip) equals a fixed shift in
+  time, so the pattern rotates about the axis;
+\item[(iii)] $\psi + \bar\psi$ is real and stationary at the same energy,
+  and carries no current on any bond: vortex and antivortex together
+  make a standing wave that oscillates in place.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i) is immediate. (ii) $S\psi = i\psi$ and
+$e^{-iE(t-\tau)} = ie^{-iEt}$ for $\tau = \pi/2E$. (iii) uses Lemma~3:
+$\bar\psi$ is stationary at $E$; a real vector has
+$\mathrm{Im}(\phi_iH_{ij}\phi_j) = 0$.
+\end{proof}
+
+% ======================================================================
+
+\section{The Triforce pixel}
+
+\begin{theorem}[Vortices of the Triforce faces]
+\label{thm:triforce}
+In $\mathcal T$, with $\lambda = \omega$ about a leg:
+\begin{enumerate}
+\item[(i)] $V_\omega$ has dimension 10, and every vector in it vanishes
+  on the leg: at $O$ and at the two central tiles it passes through;
+\item[(ii)] $V_\omega = W\oplus W'$, an orthogonal sum preserved by every
+  $H$ in the class. Here $W$ ($\dim 4$) is the fixed space of winding
+  vectors on outer tiles that no parameter couples to a central tile;
+\item[(iii)] on $W$, $H$ acts as two copies of the same $2\times2$
+  problem, so every energy on $W$ is doubled. On a doubled level the
+  current is a Hermitian form that is definite at some parameter
+  points and indefinite at others;
+\item[(iv)] for all parameters outside a proper algebraic subset, $H$ on
+  $W'$ has six distinct energies, and each of the six stationary
+  states is a vortex with nonzero weight on the three outer tiles of
+  the star point on the leg. That ring turns.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(i) is Lemmas~\ref{lem:axis} and~4. For (ii) and (iii), $A = B^\dagger HB$
+is linear in the parameters. $W$ is the common kernel of the
+parameter-wise couplings from outer to central orbits, and it is
+invariant; the script checks invariance and the two identical blocks
+symbolically, in all 15 parameters. For (iv), $W$ is fixed, so on $W'$
+the matrices $A' = W'^\dagger HW'$ and the Gram matrix $G$ give
+polynomials whose coefficients are polynomials in the parameters:
+\[
+p(x) = \det(xG - A'),\quad f(x) = \mathrm{Tr}\,K\,\mathrm{adj}(xG - A'),
+\]
+\[
+g(x) = \mathrm{adj}(xG - A')_{\rm ring,ring}.
+\]
+Here $K$ is the half-plane current form. For a simple root $E$ with
+eigenvector $y$,
+$\mathrm{adj}(EG - A') = p'(E)\,yy^\dagger/y^\dagger Gy$, so
+$I(y)/\lVert y\rVert^2 = f(E)/p'(E)$ and the ring weight is
+$g(E)/p'(E)$. The claims hold wherever
+$\mathrm{Res}(p, p')\,\mathrm{Res}(p, f)\,\mathrm{Res}(p, g) \neq 0$,
+which is a polynomial in the parameters. Exact gcd computations in
+$\mathbb Q(\omega)$ show it is nonzero at three random rational
+points. So it is not identically zero, and its zero set is a proper
+algebraic subset of measure zero~\cite{CLO}.
+\end{proof}
+
+% ======================================================================
+
+\section{Remarks}
+
+\begin{remark}
+In GFD terms: the Field Origin is the eye of every vortex; in the pixel,
+the eight corners are a flywheel that drives the octahedron's ring, and
+the octahedron is what circulates; about a leg, the star point's three
+outer tiles turn around a core that runs through the central tiles and
+the Field Origin to the opposite star point. Away from the ring
+$x = 1$ the symmetry about an octahedron axis is the rotoreflection,
+so each quarter turn also exchanges top and bottom; at $x = 1$ it is a
+plain rotation.
+\end{remark}
+
+\begin{remark}
+Not claimed: that the GFD field occupies these states; that these
+models are its dynamics (the theorems concern the stated class); or
+any braiding. The TetA and TetB strands about an octahedron axis
+have linking number 0, and the legs meet at $O$.
+\end{remark}
+
+\begin{remark}
+This proof supersedes an earlier research note that sampled the
+Triforce model numerically and stated that every winding eigenstate
+circulates. Exact certificates show that holds on $W'$, not on all
+of $W$.
+\end{remark}
+
+% ======================================================================
+
+\section*{Verification}
+
+\texttt{verify\_vortices\_stellated\_octahedron.py} runs 72 checks. Part~I
+(54) is exact arithmetic in $\mathbb Q(i)$ and $\mathbb Q(\omega)$ with
+Python fractions and no computer algebra: the geometry, $T_d$, the
+Hamiltonians, the winding spaces, the empty axis, current conservation
+across three half-planes, squarefreeness, nonzero current and ring
+weight, antivortices, and the split $W\oplus W'$, at three random
+rational points per model. Part~II (18) is symbolic in all parameters:
+the block (\ref{eq:block}), (\ref{eq:secular}), (\ref{eq:current}) for
+three half-planes, Corollary~1, Proposition~\ref{prop:standing}, and
+Theorem~\ref{thm:triforce}(ii)--(iii).
+
+\begin{thebibliography}{9}
+
+\bibitem{NelsonGram}
+S.~Nelson,
+\textit{The Gram Matrix of the Tetrad Equation},
+Field Dynamics Research (2026),
+\url{proofs/gram-matrix-tetrad-equation}.
+
+\bibitem{CLO}
+D.~A.~Cox, J.~Little and D.~O'Shea,
+\textit{Ideals, Varieties, and Algorithms},
+4th ed.\ (Springer, Cham, 2015), ch.~3 (resultants).
+
+\bibitem{Coxeter1973}
+H.~S.~M.~Coxeter,
+\textit{Regular Polytopes},
+3rd ed.\ (Dover, New York, 1973).
+
+\end{thebibliography}
+
+\end{document}
