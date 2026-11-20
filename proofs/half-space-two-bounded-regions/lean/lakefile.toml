@@ -1,0 +1,11 @@
+name = "half_space_two_bounded_regions"
+defaultTargets = ["HalfSpaceTwoBoundedRegions"]
+
+# Builds on the forced tetrahedral frame: the four directions are the columns of its matrix M.
+# Mathlib v4.36.0 comes through that package.
+[[require]]
+name = "forced_tetrahedral_frame"
+path = "../../forced-tetrahedral-frame/lean"
+
+[[lean_lib]]
+name = "HalfSpaceTwoBoundedRegions"
