@@ -2,7 +2,7 @@ name: Lean proof — forced tetrahedral frame
 
 on:
   push:
-    branches: [main]
+    branches: [main, 'lean-*']
     paths:
       - 'proofs/forced-tetrahedral-frame/lean/**'
       - '.github/workflows/lean-forced-tetrahedral-frame.yml'
