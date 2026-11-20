@@ -135,6 +135,30 @@ Both routes arrive at the same stellated octahedron with the same $3+1$ face dec
 
 % ----------------------------------------------------------------------
 
+% Lean: new section.
+\section*{Formal Verification}
+
+Every statement of this note is proved in Lean~4 with the Mathlib library,
+in \texttt{lean/TetradScheme.lean}, and checked by the Lean kernel, with
+two exceptions that are cited rather than proved: that $SO(4,\mathbb{C})$
+is connected~\cite{Borel1991}, so that neither scheme splits further, and
+that $O(1,3)$ has exactly four connected components~\cite{Wald1984}.
+Mathlib has neither the scheme $X_g$ nor these results. The algebra of
+Eq.~\eqref{eq:tetrad} is proved over any commutative ring: Lorentz
+transformations act on solutions, $(\det e)^2\det\eta = \det g$, every
+solution is invertible when $\det g$ is a unit, and $\Lambda\mapsto\Lambda e_0$
+is a bijection from $O(\eta)$ onto the solutions. Over $\mathbb{R}$ the file
+proves $\kappa>0$, the split into the two roots, each closed and open in the
+solution set, the frame-change rule, $P$, $T$ and $PT$ with their
+determinants, that holding the time leg fixed forces $\Lambda=\mathrm{diag}(1,Q)$
+with $Q\in O(3)$, the three facts on parity, both cautions, the
+root-blindness of the metric (no function of $g$ returns $\det e$), and the
+$3+1$ pattern with the symmetries that move it. The link to Route~1 is a
+theorem: the file imports Route~1's formalisation, and parity maps its TetA
+onto its TetB. Every theorem depends only on Lean's three standard axioms.
+
+% ----------------------------------------------------------------------
+
 \begin{thebibliography}{99}
 
 \bibitem{Grothendieck1960}

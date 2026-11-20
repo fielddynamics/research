@@ -2,11 +2,13 @@
 
 *Why the tetrad equation has two roots, and why they are the two tetrahedra of the stellated octahedron · Gravity Field Dynamics (GFD) · Field Dynamics Research*
 
-`tetrad` `scheme` `algebraic-geometry` `Lorentz-group` `spatial-parity` `root-blindness` `stellated-octahedron` `proof`
+`tetrad` `scheme` `algebraic-geometry` `Lorentz-group` `spatial-parity` `root-blindness` `stellated-octahedron` `proof` `Lean`
+
+[![Lean proof](https://github.com/fielddynamics/research/actions/workflows/lean-tetrad-scheme.yml/badge.svg)](https://github.com/fielddynamics/research/actions/workflows/lean-tetrad-scheme.yml)
 
 ---
 
-This folder holds the revised scheme proof, supplementary to Letter 1, and a script that checks every claim in it. The proof gives the second of Letter 1's two routes to the stellated octahedron. Route 1, in the letter, classifies sixteen half-space regions and finds exactly two bounded. Route 2, here, starts from the equation that defines the tetrad: the equation is quadratic, so it has two roots, and the two roots are the two tetrahedra. This page explains the argument for a reader with first-year linear algebra.
+This folder holds the revised scheme proof, supplementary to Letter 1, a script that checks every claim in it, and a Lean formalisation that proves them. The proof gives the second of Letter 1's two routes to the stellated octahedron. Route 1, in the letter and as a [standalone proof](../half-space-two-bounded-regions/), classifies sixteen half-space regions and finds exactly two bounded. Route 2, here, starts from the equation that defines the tetrad: the equation is quadratic, so it has two roots, and the two roots are the two tetrahedra. This page explains the argument for a reader with first-year linear algebra.
 
 ## The equation is quadratic
 
@@ -75,8 +77,26 @@ The original note is [`supplementary_scheme_proof.tex`](../../papers/letter-1-te
 - The table's key fact for Route 2 becomes "$(\det e)^2 = \kappa$ has two roots".
 - "Neither route assumes the other" is made exact: Route 2 uses no half-space construction and Route 1 no quadratic structure, and both take the four tetrahedral directions from Letter 1's signature-to-frame supplement.
 
+**Formal Verification** (new)
+- A closing section saying what Lean proves, which two facts are cited, and that the link to Route 1 is a theorem.
+
 **References**
 - Adds Borel (connectedness of the complex orthogonal group), Hehl et al. (the proper orthochronous convention) and Coxeter (the regular tetrahedron).
+
+## Machine-checked in Lean
+
+The [`lean/`](lean/) folder proves the note in [Lean 4](https://lean-lang.org) with the [Mathlib](https://github.com/leanprover-community/mathlib4) library, and the Lean kernel checks every step.
+
+- **The algebra holds over any ring, as the note says.** That Lorentz transformations act on solutions, that $(\det e)^2 \det\eta = \det g$, that every solution is invertible, and that $\Lambda \mapsto \Lambda e_0$ is a one-to-one map from the Lorentz group onto the solutions are all proved over an arbitrary commutative ring.
+- **Two roots, never both.** Over the real numbers, $\kappa > 0$ follows from the equation itself, every tetrad has $\det e = +\sqrt\kappa$ or $-\sqrt\kappa$, and each piece is closed and open within the solutions.
+- **One observer.** Lean proves that a Lorentz transformation holding the time leg fixed must be $\mathrm{diag}(1, Q)$ with $Q$ a rotation or reflection, so the root is the handedness of the spatial legs.
+- **Parity.** It is the only reflection commuting with every rotation and reflection; no rotation can do its job leg by leg; and it needs an odd number of dimensions.
+- **The metric cannot choose.** Lean proves that no function of the metric, of any kind, returns $\det e$.
+- **Route 1 and Route 2 are joined.** The file imports the [half-space formalisation](../half-space-two-bounded-regions/) and proves that parity maps its TetA onto its TetB. Both caveats above are theorems too: a quarter turn maps TetA onto TetB as a shape but is not parity, and $-e$ keeps the root but reverses time.
+
+Two facts are cited rather than proved, as in the note: that $SO(4, \mathbb{C})$ is connected, so neither root's piece splits further as a scheme, and that the Lorentz group has exactly four connected pieces. Mathlib does not yet have these, or schemes of matrix groups. Lean proves the two-root split for real tetrads, and that $I$, $P$, $T$ and $PT$ carry all four labels of the Lorentz group's pieces.
+
+GitHub re-checks the proof automatically whenever it, or a proof it builds on, changes; the badge at the top of this page shows the latest result. It is green only if the proof builds with no warnings, no gaps (`sorry`) and only Lean's three standard axioms. [`LEAN_AUDIT.md`](LEAN_AUDIT.md) is a referee's guide to the formalisation.
 
 ## Why it matters
 
@@ -98,16 +118,25 @@ The proof is about the solutions of the tetrad equation at a point. That the sec
 | [`tetrad_scheme_two_bounded_regions.tex`](tetrad_scheme_two_bounded_regions.tex) | LaTeX source (IOP journal class, included) |
 | [`verify_tetrad_scheme_two_bounded_regions.py`](verify_tetrad_scheme_two_bounded_regions.py) | Checks of every claim, labelled by section; exact where the claim is algebraic. One standard fact is cited rather than computed: the complex group $SO(4, \mathbb{C})$ is connected |
 | [`iopjournal.cls`](iopjournal.cls) | Document class, so the source builds here |
+| [`lean/TetradScheme.lean`](lean/TetradScheme.lean) | The Lean 4 formalisation |
+| [`lean/lakefile.toml`](lean/lakefile.toml), [`lean/lean-toolchain`](lean/lean-toolchain), [`lean/lake-manifest.json`](lean/lake-manifest.json) | Project files: Lean 4.36.0, Mathlib v4.36.0, and the Route 1 and forced-frame formalisations as dependencies |
+| [`LEAN_AUDIT.md`](LEAN_AUDIT.md) | Referee's guide to the formalisation |
 
 ```bash
 pip install sympy numpy
 python verify_tetrad_scheme_two_bounded_regions.py      # 39/39
 pdflatex -interaction=nonstopmode tetrad_scheme_two_bounded_regions.tex
+
+# Lean (needs elan: https://github.com/leanprover/elan)
+cd lean
+lake exe cache get    # downloads Mathlib, already compiled
+lake build            # checks every theorem, and the proofs it imports
 ```
 
 ## Related
 
 - [Letter 1: The Coordinate-Space Geometry of the Tetrad Frame](../../papers/letter-1-tetrad-frame-geometry/), Route 1, and the original of this note.
+- [The sixteen half-space regions](../half-space-two-bounded-regions/): Route 1 as a standalone proof, also in Lean.
 - [The forced tetrahedral frame](../forced-tetrahedral-frame/): why the four directions form a regular tetrahedron.
 - [The Gram Matrix of the Tetrad Equation](../../papers/gram-matrix-of-tetrad-equation/): root-blindness and the cross-coupling of the two roots.
 - [Einstein's equation as the TetA partition](../../EINSTEIN_TETA_PARTITION.md): what follows from keeping one root.

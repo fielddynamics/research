@@ -1,0 +1,15 @@
+name = "tetrad_scheme"
+defaultTargets = ["TetradScheme"]
+
+# Builds on Route 1 (the half-space regions TetA and TetB) and on the forced tetrahedral frame
+# (the four directions). Mathlib v4.36.0 comes through those packages.
+[[require]]
+name = "half_space_two_bounded_regions"
+path = "../../half-space-two-bounded-regions/lean"
+
+[[require]]
+name = "forced_tetrahedral_frame"
+path = "../../forced-tetrahedral-frame/lean"
+
+[[lean_lib]]
+name = "TetradScheme"
