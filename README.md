@@ -27,7 +27,7 @@ python sparc_rar.py --from-csv supplementary/sparc_rar.csv
 
 ## Results and their status
 
-Each claim is graded by what supports it. **Theorem**: proved, with a script that checks every step. **Derived**: follows from the framework's stated assumptions, with validation code. **Exploratory**: a numerical correspondence or extension that is not yet a derivation.
+Each claim is graded by what supports it. **Theorem**: proved, with a script that checks every step; **+ Lean** marks a proof whose theorems are also machine-checked in Lean 4 (see the proof's `LEAN_AUDIT.md` for exactly what is proved and what is cited). **Derived**: follows from the framework's stated assumptions, with validation code. **Exploratory**: a numerical correspondence or extension that is not yet a derivation.
 
 | Claim | Status | How to check |
 |---|---|---|

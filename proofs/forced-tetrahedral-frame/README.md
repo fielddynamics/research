@@ -101,6 +101,8 @@ What the formalisation establishes:
 
 The build has no errors, no warnings and no gaps (`sorry`), and depends only on Lean's three standard axioms. GitHub re-checks the proof automatically whenever the Lean files change, and the badge at the top of this page shows the result of the latest run: it is green only if the proof builds with no warnings, no gaps and only the standard axioms. [`LEAN_AUDIT.md`](LEAN_AUDIT.md) is a referee's guide: the definitions to check against the paper, each claim mapped to its Lean theorem, anticipated objections, and the limits of the formalisation.
 
+Four other formalisations import this one rather than restating it: the [Hadamard cube frame](../hadamard-cube-frame/), the [half-space regions](../half-space-two-bounded-regions/), the [tetrad scheme](../tetrad-scheme-two-bounded-regions/) and the [Gram matrix of the tetrad equation](../gram-matrix-tetrad-equation/). Their checks re-run whenever this proof changes.
+
 ## Why it matters
 
 **A frame that was never given a shape has one, and only one.** General relativity uses the tetrad through the metric alone, which fixes how the legs relate and says nothing about a shape. No standard result assigns a Lorentz frame a geometry. That four equal arrows at equal angles form a regular tetrahedron is classical geometry; that the tetrad's own data *force* those conditions is the new result. Without it, the four directions on which [Letter 1](../../papers/letter-1-tetrad-frame-geometry/) builds TetA, TetB and the stellated octahedron would be a choice. With it, they are forced.

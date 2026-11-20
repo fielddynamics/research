@@ -103,6 +103,8 @@ The [`lean/`](lean/) folder proves the theorem in [Lean 4](https://lean-lang.org
 
 Two standard facts are cited rather than proved: the field-degree half of the lemma (Gauss's lemma), and the irreducibility of the alternatives (Eisenstein's criterion). Lean proves the part of the lemma the theorem uses: a bilinear relation factors when $ad - bc = 0$, and is solvable both ways when $ad - bc \neq 0$.
 
+The [AQUAL energy functional](../aqual-energy-functional/)'s formalisation imports this one, so the energy is built from the same, proved-unique $\mu$; its check re-runs whenever this proof changes.
+
 GitHub re-checks the proof automatically whenever it changes; the badge at the top of this page shows the latest result. It is green only if the proof builds with no warnings, no gaps (`sorry`) and only Lean's standard axioms. [`LEAN_AUDIT.md`](LEAN_AUDIT.md) is a referee's guide to the formalisation.
 
 ## Why it matters

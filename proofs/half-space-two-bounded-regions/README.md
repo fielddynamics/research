@@ -39,7 +39,7 @@ So exactly two of the sixteen are bounded, and they are TetA and TetB.
 
 ## Machine-checked in Lean
 
-The [`lean/`](lean/) folder proves every statement in [Lean 4](https://lean-lang.org) with the [Mathlib](https://github.com/leanprover-community/mathlib4) library, and the Lean kernel checks every step.
+The [`lean/`](lean/) folder proves every mathematical statement in [Lean 4](https://lean-lang.org) with the [Mathlib](https://github.com/leanprover-community/mathlib4) library, and the Lean kernel checks every step.
 
 - **The four directions are not re-entered.** Lean imports them from the [forced tetrahedral frame](../forced-tetrahedral-frame/)'s formalisation, as the columns of its matrix $M$, so the two proofs are checked as one chain.
 - **"Bounded" is Mathlib's definition** (`Bornology.IsBounded`), not one written for this proof.
@@ -81,7 +81,7 @@ The note keeps Letter 1's sections *Four Planes*, *The Emergent Geometry* and *S
 | [`fig1_tetrad_frame.png`](fig1_tetrad_frame.png) | Letter 1's Figure 1: the rendering at four million points |
 | [`verify_half_space_two_bounded_regions.py`](verify_half_space_two_bounded_regions.py) | Letter 1's validation script, unchanged apart from its header: the sum rule, all sixteen regions by linear programming and by convex hulls, all fourteen mixed cases, the octahedron, the face subdivision, the channels and the inventory |
 | [`iopjournal.cls`](iopjournal.cls) | Document class, so the source builds here |
-| [`lean/HalfSpaceTwoBoundedRegions.lean`](lean/HalfSpaceTwoBoundedRegions.lean) | The Lean 4 formalisation of every statement |
+| [`lean/HalfSpaceTwoBoundedRegions.lean`](lean/HalfSpaceTwoBoundedRegions.lean) | The Lean 4 formalisation of every mathematical statement |
 | [`lean/lakefile.toml`](lean/lakefile.toml), [`lean/lean-toolchain`](lean/lean-toolchain), [`lean/lake-manifest.json`](lean/lake-manifest.json) | Project files: Lean 4.36.0, Mathlib v4.36.0, and the forced tetrahedral frame's formalisation as a dependency |
 | [`LEAN_AUDIT.md`](LEAN_AUDIT.md) | Referee's guide to the formalisation |
 
