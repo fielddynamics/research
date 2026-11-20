@@ -2,11 +2,13 @@
 
 *Why the interpolating function of modified gravity has to be $\mu(x) = x/(x+1)$ · Gravity Field Dynamics (GFD) · Field Dynamics Research*
 
-`constitutive-law` `interpolating-function` `MOND` `AQUAL` `exchange-symmetry` `algebra` `proof`
+`constitutive-law` `interpolating-function` `MOND` `AQUAL` `exchange-symmetry` `algebra` `proof` `Lean`
+
+[![Lean proof](https://github.com/fielddynamics/research/actions/workflows/lean-constitutive-law.yml/badge.svg)](https://github.com/fielddynamics/research/actions/workflows/lean-constitutive-law.yml)
 
 ---
 
-This folder holds a two-page proof, written as supplementary material to the letter [*The Gravitational Constitutive Law from the Tetrad Frame Geometry*](../../papers/letter-constitutive-law-tetrad-geometry/), together with a script that checks every algebraic step. This page explains what the proof says and why it matters. It assumes first-year calculus and a little algebra, nothing more.
+This folder holds a two-page proof, written as supplementary material to the letter [*The Gravitational Constitutive Law from the Tetrad Frame Geometry*](../../papers/letter-constitutive-law-tetrad-geometry/), together with a script that checks every algebraic step and a Lean formalisation that proves the theorem. This page explains what the proof says and why it matters. It assumes first-year calculus and a little algebra, nothing more.
 
 ## The problem
 
@@ -91,6 +93,18 @@ A proof is only as strong as its weakest premise. To show that none of the premi
 
 The last row matters most. It shows that "the relation is algebraic" is not enough on its own, because all of those alternatives are algebraic. What does the work is the degree, and the framework's own bound-state law is exactly the case that degree one excludes. The standard form fails in the same way: $\mu = x/\sqrt{1+x^2}$ satisfies $\mu^2(1+x^2) = x^2$, which has degree two in $\mu$.
 
+## Machine-checked in Lean
+
+The [`lean/`](lean/) folder proves the theorem in [Lean 4](https://lean-lang.org) with the [Mathlib](https://github.com/leanprover-community/mathlib4) library, and the Lean kernel checks every step.
+
+- **The theorem as stated.** Lean takes the three premises as hypotheses and concludes that the law is $\mu = kx/(kx + 1)$ for exactly one $k > 0$. Here (E) is $\mu(0) = 0$, (X) says the set of realised states is closed under $\mu \to 1 - \mu$, and (A) says the relation is bilinear with $ad - bc \neq 0$. The state at infinite acceleration is read off the relation itself, so "the mirror state occurs somewhere on $[0, \infty]$" is part of the hypothesis rather than an assumption about limits.
+- **Everything that comes out for free.** Newton's limit $\mu \to 1$, the complement symmetry $\mu(x) + \mu(1/x) = 1$, the fact that the exchanged state sits exactly at $1/x$, the fixed point $x = 1$ with $\mu = \tfrac12$, and the parity form $s = (x-1)/(x+1)$ are all theorems.
+- **Every premise is necessary, in full.** Lean exhibits the (E) and (X) counterexamples. For the (A) row it proves, for **every** $n, m \ge 1$, that $x^n(1-\mu)^m = \mu$ defines a single share for each acceleration, satisfies (E) and (X), and is not $x/(x+1)$ in any unit unless $n = m = 1$. It also proves the remark that without (A) the exchange carries no content.
+
+Two standard facts are cited rather than proved: the field-degree half of the lemma (Gauss's lemma), and the irreducibility of the alternatives (Eisenstein's criterion). Lean proves the part of the lemma the theorem uses: a bilinear relation factors when $ad - bc = 0$, and is solvable both ways when $ad - bc \neq 0$.
+
+GitHub re-checks the proof automatically whenever it changes; the badge at the top of this page shows the latest result. It is green only if the proof builds with no warnings, no gaps (`sorry`) and only Lean's standard axioms. [`LEAN_AUDIT.md`](LEAN_AUDIT.md) is a referee's guide to the formalisation.
+
 ## Why it matters
 
 **It turns a choice into a consequence.** The function that MOND chooses by hand, GFD derives, and the function it derives is the one the data prefer. This removes a free function from the theory and supports the framework's claim to have no free parameters.
@@ -120,11 +134,19 @@ Earlier forms of this argument, in the [letter's supplement](../../papers/letter
 | [`constitutive_law_exchange_symmetry.tex`](constitutive_law_exchange_symmetry.tex) | LaTeX source (IOP journal class, included) |
 | [`verify_constitutive_law_exchange_symmetry.py`](verify_constitutive_law_exchange_symmetry.py) | Symbolic checks of the lemma, every step, the parity form, every row of the necessity table and the links to the other routes |
 | [`iopjournal.cls`](iopjournal.cls) | Document class, copied from the letter so the source builds here |
+| [`lean/ConstitutiveLaw.lean`](lean/ConstitutiveLaw.lean) | The Lean 4 formalisation |
+| [`lean/lakefile.toml`](lean/lakefile.toml), [`lean/lean-toolchain`](lean/lean-toolchain), [`lean/lake-manifest.json`](lean/lake-manifest.json) | Project files: Lean 4.36.0, Mathlib v4.36.0 |
+| [`LEAN_AUDIT.md`](LEAN_AUDIT.md) | Referee's guide to the formalisation |
 
 ```bash
 pip install sympy
 python verify_constitutive_law_exchange_symmetry.py      # 34/34
 pdflatex -interaction=nonstopmode constitutive_law_exchange_symmetry.tex
+
+# Lean (needs elan: https://github.com/leanprover/elan)
+cd lean
+lake exe cache get    # downloads Mathlib, already compiled
+lake build
 ```
 
 ## Related papers
@@ -136,4 +158,4 @@ pdflatex -interaction=nonstopmode constitutive_law_exchange_symmetry.tex
 
 ---
 
-*The algebra is complete and machine-checked. The physical premises are GFD's, stated so that they can be tested.*
+*The algebra is complete and machine-checked, by the script and in Lean. The physical premises are GFD's, stated so that they can be tested.*
