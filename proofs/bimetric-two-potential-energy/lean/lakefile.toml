@@ -1,0 +1,27 @@
+name = "bimond_interaction"
+defaultTargets = ["BimondInteraction"]
+
+# Builds on both chains: the AQUAL energy (and the constitutive law under it) and the tetrad scheme
+# (and the half-space regions and forced frame under it). Mathlib v4.36.0 comes through them.
+[[require]]
+name = "aqual_energy"
+path = "../../aqual-energy-functional/lean"
+
+[[require]]
+name = "constitutive_law"
+path = "../../constitutive-law-exchange-symmetry/lean"
+
+[[require]]
+name = "tetrad_scheme"
+path = "../../tetrad-scheme-two-bounded-regions/lean"
+
+[[require]]
+name = "half_space_two_bounded_regions"
+path = "../../half-space-two-bounded-regions/lean"
+
+[[require]]
+name = "forced_tetrahedral_frame"
+path = "../../forced-tetrahedral-frame/lean"
+
+[[lean_lib]]
+name = "BimondInteraction"

@@ -101,7 +101,7 @@ What the formalisation establishes:
 
 The build has no errors, no warnings and no gaps (`sorry`), and depends only on Lean's three standard axioms. GitHub re-checks the proof automatically whenever the Lean files change, and the badge at the top of this page shows the result of the latest run: it is green only if the proof builds with no warnings, no gaps and only the standard axioms. [`LEAN_AUDIT.md`](LEAN_AUDIT.md) is a referee's guide: the definitions to check against the paper, each claim mapped to its Lean theorem, anticipated objections, and the limits of the formalisation.
 
-Four other formalisations import this one rather than restating it: the [Hadamard cube frame](../hadamard-cube-frame/), the [half-space regions](../half-space-two-bounded-regions/), the [tetrad scheme](../tetrad-scheme-two-bounded-regions/) and the [Gram matrix of the tetrad equation](../gram-matrix-tetrad-equation/). Their checks re-run whenever this proof changes.
+Five other formalisations import this one rather than restating it: the [Hadamard cube frame](../hadamard-cube-frame/), the [half-space regions](../half-space-two-bounded-regions/), the [tetrad scheme](../tetrad-scheme-two-bounded-regions/), the [Gram matrix of the tetrad equation](../gram-matrix-tetrad-equation/) and the [BIMOND two-potential energy](../bimetric-two-potential-energy/). Their checks re-run whenever this proof changes.
 
 ## Why it matters
 

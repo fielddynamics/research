@@ -66,6 +66,8 @@ Two steps are cited rather than proved. One is the divergence-theorem step of th
 
 GitHub re-checks the proof automatically whenever it, or the constitutive law it builds on, changes; the badge at the top of this page shows the latest result. It is green only if the proof builds with no warnings, no gaps (`sorry`) and only Lean's standard axioms. [`LEAN_AUDIT.md`](LEAN_AUDIT.md) is a referee's guide to the formalisation.
 
+The [BIMOND two-potential energy](../bimetric-two-potential-energy/)'s formalisation imports this one: its $\mathcal{M}$ is proved to be the Legendre dual of this $g$, and its check re-runs whenever this proof changes.
+
 ## Why it matters
 
 - **It is the action-level form of the constitutive law.** The energy is what enters the GFD action and its covariant completion, so having it in closed form, with exact expansions, makes calculations explicit rather than numerical.

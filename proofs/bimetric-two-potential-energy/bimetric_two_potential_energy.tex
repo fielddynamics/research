@@ -51,7 +51,8 @@ in the dual pairing, and its energy is strictly convex, with a
 Hessian ratio that is the reciprocal of the AQUAL one.
 \end{abstract}
 
-\keywords{BIMOND, QUMOND, AQUAL, MOND, bimetric gravity, Legendre duality, proof}
+% v: keyword was "bimetric gravity"; BIMOND is bimetric MOND, not Hassan--Rosen bimetric gravity.
+\keywords{BIMOND, QUMOND, AQUAL, MOND, bimetric MOND, Legendre duality, proof}
 
 % ----------------------------------------------------------------------
 
@@ -299,6 +300,14 @@ $x \simeq \sqrt y$, so the source $\nabla\cdot(\mathcal{M}'\nabla
 Where AQUAL degenerates at $\nabla\Phi = 0$ (both eigenvalues $\to 0$),
 the two-potential energy is singular there ($2\nu \to \infty$); the
 Legendre transform exchanges the two behaviours.
+
+% Lean: new paragraph.
+\paragraph{Formal verification.} Every result is checked in Lean~4 with
+Mathlib (\texttt{lean/BimondInteraction.lean}), importing the AQUAL and
+tetrad-scheme formalisations; Corollary~2 on every real inner product
+space. Cited are Gauss's law in Proposition~1, the uniqueness of harmonic
+functions in Corollary~2 and the radial Hessian formula; the Einstein--Hilbert
+term enters Lemma~1 as the density $\det(e)\,R[g(e)]$.
 
 % ----------------------------------------------------------------------
 
