@@ -4,6 +4,8 @@
 
 `tetrad` `Gram-matrix` `regular-tetrahedron` `stellated-octahedron` `proof`
 
+[![Lean proof](https://github.com/fielddynamics/research/actions/workflows/lean-forced-tetrahedral-frame.yml/badge.svg)](https://github.com/fielddynamics/research/actions/workflows/lean-forced-tetrahedral-frame.yml)
+
 ---
 
 This folder holds a three-page proof, a script that checks every step, and a Lean 4 formalisation in which every statement of the proof is machine-checked. The proof shows that the geometry at the centre of Gravity Field Dynamics, the regular tetrahedron and its parity partner the stellated octahedron, is not chosen. It is read off the metric of special relativity. This page explains the argument for a reader with first-year linear algebra.
@@ -97,7 +99,7 @@ What the formalisation establishes:
 - **Every premise and requirement is needed, and none is vacuous**: each has a counterexample when dropped, and together they are satisfied by the tetrahedron itself.
 - **Nothing tuned to four legs**: the general statement for signature $(1, n)$.
 
-The build has no errors, no warnings and no gaps (`sorry`), and depends only on Lean's three standard axioms. [`LEAN_AUDIT.md`](LEAN_AUDIT.md) is a referee's guide: the definitions to check against the paper, each claim mapped to its Lean theorem, anticipated objections, and the limits of the formalisation.
+The build has no errors, no warnings and no gaps (`sorry`), and depends only on Lean's three standard axioms. GitHub re-checks the proof automatically whenever the Lean files change, and the badge at the top of this page shows the result of the latest run: it is green only if the proof builds with no warnings, no gaps and only the standard axioms. [`LEAN_AUDIT.md`](LEAN_AUDIT.md) is a referee's guide: the definitions to check against the paper, each claim mapped to its Lean theorem, anticipated objections, and the limits of the formalisation.
 
 ## Why it matters
 

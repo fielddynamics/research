@@ -1,0 +1,40 @@
+name: Lean proof — forced tetrahedral frame
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'proofs/forced-tetrahedral-frame/lean/**'
+      - '.github/workflows/lean-forced-tetrahedral-frame.yml'
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: proofs/forced-tetrahedral-frame/lean
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Lean (elan)
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+
+      - name: Download compiled Mathlib
+        run: lake exe cache get
+
+      - name: Check the proof (warnings count as failures)
+        run: lake build --wfail
+
+      - name: Confirm no sorry and only standard axioms
+        run: |
+          lake env lean ForcedTetrahedralFrame.lean | tee axioms.txt
+          count=$(grep -c "depends on axioms" axioms.txt || true)
+          echo "axiom reports: $count"
+          if [ "$count" -lt 42 ]; then echo "expected 42 axiom reports"; exit 1; fi
+          if grep -q sorryAx axioms.txt; then echo "a theorem depends on sorry"; exit 1; fi
+          if grep "depends on axioms" axioms.txt | grep -v "\[propext, Classical.choice, Quot.sound\]"; then
+            echo "a theorem uses a non-standard axiom"; exit 1
+          fi
