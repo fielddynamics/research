@@ -15,7 +15,7 @@ jobs:
       run:
         working-directory: proofs/forced-tetrahedral-frame/lean
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Install Lean (elan)
         run: |
@@ -25,12 +25,13 @@ jobs:
       - name: Download compiled Mathlib
         run: lake exe cache get
 
-      - name: Check the proof (warnings count as failures)
-        run: lake build --wfail
+      - name: Build the proof
+        run: lake build
 
-      - name: Confirm no sorry and only standard axioms
+      - name: Confirm no warnings, no sorry and only standard axioms
         run: |
           lake env lean ForcedTetrahedralFrame.lean | tee axioms.txt
+          if grep -qE "^[^ ]*: *(warning|error)|warning:|error:" axioms.txt; then echo "Lean reported a warning or error"; exit 1; fi
           count=$(grep -c "depends on axioms" axioms.txt || true)
           echo "axiom reports: $count"
           if [ "$count" -lt 42 ]; then echo "expected 42 axiom reports"; exit 1; fi
