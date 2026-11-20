@@ -2,11 +2,13 @@
 
 *What the metric can and cannot see of the two roots of the tetrad equation · Gravity Field Dynamics (GFD) · Field Dynamics Research*
 
-`tetrad` `Gram-matrix` `spatial-parity` `root-blindness` `Hadamard-matrix` `stellated-octahedron` `torsion` `proof`
+`tetrad` `Gram-matrix` `spatial-parity` `root-blindness` `Hadamard-matrix` `stellated-octahedron` `torsion` `proof` `Lean`
+
+[![Lean proof](https://github.com/fielddynamics/research/actions/workflows/lean-gram-matrix-tetrad-equation.yml/badge.svg)](https://github.com/fielddynamics/research/actions/workflows/lean-gram-matrix-tetrad-equation.yml)
 
 ---
 
-This folder holds a five-page proof and a script that checks every step (76 checks, exact algebra, exhaustive where the cases are finite, and exact spot checks for the rigidity converse, Theorem 3(ii) and Propositions 2 and 3). It was revised after an internal referee-style review ([`referee_review.md`](referee_review.md)). It is the revised version of the [Gram-matrix note](../../papers/gram-matrix-of-tetrad-equation/), which is unchanged in its own folder. This page explains the argument for a reader with first-year linear algebra.
+This folder holds a five-page proof, a Lean formalisation of its results, and a script that checks every step (76 checks, exact algebra, exhaustive where the cases are finite, and exact spot checks for the rigidity converse, Theorem 3(ii) and Propositions 2 and 3). It was revised after an internal referee-style review ([`referee_review.md`](referee_review.md)). It is the revised version of the [Gram-matrix note](../../papers/gram-matrix-of-tetrad-equation/), which is unchanged in its own folder. This page explains the argument for a reader with first-year linear algebra.
 
 ## The question
 
@@ -59,6 +61,20 @@ Parts I and IV say the same thing at two levels. The metric cannot see the roots
 
 So the torsion is the necessary carrier of the TetA/TetB distinction at the connection level and, wherever it is nonzero, an actual one, as Letter 2 states. Proposition 2(b) adds that two roots carrying the same spin connection differ by a contorsion.
 
+## Machine-checked in Lean
+
+The [`lean/`](lean/) folder proves the note in [Lean 4](https://lean-lang.org) with the [Mathlib](https://github.com/leanprover-community/mathlib4) library, and the Lean kernel checks every step. It imports the [forced tetrahedral frame](../forced-tetrahedral-frame/), the [half-space regions](../half-space-two-bounded-regions/) and the [tetrad scheme](../tetrad-scheme-two-bounded-regions/), so four proofs are now checked as one chain. Where the script checks examples, Lean proves the general statement:
+
+- **Rigidity in full.** The script checks the converse of Lemma 5 on rational examples; Lean proves that any $W$ with $W^TW = G$ is $QM_1$ for exactly one orthogonal $Q$.
+- **The symmetry groups, counted.** The script runs over all $8!$ relabellings; Lean proves that $\mathrm{Sym}(\mathrm{TetA})$ has exactly 24 elements, one for each rearrangement of the legs, that $\mathrm{Sym}(S)$ is $\mathrm{Sym}(\mathrm{TetA})$ and its negative, never overlapping, with exactly 48, and that the quarter turn of the scheme proof is one of the exchanging rotations.
+- **The 40 + 24 split as dimensions.** Lean computes the dimensions of the swap-even and swap-odd spaces (40 and 24), not just the counts of grid cells.
+- **Theorem 3(ii) for every metric.** The script checks $\eta$ and one generic metric; Lean proves the bijection for every invertible $g$, with the contorsion written out as its inverse.
+- **Proposition 2(b) with an explicit example.** A boost generator gives two connections, both compatible with $\eta$, whose torsions differ.
+
+Three statements are proved in a narrower form, and the audit says so: $\star T \neq 0$ is proved at $g = \eta$ (its reversal between the roots is proved for every $g$); the first-order normal-coordinate remark in Proposition 3(iii) is not formalised (it needs calculus on manifolds); and the compatibility of the connection in Proposition 2 with $g$ is shown in the example rather than in general.
+
+GitHub re-checks the proof automatically whenever it, or a proof it builds on, changes; the badge at the top of this page shows the latest result. It is green only if the proof builds with no warnings, no gaps (`sorry`) and only Lean's standard axioms. [`LEAN_AUDIT.md`](LEAN_AUDIT.md) is a referee's guide to the formalisation.
+
 ## Why it matters
 
 - **It makes "root-blind" and "root-resolving" exact.** Gram data are blind to which root is which and resolve only the relative root; orientation is the absolute invariant.
@@ -94,11 +110,19 @@ The original note, [`supplementary_gram_stellated_octahedron.tex`](../../papers/
 | [`verify_gram_matrix_tetrad_equation.py`](verify_gram_matrix_tetrad_equation.py) | Exact checks of every lemma, proposition and theorem: the Hadamard identity, exact rational rotations and reflections for invariance and rigidity, orientation of all four leg triples, the symmetry groups over all $8!$ relabellings of the cube, the exchange split and its coordinate independence, the metric-connection bijection for $\eta$ and a generic Lorentzian metric, both cases of Proposition 2, and Proposition 3 (frame torsion, its dual and axial vector under the exchange) |
 | [`referee_review.md`](referee_review.md) | Internal referee-style review and the change made for each point |
 | [`iopjournal.cls`](iopjournal.cls) | Document class, so the source builds here |
+| [`lean/GramMatrixTetradEquation.lean`](lean/GramMatrixTetradEquation.lean) | The Lean 4 formalisation |
+| [`lean/lakefile.toml`](lean/lakefile.toml), [`lean/lean-toolchain`](lean/lean-toolchain), [`lean/lake-manifest.json`](lean/lake-manifest.json) | Project files: Lean 4.36.0, Mathlib v4.36.0, and the three formalisations it imports |
+| [`LEAN_AUDIT.md`](LEAN_AUDIT.md) | Referee's guide to the formalisation |
 
 ```bash
 pip install sympy
 python verify_gram_matrix_tetrad_equation.py      # 76/76
 pdflatex -interaction=nonstopmode gram_matrix_tetrad_equation.tex
+
+# Lean (needs elan: https://github.com/leanprover/elan)
+cd lean
+lake exe cache get    # downloads Mathlib, already compiled
+lake build            # checks every theorem, and the proofs it imports
 ```
 
 ## Related
@@ -112,4 +136,4 @@ pdflatex -interaction=nonstopmode gram_matrix_tetrad_equation.tex
 
 ---
 
-*The algebra is complete and exact. The script checks every step, exhaustively where the cases are finite and by exact spot checks for the rigidity converse and Theorem 3(ii). The physical reading of the roots and the index grid is GFD's, stated so that it can be tested.*
+*The algebra is complete and exact, and machine-checked in Lean. The script checks every step, exhaustively where the cases are finite and by exact spot checks for the rigidity converse and Theorem 3(ii). The physical reading of the roots and the index grid is GFD's, stated so that it can be tested.*

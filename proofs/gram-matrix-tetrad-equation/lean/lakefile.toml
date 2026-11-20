@@ -1,0 +1,19 @@
+name = "gram_matrix_tetrad_equation"
+defaultTargets = ["GramMatrixTetradEquation"]
+
+# Builds on the tetrad scheme (Route 2), the half-space regions (Route 1) and the forced
+# tetrahedral frame. Mathlib v4.36.0 comes through those packages.
+[[require]]
+name = "tetrad_scheme"
+path = "../../tetrad-scheme-two-bounded-regions/lean"
+
+[[require]]
+name = "half_space_two_bounded_regions"
+path = "../../half-space-two-bounded-regions/lean"
+
+[[require]]
+name = "forced_tetrahedral_frame"
+path = "../../forced-tetrahedral-frame/lean"
+
+[[lean_lib]]
+name = "GramMatrixTetradEquation"

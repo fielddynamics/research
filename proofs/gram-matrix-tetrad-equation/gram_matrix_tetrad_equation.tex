@@ -540,6 +540,28 @@ Prop.\ 3 & Torsion carries the root & Prop.~1 \\
 
 % ======================================================================
 
+% Lean: new section.
+\section*{Formal Verification}
+
+Every result of this note is proved in Lean~4 with the Mathlib library,
+in \texttt{lean/GramMatrixTetradEquation.lean}, and checked by the Lean
+kernel. The file imports the formalisations of the forced tetrahedral
+frame~\cite{NelsonForced}, Letter~1's half-space regions and the tetrad
+scheme~\cite{NelsonScheme}, so these are checked as one chain. It proves
+Lemmas~1--6, Proposition~1, Theorems~1--3 and Propositions~2 and~3, with
+the following scope. Theorem~2 is proved as stated: $|\mathrm{Sym}(\mathrm{TetA})| = 24$,
+acting as all of $S_4$; $\mathrm{Sym}(S) = \mathrm{Sym}(\mathrm{TetA})\cup
+-\mathrm{Sym}(\mathrm{TetA})$, disjointly, of order 48; and the quarter turn of~\cite{NelsonScheme}
+is an exchanging rotation. Theorem~3(ii) is proved for every invertible
+$g$, with the contorsion as explicit inverse, and both spaces shown to be
+24-dimensional. Proposition~2(b) is proved by the example of a boost
+generator, with both connections shown to be compatible with $\eta$.
+In Proposition~3, the reversal of $\star T$ and $A$ is proved for every
+$g$, and $\star T \neq 0$ for $T \neq 0$ at $g = \eta$; part (iii) is
+proved with the first index lowered by any $g$, and its statement about
+normal coordinates is not formalised. Every theorem depends only on
+Lean's standard axioms.
+
 \sloppy
 \begin{thebibliography}{99}
 
