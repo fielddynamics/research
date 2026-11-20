@@ -1,5 +1,5 @@
 name = "forced_tetrahedral_frame"
-defaultTargets = ["ForcedTetrahedralFrame"]
+defaultTargets = ["ForcedTetrahedralFrame", "TetrahedralAngle"]
 
 [[require]]
 name = "mathlib"
@@ -8,3 +8,7 @@ rev = "v4.36.0"
 
 [[lean_lib]]
 name = "ForcedTetrahedralFrame"
+
+# Corollary 1's angle in Mathlib's sense (imports Euclidean geometry, so kept separate).
+[[lean_lib]]
+name = "TetrahedralAngle"

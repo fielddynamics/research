@@ -2,9 +2,9 @@
 
 | | |
 |---|---|
-| **Formalisation** | [`lean/ForcedTetrahedralFrame.lean`](lean/ForcedTetrahedralFrame.lean), 1,316 lines, Lean 4.36.0 + Mathlib v4.36.0 (pinned in `lean/lakefile.toml` and `lean/lake-manifest.json`) |
+| **Formalisation** | [`lean/ForcedTetrahedralFrame.lean`](lean/ForcedTetrahedralFrame.lean), 1,316 lines, and [`lean/TetrahedralAngle.lean`](lean/TetrahedralAngle.lean) (the angle, which imports Euclidean geometry), Lean 4.36.0 + Mathlib v4.36.0 (pinned in `lean/lakefile.toml` and `lean/lake-manifest.json`) |
 | **Build** | 0 errors · 0 warnings · no `sorry` / `admit` / custom `axiom` / `native_decide` / `unsafe` |
-| **Axioms** | All 43 `#print axioms` checks report only `propext`, `Classical.choice`, `Quot.sound` |
+| **Axioms** | All 44 `#print axioms` checks report only `propext`, `Classical.choice`, `Quot.sound` |
 | **Reproduce** | `cd lean && lake exe cache get && lake build` |
 | **Paper** | Revised as v2 ([`forced_tetrahedral_frame.tex`](forced_tetrahedral_frame.tex) / [`.pdf`](forced_tetrahedral_frame.pdf)). Every statement in it maps to a theorem below. |
 
@@ -42,7 +42,7 @@ Lean checks every proof. A referee needs to check only that the **definitions an
 | Rigidity Lemma | `rigidity` | proved for any number of columns |
 | Theorem: closure and Eq. (1) | `forced_gram`, `forced_gram_entries` | via linear dependence; the paper's eigenvalue route is also sound |
 | The value 0 of (R) cannot be kept in ℝ³ | `no_orthogonal_tetrad` | |
-| Corollary 1 | `cor1_geometry`, `cor1_M_realises`, `MtM`, `cor1_unique` | angle stated as cos θ = −1/3 |
+| Corollary 1 | `cor1_geometry`, `cor1_angle`, `cor1_M_realises`, `MtM`, `cor1_unique` | `cor1_angle`: the angle is `arccos(−1/3)` by Mathlib's `InnerProductGeometry.angle` on Euclidean ℝ³ |
 | Corollary 2 | `cor2_exists_iff`, `cor2_forced_iff`, `three_is_unique` | K ≥ 2 required (`K_one_no_realisation`); "exists **and** forced" (`forced_vacuous`) |
 | Corollary 2, D ≥ K | `cor2_all_gram_realisable` | every α > 0, α + Kβ ≥ 0, not only β = 0 |
 | Corollary 3 | `cor3_parity`, `cor3_cube` | |
@@ -130,6 +130,5 @@ Nothing else was changed. Every edit is marked `% v2:` in the source. The Python
 
 ## 9. Limits
 
-- **Angle:** stated as cos θ = −1/3. `Real.arccos` would need a much heavier build.
-- **"Stella octangula":** a name. Lean proves the eight vertices are {−1,+1}³ split into the two tetrahedra.
+- **"Stella octangula" / "stellated octahedron":** names for the same compound. Lean proves the eight vertices are {−1,+1}³ split into the two tetrahedra.
 - **Physics:** the transcription principle is the paper's to argue; everything that follows from it is verified.

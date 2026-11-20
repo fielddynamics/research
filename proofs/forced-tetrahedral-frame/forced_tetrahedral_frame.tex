@@ -332,15 +332,16 @@ accompanying file \texttt{ForcedTetrahedralFrame.lean}
 (\url{https://github.com/fielddynamics/research}). Lean reports no
 errors or warnings for the file and there is no \texttt{sorry}; every
 theorem depends only on Lean's standard axioms (\texttt{propext},
-\texttt{Classical.choice}, \texttt{Quot.sound}); the angle is
-verified as $\cos\theta = -1/3$.
+\texttt{Classical.choice}, \texttt{Quot.sound}). The angle
+$\arccos(-1/3)$ is stated with Mathlib's own definition of the angle
+between two vectors of Euclidean $\mathbb{R}^3$.
 
 {\footnotesize
 \begin{flushleft}
 \emph{Basis; unit magnitudes:} \texttt{tetrad\_basis}, \texttt{tetrad\_unit\_magnitude}.\\
 \emph{Rigidity Lemma:} \texttt{rigidity}.\\
 \emph{Theorem; Remark:} \texttt{forced\_gram}, \texttt{core\_forced}.\\
-\emph{Corollary 1; $MM^T = 4I$:} \texttt{cor1\_geometry}, \texttt{cor1\_unique}, \texttt{MMt}.\\
+\emph{Corollary 1; $MM^T = 4I$:} \texttt{cor1\_geometry}, \texttt{cor1\_angle}, \texttt{cor1\_unique}, \texttt{MMt}.\\
 \emph{Corollary 2:} \texttt{cor2\_exists\_iff}, \texttt{cor2\_forced\_iff}, \texttt{cor2\_all\_gram\_realisable}.\\
 \emph{Corollary 3:} \texttt{cor3\_parity}, \texttt{cor3\_cube}.\\
 \emph{Necessity table:} \texttt{nec\_R}, \texttt{nec\_M1}, \texttt{nec\_M2}, \texttt{nec\_M2\_rank}, \texttt{nec\_N}, \texttt{nec\_D}.\\

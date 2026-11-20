@@ -141,6 +141,7 @@ The routes agree. Letter 1's four null directions are the columns of $M$ divided
 | [`verify_forced_tetrahedral_frame.py`](verify_forced_tetrahedral_frame.py) | Checks of the setting, the premises, the lemma, the theorem, all three corollaries, every row of the necessity table, and the v2 additions |
 | [`iopjournal.cls`](iopjournal.cls) | Document class, so the source builds here |
 | [`lean/ForcedTetrahedralFrame.lean`](lean/ForcedTetrahedralFrame.lean) | The Lean 4 formalisation of every statement |
+| [`lean/TetrahedralAngle.lean`](lean/TetrahedralAngle.lean) | The angle $\arccos(-1/3)$ between any two legs, in Mathlib's own sense of the angle between vectors |
 | [`lean/lakefile.toml`](lean/lakefile.toml), [`lean/lean-toolchain`](lean/lean-toolchain), [`lean/lake-manifest.json`](lean/lake-manifest.json) | Project files pinning Lean 4.36.0 and Mathlib v4.36.0 |
 | [`LEAN_AUDIT.md`](LEAN_AUDIT.md) | Referee's guide to the formalisation |
 
