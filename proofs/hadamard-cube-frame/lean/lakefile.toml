@@ -1,0 +1,11 @@
+name = "hadamard_cube_frame"
+defaultTargets = ["HadamardCubeFrame"]
+
+# Builds on the forced tetrahedral frame (Theorem 1 (a) => (b) uses its forced Gram matrix).
+# Mathlib v4.36.0 comes through that package.
+[[require]]
+name = "forced_tetrahedral_frame"
+path = "../../forced-tetrahedral-frame/lean"
+
+[[lean_lib]]
+name = "HadamardCubeFrame"
