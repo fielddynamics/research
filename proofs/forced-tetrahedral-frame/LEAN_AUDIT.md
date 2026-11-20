@@ -2,9 +2,9 @@
 
 | | |
 |---|---|
-| **Formalisation** | [`lean/ForcedTetrahedralFrame.lean`](lean/ForcedTetrahedralFrame.lean), 1,277 lines, Lean 4.36.0 + Mathlib v4.36.0 (pinned in `lean/lakefile.toml` and `lean/lake-manifest.json`) |
+| **Formalisation** | [`lean/ForcedTetrahedralFrame.lean`](lean/ForcedTetrahedralFrame.lean), 1,316 lines, Lean 4.36.0 + Mathlib v4.36.0 (pinned in `lean/lakefile.toml` and `lean/lake-manifest.json`) |
 | **Build** | 0 errors · 0 warnings · no `sorry` / `admit` / custom `axiom` / `native_decide` / `unsafe` |
-| **Axioms** | All 42 `#print axioms` checks report only `propext`, `Classical.choice`, `Quot.sound` |
+| **Axioms** | All 43 `#print axioms` checks report only `propext`, `Classical.choice`, `Quot.sound` |
 | **Reproduce** | `cd lean && lake exe cache get && lake build` |
 | **Paper** | Revised as v2 ([`forced_tetrahedral_frame.tex`](forced_tetrahedral_frame.tex) / [`.pdf`](forced_tetrahedral_frame.pdf)). Every statement in it maps to a theorem below. |
 
@@ -59,7 +59,7 @@ A tetrad is a **basis of unit vectors**. e₀ is a unit *timelike* vector: η₀
 | The legs are linearly independent; each is non-zero | `tetrad_basis` |
 | η_aa = (sign)·\|η_aa\| with \|η_aa\| = 1 on every leg | `eta_sign_times_magnitude` |
 | **For any tetrad**: magnitude- and relation-preserving, (N), ℝ³ ⇒ closed regular tetrahedron, Eq. (1), unique Q ∈ O(3) | `normalisation_forces_tetrahedron` |
-| The observer's projection sends a unit vector to the zero vector | `observer_breaks_normalisation` |
+| The observer's projection sends a unit vector to the zero vector, and violates the hypothesis on that leg only | `observer_breaks_normalisation`, `observer_violates_only_time_leg` |
 | The hypotheses are satisfiable (M's columns, c = √3) | `normalisation_satisfiable` |
 
 (M) is the normalisation of the frame, (R) is its orthogonality pattern, and (N) is its independence. Only the sign is set aside, because no squared length can be negative.

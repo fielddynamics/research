@@ -7,8 +7,10 @@ import Mathlib.Tactic.LinearCombination
 # Lean 4 / Mathlib formalisation of
 #   S. Nelson, "The Spatial Geometry of the Lorentz Tetrad" (Field Dynamics Research, preprint)
 
-Checked with Lean 4.36.0 and Mathlib v4.36.0: 0 errors, 0 warnings, no `sorry`, no custom axioms.
-Every theorem depends only on `propext`, `Classical.choice`, `Quot.sound` (see `#print axioms`).
+Checked with Lean 4.36.0 and Mathlib v4.36.0: Lean reports no errors or warnings for this file,
+there is no `sorry`, and there are no custom axioms. Every theorem depends only on `propext`,
+`Classical.choice`, `Quot.sound` (see the `#print axioms` lines). GitHub Actions re-checks all of
+this whenever the file changes.
 
 ## How to referee this file
 A Lean proof can only be wrong in its *statements*: the proofs are machine-checked. A referee
@@ -20,17 +22,26 @@ Definitions (the trusted base):
   `premM_iff_norm` shows `PremM` is exactly `|v_a| = c > 0`.
 * `Realisation K D v c := PremR v ∧ PremM v c ∧ PremN v`.
 * `Exists' K D`, `Forced K D`: existence of a realisation / every realisation is the closed simplex.
+* `eta = diag(−1, 1, 1, 1)`, `mink x y = −x₀y₀ + x₁y₁ + x₂y₂ + x₃y₃`: the Minkowski metric.
+* `IsTetrad e := ∀ a b, mink (e a) (e b) = eta a b`: `e` is a tetrad (any frame with this Gram
+  matrix, i.e. any Lorentz transform of the standard frame, reflections included).
+* `PreservesMagnitude e v c := 0 < c ∧ ∀ a, |v_a|² = c²·|η(e_a, e_a)|`;
+  `PreservesRelation e v`: equal `η(e_a, e_b)` (`a ≠ b`) give equal `v_a · v_b`.
 * `etaG n s = diag(−s, s, …, s)`: tetrad metric of signature `(1,n)`, convention `s = ±1`.
 * `Transcribes f g M v`: `G_aa = f(M_aa)`, `G_ab = g(M_ab)` with the same `f, g` for every leg
-  (rules *Local* + *Covariant*).
+  (rules *Local* + *Covariant*, the paper's "label-blind").
 
-Headline results:
-* `rules_force_simplex` / `tetrahedron_from_rules`: the transcription rules force the closed regular
-  simplex / tetrahedron, unique up to `O(3)`.
-* `rules_satisfiable(_general)`: the rules are not vacuous.
-* `need_convention_independence`, `need_covariance`, `need_locality`, `need_faithfulness`,
-  `need_dimension`: each rule is necessary.
-* `forced_gram`, `cor1_*`, `cor2_*`, `cor3_*`, `nec_*`, `rigidity`: the paper's results as stated.
+Headline results (in the order of the paper):
+* `forced_gram`, `rigidity`, `cor1_*`, `cor2_*`, `cor3_*`, `nec_*`: the paper's results as stated.
+* `tetrad_basis`, `eta_sign_times_magnitude`, `tetrad_unit_magnitude`: the legs are a basis of unit
+  vectors, each `η_aa` a sign times the common magnitude `1`.
+* `normalisation_forces_tetrahedron`: for any tetrad, a magnitude- and relation-preserving
+  realisation is the closed regular tetrahedron, unique up to `O(3)` (the primary derivation);
+  `observer_breaks_normalisation`, `observer_violates_only_time_leg`, `normalisation_satisfiable`.
+* `rules_force_simplex` / `tetrahedron_from_rules`: the independent route, for any signature
+  `(1,n)`; `rules_satisfiable(_general)` (not vacuous); `need_convention_independence`,
+  `need_covariance`, `need_locality`, `need_faithfulness`, `need_dimension` (each rule necessary).
+* `aut_eta`, `extension_forces_S4`: the symmetry view (`S₃` is maximal in `S₄`).
 -/
 
 open Matrix Finset
@@ -701,14 +712,17 @@ theorem nec_D :
     (∀ (v : Fin 4 → Fin 2 → ℝ) c, ¬ Realisation 4 2 v c) :=
   ⟨orthogonal_realisation (by norm_num) le_rfl, fun v c => no_realisation (by norm_num) v c⟩
 
-/-! ## From the tetrad to the premises: transcription as explicit rules
+/-! ## The tetrad's data, and the symmetry view
 
 Data of a Lorentz tetrad: legs `e_a ∈ ℝ^{1,3}` with `η(e_a, e_b) = η_ab = diag(−1,1,1,1)`.
-A *transcription rule* is a requirement on a realisation `v : Fin 4 → ℝ³` stated in terms of `η`:
-* (Faithful)  legs the tetrad distinguishes stay distinct: `v` injective.
+This section defines `η` and the Minkowski form, proves the tetrad facts used for (N) and (D), and
+gives the symmetry view of the premises: a realisation is required to be
+* (Faithful)  legs not all equal (the paper's (N));
 * (Symmetric) every permutation of legs that is a symmetry of the chosen metric data is a
-  symmetry of the realisation's Gram matrix.
+  symmetry of the realisation's Gram matrix;
 * (Dimension) `D` = positive index of `η`.
+With `η` itself the symmetry group is `S₃` and the tetrahedron is not forced; with `|η| = I` it is
+`S₄` and the tetrahedron is forced; `S₃` is maximal in `S₄`, so there is nothing in between.
 -/
 
 def eta : Matrix (Fin 4) (Fin 4) ℝ := Matrix.diagonal ![-1, 1, 1, 1]
@@ -894,15 +908,16 @@ theorem any_extension_beyond_lorentz_forces (v : Fin 4 → Fin 3 → ℝ) (hN : 
 #print axioms ForcedTetrahedralFrame.tetrad_legs_distinct
 #print axioms ForcedTetrahedralFrame.positive_index
 
-/-! ## The transcription rules, for any signature `(1, n)`
+/-! ## Independent route: the transcription rules, for any signature `(1, n)`
 
 The tetrad's metric in convention `s` is `etaG n s = diag(−s, s, …, s)` on `n + 1` legs
 (`s = 1`: (−,+,…,+); `s = −1`: (+,−,…,−)). A realisation `v : legs → ℝ^D` is constrained by:
 
 * **Local** — each Gram entry is a function of the matching metric entry only:
   `G_aa = f(η_aa)`, `G_ab = g(η_ab)` (`a ≠ b`).
-* **Covariant** — the same `f`, `g` for every leg: the rule ignores leg labels, so it does not
-  matter where the time leg sits (`transcribes_relabel`, `time_leg_anywhere`).
+* **Covariant** (the paper's "label-blind") — the same `f`, `g` for every leg: the rule ignores
+  leg labels, so it does not matter where the time leg sits (`transcribes_relabel`,
+  `time_leg_anywhere`).
 * **Convention-independent** — one realisation transcribes both `s = 1` and `s = −1`.
 * **Faithful** — the legs are not all equal (the paper's (N); the tetrad's legs are distinct,
   `tetrad_legs_distinct`).
@@ -1146,15 +1161,17 @@ theorem nec_M2_rank (c : ℝ) (hc : c ≠ 0) : (gram (vM2 c)).rank = 3 := by
 #print axioms ForcedTetrahedralFrame.need_dimension
 #print axioms ForcedTetrahedralFrame.nec_M2_rank
 
-/-! ## Normalisation: the direct derivation of (M) and (R)
+/-! ## Normalisation: the primary derivation of (M) and (R)
 
 A tetrad is an *orthonormal* frame: `η(e_a, e_b) = η_ab`, so every leg has unit magnitude
-`|η(e_a, e_a)| = 1`; only the sign distinguishes the time leg. A frame with diagonal
+`|η(e_a, e_a)| = 1`. The time leg's `−1` is that unit magnitude carrying the sign of a timelike
+vector; the sign records the vector's type, not a smaller size. A frame with diagonal
 `(−0.9, 0.4, 1, 1)` is not a tetrad. The realisation must preserve what the tetrad fixes:
 * **Magnitude-preserving:** `|v_a|² = c² · |η(e_a, e_a)|` for one scale `c > 0`
   (a squared length carries the magnitude; it cannot carry the sign).
 * **Relation-preserving:** pairs with equal `η(e_a, e_b)` have equal `v_a · v_b`.
-These are stated for an *arbitrary* tetrad `e` (any boost/rotation of the standard frame).
+These are stated for an *arbitrary* tetrad `e` (any Lorentz transform of the standard frame,
+reflections included).
 -/
 
 /-- `e` is a tetrad: `η(e_a, e_b) = η_ab`. -/
@@ -1238,6 +1255,28 @@ theorem observer_breaks_normalisation (c : ℝ) :
   rw [tetrad_unit_magnitude _ standard_isTetrad 0] at this
   simp [observer] at this
   exact (pow_ne_zero 2 hc.ne') this.symm
+
+/-- The observer's projection violates the hypothesis **exactly once**: for the standard tetrad
+with `c = 1` it preserves every relation and every spatial leg's magnitude, and fails only on the
+time leg, which it sends to the zero vector. -/
+theorem observer_violates_only_time_leg :
+    PreservesRelation (fun a => Pi.single a 1) observer ∧
+      (∀ a, a ≠ 0 → observer a ⬝ᵥ observer a =
+        1 ^ 2 * |mink (Pi.single a 1) (Pi.single a 1)|) ∧
+      observer 0 ⬝ᵥ observer 0 ≠ 1 ^ 2 * |mink (Pi.single 0 1) (Pi.single 0 1)| := by
+  have hu := tetrad_unit_magnitude _ standard_isTetrad
+  refine ⟨fun a b a' b' hab hab' _ => ?_, fun a ha => ?_, ?_⟩
+  · have h1 := observer_gram a b; have h2 := observer_gram a' b'
+    simp only [gram, of_apply, ite_eq_right hab, ite_eq_right hab'] at h1 h2
+    rw [h1, h2]
+  · have h := observer_gram a a
+    simp only [gram, of_apply, ite_eq_right ha] at h
+    rw [h, hu a]; norm_num
+  · have h := observer_gram 0 0
+    simp only [gram, of_apply] at h
+    rw [h, hu 0]; norm_num
+
+#print axioms ForcedTetrahedralFrame.observer_violates_only_time_leg
 
 /-- The rules are satisfiable: the columns of `M` preserve magnitude (`c = √3`) and relation for
 the standard tetrad. -/

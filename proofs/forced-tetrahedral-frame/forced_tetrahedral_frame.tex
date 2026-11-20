@@ -155,8 +155,10 @@ $\beta = -\alpha/4 = -c^2/3$, which is Eq.~\eqref{eq:forced}.
 \paragraph{Remark.} Equivalently: four vectors in $\mathbb{R}^3$ are
 dependent, $\sum_a \lambda_a v_a = 0$ with $\lambda \neq 0$. Pairing
 with $v_b$ gives $\alpha\lambda_b + \beta\sum_a\lambda_a = 0$, so
-with $\alpha > 0$ all $\lambda_b$ are equal; hence $\sum_a v_a = 0$
-and $\alpha + 4\beta = 0$. This is the route of the formal proof.
+with $\alpha > 0$ all $\lambda_b$ equal one value $\lambda \neq 0$.
+Hence $\lambda\sum_a v_a = 0$, so $\sum_a v_a = 0$, and
+$(\alpha + 4\beta)\lambda = 0$, so $\alpha + 4\beta = 0$. This is the
+route of the formal proof.
 
 \paragraph{Corollary 1 (the regular tetrahedron).} \textit{The four
 points $v_a$ are pairwise equidistant, with edge $c\sqrt{8/3}$ and
@@ -296,10 +298,13 @@ $n$-simplex with $G_{ab} = -c^2/n$ (Corollary~2 with $K = n+1$).
 
 Every statement above is proved in Lean~4
 (v4.36.0)~\cite{Lean4} with Mathlib~\cite{Mathlib}, in the
-accompanying file \texttt{ForcedTetrahedralFrame.lean}. The build
-has no errors, no warnings and no \texttt{sorry}; every theorem
-depends only on Lean's standard axioms (\texttt{propext},
-\texttt{Classical.choice}, \texttt{Quot.sound}).
+accompanying file \texttt{ForcedTetrahedralFrame.lean}
+(\url{https://github.com/fielddynamics/research}, folder
+\texttt{proofs/forced-tetrahedral-frame/lean}). Lean reports no
+errors or warnings for the file and there is no \texttt{sorry}; every
+theorem depends only on Lean's standard axioms (\texttt{propext},
+\texttt{Classical.choice}, \texttt{Quot.sound}). The check reruns
+automatically whenever the file changes.
 
 \vspace{6pt}
 \noindent
@@ -315,7 +320,9 @@ Corollary 1 & \texttt{cor1\_\allowbreak geometry}, \texttt{cor1\_\allowbreak uni
 Corollary 2 & \texttt{cor2\_\allowbreak exists\_\allowbreak iff}, \texttt{cor2\_\allowbreak forced\_\allowbreak iff}, \texttt{cor2\_\allowbreak all\_\allowbreak gram\_\allowbreak realisable} \\
 Corollary 3 & \texttt{cor3\_\allowbreak parity}, \texttt{cor3\_\allowbreak cube} \\
 Necessity table & \texttt{nec\_R}, \texttt{nec\_M1}, \texttt{nec\_M2}, \texttt{nec\_\allowbreak M2\_\allowbreak rank}, \texttt{nec\_N}, \texttt{nec\_D} \\
+Remark (dependency route) & \texttt{core\_\allowbreak forced} \\
 Normalisation theorem & \texttt{normalisation\_\allowbreak forces\_\allowbreak tetrahedron} \\
+Observer's projection & \texttt{observer\_\allowbreak violates\_\allowbreak only\_\allowbreak time\_\allowbreak leg} \\
 Independent route; necessity & \texttt{rules\_\allowbreak force\_\allowbreak simplex}, \texttt{need\_*} \\
 Signature $(1,n)$ & \texttt{rules\_\allowbreak force\_\allowbreak simplex} \\
 \hline
@@ -330,7 +337,7 @@ The angle is verified as $\cos\theta = -1/3$.
 \section*{Summary}
 
 % v2: aligned with the normalisation reading.
-Every premise transcribes the tetrad. Equal relation is the pattern
+Every premise is read off the tetrad. Equal relation is the pattern
 of $\eta$'s off-diagonal entries, which carry no sign; equal
 magnitude is the normalisation of its legs, each a unit vector, with
 the sign of $\eta_{00}$, which marks the time leg as timelike, set
