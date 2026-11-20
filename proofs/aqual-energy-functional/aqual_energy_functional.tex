@@ -215,6 +215,13 @@ $w$ is constant, and $w = 0$. \hfill $\square$
 The same argument applies on all of space whenever the boundary
 term at infinity vanishes; we do not treat that case here.
 
+% Lean: new paragraph.
+\paragraph{Formal verification.} Theorems 1 and 2 are checked in
+Lean~4 with Mathlib (\texttt{lean/AqualEnergy.lean}), Theorem 2 on every
+real inner product space; so is Corollary 1 except the endpoint $y = 1$
+of Eq.~\eqref{eq:small}, and the pointwise inequality behind
+Corollary 2, whose divergence-theorem step is cited.
+
 % ----------------------------------------------------------------------
 
 \section*{Summary}

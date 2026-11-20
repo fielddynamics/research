@@ -2,11 +2,13 @@
 
 *The energy behind $\mu(x) = x/(x+1)$, its two limits, and why its field equation is well behaved · Gravity Field Dynamics (GFD) · Field Dynamics Research*
 
-`AQUAL` `MOND` `energy-functional` `convexity` `ellipticity` `proof`
+`AQUAL` `MOND` `energy-functional` `convexity` `ellipticity` `proof` `Lean`
+
+[![Lean proof](https://github.com/fielddynamics/research/actions/workflows/lean-aqual-energy-functional.yml/badge.svg)](https://github.com/fielddynamics/research/actions/workflows/lean-aqual-energy-functional.yml)
 
 ---
 
-This folder holds a two-page proof and a script that checks every step. The proof concerns the energy from which the constitutive law's field equation is derived. It gives that energy in closed form, shows exactly how it reduces to Newton's gravity and to the deep-MOND regime, and proves that the resulting field equation is well posed: for given conditions on the boundary, the field is unique. This page explains the argument for a reader with first-year calculus.
+This folder holds a two-page proof, a script that checks every step, and a Lean formalisation of its theorems. The proof concerns the energy from which the constitutive law's field equation is derived. It gives that energy in closed form, shows exactly how it reduces to Newton's gravity and to the deep-MOND regime, and proves that the resulting field equation is well posed: for given conditions on the boundary, the field is unique. This page explains the argument for a reader with first-year calculus.
 
 ## The setting
 
@@ -52,6 +54,18 @@ A natural question about any modified gravity is whether its field equation beha
 
 **The field is unique.** Strict convexity makes the field equation's flux strictly monotone: any change in the gradient changes the flux by an amount with a positive component along that change. If two potentials solved the equation in a region with the same values on its boundary, subtracting the two equations and integrating would give the integral of a quantity that is positive wherever their gradients differ, and the integral would have to be zero. So their gradients are equal everywhere and the potentials coincide. The same argument works on all of space whenever the boundary term at infinity vanishes, but the proof does not treat that case.
 
+## Machine-checked in Lean
+
+The [`lean/`](lean/) folder proves the note in [Lean 4](https://lean-lang.org) with the [Mathlib](https://github.com/leanprover-community/mathlib4) library, and the Lean kernel checks every step. It imports the [constitutive law](../constitutive-law-exchange-symmetry/)'s formalisation, so $\mu$ here is the same function proved unique there: the chain from exchange symmetry to the energy of the field equation is checked end to end.
+
+- **Result 1.** $F'(y) = \mu(\sqrt y)$ for $y > 0$, the right derivative at $0$ is $0$, $F(0) = 0$, and any other function with these properties equals $F$.
+- **Result 2.** Both series converge to $F$: the weak-field one for $0 \le y < 1$, the strong-field one for $y > 1$. Lean also proves explicit error bounds valid at every field strength: $0 \le F - \tfrac23 y^{3/2} + \tfrac12 y^2 \le \tfrac25 y^{5/2}$, and $0 < F - (y - 2\sqrt y + \ln y) \le 2/\sqrt y$.
+- **Result 3.** The energy density is twice continuously differentiable ($C^2$ in Mathlib's sense) and smooth away from zero field. Its gradient and Hessian are proved, with the two eigenvalues $2\mu$ and $2(x\mu)'$, both positive and within a factor of two. It is strictly convex, and the flux is strictly monotone. All of this is proved in any number of dimensions, not just three.
+
+Two steps are cited rather than proved. One is the divergence-theorem step of the uniqueness argument, since Mathlib has no ready integration by parts on bounded domains; Lean proves the pointwise inequality that the step integrates. The other is the weak-field series at exactly $y = 1$, which needs Abel's theorem; there the explicit error bound covers it.
+
+GitHub re-checks the proof automatically whenever it, or the constitutive law it builds on, changes; the badge at the top of this page shows the latest result. It is green only if the proof builds with no warnings, no gaps (`sorry`) and only Lean's standard axioms. [`LEAN_AUDIT.md`](LEAN_AUDIT.md) is a referee's guide to the formalisation.
+
 ## Why it matters
 
 - **It is the action-level form of the constitutive law.** The energy is what enters the GFD action and its covariant completion, so having it in closed form, with exact expansions, makes calculations explicit rather than numerical.
@@ -79,11 +93,19 @@ The closed form appears in the [RAR letter's supplement](../../papers/letter-rad
 | [`aqual_energy_functional.tex`](aqual_energy_functional.tex) | LaTeX source (IOP journal class, included) |
 | [`verify_aqual_energy_functional.py`](verify_aqual_energy_functional.py) | Checks of the Euler–Lagrange equation and its sign, the closed form, both series, the Hessian, the eigenvalue bound, monotonicity and the regularity used in the uniqueness proof |
 | [`iopjournal.cls`](iopjournal.cls) | Document class, so the source builds here |
+| [`lean/AqualEnergy.lean`](lean/AqualEnergy.lean) | The Lean 4 formalisation |
+| [`lean/lakefile.toml`](lean/lakefile.toml), [`lean/lean-toolchain`](lean/lean-toolchain), [`lean/lake-manifest.json`](lean/lake-manifest.json) | Project files: Lean 4.36.0, Mathlib v4.36.0, and the constitutive law's formalisation as a dependency |
+| [`LEAN_AUDIT.md`](LEAN_AUDIT.md) | Referee's guide to the formalisation |
 
 ```bash
 pip install sympy numpy
 python verify_aqual_energy_functional.py      # 24/24
 pdflatex -interaction=nonstopmode aqual_energy_functional.tex
+
+# Lean (needs elan: https://github.com/leanprover/elan)
+cd lean
+lake exe cache get    # downloads Mathlib, already compiled
+lake build            # checks every theorem, and the constitutive law it imports
 ```
 
 ## Related
@@ -94,4 +116,4 @@ pdflatex -interaction=nonstopmode aqual_energy_functional.tex
 
 ---
 
-*The algebra is complete and machine-checked. The result holds for any theory that adopts $\mu(x) = x/(x+1)$ in the AQUAL framework.*
+*The algebra is complete and machine-checked, by the script and in Lean. The result holds for any theory that adopts $\mu(x) = x/(x+1)$ in the AQUAL framework.*

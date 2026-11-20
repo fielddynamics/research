@@ -1,0 +1,10 @@
+name = "aqual_energy"
+defaultTargets = ["AqualEnergy"]
+
+# Builds on the constitutive law: mu is its `law x = x/(x+1)`. Mathlib v4.36.0 comes through it.
+[[require]]
+name = "constitutive_law"
+path = "../../constitutive-law-exchange-symmetry/lean"
+
+[[lean_lib]]
+name = "AqualEnergy"
