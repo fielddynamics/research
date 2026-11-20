@@ -72,7 +72,8 @@ The [`lean/`](lean/) folder states every result of the proof in [Lean 4](https:/
 - **One proof builds on the other.** The step from "cube simplex" to the forced Gram matrix is not re-proved: Lean imports it from the [forced tetrahedral frame](../forced-tetrahedral-frame/)'s formalisation, so the two proofs are checked as one chain.
 - **Hadamard's lemma in general.** The script rules out orders 3 and 5 by search; Lean proves that every Hadamard matrix of order above 2 has order divisible by 4.
 - **Only three dimensions fill the cube.** Lean proves $|V \cup (-V)| = 2(D+1)$ and that it equals $2^D$ only at $D = 3$, for every $D$, and that in three dimensions the two tetrahedra are the two parity classes.
-- **The Walsh factorisation for any ordering of the tetrahedron**, and Corollary 2's counts for every even $K$.
+- **The Walsh factorisation for any ordering of the tetrahedron.**
+- **Corollary 2 as stated.** The splits are defined as objects, and Lean proves the sentence itself: for every cube simplex, the rows are all the ways of splitting the legs into two halves exactly when $K = 2$ or $K = 4$.
 
 GitHub re-checks the proof automatically whenever it, or the proof it builds on, changes; the badge at the top of this page shows the latest result. It is green only if the proof builds with no warnings, no gaps (`sorry`) and only Lean's three standard axioms. [`LEAN_AUDIT.md`](LEAN_AUDIT.md) is a referee's guide to the formalisation.
 

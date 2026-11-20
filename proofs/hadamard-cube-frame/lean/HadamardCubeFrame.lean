@@ -18,6 +18,8 @@ definitions against the paper:
 * `Hhat M`: `M` bordered by a row of ones on top.
 * `IsHadamard H`: `H` is a sign matrix with `Hᵀ H = n I`.
 * `cubeQ D`, `simplexAndImage M`: the cube's vertices and `V ∪ (−V)` as finite sets of points.
+* `splitOf S = {S, Sᶜ}`; `allSplits K`: all splits of the `K` points into two halves;
+  `plusSet M i`: the `+1` set of row `i`; `rowSplits M`: the splits given by the rows.
 * `chi S x = ∏_{i ∈ S} x_i`: the Walsh function of `S ⊆ {1,2,3}`.
 
 Headline results, in the order of the paper:
@@ -30,7 +32,8 @@ Headline results, in the order of the paper:
   iff `D = 3`; `theorem2_parity_classes`: for `D = 3`, `V` and `−V` are `x₁x₂x₃ = ±p`.
 * `theorem3`: `W = [[Ĥ, Ĥ], [Ĥ, −Ĥ]] = H₂ ⊗ Ĥ` for any ordering of the parity class `+1`;
   `theorem3_M` for the paper's `M`; `chi_neg`, `chi_compl`.
-* `corollary2_balanced`, `corollary2_distinct_splits`, `corollary2_halves`, `corollary2_count`,
+* `corollary2` (in full: the rows are all the splits iff `K = 2` or `K = 4`), with its parts
+  `corollary2_balanced`, `corollary2_distinct_splits`, `corollary2_halves`, `corollary2_count`,
   `corollary2_pairs`.
 -/
 
@@ -663,6 +666,110 @@ theorem corollary2_pairs :
       (Finset.univ.filter fun a => Mmat 2 a = 1) = {0, 3} := by
   refine ⟨?_, ?_, ?_⟩ <;> ext a <;> fin_cases a <;> simp [Mmat] <;> norm_num
 
+/-! ### Corollary 2 in full: the rows are all the splits iff `K = 2` or `K = 4` -/
+
+section Splits
+
+open Classical
+
+/-- The split of the `K` points determined by a half `S`: the pair `{S, Sᶜ}`. -/
+def splitOf {K : ℕ} (S : Finset (Fin K)) : Finset (Finset (Fin K)) := {S, Sᶜ}
+
+/-- All splits of the `K` points into two halves. -/
+noncomputable def allSplits (K : ℕ) : Finset (Finset (Finset (Fin K))) :=
+  ((Finset.univ : Finset (Fin K)).powersetCard (K / 2)).image splitOf
+
+/-- The `+1` set of row `i`. -/
+noncomputable def plusSet {D : ℕ} (M : Matrix (Fin D) (Fin (D + 1)) ℝ) (i : Fin D) :
+    Finset (Fin (D + 1)) :=
+  Finset.univ.filter fun a => M i a = 1
+
+/-- The splits given by the rows of `M`. -/
+noncomputable def rowSplits {D : ℕ} (M : Matrix (Fin D) (Fin (D + 1)) ℝ) :
+    Finset (Finset (Finset (Fin (D + 1)))) :=
+  Finset.univ.image fun i => splitOf (plusSet M i)
+
+lemma splitOf_eq_iff {K : ℕ} (S T : Finset (Fin K)) : splitOf T = splitOf S ↔ T = S ∨ T = Sᶜ := by
+  constructor
+  · intro h
+    have hT : T ∈ splitOf T := by simp [splitOf]
+    rw [h] at hT
+    simpa [splitOf] using hT
+  · rintro (rfl | rfl)
+    · rfl
+    · simp [splitOf, Finset.pair_comm]
+
+lemma compl_ne_self {K : ℕ} (hK : 0 < K) (S : Finset (Fin K)) : Sᶜ ≠ S := by
+  intro h
+  by_cases ha : (⟨0, hK⟩ : Fin K) ∈ S
+  · have hc : (⟨0, hK⟩ : Fin K) ∈ Sᶜ := by rw [h]; exact ha
+    exact (Finset.mem_compl.mp hc) ha
+  · have hc : (⟨0, hK⟩ : Fin K) ∈ Sᶜ := Finset.mem_compl.mpr ha
+    rw [h] at hc
+    exact ha hc
+
+/-- Each split is two halves, so `2 · #(splits) = C(K, K/2)` (for even `K ≥ 1`). -/
+lemma two_mul_card_allSplits {K : ℕ} (hK : 0 < K) (heven : Even K) :
+    2 * (allSplits K).card = K.choose (K / 2) := by
+  rw [← corollary2_halves K]
+  set H := (Finset.univ : Finset (Fin K)).powersetCard (K / 2) with hH
+  have hcompl : ∀ S ∈ H, Sᶜ ∈ H := by
+    intro S hS
+    rw [hH, Finset.mem_powersetCard] at hS ⊢
+    refine ⟨Finset.subset_univ _, ?_⟩
+    rw [Finset.card_compl, Fintype.card_fin, hS.2]
+    obtain ⟨m, rfl⟩ := heven; omega
+  rw [Finset.card_eq_sum_card_image splitOf H, allSplits, ← hH]
+  rw [Finset.sum_congr rfl (g := fun _ => 2), Finset.sum_const, smul_eq_mul, mul_comm]
+  intro b hb
+  obtain ⟨S, hS, rfl⟩ := Finset.mem_image.mp hb
+  have hfib : H.filter (fun T => splitOf T = splitOf S) = {S, Sᶜ} := by
+    ext T
+    simp only [Finset.mem_filter, splitOf_eq_iff, Finset.mem_insert, Finset.mem_singleton]
+    constructor
+    · exact fun h => h.2
+    · rintro (rfl | rfl)
+      · exact ⟨hS, Or.inl rfl⟩
+      · exact ⟨hcompl _ hS, Or.inr rfl⟩
+  rw [hfib, Finset.card_pair (compl_ne_self hK S).symm]
+
+/-- **Corollary 2, in full.** For a cube simplex with `K = D + 1` points: the rows give `D = K − 1`
+distinct splits, all of them splits into two halves; there are `C(K, K/2)/2` splits; and the rows
+are *all* the splits exactly when `K = 2` or `K = 4`. (`K` is even by Corollary 1.) -/
+theorem corollary2 {D : ℕ} (hD : 1 ≤ D) (M : Matrix (Fin D) (Fin (D + 1)) ℝ) (h : IsCubeSimplex M) :
+    rowSplits M ⊆ allSplits (D + 1) ∧ (rowSplits M).card = D ∧
+      2 * (allSplits (D + 1)).card = (D + 1).choose ((D + 1) / 2) ∧
+      (rowSplits M = allSplits (D + 1) ↔ D + 1 = 2 ∨ D + 1 = 4) := by
+  have heven : Even (D + 1) := by
+    rcases corollary1 hD M h with h1 | h4
+    · subst h1; decide
+    · exact (even_iff_two_dvd).mpr (dvd_trans (by norm_num) h4)
+  have hhalf : ∀ i, (plusSet M i).card = (D + 1) / 2 := by
+    intro i; have := corollary2_balanced hD M h i; rw [plusSet]; omega
+  have hsub : rowSplits M ⊆ allSplits (D + 1) := by
+    intro b hb
+    obtain ⟨i, -, rfl⟩ := Finset.mem_image.mp hb
+    exact Finset.mem_image.mpr ⟨plusSet M i,
+      Finset.mem_powersetCard.mpr ⟨Finset.subset_univ _, hhalf i⟩, rfl⟩
+  have hinj : Function.Injective fun i => splitOf (plusSet M i) := by
+    intro i j hij
+    by_contra hne
+    rcases (splitOf_eq_iff (plusSet M i) (plusSet M j)).mp hij.symm with h1 | h1
+    · exact (corollary2_distinct_splits hD M h i j hne).1 h1
+    · exact (corollary2_distinct_splits hD M h i j hne).2 h1
+  have hcard : (rowSplits M).card = D := by
+    rw [rowSplits, Finset.card_image_of_injective _ hinj, Finset.card_univ, Fintype.card_fin]
+  have hall := two_mul_card_allSplits (K := D + 1) (by omega) heven
+  refine ⟨hsub, hcard, hall, ?_⟩
+  rw [← corollary2_count (D + 1) (by omega) heven, Nat.add_sub_cancel, ← hall]
+  constructor
+  · intro heq; rw [← heq, hcard]
+  · intro hc
+    exact Finset.eq_of_subset_of_card_le hsub (by omega)
+
+end Splits
+
+#print axioms HadamardCubeFrame.corollary2
 #print axioms HadamardCubeFrame.card_cubeQ
 #print axioms HadamardCubeFrame.two_succ_eq_pow_iff
 #print axioms HadamardCubeFrame.theorem2
