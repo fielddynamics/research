@@ -16,7 +16,7 @@
 \fancyhead[L]{}
 \fancyhead[R]{}
 
-\hypersetup{pdftitle={The Stellated Octahedron, the Cube and the Hadamard Matrix}, pdfauthor={Stephen Nelson}, pdfsubject={Gravity Field Dynamics (GFD)}, pdfkeywords={Hadamard matrix, Walsh functions, cube, stellated octahedron, tetrad, proof}}
+\hypersetup{pdftitle={The Stellated Octahedron, the Cube and the Hadamard Matrix}, pdfauthor={Stephen Nelson}, pdfsubject={Gravity Field Dynamics (GFD)}, pdfkeywords={Hadamard matrix, Walsh functions, cube, stellated octahedron, tetrad, proof, formal verification}}
 
 \begin{document}
 
@@ -46,9 +46,11 @@ stated ordering, the $8 \times 8$ Walsh matrix of the cube is exactly
 $H_2 \otimes \hat H$, with $H_2$ acting as spatial parity and
 $\hat H$ the bordered frame. Only for $K = 2$ and $K = 4$ do the rows
 of $M$ exhaust the ways of splitting the $K$ points into equal halves.
+% Lean: verification sentence.
+Every statement is machine-checked in Lean~4.
 \end{abstract}
 
-\keywords{Hadamard matrix, Walsh functions, cube, stellated octahedron, tetrad, proof}
+\keywords{Hadamard matrix, Walsh functions, cube, stellated octahedron, tetrad, proof, formal verification}
 
 % ----------------------------------------------------------------------
 
@@ -207,6 +209,33 @@ the four points, the four legs of the frame, into two pairs.
 
 % ----------------------------------------------------------------------
 
+% Lean: new section.
+\section*{Formal Verification}
+
+Every statement above is proved in Lean~4 (v4.36.0)~\cite{Lean4}
+with Mathlib~\cite{Mathlib}, in the accompanying file
+\texttt{HadamardCubeFrame.lean}
+(\url{https://github.com/fielddynamics/research}). Theorem~1 is
+proved for every $D \ge 1$, not only checked for small $D$, and its
+step (a)$\Rightarrow$(b) imports the forced Gram matrix
+of~\cite{Nelson2026frame}, itself formalised in the same way. Lean
+reports no errors or warnings for the file, there is no
+\texttt{sorry}, and every theorem depends only on Lean's standard
+axioms (\texttt{propext}, \texttt{Classical.choice},
+\texttt{Quot.sound}).
+
+{\footnotesize
+\begin{flushleft}
+\emph{Theorem 1:} \texttt{theorem1}. \emph{Remark:} \texttt{normalise\_hadamard}.\\
+\emph{Lemma:} \texttt{hadamard\_four\_dvd}.\\
+\emph{Corollary 1:} \texttt{corollary1}, \texttt{no\_cube\_simplex\_two}, \texttt{cube\_simplex\_three}.\\
+\emph{Theorem 2:} \texttt{theorem2}, \texttt{theorem2\_parity\_classes}.\\
+\emph{Theorem 3:} \texttt{theorem3}, \texttt{theorem3\_M}, \texttt{chi\_neg}, \texttt{chi\_compl}.\\
+\emph{Corollary 2:} \texttt{corollary2\_balanced}, \texttt{corollary2\_distinct\_splits}, \texttt{corollary2\_halves}, \texttt{corollary2\_count}, \texttt{corollary2\_pairs}.
+\end{flushleft}}
+
+% ----------------------------------------------------------------------
+
 \section*{Summary}
 
 On the cube, the regular simplex of the tetrad frame and the
@@ -221,6 +250,8 @@ exactly as spatial parity times the frame.
 
 % ----------------------------------------------------------------------
 
+% Lean: references set small.
+{\small
 \begin{thebibliography}{9}
 
 \bibitem{Nelson2026frame}
@@ -242,6 +273,20 @@ P.~R.~Cromwell,
 \textit{Polyhedra}
 (Cambridge University Press, Cambridge, 1997).
 
+% Lean: formal verification references.
+\bibitem{Lean4}
+L.~de~Moura and S.~Ullrich,
+``The Lean 4 theorem prover and programming language'',
+in \textit{Automated Deduction -- CADE 28},
+LNCS 12699 (Springer, 2021), pp.~625--635.
+
+\bibitem{Mathlib}
+The mathlib Community,
+``The Lean mathematical library'',
+in \textit{Proc.\ 9th ACM SIGPLAN Int.\ Conf.\ on Certified Programs
+and Proofs (CPP 2020)}, pp.~367--381.
+
 \end{thebibliography}
+}
 
 \end{document}

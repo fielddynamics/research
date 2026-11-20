@@ -4,6 +4,8 @@
 
 `Hadamard-matrix` `Walsh-functions` `cube` `stellated-octahedron` `tetrad` `proof`
 
+[![Lean proof](https://github.com/fielddynamics/research/actions/workflows/lean-hadamard-cube-frame.yml/badge.svg)](https://github.com/fielddynamics/research/actions/workflows/lean-hadamard-cube-frame.yml)
+
 ---
 
 This folder holds a two-page proof and a script that checks every step, exhaustively wherever the cases can be listed. The proof connects three objects that grew up in separate fields: the tetrahedral frame of the tetrad (geometry and gravity), the Hadamard matrix (combinatorics and signal processing) and the Walsh functions on a cube (digital transforms). It shows they are one object, and it gives the equation $2(D+1) = 2^D$, used throughout GFD, a precise geometric meaning. This page explains the argument for a reader with first-year linear algebra.
@@ -60,7 +62,19 @@ Every row of $M$ splits the $K = D + 1$ legs into two equal halves. With four le
 - **It gives $2(D+1) = 2^D$ a meaning.** In earlier GFD documents this equation appears as arithmetic. Here it is a theorem about geometry: it is the condition for a tetrahedron and its parity image to fill the cube.
 - **It ties the frame to the Hadamard–Walsh world.** The tetrad's frame, the Hadamard matrix and the Walsh functions on the cube are one object, and the split into TetA and TetB is the even–odd split of the Walsh functions.
 - **It connects the existing proofs.** The forced Gram matrix of the [forced tetrahedral frame](../forced-tetrahedral-frame/) and the balance-and-isotropy conditions of Letter 1 are the two halves of one Hadamard condition, on the columns and on the rows.
-- **It is pure mathematics.** Every result is exact and checked, most of them exhaustively.
+- **It is pure mathematics.** Every result is exact, checked by the script (most of them exhaustively) and proved in full in Lean.
+
+## Machine-checked in Lean
+
+The [`lean/`](lean/) folder states every result of the proof in [Lean 4](https://lean-lang.org) with the [Mathlib](https://github.com/leanprover-community/mathlib4) library, and the Lean kernel checks every step. Where the script checks examples, Lean proves the general statement:
+
+- **Theorem 1 for every dimension.** The script checks all sign matrices up to $D = 3$ and samples $D = 7$; Lean proves the four conditions equivalent for every $D \ge 1$.
+- **One proof builds on the other.** The step from "cube simplex" to the forced Gram matrix is not re-proved: Lean imports it from the [forced tetrahedral frame](../forced-tetrahedral-frame/)'s formalisation, so the two proofs are checked as one chain.
+- **Hadamard's lemma in general.** The script rules out orders 3 and 5 by search; Lean proves that every Hadamard matrix of order above 2 has order divisible by 4.
+- **Only three dimensions fill the cube.** Lean proves $|V \cup (-V)| = 2(D+1)$ and that it equals $2^D$ only at $D = 3$, for every $D$, and that in three dimensions the two tetrahedra are the two parity classes.
+- **The Walsh factorisation for any ordering of the tetrahedron**, and Corollary 2's counts for every even $K$.
+
+GitHub re-checks the proof automatically whenever it, or the proof it builds on, changes; the badge at the top of this page shows the latest result. It is green only if the proof builds with no warnings, no gaps (`sorry`) and only Lean's three standard axioms. [`LEAN_AUDIT.md`](LEAN_AUDIT.md) is a referee's guide to the formalisation.
 
 ## What it does not do
 
@@ -84,11 +98,19 @@ The proof is about points on a cube. That the tetrad's legs are realised as such
 | [`hadamard_cube_frame.tex`](hadamard_cube_frame.tex) | LaTeX source (IOP journal class, included) |
 | [`verify_hadamard_cube_frame.py`](verify_hadamard_cube_frame.py) | Checks of every theorem, lemma and corollary: Theorem 1 over all sign matrices for $D \le 3$ and sampled at $D = 7$, Hadamard's condition exhaustively at orders 3 and 5, both cube simplices of the three-cube, the exact Walsh factorisation, and the split count |
 | [`iopjournal.cls`](iopjournal.cls) | Document class, so the source builds here |
+| [`lean/HadamardCubeFrame.lean`](lean/HadamardCubeFrame.lean) | The Lean 4 formalisation of every statement |
+| [`lean/lakefile.toml`](lean/lakefile.toml), [`lean/lean-toolchain`](lean/lean-toolchain), [`lean/lake-manifest.json`](lean/lake-manifest.json) | Project files: Lean 4.36.0, Mathlib v4.36.0, and the forced tetrahedral frame's formalisation as a dependency |
+| [`LEAN_AUDIT.md`](LEAN_AUDIT.md) | Referee's guide to the formalisation |
 
 ```bash
 pip install sympy numpy
 python verify_hadamard_cube_frame.py      # 25/25
 pdflatex -interaction=nonstopmode hadamard_cube_frame.tex
+
+# Lean (needs elan: https://github.com/leanprover/elan)
+cd lean
+lake exe cache get    # downloads Mathlib, already compiled
+lake build            # checks every theorem, and the forced-frame proof it imports
 ```
 
 ## Related
@@ -100,4 +122,4 @@ pdflatex -interaction=nonstopmode hadamard_cube_frame.tex
 
 ---
 
-*The algebra is complete and machine-checked, exhaustively where the cases are finite. The physical reading of the frame is GFD's, stated so that it can be tested.*
+*The algebra is complete and machine-checked: by the script, exhaustively where the cases are finite, and by Lean in full generality. The physical reading of the frame is GFD's, stated so that it can be tested.*
