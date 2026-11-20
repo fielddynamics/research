@@ -6,7 +6,7 @@
 
 ---
 
-This folder holds a two-page proof and a script that checks every step. The proof shows that the geometry at the centre of Gravity Field Dynamics, the regular tetrahedron and its parity partner the stellated octahedron, is not chosen. It is read off the metric of special relativity. This page explains the argument for a reader with first-year linear algebra.
+This folder holds a three-page proof, a script that checks every step, and a Lean 4 formalisation in which every statement of the proof is machine-checked. The proof shows that the geometry at the centre of Gravity Field Dynamics, the regular tetrahedron and its parity partner the stellated octahedron, is not chosen. It is read off the metric of special relativity. This page explains the argument for a reader with first-year linear algebra.
 
 ## The question
 
@@ -23,7 +23,7 @@ GFD builds on a particular shape, the stellated octahedron: two interlocking reg
 Try to draw the four legs as arrows in ordinary three-dimensional space. Two of the metric's three statements cannot be copied exactly:
 
 - **Four mutually perpendicular arrows do not fit in three dimensions.** What can be kept is that *every pair of arrows bears the same relation*, because in the metric every pair, time with space and space with space, has the same entry, zero.
-- **No arrow has a negative squared length.** So the minus sign of the time leg cannot be drawn. What can be kept is that *every arrow has the same length*, because every leg has unit size.
+- **No arrow has a negative squared length.** So the minus sign of the time leg cannot be drawn. What can be kept is that *every arrow has the same length*, because every leg is a unit vector. The time leg's $-1$ is the same size, $1$, carrying the sign of a timelike vector: the sign says what kind of vector it is, not that there is less of it.
 
 The drawing keeps the *pattern* of the metric's entries, which are all alike, and not their *values*, which three-dimensional space cannot hold.
 
@@ -31,9 +31,9 @@ The drawing keeps the *pattern* of the metric's entries, which are all alike, an
 
 **(R) Equal relation.** Every pair of arrows has the same dot product. This is the metric's off-diagonal entries, all zero, which carry no sign at all.
 
-**(M) Equal magnitude.** Every arrow has the same length. This is the size of the metric's diagonal entries, with the time leg's minus sign set aside.
+**(M) Equal magnitude.** Every arrow has the same length. Every leg of a tetrad is a unit vector, so the metric's diagonal entries all have size $1$; the time leg's $-1$ is that $1$ with a timelike sign. Equal magnitude keeps the $1$ and sets aside only the sign, which no length can carry.
 
-**(N) Distinct legs.** The four arrows are not all the same arrow, just as the four legs of a tetrad are independent.
+**(N) Distinct legs.** The four arrows are not all the same arrow. The four legs of a tetrad form a basis, so they are certainly distinct; the premise asks for less.
 
 **(D) Three dimensions.** The arrows live in the spatial part of spacetime, which has three dimensions, one for each $+1$ in the metric.
 
@@ -57,15 +57,19 @@ The argument works for any number of legs $K$ in any dimension $D$:
 - If $D > K - 1$, there is too much room. The arrows no longer have to balance; for example, they can all be mutually perpendicular.
 - Only when $D = K - 1$ does a configuration exist **and** have no freedom left.
 
-For a tetrad, $K = 4$, so the spatial dimension must be $3$. Three is the one dimension in which four legs alike have exactly one shape.
+For a tetrad, $K = 4$, so the spatial dimension must be $3$. Three is the one dimension in which four legs alike have exactly one shape. The count needs at least two legs; with a single leg, "not all the same" cannot hold.
 
-## The one place a choice is made, and what it decides
+The same argument covers a metric with one time direction and $n$ space directions, signature $(1, n)$: its $n + 1$ legs, drawn in the $n$ spatial dimensions, are forced to the regular $n$-simplex.
 
-Three of the premises copy the tetrad as it stands. Equal relation copies entries that have no sign. Distinctness is the independence of the legs. The dimension is the spatial sector. The only premise that involves a decision is equal magnitude, because it sets aside the minus sign of the time leg.
+## What equal magnitude reads, and what it rules out
 
-The proof does not hide that decision. It shows exactly what it decides. Drop equal magnitude, and the other three premises admit an *observer's view* of the tetrad: the time leg shrinks to nothing, and the three spatial legs become three perpendicular rulers. That is how a single observer sees the frame, with time not drawn in space at all. Keep equal magnitude, treating all four legs as units, and the tetrahedron is forced.
+Three of the premises copy the tetrad as it stands. Equal relation copies entries that have no sign. Distinctness is the independence of the legs. The dimension is the spatial sector. Equal magnitude reads the size of each diagonal entry, and that size is not in doubt: a tetrad is a basis of unit vectors, the time leg included. Its $-1$ is $-(1)$, the same unit with the sign of a timelike vector, just as $1$ is not written $1/1$. The only thing set aside is the sign, because no squared length can be negative.
 
-So the theorem states precisely what it rests on: **read by magnitude, the four legs of spacetime, drawn in space, can only be a regular tetrahedron.** Reading the frame by magnitude, so that all four legs count equally, is GFD's reading, and the necessity table shows it is the only premise that separates the tetrahedron from an observer's view.
+The proof shows what this rules out. Drop equal magnitude, and the other three premises admit an *observer's view* of the tetrad: the time leg shrinks to nothing, and the three spatial legs become three perpendicular rulers. That view does not merely drop a sign. It sends a unit vector to the zero vector. Keep every leg at its unit size, and the tetrahedron is forced.
+
+The paper states this as a theorem about any tetrad, boosted or rotated. If the drawing gives each leg a length in proportion to its magnitude, and equal relations equal dot products, then the drawing is the regular tetrahedron. A second, independent route reaches the same premises from three requirements on how the metric is drawn: each entry drawn on its own, the same rule for every leg so that it does not matter where the time leg sits, and one picture for both sign conventions, $(-,+,+,+)$ and $(+,-,-,-)$. Since the time leg's entry changes sign between conventions, it must be drawn at the same size as the others. Each requirement is shown to be necessary.
+
+So the theorem rests on one principle, stated openly: **the drawing keeps everything a squared length can carry.** That is the magnitudes and the relations, everything in the metric except the sign. From it, the four legs of spacetime, drawn in space, can only be a regular tetrahedron.
 
 ## The second tetrahedron
 
@@ -78,13 +82,26 @@ For each premise, the proof gives a configuration that satisfies the other three
 | Premise removed | What becomes possible |
 |---|---|
 | Equal relation (R) | Four arrows $v, w, -v, -w$ with $v \perp w$: equal lengths, distinct, balanced, in three dimensions, and a flat square |
-| Equal magnitude (M) | The observer's view: time leg zero, spatial legs perpendicular. Even with every arrow nonzero, unequal lengths are possible: squared lengths $1, 3, 7, 7$ with every dot product $-1$ |
+| Equal magnitude (M) | The observer's view: time leg zero, spatial legs perpendicular. Even with every arrow nonzero, unequal lengths are possible: the arrows $(-1,0,0)$, $(1,1,1)$, $(1,-1\pm\sqrt2,-1\mp\sqrt2)$ have squared lengths $1, 3, 7, 7$ and every dot product $-1$ |
 | Distinctness (N) | All four arrows the same |
 | Three dimensions (D) | In four dimensions, four mutually perpendicular arrows, unbalanced. In two dimensions, nothing at all |
 
+## Machine-checked in Lean
+
+The Python script checks each algebraic step. The [`lean/`](lean/) folder goes further: it states the whole proof in [Lean 4](https://lean-lang.org) with the [Mathlib](https://github.com/leanprover-community/mathlib4) library, and the Lean kernel checks every line of every argument. Nothing is taken on trust, not even the textbook lemmas.
+
+What the formalisation establishes:
+
+- **Every result of the paper**: the rigidity lemma, the forced Gram matrix with closure, all three corollaries with their uniqueness statements, and every row of the necessity table, including the rank of the $(1, 3, 7, 7)$ example.
+- **The premises from the tetrad**: the legs form a basis, every leg is a unit vector, and a drawing that keeps magnitudes and relations is forced to the tetrahedron for any tetrad.
+- **Every premise and requirement is needed, and none is vacuous**: each has a counterexample when dropped, and together they are satisfied by the tetrahedron itself.
+- **Nothing tuned to four legs**: the general statement for signature $(1, n)$.
+
+The build has no errors, no warnings and no gaps (`sorry`), and depends only on Lean's three standard axioms. [`LEAN_AUDIT.md`](LEAN_AUDIT.md) is a referee's guide: the definitions to check against the paper, each claim mapped to its Lean theorem, anticipated objections, and the limits of the formalisation.
+
 ## Why it matters
 
-**The geometry is read, not chosen.** The regular tetrahedron, the cube and the stellated octahedron follow from the pattern of the Minkowski metric, with no further input. This is the foundation the rest of GFD stands on, so it matters that it carries no hidden choice. The one reading it does make, by magnitude, is stated openly, and its alternative is shown.
+**The geometry is read, not chosen.** The regular tetrahedron, the cube and the stellated octahedron follow from the Minkowski metric: its legs are unit vectors, and every pair is alike. This is the foundation the rest of GFD stands on, so it matters that it carries no hidden choice. The one principle it rests on, that the drawing keeps everything a squared length can carry, is stated openly, its alternative is shown, and every step from it is machine-checked.
 
 **It assumes less than the earlier version and derives more.** Balance used to be a premise; here it is a consequence of three dimensions. The step from "same table" to "same shape" used to be cited; here it is proved in a few lines. The symmetry condition used to be stated as invariance under all 24 shuffles, which invites the objection that the metric preserves only 6. Here it is replaced by two plain readings of the metric's entries, and the shuffle symmetry follows from them.
 
@@ -92,7 +109,7 @@ For each premise, the proof gives a configuration that satisfies the other three
 
 ## What it does not do
 
-The proof is about drawing the tetrad's legs as vectors in the spatial sector, read by magnitude. That this drawing carries physical meaning, that TetA and TetB partition the gravitational field, is the framework's claim, developed in the letters and papers listed below. The proof also does not derive the coupling polynomial or the constitutive law; those build on this geometry.
+The proof is about drawing the tetrad's legs as vectors in the spatial sector, at their unit magnitude. Lean verifies the mathematics, not the physical reading. That this drawing carries physical meaning, that TetA and TetB partition the gravitational field, is the framework's claim, developed in the letters and papers listed below. The proof also does not derive the coupling polynomial or the constitutive law; those build on this geometry.
 
 ## Earlier version
 
@@ -107,15 +124,23 @@ The [RAR letter's supplement](../../papers/letter-radial-acceleration-relation-s
 
 | File | Contents |
 |---|---|
-| [`forced_tetrahedral_frame.pdf`](forced_tetrahedral_frame.pdf) | The proof, two pages |
-| [`forced_tetrahedral_frame.tex`](forced_tetrahedral_frame.tex) | LaTeX source (IOP journal class, included) |
-| [`verify_forced_tetrahedral_frame.py`](verify_forced_tetrahedral_frame.py) | Checks of the setting, the premises, the lemma, the theorem, all three corollaries and every row of the necessity table |
+| [`forced_tetrahedral_frame.pdf`](forced_tetrahedral_frame.pdf) | The proof, three pages |
+| [`forced_tetrahedral_frame.tex`](forced_tetrahedral_frame.tex) | LaTeX source (IOP journal class, included); v2 edits are marked `% v2:` |
+| [`verify_forced_tetrahedral_frame.py`](verify_forced_tetrahedral_frame.py) | Checks of the setting, the premises, the lemma, the theorem, all three corollaries, every row of the necessity table, and the v2 additions |
 | [`iopjournal.cls`](iopjournal.cls) | Document class, so the source builds here |
+| [`lean/ForcedTetrahedralFrame.lean`](lean/ForcedTetrahedralFrame.lean) | The Lean 4 formalisation of every statement |
+| [`lean/lakefile.toml`](lean/lakefile.toml), [`lean/lean-toolchain`](lean/lean-toolchain), [`lean/lake-manifest.json`](lean/lake-manifest.json) | Project files pinning Lean 4.36.0 and Mathlib v4.36.0 |
+| [`LEAN_AUDIT.md`](LEAN_AUDIT.md) | Referee's guide to the formalisation |
 
 ```bash
 pip install sympy numpy
-python verify_forced_tetrahedral_frame.py      # 27/27
+python verify_forced_tetrahedral_frame.py      # 35/35
 pdflatex -interaction=nonstopmode forced_tetrahedral_frame.tex
+
+# Lean (needs elan: https://github.com/leanprover/elan)
+cd lean
+lake exe cache get    # downloads Mathlib, already compiled
+lake build            # checks every theorem
 ```
 
 ## Related
@@ -127,4 +152,4 @@ pdflatex -interaction=nonstopmode forced_tetrahedral_frame.tex
 
 ---
 
-*The algebra is complete and machine-checked. The one reading it makes, by magnitude, is stated, and its alternative is shown.*
+*The algebra is complete and machine-checked, in Python step by step and in Lean in full. The one principle it rests on is stated, and its alternative is shown.*

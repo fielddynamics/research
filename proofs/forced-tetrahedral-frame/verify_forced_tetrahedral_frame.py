@@ -117,4 +117,44 @@ check("Necessity (M): explicit realisation of that Gram matrix in R^3",
 check("Premise (R): four mutually orthogonal non-zero vectors need rank 4, impossible in R^3",
       (I4).rank() == 4)
 
+# ---- v2 additions: the premises read off the tetrad
+eta_f = np.diag([-1.0, 1, 1, 1])
+def boost(r, n):                      # Lorentz boost with rapidity r along unit 3-vector n
+    n = np.asarray(n, float) / np.linalg.norm(n); L = np.eye(4)
+    L[0, 0] = np.cosh(r); L[0, 1:] = L[1:, 0] = np.sinh(r) * n
+    L[1:, 1:] += (np.cosh(r) - 1) * np.outer(n, n); return L
+good = True
+for _ in range(50):
+    E = boost(rng.normal(), rng.normal(size=3))                   # columns are a boosted tetrad
+    Gm = E.T @ eta_f @ E
+    good &= np.allclose(Gm, eta_f) and np.linalg.matrix_rank(E) == 4 and np.allclose(np.abs(np.diag(Gm)), 1)
+check("Setting (v2): boosted tetrads keep eta, form a basis, and every leg has |eta(e_a,e_a)| = 1 (50 boosts)", good)
+check("Setting (v2): each diagonal entry of eta is a sign times the common magnitude 1",
+      all(eta[i, i] == sp.sign(eta[i, i]) * 1 for i in range(4)) and all(abs(eta[i, i]) == 1 for i in range(4)))
+lam = (M.nullspace()[0]); lam = lam / lam[0]
+check("Remark (v2): the dependency of the four legs of M is proportional to (1,1,1,1), so the legs close",
+      len(M.nullspace()) == 1 and lam == one)
+check("Normalisation theorem (v2): |v_a|^2 = c^2 |eta_aa| and equal relations give (M),(R); M realises them with c = sqrt3",
+      all((M.T * M)[i, i] == 3 * abs(eta[i, i]) for i in range(4))
+      and len({(M.T * M)[i, j] for i in range(4) for j in range(4) if i != j}) == 1)
+check("Normalisation theorem (v2): the observer's projection breaks it, |v_0|^2 = 0 but c^2 |eta_00| = c^2 > 0",
+      Go[0, 0] == 0 and abs(eta[0, 0]) == 1)
+r2 = sp.sqrt(2)
+Xm = sp.Matrix([[-1, 1, 1, 1], [0, 1, -1 + r2, -1 - r2], [0, 1, -1 - r2, -1 + r2]])
+check("Necessity (M) (v2): explicit vectors (-1,0,0), (1,1,1), (1,-1+-sqrt2,-1-+sqrt2) give G_aa = (1,3,7,7), G_ab = -1",
+      sp.simplify(Xm.T * Xm - Gn) == sp.zeros(4, 4))
+good = True
+for K in range(2, 9):
+    for _ in range(10):
+        al = rng.uniform(0.1, 3); be = rng.uniform(-al / K, 3)        # alpha > 0, alpha + K beta >= 0
+        y = (np.sqrt(al + K * be) - np.sqrt(al)) / K
+        Xk = np.sqrt(al) * np.eye(K) + y * np.ones((K, K))
+        good &= np.allclose(Xk.T @ Xk, al * np.eye(K) + be * np.ones((K, K)))
+check("Corollary 2 (v2): for D >= K every alpha > 0, alpha + K beta >= 0 is realised by sqrt(alpha) e_a + y 1 (K = 2..8)", good)
+good = True
+for n in range(1, 8):
+    Gs = sp.eye(n + 1) - sp.Rational(1, n) * (sp.ones(n + 1, n + 1) - sp.eye(n + 1))
+    good &= Gs.rank() == n and Gs * sp.ones(n + 1, 1) == sp.zeros(n + 1, 1)
+check("Signature (1,n) (v2): the simplex Gram matrix with G_ab = -c^2/n has rank n and closes (n = 1..7)", good)
+
 print(f"\n{sum(ok)}/{len(ok)} checks passed")

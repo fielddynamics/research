@@ -17,7 +17,7 @@
 \fancyhead[L]{}
 \fancyhead[R]{}
 
-\hypersetup{pdftitle={The Spatial Geometry of the Lorentz Tetrad}, pdfauthor={Stephen Nelson}, pdfsubject={Gravity Field Dynamics (GFD)}, pdfkeywords={tetrad, Gram matrix, regular tetrahedron, stellated octahedron, proof}}
+\hypersetup{pdftitle={The Spatial Geometry of the Lorentz Tetrad}, pdfauthor={Stephen Nelson}, pdfsubject={Gravity Field Dynamics (GFD)}, pdfkeywords={tetrad, Gram matrix, regular tetrahedron, stellated octahedron, proof, formal verification}}
 
 \begin{document}
 
@@ -34,33 +34,39 @@
 \begin{abstract}
 We realise the four legs of a Lorentz tetrad as vectors in the
 three-dimensional spatial sector and ask which configurations are
-possible. Four premises, each a transcription of the tetrad, suffice:
+possible. Four premises, each read off the tetrad, suffice:
 every pair of legs bears the same relation, as $\eta_{ab} = 0$ for
-every pair; every leg has the same magnitude, as
-$|\eta_{aa}| = 1$; the legs are distinct; and the realisation lives
-in $\mathbb{R}^3$. They force the Gram matrix
+every pair; every leg has the same magnitude, as every leg is a unit
+vector, $|\eta_{aa}| = 1$; the legs are distinct, as they form a
+basis; and the realisation lives in $\mathbb{R}^3$. They force the Gram matrix
 $G = c^2 I - (c^2/3)(J - I)$, and hence the regular tetrahedron,
 unique up to $O(3)$. Closure $\sum_a v_a = 0$ is derived, not
 assumed. Three is the only dimension in which such a realisation
-both exists and is forced. The realisation keeps the pattern of
-$\eta$'s entries, not their values, which no four vectors in
-$\mathbb{R}^3$ reproduce; it sets aside the sign of $\eta_{00}$,
-which no squared length can carry, and this is the content of the
-premise of equal magnitude. Without that premise an observer's
-projection, in which the time leg vanishes, is admitted. Each
-premise is shown to be necessary. Spatial parity gives the second
-tetrahedron, the cube and the stellated octahedron.
+both exists and is forced. The entry $\eta_{00} = -1$ is the unit
+magnitude carrying the sign of a timelike vector; a squared length
+carries the magnitude and cannot carry the sign. Without the premise
+of equal magnitude an observer's projection, which sends the unit
+timelike vector to the zero vector, is admitted. Each premise is
+shown to be necessary. For signature $(1,n)$ the same premises force
+the regular $n$-simplex in $\mathbb{R}^n$. Spatial parity gives the
+second tetrahedron, the cube and the stellated octahedron. Every
+statement is machine-checked in Lean~4.
 \end{abstract}
 
-\keywords{tetrad, Gram matrix, regular tetrahedron, stellated octahedron, proof}
+\keywords{tetrad, Gram matrix, regular tetrahedron, stellated octahedron, proof, formal verification}
 
 % ----------------------------------------------------------------------
 
 \section*{Setting}
 
-A Lorentz tetrad has four legs $e_a$, $a = 0,1,2,3$, linearly
-independent, with
-$\eta(e_a, e_b) = \eta_{ab} = \mathrm{diag}(-1,+1,+1,+1)$. A
+A Lorentz tetrad has four legs $e_a$, $a = 0,1,2,3$, with
+$\eta(e_a, e_b) = \eta_{ab} = \mathrm{diag}(-1,+1,+1,+1)$.
+% v2: the legs are unit vectors forming a basis.
+The legs form a basis: if $\sum_a \lambda_a e_a = 0$, pairing with
+$e_b$ gives $\lambda_b \eta_{bb} = 0$, so $\lambda_b = 0$. Every leg
+is a unit vector, $|\eta_{aa}| = 1$; each diagonal entry is a sign
+times this common magnitude, $\eta_{00} = -(1)$ for the timelike leg
+and $\eta_{ii} = +(1)$ for the spacelike ones. A
 \emph{spatial realisation} is a $4$-tuple
 $V = (v_0, v_1, v_2, v_3)$ of vectors $v_a \in \mathbb{R}^D$, one
 per leg, with Gram matrix $G_{ab} = v_a \cdot v_b$. We write $I$ for
@@ -77,14 +83,18 @@ with space and space with space alike. The common value $0$ cannot
 be kept, since four mutually orthogonal non-zero vectors do not fit
 in $\mathbb{R}^3$; its being common to all pairs can.
 
+% v2: (M) is the normalisation of the frame.
 \paragraph{(M) Equal magnitude.} $|v_a| = c > 0$ for all $a$. In
-the tetrad $|\eta_{aa}| = 1$ for every leg. A diagonal entry of a
-Gram matrix is a squared length and cannot be negative, so no
-realisation reproduces $\eta_{00} = -1$; (M) keeps its magnitude,
-which is that of every other leg.
+the tetrad every leg is a unit vector, $|\eta_{aa}| = 1$;
+$\eta_{00} = -1$ is that unit magnitude with the sign of a timelike
+vector. A diagonal entry of a Gram matrix is a squared length and
+cannot be negative, so no realisation reproduces the sign; (M) keeps
+the magnitude, which is that of every other leg.
 
-\paragraph{(N) Distinct legs.} The $v_a$ are not all equal, as the
-legs are linearly independent.
+% v2: (N) tied to the basis and noted as weaker.
+\paragraph{(N) Distinct legs.} The $v_a$ are not all equal. The legs
+of the tetrad form a basis and are therefore distinct; (N) asks for
+less.
 
 \paragraph{(D) Spatial sector.} $D = 3$, the number of positive
 entries of $\eta$.
@@ -93,8 +103,9 @@ entries of $\eta$.
 \noindent
 Together, (M) and (R) say that $G$ is invariant under every
 permutation of the legs, since the orbits of $S_4$ on ordered pairs
-are the diagonal and the off-diagonal pairs. Closure is not
-assumed.
+are the diagonal and the off-diagonal pairs. They keep exactly the
+sign-free content of $\eta$: its magnitudes and its relations.
+Closure is not assumed.
 
 % ----------------------------------------------------------------------
 
@@ -140,6 +151,13 @@ Then $c^2 = \alpha + \beta = 3\alpha/4$ and
 $\beta = -\alpha/4 = -c^2/3$, which is Eq.~\eqref{eq:forced}.
 \hfill $\square$
 
+% v2: the dependency route used in the formal proof.
+\paragraph{Remark.} Equivalently: four vectors in $\mathbb{R}^3$ are
+dependent, $\sum_a \lambda_a v_a = 0$ with $\lambda \neq 0$. Pairing
+with $v_b$ gives $\alpha\lambda_b + \beta\sum_a\lambda_a = 0$, so
+with $\alpha > 0$ all $\lambda_b$ are equal; hence $\sum_a v_a = 0$
+and $\alpha + 4\beta = 0$. This is the route of the formal proof.
+
 \paragraph{Corollary 1 (the regular tetrahedron).} \textit{The four
 points $v_a$ are pairwise equidistant, with edge $c\sqrt{8/3}$ and
 centroid at the origin: they are the vertices of a regular
@@ -163,20 +181,25 @@ place, so $M^TM = 3I - (J - I)$. Both $V$ and $(c/\sqrt3)M$ have
 Gram matrix~\eqref{eq:forced}, of rank $3$, and the Lemma gives
 $Q$. \hfill $\square$
 
-\paragraph{Corollary 2 (why three dimensions).} \textit{For $K$ legs
-satisfying (R), (M) and (N) in $\mathbb{R}^D$, a realisation exists
-if and only if $D \ge K - 1$, and it is forced to the closed regular
-simplex if and only if $D = K - 1$. For the tetrad, $K = 4$ and
-$D = 3$.}
+% v2: K >= 2; "exists and is forced"; all admissible Gram matrices for D >= K.
+\paragraph{Corollary 2 (why three dimensions).} \textit{For $K \ge 2$
+legs satisfying (R), (M) and (N) in $\mathbb{R}^D$, a realisation
+exists if and only if $D \ge K - 1$, and a realisation exists and is
+forced to the closed regular simplex if and only if $D = K - 1$. For
+the tetrad, $K = 4$ and $D = 3$.}
 
 \paragraph{Proof.} The argument above with $K$ in place of $4$ gives
 eigenvalues $\alpha > 0$ ($K - 1$ times) and $\alpha + K\beta$, so
 $\operatorname{rank} G \ge K - 1$ and no realisation exists for
-$D < K - 1$. The regular simplex lies in $\mathbb{R}^{K-1} \subseteq
-\mathbb{R}^D$, so one exists for $D \ge K - 1$. If $D = K - 1$, then
-$\alpha + K\beta = 0$ and the simplex is forced. If $D \ge K$, any
-$\alpha + K\beta > 0$ is also realisable, for example $\beta = 0$:
-$K$ orthogonal legs of equal length. \hfill $\square$
+$D < K - 1$ (there, forcing would hold only vacuously). The regular
+simplex lies in $\mathbb{R}^{K-1} \subseteq \mathbb{R}^D$, so one
+exists for $D \ge K - 1$. If $D = K - 1$, then $\alpha + K\beta = 0$
+and the simplex is forced. If $D \ge K$, every $\alpha > 0$ with
+$\alpha + K\beta \ge 0$ is realised in $\mathbb{R}^K \subseteq
+\mathbb{R}^D$ by $v_a = \sqrt\alpha\,\hat e_a + y\mathbf{1}$,
+$y = (\sqrt{\alpha + K\beta} - \sqrt\alpha)/K$; in particular
+$\beta = 0$, $K$ orthogonal legs of equal length, which do not
+close. For $K = 1$, (N) cannot hold. \hfill $\square$
 
 \paragraph{Corollary 3 (parity completion).} \textit{Spatial parity
 acts on the spatial sector as $-I$, so it sends every realised
@@ -207,8 +230,10 @@ Removed & Admitted configurations \\
 \hline
 (R) & $(v, w, -v, -w)$ with $|v| = |w|$, $v \perp w$: a square,
   even closed \\
-(M) & $v_0 = 0$, $v_i = c\,\hat e_i$: an observer's projection, in
-  which the time leg vanishes. With every leg non-zero:
+(M) & $v_0 = 0$, $v_i = c\,\hat e_i$: an observer's projection,
+  which sends the unit timelike vector to the zero vector. With every
+  leg non-zero: $c\,(-1,0,0)$, $c\,(1,1,1)$,
+  $c\,(1,-1\pm\sqrt2,-1\mp\sqrt2)$, with
   $G_{aa} = (1, 3, 7, 7)\,c^2$, $G_{ab} = -c^2$, of rank $3$ \\
 (N) & $v_a = v$ for all $a$: $G = c^2 J$ \\
 (D) & In $\mathbb{R}^4$: $v_a = c\,\hat e_a$, $G = c^2 I$, not
@@ -219,19 +244,98 @@ Removed & Admitted configurations \\
 
 The row for (M) shows what that premise decides. Read with the sign,
 $\eta$ singles out the time leg, and the natural spatial picture is
-an observer's: three orthonormal legs and no fourth. Read by
-magnitude, all four legs are units, and the spatial picture is
-forced to the tetrahedron.
+an observer's: three orthonormal legs and no fourth. Read as a
+basis of unit vectors, all four legs have the same magnitude, and the
+spatial picture is forced to the tetrahedron.
+
+% ----------------------------------------------------------------------
+
+% v2: new section.
+\section*{The Premises from the Tetrad}
+
+The premises can be stated as properties of a realisation of an
+arbitrary tetrad, so that they are read off the frame rather than
+imposed on it.
+
+\paragraph{Theorem (normalisation).} \textit{Let $(e_a)$ be any
+tetrad and $v_a \in \mathbb{R}^3$ with
+$|v_a|^2 = c^2\,|\eta(e_a,e_a)|$ for some $c > 0$, with
+$v_a \cdot v_b = v_{a'} \cdot v_{b'}$ whenever
+$\eta(e_a,e_b) = \eta(e_{a'},e_{b'})$ ($a \neq b$, $a' \neq b'$),
+and with the $v_a$ not all equal. Then $\sum_a v_a = 0$, $G$ is
+Eq.~\eqref{eq:forced}, and $V = (c/\sqrt3)\,QM$ for a unique
+$Q \in O(3)$.}
+
+\paragraph{Proof.} $|\eta(e_a,e_a)| = 1$ gives (M), and
+$\eta(e_a,e_b) = 0$ for all $a \neq b$ gives (R); apply the Theorem
+and Corollary~1. \hfill $\square$
+
+\medskip
+\noindent
+The observer's projection violates the hypothesis exactly once: it
+assigns the unit timelike vector $e_0$ the length $0$.
+
+An independent route reaches the same premises. Require the
+realisation to be \emph{local} ($G_{aa} = f(\eta_{aa})$,
+$G_{ab} = g(\eta_{ab})$), \emph{label-blind} (the same $f, g$ for
+every leg, so the position of the time leg is irrelevant) and
+\emph{convention-independent} (one realisation for $(-,+,+,+)$ and
+$(+,-,-,-)$). The time leg's entry changes sign between conventions,
+so $f(-1) = f(1)$: this is (M), and $g(0)$ common to all pairs is
+(R). Dropping any one of the three requirements, or (N), or (D),
+admits a configuration that is not the tetrahedron.
+
+For a metric of signature $(1,n)$ with $n+1$ legs, the same premises
+in $\mathbb{R}^n$, the positive index, force the closed regular
+$n$-simplex with $G_{ab} = -c^2/n$ (Corollary~2 with $K = n+1$).
+
+% ----------------------------------------------------------------------
+
+% v2: new section.
+\section*{Formal Verification}
+
+Every statement above is proved in Lean~4
+(v4.36.0)~\cite{Lean4} with Mathlib~\cite{Mathlib}, in the
+accompanying file \texttt{ForcedTetrahedralFrame.lean}. The build
+has no errors, no warnings and no \texttt{sorry}; every theorem
+depends only on Lean's standard axioms (\texttt{propext},
+\texttt{Classical.choice}, \texttt{Quot.sound}).
+
+\vspace{6pt}
+\noindent
+{\footnotesize
+\begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}>{\raggedright\arraybackslash}p{0.36\columnwidth}>{\raggedright\arraybackslash}p{0.58\columnwidth}@{}}
+\hline
+Statement & Lean theorem \\
+\hline
+Basis; unit magnitudes & \texttt{tetrad\_basis}, \texttt{tetrad\_\allowbreak unit\_\allowbreak magnitude} \\
+Rigidity Lemma & \texttt{rigidity} \\
+Theorem, Eq.~\eqref{eq:forced} & \texttt{forced\_\allowbreak gram} \\
+Corollary 1 & \texttt{cor1\_\allowbreak geometry}, \texttt{cor1\_\allowbreak unique} \\
+Corollary 2 & \texttt{cor2\_\allowbreak exists\_\allowbreak iff}, \texttt{cor2\_\allowbreak forced\_\allowbreak iff}, \texttt{cor2\_\allowbreak all\_\allowbreak gram\_\allowbreak realisable} \\
+Corollary 3 & \texttt{cor3\_\allowbreak parity}, \texttt{cor3\_\allowbreak cube} \\
+Necessity table & \texttt{nec\_R}, \texttt{nec\_M1}, \texttt{nec\_M2}, \texttt{nec\_\allowbreak M2\_\allowbreak rank}, \texttt{nec\_N}, \texttt{nec\_D} \\
+Normalisation theorem & \texttt{normalisation\_\allowbreak forces\_\allowbreak tetrahedron} \\
+Independent route; necessity & \texttt{rules\_\allowbreak force\_\allowbreak simplex}, \texttt{need\_*} \\
+Signature $(1,n)$ & \texttt{rules\_\allowbreak force\_\allowbreak simplex} \\
+\hline
+\end{tabular*}}
+\vspace{6pt}
+
+\noindent
+The angle is verified as $\cos\theta = -1/3$.
 
 % ----------------------------------------------------------------------
 
 \section*{Summary}
 
+% v2: aligned with the normalisation reading.
 Every premise transcribes the tetrad. Equal relation is the pattern
 of $\eta$'s off-diagonal entries, which carry no sign; equal
-magnitude is the pattern of its diagonal, with the sign of
-$\eta_{00}$ set aside because no squared length can be negative;
-distinctness is the independence of the legs; and the dimension is
+magnitude is the normalisation of its legs, each a unit vector, with
+the sign of $\eta_{00}$, which marks the time leg as timelike, set
+aside because no squared length can be negative; distinctness is the
+independence of the legs; and the dimension is
 the spatial sector. From these, four
 legs in three dimensions have exactly one configuration up to
 $O(3)$: the regular tetrahedron, closed, with the tetrahedral angle
@@ -253,6 +357,19 @@ J.~Kepler,
 P.~R.~Cromwell,
 \textit{Polyhedra}
 (Cambridge University Press, Cambridge, 1997).
+
+% v2: formal verification references.
+\bibitem{Lean4}
+L.~de~Moura and S.~Ullrich,
+``The Lean 4 theorem prover and programming language'',
+in \textit{Automated Deduction -- CADE 28},
+LNCS 12699 (Springer, 2021), pp.~625--635.
+
+\bibitem{Mathlib}
+The mathlib Community,
+``The Lean mathematical library'',
+in \textit{Proc.\ 9th ACM SIGPLAN Int.\ Conf.\ on Certified Programs
+and Proofs (CPP 2020)}, pp.~367--381.
 
 \end{thebibliography}
 
