@@ -32,7 +32,10 @@
 \ead{stephen@fielddynamics.org}
 
 \begin{abstract}
-We realise the four legs of a Lorentz tetrad as vectors in the
+% v2: the forcing of a shape is the point.
+A Lorentz tetrad is specified algebraically, by $\eta_{ab}$ alone,
+and is not usually assigned a shape. We show that it has one, and that
+it is forced. We realise the four legs as vectors in the
 three-dimensional spatial sector and ask which configurations are
 possible. Four premises, each read off the tetrad, suffice:
 every pair of legs bears the same relation, as $\eta_{ab} = 0$ for
@@ -255,9 +258,8 @@ spatial picture is forced to the tetrahedron.
 % v2: new section.
 \section*{The Premises from the Tetrad}
 
-The premises can be stated as properties of a realisation of an
-arbitrary tetrad, so that they are read off the frame rather than
-imposed on it.
+The premises are properties of a realisation of any tetrad, read off
+the frame rather than imposed on it.
 
 \paragraph{Theorem (normalisation).} \textit{Let $(e_a)$ be any
 tetrad and $v_a \in \mathbb{R}^3$ with
@@ -272,7 +274,6 @@ $Q \in O(3)$.}
 $\eta(e_a,e_b) = 0$ for all $a \neq b$ gives (R); apply the Theorem
 and Corollary~1. \hfill $\square$
 
-\medskip
 \noindent
 The observer's projection violates the hypothesis exactly once: it
 assigns the unit timelike vector $e_0$ the length $0$.
@@ -287,9 +288,38 @@ so $f(-1) = f(1)$: this is (M), and $g(0)$ common to all pairs is
 (R). Dropping any one of the three requirements, or (N), or (D),
 admits a configuration that is not the tetrahedron.
 
-For a metric of signature $(1,n)$ with $n+1$ legs, the same premises
-in $\mathbb{R}^n$, the positive index, force the closed regular
-$n$-simplex with $G_{ab} = -c^2/n$ (Corollary~2 with $K = n+1$).
+For signature $(1,n)$ the same premises force the closed regular
+$n$-simplex in $\mathbb{R}^n$, with $G_{ab} = -c^2/n$
+(Corollary~2, $K = n+1$).
+
+% ----------------------------------------------------------------------
+
+% v2: new section.
+\section*{A Forced Shape}
+
+That the tetrad forces a shape is the point of the result. General
+relativity uses $e_a$ through $\eta_{ab}$, which fixes the relations
+between the legs and assigns them no geometry. The step from the
+Gram matrix~\eqref{eq:forced} to the regular simplex is
+classical~\cite{Coxeter1973}; what is not classical is that the
+tetrad's own data force that Gram matrix, and with it a unique shape
+up to $O(3)$.
+
+Two earlier derivations reached the tetrahedron by imposing
+conditions. The signature-to-frame supplement of
+Letter~1~\cite{NelsonL1} takes four null directions on the sphere and
+assumes a zero centroid and an isotropic second moment; Supplementary
+Proof~A of the radial acceleration relation letter~\cite{NelsonRAR}
+assumes closure and $S_4$-invariance of the Gram matrix. Here both
+are derived from the entries of $\eta$.
+
+The two routes reach the same frame. Letter~1's four null directions
+are the columns of $M$ divided by $\sqrt3$. Bordering $M$ with a row
+of ones gives a Hadamard matrix~\cite{NelsonHad}: its columns satisfy
+Eq.~\eqref{eq:forced}, and its rows, $M\mathbf{1} = 0$ and
+$MM^T = 4I$, are exactly the zero centroid and isotropic second
+moment that Letter~1 imposes. The legs, read here, and the null
+directions, read there, are two readings of one geometry.
 
 % ----------------------------------------------------------------------
 
@@ -299,44 +329,31 @@ $n$-simplex with $G_{ab} = -c^2/n$ (Corollary~2 with $K = n+1$).
 Every statement above is proved in Lean~4
 (v4.36.0)~\cite{Lean4} with Mathlib~\cite{Mathlib}, in the
 accompanying file \texttt{ForcedTetrahedralFrame.lean}
-(\url{https://github.com/fielddynamics/research}, folder
-\texttt{proofs/forced-tetrahedral-frame/lean}). Lean reports no
+(\url{https://github.com/fielddynamics/research}). Lean reports no
 errors or warnings for the file and there is no \texttt{sorry}; every
 theorem depends only on Lean's standard axioms (\texttt{propext},
-\texttt{Classical.choice}, \texttt{Quot.sound}). The check reruns
-automatically whenever the file changes.
+\texttt{Classical.choice}, \texttt{Quot.sound}); the angle is
+verified as $\cos\theta = -1/3$.
 
-\vspace{6pt}
-\noindent
 {\footnotesize
-\begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}>{\raggedright\arraybackslash}p{0.36\columnwidth}>{\raggedright\arraybackslash}p{0.58\columnwidth}@{}}
-\hline
-Statement & Lean theorem \\
-\hline
-Basis; unit magnitudes & \texttt{tetrad\_basis}, \texttt{tetrad\_\allowbreak unit\_\allowbreak magnitude} \\
-Rigidity Lemma & \texttt{rigidity} \\
-Theorem, Eq.~\eqref{eq:forced} & \texttt{forced\_\allowbreak gram} \\
-Corollary 1 & \texttt{cor1\_\allowbreak geometry}, \texttt{cor1\_\allowbreak unique} \\
-Corollary 2 & \texttt{cor2\_\allowbreak exists\_\allowbreak iff}, \texttt{cor2\_\allowbreak forced\_\allowbreak iff}, \texttt{cor2\_\allowbreak all\_\allowbreak gram\_\allowbreak realisable} \\
-Corollary 3 & \texttt{cor3\_\allowbreak parity}, \texttt{cor3\_\allowbreak cube} \\
-Necessity table & \texttt{nec\_R}, \texttt{nec\_M1}, \texttt{nec\_M2}, \texttt{nec\_\allowbreak M2\_\allowbreak rank}, \texttt{nec\_N}, \texttt{nec\_D} \\
-Remark (dependency route) & \texttt{core\_\allowbreak forced} \\
-Normalisation theorem & \texttt{normalisation\_\allowbreak forces\_\allowbreak tetrahedron} \\
-Observer's projection & \texttt{observer\_\allowbreak violates\_\allowbreak only\_\allowbreak time\_\allowbreak leg} \\
-Independent route; necessity & \texttt{rules\_\allowbreak force\_\allowbreak simplex}, \texttt{need\_*} \\
-Signature $(1,n)$ & \texttt{rules\_\allowbreak force\_\allowbreak simplex} \\
-\hline
-\end{tabular*}}
-\vspace{6pt}
-
-\noindent
-The angle is verified as $\cos\theta = -1/3$.
-
+\begin{flushleft}
+\emph{Basis; unit magnitudes:} \texttt{tetrad\_basis}, \texttt{tetrad\_unit\_magnitude}.\\
+\emph{Rigidity Lemma:} \texttt{rigidity}.\\
+\emph{Theorem; Remark:} \texttt{forced\_gram}, \texttt{core\_forced}.\\
+\emph{Corollary 1; $MM^T = 4I$:} \texttt{cor1\_geometry}, \texttt{cor1\_unique}, \texttt{MMt}.\\
+\emph{Corollary 2:} \texttt{cor2\_exists\_iff}, \texttt{cor2\_forced\_iff}, \texttt{cor2\_all\_gram\_realisable}.\\
+\emph{Corollary 3:} \texttt{cor3\_parity}, \texttt{cor3\_cube}.\\
+\emph{Necessity table:} \texttt{nec\_R}, \texttt{nec\_M1}, \texttt{nec\_M2}, \texttt{nec\_M2\_rank}, \texttt{nec\_N}, \texttt{nec\_D}.\\
+\emph{Normalisation; observer:} \texttt{normalisation\_forces\_tetrahedron}, \texttt{observer\_violates\_only\_time\_leg}.\\
+\emph{Independent route; $(1,n)$:} \texttt{rules\_force\_simplex}, \texttt{need\_*}.
+\end{flushleft}}
 % ----------------------------------------------------------------------
 
 \section*{Summary}
 
 % v2: aligned with the normalisation reading.
+A tetrad is algebraic: $\eta$ fixes the relations between its legs,
+not a shape. Drawn in space, the legs nonetheless have exactly one.
 Every premise is read off the tetrad. Equal relation is the pattern
 of $\eta$'s off-diagonal entries, which carry no sign; equal
 magnitude is the normalisation of its legs, each a unit vector, with
@@ -353,6 +370,8 @@ the two together form the stellated octahedron.
 
 % ----------------------------------------------------------------------
 
+% v2: references set small.
+{\small
 \begin{thebibliography}{9}
 
 \bibitem{Kepler1619}
@@ -364,6 +383,30 @@ J.~Kepler,
 P.~R.~Cromwell,
 \textit{Polyhedra}
 (Cambridge University Press, Cambridge, 1997).
+
+% v2: classical identification and the earlier derivations.
+\bibitem{Coxeter1973}
+H.~S.~M.~Coxeter,
+\textit{Regular Polytopes},
+3rd ed.\ (Dover, New York, 1973).
+
+\bibitem{NelsonL1}
+S.~Nelson,
+``The coordinate-space geometry of the tetrad frame'',
+submitted to \textit{Class.\ Quantum Grav.}\ (CQG-115428);
+Supplementary Material: ``From the Lorentz signature to the
+tetrahedral frame''.
+
+\bibitem{NelsonRAR}
+S.~Nelson,
+``The radial acceleration relation from a zero-parameter covariant
+action'', Supplementary Proof~A: ``The spatial geometry of the
+Lorentz tetrad'' (Field Dynamics Research, 2026).
+
+\bibitem{NelsonHad}
+S.~Nelson,
+``The stellated octahedron, the cube and the Hadamard matrix''
+(Field Dynamics Research, 2026).
 
 % v2: formal verification references.
 \bibitem{Lean4}
@@ -379,5 +422,6 @@ in \textit{Proc.\ 9th ACM SIGPLAN Int.\ Conf.\ on Certified Programs
 and Proofs (CPP 2020)}, pp.~367--381.
 
 \end{thebibliography}
+}
 
 \end{document}

@@ -103,6 +103,8 @@ The build has no errors, no warnings and no gaps (`sorry`), and depends only on 
 
 ## Why it matters
 
+**A frame that was never given a shape has one, and only one.** General relativity uses the tetrad through the metric alone, which fixes how the legs relate and says nothing about a shape. No standard result assigns a Lorentz frame a geometry. That four equal arrows at equal angles form a regular tetrahedron is classical geometry; that the tetrad's own data *force* those conditions is the new result. Without it, the four directions on which [Letter 1](../../papers/letter-1-tetrad-frame-geometry/) builds TetA, TetB and the stellated octahedron would be a choice. With it, they are forced.
+
 **The geometry is read, not chosen.** The regular tetrahedron, the cube and the stellated octahedron follow from the Minkowski metric: its legs are unit vectors, and every pair is alike. This is the foundation the rest of GFD stands on, so it matters that it carries no hidden choice. The one principle it rests on, that the drawing keeps everything a squared length can carry, is stated openly, its alternative is shown, and every step from it is machine-checked.
 
 **It assumes less than the earlier version and derives more.** Balance used to be a premise; here it is a consequence of three dimensions. The step from "same table" to "same shape" used to be cited; here it is proved in a few lines. The symmetry condition used to be stated as invariance under all 24 shuffles, which invites the objection that the metric preserves only 6. Here it is replaced by two plain readings of the metric's entries, and the shuffle symmetry follows from them.
@@ -113,14 +115,22 @@ The build has no errors, no warnings and no gaps (`sorry`), and depends only on 
 
 The proof is about drawing the tetrad's legs as vectors in the spatial sector, at their unit magnitude. Lean verifies the mathematics, not the physical reading. That this drawing carries physical meaning, that TetA and TetB partition the gravitational field, is the framework's claim, developed in the letters and papers listed below. The proof also does not derive the coupling polynomial or the constitutive law; those build on this geometry.
 
-## Earlier version
+## Earlier versions
 
-The [RAR letter's supplement](../../papers/letter-radial-acceleration-relation-sparc/supplementary/supplementary_spatial_geometry_of_the_lorentz_tetrad.tex) proves the same theorem from three conditions: common norm, balanced closure and $S_4$-invariance of the Gram matrix. That proof is correct. This version makes four changes:
+Two earlier derivations reach the same tetrahedron by imposing conditions that this version derives.
+
+- **Letter 1's null-cone route.** The [signature-to-frame supplement](../../papers/letter-1-tetrad-frame-geometry/Supplementary/supplementary_signature_to_frame.tex) takes four null directions on the sphere and assumes they have no net direction (zero centroid) and no preferred axis (isotropic second moment).
+- **The RAR letter's supplement.** [Supplementary Proof A](../../papers/letter-radial-acceleration-relation-sparc/supplementary/supplementary_spatial_geometry_of_the_lorentz_tetrad.tex) proves the same theorem from three conditions: common norm, balanced closure and $S_4$-invariance of the Gram matrix. That proof is correct.
+
+This version makes these changes:
 
 - It derives closure instead of assuming it, using distinctness and three dimensions.
-- It replaces $S_4$-invariance with two readings of $\eta$'s entries, equal relation and equal magnitude, and isolates the second as the one place where the sign is set aside.
+- It replaces $S_4$-invariance with two readings of $\eta$'s entries, equal relation and equal magnitude, and reads equal magnitude as the normalisation of the frame: every leg is a unit vector.
 - It proves the rigidity step instead of citing it.
 - It adds the dimension result and a necessity table, including the observer's view as the alternative to equal magnitude.
+- It is machine-checked in Lean.
+
+The routes agree. Letter 1's four null directions are the columns of $M$ divided by $\sqrt 3$. The [Hadamard cube proof](../hadamard-cube-frame/) shows that bordering $M$ with a row of ones gives a Hadamard matrix, whose columns satisfy this proof's forced Gram matrix and whose rows are exactly Letter 1's two conditions. The legs, read here, and the null directions, read there, are two readings of one geometry.
 
 ## Contents
 
@@ -136,7 +146,7 @@ The [RAR letter's supplement](../../papers/letter-radial-acceleration-relation-s
 
 ```bash
 pip install sympy numpy
-python verify_forced_tetrahedral_frame.py      # 35/35
+python verify_forced_tetrahedral_frame.py      # 36/36
 pdflatex -interaction=nonstopmode forced_tetrahedral_frame.tex
 
 # Lean (needs elan: https://github.com/leanprover/elan)

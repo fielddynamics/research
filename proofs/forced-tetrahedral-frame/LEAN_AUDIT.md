@@ -109,10 +109,11 @@ The locality counterexample (`traceRule`) is itself proved label-blind and conve
 | Corollary 2 | K ≥ 2; "exists and is forced"; every admissible Gram matrix realised for D ≥ K | `cor2_*`, `K_one_no_realisation`, `forced_vacuous` |
 | Necessity table, (M) row | Explicit vectors; rank 3; projection described as sending a unit vector to zero | `nec_M2`, `nec_M2_rank`, `observer_breaks_normalisation` |
 | New section: the premises from the tetrad | Normalisation theorem; independent route; (1,n) simplex | `normalisation_forces_tetrahedron`, `rules_force_simplex`, `need_*` |
+| New section: a forced shape | The tetrad forces a shape (not classical); prior derivations imposed closure/isotropy or S₄; the two routes agree via the Hadamard rows (M·1 = 0, MMᵀ = 4I); Coxeter cited for the classical identification | `MMt`, `cor1_geometry`; [Hadamard cube proof](../hadamard-cube-frame/) |
 | New section: formal verification | Statement-to-theorem table; Lean 4 and Mathlib citations | the whole file |
 | Summary | Aligned with the normalisation reading | |
 
-Nothing else was changed. Every edit is marked `% v2:` in the source. The Python verifier gained eight matching checks (35/35).
+Nothing else was changed. Every edit is marked `% v2:` in the source. The Python verifier gained nine matching checks (36/36).
 
 ---
 

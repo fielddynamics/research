@@ -151,6 +151,10 @@ for K in range(2, 9):
         Xk = np.sqrt(al) * np.eye(K) + y * np.ones((K, K))
         good &= np.allclose(Xk.T @ Xk, al * np.eye(K) + be * np.ones((K, K)))
 check("Corollary 2 (v2): for D >= K every alpha > 0, alpha + K beta >= 0 is realised by sqrt(alpha) e_a + y 1 (K = 2..8)", good)
+u = (M / sp.sqrt(3))
+check("A forced shape (v2): rows of M give Letter 1's conditions, M*1 = 0 and M M^T = 4I; the columns over sqrt3 are its unit null directions",
+      M * one == sp.zeros(3, 1) and M * M.T == 4 * sp.eye(3)
+      and all(sp.simplify((u[:, j].T * u[:, j])[0] - 1) == 0 for j in range(4)))
 good = True
 for n in range(1, 8):
     Gs = sp.eye(n + 1) - sp.Rational(1, n) * (sp.ones(n + 1, n + 1) - sp.eye(n + 1))
