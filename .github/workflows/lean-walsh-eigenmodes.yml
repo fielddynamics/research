@@ -1,0 +1,50 @@
+name: Lean proof — Walsh eigenmodes of the cube
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'proofs/walsh-eigenmodes-of-the-cube/lean/**'
+      - 'proofs/gram-matrix-tetrad-equation/lean/**'
+      - 'proofs/tetrad-scheme-two-bounded-regions/lean/**'
+      - 'proofs/half-space-two-bounded-regions/lean/**'
+      - 'proofs/forced-tetrahedral-frame/lean/**'
+      - '.github/workflows/lean-walsh-eigenmodes.yml'
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: proofs/walsh-eigenmodes-of-the-cube/lean
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Install Lean (elan)
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+
+      - name: Download compiled Mathlib
+        run: lake exe cache get
+
+      - name: Build the proof (and the proofs it imports)
+        run: lake build
+
+      - name: Confirm no warnings, no sorry and only standard axioms
+        run: |
+          lake env lean WalshEigenmodes.lean | tee axioms.txt
+          if grep -qE "warning:|error:" axioms.txt; then echo "Lean reported a warning or error"; exit 1; fi
+          count=$(grep -c "depends on axioms" axioms.txt || true)
+          echo "axiom reports: $count"
+          if [ "$count" -lt 46 ]; then echo "expected 46 axiom reports"; exit 1; fi
+          if grep -q sorryAx axioms.txt; then echo "a theorem depends on sorry"; exit 1; fi
+          # each theorem may use any of Lean's three standard axioms, and nothing else
+          if grep "depends on axioms" axioms.txt | grep -vE "\[(propext|Classical\.choice|Quot\.sound)(, (propext|Classical\.choice|Quot\.sound))*\]"; then
+            echo "a theorem uses a non-standard axiom"; exit 1
+          fi
+
+      - name: Show the resolved dependency manifest
+        if: always()
+        run: cat lake-manifest.json || true

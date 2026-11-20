@@ -1,0 +1,24 @@
+name = "walsh_eigenmodes"
+defaultTargets = ["WalshEigenmodes"]
+
+# Builds on the Gram matrix of the tetrad equation, and through it on the tetrad scheme, the
+# half-space regions and the forced tetrahedral frame (whose legs are proved to be TetA's corners).
+# Mathlib v4.36.0 comes through those packages.
+[[require]]
+name = "gram_matrix_tetrad_equation"
+path = "../../gram-matrix-tetrad-equation/lean"
+
+[[require]]
+name = "tetrad_scheme"
+path = "../../tetrad-scheme-two-bounded-regions/lean"
+
+[[require]]
+name = "half_space_two_bounded_regions"
+path = "../../half-space-two-bounded-regions/lean"
+
+[[require]]
+name = "forced_tetrahedral_frame"
+path = "../../forced-tetrahedral-frame/lean"
+
+[[lean_lib]]
+name = "WalshEigenmodes"

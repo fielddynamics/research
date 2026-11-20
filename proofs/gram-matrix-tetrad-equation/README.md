@@ -75,6 +75,8 @@ Three statements are proved in a narrower form, and the audit says so: $\star T 
 
 GitHub re-checks the proof automatically whenever it, or a proof it builds on, changes; the badge at the top of this page shows the latest result. It is green only if the proof builds with no warnings, no gaps (`sorry`) and only Lean's standard axioms. [`LEAN_AUDIT.md`](LEAN_AUDIT.md) is a referee's guide to the formalisation.
 
+The [Walsh eigenmodes of the cube](../walsh-eigenmodes-of-the-cube/)'s formalisation imports this one, and through it the forced frame, whose legs it proves are TetA's corners; its check re-runs whenever this proof changes.
+
 ## Why it matters
 
 - **It makes "root-blind" and "root-resolving" exact.** Gram data are blind to which root is which and resolve only the relative root; orientation is the absolute invariant.

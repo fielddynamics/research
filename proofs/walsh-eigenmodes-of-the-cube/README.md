@@ -2,14 +2,17 @@
 
 *Which Walsh standing waves the cube holds when TetA and TetB are kept distinct, how they make the cube's vortices, and why field closure is what reads all of them · Gravity Field Dynamics (GFD) · Field Dynamics Research*
 
-`Walsh-functions` `Hadamard` `eigenmodes` `standing-wave` `tetrahedral-symmetry` `field-closure` `stellated-octahedron` `proof`
+`Walsh-functions` `Hadamard` `eigenmodes` `standing-wave` `tetrahedral-symmetry` `field-closure` `stellated-octahedron` `proof` `Lean`
+
+[![Lean proof](https://github.com/fielddynamics/research/actions/workflows/lean-walsh-eigenmodes.yml/badge.svg)](https://github.com/fielddynamics/research/actions/workflows/lean-walsh-eigenmodes.yml)
 
 ---
 
 This folder holds:
 - a proof of four pages plus references ([PDF](walsh_eigenmodes_of_the_cube.pdf), [LaTeX](walsh_eigenmodes_of_the_cube.tex));
 - a script that checks every step ([`verify_walsh_eigenmodes.py`](verify_walsh_eigenmodes.py), 47 checks, [output](verify_output.txt));
-- an internal referee review with a response to each point ([`referee_review.md`](referee_review.md)).
+- an internal referee review with a response to each point ([`referee_review.md`](referee_review.md));
+- a Lean formalisation of its results ([`lean/`](lean/), with a [referee's guide](LEAN_AUDIT.md)).
 
 It builds on:
 - [the coupling algebra](../../research/coupling-algebra/), which already treats the cube under its full symmetry: the four distance relations, diagonalised by the Walsh grades, and the null-cone reading of the grades;
@@ -86,6 +89,35 @@ The linear reading matches four things in the archive:
 
 If the field is a wave's intensity instead, the mode is proportional to (√g_t, √a₀). That is the diamond lattice's bond-orbital dictionary.
 
+## Machine-checked in Lean
+
+The [`lean/`](lean/) folder proves the note in [Lean 4](https://lean-lang.org) with the [Mathlib](https://github.com/leanprover-community/mathlib4) library, and the Lean kernel checks every step. It imports the [Gram matrix proof](../gram-matrix-tetrad-equation/), and through it the [forced tetrahedral frame](../forced-tetrahedral-frame/). TetA's four corners are proved to be that frame's four legs, and TetA's frame readout is that frame applied to TetA's amplitudes.
+
+- **Result 1.**
+  - The Walsh functions are proved to be the eigenmodes of every operator that commutes with the bit flips.
+  - The symmetry group T_d is built as 24 explicit maps and proved to be exactly the signed permutations that keep TetA.
+  - Every symmetric T_d-invariant coupling is proved to have the six-parameter form, with its two blocks. All eight Walsh functions are eigenmodes exactly when TetA and TetB are alike.
+  - The mixing angle and the weight on the lower grade are proved.
+  - For the whole cube, eliminating the Field Origin is proved to give an effective corner operator of the same form, at every energy. This holds for any set of extra sites.
+- **Result 2.**
+  - The rotoreflection's eigenvalues on the eight modes are proved, and the winding space is proved to lie in the T₂ modes.
+  - On the plain cube, x + iy is proved to be an eigenmode that turns under the quarter turn. It carries the current −8t through each of the four half-planes, while every real wave carries none.
+- **Result 3.**
+  - Every symmetric linear readout is proved to be built from the two chamber sums and the two frames.
+  - Closure is proved to be the frame ignoring the constant mode.
+  - One root is proved to read only four modes. Field closure is proved to read all eight: the sums read 1 and xyz, the frames read the six T₂ modes.
+- **Result 4.** μ is proved to be the TetA share, unchanged by any T₂ mode. Parseval and the contraction of the spread are proved, and so is the inward update's fixed point.
+- **Result 5.** Both readings of μ are proved, with the exchange x → 1/x. The two readings are proved to agree only at x = 1.
+
+Five parts are cited or checked numerically rather than proved:
+- the fifteen-site whole cube itself, with its numerical shares;
+- the octahedron's symmetry content;
+- the metric's blind spot;
+- the node's code runs;
+- the bond-orbital dictionary.
+
+GitHub re-checks the proof automatically whenever it, or any proof it builds on, changes; the badge at the top of this page shows the latest result. It is green only if the proof builds with no warnings, no gaps (`sorry`) and only Lean's standard axioms. [`LEAN_AUDIT.md`](LEAN_AUDIT.md) is a referee's guide to the formalisation.
+
 ## What it does not claim
 
 - That the physical field is this node, or reads linearly.
@@ -103,12 +135,20 @@ The models here are linear, while GFD's Field Origin is nonlinear.
 | [`verify_walsh_eigenmodes.py`](verify_walsh_eigenmodes.py) | 47 checks, in six parts: (A) the cube's eigenmodes; (B) the pairing, on the cube's corners in all parameters and in the whole cube; (C) the vortices and x + iy; (D) closure and field closure, with the metric's view of the grades; (E) the node, symbolically and on its own code; (F) the two readings of μ, with the exchange |
 | [`verify_output.txt`](verify_output.txt) | Output of the script |
 | [`referee_review.md`](referee_review.md) | Internal referee review and the response to each point |
+| [`lean/WalshEigenmodes.lean`](lean/WalshEigenmodes.lean) | The Lean 4 formalisation |
+| [`lean/lakefile.toml`](lean/lakefile.toml), [`lean/lean-toolchain`](lean/lean-toolchain), [`lean/lake-manifest.json`](lean/lake-manifest.json) | Project files: Lean 4.36.0, Mathlib v4.36.0, and the four formalisations it imports |
+| [`LEAN_AUDIT.md`](LEAN_AUDIT.md) | Referee's guide to the formalisation |
 
 ## Reproduce
 
 ```
 python verify_walsh_eigenmodes.py      # 47/47 (needs sympy and numpy; imports research/universe-is-pixelated/octahedral_node.py)
 pdflatex -jobname=walsh_eigenmodes_of_the_cube '\providecommand\ead[1]{\email{#1}}\input{walsh_eigenmodes_of_the_cube.tex}'
+
+# Lean (needs elan: https://github.com/leanprover/elan)
+cd lean
+lake exe cache get    # downloads Mathlib, already compiled
+lake build            # checks every theorem, and the proofs it imports
 ```
 
 ## Related

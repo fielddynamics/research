@@ -98,7 +98,7 @@ Two facts are cited rather than proved, as in the note: that $SO(4, \mathbb{C})$
 
 GitHub re-checks the proof automatically whenever it, or a proof it builds on, changes; the badge at the top of this page shows the latest result. It is green only if the proof builds with no warnings, no gaps (`sorry`) and only Lean's three standard axioms. [`LEAN_AUDIT.md`](LEAN_AUDIT.md) is a referee's guide to the formalisation.
 
-Two formalisations import this one: the [Gram matrix of the tetrad equation](../gram-matrix-tetrad-equation/), and the [BIMOND two-potential energy](../bimetric-two-potential-energy/), whose second-root sign is this proof's $X_-$. Their checks re-run whenever this proof changes.
+Three formalisations import this one: the [Gram matrix of the tetrad equation](../gram-matrix-tetrad-equation/); the [BIMOND two-potential energy](../bimetric-two-potential-energy/), whose second-root sign is this proof's $X_-$; and, through the Gram matrix, the [Walsh eigenmodes of the cube](../walsh-eigenmodes-of-the-cube/). Their checks re-run whenever this proof changes.
 
 ## Why it matters
 
