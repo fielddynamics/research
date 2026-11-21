@@ -254,6 +254,16 @@ Quiet $D = 1$, drive $D > 1$ (TetB pulls harder than $a_0$), brake $D < 1$. The 
 
 **How to test it [D].** Any law, one galaxy at a time, can be read as this law plus drive or brake (pointwise degeneracy). A wrong law prints a *universal* $D(x)$ across galaxies; drive and brake are per-galaxy. Test: stack galaxies, median $D$ in bins of $x$ should be flat at 1. Signatures: bound law $D = 1/(1-\mu_b)$ (1.09, $\varphi$, 3.70 at $x = 0.1, 1, 10$); standard MOND $D = \sqrt{1+x^2}-x$ (0.90, 0.41, 0.05); $a_0$ off by $c$: $D = c$. Forward-model velocity errors (they bias binned medians at both ends; research/vortex-hourglass null model); $a_0$ was calibrated on SPARC, so only the shape of $D(x)$ is evidence.
 
+**Result on SPARC [O].** The 3284-point RAR set (`papers/letter-radial-acceleration-relation-sparc/supplementary/sparc_rar.csv`) is this test in aggregate. Binned by $g_{\rm bar}$ (the independent variable; binning by $g_{\rm obs}$, i.e. by $x$, biases $D$ because the same velocity error enters both axes), the median residual $\log_{10}(g_{\rm obs}/g_{\rm pred})$ is:
+
+| $\log_{10}(g_{\rm bar}/a_0)$ | −1.7 | −1.3 | −0.9 | −0.6 | −0.2 | +0.2 | +0.6 | +0.9 |
+|---|---|---|---|---|---|---|---|---|
+| GFD, $x/(x+1)$ | −0.05 | −0.03 | −0.01 | +0.01 | −0.01 | −0.01 | −0.02 | −0.03 |
+| standard MOND | −0.02 | +0.01 | +0.05 | +0.09 | +0.09 | +0.10 | +0.05 | +0.02 |
+| bound law | −0.07 | −0.07 | −0.06 | −0.06 | −0.09 | −0.10 | −0.12 | −0.11 |
+
+GFD is flat to within the scatter; standard MOND prints the hump its $D = \sqrt{1+x^2} - x$ predicts, and the bound law a steady offset. Overall: GFD mean $-0.027$ dex, $\sigma = 0.181$; standard MOND $+0.038$, $0.185$; bound law $-0.088$, $0.181$.
+
 **Vortex reading [T for the equations, reading for the map].** Burgers: inflow $-\alpha r/2$, stretching and diffusion balance exactly, $u_r\omega' = \alpha\omega + \nu(\omega''+\omega'/r)$ (quiet); stronger drain tightens and spins up the core (drive), weaker lets it spread, no drain is Lamb–Oseen decay (brake); the far swirl $\Gamma/2\pi r$ forgets the drain, as drive/brake hide where $g \gg a_0$. TetB = drain is the framework's reading.
 
 **Corrections to the March 2026 syntheses.** Independent sites give $x/(1+x)$ for any number; $x^N/(1+x^N)$ needs cooperative filling. The standard function's inverse is algebraic but not rational.
@@ -463,7 +473,7 @@ Shell ceilings $\mathrm{CEIL} = B_{\rm Zn} + B_{\rm bdy} - \mu_b(2)[B_{\rm Zn} -
     - Its reflect-and-min envelope is constructed, not derived.
     - XI ends stability at $K^K = 256$ (Bi-209); XIII ends it at 192 + 16 (Pb-208).
 15. **The decode deficit.** DEC and ESS left the sign of $\Delta M_{\rm eff}$ ("drives" vs "brakes") ambiguous. Now fixed by convention and identity (§3.2, §4.8): drive is $M_{\rm dec} > M_{\rm phot}$, i.e. TetB's measured strength $w > a_0$. Still open: what physically sets $w$ in a given galaxy's interior.
-    - **The stacked test is not yet run.** The law predicts a stacked median $D(x) = w/a_0$ flat at 1 across SPARC (§4.8); a wrong law would print a universal trend in $x$. The data and the null model exist in `research/vortex-hourglass/`; the stacked $D(x)$ has not been computed.
+    - **The stacked test, done on SPARC.** The RAR data (§6.1, 3284 points) already contain it: binned by $g_{\rm bar}$, the spherical field equation's median residual stays within $\pm0.05$ dex over 3.5 decades (quiet on average, $D \approx 1$), while standard MOND shows a $+0.09$ dex hump near $a_0$ and the bound law drifts to $-0.10$ dex (§4.8). Still open: a forward model of the errors and a per-galaxy reading of $w$.
     - **What $a_0$ is physically.** The tug of war needs $a_0$ to be TetB's strength, an acceleration on the same footing as $g_t$. Its value is measured (or $K^2Gm_e/r_e^2$); whether it is the acceleration of some definite time leg (§7.1's horizon relation is one candidate) is open.
 
 *Errata and internal inconsistencies (arithmetic checked here):*
