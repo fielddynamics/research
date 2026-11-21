@@ -15,7 +15,8 @@ The catalogue's own "galaxy" label is **not** used as a classifier, because for 
 ## Sample cuts (fixed in advance)
 
 - A measured line-of-sight velocity dispersion `vlos_sigma` with errors (upper limits excluded), `M_V`, `rhalf_sph_physical` and a distance to the host.
-- Excluded as not in dispersion-supported equilibrium: the LMC, the SMC, the Sagittarius dwarf (disrupting), and any object whose catalogue entry has no host distance.
+- Excluded as not in dispersion-supported equilibrium: the LMC, the SMC and the Sagittarius dwarf (disrupting). Objects with a host (`host` = mw or m31) but no `distance_host` are excluded.
+- *Clarification, added before the analysis ran:* objects with no host (`host` empty, the field dwarfs) are kept and treated as isolated, g_e = 0. The first version of this file stated both an exclusion for missing host distances and isolation for field dwarfs; this resolves the conflict in favour of the latter.
 - Hosts: Milky Way (baryonic mass 6 × 10¹⁰ M☉) and M31 (1.0 × 10¹¹ M☉); field dwarfs are treated as isolated.
 
 ## Classifiers (fixed in advance)
