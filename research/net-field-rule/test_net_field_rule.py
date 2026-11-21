@@ -1033,3 +1033,283 @@ class TestFluxInvolution:
         xx = m_ / (1 - m_)
         a0_read = (v2 / rs) / xx
         assert np.allclose(a0_read[2:-2], A0, rtol=2e-3)
+
+
+# ============================================================================================
+# SOLIDIFY AND SIMPLIFY
+# 22  The dictionary: every quantity of the rule is a function of mu alone
+# 23  Drained fields have vacuum divergence for ANY configuration; drainless fields never
+# 24  No self-force: a sheet's own pointer cannot push it, whatever the host's response
+# 25  The sheet's edge is bounded by data from below and by binding from above
+# 26  The involution singles out x/(1+x) in the standard family
+# 27  An a0-free test of the law's shape on SPARC: the slope of the RAR is 1/(2 - mu)
+# ============================================================================================
+mu_s = sp.Symbol("mu", positive=True)
+
+
+# ============================================================================================
+# 22  The dictionary
+# ============================================================================================
+class TestDictionary:
+    """Write x = mu/(1 - mu) (the odds Omega). Every derived quantity of the rule, computed
+    from x through the law, reduces to a rational function of mu alone:
+        degree of F          1/(2 - mu)
+        flux exponent s      2(1 - mu)/(2 - mu)
+        curve slope          -mu/(2 - mu)
+        transverse response  1/mu
+        parallel response    1/(mu (2 - mu))
+        flux excess / M      (1 - mu)/mu = 1/Omega"""
+
+    X = mu_s / (1 - mu_s)
+
+    def gt_of_gN(self):
+        return F_SIMPLE
+
+    def test_x_inverts_mu(self):
+        assert sp.simplify(mu(self.X) - mu_s) == 0
+
+    def test_transverse_response(self):
+        y_val = self.X * mu(self.X)
+        n = (self.X + 1) / self.X
+        assert sp.simplify(n**2 - n - 1 / y_val) == 0          # n is nu(y)
+        assert sp.simplify(n - 1 / mu_s) == 0
+
+    def test_parallel_response(self):
+        """d g_t / d g_N at the host = 1/(mu (2 - mu))."""
+        gN = gt_**2 / (gt_ + a0_)
+        dgt_dgN = 1 / sp.diff(gN, gt_)
+        expr = sp.simplify(dgt_dgN.subs(gt_, self.X * a0_))
+        assert sp.simplify(expr - 1 / (mu_s * (2 - mu_s))) == 0
+
+    def test_anisotropy_of_the_response(self):
+        """Transverse minus parallel = (1 - mu)/(mu (2 - mu)): zero only without TetB share."""
+        aniso = 1 / mu_s - 1 / (mu_s * (2 - mu_s))
+        assert sp.simplify(aniso - (1 - mu_s) / (mu_s * (2 - mu_s))) == 0
+
+    def test_all_entries_vanish_or_are_one_at_mu_one(self):
+        entries = {"degree": 1 / (2 - mu_s), "s": 2 * (1 - mu_s) / (2 - mu_s),
+                   "slope": -mu_s / (2 - mu_s), "nu_perp": 1 / mu_s,
+                   "nu_par": 1 / (mu_s * (2 - mu_s)), "excess": (1 - mu_s) / mu_s}
+        at_one = {k: v.subs(mu_s, 1) for k, v in entries.items()}
+        assert at_one == {"degree": 1, "s": 0, "slope": -1, "nu_perp": 1, "nu_par": 1, "excess": 0}
+
+
+# ============================================================================================
+# 23  Vacuum divergence for any configuration
+# ============================================================================================
+def gN_two(X, m1=1.0, p1=(0, 0, 0), m2=0.3, p2=(3.0, 0.5, 0)):
+    g = np.zeros(3)
+    for m_, p in ((m1, p1), (m2, p2)):
+        d = np.array(p, float) - X
+        g += m_ * d / np.linalg.norm(d) ** 3
+    return g
+
+
+def divergence(field, X, h=1e-4):
+    return sum((field(X + h * e)[k] - field(X - h * e)[k]) / (2 * h)
+               for k, e in enumerate(np.eye(3)))
+
+
+class TestVacuumDivergence:
+    def test_drainless_field_has_no_vacuum_divergence_exact(self):
+        """Any sum of point-mass fields is divergence-free off the masses (two masses, symbolic)."""
+        X = sp.Matrix(sp.symbols("X1:4", real=True))
+        m1, m2, b = sp.symbols("m1 m2 b", positive=True)
+        P1, P2 = sp.Matrix([0, 0, 0]), sp.Matrix([b, 0, 0])
+        g = sum((m_ * (P - X) / ((P - X).dot(P - X)) ** sp.Rational(3, 2) for m_, P in ((m1, P1), (m2, P2))),
+                sp.zeros(3, 1))
+        div = sum(sp.diff(g[k], X[k]) for k in range(3))
+        assert sp.simplify(div) == 0
+
+    @pytest.mark.parametrize("X", [np.array([1.5, 1.0, 0.3]), np.array([-2.0, 0.4, 1.0]), np.array([6.0, -3.0, 2.0])])
+    def test_drained_field_has_vacuum_divergence(self, X):
+        """QUMOND form g = nu(|g_N|/a0) g_N (units G = a0 = 1): nonzero divergence in empty space."""
+        nu = lambda yy: 0.5 + np.sqrt(0.25 + 1 / yy)
+        drained = lambda Y: nu(np.linalg.norm(gN_two(Y))) * gN_two(Y)
+        lin = lambda Y: gN_two(Y)
+        assert abs(divergence(lin, X)) < 1e-6
+        assert abs(divergence(drained, X)) > 1e-3
+
+    def test_phantom_density_is_positive_in_the_deep_field(self):
+        """Far out, the phantom density -div g /(4 pi) is positive: the TetB share adds flux."""
+        nu = lambda yy: 0.5 + np.sqrt(0.25 + 1 / yy)
+        drained = lambda Y: nu(np.linalg.norm(gN_two(Y))) * gN_two(Y)
+        for R in (10.0, 30.0, 100.0):
+            X = np.array([R, 0.7 * R, 0.2 * R])
+            assert -divergence(drained, X, h=1e-3 * R) > 0
+
+
+# ============================================================================================
+# 24  No self-force
+# ============================================================================================
+class TestNoSelfForce:
+    """Inside its sheet the host term contains the sheet's own smoothed ball, a field linear in
+    position, GM r/l^3, passed through the host's response tensor R (any 3x3 matrix). Its net
+    force on the sheet's bodies is R (GM/l^3) sum m_i r_i = 0 about the centre of mass.
+    So a sheet cannot push itself, whatever the host's anisotropic response."""
+
+    def test_net_self_force_vanishes(self):
+        n = 4
+        m = sp.symbols("m0:%d" % n, positive=True)
+        P = [sp.Matrix(sp.symbols(f"p{i}_1:4", real=True)) for i in range(n)]
+        Rm = sp.Matrix(3, 3, sp.symbols("R0:9", real=True))
+        k = sp.Symbol("k", positive=True)                      # GM/l^3
+        com = sum((m[i] * P[i] for i in range(n)), sp.zeros(3, 1)) / sum(m)
+        Q = [P[i] - com for i in range(n)]                     # positions about the COM
+        F = sum((m[i] * Rm * (k * Q[i]) for i in range(n)), sp.zeros(3, 1))
+        assert sp.simplify(F) == sp.zeros(3, 1)
+
+    def test_self_torque_is_tide_like_not_zero(self):
+        """The same term does exert a torque for an anisotropic R: it is the size of the tide
+        (k = GM/l^3 = 2 Omega^2 at l = r_J), so it belongs with the tide-level residual."""
+        k = GM_SUN / jacobi_radius(GM_SUN, OMEGA_SUN) ** 3
+        assert k == pytest.approx(2 * OMEGA_SUN**2, rel=1e-12)
+
+
+# ============================================================================================
+# 25  The sheet's edge: bounded below by Cassini, above by binding
+# ============================================================================================
+def nu_par(m_):
+    return 1 / (m_ * (2 - m_))
+
+
+class TestSheetEdgeBounds:
+    """Inside a sheet of radius l the residual is (response - 1) GM/l^3 per unit distance.
+    Its anisotropic part is a quadrupole that Cassini bounds. So l cannot be small (that is
+    the per-mass reading again), and it cannot exceed the Jacobi radius (unbound)."""
+
+    m_e = mu(1.9)
+
+    def quad_residual(self, l):
+        return abs(1 / self.m_e - nu_par(self.m_e)) * GM_SUN / l**3
+
+    def l_min(self):
+        return (abs(1 / self.m_e - nu_par(self.m_e)) * GM_SUN / Q2_CASSINI_2SIGMA) ** (1 / 3)
+
+    def test_small_sheet_is_excluded(self):
+        assert self.quad_residual(100 * AU) > 1e4 * Q2_CASSINI_2SIGMA
+
+    def test_cassini_lower_bound_on_the_edge(self):
+        lmin = self.l_min() / AU
+        assert 3e3 < lmin < 2e4                                # ~ 10^4 AU
+
+    def test_lower_bound_is_near_the_mond_radius(self):
+        rM = math.sqrt(GM_SUN / A0) / AU
+        assert 0.5 < (self.l_min() / AU) / rM < 3
+
+    def test_jacobi_edge_sits_inside_the_window(self):
+        rJ = jacobi_radius(GM_SUN, OMEGA_SUN)
+        assert rJ > 10 * self.l_min()
+
+    def test_window_is_not_empty_for_any_star(self):
+        """l_min ~ M^(1/3), r_J ~ M^(1/3): their ratio is independent of the star's mass, so the
+        window exists for every star at the Sun's galactocentric radius."""
+        ratios = []
+        for Mfac in (0.1, 1.0, 10.0, 100.0):
+            GMx = Mfac * GM_SUN
+            lmin = (abs(1 / self.m_e - nu_par(self.m_e)) * GMx / Q2_CASSINI_2SIGMA) ** (1 / 3)
+            ratios.append(jacobi_radius(GMx, OMEGA_SUN) / lmin)
+        assert max(ratios) / min(ratios) == pytest.approx(1.0, rel=1e-9)
+
+
+# ============================================================================================
+# 26  The involution singles out x/(1+x)
+# ============================================================================================
+class TestInvolutionUniqueness:
+    """Standard family mu_n = x/(1 + x^n)^(1/n) (n = 1 is GFD's, n = 2 the 'standard' MOND).
+    Its log-derivative is x mu'/mu = 1 - mu^n, so the flux exponent is s = 2(1 - mu^n)/(2 - mu^n).
+    The map mu -> s is an involution only for n = 1."""
+
+    n = sp.Symbol("n", positive=True)
+
+    def test_log_derivative(self):
+        for nv in (1, 2, 3):
+            m_ = x / (1 + x**nv) ** sp.Rational(1, nv)
+            L = sp.simplify(x * sp.diff(m_, x) / m_)
+            assert sp.simplify(L - (1 - m_**nv)) == 0
+
+    def test_flux_exponent(self):
+        """s = 2 - 2/(2 - mu^n) from the point-mass flux, for n = 1, 2."""
+        for nv in (1, 2):
+            m_ = x / (1 + x**nv) ** sp.Rational(1, nv)
+            gt_x = x                                           # units a0 = 1: g_t = x
+            gN_x = x * m_
+            dln_gN = sp.simplify(sp.diff(sp.log(gN_x), x) * x)  # d ln g_N / d ln g_t
+            s_ = 2 - 2 / dln_gN
+            assert sp.simplify(s_ - (2 - 2 / (2 - m_**nv))) == 0
+
+    def test_involution_only_for_n_one(self):
+        u = sp.Symbol("u", positive=True)
+        for nv, expect in ((1, True), (2, False), (3, False)):
+            fmap = lambda w: 2 * (1 - w**nv) / (2 - w**nv)
+            val = float(fmap(fmap(sp.Rational(3, 10))))
+            assert (abs(val - 0.3) < 1e-12) is expect
+
+
+# ============================================================================================
+# 27  An a0-free test of the law's shape on SPARC
+# ============================================================================================
+SPARC_CSV = (__import__("pathlib").Path(__file__).resolve().parents[2]
+             / "papers/letter-radial-acceleration-relation-sparc/supplementary/sparc_rar.csv")
+
+
+@pytest.fixture(scope="module")
+def rar():
+    import csv
+    rows = list(csv.DictReader(open(SPARC_CSV)))
+    gal = np.array([r_["galaxy"] for r_ in rows])
+    gb = np.array([float(r_["g_bar_ms2"]) for r_ in rows])
+    go = np.array([float(r_["g_obs_ms2"]) for r_ in rows])
+    return gal, np.log10(gb), np.log10(go)
+
+
+def binned_slope_test(gal, lb, lo, edges, n):
+    c, m_ = [], []
+    for a, b in zip(edges[:-1], edges[1:]):
+        s_ = (lb >= a) & (lb < b)
+        c.append(np.median(lb[s_]))
+        m_.append(np.median(lo[s_]))
+    c, m_ = np.array(c), np.array(m_)
+    beta = (m_[2:] - m_[:-2]) / (c[2:] - c[:-2])               # central differences
+    muo = 10 ** (c[1:-1] - m_[1:-1])
+    pred = 1 / (2 - muo**n)
+    return beta, pred
+
+
+@pytest.mark.skipif(not SPARC_CSV.exists(), reason="SPARC RAR csv not present")
+class TestRARSlopeShape:
+    """The local slope of the RAR, beta = d ln g_obs / d ln g_bar, is the inverse degree of the
+    law: beta = 1/(2 - mu) for GFD, 1/(2 - mu^2) for the standard MOND law. Both sides are
+    measured (mu = g_bar/g_obs), so the test uses NO value of a0. Bins in g_bar, where the
+    points are dense (-11.25 to -9.15 dex)."""
+
+    edges = np.arange(-11.55, -8.84, 0.30)
+
+    def test_sample(self, rar):
+        gal, lb, lo = rar
+        assert len(lb) > 3000 and len(set(gal)) > 150
+
+    def test_gfd_shape_fits_better_than_standard(self, rar):
+        gal, lb, lo = rar
+        b1, p1 = binned_slope_test(gal, lb, lo, self.edges, 1)
+        b2, p2 = binned_slope_test(gal, lb, lo, self.edges, 2)
+        rms1 = np.sqrt(np.mean((b1 - p1) ** 2))
+        rms2 = np.sqrt(np.mean((b2 - p2) ** 2))
+        assert rms1 < rms2
+        assert rms1 < 0.06
+
+    def test_bootstrap_over_galaxies(self, rar):
+        """Resample galaxies; GFD's shape should win in most realisations."""
+        gal, lb, lo = rar
+        names = np.unique(gal)
+        rng = np.random.default_rng(11)
+        idx = {g_: np.where(gal == g_)[0] for g_ in names}
+        wins = 0
+        N = 200
+        for _ in range(N):
+            pick = rng.choice(names, size=len(names), replace=True)
+            sel = np.concatenate([idx[p] for p in pick])
+            b1, p1 = binned_slope_test(gal[sel], lb[sel], lo[sel], self.edges, 1)
+            b2, p2 = binned_slope_test(gal[sel], lb[sel], lo[sel], self.edges, 2)
+            wins += np.mean((b1 - p1) ** 2) < np.mean((b2 - p2) ** 2)
+        assert wins / N > 0.8
