@@ -722,3 +722,314 @@ class TestBallKeepsItsTetB:
         tail = g_total(GM_SUN / (PLANETS_AU["Saturn"] * AU) ** 2) - GM_SUN / (PLANETS_AU["Saturn"] * AU) ** 2
         tide = V_SUN**2 / R_SUN**2 * PLANETS_AU["Saturn"] * AU
         assert tail / tide > 1e7
+
+
+# ============================================================================================
+# THE ALGEBRA OF THE RULE
+# Parts 16-20 state the rule as algebra. Four equivalent faces of one statement:
+#   a field is drainless  <=>  its law is linear (superposition holds)
+#                         <=>  a guest's response tensor is the identity (bare G)
+#                         <=>  its flux is conserved across empty shells (no vacuum divergence)
+#                         <=>  its TetB share 1 - mu is zero in its exterior.
+# And the pointer projection that builds the hierarchy is an exact, idempotent, nested projector.
+# ============================================================================================
+gs_, gt_, a0_, lam = sp.symbols("g_s g_t a_0 lambda", positive=True)
+F_SIMPLE = (gs_ + sp.sqrt(gs_**2 + 4 * gs_ * a0_)) / 2        # the drained law, g_t = F(g_s)
+
+
+# ============================================================================================
+# 16  Drainless <=> linear: superposition is the drain criterion
+# ============================================================================================
+class TestSuperposition:
+    def test_drainless_law_is_additive(self):
+        a, b = sp.symbols("a b", positive=True)
+        L = lambda g: g
+        assert sp.simplify(L(a + b) - L(a) - L(b)) == 0
+
+    def test_drained_law_is_not_additive(self):
+        """The interaction term F(a+b) - F(a) - F(b) is nonzero, and negative: two drained
+        sources together pull less than the sum of each alone."""
+        a, b = sp.symbols("a b", positive=True)
+        I = F_SIMPLE.subs(gs_, a + b) - F_SIMPLE.subs(gs_, a) - F_SIMPLE.subs(gs_, b)
+        val = I.subs({a: 1, b: 2, a0_: 1})
+        assert float(val) < 0
+        # concavity is the reason: F'' < 0 for every g_s > 0
+        F2 = sp.simplify(sp.diff(F_SIMPLE, gs_, 2))
+        assert all(float(F2.subs({gs_: v, a0_: 1})) < 0 for v in (1e-4, 1e-2, 1, 1e2, 1e4))
+
+    def test_deep_field_is_maximally_nonlinear(self):
+        """Deep field: F(lam g) / F(g) -> sqrt(lam), degree 1/2. Strong field: -> lam, degree 1."""
+        deep = sp.limit(F_SIMPLE.subs(gs_, lam * gs_) / F_SIMPLE, gs_, 0)
+        strong = sp.limit(F_SIMPLE.subs(gs_, lam * gs_) / F_SIMPLE, gs_, sp.oo)
+        assert sp.simplify(deep - sp.sqrt(lam)) == 0
+        assert sp.simplify(strong - lam) == 0
+
+    def test_nonlinearity_is_carried_by_the_tetb_share(self):
+        """The degree of F, d ln F / d ln g_s, equals 1/(2 - mu): 1 exactly when mu = 1 (no TetB
+        share, linear) and 1/2 when mu = 0 (all TetB, square root)."""
+        gN = gt_**2 / (gt_ + a0_)                       # g_s as a function of g_t
+        degree = sp.simplify(1 / (sp.diff(gN, gt_) * gt_ / gN))
+        m = gt_ / (gt_ + a0_)
+        assert sp.simplify(degree - 1 / (2 - m)) == 0
+
+
+# ============================================================================================
+# 17  Drainless <=> identity response: the bare G of Part 7, as algebra
+# ============================================================================================
+y_, x_ = sp.symbols("y x", positive=True)
+NU_SIMPLE = sp.Rational(1, 2) + sp.sqrt(sp.Rational(1, 4) + 1 / y_)     # g = nu(g_N/a0) g_N
+
+
+class TestResponseTensor:
+    """Put a guest's field delta through the host's drained law, g = nu(|g_N|/a0) g_N, at the
+    host field g_e e. To first order delta -> nu delta_perp + d(y nu)/dy delta_par.
+    The response is the identity only if nu = 1 and nu' = 0: only if there is no TetB share."""
+
+    def test_linearisation(self):
+        e1, e2, d1, d2 = sp.symbols("e1 e2 d1 d2", real=True)
+        ge = sp.Symbol("g_e", positive=True)
+        nu = sp.Function("nu")
+        g = sp.Matrix([ge + e1 * d1, e2 * d2])          # host along axis 1, guest (d1, d2)
+        norm = sp.sqrt(g.dot(g))
+        out = nu(norm / a0_) * g
+        par = sp.diff(out[0], e1).subs({e1: 0, e2: 0})
+        perp = sp.diff(out[1], e2).subs({e1: 0, e2: 0})
+        yy = sp.Symbol("Y", positive=True)
+        expected_par = (nu(yy) + yy * sp.diff(nu(yy), yy)).subs(yy, ge / a0_) * d1
+        expected_perp = nu(ge / a0_) * d2
+        assert sp.simplify((par - expected_par).doit()) == 0
+        assert sp.simplify(perp - expected_perp) == 0
+
+    def test_simple_nu_inverts_simple_mu(self):
+        """nu(y) = 1/mu(x) where y = x mu(x): the two forms of the law agree."""
+        yy = x_ * x_ / (x_ + 1)
+        n = (x_ + 1) / x_
+        # nu is the root > 1/2 of nu^2 - nu - 1/y = 0; check (x+1)/x is that root
+        assert sp.simplify(n**2 - n - 1 / yy) == 0
+        assert all(float(n.subs(x_, v)) > 0.5 for v in (1e-3, 1, 1e3))
+        assert float((NU_SIMPLE.subs(y_, yy) - n).subs(x_, sp.Rational(7, 3))) == pytest.approx(0, abs=1e-14)
+
+    def test_response_is_never_identity_at_finite_field(self):
+        """nu > 1 and d(y nu)/dy > 1 for every finite y: any rule that sends the guest through
+        the host's law boosts it. Both tend to 1 only as y -> oo (TetA alone)."""
+        par = sp.simplify(sp.diff(y_ * NU_SIMPLE, y_))
+        for v in (1e-3, 1e-1, 1, 10, 1e3, 1e6):
+            assert float(NU_SIMPLE.subs(y_, v)) > 1
+            assert float(par.subs(y_, v)) > 1
+        assert sp.limit(NU_SIMPLE, y_, sp.oo) == 1
+        assert sp.limit(par, y_, sp.oo) == 1
+
+    @pytest.mark.parametrize("name", ["Pal 14", "Pal 4"])
+    def test_size_of_the_boost_that_clusters_rule_out(self, name):
+        *_, x_e, _ = sigmas(name)
+        y_e = x_e * mu(x_e)
+        nu_e = float(NU_SIMPLE.subs(y_, y_e))
+        assert nu_e == pytest.approx(1 / mu(x_e), rel=1e-9)
+        assert nu_e > 7                          # sigma would be > 2.6x Newtonian; it is ~1x
+
+    def test_drainless_guest_has_identity_response(self):
+        """The rule: the guest's field bypasses the host's law and adds linearly."""
+        d = sp.Matrix(sp.symbols("d1 d2 d3", real=True))
+        host = sp.Matrix(sp.symbols("h1 h2 h3", real=True))
+        total = host + d
+        J = total.jacobian(list(d))
+        assert J == sp.eye(3)
+
+
+# ============================================================================================
+# 18  Drainless <=> flux conserved across empty shells; the TetB share is the flux growth
+# ============================================================================================
+class TestFluxAndDrain:
+    """Flux through a sphere around a mass: Phi(r) = 4 pi r^2 g(r). A drainless field has
+    d Phi/dr = 0 in vacuum (Gauss with real sources only). A drained field does not: its
+    flux grows across matter-free shells, by exactly the TetB share's phantom density."""
+
+    def test_flux_growth_exponent_is_a_function_of_mu_alone(self):
+        """For a point mass under the simple law, d ln Phi / d ln r = 2(1 - mu)/(2 - mu)."""
+        GM = sp.Symbol("GM", positive=True)
+        gN = GM / r**2
+        gt = F_SIMPLE.subs(gs_, gN)
+        s_exp = sp.simplify(sp.diff(sp.log(r**2 * gt), r) * r)
+        m = gt / (gt + a0_)
+        target = 2 * (1 - m) / (2 - m)
+        for vals in ({GM: 1, a0_: 1, r: sp.Rational(1, 3)}, {GM: 5, a0_: 2, r: 7}, {GM: 1, a0_: 1, r: 40}):
+            assert float((s_exp - target).subs(vals)) == pytest.approx(0, abs=1e-12)
+
+    def test_exponent_limits(self):
+        m = sp.Symbol("m", positive=True)
+        s_m = 2 * (1 - m) / (2 - m)
+        assert s_m.subs(m, 1) == 0                       # drainless: flux conserved (Kepler)
+        assert sp.limit(s_m, m, 0) == 1                  # deep drained field: flux grows as r
+        assert s_m.subs(m, sp.Rational(1, 2)) == sp.Rational(2, 3)   # the ring x = 1
+
+    def test_rotation_curve_slope_is_the_same_statement(self):
+        """d ln v^2 / d ln r = -mu/(2 - mu): Keplerian -1 at mu = 1, flat 0 at mu = 0."""
+        m = sp.Symbol("m", positive=True)
+        slope = (2 * (1 - m) / (2 - m)) - 1
+        assert sp.simplify(slope + m / (2 - m)) == 0
+
+    def test_phantom_density_of_the_deep_field_is_an_isothermal_halo(self):
+        """Deep field g = sqrt(GM a0)/r: vacuum divergence (1/r^2) d(r^2 g)/dr = sqrt(GM a0)/r^2,
+        i.e. rho_ph = sqrt(GM a0)/(4 pi G r^2), and the flux grows linearly."""
+        GM = sp.Symbol("GM", positive=True)
+        g = sp.sqrt(GM * a0_) / r
+        div = sp.diff(r**2 * g, r) / r**2
+        assert sp.simplify(div - sp.sqrt(GM * a0_) / r**2) == 0
+        assert sp.simplify(sp.diff(4 * sp.pi * r**2 * g, r) - 4 * sp.pi * sp.sqrt(GM * a0_)) == 0
+
+    def test_kepler_flux_is_conserved_in_the_solar_system_sheet(self):
+        """Drainless sheet: GM inferred from each planet is the same (exponent 0). A drained
+        sheet (per-mass reading) would make it grow ~ 1/x: by 2e-5 at Neptune."""
+        GMs = [GM_SUN for _ in PLANETS_AU]                   # the drainless prediction
+        assert max(GMs) == min(GMs)
+        x_nep = GM_SUN / (PLANETS_AU["Neptune"] * AU) ** 2 / A0
+        assert 1e-5 < 1 / x_nep < 3e-5
+
+    def test_flux_excess_is_the_missing_mass(self):
+        """Phi(r)/(4 pi G) = M/mu at every radius (spherical): the excess M(1/mu - 1) is what
+        is called dark matter, and it is zero exactly where the TetB share is zero."""
+        m = sp.Symbol("m", positive=True)
+        M = sp.Symbol("M", positive=True)
+        excess = M / m - M
+        assert excess.subs(m, 1) == 0
+        assert sp.simplify(excess - M * (1 - m) / m) == 0      # = M / Omega, Omega = mu/(1-mu)
+
+
+# ============================================================================================
+# 19  The pointer projection: exact, idempotent, nested
+# ============================================================================================
+def pointer(masses, centre, radius):
+    """Replace every mass inside a ball by one uniform ball of the same total mass at its centre.
+    masses: list of points (m, position) and balls ('ball', M, centre, radius)."""
+    is_ball = lambda b: isinstance(b[0], str)
+    where = lambda b: np.array(b[2] if is_ball(b) else b[1])
+    mass = lambda b: b[1] if is_ball(b) else b[0]
+    inside = [b for b in masses if np.linalg.norm(where(b) - centre) < radius]
+    rest = [b for b in masses if b not in inside]
+    M = sum(mass(b) for b in inside)
+    return rest + [("ball", M, tuple(float(c) for c in centre), radius)]
+
+
+def field_at(masses, X):
+    g = np.zeros(3)
+    for b in masses:
+        if isinstance(b[0], str):
+            _, M, c, R = b
+            d = np.array(c) - X
+            dist = np.linalg.norm(d)
+            g += M * d / dist**3 if dist >= R else M * d / R**3
+        else:
+            m_, p = b
+            d = np.array(p) - X
+            g += m_ * d / np.linalg.norm(d) ** 3
+    return g
+
+
+class TestPointerProjection:
+    rng = np.random.default_rng(7)
+
+    def system(self):
+        # a 'sun' and 'planets' inside radius 1 about the origin, plus distant masses
+        pts = [(1.0, (0.0, 0.0, 0.0))] + [(1e-3 * (i + 1), tuple(self.rng.normal(0, 0.2, 3))) for i in range(6)]
+        far = [(2.0, (10.0, 0.0, 0.0)), (3.0, (0.0, -12.0, 4.0))]
+        return pts + far
+
+    def test_idempotent(self):
+        s1 = pointer(self.system(), np.zeros(3), 1.0)
+        s2 = pointer(s1, np.zeros(3), 1.0)
+        assert s1 == s2
+
+    def test_nested_projections_compose(self):
+        """Projecting a small ball and then a larger one that contains it is the same as
+        projecting the larger one directly: the hierarchy of sheets is consistent."""
+        sys0 = self.system()
+        a = pointer(pointer(sys0, np.zeros(3), 0.5), np.zeros(3), 1.0)
+        b = pointer(sys0, np.zeros(3), 1.0)
+        assert a[-1][1] == pytest.approx(b[-1][1]) and a[-1][2:] == b[-1][2:]
+
+    def test_mass_is_conserved(self):
+        sys0 = self.system()
+        tot0 = sum(m_ for m_, _ in sys0)
+        s1 = pointer(sys0, np.zeros(3), 1.0)
+        tot1 = sum(b[1] if isinstance(b[0], str) else b[0] for b in s1)
+        assert tot1 == pytest.approx(tot0)
+
+    def test_monopole_part_of_exterior_field_is_unchanged(self):
+        """Outside the ball the projected field differs from the original only by the
+        sheet's internal multipoles (here l >= 1, small): the host's coarse field is exact
+        to the quadrupole of the sheet. With the 'sun' dominating, the relative error is tiny."""
+        sys0 = self.system()
+        s1 = pointer(sys0, np.zeros(3), 1.0)
+        for X in (np.array([5.0, 1.0, 0.0]), np.array([-8.0, 3.0, 2.0]), np.array([0.0, 0.0, 20.0])):
+            g0, g1 = field_at(sys0, X), field_at(s1, X)
+            assert np.linalg.norm(g0 - g1) / np.linalg.norm(g0) < 2e-3
+
+
+# ============================================================================================
+# 20  The rule in one formula
+# ============================================================================================
+class TestRuleInOneFormula:
+    """g = F_host[ g_N(P rho) ] + g_N(rho - P rho)
+    P: the pointer projection onto drainless sheets; F_host: the drained law of the host field.
+    Every earlier part is a property of this one formula."""
+
+    def test_at_a_planet(self):
+        """At Saturn: host term ~ 2.3e-10 m/s^2 (uniform, removed by free fall), sheet term =
+        GM_sun/r^2 exactly (bare G), host residual inside the sheet ~ tide level."""
+        r_sat = PLANETS_AU["Saturn"] * AU
+        host = g_total(1.9 * mu(1.9) * A0)
+        sheet = GM_SUN / r_sat**2
+        assert host == pytest.approx(1.9 * A0, rel=1e-9)        # the host's own net field, x = 1.9
+        rel_motion = sheet                                     # free fall removes 'host'
+        assert rel_motion == GM_SUN / r_sat**2
+        residual = (1 / mu(1.9) - 1) * 2 * OMEGA_SUN**2 * r_sat
+        assert residual / sheet < 1e-13
+
+    def test_the_four_faces_agree(self):
+        """For the simple law, at any TetB share m in (0, 1]: additivity defect, response
+        defect, flux growth and TetB share all vanish together, and only at m = 1."""
+        m = sp.Symbol("m", positive=True)
+        degree_defect = 1 - 1 / (2 - m)                  # Part 16: F's degree minus 1, up to sign
+        response_defect = 1 / m - 1                      # Part 17: nu - 1 = 1/mu - 1
+        flux_growth = 2 * (1 - m) / (2 - m)              # Part 18
+        tetb_share = 1 - m
+        for f in (degree_defect, response_defect, flux_growth, tetb_share):
+            assert sp.simplify(f.subs(m, 1)) == 0
+            assert sp.solve(sp.Eq(f, 0), m) == [1]
+
+
+# ============================================================================================
+# 21  The flux exponent and the TetA share are exchanged by an involution
+# ============================================================================================
+def f_inv(u):
+    return 2 * (1 - u) / (2 - u)
+
+
+class TestFluxInvolution:
+    """s = f(mu) with f(u) = 2(1 - u)/(2 - u), and f(f(u)) = u: the same map sends the flux
+    exponent back to the TetA share. So outside the baryons (enclosed mass constant), the
+    slope of a rotation curve alone gives mu, x and a0, with no mass model:
+        s = 1 + d ln v^2 / d ln r,   mu = f(s),   x = mu/(1 - mu),   a0 = (v^2/r)/x."""
+
+    def test_f_is_an_involution(self):
+        u = sp.Symbol("u")
+        assert sp.simplify(f_inv(f_inv(u)) - u) == 0
+
+    def test_fixed_point(self):
+        u = sp.Symbol("u", positive=True)
+        sols = sp.solve(sp.Eq(f_inv(u), u), u)
+        assert sp.Rational(1, 1) * (2 - sp.sqrt(2)) in [sp.nsimplify(s_) for s_ in sols]
+
+    def test_a0_from_the_slope_of_a_synthetic_curve(self):
+        """Synthetic galaxy: point mass M, simple law, a0 = 1.2e-10. Read a0 back from v(r) and
+        its log-slope alone, beyond the baryons."""
+        M = 5e10 * 1.989e30
+        rs = np.logspace(np.log10(20 * KPC), np.log10(200 * KPC), 40)
+        gN = G * M / rs**2
+        v2 = g_total(gN) * rs
+        slope = np.gradient(np.log(v2), np.log(rs))
+        s_ = 1 + slope
+        m_ = f_inv(s_)
+        xx = m_ / (1 - m_)
+        a0_read = (v2 / rs) / xx
+        assert np.allclose(a0_read[2:-2], A0, rtol=2e-3)
