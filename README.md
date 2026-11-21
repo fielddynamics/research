@@ -110,7 +110,7 @@ GFD proposes that the local gravitational frame has a definite interior geometry
 | Connection split | `K³ = 64 = 40 + 24`: GR's torsion-free condition keeps 40 Christoffel components and discards the 24 torsion components, which GFD identifies with TetB |
 | Gravitational constant (exploratory) | `G = (17/13) α²¹ ħc / m_e²` |
 
-For a guided explanation of each step, start with the [documentation](docs/README.md): Foundations, Gravitation, Fundamental Constants and Galactic Dynamics. Two plain-language summaries of the tetrad letters are at the top level: [Einstein's equation as the TetA partition](EINSTEIN_TETA_PARTITION.md) and [The twenty-four that were set aside](FIELD_CLOSURE_OF_THE_TETRAD_FRAME.md).
+If you are new to GFD, start with [**The Missing Mass**](THE_MISSING_MASS.md), a magazine-style article that tells the story from Vera Rubin's flat rotation curves to the tug of war between TetA and TetB, explains what $a_0$ is, and shows how a galaxy works like a vortex. For a guided explanation of each step, continue with the [documentation](docs/README.md): Foundations, Gravitation, Fundamental Constants and Galactic Dynamics. Two plain-language summaries of the tetrad letters are at the top level: [Einstein's equation as the TetA partition](EINSTEIN_TETA_PARTITION.md) and [The twenty-four that were set aside](FIELD_CLOSURE_OF_THE_TETRAD_FRAME.md).
 
 ---
 

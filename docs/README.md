@@ -8,6 +8,10 @@ Only completed pages are included. The documentation site also planned pages on 
 
 ## Contents
 
+### Start here
+
+1. [The Other Root](00-start-here/01-the-other-root.md): the story of the missing mass for a general reader, from Rubin's flat rotation curves to the tug of war between TetA and TetB, what $a_0$ is, and how a galaxy works like a vortex. The same article is at the top level of the repository as [`THE_MISSING_MASS.md`](../THE_MISSING_MASS.md).
+
 ### Foundations
 
 1. [The Gravity Field](01-foundations/01-the-gravity-field.md)
