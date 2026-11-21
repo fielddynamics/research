@@ -1,0 +1,52 @@
+A. Lemma 1: the cube forces a two-team share
+  [PASS] T_d has 24 elements, each keeping TetA and TetB
+  [PASS] the T_d-symmetric states form a 2-dimensional space, spanned by the chamber indicators
+  [PASS] mu = wA/(wA+wB); rope position s = c_xyz/c_1 = (x-1)/(x+1) = 2mu - 1; f = 17 + 4s = (21x+13)/(x+1)
+  [PASS] the inversion -I swaps the teams: mu -> 1 - mu (50 random states)
+  [PASS] adding any T2 (vortex) mode leaves mu unchanged (50 random combinations)
+B. Theorem 1: exchange turns screening into a power law
+  [PASS] x^n (1-mu)^m = mu^p is exchange-symmetric iff m = p (all 27 cases n, m, p in {1,2,3})
+  [PASS] the step of the proof: q^m = q^p with 0 < q = mu(1-mu) <= 1/4 forces m = p
+  [PASS] m = p gives Omega = mu/(1-mu) = x^(n/p) exactly
+  [PASS] every mu_k = x^k/(1+x^k) is exchange-symmetric, with mu_k(1) = 1/2
+C. Theorem 2: what fixes the power
+  [PASS] (i) <=> (ii): the strengths add up to the field, mu (g + a0) = g, only for k = 1
+  [PASS] (ii) exactly: mu_k (x + 1) = x  <=>  x^k = x
+  [PASS] (iii): the outer slope of v^2 is (k-1)/(k+1) for k = 0.5, 1, 2, 3 (flat only for k = 1)
+  [PASS] (iii) exactly: in the deep field g^(k+1) = GM a0^k / r^2, so v^2 = g r ∝ r^((k-1)/(k+1))
+  [PASS] k = 1 gives Tully-Fisher: v^4 = GM a0
+  [PASS] (iv): x^k is a degree-one (Moebius) function of x only for k = 1 (k = 2, 3 have no Moebius form)
+  [PASS] the law is the tug of war: g/(g + a0) = law(g/a0)
+D. Proposition 1: each premise is necessary
+  [PASS] (a) without screening: exchange, both MOND limits and monotonicity hold for a law that is not x/(x+1)
+  [PASS] (b) unequal powers: x(1-mu)^2 = mu gives mu(1) = 1/phi^2 = 0.382, not 1/2
+  [PASS] (c) k = 2: v^2 keeps rising (by 2.15x per decade of radius)
+  [PASS] (d) the standard, exponential and n = 3 functions break the exchange; x/(x+1) keeps it exactly
+  [PASS] (e) degree one + endpoint + exchange leave x/(x+1) and x/(x-1); only x/(x+1) stays in [0,1]
+E. Proposition 2: the Field Origin as one node, and the cap
+  [PASS] one node: the Field Origin is the strength-weighted average; eliminating it leaves cA cB/(cA + cB)
+  [PASS] the cube through its Field Origin: one rope (rank one) with TetA share tA/(tA + tB)
+  [PASS] direct cube-edge links between the chambers break the rule
+  [PASS] g = mu g + mu a0, and TetB carries (1 - mu) g = mu a0
+  [PASS] TetB's pull rises towards a0 and never passes it
+  [PASS] missing / visible = a0/g
+  [PASS] the exchange on pulls, g -> c/g, is a dilation-covariant involution with fixed point sqrt(c) = a0
+F. Theorem 3: decoding mass, quiet, drive and brake
+  [PASS] M_dec/M_phot = mu(g/a0) g / g_bar = (g + w)/(g + a0), with w = g (g - g_bar)/g_bar
+  [PASS] Delta M / M_phot = (w - a0)/(g + a0)
+  [PASS] the decode is the letter's M_dec = r v^4 / (G (a0 r + v^2))
+  [PASS] drive <=> w > a0 <=> TetB pulls more than mu a0; brake <=> the reverse (2000 random points)
+  [PASS] quiet is exactly the law: g_bar = mu g gives M_dec = M_phot and w = a0
+  [PASS] the same change in w moves the decode by (w - a0)/(g + a0): 45% at g = a0/10, 5e-8 at g = 1e7 a0
+G. Proposition 3: the vortex
+  [PASS] Burgers: inflow -alpha r/2 balances stretching alpha omega and diffusion: steady, exact
+  [PASS] Burgers swirl Gamma/(2 pi r) (1 - exp(-alpha r^2/4 nu)) solves the azimuthal Navier-Stokes equation
+  [PASS] Lamb-Oseen: with no drain the vortex diffuses, d_t omega = nu (omega'' + omega'/r), exact
+  [PASS] at fixed circulation the core vorticity is Gamma alpha/(4 pi nu): a stronger drain spins the core up
+  [PASS] quadrupling the drain halves the core radius and doubles the peak swirl
+  [PASS] far from the core the swirl is Gamma/(2 pi r), whatever the drain strength
+H. Remark: two corrections to the March 2026 syntheses
+  [PASS] N independent sites fill to x/(1+x) for every N; x^N/(1+x^N) needs them to fill together
+  [PASS] the standard function's inverse mu/sqrt(1-mu^2) is algebraic but not rational
+
+RESULT: 42 passed, 0 failed, 42 total

@@ -118,6 +118,8 @@ Five parts are cited or checked numerically rather than proved:
 
 GitHub re-checks the proof automatically whenever it, or any proof it builds on, changes; the badge at the top of this page shows the latest result. It is green only if the proof builds with no warnings, no gaps (`sorry`) and only Lean's standard axioms. [`LEAN_AUDIT.md`](LEAN_AUDIT.md) is a referee's guide to the formalisation.
 
+The [tug-of-war](../constitutive-law-tug-of-war/) formalisation imports this one: its two-team share is this proof's `scalar_invariant` and `node_mu`, and its check re-runs whenever this proof changes.
+
 ## What it does not claim
 
 - That the physical field is this node, or reads linearly.

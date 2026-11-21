@@ -1,0 +1,473 @@
+\documentclass[twocolumn]{iopjournal}
+
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{amsthm}
+
+\fancyhfoffset[L]{0mm}
+\setlength{\marginparwidth}{0pt}
+\setlength{\marginparsep}{0pt}
+
+% ==========================================
+% ZENODO PREPRINT HEADERS (ACTIVE)
+% ==========================================
+\renewcommand{\articletype}[1]{%
+  {\vspace*{-8mm}\noindent \Large \sf Preprint}\par
+  \vspace*{6mm}\noindent{\scriptsize \sf{\bfseries \MakeUppercase{#1}}}}
+
+\fancyhead[L]{}
+\fancyhead[R]{}
+
+\hypersetup{pdftitle={The Constitutive Law as a Tug of War}, pdfauthor={Stephen Nelson}, pdfsubject={Gravity Field Dynamics (GFD)}, pdfkeywords={constitutive law, interpolating function, MOND, exchange symmetry, screening, decoding mass, vortex, proof}}
+
+\newtheorem{lemma}{Lemma}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+\begin{document}
+
+\articletype{Proof}
+
+\title{The Constitutive Law as a Tug of War}
+
+\author{Stephen Nelson}
+
+\affil{Field Dynamics Research}
+
+\ead{stephen@fielddynamics.org}
+
+\begin{abstract}
+In Gravity Field Dynamics the constitutive law $\mu(x) = x/(x+1)$, with
+$x = g/a_0$, is the share of the field carried by TetA. We show that it is
+the outcome of a tug of war in which TetA pulls with the local field $g$
+and TetB pulls with $a_0$, so that $\mu = g/(g+a_0)$, and we identify
+exactly which premises make it so. On the cube, every state with the
+tetrahedral symmetry holds one value on each chamber, and the vortex modes
+cannot move the share. When a law obeys a screening relation of
+mass-action form, $x^n(1-\mu)^m = \mu^p$, the exchange of the two chambers
+holds exactly when $m = p$, and its odds $\mu/(1-\mu)$ are then a power of
+$x$. Among those powers, the first is singled out by each of three
+equivalent conditions: the two strengths are accelerations, rotation
+curves are flat, and the relation has degree one. Every other premise is
+shown necessary by an explicit alternative. The same algebra reads the
+decoding-mass letter's drive and brake as TetB pulling harder or softer
+than $a_0$: the decoded mass exceeds the photometric mass by
+$(w - a_0)/(g + a_0)$, where $w$ is TetB's measured strength. Exact
+Navier--Stokes solutions supply the vortex picture behind that reading.
+\end{abstract}
+
+\keywords{constitutive law, interpolating function, MOND, exchange
+symmetry, screening, decoding mass, Burgers vortex, proof}
+
+% ======================================================================
+
+\section*{Setting}
+
+At a point of a galaxy's net field the total pull is $g$, the pull of the
+visible matter is $g_{\rm bar}$, and $x = g/a_0$, with $a_0$ Milgrom's
+acceleration scale~\cite{Milgrom1983}. AQUAL~\cite{BM1984}
+relates them through $\mu(x)\,g = g_{\rm bar}$, and in GFD $\mu$ is the
+share of the field carried by TetA, the chamber we observe, while $1 - \mu$
+is carried by TetB, which lies beyond the Field Origin and is seen only
+through its share~\cite{NelsonL2,NelsonL3}. A share is most naturally
+written as odds,
+\begin{equation}
+  \Omega = \frac{\mu}{1-\mu},
+\end{equation}
+which run from $0$ (all TetB) to $\infty$ (all TetA) and equal $1$ at an
+even split. The exchange of the two chambers sends $\Omega$ to $1/\Omega$,
+and it is written
+\begin{equation}
+  \mu(1/x) = 1 - \mu(x). \tag{X}
+\end{equation}
+Taken at $x = 1$, (X) gives $\mu(1) = 1/2$, so the scale $a_0$ marks the
+pull at which the two chambers carry equal shares.
+
+The question this proof answers is the one a referee asks first: AQUAL
+admits infinitely many interpolating functions with the right limits, so
+what, exactly, selects $x/(x+1)$? Earlier routes~\cite{NelsonCL,NelsonCLL}
+each identify the odds with the acceleration ratio; here that
+identification is decomposed into premises that can be tested one at a
+time.
+
+\section*{Two teams on the cube}
+
+\begin{lemma}[Two teams]\label{lem:teams}
+Let a state on the cube's eight corners have the tetrahedral symmetry
+$T_d$. Then it holds one value $w_A$ on TetA's four corners and one value
+$w_B$ on TetB's, and
+\begin{enumerate}
+\item[(i)] its TetA share is $\mu = w_A/(w_A + w_B)$;
+\item[(ii)] the ratio of its $xyz$ and constant Walsh coefficients is
+  $s = (w_A - w_B)/(w_A + w_B) = 2\mu - 1$;
+\item[(iii)] the inversion $-I$ swaps $w_A$ and $w_B$, so $\mu \to 1-\mu$;
+\item[(iv)] adding any combination of the six $T_2$ modes leaves $\mu$
+  unchanged.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+$T_d$ acts transitively on each chamber, so a symmetric state is constant
+on each, and (i)--(iii) are then direct sums over the corners. The $T_2$
+modes sum to zero over each chamber, which is (iv). All four are proved in
+the Walsh-eigenmodes formalisation~\cite{NelsonWalsh}.
+\end{proof}
+
+The lemma says that the geometry leaves exactly two numbers free, one
+strength per team, and that their competition is all the share can
+express. The quantity $s$ is the position of the rope: it is the balance
+point of a corner $v$ weighted by $w_A$ and its antipode $-v$ weighted by
+$w_B$ on the body diagonal through the Field Origin, and with $w_A = x$,
+$w_B = 1$ it is the Möbius map $s = (x-1)/(x+1)$ of the archive's coupling
+polynomial, whose capacity $f = 17 + 4s = (21x+13)/(x+1)$ follows
+at once~\cite{NelsonDocs}. Item (iv) matters for what follows, because the
+cube's vortices are built from the $T_2$ modes~\cite{NelsonWalsh}: whatever
+rotation does, it cannot move the rope.
+
+\section*{Exchange turns screening into a power law}
+
+The constitutive-law synthesis~\cite{NelsonSynth} writes the law as a
+screening balance, signal times remaining capacity equals used capacity,
+$x(1-\mu) = \mu$. Its natural generalisation is the mass-action form
+\begin{equation}
+  x^n (1-\mu)^m = \mu^p, \qquad n, p > 0, \tag{S}
+\end{equation}
+which contains the synthesis law $(1,1,1)$, its bimetric law
+$x(1-\mu)^2 = \mu$, the bound-state law of Paper~XIII, and the Hill forms of
+cooperative binding~\cite{Hill1910}.
+
+\begin{theorem}\label{thm:power}
+Let $0 < \mu(x) < 1$ on $x > 0$ obey (S). Then $\mu$ satisfies the
+exchange (X) if and only if $m = p$. When $m = p$ the odds are a pure
+power,
+\begin{equation}
+  \Omega(x) = x^k, \qquad \mu = \mu_k(x) = \frac{x^k}{1 + x^k}, \qquad
+  k = \frac{n}{p},
+\end{equation}
+and every $\mu_k$ satisfies (X).
+\end{theorem}
+
+\begin{proof}
+If (X) holds, then $\mu(1) = 1/2$, and (S) at $x = 1$ reads
+$(1/2)^m = (1/2)^p$, so $m = p$. Conversely, if $m = p$, (S) says
+$\Omega^p = x^n$, so $\Omega = x^{n/p}$; and
+$\mu_k(1/x) = 1/(1+x^k) = 1 - \mu_k(x)$.
+\end{proof}
+
+The theorem converts a symmetry into a shape. The exchange, a statement
+about one reflection, removes every law in which the screening powers
+differ, and what survives is a family with a single exponent. Scale
+covariance, $\Omega(\lambda x) = \Omega(\lambda)\,\Omega(x)$, which an
+earlier draft of this argument had to assume, now follows.
+
+\section*{What fixes the power}
+
+\begin{theorem}\label{thm:k}
+For the family $\mu_k$, the following are equivalent:
+\begin{enumerate}
+\item[(i)] $k = 1$;
+\item[(ii)] the two strengths are accelerations that add up to the field:
+  $\mu_k(g/a_0)\,(g + a_0) = g$ for every $g > 0$;
+\item[(iii)] rotation curves are flat in the deep field;
+\item[(iv)] the odds are a degree-one (Möbius) function of $x$.
+\end{enumerate}
+When they hold, $\mu = g/(g+a_0) = x/(x+1)$, TetB's strength is $a_0$, and
+$v^4 = GMa_0$.
+\end{theorem}
+
+\begin{proof}
+(i)$\Leftrightarrow$(ii): $\mu_k(x)(x+1) = x$ is equivalent to $x^k = x$,
+and at $x = 2$ that forces $k = 1$. (i)$\Leftrightarrow$(iii): in the deep
+field $\mu_k \simeq x^k$, so $g^{k+1} = GMa_0^k/r^2$ and the circular speed
+obeys
+\begin{equation}
+  v^2 = g\,r = (GMa_0^k)^{1/(k+1)}\, r^{(k-1)/(k+1)},
+\end{equation}
+which is independent of $r$ exactly when $k = 1$, and then $v^4 = GMa_0$.
+(i)$\Leftrightarrow$(iv): $x^k$ is Möbius only for $k = \pm 1$, and $k > 0$.
+\end{proof}
+
+Condition (ii) is the tug of war itself. With $\Omega = x^k$ the strengths
+are $g^k$ and $a_0^k$, and only for $k = 1$ are they accelerations whose
+sum, weighted by the share, returns the field. So the observation that
+$a_0$ is an acceleration, on the same footing as $g$, is what fixes the
+exponent, and flat rotation curves fix it independently. Condition (iv) is
+the premise (A) of the exchange-symmetry proof~\cite{NelsonCL}, which
+reaches the same law from degree one, the endpoint $\mu(0) = 0$ and
+closure under exchange; the two routes agree because they meet only at
+$k = 1$.
+
+\begin{proposition}\label{prop:need}
+Each premise is necessary.
+\begin{enumerate}
+\item[(a)] Without (S), a law can keep the exchange, both MOND limits
+  and monotonicity, and still differ from $x/(x+1)$: for $c \ne 0$ the
+  odds
+  \[\Omega = x\exp\bigl(c\,t\,e^{-t^2}\bigr),\qquad t = \ln x,\]
+  do all of this.
+\item[(b)] Without $m = p$, the exchange fails: $x(1-\mu)^2 = \mu$ has
+  $\mu(1) = (3-\sqrt5)/2 = 1/\varphi^2$, not $1/2$.
+\item[(c)] Without $k = 1$, rotation curves are not flat: $k = 2$ gives
+  $v^2 \propto r^{1/3}$.
+\item[(d)] The standard function $x/\sqrt{1+x^2}$ and the exponential
+  function $1 - e^{-x}$ break the exchange.
+\item[(e)] Degree one, $\mu(0) = 0$ and the exchange leave two branches,
+  $x/(x+1)$ and $x/(x-1)$, and only the first stays in $[0,1]$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(a) $\ln\Omega - t$ is odd in $t$, which is (X), and vanishes as
+$t \to \pm\infty$, which gives both limits. (b) and (d) follow because (X)
+forces $\mu(1) = 1/2$, while these laws give $1/\varphi^2$, $1/\sqrt2$ and
+$1 - e^{-1}$. (c) is Theorem~\ref{thm:k}. (e) is the coefficient
+comparison of the degree-one relation.
+\end{proof}
+
+Item (b) is worth stating plainly. The bound-state law is not wrong; it
+describes a self-sourcing field, which couples in both directions, and the
+proposition shows that such a field cannot be exchange-symmetric. The
+11.8\% gap between $1/2$ and $1/\varphi^2$ at $x = 1$, which the
+synthesis~\cite{NelsonSynth} proposes as a test with SPARC~\cite{SPARC}, is
+therefore a test of the exchange itself.
+
+\section*{The Field Origin and the cap}
+
+\begin{proposition}\label{prop:node}
+Between the two teams the following hold.
+\begin{enumerate}
+\item[(i)] A single node between two teams, in balance
+  $c_A(V_A - V_O) + c_B(V_B - V_O) = 0$, sits at their weighted average
+  $V_O = (c_AV_A + c_BV_B)/(c_A + c_B)$, and eliminating it leaves the
+  series link $c_Ac_B/(c_A+c_B)$.
+\item[(ii)] Each team carries $\mu$ times its own strength:
+  $g = \mu g + \mu a_0$. TetB therefore carries $(1-\mu)g = \mu a_0$, which
+  rises with $g$ towards $a_0$ and never reaches it, and the missing pull
+  over the visible pull is $a_0/g$.
+\item[(iii)] A swap of strong and weak pulls that commutes with rescaling
+  is $g \mapsto c/g$, and its only fixed pull is $\sqrt c$, which is $a_0$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Each item is a line of algebra; for (iii), set the scale equal to $g$ in
+$E(\lambda g) = E(g)/\lambda$.
+\end{proof}
+
+Item (i) is why the Field Origin matters. If the two chambers meet only
+there, the centre is a single node between the teams; eliminating it from
+the cube, the Schur complement proved in~\cite{NelsonWalsh}, leaves a
+single rank-one rope whose TetA share is $t_A/(t_A + t_B)$, and direct
+links along the cube's edges would break that rule. Item (ii) explains the
+statement of Letters~2 and~3 that the TetB field never exceeds
+$a_0$~\cite{NelsonL2,NelsonL3}: TetB's pull is its share of its own
+strength.
+
+\section*{Decoding mass: quiet, drive and brake}
+
+The decoding-mass letter~\cite{NelsonDecode} turns an observed rotation
+curve into $M_{\rm dec} = rv^4/[G(a_0r + v^2)]$, which is
+$\mu(g/a_0)\,g\,r^2/G$ with $g = v^2/r$, and compares it with the
+photometric mass $M_{\rm phot} = g_{\rm bar} r^2/G$. The measured share is
+$g_{\rm bar}/g$, and the strength that TetB would need for that share to be
+the quiet one is
+\begin{equation}
+  w = \frac{g\,(g - g_{\rm bar})}{g_{\rm bar}}.
+\end{equation}
+
+\begin{theorem}\label{thm:decode}
+At every radius,
+\begin{equation}
+  \frac{M_{\rm dec}}{M_{\rm phot}} = \frac{g + w}{g + a_0},\qquad
+  \frac{\Delta M}{M_{\rm phot}} = \frac{w - a_0}{g + a_0}.
+\end{equation}
+The decode is quiet, $M_{\rm dec} = M_{\rm phot}$, exactly when $w = a_0$,
+that is, when $g_{\rm bar} = \mu g$; it shows drive,
+$M_{\rm dec} > M_{\rm phot}$, exactly when $w > a_0$, that is, when TetB
+pulls more than $\mu a_0$; and it shows brake exactly when $w < a_0$.
+\end{theorem}
+
+\begin{proof}
+Substitute $\mu = g/(g+a_0)$; then
+$g - g_{\rm bar} - \mu a_0 = (g_{\rm bar}/g)\,\mu\,(w - a_0)$, whose prefactor
+is positive.
+\end{proof}
+
+The theorem gives $a_0$ a second meaning: it is TetB's quiet strength.
+Drive and brake are TetB, in the interior where the framework places
+them~\cite{NelsonHourglass}, pulling harder or softer than that, and the
+decoded mass is how the difference is read. The denominator $g + a_0$
+explains where the reading works. The same change in TetB's strength moves
+the decode by tens of per cent in a galaxy's outskirts and by parts in
+$10^7$ where $g \gg a_0$, which is why drive and brake never appear in the
+solar system.
+
+\section*{The vortex}
+
+\begin{proposition}\label{prop:vortex}
+Three exact solutions of the Navier--Stokes equations describe a drained
+vortex.
+\begin{enumerate}
+\item[(i)] (Burgers~\cite{Burgers1948}.) With inflow $u_r = -\alpha r/2$
+  and axial outflow $u_z = \alpha z$, the vorticity
+  $\omega = \omega_0\exp(-\alpha r^2/4\nu)$ is steady: inward advection,
+  stretching and diffusion balance exactly,
+  $u_r\,\omega' = \alpha\omega + \nu(\omega'' + \omega'/r)$.
+\item[(ii)] (Lamb--Oseen.) With no drain, the same circulation diffuses:
+  $\omega = (\Gamma/4\pi\nu t)\exp(-r^2/4\nu t)$ solves
+  $\partial_t\omega = \nu(\omega'' + \omega'/r)$.
+\item[(iii)] At fixed circulation $\Gamma$, the Burgers core has radius
+  proportional to $\sqrt{\nu/\alpha}$ and central vorticity
+  $\Gamma\alpha/4\pi\nu$; far from the core the swirl tends to
+  $\Gamma/2\pi r$, whatever $\alpha$ is.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Direct differentiation, and $\int_0^\infty e^{-\beta r^2}2\pi r\,dr =
+\pi/\beta$.
+\end{proof}
+
+A drained vortex is sustained by its drain: in a bathtub the swirl is
+maintained by gravity's work on the water falling through it, and its
+spin-up comes from stretching the rotating column~\cite{Lautrup}. The
+proposition makes the three regimes exact. When the drain balances
+diffusion the vortex is steady, which is the quiet state; a stronger drain
+tightens the core and spins it up, which is drive; a weaker drain lets it
+spread, and with no drain at all it decays, which is brake carried to its
+end. Item (iii) adds the observation that matches Theorem~\ref{thm:decode}:
+the drain's strength is written in the core and in the inflow, not in the
+far swirl, just as drive and brake show where TetB's share is large and
+hide where $g \gg a_0$. The identification of TetB with the drain is the
+framework's reading~\cite{NelsonHourglass}; the vortex equations and the
+decode identity are exact.
+
+\section*{Scope}
+
+Lemma~\ref{lem:teams} and the exchange as an operation are geometry. Three
+premises are physical: the screening form (S), the reading of the chamber
+swap as $x \to 1/x$, and the statement that the strengths are
+accelerations, which flat rotation curves confirm independently. The value
+of $a_0$ is measured. Two statements of the March 2026
+synthesis~\cite{NelsonSynth} need rewording without changing the law: $N$
+independent sites fill to $x/(1+x)$ for every $N$, so the Hill form
+$x^N/(1+x^N)$ requires cooperative filling~\cite{Hill1910,Langmuir1918};
+and the inverse of $x/\sqrt{1+x^2}$ is algebraic but not rational.
+
+\section*{Verification}
+
+The script \texttt{verify\_constitutive\_law\_tug\_of\_war.py} runs 42
+checks in eight parts: exactly with sympy where a statement is algebraic,
+exhaustively over the cube's corners and symmetries, and numerically for
+the rotation curves. The test file \texttt{test\_tug\_of\_war.py} in the
+research folder \texttt{constitutive-law-u(x)} holds 85 finer tests of the
+same statements.
+
+% Lean: new paragraph.
+\textbf{Formal verification.} Lemma~\ref{lem:teams},
+Theorem~\ref{thm:power}, Theorem~\ref{thm:k} (i)--(iii),
+Proposition~\ref{prop:need} (b)--(d), Proposition~\ref{prop:node},
+Theorem~\ref{thm:decode} and Proposition~\ref{prop:vortex} (i)--(ii) are
+checked in Lean~4 with Mathlib (\texttt{lean/TugOfWar.lean}), importing the
+Walsh-eigenmodes and constitutive-law formalisations. Item (iv) of
+Theorem~\ref{thm:k} is the constitutive-law formalisation's
+\texttt{unique\_law}; the counterexample (a), the branch count (e) and the
+Burgers core scaling are checked by the script.
+
+\begin{thebibliography}{99}
+
+\bibitem{BM1984}
+J.~Bekenstein and M.~Milgrom,
+Does the missing mass problem signal the breakdown of Newtonian
+gravity?, \textit{Astrophys. J.} \textbf{286}, 7 (1984).
+
+\bibitem{Milgrom1983}
+M.~Milgrom,
+A modification of the Newtonian dynamics as a possible alternative to
+the hidden mass hypothesis, \textit{Astrophys. J.} \textbf{270}, 365
+(1983).
+
+\bibitem{NelsonCL}
+S.~Nelson,
+\textit{The Constitutive Law from Exchange Symmetry},
+Field Dynamics Research (2026),
+\url{proofs/constitutive-law-exchange-symmetry}.
+
+\bibitem{NelsonCLL}
+S.~Nelson,
+\textit{The Gravitational Constitutive Law from the Tetrad Frame
+Geometry}, Field Dynamics Research (2026).
+
+\bibitem{NelsonL2}
+S.~Nelson,
+\textit{The Other Half of Gravity: Torsion and the Two-Chamber Structure
+of the Tetrad Frame} (Letter~2),
+Field Dynamics Research (2026).
+
+\bibitem{NelsonL3}
+S.~Nelson,
+\textit{Gravity Field Dynamics: Field Closure of the Tetrad Frame}
+(Letter~3), Field Dynamics Research (2026).
+
+\bibitem{NelsonWalsh}
+S.~Nelson,
+\textit{The Walsh Eigenmodes of the Cube, and What Field Closure Reads},
+Field Dynamics Research (2026),
+\url{proofs/walsh-eigenmodes-of-the-cube}.
+
+\bibitem{NelsonDocs}
+S.~Nelson,
+\textit{Constitutive Law $\mu(x)$}, documentation, Field Dynamics
+Research (2026), \url{docs/02-gravitation}.
+
+\bibitem{NelsonSynth}
+S.~Nelson,
+\textit{The Constitutive Law of Gravity Field Dynamics}, synthesis and
+validation suites, Field Dynamics Research (2026),
+\url{research/constitutive-law-u(x)}.
+
+\bibitem{NelsonDecode}
+S.~Nelson,
+\textit{Gravity Field Dynamics: Decoding Mass from Observed Rotation
+Curves},
+Field Dynamics Research (2026).
+
+\bibitem{NelsonHourglass}
+S.~Nelson,
+\textit{TetA and TetB as One Vortex}, research note, Field Dynamics
+Research (2026), \url{research/vortex-hourglass}.
+
+\bibitem{SPARC}
+F.~Lelli, S.~S.~McGaugh and J.~M.~Schombert,
+SPARC: mass models for 175 disk galaxies with Spitzer photometry at
+3.6\,$\mu$m and accurate rotation curves, \textit{Astron. J.}
+\textbf{152}, 157 (2016).
+
+\bibitem{Burgers1948}
+J.~M.~Burgers,
+A mathematical model illustrating the theory of turbulence,
+\textit{Adv. Appl. Mech.} \textbf{1}, 171 (1948).
+
+\bibitem{Lautrup}
+B.~Lautrup,
+\textit{Physics of Continuous Matter}, 2nd ed. (CRC Press, Boca Raton,
+2011), ch.~19.
+
+\bibitem{Hill1910}
+A.~V.~Hill,
+The possible effects of the aggregation of the molecules of
+haemoglobin on its dissociation curves, \textit{J. Physiol.}
+\textbf{40}, iv (1910).
+
+\bibitem{Langmuir1918}
+I.~Langmuir,
+The adsorption of gases on plane surfaces of glass, mica and platinum,
+\textit{J. Am. Chem. Soc.} \textbf{40}, 1361 (1918).
+
+\end{thebibliography}
+
+\end{document}

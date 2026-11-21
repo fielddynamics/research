@@ -103,7 +103,7 @@ The [`lean/`](lean/) folder proves the theorem in [Lean 4](https://lean-lang.org
 
 Two standard facts are cited rather than proved: the field-degree half of the lemma (Gauss's lemma), and the irreducibility of the alternatives (Eisenstein's criterion). Lean proves the part of the lemma the theorem uses: a bilinear relation factors when $ad - bc = 0$, and is solvable both ways when $ad - bc \neq 0$.
 
-The [AQUAL energy functional](../aqual-energy-functional/) and [BIMOND two-potential energy](../bimetric-two-potential-energy/) formalisations import this one, so both energies are built from the same, proved-unique $\mu$; their checks re-run whenever this proof changes.
+The [AQUAL energy functional](../aqual-energy-functional/), [BIMOND two-potential energy](../bimetric-two-potential-energy/) and [tug-of-war](../constitutive-law-tug-of-war/) formalisations import this one, so both energies and the tug of war are built from the same, proved-unique $\mu$; their checks re-run whenever this proof changes.
 
 GitHub re-checks the proof automatically whenever it changes; the badge at the top of this page shows the latest result. It is green only if the proof builds with no warnings, no gaps (`sorry`) and only Lean's standard axioms. [`LEAN_AUDIT.md`](LEAN_AUDIT.md) is a referee's guide to the formalisation.
 
