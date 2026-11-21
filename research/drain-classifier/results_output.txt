@@ -1,0 +1,106 @@
+sample: 97 objects (48 cluster-table, 49 dwarf-table)
+
+C1 structural: classified 97, informative (nu > 1.5) 63, drained 50, not drained 47
+  rule          chi2/N all  <3sig all  chi2/N inf  <3sig inf
+  classifier          8.12       0.77       10.90       0.67
+  Newton all         31.34       0.56       46.64       0.33
+  GFD all             8.09       0.78       10.71       0.68
+
+C2 chemical: classified 83, informative (nu > 1.5) 57, drained 48, not drained 35
+  rule          chi2/N all  <3sig all  chi2/N inf  <3sig inf
+  classifier          8.99       0.76       11.43       0.67
+  Newton all         35.86       0.51       50.57       0.30
+  GFD all             8.81       0.77       11.03       0.68
+
+--- sensitivity: M/L_V = 1.0
+
+C1 structural: classified 97, informative (nu > 1.5) 64, drained 50, not drained 47
+  rule          chi2/N all  <3sig all  chi2/N inf  <3sig inf
+  classifier         11.96       0.69       16.98       0.55
+  Newton all         41.66       0.49       62.00       0.25
+  GFD all            11.61       0.72       16.50       0.59
+
+C2 chemical: classified 83, informative (nu > 1.5) 57, drained 48, not drained 35
+  rule          chi2/N all  <3sig all  chi2/N inf  <3sig inf
+  classifier         13.23       0.66       18.22       0.53
+  Newton all         47.71       0.45       68.44       0.21
+  GFD all            12.77       0.71       17.57       0.60
+
+--- sensitivity: M/L_V = 3.0
+
+C1 structural: classified 97, informative (nu > 1.5) 62, drained 50, not drained 47
+  rule          chi2/N all  <3sig all  chi2/N inf  <3sig inf
+  classifier          6.99       0.76        8.54       0.69
+  Newton all         26.19       0.57       38.59       0.39
+  GFD all             7.03       0.77        8.44       0.71
+
+C2 chemical: classified 83, informative (nu > 1.5) 56, drained 48, not drained 35
+  rule          chi2/N all  <3sig all  chi2/N inf  <3sig inf
+  classifier          7.66       0.73        8.91       0.68
+  Newton all         29.85       0.52       41.80       0.36
+  GFD all             7.55       0.75        8.60       0.70
+
+Informative objects (nu > 1.5): name, r_h [pc], sigma[Fe/H], C1, C2, sigma_obs, sigma_N, sigma_GFD, z_N, z_GFD
+  Koposov 2                  1.7   -   0 -   2.70   0.36   0.67   +1.8   +1.6
+  ESO 280-SC06               4.7   -   0 0   2.27   1.31   1.79   +2.1   +0.9
+  DELVE 4                    4.8  0.62 0 1   2.50   0.15   0.35   +1.8   +1.6
+  PS1 1                      4.8   -   0 0   2.10   0.33   0.59   +2.9   +2.5
+  Kim 1                      5.2   -   0 -   2.60   0.12   0.19   +2.1   +2.0
+  Balbinot 1                 5.5  0.41 0 1   3.70   0.22   0.46   +3.2   +2.9
+  NGC 288                    5.8   -   0 0   3.47   2.82   3.47   +1.1   +0.0
+  Garro 04                   6.8   -   0 -   2.69   1.19   1.49   +2.8   +2.1
+  Gaia 1                     8.4   -   0 -   0.94   1.02   1.40   -0.3   -1.5
+  NGC 7492                   8.9   -   0 0   1.75   1.53   2.39   +0.4   -0.9
+  Gran 4                    14.9   -   0 0   1.40   1.53   2.27   -0.4   -1.7
+  Laevens 1                 19.5   -   0 0   2.04   0.79   2.11   +1.2   -0.0
+  Segue 1                   19.5  0.59 0 1   3.97   0.12   0.25   +4.5   +4.3
+  Willman 1                 20.0  0.30 0 1   4.70   0.22   0.51   +3.4   +3.2
+  Palomar 5                 20.5   -   1 -   3.21   0.65   1.05   +3.6   +3.0
+  Tucana V                  22.8  0.43 1 1   1.20   0.11   0.27   +1.8   +1.5
+  Bootes II                 33.0  0.38 1 1   1.92   0.20   0.47   +2.9   +2.4
+  Sagittarius II            33.9   -   1 0   2.32   0.57   1.47   +3.9   +1.6
+  Leo V                     35.2  0.30 1 1   3.37   0.39   1.48   +2.9   +1.7
+  Pegasus IV                41.6  0.41 1 1   3.33   0.33   1.07   +3.5   +2.6
+  Canes Venatici II         54.0  0.30 1 1   5.28   0.45   1.71   +5.0   +3.5
+  Coma Berenices            54.9  0.26 1 1   3.33   0.29   0.70   +6.5   +5.5
+  Eridanus IV               56.2  0.20 1 1   6.10   0.21   0.64   +6.5   +6.0
+  Pisces II                 56.3  0.48 1 1   3.72   0.29   1.26   +2.6   +1.8
+  Centaurus I               71.0  0.38 1 1   4.20   0.42   1.50   +7.4   +4.6
+  Pegasus III               82.1  0.28 1 1   2.76   0.23   1.10   +2.8   +1.8
+  Leo VI                    86.9  0.19 1 1   2.85   0.17   0.62   +2.0   +1.7
+  Ursa Major II             92.1  0.22 1 1   6.30   0.24   0.56   +6.4   +6.0
+  Columba I                 97.3  0.71 1 1   5.96   0.21   0.99   +3.2   +2.7
+  Tucana IV                 98.1   -   1 0   4.30   0.12   0.29   +4.2   +4.0
+  Leo IV                   101.1  0.28 1 1   3.29   0.29   1.23   +4.5   +2.9
+  Grus I                   113.4   -   1 0   2.50   0.19   0.74   +2.9   +2.2
+  Hercules                 118.5  0.27 1 1   2.25   0.40   1.53   +3.0   +1.1
+  Aquarius II              123.7  0.36 1 1   4.70   0.20   0.73   +3.7   +3.3
+  Leo II                   147.7  0.32 1 1   7.53   1.96   5.59  +10.4   +1.7
+  Ursa Major I             150.1  0.24 1 1   7.16   0.26   0.93   +6.6   +5.9
+  Leo T                    155.1  0.54 1 1   6.05   0.96   3.98   +5.8   +1.8
+  Tucana II                161.7   -   1 -   3.80   0.13   0.35   +5.2   +4.9
+  Eridanus II              178.9  0.47 1 1   6.90   0.60   2.98   +6.9   +3.6
+  Tucana                   203.6  0.39 1 1   6.20   1.72   5.74   +3.3   +0.3
+  Bootes I                 214.9  0.28 1 1   4.00   0.33   0.94  +11.9   +8.6
+  Draco                    220.2  0.24 1 1   9.55   1.21   3.60  +23.9   +7.8
+  Sculptor                 223.2  0.44 1 1   9.20   2.89   7.12   +5.1   +1.2
+  Leo I                    229.1  0.27 1 1   9.29   4.63  10.03   +4.8   -0.4
+  Andromeda XVIII          235.4  0.43 1 1   9.90   1.34   5.23   +8.3   +3.2
+  Phoenix                  242.0  0.51 1 1   9.30   1.84   6.19   +9.4   +2.2
+  Carina                   248.1  0.24 1 1   6.60   1.48   4.65   +4.1   +1.3
+  Ursa Minor               250.4  0.25 1 1   8.86   1.13   3.26  +23.4   +8.0
+  Sagittarius dIrr         258.4  0.43 1 1   9.40   4.30   9.92   +3.7   -0.2
+  UGC 4879                 301.5  0.52 1 1   9.60   4.88  11.01   +3.1   -0.6
+  Aquarius                 319.6  0.34 1 1   7.80   2.11   7.11   +4.8   +0.4
+  Canes Venatici I         326.4  0.19 1 1   7.66   0.94   3.99  +14.9   +4.1
+  Leo A                    405.8  0.32 1 1   9.00   3.98  10.54   +5.0   -0.7
+  Bootes III               466.6  0.36 1 1   1.69   0.21   0.51   +1.7   +1.4
+  Sextans                  485.9  0.38 1 1   7.90   0.76   2.50   +5.5   +3.9
+  Cetus                    574.5  0.42 1 1   8.30   2.19   8.35   +5.6   -0.0
+  Pegasus dIrr             651.9  0.56 1 1  12.30   3.18  10.46   +7.2   +0.8
+  Fornax                   695.3  0.27 1 1  12.10   5.48  13.79   +5.9   -0.6
+  WLM                      799.1  0.38 1 1  17.50   8.06  18.07   +3.7   -0.1
+  Crater II               1054.2  0.24 1 1   2.34   0.40   1.52   +6.2   +1.9
+  IC 1613                 1439.8  0.37 1 1  10.80   8.45  21.17   +1.2   -2.4
+  NGC 6822                1673.4  0.49 1 1  23.20  10.14  24.21   +5.5   -0.2
+  Antlia II               2379.3  0.34 1 1   5.98   0.55   2.15  +14.4   +6.8
