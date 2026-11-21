@@ -1,0 +1,23 @@
+Galaxies (letter recipe exactly, quality 1-2): 128
+Upsilon_disk that makes each galaxy quiet: median 0.52, 16-84%: -0.04 to 1.19
+   within 0.2-0.8 (reading could be stellar M/L): 62
+   below 0.2 (brake with little or no stars): 29, of which below 0 (gas alone outweighs the decoded mass): 23
+   above 0.8: 37, of which above 1.5 (drive beyond what stars supply): 15
+Gas alone outweighs the decoded mass: 23 with the letter's gas recipe, 26 with SPARC's measured gas distribution
+Decoded and photometric curves cross within the observed range: 70 of 128
+
+Group properties (medians):
+   robust brake  N= 29  V_flat    60 km/s  inclination   58 deg  SB_eff   20.2 Lsun/pc^2  type 10
+   robust drive  N= 15  V_flat   103 km/s  inclination   43 deg  SB_eff   23.6 Lsun/pc^2  type 9
+   the rest      N= 84  V_flat   109 km/s  inclination   63 deg  SB_eff   88.5 Lsun/pc^2  type 7
+
+robust brake: UGC07577 (-1.65), KK98-251 (-1.29), UGCA444 (-1.24), UGC07125 (-0.81), DDO161 (-0.77), UGC04483 (-0.65), UGC07559 (-0.63), UGC05829 (-0.56), DDO154 (-0.54), UGC09992 (-0.45), IC2574 (-0.44), UGC08837 (-0.42), UGC07866 (-0.35), UGC06628 (-0.34), UGC05918 (-0.32), UGC00731 (-0.30), DDO170 (-0.21), NGC4068 (-0.19), CamB (-0.18), UGC06818 (-0.07), DDO168 (-0.05), UGC02023 (-0.03), UGC11820 (-0.02), UGC12632 (0.02), UGC07089 (0.06), UGC11557 (0.07), UGC05414 (0.14), UGC12732 (0.15), F583-4 (0.16)
+
+robust drive: F565-V2 (1.51), UGC07608 (1.60), F571-8 (1.61), F568-V1 (1.69), UGC04325 (1.78), UGC05721 (2.29), NGC2915 (2.31), F563-V2 (2.36), NGC6789 (2.53), F563-1 (2.56), F568-1 (2.71), UGC06667 (3.22), UGC07399 (3.70), UGC05764 (4.17), ESO444-G084 (5.73)
+
+Net area against galaxy properties (Spearman, all galaxies):
+   distance             N=128  rho=+0.05  p=5.5e-01
+   inclination          N=128  rho=+0.02  p=8.3e-01
+   Hubble type          N=128  rho=-0.22  p=1.2e-02
+   surface brightness   N=128  rho=+0.24  p=6.6e-03
+   V_flat               N= 97  rho=+0.23  p=2.5e-02
