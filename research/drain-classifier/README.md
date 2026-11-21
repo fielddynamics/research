@@ -54,11 +54,47 @@ Both are Newtonian, as the net-field rule requires of a system without a drain. 
 - **Drive and brake are measured, but what sets them is open.** Across the Local Group's dwarfs TetB's drive follows luminosity alone. That is not a contradiction of the letter, which leaves the interior dynamics open. It does mean that the next step is a physical predictor of drive that is independent of luminosity, or a way to separate it from binaries and tides, for example by using only multi-epoch dispersions, which remove binaries.
 - **The study does not test μ itself in the dwarfs.** Once drive and brake are allowed, a single dwarf cannot falsify μ. That is why the clusters, and a predictor of drive, carry the weight.
 
+## Drive and brake by radius
+
+*Pre-registration: [`PROFILE_PREREGISTRATION.md`](PROFILE_PREREGISTRATION.md) (committed before the run, 18e6d9b). Script: `python profile_study.py GRAVSPHERE_DIR`. Output: [`profile_output.txt`](profile_output.txt), bins in [`profile_bins.csv`](profile_bins.csv).*
+
+**The test.** In the vortex picture a stronger drain tightens and spins up the core, and the far swirl forgets the drain. Read literally, TetB's drive or brake should be strongest at the centre and fade toward quiet outward. Eight classical dwarfs have star-by-star velocities (Walker et al., from the GravSphere repository): Fornax, Sculptor, Carina, Sextans, Draco, Ursa Minor, Leo I and Leo II. For each one:
+- the measured dispersion profile σ_obs(R) is compared with the quiet GFD profile σ_quiet(R), computed with no free parameter from the stars alone (Plummer light, M/L = 2, isotropic Jeans equation projected along the line of sight);
+- the reading at each radius is Δ(R) = log₁₀(σ_obs⁴/σ_quiet⁴), positive for drive and negative for brake;
+- the shape is the slope c₁ of Δ against log₁₀(R/R_h).
+
+The hypothesis was c₁ < 0.
+
+**The result: the drive does not sit in the core. It grows outward.**
+
+| Galaxy | Core (innermost bin) | Outskirts (outermost bin) | Slope c₁ (isotropic) |
+|---|---|---|---|
+| Fornax | brake, −0.49 | quiet, −0.02 | +0.42 ± 0.09 |
+| Sculptor | quiet, +0.18 | drive, +0.63 | +0.48 ± 0.12 |
+| Carina | quiet, +0.06 | drive, +0.72 | +0.54 ± 0.16 |
+| Sextans | drive, +0.43 | drive, +0.72 | +0.22 ± 0.20 |
+| Draco | drive, +0.90 | drive, +1.43 | +0.46 ± 0.14 |
+| Ursa Minor | drive, +0.58 | drive, +1.29 | +0.46 ± 0.19 |
+| Leo I | brake, −0.21 | quiet, +0.20 | +0.49 ± 0.25 |
+| Leo II | drive, +0.58 | drive, +0.45 | −0.21 ± 0.41 |
+
+- No galaxy has c₁ < 0 at 2σ, under any of the assumptions tried: M/L of 1, 2 or 3, the host's field included, or anisotropy β = ±0.3. So the hypothesis is not supported.
+- Five of the eight have c₁ > 0 at 2σ when orbits are isotropic, seven when β = +0.3 or when the host's field is included, and one when β = −0.3. The rising trend itself therefore depends on the orbits: if the stars' orbits were tangentially biased, most of it would go.
+- The levels are robust and match the single-radius decode. Fornax and Leo I are quiet to braking, while Draco, Ursa Minor and Sextans drive at every radius.
+
+**What it means.** The literal reading of the vortex picture, with drive concentrated in the core, is not what these eight dwarfs show. Where there is drive, it is present from the centre outward and is largest in the outskirts. Three readings remain open:
+- in the framework, the drain's influence may reach the far field rather than the core, which the vortex picture as stated in the tug-of-war proof does not say;
+- the outskirts are where the Milky Way's tide acts on a dwarf, so tidal heating would raise the outer dispersions;
+- the orbits may not be isotropic.
+
+Proper motions of individual stars, which measure anisotropy directly, would separate the third from the first two.
+
 ## Files
 
 | File | Contents |
 |---|---|
-| [`decode_study.py`](decode_study.py) | This study |
+| [`decode_study.py`](decode_study.py) | The decode study |
+| [`profile_study.py`](profile_study.py), [`profile_bins.csv`](profile_bins.csv), [`profile_output.txt`](profile_output.txt), [`PROFILE_PREREGISTRATION.md`](PROFILE_PREREGISTRATION.md) | Drive and brake by radius in eight classical dwarfs (velocity data: Walker et al., via github.com/justinread/gravsphere, commit 09fa555; binned profiles only are stored here) |
 | [`decode_sample.csv`](decode_sample.csv) | The 137 objects used (90 dwarfs, 47 clusters), from the Local Volume Database (CC0) |
 | [`decode_output.txt`](decode_output.txt) | Full output: every dwarf's reading, the clusters, the correlations |
 | [`drain_classifier.py`](drain_classifier.py), [`PREREGISTRATION.md`](PREREGISTRATION.md), [`lvdb_sample.csv`](lvdb_sample.csv), [`results_output.txt`](results_output.txt) | The first version, superseded: it scored dwarfs against quiet only and dropped Andromeda's, M33's and the LMC's satellites |
