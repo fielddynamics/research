@@ -8,9 +8,48 @@ Stephen Nelson · Field Dynamics Research · fielddynamics.org · Last updated 2
 
 ## 0. How to read this file
 
-- **Status tags.** Every result is tagged **[T]** theorem (proved, with a verification script), **[D]** derived (follows from the framework's stated assumptions), **[E]** exploratory (a numerical correspondence or extension, not yet a derivation), or **[O]** observational comparison.
+- **Status tags.** Every result is tagged **[T]** theorem (proved, with a verification script), **[D]** derived (follows from the framework's stated assumptions), **[E]** exploratory (a numerical correspondence or extension, not yet a derivation), or **[O]** observational comparison. **[T+L]** marks a theorem that is also machine-checked in Lean 4 with Mathlib (no `sorry`, standard axioms only, re-checked by GitHub on every change).
 - **Paper keys.** I–XIII are the numbered Zenodo series (Jan–Mar 2026). L1, L2, L3 are the tetrad letters. CL is the constitutive-law letter, RAR the radial-acceleration-relation letter, DEC the decoding-mass letter, GRAM the Gram-matrix manuscript, TF the Tully–Fisher manuscript, ESS the GFD Essentials primer, A/B/C the algebraic papers, FY the closed-form energy-functional note, P-xxx the formal proofs in [`proofs/`](proofs/).
+- **Where to start.** §1 is the whole structure in one paragraph; §4.8 is the consolidated solve of $\mu(x)$; §12 lists what is open; §13 says how to check each claim. For a general reader, [`THE_MISSING_MASS.md`](THE_MISSING_MASS.md); for rules and glossary, [`llms.txt`](llms.txt).
 - **The series evolved.** Papers I–VI use the older "Distributed Field Processing (DFP)" vocabulary (Field Object, NET Field, Coupling Ports, Field Chamber) and lower-case $k$. Later work uses $K = 4$, $D = 3$ and the tetrad equation as the starting point. Where an early paper and a later letter derive the same result differently, the later letter is the curated statement.
+
+### The formal proofs (`proofs/`, index [`proofs/README.md`](proofs/README.md))
+
+| Key | Folder | Checks | Lean |
+|---|---|---|---|
+| P-two-regions (half-space) | `half-space-two-bounded-regions/` | 29 | yes |
+| P-two-regions (scheme) | `tetrad-scheme-two-bounded-regions/` | 39 | yes |
+| P-forced | `forced-tetrahedral-frame/` | 36 | yes |
+| P-hadamard | `hadamard-cube-frame/` | 25 | yes |
+| P-gram | `gram-matrix-tetrad-equation/` | 76 | yes |
+| P-torsion | `torsion-regular-representation/` | 36 | — |
+| P-exchange | `constitutive-law-exchange-symmetry/` | 34 | yes |
+| P-aqual | `aqual-energy-functional/` | 24 | yes |
+| P-bimond | `bimetric-two-potential-energy/` | 39 | yes |
+| P-walsh | `walsh-eigenmodes-of-the-cube/` | 47 | yes |
+| P-tugofwar | `constitutive-law-tug-of-war/` | 42 | yes |
+| P-vortex | `vortices-of-the-stellated-octahedron/` | 81 | — |
+| P-chiral | `chiral-holonomy-closed-frame/` | 32 | — |
+| P-bbp | `bbp-coupling-polynomial-ladder/` | 61 | — |
+| P-gnull | `g-null-rotation/` | 41 | — |
+| P-sst | `sst-quasi-static-limit/` | 26 | — |
+| P-timeleg | `sst-covariant-time-leg/` | 16 | — |
+| P-lock | `bimetric-lock-constitutive-law/` | 64 | — |
+
+The Lean formalisations import one another, so each chain is checked as a whole: P-forced → P-two-regions (half-space) → P-two-regions (scheme) → P-gram → P-walsh; P-forced → P-hadamard; P-exchange → P-aqual → (with the scheme) P-bimond; P-walsh + P-exchange → P-tugofwar.
+
+### Notation
+
+| Symbol | Meaning |
+|---|---|
+| $g_t$ (also $g$, $g_{\rm obs}$) | total (observed) acceleration; in a galaxy $g_t = v^2/r$ |
+| $g_s$ (also $g_{\rm bar}$) | source (visible, baryonic, Newtonian) acceleration; $g_s = \mu g_t$ |
+| $a_0$ | transition acceleration, $\approx 1.2\times10^{-10}$ m/s²; TetB's quiet strength (§4.8). The one physical scale: measured, or computed as $K^2Gm_e/r_e^2 = 1.225\times10^{-10}$; never fitted per galaxy |
+| $x = g_t/a_0$ | dimensionless acceleration; GFD's TetA:TetB odds |
+| $\Omega = \mu/(1-\mu)$ | odds between the chambers |
+| $w,\ D = w/a_0$ | TetB's measured strength $g_t(g_t-g_s)/g_s$, and its ratio to $a_0$ (quiet 1, drive $>1$, brake $<1$) |
+| $e,\ Pe$ | the two roots of the tetrad equation (TetA, TetB); $P$ is spatial parity |
+| $\varphi$ vs $\Phi$ | golden ratio $1.618$ vs the gravitational potential |
 
 ### Naming that must not be confused
 
@@ -31,13 +70,13 @@ Stephen Nelson · Field Dynamics Research · fielddynamics.org · Last updated 2
 
 ## 1. The structure in one paragraph
 
-The metric is a Gram matrix of the tetrad, $`g_{\mu\nu} = \eta_{ab} e^a{}_\mu e^b{}_\nu`$. The equation is even in the spatial frame, so it has two parity-related roots. Drawn in space, one root is a regular tetrahedron (TetA) and the other its inversion (TetB); together they are the stellated octahedron inscribed in the cube, sharing a centre, the Field Origin. Counting on this object gives one polynomial, $f(K,s) = 1 + sK + K^2$, with values 21, 17, 13 at $K = 4$. The exchange symmetry between the two roots, applied to a screening law, forces the odds $\mu/(1-\mu)$ to be a power of $x$, and strengths that are accelerations (equivalently, flat rotation curves) fix the power at one: $\mu(x) = x/(x+1) = g/(g+a_0)$, a tug of war of $g$ against $a_0$ (§4.8). Integrating it gives the AQUAL kinetic function $F(y)$, and with it a covariant action whose prefactors are $K^2$, $2^D$, $K$. In the spherical, static limit the action gives the relation tested on SPARC. General relativity is the $\mu = 1$ (all-TetA) case: its torsion-free condition keeps 40 of 64 connection components and discards the 24 that carry TetB.
+The metric is a Gram matrix of the tetrad, $`g_{\mu\nu} = \eta_{ab} e^a{}_\mu e^b{}_\nu`$. The equation is even in the spatial frame, so it has two parity-related roots; general relativity keeps one of them by an orientation condition that the equations themselves do not supply (the metric cannot tell the roots apart, §2.2). Drawn in space, one root is a regular tetrahedron (TetA) and the other its inversion (TetB); together they are the stellated octahedron inscribed in the cube, sharing a centre, the Field Origin. Counting on this object gives one polynomial, $f(K,s) = 1 + sK + K^2$, with values 21, 17, 13 at $K = 4$. The exchange symmetry between the two roots, applied to a screening law, forces the odds $\mu/(1-\mu)$ to be a power of $x$, and strengths that are accelerations (equivalently, flat rotation curves) fix the power at one: $\mu(x) = x/(x+1) = g/(g+a_0)$, a tug of war of $g$ against $a_0$ (§4.8). Integrating it gives the AQUAL kinetic function $F(y)$, and with it a covariant action whose prefactors are $K^2$, $2^D$, $K$. In the spherical, static limit the action gives the relation tested on SPARC. General relativity is the $\mu = 1$ (all-TetA) case: its torsion-free condition keeps 40 of 64 connection components and discards the 24 that carry TetB. Read as a tug of war, TetA pulls with $g_t$ and TetB with the fixed acceleration $a_0$, so TetB's pull $\mu a_0$ never exceeds $a_0$, and what is called dark matter is TetB's share, missing over visible $= a_0/g_t$.
 
 ---
 
 ## 2. Foundations: dimension, frame, polynomial
 
-### 2.1 Dimension selection [T] (IX, P-hadamard)
+### 2.1 Dimension selection [T+L] (IX, P-hadamard)
 
 $$2(d+1) = 2^d \;\Longrightarrow\; d = 3 \quad(\text{only positive integer root}),\qquad K = d+1 = 4,\quad D = 3.$$
 
@@ -45,7 +84,7 @@ Reading: a simplex in $d$ dimensions has $d+1$ vertices; a simplex and its parit
 
 Early papers (III–V) reach $k = 4$ instead from the simplex theorem (a $d$-dimensional enclosure needs $d+1$ faces) and its recurrence in ADM (1 Hamiltonian + 3 momentum constraints), the tetrad (1 + 3 legs), LQG and Regge calculus (the tetrahedron), and LIGO's polarisations ($10 - 2k = 2$).
 
-### 2.2 The tetrad's coordinate-space geometry [T] (L1, P-two-regions)
+### 2.2 The tetrad's coordinate-space geometry [T+L] (L1, P-two-regions)
 
 The four isotropic spatial directions of an orthonormal frame give four projections
 
@@ -57,9 +96,9 @@ $$\text{TetA}: \max_i v_i \le 1, \qquad \text{TetB}: \max_i(-v_i) \le 1.$$
 
 (Checked by LP over all 16 patterns.) As a region, TetA $=\{\max v_i\le1\}$ has *outward* face normals $\propto(+++),(+--),(-+-),(--+)$ and therefore vertices at the opposite corners $(---),(-++),(+-+),(++-)$. Papers IX, GRAM and C instead name TetA by the vertex set $\{(+++),(+--),(-+-),(--+)\}$ ($xyz = +1$); that matches L1's region only if their "face normals" are read as *inward* normals (Paper C calls the same four vectors both TetA's vertices and its face normals). Same pair, flipped label. They interpenetrate as a stellated octahedron; the boundary splits into $4$ faces $\times$ $4$ sub-regions $= 16$ channels. No second frame is assumed: TetB is the second bounded region of a single tetrad.
 
-**Scheme version (P-two-regions, 39 checks).** $g = e^T\eta e$ forces $(\det e)^2 = \det g/\det\eta$, so the solution scheme has exactly two components, one per root of $\det e$. Spatial parity maps one to the other (three is odd) and carries TetA onto TetB. The metric sees only $(\det e)^2$; restricting to $SO^+(1,3)$ keeps one root and discards the other.
+**Scheme version (P-two-regions, 39 checks).** $g = e^T\eta e$ forces $(\det e)^2 = \det g/\det\eta$, so the solution scheme has exactly two components, one per root of $\det e$. Spatial parity maps one to the other (three is odd) and carries TetA onto TetB. The metric sees only $(\det e)^2$; restricting to $SO^+(1,3)$ keeps one root and discards the other. That restriction is a condition added to the equation, not one it supplies: keeping one root is a convention, and the single-root theory solves a smaller equation.
 
-### 2.3 The forced frame [T] (P-forced, GRAM, 27 + 32 checks)
+### 2.3 The forced frame [T+L] (P-forced, P-gram, GRAM, 36 + 76 + 32 checks)
 
 Legs with the pattern of $\eta$ (every pair alike, equal magnitudes, distinct; the sign of $\eta_{00}$ is set aside, since a squared length cannot be negative — keeping it instead admits the observer's projection, three orthonormal legs and a null time leg) are forced to a regular tetrahedron, unique up to $O(3)$, and only in three dimensions. Explicitly,
 
@@ -67,7 +106,7 @@ $$M_1 = \begin{pmatrix} +1&+1&-1&-1\\ +1&-1&+1&-1\\ +1&-1&-1&+1\end{pmatrix},\qu
 
 Gram products: $G_{M_2M_2} = G_{M_1M_1}$ (root-blind self-coupling), $G_{M_1M_2} = -G_{M_1M_1}$ (sign-reversing cross-coupling); $G_{IJ} = D$ on the diagonal, $-1$ off it. Columns of $M_1$ are a tetrahedron, of $M_2$ its inverse, of $[M_1\ M_2]$ the stellated octahedron.
 
-### 2.4 Hadamard kernel [T] (C, P-hadamard, 25 checks)
+### 2.4 Hadamard kernel [T+L] (C, P-hadamard, 25 checks)
 
 A regular simplex on cube corners $\{\pm1\}^D$, bordered by a row of ones, is a Hadamard matrix. The Walsh–Hadamard matrix of the 3-cube factorises $H_8 = H_2 \otimes H_4$ (parity $\otimes$ frame). The three non-constant rows of $H_4$ are the stellated octahedron's axes and the tetrad's face normals. Parity classes (as face-normal sign patterns, cf. §2.2): TetA $\{(+++),(+--),(-+-),(--+)\}$, TetB $\{(---),(-++),(+-+),(++-)\}$.
 
@@ -87,6 +126,14 @@ $$f(K,s) = 1 + \mathrm{Tr}_{V\otimes V}(1 + s\tau),$$
 
 the parity-weighted trace of the sector space $\Lambda^K V \oplus V \oplus (V\otimes V)$. The swap's eigenspaces are the symmetric 10 and antisymmetric 6, the same split GR meets in the tetrad (10 metric + 6 local Lorentz) and in each connection slice (10 Christoffel + 6 torsion). GR keeps the symmetric sector both times, which is why 13, 17, 21 never appear there: the parameter $s$ that weights the two sectors is fixed at one end.
 
+### 2.6 Walsh eigenmodes of the cube [T+L] (P-walsh, 47 checks)
+
+The eight Walsh functions $1, x, y, z, yz, xz, xy, xyz$ on the cube's corners are its eigenmodes (Theorem 1: an operator commutes with every bit flip iff every Walsh function is an eigenmode). Under $T_d$, with TetA and TetB kept distinct, they split into $A_1 = \{1, xyz\}$ and two $T_2$ triples, vectors $x, y, z$ and bivectors $yz, xz, xy = xyz\cdot(x, y, z)$. Every symmetric $T_d$-invariant coupling has six parameters and two blocks; all eight Walsh functions are eigenmodes iff TetA and TetB are alike, otherwise $1 \leftrightarrow xyz$ and $x \leftrightarrow yz$, … mix with closed-form angles. Eliminating the Field Origin (a Schur complement) keeps this form at every energy. Readouts: one root reads four modes; field closure, both roots, reads all eight (chamber sums read $1, xyz$, the frames read the six $T_2$ modes). TetA's corners are the forced frame's legs, and $R_A(1) = \sum v_a = 0$ is Letter 1's closure. The node's $\mu = S_A/(S_A+S_B)$ depends only on $1$ and $xyz$, so no $T_2$ (vortex) mode moves it; a symmetric state is two numbers, the basis of the tug of war (§4.8).
+
+### 2.7 Vortices of the stellated octahedron [T] (P-vortex, 81 checks)
+
+For every Hamiltonian with tetrahedral symmetry on the stated graphs, where TetA and TetB couple only through the Field Origin's octahedron, each axis of that octahedron carries exactly three vortices and three antivortices: stationary states that wind about an axis on which they vanish. The circulation runs through the Field Origin around its empty centre, with current $I = (E - \Delta_f - 2h)\lvert\rho\rvert^2$ through any half-plane bounded by the axis; without the octahedron nothing circulates on that graph. A vortex is a rotating wave and a vortex plus its antivortex a standing wave. On the corners the vortices are made of the $T_2$ modes (P-walsh Corollary 1), which is why rotation and the partition $\mu$ sit in separate sectors.
+
 ---
 
 ## 3. The covariant action (the SST)
@@ -100,7 +147,7 @@ $$\boxed{S = \int d^4x\,\sqrt{-g}\left[\frac{R}{16\pi G} - \frac{a_0^2}{8\pi G}\
 - **Split (what GFD does *not* do):** the L3 supplement describes the scalar-tensor embedding as $\nabla^2\Phi_N = 4\pi G\rho$ (40 components) plus a scalar supplement $\nabla\cdot[(\mu - 1)\nabla\Phi] = 0$ carrying its own stress–energy, and attributes the $\gamma = \mu$ lensing deficit to that decomposition; GFD keeps the single equation $\nabla\cdot[\mu\nabla\Phi] = 4\pi G\rho$.
 - **Open:** $\mathcal L_{\rm matter}$ is not specified in the papers. The source term $-\rho\Phi$ is what makes the scalar equation sourced (research/aqual docs note, check D1–D2).
 
-### 3.1 The kinetic functional [T] (FY, P-aqual, 24 checks)
+### 3.1 The kinetic functional [T+L] (FY, P-aqual, 24 checks)
 
 AQUAL requires $dF/dy = \mu(\sqrt y)$. For $\mu(x) = x/(x+1)$, with $u = \sqrt y$:
 
@@ -125,7 +172,7 @@ $$\boxed{g_s = \frac{g_t^2}{a_0 + g_t}}\ (\text{spherical field equation}),\qqua
 
 - **BTFR:** for $g_t \ll a_0$, $g_t^2 = g_s a_0$, so $v^4 = GM_b a_0$ and $M_b = v_{\rm flat}^4/(Ga_0)$.
 - **Mass decoder (DEC):** with $g_t = v^2/r$, $\;M_{\rm dec}(r) = \dfrac{r v^4}{G(a_0 r + v^2)} = \dfrac{r^2}{G}\,(g_t - a_0\mu)$, the total field minus its TetB share.
-- **Interior activity (DEC):** $\Delta M_{\rm eff} = M_{\rm phot} - M_{\rm dec}$ is zero when the interior is quiet, positive or negative when the drain drives or brakes the flow. It is not the TetB share.
+- **Interior activity (DEC):** $\Delta M_{\rm eff} = M_{\rm phot} - M_{\rm dec}$ is zero when the interior is quiet. The interior drives when $M_{\rm dec} > M_{\rm phot}$ ($\Delta M_{\rm eff} < 0$) and brakes when $M_{\rm dec} < M_{\rm phot}$. It is not the TetB share; §4.8 reads it exactly as TetB's measured strength $w$ against $a_0$.
 - **Stability [T]** (research/aqual): the kinetic coefficient is $2\mu > 0$ (no ghost); waves cross a static field at $c$ and travel along it at $c\sqrt{2-\mu}$; the Hessian eigenvalues are $\mu$ (twice) and $(x\mu)'$, and their ratio $(x\mu)'/\mu = 1 + (1-\mu)$ — the anisotropy is exactly the TetB share. $F$ is undefined for timelike gradients.
 
 ---
@@ -134,7 +181,9 @@ $$\boxed{g_s = \frac{g_t^2}{a_0 + g_t}}\ (\text{spherical field equation}),\qqua
 
 Here $x = g/a_0$ and $\mu$ is the TetA share of the field; $1 - \mu = 1/(x+1)$ is the TetB share.
 
-### 4.1 Exchange symmetry route [T] (CL route 3, P-exchange, 34 checks)
+**Map of this section.** §4.1–4.4 are the routes in the papers (exchange, equilibrium, normalised capacity, algebra). §4.5–4.7 are properties, the law family with the bound law, and the point mass. §4.8 is the consolidated solve: it states which premises select $x/(x+1)$ among MOND's functions, shows each one necessary, and gives quiet, drive and brake. Read §4.8 for what the derivation rests on.
+
+### 4.1 Exchange symmetry route [T+L] (CL route 3, P-exchange, 34 checks)
 
 Exchanging TetA and TetB inverts $x$ about $a_0$ and swaps the shares:
 
@@ -186,7 +235,7 @@ $$\frac{g_t}{a_0} = \mathrm{csch}^2\frac\psi2,\quad \mu = \mathrm{sech}^2\frac\p
 
 Unit source field ($g_s = a_0$) at $r = r_M$ where $\mu = 1/\varphi$; unit total field ($x = 1$) at $r = \sqrt2\,r_M$ where $\psi/2 = \ln(1+\sqrt2)$.
 
-### 4.8 The tug of war [T] (P-tugofwar, 42 checks + Lean; research/constitutive-law-u(x), 85 tests)
+### 4.8 The tug of war [T+L] (P-tugofwar, 42 checks; research/constitutive-law-u(x), 85 tests)
 
 **Statement.** $\mu = g/(g + a_0) = x/(x+1)$: TetA pulls with $g$, TetB with $a_0$, and each chamber's share is its strength over the total. Each carries $\mu$ times its own strength, $g = \mu g + \mu a_0$; TetB's pull is $(1-\mu)g = \mu a_0 < a_0$, rising to $a_0$ (the reason for the $a_0$ ceiling; a fraction below one alone only bounds it by $g$). $a_0$ is the one pull the exchange $g \mapsto a_0^2/g$ leaves fixed.
 
@@ -246,6 +295,8 @@ The torsion-free condition keeps the $s = +1$ projection and discards the $s = -
 > In GFD, gravity has two parts. **TetA** is the ordinary gravity of the matter you can see, the part Newton and Einstein describe. **TetB** is the flow through the galaxy's throat, the drain. Together they make the galaxy's **net field**, the gravity the stars actually feel.
 >
 > As in any vortex, the drain can work with the flow or against it. When TetB spins with the galaxy, it **drives** the rotation, and stars move faster than the visible matter alone would explain. When it spins against it, it **brakes** the rotation, and stars move slower. When it's quiet, the visible matter accounts for everything. The decoding-mass letter shows all three: M33 (drive), CamB (brake), and the Milky Way and NGC 3198 (close to quiet).
+>
+> **What $a_0$ is in this picture.** Think of TetA and TetB as two teams in a tug of war over one rope. TetA pulls with the galaxy's local gravity $g$, and TetB pulls with the fixed strength $a_0$. When the interior is quiet, TetB pulls with exactly $a_0$; driving means it pulls harder than $a_0$, and braking means it pulls more softly. Whether the drain turns with the galaxy or against it is the physical picture; what the decoded mass measures is how hard TetB pulls.
 >
 > **So why don't we see TetB in the solar system?** Every object has a TetB, the Sun included, but an object's TetB stays inside it. From outside, gravity can't tell what's going on inside a body; it only reports the total. So the Sun's TetB is already counted in the Sun's measured gravity, and the planets just feel "the Sun".
 >
@@ -411,7 +462,9 @@ Shell ceilings $\mathrm{CEIL} = B_{\rm Zn} + B_{\rm bdy} - \mu_b(2)[B_{\rm Zn} -
     - XIII calibrates on Zn-64, entered as 8.756 MeV where AME2020 gives 8.736.
     - Its reflect-and-min envelope is constructed, not derived.
     - XI ends stability at $K^K = 256$ (Bi-209); XIII ends it at 192 + 16 (Pb-208).
-15. **The decode deficit.** The sign of $\Delta M_{\rm eff}$ ("drives" vs "brakes") is not pinned down (DEC, ESS).
+15. **The decode deficit.** DEC and ESS left the sign of $\Delta M_{\rm eff}$ ("drives" vs "brakes") ambiguous. Now fixed by convention and identity (§3.2, §4.8): drive is $M_{\rm dec} > M_{\rm phot}$, i.e. TetB's measured strength $w > a_0$. Still open: what physically sets $w$ in a given galaxy's interior.
+    - **The stacked test is not yet run.** The law predicts a stacked median $D(x) = w/a_0$ flat at 1 across SPARC (§4.8); a wrong law would print a universal trend in $x$. The data and the null model exist in `research/vortex-hourglass/`; the stacked $D(x)$ has not been computed.
+    - **What $a_0$ is physically.** The tug of war needs $a_0$ to be TetB's strength, an acceleration on the same footing as $g_t$. Its value is measured (or $K^2Gm_e/r_e^2$); whether it is the acceleration of some definite time leg (§7.1's horizon relation is one candidate) is open.
 
 *Errata and internal inconsistencies (arithmetic checked here):*
 
@@ -434,14 +487,18 @@ Shell ceilings $\mathrm{CEIL} = B_{\rm Zn} + B_{\rm bdy} - \mu_b(2)[B_{\rm Zn} -
 | Claim | Script | Checks |
 |---|---|---|
 | RAR on SPARC | `papers/letter-radial-acceleration-relation-sparc/sparc_rar.py --from-csv supplementary/sparc_rar.csv` | σ = 0.181 |
-| Two bounded regions | `proofs/tetrad-scheme-two-bounded-regions/` | 39 |
-| Forced tetrahedral frame | `proofs/forced-tetrahedral-frame/` | 27 |
-| Hadamard cube frame | `proofs/hadamard-cube-frame/` | 25 |
+| Two bounded regions, scheme (+ Lean) | `proofs/tetrad-scheme-two-bounded-regions/` | 39 |
+| Forced tetrahedral frame (+ Lean) | `proofs/forced-tetrahedral-frame/` | 36 |
+| Two bounded regions by half-spaces (+ Lean) | `proofs/half-space-two-bounded-regions/` | 29 |
+| Gram matrices of the two roots; the 40/24 projection (+ Lean) | `proofs/gram-matrix-tetrad-equation/` | 76 |
+| Walsh eigenmodes of the cube; readouts; the node's $\mu$ (+ Lean) | `proofs/walsh-eigenmodes-of-the-cube/` | 47 |
+| Vortices of the stellated octahedron | `proofs/vortices-of-the-stellated-octahedron/` | 81 |
+| Hadamard cube frame (+ Lean) | `proofs/hadamard-cube-frame/` | 25 |
 | Torsion = regular rep of $S_4$ | `proofs/torsion-regular-representation/` | 36 |
-| Exchange symmetry → $\mu$ | `proofs/constitutive-law-exchange-symmetry/` | 34 |
+| Exchange symmetry → $\mu$ (+ Lean) | `proofs/constitutive-law-exchange-symmetry/` | 34 |
 | Tug of war: two teams on the cube; exchange ⟺ equal screening powers ⟹ odds $x^k$; $k = 1$ ⟺ accelerations ⟺ flat curves; necessity; one node; cap $\mu a_0$; decode $(g+w)/(g+a_0)$; Burgers and Lamb–Oseen | `proofs/constitutive-law-tug-of-war/` (+ Lean), `research/constitutive-law-u(x)/test_tug_of_war.py` | 42, 85 |
-| $F(y)$ closed form, convexity | `proofs/aqual-energy-functional/` | 24 |
-| BIMOND: $\alpha = -\beta$, $\mathcal M$ closed form, Legendre dual of $F$ | `proofs/bimetric-two-potential-energy/` | 39 |
+| $F(y)$ closed form, convexity (+ Lean) | `proofs/aqual-energy-functional/` | 24 |
+| BIMOND: $\alpha = -\beta$, $\mathcal M$ closed form, Legendre dual of $F$ (+ Lean) | `proofs/bimetric-two-potential-energy/` | 39 |
 | Chiral holonomy: uniform $= I$ (spinor $-1$), chiral angles exact, relabelling = reversal | `proofs/chiral-holonomy-closed-frame/` | 32 |
 | BBP on the coupling polynomial's ladder: denominator = Field Origin column $\Phi_2\Phi_4\Phi_8$; every $\pi$ formula drops $\Phi_4$ (prime 3); $\pi$ from $\Phi_8$; rung dictionary; rungs carry Fermat numbers 3, 5, 17, 257; ladder invariance at periods 16–64; Part III: BBP derived from the octahedral lattice (Φ₈ poles = neighbouring octahedra, π = their 45°, base −4 unique, doubling + closure → BBP) | `proofs/bbp-coupling-polynomial-ladder/` (+ `extensions/`, blind LLL) | 61 (+9) |
 | G's graded operator as Sierpiński blocks $S = e^L$: G reads the diagonal only; $S$ is a null rotation on 4-vectors; Walsh–Hadamard = null rotation × (boost $\ln 2$, $\pi$ twist) × reverse; $K = 4 = \lvert\mathrm{Tr}A\rvert^2$; chains $16 = (5+3+1+1)+(3+3)$; tetrad frame = 4-block read, legs = Newman–Penrose null tetrad; TetB = null rotation × total inversion (not parity) | `proofs/g-null-rotation/` | 41 |
@@ -1432,9 +1489,9 @@ $V - E + F = 4 = 2\chi(S^2)$, two disjoint closed surfaces.
   - *Abstract vs body.* The abstract says "the logarithm dominates at low acceleration and produces deep-MOND scaling, and the square root provides smooth crossover". The body (§5–6) correctly shows the deep-field $y^{3/2}$ arises only after the $\sqrt y$ and $y$ orders cancel among all three terms. The abstract's term-by-term roles do not hold.
   - *Sign.* The note writes $\mathcal L = -(a_0^2/8\pi G)F + \rho\Phi$. Varying that gives $\nabla\cdot[\mu\nabla\Phi] = -4\pi G\rho$. The stated field equation needs $-\rho\Phi$, as Paper A writes.
 
-## The six formal proofs (`proofs/`)
+## The formal proofs (`proofs/`)
 
-*All six verification scripts were re-run: aqual 24/24, exchange 34/34, forced frame 27/27, Hadamard 25/25, scheme 39/39, torsion 36/36, 185 checks in all. Each proof lists its premises and shows them necessary by counterexample.*
+*The repository now holds eighteen proofs (index: [`proofs/README.md`](proofs/README.md); keys and Lean status in §0). The first six are summarised in detail below, as written when they were read in full (their check counts have since grown: the forced frame now has 36). The other twelve are summarised in Part I: P-gram §2.3, P-walsh §2.6, P-vortex §2.7, P-bimond §9 and §13, P-tugofwar §4.8, P-chiral §12 item 26, P-bbp, P-gnull, P-sst, P-timeleg and P-lock in §13, and the half-space proof §2.2. Each proof lists its premises and shows them necessary by counterexample.*
 
 **P-aqual — The Energy Functional of $\mu = x/(x+1)$.**
 - $\mathcal L = -(a_0^2/8\pi G)F - \rho\Phi$.
