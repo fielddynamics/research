@@ -2,7 +2,7 @@
 
 *A condensed, LLM-oriented digest of every paper, letter, proof and manuscript in this repository, with the algebra written out. Companion to [`llms.txt`](llms.txt), which holds the rules and glossary; this file holds the content.*
 
-Stephen Nelson · Field Dynamics Research · fielddynamics.org · Last updated 2026-11-11
+Stephen Nelson · Field Dynamics Research · fielddynamics.org · Last updated 2026-11-20
 
 ---
 
@@ -31,7 +31,7 @@ Stephen Nelson · Field Dynamics Research · fielddynamics.org · Last updated 2
 
 ## 1. The structure in one paragraph
 
-The metric is a Gram matrix of the tetrad, $`g_{\mu\nu} = \eta_{ab} e^a{}_\mu e^b{}_\nu`$. The equation is even in the spatial frame, so it has two parity-related roots. Drawn in space, one root is a regular tetrahedron (TetA) and the other its inversion (TetB); together they are the stellated octahedron inscribed in the cube, sharing a centre, the Field Origin. Counting on this object gives one polynomial, $f(K,s) = 1 + sK + K^2$, with values 21, 17, 13 at $K = 4$. The exchange symmetry between the two roots forces the interpolating function $\mu(x) = x/(x+1)$. Integrating it gives the AQUAL kinetic function $F(y)$, and with it a covariant action whose prefactors are $K^2$, $2^D$, $K$. In the spherical, static limit the action gives the relation tested on SPARC. General relativity is the $\mu = 1$ (all-TetA) case: its torsion-free condition keeps 40 of 64 connection components and discards the 24 that carry TetB.
+The metric is a Gram matrix of the tetrad, $`g_{\mu\nu} = \eta_{ab} e^a{}_\mu e^b{}_\nu`$. The equation is even in the spatial frame, so it has two parity-related roots. Drawn in space, one root is a regular tetrahedron (TetA) and the other its inversion (TetB); together they are the stellated octahedron inscribed in the cube, sharing a centre, the Field Origin. Counting on this object gives one polynomial, $f(K,s) = 1 + sK + K^2$, with values 21, 17, 13 at $K = 4$. The exchange symmetry between the two roots, applied to a screening law, forces the odds $\mu/(1-\mu)$ to be a power of $x$, and strengths that are accelerations (equivalently, flat rotation curves) fix the power at one: $\mu(x) = x/(x+1) = g/(g+a_0)$, a tug of war of $g$ against $a_0$ (§4.8). Integrating it gives the AQUAL kinetic function $F(y)$, and with it a covariant action whose prefactors are $K^2$, $2^D$, $K$. In the spherical, static limit the action gives the relation tested on SPARC. General relativity is the $\mu = 1$ (all-TetA) case: its torsion-free condition keeps 40 of 64 connection components and discards the 24 that carry TetB.
 
 ---
 
@@ -186,6 +186,29 @@ $$\frac{g_t}{a_0} = \mathrm{csch}^2\frac\psi2,\quad \mu = \mathrm{sech}^2\frac\p
 
 Unit source field ($g_s = a_0$) at $r = r_M$ where $\mu = 1/\varphi$; unit total field ($x = 1$) at $r = \sqrt2\,r_M$ where $\psi/2 = \ln(1+\sqrt2)$.
 
+### 4.8 The tug of war [T] (P-tugofwar, 42 checks + Lean; research/constitutive-law-u(x), 85 tests)
+
+**Statement.** $\mu = g/(g + a_0) = x/(x+1)$: TetA pulls with $g$, TetB with $a_0$, and each chamber's share is its strength over the total. Each carries $\mu$ times its own strength, $g = \mu g + \mu a_0$; TetB's pull is $(1-\mu)g = \mu a_0 < a_0$, rising to $a_0$ (the reason for the $a_0$ ceiling; a fraction below one alone only bounds it by $g$). $a_0$ is the one pull the exchange $g \mapsto a_0^2/g$ leaves fixed.
+
+**The solve, premise by premise.**
+1. *Two teams [T, Lean via Walsh].* A $T_d$-symmetric corner state is two numbers $w_A, w_B$; $\mu = w_A/(w_A+w_B)$, rope position $s = c_{xyz}/c_1 = (w_A-w_B)/(w_A+w_B) = 2\mu-1$ (the docs' Möbius $\sigma$ when $w_A/w_B = x$); $-I$ swaps the teams; $T_2$ (vortex) modes cannot move $\mu$.
+2. *Exchange ⇒ power law [T, Lean].* For the screening family $x^n(1-\mu)^m = \mu^p$, pointwise exchange $\mu(1/x) = 1-\mu(x)$ holds iff $m = p$ (proof: exchange gives $\mu(1) = \tfrac12$, then $(\tfrac12)^m = (\tfrac12)^p$). Then $\Omega = \mu/(1-\mu) = x^k$, $k = n/p$. In §4.6's language, the exchange-symmetric laws are the fixed points of E; the bound law $(1,2,1)$ is an E-image, not a fixed point.
+3. *The power [T, Lean].* For $\mu_k = x^k/(1+x^k)$: $k = 1$ ⟺ the strengths are accelerations ($\mu_k(g+a_0) = g$) ⟺ flat deep-field curves ($v^2 \propto r^{(k-1)/(k+1)}$) ⟺ degree one (§4.1's (A)). $k=1$ gives $v^4 = GMa_0$.
+4. *Necessity [T].* Exchange + both MOND limits + monotonicity alone do not fix $\mu$ (counterexample $\Omega = x\exp(c\,t\,e^{-t^2})$, $t = \ln x$); unequal powers break exchange (bound law: $\mu(1) = 1/\varphi^2$); $k \ne 1$ is not flat; standard and exponential $\mu$ break exchange; degree one leaves $x/(x+1)$ and $x/(x-1)$, the second excluded by $0 \le \mu \le 1$.
+5. *One node [T].* If the chambers meet only at the Field Origin, the centre is the strength-weighted average of the teams and its elimination (Schur complement) leaves a single rank-one rope with share $t_A/(t_A+t_B)$; direct cube-edge links break this.
+
+**Physical premises.** Screening of mass-action form; the chamber swap read as $x \to 1/x$; strengths are accelerations (independently: flat rotation curves). $a_0$'s value is measured.
+
+**Decoding mass: quiet, drive, brake [T].** TetB's measured strength $w = g(g - g_{\rm bar})/g_{\rm bar}$ (the $a_0$ that would make the measured share quiet). Then
+$$\frac{M_{\rm dec}}{M_{\rm phot}} = \frac{g + w}{g + a_0},\qquad \frac{\Delta M}{M_{\rm phot}} = \frac{w - a_0}{g + a_0},\qquad D \equiv \frac{w}{a_0} = \frac{\Omega_{\rm law}}{\Omega_{\rm obs}}.$$
+Quiet $D = 1$, drive $D > 1$ (TetB pulls harder than $a_0$), brake $D < 1$. The $g + a_0$ denominator hides drive and brake where $g \gg a_0$.
+
+**How to test it [D].** Any law, one galaxy at a time, can be read as this law plus drive or brake (pointwise degeneracy). A wrong law prints a *universal* $D(x)$ across galaxies; drive and brake are per-galaxy. Test: stack galaxies, median $D$ in bins of $x$ should be flat at 1. Signatures: bound law $D = 1/(1-\mu_b)$ (1.09, $\varphi$, 3.70 at $x = 0.1, 1, 10$); standard MOND $D = \sqrt{1+x^2}-x$ (0.90, 0.41, 0.05); $a_0$ off by $c$: $D = c$. Forward-model velocity errors (they bias binned medians at both ends; research/vortex-hourglass null model); $a_0$ was calibrated on SPARC, so only the shape of $D(x)$ is evidence.
+
+**Vortex reading [T for the equations, reading for the map].** Burgers: inflow $-\alpha r/2$, stretching and diffusion balance exactly, $u_r\omega' = \alpha\omega + \nu(\omega''+\omega'/r)$ (quiet); stronger drain tightens and spins up the core (drive), weaker lets it spread, no drain is Lamb–Oseen decay (brake); the far swirl $\Gamma/2\pi r$ forgets the drain, as drive/brake hide where $g \gg a_0$. TetB = drain is the framework's reading.
+
+**Corrections to the March 2026 syntheses.** Independent sites give $x/(1+x)$ for any number; $x^N/(1+x^N)$ needs cooperative filling. The standard function's inverse is algebraic but not rational.
+
 ---
 
 ## 5. The connection: 64 = 40 + 24
@@ -242,7 +265,7 @@ SPARC, $Q \le 2$: 164 galaxies, 3284 points, $\Upsilon_d = 0.5$, $\Upsilon_b = 0
 
 ### 6.2 Decoding mass [O] (DEC)
 
-Observed $v(r)$ → $M_{\rm dec}(r)$ with only $G$ and $a_0$. Milky Way and M33 effective-mass profiles agree with independently inferred baryonic mass to within a factor of order unity, no halo. Analogy: a fluid vortex, whose surface tracers follow the flow but do not set the drain's power.
+Observed $v(r)$ → $M_{\rm dec}(r)$ with only $G$ and $a_0$. Milky Way and M33 effective-mass profiles agree with independently inferred baryonic mass to within a factor of order unity, no halo. Analogy: a fluid vortex, whose surface tracers follow the flow but do not set the drain's power. The ratio $M_{\rm dec}/M_{\rm phot} = (g+w)/(g+a_0)$ reads TetB's strength $w$ against $a_0$: quiet, drive and brake (§4.8).
 
 ### 6.3 Milky Way rotation [O] (VII)
 
@@ -416,6 +439,7 @@ Shell ceilings $\mathrm{CEIL} = B_{\rm Zn} + B_{\rm bdy} - \mu_b(2)[B_{\rm Zn} -
 | Hadamard cube frame | `proofs/hadamard-cube-frame/` | 25 |
 | Torsion = regular rep of $S_4$ | `proofs/torsion-regular-representation/` | 36 |
 | Exchange symmetry → $\mu$ | `proofs/constitutive-law-exchange-symmetry/` | 34 |
+| Tug of war: two teams on the cube; exchange ⟺ equal screening powers ⟹ odds $x^k$; $k = 1$ ⟺ accelerations ⟺ flat curves; necessity; one node; cap $\mu a_0$; decode $(g+w)/(g+a_0)$; Burgers and Lamb–Oseen | `proofs/constitutive-law-tug-of-war/` (+ Lean), `research/constitutive-law-u(x)/test_tug_of_war.py` | 42, 85 |
 | $F(y)$ closed form, convexity | `proofs/aqual-energy-functional/` | 24 |
 | BIMOND: $\alpha = -\beta$, $\mathcal M$ closed form, Legendre dual of $F$ | `proofs/bimetric-two-potential-energy/` | 39 |
 | Chiral holonomy: uniform $= I$ (spinor $-1$), chiral angles exact, relabelling = reversal | `proofs/chiral-holonomy-closed-frame/` | 32 |
