@@ -1,0 +1,391 @@
+\documentclass[twocolumn]{iopjournal}
+
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+
+\fancyhfoffset[L]{0mm}
+\setlength{\marginparwidth}{0pt}
+\setlength{\marginparsep}{0pt}
+
+\renewcommand{\articletype}[1]{%
+  {\vspace*{-8mm}\noindent \Large \sf Preprint}\par
+  \vspace*{6mm}\noindent{\scriptsize \sf{\bfseries \MakeUppercase{#1}}}}
+
+\fancyhead[L]{}
+\fancyhead[R]{}
+
+\hypersetup{pdftitle={The SST Khronon: Preferred-Frame Effects of the Time Leg}, pdfauthor={Stephen Nelson}, pdfsubject={Gravity Field Dynamics (GFD)}, pdfkeywords={SST, khronon, preferred foliation, PPN, alpha1, alpha2, stability, net-field rule, MOND, proof}}
+
+\begin{document}
+
+\articletype{Supplementary Material}
+
+\title{The SST Khronon: Preferred-Frame Effects of the Time Leg}
+
+\author{Stephen Nelson}
+
+\affil{Field Dynamics Research}
+
+\ead{stephen@fielddynamics.org}
+
+\begin{abstract}
+The time-leg proof~\cite{NelsonTL} showed that the SST, varied as
+the framework varies it, has the field equations of Blanchet and
+Marsat's preferred-foliation theory~\cite{BM2011} with
+$f = a_0^2[F(y) - y]$, and left its preferred-frame sector open: the
+PPN parameters $\alpha_1, \alpha_2$ and the khronon's dynamics and
+stability. We settle that sector. (i) The SST has no expansion or
+shear terms, so in Bonetti and Barausse's khronometric
+parametrisation~\cite{BB2015} $\beta = \lambda = 0$; there their
+$\alpha_2$ has a pole and the khronon's sound speed vanishes, and
+Flanagan has shown that their expansion does not apply at that
+point~\cite{Flanagan2023}. (ii) In Flanagan's slow-motion limit,
+which does apply, GFD's $f$ is his $f$ exactly, and the khronon's
+mass density is the TetB share's phantom density: the preferred frame
+carries the TetB share as a conserved fluid. (iii) His conditions for
+stable stationary solutions, $f' \le af'' \le 0$, say that neither
+$\mu$ nor the TetB share decreases with the field. For $x/(x+1)$ the
+TetB share in units of $a_0$ is $\mu$ itself, so the two conditions
+are one, and they hold at every acceleration. Flanagan argued that no
+$f$ meeting Blanchet and Marsat's condition for general relativity
+($f \to$ constant) can satisfy them everywhere; GFD's $f$ does not
+tend to a constant, and that is why it can. (iv) Stability at every
+acceleration forces a per-mass TetB tail; in the family
+$x/(1+x^n)^{1/n}$ only $n = 1$ is stable everywhere with a bounded
+tail. (v) The khronon's inertia and density are proportional to the
+TetB share, so in a drainless field, where the net-field rule sets
+that share to zero, the preferred-frame sector is empty:
+$\alpha_1 = \alpha_2 = 0$ inside a star system. Steady rotating discs
+are exact; non-stationary systems carry an order-unity khronon
+correction, a prediction.
+\end{abstract}
+
+\keywords{SST, khronon, preferred foliation, PPN, $\alpha_1$, $\alpha_2$, stability, net-field rule, MOND, proof}
+
+% ----------------------------------------------------------------------
+
+\section*{Setting}
+
+The SST~\cite{NelsonL3supp} is
+$S = \int d^4x\sqrt{-g}\,[R/16\pi G - (a_0^2/8\pi G)F(y) - \tfrac14
+e^{-2\Phi/c^2}F_{\mu\nu}F^{\mu\nu} + \mathcal L_{\rm m}]$ with
+$F(y) = y - 2\sqrt y + 2\ln(1+\sqrt y)$, $y = c^4a_\mu a^\mu/a_0^2$
+and $a^\mu$ the acceleration of the tetrad's time leg $u = e_0$,
+normal to GFD's time foliation~\cite{NelsonTL}. Varied as the
+framework varies it, it is Blanchet and Marsat's theory
+$(1/16\pi G)\sqrt{-g}[R - 2f(a)]$~\cite{BM2011} with
+\begin{equation}
+f(a) = a_0^2[F(y) - y],\qquad f'(a) = 2a(\mu - 1),
+\label{eq:f}
+\end{equation}
+$\mu = x/(x+1)$, $x = a/a_0$ ($c = 1$)~\cite{NelsonTL}. The foliation
+is a field, the khronon; its perturbation $\pi$ is the shift of the
+preferred time, $T = t + \pi/c^2$~\cite{Flanagan2023}. Write the TetB
+share of the field as $(1-\mu)g$.
+
+Each identity below is checked by the accompanying script (24
+checks, sympy), and the structural ones are machine-checked in Lean~4
+(13 theorems, importing the net-field rule's
+formalisation)~\cite{NelsonScript}.
+
+\textbf{Prior work.} The khronometric parametrisation, its PPN
+parameters and the strong-coupling analysis are Bonetti and
+Barausse's~\cite{BB2015}; the slow-motion limit, the khronon fluid and
+the stability conditions are Flanagan's~\cite{Flanagan2023}. What
+this note adds is their application to GFD's $f$: the dictionary, the
+reading of the conditions in terms of $\mu$ and the TetB share, the
+proof that $f = a_0^2(F - y)$ meets them everywhere and why, the
+forced tail, the uniqueness of $n = 1$, the khronon frequency, and
+the khronon sector under the net-field rule~\cite{NelsonNFR}.
+
+% ----------------------------------------------------------------------
+
+\section*{Theorem 1 (the published PPN formulas do not apply)}
+
+\emph{In Bonetti and Barausse's convention,
+$(1/16\pi G)\sqrt{-g}[R - \tfrac13(\beta+3\lambda)\theta^2 -
+\beta\sigma^2 + f_{\rm BB}]$, the SST has $f_{\rm BB} = -2f$, whose
+deep series $2a^2 - 4a^3/3a_0$ is theirs, and $\beta = \lambda = 0$.
+At high acceleration $f_{\rm BB}/a^2 \to 0$: GFD reduces to general
+relativity there, not to khronometric theory. At this point their
+$\alpha_1 = -4\alpha$ is finite, but
+$\lambda\,\alpha_2 \to -\alpha^2/(\alpha - 2) \ne 0$ as
+$\lambda \to 0$, so $\alpha_2$ has a pole, and the khronon's sound
+speed $c_s^2 \propto \beta + \lambda$ vanishes.}
+
+\begin{proof}
+The series, the limit and their Eqs.~14--16 at $\beta = 0$ are
+checked exactly (script A4--A6; Lean \texttt{bb\_point}).
+\end{proof}
+
+Bonetti and Barausse read the pole as strong coupling. Flanagan showed
+that the limit $c \to \infty$ does not commute with
+$\beta, \lambda \to 0$: their expansion holds when $\beta c^2$ and
+$\lambda c^2$ are large, and at $\beta = \lambda = 0$ his own
+expansion, in which the limit is well defined, is the one to
+use~\cite{Flanagan2023}. So the answer to ``what are GFD's $\alpha_1$
+and $\alpha_2$'' is not read off their formulas; the rest of this
+note uses Flanagan's limit.
+
+% ----------------------------------------------------------------------
+
+\section*{Theorem 2 (the khronon is the TetB share)}
+
+\emph{In Flanagan's slow-motion limit~\cite{Flanagan2023}, GFD's $f$
+is his $f$ with no rescaling (deep series $-a^2 + 2a^3/3a_0$,
+$\Lambda_0 = 0$), and his $\bar\chi = f'/2a = \mu - 1$. Hence:
+\begin{enumerate}
+\item his static equation $\nabla\cdot[(1 + \bar\chi)\nabla\Phi] =
+4\pi G\rho_m$ is GFD's field equation $\nabla\cdot[\mu\nabla\Phi] =
+4\pi G\rho_m$;
+\item his khronon density at $\pi = 0$,
+$\rho_T = -\nabla\cdot[\bar\chi\nabla\Phi]/4\pi G$, is the time-leg
+proof's phantom density
+$\rho_{\rm ph} = \nabla\cdot[(1 - \mu)\nabla\Phi]/4\pi G$;
+\item the khronon obeys $\dot\rho_T + \nabla\cdot(\rho_T v_T) = 0$
+with $v_T = -\nabla\pi$: the TetB share is a conserved fluid, carried
+irrotationally by the preferred frame.
+\end{enumerate}}
+
+\begin{proof}
+(1) and (2) are checked exactly (script A1--A3). (3) is Flanagan's
+Eqs.~21--24 with (2) substituted.
+\end{proof}
+
+In plain terms: the preferred frame is not an extra ingredient
+alongside GFD's two shares. It is what carries the TetB share.
+
+% ----------------------------------------------------------------------
+
+\section*{Theorem 3 (stable at every acceleration)}
+
+\emph{Flanagan's conditions for stable stationary solutions, a
+non-negative kinetic matrix and (in spherical, cylindrical and planar
+symmetry) a non-negative khronon density, are
+$f' \le af'' \le 0$~\cite{Flanagan2023}. For any law with
+$f' = 2a(\mu - 1)$:
+\begin{equation}
+-\tfrac12 f'' = \frac{d}{dx}\big[x(1 - \mu)\big],\qquad
+\frac{af'' - f'}{2a} = x\mu'(x),
+\label{eq:dict}
+\end{equation}
+so the conditions say: (i) $\mu$ does not decrease with the field, and
+(ii) the TetB share $(1 - \mu)g = a_0x(1-\mu)$ does not decrease with
+the field. For $\mu = x/(x+1)$, $x(1 - \mu) = \mu$ exactly, so the
+two conditions are the single condition $\mu' = 1/(1+x)^2 > 0$, and
+\begin{equation}
+\begin{aligned}
+f' &= -2a_0\mu,\qquad f'' = -\frac{2}{(1+x)^2},\\
+af'' - f' &= \frac{2a_0x^2}{(1+x)^2}
+\end{aligned}
+\label{eq:closed}
+\end{equation}
+give $f' < af'' < 0$ at every $a > 0$.}
+
+\begin{proof}
+(\ref{eq:dict}) is the chain rule for $f'(a) = 2a(m(a/a_0) - 1)$ with
+any differentiable $m$, and (\ref{eq:closed}) is direct (script
+B1--B4; Lean \texttt{stability\_dictionary}, \texttt{share\_eq\_law},
+\texttt{law\_deriv}, \texttt{share\_deriv}, \texttt{gfd\_stable}).
+\end{proof}
+
+Flanagan notes that the chain cannot hold for all $a$ when $f$ tends
+to a constant at high acceleration, Blanchet and Marsat's condition
+for recovering general relativity, so a generic $f$ has unstable
+stationary solutions near $a \sim a_0$~\cite{Flanagan2023}. GFD's $f$
+does not tend to a constant (time-leg proof, Theorem~6), and that is
+the property that lets it satisfy the chain everywhere.
+
+% ----------------------------------------------------------------------
+
+\section*{Theorem 4 (stability forces the tail)}
+
+\emph{(1) If $f'$ is non-increasing on $[a_1, \infty)$ and
+$f'(a_1) < 0$, then $f \to -\infty$; in particular $f$ has no finite
+limit. So a law stable at every acceleration, with the MOND sign
+$f' < 0$ somewhere, cannot tend to a constant, and its TetB share
+$-f'/2$ stays at least $-f'(a_1)/2 > 0$: every mass carries a TetB
+tail. For GFD the tail is $a_0\mu \to a_0$.
+(2) In the family $\mu_n = x/(1+x^n)^{1/n}$ the TetB share rises
+monotonically for $n \le 1$ and turns over for $n > 1$. For the
+standard law $n = 2$ it peaks at $x = 0.786$ and falls to zero, so
+condition (ii) fails for $x > 0.79$. For $n < 1$ it grows without
+bound, as $x^{1-n}/n$. Only $n = 1$ is stable at every acceleration
+with a bounded tail.}
+
+\begin{proof}
+(1) $f + ka$, with $k = -f'(a_1)$, has derivative
+$f' - f'(a_1) \le 0$, so $f(a) \le f(a_1) - k(a - a_1)$ (Lean
+\texttt{stability\_forces\_tail}, \texttt{no\_constant\_limit},
+\texttt{share\_limit}). (2) Exact for $n = 1, 2$ and a scan over
+$10^{-4} \le x \le 10^{10}$ for $n = 0.5, 0.8, 1.5, 3$ (script B5--B7;
+Lean \texttt{standard\_law\_turns\_over}, the share at $x = 10$
+below its value at $x = 1$).
+\end{proof}
+
+The net-field rule found that the per-mass tail is forced for every
+exchange-symmetric law with flat rotation curves~\cite{NelsonNFR}.
+Theorem~4 is a second, independent reason: the khronon's stability.
+Together with the involution of the flux exponent~\cite{NelsonNFR},
+it is the second property that singles out $n = 1$ in the family.
+
+% ----------------------------------------------------------------------
+
+\section*{Theorem 5 (the khronon around a point mass)}
+
+\emph{The khronon's kinetic matrix (Flanagan's Eq.~32) is
+$h_\perp = (1 - \mu)/4\pi G$ across the field and
+$h_\parallel = (1 - \mu)^2/4\pi G$ along it. Around a point mass,
+$\rho_{T0} = (a_0\mu/4\pi G r)\cdot 2/(2-\mu) > 0$, where
+$2/(2 - \mu) = 2 - s$ with $s$ the net-field rule's flux exponent.
+A short-wavelength khronon mode across the field oscillates at
+\begin{equation}
+\omega^2 = \frac{\rho_{T0}}{h_\perp} = \frac{2}{2 - \mu}\,\Omega^2
+= -\frac{dg}{dr},
+\label{eq:omega}
+\end{equation}
+$\Omega$ the circular orbital frequency: $\omega = \Omega$ in the deep
+field and $\sqrt2\,\Omega$ in the strong field, the radial tidal
+frequency of the field it sits in. It does not depend on wavenumber,
+so the mode does not propagate.}
+
+\begin{proof}
+From $d\ln x/d\ln r = -2/(2 - \mu)$ and $x\mu'/\mu = 1 - \mu$, with
+$(1-\mu)g = a_0\mu$ (script C1--C5; Lean \texttt{density\_exponent},
+\texttt{oscillation\_frequency}, the latter also giving
+$\Omega^2 < \omega^2 < 2\Omega^2$).
+\end{proof}
+
+This replaces, for the khronon, the scalar-sector speed
+$c\sqrt{2 - \mu}$ that the archive found with $\Phi$ treated as a
+covariant scalar~\cite{NelsonTL}: with $\Phi$ the lapse, the scalar
+degree of freedom is the khronon, and it oscillates locally rather
+than propagating.
+
+% ----------------------------------------------------------------------
+
+\section*{Theorem 6 (the preferred frame in a drainless field)}
+
+\emph{The khronon's inertia ($h_\perp$, $h_\parallel$), its density
+$\rho_T$ and its momentum $\rho_Tv_T$ are all proportional to the TetB
+share. In a drainless field the net-field rule sets the TetB share to
+zero~\cite{NelsonNFR}, so Flanagan's khronon action vanishes there,
+his modified Poisson equation becomes Poisson's, and his
+gravitomagnetic equation becomes general relativity's,
+$\nabla^2\zeta_i = 16\pi G\rho_mv_m^i$. Inside a star system the
+preferred-frame sector is empty: $\alpha_1 = \alpha_2 = 0$.}
+
+\begin{proof}
+$(1-\mu)$ and $(1-\mu)^2$ tend to zero with the TetB share (Lean
+\texttt{inertia\_vanishes}); the rest is Flanagan's Eqs.~25, 35 and~42
+with $\bar\chi = 0$ (script D1).
+\end{proof}
+
+\textbf{Numbers.} Without the rule, with $a$ taken from the Sun's own
+time leg, Bonetti and Barausse's $\alpha_1 = -8(1 - \mu)$ would be
+$-1.6\times10^{-7}$ at 1~AU, within $|\alpha_1| < 10^{-4}$, but
+$\alpha_2$ is undefined (Theorem~1). In Flanagan's limit the Sun would
+carry a khronon density $a_0/2\pi Gr$, $2.0\times10^{-13}$~kg\,m$^{-3}$
+at Saturn's orbit, about $2\times10^4$ times the ephemeris bound on
+unseen mass there~\cite{Pitjev2013}; moving with the Sun it would
+drive $\pi$ at order unity, giving preferred-frame accelerations
+$\sim a_0$. That is the per-mass tail already excluded by
+perihelia~\cite{NelsonNFR}, seen in the khronon sector, and the rule
+removes both together. With the rule, the coarse-graining kernel bound
+$c(\nu - 1)(r/\ell)^3$ of~\cite{NelsonNFR}, $\ell = r_J$, limits a
+planet at 1~AU to a coupling of at most $4\times10^{-17}$ of the
+galaxy's TetB share (script D2--D4).
+
+% ----------------------------------------------------------------------
+
+\section*{Proposition 7 (stationary and non-stationary systems)}
+
+\emph{(1) Flanagan's linearised khronon equation has source
+$\dot\rho_{T0}$. For a stationary system, including an axisymmetric
+disc in steady rotation, $\pi = 0$ solves it, so the static field
+equation, and every rotation-curve and decoding-mass result, is
+exact. (2) For a non-stationary system (a bar or spiral pattern, an
+interaction, accretion) $\pi \sim L^2/T$~\cite{Flanagan2023}, so the
+khronon changes the TetB share's field at order unity: the TetB share
+is carried as a fluid and lags a moving pattern.}
+
+(2) is a prediction of the SST as written, not an adjustable
+correction. Its size in a given system needs the full khronon
+equation; this note does not compute it.
+
+% ----------------------------------------------------------------------
+
+\section*{Scope}
+
+Proved here: the dictionary to both published analyses; that the PPN
+formulas of~\cite{BB2015} do not apply at GFD's point; the khronon as
+the TetB share; stability at every acceleration and its equivalence to
+$\mu' > 0$; the forced tail and the uniqueness of $n = 1$; the
+khronon frequency; the empty preferred-frame sector in a drainless
+field.
+
+Not proved here:
+\begin{enumerate}
+\item \emph{Stability in general geometry.} Flanagan's density
+condition is established for spherical, cylindrical and planar
+symmetry; the general case is open, and the TetB share's density can
+be negative in some configurations~\cite{Flanagan2023}.
+\item \emph{The non-stationary correction}, Proposition~7(2), in any
+particular system.
+\item \emph{The net-field mechanism}, as in~\cite{NelsonTL,NelsonNFR}:
+Theorem~6 assumes the rule; the leakage figure rests on its kernel
+bound with $\ell = r_J$.
+\item \emph{Higher orders and gravitational waves.} Tensor modes are
+carried by $R$ and travel at $c$; the khronon's coupling to radiating
+binaries beyond the slow-motion limit is not computed.
+\item \emph{The fourth term} (electromagnetic coupling), as
+in~\cite{NelsonTL}.
+\end{enumerate}
+
+% ----------------------------------------------------------------------
+
+\begin{thebibliography}{99}
+
+\bibitem{NelsonTL}
+S.~Nelson,
+\textit{The SST Covariant Completion: $y$ From the Acceleration of the
+Time Leg} (2026), \texttt{proofs/sst-covariant-time-leg/}.
+
+\bibitem{NelsonNFR}
+S.~Nelson,
+\textit{The Net-Field Rule: Where the Constitutive Law Acts} (2026),
+\texttt{proofs/net-field-rule/}.
+
+\bibitem{NelsonL3supp}
+S.~Nelson,
+\textit{Covariant completion}, supplementary note to Letter~3 (2026).
+
+\bibitem{NelsonScript}
+S.~Nelson,
+\texttt{verify\_sst\_khronon\_preferred\_frame.py} and
+\texttt{lean/KhrononPreferredFrame.lean} (2026),
+\texttt{proofs/sst-khronon-preferred-frame/}.
+
+\bibitem{BM2011}
+L.~Blanchet and S.~Marsat,
+Modified gravity approach based on a preferred time foliation,
+arXiv:1107.5264 (2011).
+
+\bibitem{BB2015}
+M.~Bonetti and E.~Barausse,
+Post-Newtonian constraints on Lorentz-violating gravity theories with
+a MOND phenomenology,
+\textit{Phys.\ Rev.\ D} \textbf{91} (2015) 084053, arXiv:1502.05554.
+
+\bibitem{Flanagan2023}
+\'E.~\'E.~Flanagan,
+Khronometric theories of modified Newtonian dynamics,
+arXiv:2302.14846 (2023).
+
+\bibitem{Pitjev2013}
+N.~P.~Pitjev and E.~V.~Pitjeva,
+Constraints on dark matter in the solar system,
+\textit{Astron.\ Lett.} \textbf{39} (2013) 141, arXiv:1306.5534.
+
+\end{thebibliography}
+
+\end{document}

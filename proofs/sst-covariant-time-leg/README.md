@@ -62,8 +62,8 @@ What this note adds:
 ## What it leaves open
 
 - **The net-field mechanism** (Theorem 6).
-- **Preferred-frame effects.** A preferred foliation breaks local Lorentz invariance. PPN α₁, α₂ and the khronon's dynamics and stability are not computed for this f. In Blanchet–Marsat, GR is recovered above a₀ because f → constant there; this f does not, so these must be computed with the net-field rule in place.
-- **Signal speeds.** The action has no (∇u)² shear or expansion terms, so the curvature term carries the tensor modes. The scalar-sector speed c√(2 − μ) found earlier assumed Φ is a covariant scalar, and it needs redoing with Φ as the lapse.
+- **Preferred-frame effects.** Worked out in [`../sst-khronon-preferred-frame/`](../sst-khronon-preferred-frame/): the khronon carries the TetB share, GFD's f is stable at every acceleration (because it does not tend to a constant), and with the net-field rule α₁ = α₂ = 0 inside a star system.
+- **Signal speeds.** The action has no (∇u)² shear or expansion terms, so the curvature term carries the tensor modes. With Φ as the lapse, the scalar degree of freedom is the khronon, which oscillates at the local tidal frequency rather than propagating ([`../sst-khronon-preferred-frame/`](../sst-khronon-preferred-frame/), Theorem 5).
 - **The fourth term.** With Φ = c² ln N, e^{−2Φ/c²} is defined relative to the foliation's normalized time. Its coefficient α remains open.
 - **A general time leg.** If e₀ is not hypersurface-orthogonal, the theory is of generalized Einstein-aether type, with a vorticity sector not treated here.
 

@@ -39,6 +39,7 @@ readings of the neutron-lifetime discrepancy, Paper VII, and the proton mass, re
 - THE_MISSING_MASS.md -- general-reader article: the missing mass, a_0, the second root, the tug of war, the vortex
 - proofs/constitutive-law-tug-of-war/ -- the solve of mu(x): which premises select x/(x+1), and drive/brake from decoded mass
 - proofs/net-field-rule/ -- where mu acts: only on a field with a drain; why the solar system is exactly GR with the bare G
+- proofs/sst-khronon-preferred-frame/ -- the preferred frame: the khronon is the TetB share; stable at every acceleration; alpha_1 = alpha_2 = 0 in a star system
 
 ## Core constants
 K = 4 (closure constant, simplex faces of a tetrahedron)
@@ -317,6 +318,14 @@ Net-field rule (proofs/net-field-rule, machine-checked in Lean): a drain belongs
   Data: globular clusters Pal 14, Pal 4 require bare G (8.9 and 11.1 sigma against G/mu). Prediction: with the coarse-graining scale at the Jacobi radius
     (a premise, by elimination), bound wide binaries are Newtonian to within 0.53 (s/r_J)^3.
   Open: a drained-field marker independent of the rotation curve; the covariant derivation.
+Preferred frame (proofs/sst-khronon-preferred-frame, machine-checked in Lean): the SST is Blanchet-Marsat's
+  preferred-foliation theory with beta = lambda = 0, where Bonetti-Barausse's PPN formulas do not apply
+  (alpha_2 has a pole; Flanagan 2023). In Flanagan's slow-motion limit the khronon's density IS the TetB
+  share's phantom density, a conserved fluid. Stability f' <= a f'' <= 0 <=> mu and the TetB share both
+  non-decreasing; for x/(x+1), x(1 - mu) = mu, so one condition, true at every a. Stability forces the
+  per-mass tail; in x/(1+x^n)^(1/n) only n = 1 is stable everywhere with a bounded tail (n = 2 fails
+  above x = 0.79). Khronon inertia and density are proportional to the TetB share, so in a drainless field
+  (net-field rule) alpha_1 = alpha_2 = 0. Steady discs exact; non-stationary systems get an O(1) correction.
 Gravitational wave speed: c_gw = c (tensor sector unmodified)
 
 ## Action structure (prefactors from topology)
@@ -409,6 +418,7 @@ Each script is self-contained; run it from its own folder.
 - proofs/constitutive-law-tug-of-war/verify_constitutive_law_tug_of_war.py -- the tug of war: selection of mu, necessity, cap, decode, vortex (42 checks; Lean in lean/)
 - research/constitutive-law-u(x)/test_tug_of_war.py -- the same statements as 85 pytest tests
 - proofs/net-field-rule/verify_net_field_rule.py -- the net-field rule: four faces, forced per-mass tail, sheet split, Jacobi edge, clusters, wide binaries, RAR slope (122 checks; Lean in lean/)
+- proofs/sst-khronon-preferred-frame/verify_sst_khronon_preferred_frame.py -- the preferred frame: khronon = TetB share, stability at every acceleration, forced tail, n = 1, empty sector in a drainless field (24 checks; Lean in lean/)
 
 ## Usage instructions for LLMs
 - The governing equation is the covariant action, which is the SST. The galaxy-scale predictions
