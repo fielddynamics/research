@@ -1,58 +1,64 @@
-# Drain-Classifier Study
+# Decoding the Local Group's Dwarfs and Clusters
 
-*Field Dynamics Research, 2026-11-20. Status: pre-registered test, run once, reported as it came out. Pre-registration: [`PREREGISTRATION.md`](PREREGISTRATION.md) (committed before the analysis, 4e71ce6 and 8b75824). Script: `python drain_classifier.py --from-csv lvdb_sample.csv` (numpy, pandas). Output: [`results_output.txt`](results_output.txt).*
+*Field Dynamics Research, 2026-11-20. Status: exploratory data study. Script: `python decode_study.py --from-csv decode_sample.csv` (numpy, pandas, scipy). Output: [`decode_output.txt`](decode_output.txt). Data: the Local Volume Database (Pace et al., CC0, commit `f0b7356`).*
 
 ---
 
-## The question
+## How the test is set up
 
-The [net-field rule](../../proofs/net-field-rule/) says μ acts only on a field that has a drain. Its data test labelled three objects as drained or not by type. A label chosen after looking at the dynamics could fit anything, so this study fixes the label in advance from non-dynamical data and tests it on a larger sample.
+The [decoding-mass letter](../../papers/letter-decoding-mass-from-rotation-curves/) already says what to expect from a galaxy with a drain and how to read it. The kinematics decode an effective mass with no mass model, M_dec = r v⁴ / [G(a₀r + v²)]. Comparing it with the photometric mass then says what the interior behind the throat is doing:
+- **quiet** when the two agree;
+- **drive** when M_dec > M_phot;
+- **brake** when M_dec < M_phot.
 
-## What was done
+A departure from quiet is a measurement of TetB, not a failure of μ.
 
-Two classifiers were fixed before any dispersion was compared:
-- **C1, structural:** drained if the half-light radius is at least 20 pc;
-- **C2, chemical:** drained if the stars show a resolved spread in metallicity (at least 0.10 dex), read as a record of gas cycling through the system's own field.
+That sets the study's three parts:
 
-The sample is every Local Group dwarf and star cluster in the Local Volume Database (Pace et al., CC0, commit `f0b7356`) with a measured velocity dispersion, magnitude and size. That is 97 objects, 48 from the cluster tables and 49 from the dwarf tables, after excluding the LMC, the SMC and the disrupting Sagittarius dwarf. Drained objects are predicted with μ, including the host galaxy's field; the others are predicted with Newton. The extracted sample is [`lvdb_sample.csv`](lvdb_sample.csv).
+1. **Drained systems: decode them.** Each dwarf galaxy is decoded at its half-light radius r₁/₂ = 4R_e/3, with circular speed v² = 3σ² from its velocity dispersion (Wolf et al. 2010). That is compared with M_phot = (M/L_V) L_V/2, with M/L_V = 2, and the result read as quiet within ±0.2 dex, drive above and brake below.
+2. **Systems without a drain: they must be Newtonian.** A star cluster has no interior, so there is nothing to drive or brake. Its Newtonian dynamical mass, 3σ²r₁/₂/G, must equal its photometric mass. This is the part of the test that can fail outright.
+3. **Is drive or brake physical?** If it is, the decoded reading should follow something measured independently of the dispersions: environment, structure, gas or chemical history.
 
-One correction to the script after its first run, recorded here: the excluded objects are named `LMC`, `SMC` and `Sagittarius` in the catalogue, not by their full names, so the first run kept the LMC. Fixing the name changed no conclusion.
+The letter's decode uses the system's own field. As a variant, the study also decodes with the drained host's field added (Milky Way, M31, M33 or LMC, each with its baryonic mass and the GFD law).
+
+## Why this replaces the first version
+
+The first version of this folder ([`drain_classifier.py`](drain_classifier.py), [`PREREGISTRATION.md`](PREREGISTRATION.md), [`results_output.txt`](results_output.txt)) scored every dwarf against the quiet state and counted every departure as a misfit of μ. In the letter's terms that is the wrong yardstick. It also had a bug. The catalogue codes Andromeda's satellites as `m_031`, M33's as `m_033` and the LMC's as `lmc`, so the first version silently dropped 41 dwarfs, among them every satellite of Andromeda. This version uses all of them: 90 dwarfs and 47 clusters.
 
 ## Results
 
-χ² per object on the **informative** objects, those where μ and Newton differ by more than 50% (63 objects for C1, 57 for C2):
+**1. The decoded dwarfs.** Of 90 dwarfs, 16 read quiet, 62 drive and 12 brake, with a median of +0.68 dex. The bright, gas-rich dwarfs read quiet: NGC 6822, WLM, Leo I and Andromeda VII. Fornax and Andromeda II read mild brake on their own field and quiet once the host's field is added. Draco and Ursa Minor read strong drive (+1.0 to +1.1 dex), and the faintest ultra-faint dwarfs read the strongest drive (Segue 1, +2.5 dex). Adding the host's field changes the reading only for dwarfs far out in their host's field. Crater II and Antlia II move from brake or quiet to drive, because the host's field dominates them. The counts shift with the stellar mass-to-light ratio (quiet/drive/brake = 11/74/5 at M/L = 1, 17/53/20 at M/L = 3), but the pattern does not.
 
-| Rule | C1 sample | C2 sample |
-|---|---|---|
-| The classifier (drained → μ, not drained → Newton) | 10.9 | 11.4 |
-| Newton for everything | 46.6 | 50.6 |
-| μ for everything (acceleration only) | 10.7 | 11.0 |
+**2. Drive tracks luminosity, and nothing else.** The reading falls steadily with luminosity:
 
-The same ordering holds for stellar mass-to-light ratios of 1 and 3.
+  log₁₀(M_dec/M_phot) ≈ −0.41 log₁₀ L + 2.8  (Spearman ρ = −0.73, p = 6 × 10⁻¹⁶).
 
-**1. Systems the classifiers call drained strongly prefer μ to Newton.** On 49 informative dwarfs, χ²/N is 12.5 with μ and 58 with Newton. This is what any MOND-type law predicts, so it supports μ but not the drain criterion in particular.
+Without controlling for luminosity, drive also appears to follow size, surface density, distance from the host, gas content and which host a dwarf orbits. Satellites of the Milky Way read +1.09 dex, satellites of M31 +0.34 and field dwarfs +0.06, and gas-rich dwarfs read quiet while gas-free ones drive. Once luminosity is controlled, every one of these disappears (all p > 0.1). The Milky Way's satellites read higher only because more of them are ultra-faint.
 
-**2. The test does not separate the drain criterion from an acceleration-only rule.** The objects that would separate them are the informative systems the classifiers call *not* drained: 14 under C1 and 9 under C2. On those, Newton does not fit better than μ (χ²/N 5.5 against 4.6 for C1, and 6.3 against 3.8 for C2). Most of them are ultra-faint star clusters with only a few hundred to a few thousand suns of light, such as Koposov 2, Kim 1 and DELVE 4, whose measured dispersions lie above *both* predictions. Unresolved binary stars inflate the dispersions of systems this faint, so they are weak tests of either rule. Among the brighter ones (more than 10⁴ suns, a cut chosen after the fact), there are only 4 or 5 objects, and the result is mixed.
+So, on this sample, the decoded drive is a single trend with luminosity. That is the same trend usually described as dwarfs becoming more dark-matter dominated as they get fainter, and in MOND as ultra-faint dwarfs lying above the prediction. It does not, by itself, show that the drive is a property of the interior. It could equally come from measurement:
+- binary stars, which inflate the smallest dispersions;
+- tidal heating by the host;
+- a dispersion floor in the faintest systems.
 
-**3. The pre-registered criterion for failure is met.** The pre-registration said the drain criterion would count against itself if neither classifier beat the better of "Newton for everything" and "μ for everything". Neither does. On this sample the drain criterion adds nothing measurable to the acceleration-only rule.
+To read it as TetB's activity, the framework needs a predictor of drive that is not luminosity.
 
-**4. The clusters that supported the criterion are not in this sample.** The net-field proof's evidence for the bare G came from Pal 14 and Pal 4. The catalogue has only an upper limit for Pal 14 (1.56 km/s) and no dispersion for Pal 4. The evidence for the criterion therefore still rests on those two remote clusters, taken from the original papers.
+**3. The clusters.** The ten catalogue clusters that sit at low acceleration and are bright enough for binary stars to matter little (predicted σ > 1 km/s) fit Newton slightly better than μ: χ²/N is 6.2 against 7.2. The scatter is large, and three outliers dominate it: NGC 6229, NGC 6838 and Garro 04. The two remote clusters measured in their own papers are clearer:
+- **Pal 14:** log₁₀(M_N/M_phot) = −0.24 ± 0.27, where μ would give at least +0.99;
+- **Pal 4:** −0.06 ± 0.18, where μ would give at least +0.67.
 
-**5. μ itself underpredicts many dwarfs.** Among the drained, informative objects the median shortfall is 1.9σ, and 37% lie more than 3σ above the prediction. The classical dwarfs fit better (χ²/N 10, median 1.0σ) than the ultra-faint ones (χ²/N 15, median 2.9σ). The largest misfits are Draco, Ursa Minor, Canes Venatici I, Sextans, Antlia II and Andromeda XVIII. MOND has the same tension with these dwarfs. It is usually attributed to tidal stirring, binary stars and departures from equilibrium, but it is a real tension, and the simple dispersion estimator used here does not resolve it.
+Both are Newtonian, as the net-field rule requires of a system without a drain. The faintest catalogue clusters (predicted σ < 1 km/s, such as Kim 1 and DELVE 4) read 1.7 dex above Newton. That is the size of the inflation binary stars produce at such small dispersions, so they do not test either rule. Sagittarius II is listed as a cluster but reads +1.2 ± 0.2 dex. If it really is a star cluster, it is a problem for the rule, and its classification is worth checking.
 
-**6. The size boundary is not clean.** Segue 1 and Willman 1, which are ultra-faint galaxies with spreads in metallicity, sit at 19.5 and 20.0 pc, just below C1's threshold, so C1 calls them star clusters. The chemical classifier calls them galaxies. Neither prediction fits them.
+## What it means
 
-## What this means for the net-field rule
-
-- The rule's statements about the solar system do not depend on this test. Cassini excludes a drain around every star whatever the classification of dwarfs and clusters.
-- The claim that *only* the drain criterion fits clusters and dwarfs together rested on three objects, and a larger, pre-registered test does not confirm it. The proof should say so.
-- The drain criterion remains a premise whose observable signature has not yet been isolated in the data. Remote clusters with low internal accelerations and well-measured dispersions are the decisive objects (Pal 14, Pal 4, NGC 2419, Pal 3, Pal 15, AM 1). Only one of them, NGC 2419, has a catalogue dispersion, and it is not informative, because μ and Newton differ there by less than 50%.
+- **The falsifiable part holds where the data are good.** Systems without a drain should be Newtonian. Pal 14 and Pal 4 are, and the cleaner catalogue clusters lean Newtonian. More remote clusters with dispersions measured in their own papers would make this decisive.
+- **Drive and brake are measured, but not yet explained.** Across the Local Group's dwarfs they follow luminosity alone. That is not a contradiction of the letter, which leaves the interior dynamics open. It does mean that the next step is a physical predictor of drive that is independent of luminosity, or a way to separate it from binaries and tides, for example by using only multi-epoch dispersions, which remove binaries.
+- **The study does not test μ itself in the dwarfs.** Once drive and brake are allowed, a single dwarf cannot falsify μ. That is why the clusters, and a predictor of drive, carry the weight.
 
 ## Files
 
 | File | Contents |
 |---|---|
-| [`PREREGISTRATION.md`](PREREGISTRATION.md) | Classifiers, cuts, estimators and failure criterion, fixed before the analysis |
-| [`drain_classifier.py`](drain_classifier.py) | The analysis |
-| [`lvdb_sample.csv`](lvdb_sample.csv) | The 97 objects used, extracted from the Local Volume Database (CC0) |
-| [`results_output.txt`](results_output.txt) | Full output, including M/L sensitivity and the per-object table |
+| [`decode_study.py`](decode_study.py) | This study |
+| [`decode_sample.csv`](decode_sample.csv) | The 137 objects used (90 dwarfs, 47 clusters), from the Local Volume Database (CC0) |
+| [`decode_output.txt`](decode_output.txt) | Full output: every dwarf's reading, the clusters, the correlations |
+| [`drain_classifier.py`](drain_classifier.py), [`PREREGISTRATION.md`](PREREGISTRATION.md), [`lvdb_sample.csv`](lvdb_sample.csv), [`results_output.txt`](results_output.txt) | The first version, superseded: it scored dwarfs against quiet only and dropped Andromeda's, M33's and the LMC's satellites |

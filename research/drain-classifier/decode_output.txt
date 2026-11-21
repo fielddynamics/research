@@ -1,0 +1,153 @@
+sample: 90 dwarfs (drained), 47 clusters (not drained) from the catalogue
+
+1. DRAINED DWARFS, decoded (the letter's decode, own field). log10(M_dec/M_phot), quiet within +-0.2 dex
+   quiet 16, drive 62, brake 12
+   with the host's field added: quiet 13, drive 73, brake 4
+   M/L_V = 1.0: quiet 11, drive 74, brake 5
+   M/L_V = 3.0: quiet 17, drive 53, brake 20
+   median log10(M_dec/M_phot) = +0.68 dex
+
+   dwarf                  host      L/Lsun     R_e  x_obs x_host   dlog    +-   read dlog_h read_h
+   IC 1613                nan     9.55e+07  1439.8  0.049  0.000  -1.12  0.15  brake  -1.12  brake
+   NGC 147                m_031   3.63e+08  1051.3  0.148  0.106  -1.05  0.11  brake  -0.85  brake
+   Crater II              mw      1.60e+05  1054.2  0.003  0.075  -0.98  0.27  brake  +0.39  drive
+   Bootes III             mw      1.84e+04   466.6  0.004  0.192  -0.60  0.97  brake  +1.04  drive
+   Andromeda XXV          m_031   3.66e+05   561.5  0.015  0.137  -0.55  0.54  brake  +0.41  drive
+   Cassiopeia III         m_031   7.80e+06   922.4  0.046  0.077  -0.46  0.12  brake  -0.07  quiet
+   Andromeda XVII         m_031   1.13e+05   215.4  0.024  0.259  -0.46  1.23  brake  +0.52  drive
+   Andromeda II           m_031   4.17e+06   941.6  0.039  0.066  -0.32  0.24  brake  +0.08  quiet
+   Fornax                 mw      1.94e+07   695.3  0.128  0.059  -0.26  0.03  brake  -0.11  quiet
+   Leo A                  nan     5.97e+06   405.8  0.121  0.000  -0.26  0.14  brake  -0.26  brake
+   Perseus I              m_031   3.02e+05   272.2  0.039  0.032  -0.25  1.61  brake  -0.01  quiet
+   UGC 4879               nan     6.67e+06   301.5  0.186  0.000  -0.22  0.23  brake  -0.22  brake
+   Andromeda XV           m_031   1.91e+05   245.4  0.040  0.120  -0.14  0.61  quiet  +0.42  drive
+   NGC 185                m_031   1.49e+08   489.7  0.715  0.072  -0.13  0.07  quiet  -0.11  quiet
+   Leo I                  mw      4.57e+06   229.1  0.229  0.032  -0.13  0.05  quiet  -0.08  quiet
+   Hercules               mw      1.80e+04   118.5  0.026  0.069  -0.11  0.49  quiet  +0.43  drive
+   Sagittarius dIrr       nan     4.45e+06   258.4  0.208  0.000  -0.09  0.24  quiet  -0.09  quiet
+   NGC 6822               nan     1.60e+08  1673.4  0.195  0.000  -0.07  0.09  quiet  -0.07  quiet
+   WLM                    nan     4.83e+07   799.1  0.233  0.000  -0.05  0.20  quiet  -0.05  quiet
+   NGC 205                m_031   3.44e+08   450.6  1.652  0.197  -0.03  0.25  quiet  -0.01  quiet
+   Cetus                  nan     2.56e+06   574.5  0.073  0.000  -0.01  0.21  quiet  -0.01  quiet
+   Antlia II              mw      6.67e+05  2379.3  0.009  0.069  +0.03  0.11  quiet  +0.93  drive
+   Andromeda XXII         m_033   3.08e+04   119.7  0.040  0.031  +0.04  1.02  quiet  +0.27  drive
+   Andromeda VII          m_031   1.11e+07   775.1  0.132  0.048  +0.11  0.13  quiet  +0.23  drive
+   Andromeda XVI          m_031   8.32e+04   126.3  0.069  0.039  +0.12  1.33  quiet  +0.30  drive
+   Tucana                 nan     5.60e+05   203.6  0.115  0.000  +0.13  0.41  quiet  +0.13  quiet
+   Andromeda XXVIII       m_031   2.17e+05   227.2  0.064  0.030  +0.15  0.57  quiet  +0.30  drive
+   Aquarius               nan     1.32e+06   319.6  0.116  0.000  +0.15  0.32  quiet  +0.15  quiet
+   Andromeda XXIII        m_031   6.85e+05   895.7  0.031  0.089  +0.23  0.36  drive  +0.78  drive
+   Andromeda XIV          m_031   2.44e+05   296.3  0.058  0.071  +0.24  0.33  drive  +0.56  drive
+   Pegasus dIrr           nan     6.14e+06   651.9  0.141  0.000  +0.27  0.16  drive  +0.27  drive
+   Sculptor               mw      1.74e+06   223.2  0.230  0.104  +0.28  0.21  drive  +0.40  drive
+   Andromeda I            m_031   2.96e+06   746.6  0.085  0.274  +0.28  0.32  drive  +0.81  drive
+   Carina                 mw      5.06e+05   248.1  0.107  0.081  +0.28  0.32  drive  +0.50  drive
+   Lacerta I              m_031   2.61e+06   520.5  0.124  0.042  +0.34  0.15  drive  +0.45  drive
+   Andromeda XIX          m_031   8.95e+05  2150.4  0.017  0.100  +0.36  0.36  drive  +1.15  drive
+   Andromeda XXI          m_031   3.22e+05   730.2  0.031  0.093  +0.37  0.27  drive  +0.94  drive
+   M 32                   m_031   2.94e+08    91.2 56.400  3.546  +0.38  0.09  drive  +0.38  drive
+   Leo II                 mw      5.30e+05   147.7  0.233  0.040  +0.44  0.09  drive  +0.50  drive
+   Antlia B               ngc_31  7.05e+05   235.7  0.165  0.000  +0.45  0.33  drive  +0.45  drive
+   LGS 3                  m_031   5.97e+05   329.6  0.115  0.038  +0.52  0.90  drive  +0.63  drive
+   Andromeda XXIX         m_031   1.58e+05   241.9  0.082  0.059  +0.54  0.37  drive  +0.75  drive
+   Hydrus I               lmc     6.55e+03    52.4  0.085  0.463  +0.63  0.30  drive  +1.28  drive
+   Phoenix                nan     7.59e+05   242.0  0.217  0.000  +0.66  0.13  drive  +0.66  drive
+   Andromeda VI           m_031   2.83e+06   399.1  0.265  0.039  +0.68  0.18  drive  +0.73  drive
+   Tucana V               mw      2.36e+02    22.8  0.038  0.175  +0.68  1.09  drive  +1.36  drive
+   Leo T                  nan     1.33e+05   155.1  0.143  0.000  +0.70  0.28  drive  +0.70  drive
+   Grus I                 mw      3.84e+03   113.4  0.033  0.070  +0.75  0.73  drive  +1.21  drive
+   Bootes II              mw      1.28e+03    33.0  0.068  0.235  +0.75  0.62  drive  +1.31  drive
+   Bootes I               mw      2.19e+04   214.9  0.045  0.139  +0.80  0.15  drive  +1.36  drive
+   Canes Venatici I       mw      2.65e+05   326.4  0.109  0.040  +0.82  0.10  drive  +0.94  drive
+   Andromeda III          m_031   5.35e+05   267.7  0.196  0.135  +0.82  0.26  drive  +1.00  drive
+   Leo IV                 mw      8.17e+03   101.1  0.065  0.056  +0.88  0.41  drive  +1.13  drive
+   Sextans                mw      2.63e+05   485.9  0.078  0.098  +0.89  0.29  drive  +1.21  drive
+   Pegasus III            mw      3.98e+03    82.1  0.056  0.040  +0.89  0.68  drive  +1.11  drive
+   Ursa Minor             mw      2.99e+05   250.4  0.190  0.123  +0.99  0.05  drive  +1.16  drive
+   Andromeda XVIII        nan     3.94e+05   235.4  0.253  0.000  +1.04  0.18  drive  +1.04  drive
+   Andromeda X            m_031   7.11e+04   175.4  0.142  0.069  +1.07  0.38  drive  +1.21  drive
+   Carina II              lmc     5.75e+03    76.5  0.092  0.348  +1.08  0.51  drive  +1.64  drive
+   Leo V                  mw      4.92e+03    35.2  0.196  0.050  +1.09  0.71  drive  +1.17  drive
+   Andromeda XIII         m_031   4.37e+04   113.3  0.180  0.090  +1.09  0.60  drive  +1.24  drive
+   Draco                  mw      3.02e+05   220.2  0.252  0.108  +1.09  0.05  drive  +1.21  drive
+   Andromeda V            m_031   4.49e+05   302.5  0.221  0.104  +1.10  0.18  drive  +1.23  drive
+   Centaurus I            mw      1.18e+04    71.0  0.151  0.076  +1.11  0.23  drive  +1.26  drive
+   Coma Berenices         mw      4.45e+03    54.9  0.123  0.211  +1.14  0.27  drive  +1.50  drive
+   Pegasus IV             mw      4.29e+03    41.6  0.162  0.098  +1.14  0.53  drive  +1.32  drive
+   Leo VI                 mw      2.27e+03    86.9  0.057  0.076  +1.19  0.88  drive  +1.53  drive
+   DELVE 2                lmc     5.92e+02    20.5  0.131  0.196  +1.22  0.99  drive  +1.54  drive
+   Eridanus II            mw      6.03e+04   178.9  0.162  0.023  +1.26  0.26  drive  +1.31  drive
+   Pisces II              mw      4.41e+03    56.3  0.149  0.047  +1.33  0.77  drive  +1.43  drive
+   Andromeda IX           m_031   2.42e+05   393.4  0.184  0.140  +1.44  0.32  drive  +1.64  drive
+   Canes Venatici II      mw      1.00e+04    54.0  0.313  0.053  +1.52  0.36  drive  +1.58  drive
+   Andromeda XX           m_031   2.96e+04    72.5  0.423  0.088  +1.53  0.78  drive  +1.59  drive
+   Tucana II              mw      2.70e+03   161.7  0.054  0.172  +1.62  0.41  drive  +2.17  drive
+   Andromeda XI           m_031   3.05e+04   108.8  0.322  0.110  +1.67  0.78  drive  +1.76  drive
+   Aquarius II            mw      4.74e+03   123.7  0.109  0.083  +1.72  0.55  drive  +1.93  drive
+   Reticulum II           lmc     1.49e+03    36.5  0.216  0.375  +1.72  0.41  drive  +2.04  drive
+   Pictor II              lmc     9.82e+02    31.9  0.234  0.371  +1.85  0.50  drive  +2.14  drive
+   Cassiopeia II          m_031   1.07e+05   182.4  0.464  0.046  +1.85  0.91  drive  +1.87  drive
+   Andromeda XXVI         m_031   2.11e+04   164.7  0.273  0.111  +2.06  0.50  drive  +2.17  drive
+   Horologium I           lmc     1.92e+03    31.7  0.461  0.160  +2.06  0.66  drive  +2.15  drive
+   Ursa Major I           mw      9.73e+03   150.1  0.207  0.085  +2.10  0.27  drive  +2.22  drive
+   Tucana IV              mw      1.36e+03    98.1  0.115  0.206  +2.11  0.55  drive  +2.48  drive
+   Ursa Major II          mw      5.01e+03    92.1  0.262  0.227  +2.15  0.28  drive  +2.35  drive
+   Columba I              mw      4.09e+03    97.3  0.222  0.046  +2.15  0.67  drive  +2.22  drive
+   Andromeda XXVII        m_031   1.24e+05   325.7  0.409  0.147  +2.19  0.43  drive  +2.28  drive
+   Willman 1              mw      8.79e+02    20.0  0.672  0.215  +2.27  0.52  drive  +2.34  drive
+   Eridanus IV            mw      2.25e+03    56.2  0.402  0.116  +2.39  0.30  drive  +2.47  drive
+   Segue 1                mw      2.83e+02    19.5  0.491  0.349  +2.52  0.40  drive  +2.66  drive
+   Carina III             lmc     7.80e+02    19.5  0.977  0.410  +2.56  0.99  drive  +2.63  drive
+
+2. CLUSTERS (no drain, no interior): Newtonian mass must equal photometric mass
+   catalogue clusters: 47; median log10(M_N/M_phot) = -0.10 dex
+   at low acceleration (x_obs < 1): 16 clusters, median +0.30 dex
+   predicted sigma_N > 1 km/s (binary motions minor): 39 clusters, median -0.18 dex, within +-0.3 dex: 0.49
+   predicted sigma_N < 1 km/s: 8 clusters, median +1.67 dex
+
+   cluster                     L/Lsun    R_e  x_obs  sig_N  dlog_N    +-
+   NGC 6229                  1.47e+05    3.5  0.975   6.70   -0.90  0.19
+   Garro 2                   1.28e+04    2.6  0.197   2.32   -0.81  0.74
+   NGC 6838                  3.80e+04    3.3  0.784   3.51   -0.46  0.22
+   Gran 4                    3.25e+04   14.9  0.080   1.53   -0.08  0.12
+   Gaia 1                    8.17e+03    8.4  0.064   1.02   -0.07  0.14
+   NGC 5897                  7.05e+04    7.6  0.684   3.15   -0.06  0.07
+   FSR 1758                  2.00e+05   20.4  0.368   3.25   +0.07  0.12
+   NGC 7492                  1.94e+04    8.9  0.208   1.53   +0.12  0.24
+   ESO 280-SC06              7.52e+03    4.7  0.662   1.31   +0.48  0.15
+   Garro 04                  8.95e+03    6.8  0.651   1.19   +0.71  0.15
+   Gran 3                    3.47e+03    5.9  0.370   0.79   +0.76  0.14
+   Laevens 1                 1.13e+04   19.5  0.130   0.79   +0.83  0.69
+   Sagittarius II            1.04e+04   33.9  0.097   0.57   +1.21  0.18
+   PS1 1                     4.92e+02    4.8  0.555   0.33   +1.60  0.29
+   DELVE 4                   1.03e+02    4.8  0.793   0.15   +2.43  0.57
+   Kim 1                     6.49e+01    5.2  0.787   0.12   +2.70  0.45
+   low acceleration and sigma_N > 1 km/s: 10 clusters; chi2/N Newton 6.2, mu 7.2 (mu would put them +0.16 dex above Newton, median)
+   literature:
+   Palomar 14 (Jordi+2009)              26.0  0.003   0.50   -0.24  0.27   (mu alone would give >= +0.99)
+   Palomar 4 (Frank+2012)               18.4  0.025   0.93   -0.06  0.18   (mu alone would give >= +0.67)
+
+3. DOES THE DECODED READING TRACK ANYTHING INDEPENDENT?  Spearman rank correlation with log10(M_dec/M_phot)
+   (5 tests; Bonferroni threshold p < 0.01)
+   distance to host (kpc)           N= 77  rho=-0.32  p=4.7e-03
+   stellar luminosity               N= 90  rho=-0.73  p=6.2e-16
+   surface density L/(2 pi R_e^2)   N= 90  rho=-0.49  p=1.1e-06
+   half-light radius                N= 90  rho=-0.70  p=2.0e-14
+   metallicity spread               N= 59  rho=-0.11  p=4.0e-01
+   gas-rich (HI detected)           N= 14  median dlog -0.04
+   gas-free                         N= 76  median dlog +0.85
+
+   the reading falls with luminosity: log10(M_dec/M_phot) = -0.41 log10 L +2.81
+   with luminosity controlled (Spearman on the residual):
+   distance to host                 N= 77  rho=-0.17  p=1.3e-01
+   surface density                  N= 90  rho=+0.05  p=6.1e-01
+   half-light radius                N= 90  rho=-0.16  p=1.3e-01
+   gas-rich                         N= 90  rho=+0.04  p=7.3e-01
+   metallicity spread               N= 59  rho=-0.01  p=9.6e-01
+   residual, Milky Way/LMC          N= 43  median -0.04
+   residual, M31/M33                N= 33  median +0.10
+   residual, field                  N= 14  median -0.10
+   without luminosity controlled:
+   satellites of the Milky Way/LMC  N= 43  median dlog +1.09
+   satellites of M31/M33            N= 33  median dlog +0.34
+   field (no host)                  N= 14  median dlog +0.06
