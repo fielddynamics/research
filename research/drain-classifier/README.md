@@ -4,6 +4,10 @@
 
 ---
 
+> **Status of the dwarf results (added 2026-11-21).** The GFD equations, and the decode in the [decoding-mass letter](../../papers/letter-decoding-mass-from-rotation-curves/), are defined for rotation curves: circular orbits with g = v²/r. Dwarf spheroidals do not rotate, so every dwarf reading here also depends on steps GFD has not established: turning a dispersion into a circular speed, the stars' orbit shapes, binary stars, a single mass-to-light ratio, and the host's field. The dwarf readings (Tests 2 and 3) are therefore exploratory and are not a test of GFD. Test 1 uses no GFD equation, because a system without a drain is Newtonian by the rule, so the cluster result stands. The test of the vortex facts has moved to SPARC rotation curves ([`research/sparc-drain-strength/`](../sparc-drain-strength/)).
+>
+> **A correction to Test 3's hypothesis.** The framework places the drain's effect by TetB's share, not by distance from the centre. The [tug-of-war proof](../../proofs/constitutive-law-tug-of-war/) says the drain's strength is written in the core and the inflow, *just as drive and brake appear where TetB's share is large and vanish where g is far above a₀*. The vortex core corresponds to where TetB's share is large, the low-acceleration region, and not to the centre of the galaxy. Test 3 assumed the second, so its hypothesis was not the framework's. Read the framework's way, drive that grows outward, where the acceleration falls, is the direction expected.
+
 ## What a drain vortex does
 
 Every test in this folder starts from how a water vortex behaves around a drain. The standard model of a steady drain vortex is the **Burgers vortex**. Water flows inward toward the drain and down through it, and as it moves inward it spins faster. The swirl speed at distance r from the centre is
