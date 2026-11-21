@@ -28,6 +28,7 @@ Stephen Nelson · Field Dynamics Research · fielddynamics.org · Last updated 2
 | P-bimond | `bimetric-two-potential-energy/` | 39 | yes |
 | P-walsh | `walsh-eigenmodes-of-the-cube/` | 47 | yes |
 | P-tugofwar | `constitutive-law-tug-of-war/` | 42 | yes |
+| P-netfield | `net-field-rule/` | 116 | yes |
 | P-vortex | `vortices-of-the-stellated-octahedron/` | 81 | — |
 | P-chiral | `chiral-holonomy-closed-frame/` | 32 | — |
 | P-bbp | `bbp-coupling-polynomial-ladder/` | 61 | — |
@@ -36,7 +37,7 @@ Stephen Nelson · Field Dynamics Research · fielddynamics.org · Last updated 2
 | P-timeleg | `sst-covariant-time-leg/` | 16 | — |
 | P-lock | `bimetric-lock-constitutive-law/` | 64 | — |
 
-The Lean formalisations import one another, so each chain is checked as a whole: P-forced → P-two-regions (half-space) → P-two-regions (scheme) → P-gram → P-walsh; P-forced → P-hadamard; P-exchange → P-aqual → (with the scheme) P-bimond; P-walsh + P-exchange → P-tugofwar.
+The Lean formalisations import one another, so each chain is checked as a whole: P-forced → P-two-regions (half-space) → P-two-regions (scheme) → P-gram → P-walsh; P-forced → P-hadamard; P-exchange → P-aqual → (with the scheme) P-bimond; P-walsh + P-exchange → P-tugofwar → P-netfield.
 
 ### Notation
 
@@ -296,7 +297,9 @@ At $K = 4$, $`V\otimes\Lambda^2V^*`$ (dimension $K^2(K-1)/2 = 24 = 4!$) carries 
 
 The torsion-free condition keeps the $s = +1$ projection and discards the $s = -1$ projection. GR is the GFD field equation at $\mu = 1$. Restoring the 24 components gives the full 64-component connection, which $\mu(x)$ partitions spatially; the gap opened by releasing $\mu$ is the TetB share, conventionally attributed to dark matter. In a galaxy, the TetA share dominates the core and the TetB share the rim (the deep field), with the handover on the ring $x = 1$. TetB itself is the throat interior at the centre.
 
-**Local systems are TetA only** (as now stated in `EINSTEIN_TETA_PARTITION.md`). In a solar system, a binary or a star cluster, gravity between the bodies is the TetA connection, i.e. GR, exactly. Every body has its own TetB, but it is enclosed within the body: outside, gravity reports only the enclosed total (Gauss's law), so it is part of the body's measured GM and cannot be separated from TetA by any orbit. The TetB share is not a property of each mass. It belongs to the net field of the host galaxy, which is uniform across a bound system (to about $10^{-12}$ over the solar system) and cancels in the bodies' common free fall: the mountain stream, whose current presses on neighbouring rocks alike and appears only in the slope of the whole stream. A bound system enters the galaxy's net field as a single element, its total mass and position (the "pointer" picture). So $x$ is the galaxy's net field over $a_0$, and $\mu(x)$ is never applied to a star's own field. Applying it per mass would leave a TetB tail $1-\mu \approx 1/x$ around every star: a constant extra pull $\approx a_0$ at every planet and an external-field quadrupole $Q_2 \approx 4\times10^{-26}$ s⁻², both excluded (perihelia; Cassini, $Q_2 = (3\pm3)\times10^{-27}$ s⁻²); see `research/bimetric-projection/` Part 3. The surviving galactic tide at Saturn is about $10^{-18}$ m/s².
+**Local systems are TetA only** (as now stated in `EINSTEIN_TETA_PARTITION.md`). In a solar system, a binary or a star cluster, gravity between the bodies is the TetA connection, i.e. GR, exactly. Every body has its own TetB, but it is enclosed within the body: outside, gravity reports only the enclosed total (Gauss's law), so it is part of the body's measured GM and cannot be separated from TetA by any orbit. The TetB share is not a property of each mass. It belongs to the net field of the host galaxy, which changes across the solar system by only a few parts in $10^8$ of itself (the tide, about $10^{-12}$ of the Sun's pull at Neptune) and cancels in the bodies' common free fall: the mountain stream, whose current presses on neighbouring rocks alike and appears only in the slope of the whole stream. A bound system enters the galaxy's net field as a single element, its total mass and position (the "pointer" picture). So $x$ is the galaxy's net field over $a_0$, and $\mu(x)$ is never applied to a star's own field. Applying it per mass would leave a TetB tail $1-\mu \approx 1/x$ around every star: a constant extra pull $\approx a_0$ at every planet and an external-field quadrupole $Q_2 \approx 4\times10^{-26}$ s⁻², both excluded (perihelia; Cassini, $Q_2 = (3\pm3)\times10^{-27}$ s⁻²); see `research/bimetric-projection/` Part 3. The surviving galactic tide at Saturn is about $10^{-18}$ m/s².
+
+**The net-field rule [T+L] (P-netfield, 116 checks; `research/net-field-rule/`).** A drain belongs to a field, not to a body: $\mu$ acts only on a field with a drain (a galaxy's), and a drainless field (star system, binary, cluster) is TetA with the bare $G$. Four faces of "no drain" are one property, each a function of $\mu$ vanishing only at $\mu = 1$: a linear law, identity response of a guest (bare $G$), flux conserved across empty shells, no TetB share. The flux exponent is $s = 2(1-\mu)/(2-\mu)$, and $f(u) = 2(1-u)/(2-u)$ is an involution (unique to $n = 1$ in the family $x/(1+x^n)^{1/n}$), so beyond the baryons a curve's slope gives $\mu$, $x$, $a_0$. The per-mass tail is forced for every exchange-symmetric law with flat curves ($x(1-\mu) \to 1$). The rubber sheet is an exact split $g = F[g_N(P\rho)] + g_N(\rho - P\rho)$ whose own term vanishes outside the sheet; no self-force for any host response; edge between a Cassini bound ($\approx 1.2\times10^4$ AU) and the Jacobi radius ($\approx 2.9\times10^5$ AU). Data: Pal 14 and Pal 4 require bare $G$ ($8.9\sigma$, $11.1\sigma$ against $G/\bar\mu$); Crater II keeps $\mu$; only the drain criterion fits both ($\chi^2 = 6.1$ vs 29.9); every bound wide binary Newtonian; the RAR's local slope matches $1/(2-\mu)$ with no $a_0$ (0.053 rms vs 0.102 for the standard law). In plain terms: inside a star system gravity is exactly Newton and GR with the bare $G$; the galaxy's only influence is its tide; Cassini rules out the extra pull and globular clusters a changed $G$.
 
 **In plain terms** (the summary at the top of `EINSTEIN_TETA_PARTITION.md`):
 
@@ -506,6 +509,7 @@ Shell ceilings $\mathrm{CEIL} = B_{\rm Zn} + B_{\rm bdy} - \mu_b(2)[B_{\rm Zn} -
 | Hadamard cube frame (+ Lean) | `proofs/hadamard-cube-frame/` | 25 |
 | Torsion = regular rep of $S_4$ | `proofs/torsion-regular-representation/` | 36 |
 | Exchange symmetry → $\mu$ (+ Lean) | `proofs/constitutive-law-exchange-symmetry/` | 34 |
+| Net-field rule: drain belongs to a field; four faces ⟺ $\mu = 1$; flux involution; forced per-mass tail; exact sheet split; Jacobi edge; bare $G$ from clusters; drain criterion; RAR slope (+ Lean) | `proofs/net-field-rule/` (+ Lean), `research/net-field-rule/test_net_field_rule.py` | 116, 116 |
 | Tug of war: two teams on the cube; exchange ⟺ equal screening powers ⟹ odds $x^k$; $k = 1$ ⟺ accelerations ⟺ flat curves; necessity; one node; cap $\mu a_0$; decode $(g+w)/(g+a_0)$; Burgers and Lamb–Oseen | `proofs/constitutive-law-tug-of-war/` (+ Lean), `research/constitutive-law-u(x)/test_tug_of_war.py` | 42, 85 |
 | $F(y)$ closed form, convexity (+ Lean) | `proofs/aqual-energy-functional/` | 24 |
 | BIMOND: $\alpha = -\beta$, $\mathcal M$ closed form, Legendre dual of $F$ (+ Lean) | `proofs/bimetric-two-potential-energy/` | 39 |
@@ -1501,7 +1505,7 @@ $V - E + F = 4 = 2\chi(S^2)$, two disjoint closed surfaces.
 
 ## The formal proofs (`proofs/`)
 
-*The repository now holds eighteen proofs (index: [`proofs/README.md`](proofs/README.md); keys and Lean status in §0). The first six are summarised in detail below, as written when they were read in full (their check counts have since grown: the forced frame now has 36). The other twelve are summarised in Part I: P-gram §2.3, P-walsh §2.6, P-vortex §2.7, P-bimond §9 and §13, P-tugofwar §4.8, P-chiral §12 item 26, P-bbp, P-gnull, P-sst, P-timeleg and P-lock in §13, and the half-space proof §2.2. Each proof lists its premises and shows them necessary by counterexample.*
+*The repository now holds nineteen proofs (index: [`proofs/README.md`](proofs/README.md); keys and Lean status in §0). The first six are summarised in detail below, as written when they were read in full (their check counts have since grown: the forced frame now has 36). The other thirteen are summarised in Part I: P-gram §2.3, P-walsh §2.6, P-vortex §2.7, P-bimond §9 and §13, P-tugofwar §4.8, P-netfield §5.4, P-chiral §12 item 26, P-bbp, P-gnull, P-sst, P-timeleg and P-lock in §13, and the half-space proof §2.2. Each proof lists its premises and shows them necessary by counterexample.*
 
 **P-aqual — The Energy Functional of $\mu = x/(x+1)$.**
 - $\mathcal L = -(a_0^2/8\pi G)F - \rho\Phi$.

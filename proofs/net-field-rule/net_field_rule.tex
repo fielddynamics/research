@@ -1,0 +1,450 @@
+\documentclass[twocolumn]{iopjournal}
+
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{amsthm}
+
+\fancyhfoffset[L]{0mm}
+\setlength{\marginparwidth}{0pt}
+\setlength{\marginparsep}{0pt}
+
+% ==========================================
+% ZENODO PREPRINT HEADERS (ACTIVE)
+% ==========================================
+\renewcommand{\articletype}[1]{%
+  {\vspace*{-8mm}\noindent \Large \sf Preprint}\par
+  \vspace*{6mm}\noindent{\scriptsize \sf{\bfseries \MakeUppercase{#1}}}}
+
+\fancyhead[L]{}
+\fancyhead[R]{}
+
+\hypersetup{pdftitle={The Net-Field Rule: Where the Constitutive Law Acts}, pdfauthor={Stephen Nelson}, pdfsubject={Gravity Field Dynamics (GFD)}, pdfkeywords={constitutive law, net-field rule, external field effect, MOND, solar system, Cassini, globular clusters, wide binaries, proof}}
+
+\newtheorem{lemma}{Lemma}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+\begin{document}
+
+\articletype{Proof}
+
+\title{The Net-Field Rule: Where the Constitutive Law Acts}
+
+\author{Stephen Nelson}
+
+\affil{Field Dynamics Research}
+
+\ead{stephen@fielddynamics.org}
+
+\begin{abstract}
+The constitutive law of Gravity Field Dynamics, $\mu(x) = x/(x+1)$,
+fits galaxies without dark matter, but applied to each star's own field
+it leaves a pull of nearly $a_0$ at every planet and an external-field
+quadrupole five times the Cassini bound. We prove that this failure is
+forced for every exchange-symmetric law with flat rotation curves, and
+we state the rule that avoids it. A drain belongs to a field, not to a
+body: every body's TetB is enclosed in it and counted in its $GM$, and
+$\mu$ acts only on a field that has a drain, a galaxy's. A field without
+a drain is the TetA connection, Newton and general relativity with the
+bare $G$. Four properties of a field are then equivalent: its law is
+linear, a body inside it responds with the bare $G$, its flux is
+conserved across empty shells, and it carries no TetB share. Each is a
+rational function of $\mu$ that vanishes only at $\mu = 1$, and the flux
+exponent $2(1-\mu)/(2-\mu)$ is an involution of $\mu$ that singles out
+$x/(x+1)$ among the standard laws. A star system is then a rubber sheet
+in its galaxy's field, described by an exact two-scale split whose
+own term vanishes outside the sheet. Inside, the galaxy acts only
+through free fall and its tide, about $10^{-18}$\,m\,s$^{-2}$ at
+Saturn, and the sheet's edge must lie between a Cassini lower bound of
+about $1.2 \times 10^4$\,AU and the Jacobi radius of about
+$2.9 \times 10^5$\,AU. Globular clusters confirm the bare $G$ at more
+than $8\sigma$, the dwarf Crater~II keeps $\mu$, and every bound wide
+binary is predicted to be Newtonian.
+\end{abstract}
+
+\keywords{constitutive law, net-field rule, external field effect, MOND,
+solar system, Cassini, globular clusters, wide binaries, proof}
+
+% ======================================================================
+
+\section*{Setting}
+
+In a galaxy, the total pull $g_t$ and the Newtonian pull of the visible
+matter $g_N$ are related by $\mu(g_t/a_0)\,g_t = g_N$, with
+$\mu(x) = x/(x+1)$ the share of the field carried by TetA and $1 - \mu$
+the share carried by TetB~\cite{NelsonL2,NelsonL3,NelsonTug}. Solving,
+\begin{gather}
+  g_t = F(g_N) = \tfrac12\Bigl(g_N + \sqrt{g_N^2 + 4 g_N a_0}\Bigr),
+  \label{eq:F}\\
+  g_N = \frac{g_t^2}{g_t + a_0} = \mu(g_t/a_0)\,g_t. \nonumber
+\end{gather}
+The law fits the rotation curves of galaxies with one measured
+acceleration, $a_0$~\cite{Milgrom1983,SPARC}. The question this proof settles is
+\emph{which} field it acts on. AQUAL~\cite{BM1984} and
+QUMOND~\cite{Milgrom2010} apply it to the total field at every point,
+and that reading is excluded in the solar
+system~\cite{Hees2014,Hees2016}. The framework's answer, which we make
+exact, rests on three premises.
+
+\begin{definition}[premises]
+\textbf{(D) Drain criterion.} A drain belongs to a field, not to a
+body. Every body has its own TetB, enclosed within it and counted in its
+$GM$. A field carries a TetB share, and $\mu$ acts on it, only if the
+field itself has a drain: a throat opening into occupied TetB. A
+galaxy's field has one. The field of a star system, a binary or a star
+cluster does not.
+\textbf{(N) Net field.} In a drained field, $x = |g_{\rm net}|/a_0$, with
+$g_{\rm net}$ that field's own coarse-grained net field.
+\textbf{(A) TetA is general relativity.} A drainless field is the TetA
+connection: Newton and GR, with the bare $G$.
+\end{definition}
+
+The picture is a rubber sheet with a bowling ball on it, sitting in the
+galaxy's stream. The ball, the Sun, has a TetB, enclosed in it. The
+sheet, the solar system's field, has no drain. A galaxy's field is a
+funnel whose throat opens into TetB. Premises (D) and (N) are the
+framework's~\cite{NelsonEinstein,NelsonBimetric}; what follows proves
+what they imply and tests it against the data the framework must meet.
+
+\section*{Four faces of a drainless field}
+
+\begin{theorem}[the four faces]\label{thm:faces}
+Let $m = \mu(x) \in (0,1]$. For the law~\eqref{eq:F}:
+\begin{enumerate}
+\item[(i)] \emph{Linearity.} $F$ is strictly subadditive,
+  $F(b + c) < F(b) + F(c)$, and its degree is
+  $d\ln F/d\ln g_N = 1/(2 - m)$: one only at $m = 1$, one half in the deep
+  field.
+\item[(ii)] \emph{Response.} A guest field $\delta$ sent through the
+  host's law at host field $g_e$ responds with $\nu_\perp = 1/m$
+  across it and $\nu_\parallel = 1/[m(2-m)]$ along it. Both exceed 1 at
+  every finite field.
+\item[(iii)] \emph{Flux.} Around a point mass the flux
+  $\Phi = 4\pi r^2 g_t$ grows as $r^s$ with
+  \begin{equation}
+    s = \frac{2(1-m)}{2-m}, \qquad
+    \frac{d\ln v^2}{d\ln r} = -\frac{m}{2-m}. \label{eq:s}
+  \end{equation}
+  The excess flux is $M(1-m)/m = M/\Omega$, the mass called dark matter.
+  For any configuration of sources a drained field has nonzero divergence
+  in empty space, and a drainless one has none.
+\item[(iv)] \emph{TetB share.} $1 - m$.
+\end{enumerate}
+The four defects $1 - 1/(2-m)$, $1/m - 1$, $s$ and $1 - m$ vanish
+together, exactly at $m = 1$.
+\end{theorem}
+
+\begin{proof}
+(i) Squaring, subadditivity reduces to $bc < \sqrt{b^2+4ba_0}\,
+\sqrt{c^2+4ca_0}$, true since each root exceeds its first term. The
+degree is the reciprocal of $d\ln g_N/d\ln g_t = 2 - g_t/(g_t + a_0) =
+2 - m$. (ii) Linearising $g = \nu(|g_N|/a_0)\,g_N$ about $g_e\hat e$
+gives $\nu\,\delta_\perp + (\nu + y\nu')\,\delta_\parallel$. With
+$y = x\mu(x)$, $1/4 + 1/y = [(x+2)/2x]^2$, so $\nu = (x+1)/x = 1/m$, and
+$\nu + y\nu' = dg_t/dg_N = (x+1)^2/[x(x+2)] = 1/[m(2-m)]$. (iii) With
+$g_N = GM/r^2$, $d\ln g_t/d\ln r = -2/(2-m)$, so $s = 2 - 2/(2-m)$. The
+excess is $\Phi/4\pi G - M = M/m - M$. A sum of point fields is
+divergence-free off the sources; $\nu g_N$ is not (checked at random
+points). The last statement is immediate.
+\end{proof}
+
+\begin{corollary}[the flux involution]\label{cor:inv}
+The map $f(u) = 2(1-u)/(2-u)$ that sends $m$ to $s$ satisfies
+$f(f(u)) = u$. Outside the baryons, where the enclosed mass is constant,
+the slope of a rotation curve alone gives $m = f(s)$ with
+$s = 1 + d\ln v^2/d\ln r$, then $x = m/(1-m)$ and $a_0 = (v^2/r)/x$. In
+the standard family $\mu_n = x/(1+x^n)^{1/n}$, where
+$x\mu_n'/\mu_n = 1 - \mu_n^n$ and $s = 2(1-\mu^n)/(2-\mu^n)$, the map is
+an involution only for $n = 1$.
+\end{corollary}
+
+\begin{proof}
+$1 - f(u) = u/(2-u)$ and $2 - f(u) = 2/(2-u)$, so $f(f(u)) = u$. For
+$n = 2$, $f_2(f_2(0.3)) \neq 0.3$. On a synthetic galaxy the slope
+returns $a_0$ to $0.2\%$.
+\end{proof}
+
+\section*{A body's TetB}
+
+\begin{proposition}[enclosed, screened, bounded]\label{prop:body}
+(a) Outside a body, the field depends only on its total mass, however
+that mass is split between TetA and an enclosed TetB, so no orbit can
+separate them. Flows inside it, such as a sunspot's vortex closing
+within the Sun, conserve the enclosed mass and change the exterior only
+through multipoles $\propto r^{-(l+1)}$. (b) Under the screening law
+$x(1-\mu) = \mu$, the TetB share is $1/(1+x)$: about
+$4 \times 10^{-13}$ at the Sun's surface, rising to 1 only in a core of
+radius $r_B = 3a_0/(4\pi G\rho_c) \approx 3\,\mu$m at the centre, the
+ball's Field Origin. (c) Read pointwise, the screened TetB's extra mass
+is below $a_0R_\odot^2/G \approx 9 \times 10^{17}$\,kg, or
+$4 \times 10^{-13} M_\odot$, fixed by $R_\odot$ and counted in $GM$. The
+ephemerides give $\dot{(GM)}/GM = (-5.0 \pm 4.1)\times10^{-14}$ per year,
+which radiation alone ($-6.8\times10^{-14}$) accounts
+for~\cite{Pitjeva2012}, so any TetB exchange across the surface is below
+about $10^{-13}$ per year.
+\end{proposition}
+
+\begin{proof}
+(a) Gauss's law, and continuity with $v\cdot n = 0$ at the surface;
+each multipole solves Laplace's equation. (b) $1 - x/(x+1) = 1/(1+x)$;
+in a uniform core $g = \tfrac43\pi G\rho_c r$. (c) By
+Proposition~\ref{prop:tail}, $g_t - g_N < a_0$ at the surface.
+\end{proof}
+
+\section*{A drain around every star fails}
+
+\begin{proposition}[forced failure]\label{prop:tail}
+(a) Under~\eqref{eq:F}, a star's field gains a pull with
+$a_0\,g_N/(g_N + a_0) \le g_t - g_N < a_0$: nearly $a_0$ at every planet,
+a constant pull that no rescaling of $GM$ removes. (b) This is forced.
+For every $\mu$ with the exchange $\mu(1/x) = 1 - \mu(x)$ and the deep
+limit $\mu(u)/u \to 1$ as $u \to 0^+$, $x(1-\mu(x)) = \mu(1/x)/(1/x)
+\to 1$ as $x \to \infty$. (c) In the Milky Way's field at the Sun,
+$x \approx 1.9$, the law applied pointwise gives an external-field
+quadrupole $Q_2 \approx 4.6 \times 10^{-26}$\,s$^{-2}$, against
+Cassini's $(3 \pm 3) \times 10^{-27}$\,s$^{-2}$~\cite{Hees2014}.
+\end{proposition}
+
+\begin{proof}
+(a) $g_t - g_N = 2g_Na_0/(\sqrt{g_N^2 + 4g_Na_0} + g_N)$, and
+$g_N < \sqrt{\cdot} < g_N + 2a_0$. (b) Substitute $u = 1/x$ in the
+exchange. (c) The phantom density of the QUMOND form, integrated for
+the tidal component at the Sun~\cite{Milgrom2010,NelsonBimetric}.
+\end{proof}
+
+\section*{The rubber sheet}
+
+Let $P$ be the pointer projection: replace the mass inside each sheet, a
+ball of radius $\ell$ about its centre of mass, by a uniform ball of the
+same mass. Write the field as
+\begin{equation}
+  g = F\bigl[g_N(P\rho)\bigr] + g_N(\rho - P\rho). \label{eq:split}
+\end{equation}
+The first term is the drained host, the second the sheet's own field,
+linear and with the bare $G$ by (A).
+
+\begin{theorem}[the rubber sheet]\label{thm:sheet}
+(a) $P$ conserves mass, is idempotent, and nested projections compose:
+projecting a small ball and then a larger one containing it is the same
+as projecting the larger one. Far away, a sheet's field is its monopole
+at the centre of mass, with no dipole and corrections of order
+$(d/D)^2$. (b) The sheet's own term vanishes identically outside the
+sheet, $GM/r^2 - g_{\rm ball}(r) = 0$ for $r \ge \ell$, and is continuous
+at $\ell$. Inside, it is $GM/r^2 - GMr/\ell^3$. So nothing is counted
+twice, and the host's field, and every galactic prediction, is unchanged.
+(c) A uniform host field drops out of every relative acceleration, and
+with pairwise antisymmetric internal forces the centre of mass falls
+with it. (d) No self-force: the term $k(p - c)$, $k = GM/\ell^3$, that
+the host term returns inside the sheet exerts zero net force for any
+linear host response $R$, $\sum_i m_i R\,k(p_i - c) = 0$. What remains
+inside is $(R - I)\,k\,(p - c)$ plus the tide $-\nabla\nabla\Phi\cdot d$.
+(e) For a flat rotation curve, $\Phi = v^2\ln R$, the tide has size
+$v^2/R^2 \approx 8 \times 10^{-31}$\,s$^{-2}$ at the Sun, about
+$1.2 \times 10^{-18}$\,m\,s$^{-2}$ at Saturn, four orders below Cassini,
+and set by the rotation curve alone, so every model of the Milky Way
+shares it. The epicyclic frequency is $\kappa^2 = 2\Omega^2$, and at the
+Jacobi radius $r_J^3 = GM/2\Omega^2$ the residual's scale is exactly the
+tide's, $k = 2\Omega^2$.
+\end{theorem}
+
+\begin{proof}
+(a) $P$ depends only on the mass inside its ball; expand the potential
+of the sheet's masses about the centre of mass. (b) The shell theorem.
+(c) The host term cancels in differences; $\sum_{ij}F_{ij} = 0$ for
+$F_{ij} = -F_{ji}$. (d) $\sum_i m_i(p_i - c) = 0$ and $R$ is linear. A
+Taylor expansion gives the tide. (e) $\Phi'' = -v^2/R^2$,
+$\Phi'/R = v^2/R^2$, and $\kappa^2 = R\,d\Omega^2/dR + 4\Omega^2$.
+\end{proof}
+
+\begin{proposition}[the sheet's edge]\label{prop:edge}
+The residual's anisotropic part, $|\nu_\perp - \nu_\parallel|\,GM/\ell^3$,
+is a quadrupole, $0.39\,GM/\ell^3$ at the Sun. Cassini requires
+$\ell \gtrsim 1.2 \times 10^4$\,AU, about $1.7\,r_M$ with
+$r_M = \sqrt{GM/a_0} \approx 7000$\,AU; a sheet ending at the Sun's own
+ring $x = 1$ leaves $4.5 \times 10^{-26}$\,s$^{-2}$, the pointwise reading
+again. Binding caps the edge at the Jacobi radius, $1.4$\,pc or
+$2.9 \times 10^5$\,AU, 24 times the bound. Both scale as $M^{1/3}$, so the
+window is the same for every star at the Sun's radius.
+\end{proposition}
+
+\section*{The data}
+
+\begin{proposition}[bare $G$, and the drain criterion]\label{prop:data}
+(a) A host factor on $G$, $G \to G/\bar\mu$, is invisible to orbits,
+since Kepler's law sees only $GM$. (b) Photometric masses see it. The
+outer-halo clusters Pal~14 and Pal~4~\cite{Jordi2009,Frank2012} sit at
+$x \approx 0.13$ and $0.12$. With the bare $G$ their dispersions fit
+within $1.0\sigma$ and $0.4\sigma$; with the host factor
+($\nu \approx 8$) they are excluded at $8.9\sigma$ and $11.1\sigma$. So
+the host enters a drainless field only through free fall and tide, never
+as a factor on $G$. (c) The dwarf Crater~II~\cite{Caldwell2017,Ji2021},
+at the same $x \approx 0.08$ in the same host, is $5.4\sigma$ above
+Newton and $2.2\sigma$ from $\mu$ with the host's field. No rule that
+depends on acceleration alone fits all three ($\chi^2 = 29.9$ for the
+best common factor); the drain criterion, clusters closed and the dwarf
+open, fits with $\chi^2 = 6.1$ and no parameter.
+\end{proposition}
+
+\begin{proposition}[predictions]\label{prop:pred}
+(a) Every bound wide binary is Newtonian, with $g_{\rm obs}/g_N = 1$ at
+every separation inside its Jacobi radius, including beyond
+$r_M \approx 10^4$\,AU. Rules that send the binary through the host's
+law give $1.17$, $1.35$ and $1.47$ at $5$, $10$ and $20$\,kAU for
+$2\,M_\odot$, the boost claimed in~\cite{Chae2023} and disputed
+in~\cite{Banik2024}. (b) The local slope of the radial acceleration
+relation is the inverse degree of the law, $\beta = 1/(2-\mu)$, with
+$\mu = g_{\rm bar}/g_{\rm obs}$ measured: a test of the law's shape that
+uses no value of $a_0$. On 3284 SPARC points in 163 galaxies, binned in
+$g_{\rm bar}$, GFD's shape misses the measured slope by $0.053$ rms and
+the standard law's $1/(2-\mu^2)$ by $0.102$, and GFD's wins in 200 of
+200 bootstrap resamplings of the galaxies.
+\end{proposition}
+
+\begin{remark}[the vortex]
+The picture is exact fluid mechanics. Navier--Stokes is Galilean
+invariant, so a pebble in a stream sees the stream's gradient, never the
+stream: free fall and tide. An open drain sustains the steady Burgers
+vortex~\cite{Burgers1948}; with no drain the Lamb--Oseen vortex decays,
+keeping its total circulation, as a body keeps its $GM$.
+\end{remark}
+
+\section*{Scope}
+
+The premises (D) and (N) are the framework's. What the proof adds is
+their consequences, made exact, and the data they must meet. Three
+points remain open: an observable marker of a drained field that does
+not use its rotation curve (Theorem~\ref{thm:faces}(iii) says it must
+measure flux growth across empty shells); the covariant derivation of
+which time leg's acceleration enters $\mu$, left open
+in~\cite{NelsonSST}; and the dwarf Antlia~2, which no rule tested here
+fits, possibly because it is being tidally disrupted. The data tests use
+simple dispersion estimators~\cite{Wolf2010} and binned medians; the
+RAR slope is sensitive to scatter and to stellar mass-to-light ratios.
+
+\section*{Verification}
+
+The script \texttt{verify\_net\_field\_rule.py} checks every statement,
+116 checks in all: exactly with sympy where it is algebraic, by
+quadrature for the Cassini quadrupole, and against the data for
+Propositions~\ref{prop:data} and~\ref{prop:pred}. Its output is in
+\texttt{verify\_output.txt}.
+
+% Lean: new paragraph.
+\textbf{Formal verification.} Theorem~\ref{thm:faces} (the dictionary,
+the four faces, subadditivity, the responses and the flux exponent),
+Corollary~\ref{cor:inv} (the involution and its failure for $n = 2$),
+Propositions~\ref{prop:body}(b)--(c) and~\ref{prop:tail}(a)--(b), and
+Theorem~\ref{thm:sheet}(b)--(e) and Proposition~\ref{prop:data}(a) are checked in Lean~4 with Mathlib
+(\texttt{lean/NetFieldRule.lean}), importing the constitutive law and the
+exchange of the tug-of-war proof. Every theorem uses only Lean's three
+standard axioms. The quadrupole integral and the data are checked by the
+script.
+
+\begin{thebibliography}{99}
+
+\bibitem{Milgrom1983}
+M.~Milgrom, A modification of the Newtonian dynamics as a possible
+alternative to the hidden mass hypothesis, \textit{Astrophys. J.}
+\textbf{270}, 365 (1983).
+
+\bibitem{BM1984}
+J.~Bekenstein and M.~Milgrom, Does the missing mass problem signal the
+breakdown of Newtonian gravity?, \textit{Astrophys. J.} \textbf{286}, 7
+(1984).
+
+\bibitem{Milgrom2010}
+M.~Milgrom, Quasi-linear formulation of MOND, \textit{Mon. Not. R.
+Astron. Soc.} \textbf{403}, 886 (2010).
+
+\bibitem{Hees2014}
+A.~Hees, W.~M.~Folkner, R.~A.~Jacobson and R.~S.~Park, Constraints on
+modified Newtonian dynamics theories from radio tracking data of the
+Cassini spacecraft, \textit{Phys. Rev. D} \textbf{89}, 102002 (2014).
+
+\bibitem{Hees2016}
+A.~Hees, B.~Famaey, G.~W.~Angus and G.~Gentile, Combined Solar System
+and rotation curve constraints on MOND, \textit{Mon. Not. R. Astron.
+Soc.} \textbf{455}, 449 (2016).
+
+\bibitem{Pitjeva2012}
+E.~V.~Pitjeva and N.~P.~Pitjev, Changes in the Sun's mass and gravitational
+constant estimated using modern observations of planets and spacecraft,
+\textit{Sol. Syst. Res.} \textbf{46}, 78 (2012).
+
+\bibitem{Jordi2009}
+K.~Jordi \textit{et al.}, Testing fundamental physics with distant star
+clusters: analysis of observational data on Palomar~14,
+\textit{Astron. J.} \textbf{137}, 4586 (2009).
+
+\bibitem{Frank2012}
+M.~J.~Frank \textit{et al.}, The velocity dispersion and mass function of
+the outer halo globular cluster Palomar~4, \textit{Mon. Not. R. Astron.
+Soc.} \textbf{423}, 2917 (2012).
+
+\bibitem{Caldwell2017}
+N.~Caldwell \textit{et al.}, Crater~2: an extremely cold dark matter
+halo, \textit{Astrophys. J.} \textbf{839}, 20 (2017).
+
+\bibitem{Ji2021}
+A.~P.~Ji \textit{et al.}, Kinematics of Antlia~2 and Crater~2 from the
+Southern Stellar Stream Spectroscopic Survey, \textit{Astrophys. J.}
+\textbf{921}, 32 (2021).
+
+\bibitem{Wolf2010}
+J.~Wolf \textit{et al.}, Accurate masses for dispersion-supported
+galaxies, \textit{Mon. Not. R. Astron. Soc.} \textbf{406}, 1220 (2010).
+
+\bibitem{Chae2023}
+K.-H.~Chae, Breakdown of the Newton--Einstein standard gravity at low
+acceleration in internal dynamics of wide binary stars,
+\textit{Astrophys. J.} \textbf{952}, 128 (2023).
+
+\bibitem{Banik2024}
+I.~Banik \textit{et al.}, Strong constraints on the gravitational law
+from Gaia DR3 wide binaries, \textit{Mon. Not. R. Astron. Soc.}
+\textbf{527}, 4573 (2024).
+
+\bibitem{SPARC}
+F.~Lelli, S.~S.~McGaugh and J.~M.~Schombert,
+SPARC: mass models for 175 disk galaxies with Spitzer photometry at
+3.6\,$\mu$m and accurate rotation curves, \textit{Astron. J.}
+\textbf{152}, 157 (2016).
+
+\bibitem{Burgers1948}
+J.~M.~Burgers,
+A mathematical model illustrating the theory of turbulence,
+\textit{Adv. Appl. Mech.} \textbf{1}, 171 (1948).
+
+\bibitem{NelsonL2}
+S.~Nelson, \textit{The Other Half of Gravity: Torsion and the Two-Chamber
+Structure of the Tetrad Frame} (Letter~2), Field Dynamics Research (2026).
+
+\bibitem{NelsonL3}
+S.~Nelson, \textit{Gravity Field Dynamics: Field Closure of the Tetrad
+Frame} (Letter~3), Field Dynamics Research (2026).
+
+\bibitem{NelsonTug}
+S.~Nelson, \textit{The Constitutive Law as a Tug of War}, Field Dynamics
+Research (2026), \url{proofs/constitutive-law-tug-of-war}.
+
+\bibitem{NelsonSST}
+S.~Nelson, \textit{The SST Covariant Completion: $y$ From the
+Acceleration of the Time Leg}, Field Dynamics Research (2026),
+\url{proofs/sst-covariant-time-leg}.
+
+\bibitem{NelsonEinstein}
+S.~Nelson, \textit{Einstein's Equation as the TetA Partition}, Field
+Dynamics Research (2026), \url{EINSTEIN_TETA_PARTITION.md}.
+
+\bibitem{NelsonBimetric}
+S.~Nelson, \textit{Does the Locked Bimetric Potential Project onto
+$\mu(x) = x/(x+1)$?}, working note, Part~3, Field Dynamics Research
+(2026), \url{research/bimetric-projection}.
+
+\end{thebibliography}
+
+\end{document}

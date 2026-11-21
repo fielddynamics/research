@@ -21,7 +21,9 @@ readings of the neutron-lifetime discrepancy, Paper VII, and the proton mass, re
 - mu is a tug of war: TetA pulls with the total acceleration g (= g_t), TetB with the fixed acceleration a_0, so
   mu = g/(g + a_0) = x/(x + 1), x = g/a_0. TetB's pull, mu a_0, is capped at a_0.
 - What is called dark matter is TetB's share, read through Newtonian analysis: missing/visible = a_0/g.
-- Locally (g >> a_0, and inside any bound system) gravity is pure TetA, i.e. exactly GR.
+- mu acts only on a field that has a drain (a galaxy's). A star system, binary or cluster has none:
+  inside it gravity is pure TetA, exactly GR with the bare G; the galaxy reaches it only through its
+  tide (proofs/net-field-rule/).
 - A galaxy is a vortex: visible matter is the surface flow (TetA), TetB is the drain beyond the
   Field Origin. Decoded mass reads TetB's pull against a_0: quiet, drive, brake.
 - For a general reader: THE_MISSING_MASS.md. For the algebra: GFD_COLES_NOTES.md. For proofs: proofs/README.md.
@@ -36,6 +38,7 @@ readings of the neutron-lifetime discrepancy, Paper VII, and the proton mass, re
 - EINSTEIN_TETA_PARTITION.md -- the torsion-free projection as the TetA partition (Letter 3 summary)
 - THE_MISSING_MASS.md -- general-reader article: the missing mass, a_0, the second root, the tug of war, the vortex
 - proofs/constitutive-law-tug-of-war/ -- the solve of mu(x): which premises select x/(x+1), and drive/brake from decoded mass
+- proofs/net-field-rule/ -- where mu acts: only on a field with a drain; why the solar system is exactly GR with the bare G
 
 ## Core constants
 K = 4 (closure constant, simplex faces of a tetrahedron)
@@ -301,6 +304,19 @@ Local systems (solar system, binaries, star clusters): pure TetA, i.e. general r
   The TetB share belongs to the net field of the host galaxy, which is uniform across a bound
   system and cancels in its free fall. PPN beta = gamma = 1 and Cassini-safe for that reason,
   not because a local TetB share is small.
+Net-field rule (proofs/net-field-rule, machine-checked in Lean): a drain belongs to a field, not to a body.
+  mu acts only on a field with a drain (a galaxy's); a drainless field is TetA with the bare G.
+  Four equivalent faces of "no drain", each vanishing only at mu = 1: linear law; a guest's response
+    1/mu (across) and 1/(mu(2 - mu)) (along) equal to 1, i.e. bare G; flux conserved across empty shells
+    (flux exponent s = 2(1 - mu)/(2 - mu), an involution of mu); no TetB share.
+  Per-mass mu is forced to fail for every exchange-symmetric law with flat curves (x(1 - mu) -> 1: a
+    pull ~a_0 at every planet; Cassini quadrupole 4.6e-26 s^-2 vs (3 +- 3)e-27).
+  Solar system = exact split g = F[g_N(P rho)] + g_N(rho - P rho): the sheet term vanishes outside the
+    sheet; inside, host acts by free fall + tide (~1e-18 m/s^2 at Saturn), no self-force; sheet edge
+    between ~1.2e4 AU (Cassini) and the Jacobi radius ~2.9e5 AU.
+  Data: globular clusters Pal 14, Pal 4 require bare G (8.9 and 11.1 sigma against G/mu); Crater II keeps
+    mu; only the drain criterion fits both. Prediction: every bound wide binary is Newtonian.
+  Open: a drained-field marker independent of the rotation curve; the covariant derivation; Antlia 2.
 Gravitational wave speed: c_gw = c (tensor sector unmodified)
 
 ## Action structure (prefactors from topology)
@@ -366,7 +382,7 @@ Each proof has a PDF, a verification script and, where marked "+ Lean", a Lean 4
 checked by GitHub on every change. The Lean chains import one another:
   forced frame -> half-space regions -> tetrad scheme -> Gram matrix -> Walsh eigenmodes of the cube
   constitutive law -> AQUAL energy functional -> (with tetrad scheme) BIMOND two-potential energy
-  Walsh eigenmodes + constitutive law -> constitutive law as a tug of war
+  Walsh eigenmodes + constitutive law -> constitutive law as a tug of war -> net-field rule
 
 ### Related papers in this repository
 - papers/letter-1-tetrad-frame-geometry/ -- Letter 1: the tetrad's coordinate-space geometry (the stellated octahedron)
@@ -392,6 +408,7 @@ Each script is self-contained; run it from its own folder.
 - papers/09-complete-field-closure/supplementary/run_all_validations.py -- Paper IX: complete field closure
 - proofs/constitutive-law-tug-of-war/verify_constitutive_law_tug_of_war.py -- the tug of war: selection of mu, necessity, cap, decode, vortex (42 checks; Lean in lean/)
 - research/constitutive-law-u(x)/test_tug_of_war.py -- the same statements as 85 pytest tests
+- proofs/net-field-rule/verify_net_field_rule.py -- the net-field rule: four faces, forced per-mass tail, sheet split, Jacobi edge, clusters, dwarfs, wide binaries, RAR slope (116 checks; Lean in lean/)
 
 ## Usage instructions for LLMs
 - The governing equation is the covariant action, which is the SST. The galaxy-scale predictions

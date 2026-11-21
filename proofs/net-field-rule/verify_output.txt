@@ -1,0 +1,118 @@
+  [PASS] TestEnclosure :: test_exterior_field_depends_only_on_total_mass
+  [PASS] TestEnclosure :: test_split_between_teams_is_invisible
+  [PASS] TestEnclosure :: test_kepler_measures_only_GM_total
+  [PASS] TestPerMassReadingForced :: test_simple_law_tail_tends_to_a0
+  [PASS] TestPerMassReadingForced :: test_exchange_plus_deep_field_forces_one_over_x
+  [PASS] TestPerMassReadingForced :: test_tail_is_a_constant_pull_at_every_planet
+  [PASS] TestPerMassReadingForced :: test_tail_is_not_absorbable_into_GM
+  [PASS] TestCassiniExcludesPerMass :: test_quadrupole_value
+  [PASS] TestCassiniExcludesPerMass :: test_quadrupole_exceeds_cassini
+  [PASS] TestUniformFieldDropsOut :: test_three_body_relative_motion_is_independent_of_g_e
+  [PASS] TestUniformFieldDropsOut :: test_centre_of_mass_carries_the_host_field
+  [PASS] TestTideIsWhatSurvives :: test_relative_acceleration_is_the_tidal_tensor
+  [PASS] TestTideIsWhatSurvives :: test_flat_curve_tide_components
+  [PASS] TestTideIsWhatSurvives :: test_tide_at_the_sun
+  [PASS] TestTideIsWhatSurvives :: test_tide_is_four_orders_below_cassini
+  [PASS] TestTideIsWhatSurvives :: test_tide_at_saturn
+  [PASS] TestTideIsWhatSurvives :: test_tide_is_the_one_every_model_already_has
+  [PASS] TestTideIsWhatSurvives :: test_galactic_field_is_uniform_across_the_solar_system
+  [PASS] TestHostFactorInvisibleToOrbits :: test_kepler_scaling
+  [PASS] TestHostFactorInvisibleToOrbits :: test_dynamical_mass_absorbs_the_factor
+  [PASS] TestClustersAreNewtonian :: test_cluster_is_deep_in_the_low_acceleration_regime[Pal 14]
+  [PASS] TestClustersAreNewtonian :: test_cluster_is_deep_in_the_low_acceleration_regime[Pal 4]
+  [PASS] TestClustersAreNewtonian :: test_bare_G_fits[Pal 14]
+  [PASS] TestClustersAreNewtonian :: test_bare_G_fits[Pal 4]
+  [PASS] TestClustersAreNewtonian :: test_host_factor_on_G_is_excluded[Pal 14]
+  [PASS] TestClustersAreNewtonian :: test_host_factor_on_G_is_excluded[Pal 4]
+  [PASS] TestClustersAreNewtonian :: test_so_the_rule_is_not_the_external_field_effect
+  [PASS] TestDwarfsKeepMu :: test_crater_ii_is_not_newtonian
+  [PASS] TestDwarfsKeepMu :: test_crater_ii_is_consistent_with_mu
+  [PASS] TestDwarfsKeepMu :: test_crater_ii_estimator_matches_mcgaugh_deep_efe
+  [PASS] TestDrainCriterion :: test_same_accelerations
+  [PASS] TestDrainCriterion :: test_no_acceleration_only_rule_fits_both
+  [PASS] TestDrainCriterion :: test_drain_rule_fits_all_three
+  [PASS] TestPointerPicture :: test_dipole_vanishes_about_centre_of_mass
+  [PASS] TestPointerPicture :: test_solar_system_pointer_error
+  [PASS] TestWideBinaries :: test_binary_mond_radius
+  [PASS] TestWideBinaries :: test_gfd_predicts_exact_newton
+  [PASS] TestWideBinaries :: test_acceleration_only_rules_predict_a_boost
+  [PASS] TestWideBinaries :: test_the_two_predictions_differ_measurably
+  [PASS] TestVortexPicture :: test_navier_stokes_is_galilean_invariant
+  [PASS] TestVortexPicture :: test_small_body_sees_strain_not_stream
+  [PASS] TestVortexPicture :: test_open_drain_sustains_the_vortex
+  [PASS] TestVortexPicture :: test_closed_drain_vortex_decays
+  [PASS] TestVortexPicture :: test_closed_drain_keeps_its_circulation_far_away
+  [PASS] TestRubberSheetSplit :: test_sheet_term_vanishes_outside_the_sheet
+  [PASS] TestRubberSheetSplit :: test_sheet_term_is_continuous_at_the_edge
+  [PASS] TestRubberSheetSplit :: test_sheet_term_inside_is_the_ball_minus_a_harmonic_term
+  [PASS] TestRubberSheetSplit :: test_host_field_unchanged_by_smoothing
+  [PASS] TestRubberSheetSplit :: test_linear_guest_has_no_tail_nonlinear_guest_does
+  [PASS] TestSheetEdge :: test_flat_curve_epicyclic_frequency
+  [PASS] TestSheetEdge :: test_sun_sheet_edge
+  [PASS] TestSheetEdge :: test_inside_the_edge_the_residual_is_tide_level
+  [PASS] TestSheetEdge :: test_residual_as_an_equivalent_density
+  [PASS] TestSheetEdge :: test_clusters_lie_inside_their_sheets[Pal 14]
+  [PASS] TestSheetEdge :: test_clusters_lie_inside_their_sheets[Pal 4]
+  [PASS] TestSheetEdge :: test_every_bound_wide_binary_is_inside_its_sheet
+  [PASS] TestBallKeepsItsTetB :: test_internal_flows_conserve_the_enclosed_mass
+  [PASS] TestBallKeepsItsTetB :: test_exterior_changes_only_through_multipoles
+  [PASS] TestBallKeepsItsTetB :: test_solar_quadrupole_is_negligible_at_the_planets
+  [PASS] TestBallKeepsItsTetB :: test_gm_rate_bound_on_tetb_exchange
+  [PASS] TestBallKeepsItsTetB :: test_an_open_drain_in_the_ball_would_be_seen
+  [PASS] TestSuperposition :: test_drainless_law_is_additive
+  [PASS] TestSuperposition :: test_drained_law_is_not_additive
+  [PASS] TestSuperposition :: test_deep_field_is_maximally_nonlinear
+  [PASS] TestSuperposition :: test_nonlinearity_is_carried_by_the_tetb_share
+  [PASS] TestResponseTensor :: test_linearisation
+  [PASS] TestResponseTensor :: test_simple_nu_inverts_simple_mu
+  [PASS] TestResponseTensor :: test_response_is_never_identity_at_finite_field
+  [PASS] TestResponseTensor :: test_size_of_the_boost_that_clusters_rule_out[Pal 14]
+  [PASS] TestResponseTensor :: test_size_of_the_boost_that_clusters_rule_out[Pal 4]
+  [PASS] TestResponseTensor :: test_drainless_guest_has_identity_response
+  [PASS] TestFluxAndDrain :: test_flux_growth_exponent_is_a_function_of_mu_alone
+  [PASS] TestFluxAndDrain :: test_exponent_limits
+  [PASS] TestFluxAndDrain :: test_rotation_curve_slope_is_the_same_statement
+  [PASS] TestFluxAndDrain :: test_phantom_density_of_the_deep_field_is_an_isothermal_halo
+  [PASS] TestFluxAndDrain :: test_kepler_flux_is_conserved_in_the_solar_system_sheet
+  [PASS] TestFluxAndDrain :: test_flux_excess_is_the_missing_mass
+  [PASS] TestPointerProjection :: test_idempotent
+  [PASS] TestPointerProjection :: test_nested_projections_compose
+  [PASS] TestPointerProjection :: test_mass_is_conserved
+  [PASS] TestPointerProjection :: test_monopole_part_of_exterior_field_is_unchanged
+  [PASS] TestRuleInOneFormula :: test_at_a_planet
+  [PASS] TestRuleInOneFormula :: test_the_four_faces_agree
+  [PASS] TestFluxInvolution :: test_f_is_an_involution
+  [PASS] TestFluxInvolution :: test_fixed_point
+  [PASS] TestFluxInvolution :: test_a0_from_the_slope_of_a_synthetic_curve
+  [PASS] TestDictionary :: test_x_inverts_mu
+  [PASS] TestDictionary :: test_transverse_response
+  [PASS] TestDictionary :: test_parallel_response
+  [PASS] TestDictionary :: test_anisotropy_of_the_response
+  [PASS] TestDictionary :: test_all_entries_vanish_or_are_one_at_mu_one
+  [PASS] TestVacuumDivergence :: test_drainless_field_has_no_vacuum_divergence_exact
+  [PASS] TestVacuumDivergence :: test_drained_field_has_vacuum_divergence[X0]
+  [PASS] TestVacuumDivergence :: test_drained_field_has_vacuum_divergence[X1]
+  [PASS] TestVacuumDivergence :: test_drained_field_has_vacuum_divergence[X2]
+  [PASS] TestVacuumDivergence :: test_phantom_density_is_positive_in_the_deep_field
+  [PASS] TestNoSelfForce :: test_net_self_force_vanishes
+  [PASS] TestNoSelfForce :: test_self_torque_is_tide_like_not_zero
+  [PASS] TestSheetEdgeBounds :: test_small_sheet_is_excluded
+  [PASS] TestSheetEdgeBounds :: test_cassini_lower_bound_on_the_edge
+  [PASS] TestSheetEdgeBounds :: test_lower_bound_is_near_the_mond_radius
+  [PASS] TestSheetEdgeBounds :: test_jacobi_edge_sits_inside_the_window
+  [PASS] TestSheetEdgeBounds :: test_window_is_not_empty_for_any_star
+  [PASS] TestInvolutionUniqueness :: test_log_derivative
+  [PASS] TestInvolutionUniqueness :: test_flux_exponent
+  [PASS] TestInvolutionUniqueness :: test_involution_only_for_n_one
+  [PASS] TestRARSlopeShape :: test_sample
+  [PASS] TestRARSlopeShape :: test_gfd_shape_fits_better_than_standard
+  [PASS] TestRARSlopeShape :: test_bootstrap_over_galaxies
+  [PASS] TestSunScreening :: test_screening_law_is_the_simple_mu
+  [PASS] TestSunScreening :: test_tetb_share_at_the_surface
+  [PASS] TestSunScreening :: test_screening_deepens_inward_until_the_core
+  [PASS] TestSunScreening :: test_tetb_dominated_core_is_microscopic
+  [PASS] TestSunScreening :: test_screened_tetb_mass_is_fixed_and_tiny
+  [PASS] TestSunScreening :: test_screened_tetb_is_counted_in_GM_and_constant
+  [PASS] TestSunScreening :: test_screened_tetb_stays_in_the_ball
+
+116 passed, 0 failed

@@ -1,0 +1,36 @@
+name = "net_field_rule"
+defaultTargets = ["NetFieldRule"]
+
+# Builds on the tug-of-war proof (the exchange) and the constitutive law from exchange symmetry, and
+# through them on the Walsh eigenmodes, the Gram matrix, the tetrad scheme, the half-space regions and
+# the forced tetrahedral frame. Mathlib v4.36.0 comes through those packages.
+[[require]]
+name = "tug_of_war"
+path = "../../constitutive-law-tug-of-war/lean"
+
+[[require]]
+name = "walsh_eigenmodes"
+path = "../../walsh-eigenmodes-of-the-cube/lean"
+
+[[require]]
+name = "constitutive_law"
+path = "../../constitutive-law-exchange-symmetry/lean"
+
+[[require]]
+name = "gram_matrix_tetrad_equation"
+path = "../../gram-matrix-tetrad-equation/lean"
+
+[[require]]
+name = "tetrad_scheme"
+path = "../../tetrad-scheme-two-bounded-regions/lean"
+
+[[require]]
+name = "half_space_two_bounded_regions"
+path = "../../half-space-two-bounded-regions/lean"
+
+[[require]]
+name = "forced_tetrahedral_frame"
+path = "../../forced-tetrahedral-frame/lean"
+
+[[lean_lib]]
+name = "NetFieldRule"
