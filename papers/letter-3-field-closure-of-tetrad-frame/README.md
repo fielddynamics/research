@@ -37,7 +37,7 @@ The SST, the GFD covariant action, as stated in Eq. (13):
 
 $$S = \int d^4x\,\sqrt{-g}\left[\frac{R}{16\pi G} - \frac{a_0^2}{8\pi G}F\!\left(\frac{|\nabla\Phi|^2}{a_0^2}\right) - \frac14 e^{-2\Phi/c^2}F_{\mu\nu}F^{\mu\nu} + \mathcal L_{\rm matter}\right]$$
 
-Φ is the standard gravitational potential, not a new field: the partition changes its response, not its identity. Varying with respect to Φ gives the Bekenstein–Milgrom equation ∇·[μ∇Φ] = 4πGρ in the quasi-static limit. The Letter states γ = 1 at all accelerations and that gravitational waves travel at c.
+Φ is the standard gravitational potential, not a new field: the partition changes its response, not its identity. Varying with respect to Φ gives the Bekenstein–Milgrom equation ∇·[μ∇Φ] = 4πGρ in the quasi-static limit. The Letter states γ = 1 at every acceleration at leading order in the quasi-static weak field, derived from the action in the [SST quasi-static proof](../../proofs/sst-quasi-static-limit/), so lensing mass equals dynamical mass. It ties the solar-system bound to the [net-field rule](../../proofs/net-field-rule/), notes that the preferred-frame parameters are still to be computed, and states that gravitational waves travel at c.
 
 ## Figures
 

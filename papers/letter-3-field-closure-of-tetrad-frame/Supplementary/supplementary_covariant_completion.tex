@@ -22,7 +22,8 @@ structure.  Section~2 identifies every numerical prefactor
 in the Gravity Field Dynamics (GFD) action with the
 coupling polynomial $f(K,s) = 1 + sK + K^2$.  Section~3
 derives the conformal electromagnetic coupling, shows that
-$\gamma = 1$ follows from the connection structure (not
+$\gamma = 1$ follows, at leading order in the quasi-static
+weak field, from the connection structure (not
 from the coupling itself), and identifies the coupling's
 physical role as cosmological.  Section~4 varies the action and derives the
 modified field equations, the spherically symmetric static
@@ -311,7 +312,13 @@ with one potential $\Phi$ that governs the metric:
 \end{equation}
 Because the same $\Phi$ appears in both components,
 $\gamma = \Psi/\Phi = 1$ at every radius and every
-acceleration.
+acceleration, at leading order in the quasi-static weak
+field. The SST quasi-static proof derives this from the
+action: varying with respect to $\Psi$ gives
+$\nabla^2(\Phi - \Psi) = 0$, so $\Psi = \Phi$, with $\Phi$
+the lapse of the metric. Beyond leading order the metric
+equations, including the stress--energy of the $F$ sector,
+are not yet derived.
 
 The logic is the same as in general relativity.  GR
 has one field equation ($\nabla^2\Phi = 4\pi G\rho$),
@@ -351,8 +358,16 @@ beside it.
 
 The Cassini spacecraft measured
 $\gamma - 1 = (2.1 \pm 2.3) \times
-10^{-5}$~\cite{Bertotti2003}.  In GFD, $\gamma = 1$ at
-all scales, satisfying this bound identically.
+10^{-5}$~\cite{Bertotti2003}.  In GFD, $\gamma = 1$ at leading
+order at every acceleration. In the solar system the bound
+is met once $\mu$ acts on the host galaxy's net field rather
+than on each mass's own field (the net-field rule); the
+covariant action read on each mass's own time leg leaves a
+TetB tail tending to $a_0$, and deriving the net-field rule
+from the action is open. The action's field equations are
+those of a preferred-foliation theory~\cite{BlanchetMarsat2011},
+so its preferred-frame parameters $\alpha_1, \alpha_2$ also
+remain to be computed.
 Gravitational waves propagate at $c$ because the tensor
 sector is unmodified~\cite{Abbott2017}.
 
@@ -475,9 +490,10 @@ to Einstein--Hilbert plus a decoupled scalar plus
 standard matter.  All post-Newtonian parameters inherit
 their general-relativistic values:
 $\beta = \gamma = 1$.  As shown in Section~3, $\gamma = 1$
-holds at all accelerations because the connection-level
-formulation produces a single metric potential.  The Cassini
-bound~\cite{Bertotti2003} is satisfied.
+holds at leading order at every acceleration because the
+connection-level formulation produces a single metric
+potential.  The Cassini bound~\cite{Bertotti2003} is satisfied
+once $\mu$ acts on the host galaxy's net field (Section~3).
 
 \subsection*{Gravitational wave speed}
 
@@ -548,6 +564,11 @@ J.~D.~Bekenstein,
 \textit{Relativistic gravitation theory for the modified
 Newtonian dynamics paradigm},
 Phys.\ Rev.\ D \textbf{70} (2004) 083509.
+
+\bibitem{BlanchetMarsat2011}
+L.~Blanchet and S.~Marsat, Modified gravity approach based on a
+preferred time foliation, \textit{Phys. Rev. D} \textbf{84}, 044056
+(2011).
 
 \bibitem{Bertotti2003}
 B.~Bertotti, L.~Iess and P.~Tortora,
