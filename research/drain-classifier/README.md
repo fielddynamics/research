@@ -1,100 +1,140 @@
-# Decoding the Local Group's Dwarfs and Clusters
+# Dwarf Galaxies and Star Clusters, Read as Vortices
 
-*Field Dynamics Research, 2026-11-20. Status: exploratory data study. Script: `python decode_study.py --from-csv decode_sample.csv` (numpy, pandas, scipy). Output: [`decode_output.txt`](decode_output.txt). Data: the Local Volume Database (Pace et al., CC0, commit `f0b7356`).*
+*Field Dynamics Research, 2026-11-20/21. Status: exploratory data study, with one pre-registered test. Scripts: `python decode_study.py --from-csv decode_sample.csv` and `python profile_study.py GRAVSPHERE_DIR` (numpy, pandas, scipy). Outputs: [`decode_output.txt`](decode_output.txt), [`profile_output.txt`](profile_output.txt).*
 
 ---
 
-## How the test is set up
+## What a drain vortex does
 
-The [decoding-mass letter](../../papers/letter-decoding-mass-from-rotation-curves/) already says what to expect from a galaxy with a drain and how to read it. The kinematics decode an effective mass with no mass model, M_dec = r v⁴ / [G(a₀r + v²)]. Comparing it with the photometric mass then says what the interior behind the throat is doing:
-- **quiet** when the two agree;
+Every test in this folder starts from how a water vortex behaves around a drain. The standard model of a steady drain vortex is the **Burgers vortex**. Water flows inward toward the drain and down through it, and as it moves inward it spins faster. The swirl speed at distance r from the centre is
+
+  v(r) = Γ/(2πr) · (1 − e^(−r²/r_c²)),  with core radius r_c² = 4ν/α.
+
+The profile has two parts, and two different things set them. Inside the **core** (r below about r_c) the water turns almost like a solid body. Outside the core the swirl falls off as 1/r. Three facts follow from that formula, and each one becomes a test.
+
+**1. Without a drain there is no steady vortex.** Take the drain away (α = 0) and the vortex spreads and slows: this is the Lamb–Oseen vortex, which decays with time. Nothing behind it keeps the swirl going.
+
+**2. The drain's strength sets the core, and only the core.** The drain strength α sets the core radius.
+- A **stronger** drain pulls the core tighter and spins it faster. The swirl rises above its usual value inside the core and is unchanged outside it.
+- A **weaker** drain lets the core spread and slow. The swirl falls below its usual value, most at the centre, and again is unchanged outside the core.
+
+**3. The swirl outside the core is set by the circulation, not by the drain.** The far swirl depends only on the circulation Γ, the amount of spin the water brings in from the edge of the basin. It can rise only if more circulation arrives from the edge, or if the flow around the vortex stirs its outer layers.
+
+## How a galaxy maps onto the vortex
+
+In GFD a galaxy is a vortex whose drain is the throat at its centre. The [decoding-mass letter](../../papers/letter-decoding-mass-from-rotation-curves/) sets out how to read it, and the vortex supplies a dictionary:
+
+| Water vortex | Galaxy |
+|---|---|
+| swirl speed v(r) | circular speed of the stars, from the rotation curve or from the dispersion (v² = 3σ²) |
+| inward pressure gradient v²/r | the field g that the kinematics measure |
+| the usual (steady) swirl | **quiet**: the GFD law μ acting on the visible mass alone |
+| swirl above usual | **drive**: TetB pulling harder than quiet |
+| swirl below usual | **brake**: TetB pulling less than quiet |
+| no drain | a system with no throat: a star cluster |
+
+The decode measures the reading directly. From the kinematics alone, with no mass model, M_dec = r v⁴/[G(a₀r + v²)], and comparing it with the mass in visible stars gives the reading:
+- **quiet** when M_dec ≈ M_phot;
 - **drive** when M_dec > M_phot;
 - **brake** when M_dec < M_phot.
 
-A departure from quiet is a measurement of TetB, not a failure of μ.
+A reading of drive or brake is a measurement of what the drain is doing, not a failure of μ.
 
-That sets the study's three parts:
+The three vortex facts give three tests:
 
-1. **Drained systems: decode them.** Each dwarf galaxy is decoded at its half-light radius r₁/₂ = 4R_e/3, with circular speed v² = 3σ² from its velocity dispersion (Wolf et al. 2010). That is compared with M_phot = (M/L_V) L_V/2, with M/L_V = 2, and the result read as quiet within ±0.2 dex, drive above and brake below.
-2. **Systems without a drain: they must be Newtonian.** A star cluster has no interior, so there is nothing to drive or brake. Its Newtonian dynamical mass, 3σ²r₁/₂/G, must equal its photometric mass. This is the part of the test that can fail outright.
-3. **Is drive or brake physical?** If it is, the decoded reading should follow something measured independently of the dispersions: environment, structure, gas or chemical history.
+| Vortex fact | What we test |
+|---|---|
+| 1. no drain, no vortex | a star cluster has no TetB swirl of its own, so its stars must move exactly as Newton predicts from their visible mass |
+| 2. the drain sets the core | each dwarf galaxy reads quiet, drive or brake; drive and brake should sit in the core and fade to quiet outside it |
+| 3. the far swirl is set by the circulation | where swirl changes outside the core, the cause is circulation arriving from the edge or stirring by the surrounding flow, not the drain |
 
-The letter's decode uses the system's own field. As a variant, the study also decodes with the drained host's field added (Milky Way, M31, M33 or LMC, each with its baryonic mass and the GFD law).
+## The data
 
-## Why this replaces the first version
+- **Dwarfs and clusters:** every Local Group dwarf galaxy and star cluster in the Local Volume Database (Pace et al., CC0, commit `f0b7356`) with a measured velocity dispersion, magnitude and size. That is 90 dwarfs and 47 clusters ([`decode_sample.csv`](decode_sample.csv)). The LMC, the SMC and the disrupting Sagittarius dwarf and Palomar 5 are excluded.
+- **Mass in stars:** a stellar mass-to-light ratio M/L_V = 2 for these old populations, with 1 and 3 checked. For a dwarf, the decode and the visible mass are compared inside the half-light radius r₁/₂ = 4R_e/3 (Wolf et al. 2010).
+- **Profiles:** Walker et al.'s star-by-star velocities for eight classical dwarfs, from the GravSphere repository (`github.com/justinread/gravsphere`, commit `09fa555`). Only the binned profiles are stored here ([`profile_bins.csv`](profile_bins.csv)).
+- **Hosts:** each dwarf also sits in its host galaxy's drained field (the Milky Way, M31, M33 or the LMC). As a variant, that field is added using each host's visible mass and the GFD law.
 
-The first version of this folder ([`drain_classifier.py`](drain_classifier.py), [`PREREGISTRATION.md`](PREREGISTRATION.md), [`results_output.txt`](results_output.txt)) scored every dwarf against the quiet state and counted every departure as a misfit of μ. In the letter's terms that is the wrong yardstick. It also had a bug. The catalogue codes Andromeda's satellites as `m_031`, M33's as `m_033` and the LMC's as `lmc`, so the first version silently dropped 41 dwarfs, among them every satellite of Andromeda. This version uses all of them: 90 dwarfs and 47 clusters.
+## Test 1: star clusters have no drain, so they must be Newtonian
 
-## Results
+*Vortex fact 1.* A cluster has no throat, so it has no TetB swirl of its own. Its stars should move exactly as Newton predicts from their visible mass. Unlike the other tests, this one has no room for drive or brake, so it can fail outright.
 
-**1. The decoded dwarfs.** Of 90 dwarfs, 16 read quiet, 62 drive and 12 brake, with a median of +0.68 dex. The bright, gas-rich dwarfs read quiet: NGC 6822, WLM, Leo I and Andromeda VII. Fornax and Andromeda II read mild brake on their own field and quiet once the host's field is added. Draco and Ursa Minor read strong drive (+1.0 to +1.1 dex), and the faintest ultra-faint dwarfs read the strongest drive (Segue 1, +2.5 dex). Adding the host's field changes the reading only for dwarfs far out in their host's field. Crater II and Antlia II move from brake or quiet to drive, because the host's field dominates them. The counts shift with the stellar mass-to-light ratio (quiet/drive/brake = 11/74/5 at M/L = 1, 17/53/20 at M/L = 3), but the pattern does not.
+**Result.** The two remote, low-acceleration clusters whose dispersions are measured in their own papers are Newtonian:
+- **Palomar 14:** log₁₀(M_Newton/M_phot) = −0.24 ± 0.27 (Jordi et al. 2009);
+- **Palomar 4:** −0.06 ± 0.18 (Frank et al. 2012).
 
-**2. Drive tracks luminosity, and nothing else.** The reading falls steadily with luminosity:
+Had μ applied to them, they would read at least +0.99 and +0.67 dex.
+
+The ten catalogue clusters at low acceleration that are bright enough to measure cleanly (predicted σ above 1 km/s) also lean Newtonian, though with large scatter: χ²/N is 6.2 for Newton and 7.2 for μ. The faintest catalogue clusters, with predicted σ below 1 km/s (such as Kim 1 and DELVE 4), read 1.7 dex high. That is the amount by which unresolved binary stars inflate dispersions this small, so it is a limit of the measurement, not a reading of the cluster. Sagittarius II, listed as a cluster, reads +1.2 ± 0.2 dex. If it really is a star cluster it contradicts the test, so its classification needs checking.
+
+## Test 2: what each dwarf's drain is doing
+
+*Vortex fact 2.* Each dwarf has a drain, so its decoded reading says whether the drain is quiet, driving or braking.
+
+**Result.** Of the 90 dwarfs, 16 read quiet, 62 drive and 12 brake ([`decode_output.txt`](decode_output.txt)).
+- **Quiet:** the bright, gas-rich dwarfs NGC 6822, WLM, Leo I and Andromeda VII.
+- **Mild brake, quiet with the host's field added:** Fornax and Andromeda II.
+- **Strong drive:** Draco and Ursa Minor (+1.0 to +1.1 dex), and most strongly the faintest dwarfs (Segue 1, +2.5 dex).
+
+Adding the host's field changes the reading only for dwarfs far out in it, such as Crater II and Antlia II. The counts shift with the mass-to-light ratio (quiet/drive/brake = 11/74/5 at M/L = 1 and 17/53/20 at M/L = 3), but the pattern does not.
+
+**What the drive follows.** In a water vortex, how hard the drain works is set by how much flows through it. The framework does not yet name an observable that measures a galaxy's throughput, so this part simply asks which measured property, if any, the reading follows. It follows luminosity:
 
   log₁₀(M_dec/M_phot) ≈ −0.41 log₁₀ L + 2.8  (Spearman ρ = −0.73, p = 6 × 10⁻¹⁶).
 
-Without controlling for luminosity, drive also appears to follow size, surface density, distance from the host, gas content and which host a dwarf orbits. Satellites of the Milky Way read +1.09 dex, satellites of M31 +0.34 and field dwarfs +0.06, and gas-rich dwarfs read quiet while gas-free ones drive. Once luminosity is controlled, every one of these disappears (all p > 0.1). The Milky Way's satellites read higher only because more of them are ultra-faint.
+Once luminosity is controlled, nothing else remains: distance from the host, surface density, size, gas content, metallicity spread and which galaxy a dwarf orbits all show no trend (every p > 0.1). Before the control, the Milky Way's satellites seem to drive harder than Andromeda's (+1.09 against +0.34 dex), but only because more of them are ultra-faint. Two cautions apply to the faintest dwarfs. Unresolved binary stars inflate their dispersions, and the outer stars of a small vortex are the most exposed to stirring by the host's flow (vortex fact 3). Dispersions measured over several epochs, which remove binaries, would separate the first effect from a real drive.
 
-So, on this sample, the decoded drive is a single trend with luminosity: in GFD's reading, TetB drives harder in fainter dwarfs. Standard cosmology reads the same trend as fainter dwarfs being more dominated by dark matter, and MOND as ultra-faint dwarfs lying above its prediction; a referee will raise both. The trend alone does not yet separate TetB's drive from those readings, or from effects of measurement:
-- binary stars, which inflate the smallest dispersions;
-- tidal heating by the host;
-- a dispersion floor in the faintest systems.
+## Test 3: where in each dwarf the drive and brake sit
 
-To read it as TetB's activity, the framework needs a predictor of drive that is not luminosity.
+*Vortex fact 2 again.* If the drain alone is changing, the circulation stays fixed. Then drive or brake should sit in the core and fade to quiet outside it:
+- **brake:** a deficit deepest at the centre, shrinking outward;
+- **drive:** an excess in the core, shrinking outward.
 
-**3. The clusters.** The ten catalogue clusters that sit at low acceleration and are bright enough for binary stars to matter little (predicted σ > 1 km/s) fit Newton slightly better than μ: χ²/N is 6.2 against 7.2. The scatter is large, and three outliers dominate it: NGC 6229, NGC 6838 and Garro 04. The two remote clusters measured in their own papers are clearer:
-- **Pal 14:** log₁₀(M_N/M_phot) = −0.24 ± 0.27, where μ would give at least +0.99;
-- **Pal 4:** −0.06 ± 0.18, where μ would give at least +0.67.
+*This prediction was written down and committed before the run ([`PROFILE_PREREGISTRATION.md`](PROFILE_PREREGISTRATION.md), 18e6d9b).*
 
-Both are Newtonian, as the net-field rule requires of a system without a drain. The faintest catalogue clusters (predicted σ < 1 km/s, such as Kim 1 and DELVE 4) read 1.7 dex above Newton. That is the size of the inflation binary stars produce at such small dispersions, so they do not test either rule. Sagittarius II is listed as a cluster but reads +1.2 ± 0.2 dex. If it really is a star cluster, it is a problem for the rule, and its classification is worth checking.
+**How it is measured.** For each of the eight classical dwarfs, the measured dispersion profile σ_obs(R) is compared with the quiet profile σ_quiet(R), which GFD predicts from the stars alone with no free parameter. The quiet profile uses Plummer light, M/L = 2, and the isotropic Jeans equation projected along the line of sight. The reading at each radius is Δ(R) = log₁₀(σ_obs⁴/σ_quiet⁴), positive for drive and negative for brake. Its trend with radius is the slope c₁ of Δ against log₁₀(R/R_h). A falling reading (c₁ < 0) fits a drive confined to the core. A reading that rises to 0 fits a brake confined to the core.
 
-## What it means
+**Result.**
 
-- **The falsifiable part holds where the data are good.** Systems without a drain should be Newtonian. Pal 14 and Pal 4 are, and the cleaner catalogue clusters lean Newtonian. More remote clusters with dispersions measured in their own papers would make this decisive.
-- **Drive and brake are measured, but what sets them is open.** Across the Local Group's dwarfs TetB's drive follows luminosity alone. That is not a contradiction of the letter, which leaves the interior dynamics open. It does mean that the next step is a physical predictor of drive that is independent of luminosity, or a way to separate it from binaries and tides, for example by using only multi-epoch dispersions, which remove binaries.
-- **The study does not test μ itself in the dwarfs.** Once drive and brake are allowed, a single dwarf cannot falsify μ. That is why the clusters, and a predictor of drive, carry the weight.
+| Galaxy | Core (innermost bin) | Outskirts (outermost bin) | Slope c₁ | Matches the drain-only vortex? |
+|---|---|---|---|---|
+| Fornax | brake, −0.49 | quiet, −0.02 | +0.42 ± 0.09 | **yes, brake**: deficit deepest at the centre, quiet by 2 R_h |
+| Leo I | brake, −0.21 | quiet, +0.20 | +0.49 ± 0.25 | **yes, brake** |
+| Leo II | drive, +0.58 | drive, +0.45 | −0.21 ± 0.41 | consistent with core drive, but only 3 bins |
+| Sculptor | quiet, +0.18 | drive, +0.63 | +0.48 ± 0.12 | no: the core is quiet and the excess sits outside it |
+| Carina | quiet, +0.06 | drive, +0.72 | +0.54 ± 0.16 | no: the core is quiet and the excess sits outside it |
+| Sextans | drive, +0.43 | drive, +0.72 | +0.22 ± 0.20 | no: the excess grows outward |
+| Draco | drive, +0.90 | drive, +1.43 | +0.46 ± 0.14 | no: the excess grows outward |
+| Ursa Minor | drive, +0.58 | drive, +1.29 | +0.46 ± 0.19 | no: the excess grows outward |
 
-## Drive and brake by radius
+**Reading the result through the vortex.**
+- **The braking dwarfs behave exactly as a vortex with a weakened drain does.** Fornax and Leo I have a swirl deficit deepest at the centre that fades to quiet outside the core. That is a spread core with the circulation unchanged (vortex fact 2).
+- **The driving dwarfs do not behave like a vortex whose drain has simply strengthened.** In Sculptor and Carina the core is quiet and the extra swirl sits outside it. In Draco, Ursa Minor and Sextans the extra swirl is present in the core and keeps growing outward. In a water vortex, extra swirl outside the core cannot come from the drain (vortex fact 3). It comes from more circulation arriving at the edge, or from the surrounding flow stirring the vortex's outer layers. For a dwarf, the surrounding flow is its host galaxy.
+- **One caution is about the measurement, not the vortex.** The quiet profile assumes the stars' orbits are equally random in every direction (isotropic). With orbits biased toward circular (β = −0.3), most of the outward rise disappears: only Sculptor keeps a slope above 2σ. With orbits biased toward radial (β = +0.3), it strengthens. The levels, which galaxies drive and which brake, do not depend on this.
 
-*Pre-registration: [`PROFILE_PREREGISTRATION.md`](PROFILE_PREREGISTRATION.md) (committed before the run, 18e6d9b). Script: `python profile_study.py GRAVSPHERE_DIR`. Output: [`profile_output.txt`](profile_output.txt), bins in [`profile_bins.csv`](profile_bins.csv).*
+**What it means.** The vortex picture passes where the drain alone has changed: the braking dwarfs show the core-only brake a weakened drain produces. The driving dwarfs carry extra swirl outside their cores. A vortex attributes that to the edge, not the drain, so the drive in these dwarfs is not only a drain effect.
 
-**The test.** In the vortex picture a stronger drain tightens and spins up the core, and the far swirl forgets the drain. Read literally, TetB's drive or brake should be strongest at the centre and fade toward quiet outward. Eight classical dwarfs have star-by-star velocities (Walker et al., from the GravSphere repository): Fornax, Sculptor, Carina, Sextans, Draco, Ursa Minor, Leo I and Leo II. For each one:
-- the measured dispersion profile σ_obs(R) is compared with the quiet GFD profile σ_quiet(R), computed with no free parameter from the stars alone (Plummer light, M/L = 2, isotropic Jeans equation projected along the line of sight);
-- the reading at each radius is Δ(R) = log₁₀(σ_obs⁴/σ_quiet⁴), positive for drive and negative for brake;
-- the shape is the slope c₁ of Δ against log₁₀(R/R_h).
+## Next: fit each dwarf as a Burgers vortex
 
-The hypothesis was c₁ < 0.
+The Burgers profile has two numbers that can be fitted to each dwarf: the circulation Γ, which sets the far swirl, and the core radius r_c, which is set by the drain. Fitting both against the quiet profile asks three questions directly:
+1. Do Fornax and Leo I need only a larger core, with the same circulation as quiet? That is a pure brake.
+2. Do the driving dwarfs need more circulation, a smaller core, or both?
+3. If they need more circulation, does it follow how strongly the host's flow acts at their edge?
 
-**The result: the drive does not sit in the core. It grows outward.**
+As before, the predictions will be written down and committed before the fit is run.
 
-| Galaxy | Core (innermost bin) | Outskirts (outermost bin) | Slope c₁ (isotropic) |
-|---|---|---|---|
-| Fornax | brake, −0.49 | quiet, −0.02 | +0.42 ± 0.09 |
-| Sculptor | quiet, +0.18 | drive, +0.63 | +0.48 ± 0.12 |
-| Carina | quiet, +0.06 | drive, +0.72 | +0.54 ± 0.16 |
-| Sextans | drive, +0.43 | drive, +0.72 | +0.22 ± 0.20 |
-| Draco | drive, +0.90 | drive, +1.43 | +0.46 ± 0.14 |
-| Ursa Minor | drive, +0.58 | drive, +1.29 | +0.46 ± 0.19 |
-| Leo I | brake, −0.21 | quiet, +0.20 | +0.49 ± 0.25 |
-| Leo II | drive, +0.58 | drive, +0.45 | −0.21 ± 0.41 |
+## Earlier versions
 
-- No galaxy has c₁ < 0 at 2σ, under any of the assumptions tried: M/L of 1, 2 or 3, the host's field included, or anisotropy β = ±0.3. So the hypothesis is not supported.
-- Five of the eight have c₁ > 0 at 2σ when orbits are isotropic, seven when β = +0.3 or when the host's field is included, and one when β = −0.3. The rising trend itself therefore depends on the orbits: if the stars' orbits were tangentially biased, most of it would go.
-- The levels are robust and match the single-radius decode. Fornax and Leo I are quiet to braking, while Draco, Ursa Minor and Sextans drive at every radius.
+The first version of this folder ([`drain_classifier.py`](drain_classifier.py), [`PREREGISTRATION.md`](PREREGISTRATION.md), [`results_output.txt`](results_output.txt)) had two problems:
+- It scored every dwarf against the quiet state alone and counted every departure as a failure, instead of reading it as drive or brake.
+- It dropped 41 dwarfs, including all of Andromeda's, M33's and the LMC's satellites, because it did not recognise the catalogue's host codes (`m_031`, `m_033`, `lmc`).
 
-**What it means.** The literal reading of the vortex picture, with drive concentrated in the core, is not what these eight dwarfs show. Where there is drive, it is present from the centre outward and is largest in the outskirts. Three readings remain open:
-- in the framework, the drain's influence may reach the far field rather than the core, which the vortex picture as stated in the tug-of-war proof does not say;
-- the outskirts are where the Milky Way's tide acts on a dwarf, so tidal heating would raise the outer dispersions;
-- the orbits may not be isotropic.
-
-Proper motions of individual stars, which measure anisotropy directly, would separate the third from the first two.
+It is kept for the record.
 
 ## Files
 
 | File | Contents |
 |---|---|
-| [`decode_study.py`](decode_study.py) | The decode study |
-| [`profile_study.py`](profile_study.py), [`profile_bins.csv`](profile_bins.csv), [`profile_output.txt`](profile_output.txt), [`PROFILE_PREREGISTRATION.md`](PROFILE_PREREGISTRATION.md) | Drive and brake by radius in eight classical dwarfs (velocity data: Walker et al., via github.com/justinread/gravsphere, commit 09fa555; binned profiles only are stored here) |
-| [`decode_sample.csv`](decode_sample.csv) | The 137 objects used (90 dwarfs, 47 clusters), from the Local Volume Database (CC0) |
-| [`decode_output.txt`](decode_output.txt) | Full output: every dwarf's reading, the clusters, the correlations |
-| [`drain_classifier.py`](drain_classifier.py), [`PREREGISTRATION.md`](PREREGISTRATION.md), [`lvdb_sample.csv`](lvdb_sample.csv), [`results_output.txt`](results_output.txt) | The first version, superseded: it scored dwarfs against quiet only and dropped Andromeda's, M33's and the LMC's satellites |
+| [`decode_study.py`](decode_study.py), [`decode_sample.csv`](decode_sample.csv), [`decode_output.txt`](decode_output.txt) | Tests 1 and 2: the decode of 90 dwarfs and the Newtonian test of 47 clusters |
+| [`profile_study.py`](profile_study.py), [`profile_bins.csv`](profile_bins.csv), [`profile_output.txt`](profile_output.txt), [`PROFILE_PREREGISTRATION.md`](PROFILE_PREREGISTRATION.md) | Test 3: drive and brake by radius in eight classical dwarfs |
+| [`drain_classifier.py`](drain_classifier.py), [`PREREGISTRATION.md`](PREREGISTRATION.md), [`lvdb_sample.csv`](lvdb_sample.csv), [`results_output.txt`](results_output.txt) | The first version, superseded |
