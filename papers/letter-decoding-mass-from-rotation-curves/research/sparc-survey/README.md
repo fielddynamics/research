@@ -91,6 +91,20 @@ That matters, because the decoded mass goes as 1/sin⁴i. At 43°, an inclinatio
 
 For the other half, the reading cannot yet be separated from the stellar mass-to-light ratio.
 
+## a₀ from the shape of the rotation curves
+
+*Pre-registration: [`PREREGISTRATION_A0.md`](PREREGISTRATION_A0.md) (committed before the run, 2671319). Script: `python a0_from_slope.py ROTMOD_DIR`. Output: [`a0_from_slope_output.txt`](a0_from_slope_output.txt).*
+
+**Why.** The framework makes a prediction for a₀ in galaxies. It is about 12% above the plain horizon value cH₀/2π = 1.08 × 10⁻¹⁰ m/s². The enhancement is either the ring's screening gap, 1/2 − 1/φ² = 0.118, giving 1.210 × 10⁻¹⁰, or the frame factor √(4/π), giving 1.221 × 10⁻¹⁰, which matches the electron tile's 16Gm_e/r_e² = 1.225 × 10⁻¹⁰.
+
+The two enhanced values differ by only 0.9%, so no galaxy measurement can tell them apart. A galaxy measurement could in principle tell either of them from the plain 1.08. The survey alone cannot, because the a₀ that makes the median galaxy quiet moves with the stellar mass-to-light ratio: 1.61, 1.41, 1.245, 1.06 and 0.94 × 10⁻¹⁰ for Υ = 0.3 to 0.7. At the letter's 0.5 it is 1.245, but that is not a measurement.
+
+**The method.** The net-field proof's flux involution removes the stellar mass. Where the enclosed visible mass has stopped growing, the slope of the rotation curve alone gives μ, and from μ follows a₀. On a synthetic galaxy the method returns 1.167 against a true 1.200, a 3% bias.
+
+**The result: the method fails on SPARC.** Only 4 or 5 of the 128 galaxies have at least four measured points where the enclosed visible mass has levelled off (growing less than 10% per e-fold of radius), and only 3 of those give a usable slope, against the 15 required. SPARC's rotation curves end before their gas disks do, so in almost every galaxy the visible mass is still growing at the last measured radius.
+
+**What would work.** Measurements that reach far beyond the gas, where the enclosed mass has certainly stopped growing. Weak gravitational lensing around isolated galaxies (KiDS-1000) extends the radial acceleration relation two decades further out than rotation curves. That is the regime the involution needs, and the SST quasi-static proof shows that lensing sees the same field as orbits (Ψ = Φ).
+
 ## Limits of the inputs
 
 - The photometric mass uses one stellar mass-to-light ratio (0.5 at 3.6 μm) and simple exponential profiles, as in the letter. A different stellar mass-to-light ratio moves every disk-dominated galaxy's reading.
@@ -106,5 +120,6 @@ For the other half, the reading cannot yet be separated from the stellar mass-to
 | [`sparc_survey_output.txt`](sparc_survey_output.txt) | The summary output |
 | [`sparc_survey_analysis.py`](sparc_survey_analysis.py) | What the survey can determine: the mass-to-light ratio each galaxy would need to be quiet, gas against decoded mass, crossing curves |
 | [`sparc_survey_analysis.csv`](sparc_survey_analysis.csv), [`sparc_survey_analysis_output.txt`](sparc_survey_analysis_output.txt) | Its per-galaxy results and summary |
+| [`PREREGISTRATION_A0.md`](PREREGISTRATION_A0.md), [`a0_from_slope.py`](a0_from_slope.py), [`a0_from_slope_output.txt`](a0_from_slope_output.txt), [`a0_from_slope_results.csv`](a0_from_slope_results.csv) | a₀ from the shape of the rotation curves: the candidates, the method and its outcome |
 
 The SPARC rotation-curve files are not stored here. They are public (`astroweb.cwru.edu/SPARC/`). Table 1 is read from [`papers/07-dual-tetrad-topology-field-origin/v7/python/sparc_tully_fisher_table.dat`](../../../07-dual-tetrad-topology-field-origin/v7/python/sparc_tully_fisher_table.dat).

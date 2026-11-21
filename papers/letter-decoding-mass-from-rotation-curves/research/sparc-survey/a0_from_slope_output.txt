@@ -1,0 +1,14 @@
+Self-test on a synthetic galaxy (true a0 = 1.200e-10): recovered 1.167e-10
+
+Candidates at H0 = 67.4: cH0/2pi = 1.042e-10, x(1 + 0.118) = 1.165e-10, x sqrt(4/pi) = 1.176e-10
+Candidates at H0 = 70.0: cH0/2pi = 1.082e-10, x(1 + 0.118) = 1.210e-10, x sqrt(4/pi) = 1.221e-10
+Candidates at H0 = 73.0: cH0/2pi = 1.129e-10, x(1 + 0.118) = 1.262e-10, x sqrt(4/pi) = 1.274e-10
+
+Upsilon = 0.5: 4 galaxies with >= 4 points where the enclosed mass has levelled off; 3 give a value (0.05 < mu < 0.95); 1 have flat or rising outer curves (mu <= 0.05)
+   fewer than 15 galaxies: the method fails here
+
+Upsilon = 0.3: 4 galaxies with >= 4 points where the enclosed mass has levelled off; 3 give a value (0.05 < mu < 0.95); 1 have flat or rising outer curves (mu <= 0.05)
+   fewer than 15 galaxies: the method fails here
+
+Upsilon = 0.7: 5 galaxies with >= 4 points where the enclosed mass has levelled off; 3 give a value (0.05 < mu < 0.95); 2 have flat or rising outer curves (mu <= 0.05)
+   fewer than 15 galaxies: the method fails here
