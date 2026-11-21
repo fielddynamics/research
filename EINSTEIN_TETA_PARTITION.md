@@ -24,6 +24,8 @@ Paper, sources and supplementary material: [`papers/letter-3-field-closure-of-te
 >
 > As in any vortex, the drain can work with the flow or against it. When TetB spins with the galaxy, it **drives** the rotation, and stars move faster than the visible matter alone would explain. When it spins against it, it **brakes** the rotation, and stars move slower. When it's quiet, the visible matter accounts for everything. The decoding-mass letter shows all three: M33 (drive), CamB (brake), and the Milky Way and NGC 3198 (close to quiet).
 >
+> **What $a_0$ is in this picture.** Think of TetA and TetB as two teams in a tug of war over one rope. TetA pulls with the galaxy's local gravity $g$, and TetB pulls with the fixed strength $a_0$. When the interior is quiet, TetB pulls with exactly $a_0$; driving means it pulls harder than $a_0$, and braking means it pulls more softly. Whether the drain turns with the galaxy or against it is the physical picture; what the decoded mass measures is how hard TetB pulls. It comes out above the visible mass exactly when TetB pulls harder than $a_0$, below it when TetB pulls more softly, and equal to it when TetB is quiet ([tug-of-war proof](proofs/constitutive-law-tug-of-war/)).
+>
 > **So why don't we see TetB in the solar system?** Every object has a TetB, the Sun included, but an object's TetB stays inside it. From outside, gravity can't tell what's going on inside a body; it only reports the total. So the Sun's TetB is already counted in the Sun's measured gravity, and the planets just feel "the Sun".
 >
 > Meanwhile, the whole solar system sits inside the galaxy's vortex like a pebble in a stream. Zoom in on the pebble and the water around it looks level: everything nearby is carried along together, so nothing changes between the planets. Zoom out to the whole galaxy and you see the stream running steeply downhill. The galaxy's TetB is real, but across something as small as the solar system it is perfectly flat.
@@ -96,7 +98,7 @@ Whether the restored root carries the galactic share of the field is GFD's claim
 
 General relativity describes the gravitational connection by its Christoffel symbols: the 40 components of the affine connection that remain once the torsion-free condition $\Gamma^\lambda_{\mu\nu} = \Gamma^\lambda_{\nu\mu}$ is imposed. A connection on a four-dimensional frame has $K^3 = 64$ components. Letter 3 asks what the 24 components removed by that condition represent. It concludes that they are not spare degrees of freedom: they are the second root of the tetrad equation, and restoring them completes the gravitational field.
 
-The letter is the third in a series. Letter 1 showed that the tetrad equation $g_{\mu\nu} = \eta_{ab}\,e^a{}_\mu e^b{}_\nu$ produces a stellated-octahedron geometry, two parity-related tetrahedral regions, with structural constants $K = 4$ and $D = 3$. Letter 2 showed that the equation is quadratic in the frame field and so admits two roots related by spatial parity, identified as TetA ($s = +1$) and TetB ($s = -1$). Exchange symmetry between them fixes the constitutive law $\mu(x) = x/(x+1)$.
+The letter is the third in a series. Letter 1 showed that the tetrad equation $g_{\mu\nu} = \eta_{ab}\,e^a{}_\mu e^b{}_\nu$ produces a stellated-octahedron geometry, two parity-related tetrahedral regions, with structural constants $K = 4$ and $D = 3$. Letter 2 showed that the equation is quadratic in the frame field and so admits two roots related by spatial parity, identified as TetA ($s = +1$) and TetB ($s = -1$). Exchange symmetry between them, applied to a law of degree one, fixes the constitutive law $\mu(x) = x/(x+1)$. The [tug-of-war proof](proofs/constitutive-law-tug-of-war/) shows what each ingredient contributes: the exchange on its own still allows other laws, but applied to a screening relation it reduces the law to a power of $x$, and flat rotation curves, equivalently the fact that both chambers pull with accelerations, fix that power at one.
 
 ## Background: the root that was set aside
 
@@ -134,6 +136,12 @@ Restoring the 24 components gives the full 64-component connection, in which bot
 
 $$\text{TetA: } \mu(x) = \frac{x}{x+1}, \qquad \text{TetB: } 1 - \mu(x) = \frac{1}{x+1}, \qquad x = \frac{g}{a_0}.$$
 
+The partition is a tug of war. TetA pulls with the local field $g$ and TetB with the fixed acceleration $a_0$, and each chamber's share is its own strength divided by the two together, so $\mu = g/(g + a_0)$, which is $x/(x+1)$. Each chamber therefore carries its share of its own strength,
+
+$$g = \mu\,g + \mu\,a_0,$$
+
+with TetA carrying the Newtonian part $\mu g$ and TetB carrying $\mu a_0$ ([tug-of-war proof](proofs/constitutive-law-tug-of-war/), machine-checked in Lean).
+
 The total is conserved; the response is redistributed, not enhanced. Near the centre of a bound system, where the acceleration is high, the TetA share carries almost all of the field. Toward the rim, the TetB share dominates. The two shares are equal on the ring $x = 1$, the transition scale $a_0$, where the odds ratio $\mu/(1-\mu)$ equals one.
 
 The letter identifies this ring with the empirical MOND transition and shows that the partition changes according to a logistic law:
@@ -147,6 +155,12 @@ The kinematic consequence follows directly. The baryonic acceleration, carried b
 $$g_{\text{bar}} = \frac{g_{\text{obs}}^2}{g_{\text{obs}} + a_0}.$$
 
 This reproduces the radial acceleration relation established by McGaugh, Lelli and Schombert, with no free parameter. At high acceleration it gives Keplerian decline; at low acceleration it gives flat rotation curves.
+
+That relation describes a quiet interior. Where a galaxy's interior drives or brakes, the visible acceleration departs from $\mu\,g_{\text{obs}}$, and the decoding-mass ratio measures the departure as TetB's pull strength $w = g_{\text{obs}}(g_{\text{obs}} - g_{\text{bar}})/g_{\text{bar}}$:
+
+$$\frac{M_{\text{dec}}}{M_{\text{phot}}} = \frac{g_{\text{obs}} + w}{g_{\text{obs}} + a_0}.$$
+
+The interior is quiet when $w = a_0$, drives when $w > a_0$ and brakes when $w < a_0$. Because $g_{\text{obs}}$ sits in the denominator, the same change in $w$ is large in a galaxy's outskirts and vanishes where $g_{\text{obs}} \gg a_0$, which is why drive and brake never show in the solar system.
 
 ## From partition to action
 
@@ -267,7 +281,7 @@ Together, 165 checks pass with no failures. The working notes also record three 
 The letter draws three consequences that distinguish the restored connection from the cold-dark-matter description:
 
 1. **Disk-and-bulge morphology.** With both roots active, the closed partition produces a concentrated inner region and an extended outer region, whose boundary lies at the transition ring. Neither root alone yields this structure.
-2. **Bounded central density.** The TetB fraction $1/(x+1)$ never exceeds unity, so the torsion-sector acceleration never exceeds $a_0$. This removes the central divergence of cuspy halo profiles algebraically.
+2. **Bounded central density.** TetB carries $\mu a_0$, its share of its own strength $a_0$, so the torsion-sector acceleration rises towards $a_0$ as the field grows but never exceeds it, however much mass is present. This removes the central divergence of cuspy halo profiles algebraically.
 3. **No new particles.** The discrepancy lies in the connection, not in the matter sector.
 
 ## Reference
