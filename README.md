@@ -12,7 +12,7 @@ $$\mu = \frac{g}{g + a_0} = \frac{x}{x + 1}, \qquad x = \frac{g}{a_0}.$$
 
 This is MOND's "simple" interpolating function, but here it is not chosen: the exchange symmetry of the two chambers reduces the possible laws to a single family, and flat rotation curves, equivalently the fact that both chambers pull with accelerations, select this one. On the SPARC radial acceleration relation (3284 points, 164 galaxies) it gives a scatter of 0.181 dex, the same as the best one-parameter empirical fit, with nothing adjusted per galaxy, and stacked across galaxies it stays flat where MOND's standard function and the nuclear bound law do not.
 
-**Framework status.** An open research archive. The core geometry and the constitutive law are machine-checked in Lean 4; the observational tests use public data (SPARC) with one-command reproduction scripts. The papers are preprints and have not yet been peer reviewed.
+**Framework status.** An open research framework. The core geometry and the constitutive law are machine-checked in Lean 4; the observational tests use public data (SPARC) with one-command reproduction scripts. The papers are preprints and have not yet been peer reviewed.
 
 ### Start here
 
@@ -327,7 +327,7 @@ Gives the closed form F(y) = y − 2√y + 2 ln(1 + √y) for μ(x) = x/(x + 1),
 
 ## Repository map
 
-This is a working research archive. The [papers](papers/), the [proofs](proofs/README.md) and the [documentation](docs/README.md) are the curated statements of the framework; [`research/`](research/) is the trail that led there, kept as it was left at the end of each session, with some files in several versions. The repository has four top-level folders:
+This is a working research framework. The [papers](papers/), the [proofs](proofs/README.md) and the [documentation](docs/README.md) are the curated statements of the framework; [`research/`](research/) is the trail that led there, kept as it was left at the end of each session, with some files in several versions. The repository has four top-level folders:
 
 | Folder | Contents |
 |---|---|
