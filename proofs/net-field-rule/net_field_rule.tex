@@ -289,7 +289,7 @@ predictions for $r \ll \ell$ do not depend on it.
 
 \section*{The data}
 
-\begin{proposition}[bare $G$, and the drain criterion]\label{prop:data}
+\begin{proposition}[bare $G$]\label{prop:data}
 (a) A host factor on $G$, $G \to G/\bar\mu$, is invisible to orbits,
 since Kepler's law sees only $GM$. (b) Photometric masses see it. The
 outer-halo clusters Pal~14 and Pal~4~\cite{Jordi2009,Frank2012} sit at
@@ -297,12 +297,8 @@ $x \approx 0.13$ and $0.12$. With the bare $G$ their dispersions fit
 within $1.0\sigma$ and $0.4\sigma$; with the host factor
 ($\nu \approx 8$) they are excluded at $8.9\sigma$ and $11.1\sigma$. So
 the host enters a drainless field only through free fall and tide, never
-as a factor on $G$. (c) The dwarf Crater~II~\cite{Caldwell2017,Ji2021},
-at the same $x \approx 0.08$ in the same host, is $5.4\sigma$ above
-Newton and $2.2\sigma$ from $\mu$ with the host's field. No rule that
-depends on acceleration alone fits all three ($\chi^2 = 29.9$ for the
-best common factor); the drain criterion, clusters closed and the dwarf
-open, fits with $\chi^2 = 6.1$ and no parameter.
+as a factor on $G$. This test uses only Newton, since a cluster has no
+drain.
 \end{proposition}
 
 \begin{proposition}[predictions]\label{prop:pred}
@@ -335,20 +331,21 @@ keeping its total circulation, as a body keeps its $GM$.
 The premises (D) and (N) are the framework's, including the
 coarse-graining scale $\ell = r_J$, which Proposition~\ref{prop:edge}
 motivates by elimination but does not derive. What the proof adds is
-their consequences, made exact, and the data they must meet. Three
+their consequences, made exact, and the data they must meet. Two
 further points remain open: an observable marker of a drained field that does
 not use its rotation curve (Theorem~\ref{thm:faces}(iii) says it must
-measure flux growth across empty shells); the covariant derivation of
+measure flux growth across empty shells), and the covariant derivation of
 which time leg's acceleration enters $\mu$, left open
-in~\cite{NelsonSST}; and the dwarf Antlia~2, which no rule tested here
-fits, possibly because it is being tidally disrupted. The data tests use
-simple dispersion estimators~\cite{Wolf2010} and binned medians; the
-RAR slope is sensitive to scatter and to stellar mass-to-light ratios.
+in~\cite{NelsonSST}. Dwarf spheroidal galaxies are not used: they are
+supported by random motions rather than rotation, and the decode is
+defined for rotation curves. The cluster test uses a simple dispersion
+estimator~\cite{Wolf2010}; the RAR slope is sensitive to scatter and to
+stellar mass-to-light ratios.
 
 \section*{Verification}
 
 The script \texttt{verify\_net\_field\_rule.py} checks every statement,
-128 checks in all: exactly with sympy where it is algebraic, by
+122 checks in all: exactly with sympy where it is algebraic, by
 quadrature for the Cassini quadrupole, and against the data for
 Propositions~\ref{prop:data} and~\ref{prop:pred}. Its output is in
 \texttt{verify\_output.txt}.
@@ -405,15 +402,6 @@ clusters: analysis of observational data on Palomar~14,
 M.~J.~Frank \textit{et al.}, The velocity dispersion and mass function of
 the outer halo globular cluster Palomar~4, \textit{Mon. Not. R. Astron.
 Soc.} \textbf{423}, 2917 (2012).
-
-\bibitem{Caldwell2017}
-N.~Caldwell \textit{et al.}, Crater~2: an extremely cold dark matter
-halo, \textit{Astrophys. J.} \textbf{839}, 20 (2017).
-
-\bibitem{Ji2021}
-A.~P.~Ji \textit{et al.}, Kinematics of Antlia~2 and Crater~2 from the
-Southern Stellar Stream Spectroscopic Survey, \textit{Astrophys. J.}
-\textbf{921}, 32 (2021).
 
 \bibitem{Wolf2010}
 J.~Wolf \textit{et al.}, Accurate masses for dispersion-supported

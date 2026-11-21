@@ -5,7 +5,7 @@ Verification: The Net-Field Rule
 
 Every statement of the proof is checked here: exactly with sympy where it is algebraic,
 by quadrature for the Cassini quadrupole, and against data where it is a test (globular
-clusters, dwarfs, SPARC). The checks are grouped by the paper's statements:
+clusters, SPARC). The checks are grouped by the paper's statements:
 
   Theorem 1      four faces of a drainless field, and the dictionary   Parts 16-18, 20-22, 26
   Corollary 1    the flux involution, and why it singles out x/(1+x)   Parts 21, 26
@@ -13,7 +13,7 @@ clusters, dwarfs, SPARC). The checks are grouped by the paper's statements:
   Proposition 2  a drain around every star is forced to fail           Parts 2, 3
   Theorem 2      the rubber sheet: the two-scale split                 Parts 4, 5, 10, 13, 19, 23, 24, 29
   Proposition 3  the sheet's edge and the coarse-graining scale        Parts 14, 25, 30
-  Proposition 4  bare G and the drain criterion, against the data      Parts 6-9, 17
+  Proposition 4  bare G, against the globular clusters                 Parts 6, 7, 17
   Proposition 5  predictions: wide binaries, the a0-free RAR slope     Parts 11, 21, 27, 31
   Remark         the vortex picture                                    Part 12
 
@@ -311,7 +311,7 @@ class TestHostFactorInvisibleToOrbits:
 # ============================================================================================
 # 7  ... but globular clusters see it: so G stays bare
 # ============================================================================================
-# Outer-halo globular clusters and Milky Way dwarfs at low acceleration (as in
+# Outer-halo globular clusters at low acceleration (as in
 # research/bimetric-projection/probe_testD_clusters_vs_dwarfs.py).
 # Units: pc, km/s, Msun.  Wolf et al. (2010): M(<r_1/2) = M/2 with r_1/2 = 4 Re/3.
 G_PC = 4.30091e-3                 # pc (km/s)^2 / Msun
@@ -321,7 +321,6 @@ OBJECTS = {
     # name: (type, M [Msun], Re [pc], D_GC [kpc], sigma_obs, err)
     "Pal 14":    ("cluster", 1.2e4, 26.0, 71, 0.38, 0.12),    # Jordi et al. 2009
     "Pal 4":     ("cluster", 2.98e4, 18.4, 103, 0.87, 0.18),  # Frank et al. 2012
-    "Crater II": ("dwarf", 3.3e5, 1066.0, 120, 2.34, 0.36),   # Caldwell et al. 2017; Ji et al. 2021
 }
 
 
@@ -360,60 +359,6 @@ class TestClustersAreNewtonian:
             sN, sM, so, se, *_ = sigmas(name)
             verdicts.append(abs(so - sN) < abs(so - sM))
         assert all(verdicts)
-
-
-# ============================================================================================
-# 8  Open drains keep mu: dwarfs are not Newtonian
-# ============================================================================================
-class TestDwarfsKeepMu:
-    def test_crater_ii_is_not_newtonian(self):
-        sN, _, so, se, *_ = sigmas("Crater II")
-        assert (so - sN) / se > 4
-
-    def test_crater_ii_is_consistent_with_mu(self):
-        _, sM, so, se, *_ = sigmas("Crater II")
-        assert abs(so - sM) / se < 2.5
-
-    def test_crater_ii_estimator_matches_mcgaugh_deep_efe(self):
-        """Cross-check: McGaugh's deep-EFE form sigma^2 = a0 G M / (3 g_e r_1/2) gives 2.1 km/s."""
-        _, M, Re, D, *_ = OBJECTS["Crater II"]
-        g_e = V_MW**2 / (D * 1000)
-        s = math.sqrt(A0_PC * G_PC * M / (3 * g_e * 4 * Re / 3))
-        assert s == pytest.approx(2.1, abs=0.05)
-
-
-# ============================================================================================
-# 9  The drain criterion sorts clusters and dwarfs as observed
-# ============================================================================================
-class TestDrainCriterion:
-    """Clusters and dwarfs sit at the SAME low accelerations (x ~ 0.1) in the SAME host field.
-    Any rule that depends only on accelerations treats them alike. The data treat them
-    differently. The drain criterion (D) is what separates them, and in the right direction."""
-
-    def test_same_accelerations(self):
-        xs = {n: sigmas(n)[4] + sigmas(n)[5] for n in OBJECTS}
-        assert max(xs.values()) / min(xs.values()) < 2.5
-        assert max(xs.values()) < 0.2
-
-    def test_no_acceleration_only_rule_fits_both(self):
-        """With a common mu-bar applied to all three, the best single factor misfits badly."""
-        def chi2(boost):
-            tot = 0
-            for n in OBJECTS:
-                sN, _, so, se, *_ = sigmas(n)
-                tot += ((so - sN * boost) / se) ** 2
-            return tot
-        best = optimize.minimize_scalar(chi2, bounds=(0.5, 10), method="bounded")
-        assert best.fun > 15                   # three points, one parameter: still a bad fit
-
-    def test_drain_rule_fits_all_three(self):
-        drain_open = {"Pal 14": False, "Pal 4": False, "Crater II": True}
-        chi2 = 0
-        for n, open_ in drain_open.items():
-            sN, sM, so, se, *_ = sigmas(n)
-            pred = sM if open_ else sN
-            chi2 += ((so - pred) / se) ** 2
-        assert chi2 < 7.5                     # three points, no parameter: chi2 = 6.2
 
 
 # ============================================================================================

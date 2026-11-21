@@ -1,6 +1,6 @@
 # The Net-Field Rule: Where the Constitutive Law Acts
 
-*Why the solar system obeys Newton and Einstein exactly while its galaxy obeys μ(x) = x/(x + 1), and what that rule predicts for star clusters, dwarf galaxies and wide binaries · Gravity Field Dynamics (GFD) · Field Dynamics Research*
+*Why the solar system obeys Newton and Einstein exactly while its galaxy obeys μ(x) = x/(x + 1), and what that rule predicts for star clusters and wide binaries · Gravity Field Dynamics (GFD) · Field Dynamics Research*
 
 `net-field-rule` `constitutive-law` `MOND` `external-field-effect` `solar-system` `Cassini` `globular-clusters` `wide-binaries` `proof` `Lean`
 
@@ -8,7 +8,7 @@
 
 ---
 
-This folder holds a four-page proof, a script that checks every statement in it (128 checks), and a Lean formalisation of its algebraic core. The working tests it grew from are in [`research/net-field-rule/`](../../research/net-field-rule/). The [tug-of-war proof](../constitutive-law-tug-of-war/) showed why the law has the form it does. This one answers the question that proof left open: which field the law acts on.
+This folder holds a four-page proof, a script that checks every statement in it (122 checks), and a Lean formalisation of its algebraic core. The working tests it grew from are in [`research/net-field-rule/`](../../research/net-field-rule/). The [tug-of-war proof](../constitutive-law-tug-of-war/) showed why the law has the form it does. This one answers the question that proof left open: which field the law acts on.
 
 ## The short version
 
@@ -44,7 +44,7 @@ The proof takes the edge to be the Jacobi radius itself, and it is careful to ca
 
 ## What the data say
 
-Orbits cannot tell the bare G from a G rescaled by the galaxy, because Kepler's law only ever measures the product GM. Star clusters can, because their masses come from counting starlight. The remote globular clusters Pal 14 and Pal 4 sit at accelerations around a tenth of a₀, where a rescaled G would make their stars move about three times faster. Their stars move as Newton predicts, within 1σ, and the rescaled version is excluded at 8.9σ and 11.1σ. The dwarf galaxy Crater II sits at the same low acceleration in the same host, yet its stars move 5.4σ faster than Newton allows and within 2.2σ of μ. No rule that depends only on acceleration fits the clusters and the dwarf together, while the drain criterion, which treats the clusters as closed and the dwarf as open, fits all three with no free parameter.
+Orbits cannot tell the bare G from a G rescaled by the galaxy, because Kepler's law only ever measures the product GM. Star clusters can, because their masses come from counting starlight. The remote globular clusters Pal 14 and Pal 4 sit at accelerations around a tenth of a₀, where a rescaled G would make their stars move about three times faster. Their stars move as Newton predicts, within 1σ, and the rescaled version is excluded at 8.9σ and 11.1σ. The test needs only Newton, because a cluster has no drain. Dwarf spheroidal galaxies are not used: they are held up by random motions rather than rotation, and the decode is defined for rotation curves.
 
 The rule makes a sharp prediction for wide binary stars. With the edge at the Jacobi radius, a bound pair is Newtonian to within 0.53(s/ℓ)³, which is below one part in ten thousand at 20,000 AU, including the widest pairs, whose own pull falls below a₀ beyond about 10,000 AU. Rules that depend only on acceleration predict a boost in the pull of 17 to 47 percent between 5,000 and 20,000 AU. If the edge sat closer in, a boost would appear that grows as the cube of the separation, 15 percent at 10,000 AU for an edge at the Cassini limit, so the wide binaries also measure where the sheet ends. The data on wide binaries are currently disputed, and the rule takes a clear side.
 
@@ -52,7 +52,7 @@ A second test checks the shape of the law itself. The local slope of the radial 
 
 ## What is proved, assumed and measured
 
-The drain criterion and the net-field rule, including the choice of the Jacobi radius as the coarse-graining scale, are the framework's premises, as stated in [`EINSTEIN_TETA_PARTITION.md`](../../EINSTEIN_TETA_PARTITION.md) and Part 3 of the [bimetric-projection note](../../research/bimetric-projection/). The proof derives their consequences exactly and tests them against the data they must meet. Three points remain open. The first is a way to recognise a drained field without using its rotation curve, and the four faces say exactly what such a marker must measure: growth of flux across empty space. The second is the covariant derivation of which time leg's acceleration enters μ, which the [SST time-leg proof](../sst-covariant-time-leg/) leaves open. The third is the dwarf Antlia 2, which no rule tested here fits, possibly because it is being tidally disrupted.
+The drain criterion and the net-field rule, including the choice of the Jacobi radius as the coarse-graining scale, are the framework's premises, as stated in [`EINSTEIN_TETA_PARTITION.md`](../../EINSTEIN_TETA_PARTITION.md) and Part 3 of the [bimetric-projection note](../../research/bimetric-projection/). The proof derives their consequences exactly and tests them against the data they must meet. Two points remain open. The first is a way to recognise a drained field without using its rotation curve, and the four faces say exactly what such a marker must measure: growth of flux across empty space. The second is the covariant derivation of which time leg's acceleration enters μ, which the [SST time-leg proof](../sst-covariant-time-leg/) leaves open.
 
 ## Machine-checked in Lean
 
@@ -72,7 +72,7 @@ The Cassini quadrupole integral and the data tests are checked by the script. [`
 |---|---|
 | [`net_field_rule.pdf`](net_field_rule.pdf) | The proof (four pages, including references) |
 | [`net_field_rule.tex`](net_field_rule.tex) | LaTeX source |
-| [`verify_net_field_rule.py`](verify_net_field_rule.py) | 128 checks of every statement (numpy, scipy, sympy, pytest) |
+| [`verify_net_field_rule.py`](verify_net_field_rule.py) | 122 checks of every statement (numpy, scipy, sympy, pytest) |
 | [`verify_output.txt`](verify_output.txt) | The script's output |
 | [`lean/NetFieldRule.lean`](lean/NetFieldRule.lean) | The Lean 4 formalisation |
 | [`lean/lakefile.toml`](lean/lakefile.toml), [`lean/lean-toolchain`](lean/lean-toolchain), [`lean/lake-manifest.json`](lean/lake-manifest.json) | Project files: Lean 4.36.0, Mathlib v4.36.0, and the seven formalisations it imports |
@@ -99,5 +99,5 @@ The SPARC test reads [`papers/letter-radial-acceleration-relation-sparc/suppleme
 - [The constitutive law as a tug of war](../constitutive-law-tug-of-war/): why the law is x/(x + 1); this proof says where it acts.
 - [The SST covariant completion](../sst-covariant-time-leg/): the covariant form of y, and the per-mass tail this rule removes.
 - [Einstein's equation as the TetA partition](../../EINSTEIN_TETA_PARTITION.md): local systems are TetA only.
-- [Bimetric projection, Part 3](../../research/bimetric-projection/): the solar-system probes and the cluster–dwarf test.
-- [The net-field research folder](../../research/net-field-rule/): the 128 tests in their working form.
+- [Bimetric projection, Part 3](../../research/bimetric-projection/): the solar-system probes.
+- [The net-field research folder](../../research/net-field-rule/): the 122 tests in their working form.

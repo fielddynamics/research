@@ -25,12 +25,6 @@
   [PASS] TestClustersAreNewtonian :: test_host_factor_on_G_is_excluded[Pal 14]
   [PASS] TestClustersAreNewtonian :: test_host_factor_on_G_is_excluded[Pal 4]
   [PASS] TestClustersAreNewtonian :: test_so_the_rule_is_not_the_external_field_effect
-  [PASS] TestDwarfsKeepMu :: test_crater_ii_is_not_newtonian
-  [PASS] TestDwarfsKeepMu :: test_crater_ii_is_consistent_with_mu
-  [PASS] TestDwarfsKeepMu :: test_crater_ii_estimator_matches_mcgaugh_deep_efe
-  [PASS] TestDrainCriterion :: test_same_accelerations
-  [PASS] TestDrainCriterion :: test_no_acceleration_only_rule_fits_both
-  [PASS] TestDrainCriterion :: test_drain_rule_fits_all_three
   [PASS] TestPointerPicture :: test_dipole_vanishes_about_centre_of_mass
   [PASS] TestPointerPicture :: test_solar_system_pointer_error
   [PASS] TestWideBinaries :: test_binary_mond_radius
@@ -127,4 +121,4 @@
   [PASS] TestWideBinaryEdgeDependence :: test_table
   [PASS] TestWideBinaryEdgeDependence :: test_prediction_at_the_tidal_edge
 
-128 passed, 0 failed
+122 passed, 0 failed

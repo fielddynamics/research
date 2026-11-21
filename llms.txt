@@ -314,10 +314,9 @@ Net-field rule (proofs/net-field-rule, machine-checked in Lean): a drain belongs
   Solar system = split g = F[g_N(P rho)] + g_N(rho - P rho) (an identity; the rule is which term goes
     through F): outside the sheet the sheet term has no monopole or dipole; inside, host acts by free fall + tide (~1e-18 m/s^2 at Saturn), no self-force; sheet edge
     between ~1.2e4 AU (Cassini) and the Jacobi radius ~2.9e5 AU.
-  Data: globular clusters Pal 14, Pal 4 require bare G (8.9 and 11.1 sigma against G/mu); Crater II keeps
-    mu; only the drain criterion fits both. Prediction: with the coarse-graining scale at the Jacobi radius
+  Data: globular clusters Pal 14, Pal 4 require bare G (8.9 and 11.1 sigma against G/mu). Prediction: with the coarse-graining scale at the Jacobi radius
     (a premise, by elimination), bound wide binaries are Newtonian to within 0.53 (s/r_J)^3.
-  Open: a drained-field marker independent of the rotation curve; the covariant derivation; Antlia 2.
+  Open: a drained-field marker independent of the rotation curve; the covariant derivation.
 Gravitational wave speed: c_gw = c (tensor sector unmodified)
 
 ## Action structure (prefactors from topology)
@@ -409,7 +408,7 @@ Each script is self-contained; run it from its own folder.
 - papers/09-complete-field-closure/supplementary/run_all_validations.py -- Paper IX: complete field closure
 - proofs/constitutive-law-tug-of-war/verify_constitutive_law_tug_of_war.py -- the tug of war: selection of mu, necessity, cap, decode, vortex (42 checks; Lean in lean/)
 - research/constitutive-law-u(x)/test_tug_of_war.py -- the same statements as 85 pytest tests
-- proofs/net-field-rule/verify_net_field_rule.py -- the net-field rule: four faces, forced per-mass tail, sheet split, Jacobi edge, clusters, dwarfs, wide binaries, RAR slope (128 checks; Lean in lean/)
+- proofs/net-field-rule/verify_net_field_rule.py -- the net-field rule: four faces, forced per-mass tail, sheet split, Jacobi edge, clusters, wide binaries, RAR slope (122 checks; Lean in lean/)
 
 ## Usage instructions for LLMs
 - The governing equation is the covariant action, which is the SST. The galaxy-scale predictions

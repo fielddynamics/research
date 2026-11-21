@@ -1,6 +1,6 @@
 # The Net-Field Rule
 
-*Research folder, Field Dynamics Research, 2026-11-20. Status: proved as [`proofs/net-field-rule/`](../../proofs/net-field-rule/) (four-page proof, 128 checks, Lean). Tests: `python -m pytest -q test_net_field_rule.py` (128 tests, about 6 s; numpy, scipy, sympy, pytest).*
+*Research folder, Field Dynamics Research, 2026-11-20. Status: proved as [`proofs/net-field-rule/`](../../proofs/net-field-rule/) (four-page proof, 122 checks, Lean). Tests: `python -m pytest -q test_net_field_rule.py` (122 tests, about 6 s; numpy, scipy, sympy, pytest).*
 
 ---
 
@@ -26,7 +26,7 @@ A solar system is a rubber sheet with a bowling ball on it, sitting in the galax
 
 ## What the tests establish
 
-The 31 parts of [`test_net_field_rule.py`](test_net_field_rule.py) fall into three groups.
+The 29 parts of [`test_net_field_rule.py`](test_net_field_rule.py) fall into three groups.
 
 **What the rule says, as algebra.**
 - Four faces of "no drain" are one property: a linear law, an identity response (bare G), flux conserved across empty shells, and no TetB share. Each is a rational function of μ that vanishes only at μ = 1 (Parts 16–18, 20, 22).
@@ -42,7 +42,6 @@ The 31 parts of [`test_net_field_rule.py`](test_net_field_rule.py) fall into thr
 - A drain around every star fails for every exchange-symmetric law with flat curves, with a pull of nearly a₀ at every planet and a quadrupole of 4.6 × 10⁻²⁶ s⁻², five times Cassini's bound (Parts 2, 3).
 - The galactic tide that remains is about 8 × 10⁻³¹ s⁻², four orders below Cassini (Part 5).
 - A host factor on G is invisible to orbits but not to globular clusters, which require the bare G at 8.9σ and 11.1σ (Parts 6, 7, 17).
-- The dwarf Crater II keeps μ, and only the drain criterion fits the clusters and the dwarf together (Parts 8, 9).
 - Cassini places the sheet's edge beyond about 12,000 AU, and binding caps it at 290,000 AU (Part 25).
 - With ℓ = r_J, bound wide binaries are predicted Newtonian to within 0.53(s/ℓ)³, below 10⁻⁴ at 20 kAU; a boost growing as s³ would instead measure ℓ (Parts 11, 31).
 - An a₀-free test of the law's shape on SPARC: the RAR's local slope matches 1/(2 − μ) to 0.053 rms, against 0.102 for the standard law, in 200 of 200 bootstraps (Part 27).
@@ -51,12 +50,11 @@ The 31 parts of [`test_net_field_rule.py`](test_net_field_rule.py) fall into thr
 
 - An observable marker of a drained field that does not use its rotation curve. The four faces say what it must measure: flux growth across empty shells.
 - The covariant derivation of which time leg's acceleration enters μ.
-- The dwarf Antlia 2, which no rule tested here fits.
 - The slope test on SPARC's outer radii, which needs per-radius rotation curves.
 - Whether the closure at the Field Origin and the zero flux at the sheet's edge are the same boundary condition.
 
 ## Related
 
 - [`proofs/net-field-rule/`](../../proofs/net-field-rule/): the proof, its script and the Lean formalisation.
-- [`research/bimetric-projection/`](../bimetric-projection/), Part 3: the first solar-system probes and the cluster–dwarf test.
+- [`research/bimetric-projection/`](../bimetric-projection/), Part 3: the first solar-system probes.
 - [`EINSTEIN_TETA_PARTITION.md`](../../EINSTEIN_TETA_PARTITION.md): local systems are TetA only.

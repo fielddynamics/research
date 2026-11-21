@@ -9,7 +9,7 @@
 | **Reproduce** | `cd lean && lake exe cache get && lake build` |
 | **CI** | `.github/workflows/lean-net-field-rule.yml`, on every change to this proof or any proof it imports |
 
-**Verdict.** Theorem 1 (except the vacuum divergence for general configurations), Corollary 1, Proposition 1 (b)–(c), Proposition 2 (a)–(b), Theorem 2 (b)–(e), the kernel bound of Proposition 3 and Proposition 4 (a) are proved. Theorem 2 (a), Proposition 2 (c), the rest of Proposition 3, Propositions 4 (b)–(c) and 5, the vacuum divergence and the vortex remark are checked by the script.
+**Verdict.** Theorem 1 (except the vacuum divergence for general configurations), Corollary 1, Proposition 1 (b)–(c), Proposition 2 (a)–(b), Theorem 2 (b)–(e), the kernel bound of Proposition 3 and Proposition 4 (a) are proved. Theorem 2 (a), Proposition 2 (c), the rest of Proposition 3, Propositions 4 (b) and 5, the vacuum divergence and the vortex remark are checked by the script.
 
 ## 1. Definitions to check against the paper
 
@@ -49,7 +49,7 @@
 - **Theorem 2 (a).** The pointer projection's idempotence, nesting and mass conservation are checked on explicit point sets, and the multipole expansion with sympy; the exterior residual of a non-spherical sheet is checked to fall as r⁻⁴.
 - **Proposition 3, the scales.** The single dimensionless group and the elimination of r_M and a₀/Ω² are checked numerically; the coarse-graining scale ℓ = r_J itself is a premise.
 - **Proposition 2 (c).** The Cassini quadrupole is a numerical integral of the phantom density.
-- **Propositions 3, 4 (b)–(c) and 5** use data (Cassini, the cluster and dwarf dispersions, SPARC) and numerical estimators.
+- **Propositions 3, 4 (b)–(c) and 5** use data (Cassini, the cluster dispersions, SPARC) and numerical estimators.
 - **The vortex remark.** Galilean invariance, Burgers and Lamb–Oseen are checked with sympy; Burgers and Lamb–Oseen are also proved in the tug-of-war formalisation.
 
 ## 4. Notes for a referee
