@@ -1313,3 +1313,69 @@ class TestRARSlopeShape:
             b2, p2 = binned_slope_test(gal[sel], lb[sel], lo[sel], self.edges, 2)
             wins += np.mean((b1 - p1) ** 2) < np.mean((b2 - p2) ** 2)
         assert wins / N > 0.8
+
+
+# ============================================================================================
+# 28  Screening of the Sun's TetB
+# ============================================================================================
+R_SUN_M = 6.957e8              # m, solar radius
+RHO_C = 1.5e5                  # kg/m^3, solar central density (standard solar model)
+M_SUN = GM_SUN / G
+
+
+class TestSunScreening:
+    """Apply the screening law x(1 - mu) = mu to the Sun's own field, inside the ball.
+    The TetB share is 1 - mu = 1/(1 + x): screened to ~4e-13 at the surface, and dominant
+    only in a micron-sized core at the centre, where g -> 0 (the Field Origin of the ball).
+    Its whole equivalent mass is a fixed ~4e-13 of the Sun's, enclosed, so it is part of GM
+    and never changes it."""
+
+    def test_screening_law_is_the_simple_mu(self):
+        assert sp.simplify(x * (1 - mu(x)) - mu(x)) == 0
+        assert sp.simplify((1 - mu(x)) - 1 / (1 + x)) == 0
+
+    def test_tetb_share_at_the_surface(self):
+        x_surf = GM_SUN / R_SUN_M**2 / A0
+        share = 1 / (1 + x_surf)
+        assert 2e12 < x_surf < 3e12
+        assert 3e-13 < share < 6e-13
+
+    def test_screening_deepens_inward_until_the_core(self):
+        """Inside a body g(r) = G M(<r)/r^2 falls to zero at the centre, so x falls and the
+        TetB share rises. For a uniform core, g = (4 pi/3) G rho_c r."""
+        rho, Gs, rr = sp.symbols("rho G r", positive=True)
+        Menc = sp.Rational(4, 3) * sp.pi * rho * rr**3
+        g_in = sp.simplify(Gs * Menc / rr**2)
+        assert sp.simplify(g_in - sp.Rational(4, 3) * sp.pi * Gs * rho * rr) == 0
+        assert sp.limit(1 / (1 + g_in / a0_), rr, 0) == 1        # pure TetB at the centre
+
+    def test_tetb_dominated_core_is_microscopic(self):
+        """x = 1 where (4 pi/3) G rho_c r = a0: r_B = 3 a0 / (4 pi G rho_c) ~ 3 microns."""
+        rB = 3 * A0 / (4 * math.pi * G * RHO_C)
+        assert 1e-6 < rB < 1e-5
+        assert rB / R_SUN_M < 1e-14
+
+    def test_screened_tetb_mass_is_fixed_and_tiny(self):
+        """Even read pointwise inside the ball, the extra flux at the surface is
+        (g_t - g_N) R^2 / G <= a0 R^2 / G ~ 9e17 kg ~ 4e-13 M_sun."""
+        gN = GM_SUN / R_SUN_M**2
+        dM = (g_total(gN) - gN) * R_SUN_M**2 / G
+        assert dM <= A0 * R_SUN_M**2 / G * (1 + 1e-12)
+        assert 3e-13 < dM / M_SUN < 6e-13
+
+    def test_screened_tetb_is_counted_in_GM_and_constant(self):
+        """It depends only on R and a0, so it does not vary with time unless the radius does.
+        A solar-cycle radius change of ~1e-5 changes it by ~1e-17 of GM: far below the
+        ephemeris bound of ~1e-13 per year (Part 15)."""
+        dR_frac = 1e-5
+        change = 2 * dR_frac * (A0 * R_SUN_M**2 / G) / M_SUN
+        assert change < 1e-16
+
+    def test_screened_tetb_stays_in_the_ball(self):
+        """Outside the ball the sheet is drainless (Part 13): the screened TetB enters only
+        through GM, whereas a TetB that leaked past the surface would be the a0 tail (Part 2)."""
+        r_ear = AU
+        enclosed = GM_SUN / r_ear**2                              # what the drainless sheet gives
+        leaked = g_total(GM_SUN / r_ear**2) - GM_SUN / r_ear**2   # what a leak would add
+        assert leaked / A0 == pytest.approx(1.0, rel=1e-6)
+        assert leaked / enclosed > 1e-8                           # 2e-8 of the Sun's pull: excluded
