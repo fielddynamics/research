@@ -35,7 +35,7 @@ The first version of this folder ([`drain_classifier.py`](drain_classifier.py), 
 
 Without controlling for luminosity, drive also appears to follow size, surface density, distance from the host, gas content and which host a dwarf orbits. Satellites of the Milky Way read +1.09 dex, satellites of M31 +0.34 and field dwarfs +0.06, and gas-rich dwarfs read quiet while gas-free ones drive. Once luminosity is controlled, every one of these disappears (all p > 0.1). The Milky Way's satellites read higher only because more of them are ultra-faint.
 
-So, on this sample, the decoded drive is a single trend with luminosity. That is the same trend usually described as dwarfs becoming more dark-matter dominated as they get fainter, and in MOND as ultra-faint dwarfs lying above the prediction. It does not, by itself, show that the drive is a property of the interior. It could equally come from measurement:
+So, on this sample, the decoded drive is a single trend with luminosity: in GFD's reading, TetB drives harder in fainter dwarfs. Standard cosmology reads the same trend as fainter dwarfs being more dominated by dark matter, and MOND as ultra-faint dwarfs lying above its prediction; a referee will raise both. The trend alone does not yet separate TetB's drive from those readings, or from effects of measurement:
 - binary stars, which inflate the smallest dispersions;
 - tidal heating by the host;
 - a dispersion floor in the faintest systems.
@@ -51,7 +51,7 @@ Both are Newtonian, as the net-field rule requires of a system without a drain. 
 ## What it means
 
 - **The falsifiable part holds where the data are good.** Systems without a drain should be Newtonian. Pal 14 and Pal 4 are, and the cleaner catalogue clusters lean Newtonian. More remote clusters with dispersions measured in their own papers would make this decisive.
-- **Drive and brake are measured, but not yet explained.** Across the Local Group's dwarfs they follow luminosity alone. That is not a contradiction of the letter, which leaves the interior dynamics open. It does mean that the next step is a physical predictor of drive that is independent of luminosity, or a way to separate it from binaries and tides, for example by using only multi-epoch dispersions, which remove binaries.
+- **Drive and brake are measured, but what sets them is open.** Across the Local Group's dwarfs TetB's drive follows luminosity alone. That is not a contradiction of the letter, which leaves the interior dynamics open. It does mean that the next step is a physical predictor of drive that is independent of luminosity, or a way to separate it from binaries and tides, for example by using only multi-epoch dispersions, which remove binaries.
 - **The study does not test μ itself in the dwarfs.** Once drive and brake are allowed, a single dwarf cannot falsify μ. That is why the clusters, and a predictor of drive, carry the weight.
 
 ## Files
