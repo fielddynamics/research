@@ -4,17 +4,79 @@
 
 Stephen Nelson · [Field Dynamics Research](https://fielddynamics.org) · [ORCID 0009-0008-6190-3269](https://orcid.org/0009-0008-6190-3269) · stephen@fielddynamics.org
 
-[![Licence: MIT](https://img.shields.io/badge/licence-MIT-blue.svg)](LICENSE) [![Proofs: 464 checks pass](https://img.shields.io/badge/proofs-464%20checks%20pass-brightgreen.svg)](proofs/README.md) [![Status: preprints, not yet peer reviewed](https://img.shields.io/badge/status-preprints%2C%20not%20peer%20reviewed-orange.svg)](#status-and-known-limitations)
+[![Licence: MIT](https://img.shields.io/badge/licence-MIT-blue.svg)](LICENSE) [![Proofs: 18, 748 checks pass](https://img.shields.io/badge/proofs-18%20%C2%B7%20748%20checks%20pass-brightgreen.svg)](proofs/README.md) [![Lean: 10 machine-checked](https://img.shields.io/badge/Lean%204-10%20machine--checked-purple.svg)](proofs/README.md) [![Status: preprints, not yet peer reviewed](https://img.shields.io/badge/status-preprints%2C%20not%20peer%20reviewed-orange.svg)](#status-and-known-limitations)
 
-On the radial acceleration relation of the SPARC database (3284 rotation-curve points in 164 galaxies), the covariant action of Gravity Field Dynamics (GFD) gives a scatter of σ = 0.181 dex, within 0.0003 dex of the one-parameter empirical fit of McGaugh, Lelli & Schombert (2016). No parameter is fitted to any galaxy. The only empirical constant is the acceleration scale a₀ = 1.2 × 10⁻¹⁰ m/s², taken at its conventional value.
+Gravity Field Dynamics (GFD) reads the missing mass of galaxies as the second root of the tetrad equation. The equation that builds spacetime's geometry from Einstein's tetrad is quadratic, so it has two roots, mirror images of each other that interlock as a stellated octahedron: TetA, the root general relativity keeps, and TetB, the root it sets aside. GFD keeps both, and the gravitational field is shared between them as a tug of war. TetA pulls with the local acceleration $g$, TetB pulls with the fixed acceleration $a_0$, and TetA's share is
 
-The interpolating function in the action is μ(x) = x/(x + 1), MOND's "simple" function, so on this relation GFD coincides with that variant of MOND. What is new is the status of the function. In GFD it is not chosen: it is the unique law consistent with the exchange symmetry between the two parity-related roots of the tetrad equation, which together form a stellated octahedron. It also sits inside a covariant action whose other consequences (the torsion sector, the constants, the Hubble scale) can be tested separately.
+$$\mu = \frac{g}{g + a_0} = \frac{x}{x + 1}, \qquad x = \frac{g}{a_0}.$$
+
+This is MOND's "simple" interpolating function, but here it is not chosen: the exchange symmetry of the two chambers reduces the possible laws to a single family, and flat rotation curves, equivalently the fact that both chambers pull with accelerations, select this one. On the SPARC radial acceleration relation (3284 points, 164 galaxies) it gives a scatter of 0.181 dex, the same as the best one-parameter empirical fit, with nothing adjusted per galaxy, and stacked across galaxies it stays flat where MOND's standard function and the nuclear bound law do not.
+
+**Framework status.** An open research archive. The core geometry and the constitutive law are machine-checked in Lean 4; the observational tests use public data (SPARC) with one-command reproduction scripts. The papers are preprints and have not yet been peer reviewed.
+
+### Start here
+
+| If you want | Start with | Then |
+|---|---|---|
+| The ideas, in plain language | [**The Missing Mass**](THE_MISSING_MASS.md), a magazine-style article | the [documentation](docs/README.md) |
+| The mathematics | [the constitutive law as a tug of war](proofs/constitutive-law-tug-of-war/) | [exchange symmetry](proofs/constitutive-law-exchange-symmetry/), [Einstein's equation as the TetA partition](EINSTEIN_TETA_PARTITION.md) |
+| The data | [Results on SPARC](#results-on-sparc), below | [the radial acceleration relation letter](papers/letter-radial-acceleration-relation-sparc/) and `sparc_rar.py` |
+| The formal core | [the proofs index](proofs/README.md), with its Lean audits | [`GFD_COLES_NOTES.md`](GFD_COLES_NOTES.md), every paper condensed |
+| A machine-readable summary | [`llms.txt`](llms.txt) | |
+
+---
+
+## What is GFD?
+
+<img src="docs/01-foundations/assets/stellated_octahedron.png" alt="The stellated octahedron: two interlocking tetrahedra, TetA and TetB, around a central octahedron" width="420" align="right">
+
+**The geometric claim.** General relativity describes gravity with a tetrad, four arrows at every point of spacetime, and builds the metric by multiplying the tetrad by itself, $g_{\mu\nu} = \eta_{ab}\,e^a{}_\mu e^b{}_\nu$. The relation is quadratic, so it has two roots, $e$ and its mirror image $Pe$. Drawn in space, the four arrows are forced into a regular tetrahedron, and the two roots form two interlocking tetrahedra, TetA and TetB, the stellated octahedron inside a cube, meeting at its centre, the Field Origin. General relativity keeps one root by adding an orientation condition that the equations do not supply; the metric cannot even tell the two apart. GFD keeps both.
+
+**The constitutive law.** The field is shared between the chambers. TetA carries the fraction $\mu$, the familiar Newtonian part, and TetB carries $1 - \mu$, the part that has been read as dark matter. The share is the tug of war above, $\mu = g/(g + a_0)$, and it sits inside a covariant action whose other consequences, the torsion sector, Tully–Fisher evolution with redshift and the constants, can be tested separately. Where gravity is strong, as everywhere in the solar system, TetA holds almost all of the rope and gravity is exactly Einstein's.
+
+**What is measured and what is derived.** $a_0 \approx 1.2\times10^{-10}$ m/s² is the one measured scale; it is fixed once and never fitted galaxy by galaxy. The two roots, the stellated octahedron, the selection of $x/(x+1)$ among MOND's functions, the closed-form action, the 40/24 split of the connection and the decoding of mass from rotation curves are derived, and each derivation states its premises.
+
+<br clear="right">
+
+### Core equations
+
+| Equation | What it says |
+|---|---|
+| $\mu(x) = \dfrac{x}{x+1}$ | TetA's share of the field: the tug of war of $g$ against $a_0$ |
+| $g = \mu\,g + \mu\,a_0$ | Each chamber carries its share of its own strength; TetB's pull $\mu a_0$ never exceeds $a_0$ |
+| $\dfrac{M_{\rm dec}}{M_{\rm phot}} = \dfrac{g + w}{g + a_0}$ | Mass decoded from a rotation curve reads TetB's measured strength $w$ against $a_0$: quiet, drive or brake |
+| $v^4 = GMa_0$ | In the outskirts of a galaxy, rotation curves are flat (the baryonic Tully–Fisher relation) |
+
+### Core claims at a glance
+
+| Claim | Status |
+|---|---|
+| The tetrad equation has exactly two roots, mirror images that form the stellated octahedron | Theorem + Lean ([forced frame](proofs/forced-tetrahedral-frame/), [two regions](proofs/tetrad-scheme-two-bounded-regions/)) |
+| Exchange symmetry and flat rotation curves select $\mu = x/(x+1)$, and every premise is necessary | Theorem + Lean ([tug of war](proofs/constitutive-law-tug-of-war/), [exchange symmetry](proofs/constitutive-law-exchange-symmetry/)) |
+| The action has a closed form, with prefactors 16, 8, 4 from the geometry | Theorem + Lean ([energy functional](proofs/aqual-energy-functional/)) |
+| Decoded mass measures TetB's pull against $a_0$ (quiet, drive, brake) | Theorem + Lean ([tug of war](proofs/constitutive-law-tug-of-war/)) |
+| The radial acceleration relation on SPARC, with nothing fitted per galaxy | Derived; tested ([below](#results-on-sparc)) |
+| $G$, $m_e$, $\alpha$ and $H_0$ from the coupling polynomial's integers | Exploratory |
+
+Every claim with its evidence is in [All results and their status](#all-results-and-their-status).
+
+---
+
+## Results on SPARC
 
 ![The radial acceleration relation for 164 SPARC galaxies, with the GFD prediction and the McGaugh et al. (2016) empirical fit, and residual histograms for both](papers/letter-radial-acceleration-relation-sparc/sparc_rar.png)
 
 ***Figure.** Left: observed against baryonic gravitational acceleration for 3284 rotation-curve points in 164 SPARC galaxies (quality Q ≤ 2). Dashed: the Newtonian expectation. Solid red: the GFD covariant action in its weak-field, static, spherical limit, g<sub>obs</sub> = ½[g<sub>bar</sub> + √(g<sub>bar</sub>² + 4a₀g<sub>bar</sub>)]. Dotted orange, almost indistinguishable: the one-parameter empirical fit of McGaugh, Lelli & Schombert (2016). Right: residuals. GFD: mean −0.027 dex, σ = 0.181 dex. Empirical fit: mean −0.022 dex, σ = 0.182 dex. From [The Radial Acceleration Relation from a Zero-Parameter Covariant Action](papers/letter-radial-acceleration-relation-sparc/).*
 
 **Inputs.** The SPARC baryonic rotation-curve components at the survey's standard stellar mass-to-light ratios (Υ<sub>disk</sub> = 0.5, Υ<sub>bulge</sub> = 0.7 at 3.6 μm), and a₀. Nothing is adjusted per galaxy: no halo profiles, no concentrations, no fitted interpolating function.
+
+**Stacked across galaxies.** Binned by the visible acceleration, the median residual of each law (dex) shows which law the galaxies follow on average. GFD's stays flat; MOND's standard function prints a hump near $a_0$, and the bound law of nuclei a steady offset ([`GFD_COLES_NOTES.md`](GFD_COLES_NOTES.md) §4.8).
+
+| log₁₀(g<sub>bar</sub>/a₀) | −1.7 | −1.3 | −0.9 | −0.6 | −0.2 | +0.2 | +0.6 | +0.9 |
+|---|---|---|---|---|---|---|---|---|
+| GFD, x/(x+1) | −0.05 | −0.03 | −0.01 | +0.01 | −0.01 | −0.01 | −0.02 | −0.03 |
+| MOND standard, x/√(1+x²) | −0.02 | +0.01 | +0.05 | +0.09 | +0.09 | +0.10 | +0.05 | +0.02 |
+| Bound law, x(1−μ)² = μ | −0.07 | −0.07 | −0.06 | −0.06 | −0.09 | −0.10 | −0.12 | −0.11 |
 
 **Reproduce the figure in one command** (offline, from the bundled data table):
 
@@ -25,7 +87,7 @@ python sparc_rar.py --from-csv supplementary/sparc_rar.csv
 
 ---
 
-## Results and their status
+## All results and their status
 
 Each claim is graded by what supports it. **Theorem**: proved, with a script that checks every step; **+ Lean** marks a proof whose theorems are also machine-checked in Lean 4 (see the proof's `LEAN_AUDIT.md` for exactly what is proved and what is cited). **Derived**: follows from the framework's stated assumptions, with validation code. **Exploratory**: a numerical correspondence or extension that is not yet a derivation.
 
@@ -57,7 +119,7 @@ Each claim is graded by what supports it. **Theorem**: proved, with a script tha
 ```text
 Uniqueness:        2(D + 1) = 2^D        ⇒  D = 3, K = 4
 Polynomial:        f(K, s) = 1 + sK + K²  →  {21, 17, 13}  (TetA, Field Origin, TetB)
-Constitutive law:  μ(x) = x/(x + 1)          derived from exchange symmetry, not fitted
+Constitutive law:  μ(x) = x/(x + 1)          selected by exchange symmetry and flat rotation curves, not fitted
 Action prefactors: 16 = K², 8 = 2^D, 4 = K
 ```
 
@@ -80,7 +142,7 @@ GFD builds directly on existing work, and the galactic result should be read aga
 
 The work is independent and has not yet been peer reviewed. The papers are preprints on Zenodo. The open problems below are stated so that readers can test the framework where it is weakest.
 
-- **The radial acceleration relation alone cannot separate GFD from MOND's simple function.** They are the same curve. Distinguishing tests have to come from the parts of the action MOND lacks: the redshift evolution of Tully–Fisher, the torsion sector and the constants.
+- **The radial acceleration relation alone cannot separate GFD from MOND's simple function.** They are the same curve. It does separate that function from MOND's standard function and from the bound law ([Results on SPARC](#results-on-sparc)), but distinguishing GFD from simple-function MOND has to come from the parts of the action MOND lacks: the redshift evolution of Tully–Fisher, the torsion sector and the constants. Because a₀ was calibrated on SPARC, only the shape of the stacked residuals counts as evidence, not their level.
 - **a₀ is empirical in the galactic test.** Its link to the Hubble rate is one relation, a₀ = (cH/2π)√(4/π), where H is the measured rate. The plain a₀ = cH/2π applies to the flat-space rate H_flat = H√(4/π) (78.9 km/s/Mpc), so the two are different frames of one relation, not rival relations. The frame factor √(4/π) = 1.128 rests on a dimensional argument (Paper IV) and still needs a derivation.
 - **H₀ is quoted at three values from one formula,** H = 2πa₀/(c√(4/π)), evaluated with different inputs. 69.92 km/s/Mpc uses the empirical a₀ = 1.220 × 10⁻¹⁰ m/s². 70.21 uses a₀ = 16 G mₑ/rₑ² = 1.225 × 10⁻¹⁰. 70.29 is 70.21 with the one-loop factor (1 + α/2π) carried through G. Some letters mix these inputs in one place. The ±6% band contains both the Planck and SH0ES values, so it does not yet discriminate between them.
 - **The bimetric bridge does not hold in the standard form.** It has now been computed ([proof](proofs/bimetric-lock-constitutive-law/), 64 checks; [derivation](research/bimetric-projection/), 23 checks). The lock does carry the form of μ: its exchange symmetry inverts the odds Ω between the TetA and TetB parts of the potential, so the TetB share is exactly Ω/(1+Ω), and the stellated octahedron sits at the pole Ω = −1. But μ(x) also needs the odds to equal the acceleration, Ω = x = g/a₀. Hassan–Rosen's potential has no derivatives, so in any weak field its odds stay at 1. In the standard reduction the response depends on M/r³, not on x ∝ M/r², on every branch, for any coefficients, and by Letter 2's Lemma the theory cannot see the two roots. The step Ω = x is what the SST supplies through the time leg's acceleration; supplying it from the two chambers themselves is open ([research note](research/two-connection-dual-chamber/)). Papers VIII, IX and XII state the two theories are "two projections of one geometry", which overstates this.
@@ -110,7 +172,7 @@ GFD proposes that the local gravitational frame has a definite interior geometry
 | Connection split | `K³ = 64 = 40 + 24`: GR's torsion-free condition keeps 40 Christoffel components and discards the 24 torsion components, which GFD identifies with TetB |
 | Gravitational constant (exploratory) | `G = (17/13) α²¹ ħc / m_e²` |
 
-If you are new to GFD, start with [**The Missing Mass**](THE_MISSING_MASS.md), a magazine-style article that tells the story from Vera Rubin's flat rotation curves to the tug of war between TetA and TetB, explains what $a_0$ is, and shows how a galaxy works like a vortex. For a guided explanation of each step, continue with the [documentation](docs/README.md): Foundations, Gravitation, Fundamental Constants and Galactic Dynamics. Two plain-language summaries of the tetrad letters are at the top level: [Einstein's equation as the TetA partition](EINSTEIN_TETA_PARTITION.md) and [The twenty-four that were set aside](FIELD_CLOSURE_OF_THE_TETRAD_FRAME.md).
+For a guided explanation of each step, see the [documentation](docs/README.md): Foundations, Gravitation, Fundamental Constants and Galactic Dynamics. Two plain-language summaries of the tetrad letters are at the top level: [Einstein's equation as the TetA partition](EINSTEIN_TETA_PARTITION.md) and [The twenty-four that were set aside](FIELD_CLOSURE_OF_THE_TETRAD_FRAME.md).
 
 ---
 
@@ -127,7 +189,7 @@ pip install numpy scipy sympy mpmath matplotlib
 | Script | Checks |
 |---|---|
 | [`papers/letter-radial-acceleration-relation-sparc/sparc_rar.py`](papers/letter-radial-acceleration-relation-sparc/sparc_rar.py) `--from-csv supplementary/sparc_rar.csv` | SPARC radial acceleration relation: figure, mean and scatter |
-| [`proofs/*/verify_*.py`](proofs/README.md) | The sixteen formal proofs: 24 + 34 + 27 + 25 + 39 + 36 + 39 + 32 + 61 + 41 + 26 + 16 + 64 + 76 + 81 + 47 = 668 checks |
+| [`proofs/*/verify_*.py`](proofs/README.md) | The eighteen formal proofs: 24 + 34 + 36 + 25 + 39 + 36 + 39 + 32 + 61 + 41 + 26 + 16 + 64 + 76 + 81 + 47 + 29 + 42 = 748 checks; ten also machine-checked in Lean 4 |
 | [`papers/letter-1-tetrad-frame-geometry/Supplementary/run_all_validations.py`](papers/letter-1-tetrad-frame-geometry/Supplementary/run_all_validations.py) | Letter 1: tetrad frame geometry (29 claims) |
 | [`papers/letter-2-other-half-of-gravity-torsion/v2/Supplementary/run_all_validations.py`](papers/letter-2-other-half-of-gravity-torsion/v2/Supplementary/run_all_validations.py) | Letters 1–2: geometry, torsion = TetB (52 claims) |
 | [`papers/letter-3-field-closure-of-tetrad-frame/Supplementary/run_all_validations.py`](papers/letter-3-field-closure-of-tetrad-frame/Supplementary/run_all_validations.py) | Letter 3: 40/24 split, polynomial identity, partition (52 claims) |
