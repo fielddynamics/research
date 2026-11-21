@@ -1,0 +1,16 @@
+Check against the letter: CamB Delta M_eff at the last radius = 4.0226e+07 Msun (letter Fig. 2d: 4.03e7), net area -92.7%
+
+All galaxies
+   N = 175: quiet 12, drive 87, brake 76; median net area +4.6%, 16-84%: -42.6% to +85.5%
+The letter's recipe exactly (no bulge, R_HI catalogued)
+   N = 139: quiet 6, drive 63, brake 70; median net area -5.7%, 16-84%: -50.8% to +68.1%
+   ... quality 1-2 only
+   N = 128: quiet 6, drive 62, brake 60; median net area +2.8%, 16-84%: -40.2% to +77.4%
+Galaxies with a bulge (all L[3.6] treated as disk: approximate)
+   N = 32: quiet 6, drive 22, brake 4; median net area +34.9%, 16-84%: -1.6% to +127.5%
+
+Flagged: 32 with a bulge, 4 without a catalogued R_HI
+
+Strongest brake (letter recipe, quality 1-2): UGC07577 -95%, CamB -93%, UGC06628 -90%, UGC07125 -77%, UGC09992 -76%, UGC07559 -75%, UGC07866 -70%, NGC4068 -69%
+Strongest drive (letter recipe, quality 1-2): UGC07399 +303%, NGC6789 +284%, ESO444-G084 +224%, F571-8 +183%, F563-V2 +159%, NGC2915 +158%, F568-1 +156%, UGC05721 +154%
+Quiet (letter recipe, quality 1-2): F574-1, F571-V1, NGC5585, UGC00191, NGC4010, NGC0247
