@@ -1,14 +1,30 @@
-# Field Dynamics (GFD) -- Gravity Field Dynamics Framework
+# Gravity Field Dynamics (GFD) -- Field Dynamics Research
 https://github.com/fielddynamics/research
 All paths below are relative to the repository root.
 Documentation: docs/README.md
 
 ## One-sentence summary
-A covariant complete, geometrically closed, zero-free-parameter theory that
-replaces dark matter with dual-tetrad field topology (stellated octahedron)
-and derives galactic rotation curves, electron mass, proton mass,
-fine-structure constant, and neutron lifetime from the same 21-channel
-coupling structure.
+A covariantly complete, geometrically closed theory of gravity with no per-galaxy parameters that
+replaces dark matter with the second root of the tetrad equation (the dual-tetrad topology of the
+stellated octahedron), and derives galactic rotation curves, Newton's constant, the fine-structure
+constant and the electron mass from the same 21-channel coupling structure (with exploratory
+readings of the neutron-lifetime discrepancy, Paper VII, and the proton mass, research/proton/).
+
+## The idea in brief
+- The tetrad equation g_{mu nu} = eta_{ab} e^a_mu e^b_nu (the metric) is quadratic in the frame e:
+  (det e)^2 = det g_{mu nu} / det eta, so it has two roots, e and its parity image Pe. Drawn in space they are two interlocking tetrahedra, TetA and
+  TetB: the stellated octahedron inside a cube, meeting at its centre, the Field Origin.
+- General relativity keeps one root (TetA) by an added orientation condition the equations do not
+  supply (the metric cannot tell the roots apart); in GFD's reading it discards TetB with the 24
+  torsion components that the torsion-free condition sets to zero.
+- GFD keeps both. The gravitational field is shared: TetA carries mu, TetB carries 1 - mu.
+- mu is a tug of war: TetA pulls with the total acceleration g (= g_t), TetB with the fixed acceleration a_0, so
+  mu = g/(g + a_0) = x/(x + 1), x = g/a_0. TetB's pull, mu a_0, is capped at a_0.
+- What is called dark matter is TetB's share, read through Newtonian analysis: missing/visible = a_0/g.
+- Locally (g >> a_0, and inside any bound system) gravity is pure TetA, i.e. exactly GR.
+- A galaxy is a vortex: visible matter is the surface flow (TetA), TetB is the drain beyond the
+  Field Origin. Decoded mass reads TetB's pull against a_0: quiet, drive, brake.
+- For a general reader: THE_MISSING_MASS.md. For the algebra: GFD_COLES_NOTES.md. For proofs: proofs/README.md.
 
 ## Priority pages (read these first)
 - docs/02-gravitation/06-covariant-completion.md -- full action + F(y) derivation, prefactors 16/8/4
@@ -29,6 +45,12 @@ f(4, +1) = 21 (TetA chamber)
 f(4,  0) = 17 (field origin)
 f(4, -1) = 13 (TetB chamber)
 Range = 21 - 13 = 8 = 2^D
+a_0 ~ 1.2e-10 m/s^2 (the transition acceleration; TetB's quiet strength in the tug of war)
+  Status: the framework's one physical scale. Taken at its measured value, or computed as
+  K^2 G m_e / r_e^2 (= 1.225e-10); state which. It is never fitted galaxy by galaxy.
+x = g_t / a_0 (dimensionless acceleration ratio; the TetA:TetB odds)
+Parameters: no parameter is fitted to any galaxy. "Zero free parameters" means exactly this:
+  G and a_0 are fixed once, and every rotation curve, decode and RAR prediction uses the same two.
 
 ## Condensed notes
 GFD_COLES_NOTES.md condenses every paper, letter and proof in this repository, with the algebra written out
@@ -44,11 +66,12 @@ Constitutive law:  mu(x) = x / (x + 1),  x = g_t / a_0 (dimensionless accelerati
   mu/(1 - mu) = x); equilibrium field closure; and normalisation of the coupling polynomial
   f(K, s) = 1 + sK + K^2 with s replaced by the share difference sigma(x) = (x - 1)/(x + 1).
 Tug-of-war reading (proofs/constitutive-law-tug-of-war, machine-checked in Lean):
-  mu = g / (g + a_0): TetA pulls with g, TetB pulls with a_0; each share = own strength / total.
-  g = mu g + mu a_0: TetA carries mu g (Newtonian), TetB carries mu a_0 = (1 - mu) g < a_0 (the a_0 ceiling).
+  mu = g_t / (g_t + a_0): TetA pulls with g_t, TetB pulls with a_0; each share = own strength / total.
+  g_t = mu g_t + mu a_0: TetA carries mu g_t = g_s (Newtonian), TetB carries mu a_0 = (1 - mu) g_t < a_0
+    (the a_0 ceiling).
   The solve: on the cube a T_d-symmetric state is two numbers (one per chamber), so mu is a share.
     For a screening law x^n (1 - mu)^m = mu^p, exchange mu(1/x) = 1 - mu(x) holds iff m = p,
-    and then the odds mu/(1 - mu) = x^k. k = 1 iff the strengths are accelerations iff deep-field
+    and then the odds Omega = mu/(1 - mu) = x^k. k = 1 iff the strengths are accelerations iff deep-field
     rotation curves are flat (v^2 ~ r^((k-1)/(k+1))) iff the relation has degree one.
     Exchange alone does NOT fix mu; each premise is shown necessary by an explicit alternative.
   Premises: screening of mass-action form; the chamber swap acts as x -> 1/x; strengths are
@@ -65,12 +88,15 @@ Forward solver:  g_t = (g_s + sqrt(g_s^2 + 4 g_s a_0)) / 2
 Mass decoder:  M_dec(r) = r v^4 / [G (a_0 r + v^2)]
   Closed-form inversion of the spherical field equation. Observed v(r) in, effective mass out.
 Quiet, drive and brake (decoded vs photometric mass):
-  w = g (g - g_bar) / g_bar            TetB's measured strength (g = v^2/r, g_bar from photometry)
-  M_dec / M_phot = (g + w) / (g + a_0) Delta M / M_phot = (w - a_0) / (g + a_0)
-  D = w / a_0 = Omega_law / Omega_obs  quiet D = 1, drive D > 1 (TetB pulls harder than a_0), brake D < 1
+  Inputs at each radius: g_t = v^2/r (observed total) and g_s = G M_phot / r^2 (visible, from photometry).
+  w = g_t (g_t - g_s) / g_s                 TetB's measured strength (the a_0 that would make it quiet)
+  M_dec / M_phot = (g_t + w) / (g_t + a_0)  Delta M / M_phot = (w - a_0) / (g_t + a_0)
+  D = w / a_0 = Omega_law / Omega_obs       Omega_law = x, Omega_obs = g_s / (g_t - g_s)
+  quiet D = 1; drive D > 1 (TetB pulls harder than a_0); brake D < 1 (TetB pulls more softly).
   Test across galaxies, not one at a time: any law can be read pointwise as this law plus drive/brake.
-  A wrong law prints a universal D(x) (bound law: phi = 1.618 at x = 1; standard MOND: 0.414 at x = 1;
-  wrong a_0: constant); drive/brake vary galaxy by galaxy. Prediction: stacked median D(x) flat at 1.
+  A wrong law prints a universal D(x) across galaxies (bound law: D = 1.618, the golden ratio, at
+  x = 1; standard MOND: D = 0.414 at x = 1; wrong a_0: D constant); drive/brake vary galaxy by
+  galaxy. Prediction: the stacked median D(x) is flat at 1. Forward-model velocity errors first.
 One-directional law:  x (1 - mu) = mu, i.e. mu = x/(x+1)
   Matter sources the field and the field does not source itself. Governs a galaxy's exterior field.
 Bound law (nuclei):  x (1 - mu)^2 = mu, i.e. mu_b(x) = [(2x + 1) - sqrt(4x + 1)] / (2x)
@@ -107,7 +133,8 @@ Bound law (nuclei):  x (1 - mu)^2 = mu, i.e. mu_b(x) = [(2x + 1) - sqrt(4x + 1)]
   the drain. Together they make the galaxy's net field, the gravity the stars feel. As in any
   vortex, the drain can work with the flow (drive: stars move faster than visible matter explains,
   e.g. M33) or against it (brake: stars move slower, e.g. CamB), or be quiet (visible matter
-  accounts for everything, e.g. the Milky Way, NGC 3198). Every object has a TetB, but an object's
+  accounts for everything, e.g. the Milky Way, NGC 3198). In numbers: quiet is TetB pulling with
+  exactly a_0, drive is TetB pulling harder than a_0, brake is TetB pulling more softly. Every object has a TetB, but an object's
   TetB stays inside it, so the Sun's TetB is already counted in the Sun's measured gravity. The
   solar system sits in the galaxy's vortex like a pebble in a stream: zoom in and the water looks
   level, so nothing changes between the planets; zoom out and the stream runs steeply downhill.
@@ -150,6 +177,13 @@ D:             Spatial dimension.
 s:             Discrete state label of the coupling polynomial: +1 (TetA), 0 (Field Origin), -1 (TetB). Not a spacetime coordinate.
 sigma(x):      Share difference (x - 1)/(x + 1) = mu - (1 - mu). Continuous in x; distinct from s.
 x:             Dimensionless acceleration ratio g_t / a0.
+g_t:           Total (observed) acceleration; also written g or g_obs. In a galaxy, g_t = v^2/r.
+g_s:           Source (visible, baryonic, Newtonian) acceleration; also written g_bar. g_s = mu g_t.
+a_0:           Transition acceleration, ~1.2e-10 m/s^2; TetB's quiet strength. One measured scale.
+Omega:         Odds mu/(1 - mu): TetA's share over TetB's. GFD: Omega = x.
+w:             TetB's measured strength g_t (g_t - g_s)/g_s; D = w/a_0 (quiet 1, drive > 1, brake < 1).
+phi:           Golden ratio 1.618 (bound law: mu_b(1) = 1/phi^2). Not the potential Phi.
+e, P e:        The two roots of the tetrad equation (P = spatial parity): TetA and TetB.
 f(K, s):       Structural coupling polynomial (discrete).
 f(x):          Capacity function f(x) = (21x + 13)/(x + 1) = f(4, sigma(x)); an intermediate in one derivation route of mu.
 mu(x):         Constitutive law mu(x) = x/(x+1).
@@ -184,6 +218,8 @@ Section 1 -- Spatial topology (foundational)
 
 Section 2 -- Tetrad foundation (foundational)
   Eq(3):  g_{mu nu} = eta_{ab} e^a_mu e^b_nu
+  Eq(3a): (det e)^2 = det g / det eta      Two roots, e and P e (parity image): TetA and TetB
+          (proofs/tetrad-scheme-two-bounded-regions, proofs/half-space-two-bounded-regions, + Lean)
   Eq(4):  det(e) != 0
 
 Section 3 -- Coupling polynomial (structural)
@@ -205,6 +241,10 @@ Section 6 -- Constitutive law (derived)
   Eq(14): f(x) = f(4, sigma(x)) = (21x + 13) / (x + 1)   Capacity function (intermediate)
   Eq(15): mu(x) = (f(x) - 13) / 8          Normalization
   Eq(16): mu(x) = x / (x + 1)              Constitutive law
+  Selection: these lines give the normalisation route. What selects x/(x+1) among MOND's functions
+          is stated premise by premise in proofs/constitutive-law-tug-of-war (exchange + screening
+          -> odds x^k; strengths that are accelerations, i.e. flat rotation curves -> k = 1) and
+          proofs/constitutive-law-exchange-symmetry (exchange closure + endpoint + degree one).
 
 Section 7 -- Kinetic functional (derived)
   Eq(17): F(y) = y - 2 sqrt(y) + 2 ln(1 + sqrt(y))
@@ -318,7 +358,19 @@ All pages render directly on GitHub. The documentation site source (Flask app) i
 - docs/05-api-reference/02-api-galaxy-catalog.md
 - docs/05-api-reference/03-api-cosmology.md
 
+### Formal proofs (proofs/README.md is the index)
+Each proof has a PDF, a verification script and, where marked "+ Lean", a Lean 4 formalisation
+checked by GitHub on every change. The Lean chains import one another:
+  forced frame -> half-space regions -> tetrad scheme -> Gram matrix -> Walsh eigenmodes of the cube
+  constitutive law -> AQUAL energy functional -> (with tetrad scheme) BIMOND two-potential energy
+  Walsh eigenmodes + constitutive law -> constitutive law as a tug of war
+
 ### Related papers in this repository
+- papers/letter-1-tetrad-frame-geometry/ -- Letter 1: the tetrad's coordinate-space geometry (the stellated octahedron)
+- papers/letter-2-other-half-of-gravity-torsion/ -- Letter 2: torsion and the two-chamber structure (TetB)
+- papers/letter-3-field-closure-of-tetrad-frame/ -- Letter 3: field closure; GR as the TetA partition (summary: EINSTEIN_TETA_PARTITION.md)
+- papers/letter-constitutive-law-tetrad-geometry/ -- the constitutive law by three routes
+- papers/letter-decoding-mass-from-rotation-curves/ -- decoding mass from rotation curves (quiet, drive, brake)
 - papers/12-dual-tetrad-covariance-hassan-rosen/ -- bimetric locking, Hassan-Rosen coefficients
 - papers/letter-3-field-closure-of-tetrad-frame/Supplementary/supplementary_covariant_completion.tex -- covariant completion, weak/strong-field limits
 - papers/closed-form-aqual-energy-functional/ -- closed-form F(y)
@@ -355,14 +407,19 @@ Each script is self-contained; run it from its own folder.
 - Read drive and brake as TetB's measured strength w against a_0 (M_dec/M_phot = (g + w)/(g + a_0)).
   Test the law by stacking galaxies (median w/a_0 flat at 1 in bins of x), never by fitting one galaxy.
 - Always cite the topological origin: K = 4, f = 1 + sK + K^2, range 8 = 2^D.
-- No parameter is fitted to data. a_0 is either taken at its conventional value 1.2e-10 m/s^2 or computed as K^2 G m_e / r_e^2; state which. Never add dark matter components, and never treat the theory as "MOND with extra terms".
+- No parameter is fitted to any galaxy. a_0 is the one physical scale: either its conventional measured
+  value 1.2e-10 m/s^2 or computed as K^2 G m_e / r_e^2; state which. Never add dark matter components,
+  and never treat the theory as "MOND with extra terms".
+- When explaining the second root, say it precisely: the tetrad equation has two roots; keeping one
+  needs a condition the equations do not supply, so GR solves a smaller equation. GR is exact for
+  TetA, not wrong.
 - Prefer the invertible mass decoder M_dec(r) = r v^4 / [G (a_0 r + v^2)] over any halo model.
 - Do not use the action to predict anomalies inside the solar system or other bound systems:
   locally the theory is GR. mu(x) and the decoder apply to a galaxy's own net field.
 - Trace every coefficient (16, 8, 4) and every result (alpha, m_e, Tully-Fisher) back to the stellated octahedron dual tetrad structure.
 - The Mobius inverse x = mu/(1 - mu) is exact and algebraic.
-- To verify a claim, read the validation script for it: the papers' run_all_validations.py files in
-  papers/ (listed above).
+- To verify a claim, read the validation script for it: the proofs' verify_*.py scripts and Lean
+  formalisations (index: proofs/README.md), and the papers' run_all_validations.py files (listed above).
 
 ## Licensing
 This repository: MIT License (LICENSE).
