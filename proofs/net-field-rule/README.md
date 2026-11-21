@@ -8,7 +8,7 @@
 
 ---
 
-This folder holds a four-page proof, a script that checks every statement in it (116 checks), and a Lean formalisation of its algebraic core. The working tests it grew from are in [`research/net-field-rule/`](../../research/net-field-rule/). The [tug-of-war proof](../constitutive-law-tug-of-war/) showed why the law has the form it does. This one answers the question that proof left open: which field the law acts on.
+This folder holds a four-page proof, a script that checks every statement in it (128 checks), and a Lean formalisation of its algebraic core. The working tests it grew from are in [`research/net-field-rule/`](../../research/net-field-rule/). The [tug-of-war proof](../constitutive-law-tug-of-war/) showed why the law has the form it does. This one answers the question that proof left open: which field the law acts on.
 
 ## The short version
 
@@ -32,34 +32,36 @@ The flux exponent has a property that surprised us. The map that sends μ to s, 
 
 ## The sheet in equations
 
-The rubber sheet becomes exact when the field is split into two terms. The first is the galaxy's drained field, computed from the galaxy's mass with each star system replaced by a uniform ball of the same total mass, which we call its pointer. The second is the star system's own field minus its pointer, and it obeys the plain, linear law with the bare G. Newton's shell theorem makes this second term vanish identically outside the sheet, so nothing is counted twice and the galaxy sees each star system as a single mass at a single point. Every galactic prediction is unchanged by the split.
+The rubber sheet becomes exact when the field is split into two terms. The first is the galaxy's drained field, computed from the galaxy's mass with each star system replaced by a uniform ball of the same total mass, which we call its pointer. The second is the star system's own field minus its pointer, and it obeys the plain, linear law with the bare G. The two terms always add up to the full Newtonian field, so the split itself is an identity; the physical rule is only that the first term goes through the drained law and the second does not. Outside the sheet the second term has no monopole and, measured from the centre of mass, no dipole. For a round sheet Newton's shell theorem makes it vanish there exactly. For any other shape, what is left outside is the system's own quadrupole and higher multipoles, which fade as the fourth power of distance or faster and are ordinary Newtonian gravity, counted once; for the solar system seen from a parsec away they are about 6 × 10⁻¹³ of its total pull. Either way the galaxy sees each star system as a single mass at a single point, and every galactic prediction is unchanged by the split.
 
 Inside the sheet, the galaxy's uniform pull drops out of every relative motion because the whole system falls together. The sheet's own pointer cannot push it, whatever form the galaxy's response takes, because its force sums to zero about the centre of mass. What remains is the galactic tide, the slight bending of the stream across the sheet, which is about 8 × 10⁻³¹ s⁻² at the Sun and about 10⁻¹⁸ m/s² at Saturn, four orders of magnitude below the Cassini bound. The tide is set by the Milky Way's rotation curve alone, so general relativity with a dark halo predicts the same number.
 
 ## Where the sheet ends
 
-The data fix the sheet's edge from both sides. Cassini requires it to lie beyond about 12,000 AU, roughly 1.7 times the distance at which the Sun's own pull falls to a₀; a sheet that ended at that ring would be the per-star reading again. Binding caps it at the Jacobi radius, the distance at which the galaxy's tide takes over from the Sun, about 1.4 parsecs or 290,000 AU. The Jacobi radius is fixed by the galaxy alone and needs no free parameter. Because both limits grow as the cube root of the star's mass, the same window exists for every star at the Sun's distance from the galactic centre.
+The data fix the sheet's edge from both sides. Cassini requires it to lie beyond about 12,000 AU, roughly 1.7 times the distance at which the Sun's own pull falls to a₀; a sheet that ended at that ring would be the per-star reading again. Binding caps it at the Jacobi radius, the distance at which the galaxy's tide takes over from the Sun, about 1.4 parsecs or 290,000 AU. Because both limits grow as the cube root of the star's mass, the same window exists for every star at the Sun's distance from the galactic centre.
+
+The proof takes the edge to be the Jacobi radius itself, and it is careful to call this a premise rather than a result. The argument for it is one of elimination. From the star's GM, the galaxy's rotation rate Ω and a₀, every length that can be built is the MOND radius √(GM/a₀) multiplied by some function of a single dimensionless number, GMΩ⁴/a₀³. The simple choices are the MOND radius itself, which Cassini rules out; a₀/Ω², about 5 kiloparsecs, which is far beyond the point where the star can hold anything; and the Jacobi radius, the tidal edge, which is the only one inside the window. The edge's exact shape, on the other hand, does not matter. For any smoothing whose density never exceeds a fixed multiple of a uniform ball's, the correction at distance r from the star is at most that multiple times (ν − 1)(r/ℓ)³, so anything well inside the sheet is unaffected by how its boundary is drawn.
 
 ## What the data say
 
 Orbits cannot tell the bare G from a G rescaled by the galaxy, because Kepler's law only ever measures the product GM. Star clusters can, because their masses come from counting starlight. The remote globular clusters Pal 14 and Pal 4 sit at accelerations around a tenth of a₀, where a rescaled G would make their stars move about three times faster. Their stars move as Newton predicts, within 1σ, and the rescaled version is excluded at 8.9σ and 11.1σ. The dwarf galaxy Crater II sits at the same low acceleration in the same host, yet its stars move 5.4σ faster than Newton allows and within 2.2σ of μ. No rule that depends only on acceleration fits the clusters and the dwarf together, while the drain criterion, which treats the clusters as closed and the dwarf as open, fits all three with no free parameter.
 
-The rule makes a sharp prediction for wide binary stars. Every bound pair should be exactly Newtonian at every separation, including the widest pairs, whose own pull falls below a₀ beyond about 10,000 AU. Rules that depend only on acceleration predict a boost in the pull of 17 to 47 percent between 5,000 and 20,000 AU. The data on wide binaries are currently disputed, and the rule takes a clear side.
+The rule makes a sharp prediction for wide binary stars. With the edge at the Jacobi radius, a bound pair is Newtonian to within 0.53(s/ℓ)³, which is below one part in ten thousand at 20,000 AU, including the widest pairs, whose own pull falls below a₀ beyond about 10,000 AU. Rules that depend only on acceleration predict a boost in the pull of 17 to 47 percent between 5,000 and 20,000 AU. If the edge sat closer in, a boost would appear that grows as the cube of the separation, 15 percent at 10,000 AU for an edge at the Cassini limit, so the wide binaries also measure where the sheet ends. The data on wide binaries are currently disputed, and the rule takes a clear side.
 
 A second test checks the shape of the law itself. The local slope of the radial acceleration relation should equal 1/(2 − μ), and because both sides are measured, the test needs no value of a₀. On 163 SPARC galaxies, GFD's shape misses the measured slope by 0.053 and the standard MOND law's by 0.102, and GFD's wins in every one of 200 resamplings of the galaxies.
 
 ## What is proved, assumed and measured
 
-The drain criterion and the net-field rule are the framework's premises, as stated in [`EINSTEIN_TETA_PARTITION.md`](../../EINSTEIN_TETA_PARTITION.md) and Part 3 of the [bimetric-projection note](../../research/bimetric-projection/). The proof derives their consequences exactly and tests them against the data they must meet. Three points remain open. The first is a way to recognise a drained field without using its rotation curve, and the four faces say exactly what such a marker must measure: growth of flux across empty space. The second is the covariant derivation of which time leg's acceleration enters μ, which the [SST time-leg proof](../sst-covariant-time-leg/) leaves open. The third is the dwarf Antlia 2, which no rule tested here fits, possibly because it is being tidally disrupted.
+The drain criterion and the net-field rule, including the choice of the Jacobi radius as the coarse-graining scale, are the framework's premises, as stated in [`EINSTEIN_TETA_PARTITION.md`](../../EINSTEIN_TETA_PARTITION.md) and Part 3 of the [bimetric-projection note](../../research/bimetric-projection/). The proof derives their consequences exactly and tests them against the data they must meet. Three points remain open. The first is a way to recognise a drained field without using its rotation curve, and the four faces say exactly what such a marker must measure: growth of flux across empty space. The second is the covariant derivation of which time leg's acceleration enters μ, which the [SST time-leg proof](../sst-covariant-time-leg/) leaves open. The third is the dwarf Antlia 2, which no rule tested here fits, possibly because it is being tidally disrupted.
 
 ## Machine-checked in Lean
 
-The [`lean/`](lean/) folder proves the proof's algebraic core in [Lean 4](https://lean-lang.org) with [Mathlib](https://github.com/leanprover-community/mathlib4), and it imports the constitutive law and the exchange from the [tug-of-war proof](../constitutive-law-tug-of-war/) rather than restating them. Twenty theorems are checked, each using only Lean's three standard axioms.
+The [`lean/`](lean/) folder proves the proof's algebraic core in [Lean 4](https://lean-lang.org) with [Mathlib](https://github.com/leanprover-community/mathlib4), and it imports the constitutive law and the exchange from the [tug-of-war proof](../constitutive-law-tug-of-war/) rather than restating them. Twenty-two theorems are checked, each using only Lean's three standard axioms.
 
 - **The four faces and the dictionary**: the drained law inverts as stated; every face is a function of μ that vanishes only at μ = 1; the drained law is strictly subadditive; a guest's two responses exceed 1 at every finite field; and the flux exponent is 2(1 − μ)/(2 − μ).
 - **The involution**: f(f(u)) = u, and the corresponding map for the standard law is not an involution.
 - **The forced failure**: the extra pull around a star lies between μa₀ and a₀, and for every exchange-symmetric law with the deep-field limit, x(1 − μ(x)) tends to 1.
-- **The rubber sheet**: free fall, the centre of mass falling with the host, no self-force for any linear response, the sheet's own term vanishing outside its edge and continuous at it, Kepler's law absorbing a factor on G, the flat-curve tide and the Jacobi radius.
+- **The rubber sheet**: free fall, the centre of mass falling with the host, no self-force for any linear response, no dipole about the centre of mass, a round sheet's own term vanishing outside its edge and continuous at it, the kernel bound that makes predictions independent of the edge's shape, Kepler's law absorbing a factor on G, the flat-curve tide and the Jacobi radius.
 - **The Sun's TetB**: the screening law, the micron-sized core and the bound on the screened mass.
 
 The Cassini quadrupole integral and the data tests are checked by the script. [`LEAN_AUDIT.md`](LEAN_AUDIT.md) is a referee's guide to the formalisation.
@@ -70,7 +72,7 @@ The Cassini quadrupole integral and the data tests are checked by the script. [`
 |---|---|
 | [`net_field_rule.pdf`](net_field_rule.pdf) | The proof (four pages, including references) |
 | [`net_field_rule.tex`](net_field_rule.tex) | LaTeX source |
-| [`verify_net_field_rule.py`](verify_net_field_rule.py) | 116 checks of every statement (numpy, scipy, sympy, pytest) |
+| [`verify_net_field_rule.py`](verify_net_field_rule.py) | 128 checks of every statement (numpy, scipy, sympy, pytest) |
 | [`verify_output.txt`](verify_output.txt) | The script's output |
 | [`lean/NetFieldRule.lean`](lean/NetFieldRule.lean) | The Lean 4 formalisation |
 | [`lean/lakefile.toml`](lean/lakefile.toml), [`lean/lean-toolchain`](lean/lean-toolchain), [`lean/lake-manifest.json`](lean/lake-manifest.json) | Project files: Lean 4.36.0, Mathlib v4.36.0, and the seven formalisations it imports |
@@ -98,4 +100,4 @@ The SPARC test reads [`papers/letter-radial-acceleration-relation-sparc/suppleme
 - [The SST covariant completion](../sst-covariant-time-leg/): the covariant form of y, and the per-mass tail this rule removes.
 - [Einstein's equation as the TetA partition](../../EINSTEIN_TETA_PARTITION.md): local systems are TetA only.
 - [Bimetric projection, Part 3](../../research/bimetric-projection/): the solar-system probes and the cluster–dwarf test.
-- [The net-field research folder](../../research/net-field-rule/): the 116 tests in their working form.
+- [The net-field research folder](../../research/net-field-rule/): the 128 tests in their working form.

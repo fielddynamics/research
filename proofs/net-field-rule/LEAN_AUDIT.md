@@ -2,14 +2,14 @@
 
 | | |
 |---|---|
-| **Formalisation** | [`lean/NetFieldRule.lean`](lean/NetFieldRule.lean), 348 lines, Lean 4.36.0 + Mathlib v4.36.0 |
+| **Formalisation** | [`lean/NetFieldRule.lean`](lean/NetFieldRule.lean), 375 lines, Lean 4.36.0 + Mathlib v4.36.0 |
 | **Depends on** | [`../constitutive-law-tug-of-war/lean/`](../constitutive-law-tug-of-war/lean/) (`Exchange`) and [`../constitutive-law-exchange-symmetry/lean/`](../constitutive-law-exchange-symmetry/lean/) (`law`); imported, not copied |
 | **Build** | 0 errors · 0 warnings · no `sorry` / `admit` / custom `axiom` / `native_decide` |
-| **Axioms** | All 20 `#print axioms` checks report only `propext`, `Classical.choice`, `Quot.sound` |
+| **Axioms** | All 22 `#print axioms` checks report only `propext`, `Classical.choice`, `Quot.sound` |
 | **Reproduce** | `cd lean && lake exe cache get && lake build` |
 | **CI** | `.github/workflows/lean-net-field-rule.yml`, on every change to this proof or any proof it imports |
 
-**Verdict.** Theorem 1 (except the vacuum divergence for general configurations), Corollary 1, Proposition 1 (b)–(c), Proposition 2 (a)–(b), Theorem 2 (b)–(e) and Proposition 4 (a) are proved. Theorem 2 (a), Propositions 2 (c), 3, 4 (b)–(c) and 5, the vacuum divergence and the vortex remark are checked by the script.
+**Verdict.** Theorem 1 (except the vacuum divergence for general configurations), Corollary 1, Proposition 1 (b)–(c), Proposition 2 (a)–(b), Theorem 2 (b)–(e), the kernel bound of Proposition 3 and Proposition 4 (a) are proved. Theorem 2 (a), Proposition 2 (c), the rest of Proposition 3, Propositions 4 (b)–(c) and 5, the vacuum divergence and the vortex remark are checked by the script.
 
 ## 1. Definitions to check against the paper
 
@@ -38,13 +38,16 @@
 | Theorem 2 (b) | `sheet_vanishes_outside`, `sheet_continuous` | the sheet's own term is zero for `r ≥ l`, continuous at `l`, and `GM/r² − GMr/l³` inside |
 | Theorem 2 (c) | `free_fall`, `com_free_fall` | in any additive group; in any real module with antisymmetric forces over `Fin n` |
 | Theorem 2 (d) | `no_self_force` | in any real module, for any linear `R`, `∑ mᵢ R(k(pᵢ − c)) = 0` when `c` is the centre of mass |
+| Theorem 2 (b), multipoles | `no_dipole` | in any real module, `∑ mᵢ (pᵢ − c) = 0` about the centre of mass |
+| Proposition 3, the edge's shape | `kernel_bound` | if `M_k ≤ c M (r/l)³` then `(ν − 1) G M_k/r² ≤ c (ν − 1)(r/l)³ G M/r²` |
 | Theorem 2 (e) | `flat_tide`, `jacobi` | `Φ'` and `Φ''` as `HasDerivAt`; `κ² = 2Ω²`; `GM/r_J³ = 2Ω²` |
 | Proposition 4 (a) | `kepler_absorbs` | Kepler's period with `G/μ` and `M` equals that with `G` and `M/μ` |
 
 ## 3. Not formalised
 
 - **Theorem 1 (iii), vacuum divergence for general configurations.** Proved for the sum of two point fields with sympy, and checked numerically for the drained field at random points.
-- **Theorem 2 (a).** The pointer projection's idempotence, nesting and mass conservation are checked on explicit point sets, and the multipole expansion with sympy.
+- **Theorem 2 (a).** The pointer projection's idempotence, nesting and mass conservation are checked on explicit point sets, and the multipole expansion with sympy; the exterior residual of a non-spherical sheet is checked to fall as r⁻⁴.
+- **Proposition 3, the scales.** The single dimensionless group and the elimination of r_M and a₀/Ω² are checked numerically; the coarse-graining scale ℓ = r_J itself is a premise.
 - **Proposition 2 (c).** The Cassini quadrupole is a numerical integral of the phantom density.
 - **Propositions 3, 4 (b)–(c) and 5** use data (Cassini, the cluster and dwarf dispersions, SPARC) and numerical estimators.
 - **The vortex remark.** Galilean invariance, Burgers and Lamb–Oseen are checked with sympy; Burgers and Lamb–Oseen are also proved in the tug-of-war formalisation.

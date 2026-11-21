@@ -45,25 +45,25 @@ The constitutive law of Gravity Field Dynamics, $\mu(x) = x/(x+1)$,
 fits galaxies without dark matter, but applied to each star's own field
 it leaves a pull of nearly $a_0$ at every planet and an external-field
 quadrupole five times the Cassini bound. We prove that this failure is
-forced for every exchange-symmetric law with flat rotation curves, and
-we state the rule that avoids it. A drain belongs to a field, not to a
-body: every body's TetB is enclosed in it and counted in its $GM$, and
-$\mu$ acts only on a field that has a drain, a galaxy's. A field without
-a drain is the TetA connection, Newton and general relativity with the
-bare $G$. Four properties of a field are then equivalent: its law is
-linear, a body inside it responds with the bare $G$, its flux is
-conserved across empty shells, and it carries no TetB share. Each is a
-rational function of $\mu$ that vanishes only at $\mu = 1$, and the flux
+forced for every exchange-symmetric law with flat rotation curves. The
+rule that avoids it rests on two premises, which we state rather than
+derive. First, a drain belongs to a field, not to a body: $\mu$ acts only
+on a field that has a drain, a galaxy's, while every body's TetB is
+enclosed in it and counted in its $GM$. Second, $\mu$ acts on that
+field's net field coarse-grained on the tidal (Jacobi) scale of each
+bound system. Given these, a field without a drain is Newton and general
+relativity with the bare $G$, and four properties are equivalent: the
+law is linear, a body inside responds with the bare $G$, flux is
+conserved across empty shells, and there is no TetB share. Each is a
+rational function of $\mu$ vanishing only at $\mu = 1$, and the flux
 exponent $2(1-\mu)/(2-\mu)$ is an involution of $\mu$ that singles out
-$x/(x+1)$ among the standard laws. A star system is then a rubber sheet
-in its galaxy's field, described by an exact two-scale split whose
-own term vanishes outside the sheet. Inside, the galaxy acts only
-through free fall and its tide, about $10^{-18}$\,m\,s$^{-2}$ at
-Saturn, and the sheet's edge must lie between a Cassini lower bound of
-about $1.2 \times 10^4$\,AU and the Jacobi radius of about
-$2.9 \times 10^5$\,AU. Globular clusters confirm the bare $G$ at more
-than $8\sigma$, the dwarf Crater~II keeps $\mu$, and every bound wide
-binary is predicted to be Newtonian.
+$x/(x+1)$ among the standard laws. A star system is a rubber sheet in its
+galaxy's field: inside it the galaxy acts only through free fall and its
+tide, about $10^{-18}$\,m\,s$^{-2}$ at Saturn, and Cassini puts the
+sheet's edge beyond $1.2 \times 10^4$\,AU, consistent with the Jacobi
+radius of $2.9 \times 10^5$\,AU. Two remote globular clusters require
+the bare $G$ at more than $8\sigma$, and bound wide binaries are
+predicted to be Newtonian to within $(s/r_J)^3$.
 \end{abstract}
 
 \keywords{constitutive law, net-field rule, external field effect, MOND,
@@ -98,7 +98,8 @@ field itself has a drain: a throat opening into occupied TetB. A
 galaxy's field has one. The field of a star system, a binary or a star
 cluster does not.
 \textbf{(N) Net field.} In a drained field, $x = |g_{\rm net}|/a_0$, with
-$g_{\rm net}$ that field's own coarse-grained net field.
+$g_{\rm net}$ that field's own net field, coarse-grained on the tidal
+(Jacobi) scale $\ell = r_J$ of each bound system inside it.
 \textbf{(A) TetA is general relativity.} A drainless field is the TetA
 connection: Newton and GR, with the bare $G$.
 \end{definition}
@@ -107,8 +108,10 @@ The picture is a rubber sheet with a bowling ball on it, sitting in the
 galaxy's stream. The ball, the Sun, has a TetB, enclosed in it. The
 sheet, the solar system's field, has no drain. A galaxy's field is a
 funnel whose throat opens into TetB. Premises (D) and (N) are the
-framework's~\cite{NelsonEinstein,NelsonBimetric}; what follows proves
-what they imply and tests it against the data the framework must meet.
+framework's~\cite{NelsonEinstein,NelsonBimetric}, and the scale in (N)
+is motivated in Proposition~\ref{prop:edge} but not derived; what
+follows proves what the premises imply and tests it against the data
+the framework must meet.
 
 \section*{Four faces of a drainless field}
 
@@ -224,18 +227,23 @@ same mass. Write the field as
 \begin{equation}
   g = F\bigl[g_N(P\rho)\bigr] + g_N(\rho - P\rho). \label{eq:split}
 \end{equation}
-The first term is the drained host, the second the sheet's own field,
-linear and with the bare $G$ by (A).
+By linearity of $g_N$ this is an identity; the rule is that only the
+first term, the drained host, goes through $F$, while the second, the
+sheet's own field, stays linear with the bare $G$ by (A).
 
 \begin{theorem}[the rubber sheet]\label{thm:sheet}
 (a) $P$ conserves mass, is idempotent, and nested projections compose:
 projecting a small ball and then a larger one containing it is the same
 as projecting the larger one. Far away, a sheet's field is its monopole
 at the centre of mass, with no dipole and corrections of order
-$(d/D)^2$. (b) The sheet's own term vanishes identically outside the
-sheet, $GM/r^2 - g_{\rm ball}(r) = 0$ for $r \ge \ell$, and is continuous
-at $\ell$. Inside, it is $GM/r^2 - GMr/\ell^3$. So nothing is counted
-twice, and the host's field, and every galactic prediction, is unchanged.
+$(d/D)^2$. (b) Outside the sheet, $\rho - P\rho$ has no monopole and, about
+the centre of mass, no dipole. For a spherical sheet its field vanishes
+identically, $GM/r^2 - g_{\rm ball}(r) = 0$ for $r \ge \ell$, and is
+continuous at $\ell$; inside, it is $GM/r^2 - GMr/\ell^3$. Otherwise what
+remains outside is the sheet's own quadrupole and higher multipoles,
+falling as $r^{-4}$ or faster, ordinary Newtonian gravity counted once
+(for the solar system at 1\,pc, $6\times10^{-13}$ of the monopole). The
+host's field, and every galactic prediction, is unchanged.
 (c) A uniform host field drops out of every relative acceleration, and
 with pairwise antisymmetric internal forces the centre of mass falls
 with it. (d) No self-force: the term $k(p - c)$, $k = GM/\ell^3$, that
@@ -253,7 +261,8 @@ tide's, $k = 2\Omega^2$.
 
 \begin{proof}
 (a) $P$ depends only on the mass inside its ball; expand the potential
-of the sheet's masses about the centre of mass. (b) The shell theorem.
+of the sheet's masses about the centre of mass. (b) The shell theorem,
+and $\sum_i m_i(p_i - c) = 0$.
 (c) The host term cancels in differences; $\sum_{ij}F_{ij} = 0$ for
 $F_{ij} = -F_{ji}$. (d) $\sum_i m_i(p_i - c) = 0$ and $R$ is linear. A
 Taylor expansion gives the tide. (e) $\Phi'' = -v^2/R^2$,
@@ -268,7 +277,14 @@ $r_M = \sqrt{GM/a_0} \approx 7000$\,AU; a sheet ending at the Sun's own
 ring $x = 1$ leaves $4.5 \times 10^{-26}$\,s$^{-2}$, the pointwise reading
 again. Binding caps the edge at the Jacobi radius, $1.4$\,pc or
 $2.9 \times 10^5$\,AU, 24 times the bound. Both scale as $M^{1/3}$, so the
-window is the same for every star at the Sun's radius.
+window is the same for every star at the Sun's radius. From $GM$, $\Omega$
+and $a_0$ every length is $r_M f(\pi)$ with the one group
+$\pi = GM\Omega^4/a_0^3$; of the simple choices, $r_M$ is excluded,
+$a_0/\Omega^2 \approx 5$\,kpc lies beyond binding, and only $r_J$, the
+tidal edge, falls in the window. Whatever the edge's shape, a kernel
+whose density never exceeds $c$ times the uniform ball's leaves a
+residual at most $c(\nu-1)(r/\ell)^3$ of the system's own pull, so
+predictions for $r \ll \ell$ do not depend on it.
 \end{proposition}
 
 \section*{The data}
@@ -290,9 +306,11 @@ open, fits with $\chi^2 = 6.1$ and no parameter.
 \end{proposition}
 
 \begin{proposition}[predictions]\label{prop:pred}
-(a) Every bound wide binary is Newtonian, with $g_{\rm obs}/g_N = 1$ at
-every separation inside its Jacobi radius, including beyond
-$r_M \approx 10^4$\,AU. Rules that send the binary through the host's
+(a) With $\ell = r_J$, a bound wide binary is Newtonian to within
+$0.53(s/\ell)^3$, below $10^{-4}$ at 20\,kAU, including beyond
+$r_M \approx 10^4$\,AU. A boost growing as $s^3$ inside a cutoff would
+instead measure $\ell$: $15\%$ at 10\,kAU if $\ell$ sat at the Cassini
+bound. Rules that send the binary through the host's
 law give $1.17$, $1.35$ and $1.47$ at $5$, $10$ and $20$\,kAU for
 $2\,M_\odot$, the boost claimed in~\cite{Chae2023} and disputed
 in~\cite{Banik2024}. (b) The local slope of the radial acceleration
@@ -314,9 +332,11 @@ keeping its total circulation, as a body keeps its $GM$.
 
 \section*{Scope}
 
-The premises (D) and (N) are the framework's. What the proof adds is
+The premises (D) and (N) are the framework's, including the
+coarse-graining scale $\ell = r_J$, which Proposition~\ref{prop:edge}
+motivates by elimination but does not derive. What the proof adds is
 their consequences, made exact, and the data they must meet. Three
-points remain open: an observable marker of a drained field that does
+further points remain open: an observable marker of a drained field that does
 not use its rotation curve (Theorem~\ref{thm:faces}(iii) says it must
 measure flux growth across empty shells); the covariant derivation of
 which time leg's acceleration enters $\mu$, left open
@@ -328,7 +348,7 @@ RAR slope is sensitive to scatter and to stellar mass-to-light ratios.
 \section*{Verification}
 
 The script \texttt{verify\_net\_field\_rule.py} checks every statement,
-116 checks in all: exactly with sympy where it is algebraic, by
+128 checks in all: exactly with sympy where it is algebraic, by
 quadrature for the Cassini quadrupole, and against the data for
 Propositions~\ref{prop:data} and~\ref{prop:pred}. Its output is in
 \texttt{verify\_output.txt}.
@@ -338,7 +358,8 @@ Propositions~\ref{prop:data} and~\ref{prop:pred}. Its output is in
 the four faces, subadditivity, the responses and the flux exponent),
 Corollary~\ref{cor:inv} (the involution and its failure for $n = 2$),
 Propositions~\ref{prop:body}(b)--(c) and~\ref{prop:tail}(a)--(b), and
-Theorem~\ref{thm:sheet}(b)--(e) and Proposition~\ref{prop:data}(a) are checked in Lean~4 with Mathlib
+Theorem~\ref{thm:sheet}(b)--(e), the kernel bound of
+Proposition~\ref{prop:edge} and Proposition~\ref{prop:data}(a) are checked in Lean~4 with Mathlib
 (\texttt{lean/NetFieldRule.lean}), importing the constitutive law and the
 exchange of the tug-of-war proof. Every theorem uses only Lean's three
 standard axioms. The quadrupole integral and the data are checked by the

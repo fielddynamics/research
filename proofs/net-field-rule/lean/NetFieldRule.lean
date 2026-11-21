@@ -26,8 +26,12 @@ host reaches it only through free fall and the tide.
   at every planet, and exchange symmetry plus the deep field force that tail for every law.
 * `free_fall`, `com_free_fall`, `no_self_force`: the host's uniform field drops out; a sheet's
   own pointer cannot push it, for any host response.
-* `sheet_vanishes_outside`, `sheet_continuous`: the rubber sheet's own term vanishes outside its
-  edge (the shell theorem), so nothing is counted twice.
+* `no_dipole`, `kernel_bound`: outside a sheet the unprojected part starts at the quadrupole; inside,
+  the residual is at most `c (ν − 1)(r/l)³` for any kernel whose density is at most `c` times the
+  uniform ball's, so predictions for `r ≪ l` do not depend on the edge's shape.
+* `sheet_vanishes_outside`, `sheet_continuous`: for a spherical sheet its own term vanishes outside
+  the edge (the shell theorem); the split itself is an identity, and the rule is which term goes
+  through the drained law.
 * `kepler_absorbs`: a host factor on `G` is invisible to orbits.
 * `flat_tide`, `jacobi`: the tide of a flat rotation curve and the Jacobi edge.
 * `sun_screening`: the Sun's TetB, screened, enclosed and bounded.
@@ -251,7 +255,28 @@ theorem no_self_force {n : ℕ} (m : Fin n → ℝ) (p : Fin n → V) (c : V) (k
         rw [map_smul, map_smul, map_smul, smul_comm]
     _ = 0 := by rw [h0, smul_zero, map_zero]
 
+/-- No dipole: about the centre of mass `c`, `∑ mᵢ (pᵢ − c) = 0`, so outside a sheet the part of
+its field that the pointer does not carry starts at the quadrupole. -/
+theorem no_dipole {n : ℕ} (m : Fin n → ℝ) (p : Fin n → V) (c : V)
+    (hc : (∑ i, m i) • c = ∑ i, m i • p i) :
+    ∑ i, m i • (p i - c) = 0 := by
+  simp_rw [smul_sub, Finset.sum_sub_distrib, ← Finset.sum_smul, hc, sub_self]
+
 end Sheet
+
+/-- Kernel insensitivity: if a smoothing kernel's enclosed mass never exceeds `c M (r/l)³` (its
+density never exceeds `c` times the uniform ball's), the residual it leaves inside the sheet,
+`(ν − 1) G M_k(r)/r²`, is at most `c (ν − 1)(r/l)³` of the system's own pull `G M/r²`. -/
+theorem kernel_bound (G M Mk c ν r l : ℝ) (hG : 0 < G) (hr : 0 < r) (hν : 1 ≤ ν)
+    (hMk : Mk ≤ c * M * (r / l) ^ 3) :
+    (ν - 1) * (G * Mk / r ^ 2) ≤ c * (ν - 1) * (r / l) ^ 3 * (G * M / r ^ 2) := by
+  have h1 : 0 ≤ ν - 1 := by linarith
+  have h2 : G * Mk / r ^ 2 ≤ G * (c * M * (r / l) ^ 3) / r ^ 2 := by
+    apply div_le_div_of_nonneg_right _ (by positivity)
+    exact mul_le_mul_of_nonneg_left hMk hG.le
+  calc (ν - 1) * (G * Mk / r ^ 2) ≤ (ν - 1) * (G * (c * M * (r / l) ^ 3) / r ^ 2) :=
+        mul_le_mul_of_nonneg_left h2 h1
+    _ = c * (ν - 1) * (r / l) ^ 3 * (G * M / r ^ 2) := by ring
 
 /-- The field of a uniform ball of mass `M` and radius `l` (the pointer). -/
 noncomputable def tophat (G M l r : ℝ) : ℝ := if r < l then G * M * r / l ^ 3 else G * M / r ^ 2
@@ -340,6 +365,8 @@ end NetFieldRule
 #print axioms NetFieldRule.free_fall
 #print axioms NetFieldRule.com_free_fall
 #print axioms NetFieldRule.no_self_force
+#print axioms NetFieldRule.no_dipole
+#print axioms NetFieldRule.kernel_bound
 #print axioms NetFieldRule.sheet_vanishes_outside
 #print axioms NetFieldRule.sheet_continuous
 #print axioms NetFieldRule.kepler_absorbs

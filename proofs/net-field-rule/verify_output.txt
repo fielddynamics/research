@@ -114,5 +114,17 @@
   [PASS] TestSunScreening :: test_screened_tetb_mass_is_fixed_and_tiny
   [PASS] TestSunScreening :: test_screened_tetb_is_counted_in_GM_and_constant
   [PASS] TestSunScreening :: test_screened_tetb_stays_in_the_ball
+  [PASS] TestSplitAndMultipoles :: test_split_is_an_identity
+  [PASS] TestSplitAndMultipoles :: test_no_dipole_about_the_centre_of_mass
+  [PASS] TestSplitAndMultipoles :: test_exterior_residual_falls_as_r_minus_4
+  [PASS] TestSplitAndMultipoles :: test_solar_system_residual_at_one_parsec
+  [PASS] TestCoarseGrainingScale :: test_one_dimensionless_group
+  [PASS] TestCoarseGrainingScale :: test_the_simple_scales
+  [PASS] TestCoarseGrainingScale :: test_only_the_tidal_edge_survives
+  [PASS] TestCoarseGrainingScale :: test_kernel_bound
+  [PASS] TestCoarseGrainingScale :: test_wide_binary_correction_is_kernel_insensitive_at_the_tidal_edge
+  [PASS] TestWideBinaryEdgeDependence :: test_signature_is_s_cubed
+  [PASS] TestWideBinaryEdgeDependence :: test_table
+  [PASS] TestWideBinaryEdgeDependence :: test_prediction_at_the_tidal_edge
 
-116 passed, 0 failed
+128 passed, 0 failed

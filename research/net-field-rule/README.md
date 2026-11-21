@@ -1,6 +1,6 @@
 # The Net-Field Rule
 
-*Research folder, Field Dynamics Research, 2026-11-20. Status: proved as [`proofs/net-field-rule/`](../../proofs/net-field-rule/) (four-page proof, 116 checks, Lean). Tests: `python -m pytest -q test_net_field_rule.py` (116 tests, about 5 s; numpy, scipy, sympy, pytest).*
+*Research folder, Field Dynamics Research, 2026-11-20. Status: proved as [`proofs/net-field-rule/`](../../proofs/net-field-rule/) (four-page proof, 128 checks, Lean). Tests: `python -m pytest -q test_net_field_rule.py` (128 tests, about 6 s; numpy, scipy, sympy, pytest).*
 
 ---
 
@@ -15,7 +15,7 @@ A solar system is a rubber sheet with a bowling ball on it, sitting in the galax
 ## Premises
 
 - **(D) Drain criterion.** A drain belongs to a field, not to a body. Every body has its own TetB, enclosed within it and counted in its GM. A field carries a TetB share, and μ acts on it, only if the field itself has a drain. A galaxy's field has one; the field of a star system, a binary or a star cluster does not.
-- **(N) Net field.** In a drained field, x = |g_net|/a₀ with g_net that field's own coarse-grained net field.
+- **(N) Net field.** In a drained field, x = |g_net|/a₀ with g_net that field's own net field, coarse-grained on the tidal (Jacobi) scale ℓ = r_J of each bound system. The scale is motivated by elimination (Part 30), not derived.
 - **(A) TetA is GR.** A drainless field is the TetA connection: Newton and GR with the bare G.
 
 ## The theorem in one line
@@ -26,14 +26,15 @@ A solar system is a rubber sheet with a bowling ball on it, sitting in the galax
 
 ## What the tests establish
 
-The 28 parts of [`test_net_field_rule.py`](test_net_field_rule.py) fall into three groups.
+The 31 parts of [`test_net_field_rule.py`](test_net_field_rule.py) fall into three groups.
 
 **What the rule says, as algebra.**
 - Four faces of "no drain" are one property: a linear law, an identity response (bare G), flux conserved across empty shells, and no TetB share. Each is a rational function of μ that vanishes only at μ = 1 (Parts 16–18, 20, 22).
 - The flux exponent is s = 2(1 − μ)/(2 − μ), and f(u) = 2(1 − u)/(2 − u) is an involution, so beyond the baryons a rotation curve's slope alone gives μ, x and a₀. In the standard family μₙ = x/(1 + xⁿ)^{1/n} only n = 1 has this property (Parts 21, 26).
 
 **Why it is consistent.**
-- The rubber sheet is an exact two-scale split, g = F[g_N(Pρ)] + g_N(ρ − Pρ). The pointer projection P is idempotent and nested, the sheet's own term vanishes outside its edge, the host's uniform field drops out in free fall, and the sheet's own pointer exerts no net force for any host response (Parts 4, 10, 13, 19, 23).
+- The split is an identity; outside a non-spherical sheet only its own quadrupole and higher multipoles remain, falling as r⁻⁴ (Part 29). Predictions well inside the sheet do not depend on the edge's shape (Part 30).
+- The rubber sheet is the two-scale split g = F[g_N(Pρ)] + g_N(ρ − Pρ), an identity in which the rule decides which term goes through F. The pointer projection P is idempotent and nested, the sheet's own term has no monopole or dipole outside its edge (and vanishes there for a round sheet), the host's uniform field drops out in free fall, and the sheet's own pointer exerts no net force for any host response (Parts 4, 10, 13, 19, 23).
 - The sheet's edge is the Jacobi radius, about 1.4 pc, where the residual is the tide's size by construction (Part 14).
 - Every body's TetB is enclosed, screened to about 4 × 10⁻¹³ at the Sun's surface, dominant only in a micron-sized core at the centre, and bounded by the ephemerides' limit on changes in GM (Parts 1, 15, 28).
 
@@ -43,7 +44,7 @@ The 28 parts of [`test_net_field_rule.py`](test_net_field_rule.py) fall into thr
 - A host factor on G is invisible to orbits but not to globular clusters, which require the bare G at 8.9σ and 11.1σ (Parts 6, 7, 17).
 - The dwarf Crater II keeps μ, and only the drain criterion fits the clusters and the dwarf together (Parts 8, 9).
 - Cassini places the sheet's edge beyond about 12,000 AU, and binding caps it at 290,000 AU (Part 25).
-- Every bound wide binary is predicted to be Newtonian (Part 11).
+- With ℓ = r_J, bound wide binaries are predicted Newtonian to within 0.53(s/ℓ)³, below 10⁻⁴ at 20 kAU; a boost growing as s³ would instead measure ℓ (Parts 11, 31).
 - An a₀-free test of the law's shape on SPARC: the RAR's local slope matches 1/(2 − μ) to 0.053 rms, against 0.102 for the standard law, in 200 of 200 bootstraps (Part 27).
 
 ## Open

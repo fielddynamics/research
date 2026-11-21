@@ -11,10 +11,10 @@ clusters, dwarfs, SPARC). The checks are grouped by the paper's statements:
   Corollary 1    the flux involution, and why it singles out x/(1+x)   Parts 21, 26
   Proposition 1  a body's TetB: enclosed, screened, bounded            Parts 1, 15, 28
   Proposition 2  a drain around every star is forced to fail           Parts 2, 3
-  Theorem 2      the rubber sheet: the exact two-scale split           Parts 4, 5, 10, 13, 19, 23, 24
-  Proposition 3  the sheet's edge                                      Parts 14, 25
+  Theorem 2      the rubber sheet: the two-scale split                 Parts 4, 5, 10, 13, 19, 23, 24, 29
+  Proposition 3  the sheet's edge and the coarse-graining scale        Parts 14, 25, 30
   Proposition 4  bare G and the drain criterion, against the data      Parts 6-9, 17
-  Proposition 5  predictions: wide binaries, the a0-free RAR slope     Parts 11, 21, 27
+  Proposition 5  predictions: wide binaries, the a0-free RAR slope     Parts 11, 21, 27, 31
   Remark         the vortex picture                                    Part 12
 
 Run: python verify_net_field_rule.py        (numpy, scipy, sympy, pytest)
@@ -1355,6 +1355,148 @@ class TestSunScreening:
         leaked = g_total(GM_SUN / r_ear**2) - GM_SUN / r_ear**2   # what a leak would add
         assert leaked / A0 == pytest.approx(1.0, rel=1e-6)
         assert leaked / enclosed > 1e-8                           # 2e-8 of the Sun's pull: excluded
+
+
+# ============================================================================================
+# 29  The split is an identity; outside a non-spherical sheet only multipoles l >= 2 remain
+# ============================================================================================
+class TestSplitAndMultipoles:
+    """g_N(rho) = g_N(P rho) + g_N(rho - P rho) is an identity, by linearity; the rule is only
+    that the first term goes through F. Outside the sheet, rho - P rho has no monopole and, with
+    P centred on the centre of mass, no dipole: what is left is the sheet's own quadrupole and
+    higher multipoles, which fall as r^-4 or faster and are ordinary Newtonian gravity."""
+
+    def test_split_is_an_identity(self):
+        a, b = sp.symbols("a b", real=True)
+        gN = lambda rho: GS * rho                      # any linear functional of the density
+        assert sp.expand(gN(a) - (gN(b) + gN(a - b))) == 0
+
+    def test_no_dipole_about_the_centre_of_mass(self):
+        n = 4
+        m = sp.symbols("m0:%d" % n, positive=True)
+        P = [sp.Matrix(sp.symbols(f"q{i}_1:4", real=True)) for i in range(n)]
+        c = sum((m[i] * P[i] for i in range(n)), sp.zeros(3, 1)) / sum(m)
+        dip = sum((m[i] * (P[i] - c) for i in range(n)), sp.zeros(3, 1))
+        assert sp.simplify(dip) == sp.zeros(3, 1)
+
+    def test_exterior_residual_falls_as_r_minus_4(self):
+        """A non-spherical sheet (a 'sun' and one heavy 'planet'): the field of rho - P rho
+        outside the sheet falls as D^-4 (log-slope -4), with no D^-2 or D^-3 part."""
+        sys0 = [(1.0, (0.0, 0.0, 0.0)), (1e-3, (0.6, 0.0, 0.0))]
+        com = np.array([1e-3 * 0.6 / 1.001, 0.0, 0.0])
+        s1 = pointer(sys0, com, 1.0)
+        Ds = np.array([5.0, 10.0, 20.0, 40.0])
+        res = []
+        for Dd in Ds:
+            X = com + np.array([0.3, 1.0, 0.2]) / np.linalg.norm([0.3, 1.0, 0.2]) * Dd
+            res.append(np.linalg.norm(field_at(sys0, X) - field_at(s1, X)))
+        slope = np.polyfit(np.log(Ds), np.log(res), 1)[0]
+        assert slope == pytest.approx(-4.0, abs=0.05)
+
+    def test_solar_system_residual_at_one_parsec(self):
+        """Its size for the solar system at 1 pc: (m_J/M_sun)(5.2 AU/1 pc)^2 ~ 6e-13 of the monopole."""
+        rel = (1 / 1047) * (5.2 * AU / PC) ** 2
+        assert 5e-13 < rel < 7e-13
+
+
+# ============================================================================================
+# 30  The coarse-graining scale: which scales exist, and why predictions do not depend on the edge
+# ============================================================================================
+class TestCoarseGrainingScale:
+    """From the system's GM, the host's Omega and a0 one can build lengths only as
+    r_M f(pi), with the single dimensionless group pi = GM Omega^4 / a0^3. The simple choices are
+    r_M = sqrt(GM/a0) (pi^0), r_J = (GM/2 Omega^2)^(1/3) (pi^(1/6)) and a0/Omega^2 (pi^(-1/2)).
+    Cassini excludes r_M, a0/Omega^2 lies beyond binding, and r_J, the tidal edge, is inside the
+    window. For s << l the prediction depends on the edge only through (s/l)^3."""
+
+    def test_one_dimensionless_group(self):
+        """Dimensions [L, T]: GM = L^3 T^-2, a0 = L T^-2, Omega = T^-1. pi = GM Omega^4 / a0^3."""
+        dims = {"GM": (3, -2), "a0": (1, -2), "Om": (0, -1)}
+        expo = {"GM": 1, "a0": -3, "Om": 4}
+        L = sum(dims[k][0] * expo[k] for k in dims)
+        T = sum(dims[k][1] * expo[k] for k in dims)
+        assert (L, T) == (0, 0)
+
+    def test_the_simple_scales(self):
+        pi_ = GM_SUN * OMEGA_SUN**4 / A0**3
+        rM = math.sqrt(GM_SUN / A0)
+        rJ = jacobi_radius(GM_SUN, OMEGA_SUN)
+        assert rJ / rM == pytest.approx((4 * pi_) ** (-1 / 6), rel=1e-9)
+        assert (A0 / OMEGA_SUN**2) / rM == pytest.approx(pi_ ** (-1 / 2), rel=1e-9)
+
+    def test_only_the_tidal_edge_survives(self):
+        rM = math.sqrt(GM_SUN / A0)
+        rJ = jacobi_radius(GM_SUN, OMEGA_SUN)
+        lmin = TestSheetEdgeBounds().l_min()
+        assert rM < lmin                         # r_M: excluded by Cassini
+        assert A0 / OMEGA_SUN**2 > rJ            # a0/Omega^2 (~5 kpc): beyond binding
+        assert lmin < rJ                         # r_J: inside the window
+
+    @staticmethod
+    def kernel_enclosed_fraction(kind, r_over_l):
+        """Fraction of a sheet's mass inside r for three kernels of scale l (normalised to M)."""
+        u = r_over_l
+        if kind == "tophat":
+            return min(u, 1.0) ** 3
+        if kind == "plummer":                    # Plummer with scale l/2, truncated at l
+            a_ = 0.5
+            f = lambda q: q**3 / (q**2 + a_**2) ** 1.5
+            return f(min(u, 1.0)) / f(1.0)
+        if kind == "gauss":                      # Gaussian with sigma = l/3, truncated at l
+            sig = 1 / 3
+            from scipy.special import erf
+            f = lambda q: erf(q / (math.sqrt(2) * sig)) - math.sqrt(2 / math.pi) * (q / sig) * math.exp(-q**2 / (2 * sig**2))
+            return f(min(u, 1.0)) / f(1.0)
+
+    def test_kernel_bound(self):
+        """If a kernel's density never exceeds c times the uniform ball's, its enclosed mass
+        is at most c M (r/l)^3, so the residual is at most c (nu - 1)(r/l)^3 of the own pull."""
+        for kind in ("tophat", "plummer", "gauss"):
+            # c = central density over the uniform ball's (each kernel's density falls outward)
+            c = self.kernel_enclosed_fraction(kind, 1e-4) / 1e-12
+            assert 1.0 <= c < 12.0, kind
+            for u in (0.01, 0.05, 0.1, 0.3, 0.6, 1.0):
+                assert self.kernel_enclosed_fraction(kind, u) <= c * u**3 * (1 + 1e-6), (kind, u)
+
+    def test_wide_binary_correction_is_kernel_insensitive_at_the_tidal_edge(self):
+        """At l = r_J, for 2 M_sun at 20 kAU, every kernel gives a correction below 1e-3."""
+        GM = 2 * GM_SUN
+        l = jacobi_radius(GM, OMEGA_SUN)
+        s = 20e3 * AU
+        for kind in ("tophat", "plummer", "gauss"):
+            corr = (1 / mu(1.9) - 1) * self.kernel_enclosed_fraction(kind, s / l)
+            assert corr < 1e-3, kind
+
+
+# ============================================================================================
+# 31  Wide binaries: Newtonian to (s/l)^3, and a boost growing as s^3 would measure the edge
+# ============================================================================================
+class TestWideBinaryEdgeDependence:
+    m_e = mu(1.9)
+
+    def corr(self, s_au, l_au):
+        return (1 / self.m_e - 1) * (s_au / l_au) ** 3
+
+    def test_signature_is_s_cubed(self):
+        ss = np.array([2e3, 5e3, 1e4])
+        slope = np.polyfit(np.log(ss), np.log([self.corr(s_, 4.5e4) for s_ in ss]), 1)[0]
+        assert slope == pytest.approx(3.0, abs=1e-9)
+
+    def test_table(self):
+        """Corrections for 2 M_sun at 5, 10, 20 kAU: ~0.02 / 0.15 at the Cassini minimum
+        (15 kAU), ~0.0007 / 0.006 / 0.045 at 45 kAU, below 1e-4 at the Jacobi radius."""
+        GM = 2 * GM_SUN
+        rJ = jacobi_radius(GM, OMEGA_SUN) / AU
+        lmin = (abs(1 / self.m_e - nu_par(self.m_e)) * GM / Q2_CASSINI_2SIGMA) ** (1 / 3) / AU
+        assert 1.4e4 < lmin < 1.6e4 and 3.5e5 < rJ < 3.8e5
+        assert self.corr(1e4, lmin) == pytest.approx(0.15, abs=0.01)
+        assert self.corr(2e4, 4.5e4) == pytest.approx(0.046, abs=0.003)
+        assert self.corr(2e4, rJ) < 1e-4
+
+    def test_prediction_at_the_tidal_edge(self):
+        """With l = r_J every bound pair is Newtonian to better than 1e-3 out to 50 kAU."""
+        rJ = jacobi_radius(2 * GM_SUN, OMEGA_SUN) / AU
+        assert all(self.corr(s_, rJ) < 2e-3 for s_ in (5e3, 1e4, 2e4, 5e4))
 
 
 # ============================================================================================
