@@ -30,6 +30,10 @@ stationary solutions are stable when `f' ≤ a f'' ≤ 0`.
   `x = 1`, so the stability condition fails above `a₀`.
 * `inertia_vanishes`: the khronon's inertia `(1 − μ)` and `(1 − μ)²` vanishes as the TetB share
   vanishes.
+* `strong_field_not_pure`, `slope_and_dimple`: close up, the galaxy's field is a flat slope that
+  drops out in free fall, and the Sun is a dimple with no drain (no TetB share); a stronger field
+  never gives that, since the TetB share stays between 0 and `a₀`; the two views meet at the
+  Jacobi radius, where the Sun's pull equals the tide.
 * `density_exponent`, `oscillation_frequency`: around a point mass the khronon density is positive,
   and a khronon mode across the field oscillates at `ω² = [2/(2 − μ)]Ω² = −dg/dr`, between `Ω²`
   and `2Ω²`.
@@ -244,6 +248,33 @@ theorem oscillation_frequency (x a0 G r : ℝ) (hx : 0 < x) (ha : 0 < a0) (hG : 
   · have : 2 / (2 - law x) < 2 := by rw [div_lt_iff₀ (by linarith)]; nlinarith
     nlinarith
 
+-- ============================================================================================
+-- The flat slope and the mountain
+-- ============================================================================================
+
+/-- A stronger field never makes the field pure TetA: for every finite `x > 0` the TetB share, in
+units of `a₀`, lies strictly between 0 and 1 (and tends to 1, `share_limit`). "No drain" is not
+"strong field". -/
+theorem strong_field_not_pure (x : ℝ) (hx : 0 < x) :
+    0 < x * (1 - law x) ∧ x * (1 - law x) < 1 := by
+  rw [share_eq_law x hx.le]; unfold law
+  have h1 : 0 < x + 1 := by linarith
+  exact ⟨div_pos hx h1, (div_lt_one h1).mpr (by linarith)⟩
+
+/-- Close up: the Sun's own field is a drainless dimple, taken linearly (`μ = 1`), so its TetB
+share is exactly zero; and the galaxy's field there is a flat slope `g_e`, which drops out of every
+relative acceleration (the net-field rule's `free_fall`). At the edge, `r_J³ = GM/(2Ω²)`, the Sun's
+pull equals the tide of a flat rotation curve: `GM/r_J² = 2Ω² r_J` (the net-field rule's `jacobi`). -/
+theorem slope_and_dimple {V : Type*} [AddCommGroup V] (g : ℝ) (ai aj ge : V)
+    (v R GM rJ : ℝ) (hR : 0 < R) (hv : 0 < v) (hGM : 0 < GM) (hrJ : 0 < rJ)
+    (hJ : rJ ^ 3 = GM / (2 * (v / R) ^ 2)) :
+    (1 - 1) * g = 0 ∧ (aj + ge) - (ai + ge) = aj - ai ∧ GM / rJ ^ 2 = 2 * (v / R) ^ 2 * rJ := by
+  refine ⟨by ring, NetFieldRule.free_fall ai aj ge, ?_⟩
+  have h := (NetFieldRule.jacobi v R GM (rJ ^ 3) hR hv hGM hJ).2.2
+  have hr2 : rJ ^ 2 ≠ 0 := by positivity
+  have hr3 : rJ ^ 3 ≠ 0 := by positivity
+  rw [← h]; field_simp
+
 end KhrononPreferredFrame
 
 #print axioms KhrononPreferredFrame.bb_point
@@ -259,3 +290,5 @@ end KhrononPreferredFrame
 #print axioms KhrononPreferredFrame.inertia_vanishes
 #print axioms KhrononPreferredFrame.density_exponent
 #print axioms KhrononPreferredFrame.oscillation_frequency
+#print axioms KhrononPreferredFrame.strong_field_not_pure
+#print axioms KhrononPreferredFrame.slope_and_dimple

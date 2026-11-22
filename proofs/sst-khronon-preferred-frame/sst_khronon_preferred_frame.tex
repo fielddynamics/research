@@ -1,6 +1,6 @@
 \documentclass[twocolumn]{iopjournal}
 
-\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,graphicx}
 
 \fancyhfoffset[L]{0mm}
 \setlength{\marginparwidth}{0pt}
@@ -28,6 +28,16 @@
 \ead{stephen@fielddynamics.org}
 
 \begin{abstract}
+\emph{The picture.} A mountain stream looks flat close up; zoomed out,
+it runs down a mountain. Inside a solar system the galaxy's field is
+the same: a flat slope, which everything falls with together, so only
+its curvature, the tide, is felt. The Sun is a dimple on that slope,
+and the dimple has no drain, so it is pure TetA. Seen from another
+galaxy, the whole mountain shows, the Sun is one grain of its mass, and
+the mountain has the drain, so the constitutive law acts there. The
+two views meet at the Jacobi radius. This note shows that the SST's
+preferred frame obeys exactly this picture.
+
 The time-leg proof~\cite{NelsonTL} showed that the SST, varied as
 the framework varies it, has the field equations of Blanchet and
 Marsat's preferred-foliation theory~\cite{BM2011} with
@@ -52,9 +62,11 @@ tend to a constant, and that is why it can. (iv) Stability at every
 acceleration forces a per-mass TetB tail; in the family
 $x/(1+x^n)^{1/n}$ only $n = 1$ is stable everywhere with a bounded
 tail. (v) The khronon's inertia and density are proportional to the
-TetB share, so in a drainless field, where the net-field rule sets
-that share to zero, the preferred-frame sector is empty:
-$\alpha_1 = \alpha_2 = 0$ inside a star system. Steady rotating discs
+TetB share. The Sun's dimple has none, and the galaxy's share is a
+flat slope across the solar system, so the preferred-frame sector is
+empty there: $\alpha_1 = \alpha_2 = 0$ inside a star system. A
+stronger field never gives this (the TetB share stays between $0$ and
+$a_0$); only reading the law at the mountain's scale does. Steady rotating discs
 are exact; non-stationary systems carry an order-unity khronon
 correction, a prediction.
 \end{abstract}
@@ -82,9 +94,9 @@ is a field, the khronon; its perturbation $\pi$ is the shift of the
 preferred time, $T = t + \pi/c^2$~\cite{Flanagan2023}. Write the TetB
 share of the field as $(1-\mu)g$.
 
-Each identity below is checked by the accompanying script (24
+Each identity below is checked by the accompanying script (32
 checks, sympy), and the structural ones are machine-checked in Lean~4
-(13 theorems, importing the net-field rule's
+(15 theorems, importing the net-field rule's
 formalisation)~\cite{NelsonScript}.
 
 \textbf{Prior work.} The khronometric parametrisation, its PPN
@@ -96,6 +108,81 @@ reading of the conditions in terms of $\mu$ and the TetB share, the
 proof that $f = a_0^2(F - y)$ meets them everywhere and why, the
 forced tail, the uniqueness of $n = 1$, the khronon frequency, and
 the khronon sector under the net-field rule~\cite{NelsonNFR}.
+
+% ----------------------------------------------------------------------
+
+\section*{The picture: the slope and the mountain}
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\textwidth]{fig_zoom.pdf}
+\caption{The Milky Way's potential at three zooms (flat curve
+$v = 220$~km/s, 2~kpc core, Sun at 8.2~kpc). (a) Seen from another
+galaxy: the whole mountain; the Sun is one grain of it. (b) Zoomed to
+$\pm1.5$ Jacobi radii: the mountain is a flat slope, curved by only
+$8\times10^{-5}$ of its tilt across $r_J$; the Sun is a thin dimple.
+(c) Zoomed to the planets: only the Sun's dimple; the slope's tilt
+across $\pm50$~AU is $8\times10^{-5}$ of the dimple's depth, and it
+cancels in free fall anyway. Script: \texttt{make\_figures.py}.}
+\label{fig:zoom}
+\end{figure*}
+
+A mountain stream looks flat close up; zoomed out, it runs down a
+mountain. Fig.~\ref{fig:zoom} draws the same for the galaxy's field
+at the Sun.
+
+\textbf{Inside} (smaller than the Jacobi radius $r_J = 1.44$~pc): the
+galaxy's field, $1.8\times10^{-10}$~m/s$^2$, changes by only
+$\sim10^{-8}$ of itself across the planets. It is a flat slope: the
+Sun and planets fall with it together, so it drops out of every
+relative acceleration. Only its curvature, the tide, is felt,
+$2\Omega^2r = 2\times10^{-18}$~m/s$^2$ at Saturn. The galaxy's TetB
+share is present (here $\mu \approx 0.60$), but as part of that flat
+slope. The Sun is a dimple on it, and the dimple has \emph{no drain}:
+its own field is taken linearly, its TetB share is exactly zero, and
+it is pure TetA with the bare $G$.
+
+\textbf{Outside} (seen from another galaxy): the whole mountain shows.
+At $r_J$ the Sun's pull is $1/2700$ of the galaxy's field, one grain
+of the mountain. Rotation curves and lensing measure the mountain, the
+mountain has the drain, and $\mu$ acts on it.
+
+\textbf{The edge} is $r_J$, where the Sun's pull equals the tide
+(Fig.~\ref{fig:scales}). This is the net-field rule~\cite{NelsonNFR}:
+$\mu$ reads the field at the mountain's scale, $\ell = r_J$.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{fig_scales.pdf}
+\caption{Which acceleration dominates at each distance from the Sun.
+Inside $r_J$ (shaded): the Sun's dimple, the galaxy's flat slope
+(which cancels in free fall) and its tide. Dashed: the tail $a_0$
+that $\mu$ would give if it read the Sun's dimple, excluded. The Sun's
+pull meets the tide at $r_J$.}
+\label{fig:scales}
+\end{figure}
+
+\textbf{Why a stronger field is not the same.} The TetB share of the
+law is $(1-\mu)g = a_0\mu$, strictly between $0$ and $a_0$ for every
+finite field, tending to $a_0$ (Lean \texttt{strong\_field\_not\_pure}).
+Making the field stronger never gives pure TetA. The Sun's dimple is
+pure TetA because it has no drain, not because it is strong.
+
+\textbf{Three ways to read the law} at the Sun:
+\begin{center}
+\small
+\begin{tabular}{@{}lll@{}}
+$\mu$ reads & result & test\\\hline
+each mass's own field & tail $a_0$ & perihelia: fail\\
+Sun + galaxy together & quadrupole & Cassini: fail\\
+the mountain (scale $r_J$) & pure TetA & pass
+\end{tabular}
+\end{center}
+The tail would turn each orbit backwards by
+$2\pi(a_0/g)\sqrt{1-e^2}$ (confirmed by orbit integration), about
+80~mas/yr at Saturn; the quadrupole is the net-field rule's
+Cassini result~\cite{NelsonNFR}. Theorems~3--4 below add why no
+better law escapes the first row: stability forces the tail.
 
 % ----------------------------------------------------------------------
 
@@ -263,37 +350,46 @@ than propagating.
 
 % ----------------------------------------------------------------------
 
-\section*{Theorem 6 (the preferred frame in a drainless field)}
+\section*{Theorem 6 (the preferred frame: slope and dimple)}
 
 \emph{The khronon's inertia ($h_\perp$, $h_\parallel$), its density
 $\rho_T$ and its momentum $\rho_Tv_T$ are all proportional to the TetB
-share. In a drainless field the net-field rule sets the TetB share to
-zero~\cite{NelsonNFR}, so Flanagan's khronon action vanishes there,
-his modified Poisson equation becomes Poisson's, and his
-gravitomagnetic equation becomes general relativity's,
-$\nabla^2\zeta_i = 16\pi G\rho_mv_m^i$. Inside a star system the
-preferred-frame sector is empty: $\alpha_1 = \alpha_2 = 0$.}
+share. Inside the Jacobi radius:
+\begin{enumerate}
+\item the Sun's dimple has no drain, so its TetB share is zero and it
+carries no khronon: Flanagan's modified Poisson equation is Poisson's
+for the dimple, and his gravitomagnetic equation is general
+relativity's, $\nabla^2\zeta_i = 16\pi G\rho_mv_m^i$;
+\item the galaxy's TetB share is present but flat: its khronon density
+at the Sun, $5\times10^{-22}$~kg\,m$^{-3}$, is smooth on the
+scale of the solar system, its pull inside Saturn's orbit
+($2\times10^{-19}$~m/s$^2$) is part of the tide, and its frequency is
+the galaxy's tidal frequency (period $\sim230$~Myr), frozen over any
+planetary time.
+\end{enumerate}
+So the preferred-frame sector is empty inside a star system:
+$\alpha_1 = \alpha_2 = 0$.}
 
 \begin{proof}
-$(1-\mu)$ and $(1-\mu)^2$ tend to zero with the TetB share (Lean
-\texttt{inertia\_vanishes}); the rest is Flanagan's Eqs.~25, 35 and~42
-with $\bar\chi = 0$ (script D1).
+$(1-\mu)$ and $(1-\mu)^2$ vanish with the TetB share (Lean
+\texttt{inertia\_vanishes}); the dimple's share is zero and the slope
+cancels in free fall (Lean \texttt{slope\_and\_dimple}, importing the
+net-field rule's \texttt{free\_fall} and \texttt{jacobi}); the rest is
+Flanagan's Eqs.~25, 35 and~42 with $\bar\chi = 0$ for the dimple, and
+the numbers (script D1--D4, F1--F8).
 \end{proof}
 
-\textbf{Numbers.} Without the rule, with $a$ taken from the Sun's own
-time leg, Bonetti and Barausse's $\alpha_1 = -8(1 - \mu)$ would be
-$-1.6\times10^{-7}$ at 1~AU, within $|\alpha_1| < 10^{-4}$, but
-$\alpha_2$ is undefined (Theorem~1). In Flanagan's limit the Sun would
-carry a khronon density $a_0/2\pi Gr$, $2.0\times10^{-13}$~kg\,m$^{-3}$
-at Saturn's orbit, about $2\times10^4$ times the ephemeris bound on
-unseen mass there~\cite{Pitjev2013}; moving with the Sun it would
-drive $\pi$ at order unity, giving preferred-frame accelerations
-$\sim a_0$. That is the per-mass tail already excluded by
-perihelia~\cite{NelsonNFR}, seen in the khronon sector, and the rule
-removes both together. With the rule, the coarse-graining kernel bound
-$c(\nu - 1)(r/\ell)^3$ of~\cite{NelsonNFR}, $\ell = r_J$, limits a
-planet at 1~AU to a coupling of at most $4\times10^{-17}$ of the
-galaxy's TetB share (script D2--D4).
+\textbf{Numbers.} Read on the Sun's own dimple instead, Bonetti and
+Barausse's $\alpha_1 = -8(1 - \mu)$ would be $-1.6\times10^{-7}$ at
+1~AU, but $\alpha_2$ is undefined (Theorem~1). In Flanagan's limit the
+Sun would carry a khronon density $a_0/2\pi Gr$,
+$2.0\times10^{-13}$~kg\,m$^{-3}$ at Saturn's orbit, about $2\times10^4$
+times the ephemeris bound on unseen mass there~\cite{Pitjev2013}, and
+moving it with the Sun would drive $\pi$ at order unity: the tail
+again, seen in the khronon sector. Read at the mountain's scale, the
+coarse-graining kernel bound $c(\nu - 1)(r/\ell)^3$
+of~\cite{NelsonNFR} limits a planet at 1~AU to a coupling of at most
+$4\times10^{-17}$ of the galaxy's TetB share.
 
 % ----------------------------------------------------------------------
 
@@ -316,12 +412,14 @@ equation; this note does not compute it.
 
 \section*{Scope}
 
-Proved here: the dictionary to both published analyses; that the PPN
+Proved here: the picture's algebra (the slope cancels, the dimple has
+no TetB share, a stronger field never gives one, the edge at $r_J$);
+the dictionary to both published analyses; that the PPN
 formulas of~\cite{BB2015} do not apply at GFD's point; the khronon as
 the TetB share; stability at every acceleration and its equivalence to
 $\mu' > 0$; the forced tail and the uniqueness of $n = 1$; the
-khronon frequency; the empty preferred-frame sector in a drainless
-field.
+khronon frequency; the empty preferred-frame sector inside a star
+system.
 
 Not proved here:
 \begin{enumerate}
@@ -331,9 +429,13 @@ symmetry; the general case is open, and the TetB share's density can
 be negative in some configurations~\cite{Flanagan2023}.
 \item \emph{The non-stationary correction}, Proposition~7(2), in any
 particular system.
-\item \emph{The net-field mechanism}, as in~\cite{NelsonTL,NelsonNFR}:
-Theorem~6 assumes the rule; the leakage figure rests on its kernel
-bound with $\ell = r_J$.
+\item \emph{The mountain's scale in the action.} The picture is the
+net-field rule: $\mu$ reads the field at the mountain's scale,
+$\ell = r_J$. In the action, $\mu$ reads the time leg's acceleration
+at each point; writing ``at the mountain's scale'' into the action
+(the coarse-grained time leg) is open, as
+in~\cite{NelsonTL,NelsonNFR}. The leakage figure rests on the rule's
+kernel bound.
 \item \emph{Higher orders and gravitational waves.} Tensor modes are
 carried by $R$ and travel at $c$; the khronon's coupling to radiating
 binaries beyond the slow-motion limit is not computed.

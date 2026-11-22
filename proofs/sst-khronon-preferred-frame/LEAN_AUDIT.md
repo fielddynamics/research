@@ -3,13 +3,13 @@
 | | |
 |---|---|
 | **Formalisation** | [`lean/KhrononPreferredFrame.lean`](lean/KhrononPreferredFrame.lean), Lean 4.36.0 + Mathlib v4.36.0 |
-| **Depends on** | [`../net-field-rule/lean/`](../net-field-rule/lean/) (`flux_exponent`) and [`../constitutive-law-exchange-symmetry/lean/`](../constitutive-law-exchange-symmetry/lean/) (`law`); imported, not copied |
+| **Depends on** | [`../net-field-rule/lean/`](../net-field-rule/lean/) (`flux_exponent`, `free_fall`, `jacobi`) and [`../constitutive-law-exchange-symmetry/lean/`](../constitutive-law-exchange-symmetry/lean/) (`law`); imported, not copied |
 | **Build** | 0 errors · 0 warnings · no `sorry` / `admit` / custom `axiom` / `native_decide` |
-| **Axioms** | All 13 `#print axioms` checks report only `propext`, `Classical.choice`, `Quot.sound` |
+| **Axioms** | All 15 `#print axioms` checks report only `propext`, `Classical.choice`, `Quot.sound` |
 | **Reproduce** | `cd lean && lake exe cache get && lake build` |
 | **CI** | `.github/workflows/lean-sst-khronon-preferred-frame.yml`, on every change to this proof or any proof it imports |
 
-**Verdict.** The algebra of Theorems 1, 3, 4 (1), 5 and the limit in Theorem 6 is proved. Flanagan's equations (the slow-motion action, the khronon fluid, the kinetic matrix and the stability conditions) and Bonetti and Barausse's PPN formulas are cited, not formalised. Theorem 2, the family scan of Theorem 4 (2), the solar-system numbers and Proposition 7 are checked by the script.
+**Verdict.** The algebra of the picture (slope, dimple, edge), of Theorems 1, 3, 4 (1), 5 and of Theorem 6 is proved. Flanagan's equations (the slow-motion action, the khronon fluid, the kinetic matrix and the stability conditions) and Bonetti and Barausse's PPN formulas are cited, not formalised. Theorem 2, the family scan of Theorem 4 (2), the solar-system numbers and Proposition 7 are checked by the script.
 
 ## 1. Definitions to check against the paper
 
@@ -34,6 +34,8 @@
 | Theorem 4 (2), `n = 2` | `standard_law_turns_over` | the share at `x = 10` is below its value at `x = 1` |
 | Theorem 5 | `density_exponent` | `2 + (1 − m)(−2/(2 − m)) = 2/(2 − m) = 2 − s`, positive (uses `NetFieldRule.flux_exponent`) |
 | Theorem 5, Eq. (4) | `oscillation_frequency` | `ρ_T0/h_⊥ = [2/(2 − μ)]Ω² = −dg/dr`, strictly between `Ω²` and `2Ω²` |
+| The picture | `strong_field_not_pure` | for every `x > 0`, `0 < x(1 − μ) < 1`: a stronger field never gives pure TetA |
+| The picture, Theorem 6 | `slope_and_dimple` | the dimple's linear share `(1 − 1)g = 0`; a uniform slope drops out (`NetFieldRule.free_fall`); at `r_J³ = GM/2Ω²` the Sun's pull equals the tide, `GM/r_J² = 2Ω² r_J` (`NetFieldRule.jacobi`) |
 | Theorem 6 | `inertia_vanishes` | `(1 − μ) → 0` and `(1 − μ)² → 0` |
 
 ## 3. Cited, not formalised

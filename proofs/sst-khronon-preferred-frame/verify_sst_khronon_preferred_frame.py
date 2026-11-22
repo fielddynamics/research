@@ -9,7 +9,9 @@ sector open: PPN alpha_1, alpha_2 and the khronon's dynamics and stability. This
   Part B  khronon stability (Flanagan's conditions) for GFD's f, and what stability forces;
   Part C  the khronon's oscillation frequency around a point mass;
   Part D  the net-field rule in the khronon sector, and the solar-system numbers;
-  Part E  stationary versus non-stationary systems.
+  Part E  stationary versus non-stationary systems;
+  Part F  the picture: close up the galaxy's field is a flat slope and the Sun a drainless dimple; zoomed out, the
+          whole mountain, where mu acts.
 
 Exact algebra (sympy) wherever an identity is claimed; numbers only for the solar-system estimates.
 Run: python verify_sst_khronon_preferred_frame.py"""
@@ -143,9 +145,10 @@ check("C5 and omega^2 = -dg/dr = |d^2 Phi/dr^2|: the khronon oscillates at the r
 
 # ---------------------------------------------------------------- Part D: the net-field rule in the khronon sector
 check("D1 Flanagan's khronon action (Eq. 42) and density (Eq. 22) are multiplied by the TetB share: h_perp ~ (1 - mu), h_par ~ (1 - mu)^2, "
-      "rho_T ~ div[(1 - mu) grad Phi]. In a drainless field the net-field rule sets the TetB share to zero (its fourth face), so the "
-      "khronon has no inertia, no density and no momentum there: his Eq. 25 becomes Poisson's equation and his gravitomagnetic Eq. 35 "
-      "becomes GR's, del^2 zeta = 16 pi G rho_m v_m. Inside a star system the preferred-frame sector is empty: alpha_1 = alpha_2 = 0",
+      "rho_T ~ div[(1 - mu) grad Phi]. The Sun's own field is a drainless dimple: taken linearly, its TetB share is zero (the net-field "
+      "rule's fourth face), so the Sun carries no khronon inertia, density or momentum: Flanagan's Eq. 25 is Poisson's equation for the "
+      "dimple and his gravitomagnetic Eq. 35 is GR's, del^2 zeta = 16 pi G rho_m v_m. The galaxy's share is there but flat (Part F). "
+      "Inside a star system the preferred-frame sector is empty: alpha_1 = alpha_2 = 0",
       sp.limit(1 - mu(xs), xs, sp.oo) == 0 and sp.limit((1 - mu(xs)) ** 2, xs, sp.oo) == 0)
 GMsun, AU, a0n = 1.32712e20, 1.495979e11, 1.2e-10
 x1 = GMsun / AU ** 2 / a0n
@@ -174,5 +177,67 @@ check("E1 Flanagan's linearised khronon equation (Eq. 31) has source d rho_T0/dt
 check("E2 for a non-stationary system (a bar or spiral pattern, an interaction, accretion), pi ~ L^2/T (Flanagan Eq. 34), so "
       "Xi = Phi - d pi/dt + ... differs from Phi at O(1) in the TetB share: the khronon carries the TetB share as an irrotational fluid "
       "(v_T = -grad pi) and lags a moving pattern. This is a prediction of the SST, not an adjustable correction", True)
+
+# ---------------------------------------------------------------- Part F: the flat slope and the mountain
+# The picture: close up (inside the Jacobi radius) the galaxy's field is a flat slope and the Sun is a dimple with
+# no drain; zoomed out (from another galaxy) the whole mountain shows, the Sun is one grain of it, and mu acts there.
+# Milky Way: flat curve v = 220 km/s, 2 kpc core, Sun at R0 = 8.2 kpc (the same model as make_figures.py).
+check("F1 the law never reaches pure TetA by a stronger field: the TetB share a0 mu lies strictly between 0 and a0 for "
+      "every finite x, and tends to a0, not 0. 'No drain' is therefore not 'strong field': it is the Sun's own field "
+      "taken linearly (mu = 1 identically), whose TetB share is exactly 0",
+      sp.simplify(a0 * mu(xs) - (1 - mu(xs)) * xs * a0) == 0 and sp.limit(a0 * mu(xs), xs, sp.oo) == a0
+      and sp.limit(a0 * mu(xs), xs, 0) == 0)
+PCm, KPCm, v_c, Rc_m = 3.0857e16, 3.0857e19, 2.2e5, 2.0 * 3.0857e19
+R0m = 8.2 * KPCm
+Gn = 6.674e-11
+Om = v_c / R0m
+g_gal = v_c ** 2 * R0m / (R0m ** 2 + Rc_m ** 2)
+x_gal = g_gal / a0n
+mu_gal = x_gal / (1 + x_gal)
+check(f"F2 at the Sun the galaxy's field is g = {g_gal:.2e} m/s^2 (x = {x_gal:.2f}, mu = {mu_gal:.2f}): the galaxy's TetB share is "
+      f"{1 - mu_gal:.0%} of its field there. It is NOT zero; what is zero is the Sun's own TetB share",
+      1.7e-10 < g_gal < 1.9e-10 and 0.55 < mu_gal < 0.65)
+r_ss = 30 * AU
+flat = r_ss / R0m
+check(f"F3 close up it is a flat slope: across the planets (30 AU) the galaxy's field changes by ~r/R0 = {flat:.1e} of itself. "
+      "A uniform field drops out of every relative acceleration (free fall), so the slope itself does nothing",
+      flat < 3e-8)
+rSat_m = 9.58 * AU
+tide_sat = 2 * Om ** 2 * rSat_m
+check(f"F4 what survives is the slope's curvature, the tide, 2 Omega^2 r = {tide_sat:.1e} m/s^2 at Saturn: "
+      f"{tide_sat / a0n:.0e} of the tail (a0) that mu would give if it read the Sun's dimple",
+      1e-18 < tide_sat < 3e-18 and tide_sat / a0n < 1e-7)
+rho_gal = a0n / (4 * math.pi * Gn * R0m) * (2 * mu_gal - x_gal / (1 + x_gal) ** 2)
+pull_gal = 4 * math.pi / 3 * Gn * rho_gal * rSat_m
+check(f"F5 the galaxy's TetB share is present at the Sun as a smooth khronon density (phantom density) {rho_gal:.1e} kg/m^3 "
+      f"(~{rho_gal / 6.77e-20:.3f} Msun/pc^3), {rho_gal / bound_sat:.0e} of the ephemeris bound at Saturn; its pull inside Saturn's "
+      f"orbit, {pull_gal:.1e} m/s^2, is part of the tide. Flat, smooth, and harmless",
+      3e-22 < rho_gal < 8e-22 and rho_gal / bound_sat < 1e-4 and pull_gal < tide_sat)
+P_gal_Myr = 2 * math.pi / Om / 3.156e13
+check(f"F6 flat in time as well: the galactic khronon's frequency is the galaxy's tidal frequency (Theorem 5), period ~2 pi/Omega "
+      f"= {P_gal_Myr:.0f} Myr, so over any planetary time the galaxy's frame flow is frozen", 200 < P_gal_Myr < 260)
+rJ_m = (GMsun / (2 * Om ** 2)) ** (1 / 3)
+sun_at_rJ = GMsun / rJ_m ** 2
+check(f"F7 the edge between the views is the Jacobi radius r_J = {rJ_m / PCm:.2f} pc ({rJ_m / AU:.2e} AU), where the Sun's pull "
+      f"equals the tide (GM/r_J^2 = 2 Omega^2 r_J = {sun_at_rJ:.1e} m/s^2). Seen from outside, the Sun's pull there is "
+      f"1/{g_gal / sun_at_rJ:.0f} of the galaxy's field: one grain of the mountain",
+      abs(sun_at_rJ / (2 * Om ** 2 * rJ_m) - 1) < 1e-12 and g_gal / sun_at_rJ > 1e3)
+import numpy as np
+from scipy.integrate import solve_ivp
+def precession(A, e):
+    def rhs(t, s):
+        r = math.hypot(s[0], s[1]); acc = -(1 / r ** 2 + A) / r
+        return [s[2], s[3], acc * s[0], acc * s[1]]
+    ev = lambda t, s: s[0] * s[2] + s[1] * s[3]; ev.direction = 1
+    sol = solve_ivp(rhs, [0, 20.5 * 2 * math.pi], [1 - e, 0, 0, math.sqrt((1 + e) / (1 - e))], rtol=1e-12, atol=1e-14, events=ev)
+    ang = np.unwrap(np.arctan2(sol.y_events[0][:, 1], sol.y_events[0][:, 0]))
+    return np.polyfit(np.arange(len(ang)), ang, 1)[0]
+ok_prec = all(abs(precession(1e-5, e) / (-2 * math.pi * 1e-5 * math.sqrt(1 - e * e)) - 1) < 1e-3 for e in (0.05, 0.3))
+xS = GMsun / rSat_m ** 2 / a0n
+mas_yr = 2 * math.pi / xS * math.sqrt(1 - 0.0565 ** 2) / 29.457 * 206264.806e3
+check(f"F8 why the other readings fail: if mu read the Sun's dimple, the tail (a constant pull a0) would turn each orbit "
+      f"backwards by 2 pi (a0/g) sqrt(1 - e^2) (confirmed by orbit integration at e = 0.05, 0.3), {mas_yr:.0f} mas/yr at Saturn. "
+      "If mu read Sun + galaxy together, the result is the quadrupole Cassini excludes (net-field rule). Only reading the "
+      "mountain passes", ok_prec and 70 < mas_yr < 90)
 
 print(f"\n{sum(ok)}/{len(ok)} checks passed")
