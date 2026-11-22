@@ -6,6 +6,8 @@
 
 ---
 
+> **Now a proof:** results 13–17 (with the honeycomb and closure) are written up as [`proofs/tiled-cube-affine-connection/`](../../../proofs/tiled-cube-affine-connection/). This folder keeps the working notes, the comparison of the two labellings and the 3 × 3 × 3 ladder.
+
 ## Question
 
 The proofs so far work on one cube: the forced frame, the Hadamard and Gram matrices, the Walsh eigenmodes and the vortices. The next proof is the tiling: cubes fill space, each holding one whole stellated octahedron, and neighbouring cubes share corners. Before writing it, the algebra has to say which tiling.

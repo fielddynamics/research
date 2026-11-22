@@ -39,6 +39,7 @@ Stephen Nelson · Field Dynamics Research · fielddynamics.org · Last updated 2
 | P-mountain | `sst-mountain-scale/` | 36 | yes |
 | P-closure | `closure-surface/` | 16 | yes |
 | P-lock | `bimetric-lock-constitutive-law/` | 64 | — |
+| P-tiling | `tiled-cube-affine-connection/` | 44 | — |
 
 The Lean formalisations import one another, so each chain is checked as a whole: P-forced → P-two-regions (half-space) → P-two-regions (scheme) → P-gram → P-walsh; P-forced → P-hadamard; P-exchange → P-aqual → (with the scheme) P-bimond; P-walsh + P-exchange → P-tugofwar → P-netfield → P-khronon → P-mountain → P-closure.
 
@@ -326,6 +327,17 @@ The torsion-free condition keeps the $s = +1$ projection and discards the $s = -
 >
 > **That's why Einstein's gravity works so well locally and why galaxies look strange.** Up close, each body's TetB is hidden inside it and the galaxy's TetB is level. Only at the scale of a whole galaxy, where stars move through the vortex's TetB rather than past it, does the drive or brake show up.
 
+### 5.5 The connection on the tiled cube [T] (P-tiling, 44 checks)
+
+Cubes tile space, each holding one stellated octahedron (the honeycomb: stars and shared octahedra in equal volume). Each face of TetA (opposite $v_\lambda$) is cut by the piercing TetB corner $-v_\lambda$ into four channels: the core ($\mu = \lambda$, a face of the Field Origin) and three corner triangles ($\mu \ne \lambda$). In the tiling each channel is shared by exactly four cubes: the core by the cube and three face neighbours, a corner channel by the four cubes around one cube edge, through the shared octahedron running from $v_\mu$ to $-v_\lambda$. So 16 couplings per face and 64 per TetA.
+
+- **Dictionary.** With $\sum v_a = 0$, $v_a\cdot v_b = 4\delta_{ab} - 1$, the cubes sharing channel $\mu$ of face $\lambda$ sit at $c_{\lambda\mu\nu} = -v_\lambda + \varepsilon v_\nu$, $\varepsilon = +1$ iff $\nu\in\{\lambda,\mu\}$: $\lambda$ = face, $\mu$ = channel, $\nu$ = leg. A $T_d$-equivariant bijection onto the index triples; forced (1152 equivariant bijections, one with these roles; one sign rule of 32). TetB obeys it with $-v$.
+- **Sectors.** Orbits $4,12,12,12,24$, character $(64,8,1,0,0)$; $\mu\leftrightarrow\nu$ even part $=$ Christoffel 40 ($4\cdot\mathbf1 + 3V_2 + 7\,\mathrm{std} + 3(\mathrm{sgn}\otimes\mathrm{std})$), odd part $=$ torsion 24 (regular); sign rep only in the 24. Field Origin = row $\mu = \lambda$; diagonal = straight-through couplings. This is the GRAM $6 + 4 + 6$ grid with each entry identified.
+- **Torsion = handedness.** On the all-different couplings $\mu\leftrightarrow\nu$ is the reflection exchanging legs $\mu,\nu$ (torsion-free = mirror-symmetric). The totally antisymmetric torsion is $\pm1$ by sense of circulation around each face (pseudoscalar: a swirl); the vector torsion along leg $b$ is a displacement $-2v_b$ toward the TetB corner (polar: a flow); they do not overlap.
+- **One vortex.** Each face's swirl has angular momentum $\parallel v_\lambda$; the four balance; TetA's vortex sits on the $-v_\lambda$ side and TetB's on the $+v_\lambda$ side with the same angular momentum (equality by parity; placement is the content): one swirl through the Field Origin.
+- **Closure.** With shared corners agreeing, couplings close TetA to TetA; with uniform labels they cross chambers.
+- **Open.** Dynamics (a field whose coefficients are $\Gamma$; torsion as net circulation), Letter 2's TetB reading of the 24, the $K^2$ of $a_0$, Lean. Working notes, incl. the $3\times3\times3$ ladder with a star nested in the Field Origin: `research/diamond-tetrad-lattice/cube-tiling/`.
+
 ---
 
 ## 6. Galactic results
@@ -534,6 +546,7 @@ Shell ceilings $\mathrm{CEIL} = B_{\rm Zn} + B_{\rm bdy} - \mu_b(2)[B_{\rm Zn} -
 | Mountain scale: ownership sweep (each field object's own mass onto its own, possibly overlapping, closure sphere); plain law on the swept density; four ports; the action does not choose the edge; every object closes, a pointer above its level; (dimple linear, bare $G$, blind to the law; mountain obeys the law); net-field rule derived; scale = each system's Jacobi radius (Sun, Pal 14, Pal 4); 3D solution; no anomalous Cassini $Q_2$; closure-surface kink (+ Lean) | `proofs/sst-mountain-scale/` (+ Lean) | 36 |
 | Closure surface: field's stagnation surface = the surface matter cannot leave (Coriolis does no work); snapping to a neighbouring cell through the stagnation points; anchored by the surroundings; vortex separatrix; not a sphere; self-consistent under ownership; Oort edge, α Cen, wide-binary edge, Pal 14 (+ Lean) | `proofs/closure-surface/` (+ Lean) | 16 |
 | Locked HR potential: the partition gives $\mu(\Omega) = \Omega/(1+\Omega)$ in its own odds (metric exchange inverts $\Omega$; odd terms vanish by total inversion, not parity; $S = P$ is the pole $\Omega = -1$). But $\mu(x)$ needs $\Omega = x$, which HR cannot supply (weak-field odds stay at 1; standard reduction gives $M/r^3$ on every branch, any $\beta$; root-blind) | `proofs/bimetric-lock-constitutive-law/` | 64 |
+| Tiled cube's affine connection: 16 couplings per face, 64 per TetA; dictionary $-v_\lambda + \varepsilon v_\nu$ (forced); Christoffel 40 + torsion 24; torsion = swirl + flow; one vortex through the Field Origin; TetA-to-TetA under closure | `proofs/tiled-cube-affine-connection/` | 44 |
 | BIMOND × GFD research (incl. chiral holonomy reproduced; connection irreducibles; where the roots live) | `research/bimond-gfd/run_all.py` | 130 |
 | Gram theorems | `papers/gram-matrix-of-tetrad-equation/verify_gram_theorems.py` | 32 |
 | Coupling algebra: the cube's symmetric couplings, two TetA–TetB channels, Gram/Walsh/Paper IX as elements, second root = odd leg relabelling; η as an element (time = grade 0), the connection's lower pair on the TetA–TetB links with the swap as parity | `research/coupling-algebra/verify_*.py`, `certify_first_principles.py` (exact, independent) | 50, 34, 52 |
@@ -1520,7 +1533,7 @@ $V - E + F = 4 = 2\chi(S^2)$, two disjoint closed surfaces.
 
 ## The formal proofs (`proofs/`)
 
-*The repository now holds twenty-two proofs (index: [`proofs/README.md`](proofs/README.md); keys and Lean status in §0). The first six are summarised in detail below, as written when they were read in full (their check counts have since grown: the forced frame now has 36). The other sixteen are summarised in Part I: P-gram §2.3, P-walsh §2.6, P-vortex §2.7, P-bimond §9 and §13, P-tugofwar §4.8, P-netfield, P-khronon, P-mountain and P-closure §5.4, P-chiral §12 item 26, P-bbp, P-gnull, P-sst, P-timeleg and P-lock in §13, and the half-space proof §2.2. Each proof lists its premises and shows them necessary by counterexample.*
+*The repository now holds twenty-three proofs (index: [`proofs/README.md`](proofs/README.md); keys and Lean status in §0). The first six are summarised in detail below, as written when they were read in full (their check counts have since grown: the forced frame now has 36). The other seventeen are summarised in Part I: P-tiling §5.5, P-gram §2.3, P-walsh §2.6, P-vortex §2.7, P-bimond §9 and §13, P-tugofwar §4.8, P-netfield, P-khronon, P-mountain and P-closure §5.4, P-chiral §12 item 26, P-bbp, P-gnull, P-sst, P-timeleg and P-lock in §13, and the half-space proof §2.2. Each proof lists its premises and shows them necessary by counterexample.*
 
 **P-aqual — The Energy Functional of $\mu = x/(x+1)$.**
 - $\mathcal L = -(a_0^2/8\pi G)F - \rho\Phi$.

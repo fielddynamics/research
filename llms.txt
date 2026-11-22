@@ -16,7 +16,7 @@ Status tags used throughout this file (the same as GFD_COLES_NOTES.md):
   [D] derived: follows from the framework's stated assumptions
   [E] exploratory: a numerical correspondence or extension, not yet a derivation
   [O] observational: a comparison with data
-Formal proofs: 22 proofs, 954 scripted checks, 14 machine-checked in Lean 4 (proofs/README.md).
+Formal proofs: 23 proofs, 998 scripted checks, 14 machine-checked in Lean 4 (proofs/README.md).
 Strongest results:
   - [T+L] mu(x) = x/(x+1) selected premise by premise (exchange symmetry, screening, accelerations as strengths).
   - [O] SPARC (164 galaxies, 3284 points, no per-galaxy fit): scatter 0.181 dex, median residual within
@@ -515,6 +515,7 @@ Each script is self-contained; run it from its own folder.
 - research/constitutive-law-u(x)/test_tug_of_war.py -- the same statements as 85 pytest tests
 - proofs/net-field-rule/verify_net_field_rule.py -- the net-field rule: four faces, forced per-mass tail, sheet split, Jacobi edge, clusters, wide binaries, RAR slope (122 checks; Lean in lean/)
 - proofs/closure-surface/verify_closure_surface.py -- where closure sits: stagnation surface = the surface matter cannot leave, snapping out through the stagnation points, anchoring, the vortex separatrix, shape, self-consistency, Oort cloud, alpha Cen, wide-binary edge, Pal 14 (16 checks; Lean in lean/)
+- proofs/tiled-cube-affine-connection/verify_tiled_cube_affine_connection.py -- the affine connection of the tiled cube: each TetA face channel shared by 4 cubes (16 per face, 64), the dictionary lambda = face, mu = channel, nu = leg (cube at -v_lambda + eps v_nu, forced), Christoffel 40 and torsion 24, torsion as handedness (swirl around faces, flow toward TetB), one vortex through the Field Origin, TetA-to-TetA under closure (44 checks)
 - proofs/sst-mountain-scale/verify_sst_mountain_scale.py -- the mountain scale: exact split from the action, dimple blind to the law, curved-slice projector, Jacobi radii, ownership sweep with overlapping spheres, four ports, 3D solutions, edge test, nested envelopes and faces, registration, Cassini quadrupole, closure-surface kink (36 checks; Lean in lean/)
 - proofs/sst-khronon-preferred-frame/verify_sst_khronon_preferred_frame.py -- the preferred frame: khronon = TetB share, stability at every acceleration, forced tail, n = 1, flat slope and drainless dimple, empty sector inside a star system (32 checks; Lean in lean/)
 
