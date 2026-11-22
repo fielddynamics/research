@@ -1,8 +1,8 @@
-# The Cube Tiling: Two Labellings and What Each Builds
+# The Cube Tiling: Two Labellings, and the Ladder of Tiles
 
-*Field Dynamics Research, research folder, 2026-11-22. Status: research, not a proof. Verification: `python3 verify_cube_tiling.py` (19 checks, exact integers and fractions).*
+*Field Dynamics Research, research folder, 2026-11-22. Status: research, not a proof. Verification: `python3 verify_cube_tiling.py` (19 checks) and `python3 verify_scale_ladder.py` (11 checks), exact integers and fractions.*
 
-`tiling` `cube` `stellated-octahedron` `TetA` `TetB` `closure` `diamond` `fluorite` `research`
+`tiling` `cube` `stellated-octahedron` `TetA` `TetB` `closure` `scale-ladder` `Field-Origin` `diamond` `fluorite` `research`
 
 ---
 
@@ -48,7 +48,7 @@ So the "one global bit" of the closure note is the choice of origin in C, and th
 
 **8. The root in each cube** (check 10). The orientation of a cube's TetA legs, $M_1$ or $-M_1$, is the root of the tetrad equation in that cube (Gram-matrix proof, Proposition 1).
 - **U:** the root is the same in every cube.
-- **C:** the root alternates across every face. Each cube's TetA legs are the parity image of its neighbour's.
+- **C:** written from each cube's own centre, the TetA legs of neighbouring cubes are mirror images. Nothing in the cube differs: every cube holds the same star, and its TetA is whichever of its corners are TetA on the one global board of corners (result 2). A shared corner is TetA for both cubes; they reach it from opposite sides, (+,+,+) from one centre and (−,+,+) from the other.
 
 **9. What the label is read from** (checks 11a–11c). The honeycomb's tetrahedra come in two orientations, each the inversion of the other.
 - **U:** TetA is every tetrahedron of one orientation and TetB every one of the other. The label is the honeycomb's own 2-colouring, read from shape alone.
@@ -61,36 +61,57 @@ So the "one global bit" of the closure note is the choice of origin in C, and th
 | stellated octahedra | in every cube, on every cube edge (7), at every corner (4a) | in the cubes only |
 | TetA meets TetB | along cube-face diagonals and at corners (6) | only at the Field Origins (6) |
 | a shared corner | 4 TetA + 4 TetB legs (4a) | one chamber (2, 4b) |
-| the root, cube to cube | constant (8) | alternates (8) |
+| TetA legs from each centre | the same directions (8) | mirror images in neighbours, one board of corners (8) |
 | the label is | the tetrahedron's orientation (9) | the corner's position (2, 9) |
 | the TetA legs form | two diamond nets (5a) | one fluorite net (5b) |
 | the root exchange | half a body diagonal (3) | one cube (3) |
+
+**10. Dilation** (`verify_scale_ladder.py`, 10a–10b). Scaling the tiling by an integer $k$ about a cube centre sends corners to corners exactly when $k$ is odd; even $k$ sends them onto cube centres. The closure labels obey
+$$\lambda(kp) = (-1)^{(k-1)/2}\,\lambda(p):$$
+$k \equiv 1 \pmod 4$ keeps every label, $k \equiv 3 \pmod 4$ exchanges TetA and TetB.
+
+**11. Blocks of tiles are tiles at odd sizes only** (11a–11d). An $n \times n \times n$ block's eight corners form a labelled star, four TetA corners making a tetrahedron, exactly when $n$ is odd. For even $n$ all eight carry one chamber. This is the 64-grid note's observation for its $2 \times 2 \times 2$ block (its section 4: the fine labels cannot split the large star), and the reason that note needs a separate coarse label.
+- The $3 \times 3 \times 3$ blocks obey the closure rule again, as tiles (11b): the closure tiling reproduces itself one level up, with nothing added.
+- The block centred on a tile has its TetA in the directions of the centre tile's TetB (11c), and so on up a ladder of tiles of side $2 \times 3^L$, every level a labelled star (11d).
+
+**12. A star inside the Field Origin** (12a–12e). Take the $3 \times 3 \times 3$ block centred on a tile. Its Field Origin, the core octahedron $|x|+|y|+|z| \le 3$, holds the centre tile, and nothing else whole (12b). The centre tile's eight corners are exactly the centroids of the Field Origin's eight faces (12a).
+- **C:** the centre tile's TetA corners sit on the faces of the composite's TetA, and its TetB corners on the composite's TetB (12d). Across the two levels, TetA meets TetA and TetB meets TetB. The mirror orientation of 11c is what makes this so.
+- **U:** the composite has the tile's orientation, so the centre tile's TetA corners sit on the composite's TetB faces: the chambers cross between the levels (12e).
+
+So the framework's statement that the stellated octahedron scales, with another stellated octahedron inside its Field Origin, is exact in the tiling: inscribed corner to face centroid, one level down at a factor of 3, with each chamber continuing into the same chamber.
 
 ## What this settles and what it does not
 
 Settled, exactly: the two labellings are different tilings, not two descriptions of one. They agree on the geometry (the same tetrahedral–octahedral honeycomb, since a star is unchanged by swapping its labels) and differ on every labelled structure.
 
-Not settled: which labelling the framework's tiling is. The framework's stated positions bear on it as follows.
+Which labelling is the framework's is a choice the framework makes, not one the algebra makes. Its stated positions bear on it as follows.
 - **For C.** Paper I's closure, "where parts meet they agree", read as one label per shared corner. The position that each cube holds one whole stellated octahedron, never one straddling cubes or centred on a corner: C has stars in the cubes only, while U has them on every cube edge and at every corner as well (results 4, 7). Rule 3, that TetB is reached only through the Field Origin: C keeps every TetA–TetB contact at the cubes' Field Origins (result 6).
-- **For U.** The root is the same in every cube, as a frame field keeps its orientation wherever $\det e \neq 0$ (result 8). The lattice note's bond reciprocity: a TetA leg closes only through a TetB-shaped junction (lattice note, result 2), and the diamond nets. The label is a property of the shape, not of position (result 9).
+- **For C, from the scale ladder.** The closure tiling reproduces itself at $3 \times 3 \times 3$ (result 11), and the star nested in a Field Origin continues TetA into TetA and TetB into TetB only in C (result 12).
+- **For U.** The TetA legs point the same way from every centre (result 8). The lattice note's bond reciprocity: a TetA leg closes only through a TetB-shaped junction (lattice note, result 2), and the diamond nets. The label is a property of the shape, not of position (result 9).
 
-The proof of the tiling cannot be written until this choice is made. Everything common to both (the honeycomb, the shared octahedra as regions, result 1) can go in either way.
+The framework's positions now point one way, to C. Everything common to both (the honeycomb, the shared octahedra as regions, result 1) can go into the proof either way.
+
+## What the scale ladder does not say
+
+- **Not a physical size ladder.** Results 10–12 are about the tiling's labels. Physical closure surfaces sit at each object's Jacobi radius (`proofs/closure-surface/`), which the factor 3 does not set. Compositional scale invariance (llms.txt, Rule 15) is the same rule at every level, not geometric self-similarity of objects.
+- **Not a reason for 3 from $D$.** The factor 3 is the smallest odd $k > 1$; result 10 holds in any dimension. It is not derived from $D = 3$ and should not be read as $D$.
+- **Not yet the 16.** Whether a tile's 16 boundary channels are its couplings to the lattice is still to be computed.
 
 ## Next
 
-- Choose the labelling, or state both as the two cases of the proof.
-- If C: say what the alternating root means. In C the parity image of one cube's frame sits in the next cube, so the two roots alternate in space, one cube to the next.
-- If U: say what the stars on the cube edges and at the corners are, since they straddle cubes.
-- Then the exact parts move to `proofs/`: the honeycomb and shared octahedra (already in the closure note) and the results above for the chosen labelling.
+- Build the tiling proof on C: the honeycomb and shared octahedra (closure note), the global board of corners (results 1–2), the contacts (6), and the ladder and the nested star (10–12).
+- The tile's 16 channels in the lattice: what each channel faces, and whether $K^2 = 16$ is the tile's coupling count.
 
 ## Files
 
 | File | What it does |
 |---|---|
 | [`verify_cube_tiling.py`](verify_cube_tiling.py) | 19 exact checks: parts 1–7 for results 1–5, parts 8–11 for results 6–9 |
+| [`verify_scale_ladder.py`](verify_scale_ladder.py) | 11 exact checks for results 10–12 |
 
 ## Related
 
 - [The pixel lattice](../README.md): the diamond nets (result 7) and bond reciprocity (result 2).
+- [The 64-tetrahedron grid](../../stellated%20octahedron%20geometry/README.md): the $2 \times 2 \times 2$ block and its coarse label (section 4).
 - [Pixel tiling and closure](../../stellated%20octahedron%20geometry/pixel_tiling_and_closure.md): the honeycomb, the shared octahedra and the closure labelling.
 - [Hadamard cube frame](../../../proofs/hadamard-cube-frame/) and [Gram matrix](../../../proofs/gram-matrix-tetrad-equation/): the one-cube results the tiling builds on.
