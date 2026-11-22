@@ -101,42 +101,44 @@ check("14d. the sign representation, the one scalar detector of orientation, occ
 check("14e. the free 24 are exactly the corner channels' couplings to face neighbours",
       {kind(it) for it in free} == {"corner -> face neighbour"})
 
-print("\n=== 15. One face is one slice; the lower-index exchange on the tiles")
-def to_triple(it):
-    (a, r), n = it
-    f = [p for p in A if p != a]
-    if r == "core":
-        if n == (0, 0, 0): return (a, a, a)
-        q, s = next((q, s) for q, s in itertools.combinations(f, 2) if tuple(int(x) for x in mid(q, s)) == n)
-        return (a,) + (next(p for p in f if p not in (q, s)),) * 2
-    p = r
-    if n == (0, 0, 0): return (a, a, p)
-    if sum(map(abs, n)) == 2: return (a, p, a)
-    return (a, p, next(q for q in f if q != p and tuple(int(x) for x in mid(p, q)) == n))
-D = {it: to_triple(it) for it in inc}
-check("15a. a dictionary: face opposite a -> lambda = a; own core -> (a,a,a); own corner p -> (a,a,p); corner p to its edge "
-      "neighbour -> (a,p,a); core to the face neighbour across mid(q,r) -> (a,p,p), p the face's third corner; corner p to "
-      "the face neighbour across mid(p,q) -> (a,p,q). It is a bijection onto the 64 triples and commutes with T_d",
-      set(D.values()) == set(itertools.product(A, repeat=3))
-      and all(D[act(g, it)] == tuple(g(x) for x in D[it]) for g in G for it in inc))
-inv = {v: k for k, v in D.items()}
-tau = {it: inv[(D[it][0], D[it][2], D[it][1])] for it in inc}
-check("15b. under it, exchanging the lower indices mu <-> nu is, on the tiles: swap the two corner channels that reach the "
-      "same face neighbour; swap a corner channel's coupling to its own tile with its coupling to its edge neighbour; fix "
-      "the core channels. Its even part is 40-dimensional (Christoffel) and its odd part 24-dimensional (torsion)",
-      all(kind(tau[it]) == kind(it) and tau[it][1] == it[1] and tau[it][0][1] != it[0][1]
-          for it in inc if kind(it) == "corner -> face neighbour")
-      and all({kind(it), kind(tau[it])} == {"own corner", "corner -> edge neighbour"} and tau[it][0] == it[0]
-              for it in inc if kind(it) in ("own corner", "corner -> edge neighbour"))
-      and all(tau[it] == it for it in inc if kind(it).endswith("core") or kind(it) == "core -> face neighbour")
-      and sum(tau[it] == it for it in inc) == 16)
+print("\n=== 15. The algebraic dictionary: lambda = face, mu = channel, nu = leg")
+V = A                                                   # the legs v_1..v_4: the forced frame's columns, sum 0, Gram 4I - J
+def vadd(*us): return tuple(sum(u[i] for u in us) for i in range(3))
+def vsc(e, u): return tuple(e * x for x in u)
+def dot(u, w): return sum(x * y for x, y in zip(u, w))
+check("15a. (the existing frame) the legs close, sum v = 0, and v_a . v_b = 4 delta_ab - 1: the forced Gram matrix",
+      vadd(*V) == (0, 0, 0) and all(dot(u, w) == (3 if u == w else -1) for u in V for w in V))
+def eps(l, m, n): return 1 if n in (l, m) else -1
+def tile(l, m, n): return vadd(vsc(-1, l), vsc(eps(l, m, n), n))          # tile centre -v_l + eps v_n (doubled coordinates)
+def channel(l, m): return (l, "core") if m == l else (l, m)               # half-space proof: face l's sub-region m
+check("15b. the core channel of face lambda (mu = lambda) is shared by the tiles at -v_lambda + v_lambda = 0 and "
+      "-v_lambda - v_nu (nu != lambda): its vertices are the cube face centres (v_q + v_r)/2 = -(v_lambda + v_p)/2 by closure, "
+      "and a face centre f is shared by the tiles 0 and 2f",
+      all(set(sub[channel(l, l)]) == {tuple(c // 2 for c in tile(l, l, n)) for n in V} for l in V)
+      and all(vadd(q, r) == vsc(-1, vadd(l, p)) for l in V for p in V if p != l
+              for q, r in [[w for w in V if w not in (l, p)]]))
+check("15c. a corner channel mu != lambda lies on the shared octahedron at the cube-edge midpoint (v_mu - v_lambda)/2, since "
+      "v_mu . v_lambda = -1 makes (v_mu + v_lambda)/2 a unit vector; the 4 tiles holding that edge are at -v_lambda + eps v_nu: "
+      "0 (nu = lambda), v_mu - v_lambda (nu = mu), and -v_lambda - v_nu for the other two legs",
+      all(set(sub[channel(l, m)]) == {tuple(c // 2 for c in tile(l, m, n)) for n in V} for l in V for m in V if m != l)
+      and all(sorted(map(abs, vadd(m, l))) == [0, 0, 2] for l in V for m in V if m != l))
+Dc = {(l, m, n): (channel(l, m), tuple(c // 2 for c in tile(l, m, n))) for l in V for m in V for n in V}
+check("15d. so (lambda, mu, nu) -> (channel mu of face lambda, the tile at -v_lambda + eps v_nu), eps = +1 exactly when nu is "
+      "lambda or mu, is a bijection from the 64 index triples onto the 64 couplings, and it commutes with T_d because it is "
+      "built from the legs alone: each channel couples along all four legs, one tile per leg",
+      set(Dc.values()) == set(inc) and all(Dc[tuple(g(x) for x in t)] == act(g, Dc[t]) for g in G for t in Dc))
+check("15e. in it the core channel, the face of the Field Origin, is the row mu = lambda of each slice; the diagonal mu = nu "
+      "is each channel's coupling straight through, along its own leg: the core to its own tile, a corner channel through its "
+      "shared octahedron to the tile diagonally across",
+      {kind(Dc[(l, l, n)]) for l in V for n in V} == {"own core", "core -> face neighbour"}
+      and {kind(Dc[(l, m, m)]) for l in V for m in V} == {"own core", "corner -> edge neighbour"})
 stab = [g for g in G if g(A[0]) == A[0]]
 face = [it for it in inc if it[0][0] == A[0]]
 fo, seen = [], set()
 for it in face:
     if it not in seen:
         o = {act(g, it) for g in stab}; seen |= o; fo.append(len(o))
-check("15c. one face's 16 under its own symmetry (C3v) split 1 + 3 + 3 + 3 + 6, as the slice lambda = a's ordered index "
+check("15f. one face's 16 under its own symmetry (C3v) split 1 + 3 + 3 + 3 + 6, as the slice lambda = a's ordered index "
       "pairs (mu, nu) do under the permutations fixing a: (a,a); (a,b); (b,a); (b,b); (b,c) with b, c distinct",
       sorted(fo) == [1, 3, 3, 3, 6])
 def det(g):
@@ -146,18 +148,16 @@ def det(g):
 rots = [g for g in stab if det(g) == 1]
 six = [it for it in face if kind(it) == "corner -> face neighbour"]
 r_orbs = list({frozenset(act(g, it) for g in rots) for it in six})
-check("15d. the face's 6 is chiral: its rotations split it into two orbits of 3, each corner channel's left and its right "
+check("15g. the face's 6 is chiral: its rotations split it into two orbits of 3, each corner channel's left and its right "
       "face neighbour, and every reflection exchanges the two",
       len(rots) == 3 and sorted(len(o) for o in r_orbs) == [3, 3]
       and all({act(g, it) for it in r_orbs[0]} == set(r_orbs[1]) for g in stab if det(g) == -1))
 
-check("15e. the slice's 4 shared (diagonal) entries, fixed by mu <-> nu, are exactly the core channel's 4 couplings: the face "
-      "of the Field Origin, coupling the tile to itself and to the 3 face neighbours whose Field Origins it touches",
-      sorted(kind(it) for it in face if tau[it] == it) == ["core -> face neighbour"] * 3 + ["own core"])
-check("15f. the 12 off-diagonal entries are the 3 corner channels' couplings, in 6 mirror pairs; on the 6 that reach face "
-      "neighbours, mu <-> nu exchanges the two senses of circulation around the face (the two rotation orbits of 15d), "
-      "as the chiral-holonomy proof's TetB step is the transpose of the TetA step",
-      sum(1 for it in face if tau[it] != it) == 12 and all(kind(it).startswith("own corner") or kind(it).startswith("corner")
-                                                            for it in face if tau[it] != it)
-      and all((tau[it] in r_orbs[1]) == (it in r_orbs[0]) for it in six))
+invc = {v: k for k, v in Dc.items()}
+tauc = {it: Dc[(invc[it][0], invc[it][2], invc[it][1])] for it in inc}
+check("15h. exchanging the lower indices, mu <-> nu, has an even part of dimension 40 (Christoffel) and an odd part of 24 "
+      "(torsion); on the corner channels' couplings to face neighbours it exchanges the two senses of circulation around the "
+      "face (the two rotation orbits of 15g)",
+      sum(tauc[it] == it for it in inc) == 16 and all((tauc[it] in r_orbs[1]) == (it in r_orbs[0]) for it in six))
+
 print(f"\n{sum(ok)}/{len(ok)} checks passed")
