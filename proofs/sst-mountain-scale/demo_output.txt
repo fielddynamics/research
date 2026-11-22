@@ -1,0 +1,12 @@
+field-equation residual (mountain / pointwise): 9.6e-04 / 1.5e-03
+dimple (1-P)Phi vs Newtonian potential of (1-P)rho: max diff / max = 2.2e-15
+  mountain  r = 2: extra pull toward the Sun = +0.042 a0 (Sun's own Newtonian pull 3.95 a0)
+  mountain  r = 3: extra pull toward the Sun = +0.058 a0 (Sun's own Newtonian pull 2.40 a0)
+  mountain  r = 4: extra pull toward the Sun = +0.074 a0 (Sun's own Newtonian pull 1.47 a0)
+  mountain  r = 6: extra pull toward the Sun = +0.101 a0 (Sun's own Newtonian pull 0.64 a0)
+  pointwise r = 2: extra pull toward the Sun = +0.787 a0 (Sun's own Newtonian pull 3.95 a0)
+  pointwise r = 3: extra pull toward the Sun = +0.697 a0 (Sun's own Newtonian pull 2.40 a0)
+  pointwise r = 4: extra pull toward the Sun = +0.577 a0 (Sun's own Newtonian pull 1.47 a0)
+  pointwise r = 6: extra pull toward the Sun = +0.319 a0 (Sun's own Newtonian pull 0.64 a0)
+galaxy's field at the Sun's position: mountain 1.1095 a0, pointwise 1.1526 a0 (difference 3.7e-02)
+dS along a random direction: finite difference -7.5379e-04, from the field equation -7.5363e-04

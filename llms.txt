@@ -39,6 +39,7 @@ readings of the neutron-lifetime discrepancy, Paper VII, and the proton mass, re
 - THE_MISSING_MASS.md -- general-reader article: the missing mass, a_0, the second root, the tug of war, the vortex
 - proofs/constitutive-law-tug-of-war/ -- the solve of mu(x): which premises select x/(x+1), and drive/brake from decoded mass
 - proofs/net-field-rule/ -- where mu acts: only on a field with a drain; why the solar system is exactly GR with the bare G
+- proofs/sst-mountain-scale/ -- the net-field rule from the action: the law read at each system's Jacobi radius (the mountain scale)
 - proofs/sst-khronon-preferred-frame/ -- the preferred frame: the khronon is the TetB share; stable at every acceleration; alpha_1 = alpha_2 = 0 in a star system (flat slope + drainless dimple)
 
 ## Core constants
@@ -317,7 +318,14 @@ Net-field rule (proofs/net-field-rule, machine-checked in Lean): a drain belongs
     between ~1.2e4 AU (Cassini) and the Jacobi radius ~2.9e5 AU.
   Data: globular clusters Pal 14, Pal 4 require bare G (8.9 and 11.1 sigma against G/mu). Prediction: with the coarse-graining scale at the Jacobi radius
     (a premise, by elimination), bound wide binaries are Newtonian to within 0.53 (s/r_J)^3.
-  Open: a drained-field marker independent of the rotation curve; the covariant derivation.
+  Open: a drained-field marker independent of the rotation curve. (The covariant derivation is done:
+    proofs/sst-mountain-scale.)
+Mountain scale (proofs/sst-mountain-scale, machine-checked in Lean): the net-field rule from the action.
+  On each slice of the preferred foliation, P projects onto modes longer than the mountain scale; the
+  curvature term is read at every point, the law's term on the mountain lapse P Phi. The field equation
+  splits exactly: dimple lap(Phi - P Phi) = 4 pi G (1 - P) rho (pure TetA, bare G, same for every law);
+  mountain P div[mu grad P Phi] = 4 pi G P rho. Scale = each bound system's own Jacobi radius (Sun 1.4 pc,
+  Pal 14 ~160 pc); one universal length fails Pal 14. 3D solution: tail a0 mu pointwise, none at the mountain.
 Preferred frame (proofs/sst-khronon-preferred-frame, machine-checked in Lean): the SST is Blanchet-Marsat's
   preferred-foliation theory with beta = lambda = 0, where Bonetti-Barausse's PPN formulas do not apply
   (alpha_2 has a pole; Flanagan 2023). In Flanagan's slow-motion limit the khronon's density IS the TetB
@@ -420,6 +428,7 @@ Each script is self-contained; run it from its own folder.
 - proofs/constitutive-law-tug-of-war/verify_constitutive_law_tug_of_war.py -- the tug of war: selection of mu, necessity, cap, decode, vortex (42 checks; Lean in lean/)
 - research/constitutive-law-u(x)/test_tug_of_war.py -- the same statements as 85 pytest tests
 - proofs/net-field-rule/verify_net_field_rule.py -- the net-field rule: four faces, forced per-mass tail, sheet split, Jacobi edge, clusters, wide binaries, RAR slope (122 checks; Lean in lean/)
+- proofs/sst-mountain-scale/verify_sst_mountain_scale.py -- the mountain scale: exact split from the action, dimple blind to the law, curved-slice projector, Jacobi radii, 3D solution (17 checks; Lean in lean/)
 - proofs/sst-khronon-preferred-frame/verify_sst_khronon_preferred_frame.py -- the preferred frame: khronon = TetB share, stability at every acceleration, forced tail, n = 1, flat slope and drainless dimple, empty sector inside a star system (32 checks; Lean in lean/)
 
 ## Usage instructions for LLMs

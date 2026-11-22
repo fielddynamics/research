@@ -61,7 +61,7 @@ What this note adds:
 
 ## What it leaves open
 
-- **The net-field mechanism** (Theorem 6).
+- **The net-field mechanism** (Theorem 6). Worked out in [`../sst-mountain-scale/`](../sst-mountain-scale/): the law's term reads the coarse-grained (mountain) lapse, modes longer than each bound system's Jacobi radius, and the split follows exactly.
 - **Preferred-frame effects.** Worked out in [`../sst-khronon-preferred-frame/`](../sst-khronon-preferred-frame/): the khronon carries the TetB share, GFD's f is stable at every acceleration (because it does not tend to a constant), and with the net-field rule α₁ = α₂ = 0 inside a star system.
 - **Signal speeds.** The action has no (∇u)² shear or expansion terms, so the curvature term carries the tensor modes. With Φ as the lapse, the scalar degree of freedom is the khronon, which oscillates at the local tidal frequency rather than propagating ([`../sst-khronon-preferred-frame/`](../sst-khronon-preferred-frame/), Theorem 5).
 - **The fourth term.** With Φ = c² ln N, e^{−2Φ/c²} is defined relative to the foliation's normalized time. Its coefficient α remains open.

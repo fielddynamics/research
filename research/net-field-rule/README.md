@@ -49,7 +49,7 @@ The 29 parts of [`test_net_field_rule.py`](test_net_field_rule.py) fall into thr
 ## Open
 
 - An observable marker of a drained field that does not use its rotation curve. The four faces say what it must measure: flux growth across empty shells.
-- The covariant derivation of which time leg's acceleration enters μ.
+- ~~The covariant derivation of which time leg's acceleration enters μ.~~ Done in [`proofs/sst-mountain-scale/`](../../proofs/sst-mountain-scale/): the law's term read at the mountain's scale (each system's Jacobi radius) gives this split from the action.
 - The slope test on SPARC's outer radii, which needs per-radius rotation curves.
 - Whether the closure at the Field Origin and the zero flux at the sheet's edge are the same boundary condition.
 

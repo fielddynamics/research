@@ -91,7 +91,7 @@ What this note adds:
 
 - **Stability in general geometry.** Flanagan's density condition is established for spherical, cylindrical and planar symmetry only.
 - **The size of the non-stationary correction** in any particular system (bars, interactions). This is the natural next test.
-- **The mountain's scale in the action.** The picture is the net-field rule: μ reads the field at the mountain's scale. In the action, μ reads the time leg's acceleration at each point; writing "at the mountain's scale" into the action is open.
+- **The mountain's scale in the action.** Now written in: [`../sst-mountain-scale/`](../sst-mountain-scale/) derives Theorem 6 from the action, with the law's term read on modes longer than each bound system's Jacobi radius.
 - **Beyond the slow-motion limit.** Tensor modes travel at c; the khronon's coupling to radiating binaries is not computed.
 - **The fourth term** (the electromagnetic coupling).
 

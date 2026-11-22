@@ -1,0 +1,43 @@
+name = "mountain_scale"
+defaultTargets = ["MountainScale"]
+
+# Builds on the SST khronon proof, and through it on the net-field rule, the tug-of-war proof,
+# the constitutive law and their chain. Mathlib v4.36.0 comes through those packages.
+[[require]]
+name = "khronon_preferred_frame"
+path = "../../sst-khronon-preferred-frame/lean"
+
+[[require]]
+name = "net_field_rule"
+path = "../../net-field-rule/lean"
+
+[[require]]
+name = "tug_of_war"
+path = "../../constitutive-law-tug-of-war/lean"
+
+[[require]]
+name = "walsh_eigenmodes"
+path = "../../walsh-eigenmodes-of-the-cube/lean"
+
+[[require]]
+name = "constitutive_law"
+path = "../../constitutive-law-exchange-symmetry/lean"
+
+[[require]]
+name = "gram_matrix_tetrad_equation"
+path = "../../gram-matrix-tetrad-equation/lean"
+
+[[require]]
+name = "tetrad_scheme"
+path = "../../tetrad-scheme-two-bounded-regions/lean"
+
+[[require]]
+name = "half_space_two_bounded_regions"
+path = "../../half-space-two-bounded-regions/lean"
+
+[[require]]
+name = "forced_tetrahedral_frame"
+path = "../../forced-tetrahedral-frame/lean"
+
+[[lean_lib]]
+name = "MountainScale"
