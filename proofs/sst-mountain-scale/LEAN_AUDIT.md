@@ -5,11 +5,11 @@
 | **Formalisation** | [`lean/MountainScale.lean`](lean/MountainScale.lean), Lean 4.36.0 + Mathlib v4.36.0 |
 | **Depends on** | [`../sst-khronon-preferred-frame/lean/`](../sst-khronon-preferred-frame/lean/) (`strong_field_not_pure`) and, through it, the net-field rule and the constitutive law; imported, not copied |
 | **Build** | 0 errors · 0 warnings · no `sorry` / `admit` / custom `axiom` / `native_decide` |
-| **Axioms** | All 14 `#print axioms` checks report only `propext`, `Classical.choice`, `Quot.sound` |
+| **Axioms** | All 15 `#print axioms` checks report only `propext`, `Classical.choice`, `Quot.sound` |
 | **Reproduce** | `cd lean && lake exe cache get && lake build` |
 | **CI** | `.github/workflows/lean-sst-mountain-scale.yml` |
 
-**Verdict.** Theorem 1 (the ownership split, with overlapping spheres, for any law), Theorem 2 (the four ports) Theorem 7 (a), (c) (nesting telescopes; the faces read the ports) the core of Theorem 8 (least energy) and the algebra of Theorem 9 (the anisotropic response, the stretch to a homoeoid, the trace corrector) are proved; Newton's homoeoid theorem is classical and checked numerically (script J2). Theorem 3 (b) is proved (`no_tail_in_dimple`). The variational derivation, the sweep's exactness outside each sphere, the matter equation, the 3D solutions, Proposition 4's numbers and Theorems 5–6 are checked by the script.
+**Verdict.** Theorem 1 (the ownership split, with overlapping spheres, for any law), Theorem 2 (the four ports) Theorem 7 (a), (c) (nesting telescopes; the faces read the ports) the core of Theorem 8 (least energy) and the algebra of Theorem 9 (the anisotropic response, the stretch to a homoeoid, the trace corrector, the interface jump) are proved; Newton's homoeoid theorem is classical and checked numerically (script J2). Theorem 3 (b) is proved (`no_tail_in_dimple`). The variational derivation, the sweep's exactness outside each sphere, the matter equation, the 3D solutions, Proposition 4's numbers and Theorems 5–6 are checked by the script.
 
 ## Statements used by the paper
 
@@ -24,6 +24,7 @@
 | Theorem 9 (a) | `dielectric_ratio` | `μ = x/(1+x)`: `(μ + xμ')/μ = 1 + 1/(1+x)` |
 | Theorem 9 (b) | `stretch_isotropic` | `λ∥ = λ⊥e²` ⇒ `λ∥/e² = λ⊥`; the sphere `x²+y²+(ez')² = r²` is the ellipsoid `x²+y²+e²z'² = r²`, and scaling by `t` carries radius `r` to `t r` (concentric similar ellipsoids) |
 | Theorem 9 (c) | `trace_corrector` | `w = (t/6)(u² − R²)`: slope `(t/3)u`, curvature `t/3`, three axes sum to `t`, `w = 0` at `R` |
+| Theorem 9 (d) | `interface_jump` | `jd = −s`, `jmu = s` ⇒ jump `jPb + jd = jPb − jmu`; centred shell with `a q = s`, `a > 0`: jump `s(1/a − 1)`, positive for `a < 1` |
 | Theorem 3 (b) | `no_tail_in_dimple` | the own field's share `(1 − 1)g = 0`; read pointwise, `0 < x(1 − μ) < 1` (`KhrononPreferredFrame.strong_field_not_pure`) |
 
 ## Earlier forms, still proved

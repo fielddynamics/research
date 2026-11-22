@@ -16,7 +16,8 @@ interior field, Phi_bar = Phi - sum_k d_k, and the law's term reads Phi_bar.
           through the faces, and scaling
   Part I  registration implies the sweep: least-energy settlement with a fixed registered state is balayage
   Part J  the Cassini quadrupole Q2: the swept shell in the mountain's anisotropic response is a homoeoid, so the
-          Sun's own field leaves no quadrupole; what remains is the galaxy's tide and an isotropic trace term
+          Sun's own field leaves no quadrupole; what remains is the galaxy's tide and an isotropic trace term;
+          the closure surface carries the TetB share as a kink in the field (potential continuous)
 
 Run: python verify_sst_mountain_scale.py"""
 import math, os, re
@@ -428,5 +429,41 @@ check("J4 for a quadratic host (1/2) x.T.x inside a sphere, the part the swept c
       sp.simplify(lap(wq) - tq) == 0 and sp.simplify(wq.subs(X3[0], sp.sqrt(Rq ** 2 - X3[1] ** 2 - X3[2] ** 2))) == 0
       and sp.simplify(lap(uq - wT)) == 0
       and all(sp.simplify(sp.diff(wq, v_) - tq / 3 * v_) == 0 for v_ in X3))
+
+# J5: the second proof of J2, by the Green function. For any constant positive-definite A the kernel
+# K_A(r) = 1/(sqrt(det A) sqrt(r.A^-1.r)) is even and falls off as 1/r, so a uniform shell's potential is constant inside.
+# Just outside, the tangential slope is zero (the potential is continuous and constant inside), so the flux condition
+# n.A.grad(phi) = 4 pi G sigma gives a normal slope 4 pi G sigma / (n.A.n).
+Aj = np.diag([float(lam_perp.subs(xs_, xe))] * 2 + [float(lam_par.subs(xs_, xe))])
+Aji, dAj = np.linalg.inv(Aj), math.sqrt(np.linalg.det(Aj))
+N5 = 1000000
+k5 = np.arange(N5) + 0.5
+th5 = np.arccos(1 - 2 * k5 / N5); ph5 = np.pi * (1 + 5 ** 0.5) * k5
+q5 = np.stack([np.sin(th5) * np.cos(ph5), np.sin(th5) * np.sin(ph5), np.cos(th5)], axis=1)   # R = 1, GM = 1
+phiA = lambda y: -np.sum(1.0 / N5 / (dAj * np.sqrt(np.einsum('ni,ij,nj->n', y - q5, Aji, y - q5))))
+gradA = lambda y, e=1e-4: np.array([(phiA(y + e * I3) - phiA(y - e * I3)) / (2 * e) for I3 in np.eye(3)])
+inside = [phiA(np.array(v_)) for v_ in ([0, 0, 0], [.3, -.2, .4], [0, 0, .6], [.5, .1, -.3])]
+slopes = []
+for nv in (np.array([1., 0, 0]), np.array([0, 0, 1.]), np.array([1., 1, 1]) / math.sqrt(3)):
+    g1, g2, g3 = (gradA(nv * (1 + h_)) for h_ in (0.02, 0.04, 0.08))
+    g0 = (8 * g1 - 6 * g2 + g3) / 3                             # quadratic extrapolation to the surface
+    slopes.append((g0 @ nv, 1 / (nv @ Aj @ nv), np.linalg.norm(g0 - (g0 @ nv) * nv)))
+check("J5 a second proof, by the Green function: K_A is even and falls off as 1/r, so a uniform shell's potential is "
+      f"constant inside for any constant positive-definite response (spread {np.ptp(inside):.0e}). Just outside, the "
+      "slope is normal and equal to GM/R^2 divided by n.A.n: " +
+      ", ".join(f"{a:.4f} vs {b:.4f}" for a, b, _ in slopes),
+      np.ptp(inside) < 1e-8 and all(abs(a / b - 1) < 3e-3 and t < 5e-3 for a, b, t in slopes))
+# J6: the closure surface carries the TetB share. [n.grad d] = -4 pi G sigma, [n.mu grad Phi_bar] = 4 pi G sigma, so
+# [n.grad Phi] = [n.(1 - mu) grad Phi_bar]; the potential is continuous. For the centred shell: jump = GM/R^2 (1/n.A.n - 1)
+s_, jPb, jmu = sp.symbols("sigma jPb jmu")
+jd = -s_
+jPhi = jPb + jd
+jumps = [GMs / rJ_ ** 2 * (1 / (nv @ Aj @ nv) - 1) for nv in (np.array([0, 0, 1.]), np.array([1., 0, 0]))]
+check("J6 the closure surface carries the TetB share: with [n.grad d] = -4 pi G sigma and [n.mu grad Phi_bar] = "
+      "4 pi G sigma, [n.grad Phi] = [n.grad Phi_bar] - [n.mu grad Phi_bar] = [n.(1 - mu) grad Phi_bar], a phantom "
+      "surface density, while Phi itself is continuous (d = 0 on Sigma). For the Sun's centred shell the slope jumps by "
+      f"GM/r_J^2 (1/n.A.n - 1) = {jumps[0]:.2e} to {jumps[1]:.2e} m/s^2 (along and across the Galactic field)",
+      sp.simplify(jPhi.subs(jmu, s_) - (jPb - jmu).subs(jmu, s_)) == 0
+      and abs(jumps[0] - 1.28e-14) < 0.02e-14 and abs(jumps[1] - 4.48e-14) < 0.02e-14)
 
 print(f"\n{sum(ok)}/{len(ok)} checks passed")

@@ -25,7 +25,8 @@ law's nonlinear flux and `s = 4πGρ`. Because `P` is idempotent and commutes wi
   octahedron cancels; nested envelopes telescope;
 * `dielectric_ratio`, `stretch_isotropic`, `trace_corrector` (the Cassini quadrupole): the
   mountain's linear response is anisotropic, stretching makes the swept shell a homoeoid with no
-  interior field, and the trace term is isotropic;
+  interior field, and the trace term is isotropic; `interface_jump`: the closure surface carries
+  the `(1 − μ̄)` share of the swept mass as a kink in the field, the potential staying continuous;
 * `least_energy`: registration implies the sweep. With the registered state held fixed, the
   harmonic (energy-orthogonal) completion has the least field energy, and the energy splits
   exactly into the registered part and the residual;
@@ -232,6 +233,21 @@ theorem trace_corrector (t R s : ℝ) :
     convert this using 1; push_cast; ring
   · simpa using (hasDerivAt_id s).const_mul (t / 3)
 
+/-- The closure surface carries the TetB share. Across the surface, write `jd` for the jump in the
+residual's normal slope, `jPb` for the mountain's, and `jmu` for that of `μ̄` times the mountain's.
+The sweep gives `jd = −s` and the mountain's flux condition `jmu = s` (`s = 4πGσ`), so the total
+field's slope jumps by `jPb + jd = jPb − jmu`, the `(1 − μ̄)` part: a phantom surface layer. For the
+centred shell in a constant response `a = n·A·n > 0`, the mountain's slope is `0` inside and `q`
+outside with `a q = s`, so the jump is `s (1/a − 1)`, positive when `a < 1`. -/
+theorem interface_jump (jPb jmu jd s a q : ℝ) (hd : jd = -s) (hmu : jmu = s)
+    (ha : 0 < a) (hflux : a * q = s) :
+    jPb + jd = jPb - jmu ∧ q + jd = s * (1 / a - 1) ∧ (0 < s → a < 1 → 0 < q + jd) := by
+  have hq : q = s / a := by field_simp; linarith
+  refine ⟨by rw [hd, hmu]; ring, by rw [hd, hq]; field_simp; ring, ?_⟩
+  intro hs ha1
+  have hlt : s < s / a := by rw [lt_div_iff₀ ha]; nlinarith
+  rw [hd, hq]; linarith
+
 end MountainScale
 
 #print axioms MountainScale.mountain_split
@@ -248,3 +264,4 @@ end MountainScale
 #print axioms MountainScale.dielectric_ratio
 #print axioms MountainScale.stretch_isotropic
 #print axioms MountainScale.trace_corrector
+#print axioms MountainScale.interface_jump

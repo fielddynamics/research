@@ -57,7 +57,9 @@ the sweep: registration implies ownership's representation. The same
 law read pointwise puts in the solar-system quadrupole that Cassini
 excludes; read by ownership, the Sun's swept shell is a homoeoid in the
 mountain's anisotropic response and leaves none: GFD predicts no
-anomalous $Q_2$, with residuals below $10^{-30}$~s$^{-2}$. The data
+anomalous $Q_2$, with residuals below $10^{-30}$~s$^{-2}$. The closure
+surface itself carries the TetB share, as a kink in the field with the
+potential continuous. The data
 fix each sphere at its system's Jacobi radius; the action does not choose it, at least
 for a centred spherical system: every object closes, and where its
 surface sits is set by the dynamics.
@@ -102,8 +104,8 @@ assumptions, not derived from the split. $G$ is Newton's
 constant $G_{\rm N}$ throughout; Paper~VII writes it as
 $(17/13)\,G_{\rm bare}$~\cite{NelsonVII}.
 
-Every statement is checked by script (34 checks) with two 3D solutions;
-the algebra is machine-checked in Lean~4 (14 theorems)~\cite{NelsonScript}.
+Every statement is checked by script (36 checks) with two 3D solutions;
+the algebra is machine-checked in Lean~4 (15 theorems)~\cite{NelsonScript}.
 
 % ----------------------------------------------------------------------
 
@@ -514,7 +516,27 @@ So GFD predicts no anomalous quadrupole at this order. The corrections,
 from the second order in the shell's field ($6\times10^{-34}$~s$^{-2}$)
 and from a closure surface that is not a sphere (a fraction of
 $GM_\odot/r_J^3$), stay below $\sim 10^{-30}$~s$^{-2}$, about a thousand
-times under the bound.}
+times under the bound. This holds for the centred spherical shell in a
+constant linear response; a non-spherical surface with a non-uniform
+swept density is bounded, not computed.}
+
+\emph{(d) The closure surface carries the TetB share. For a fixed
+closure surface, with jumps taken outside minus inside, the sweep
+gives $[n\cdot\nabla d_k] = -4\pi G\sigma$ and the mountain's flux
+condition $[n\cdot\bar\mu\nabla\bar\Phi] = 4\pi G\sigma$, $\sigma$ the
+swept density. Since $\Phi = \bar\Phi + \sum d_k$,
+\[
+[\Phi] = 0,\qquad [n\cdot\nabla\Phi] = [n\cdot(1-\bar\mu)\nabla\bar\Phi]
+\equiv 4\pi G\,\sigma_{\rm eff}:
+\]
+the potential is continuous and its slope has a kink, a phantom surface
+layer $\sigma_{\rm eff}$, the $(1-\bar\mu)$ share of the swept mass.
+It is already in Theorem~1's field equation, as a distribution; nothing
+is added by hand. For the centred shell in the response $A$, the outside
+slope is normal (the potential is constant inside) and equal to
+$4\pi G\sigma/(n\cdot An)$, so $\sigma_{\rm eff} = \sigma\,[1/(n\cdot An) -
+1]$. For the Sun the slope jumps by $1.28\times10^{-14}$~m/s$^2$ along
+the Galactic field and $4.48\times10^{-14}$ across it.}
 
 \begin{proof}
 (a) Lean \texttt{dielectric\_ratio}; script J1. (b) Lean
@@ -522,8 +544,15 @@ times under the bound.}
 spheres to concentric similar ellipsoids); Newton's homoeoid theorem;
 script J2: interior quadrupole $9\times10^{-9}\,GM/r_J^3$ for the
 stretched shell, against $3\times10^{-2}$ for the same ellipsoid with
-uniform surface density, which is not a homoeoid. (c) Lean
-\texttt{trace\_corrector}; script J3--J4.
+uniform surface density, which is not a homoeoid. A second proof, by
+the Green function $K_A(r) = (\det A)^{-1/2}(r\cdot A^{-1}r)^{-1/2}$,
+holds for any constant positive-definite $A$: $K_A$ is even and falls
+off as $1/r$, so writing each shell point as seen from an interior point
+leaves $R\int_{S^2}K_A\,d\Omega$ plus a term odd in direction, which
+vanishes; script J5 (interior spread $3\times10^{-10}$). (c) Lean
+\texttt{trace\_corrector}; script J3--J4. (d) Lean
+\texttt{interface\_jump}; script J5 (outside slope against
+$1/(n\cdot An)$ to $5\times10^{-4}$) and J6.
 \end{proof}
 
 The law is the same $\mu = x/(1+x)$ in both readings. Read pointwise,
@@ -537,6 +566,23 @@ whose source is the mountain's own density inside the sphere
 ($\nabla^2 w = \nabla^2\bar\Phi$, $w = 0$ on $\Sigma$), so the
 correction is a Dirichlet problem sourced by $\bar\rho$ and the phantom
 density together.
+
+Part (d) is the picture's two views meeting: inside the surface the
+Sun's field is Newtonian; outside, the law reads it, $1.2$ to $1.7$
+times stronger in the Galactic field, and the kink is where the TetB
+share switches on. The khronon proof identifies the khronon density
+with the phantom density~\cite{NelsonKh}, so the surface layer is
+naturally read as the time leg's TetB share; that the khronon sector
+supplies the matching relativistic surface stress (the Israel junction
+conditions, derived from this action) is not shown. A closed eddy in a
+stream has the same structure: in the frictionless limit a region of
+uniform vorticity is bounded by a vortex sheet, a jump in the velocity
+(the Sadovskii vortex, the limit of a Prandtl--Batchelor eddy), and any
+viscosity smooths the sheet into a thin layer. The sharp surface is the
+corresponding limit here; what would set a finite thickness is not
+known. A body crossing the surface feels a step in acceleration, not an
+impulse, and for a stationary surface its energy is conserved; for a
+moving surface that is not shown.
 
 % ----------------------------------------------------------------------
 
@@ -560,14 +606,16 @@ cannot come from minimising energy.
 \item \emph{The drained level}: a galaxy as a pointer in its cluster,
 with the law acting inside its own accounting, and the mass its pointer
 carries.
-\item \emph{Time-dependent ownership} (mergers, stripping).
+\item \emph{Time-dependent ownership} (mergers, stripping), and energy
+conservation across a moving closure surface.
 \item \emph{General shapes} in Theorem~6, and the exact
 non-spherical closure surface in Theorem~9 (bounded there, not
 computed).
 \item \emph{Relativistic order}: $\gamma = 1$ and the khronon result at
 leading and linear order only; the sweep and $d_k$ are defined on
 static slices, and their definition and variation in a dynamical
-spacetime are not given.
+spacetime are not given; nor are the junction conditions at the
+closure surface (Theorem~9(d)), which must come from this action.
 \item \emph{The full variation} with field-dependent spheres, the sweep
 and the matter varied together: Theorem~5 gives the field's leading
 term and Theorem~3(a) the matter's, with the sphere centred on the

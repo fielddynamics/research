@@ -8,7 +8,7 @@
 
 ---
 
-This folder holds a six-page proof, a script that checks it (34 checks), two 3D numerical solutions, and a Lean 4 formalisation (14 theorems). It closes the step that the [time-leg](../sst-covariant-time-leg/), [net-field rule](../net-field-rule/) and [khronon](../sst-khronon-preferred-frame/) proofs left open. It has been through four external reviews; the changes are listed below.
+This folder holds a seven-page proof, a script that checks it (36 checks), two 3D numerical solutions, and a Lean 4 formalisation (15 theorems). It closes the step that the [time-leg](../sst-covariant-time-leg/), [net-field rule](../net-field-rule/) and [khronon](../sst-khronon-preferred-frame/) proofs left open. It has been through four external reviews; the changes are listed below.
 
 ## The picture
 
@@ -71,7 +71,9 @@ In AQUAL the Sun's own field enters the law, and the Galactic field makes the re
 - The mountain's linear response is anisotropic: along the Galactic field it is 1 + 1/(1+x) times the response across it, 1.4 at the Sun.
 - Stretching coordinates along the field removes the anisotropy and turns the uniform swept shell into a homoeoid (a thin uniform shell between similar ellipsoids). A homoeoid has no field inside (Newton). Check: 9 × 10⁻⁹ GM/r_J³, against 3 × 10⁻² for a non-homoeoid control.
 - What remains is the Galactic tide, GM/r_J³ = 4Ω² − κ² = 1.5 × 10⁻³⁰ s⁻² (present in GR too), and the trace term, (tr T/3)x, which is isotropic.
-- **Prediction: no anomalous Q₂ at this order; residuals below about 10⁻³⁰ s⁻², a thousand times under the bound.** The same law read pointwise is AQUAL with the simple law, which Cassini excludes.
+- **Prediction: no anomalous Q₂ at this order; residuals below about 10⁻³⁰ s⁻², a thousand times under the bound.** The same law read pointwise is AQUAL with the simple law, which Cassini excludes. This is for the centred spherical shell in a constant linear response; a non-spherical surface is bounded, not computed.
+- A second proof, by the Green function: for any constant positive-definite response the kernel is even and falls off as 1/r, so a uniform shell's potential is constant inside.
+- **The closure surface carries the TetB share (9(d)).** The potential is continuous; its slope kinks by [n·(1 − μ̄)∇Φ̄], a phantom surface layer, the (1 − μ̄) share of the swept mass, already in the field equation. For the Sun: 1.28 × 10⁻¹⁴ m/s² along the Galactic field, 4.48 × 10⁻¹⁴ across it. Inside, the Sun's field is Newtonian; outside, the law reads it, 1.2–1.7× stronger. A closed eddy has the same structure: a vortex sheet at its edge in the frictionless limit (Sadovskii), smoothed by viscosity into a thin layer. The relativistic junction conditions at the surface are not checked.
 
 ## Reviews, and what changed
 
@@ -96,6 +98,7 @@ In AQUAL the Sun's own field enters the law, and the Galactic field makes the re
 | Energy reading of Theorem 6; space-filling wording; real Jacobi surfaces (fourth review) | Now "the action does not select a finite radius"; η = 0.63 is the reduced density, covering 47%; sweeping works onto any closed surface, so the true anisotropic Jacobi surface can be used |
 | Pal 14's 8.9σ | Stated as the net-field analysis's figure; the literature is divided (Jordi 2009; Gentile 2010; Sollima 2012) |
 | Fifth review: connections to potential theory | Adopted: telescoping is the strong Markov property of balayage (a mathematical equivalence, not a mechanism); the anisotropic response and trace corrector give Theorem 9. Not adopted: a two-radius reconstruction that cancels the trace term, because the trace is the local density the scalar port reads. A boundary (Dirichlet-to-Neumann) action is noted as a route for the full variation |
+| Sixth and seventh reviews: the anisotropic shell and the interface | The Green-function proof added as a second proof of 9(b). The interface jump is real and is now Theorem 9(d): a kink with the potential continuous, a phantom surface layer already in the field equation, not an inconsistency. The khronon reading is stated as an interpretation; the Israel junction conditions and energy across a moving surface are listed as open. The vortex analogue is a vortex sheet (a jump in the field's slope), not a vorticity jump, which is one derivative higher |
 | The Jacobi radius is a premise | Agreed: the data give a window, and choosing r_J within it is the premise of where the surface sits |
 
 ## What it leaves open
@@ -103,7 +106,8 @@ In AQUAL the Sun's own field enters the law, and the Galactic field makes the re
 - **Least-energy settlement** (Theorem 8's premise) as a consequence of field closure in the dual-tetrad dynamics.
 - **Where each closure surface sits** (here the Jacobi radius). It is the premise; Theorem 6 shows, for a centred sphere, that energy cannot set it.
 - **The drained level:** a galaxy as a pointer in its cluster, with the law acting inside its own accounting, and what mass its pointer carries.
-- **Ownership that changes in time** (mergers, stripping).
+- **Ownership that changes in time** (mergers, stripping), and energy across a moving closure surface.
+- **The junction conditions** at the closure surface, which must come from the action.
 - **Theorem 6 for general shapes**, and the exact non-spherical closure surface in Theorem 9 (bounded, not computed).
 - **Higher relativistic order.**
 - **The twelve-contact count**, which is the framework's geometry. The four ports are derived here at the level of the action.
@@ -112,13 +116,13 @@ In AQUAL the Sun's own field enters the law, and the Galactic field makes the re
 
 | File | What it is |
 |---|---|
-| [`sst_mountain_scale.pdf`](sst_mountain_scale.pdf) | The proof (6 pages) |
+| [`sst_mountain_scale.pdf`](sst_mountain_scale.pdf) | The proof (7 pages) |
 | [`sst_mountain_scale.tex`](sst_mountain_scale.tex) | LaTeX source (IOP class, [`iopjournal.cls`](iopjournal.cls)) |
-| [`verify_sst_mountain_scale.py`](verify_sst_mountain_scale.py), [`verify_output.txt`](verify_output.txt) | 34 checks: the split with overlapping spheres (1D, two laws), the matter equation, the four ports, the overlaps, a field-dependent radius, the edge, the 3D results, nested envelopes and the faces, registration ⇒ sweep, and the Cassini quadrupole |
+| [`verify_sst_mountain_scale.py`](verify_sst_mountain_scale.py), [`verify_output.txt`](verify_output.txt) | 36 checks: the split with overlapping spheres (1D, two laws), the matter equation, the four ports, the overlaps, a field-dependent radius, the edge, the 3D results, nested envelopes and the faces, registration ⇒ sweep, the Cassini quadrupole, and the closure-surface kink |
 | [`demo_ownership_3d.py`](demo_ownership_3d.py), [`demo_ownership_output.txt`](demo_ownership_output.txt) | The 3D ownership solutions, one system and two overlapping (about 10 minutes) |
 | [`demo_mountain_scale.py`](demo_mountain_scale.py), [`demo_output.txt`](demo_output.txt) | The 3D solver and the pointwise reference (the tail); it also contains the earlier single-scale low-pass version |
 | [`make_figure.py`](make_figure.py) | Draws [`fig_demo`](fig_demo.pdf) |
-| [`lean/MountainScale.lean`](lean/MountainScale.lean) | Lean 4, 14 theorems, importing the [khronon](../sst-khronon-preferred-frame/lean/) formalisation |
+| [`lean/MountainScale.lean`](lean/MountainScale.lean) | Lean 4, 15 theorems, importing the [khronon](../sst-khronon-preferred-frame/lean/) formalisation |
 | [`LEAN_AUDIT.md`](LEAN_AUDIT.md) | What the Lean proves and what is cited |
 
 ## Running the checks

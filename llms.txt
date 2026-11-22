@@ -436,7 +436,7 @@ Each script is self-contained; run it from its own folder.
 - proofs/constitutive-law-tug-of-war/verify_constitutive_law_tug_of_war.py -- the tug of war: selection of mu, necessity, cap, decode, vortex (42 checks; Lean in lean/)
 - research/constitutive-law-u(x)/test_tug_of_war.py -- the same statements as 85 pytest tests
 - proofs/net-field-rule/verify_net_field_rule.py -- the net-field rule: four faces, forced per-mass tail, sheet split, Jacobi edge, clusters, wide binaries, RAR slope (122 checks; Lean in lean/)
-- proofs/sst-mountain-scale/verify_sst_mountain_scale.py -- the mountain scale: exact split from the action, dimple blind to the law, curved-slice projector, Jacobi radii, ownership sweep with overlapping spheres, four ports, 3D solutions, edge test, nested envelopes and faces, registration, Cassini quadrupole (34 checks; Lean in lean/)
+- proofs/sst-mountain-scale/verify_sst_mountain_scale.py -- the mountain scale: exact split from the action, dimple blind to the law, curved-slice projector, Jacobi radii, ownership sweep with overlapping spheres, four ports, 3D solutions, edge test, nested envelopes and faces, registration, Cassini quadrupole, closure-surface kink (36 checks; Lean in lean/)
 - proofs/sst-khronon-preferred-frame/verify_sst_khronon_preferred_frame.py -- the preferred frame: khronon = TetB share, stability at every acceleration, forced tail, n = 1, flat slope and drainless dimple, empty sector inside a star system (32 checks; Lean in lean/)
 
 ## Usage instructions for LLMs
