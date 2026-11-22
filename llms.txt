@@ -343,6 +343,16 @@ Mountain scale (proofs/sst-mountain-scale, machine-checked in Lean): the net-fie
   4b +- 4(T23,T13,T12) (free fall + chiral tide leak, + TetA / - TetB); the stellated octahedron reads 8c0, 8b exactly.
   Registration implies the sweep: with Paper I's registered state held fixed, least-energy settlement fills the
   interior harmonically, which is exactly balayage (Dirichlet's principle). Open: why closure selects least energy.
+  Every object closes, drained or not, and is a pointer above its own level; the drain decides only what the
+  interior contains (drainless: pure TetA, Newtonian; drained: the law acts inside). Open: the drained level (a galaxy
+  as a pointer in its cluster, what mass its pointer carries).
+  Cassini quadrupole (Theorem 9): the mountain's linear response about the Galactic field is anisotropic,
+  lambda_par/lambda_perp = 1 + 1/(1+x) = 1.4 at the Sun; stretching z = e z' makes it isotropic and the Sun's swept
+  shell a homoeoid (zero interior field; second proof by the Green function, even and degree -1). Left: the Galactic
+  tide GM/r_J^3 = 1.5e-30 s^-2 and an isotropic trace term. GFD predicts no anomalous Q2 at this order, residuals
+  < ~1e-30 s^-2, vs Cassini 2026 (1.6 +- 1.8)e-27 (Park et al., PRD 114, 024066); AQUAL with the same law is excluded.
+  The closure surface carries the TetB share (Theorem 9(d)): potential continuous, slope kinks by
+  [n.(1 - mu)grad Phi_bar], a phantom surface layer (Sun: 1.28-4.48e-14 m/s^2). Open: junction conditions.
   Scale = each bound system's own Jacobi radius (Sun 1.4 pc, Pal 14 ~160 pc); one universal length fails Pal 14.
 Preferred frame (proofs/sst-khronon-preferred-frame, machine-checked in Lean): the SST is Blanchet-Marsat's
   preferred-foliation theory with beta = lambda = 0, where Bonetti-Barausse's PPN formulas do not apply
