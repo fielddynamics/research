@@ -104,7 +104,7 @@ In AQUAL the Sun's own field enters the law, and the Galactic field makes the re
 ## What it leaves open
 
 - **Least-energy settlement** (Theorem 8's premise) as a consequence of field closure in the dual-tetrad dynamics.
-- **Where each closure surface sits** (here the Jacobi radius). It is the premise; Theorem 6 shows, for a centred sphere, that energy cannot set it.
+- **Where each closure surface sits** (here the Jacobi radius). It is the premise; Theorem 6 shows, for a centred sphere, that energy cannot set it. The [closure-surface proof](../closure-surface/) shows the field's stagnation surface and the orbits' trapping surface are one surface, and narrows the premise to registration at that surface.
 - **The drained level:** a galaxy as a pointer in its cluster, with the law acting inside its own accounting, and what mass its pointer carries.
 - **Ownership that changes in time** (mergers, stripping), and energy across a moving closure surface.
 - **The junction conditions** at the closure surface, which must come from the action.

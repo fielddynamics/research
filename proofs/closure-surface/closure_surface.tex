@@ -1,0 +1,310 @@
+\documentclass[twocolumn]{iopjournal}
+
+\usepackage{amsmath,amssymb,amsfonts,amsthm,graphicx}
+
+\fancyhfoffset[L]{0mm}
+\setlength{\marginparwidth}{0pt}
+\setlength{\marginparsep}{0pt}
+
+\renewcommand{\articletype}[1]{%
+  {\vspace*{-8mm}\noindent \Large \sf Preprint}\par
+  \vspace*{6mm}\noindent{\scriptsize \sf{\bfseries \MakeUppercase{#1}}}}
+
+\fancyhead[L]{}
+\fancyhead[R]{}
+
+\hypersetup{pdftitle={Where Closure Sits: the Field's Stagnation Surface and the Jacobi Surface}, pdfauthor={Stephen Nelson}, pdfsubject={Gravity Field Dynamics (GFD)}, pdfkeywords={GFD, closure surface, field object, Jacobi surface, Hill problem, separatrix, vortex, Oort cloud, wide binaries, proof}}
+
+\begin{document}
+
+\articletype{Supplementary Material}
+
+\title{Where Closure Sits: the Field's Stagnation Surface and the Jacobi Surface}
+
+\author{Stephen Nelson}
+
+\affil{Field Dynamics Research}
+
+\ead{stephen@fielddynamics.org}
+
+\begin{abstract}
+Every field object closes, locally, at every level: an asteroid is a
+pointer in the solar system's accounting, the solar system in the
+galaxy's~\cite{NelsonMS}. This note asks where an object's closure
+surface sits. In the frame turning with its orbit, the object's own
+field, the host's tide and the orbit's turning make one effective
+potential. Its field vanishes at exactly two points, the stagnation
+points on the host's radius at the Jacobi radius, and the level through
+them defines a surface from the field alone. Because the Coriolis force
+does no work, the same surface is the one that no orbit below the
+critical Jacobi energy can cross. So the surface the field defines and
+the surface the orbits respect are one surface. A vortex in a strain
+has the same structure: its closed streamlines are bounded by the
+separatrix through its stagnation points. Under ownership the host's
+tide is the mountain's and the object's own field is Newtonian, so the
+rule reproduces itself. The surface is not a sphere: for the Sun it
+reaches $1.44$~pc along the Galactic radius, $0.96$~pc along the orbit
+and $0.73$~pc out of the plane. It holds Kepler orbits with $a < r_J/3
+\approx 10^5$~AU, the outer Oort cloud's scale; it does not hold
+$\alpha$~Centauri, though the two surfaces overlap; it predicts an edge
+in the speeds of bound wide binaries at $\sqrt{2 - 3s/r_J}$ times the
+circular speed. What remains a premise narrows to one geometric
+statement: registration happens at the field's stagnation surface.
+\end{abstract}
+
+\keywords{GFD, closure surface, field object, Jacobi surface, Hill problem, separatrix, vortex, Oort cloud, wide binaries, proof}
+
+% ----------------------------------------------------------------------
+
+\section*{Setting}
+
+GFD's Paper~I describes how a field object meets the NET Field: as a
+whole, at its closure boundary, where settlement records one registered
+state~\cite{NelsonI}; closure boundaries overlap and neighbours read
+each other through them~\cite{NelsonII}. The mountain-scale proof writes
+this into the action: each object's own field $d_k$ is removed from the
+law's term, the field equation splits exactly, and nested closures
+telescope, so each object is a pointer above its own level. Every object
+closes; a drain decides only what its interior contains. It takes the
+closure surface at the Jacobi radius as a premise~\cite{NelsonMS}.
+
+Here the object is drainless (a star system, a binary, a cluster) and
+moves on a near-circular orbit in its host. In the frame turning with
+the orbit at $\Omega$, with $x$ along the host's radius, $y$ along the
+orbit and $z$ out of the plane, and the object's size small against the
+host's scale (Hill's limit),
+\begin{equation}
+\Phi_{\rm eff} = -\frac{GM}{r} - \frac12 T x^2 + \frac12\nu^2z^2,\qquad
+T = 4\Omega^2 - \kappa^2,
+\label{eq:phi}
+\end{equation}
+$\kappa$ the epicyclic and $\nu$ the vertical frequency. The members
+move by $\ddot{\mathbf r} = -\nabla\Phi_{\rm eff} - 2\boldsymbol\Omega
+\times\dot{\mathbf r}$~\cite{BT2008}.
+
+Every statement is checked by script (15 checks); the algebra is
+machine-checked in Lean~4 (7 theorems), importing the mountain-scale
+formalisation~\cite{NelsonScript}.
+
+% ----------------------------------------------------------------------
+
+\section*{Theorem 1 (the field's stagnation surface)}
+
+\emph{The combined field $-\nabla\Phi_{\rm eff}$ vanishes at exactly two
+points, $x = \pm r_J$ on the host's radius, with
+\[
+r_J^3 = \frac{GM}{4\Omega^2 - \kappa^2},
+\]
+the Jacobi radius. They are saddles, with curvatures $(-3T, T, T +
+\nu^2)$, and the level through them is $E_c = -\tfrac32GM/r_J$. Define
+$\Sigma_{\rm field}$ as the boundary of the part of $\{\Phi_{\rm eff} <
+E_c\}$ that contains the object. It is defined by the field alone, with
+no orbits in it.}
+
+\begin{proof}
+The $y$ and $z$ components are $-GMy/r^3$ and $-(\nu^2 + GM/r^3)z$,
+zero only on $y = z = 0$; there, $Tx = GM/x^2$. Lean
+\texttt{stagnation\_radius}, \texttt{critical\_level}; script A1--A2.
+\end{proof}
+
+% ----------------------------------------------------------------------
+
+\section*{Theorem 2 (the trapping surface is the same surface)}
+
+\emph{The Coriolis force does no work, so the Jacobi energy $E_J =
+\tfrac12v^2 + \Phi_{\rm eff}$ is conserved. An orbit with $E_J < E_c$
+that starts inside $\Sigma_{\rm field}$ keeps $\Phi_{\rm eff} \le E_J <
+E_c$ and never reaches the stagnation level, so it never leaves. The
+surface no orbit below $E_c$ can cross, $\Sigma_{\rm Jacobi}$, is
+$\Sigma_{\rm field}$. The condition is sufficient, not necessary: some
+orbits above $E_c$ stay for a long time, retrograde ones especially.}
+
+\begin{proof}
+Lean \texttt{coriolis\_no\_work}, \texttt{trapped}. Script B2: 40 orbits
+below $E_c$ over forty host orbits each never leave (farthest $0.74\,r_J$;
+$E_J$ conserved to $10^{-5}$). B3: just above $E_c$, $70\%$ of prograde
+and $3\%$ of retrograde orbits escape in that time, as known for Hill's
+problem~\cite{Henon1970}.
+\end{proof}
+
+So the reviewers' question, whether registration and trapping select
+the same surface, has a direct answer: they are the same level set of
+the same potential. One is read from the field, the other from the
+orbits.
+
+% ----------------------------------------------------------------------
+
+\section*{Theorem 3 (the vortex)}
+
+\emph{A point vortex of circulation $\Gamma$ in a pure strain of rate
+$S$ has the streamfunction $\psi = -(\Gamma/2\pi)\ln r + Sxy$. The flow
+stagnates at two points, $a^2 = \Gamma/4\pi S$ on the diagonal, which
+are saddles of $\psi$. Fluid moves along $\psi = $ const, so the closed
+streamlines around the vortex are bounded by the separatrix through the
+stagnation points, and a parcel's fate is fixed by its $\psi$.}
+
+\begin{proof}
+Script C1: the Hessian determinant at the stagnation point is $-4$;
+predicting 55 parcels' fates from $\psi$ alone agrees with integrating
+them in every case (14 inside, 41 outside).
+\end{proof}
+
+This is the same structure one dimension lower: $\ln r$ for $1/r$, the
+strain for the tide, $\psi$ for $\Phi_{\rm eff}$, and the separatrix for
+$\Sigma_{\rm field}$. An eddy in a stream carries the fluid inside its
+separatrix as one unit~\cite{Batchelor1956}; a bound object carries what
+is inside its stagnation surface. The difference is the order of the
+motion: fluid parcels follow $\psi$ exactly, while orbits are only
+bounded by $\Phi_{\rm eff}$, which is why Theorem~2 is an inequality.
+
+% ----------------------------------------------------------------------
+
+\section*{Theorem 4 (shape and size)}
+
+\emph{$\Sigma_{\rm field}$ is not a sphere. It reaches $r_J$ along the
+host's radius (at the saddles), $\tfrac23r_J$ along the orbit (where
+$-GM/y = E_c$) and, for the Sun's vertical frequency ($\nu^2 = 3.8\,T$,
+local density $0.1\,M_\odot$\,pc$^{-3}$), $0.50\,r_J$ out of the plane.
+Its volume is that of a sphere of radius $0.64\,r_J$.}
+
+\begin{proof}
+Lean \texttt{orbit\_extent}; script D1--D2.
+\end{proof}
+
+The mountain-scale proof's sphere of radius $r_J$ is therefore an outer
+bound. Its results hold for any closed surface (balayage works onto any
+regular boundary), and its Theorem~9 bounds the correction to the
+Cassini quadrupole from a surface that is not a sphere~\cite{NelsonMS}.
+
+% ----------------------------------------------------------------------
+
+\section*{Theorem 5 (the rule reproduces itself)}
+
+\emph{Expanding the host's potential in the turning frame about the
+orbit, the radial curvature is $\Phi_h'' - \Omega^2 = -(4\Omega^2 -
+\kappa^2)$, with $\kappa^2 = R\,d\Omega^2/dR + 4\Omega^2$; for a flat
+rotation curve, the deep law's mountain, $T = 2\Omega^2$. Under
+ownership the host's field is the mountain and the object's own field is
+Newtonian. So $\Phi_{\rm eff}$ is exactly the potential the members move
+in, and the surface they cannot cross is the one the field defines:
+given ownership at $\Sigma_{\rm field}$, the dynamics hold every member
+inside it.}
+
+\begin{proof}
+Script E1--E2; the split is the mountain-scale proof's Theorem~1.
+\end{proof}
+
+This is a fixed point, not a derivation from nothing: ownership at the
+stagnation surface gives Newtonian internal motion, and Newtonian
+internal motion respects exactly that surface. A different law inside
+would move the surface, which is what makes the tests below
+discriminate.
+
+% ----------------------------------------------------------------------
+
+\section*{Proposition 6 (tests)}
+
+\emph{(a) The planets: for Neptune $E/E_c = r_J/3a = 3300$. (b) The
+Oort cloud: a Kepler orbit is held for good when $-GM/2a < E_c$, i.e.
+$a < r_J/3 = 99{,}000$~AU ($0.48$~pc), the scale usually quoted for the
+outer Oort cloud; beyond it the Galactic tide strips comets over
+time~\cite{Heisler1986}. (c) $\alpha$~Centauri: its surface and the
+Sun's overlap, but its energy relative to the Sun, $+5\times10^8$~J/kg,
+is far above the pair's $E_c = -9\times10^3$~J/kg. Neither belongs to
+the other; each is its own cell, and they read each other's fields
+through the overlap. (d) Wide binaries: a pair of separation $s$ is one
+cell when $v/\sqrt{GM/s} < \sqrt{2 - 3s/r_J}$, an edge at $1.41$,
+$1.40$, $1.38$, $1.35$, $1.28$ for $1.5\,M_\odot$ pairs at $s = 0.005$,
+$0.02$, $0.05$, $0.1$, $0.2$~pc. Inside, the pair is drainless and its
+relative motion Newtonian with $G_{\rm N}$. (e) Palomar~14: its surface
+reaches $157$~pc along the Galactic radius and $104$~pc along its orbit,
+around a $26$~pc body: one cell.}
+
+\begin{proof}
+Lean \texttt{held\_for\_good}, \texttt{binary\_edge}; script F1--F5.
+\end{proof}
+
+The wide-binary edge is set before any velocity is inspected: it uses
+only the masses, the separation and the Galactic tide. GFD predicts that
+the three-dimensional speed ratio of bound pairs stops there; a theory
+that strengthens gravity inside the pair, such as MOND applied pointwise
+with the external-field effect, moves the edge up. Gaia analyses are
+divided on whether such a strengthening is seen~\cite{Chae2023,
+Banik2024}; this proof does not adjudicate them, and observed speeds are
+projected, which spreads the edge.
+
+% ----------------------------------------------------------------------
+
+\section*{Scope}
+
+Proved here: the field's stagnation surface and the orbits' trapping
+surface are one surface, for a drainless object on a near-circular orbit
+in Hill's limit; its shape and size; its vortex counterpart; that
+ownership at it reproduces itself; and five tests.
+
+Not proved here:
+\begin{enumerate}
+\item \emph{That registration happens at the stagnation surface.} This
+is now the single geometric premise: the closure surface is the field's
+separatrix. It is not derived from the dual-tetrad dynamics.
+\item \emph{Eccentric orbits and a changing host}: the surface then
+breathes, and ownership changes in time (stripping, capture).
+\item \emph{Beyond Hill's limit}: when the object is not small against
+its host's scale.
+\item \emph{Orbits above $E_c$}: the energy condition is sufficient; how
+long the others stay is measured, not bounded.
+\item \emph{The drained level}: a galaxy's own closure surface in its
+group or cluster, with the law acting inside.
+\end{enumerate}
+
+% ----------------------------------------------------------------------
+
+\begin{thebibliography}{99}
+
+\bibitem{NelsonMS}
+S.~Nelson, \textit{The Mountain Scale in the SST: the Net-Field Rule
+From the Action} (2026), \texttt{proofs/sst-mountain-scale/}.
+
+\bibitem{NelsonI}
+S.~Nelson, \textit{The Gravitational Constitutive Law}, Paper~I
+(2026), \S\S2.2--2.3.
+
+\bibitem{NelsonII}
+S.~Nelson, \textit{A Covariant Theory Without Dark Matter}, Paper~II
+(2026), \S6.
+
+\bibitem{NelsonScript}
+S.~Nelson, \texttt{verify\_closure\_surface.py} and
+\texttt{lean/ClosureSurface.lean} (2026),
+\texttt{proofs/closure-surface/}.
+
+\bibitem{BT2008}
+J.~Binney and S.~Tremaine, \textit{Galactic Dynamics}, 2nd ed.\
+(Princeton University Press, 2008), \S8.3.
+
+\bibitem{Henon1970}
+M.~H\'enon, Numerical exploration of the restricted problem. VI. Hill's
+case: non-periodic orbits, \textit{Astron.\ Astrophys.} \textbf{9}
+(1970) 24.
+
+\bibitem{Batchelor1956}
+G.~K.~Batchelor, On steady laminar flow with closed streamlines at large
+Reynolds number, \textit{J.\ Fluid Mech.} \textbf{1} (1956) 177.
+
+\bibitem{Heisler1986}
+J.~Heisler and S.~Tremaine, The influence of the Galactic tidal field
+on the Oort comet cloud, \textit{Icarus} \textbf{65} (1986) 13.
+
+\bibitem{Chae2023}
+K.-H.~Chae, Breakdown of the Newton--Einstein standard gravity at low
+acceleration in internal dynamics of wide binary stars,
+\textit{Astrophys.\ J.} \textbf{952} (2023) 128.
+
+\bibitem{Banik2024}
+I.~Banik et al., Strong constraints on the gravitational law from Gaia
+DR3 wide binaries, \textit{Mon.\ Not.\ R.\ Astron.\ Soc.} \textbf{527}
+(2024) 4573.
+
+\end{thebibliography}
+
+\end{document}
