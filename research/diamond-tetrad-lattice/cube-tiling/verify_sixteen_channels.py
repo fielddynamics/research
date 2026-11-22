@@ -151,4 +151,13 @@ check("15d. the face's 6 is chiral: its rotations split it into two orbits of 3,
       len(rots) == 3 and sorted(len(o) for o in r_orbs) == [3, 3]
       and all({act(g, it) for it in r_orbs[0]} == set(r_orbs[1]) for g in stab if det(g) == -1))
 
+check("15e. the slice's 4 shared (diagonal) entries, fixed by mu <-> nu, are exactly the core channel's 4 couplings: the face "
+      "of the Field Origin, coupling the tile to itself and to the 3 face neighbours whose Field Origins it touches",
+      sorted(kind(it) for it in face if tau[it] == it) == ["core -> face neighbour"] * 3 + ["own core"])
+check("15f. the 12 off-diagonal entries are the 3 corner channels' couplings, in 6 mirror pairs; on the 6 that reach face "
+      "neighbours, mu <-> nu exchanges the two senses of circulation around the face (the two rotation orbits of 15d), "
+      "as the chiral-holonomy proof's TetB step is the transpose of the TetA step",
+      sum(1 for it in face if tau[it] != it) == 12 and all(kind(it).startswith("own corner") or kind(it).startswith("corner")
+                                                            for it in face if tau[it] != it)
+      and all((tau[it] in r_orbs[1]) == (it in r_orbs[0]) for it in six))
 print(f"\n{sum(ok)}/{len(ok)} checks passed")

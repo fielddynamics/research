@@ -1,6 +1,6 @@
 # The Cube Tiling: Two Labellings, and the Ladder of Tiles
 
-*Field Dynamics Research, research folder, 2026-11-22. Status: research, not a proof. Verification: `python3 verify_cube_tiling.py` (19 checks) `python3 verify_scale_ladder.py` (11) and `python3 verify_sixteen_channels.py` (13), exact integers and fractions.*
+*Field Dynamics Research, research folder, 2026-11-22. Status: research, not a proof. Verification: `python3 verify_cube_tiling.py` (19 checks) `python3 verify_scale_ladder.py` (11) and `python3 verify_sixteen_channels.py` (15), exact integers and fractions.*
 
 `tiling` `cube` `stellated-octahedron` `TetA` `TetB` `closure` `scale-ladder` `Field-Origin` `affine-connection` `torsion` `diamond` `fluorite` `research`
 
@@ -108,6 +108,12 @@ The sign representation, the one scalar detector of orientation, occurs once in 
 
 Under it, exchanging the lower indices $\mu \leftrightarrow \nu$ reads on the tiles as: swap the two corner channels that reach the same face neighbour; swap a corner channel's coupling to its own tile with its coupling to its edge neighbour; leave the core channels fixed. Its even part is the 40 (Christoffel) and its odd part the 24 (torsion). So the torsion components are the differences between the two corner channels reaching one face neighbour, and between what a corner channel gives its own tile and its edge neighbour. One face's 16 fall, under the face's own symmetry, into the same orbits as one slice's ordered index pairs, and the corner-to-face-neighbour couplings are chiral: the face's rotations separate each channel's left and right neighbour, and its reflections exchange them.
 
+**This is the Gram paper's index grid, read on the tiles** (15e–15f). The split itself is not new: per slice the connection's 16 entries are 6 upper + 4 diagonal (shared) + 6 lower, $24 + 16 + 24 = 64$ over the four slices ([Gram-matrix proof](../../../proofs/gram-matrix-tetrad-equation/), Part III; the GRAM manuscript; Letter 3). What the tiling adds is which coupling is which:
+- **The 4 shared entries are the core channel**: the face of the Field Origin, coupling the tile to itself and to the three face neighbours whose Field Origins it touches. They are the entries $\mu \leftrightarrow \nu$ fixes.
+- **The 12 off-diagonal entries are the three corner channels**, which open into the shared octahedra, in 6 mirror pairs. On the 6 that reach face neighbours, $\mu \leftrightarrow \nu$ exchanges the two senses of circulation around the face, as the [chiral-holonomy proof](../../../proofs/chiral-holonomy-closed-frame/)'s TetB step is the transpose of its TetA step.
+
+So the Field Origin is the slice's shared diagonal, and the upper and lower triangles are the corner channels read in the two senses of circulation.
+
 The sharing in 13–15 is geometric, so these results hold for either labelling.
 
 **What 13–15 do and do not say.**
@@ -145,7 +151,7 @@ The framework's positions now point one way, to C. Everything common to both (th
 |---|---|
 | [`verify_cube_tiling.py`](verify_cube_tiling.py) | 19 exact checks: parts 1–7 for results 1–5, parts 8–11 for results 6–9 |
 | [`verify_scale_ladder.py`](verify_scale_ladder.py) | 11 exact checks for results 10–12 |
-| [`verify_sixteen_channels.py`](verify_sixteen_channels.py) | 13 exact checks for results 13–15 |
+| [`verify_sixteen_channels.py`](verify_sixteen_channels.py) | 15 exact checks for results 13–15 |
 
 ## Related
 
