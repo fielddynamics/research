@@ -385,15 +385,17 @@ agreement 0.21%, unique to the electron (muon and proton fail by ~$10^3$). Equiv
 
 ---
 
-## 8. Constants from the integers [E] (VI, VII)
+## 8. Constants from the integers [D] G, m_e; [E] α (VI, VII)
 
-### 8.1 Newton's constant
+### 8.1 Newton's constant [D]
+
+*Premises:* one factor of $\alpha$ per coupling level (the frame is built from null directions), and the combination rule, 21 as exponent and 17/13 as ratio, which `research/g_from_topology/` marks as proposed (the only one of 21 closure-stage rules that fits). Unique among 1,953 alternatives $(p/q)\alpha^n$ ($p, q \le 21$, $n = 18$–24). With the electron's closure relation ($a_0 = 16Gm_e/r_e^2$) it shares one relation, so one mass scale is an input: from $\alpha$ and $m_e$, $G$ (12 ppm) and $a_0 = 1.225\times10^{-10}$.
 
 $$G = \frac{17}{13}\,\alpha^{21}\,\frac{\hbar c}{m_e^2} = \frac{(d+1)^2+1}{d(d+1)+1}\,\alpha^{1+(d+1)+(d+1)^2}\,\frac{\hbar c}{m_e^2}$$
 
 $= 1.3077 \times 1.338\times10^{-45}\times3.810\times10^{34} = 6.666\times10^{-11}$ m³ kg⁻¹ s⁻² (0.12% tree level; 0.001% with a one-loop Schwinger correction, research/g_from_topology). Exponent 21 = coupling depth; $\alpha^{20}\approx10^{-43}$ is the gravity/EM hierarchy. A 0.001% change in $\alpha$ shifts $G$ by 0.021%.
 
-### 8.2 Fine-structure constant
+### 8.2 Fine-structure constant [E]
 
 $$\frac1\alpha = 2^d(k^2+1) + 1 + \frac{1}{k(k+d)} = 8\times17 + 1 + \frac1{28} = 137.0357\ (0.0002\%),$$
 
@@ -467,7 +469,7 @@ Shell ceilings $\mathrm{CEIL} = B_{\rm Zn} + B_{\rm bdy} - \mu_b(2)[B_{\rm Zn} -
 4. Clusters and the Bullet Cluster: qualitative only (VII); no lensing reconstruction.
 5. CMB: one enhancement factor, no full power spectrum.
 6. $\mathcal L_{\rm matter}$ unspecified.
-7. Constants: numerical routes, subject to look-elsewhere effects.
+7. Constants: G and $m_e$ derived given stated premises (the combination rule for G is still proposed); α's 1/28 a structural reading; look-elsewhere test included.
 8. No peer-reviewed publication yet.
 
 ### 12.1 Found in the full paper-by-paper reading (Part II)

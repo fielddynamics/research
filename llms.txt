@@ -7,8 +7,8 @@ Documentation: docs/README.md
 A covariantly complete, geometrically closed theory of gravity with no per-galaxy parameters that replaces dark matter with the second
 root of the tetrad equation (the dual-tetrad topology of the stellated octahedron): galactic rotation
 curves follow from one action and one measured scale a_0, and the same 21-channel coupling structure
-gives exploratory numerical routes to Newton's constant, the fine-structure constant and the electron
-mass (and readings of the neutron-lifetime discrepancy, Paper VII, and the proton mass, research/proton/).
+derives Newton's constant and the electron mass, given stated premises, with a structural reading of the
+fine-structure constant (and readings of the neutron-lifetime discrepancy, Paper VII, and the proton mass, research/proton/).
 
 ## Status at a glance (2026-11-21)
 Status tags used throughout this file (the same as GFD_COLES_NOTES.md):
@@ -29,12 +29,20 @@ Strongest results:
     reopened; its closure surface, the field's stagnation surface, is also the surface its matter cannot leave;
     a wide-binary speed edge set before any velocity is inspected.
   - [O] Palomar 14 and Palomar 4 velocity dispersions require the bare G (the net-field analysis; literature divided).
+  - [D] Newton's constant G = (17/13) alpha^21 hbar c / m_e^2 (1 + alpha/2 pi), within 12 ppm of the measured
+    value (inside G's own 22 ppm uncertainty); unique among 1,953 alternatives of the same form
+    (research/g_from_topology/). With the electron's closure relation, one mass scale closes G, m_e and a_0.
 Known limitations (README.md, "Status and known limitations"):
   - Not yet peer reviewed; the papers are Zenodo preprints.
   - The RAR alone cannot separate GFD from simple-function MOND; discriminating tests are Tully-Fisher
     evolution, torsion, the constants, wide binaries and the Cassini quadrupole.
-  - a_0 is empirical in the galactic test (its computed value K^2 G m_e / r_e^2 is [E]).
-  - The constants (G, alpha, m_e) are [E], subject to look-elsewhere effects (research/g_from_topology/).
+  - a_0 is empirical in the galactic test (its computed value K^2 G m_e / r_e^2 = 1.225e-10 is [D], from the
+    electron's closure relation).
+  - The constants rest on stated premises. G [D]: one factor of alpha per coupling level, and the combination
+    rule (21 as exponent, 17/13 as ratio), which research/g_from_topology/ marks as proposed. m_e [D]: closure
+    saturation a_0 = K^2 G m / r^2 with m = alpha hbar/(r c). The two share one relation, so one mass scale is an
+    input: from alpha and m_e they give G (12 ppm) and a_0 = 1.225e-10; from alpha and a_0, m_e and G.
+    alpha's 1/28 is a structural reading [E]. A look-elsewhere test is included.
   - gamma = 1 is argued from a single-potential weak-field metric; the metric field equations are not solved.
   - Lensing, clusters (incl. the Bullet Cluster) and the CMB spectrum: qualitative or partial only.
   - L_matter is unspecified. The closure premises (registration at the stagnation surface; drained-level
@@ -212,7 +220,7 @@ Rule 7: The mass decoding equation is a kinematic inversion derived from the con
 Rule 8: No dark matter halo is assumed anywhere in the derivation.
 Rule 9: "SST" names the full covariant action only. The quadratic g_s = g_t^2/(a_0 + g_t) is its spherical field equation and is never called the SST.
 Rule 10: A galaxy is never unbound. It is a vortex: matter spirals down the drain at its centre into TetB, so a galaxy's TetB is occupied. The one-directional law describes the galaxy's exterior field, not an unbound state. Only an individual unbound envelope (a tile of the long-range mesh) has an empty TetB.
-Rule 11: Every claim carries a status tag: [T] theorem, [D] derived, [E] exploratory, [O] observational. Never present an [E] result (G, alpha, m_e, H_0, nuclei) as derived or as a prediction, and never present a premise as a theorem.
+Rule 11: Every claim carries a status tag: [T] theorem, [D] derived, [E] exploratory, [O] observational. Never present an [E] result (alpha's 1/28, H_0, nuclei) as derived or as a prediction; state the premises of every [D] result (G, m_e); and never present a premise as a theorem.
 Rule 12: Every field object closes, locally, at every level, drained or not: an asteroid is a pointer in the solar system's accounting, the solar system in the galaxy's, a galaxy in its cluster's. A larger closure never reopens a smaller one's internal accounting. The drain decides only what an object's interior contains (drainless: pure TetA, Newtonian; drained: the law acts inside), never whether it closes.
 Rule 13: Closure fields overlap; ownership is single-valued. Two objects may share space and read each other's fields while each owns its own mass, counted once. Never merge overlapping closures into one region.
 Rule 14: Matter in a cell either stays in its cell or snaps to a neighbouring cell, through the openings at the two stagnation points of the closure surface. Use "snaps to a neighbouring cell", not "escapes" or "is trapped".
@@ -289,7 +297,7 @@ Section 4 -- Structural states (structural)
   Eq(10): (21 + 13) / 2 = 17               Structural identity
   Eq(11): 21 - 17 = 17 - 13 = K            Structural identity
 
-Section 5 -- Gravitational constant [E] (exploratory numerical route)
+Section 5 -- Gravitational constant [D] (premises: one alpha per coupling level; the combination rule, proposed)
   Eq(12): G = (17/13) * alpha^21 * (hbar * c / m_e^2)
 
 Section 6 -- Constitutive law (derived)
@@ -339,12 +347,16 @@ Topology -> Eq(1-2) -> D=3, K=4 -> Tetrad Eq(3-4) -> Coupling polynomial Eq(5-6)
 - [D] Gravitational wave speed c_gw = c (tensor sector unmodified)
 - [D] PPN beta = gamma = 1 (gamma argued from a single-potential weak-field metric; metric equations not solved)
 - [T+L] No anomaly inside drainless bound systems at leading order; no anomalous Cassini quadrupole
-- [E] Gravitational constant G, fine-structure constant alpha, electron mass (three routes)
+- [D] Gravitational constant G (12 ppm with the one-loop factor; premises stated in Section 5)
+- [D] Electron mass (three routes to the closure scale r = 2.82 fm; m_e from closure saturation with a_0 measured)
+- [E] Fine-structure constant alpha (137 from the coupling breadth; 1/28 a structural reading)
 
 
 ## Key physical results
-[E] Electron mass: three numerical routes converge on m_e = 9.1093837(28) x 10^{-31} kg at r ~ 2.82 fm
-  (look-elsewhere effects apply; research/g_from_topology/).
+[D] Electron mass: three routes converge on the closure scale r = 2.82 fm (EM stability, 2.818 fm; gravitational
+  topology K sqrt(G m_e/a_0), 2.82 fm; closure topology), and closure saturation a_0 = K^2 G m/r^2 with
+  m = alpha hbar/(r c) gives m_e = 9.11e-31 kg (0.1%) from alpha, hbar, G, a_0 and K, with no m_e input.
+[D] Newton's constant: G = (17/13) alpha^21 hbar c/m_e^2 (1 + alpha/2 pi), 12 ppm (research/g_from_topology/).
 [E] Fine-structure constant: 1/alpha = 137 + 1/28 (a geometric reading, 0.0002%).
 [D] Tully-Fisher relation: M proportional to v^4, exact within the theory (not an empirical fit).
 [D] Local systems (solar system, binaries, star clusters): see Naming, "Local systems are TetA only",
@@ -533,7 +545,8 @@ Each script is self-contained; run it from its own folder.
 - Inside a drainless bound system (the solar system, a binary, a cluster) the theory is GR with the bare G
   at leading order, and it predicts that no anomaly appears there (Rule 16; Cassini Q2 < ~1e-30 s^-2).
   Do not invent local anomalies from mu(x): mu(x) and the decoder apply to a galaxy's own net field.
-- Tag every claim with its status (Rule 11). The constants are [E]; the closure premises are premises.
+- Tag every claim with its status (Rule 11). G and m_e are [D] with stated premises; alpha's 1/28 is [E];
+  the closure premises are premises.
 - Describe closure with Rules 12-15: every object closes and is a pointer above its level; ownership,
   not overlap, decides; matter snaps to a neighbouring cell; scale invariance is compositional.
 - Trace every coefficient (16, 8, 4) and every result (alpha, m_e, Tully-Fisher) back to the stellated octahedron dual tetrad structure.
