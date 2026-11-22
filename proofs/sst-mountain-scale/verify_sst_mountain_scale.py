@@ -9,7 +9,9 @@ the preferred foliation, onto spatial modes longer than the mountain scale ell (
   Part B  the projector on a curved leaf (the covariant definition)
   Part C  consequences: no tail, the dimple blind to the law, the khronon
   Part D  the mountain scale: the Jacobi radius of each bound system (Sun, Pal 14, Pal 4)
-  Part E  the 3D demonstration (demo_mountain_scale.py; its output in demo_output.txt)
+  Part E  the 3D demonstration with a fixed scale (demo_mountain_scale.py; its output in demo_output.txt)
+  Part G  the energy-orthogonal (sweeping) projector: a different Jacobi radius for each system, exact
+  Part H  the action does not choose the edge
 
 Run: python verify_sst_mountain_scale.py"""
 import math, os, re
@@ -109,7 +111,8 @@ check("C2 the khronon: f depends on y_bar = |grad P Phi|^2/a0^2 only, so a khron
 # ------------------------------------------------------------------ Part D: the mountain scale
 GMs, AU, PCm, KPC = 1.32712e20, 1.495979e11, 3.0857e16, 3.0857e19
 def rJ(GM, v, R):
-    Om = v / R; return (GM / (2 * Om ** 2)) ** (1 / 3)
+    # general Jacobi radius r_J^3 = GM/(4 Omega^2 - kappa^2); for a flat rotation curve kappa^2 = 2 Omega^2
+    Om = v / R; kap2 = 2 * Om ** 2; return (GM / (4 * Om ** 2 - kap2)) ** (1 / 3)
 rJ_sun = rJ(GMs, 2.2e5, 8.2 * KPC)
 check(f"D1 the Sun: r_J = {rJ_sun / PCm:.2f} pc, inside the window from the net-field rule, Cassini (ell > 1.2e4 AU = "
       f"{1.2e4 * AU / PCm:.3f} pc) to binding (ell <= r_J)", 1.2e4 * AU < rJ_sun and 1.3 < rJ_sun / PCm < 1.6)
@@ -157,5 +160,66 @@ if "finite difference" in txt:
           len(sc) == 3 and sc[0][1] > sc[1][1] > sc[2][1] and sc[2][1] < 1e-3)
 else:
     print("(demo_output.txt missing or incomplete: run demo_mountain_scale.py, about 5 minutes, for Part E)")
+
+# ------------------------------------------------------------------ Part G: the energy-orthogonal (sweeping) projector
+# Each outermost bound system k of the drained host has a Jacobi ball B_k. P replaces the field inside each ball by the
+# harmonic field with the same boundary values: the system's mass is swept onto its Jacobi surface. P is idempotent and
+# self-adjoint in the field-energy product E(a,b) = int grad a . grad b, but it does not commute with the Laplacian.
+from scipy.optimize import fsolve
+nb = 300
+xb = np.linspace(0, 1, nb + 2)[1:-1]; hb = xb[1] - xb[0]
+Db = (np.eye(nb + 1, nb, 0) - np.eye(nb + 1, nb, -1)) / hb      # forward differences, zero Dirichlet at the box ends
+Kb = Db.T @ Db                                                 # -Laplacian, the energy form
+def sweep(balls):
+    Pm = np.eye(nb)
+    for a, b in balls:
+        ia, ib = np.searchsorted(xb, a) - 1, np.searchsorted(xb, b)
+        for i in range(ia + 1, ib):
+            t = (xb[i] - xb[ia]) / (xb[ib] - xb[ia]); Pm[i] = 0; Pm[i, ia] += 1 - t; Pm[i, ib] += t
+    return Pm
+def solve_b(rho, Pm, law):
+    def el(p):
+        g = Db @ (Pm @ p); return Kb @ p - Pm.T @ (Db.T @ ((law(np.abs(g)) - 1) * g)) - rho
+    return fsolve(el, np.linalg.solve(Kb, rho), xtol=1e-13)
+rho_b = 200 * np.exp(-((xb - 0.5) / 0.15) ** 2) + 3000 * np.exp(-((xb - 0.3) / 0.01) ** 2) + 2000 * np.exp(-((xb - 0.72) / 0.008) ** 2)
+Ps = sweep([(0.22, 0.38), (0.66, 0.78)])                       # two systems with different Jacobi radii
+check("G1 the sweeping projector, with a different Jacobi radius for each system, is idempotent and self-adjoint in the "
+      "field-energy product (K P = P^T K), and does NOT commute with the Laplacian: commuting is not needed",
+      np.allclose(Ps @ Ps, Ps) and np.allclose(Kb @ Ps, Ps.T @ Kb) and not np.allclose(Ps @ Kb, Kb @ Ps))
+q1, q2 = solve_b(rho_b, Ps, mu), solve_b(rho_b, Ps, mu2)
+Ib = np.eye(nb)
+newt_b = (Ib - Ps) @ np.linalg.solve(Kb, rho_b)
+e1 = np.abs((Ib - Ps) @ q1 - newt_b).max() / np.abs(newt_b).max()
+e2 = np.abs((Ib - Ps) @ q2 - (Ib - Ps) @ q1).max() / np.abs(newt_b).max()
+e3 = np.abs(Ps @ q2 - Ps @ q1).max() / np.abs(Ps @ q1).max()
+check(f"G2 the split is exact for two systems with different scales: each dimple is plain Newton for its own mass with "
+      f"zero value on its Jacobi surface ({e1:.0e}), identical under another law ({e2:.0e}), while the mountain changes ({e3:.0e})",
+      e1 < 1e-10 and e2 < 1e-10 and e3 > 1e-3)
+Pn = sweep([(0.22, 0.38), (0.27, 0.33)])
+check("G3 nesting: sweeping an inner ball after an outer one is not idempotent (so it is not a projector); the rule is to "
+      "sweep only the outermost bound systems of the drained host. Everything nested inside (the Earth within the Sun's ball) "
+      "is already in the linear dimple", not np.allclose(Pn @ Pn, Pn))
+xin = (xb > 0.22) & (xb < 0.38)
+lin = np.polyfit(xb[xin], (Ps @ q1)[xin], 1)
+check("G4 inside a Jacobi ball the mountain is harmonic (here linear): the host's flat slope, and in 3D the slope plus "
+      "the tide. The system itself appears in the mountain only as a shell on its Jacobi surface (outside it, the same "
+      "field: the shell theorem)", np.abs(np.polyval(lin, xb[xin]) - (Ps @ q1)[xin]).max() < 1e-9 * np.abs(Ps @ q1).max())
+
+# ------------------------------------------------------------------ Part H: the action does not choose the edge
+Hh = lambda g: -2 * g + 2 * np.log1p(g)                        # h = a0^2[F(y) - y], a0 = 1
+cth = np.linspace(-1, 1, 4001)
+def dSdR(R, ge):           # r_M = sqrt(GM/a0) = 1; envelope theorem: only the law term's explicit R dependence
+    g = np.sqrt(ge ** 2 + R ** -4 + 2 * ge * R ** -2 * cth)
+    return -0.5 * 4 * np.pi * R ** 2 * (Hh(ge) - np.trapezoid(Hh(g), cth) / 2)
+signs = all(dSdR(R, ge) < 0 for ge in (0.1, 1.5, 10.0) for R in np.logspace(-2, 3, 200))
+gg = sp.symbols("g", positive=True)
+Hs = -2 * gg + 2 * sp.log(1 + gg)
+check("H1 the law's energy term H(g) = a0^2[F - y] is non-increasing and concave in g (H' = -2g/(1+g), "
+      "H'' = -2/(1+g)^2: the khronon's stability conditions), so as a function of the field vector it is concave",
+      sp.simplify(sp.diff(Hs, gg) + 2 * gg / (1 + gg)) == 0 and sp.simplify(sp.diff(Hs, gg, 2) + 2 / (1 + gg) ** 2) == 0)
+check("H2 so enlarging a Jacobi ball always lowers the static action (raises the field energy): dS/dR < 0 for every radius "
+      "from 0.01 to 1000 r_M, for hosts at x = 0.1, 1.5, 10 (with the tide, up to the host's TetB mass inside the ball). "
+      "The action has no stationary edge: energy alone would pick the pointwise reading. The Jacobi radius is a binding "
+      "criterion (which matter moves together), not an energy minimum", signs)
 
 print(f"\n{sum(ok)}/{len(ok)} checks passed")

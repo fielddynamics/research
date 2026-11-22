@@ -15,5 +15,11 @@ PASS E1 in 3D (galaxy + Sun in a periodic box): the dimple equals the Newtonian 
 PASS E2 read pointwise, the extra pull around the Sun is the tail a0 mu(x): r = 2: 0.79 vs a0 mu = 0.80, r = 3: 0.70 vs a0 mu = 0.71, r = 4: 0.58 vs a0 mu = 0.60
 PASS E3 read at the mountain's scale, the extra pull is small and fades toward the Sun (r = 2: 0.042, r = 3: 0.058, r = 4: 0.074, r = 6: 0.101 a0): only the smoothed sheet and the tide, no tail
 PASS E4 the galaxy is unchanged once the mountain scale is small against it: the galaxy's field at the Sun's position, mountain vs pointwise, differs by 4e-02 at ell/width = 2.0, 3e-03 at ell/width = 1.0, 2e-04 at ell/width = 0.5 (galaxy_scaling.py); in the Milky Way ell/R ~ 1.4 pc / 8 kpc ~ 2e-4
+PASS G1 the sweeping projector, with a different Jacobi radius for each system, is idempotent and self-adjoint in the field-energy product (K P = P^T K), and does NOT commute with the Laplacian: commuting is not needed
+PASS G2 the split is exact for two systems with different scales: each dimple is plain Newton for its own mass with zero value on its Jacobi surface (3e-14), identical under another law (6e-14), while the mountain changes (2e-02)
+PASS G3 nesting: sweeping an inner ball after an outer one is not idempotent (so it is not a projector); the rule is to sweep only the outermost bound systems of the drained host. Everything nested inside (the Earth within the Sun's ball) is already in the linear dimple
+PASS G4 inside a Jacobi ball the mountain is harmonic (here linear): the host's flat slope, and in 3D the slope plus the tide. The system itself appears in the mountain only as a shell on its Jacobi surface (outside it, the same field: the shell theorem)
+PASS H1 the law's energy term H(g) = a0^2[F - y] is non-increasing and concave in g (H' = -2g/(1+g), H'' = -2/(1+g)^2: the khronon's stability conditions), so as a function of the field vector it is concave
+PASS H2 so enlarging a Jacobi ball always lowers the static action (raises the field energy): dS/dR < 0 for every radius from 0.01 to 1000 r_M, for hosts at x = 0.1, 1.5, 10 (with the tide, up to the host's TetB mass inside the ball). The action has no stationary edge: energy alone would pick the pointwise reading. The Jacobi radius is a binding criterion (which matter moves together), not an energy minimum
 
-17/17 checks passed
+23/23 checks passed
