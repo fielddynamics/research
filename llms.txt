@@ -4,11 +4,41 @@ All paths below are relative to the repository root.
 Documentation: docs/README.md
 
 ## One-sentence summary
-A covariantly complete, geometrically closed theory of gravity with no per-galaxy parameters that
-replaces dark matter with the second root of the tetrad equation (the dual-tetrad topology of the
-stellated octahedron), and derives galactic rotation curves, Newton's constant, the fine-structure
-constant and the electron mass from the same 21-channel coupling structure (with exploratory
-readings of the neutron-lifetime discrepancy, Paper VII, and the proton mass, research/proton/).
+A covariant theory of gravity with no per-galaxy parameters that replaces dark matter with the second
+root of the tetrad equation (the dual-tetrad topology of the stellated octahedron): galactic rotation
+curves follow from one action and one measured scale a_0, and the same 21-channel coupling structure
+gives exploratory numerical routes to Newton's constant, the fine-structure constant and the electron
+mass (and readings of the neutron-lifetime discrepancy, Paper VII, and the proton mass, research/proton/).
+
+## Status at a glance (2026-11-21)
+Status tags used throughout this file (the same as GFD_COLES_NOTES.md):
+  [T] theorem: proved, with a verification script (+L: also machine-checked in Lean 4)
+  [D] derived: follows from the framework's stated assumptions
+  [E] exploratory: a numerical correspondence or extension, not yet a derivation
+  [O] observational: a comparison with data
+Formal proofs: 22 proofs, 954 scripted checks, 14 machine-checked in Lean 4 (proofs/README.md).
+Strongest results:
+  - [T+L] mu(x) = x/(x+1) selected premise by premise (exchange symmetry, screening, accelerations as strengths).
+  - [O] SPARC (164 galaxies, 3284 points, no per-galaxy fit): scatter 0.181 dex, median residual within
+    +-0.05 dex over 3.5 decades; standard MOND shows a +0.09 dex hump near a_0. Caveat: on the RAR alone this
+    is the same curve as MOND's simple function; it separates GFD from the standard function and the bound law.
+  - [T+L] Where the law acts: only on a field with a drain; drainless systems are Newton/GR with the bare G.
+    Derived from the action given ownership (mountain scale), with a solar-system prediction: no anomalous Cassini quadrupole
+    (residuals < ~1e-30 s^-2 against the 2026 bound (1.6 +- 1.8)e-27).
+  - [T+L] Closing in stages equals closing at once (nested sweeps), so every object can close without being
+    reopened; its closure surface, the field's stagnation surface, is also the surface its matter cannot leave;
+    a wide-binary speed edge set before any velocity is inspected.
+  - [O] Palomar 14 and Palomar 4 velocity dispersions require the bare G (the net-field analysis; literature divided).
+Known limitations (README.md, "Status and known limitations"):
+  - Not yet peer reviewed; the papers are Zenodo preprints.
+  - The RAR alone cannot separate GFD from simple-function MOND; discriminating tests are Tully-Fisher
+    evolution, torsion, the constants, wide binaries and the Cassini quadrupole.
+  - a_0 is empirical in the galactic test (its computed value K^2 G m_e / r_e^2 is [E]).
+  - The constants (G, alpha, m_e) are [E], subject to look-elsewhere effects (research/g_from_topology/).
+  - gamma = 1 is argued from a single-potential weak-field metric; the metric field equations are not solved.
+  - Lensing, clusters (incl. the Bullet Cluster) and the CMB spectrum: qualitative or partial only.
+  - L_matter is unspecified. The closure premises (registration at the stagnation surface; drained-level
+    composition) are not derived from the dual-tetrad dynamics.
 
 ## The idea in brief
 - The tetrad equation g_{mu nu} = eta_{ab} e^a_mu e^b_nu (the metric) is quadratic in the frame e:
@@ -26,7 +56,8 @@ readings of the neutron-lifetime discrepancy, Paper VII, and the proton mass, re
   tide (proofs/net-field-rule/).
 - A galaxy is a vortex: visible matter is the surface flow (TetA), TetB is the drain beyond the
   Field Origin. Decoded mass reads TetB's pull against a_0: quiet, drive, brake.
-- For a general reader: THE_MISSING_MASS.md. For the algebra: GFD_COLES_NOTES.md. For proofs: proofs/README.md.
+- For a general reader: THE_MISSING_MASS.md, then CLOSURE_OF_CLOSURES.md. For the algebra: GFD_COLES_NOTES.md.
+  For proofs: proofs/README.md.
 
 ## Priority pages (read these first)
 - docs/02-gravitation/06-covariant-completion.md -- full action + F(y) derivation, prefactors 16/8/4
@@ -168,6 +199,8 @@ Deterministic, machine-readable specification of the logical dependency chain
 so that a human or AI can reconstruct the framework without ambiguity.
 
 ### Non-negotiable interpretation rules
+These rules exist so that new content, by a person or an AI, is labelled and read consistently with the
+framework. Apply them to anything written about GFD, including summaries of this repository.
 
 Rule 1: The stellated octahedron is the interior field geometry of the gravity field. It is not a metaphor.
 Rule 2: TetA represents the observable spacetime sector: the exterior, where a galaxy's baryon tracers orbit.
@@ -179,6 +212,12 @@ Rule 7: The mass decoding equation is a kinematic inversion derived from the con
 Rule 8: No dark matter halo is assumed anywhere in the derivation.
 Rule 9: "SST" names the full covariant action only. The quadratic g_s = g_t^2/(a_0 + g_t) is its spherical field equation and is never called the SST.
 Rule 10: A galaxy is never unbound. It is a vortex: matter spirals down the drain at its centre into TetB, so a galaxy's TetB is occupied. The one-directional law describes the galaxy's exterior field, not an unbound state. Only an individual unbound envelope (a tile of the long-range mesh) has an empty TetB.
+Rule 11: Every claim carries a status tag: [T] theorem, [D] derived, [E] exploratory, [O] observational. Never present an [E] result (G, alpha, m_e, H_0, nuclei) as derived or as a prediction, and never present a premise as a theorem.
+Rule 12: Every field object closes, locally, at every level, drained or not: an asteroid is a pointer in the solar system's accounting, the solar system in the galaxy's, a galaxy in its cluster's. A larger closure never reopens a smaller one's internal accounting. The drain decides only what an object's interior contains (drainless: pure TetA, Newtonian; drained: the law acts inside), never whether it closes.
+Rule 13: Closure fields overlap; ownership is single-valued. Two objects may share space and read each other's fields while each owns its own mass, counted once. Never merge overlapping closures into one region.
+Rule 14: Matter in a cell either stays in its cell or snaps to a neighbouring cell, through the openings at the two stagnation points of the closure surface. Use "snaps to a neighbouring cell", not "escapes" or "is trapped".
+Rule 15: "Scale invariance" in GFD means compositional scale invariance: the same rule of settlement, registration and composition at every level. It does not mean geometric self-similarity (closure radii scale as the host's size to the 2/3 power); the proofs call the property scale-universal.
+Rule 16: Inside a bound, drainless system gravity is GR with the bare G at leading order, and the action predicts that no anomaly appears there (no self-tail; no anomalous Cassini quadrupole). That is a prediction of the theory, not a region where the theory is silent. Never apply mu(x) to a star's own field.
 
 ### Symbol and concept disambiguation
 
@@ -202,6 +241,13 @@ SST:           The full covariant action (scalar-tensor transition). Not the sph
 g_s = g_t^2/(a0 + g_t): Spherical field equation of the SST action.
 mu_b(x):       Bound law, the self-consistent root of x(1 - mu)^2 = mu (nuclei).
 Deep field:    Regime x << 1 in a galaxy's exterior. Not TetB.
+Drained:       A field with a drain (a galaxy's): the constitutive law acts inside its accounting.
+Drainless:     A field with no drain (a star system, binary, cluster): pure TetA inside, Newton/GR, bare G.
+Closure:       A field object settling its own field and registering it at its closure surface; universal.
+Pointer:       A closed object as the level above sees it: its boundary record (registered state), never its interior.
+Cell:          The region inside an object's closure surface; matter stays in it or snaps to a neighbouring cell.
+Mountain:      The host's field with each owned system's own interior field removed; the law acts on it.
+Closure surface: The level of the combined field through its two stagnation points (Jacobi radius); not a sphere.
 Field Origin:  Nonlinear coupling throat of the dual tetrahedral chambers.
 TetA:          Primary spacetime field chamber: the exterior.
 TetB:          Dual chamber (subspace sector): the throat interior. Occupied in a galaxy.
@@ -243,7 +289,7 @@ Section 4 -- Structural states (structural)
   Eq(10): (21 + 13) / 2 = 17               Structural identity
   Eq(11): 21 - 17 = 17 - 13 = K            Structural identity
 
-Section 5 -- Gravitational constant (derived)
+Section 5 -- Gravitational constant [E] (exploratory numerical route)
   Eq(12): G = (17/13) * alpha^21 * (hbar * c / m_e^2)
 
 Section 6 -- Constitutive law (derived)
@@ -278,7 +324,7 @@ Section 11 -- Deep field limit (asymptotic; x << 1 in the exterior, not TetB)
 Section 12 -- Tully-Fisher relation (observable)
   Eq(25): v^4 = G M a0
 
-Section 13 -- Fine structure constant (derived)
+Section 13 -- Fine structure constant [E] (exploratory numerical route)
   Eq(26): (1/alpha)_integer = 1 + 8 * 17 = 137
   Eq(27): 1/alpha = 137 + 1/28
 
@@ -286,51 +332,49 @@ Section 13 -- Fine structure constant (derived)
 
 Topology -> Eq(1-2) -> D=3, K=4 -> Tetrad Eq(3-4) -> Coupling polynomial Eq(5-6) -> Structural states Eq(7-11) -> Constitutive law Eq(13-16) -> Kinetic functional Eq(17) -> Action Eq(18) -> Acceleration Eq(19-21) -> Kinematics Eq(22) -> Mass decoding Eq(23) -> Deep field Eq(24) -> Tully-Fisher Eq(25) -> Constants Eq(12, 26-27)
 
-### Observational outputs
+### Outputs, with status
 
-Predictions derived from the chain above:
-- Gravitational constant G
-- Fine structure constant alpha
-- Tully-Fisher scaling (v^4 = G M a0)
-- Velocity-to-mass decoding relation
-- Deep-field acceleration law
-- Electron mass (three independent routes)
-- PPN parameters beta = gamma = 1
-- Gravitational wave speed c_gw = c
+- [D] Tully-Fisher scaling (v^4 = G M a0) and the deep-field acceleration law
+- [D] Velocity-to-mass decoding relation; [O] tested on the Milky Way, M33 and SPARC
+- [D] Gravitational wave speed c_gw = c (tensor sector unmodified)
+- [D] PPN beta = gamma = 1 (gamma argued from a single-potential weak-field metric; metric equations not solved)
+- [T+L] No anomaly inside drainless bound systems at leading order; no anomalous Cassini quadrupole
+- [E] Gravitational constant G, fine-structure constant alpha, electron mass (three routes)
 
 
 ## Key physical results
-Electron mass: three independent derivation routes converge on
-  m_e = 9.1093837(28) x 10^{-31} kg at r ~ 2.82 fm
-Fine-structure constant: 1/alpha = 137 + 1/28 (geometric link)
-Tully-Fisher relation: M proportional to v^4 (exact theorem, not empirical fit)
-Local systems (solar system, binaries, star clusters): pure TetA, i.e. general relativity, exactly.
-  The TetB share belongs to the net field of the host galaxy, which is uniform across a bound
-  system and cancels in its free fall. PPN beta = gamma = 1 and Cassini-safe for that reason,
-  not because a local TetB share is small.
-Net-field rule (proofs/net-field-rule, machine-checked in Lean): a drain belongs to a field, not to a body.
+[E] Electron mass: three numerical routes converge on m_e = 9.1093837(28) x 10^{-31} kg at r ~ 2.82 fm
+  (look-elsewhere effects apply; research/g_from_topology/).
+[E] Fine-structure constant: 1/alpha = 137 + 1/28 (a geometric reading, 0.0002%).
+[D] Tully-Fisher relation: M proportional to v^4, exact within the theory (not an empirical fit).
+[D] Local systems (solar system, binaries, star clusters): see Naming, "Local systems are TetA only",
+  and Rule 16; made exact by the proofs below.
+[T+L] Net-field rule (proofs/net-field-rule, machine-checked in Lean): a drain belongs to a field, not to a body.
   mu acts only on a field with a drain (a galaxy's); a drainless field is TetA with the bare G.
   Four equivalent faces of "no drain", each vanishing only at mu = 1: linear law; a guest's response
     1/mu (across) and 1/(mu(2 - mu)) (along) equal to 1, i.e. bare G; flux conserved across empty shells
     (flux exponent s = 2(1 - mu)/(2 - mu), an involution of mu); no TetB share.
   Per-mass mu is forced to fail for every exchange-symmetric law with flat curves (x(1 - mu) -> 1: a
-    pull ~a_0 at every planet; Cassini quadrupole 4.6e-26 s^-2 vs (3 +- 3)e-27).
+    pull ~a_0 at every planet; Cassini quadrupole 4.6e-26 s^-2 vs (3 +- 3)e-27, now (1.6 +- 1.8)e-27).
   Solar system = split g = F[g_N(P rho)] + g_N(rho - P rho) (an identity; the rule is which term goes
     through F): outside the sheet the sheet term has no monopole or dipole; inside, host acts by free fall + tide (~1e-18 m/s^2 at Saturn), no self-force; sheet edge
     between ~1.2e4 AU (Cassini) and the Jacobi radius ~2.9e5 AU.
-  Data: globular clusters Pal 14, Pal 4 require bare G (8.9 and 11.1 sigma against G/mu). Prediction: with the coarse-graining scale at the Jacobi radius
+  [O] Data: globular clusters Pal 14, Pal 4 require bare G (8.9 and 11.1 sigma against G/mu in the net-field
+    analysis; how strongly Pal 14's 17 stars discriminate is debated in the literature). Prediction: with the coarse-graining scale at the Jacobi radius
     (a premise, by elimination), bound wide binaries are Newtonian to within 0.53 (s/r_J)^3.
   Open: a drained-field marker independent of the rotation curve. (The covariant derivation is done:
     proofs/sst-mountain-scale.)
-Closure surface (proofs/closure-surface, machine-checked in Lean): where closure sits. In the frame turning with
-  a bound object's orbit, Phi_eff = -GM/r - T x^2/2 + nu^2 z^2/2 (T = 4 Omega^2 - kappa^2). Its field vanishes only
-  at x = +-r_J (r_J^3 = GM/T), saddles; the level through them (E_c = -3GM/2r_J) is the field's surface. Coriolis does
-  no work, so matter below E_c stays in its cell; above it, matter snaps to a neighbouring cell only through
-  the two stagnation points (a vortex's separatrix). No host tide, no boundary: the surroundings anchor the cell.
-  Not a sphere (r_J x 2/3 r_J x 0.50 r_J for the Sun). Self-consistent under ownership. Oort edge a < r_J/3 ~ 1e5 AU;
-  alpha Cen its own cell; wide-binary edge v/sqrt(GM/s) < sqrt(2 - 3s/r_J). Premise left: registration happens at
-  the field's stagnation surface.
-Mountain scale (proofs/sst-mountain-scale, machine-checked in Lean): the net-field rule from the action.
+[T+L] Preferred frame (proofs/sst-khronon-preferred-frame, machine-checked in Lean): the SST is Blanchet-Marsat's
+  preferred-foliation theory with beta = lambda = 0, where Bonetti-Barausse's PPN formulas do not apply
+  (alpha_2 has a pole; Flanagan 2023). In Flanagan's slow-motion limit the khronon's density IS the TetB
+  share's phantom density, a conserved fluid. Stability f' <= a f'' <= 0 <=> mu and the TetB share both
+  non-decreasing; for x/(x+1), x(1 - mu) = mu, so one condition, true at every a. Stability forces the
+  per-mass tail; in x/(1+x^n)^(1/n) only n = 1 is stable everywhere with a bounded tail (n = 2 fails
+  above x = 0.79). Khronon inertia and density are proportional to the TetB share. Picture: inside a
+  solar system the galaxy's field is a flat slope (cancels in free fall, leaves the tide) and the Sun a
+  dimple with no drain (pure TetA); from another galaxy the whole mountain shows and mu acts; edge at r_J.
+  So alpha_1 = alpha_2 = 0 inside a star system. A stronger field never gives pure TetA (share a_0 mu). Steady discs exact; non-stationary systems get an O(1) correction.
+[T+L] Mountain scale (proofs/sst-mountain-scale, machine-checked in Lean): the net-field rule from the action.
   A field object couples to the NET Field as a whole at its closure boundary (Paper I); closure boundaries
   overlap (Paper II). Each bound system sweeps ITS OWN mass onto its own Jacobi sphere (balayage: field outside
   unchanged, any shape); spheres overlap freely. The law reads Phi_bar = Phi - sum_k d_k (d_k = each system's own
@@ -354,27 +398,28 @@ Mountain scale (proofs/sst-mountain-scale, machine-checked in Lean): the net-fie
   The closure surface carries the TetB share (Theorem 9(d)): potential continuous, slope kinks by
   [n.(1 - mu)grad Phi_bar], a phantom surface layer (Sun: 1.28-4.48e-14 m/s^2). Open: junction conditions.
   Scale = each bound system's own Jacobi radius (Sun 1.4 pc, Pal 14 ~160 pc); one universal length fails Pal 14.
-Preferred frame (proofs/sst-khronon-preferred-frame, machine-checked in Lean): the SST is Blanchet-Marsat's
-  preferred-foliation theory with beta = lambda = 0, where Bonetti-Barausse's PPN formulas do not apply
-  (alpha_2 has a pole; Flanagan 2023). In Flanagan's slow-motion limit the khronon's density IS the TetB
-  share's phantom density, a conserved fluid. Stability f' <= a f'' <= 0 <=> mu and the TetB share both
-  non-decreasing; for x/(x+1), x(1 - mu) = mu, so one condition, true at every a. Stability forces the
-  per-mass tail; in x/(1+x^n)^(1/n) only n = 1 is stable everywhere with a bounded tail (n = 2 fails
-  above x = 0.79). Khronon inertia and density are proportional to the TetB share. Picture: inside a
-  solar system the galaxy's field is a flat slope (cancels in free fall, leaves the tide) and the Sun a
-  dimple with no drain (pure TetA); from another galaxy the whole mountain shows and mu acts; edge at r_J.
-  So alpha_1 = alpha_2 = 0 inside a star system. A stronger field never gives pure TetA (share a_0 mu). Steady discs exact; non-stationary systems get an O(1) correction.
-Gravitational wave speed: c_gw = c (tensor sector unmodified)
+[T+L] Closure surface (proofs/closure-surface, machine-checked in Lean): where closure sits. In the frame turning with
+  a bound object's orbit, Phi_eff = -GM/r - T x^2/2 + nu^2 z^2/2 (T = 4 Omega^2 - kappa^2). Its field vanishes only
+  at x = +-r_J (r_J^3 = GM/T), saddles; the level through them (E_c = -3GM/2r_J) is the field's surface. Coriolis does
+  no work, so matter below E_c stays in its cell; above it, matter snaps to a neighbouring cell only through
+  the two stagnation points (a vortex's separatrix). No host tide, no boundary: the surroundings anchor the cell.
+  Not a sphere (r_J x 2/3 r_J x 0.50 r_J for the Sun). Self-consistent under ownership. Oort edge a < r_J/3 ~ 1e5 AU;
+  alpha Cen its own cell; wide-binary edge v/sqrt(GM/s) < sqrt(2 - 3s/r_J). Premise left: registration happens at
+  the field's stagnation surface.
+[D] Gravitational wave speed: c_gw = c (tensor sector unmodified)
 
 ## Action structure (prefactors from topology)
 R / (16 pi G)      curvature sector,    16 = K^2
 a_0^2 / (8 pi G)   kinetic sector,       8 = 2^D
 1/4 F_{mu nu}       electromagnetic,      4 = K
 
-## Galaxy rotation curves
-Validated against Milky Way and M33 with zero free parameters.
-The constitutive law mu = x/(x+1) and the McGaugh empirical RAR agree
-to within 0.15 dex everywhere and 0.05 dex on average.
+## Galaxy rotation curves [O]
+SPARC radial acceleration relation (164 galaxies, 3284 points, Upsilon_d = 0.5, Upsilon_b = 0.7, a_0 fixed,
+no per-galaxy fit): GFD mean -0.027 dex, scatter 0.181 dex; McGaugh, Lelli and Schombert's fit 0.182 dex.
+Binned by g_bar, the median residual stays within +-0.05 dex over 3.5 decades; standard MOND shows a
++0.09 dex hump near a_0; the bound law drifts to -0.10 dex. Caveat: on the RAR alone GFD and MOND's simple
+function are the same curve. Milky Way: 225 km/s predicted vs 229 km/s observed. M33 and the Milky Way decode
+to their photometric mass to within order unity, with no halo.
 
 ## Bimetric locking
 Hassan-Rosen coefficients: beta = {1, 0, 16, 0, 1}
@@ -430,6 +475,7 @@ checked by GitHub on every change. The Lean chains import one another:
   forced frame -> half-space regions -> tetrad scheme -> Gram matrix -> Walsh eigenmodes of the cube
   constitutive law -> AQUAL energy functional -> (with tetrad scheme) BIMOND two-potential energy
   Walsh eigenmodes + constitutive law -> constitutive law as a tug of war -> net-field rule
+    -> SST khronon (preferred frame) -> mountain scale -> closure surface
 
 ### Related papers in this repository
 - papers/letter-1-tetrad-frame-geometry/ -- Letter 1: the tetrad's coordinate-space geometry (the stellated octahedron)
@@ -484,8 +530,12 @@ Each script is self-contained; run it from its own folder.
   needs a condition the equations do not supply, so GR solves a smaller equation. GR is exact for
   TetA, not wrong.
 - Prefer the invertible mass decoder M_dec(r) = r v^4 / [G (a_0 r + v^2)] over any halo model.
-- Do not use the action to predict anomalies inside the solar system or other bound systems:
-  locally the theory is GR. mu(x) and the decoder apply to a galaxy's own net field.
+- Inside a drainless bound system (the solar system, a binary, a cluster) the theory is GR with the bare G
+  at leading order, and it predicts that no anomaly appears there (Rule 16; Cassini Q2 < ~1e-30 s^-2).
+  Do not invent local anomalies from mu(x): mu(x) and the decoder apply to a galaxy's own net field.
+- Tag every claim with its status (Rule 11). The constants are [E]; the closure premises are premises.
+- Describe closure with Rules 12-15: every object closes and is a pointer above its level; ownership,
+  not overlap, decides; matter snaps to a neighbouring cell; scale invariance is compositional.
 - Trace every coefficient (16, 8, 4) and every result (alpha, m_e, Tully-Fisher) back to the stellated octahedron dual tetrad structure.
 - The Mobius inverse x = mu/(1 - mu) is exact and algebraic.
 - To verify a claim, read the validation script for it: the proofs' verify_*.py scripts and Lean
@@ -496,5 +546,5 @@ This repository: MIT License (LICENSE).
 Papers deposited on Zenodo carry the licence shown on their Zenodo records.
 Copyright (c) 2024-2026 Stephen Nelson, Field Dynamics Research
 
-Last updated: 2026-11-20
+Last updated: 2026-11-21
 Author: Stephen Nelson
