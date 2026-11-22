@@ -1,0 +1,12 @@
+own interior field vanishes outside its sphere: Sun 3.4e-04, star B 2.8e-04
+[one system] mountain residual 2.2e-03
+  ownership r = 2: extra pull toward the Sun = -0.000 a0
+  ownership r = 3: extra pull toward the Sun = -0.000 a0
+  ownership r = 4: extra pull toward the Sun = -0.000 a0
+  ownership r = 6: extra pull toward the Sun = -0.001 a0
+[two systems, overlapping spheres] mountain residual 2.7e-03
+  around the Sun r = 2: extra pull beyond Newton (Sun + star B) and the galaxy = -0.006 a0
+  around the Sun r = 3: extra pull beyond Newton (Sun + star B) and the galaxy = -0.014 a0
+  around the Sun r = 4: extra pull beyond Newton (Sun + star B) and the galaxy = -0.023 a0
+  around star B r = 2: extra pull beyond Newton (Sun + star B) and the galaxy = -0.002 a0
+  around star B r = 3: extra pull beyond Newton (Sun + star B) and the galaxy = -0.011 a0

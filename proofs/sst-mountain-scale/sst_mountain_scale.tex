@@ -13,7 +13,7 @@
 \fancyhead[L]{}
 \fancyhead[R]{}
 
-\hypersetup{pdftitle={The Mountain Scale in the SST: the Net-Field Rule From the Action}, pdfauthor={Stephen Nelson}, pdfsubject={Gravity Field Dynamics (GFD)}, pdfkeywords={SST, net-field rule, mountain scale, Jacobi radius, sweeping projector, balayage, preferred foliation, action, MOND, proof}}
+\hypersetup{pdftitle={The Mountain Scale in the SST: the Net-Field Rule From the Action}, pdfauthor={Stephen Nelson}, pdfsubject={Gravity Field Dynamics (GFD)}, pdfkeywords={SST, net-field rule, field object, closure boundary, Jacobi radius, balayage, four ports, preferred foliation, action, MOND, proof}}
 
 \begin{document}
 
@@ -31,29 +31,28 @@
 \emph{The picture.} A mountain stream looks flat close up; zoomed out,
 it runs down a mountain. Inside a bound system the host's field is a
 flat slope, and each body is a dimple with no drain; seen from outside,
-the whole mountain shows, and the constitutive law acts on it. The
-views meet at the system's Jacobi radius.
+the whole mountain shows, and the constitutive law acts on it.
 
-This note writes the picture into the action. On each slice of the
-SST's preferred foliation, the \emph{sweeping projector} $P$ replaces
-the field inside each bound system's Jacobi ball by the harmonic field
-with the same boundary values: the system's mass is swept onto its
-Jacobi surface. Inside the ball what remains is the host's slope and
-tide; outside, by the shell theorem, nothing changes. The curvature
-term is read at every point; the law's term is read on $P\Phi$. Because
-$P$ is idempotent and self-adjoint in the field-energy product (it
-need not commute with the Laplacian), the field equation splits
-exactly, with a different Jacobi radius for each system: inside each
-ball the field is Newton for the system's own mass, with the bare $G$
-and the same for every law, plus the host's harmonic slope and tide.
-This is the net-field rule, derived. The data fix the scale at each
-system's own Jacobi radius. The action does not choose it: enlarging
-a ball always raises the field energy, because the law's energy term
-is concave (the khronon's stability condition), so the edge is a
-binding criterion, not an energy minimum.
+GFD already says how a body meets that mountain: a field object couples
+to the NET Field as a whole, at its closure boundary~\cite{NelsonI},
+and closure boundaries overlap~\cite{NelsonII}. This note writes that
+into the action. Each bound system sweeps \emph{its own} mass onto its
+own closure sphere, its Jacobi sphere; the spheres may overlap and
+contain other systems. The law's term reads the total field minus each
+system's own interior field. The field equation then splits exactly:
+the mountain obeys the plain law on the swept density, and each
+system's own field is Newtonian with the bare $G$, the same for every
+law. Fields overlap and neighbours read each other; mass is owned once.
+At leading order a field object meets the NET Field through exactly
+four channels, one temporal (its clock rate) and three spatial (its
+free fall): the four ports of the tetrad. The tail is gone, in 1D and
+3D, for one system and for two whose spheres each contain the other.
+The data fix each sphere at its system's Jacobi radius; the action does
+not choose it, at least for a centred spherical system, so the edge is
+a binding criterion.
 \end{abstract}
 
-\keywords{SST, net-field rule, mountain scale, Jacobi radius, sweeping projector, preferred foliation, action, MOND, proof}
+\keywords{SST, net-field rule, field object, closure boundary, Jacobi radius, balayage, four ports, preferred foliation, action, MOND, proof}
 
 % ----------------------------------------------------------------------
 
@@ -61,49 +60,53 @@ binding criterion, not an energy minimum.
 
 The SST~\cite{NelsonTL}, varied as the framework varies it, is
 $(1/16\pi G)\sqrt{-g}[R - 2f(a)] - \tfrac14e^{-2\Phi/c^2}F^2 +
-\mathcal L_{\rm m}$ with $f = a_0^2[F(y) - y]$,
+\mathcal L_{\rm m}$, with $f = a_0^2[F(y) - y]$,
 $F(y) = y - 2\sqrt y + 2\ln(1+\sqrt y)$, $y = c^4a_\mu a^\mu/a_0^2$, and
 $a$ the acceleration of the tetrad's time leg, normal to a preferred
-foliation; in a static metric $\Phi = c^2\ln N$ is the lapse potential.
-Read at every point, this action applies the law to each body's own
-field and leaves the tail $(1-\mu)g = a_0\mu \to a_0$, which perihelia
+foliation; in a static metric $\Phi = c^2\ln N$ is the lapse. Read at
+every point, it applies the law to each body's own field and leaves the
+tail $(1-\mu)g = a_0\mu \to a_0$, which perihelia
 exclude~\cite{NelsonTL,NelsonKh}. The net-field rule~\cite{NelsonNFR}
-reads the law on the galaxy's coarse-grained field instead. This note
-puts that reading into the action.
+reads the law on the galaxy's coarse-grained field instead.
 
-Every statement is checked by the accompanying script (23 checks,
-with a 3D solution); the splits are machine-checked in Lean~4
-(5 theorems)~\cite{NelsonScript}.
+\textbf{GFD's own terms.} Paper~I: a field object (an asteroid, a star,
+a cluster) is one correlated configuration, and the NET Field couples
+to it as a whole, never to its parts, at its closure boundary $\Sigma$,
+the locus where object and NET Field meet~\cite{NelsonI}. Paper~II:
+closure boundaries are spheres that overlap~\cite{NelsonII}. Paper~IV:
+each field unit meets its neighbours through four interfaces, three
+spatial and one temporal~\cite{NelsonIV}; in close packing a chamber has
+twelve contacts, of which the four face-to-face ones are the active
+ports~\cite{NelsonFace}. Fields overlap; what is single-valued is which
+object a piece of mass belongs to.
+
+Every statement is checked by script (20 checks) with two 3D solutions;
+the algebra is machine-checked in Lean~4 (8 theorems)~\cite{NelsonScript}.
 
 % ----------------------------------------------------------------------
 
-\section*{Definition (the sweeping projector)}
+\section*{Definition (ownership sweep)}
 
-In a drained host, let $B_k$ be the Jacobi ball of each outermost
-bound system $k$, of mass $M_k$, with
+For each bound system $k$, a field object with mass density $\rho_k$,
+let $\Sigma_k$ be its closure sphere, of radius
 \begin{equation}
 r_{J,k}^3 = \frac{GM_k}{4\Omega^2 - \kappa^2},
 \label{eq:rJ}
 \end{equation}
-$\Omega$ and $\kappa$ the host's circular and epicyclic frequencies
-($4\Omega^2 - \kappa^2 = 2\Omega^2$ for a flat rotation curve). On each
-slice, with induced metric $h$, let $P\Phi$ equal $\Phi$ outside the
-balls and, inside each $B_k$, the solution of $\Delta_h\psi = 0$ with
-$\psi = \Phi$ on $\partial B_k$. Then:
-\begin{enumerate}
-\item $P^2 = P$, and $P$ is self-adjoint in the field-energy product
-$E(\Phi,\Psi) = \int\!\sqrt h\,h^{ij}\partial_i\Phi\,\partial_j\Psi$:
-functions vanishing on $\partial B_k$ are $E$-orthogonal to functions
-harmonic in $B_k$ (Dirichlet's principle). It does not commute with
-$\Delta_h$.
-\item $P\Phi$ is the field with each system's mass swept onto its
-Jacobi surface as a shell. Outside, it is unchanged (the shell
-theorem); inside, it is harmonic: the host's flat slope and its tide.
-\item It is built from the slice's own geometry, so it respects the
-symmetry of a theory with a preferred foliation, on curved slices
-exactly.
-\end{enumerate}
-The action is the SST with the law's term read on the mountain,
+$\Omega$, $\kappa$ the host's circular and epicyclic frequencies
+($2\Omega^2$ for a flat curve). Sweep $\rho_k$ onto $\Sigma_k$ by
+harmonic measure (balayage), $\rho_k \to B_k\rho_k$: the mass is moved
+to the sphere so that the field outside is unchanged, for any shape of
+system. The system's own interior field is
+\begin{equation}
+\nabla^2 d_k = 4\pi G\,(\rho_k - B_k\rho_k),\qquad d_k = 0 \text{ outside } \Sigma_k,
+\label{eq:d}
+\end{equation}
+and the mountain is $\bar\Phi = \Phi - \sum_k d_k$. Spheres may overlap
+and contain other systems: each sweeps only its own mass. On each slice
+of the preferred foliation, harmonic measure and $\nabla^2$ are those
+of the slice's metric, so the construction is covariant under the
+foliation's symmetry. The action is
 \begin{equation}
 \begin{aligned}
 S = \!\int\! d^4x\sqrt{-g}\Big[&\frac{R - 2a_0^2[F(\bar y) - \bar y]}{16\pi G}\\
@@ -111,171 +114,211 @@ S = \!\int\! d^4x\sqrt{-g}\Big[&\frac{R - 2a_0^2[F(\bar y) - \bar y]}{16\pi G}\\
 \end{aligned}
 \label{eq:S}
 \end{equation}
-with $\bar y = |\nabla P\Phi|^2/a_0^2$ (the acceleration of the time
-leg of the mountain's lapse $\bar N = e^{P\Phi/c^2}$). The curvature
-term, all of Newton and Einstein, is read at every point; only the
-TetB term is read on the mountain.
-
-\textbf{Nesting.} Sweeping an inner ball after an outer one is not a
-projector (script G3). The rule is to sweep only the outermost bound
-systems of the drained host: everything nested inside (the Earth and
-Moon within the Sun's ball) is already in the linear dimple.
+$\bar y = |\nabla\bar\Phi|^2/a_0^2$: the curvature term, all of Newton
+and Einstein, at every point; the TetB term on the mountain.
 
 % ----------------------------------------------------------------------
 
-\section*{Theorem 1 (the field equation and the split)}
+\section*{Theorem 1 (the split)}
 
 \emph{In the static weak field, varying $\Phi$ gives
+$\nabla^2\Phi + \nabla\cdot[(\bar\mu - 1)\nabla\bar\Phi] = 4\pi G\rho$.
+With~(\ref{eq:d}),
 \begin{equation}
-\nabla^2\Phi + P^{\rm T}\nabla\cdot\big[(\bar\mu - 1)\nabla P\Phi\big]
-= 4\pi G\rho,
-\label{eq:EL}
+\nabla\cdot\big[\bar\mu\,\nabla\bar\Phi\big] = 4\pi G\,\bar\rho,\qquad
+\bar\rho = \rho_{\rm diffuse} + \textstyle\sum_k B_k\rho_k,
+\label{eq:mountain}
 \end{equation}
-$\bar\mu = \mu(|\nabla P\Phi|/a_0)$, $P^{\rm T}$ the ordinary adjoint,
-and the curvature term's $\Psi$-equation is unchanged ($\Psi = \Phi$ at
-leading order). Because $P$ is idempotent and $E$-self-adjoint,
-\begin{equation}
-\Phi - P\Phi = (1 - P)\,\nabla^{-2}(4\pi G\rho):
-\label{eq:split}
-\end{equation}
-inside each Jacobi ball, the Newtonian potential of the system's own
-mass with zero value on its Jacobi surface, linear, with the bare $G$,
-and the same for every law. The total field inside the ball is that
-plus the harmonic mountain: Newton for the system, plus the host's
-slope and tide. The mountain $P\Phi$ carries the law, with every
-system's mass swept onto its Jacobi shell.}
+the plain law, not a projected one, on the density with every
+system's mass on its own sphere; and $\Phi = \bar\Phi + \sum_k d_k$,
+each $d_k$ Newtonian with the bare $G$, zero outside $\Sigma_k$, and
+the same for every law. Nothing requires the spheres to be disjoint.}
 
 \begin{proof}
-$E$-self-adjointness is $KP = P^{\rm T}K$ with $K = -\nabla^2$, so
-$K^{-1}P^{\rm T} = PK^{-1}$, and~(\ref{eq:EL}) gives
-$\Phi = K^{-1}s - PK^{-1}N$, whose $(1-P)$ part is~(\ref{eq:split})
-(Lean \texttt{energy\_split}, \texttt{energy\_blind\_to\_law}). Checked
-in 1D with two systems of different Jacobi radii: the dimple is Newton
-to $3\times10^{-14}$ and identical under another law, while the
-mountain changes by 2\% (script G1--G4). The commuting case
-(a spectral projector at one fixed scale) is the special case of Lean
-\texttt{mountain\_split}, checked in 1D and in 3D (A1--A5, E1).
+Subtract $\nabla^2\sum_kd_k$ (Lean \texttt{ownership\_split},
+\texttt{ownership\_blind\_to\_law}). Checked in 1D with two systems
+whose spheres overlap and each contain the other's mass: each $d_k$
+vanishes outside its sphere to $4\times10^{-14}$; the mountain solves
+the plain law to $10^{-11}$ under two laws, which change it by 2\%
+while the $d_k$ are shared (script A1--A5).
 \end{proof}
 
-The mountain obeys a \emph{projected} law, not the pointwise law on a
-smoothed density: the two differ by what the sweeping removes, which
-for a galaxy is negligible once the Jacobi radii are small against it
-(Theorem~2(b)).
+Inside the Sun's sphere the mountain carries the galaxy's slope and
+tide, and also every neighbour's field and swept shell; the law acts
+on all of it. Neighbours read each other; only the Sun's own field is
+excluded from the law, because only the Sun owns it.
 
 % ----------------------------------------------------------------------
 
-\section*{Theorem 2 (what follows)}
+\section*{Theorem 2 (the four ports)}
 
-\emph{(a) No tail: inside a Jacobi ball the system's own field is
-linear, its TetB share zero; read pointwise it would be $a_0\mu(x) > 0$
-at every finite field. (b) Galaxies are unchanged once the Jacobi
-radii are small against them: in 3D the galaxy's field differs from
-the pointwise reading by $4\times10^{-2}$, $3\times10^{-3}$,
-$2\times10^{-4}$ for a scale of 2, 1 and $\tfrac12$ of its width; in the
-Milky Way the ratio is $\sim2\times10^{-4}$. (c) $\gamma = 1$ at leading
-order. (d) To linear order in Flanagan's slow-motion limit, preferred-
-time perturbations inside a Jacobi ball drop out of $f$, so the dimple
-carries no khronon and $\alpha_1 = \alpha_2 = 0$ there: the khronon
-proof's Theorem~6~\cite{NelsonKh}, derived at that order.}
+\emph{A field object with its centre of mass at the origin, in a
+harmonic NET Field $\bar\Phi = c_0 + b\cdot x + \tfrac12x\cdot T x$
+(traceless $T$), has interaction energy
+\[
+\textstyle\int\rho_k\bar\Phi = M_kc_0 + \tfrac12 T:Q_k ,
+\]
+and its centre of mass falls with $-b$. At leading order it meets the
+NET Field through four channels: one temporal ($c_0$, the lapse: its
+clock rate) and three spatial ($b$, its free fall). The dipole term
+vanishes at the centre of mass, and the tidal term needs the object's
+extent, suppressed by $(s/r_J)^3$: $4\times10^{-17}$ at 1~AU,
+$3\times10^{-14}$ at Saturn.}
 
 \begin{proof}
-(a) Lean \texttt{no\_tail\_in\_dimple}; (a), (b) in 3D
-(Fig.~\ref{fig:demo}; script E2--E4). (c), (d) from Theorem~1
-and~\cite{NelsonTL,NelsonKh}; the metric dependence of $P$ enters at
-$O(\Phi/c^2)$, and the full relativistic and higher-order analysis is
-not done here.
+Lean \texttt{four\_ports}; script C1--C2.
+\end{proof}
+
+These are the tetrad's four legs, one timelike and three spacelike,
+and the four active ports of GFD's face structure~\cite{NelsonIV,
+NelsonFace}: the NET Field reaches a field object through them, and
+through nothing else at leading order. The count of twelve contacts in
+close packing is the framework's geometric statement and is not derived
+here.
+
+% ----------------------------------------------------------------------
+
+\section*{Theorem 3 (the matter, and what follows)}
+
+\emph{(a) A system's own matter feels the total potential plus a term
+from the mountain's TetB density inside its own sphere ($10^{-3}$ of
+$\Phi$ in the 1D test). For the Sun, with the Galactic TetB density
+$5.4\times10^{-22}$~kg\,m$^{-3}$, it is $\sim2\times10^{-19}$~m/s$^2$
+inside Saturn's orbit, tide-sized, and that density is $5\times10^{-5}$
+of the ephemeris bound on unseen mass there~\cite{Pitjev2013}.
+(b) No tail. (c) Neighbours keep their full Newtonian pull on each
+other. (d) $\gamma = 1$ at leading order, and to linear order in the
+slow-motion limit the Sun carries no khronon of its own, while the
+galaxy's is flat across the solar system~\cite{NelsonKh}. (e) Outside
+its sphere a system's field is exact for any shape; inside, the
+harmonic extension of its own multipoles from $\Sigma_k$ enters the
+mountain, suppressed as in Theorem~2.}
+
+\begin{proof}
+(a) script B1; (b), (c) Fig.~\ref{fig:demo} and script G1--G3; (d), (e)
+from Theorems~1--2 and~\cite{NelsonTL,NelsonKh}.
 \end{proof}
 
 \begin{figure}[t]
 \centering
 \includegraphics[width=\columnwidth]{fig_demo.pdf}
-\caption{A 3D solution: a galaxy and a compact ``Sun'' in a periodic
-box ($4\pi G = a_0 = 1$, one fixed scale $\ell = 12$). The extra pull
-toward the Sun beyond its own Newtonian pull. Read pointwise (orange)
-it is the tail, matching $a_0\mu(x)$ (line); read on the mountain
-(blue) it is small and fades toward the Sun. Script:
-\texttt{demo\_mountain\_scale.py}.}
+\caption{3D solutions: a galaxy and a compact ``Sun'' in a periodic box
+($4\pi G = a_0 = 1$, closure sphere $R = 10$). The pull toward the Sun
+beyond its own Newtonian pull. Read pointwise (orange) it is the tail,
+matching $a_0\mu(x)$ (dashed); read by ownership (blue) it is zero. A
+second run adds a star whose sphere overlaps the Sun's and contains
+its centre: no tail around either (script G3). Scripts:
+\texttt{demo\_mountain\_scale.py}, \texttt{demo\_ownership\_3d.py}.}
 \label{fig:demo}
 \end{figure}
 
 % ----------------------------------------------------------------------
 
-\section*{Proposition 3 (the data fix the scale)}
+\section*{Proposition 4 (the scale and the overlaps)}
 
-\emph{The scale is each bound system's own Jacobi
-radius~(\ref{eq:rJ}):
-\begin{enumerate}
-\item the Sun: $1.44$~pc, inside the window from the Cassini bound
-($0.058$~pc) to binding~\cite{NelsonNFR};
-\item Pal~14: $\approx160$~pc, containing its 26~pc body; Pal~4:
-$\approx270$~pc, containing its 18~pc body. Both are dimples, Newton
-with the bare $G$, as their dispersions require~\cite{NelsonNFR};
-\item one universal length fails: at the Sun's $1.4$~pc, Pal~14's body
-would be read through the law, which in its external-field regime is
-$G \to G/\mu$, excluded at $8.9\sigma$~\cite{NelsonNFR}.
-\end{enumerate}}
+\emph{(a) The Sun's closure sphere is $1.44$~pc, inside the window from
+the Cassini bound ($0.058$~pc) to binding~\cite{NelsonNFR}. (b)
+$\alpha$~Centauri ($2\,M_\odot$, $1.34$~pc away) has $1.81$~pc: each
+sphere contains the other's centre. In the solar neighbourhood the
+spheres fill $\eta \approx 0.6$ of space, above the percolation
+threshold of overlapping spheres ($\eta_c \approx 0.34$), so merging
+overlapping regions into one would join a single Newtonian region
+across the disc; ownership merges nothing. (c) Pal~14 and Pal~4 have
+spheres of $\approx160$ and $270$~pc around 26 and 18~pc bodies: each
+cluster is one field object, Newtonian inside, as the net-field rule's
+analysis of their dispersions requires~\cite{NelsonNFR}. How strongly
+Pal~14's 17 stars discriminate is debated~\cite{Jordi2009,
+Gentile2010,Sollima2012}; the significance quoted there is that
+analysis's, under its assumptions.}
 
 \begin{proof}
-Script D1--D4 ($v = 220$~km/s at the Sun, $184$~km/s in the outer halo).
+Script D1--D3 ($v = 220$~km/s at the Sun, $184$~km/s in the outer
+halo; local stellar density $0.05\,M_\odot$\,pc$^{-3}$).
+\end{proof}
+
+The data give a window; choosing the Jacobi radius within it is the
+binding premise.
+
+% ----------------------------------------------------------------------
+
+\section*{Theorem 5 (a radius set by the field)}
+
+\emph{If $r_{J,k}$ is read from the mountain's tide and the system's
+mass, $d_k$ remains Newtonian by construction (it depends on the
+field only through $r_{J,k}$, and is linear in $\rho_k$); varying the
+field through $r_{J,k}$ adds a term to the mountain's equation alone.}
+
+\begin{proof}
+Script E1--E2: in 1D, with the radius read from the mountain's slope,
+the extra term moves the mountain by $2\times10^{-3}$ of itself and
+leaves every $d_k$ unchanged.
 \end{proof}
 
 % ----------------------------------------------------------------------
 
-\section*{Theorem 4 (the action does not choose the edge)}
+\section*{Theorem 6 (the action does not choose the edge)}
 
-\emph{With the field held at its solution, enlarging a Jacobi ball
-from $R$ to $R + dR$ replaces, on the sphere $r = R$, the law's energy
-density of the mountain plus the system's pull by that of the mountain
-alone. The law's energy term $H(g) = a_0^2[F - y]$ is non-increasing
-and concave,
-\[
-H' = -\frac{2g}{1 + g/a_0},\qquad H'' = -\frac{2}{(1 + g/a_0)^2},
-\]
-the khronon's stability conditions~\cite{NelsonKh}, so $H$ is concave as
-a function of the field vector, and the system's pull averages to zero
-over the sphere. Hence $dS/dR < 0$ at every $R$ (up to the host's TetB
-mass inside the ball): a larger ball always means more field energy.
-The action has no stationary edge, and energy alone would pick the
-pointwise reading, $R \to 0$.}
+\emph{For a centred spherical system in a uniform host, enlarging its
+sphere changes the law's energy only on the shell from $R$ to $R + dR$.
+The law's energy term $H(g) = a_0^2[F - y]$ is non-increasing and
+concave ($H' = -2g/(1+g/a_0)$, $H'' = -2/(1+g/a_0)^2$, the khronon's
+stability conditions~\cite{NelsonKh}), so by Jensen's inequality
+$dS/dR < 0$ at every $R$: no stationary edge, and energy alone would
+pick the pointwise reading.}
 
 \begin{proof}
-By the envelope theorem only the explicit $R$-dependence of the law's
-term contributes; Jensen's inequality for the concave $H$ gives the
-sign. Checked: $H'$, $H''$ exactly, and $dS/dR < 0$ for
-$0.01 \le R/r_M \le 1000$ at host $x = 0.1, 1.5, 10$ (script H1--H2).
+Envelope theorem and Jensen; checked for $0.01 \le R/r_M \le 1000$
+at host $x = 0.1, 1.5, 10$ (script F1--F2). General shapes are not
+covered.
 \end{proof}
 
-So the Jacobi edge is not an energy minimum. It is a binding criterion:
-the edge of the matter that moves together, the dimple that has no
-drain of its own. In the picture's terms, the stream decides what
-belongs to the mountain by where it flows, not by what costs least.
+So the edge is a binding criterion, which mass belongs to which field
+object, not an energy minimum: the stream decides what belongs to the
+mountain by where it flows, not by what costs least.
 
 % ----------------------------------------------------------------------
 
 \section*{Scope}
 
-Proved here: the sweeping projector and its properties; the action
-with the law read on the mountain; its field equation; the exact
-split for any set of systems, each with its own Jacobi radius; the
-missing tail; galaxies unchanged as the scale shrinks against them;
-the data's choice of scale; and that the action itself does not choose
-it.
+Proved here: the ownership action and its exact split, with
+overlapping spheres; the plain law for the mountain; the matter
+equation; the four ports; no tail in 1D and 3D; a field-dependent
+radius; and, for a centred spherical system, that the action does not
+choose the edge.
 
 Not proved here:
 \begin{enumerate}
-\item \emph{The binding criterion.} Which matter forms a bound system,
-and so where each Jacobi surface lies, is a premise (the picture), not
-derived; Theorem~4 shows it cannot come from minimising the energy.
-\item \emph{Time-dependent binding} (mergers, tidal stripping), when the
-set of balls changes.
-\item \emph{Relativistic order.} $\gamma = 1$ and the khronon result are
-established at leading and linear order; the metric and foliation
-variations of $P$ beyond that are not carried out.
+\item \emph{The binding criterion}: which mass belongs to which field
+object. It is the premise; Theorem~6 shows, in the spherical case, that
+it cannot come from minimising energy.
+\item \emph{Time-dependent ownership} (mergers, stripping).
+\item \emph{General shapes} in Theorem~6.
+\item \emph{Relativistic order}: $\gamma = 1$ and the khronon result at
+leading and linear order only.
+\item \emph{The twelve-contact geometry}: Theorem~2 gives the four ports
+at the level of the action; the count of twelve contacts is the
+framework's.
 \end{enumerate}
 
 % ----------------------------------------------------------------------
 
 \begin{thebibliography}{99}
+
+\bibitem{NelsonI}
+S.~Nelson, \textit{The Gravitational Constitutive Law}, Paper~I
+(2026), \S\S2.2--2.3.
+
+\bibitem{NelsonII}
+S.~Nelson, \textit{A Covariant Theory Without Dark Matter}, Paper~II
+(2026), \S6.
+
+\bibitem{NelsonIV}
+S.~Nelson, \textit{Resolving the Hubble Tension Through Tetrad
+Topology}, Paper~IV (2026), packing topology.
+
+\bibitem{NelsonFace}
+S.~Nelson, \textit{Face Structure and Spin} (2026),
+\texttt{docs/01-foundations/}\linebreak\texttt{08-face-structure-and-spin.md}.
 
 \bibitem{NelsonTL}
 S.~Nelson,
@@ -295,9 +338,27 @@ S.~Nelson,
 \bibitem{NelsonScript}
 S.~Nelson,
 \texttt{verify\_sst\_mountain\_scale.py},
-\texttt{demo\_mountain\_scale.py} and
+\texttt{demo\_ownership\_3d.py} and
 \texttt{lean/MountainScale.lean} (2026),
 \texttt{proofs/sst-mountain-scale/}.
+
+\bibitem{Pitjev2013}
+N.~P.~Pitjev and E.~V.~Pitjeva,
+\textit{Astron.\ Lett.} \textbf{39} (2013) 141, arXiv:1306.5534.
+
+\bibitem{Jordi2009}
+K.~Jordi et al., Testing fundamental physics with distant star
+clusters: analysis of observational data on Palomar~14,
+\textit{Astron.\ J.} \textbf{137} (2009) 4586.
+
+\bibitem{Gentile2010}
+G.~Gentile, B.~Famaey, G.~Angus and P.~Kroupa, Current data on the
+globular cluster Palomar~14 are consistent with MOND,
+\textit{Astron.\ Astrophys.} \textbf{509} (2010) A97.
+
+\bibitem{Sollima2012}
+A.~Sollima et al., A Monte Carlo analysis of the velocity dispersion of
+the globular cluster Palomar~14, arXiv:1111.1689 (2012).
 
 \end{thebibliography}
 

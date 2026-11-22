@@ -1,14 +1,14 @@
 # The Mountain Scale in the SST: the Net-Field Rule From the Action
 
-*Writing "read the law at the mountain's scale" into the action · Gravity Field Dynamics (GFD) · Field Dynamics Research*
+*Writing "a field object meets the NET Field as a whole, at its closure boundary" into the action · Gravity Field Dynamics (GFD) · Field Dynamics Research*
 
 [![Lean proof](https://github.com/fielddynamics/research/actions/workflows/lean-sst-mountain-scale.yml/badge.svg)](https://github.com/fielddynamics/research/actions/workflows/lean-sst-mountain-scale.yml)
 
-`SST` `net-field-rule` `mountain-scale` `Jacobi-radius` `sweeping-projector` `preferred-foliation` `action` `proof`
+`SST` `net-field-rule` `field-object` `closure-boundary` `Jacobi-radius` `four-ports` `preferred-foliation` `action` `proof`
 
 ---
 
-This folder holds a three-page proof, a script that checks it (23 checks), a 3D numerical solution, and a Lean 4 formalisation (5 theorems). It closes the step that the [time-leg](../sst-covariant-time-leg/), [net-field rule](../net-field-rule/) and [khronon](../sst-khronon-preferred-frame/) proofs all left open. It was revised after an external review, which is summarised below.
+This folder holds a three-page proof, a script that checks it (20 checks), two 3D numerical solutions, and a Lean 4 formalisation (8 theorems). It closes the step that the [time-leg](../sst-covariant-time-leg/), [net-field rule](../net-field-rule/) and [khronon](../sst-khronon-preferred-frame/) proofs left open. It has been through two external reviews; the changes are listed below.
 
 ## The picture
 
@@ -16,71 +16,69 @@ A mountain stream looks flat close up; zoomed out, it runs down a mountain.
 
 - **Inside a bound system** the host's field is a flat slope, and each body is a dimple with **no drain**: pure TetA.
 - **Seen from outside**, the whole mountain shows, and the law acts on it.
-- **The views meet at the system's Jacobi radius.**
 
-## What was open
+## GFD already says how a body meets the mountain
 
-The action applied the law wherever the time leg accelerates, including around the Sun. That gives every star a tail (a pull of a₀ on every planet), which is excluded. The net-field rule removed the tail, but as a rule added on top of the action.
+- **Paper I (§2.2–2.3):** a field object (an asteroid, a star, a cluster) is one correlated whole. The NET Field couples to it **as a whole, never to its parts**, at its closure boundary Σ.
+- **Paper II (§6):** closure boundaries are spheres, and they **overlap**.
+- **Paper IV and the face-structure notes:** each field unit meets its neighbours through **four** interfaces, three spatial and one temporal. In close packing a chamber has twelve contacts, of which the four face-to-face ones are the active ports.
+
+So **fields overlap**, and neighbours read each other. What is single-valued is **ownership**: which field object a piece of mass belongs to.
 
 ## What this proof does
 
-1. **The sweeping projector writes the picture into the action.** For each bound system, the field inside its Jacobi ball is replaced by the smooth (harmonic) field with the same values on the ball's surface. That is the same as sweeping the system's mass onto its Jacobi surface as a thin shell:
-   - **inside the ball** what is left is exactly the host's flat slope and tide;
-   - **outside**, nothing changes (the shell theorem): from afar the system is one grain of the mountain.
+1. **The ownership sweep.** Each bound system sweeps **its own mass** onto its own closure sphere, its Jacobi sphere, r_J³ = GM/(4Ω² − κ²).
+   - Sweeping a mass onto a sphere leaves its field outside the sphere exactly unchanged, for any shape of system.
+   - The spheres may overlap and contain other systems: each one sweeps only what it owns.
+2. **The action** reads the curvature term (all of Newton and Einstein) at every point, and the law's term on the **mountain**: the total field minus each system's own interior field.
+3. **The split is exact (Theorem 1):**
+   - the mountain obeys the **plain law** (not a projected one) on the density with every system's mass on its own sphere;
+   - each system's own field is **Newtonian with the bare G**, zero outside its sphere, and the same whatever the law is.
+4. **The four ports (Theorem 2).** At leading order a field object meets the NET Field through exactly four channels:
+   - one temporal: its clock rate, the lapse;
+   - three spatial: its free fall.
 
-   The action reads the curvature term (all of Newton and Einstein) at every point, and the law's term (the TetB share) on this swept field, the mountain.
-2. **The field equation splits exactly, with each system's own Jacobi radius.** The only requirement is that the projector be self-adjoint in the field-energy product, and the sweeping projector is. It does *not* need to commute with the Laplacian. Inside each ball:
-   - the field is **plain Newton for the system's own mass**, with the bare G, and the same whatever the law is;
-   - plus the host's slope and tide.
-
-   That is the net-field rule, now derived.
-3. **Nesting is simple.** Sweep only the outermost bound systems of the drained host. The Earth and Moon sit inside the Sun's ball, so they are already in the Newtonian dimple.
-4. **What follows:**
+   That is the tetrad's 1 + 3 legs. The next channel, the tide, needs the object's size and is suppressed by (s/r_J)³ (3 × 10⁻¹⁴ at Saturn).
+5. **What follows (Theorem 3):**
    - no tail;
-   - galaxies unchanged once their size is large compared with the Jacobi radii;
-   - γ = 1 at leading order;
-   - no preferred-frame effects inside a star system, at linear order.
-5. **The data fix the scale at each system's own Jacobi radius,** r_J³ = GM/(4Ω² − κ²):
-
-   | System | Size | Its Jacobi radius | Result |
-   |---|---|---|---|
-   | Sun | planets out to ~0.0005 pc | 1.44 pc | dimple: pure TetA |
-   | Pal 14 | 26 pc | ~160 pc | dimple: bare G, as its dispersion requires |
-   | Pal 4 | 18 pc | ~270 pc | dimple: bare G |
-
-   One universal length fails: at the Sun's 1.4 pc, Pal 14 would be read through the law, which its dispersion excludes at 8.9σ.
-6. **The action does not choose the edge.** Making a Jacobi ball bigger always *raises* the field energy, because the law's energy term is concave. That is the same condition that made the khronon stable. So energy alone would pick the pointwise reading (the tail). The Jacobi edge is a **binding** criterion, which matter moves together, and not an energy minimum. In the picture's terms: the stream decides what belongs to the mountain by where it flows, not by what costs least.
+   - neighbours keep their full Newtonian pull on each other;
+   - the Sun's own matter feels one extra tide-sized term (about 2 × 10⁻¹⁹ m/s² at Saturn), from the galaxy's TetB density inside its sphere.
+6. **The overlaps are real (Proposition 4).**
+   - α Centauri, 1.34 pc away, has a 1.81 pc sphere; the Sun's is 1.44 pc. Each contains the other's centre.
+   - In the solar neighbourhood the spheres fill about 60% of space, above the threshold at which overlapping spheres join up across space.
+   - So merging overlapping regions would turn the whole disc Newtonian. Ownership merges nothing.
+7. **A field-dependent radius (Theorem 5)** only nudges the mountain (by 2 × 10⁻³ in the test). Each system's own field stays Newtonian by construction.
+8. **The action does not choose the edge (Theorem 6),** shown for a centred spherical system. The edge is a binding criterion, which mass belongs to which field object, not an energy minimum.
 
 ## The 3D check
 
-A galaxy and a compact "Sun" were solved in a periodic box with one fixed scale, both ways:
+![The tail read pointwise; none read by ownership](fig_demo.png)
 
-![The tail read pointwise, and no tail on the mountain](fig_demo.png)
+- **One system:** read pointwise, the pull around the Sun beyond its own is the tail, a₀μ(x) (0.79, 0.70, 0.58 a₀). Read by ownership it is **0.000**.
+- **Two systems whose spheres overlap, each containing the other's centre:** the pull beyond Newton for both stars is between −0.002 and −0.023 a₀, against +0.6 to +0.8 for a tail. What remains is the law acting on each star's field where it lies outside that star's own sphere, as it should.
 
-- **Read pointwise**, the extra pull around the Sun is the tail, matching a₀μ(x) to 3%.
-- **Read on the mountain**, it is small and fades toward the Sun.
-- The galaxy's own field differs from the pointwise reading by 4 × 10⁻², 3 × 10⁻³ and 2 × 10⁻⁴ for a scale of 2, 1 and ½ of its width. In the Milky Way the ratio is about 2 × 10⁻⁴.
-
-The case where each system has its own scale is checked exactly in 1D: two systems with different Jacobi radii, where the dimple matches Newton to 3 × 10⁻¹⁴ under two different laws.
-
-## The external review, and what changed
+## Reviews, and what changed
 
 | Review point | Response |
 |---|---|
-| Position-dependent spectral cutoff breaks idempotence and commutation | Agreed. Replaced by the sweeping projector, exact for any set of systems with their own Jacobi radii |
-| The split only needs P² = P and [P, Δ] = 0 | True, and the Lean proof already used that. Weaker still: P self-adjoint in the field-energy product suffices, and the sweeping projector does not commute with Δ |
-| Which system's radius at the Earth? | Only the outermost bound systems of the drained host are swept; the rest are already in the linear dimple |
-| r_J³ = GM/2Ω² holds only for flat curves | Now the general GM/(4Ω² − κ²) |
-| The mountain obeys a projected law, not pointwise AQUAL | Agreed; stated, and the difference measured |
-| Relativistic and khronon claims go beyond the static variation | Agreed; now stated at leading order (γ = 1) and linear order (khronon) |
-| "Pure TetA" needs derivation from the geometry | In GFD μ is the TetA share by definition, so a linear response (μ = 1) is all TetA |
-| Derive the scale selection rather than insert it | Tested: the action cannot select it (Theorem 4). It is a binding criterion, which remains a premise |
+| A scale that varies from place to place breaks the spectral projector | Replaced: there is no projector on the field now, only each system's own interior field removed |
+| Real Jacobi spheres overlap (α Cen) | Allowed: ownership, not space, decides what each system sweeps. Merging regions would join one Newtonian region across the disc (shown) |
+| The split must survive a field-dependent projector | Each system's own field is Newtonian by construction for any radius; a field-dependent radius only changes the mountain's equation (Theorem 5) |
+| Non-spherical systems | Outside its sphere a system's field is exact for any shape; inside, its own multipoles enter the mountain, suppressed by (s/r_J)³ |
+| Theorem on the edge was stronger than its proof | Now stated for a centred spherical system only |
+| Check C2 was `True` | Removed; every check computes something |
+| The 3D demo used a different projector | The 3D runs now use the ownership sweep itself, with one system and with two overlapping |
+| The mountain obeyed a projected law | It now obeys the plain law |
+| Pal 14's 8.9σ | Stated as the net-field analysis's figure; the literature is divided (Jordi 2009; Gentile 2010; Sollima 2012) |
+| The Jacobi radius is a premise | Agreed: the data give a window, and choosing r_J within it is the binding premise |
 
 ## What it leaves open
 
-- **The binding criterion** itself, which matter forms a bound system. It is a premise, and Theorem 4 shows it cannot come from minimising the energy.
-- **Time-dependent binding**: mergers and tidal stripping.
+- **The binding criterion** (which mass belongs to which field object). It is the premise; Theorem 6 shows, for a centred sphere, that energy cannot set it.
+- **Ownership that changes in time** (mergers, stripping).
+- **Theorem 6 for general shapes.**
 - **Higher relativistic order.**
+- **The twelve-contact count**, which is the framework's geometry. The four ports are derived here at the level of the action.
 
 ## Contents
 
@@ -88,19 +86,18 @@ The case where each system has its own scale is checked exactly in 1D: two syste
 |---|---|
 | [`sst_mountain_scale.pdf`](sst_mountain_scale.pdf) | The proof (3 pages) |
 | [`sst_mountain_scale.tex`](sst_mountain_scale.tex) | LaTeX source (IOP class, [`iopjournal.cls`](iopjournal.cls)) |
-| [`verify_sst_mountain_scale.py`](verify_sst_mountain_scale.py) | 23 checks: the split with a fixed scale and with each system's own scale (1D, two laws), the projector on a curved slice, nesting, the Jacobi radii, the edge test, and the 3D results |
-| [`verify_output.txt`](verify_output.txt) | Its output |
-| [`demo_mountain_scale.py`](demo_mountain_scale.py), [`demo_output.txt`](demo_output.txt) | The 3D solution (about 5 minutes) |
-| [`galaxy_scaling.py`](galaxy_scaling.py), [`galaxy_scaling_output.txt`](galaxy_scaling_output.txt) | The galaxy's field against the scale (about 5 minutes) |
+| [`verify_sst_mountain_scale.py`](verify_sst_mountain_scale.py), [`verify_output.txt`](verify_output.txt) | 20 checks: the split with overlapping spheres (1D, two laws), the matter equation, the four ports, the overlaps, a field-dependent radius, the edge, and the 3D results |
+| [`demo_ownership_3d.py`](demo_ownership_3d.py), [`demo_ownership_output.txt`](demo_ownership_output.txt) | The 3D ownership solutions, one system and two overlapping (about 10 minutes) |
+| [`demo_mountain_scale.py`](demo_mountain_scale.py), [`demo_output.txt`](demo_output.txt) | The 3D solver and the pointwise reference (the tail); it also contains the earlier single-scale low-pass version |
 | [`make_figure.py`](make_figure.py) | Draws [`fig_demo`](fig_demo.pdf) |
-| [`lean/MountainScale.lean`](lean/MountainScale.lean) | Lean 4, 5 theorems, importing the [khronon](../sst-khronon-preferred-frame/lean/) formalisation |
+| [`lean/MountainScale.lean`](lean/MountainScale.lean) | Lean 4, 8 theorems, importing the [khronon](../sst-khronon-preferred-frame/lean/) formalisation |
 | [`LEAN_AUDIT.md`](LEAN_AUDIT.md) | What the Lean proves and what is cited |
 
 ## Running the checks
 
 ```
 python demo_mountain_scale.py > demo_output.txt
-python galaxy_scaling.py > galaxy_scaling_output.txt
+python demo_ownership_3d.py > demo_ownership_output.txt
 python verify_sst_mountain_scale.py
 cd lean && lake exe cache get && lake build
 ```

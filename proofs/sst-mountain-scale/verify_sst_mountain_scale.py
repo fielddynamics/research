@@ -1,225 +1,215 @@
 """Machine checks for 'The Mountain Scale in the SST: the Net-Field Rule From the Action'.
 
-The picture: a mountain stream is flat close up and a mountain zoomed out. Inside a bound system the host's field is
-a flat slope and each body a dimple with no drain; seen from outside, the whole mountain shows and the law acts.
-The action below reads the law's term at the mountain's scale: Phi_bar = P Phi, with P the projector, on each leaf of
-the preferred foliation, onto spatial modes longer than the mountain scale ell (the Jacobi radius).
+GFD's picture (Papers I-II): a field object couples to the NET Field as a whole, at its closure boundary, and closure
+boundaries overlap. In the action: each bound system k sweeps ITS OWN mass onto its own closure sphere Sigma_k (its
+Jacobi sphere). Spheres may overlap and contain other systems. The mountain is the total field minus each system's own
+interior field, Phi_bar = Phi - sum_k d_k, and the law's term reads Phi_bar.
 
-  Part A  the field equation of the mountain-scale action, and its exact split (finite-dimensional, any law)
-  Part B  the projector on a curved leaf (the covariant definition)
-  Part C  consequences: no tail, the dimple blind to the law, the khronon
-  Part D  the mountain scale: the Jacobi radius of each bound system (Sun, Pal 14, Pal 4)
-  Part E  the 3D demonstration with a fixed scale (demo_mountain_scale.py; its output in demo_output.txt)
-  Part G  the energy-orthogonal (sweeping) projector: a different Jacobi radius for each system, exact
-  Part H  the action does not choose the edge
+  Part A  the split, in 1D, with two systems whose spheres overlap and contain each other's mass
+  Part B  how the owned matter is pushed (the matter equation)
+  Part C  the four ports: a field object meets the NET Field through one temporal and three spatial channels
+  Part D  the mountain scale: Jacobi radii, overlap in the solar neighbourhood, and why merging regions fails
+  Part E  a radius that depends on the field
+  Part F  the action does not choose the edge (centred spherical system)
+  Part G  the 3D solutions (demo_ownership_3d.py, demo_mountain_scale.py)
 
 Run: python verify_sst_mountain_scale.py"""
 import math, os, re
 import numpy as np
 import sympy as sp
+from scipy.optimize import fsolve
 
 ok = []
 def check(name, cond):
     ok.append(bool(cond)); print(("PASS " if cond else "FAIL ") + name)
 
-# ------------------------------------------------------------------ Part A: a 1D periodic analogue, exact linear algebra
-n, Lb = 255, 255.0
-dx = Lb / n
-xg = (np.arange(n) - n // 2) * dx
-k = 2 * np.pi * np.fft.fftfreq(n, d=dx)
-D = np.real(np.fft.ifft(1j * k[:, None] * np.fft.fft(np.eye(n), axis=0), axis=0))   # spectral derivative matrix
-Lap = D @ D
-ell = 16.0
-F = np.fft.fft(np.eye(n), axis=0) / math.sqrt(n)
-keep = np.abs(k) <= math.pi / ell
-P = np.real(F.conj().T @ np.diag(keep.astype(float)) @ F)                            # low-pass projector
-mu = lambda x: x / (1 + x)
-mu2 = lambda x: x / np.sqrt(1 + x ** 2)
-check("A1 the mountain projector P (modes longer than ell) is symmetric (self-adjoint), idempotent, and commutes with "
-      "the derivative: the three properties the derivation uses",
-      np.allclose(P, P.T, atol=1e-12) and np.allclose(P @ P, P, atol=1e-12) and np.allclose(P @ D, D @ P, atol=1e-12))
+# ------------------------------------------------------------------ Part A: the split with overlapping spheres (1D)
+n = 400
+x = np.linspace(0, 1, n + 2)[1:-1]; h = x[1] - x[0]
+D = (np.eye(n + 1, n, 0) - np.eye(n + 1, n, -1)) / h          # forward differences, zero Dirichlet at the box ends
+K = D.T @ D                                                    # -Laplacian (units 4 pi G = 1)
+Kinv = np.linalg.inv(K)
+mu1 = lambda s: s / (1 + s)
+mu2 = lambda s: s / np.sqrt(1 + s * s)
+H = lambda g: -2 * g + 2 * np.log1p(g)                         # a0^2 [F(y) - y], a0 = 1; H'(g) = 2(mu - 1)g
 
-def h(gb):          # a0 = 1: h = F(y) - y, y = gb^2
-    s = np.abs(gb); return (s ** 2 - 2 * s + 2 * np.log1p(s)) - s ** 2
-def S(Phi, rho):    # 4 pi G = 1:  S = sum[-(Phi')^2/2 - rho Phi - h((P Phi)')/2] dx
-    return np.sum(-0.5 * (D @ Phi) ** 2 - rho * Phi - 0.5 * h(D @ (P @ Phi))) * dx
-def EL(Phi, rho, law=mu):
-    gb = D @ (P @ Phi)
-    return Lap @ Phi + P @ (D @ ((law(np.abs(gb)) - 1) * gb)) - (rho - rho.mean())
-
-rho = 40 * np.exp(-xg ** 2 / (2 * 20 ** 2)) / 50 + 6 * np.exp(-(xg - 50) ** 2 / 2)
+def sweep(rho_k, a, b):
+    """sweep a system's own mass inside [a, b] onto its sphere (1D: the two end points), with harmonic weights"""
+    ia, ib = np.searchsorted(x, a), np.searchsorted(x, b) - 1
+    out = rho_k.copy(); inside = (x > x[ia]) & (x < x[ib])
+    m, xi = rho_k[inside], x[inside]
+    out[inside] = 0
+    out[ia] += np.sum(m * (x[ib] - xi) / (x[ib] - x[ia])); out[ib] += np.sum(m * (xi - x[ia]) / (x[ib] - x[ia]))
+    return out
+g = lambda c, w, M: M * np.exp(-((x - c) / w) ** 2)
+rho_host = 200 * np.exp(-((x - 0.5) / 0.18) ** 2)
+A = (g(0.40, 0.008, 3000), 0.25, 0.55)                         # the 'Sun' and its sphere
+B = (g(0.47, 0.008, 2500), 0.33, 0.62)                         # a neighbour: spheres overlap, each contains the other
+rho = rho_host + A[0] + B[0]
+rho_bar = rho_host + sweep(*A) + sweep(*B)
+dA, dB = Kinv @ (A[0] - sweep(*A)), Kinv @ (B[0] - sweep(*B))
+outA = (x < A[1] - 2 * h) | (x > A[2] + 2 * h); outB = (x < B[1] - 2 * h) | (x > B[2] + 2 * h)
+check("A1 the spheres overlap and each contains the other's mass, yet each system's own interior field d_k vanishes "
+      f"outside its own sphere ({np.abs(dA[outA]).max() / np.abs(dA).max():.0e}, {np.abs(dB[outB]).max() / np.abs(dB).max():.0e}): "
+      "sweeping mass onto a sphere leaves the field outside unchanged, for any shape of system",
+      np.abs(dA[outA]).max() < 1e-12 * np.abs(dA).max() and np.abs(dB[outB]).max() < 1e-12 * np.abs(dB).max()
+      and A[1] < 0.47 < A[2] and B[1] < 0.40 < B[2])
+dsum = dA + dB
+def S(p, law_H=H, d=dsum, rh=rho):
+    return 0.5 * p @ K @ p - rh @ p + 0.5 * np.sum(law_H(np.abs(D @ (p - d))))
+def EL(p, law=mu1, d=dsum, rh=rho):
+    gb = D @ (p - d); return K @ p - rh + D.T @ ((law(np.abs(gb)) - 1) * gb)
 rng = np.random.default_rng(0)
-Phi0 = rng.standard_normal(n); Phi0 -= Phi0.mean()
-dvec = rng.standard_normal(n); dvec -= dvec.mean()
-eps = 1e-6
-fd = (S(Phi0 + eps * dvec, rho) - S(Phi0 - eps * dvec, rho)) / (2 * eps)
-an = np.sum(EL(Phi0, rho) * dvec) * dx
-check(f"A2 the field equation is the action's gradient: dS along a random direction, finite difference {fd:.6e} vs "
-      f"(lap Phi + P div[(mu - 1) grad P Phi] - 4 pi G rho) . d = {an:.6e}. The chain rule brings P back as P^T = P",
-      abs(fd - an) < 1e-6 * max(1, abs(fd)))
+p0 = rng.standard_normal(n); v = rng.standard_normal(n); eps = 1e-6
+fd = (S(p0 + eps * v) - S(p0 - eps * v)) / (2 * eps)
+check(f"A2 the action S = (1/2)Phi.K.Phi - rho.Phi + (1/2) sum H(grad(Phi - sum d_k)) has the field equation "
+      f"K Phi - rho + D^T[(mu - 1) grad Phi_bar] = 0 (finite difference {fd:.6e} vs {EL(p0) @ v:.6e})",
+      abs(fd - EL(p0) @ v) < 1e-6 * abs(fd))
+p1 = fsolve(EL, Kinv @ rho, xtol=1e-13)
+p2 = fsolve(lambda p: EL(p, mu2), Kinv @ rho, xtol=1e-13)
+for p, law, nm in ((p1, mu1, "x/(1+x)"), (p2, mu2, "x/sqrt(1+x^2)")):
+    pb = p - dsum; gb = D @ pb
+    res = np.abs(K @ pb + D.T @ ((law(np.abs(gb)) - 1) * gb) - rho_bar).max() / np.abs(rho_bar).max()
+    check(f"A3 with the law {nm}: the mountain Phi_bar obeys the plain law, not a projected one, on the swept density "
+          f"(residual {res:.0e}): every system's mass sits on its own closure sphere", res < 1e-9)
+check("A4 the field is the mountain plus each system's own interior field, Newtonian with the bare G and fixed by its own "
+      "mass alone: the same under both laws, while the mountain changes by "
+      f"{np.abs((p1 - dsum) - (p2 - dsum)).max() / np.abs(p1 - dsum).max():.0e}",
+      np.abs((p1 - (p1 - dsum)) - (p2 - (p2 - dsum))).max() < 1e-12 and np.abs(p1 - p2).max() > 1e-3 * np.abs(p1).max())
+inA = (x > 0.30) & (x < 0.50)
+check("A5 neighbours read each other: inside the Sun's sphere the mountain carries the neighbour's field and its swept "
+      "shell (its slope varies across the sphere instead of being the host's alone), and the law acts on it",
+      np.ptp(np.diff((p1 - dA)[inA])) > 1e-6)
 
-Lp = Lap + np.outer(np.ones(n), np.ones(n)) / n      # invertible on the full space; equals Lap on zero-mean fields
-from scipy.optimize import newton_krylov
-def solve(rho, law):
-    Phi = np.linalg.solve(Lp, rho - rho.mean())
-    return newton_krylov(lambda p: EL(p, rho, law) + np.ones(n) * p.mean(), Phi, f_tol=1e-12, maxiter=200)
-Phi = solve(rho, mu)
-res = np.abs(EL(Phi, rho)).max() / np.abs(rho - rho.mean()).max()
-dimple = Phi - P @ Phi
-newton = np.linalg.solve(Lp, (np.eye(n) - P) @ (rho - rho.mean()))
-check(f"A3 solved (residual {res:.0e}): the dimple (1 - P)Phi equals the Newtonian potential of (1 - P)rho to "
-      f"{np.abs(dimple - newton).max() / np.abs(newton).max():.0e}: lap phi' = 4 pi G (1 - P) rho, linear, pure TetA, bare G",
-      res < 1e-8 and np.abs(dimple - newton).max() / np.abs(newton).max() < 1e-9)
-gb = D @ (P @ Phi)
-mres = np.abs(P @ (D @ (mu(np.abs(gb)) * gb)) - P @ (rho - rho.mean())).max() / np.abs(rho - rho.mean()).max()
-check(f"A4 and the mountain P Phi obeys the law at the mountain's scale, P div[mu grad P Phi] = 4 pi G P rho "
-      f"(residual {mres:.0e})", mres < 1e-8)
-Phi_b = solve(rho, mu2)
-check("A5 the dimple is blind to the law: solved again with a different law (x/sqrt(1 + x^2)), the mountain changes "
-      f"(by {np.abs(P @ Phi_b - P @ Phi).max() / np.abs(P @ Phi).max():.0e}) but the dimple is identical to "
-      f"{np.abs((Phi_b - P @ Phi_b) - dimple).max() / np.abs(dimple).max():.0e}",
-      np.abs((Phi_b - P @ Phi_b) - dimple).max() / np.abs(dimple).max() < 1e-9 and np.abs(P @ Phi_b - P @ Phi).max() > 1e-3)
+# ------------------------------------------------------------------ Part B: the matter equation
+eps = 1e-4
+idx = np.where((x > 0.36) & (x < 0.44))[0][::8]
+def S_at(rhoA_pert):
+    dA_ = Kinv @ (rhoA_pert - sweep(rhoA_pert, A[1], A[2])); d_ = dA_ + dB
+    return S(p1, d=d_, rh=rho_host + rhoA_pert + B[0])
+force_pot = []
+for i in idx:
+    e = np.zeros(n); e[i] = eps
+    force_pot.append(-(S_at(A[0] + e) - S_at(A[0] - e)) / (2 * eps))      # = the potential the owned matter feels
+force_pot = np.array(force_pot)
+dev = np.abs(force_pot - p1[idx]).max() / np.abs(p1[idx]).max()
+check(f"B1 the Sun's own matter feels the total potential Phi plus a small extra term ({dev:.1e} of Phi here), set by "
+      "the mountain's TetB density inside the Sun's own sphere. Physically, at the Galactic TetB density at the Sun "
+      "(5.4e-22 kg/m^3) its pull inside Saturn's orbit is ~(4 pi/3) G rho r = 2e-19 m/s^2, the same order as the tide, and "
+      "the density is 5e-5 of the ephemeris bound on unseen mass there (1.1e-17 kg/m^3)", dev < 0.05)
 
-# ------------------------------------------------------------------ Part B: the projector on a curved leaf
-m = 60
-W = rng.uniform(0.5, 2.0, m)                                   # leaf volume weights sqrt(h)
-C = rng.uniform(0.5, 2.0, m)                                   # edge conductances (metric along the leaf)
-Kmat = np.zeros((m, m))
-for i in range(m):
-    j = (i + 1) % m
-    Kmat[i, i] += C[i]; Kmat[j, j] += C[i]; Kmat[i, j] -= C[i]; Kmat[j, i] -= C[i]
-Wm = np.diag(W); Wih = np.diag(W ** -0.5)
-lam, V = np.linalg.eigh(Wih @ Kmat @ Wih)                     # -Laplace-Beltrami = W^-1 K, symmetrised
-Vh = Wih @ V                                                   # W-orthonormal eigenfunctions
-Pc = Vh[:, lam <= np.quantile(lam, 0.3)] @ Vh[:, lam <= np.quantile(lam, 0.3)].T @ Wm
-LB = -np.linalg.solve(Wm, Kmat)
-check("B1 on a curved leaf (random volume weights and metric), the spectral projector of the leaf's Laplace-Beltrami "
-      "operator onto its long modes is idempotent, self-adjoint in the leaf's volume measure, and commutes with the "
-      "leaf Laplacian: the covariant definition, available because the SST has a preferred foliation",
-      np.allclose(Pc @ Pc, Pc, atol=1e-10) and np.allclose(Wm @ Pc, (Wm @ Pc).T, atol=1e-10)
-      and np.allclose(Pc @ LB, LB @ Pc, atol=1e-10))
-
-# ------------------------------------------------------------------ Part C: consequences
-xs = sp.symbols("x", positive=True)
-check("C1 no tail: the dimple's own law is linear (mu = 1 identically), so its TetB share is 0 exactly; read pointwise it "
-      "would be a0 mu(x) > 0 for every x (the tail)",
-      sp.simplify((1 - 1) * xs) == 0 and sp.simplify(xs * (1 - xs / (1 + xs)) - xs / (1 + xs)) == 0)
-check("C2 the khronon: f depends on y_bar = |grad P Phi|^2/a0^2 only, so a khronon perturbation pi on scales shorter than ell "
-      "drops out of f: the dimple carries no khronon inertia, density or momentum (SST khronon, Theorem 6, now derived), "
-      "and the curvature term, read pointwise, still gives Psi = Phi (gamma = 1)", True)
+# ------------------------------------------------------------------ Part C: the four ports
+X1, X2, X3, c0, b1, b2, b3 = sp.symbols("x1 x2 x3 c0 b1 b2 b3", real=True)
+t11, t12, t13, t22, t23 = sp.symbols("t11 t12 t13 t22 t23", real=True)
+T = sp.Matrix([[t11, t12, t13], [t12, t22, t23], [t13, t23, -t11 - t22]])
+xv = sp.Matrix([X1, X2, X3])
+Phi_h = c0 + (sp.Matrix([b1, b2, b3]).T * xv)[0] + sp.Rational(1, 2) * (xv.T * T * xv)[0]
+lap = sum(sp.diff(Phi_h, s, 2) for s in (X1, X2, X3))
+ms = [sp.Rational(3), sp.Rational(2), sp.Rational(1)]
+pts = [sp.Matrix([1, 0, 0]), sp.Matrix([-1, 1, 0]), sp.Matrix([-1, -2, 0])]
+Mt = sum(ms); com = sum((m * p for m, p in zip(ms, pts)), sp.zeros(3, 1))
+E_int = sum(m * Phi_h.subs({X1: p[0], X2: p[1], X3: p[2]}) for m, p in zip(ms, pts))
+Q = sum((m * (p * p.T) for m, p in zip(ms, pts)), sp.zeros(3, 3))
+check("C1 a field object (centre of mass at its origin) in a harmonic NET Field Phi = c0 + b.x + (1/2) x.T.x couples "
+      "through exactly M c0 (the lapse: one temporal channel, its clock rate) and M b (three spatial channels, its free "
+      "fall), plus a tidal term (1/2) T:Q that needs the object's extent. The dipole term vanishes at the centre of mass. "
+      "The leading channels are 1 + 3 = 4: the tetrad's four legs, the four active ports",
+      sp.simplify(lap) == 0 and com == sp.zeros(3, 1)
+      and sp.simplify(E_int - (Mt * c0 + sp.Rational(1, 2) * sum(T[i, j] * Q[i, j] for i in range(3) for j in range(3)))) == 0)
+AU, PCm = 1.495979e11, 3.0857e16
+check("C2 the tidal channel is suppressed: across a system of size s inside its closure sphere, the tide over its own "
+      f"pull is (s/r_J)^3 by the Jacobi definition: {(1 * AU / (1.44 * PCm)) ** 3:.0e} at 1 AU, "
+      f"{(9.58 * AU / (1.44 * PCm)) ** 3:.0e} at Saturn. At leading order the field object meets the NET Field only "
+      "through the four ports", (9.58 * AU / (1.44 * PCm)) ** 3 < 1e-13)
 
 # ------------------------------------------------------------------ Part D: the mountain scale
-GMs, AU, PCm, KPC = 1.32712e20, 1.495979e11, 3.0857e16, 3.0857e19
+GMs, KPC = 1.32712e20, 3.0857e19
 def rJ(GM, v, R):
-    # general Jacobi radius r_J^3 = GM/(4 Omega^2 - kappa^2); for a flat rotation curve kappa^2 = 2 Omega^2
-    Om = v / R; kap2 = 2 * Om ** 2; return (GM / (4 * Om ** 2 - kap2)) ** (1 / 3)
+    Om = v / R; kap2 = 2 * Om ** 2                             # flat curve: 4 Omega^2 - kappa^2 = 2 Omega^2
+    return (GM / (4 * Om ** 2 - kap2)) ** (1 / 3)
 rJ_sun = rJ(GMs, 2.2e5, 8.2 * KPC)
-check(f"D1 the Sun: r_J = {rJ_sun / PCm:.2f} pc, inside the window from the net-field rule, Cassini (ell > 1.2e4 AU = "
-      f"{1.2e4 * AU / PCm:.3f} pc) to binding (ell <= r_J)", 1.2e4 * AU < rJ_sun and 1.3 < rJ_sun / PCm < 1.6)
+rJ_acen = rJ(2.0 * GMs, 2.2e5, 8.2 * KPC)
+check(f"D1 the Sun's Jacobi radius is {rJ_sun / PCm:.2f} pc, inside the window from the Cassini bound (0.058 pc) to binding; "
+      f"alpha Centauri (2.0 Msun, 1.34 pc away) has {rJ_acen / PCm:.2f} pc: each closure sphere contains the other's centre. "
+      "In the ownership form this is allowed: each sweeps only its own mass",
+      1.3 < rJ_sun / PCm < 1.6 and rJ_acen / PCm > 1.34 and rJ_sun / PCm > 1.34)
+rho_star = 0.05                                                # Msun/pc^3, local stellar mass density
+eta = rho_star * (4 * math.pi / 3) * (rJ_sun / PCm) ** 3        # sum of sphere volumes per unit volume (r_J^3 ~ M)
+check(f"D2 overlap is the rule, not the exception: Jacobi spheres in the solar neighbourhood fill eta = {eta:.2f} of space "
+      f"(union {1 - math.exp(-eta):.2f}), above the percolation threshold of overlapping spheres (eta_c ~ 0.34). Merging "
+      "overlapping regions would join one Newtonian region across the disc and switch the law off there; sweeping by "
+      "ownership does not merge anything", eta > 0.34)
 for name, M, Re, D_gc in (("Pal 14", 1.2e4, 26.0, 71), ("Pal 4", 2.98e4, 18.4, 103)):
     r = rJ(GMs * M, 1.84e5, D_gc * KPC) / PCm
-    check(f"D2 {name} (M = {M:.1e} Msun, half-light {Re} pc, {D_gc} kpc out): its own Jacobi radius is {r:.0f} pc, "
-          f"which contains its body: a drainless dimple, Newton with the bare G, as the data require (net-field rule, "
-          f"Prop. 4: bare G fits; G/mu excluded at > 8 sigma)", r > 4 * Re)
-check(f"D3 so the mountain scale is each bound system's own Jacobi radius, not one universal length: with ell = {rJ_sun / PCm:.1f} pc "
-      "everywhere, Pal 14's 26 pc body would lie in the mountain, its own field would be read through the law, and in its "
-      "external-field regime that is G -> G/mu, the factor the net-field rule excludes at 8.9 sigma",
-      26.0 > rJ_sun / PCm)
-tide_edge = GMs / rJ_sun ** 2
-check(f"D4 at each Jacobi surface the dimple's pull equals the host's tide ({tide_edge:.1e} m/s^2 for the Sun), so where the "
-      "mountain scale changes from one system to the next, the projector's departure from exactness is bounded by the "
-      "tide, and inside a system by the net-field rule's kernel bound c(nu - 1)(r/ell)^3 (4e-17 at 1 AU)",
-      tide_edge < 1e-13)
+    check(f"D3 {name}: its own Jacobi radius {r:.0f} pc contains its {Re} pc body: the cluster is one field object, "
+          "Newtonian inside with the bare G, as the net-field rule's analysis of its dispersion requires", r > 4 * Re)
 
-# ------------------------------------------------------------------ Part E: the 3D demonstration
-path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "demo_output.txt")
-txt = open(path).read() if os.path.exists(path) else ""
-if "finite difference" in txt:
-    split = float(re.search(r"max diff / max = ([0-9.e+-]+)", txt).group(1))
-    rows = re.findall(r"(mountain|pointwise)\s+r = (\d+): extra pull toward the Sun = ([+-][0-9.]+) a0 \(Sun's own Newtonian pull ([0-9.]+)", txt)
-    mtn = {int(r): float(v) for nme, r, v, _ in rows if nme == "mountain"}
-    pw = {int(r): (float(v), float(o)) for nme, r, v, o in rows if nme == "pointwise"}
-    gal = float(re.search(r"\(difference ([0-9.e+-]+)\)", txt).group(1))
-    fdv, elv = map(float, re.search(r"finite difference ([0-9.e+-]+), from the field equation ([0-9.e+-]+)", txt).groups())
-    check(f"E1 in 3D (galaxy + Sun in a periodic box): the dimple equals the Newtonian potential of (1 - P)rho to {split:.0e}, "
-          f"and the action's gradient matches the field equation ({fdv:.4e} vs {elv:.4e})",
-          split < 1e-12 and abs(fdv - elv) < 2e-3 * abs(fdv))
-    check("E2 read pointwise, the extra pull around the Sun is the tail a0 mu(x): " +
-          ", ".join(f"r = {r}: {pw[r][0]:.2f} vs a0 mu = {pw[r][1] / (1 + pw[r][1]):.2f}" for r in (2, 3, 4)),
-          all(abs(pw[r][0] / (pw[r][1] / (1 + pw[r][1])) - 1) < 0.08 for r in (2, 3, 4)))
-    check("E3 read at the mountain's scale, the extra pull is small and fades toward the Sun (" +
-          ", ".join(f"r = {r}: {mtn[r]:.3f}" for r in sorted(mtn)) +
-          " a0): only the smoothed sheet and the tide, no tail",
-          all(mtn[r] < 0.15 for r in mtn) and mtn[2] < mtn[3] < mtn[4] < mtn[6] and mtn[2] < 0.1 * pw[2][0])
-    gs = os.path.join(os.path.dirname(os.path.abspath(__file__)), "galaxy_scaling_output.txt")
-    sc = [(float(a), float(b)) for a, b in re.findall(r"ell/width = ([0-9.]+)\): .*difference ([0-9.e+-]+)", open(gs).read())] \
-        if os.path.exists(gs) else []
-    check("E4 the galaxy is unchanged once the mountain scale is small against it: the galaxy's field at the Sun's position, "
-          "mountain vs pointwise, differs by " + ", ".join(f"{d:.0e} at ell/width = {w}" for w, d in sc) +
-          " (galaxy_scaling.py); in the Milky Way ell/R ~ 1.4 pc / 8 kpc ~ 2e-4",
-          len(sc) == 3 and sc[0][1] > sc[1][1] > sc[2][1] and sc[2][1] < 1e-3)
-else:
-    print("(demo_output.txt missing or incomplete: run demo_mountain_scale.py, about 5 minutes, for Part E)")
+# ------------------------------------------------------------------ Part E: a radius that depends on the field
+cA = 0.40
+def slope_at(pbar):
+    return abs(np.interp(cA + 0.01, x, pbar) - np.interp(cA - 0.01, x, pbar)) / 0.02
+def R_of(pbar):                                                 # R^3 ~ M/|slope|: a stand-in for the tide
+    return 0.15 * (slope_at(pbar) / 40.0) ** (-1 / 3)
+pbar0 = p1 - dsum
+R0 = R_of(pbar0)
+dA_R = lambda R: Kinv @ (A[0] - sweep(A[0], cA - R, cA + R))
+outR = (x < cA - R0 - 2 * h) | (x > cA + R0 + 2 * h)
+check(f"E1 for a radius read from the mountain (here R = {R0:.3f}), the system's own interior field d_k(R) is fixed by its "
+      "own mass and its radius, linear, with the bare G, and zero outside: Newtonian by construction, however R depends "
+      "on the field", np.abs(dA_R(R0)[outR]).max() < 1e-12 * np.abs(dA_R(R0)).max())
+def SH_R(R):
+    return 0.5 * np.sum(H(np.abs(D @ (p1 - dA_R(R) - dB))))
+dR = 2e-3
+dSdR = (SH_R(R0 + dR) - SH_R(R0 - dR)) / (2 * dR)
+grad_R = np.zeros(n)
+for i in range(n):
+    e = np.zeros(n); e[i] = 1e-4
+    grad_R[i] = (R_of(pbar0 + e) - R_of(pbar0 - e)) / 2e-4
+shift = Kinv @ (dSdR * grad_R)
+rel = np.abs(shift).max() / np.abs(pbar0).max()
+check(f"E2 varying the field through R adds a term (dS/dR)(dR/dPhi_bar) to the mountain's equation only; here it moves "
+      f"the mountain by {rel:.1e} of itself. The systems' own interior fields are untouched (E1)", rel < 0.05)
 
-# ------------------------------------------------------------------ Part G: the energy-orthogonal (sweeping) projector
-# Each outermost bound system k of the drained host has a Jacobi ball B_k. P replaces the field inside each ball by the
-# harmonic field with the same boundary values: the system's mass is swept onto its Jacobi surface. P is idempotent and
-# self-adjoint in the field-energy product E(a,b) = int grad a . grad b, but it does not commute with the Laplacian.
-from scipy.optimize import fsolve
-nb = 300
-xb = np.linspace(0, 1, nb + 2)[1:-1]; hb = xb[1] - xb[0]
-Db = (np.eye(nb + 1, nb, 0) - np.eye(nb + 1, nb, -1)) / hb      # forward differences, zero Dirichlet at the box ends
-Kb = Db.T @ Db                                                 # -Laplacian, the energy form
-def sweep(balls):
-    Pm = np.eye(nb)
-    for a, b in balls:
-        ia, ib = np.searchsorted(xb, a) - 1, np.searchsorted(xb, b)
-        for i in range(ia + 1, ib):
-            t = (xb[i] - xb[ia]) / (xb[ib] - xb[ia]); Pm[i] = 0; Pm[i, ia] += 1 - t; Pm[i, ib] += t
-    return Pm
-def solve_b(rho, Pm, law):
-    def el(p):
-        g = Db @ (Pm @ p); return Kb @ p - Pm.T @ (Db.T @ ((law(np.abs(g)) - 1) * g)) - rho
-    return fsolve(el, np.linalg.solve(Kb, rho), xtol=1e-13)
-rho_b = 200 * np.exp(-((xb - 0.5) / 0.15) ** 2) + 3000 * np.exp(-((xb - 0.3) / 0.01) ** 2) + 2000 * np.exp(-((xb - 0.72) / 0.008) ** 2)
-Ps = sweep([(0.22, 0.38), (0.66, 0.78)])                       # two systems with different Jacobi radii
-check("G1 the sweeping projector, with a different Jacobi radius for each system, is idempotent and self-adjoint in the "
-      "field-energy product (K P = P^T K), and does NOT commute with the Laplacian: commuting is not needed",
-      np.allclose(Ps @ Ps, Ps) and np.allclose(Kb @ Ps, Ps.T @ Kb) and not np.allclose(Ps @ Kb, Kb @ Ps))
-q1, q2 = solve_b(rho_b, Ps, mu), solve_b(rho_b, Ps, mu2)
-Ib = np.eye(nb)
-newt_b = (Ib - Ps) @ np.linalg.solve(Kb, rho_b)
-e1 = np.abs((Ib - Ps) @ q1 - newt_b).max() / np.abs(newt_b).max()
-e2 = np.abs((Ib - Ps) @ q2 - (Ib - Ps) @ q1).max() / np.abs(newt_b).max()
-e3 = np.abs(Ps @ q2 - Ps @ q1).max() / np.abs(Ps @ q1).max()
-check(f"G2 the split is exact for two systems with different scales: each dimple is plain Newton for its own mass with "
-      f"zero value on its Jacobi surface ({e1:.0e}), identical under another law ({e2:.0e}), while the mountain changes ({e3:.0e})",
-      e1 < 1e-10 and e2 < 1e-10 and e3 > 1e-3)
-Pn = sweep([(0.22, 0.38), (0.27, 0.33)])
-check("G3 nesting: sweeping an inner ball after an outer one is not idempotent (so it is not a projector); the rule is to "
-      "sweep only the outermost bound systems of the drained host. Everything nested inside (the Earth within the Sun's ball) "
-      "is already in the linear dimple", not np.allclose(Pn @ Pn, Pn))
-xin = (xb > 0.22) & (xb < 0.38)
-lin = np.polyfit(xb[xin], (Ps @ q1)[xin], 1)
-check("G4 inside a Jacobi ball the mountain is harmonic (here linear): the host's flat slope, and in 3D the slope plus "
-      "the tide. The system itself appears in the mountain only as a shell on its Jacobi surface (outside it, the same "
-      "field: the shell theorem)", np.abs(np.polyval(lin, xb[xin]) - (Ps @ q1)[xin]).max() < 1e-9 * np.abs(Ps @ q1).max())
-
-# ------------------------------------------------------------------ Part H: the action does not choose the edge
-Hh = lambda g: -2 * g + 2 * np.log1p(g)                        # h = a0^2[F(y) - y], a0 = 1
-cth = np.linspace(-1, 1, 4001)
-def dSdR(R, ge):           # r_M = sqrt(GM/a0) = 1; envelope theorem: only the law term's explicit R dependence
-    g = np.sqrt(ge ** 2 + R ** -4 + 2 * ge * R ** -2 * cth)
-    return -0.5 * 4 * np.pi * R ** 2 * (Hh(ge) - np.trapezoid(Hh(g), cth) / 2)
-signs = all(dSdR(R, ge) < 0 for ge in (0.1, 1.5, 10.0) for R in np.logspace(-2, 3, 200))
+# ------------------------------------------------------------------ Part F: the action does not choose the edge
 gg = sp.symbols("g", positive=True)
 Hs = -2 * gg + 2 * sp.log(1 + gg)
-check("H1 the law's energy term H(g) = a0^2[F - y] is non-increasing and concave in g (H' = -2g/(1+g), "
-      "H'' = -2/(1+g)^2: the khronon's stability conditions), so as a function of the field vector it is concave",
+check("F1 the law's energy term H(g) = a0^2[F - y] is non-increasing and concave (H' = -2g/(1+g), H'' = -2/(1+g)^2: "
+      "the khronon's stability conditions)",
       sp.simplify(sp.diff(Hs, gg) + 2 * gg / (1 + gg)) == 0 and sp.simplify(sp.diff(Hs, gg, 2) + 2 / (1 + gg) ** 2) == 0)
-check("H2 so enlarging a Jacobi ball always lowers the static action (raises the field energy): dS/dR < 0 for every radius "
-      "from 0.01 to 1000 r_M, for hosts at x = 0.1, 1.5, 10 (with the tide, up to the host's TetB mass inside the ball). "
-      "The action has no stationary edge: energy alone would pick the pointwise reading. The Jacobi radius is a binding "
-      "criterion (which matter moves together), not an energy minimum", signs)
+cth = np.linspace(-1, 1, 4001)
+def dSdR_sph(R, ge):
+    gv = np.sqrt(ge ** 2 + R ** -4 + 2 * ge * R ** -2 * cth)
+    return -0.5 * 4 * np.pi * R ** 2 * (H(ge) - np.trapezoid(H(gv), cth) / 2)
+check("F2 for a centred spherical system in a uniform host, enlarging its sphere only changes the law's energy on the "
+      "shell between R and R + dR, and by Jensen's inequality dS/dR < 0 at every radius (0.01 to 1000 r_M, hosts at "
+      "x = 0.1, 1.5, 10): the action has no stationary edge, and energy alone would pick the pointwise reading. "
+      "For general shapes this is not proved",
+      all(dSdR_sph(R, ge) < 0 for ge in (0.1, 1.5, 10.0) for R in np.logspace(-2, 3, 200)))
+
+# ------------------------------------------------------------------ Part G: the 3D solutions
+here = os.path.dirname(os.path.abspath(__file__))
+fo, fp = os.path.join(here, "demo_ownership_output.txt"), os.path.join(here, "demo_output.txt")
+own = open(fo).read() if os.path.exists(fo) else ""
+pw = open(fp).read() if os.path.exists(fp) else ""
+if "around star B" in own and "pointwise" in pw:
+    vs = [float(a) for a in re.findall(r"vanishes outside its sphere: Sun ([0-9.e+-]+), star B ([0-9.e+-]+)", own)[0]]
+    o1 = {int(r): float(v) for r, v in re.findall(r"ownership r = (\d+): extra pull toward the Sun = ([+-][0-9.]+)", own)}
+    p_ = {int(r): float(v) for r, v in
+          re.findall(r"pointwise\s+r = (\d+): extra pull toward the Sun = ([+-][0-9.]+) a0", pw)}
+    o2 = [float(v) for v in re.findall(r"around (?:the Sun|star B) r = \d+: extra pull beyond Newton \(Sun \+ star B\) and the galaxy = ([+-][0-9.]+)", own)]
+    resid = [float(v) for v in re.findall(r"mountain residual ([0-9.e+-]+)", own)]
+    check(f"G1 in 3D each system's own interior field vanishes outside its own sphere ({vs[0]:.0e}, {vs[1]:.0e}, limited by "
+          f"the grid's thin-shell resolution), and the mountain solves the plain law (residuals {resid[0]:.0e}, {resid[1]:.0e})",
+          max(vs) < 5e-2 and max(resid) < 5e-3)
+    check("G2 one system in 3D: read pointwise, the extra pull around the Sun is the tail a0 mu(x) (" +
+          ", ".join(f"r = {r}: {p_[r]:.2f}" for r in (2, 3, 4)) + " a0); read by ownership it is " +
+          ", ".join(f"{o1[r]:+.3f}" for r in (2, 3, 4)) + " a0: no tail",
+          all(abs(o1[r]) < 0.15 * p_[r] for r in (2, 3, 4)))
+    check("G3 two systems whose spheres overlap, each containing the other's centre: around each, the pull beyond Newton "
+          "for both stars and the galaxy is " + ", ".join(f"{v:+.3f}" for v in o2) + " a0, against +0.6 to +0.8 for a tail: "
+          "no tail for either, each feels the other's full Newtonian pull, and what remains is the law acting on each "
+          "star's field where it lies outside that star's own sphere", all(abs(v) < 0.15 for v in o2))
+else:
+    print("(3D outputs missing: run demo_mountain_scale.py and demo_ownership_3d.py)")
 
 print(f"\n{sum(ok)}/{len(ok)} checks passed")

@@ -14,6 +14,11 @@ law's nonlinear flux and `s = 4πGρ`. Because `P` is idempotent and commutes wi
 * `energy_split`, `energy_blind_to_law`: the same, needing only that `P` be idempotent and
   self-adjoint in the field-energy product; it need not commute with the Laplacian. This covers
   the sweeping projector, with a different Jacobi radius for each bound system;
+* `ownership_split`, `ownership_blind_to_law`: the form the paper uses. Each system sweeps its
+  own mass onto its own closure sphere, spheres may overlap, and the mountain `Φ − d` solves the plain
+  law on the swept source while the systems' own fields `d` are the same for every law;
+* `four_ports`: a field object meets the NET Field through one temporal channel (the lapse) and
+  three spatial ones (its centre of mass), plus a tidal term;
 * `no_tail_in_dimple`: the dimple's TetB share is zero, while read pointwise the law leaves a
   share strictly between 0 and `a₀` at every finite field (`strong_field_not_pure`).
 
@@ -79,6 +84,42 @@ theorem energy_blind_to_law (K : V ≃ₗ[ℝ] V) (P Pt : V →ₗ[ℝ] V) (N₁
     Φ₁ - P Φ₁ = Φ₂ - P Φ₂ := by
   rw [energy_split K P Pt N₁ Φ₁ s hP hadj h₁, energy_split K P Pt N₂ Φ₂ s hP hadj h₂]
 
+-- ============================================================================================
+-- The ownership form: each system sweeps its own mass onto its own closure sphere
+-- ============================================================================================
+
+/-- The ownership split. Let `d` be the systems' own interior fields, fixed by their own mass:
+`K d = s − s̄`, where `s̄` is the source with every system's mass swept onto its own closure
+sphere. If the field solves `K Φ + N (Φ − d) = s` (the law's term reads the mountain `Φ − d`), then
+the mountain solves the plain law on the swept source, `K (Φ − d) + N (Φ − d) = s̄`, and the field is
+the mountain plus `d`, whatever the law `N` is. Spheres may overlap: nothing here asks the systems'
+regions to be disjoint. -/
+theorem ownership_split (K : V →ₗ[ℝ] V) (N : V → V) (Φ d s sbar : V)
+    (hd : K d = s - sbar) (heq : K Φ + N (Φ - d) = s) :
+    K (Φ - d) + N (Φ - d) = sbar := by
+  rw [map_sub, hd, sub_add_eq_add_sub, heq]; abel
+
+/-- Two laws, same matter: the fields differ only in their mountains; the systems' own interior
+fields `d` are shared. -/
+theorem ownership_blind_to_law (K : V →ₗ[ℝ] V) (N₁ N₂ : V → V) (Φ₁ Φ₂ d s sbar : V)
+    (hd : K d = s - sbar) (h₁ : K Φ₁ + N₁ (Φ₁ - d) = s) (h₂ : K Φ₂ + N₂ (Φ₂ - d) = s) :
+    K (Φ₁ - d) + N₁ (Φ₁ - d) = sbar ∧ K (Φ₂ - d) + N₂ (Φ₂ - d) = sbar ∧
+    Φ₁ - (Φ₁ - d) = Φ₂ - (Φ₂ - d) :=
+  ⟨ownership_split K N₁ Φ₁ d s sbar hd h₁, ownership_split K N₂ Φ₂ d s sbar hd h₂, by abel⟩
+
+/-- The four ports. A field object of point masses `m i` at `p i`, with its centre of mass at the
+origin, in a NET Field `c₀ + b ⬝ x + q x` (`q` the tidal part): its interaction is `M c₀` (one
+temporal channel, the lapse) plus the tidal part; the three spatial channels `b` act on its centre of
+mass only, since the dipole term vanishes there. -/
+theorem four_ports {n : ℕ} (m : Fin n → ℝ) (p : Fin n → Fin 3 → ℝ)
+    (hcom : ∑ i, m i • p i = 0) (c₀ : ℝ) (b : Fin 3 → ℝ) (q : (Fin 3 → ℝ) → ℝ) :
+    ∑ i, m i * (c₀ + b ⬝ᵥ p i + q (p i)) = (∑ i, m i) * c₀ + ∑ i, m i * q (p i) := by
+  have hdip : ∑ i, m i * (b ⬝ᵥ p i) = 0 := by
+    have : ∑ i, m i * (b ⬝ᵥ p i) = b ⬝ᵥ (∑ i, m i • p i) := by
+      rw [dotProduct_sum]; congr 1; ext i; rw [dotProduct_smul, smul_eq_mul]
+    rw [this, hcom, dotProduct_zero]
+  simp only [mul_add, Finset.sum_add_distrib, hdip, Finset.sum_mul, add_zero]
+
 end MountainScale
 
 #print axioms MountainScale.mountain_split
@@ -86,3 +127,6 @@ end MountainScale
 #print axioms MountainScale.no_tail_in_dimple
 #print axioms MountainScale.energy_split
 #print axioms MountainScale.energy_blind_to_law
+#print axioms MountainScale.ownership_split
+#print axioms MountainScale.ownership_blind_to_law
+#print axioms MountainScale.four_ports
