@@ -331,6 +331,8 @@ Mountain scale (proofs/sst-mountain-scale, machine-checked in Lean): the net-fie
   Paper VII Section IX made exact: nested envelopes telescope (B_k B_j = B_k), each level Poisson with one
   constant; total flux 4 pi G M, pi G M per face up to the object's dipole and quadrupole; a host field read at the 4 face directions gives 4 c0 + 2 trT (clock + mean density) and
   4b +- 4(T23,T13,T12) (free fall + chiral tide leak, + TetA / - TetB); the stellated octahedron reads 8c0, 8b exactly.
+  Registration implies the sweep: with Paper I's registered state held fixed, least-energy settlement fills the
+  interior harmonically, which is exactly balayage (Dirichlet's principle). Open: why closure selects least energy.
   Scale = each bound system's own Jacobi radius (Sun 1.4 pc, Pal 14 ~160 pc); one universal length fails Pal 14.
 Preferred frame (proofs/sst-khronon-preferred-frame, machine-checked in Lean): the SST is Blanchet-Marsat's
   preferred-foliation theory with beta = lambda = 0, where Bonetti-Barausse's PPN formulas do not apply
@@ -434,7 +436,7 @@ Each script is self-contained; run it from its own folder.
 - proofs/constitutive-law-tug-of-war/verify_constitutive_law_tug_of_war.py -- the tug of war: selection of mu, necessity, cap, decode, vortex (42 checks; Lean in lean/)
 - research/constitutive-law-u(x)/test_tug_of_war.py -- the same statements as 85 pytest tests
 - proofs/net-field-rule/verify_net_field_rule.py -- the net-field rule: four faces, forced per-mass tail, sheet split, Jacobi edge, clusters, wide binaries, RAR slope (122 checks; Lean in lean/)
-- proofs/sst-mountain-scale/verify_sst_mountain_scale.py -- the mountain scale: exact split from the action, dimple blind to the law, curved-slice projector, Jacobi radii, ownership sweep with overlapping spheres, four ports, 3D solutions, edge test, nested envelopes and faces (27 checks; Lean in lean/)
+- proofs/sst-mountain-scale/verify_sst_mountain_scale.py -- the mountain scale: exact split from the action, dimple blind to the law, curved-slice projector, Jacobi radii, ownership sweep with overlapping spheres, four ports, 3D solutions, edge test, nested envelopes and faces, registration (30 checks; Lean in lean/)
 - proofs/sst-khronon-preferred-frame/verify_sst_khronon_preferred_frame.py -- the preferred frame: khronon = TetB share, stability at every acceleration, forced tail, n = 1, flat slope and drainless dimple, empty sector inside a star system (32 checks; Lean in lean/)
 
 ## Usage instructions for LLMs

@@ -5,11 +5,11 @@
 | **Formalisation** | [`lean/MountainScale.lean`](lean/MountainScale.lean), Lean 4.36.0 + Mathlib v4.36.0 |
 | **Depends on** | [`../sst-khronon-preferred-frame/lean/`](../sst-khronon-preferred-frame/lean/) (`strong_field_not_pure`) and, through it, the net-field rule and the constitutive law; imported, not copied |
 | **Build** | 0 errors · 0 warnings · no `sorry` / `admit` / custom `axiom` / `native_decide` |
-| **Axioms** | All 10 `#print axioms` checks report only `propext`, `Classical.choice`, `Quot.sound` |
+| **Axioms** | All 11 `#print axioms` checks report only `propext`, `Classical.choice`, `Quot.sound` |
 | **Reproduce** | `cd lean && lake exe cache get && lake build` |
 | **CI** | `.github/workflows/lean-sst-mountain-scale.yml` |
 
-**Verdict.** Theorem 1 (the ownership split, with overlapping spheres, for any law), Theorem 2 (the four ports) and Theorem 7 (a), (c) (nesting telescopes; the faces read the ports) are proved. Theorem 3 (b) is proved (`no_tail_in_dimple`). The variational derivation, the sweep's exactness outside each sphere, the matter equation, the 3D solutions, Proposition 4's numbers and Theorems 5–6 are checked by the script.
+**Verdict.** Theorem 1 (the ownership split, with overlapping spheres, for any law), Theorem 2 (the four ports) Theorem 7 (a), (c) (nesting telescopes; the faces read the ports) and the core of Theorem 8 (least energy) are proved. Theorem 3 (b) is proved (`no_tail_in_dimple`). The variational derivation, the sweep's exactness outside each sphere, the matter equation, the 3D solutions, Proposition 4's numbers and Theorems 5–6 are checked by the script.
 
 ## Statements used by the paper
 
@@ -20,6 +20,7 @@
 | Theorem 2 | `four_ports` | point masses with centre of mass at the origin in `c₀ + b ⬝ x + q(x)`: interaction `(Σm) c₀ + Σ m q(pᵢ)`; the dipole term vanishes |
 | Theorem 7 (a) | `nested_telescope` | `Bₖ(Bⱼρ) = Bₖρ` ⇒ `ρ − Bₖρ = (ρ − Bⱼρ) + (Bⱼρ − Bₖ(Bⱼρ))` |
 | Theorem 7 (c) | `faces_read_ports` | the host field read at TetA's, TetB's and both tetrahedra's face directions: `4c₀`; `4b ± 4(T₂₃, T₁₃, T₁₂)`; `8b` |
+| Theorem 8 | `least_energy` | `β ≥ 0`, `β h v = β v h = 0` ⇒ `β(h+v)(h+v) = β h h + β v v ≥ β h h`: the registered (harmonic) completion has the least energy, and the energy splits exactly |
 | Theorem 3 (b) | `no_tail_in_dimple` | the own field's share `(1 − 1)g = 0`; read pointwise, `0 < x(1 − μ) < 1` (`KhrononPreferredFrame.strong_field_not_pure`) |
 
 ## Earlier forms, still proved

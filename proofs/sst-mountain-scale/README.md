@@ -8,7 +8,7 @@
 
 ---
 
-This folder holds a five-page proof, a script that checks it (27 checks), two 3D numerical solutions, and a Lean 4 formalisation (10 theorems). It closes the step that the [time-leg](../sst-covariant-time-leg/), [net-field rule](../net-field-rule/) and [khronon](../sst-khronon-preferred-frame/) proofs left open. It has been through four external reviews; the changes are listed below.
+This folder holds a five-page proof, a script that checks it (30 checks), two 3D numerical solutions, and a Lean 4 formalisation (11 theorems). It closes the step that the [time-leg](../sst-covariant-time-leg/), [net-field rule](../net-field-rule/) and [khronon](../sst-khronon-preferred-frame/) proofs left open. It has been through four external reviews; the changes are listed below.
 
 ## The picture
 
@@ -53,7 +53,8 @@ So **fields overlap**, and neighbours read each other. What is single-valued is 
    - **4π = kπ.** Each face of the envelope's tetrahedron covers π steradians. The total flux is 4πGM for any object (Gauss). Per face it is πGM for a centred, round mass; for an asymmetric object (an oblong asteroid) the faces differ by its dipole (zero if the sphere is centred on its centre of mass) and part of its quadrupole, suppressed by (s/R)², about 10⁻⁸ for the planets in the Sun's sphere. The four ports describe the coupling structure, not four equal fluxes.
    - **The faces read the ports.** Sampling a host field at the four face directions gives the clock rate exactly (the tide drops out) and the free fall, with a small *chiral* leak of the tide: + for TetA, − for TetB. **Both tetrahedra together, the stellated octahedron, read the ports exactly**: the leak cancels.
    - **Scale-universal, not scale-invariant.** The same rule applies at every level, but the hierarchy is not self-similar: in a flat host, stretching the host by λ stretches a closure radius by λ^(2/3), and a₀ sets a scale in the law's crossover. (A Weyl rescaling is not a symmetry of these equations.)
-9. **The action does not choose the edge (Theorem 6),** shown for a centred spherical system. The edge is a binding criterion, which mass belongs to which field object, not an energy minimum.
+9. **Registration implies the sweep (Theorem 8).** Paper I: at the closure boundary, settlement records a unique registered state B*_Σ. Take that state as the object's potential on its boundary, and add one premise: settlement fills the interior with the *least field energy* compatible with it. Then the interior field is harmonic and unique, and it is exactly the field of the object's mass swept onto the boundary, the ownership sweep. The energy splits exactly: own field = registered field + residual. For a mass off-centre the swept density is the Poisson kernel and the interior is the Kelvin image field (checked to 10⁻⁹ in 3D). So registration ⇒ sweep ⇒ split; what remains open is why field closure selects least-energy settlement, and which mass registers with which surface (binding).
+10. **The action does not choose the edge (Theorem 6),** shown for a centred spherical system. The edge is a binding criterion, which mass belongs to which field object, not an energy minimum.
 
 ## The 3D check
 
@@ -88,6 +89,7 @@ So **fields overlap**, and neighbours read each other. What is single-valued is 
 
 ## What it leaves open
 
+- **Least-energy settlement** (Theorem 8's premise) as a consequence of field closure in the dual-tetrad dynamics.
 - **The binding criterion** (which mass belongs to which field object). It is the premise; Theorem 6 shows, for a centred sphere, that energy cannot set it.
 - **Ownership that changes in time** (mergers, stripping).
 - **Theorem 6 for general shapes.**
@@ -100,11 +102,11 @@ So **fields overlap**, and neighbours read each other. What is single-valued is 
 |---|---|
 | [`sst_mountain_scale.pdf`](sst_mountain_scale.pdf) | The proof (5 pages) |
 | [`sst_mountain_scale.tex`](sst_mountain_scale.tex) | LaTeX source (IOP class, [`iopjournal.cls`](iopjournal.cls)) |
-| [`verify_sst_mountain_scale.py`](verify_sst_mountain_scale.py), [`verify_output.txt`](verify_output.txt) | 27 checks: the split with overlapping spheres (1D, two laws), the matter equation, the four ports, the overlaps, a field-dependent radius, the edge, the 3D results, and nested envelopes and the faces |
+| [`verify_sst_mountain_scale.py`](verify_sst_mountain_scale.py), [`verify_output.txt`](verify_output.txt) | 30 checks: the split with overlapping spheres (1D, two laws), the matter equation, the four ports, the overlaps, a field-dependent radius, the edge, the 3D results, nested envelopes and the faces, and registration ⇒ sweep |
 | [`demo_ownership_3d.py`](demo_ownership_3d.py), [`demo_ownership_output.txt`](demo_ownership_output.txt) | The 3D ownership solutions, one system and two overlapping (about 10 minutes) |
 | [`demo_mountain_scale.py`](demo_mountain_scale.py), [`demo_output.txt`](demo_output.txt) | The 3D solver and the pointwise reference (the tail); it also contains the earlier single-scale low-pass version |
 | [`make_figure.py`](make_figure.py) | Draws [`fig_demo`](fig_demo.pdf) |
-| [`lean/MountainScale.lean`](lean/MountainScale.lean) | Lean 4, 10 theorems, importing the [khronon](../sst-khronon-preferred-frame/lean/) formalisation |
+| [`lean/MountainScale.lean`](lean/MountainScale.lean) | Lean 4, 11 theorems, importing the [khronon](../sst-khronon-preferred-frame/lean/) formalisation |
 | [`LEAN_AUDIT.md`](LEAN_AUDIT.md) | What the Lean proves and what is cited |
 
 ## Running the checks

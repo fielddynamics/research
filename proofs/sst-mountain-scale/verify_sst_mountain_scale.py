@@ -14,6 +14,7 @@ interior field, Phi_bar = Phi - sum_k d_k, and the law's term reads Phi_bar.
   Part G  the 3D solutions (demo_ownership_3d.py, demo_mountain_scale.py)
   Part H  nested envelopes and the faces (Paper VII, Section IX): telescoping, pi G M per face, the ports read
           through the faces, and scaling
+  Part I  registration implies the sweep: least-energy settlement with a fixed registered state is balayage
 
 Run: python verify_sst_mountain_scale.py"""
 import math, os, re
@@ -323,5 +324,45 @@ check("H6 but the hierarchy is not self-similar: in a flat host, stretching the 
       "speed stretches the closure radius by lambda^(2/3), not lambda (r_J^3 = GM/2 Omega^2, Omega = v/R). The rule is "
       "scale-universal (the same form at every level), not scale-invariant",
       sp.simplify(rJs.subs(Rs_, lam * Rs_) / rJs - lam ** sp.Rational(2, 3)) == 0)
+
+# ------------------------------------------------------------------ Part I: registration implies the sweep
+# A field object's registered state is its potential on its closure surface (what the NET Field meets there). Premise:
+# settlement fills the interior with the least field energy compatible with that registered state. Then the interior
+# field is harmonic (Dirichlet's principle), and it is exactly the field of the object's mass swept onto the surface.
+U = Kinv @ A[0]                                                 # the Sun's own Newtonian potential (4 pi G = 1)
+ia_, ib_ = np.searchsorted(x, A[1]), np.searchsorted(x, A[2]) - 1   # the sweep's own end nodes
+inn = (x > x[ia_]) & (x < x[ib_])
+idx_in, idx_out = np.where(inn)[0], np.where(~inn)[0]
+Kii, Kio = K[np.ix_(idx_in, idx_in)], K[np.ix_(idx_in, idx_out)]
+psi = U.copy(); psi[idx_in] = -np.linalg.solve(Kii, Kio @ U[idx_out])   # least energy with the registered data held
+swept = Kinv @ sweep(A[0], A[1], A[2])                          # the field of the swept mass
+check("I1 hold a field object's registered state fixed (its potential on and outside its closure surface) and minimise the "
+      "field energy inside: the minimiser is harmonic inside and equals the field of the object's mass swept onto the "
+      f"surface ({np.abs(psi - swept).max() / np.abs(swept).max():.0e}). Registration plus least-energy settlement is the "
+      "ownership sweep", np.abs(psi - swept).max() < 1e-12 * np.abs(swept).max())
+dres = U - psi
+E = lambda f: f @ K @ f
+check("I2 the energy splits exactly: E[own field] = E[registered field] + E[residual], the residual d_k being "
+      f"energy-orthogonal to every harmonic interior ({abs(E(U) - E(psi) - E(dres)) / E(U):.0e}). The least-energy "
+      f"completion is unique (the interior energy matrix is positive definite: smallest eigenvalue "
+      f"{np.linalg.eigvalsh(Kii).min():.2e} > 0), so the registered state fixes the sweep uniquely",
+      abs(E(U) - E(psi) - E(dres)) < 1e-10 * E(U) and np.linalg.eigvalsh(Kii).min() > 0)
+# 3D, an off-centre mass (not spherical): the swept density is the Poisson kernel; inside, the image-point field
+Nq = 400000
+k_ = np.arange(Nq) + 0.5
+th = np.arccos(1 - 2 * k_ / Nq); ph = np.pi * (1 + 5 ** 0.5) * k_
+q = np.stack([np.sin(th) * np.cos(ph), np.sin(th) * np.sin(ph), np.cos(th)], axis=1)      # Fibonacci sphere, R = 1
+a3 = np.array([0.3, 0.2, -0.1]); Mq = 1.0
+sigma = Mq * (1 - a3 @ a3) / (4 * np.pi * np.linalg.norm(q - a3, axis=1) ** 3)
+w = 4 * np.pi / Nq
+pot = lambda y: np.sum(sigma * w / np.linalg.norm(q - y, axis=1))
+y_out, y_in = np.array([1.7, -0.4, 0.9]), np.array([-0.35, 0.25, 0.2])
+a_star = a3 / (a3 @ a3)
+ok_out = abs(pot(y_out) - Mq / np.linalg.norm(y_out - a3)) / (Mq / np.linalg.norm(y_out - a3))
+ok_in = abs(pot(y_in) - Mq / (np.linalg.norm(a3) * np.linalg.norm(y_in - a_star))) / (Mq / (np.linalg.norm(a3) * np.linalg.norm(y_in - a_star)))
+check(f"I3 in 3D, for a mass off the centre of its closure sphere: the registered sweep is the Poisson-kernel density, of "
+      f"total mass {np.sum(sigma) * w:.4f} M; outside it reproduces the object's field ({ok_out:.0e}); inside it is the "
+      f"harmonic completion of the registered boundary data, the field of the Kelvin image point ({ok_in:.0e})",
+      abs(np.sum(sigma) * w - 1) < 1e-4 and ok_out < 1e-4 and ok_in < 1e-4)
 
 print(f"\n{sum(ok)}/{len(ok)} checks passed")

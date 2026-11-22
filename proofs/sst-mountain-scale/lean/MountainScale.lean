@@ -23,6 +23,9 @@ law's nonlinear flux and `s = 4πGρ`. Because `P` is idempotent and commutes wi
   directions, a host field gives its clock rate (plus the mean density inside) and free fall,
   with a chiral tidal leak that TetA and TetB carry with opposite signs and the stellated
   octahedron cancels; nested envelopes telescope;
+* `least_energy`: registration implies the sweep. With the registered state held fixed, the
+  harmonic (energy-orthogonal) completion has the least field energy, and the energy splits
+  exactly into the registered part and the residual;
 * `no_tail_in_dimple`: the dimple's TetB share is zero, while read pointwise the law leaves a
   share strictly between 0 and `a₀` at every finite field (`strong_field_not_pure`).
 
@@ -165,6 +168,24 @@ theorem nested_telescope (Bj Bk : V →ₗ[ℝ] V) (ρ : V) (hnest : Bk (Bj ρ) 
     ρ - Bk ρ = (ρ - Bj ρ) + (Bj ρ - Bk (Bj ρ)) := by
   rw [hnest]; abel
 
+-- ============================================================================================
+-- Registration implies the sweep (Dirichlet's principle)
+-- ============================================================================================
+
+/-- Least energy. Let `β` be the field-energy form, non-negative. Let `h` be the registered field
+(harmonic inside the closure surface) and `v` any interior change that keeps the registered state
+(zero on and outside the surface). If `h` and `v` are energy-orthogonal, which is what harmonic inside
+means, then every completion `h + v` has energy `β h h + β v v ≥ β h h`. The registered field is the
+least-energy completion, and it is unique wherever `β v v = 0` forces `v = 0`: least-energy settlement
+with a fixed registered state gives the swept field, the ownership sweep. -/
+theorem least_energy (β : LinearMap.BilinForm ℝ V) (hpos : ∀ v, 0 ≤ β v v) (h v : V)
+    (horth : β h v = 0) (horth' : β v h = 0) :
+    β (h + v) (h + v) = β h h + β v v ∧ β h h ≤ β (h + v) (h + v) := by
+  have hexp : β (h + v) (h + v) = β h h + β h v + β v h + β v v := by
+    simp only [map_add, LinearMap.add_apply]; ring
+  refine ⟨by rw [hexp, horth, horth']; ring, ?_⟩
+  rw [hexp, horth, horth']; linarith [hpos v]
+
 end MountainScale
 
 #print axioms MountainScale.mountain_split
@@ -177,3 +198,4 @@ end MountainScale
 #print axioms MountainScale.four_ports
 #print axioms MountainScale.faces_read_ports
 #print axioms MountainScale.nested_telescope
+#print axioms MountainScale.least_energy

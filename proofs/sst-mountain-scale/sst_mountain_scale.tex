@@ -51,8 +51,10 @@ environment-dependent terms remain and are sized.
 Nested envelopes telescope, each with the same Poisson constant, as
 Paper~VII's Section~IX requires; read at an envelope's four face
 directions, a host field gives exactly the four ports, with a chiral
-leak of the tide that the dual tetrad cancels. The data fix each sphere
-at its system's Jacobi radius; the action does not choose it, at least
+leak of the tide that the dual tetrad cancels. If settlement fills an object's interior with the least field energy
+compatible with its registered boundary state, the result is exactly
+the sweep: registration implies ownership's representation. The data
+fix each sphere at its system's Jacobi radius; the action does not choose it, at least
 for a centred spherical system, so the edge is a binding criterion.
 \end{abstract}
 
@@ -94,8 +96,8 @@ assumptions, not derived from the split. $G$ is Newton's
 constant $G_{\rm N}$ throughout; Paper~VII writes it as
 $(17/13)\,G_{\rm bare}$~\cite{NelsonVII}.
 
-Every statement is checked by script (26 checks) with two 3D solutions;
-the algebra is machine-checked in Lean~4 (10 theorems)~\cite{NelsonScript}.
+Every statement is checked by script (30 checks) with two 3D solutions;
+the algebra is machine-checked in Lean~4 (11 theorems)~\cite{NelsonScript}.
 
 % ----------------------------------------------------------------------
 
@@ -409,16 +411,69 @@ statements that hold are those of~(d).
 
 % ----------------------------------------------------------------------
 
+\section*{Theorem 8 (registration implies the sweep)}
+
+Paper~I describes how a field object meets the NET Field: at its
+closure boundary $\Sigma$, settlement drives the mismatch between object
+and NET Field to zero and records a unique registered state
+$B^*_\Sigma$, the boundary data that fix the settled potential
+throughout~\cite{NelsonI}. The sweep has so far been defined, not
+derived. With one premise it follows.
+
+\emph{Premise (least-energy settlement). For a fixed registered state,
+the object's own potential on and outside $\Sigma_k$, settlement fills
+the interior with the least field energy
+$E = (1/8\pi G)\int|\nabla\psi|^2$ compatible with it.}
+
+\emph{Then: (a) the settled interior field is harmonic and unique
+(Dirichlet's principle); (b) it is exactly the field of the object's
+mass swept onto $\Sigma_k$, so the registered state determines $B_k$,
+and the swept density is the jump in the normal field across $\Sigma_k$;
+(c) the energy splits exactly,
+\[
+E[U_k] = E[U_k - d_k] + E[d_k],
+\]
+the residual $d_k$ being energy-orthogonal to every harmonic interior:
+what the ownership action removes from the law is precisely the object's
+interior field energy. For a mass off the centre of its sphere (any
+shape) the swept density is the Poisson kernel,
+$\sigma = M(R^2 - |a|^2)/4\pi R|x - a|^3$, and the interior completion is
+the field of the Kelvin image point.}
+
+\begin{proof}
+(a), (c) Lean \texttt{least\_energy}: for an energy form $\beta \ge 0$
+and an interior change $v$ orthogonal to the registered field $h$,
+$\beta(h+v,h+v) = \beta(h,h) + \beta(v,v) \ge \beta(h,h)$. Checked in 1D:
+the least-energy completion equals the swept field to
+$2\times10^{-14}$, the energy split holds to $10^{-13}$, and the
+interior energy is positive definite (unique minimum). (b) In 3D for
+an off-centre mass: total swept mass $M$, exterior field reproduced to
+$5\times10^{-11}$, interior equal to the image-point field to
+$7\times10^{-10}$ (script I1--I3).
+\end{proof}
+
+So two of the three links the reviewers asked for are now explicit:
+registration (Paper~I's $B^*_\Sigma$) plus least-energy settlement
+gives the sweep, and the sweep gives the split (Theorem~1). The first
+link, that field closure in the dual-tetrad dynamics selects
+least-energy settlement, and the binding criterion that says which
+mass registers with which surface, remain open.
+
+% ----------------------------------------------------------------------
+
 \section*{Scope}
 
 Proved here: the ownership action and its exact split, with
 overlapping spheres; the plain law for the mountain; the matter
 equation; the four ports; no tail in 1D and 3D; a field-dependent
-radius; nested envelopes and the face reading of the ports; and, for a
-centred spherical system, that the action does not choose the edge.
+radius; nested envelopes and the face reading of the ports;
+registration plus least-energy settlement implies the sweep; and, for
+a centred spherical system, that the action does not choose the edge.
 
 Not proved here:
 \begin{enumerate}
+\item \emph{Least-energy settlement}, Theorem~8's premise, as a
+consequence of field closure in the dual-tetrad dynamics.
 \item \emph{The binding criterion}: which mass belongs to which field
 object. It is the premise; Theorem~6 shows, in the spherical case, that
 it cannot come from minimising energy.
