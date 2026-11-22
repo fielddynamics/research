@@ -4,7 +4,7 @@ All paths below are relative to the repository root.
 Documentation: docs/README.md
 
 ## One-sentence summary
-A covariant theory of gravity with no per-galaxy parameters that replaces dark matter with the second
+A covariantly complete, geometrically closed theory of gravity with no per-galaxy parameters that replaces dark matter with the second
 root of the tetrad equation (the dual-tetrad topology of the stellated octahedron): galactic rotation
 curves follow from one action and one measured scale a_0, and the same 21-channel coupling structure
 gives exploratory numerical routes to Newton's constant, the fine-structure constant and the electron
