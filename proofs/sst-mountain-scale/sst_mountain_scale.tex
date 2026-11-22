@@ -53,7 +53,11 @@ Paper~VII's Section~IX requires; read at an envelope's four face
 directions, a host field gives exactly the four ports, with a chiral
 leak of the tide that the dual tetrad cancels. If settlement fills an object's interior with the least field energy
 compatible with its registered boundary state, the result is exactly
-the sweep: registration implies ownership's representation. The data
+the sweep: registration implies ownership's representation. The same
+law read pointwise puts in the solar-system quadrupole that Cassini
+excludes; read by ownership, the Sun's swept shell is a homoeoid in the
+mountain's anisotropic response and leaves none: GFD predicts no
+anomalous $Q_2$, with residuals below $10^{-30}$~s$^{-2}$. The data
 fix each sphere at its system's Jacobi radius; the action does not choose it, at least
 for a centred spherical system, so the edge is a binding criterion.
 \end{abstract}
@@ -461,13 +465,73 @@ mass registers with which surface, remain open.
 
 % ----------------------------------------------------------------------
 
+\section*{Theorem 9 (the Cassini quadrupole)}
+
+In AQUAL and QUMOND the Sun's own field enters the law, and inside
+$r_M = \sqrt{GM/a_0} \approx 0.034$~pc it is comparable to the
+Galactic field. The combination is anisotropic and puts a quadrupole
+$\delta\Phi = \tfrac12 Q_2\,x_ix_j(e_ie_j - \delta_{ij}/3)$ into the
+planets' potential, $e$ the direction of the Galactic field. Cassini
+excluded the standard laws~\cite{Hees2014}; the latest bound, from
+Cassini tracking with the DE440 data, is $Q_2 = (1.6 \pm 1.8)\times
+10^{-27}$~s$^{-2}$~\cite{Park2026}. Under ownership the Sun's own field
+is $d_\odot$, Poisson, and never enters the law. What the law sees of
+the Sun is its mass swept onto its $1.44$~pc sphere.
+
+\emph{(a) The mountain's linear response about the Galactic field
+$g_e$ ($x = g_e/a_0$) is anisotropic: $\lambda_\perp = \mu$ across the
+field, $\lambda_\parallel = \mu + x\mu'$ along it, with
+$\lambda_\parallel/\lambda_\perp = 1 + 1/(1+x) = 1.4$ at the Sun.
+(b) Stretching along the field, $z = e z'$ with
+$e^2 = \lambda_\parallel/\lambda_\perp$, makes the operator
+$\lambda_\perp\nabla'^2$ and turns the Sun's uniform swept shell into a
+homoeoid, a thin uniform shell between similar ellipsoids. A homoeoid
+exerts no field inside (Newton), so the swept Sun puts no quadrupole
+inside its own sphere. (c) What remains is the host's own field:
+the Galactic tide, $GM_\odot/r_J^3 = 4\Omega^2 - \kappa^2 =
+1.5\times10^{-30}$~s$^{-2}$ by the definition of $r_J$, which general
+relativity has too, and the trace term of Theorem~3(a). For a
+quadratic host the latter is exactly $w = (\operatorname{tr}T/6)
+(|x|^2 - R^2)$, with force $(\operatorname{tr}T/3)\,x$,
+$1.5\times10^{-31}$~s$^{-2}$: isotropic, so it adds nothing to $Q_2$.
+So GFD predicts no anomalous quadrupole at this order. The corrections,
+from the second order in the shell's field ($6\times10^{-34}$~s$^{-2}$)
+and from a closure surface that is not a sphere (a fraction of
+$GM_\odot/r_J^3$), stay below $\sim 10^{-30}$~s$^{-2}$, about a thousand
+times under the bound.}
+
+\begin{proof}
+(a) Lean \texttt{dielectric\_ratio}; script J1. (b) Lean
+\texttt{stretch\_isotropic} (the stretched operator, and concentric
+spheres to concentric similar ellipsoids); Newton's homoeoid theorem;
+script J2: interior quadrupole $9\times10^{-9}\,GM/r_J^3$ for the
+stretched shell, against $3\times10^{-2}$ for the same ellipsoid with
+uniform surface density, which is not a homoeoid. (c) Lean
+\texttt{trace\_corrector}; script J3--J4.
+\end{proof}
+
+The law is the same $\mu = x/(1+x)$ in both readings. Read pointwise,
+it is AQUAL with the simple law, and it puts in the quadrupole that
+Cassini excludes. Read by ownership, the Sun's field reaches the law
+only as a shell at $1.44$~pc, $4\times10^{-4}$ of the Galactic field
+there, and the shell is invisible inside. This is the solar-system face
+of the mountain picture: up close the stream is flat. Equivalently,
+the swept and unswept couplings of any member differ only by $w$,
+whose source is the mountain's own density inside the sphere
+($\nabla^2 w = \nabla^2\bar\Phi$, $w = 0$ on $\Sigma$), so the
+correction is a Dirichlet problem sourced by $\bar\rho$ and the phantom
+density together.
+
+% ----------------------------------------------------------------------
+
 \section*{Scope}
 
 Proved here: the ownership action and its exact split, with
 overlapping spheres; the plain law for the mountain; the matter
 equation; the four ports; no tail in 1D and 3D; a field-dependent
 radius; nested envelopes and the face reading of the ports;
-registration plus least-energy settlement implies the sweep; and, for
+registration plus least-energy settlement implies the sweep; no
+anomalous solar-system quadrupole at this order; and, for
 a centred spherical system, that the action does not choose the edge.
 
 Not proved here:
@@ -478,7 +542,9 @@ consequence of field closure in the dual-tetrad dynamics.
 object. It is the premise; Theorem~6 shows, in the spherical case, that
 it cannot come from minimising energy.
 \item \emph{Time-dependent ownership} (mergers, stripping).
-\item \emph{General shapes} in Theorem~6.
+\item \emph{General shapes} in Theorem~6, and the exact
+non-spherical closure surface in Theorem~9 (bounded there, not
+computed).
 \item \emph{Relativistic order}: $\gamma = 1$ and the khronon result at
 leading and linear order only; the sweep and $d_k$ are defined on
 static slices, and their definition and variation in a dynamical
@@ -546,6 +612,17 @@ S.~Nelson,
 \bibitem{Pitjev2013}
 N.~P.~Pitjev and E.~V.~Pitjeva,
 \textit{Astron.\ Lett.} \textbf{39} (2013) 141, arXiv:1306.5534.
+
+\bibitem{Hees2014}
+A.~Hees, W.~M.~Folkner, R.~A.~Jacobson and R.~S.~Park, Constraints on
+MOND theory from radio tracking data of the Cassini spacecraft,
+\textit{Phys.\ Rev.\ D} \textbf{89} (2014) 102002, arXiv:1402.6950.
+
+\bibitem{Park2026}
+R.~S.~Park, A.~Hees, B.~Famaey, H.~Desmond and A.~Durakovic, Improved
+constraints on modified Newtonian gravity from Cassini radio tracking
+data, \textit{Phys.\ Rev.\ D} \textbf{114} (2026) 024066,
+arXiv:2602.17884.
 
 \bibitem{Jordi2009}
 K.~Jordi et al., Testing fundamental physics with distant star

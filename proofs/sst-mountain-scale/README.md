@@ -8,7 +8,7 @@
 
 ---
 
-This folder holds a five-page proof, a script that checks it (30 checks), two 3D numerical solutions, and a Lean 4 formalisation (11 theorems). It closes the step that the [time-leg](../sst-covariant-time-leg/), [net-field rule](../net-field-rule/) and [khronon](../sst-khronon-preferred-frame/) proofs left open. It has been through four external reviews; the changes are listed below.
+This folder holds a six-page proof, a script that checks it (34 checks), two 3D numerical solutions, and a Lean 4 formalisation (14 theorems). It closes the step that the [time-leg](../sst-covariant-time-leg/), [net-field rule](../net-field-rule/) and [khronon](../sst-khronon-preferred-frame/) proofs left open. It has been through four external reviews; the changes are listed below.
 
 ## The picture
 
@@ -63,6 +63,15 @@ So **fields overlap**, and neighbours read each other. What is single-valued is 
 - **One system:** read pointwise, the pull around the Sun beyond its own is the tail, a₀μ(x) (0.79, 0.70, 0.58 a₀). Read by ownership it is **0.000**.
 - **Two systems whose spheres overlap, each containing the other's centre:** the pull beyond Newton for both stars is between −0.002 and −0.023 a₀, against +0.6 to +0.8 for a tail. What remains is the law acting on each star's field where it lies outside that star's own sphere, as it should.
 
+## The Cassini quadrupole (Theorem 9)
+
+In AQUAL the Sun's own field enters the law, and the Galactic field makes the result anisotropic: the planets feel a quadrupole, Q₂. Cassini excluded the standard laws, and the 2026 bound is Q₂ = (1.6 ± 1.8) × 10⁻²⁷ s⁻² (Park et al., PRD 114, 024066). Under ownership the Sun's own field never enters the law; the law sees only its mass, swept onto its 1.44 pc sphere.
+
+- The mountain's linear response is anisotropic: along the Galactic field it is 1 + 1/(1+x) times the response across it, 1.4 at the Sun.
+- Stretching coordinates along the field removes the anisotropy and turns the uniform swept shell into a homoeoid (a thin uniform shell between similar ellipsoids). A homoeoid has no field inside (Newton). Check: 9 × 10⁻⁹ GM/r_J³, against 3 × 10⁻² for a non-homoeoid control.
+- What remains is the Galactic tide, GM/r_J³ = 4Ω² − κ² = 1.5 × 10⁻³⁰ s⁻² (present in GR too), and the trace term, (tr T/3)x, which is isotropic.
+- **Prediction: no anomalous Q₂ at this order; residuals below about 10⁻³⁰ s⁻², a thousand times under the bound.** The same law read pointwise is AQUAL with the simple law, which Cassini excludes.
+
 ## Reviews, and what changed
 
 | Review point | Response |
@@ -85,6 +94,7 @@ So **fields overlap**, and neighbours read each other. What is single-valued is 
 | Units in the action; Newtonian vs constitutive flux; "no tail" (fourth review) | c⁴ restored; the conserved flux for the mountain is ∮μ∇Φ̄·dA; "no tail" now means no pointwise self-tail, with the small environment-dependent terms sized |
 | Energy reading of Theorem 6; space-filling wording; real Jacobi surfaces (fourth review) | Now "the action does not select a finite radius"; η = 0.63 is the reduced density, covering 47%; sweeping works onto any closed surface, so the true anisotropic Jacobi surface can be used |
 | Pal 14's 8.9σ | Stated as the net-field analysis's figure; the literature is divided (Jordi 2009; Gentile 2010; Sollima 2012) |
+| Fifth review: connections to potential theory | Adopted: telescoping is the strong Markov property of balayage (a mathematical equivalence, not a mechanism); the anisotropic response and trace corrector give Theorem 9. Not adopted: a two-radius reconstruction that cancels the trace term, because the trace is the local density the scalar port reads. A boundary (Dirichlet-to-Neumann) action is noted as a route for the full variation |
 | The Jacobi radius is a premise | Agreed: the data give a window, and choosing r_J within it is the binding premise |
 
 ## What it leaves open
@@ -92,7 +102,7 @@ So **fields overlap**, and neighbours read each other. What is single-valued is 
 - **Least-energy settlement** (Theorem 8's premise) as a consequence of field closure in the dual-tetrad dynamics.
 - **The binding criterion** (which mass belongs to which field object). It is the premise; Theorem 6 shows, for a centred sphere, that energy cannot set it.
 - **Ownership that changes in time** (mergers, stripping).
-- **Theorem 6 for general shapes.**
+- **Theorem 6 for general shapes**, and the exact non-spherical closure surface in Theorem 9 (bounded, not computed).
 - **Higher relativistic order.**
 - **The twelve-contact count**, which is the framework's geometry. The four ports are derived here at the level of the action.
 
@@ -100,13 +110,13 @@ So **fields overlap**, and neighbours read each other. What is single-valued is 
 
 | File | What it is |
 |---|---|
-| [`sst_mountain_scale.pdf`](sst_mountain_scale.pdf) | The proof (5 pages) |
+| [`sst_mountain_scale.pdf`](sst_mountain_scale.pdf) | The proof (6 pages) |
 | [`sst_mountain_scale.tex`](sst_mountain_scale.tex) | LaTeX source (IOP class, [`iopjournal.cls`](iopjournal.cls)) |
-| [`verify_sst_mountain_scale.py`](verify_sst_mountain_scale.py), [`verify_output.txt`](verify_output.txt) | 30 checks: the split with overlapping spheres (1D, two laws), the matter equation, the four ports, the overlaps, a field-dependent radius, the edge, the 3D results, nested envelopes and the faces, and registration ⇒ sweep |
+| [`verify_sst_mountain_scale.py`](verify_sst_mountain_scale.py), [`verify_output.txt`](verify_output.txt) | 34 checks: the split with overlapping spheres (1D, two laws), the matter equation, the four ports, the overlaps, a field-dependent radius, the edge, the 3D results, nested envelopes and the faces, registration ⇒ sweep, and the Cassini quadrupole |
 | [`demo_ownership_3d.py`](demo_ownership_3d.py), [`demo_ownership_output.txt`](demo_ownership_output.txt) | The 3D ownership solutions, one system and two overlapping (about 10 minutes) |
 | [`demo_mountain_scale.py`](demo_mountain_scale.py), [`demo_output.txt`](demo_output.txt) | The 3D solver and the pointwise reference (the tail); it also contains the earlier single-scale low-pass version |
 | [`make_figure.py`](make_figure.py) | Draws [`fig_demo`](fig_demo.pdf) |
-| [`lean/MountainScale.lean`](lean/MountainScale.lean) | Lean 4, 11 theorems, importing the [khronon](../sst-khronon-preferred-frame/lean/) formalisation |
+| [`lean/MountainScale.lean`](lean/MountainScale.lean) | Lean 4, 14 theorems, importing the [khronon](../sst-khronon-preferred-frame/lean/) formalisation |
 | [`LEAN_AUDIT.md`](LEAN_AUDIT.md) | What the Lean proves and what is cited |
 
 ## Running the checks

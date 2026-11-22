@@ -23,6 +23,9 @@ law's nonlinear flux and `s = 4πGρ`. Because `P` is idempotent and commutes wi
   directions, a host field gives its clock rate (plus the mean density inside) and free fall,
   with a chiral tidal leak that TetA and TetB carry with opposite signs and the stellated
   octahedron cancels; nested envelopes telescope;
+* `dielectric_ratio`, `stretch_isotropic`, `trace_corrector` (the Cassini quadrupole): the
+  mountain's linear response is anisotropic, stretching makes the swept shell a homoeoid with no
+  interior field, and the trace term is isotropic;
 * `least_energy`: registration implies the sweep. With the registered state held fixed, the
   harmonic (energy-orthogonal) completion has the least field energy, and the energy splits
   exactly into the registered part and the residual;
@@ -186,6 +189,49 @@ theorem least_energy (β : LinearMap.BilinForm ℝ V) (hpos : ∀ v, 0 ≤ β v 
   refine ⟨by rw [hexp, horth, horth']; ring, ?_⟩
   rw [hexp, horth, horth']; linarith [hpos v]
 
+-- ============================================================================================
+-- The Cassini quadrupole: the swept shell in the mountain's anisotropic response
+-- ============================================================================================
+
+/-- The mountain's linear response. For the law `μ(x) = x/(1+x)`, a small change in the field
+responds with `μ` across the background field and `μ + xμ'` along it; the ratio is
+`1 + 1/(1+x)` (1.4 at the Sun, `x = 1.5`). -/
+theorem dielectric_ratio (x : ℝ) (hx : 0 < x) :
+    (x / (1 + x) + x * (1 / (1 + x) ^ 2)) / (x / (1 + x)) = 1 + 1 / (1 + x) := by
+  have h1 : (1 + x) ≠ 0 := by positivity
+  have h2 : x ≠ 0 := hx.ne'
+  field_simp
+
+/-- Stretching removes the anisotropy, and a thin uniform shell becomes a homoeoid. With
+`e² = λ∥/λ⊥` and `z = e z'`, the term `λ∥ ∂z²` is `λ⊥ ∂z'²`, so the operator is `λ⊥` times the
+Laplacian in `(x, y, z')`. The sphere of radius `r` becomes the ellipsoid
+`x² + y² + e² z'² = r²`, and scaling by `t` carries it to the one of radius `t r`: concentric
+spheres go to concentric similar ellipsoids, so a thin uniform spherical shell goes to a thin
+uniform shell between similar ellipsoids, a homoeoid, whose interior field is zero (Newton). -/
+theorem stretch_isotropic (lp ll e : ℝ) (he : e ≠ 0) (hll : ll = lp * e ^ 2) (x y z' r t : ℝ) :
+    ll / e ^ 2 = lp ∧
+    (x ^ 2 + y ^ 2 + (e * z') ^ 2 = r ^ 2 ↔ x ^ 2 + y ^ 2 + e ^ 2 * z' ^ 2 = r ^ 2) ∧
+    (x ^ 2 + y ^ 2 + e ^ 2 * z' ^ 2 = r ^ 2 →
+      (t * x) ^ 2 + (t * y) ^ 2 + e ^ 2 * (t * z') ^ 2 = (t * r) ^ 2) := by
+  refine ⟨?_, by rw [mul_pow], ?_⟩
+  · rw [hll]; field_simp
+  · intro h
+    have : (t * x) ^ 2 + (t * y) ^ 2 + e ^ 2 * (t * z') ^ 2
+        = t ^ 2 * (x ^ 2 + y ^ 2 + e ^ 2 * z' ^ 2) := by ring
+    rw [this, h]; ring
+
+/-- The trace corrector. Inside a sphere of radius `R`, the part of a quadratic host field that
+the swept coupling misses is `w = (tr T/6)(|x|² − R²)`: per axis its slope is `(tr T/3) x` and its
+curvature `tr T/3`, so `∇²w = tr T`, and `w = 0` on the sphere. Its force is isotropic, so it adds
+nothing to a traceless quadrupole. -/
+theorem trace_corrector (t R s : ℝ) :
+    HasDerivAt (fun u => t / 6 * (u ^ 2 - R ^ 2)) (t / 3 * s) s ∧
+    HasDerivAt (fun u => t / 3 * u) (t / 3) s ∧ 3 * (t / 3) = t ∧ t / 6 * (R ^ 2 - R ^ 2) = 0 := by
+  refine ⟨?_, ?_, by ring, by ring⟩
+  · have := ((hasDerivAt_pow 2 s).sub_const (R ^ 2)).const_mul (t / 6)
+    convert this using 1; push_cast; ring
+  · simpa using (hasDerivAt_id s).const_mul (t / 3)
+
 end MountainScale
 
 #print axioms MountainScale.mountain_split
@@ -199,3 +245,6 @@ end MountainScale
 #print axioms MountainScale.faces_read_ports
 #print axioms MountainScale.nested_telescope
 #print axioms MountainScale.least_energy
+#print axioms MountainScale.dielectric_ratio
+#print axioms MountainScale.stretch_isotropic
+#print axioms MountainScale.trace_corrector

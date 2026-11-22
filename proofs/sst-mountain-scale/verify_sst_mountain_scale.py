@@ -15,6 +15,8 @@ interior field, Phi_bar = Phi - sum_k d_k, and the law's term reads Phi_bar.
   Part H  nested envelopes and the faces (Paper VII, Section IX): telescoping, pi G M per face, the ports read
           through the faces, and scaling
   Part I  registration implies the sweep: least-energy settlement with a fixed registered state is balayage
+  Part J  the Cassini quadrupole Q2: the swept shell in the mountain's anisotropic response is a homoeoid, so the
+          Sun's own field leaves no quadrupole; what remains is the galaxy's tide and an isotropic trace term
 
 Run: python verify_sst_mountain_scale.py"""
 import math, os, re
@@ -364,5 +366,67 @@ check(f"I3 in 3D, for a mass off the centre of its closure sphere: the registere
       f"total mass {np.sum(sigma) * w:.4f} M; outside it reproduces the object's field ({ok_out:.0e}); inside it is the "
       f"harmonic completion of the registered boundary data, the field of the Kelvin image point ({ok_in:.0e})",
       abs(np.sum(sigma) * w - 1) < 1e-4 and ok_out < 1e-4 and ok_in < 1e-4)
+
+# ------------------------------------------------------------------ Part J: the Cassini quadrupole Q2
+# In AQUAL the Sun's own field enters the law near r_M = sqrt(GM/a0), and the Galactic field makes it anisotropic:
+# the planets feel a quadrupole Q2. Under ownership the Sun's own field is d (Poisson); the law sees only the Sun's
+# mass swept onto its 1.44 pc sphere, a uniform shell, in the Galactic mountain field g_e.
+xs_ = sp.symbols("x", positive=True)
+mu_s = xs_ / (1 + xs_)
+lam_perp, lam_par = mu_s, mu_s + xs_ * sp.diff(mu_s, xs_)
+check("J1 the mountain's linear response about a background field is anisotropic: across the field mu, along it "
+      "mu + x mu'; for mu = x/(1+x) the ratio is 1 + 1/(1+x) (1.4 at the Sun, x = 1.5; 2 in the deep limit)",
+      sp.simplify(lam_par / lam_perp - (1 + 1 / (1 + xs_))) == 0
+      and abs(float((lam_par / lam_perp).subs(xs_, 1.5)) - 1.4) < 1e-12)
+# J2: a thin uniform shell, stretched z -> z/e (e^2 = lam_par/lam_perp), is a homoeoid: no interior field.
+# Control: the same ellipsoid with uniform SURFACE density (not a homoeoid) does have one.
+xe = 1.8e-10 / 1.2e-10
+e_ = math.sqrt(float((lam_par / lam_perp).subs(xs_, xe)))
+def hessian_at_origin(p, m):
+    r_ = np.linalg.norm(p, axis=1)
+    return np.einsum('n,ni,nj->ij', m / r_ ** 5, 3 * p, p) - np.eye(3) * np.sum(m / r_ ** 3)
+Nj = 400000
+kj = np.arange(Nj) + 0.5
+thj = np.arccos(1 - 2 * kj / Nj); phj = np.pi * (1 + 5 ** 0.5) * kj
+qj = np.stack([np.sin(thj) * np.cos(phj), np.sin(thj) * np.sin(phj), np.cos(thj)], axis=1)   # sphere, R = 1, GM = 1
+pj = qj.copy(); pj[:, 2] /= e_                                         # stretched coordinates
+Hh = hessian_at_origin(pj, np.full(Nj, 1.0 / Nj / e_))                 # the stretched uniform shell (a homoeoid)
+Hh[2, :] /= e_; Hh[:, 2] /= e_                                         # back to the physical z
+ax_, bx_, cx_ = 1.0, 1.0, 1.0 / e_                                     # control: uniform surface density on the ellipsoid
+ds = np.sqrt((bx_ * cx_ * qj[:, 0]) ** 2 + (ax_ * cx_ * qj[:, 1]) ** 2 + (ax_ * bx_ * qj[:, 2]) ** 2)
+Hc = hessian_at_origin(pj, ds / ds.sum() / e_)
+Hc[2, :] /= e_; Hc[:, 2] /= e_
+check(f"J2 stretching lengths along the field by 1/e (e^2 = {e_ ** 2:.2f}) makes the operator isotropic and turns the "
+      "Sun's swept shell into a homoeoid, a thin uniform shell between similar ellipsoids: its interior field is zero "
+      f"(Newton). Interior quadrupole {np.abs(Hh).max():.0e} GM/r_J^3; the control, the same ellipsoid with uniform "
+      f"surface density, gives {np.abs(Hc).max():.0e}. So the Sun's own mass leaves no quadrupole inside its sphere",
+      np.abs(Hh).max() < 1e-5 and np.abs(Hc).max() > 1e-2)
+# J3: the budget, Sun at r_J = 1.44 pc in g_e = 1.8e-10 m/s^2
+GMs, a0s, ge = 1.327e20, 1.2e-10, 1.8e-10
+rJ_ = 1.44 * PCm
+shell_g = GMs / rJ_ ** 2
+tide = GMs / rJ_ ** 3                                   # = 4 Omega^2 - kappa^2 by the definition of r_J
+second = shell_g ** 2 / (ge * rJ_)                      # second order in the shell's field
+trT3 = 4 * math.pi * 6.674e-11 * 5.4e-22 / 3            # trace term, Galactic TetB density
+Q2_obs, Q2_err = 1.6e-27, 1.8e-27                       # Park et al. 2026, Cassini + DE440
+check(f"J3 the budget: the shell's field at r_J is {shell_g / ge:.0e} of the Galactic field (linear response holds; "
+      f"second order gives ~{second:.0e} s^-2); the Galactic tide inside the sphere is GM/r_J^3 = {tide:.1e} s^-2 (equal "
+      f"to 4 Omega^2 - kappa^2 by the definition of r_J); the trace term is {trT3:.1e} s^-2 and isotropic. So "
+      f"|Q2| <~ 1e-30 s^-2, {Q2_err / tide:.0f} times below Cassini's (1.6 +- 1.8)e-27",
+      shell_g / ge < 1e-3 and second < 1e-32 and tide < 1e-29 and Q2_err / tide > 500)
+# J4: the trace corrector, exact for a quadratic host inside a sphere
+X3 = sp.symbols("x1 x2 x3", real=True); Rq, tq = sp.symbols("R t", positive=True)
+r2 = sum(v_ ** 2 for v_ in X3)
+wq = tq / 6 * (r2 - Rq ** 2)
+Tm = sp.Matrix(3, 3, lambda i, j: sp.Symbol(f"T{min(i, j) + 1}{max(i, j) + 1}"))
+uq = sp.Rational(1, 2) * (sp.Matrix(X3).T * Tm * sp.Matrix(X3))[0]
+lap = lambda f: sum(sp.diff(f, v_, 2) for v_ in X3)
+wT = wq.subs(tq, Tm.trace())
+check("J4 for a quadratic host (1/2) x.T.x inside a sphere, the part the swept coupling misses is w = (tr T/6)(|x|^2 - R^2): "
+      "zero on the sphere, Laplacian tr T, and u - w harmonic. Its force (tr T/3) x is isotropic: no traceless "
+      "quadrupole, only the uniform-density pull of Theorem 3(a)",
+      sp.simplify(lap(wq) - tq) == 0 and sp.simplify(wq.subs(X3[0], sp.sqrt(Rq ** 2 - X3[1] ** 2 - X3[2] ** 2))) == 0
+      and sp.simplify(lap(uq - wT)) == 0
+      and all(sp.simplify(sp.diff(wq, v_) - tq / 3 * v_) == 0 for v_ in X3))
 
 print(f"\n{sum(ok)}/{len(ok)} checks passed")
