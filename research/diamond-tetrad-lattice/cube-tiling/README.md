@@ -1,6 +1,6 @@
 # The Cube Tiling: Two Labellings, and the Ladder of Tiles
 
-*Field Dynamics Research, research folder, 2026-11-22. Status: research, not a proof. Verification: `python3 verify_cube_tiling.py` (19 checks) `python3 verify_scale_ladder.py` (11) and `python3 verify_sixteen_channels.py` (29), exact integers and fractions.*
+*Field Dynamics Research, research folder, 2026-11-22. Status: research, not a proof. Verification: `python3 verify_cube_tiling.py` (19 checks) `python3 verify_scale_ladder.py` (11) and `python3 verify_sixteen_channels.py` (41), exact integers and fractions.*
 
 `tiling` `cube` `stellated-octahedron` `TetA` `TetB` `closure` `scale-ladder` `Field-Origin` `affine-connection` `torsion` `diamond` `fluorite` `research`
 
@@ -121,13 +121,22 @@ In this dictionary (15e–15h):
 
 In vortex terms, a drained vortex is a swirl about its axis plus an inflow into its drain (the Burgers vortex of the tug-of-war proof). The torsion carries exactly these two kinds of part: a circulation around the faces and a flow along the legs toward TetB, with the Christoffel sector the mirror-symmetric, unhanded remainder. That reading is the framework's; the algebra under it is exact.
 
+**17. TetB, the vortex tube, the full content and reciprocity** (17a–17l).
+- **TetB obeys the same formula** in its own legs $-v$, one tile per leg from the piercing TetA corner (17a), and parity carries TetA's dictionary onto TetB's index for index (17b).
+- **Each face's swirl is a vortex about its leg.** Its angular momentum, $\sum \omega\,(r_{\rm channel} \times d_{\rm tile})$ over the face, is parallel to $v_\lambda$ (17c). The four have one magnitude and sum to zero, as the legs close (17d), and the directed flow along the legs sums to zero as well (17f).
+- **One tube through the Field Origin** (17e). TetA's vortex on face $\lambda$ sits on the $-v_\lambda$ side of the tile, and TetB's on the $+v_\lambda$ side, with the same angular momentum along $v_\lambda$. That is one swirl along each axis, TetA at one end and TetB at the other, passing through the Field Origin: the spiral, throat, spiral of the framework's vortex. The equality itself follows from parity (angular momentum is an axial vector); the content is the placement on opposite sides of one axis.
+- **The full irreducible content** (17g, 17h). The mirror-symmetric couplings carry $4\cdot\mathbf 1 + 3V_2 + 7\,\mathrm{std} + 3(\mathrm{sgn}\otimes\mathrm{std})$, Paper B's decomposition of the Christoffel sector, with no sign representation. The handed couplings carry the regular representation, $1 + 1 + 2 + 3 + 3$.
+- **Torsion's three parts** (17i, 17j). On the couplings torsion has rank 24. Its vector part (4) lies on the incident couplings, its axial part (4) on the non-incident ones, and the tensor part is the remaining 16, 8 in each half, as in the torsion proof's Theorem 3. Each axial component $w^d$ is a circulation on the three faces other than face $d$.
+- **The Field Origin row in the lattice** (17k). It couples the tile to each of its six face neighbours exactly twice, through the two TetA faces of its Field Origin meeting at the shared cube-face centre.
+- **Reciprocity separates the labellings** (17l). Under closure, every neighbour reached through a shared octahedron meets it with its own TetA at the same end, so TetA couples to TetA across the lattice. Under the uniform labelling, the face neighbours meet it with TetA at the other end, so the coupling crosses chambers. This is the first result in 13–17 that depends on the labelling, and it sides with closure.
+
 The slice structure is the Gram paper's index grid: 6 upper + 4 diagonal (shared) + 6 lower per slice, $24 + 16 + 24 = 64$ ([Gram-matrix proof](../../../proofs/gram-matrix-tetrad-equation/), Part III; the GRAM manuscript; Letter 3). What the tiling adds is the geometric source of each index, and which coupling is which entry.
 
 *Correction.* An earlier version of this note used a table chosen so that $\mu \leftrightarrow \nu$ paired couplings reaching the same tile, and under it the core channel was the diagonal. The formula above replaces that table: under it the core channel is the row $\mu = \lambda$, and the diagonal is the straight-through coupling.
 
-The sharing in 13–15 is geometric, so these results hold for either labelling.
+The sharing in 13–16 is geometric, so those results hold for either labelling; 17l is the exception.
 
-**What 13–16 do and do not say.**
+**What 13–17 do and do not say.**
 - They say the tile's 16 channels per face, read in the tiling, are a copy of one slice of the connection, and the four faces the whole connection, with its Christoffel and torsion sectors, as representations of the tetrahedral group, and with an explicit equivariant dictionary.
 - The 40 + 24 split as representations is canonical, and the dictionary is the formula of result 15, built from the legs: no choice is made.
 - This is the level at which the connection itself is built. $\Gamma^\lambda{}_{\mu\nu}$ has 64 components because each of its three indices runs over 4: one slice per value of $\lambda$, times the $4 \times 4$ of $(\mu, \nu)$. Its 40 + 24 split is the symmetric and antisymmetric parts in $(\mu, \nu)$, an index symmetry. Results 13–15 reproduce exactly that: the count, the slices and the split under the same symmetry. In general relativity each factor of 4 is the number of coordinates; in the tiling each has a geometric source: the face ($\lambda$, with the TetB corner piercing it), the four channels of the face, and the four tiles sharing each channel. The four slices are the four coupled faces, each carrying one $4 \times 4$ copy.
@@ -163,7 +172,7 @@ The framework's positions now point one way, to C. Everything common to both (th
 |---|---|
 | [`verify_cube_tiling.py`](verify_cube_tiling.py) | 19 exact checks: parts 1–7 for results 1–5, parts 8–11 for results 6–9 |
 | [`verify_scale_ladder.py`](verify_scale_ladder.py) | 11 exact checks for results 10–12 |
-| [`verify_sixteen_channels.py`](verify_sixteen_channels.py) | 29 exact checks for results 13–16 |
+| [`verify_sixteen_channels.py`](verify_sixteen_channels.py) | 41 exact checks for results 13–17 |
 
 ## Related
 

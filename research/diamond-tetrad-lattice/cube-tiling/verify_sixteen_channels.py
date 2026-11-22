@@ -288,4 +288,148 @@ check("16l. swirl and directed flow are separate: the totally antisymmetric tors
       "closes on every face), and the vector torsion has no support on the all-different couplings that carry the circulation",
       displacement({t: omega(t) for t in T if omega(t) != 0}) == (0, 0, 0) and all(len(set(t)) < 3 for b in V for t in Tv(b)))
 
+print("\n=== 17. TetB, the vortex geometry of the swirl, the irreducible content, and reciprocity")
+B = [neg(a) for a in A]                                   # TetB corners = the parity image
+
+# ---------- TetB: build its channels from the geometry, exactly as for TetA
+def build(chamber):
+    sub_ = {}
+    for a in chamber:
+        f = [p for p in chamber if p != a]
+        sub_[(a, "core")] = frozenset({(0, 0, 0)} | {tuple(int(x) for x in mid(p, q)) for p, q in itertools.combinations(f, 2)})
+        for p in f:
+            tri = {F(p)} | {mid(p, q) for q in f if q != p}
+            e = [e for e in EDGES if tri <= octa(e)]; assert len(e) == 1
+            sub_[(a, p)] = tiles_holding(e[0])
+    return sub_
+subB = build(B)
+incB = {(k, n) for k, ts in subB.items() for n in ts}
+DB = {(l, m, n): ((l, "core") if m == l else (l, m), tuple(c // 2 for c in vadd(vsc(-1, l), vsc(eps(l, m, n), n))))
+      for l in B for m in B for n in B}
+check("17a. TetB's 64 couplings obey the same formula with its own legs -v: the tiles sharing channel mu of TetB's face "
+      "lambda are at -w_lambda + eps w_nu (w = -v), one per leg from the piercing TetA corner",
+      set(DB.values()) == incB and len(incB) == 64)
+def actP(it):
+    (a, r), n = it
+    return ((neg(a), r if r == "core" else neg(r)), neg(n))
+check("17b. spatial parity -I carries TetA's dictionary onto TetB's index for index: (lambda, mu, nu) on the legs v goes to "
+      "the same (lambda, mu, nu) on the legs -v",
+      all(actP(Dc[(l, m, n)]) == DB[(neg(l), neg(m), neg(n))] for l, m, n in T))
+
+# ---------- the swirl as a vortex: angular momentum of omega about each face
+def centroid(pts): return tuple(sum(Fr(p[i]) for p in pts) / len(pts) for i in range(3))
+def channel_pos(ch, chamber):
+    a, r = ch
+    f = [p for p in chamber if p != a]
+    if r == "core": return centroid([mid(p, q) for p, q in itertools.combinations(f, 2)])
+    return centroid([F(r)] + [mid(r, q) for q in f if q != r])
+def cross(u, w): return (u[1]*w[2]-u[2]*w[1], u[2]*w[0]-u[0]*w[2], u[0]*w[1]-u[1]*w[0])
+def L_face(l, D, chamber, om):
+    tot = (0, 0, 0)
+    for m in chamber:
+        for n in chamber:
+            t = (l, m, n)
+            w = om(t)
+            if w == 0: continue
+            ch, tile_ = D[t]
+            tot = tuple(tot[i] + w * cross(channel_pos(ch, chamber), tuple(2 * x for x in tile_))[i] for i in range(3))
+    return tot
+LA = {l: L_face(l, Dc, A, omega) for l in A}
+par = lambda u, w: cross(u, w) == (0, 0, 0) and any(x != 0 for x in u)
+check("17c. each face's swirl is a vortex about its leg: the angular momentum sum omega (r_channel x d_tile) over the face is "
+      "nonzero and parallel to v_lambda, the axis from the tile's centre through the piercing TetB corner",
+      all(par(LA[l], l) for l in A))
+check("17d. the four vortices balance: their angular momenta have one magnitude and sum to zero, as the legs close",
+      len({sum(x * x for x in LA[l]) for l in A}) == 1 and tuple(sum(LA[l][i] for l in A) for i in range(3)) == (0, 0, 0))
+idxB = {v: i for i, v in enumerate(B)}
+def omegaB(t):
+    a, b, c = t
+    if len({a, b, c}) < 3: return 0
+    d = next(x for x in B if x not in t)
+    return perm_sign([idxB[a], idxB[b], idxB[c], idxB[d]])
+LB = {l: L_face(l, DB, B, omegaB) for l in B}
+check("17e. one tube through the Field Origin: TetA's vortex on face lambda sits on the -v_lambda side of the tile and "
+      "TetB's on face -v_lambda on the +v_lambda side, and the two carry the same angular momentum along the axis v_lambda "
+      "(parity keeps angular momentum, an axial vector): one swirl, TetA on one end and TetB on the other",
+      all(LB[neg(l)] == LA[l] for l in A))
+check("17f. the directed flow balances too: the vector torsion's displacements along the four legs sum to zero "
+      "(sum over b of -2 v_b = 0, closure)", tuple(sum(displacement(Tv(b))[i] for b in V) for i in range(3)) == (0, 0, 0))
+
+# ---------- the full irreducible content (torsion proof, Theorem 1; Paper B)
+def irr_mult(chi):
+    table = {"triv": [1, 1, 1, 1, 1], "sgn": [1, -1, 1, -1, 1], "V2": [2, 0, -1, 0, 2],
+             "std": [3, 1, 0, -1, -1], "sgn x std": [3, -1, 0, 1, -1]}
+    sz = [SIZE[k] for k in ORDER]
+    return {k: Fr(sum(s * c * x for s, c, x in zip(sz, chi, row)), 24) for k, row in table.items()}
+def char_lin(sign):   # character of the tau = sign eigenspace on the couplings
+    vals = {}
+    for g in G:
+        k = CLS[ctype(g)]
+        fix_g = sum(act(g, it) == it for it in inc)
+        fix_gt = sum(act(g, tauc[it]) == it for it in inc)
+        vals[k] = Fr(fix_g + sign * fix_gt, 2)
+    return [vals[k] for k in ORDER]
+mult_even, mult_odd = irr_mult(char_lin(1)), irr_mult(char_lin(-1))
+check("17g. the mirror-symmetric couplings (tau = +1, the Christoffel 40) carry 4 trivial + 0 sign + 3 V2 + 7 std + 3 "
+      "(sgn x std), Paper B's decomposition of V (x) Sym^2 V: no sign representation", mult_even == {
+          "triv": 4, "sgn": 0, "V2": 3, "std": 7, "sgn x std": 3})
+check("17h. the handed couplings (tau = -1, the torsion 24) carry each irreducible representation as often as its dimension, "
+      "1 + 1 + 2 + 3 + 3: the regular representation", mult_odd == {"triv": 1, "sgn": 1, "V2": 2, "std": 3, "sgn x std": 3})
+
+# ---------- torsion's vector, axial and tensor parts on the couplings (torsion proof, Theorem 3)
+def vec_of(d): return [d.get(t, 0) for t in T]
+def rank(rows):
+    M = [list(map(Fr, r)) for r in rows]; rk = 0; cols = len(M[0]) if M else 0
+    for c in range(cols):
+        piv = next((i for i in range(rk, len(M)) if M[i][c] != 0), None)
+        if piv is None: continue
+        M[rk], M[piv] = M[piv], M[rk]
+        for i in range(len(M)):
+            if i != rk and M[i][c] != 0:
+                f = M[i][c] / M[rk][c]; M[i] = [x - f * y for x, y in zip(M[i], M[rk])]
+        rk += 1
+    return rk
+tors = [vec_of({(a, b, c): 1, (a, c, b): -1}) for a in V for b in V for c in V if V.index(b) < V.index(c)]
+vecp = [vec_of(Tv(b)) for b in V]
+def axial(d):  # epsilon_{abcd'} w^{d'} with w = e_d: components (a,b,c) all different with missing leg d
+    return {t: omega(t) for t in T if len(set(t)) == 3 and next(x for x in V if x not in t) == d}
+axp = [vec_of(axial(d)) for d in V]
+incident = [i for i, t in enumerate(T) if len(set(t)) == 2 and t[0] in t[1:]]
+nonincident = [i for i, t in enumerate(T) if len(set(t)) == 3]
+check("17i. on the couplings, torsion has rank 24; its vector part (4) lies on the incident couplings (core to face "
+      "neighbour against corner to own tile) and its axial part (4) on the non-incident ones (the corner pairs that carry the "
+      "circulation), with the tensor part the remaining 16, 8 in each half",
+      rank(tors) == 24 and rank(vecp) == 4 and rank(axp) == 4 and rank(vecp + axp) == 8
+      and all(all(r[i] == 0 for i in range(64) if i not in incident) for r in vecp)
+      and all(all(r[i] == 0 for i in range(64) if i not in nonincident) for r in axp)
+      and rank([r for r in tors if all(r[i] == 0 for i in range(64) if i not in incident)]) == 12
+      and rank([r for r in tors if all(r[i] == 0 for i in range(64) if i not in nonincident)]) == 12)
+check("17j. each axial component w^d is a circulation that skips the leg d: it lives on the three faces other than face d, "
+      "two opposite-sense corner couplings per face, summing to zero on every face",
+      all({t[0] for t in axial(d)} == {x for x in V if x != d}
+          and all(sum(w for t, w in axial(d).items() if t[0] == l) == 0 and sum(1 for t in axial(d) if t[0] == l) == 2
+                  for l in V if l != d) for d in V))
+
+# ---------- the Field Origin row in the lattice, and reciprocity: closure against uniform
+core_to = {}
+for (l, r), n in inc:
+    if r == "core" and n != (0, 0, 0): core_to[n] = core_to.get(n, 0) + 1
+check("17k. the Field Origin row couples the tile to each of its 6 face neighbours exactly twice, through the two TetA faces "
+      "of its Field Origin that meet at the shared cube-face centre", sorted(core_to.values()) == [2] * 6
+      and all(sum(1 for l in A if (n in sub[(l, 'core')])) == 2 for n in core_to))
+def lam(p): return -(-1) ** (((sum(p) + 3) // 2) % 2)
+def tetA_has(m, p, labelling):   # is corner p a TetA corner of tile m?
+    if labelling == "C": return lam(p) == 1
+    return xyz(tuple(p[i] - 2 * m[i] for i in range(3))) == 1
+same_end = {"C": [], "U": []}
+for (l, r), n in inc:
+    if r == "core" or n == (0, 0, 0): continue
+    e = octa_of[(l, r)]; p = r                               # this channel sits at the octahedron's TetA end p (own tile)
+    for lab in ("C", "U"):
+        same_end[lab].append(tetA_has(n, p, lab))            # does the neighbour's TetA meet the same octahedron at p too?
+check("17l. reciprocity separates the labellings: under closure every neighbour reached through a shared octahedron meets "
+      "it with its own TetA at the same end, so TetA couples to TetA; under the uniform labelling the face neighbours meet it "
+      "with TetA at the other end, the TetB end, so the coupling crosses chambers",
+      all(same_end["C"]) and sum(same_end["U"]) == sum(1 for (l, r), n in inc if r != "core" and n != (0, 0, 0)
+                                                        and sum(map(abs, n)) == 2))
 print(f"\n{sum(ok)}/{len(ok)} checks passed")
