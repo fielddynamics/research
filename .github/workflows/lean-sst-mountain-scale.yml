@@ -43,7 +43,7 @@ jobs:
           if grep -qE "warning:|error:" axioms.txt; then echo "Lean reported a warning or error"; exit 1; fi
           count=$(grep -c "depends on axioms" axioms.txt || true)
           echo "axiom reports: $count"
-          if [ "$count" -lt 8 ]; then echo "expected 8 axiom reports"; exit 1; fi
+          if [ "$count" -lt 10 ]; then echo "expected 10 axiom reports"; exit 1; fi
           if grep -q sorryAx axioms.txt; then echo "a theorem depends on sorry"; exit 1; fi
           # each theorem may use any of Lean's three standard axioms, and nothing else
           if grep "depends on axioms" axioms.txt | grep -vE "\[(propext|Classical\.choice|Quot\.sound)(, (propext|Classical\.choice|Quot\.sound))*\]"; then

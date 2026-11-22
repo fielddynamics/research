@@ -8,7 +8,7 @@
 
 ---
 
-This folder holds a three-page proof, a script that checks it (20 checks), two 3D numerical solutions, and a Lean 4 formalisation (8 theorems). It closes the step that the [time-leg](../sst-covariant-time-leg/), [net-field rule](../net-field-rule/) and [khronon](../sst-khronon-preferred-frame/) proofs left open. It has been through two external reviews; the changes are listed below.
+This folder holds a four-page proof, a script that checks it (25 checks), two 3D numerical solutions, and a Lean 4 formalisation (10 theorems). It closes the step that the [time-leg](../sst-covariant-time-leg/), [net-field rule](../net-field-rule/) and [khronon](../sst-khronon-preferred-frame/) proofs left open. It has been through two external reviews; the changes are listed below.
 
 ## The picture
 
@@ -48,7 +48,12 @@ So **fields overlap**, and neighbours read each other. What is single-valued is 
    - In the solar neighbourhood the spheres fill about 60% of space, above the threshold at which overlapping spheres join up across space.
    - So merging overlapping regions would turn the whole disc Newtonian. Ownership merges nothing.
 7. **A field-dependent radius (Theorem 5)** only nudges the mountain (by 2 × 10⁻³ in the test). Each system's own field stays Newtonian by construction.
-8. **The action does not choose the edge (Theorem 6),** shown for a centred spherical system. The edge is a binding criterion, which mass belongs to which field object, not an energy minimum.
+8. **Nested envelopes and the faces (Theorem 7, Paper VII §IX).** Section IX says every system, atom, star or galaxy, closes its own envelope with the same k = 4 structure and the same Poisson equation. In the action this is exact:
+   - **Nesting telescopes.** Sweeping onto the star's envelope and then onto the system's equals sweeping straight onto the system's, so each level is its own Poisson field with the same 4πG, and inner envelopes are invisible above their level.
+   - **4π = kπ.** Each face of the envelope's tetrahedron covers π steradians, so exactly πGM passes through each face, at any radius.
+   - **The faces read the ports.** Sampling a host field at the four face directions gives the clock rate exactly (the tide drops out) and the free fall, with a small *chiral* leak of the tide: + for TetA, − for TetB. **Both tetrahedra together, the stellated octahedron, read the ports exactly**: the leak cancels.
+   - **No length in the rule.** Every sphere is set by its own mass and its host's tide, so the same rule applies at every level; only a₀, in the law's crossover, sets a scale. (A Weyl rescaling is not a symmetry of these equations; these are the scale statements that hold.)
+9. **The action does not choose the edge (Theorem 6),** shown for a centred spherical system. The edge is a binding criterion, which mass belongs to which field object, not an energy minimum.
 
 ## The 3D check
 
@@ -84,13 +89,13 @@ So **fields overlap**, and neighbours read each other. What is single-valued is 
 
 | File | What it is |
 |---|---|
-| [`sst_mountain_scale.pdf`](sst_mountain_scale.pdf) | The proof (3 pages) |
+| [`sst_mountain_scale.pdf`](sst_mountain_scale.pdf) | The proof (4 pages) |
 | [`sst_mountain_scale.tex`](sst_mountain_scale.tex) | LaTeX source (IOP class, [`iopjournal.cls`](iopjournal.cls)) |
-| [`verify_sst_mountain_scale.py`](verify_sst_mountain_scale.py), [`verify_output.txt`](verify_output.txt) | 20 checks: the split with overlapping spheres (1D, two laws), the matter equation, the four ports, the overlaps, a field-dependent radius, the edge, and the 3D results |
+| [`verify_sst_mountain_scale.py`](verify_sst_mountain_scale.py), [`verify_output.txt`](verify_output.txt) | 25 checks: the split with overlapping spheres (1D, two laws), the matter equation, the four ports, the overlaps, a field-dependent radius, the edge, the 3D results, and nested envelopes and the faces |
 | [`demo_ownership_3d.py`](demo_ownership_3d.py), [`demo_ownership_output.txt`](demo_ownership_output.txt) | The 3D ownership solutions, one system and two overlapping (about 10 minutes) |
 | [`demo_mountain_scale.py`](demo_mountain_scale.py), [`demo_output.txt`](demo_output.txt) | The 3D solver and the pointwise reference (the tail); it also contains the earlier single-scale low-pass version |
 | [`make_figure.py`](make_figure.py) | Draws [`fig_demo`](fig_demo.pdf) |
-| [`lean/MountainScale.lean`](lean/MountainScale.lean) | Lean 4, 8 theorems, importing the [khronon](../sst-khronon-preferred-frame/lean/) formalisation |
+| [`lean/MountainScale.lean`](lean/MountainScale.lean) | Lean 4, 10 theorems, importing the [khronon](../sst-khronon-preferred-frame/lean/) formalisation |
 | [`LEAN_AUDIT.md`](LEAN_AUDIT.md) | What the Lean proves and what is cited |
 
 ## Running the checks

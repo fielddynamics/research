@@ -19,6 +19,10 @@ law's nonlinear flux and `s = 4πGρ`. Because `P` is idempotent and commutes wi
   law on the swept source while the systems' own fields `d` are the same for every law;
 * `four_ports`: a field object meets the NET Field through one temporal channel (the lapse) and
   three spatial ones (its centre of mass), plus a tidal term;
+* `faces_read_ports`, `nested_telescope` (Paper VII, Section IX): read at an envelope's four face
+  directions, a host field gives its clock rate and free fall, with a chiral tidal leak that TetA
+  and TetB carry with opposite signs and the stellated octahedron cancels; nested envelopes
+  telescope;
 * `no_tail_in_dimple`: the dimple's TetB share is zero, while read pointwise the law leaves a
   share strictly between 0 and `a₀` at every finite field (`strong_field_not_pure`).
 
@@ -120,6 +124,45 @@ theorem four_ports {n : ℕ} (m : Fin n → ℝ) (p : Fin n → Fin 3 → ℝ)
     rw [this, hcom, dotProduct_zero]
   simp only [mul_add, Finset.sum_add_distrib, hdip, Finset.sum_mul, add_zero]
 
+-- ============================================================================================
+-- The faces read the ports (Paper VII, Section IX)
+-- ============================================================================================
+
+/-- A host field near an envelope's centre: `c₀ + b ⬝ v + (1/2) vᵀ T v`, with `T` symmetric and
+traceless (harmonic), written in components. -/
+noncomputable def hostField (c₀ b₁ b₂ b₃ t₁₁ t₁₂ t₁₃ t₂₂ t₂₃ : ℝ) (v₁ v₂ v₃ : ℝ) : ℝ :=
+  c₀ + b₁ * v₁ + b₂ * v₂ + b₃ * v₃ +
+    (t₁₁ * v₁ ^ 2 + t₂₂ * v₂ ^ 2 + (-t₁₁ - t₂₂) * v₃ ^ 2 +
+      2 * t₁₂ * v₁ * v₂ + 2 * t₁₃ * v₁ * v₃ + 2 * t₂₃ * v₂ * v₃) / 2
+
+/-- Read at TetA's four face directions `(1,1,1), (1,−1,−1), (−1,1,−1), (−1,−1,1)`, the host
+field's sum is `4c₀` (the temporal port; the tide drops out), and its face-weighted sum is
+`4b + 4(T₂₃, T₁₃, T₁₂)` (the three spatial ports, with a chiral leak of the tide). TetB's directions
+are the negatives: the same sum, and the leak with the opposite sign. Both together, the stellated
+octahedron's eight cube corners, read `8c₀` and `8b` exactly. -/
+theorem faces_read_ports (c₀ b₁ b₂ b₃ t₁₁ t₁₂ t₁₃ t₂₂ t₂₃ : ℝ) :
+    let F := hostField c₀ b₁ b₂ b₃ t₁₁ t₁₂ t₁₃ t₂₂ t₂₃
+    -- TetA
+    F 1 1 1 + F 1 (-1) (-1) + F (-1) 1 (-1) + F (-1) (-1) 1 = 4 * c₀ ∧
+    F 1 1 1 + F 1 (-1) (-1) - F (-1) 1 (-1) - F (-1) (-1) 1 = 4 * b₁ + 4 * t₂₃ ∧
+    F 1 1 1 - F 1 (-1) (-1) + F (-1) 1 (-1) - F (-1) (-1) 1 = 4 * b₂ + 4 * t₁₃ ∧
+    F 1 1 1 - F 1 (-1) (-1) - F (-1) 1 (-1) + F (-1) (-1) 1 = 4 * b₃ + 4 * t₁₂ ∧
+    -- TetB
+    F (-1) (-1) (-1) + F (-1) 1 1 + F 1 (-1) 1 + F 1 1 (-1) = 4 * c₀ ∧
+    -(F (-1) (-1) (-1)) - F (-1) 1 1 + F 1 (-1) 1 + F 1 1 (-1) = 4 * b₁ - 4 * t₂₃ ∧
+    -- the stellated octahedron: the leak cancels
+    (F 1 1 1 + F 1 (-1) (-1) - F (-1) 1 (-1) - F (-1) (-1) 1) +
+      (-(F (-1) (-1) (-1)) - F (-1) 1 1 + F 1 (-1) 1 + F 1 1 (-1)) = 8 * b₁ := by
+  simp only [hostField]
+  refine ⟨by ring, by ring, by ring, by ring, by ring, by ring, by ring⟩
+
+/-- Nested envelopes telescope. If sweeping onto an inner envelope and then onto an outer one equals
+sweeping straight onto the outer one (`Bₖ (Bⱼ ρ) = Bₖ ρ`), the system's own source is the inner
+envelope's own source plus the shell-to-shell source, and the mountain sees only the outer shell. -/
+theorem nested_telescope (Bj Bk : V →ₗ[ℝ] V) (ρ : V) (hnest : Bk (Bj ρ) = Bk ρ) :
+    ρ - Bk ρ = (ρ - Bj ρ) + (Bj ρ - Bk (Bj ρ)) := by
+  rw [hnest]; abel
+
 end MountainScale
 
 #print axioms MountainScale.mountain_split
@@ -130,3 +173,5 @@ end MountainScale
 #print axioms MountainScale.ownership_split
 #print axioms MountainScale.ownership_blind_to_law
 #print axioms MountainScale.four_ports
+#print axioms MountainScale.faces_read_ports
+#print axioms MountainScale.nested_telescope

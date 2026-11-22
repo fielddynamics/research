@@ -47,9 +47,12 @@ At leading order a field object meets the NET Field through exactly
 four channels, one temporal (its clock rate) and three spatial (its
 free fall): the four ports of the tetrad. The tail is gone, in 1D and
 3D, for one system and for two whose spheres each contain the other.
-The data fix each sphere at its system's Jacobi radius; the action does
-not choose it, at least for a centred spherical system, so the edge is
-a binding criterion.
+Nested envelopes telescope, each with the same Poisson constant, as
+Paper~VII's Section~IX requires; read at an envelope's four face
+directions, a host field gives exactly the four ports, with a chiral
+leak of the tide that the dual tetrad cancels. The data fix each sphere
+at its system's Jacobi radius; the action does not choose it, at least
+for a centred spherical system, so the edge is a binding criterion.
 \end{abstract}
 
 \keywords{SST, net-field rule, field object, closure boundary, Jacobi radius, balayage, four ports, preferred foliation, action, MOND, proof}
@@ -80,8 +83,8 @@ twelve contacts, of which the four face-to-face ones are the active
 ports~\cite{NelsonFace}. Fields overlap; what is single-valued is which
 object a piece of mass belongs to.
 
-Every statement is checked by script (20 checks) with two 3D solutions;
-the algebra is machine-checked in Lean~4 (8 theorems)~\cite{NelsonScript}.
+Every statement is checked by script (25 checks) with two 3D solutions;
+the algebra is machine-checked in Lean~4 (10 theorems)~\cite{NelsonScript}.
 
 % ----------------------------------------------------------------------
 
@@ -278,13 +281,81 @@ mountain by where it flows, not by what costs least.
 
 % ----------------------------------------------------------------------
 
+\section*{Theorem 7 (nested envelopes and the faces)}
+
+Paper~VII's Section~IX states that every gravitating system, atom,
+star or galaxy, closes its own envelope with the same $k = 4$
+structure, without global coordination, and that one Poisson equation
+holds at every level, $\nabla^2\Phi = k\pi\,\tfrac{k^2+1}{kd+1}\,
+G_{\rm bare}\,\rho = 4\pi G_{\rm N}\rho$ ($4\pi\cdot17/13 =
+16.433$)~\cite{NelsonVII}. In the ownership action this becomes exact:
+
+\emph{(a) Nesting telescopes. For an envelope $\Sigma_j$ inside
+$\Sigma_k$, sweeping onto $\Sigma_j$ and then onto $\Sigma_k$ equals
+sweeping onto $\Sigma_k$: $B_kB_j = B_k$. So
+\[
+\rho - B_k\rho = (\rho - B_j\rho) + (B_j\rho - B_kB_j\rho):
+\]
+the system's own field is the star's own field plus the shell-to-shell
+field, each a Poisson field with the same $4\pi G_{\rm N}$, and the
+mountain sees only the outermost shell. Inner envelopes, whatever their
+radii and shapes, are invisible above their own level.}
+
+\emph{(b) $4\pi = k\pi$ per face. The tetrahedron's rotations carry one
+face direction to all four, so its faces cut the sphere into four
+quarters of $\pi$ steradians each, and the swept field of an envelope's
+mass $M$ sends exactly $\pi GM$ through each face, at every radius.}
+
+\emph{(c) The faces read the ports. Read at an envelope's face
+directions $n_f$, a host field $\bar\Phi = c_0 + b\cdot x +
+\tfrac12x\cdot Tx$ gives}
+\[
+\begin{aligned}
+\textstyle\sum_f\bar\Phi(n_f) &= 4c_0,\\
+\textstyle\sum_f n_f\,\bar\Phi(n_f) &= 4b \pm 4\,(T_{23}, T_{13}, T_{12}),
+\end{aligned}
+\]
+\emph{with $+$ for TetA and $-$ for TetB. The sum is the temporal port
+(the clock rate; the tide drops out). The weighted sum is the three
+spatial ports (free fall), with a chiral leak of the tide, the
+$x \leftrightarrow yz$ mixing of the Walsh-eigenmode
+proof~\cite{NelsonWalsh}. Read at both tetrahedra, the stellated
+octahedron's eight cube corners, it is $8c_0$ and $8b$ exactly: the
+leak cancels. A single tetrahedron reads the host exactly through the
+quadrupole (a spherical 2-design), the stellated octahedron through the
+octupole (a 3-design).}
+
+\emph{(d) No length in the rule. Each sphere is set by its own mass and
+its host's tide ($r_J \propto M^{1/3}$), and the same rule applies at
+every level. Stretching lengths by $\lambda$ at fixed mass, the
+envelopes' Poisson equation holds with $\Phi \to \Phi/\lambda$ (Kepler)
+and the deep mountain's law with $\Phi$ unchanged (flat curves); only
+$a_0$, in the law's crossover, sets a scale.}
+
+\begin{proof}
+(a) Lean \texttt{nested\_telescope}; 1D, $2\times10^{-16}$ (script H1).
+(b) Script H2. (c) Lean \texttt{faces\_read\_ports}; script H3--H4.
+(d) Script H5.
+\end{proof}
+
+So Section~IX's ``each scale closes independently'' is the telescoping
+identity, its universal Poisson equation is the envelopes' equation at
+every level, and its $k = 4$ structure ``when interacting with external
+fields'' is the four ports, read cleanly by the dual tetrad. What is
+universal is the rule; the law acts only on the drained host's
+mountain. A Weyl rescaling is not a symmetry of these equations (the
+Laplacian picks up a $\nabla\omega\cdot\nabla\Phi$ term); the scale
+statements that hold are those of~(d).
+
+% ----------------------------------------------------------------------
+
 \section*{Scope}
 
 Proved here: the ownership action and its exact split, with
 overlapping spheres; the plain law for the mountain; the matter
 equation; the four ports; no tail in 1D and 3D; a field-dependent
-radius; and, for a centred spherical system, that the action does not
-choose the edge.
+radius; nested envelopes and the face reading of the ports; and, for a
+centred spherical system, that the action does not choose the edge.
 
 Not proved here:
 \begin{enumerate}
@@ -319,6 +390,14 @@ Topology}, Paper~IV (2026), packing topology.
 \bibitem{NelsonFace}
 S.~Nelson, \textit{Face Structure and Spin} (2026),
 \texttt{docs/01-foundations/}\linebreak\texttt{08-face-structure-and-spin.md}.
+
+\bibitem{NelsonVII}
+S.~Nelson, \textit{Dual Tetrad Gravity and the Field Origin},
+Paper~VII (2026), Section~IX.
+
+\bibitem{NelsonWalsh}
+S.~Nelson, \textit{Walsh Eigenmodes of the Cube} (2026),
+\texttt{proofs/walsh-eigenmodes-of-the-cube/}.
 
 \bibitem{NelsonTL}
 S.~Nelson,
