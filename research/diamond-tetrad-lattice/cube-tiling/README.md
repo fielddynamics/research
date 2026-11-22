@@ -1,6 +1,6 @@
 # The Cube Tiling: Two Labellings, and the Ladder of Tiles
 
-*Field Dynamics Research, research folder, 2026-11-22. Status: research, not a proof. Verification: `python3 verify_cube_tiling.py` (19 checks) `python3 verify_scale_ladder.py` (11) and `python3 verify_sixteen_channels.py` (17), exact integers and fractions.*
+*Field Dynamics Research, research folder, 2026-11-22. Status: research, not a proof. Verification: `python3 verify_cube_tiling.py` (19 checks) `python3 verify_scale_ladder.py` (11) and `python3 verify_sixteen_channels.py` (29), exact integers and fractions.*
 
 `tiling` `cube` `stellated-octahedron` `TetA` `TetB` `closure` `scale-ladder` `Field-Origin` `affine-connection` `torsion` `diamond` `fluorite` `research`
 
@@ -111,13 +111,23 @@ In this dictionary (15e–15h):
 - **One face's 16** fall, under the face's own symmetry, into the orbits of one slice's ordered index pairs, and the corner channels' couplings to face neighbours are chiral: the face's rotations separate each channel's left and right neighbour, and its reflections exchange them.
 - **Exchanging the lower indices** $\mu \leftrightarrow \nu$ swaps a channel with a leg. Its even part is 40-dimensional (Christoffel) and its odd part 24 (torsion), and on the corner channels' couplings to face neighbours it exchanges the two senses of circulation around the face, as the [chiral-holonomy proof](../../../proofs/chiral-holonomy-closed-frame/)'s TetB step is the transpose of its TetA step.
 
+**16. The dictionary is forced, and torsion on the tiles is swirl plus directed flow** (16a–16l).
+- **Forced.** The symmetry alone allows 1152 equivariant bijections between couplings and index triples (16a). Fixing the roles, $\lambda$ the face and $\mu$ the channel by the half-space proof's labels, and asking that the tile lie along leg $\nu$ from the piercing TetB corner, leaves exactly one: the formula of result 15 (16b). The eight tiles around that corner are $-v_\lambda \pm v_\nu$, and the face reaches all but $-2v_\lambda$, the one sign the rule never uses (16c). Of the 32 symmetric sign rules, only $\varepsilon = +1 \Leftrightarrow \nu \in \{\lambda, \mu\}$ gives the couplings (16d).
+- **Torsion-free is mirror symmetry.** On the 24 couplings with three different indices, the corner channels' couplings to face neighbours, exchanging $\mu \leftrightarrow \nu$ is exactly the reflection exchanging legs $\mu$ and $\nu$ (16e). So a torsion-free connection is mirror-symmetric there, and torsion is the handedness of the couplings. On the other 24 with $\mu \neq \nu$, no symmetry maps a coupling to its partner (16f).
+- **The torsion proof's pieces, on the tiles** (16g). Its incident half $t_{a;ab}$ is the core channel's coupling to a face neighbour minus a corner channel's coupling to its own tile. Its non-incident half $t_{a;bc}$ is the difference of two mirror-image corner couplings.
+- **Swirl.** The totally antisymmetric torsion, the sign representation, lives only on the corner channels' couplings to face neighbours, $+1$ on one sense of circulation around each face and $-1$ on the other (16h). It is a pseudoscalar: unchanged by rotations, reversed by reflections (16i). It is the net circulation around the faces.
+- **Directed flow.** The vector torsion along leg $b$ (torsion proof, Theorem 3) couples to the face neighbours at $-v_a - v_b$ and subtracts the own tile: a net displacement of $-2v_b$, along the leg toward the TetB corner $-v_b$ (16j). It is polar (16k).
+- **Separate** (16l). The swirl has no net displacement, and the directed flow has no support where the swirl lives.
+
+In vortex terms, a drained vortex is a swirl about its axis plus an inflow into its drain (the Burgers vortex of the tug-of-war proof). The torsion carries exactly these two kinds of part: a circulation around the faces and a flow along the legs toward TetB, with the Christoffel sector the mirror-symmetric, unhanded remainder. That reading is the framework's; the algebra under it is exact.
+
 The slice structure is the Gram paper's index grid: 6 upper + 4 diagonal (shared) + 6 lower per slice, $24 + 16 + 24 = 64$ ([Gram-matrix proof](../../../proofs/gram-matrix-tetrad-equation/), Part III; the GRAM manuscript; Letter 3). What the tiling adds is the geometric source of each index, and which coupling is which entry.
 
 *Correction.* An earlier version of this note used a table chosen so that $\mu \leftrightarrow \nu$ paired couplings reaching the same tile, and under it the core channel was the diagonal. The formula above replaces that table: under it the core channel is the row $\mu = \lambda$, and the diagonal is the straight-through coupling.
 
 The sharing in 13–15 is geometric, so these results hold for either labelling.
 
-**What 13–15 do and do not say.**
+**What 13–16 do and do not say.**
 - They say the tile's 16 channels per face, read in the tiling, are a copy of one slice of the connection, and the four faces the whole connection, with its Christoffel and torsion sectors, as representations of the tetrahedral group, and with an explicit equivariant dictionary.
 - The 40 + 24 split as representations is canonical, and the dictionary is the formula of result 15, built from the legs: no choice is made.
 - This is the level at which the connection itself is built. $\Gamma^\lambda{}_{\mu\nu}$ has 64 components because each of its three indices runs over 4: one slice per value of $\lambda$, times the $4 \times 4$ of $(\mu, \nu)$. Its 40 + 24 split is the symmetric and antisymmetric parts in $(\mu, \nu)$, an index symmetry. Results 13–15 reproduce exactly that: the count, the slices and the split under the same symmetry. In general relativity each factor of 4 is the number of coordinates; in the tiling each has a geometric source: the face ($\lambda$, with the TetB corner piercing it), the four channels of the face, and the four tiles sharing each channel. The four slices are the four coupled faces, each carrying one $4 \times 4$ copy.
@@ -153,7 +163,7 @@ The framework's positions now point one way, to C. Everything common to both (th
 |---|---|
 | [`verify_cube_tiling.py`](verify_cube_tiling.py) | 19 exact checks: parts 1–7 for results 1–5, parts 8–11 for results 6–9 |
 | [`verify_scale_ladder.py`](verify_scale_ladder.py) | 11 exact checks for results 10–12 |
-| [`verify_sixteen_channels.py`](verify_sixteen_channels.py) | 17 exact checks for results 13–15 |
+| [`verify_sixteen_channels.py`](verify_sixteen_channels.py) | 29 exact checks for results 13–16 |
 
 ## Related
 

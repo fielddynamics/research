@@ -7,7 +7,7 @@ Run: python3 verify_sixteen_channels.py
 """
 import itertools
 from fractions import Fraction as Fr
-from collections import defaultdict
+from collections import defaultdict, Counter
 
 ok = []
 def check(m, c): ok.append(bool(c)); print(("PASS " if c else "FAIL ") + m)
@@ -159,5 +159,133 @@ check("15h. exchanging the lower indices, mu <-> nu, has an even part of dimensi
       "(torsion); on the corner channels' couplings to face neighbours it exchanges the two senses of circulation around the "
       "face (the two rotation orbits of 15g)",
       sum(tauc[it] == it for it in inc) == 16 and all((tauc[it] in r_orbs[1]) == (it in r_orbs[0]) for it in six))
+
+print("\n=== 16. Is the dictionary forced, and what the torsion is on the tiles")
+from math import factorial
+gact = lambda g, t: tuple(g(x) for x in t)
+T = list(itertools.product(V, repeat=3))
+
+# --- 16a. how many T_d-equivariant bijections exist, and how many are of the leg form
+# Aut of a transitive G-set G/H is N(H)/H; count orbit-type matchings by brute force on stabiliser structure.
+def stab(it, actf): return frozenset(i for i, g in enumerate(G) if actf(g, it) == it)
+orb_c = [frozenset(o) for o in orbits]
+orb_t, seen = [], set()
+for t in T:
+    if t in seen: continue
+    o = frozenset(gact(g, t) for g in G); seen |= o; orb_t.append(o)
+# equivariant bijections = sum over orbit matchings with conjugate stabilisers of prod |N(H)/H|
+def n_equivariant_maps(o_from, o_to, af, at):
+    x = next(iter(o_from)); H = stab(x, af)
+    return sum(1 for y in o_to if stab(y, at) == H)        # images of x with the same stabiliser: |N(H)/H| per matching
+ways = 1
+types_c = Counter(len(o) for o in orb_c)
+# match orbits of equal size (all same-size orbits here have conjugate stabilisers); count matchings x choices
+for size, k in types_c.items():
+    oc = [o for o in orb_c if len(o) == size]; ot = [o for o in orb_t if len(o) == size]
+    per = n_equivariant_maps(oc[0], ot[0], act, gact)
+    ways *= factorial(k) * per ** k
+check("16a. there are %d T_d-equivariant bijections between the 64 couplings and the 64 index triples (the symmetry alone "
+      "does not pick one)" % ways, ways == 1152)
+# the leg form: mu is the channel's own label and the tile lies at -v_lambda + (sign) v_nu
+def leg_form(D_):
+    for (l, m, n), ((l2, r), tile_) in D_.items():
+        if l2 != l: return False
+        if (r == "core") != (m == l) or (r != "core" and r != m): return False
+        c = tuple(2 * x for x in tile_)
+        if c not in (vadd(vsc(-1, l), n), vadd(vsc(-1, l), vsc(-1, n))): return False
+    return True
+# enumerate all bijections that send face to lambda and channel to mu (the half-space labels), leaving only nu free:
+per_channel_choices = []
+for l in V:
+    for m in V:
+        tiles = sorted(sub[channel(l, m)])
+        fits = [n for n in V]
+        # for each nu, the tiles at -v_l +- v_nu that belong to this channel
+        opts = {n: [t for t in tiles if tuple(2 * x for x in t) in (vadd(vsc(-1, l), n), vadd(vsc(-1, l), vsc(-1, n)))] for n in V}
+        per_channel_choices.append(all(len(v) == 1 for v in opts.values()) and len({v[0] for v in opts.values()}) == 4)
+check("16b. once lambda is the face and mu the channel (the half-space labels), requiring the tile to lie along leg nu from the "
+      "piercing TetB corner leaves exactly one choice for every coupling: the formula is the only leg-form dictionary",
+      all(per_channel_choices) and leg_form(Dc))
+
+# --- 16c. the 8 tiles around the piercing corner are -v_lambda +- v_nu; the one never reached is (nu = lambda, sign -)
+check("16c. the 8 tiles around the piercing TetB corner -v_lambda are -v_lambda +- v_nu, and the face reaches all but one: "
+      "-2 v_lambda, the sign that the rule never uses (nu = lambda with eps = -1)",
+      all({tuple(c // 2 for c in vadd(vsc(-1, l), vsc(e, n))) for n in V for e in (1, -1)} == around[l]
+          and around[l] - reached[l] == {tuple(c // 2 for c in vsc(-2, l))} for l in V))
+
+# --- 16d. the sign rule is forced: every other rule eps(l, m, n) in {+1,-1} that is T_d-invariant fails
+types = lambda l, m, n: ("lll" if l == m == n else "llx" if m == l else "lxl" if n == l else "lxx" if m == n else "xyz")
+alts = 0; good = []
+for signs in itertools.product((1, -1), repeat=5):
+    rule = dict(zip(["lll", "llx", "lxl", "lxx", "xyz"], signs))
+    D_ = {(l, m, n): (channel(l, m), tuple(c // 2 for c in vadd(vsc(-1, l), vsc(rule[types(l, m, n)], n)))) for l, m, n in T}
+    if set(D_.values()) == set(inc): good.append(rule)
+check("16d. of the 32 symmetric sign rules, exactly one gives the couplings: eps = +1 exactly when nu is lambda or mu",
+      good == [{"lll": 1, "llx": -1, "lxl": 1, "lxx": 1, "xyz": -1}])
+
+# --- 16e. what mu <-> nu is geometrically
+def refl(u, w):  # the reflection of T_d exchanging legs u and w and fixing the other two
+    return next(g for g in G if g(u) == w and g(w) == u and all(g(x) == x for x in V if x not in (u, w)))
+on24 = all(Dc[(l, n, m)] == act(refl(m, n), Dc[(l, m, n)]) for l, m, n in T if len({l, m, n}) == 3)
+check("16e. on the 24 couplings with all three indices different (corner channels to face neighbours), exchanging mu and nu "
+      "is exactly the mirror reflection that exchanges legs mu and nu, a symmetry of the face: torsion-free means "
+      "mirror-symmetric there", on24)
+others = all(Dc[(l, n, m)] != act(g, Dc[(l, m, n)]) or g(l) != l for l, m, n in T if m != n and l in (m, n) for g in G)
+check("16f. on the 24 couplings with a repeated index (mu or nu equal to lambda) no symmetry of the tile maps a coupling to its "
+      "mu <-> nu partner: there the exchange pairs the core channel's coupling to a face neighbour with a corner channel's "
+      "coupling to its own tile", all(not any(act(g, Dc[(l, m, n)]) == Dc[(l, n, m)] for g in G)
+                                        for l, m, n in T if m != n and l in (m, n)))
+
+# --- 16g. the torsion proof's pieces on the tiles: t_{a;bc} = (a,b,c) - (a,c,b)
+inc_basis = [(a, a, b) for a in V for b in V if b != a]                  # incident: t_{a;ab}
+non_basis = [(a, b, c) for a in V for b in V for c in V if len({a, b, c}) == 3]
+check("16g. the torsion's incident half t_{a;ab} = (a,a,b) - (a,b,a) is, on the tiles, the core channel's coupling to a "
+      "face neighbour minus a corner channel's coupling to its own tile; its non-incident half t_{a;bc} = (a,b,c) - (a,c,b) "
+      "is the difference of two corner channels' couplings to face neighbours, which are mirror images (16e)",
+      all(kind(Dc[(a, a, b)]) == "core -> face neighbour" and kind(Dc[(a, b, a)]) == "own corner" for a, _, b in inc_basis)
+      and all(kind(Dc[t]) == "corner -> face neighbour" for t in non_basis))
+# axial torsion: omega^a_{bc} = sum_d eps_{abcd}, totally antisymmetric, spans the sign representation
+def perm_sign(seq):
+    s, seq = 1, list(seq)
+    for i in range(len(seq)):
+        for j in range(i + 1, len(seq)):
+            if seq[i] > seq[j]: s = -s
+    return s
+idx = {v: i for i, v in enumerate(V)}
+def omega(t):
+    a, b, c = t
+    if len({a, b, c}) < 3: return 0
+    d = next(x for x in V if x not in t)
+    return perm_sign([idx[a], idx[b], idx[c], idx[d]])
+face_vals = []
+for l in V:
+    rot = [g for g in G if g(l) == l and det(g) == 1]
+    six_l = [t for t in T if t[0] == l and len(set(t)) == 3]
+    orbs = {frozenset(Dc[(l,) + tuple(g(x) for x in t[1:])] for g in rot) for t in six_l}
+    for o in orbs:
+        face_vals.append({omega(invc[it]) for it in o})
+check("16h. the totally antisymmetric torsion omega (the sign representation, the one scalar parity detector, along the axial part) lives only on the corner channels' "
+      "couplings to face neighbours, and on each face it is +1 on one sense of circulation and -1 on the other: it is the net "
+      "circulation around the faces", all(v in ({1}, {-1}) for v in face_vals)
+      and all(len({next(iter(v)) for v in face_vals[2*i:2*i+2]}) == 2 for i in range(4))
+      and all(omega(t) == 0 for t in T if len(set(t)) < 3))
+# the axial vector is invariant under rotations and odd under reflections: a pseudoscalar circulation
+check("16i. under the tile's symmetries omega is unchanged by every rotation and reversed by every reflection: "
+      "a pseudoscalar, as a circulation's sense is",
+      all(all(omega(gact(g, t)) == det(g) * omega(t) for t in T) for g in G))
+
+def Tv(b): return {**{(a, a, b): 1 for a in V if a != b}, **{(a, b, a): -1 for a in V if a != b}}
+def displacement(vec):
+    tot = (0, 0, 0)
+    for t, w in vec.items(): tot = vadd(tot, vsc(w, tuple(2 * x for x in Dc[t][1])))
+    return tot
+check("16j. the vector torsion along leg b (torsion proof, Theorem 3: T_v(b) = sum_a t_{a;ab}) is a displacement toward the "
+      "TetB corner -v_b: its couplings reach the face neighbours at -v_a - v_b and subtract the own tile, a net shift of -2 v_b",
+      all(displacement(Tv(b)) == vsc(-2, b) for b in V))
+check("16k. it is polar, unlike the axial part: every symmetry, rotation or reflection, sends T_v(b) to T_v(g b) with no sign",
+      all({gact(g, t): w for t, w in Tv(b).items()} == Tv(g(b)) for g in G for b in V))
+check("16l. swirl and directed flow are separate: the totally antisymmetric torsion has no net displacement (its circulation "
+      "closes on every face), and the vector torsion has no support on the all-different couplings that carry the circulation",
+      displacement({t: omega(t) for t in T if omega(t) != 0}) == (0, 0, 0) and all(len(set(t)) < 3 for b in V for t in Tv(b)))
 
 print(f"\n{sum(ok)}/{len(ok)} checks passed")
