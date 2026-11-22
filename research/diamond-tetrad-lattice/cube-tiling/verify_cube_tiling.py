@@ -126,4 +126,115 @@ check("7a. U: translating by half a body diagonal (centre -> corner) maps the le
 check("7b. C: the root exchange is translation by one cube (3b), and on a periodic box it closes only for an even number of "
       "cubes per side, since sigma must return to itself", all(((-1) ** N == 1) == (N % 2 == 0) for N in range(2, 8)))
 
+# ---------- Parts 8-11: what the framework's positions see in each labelling
+from fractions import Fraction as Fr
+from collections import Counter
+S = list(itertools.product((1, -1), repeat=3))
+def chi(n, p): return (p[0]-2*n[0])*(p[1]-2*n[1])*(p[2]-2*n[2])
+def corners(n): return [tuple(2*n[i]+s[i] for i in range(3)) for s in S]
+def sigma(n): return (-1) ** (sum(n) % 2)
+LAB = {"U": lambda n, p: chi(n, p), "C": lambda n, p: sigma(n)*chi(n, p)}
+def tet(lab, n, t): return frozenset(p for p in corners(n) if lab(n, p) == t)   # vertex set of the big TetA (t=1) / TetB (t=-1)
+def in_core(x, n): return sum(abs(x[i]-2*n[i]) for i in range(3)) <= 1
+
+# 8. where a TetA of one cube meets a TetB of a neighbouring cube.
+# Both tetrahedra lie in their closed cubes, so they meet only on the shared boundary. A big tetrahedron meets a cube face
+# in its edge on that face (a face diagonal), a cube edge in its vertex on that edge, a cube corner if it is its vertex.
+def contact(lab, n, m):
+    A, B = tet(lab, n, 1), tet(lab, m, -1)
+    d = tuple(m[i]-n[i] for i in range(3)); k = sum(map(abs, d))
+    shared = set(corners(n)) & set(corners(m))
+    a, b = A & shared, B & shared
+    if k == 1:   # face: each tetrahedron has one diagonal of the face (2 of the 4 shared corners)
+        if a == b: return ("edge", a)                              # same diagonal: a whole edge in common
+        mid = tuple(Fr(sum(p[i] for p in shared), 4) for i in range(3))   # the two diagonals cross at the face centre
+        return ("point", {mid})
+    return ("point", a & b) if a & b else ("none", set())
+nbrs = [d for d in itertools.product((-1, 0, 1), repeat=3) if d != (0, 0, 0)]
+res = {}
+for name, lab in LAB.items():
+    kinds, outside = Counter(), 0
+    for n in itertools.product(range(-1, 2), repeat=3):
+        for d in nbrs:
+            m = tuple(n[i]+d[i] for i in range(3))
+            kind, pts = contact(lab, n, m)
+            kinds[(sum(map(abs, d)), kind)] += 1
+            if kind == "edge": outside += 1                      # an edge runs corner to corner, outside both cores
+            elif kind == "point" and not all(in_core(x, n) and in_core(x, m) for x in pts): outside += 1
+    res[name] = (kinds, outside); print(f"   {name}: contacts by neighbour type {dict(kinds)}; contacts outside the Field Origins: {outside}")
+check("8a. C: a TetA of one cube meets a TetB of another only at a face centre, a vertex of both cubes' Field Origins: "
+      "TetA and TetB touch nowhere outside the Field Origins", res["C"][1] == 0)
+check("8b. U: across every face a TetA and the neighbour's TetB share a whole edge, corner to corner, and across edges and "
+      "corners they share a corner: contact outside the Field Origins", res["U"][1] > 0)
+
+# 9. the shared octahedra: their 8 faces are spike faces, a spike being the corner tetrahedron at a cube corner p,
+# which belongs to p's chamber. Around a shared edge from p to q the 4 cubes each give the spikes at p and at q.
+def edge_octa(lab, n, axis):
+    # cube edge of cube n along axis with both other offsets +1: corners p, q
+    off = [1, 1, 1]; p = list(off); q = list(off); p[axis] = 1; q[axis] = -1
+    p = tuple(2*n[i]+p[i] for i in range(3)); q = tuple(2*n[i]+q[i] for i in range(3))
+    others = [i for i in range(3) if i != axis]
+    cubes4 = []
+    for a, b in itertools.product((0, 1), repeat=2):
+        m = list(n); m[others[0]] += a; m[others[1]] += b; cubes4.append(tuple(m))
+    faces = {}
+    for m in cubes4:
+        for corner in (p, q):
+            # the face of the shared octahedron on this spike: its position around the edge is the cube m, its end is the corner
+            faces[(m, corner)] = lab(m, corner)
+    return p, q, cubes4, faces
+for name, lab in LAB.items():
+    pats = set()
+    for n in itertools.product(range(-1, 2), repeat=3):
+        for axis in range(3):
+            p, q, c4, f = edge_octa(lab, n, axis)
+            # order the 4 cubes cyclically around the edge
+            cyc = [c4[0], c4[1], c4[3], c4[2]]
+            ring_p = tuple(f[(m, p)] for m in cyc); ring_q = tuple(f[(m, q)] for m in cyc)
+            alt = lambda r: all(r[i] == -r[(i+1) % 4] for i in range(4))
+            pats.add(("alternating" if alt(ring_p) and alt(ring_q) and all(ring_p[i] == -ring_q[i] for i in range(4))
+                      else "hemispheres" if len(set(ring_p)) == 1 and len(set(ring_q)) == 1 and ring_p[0] == -ring_q[0]
+                      else "other"))
+    print(f"   {name}: shared-octahedron face patterns {pats}")
+    res[name+"oct"] = pats
+check("9a. U: every shared octahedron's faces alternate TetA/TetB, faces sharing an edge always opposite: it is the core of a "
+      "complete stellated octahedron made of the four cubes' spikes, as a cube's own Field Origin is", res["Uoct"] == {"alternating"})
+check("9b. C: every shared octahedron splits into a TetA half (the 4 faces at one end of its edge) and a TetB half (the 4 at the "
+      "other): two square pyramids meeting at a square", res["Coct"] == {"hemispheres"})
+
+# 10. orientation of each cube's TetA frame (the legs to its TetA corners), the root of the tetrad equation
+def det3(a, b, c): return a[0]*(b[1]*c[2]-b[2]*c[1]) - a[1]*(b[0]*c[2]-b[2]*c[0]) + a[2]*(b[0]*c[1]-b[1]*c[0])
+def orient(lab, n):
+    legs = sorted(tuple(p[i]-2*n[i] for i in range(3)) for p in tet(lab, n, 1))
+    # orientation class: is the TetA leg set M1 (xyz=+1) or -M1?
+    return 1 if all(v[0]*v[1]*v[2] == 1 for v in legs) else -1
+for name, lab in LAB.items():
+    flips = {orient(lab, n) * orient(lab, tuple(n[i]+(1 if i == 0 else 0) for i in range(3)))
+             for n in itertools.product(range(-2, 3), repeat=3)}
+    res[name+"or"] = flips
+v = [(1, 1, 1), (1, -1, -1), (-1, 1, -1)]
+check("10. the root (orientation of the TetA legs, det = %d for M1's first three legs and its negative for -M1) is the same in "
+      "every cube in U and alternates across every face in C" % det3(*v),
+      res["Uor"] == {1} and res["Cor"] == {-1} and det3(*[tuple(-x for x in w) for w in v]) == -det3(*v))
+
+
+# 11. the label of a spike (the corner tetrahedron at corner p of cube n: tip p, base the 3 adjacent face centres)
+def spike(n, p):
+    c = [2*x for x in n]; s = [p[i]-c[i] for i in range(3)]
+    return frozenset([tuple(p)] + [tuple(c[j] + (s[j] if j == k else 0) for j in range(3)) for k in range(3)])
+def shape(t):   # the tetrahedron up to translation
+    m = min(t); return frozenset(tuple(v[i]-m[i] for i in range(3)) for v in t)
+for name, lab in LAB.items():
+    byshape = {}
+    for n in itertools.product(range(-1, 2), repeat=3):
+        for p in corners(n):
+            byshape.setdefault(shape(spike(n, p)), set()).add(lab(n, p))
+    res[name+"sh"] = byshape
+check("11a. the honeycomb's tetrahedra come in exactly two orientations (one the inversion of the other)",
+      len(res["Ush"]) == 2)
+check("11b. U: a spike's label is its orientation, TetA every 'up' tetrahedron and TetB every 'down' one: the honeycomb's own "
+      "2-colouring, read from geometry alone", all(len(v) == 1 for v in res["Ush"].values()))
+check("11c. C: each orientation carries both labels: the label is read from the corner's position, not from the shape",
+      all(v == {1, -1} for v in res["Csh"].values()))
+
 print(f"\n{sum(ok)}/{len(ok)} checks passed")

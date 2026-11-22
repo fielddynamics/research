@@ -1,6 +1,6 @@
 # The Cube Tiling: Two Labellings and What Each Builds
 
-*Field Dynamics Research, research folder, 2026-11-22. Status: research, not a proof. Verification: `python3 verify_cube_tiling.py` (11 checks, exact integers).*
+*Field Dynamics Research, research folder, 2026-11-22. Status: research, not a proof. Verification: `python3 verify_cube_tiling.py` (19 checks, exact integers and fractions).*
 
 `tiling` `cube` `stellated-octahedron` `TetA` `TetB` `closure` `diamond` `fluorite` `research`
 
@@ -38,26 +38,56 @@ So the "one global bit" of the closure note is the choice of origin in C, and th
 - **U:** every node has four legs, cube centres and corners alternate, and the legs form two interpenetrating diamond nets, one through the cubes with $n_1+n_2+n_3$ even and one through the odd ones (5a, 6). This is the lattice note's result 7.
 - **C:** cube centres have four legs, TetA corners eight, TetB corners none. The legs form one fluorite (CaF$_2$) net: the TetA corners on an fcc lattice, the cube centres on the simple cubic lattice in its tetrahedral holes (5b).
 
+**6. Where a TetA meets a TetB of another cube** (checks 8a, 8b). A cube's big tetrahedra touch the neighbouring cubes only on the shared boundary.
+- **C:** a TetA of one cube and a TetB of a face neighbour meet at one point, the face centre, which is a vertex of both cubes' Field Origins. Across edges and corners they do not meet. So TetA and TetB touch nowhere outside the cubes' Field Origins.
+- **U:** across every face a TetA and the neighbour's TetB share a whole edge, a face diagonal from corner to corner; across a corner they share that corner. These contacts lie outside the cubes' own Field Origins. They lie on the edges and vertices of the shared octahedra.
+
+**7. The shared octahedra** (checks 9a, 9b). Each has eight faces, two from each of the four cubes around its edge, and a face belongs to the chamber of the spike it bounds.
+- **U:** the faces alternate TetA/TetB, as on a cube's own Field Origin. The shared octahedron and its eight spikes make a complete stellated octahedron, centred on the cube edge and straddling four cubes.
+- **C:** the four faces at one end of the edge are TetA and the four at the other end TetB. The shared octahedron is a TetA square pyramid and a TetB square pyramid meeting at a square. It is not a Field Origin.
+
+**8. The root in each cube** (check 10). The orientation of a cube's TetA legs, $M_1$ or $-M_1$, is the root of the tetrad equation in that cube (Gram-matrix proof, Proposition 1).
+- **U:** the root is the same in every cube.
+- **C:** the root alternates across every face. Each cube's TetA legs are the parity image of its neighbour's.
+
+**9. What the label is read from** (checks 11a–11c). The honeycomb's tetrahedra come in two orientations, each the inversion of the other.
+- **U:** TetA is every tetrahedron of one orientation and TetB every one of the other. The label is the honeycomb's own 2-colouring, read from shape alone.
+- **C:** each orientation carries both labels. The label is read from the corner's position.
+
+## The two side by side
+
+| | U (uniform) | C (closure) |
+|---|---|---|
+| stellated octahedra | in every cube, on every cube edge (7), at every corner (4a) | in the cubes only |
+| TetA meets TetB | along cube-face diagonals and at corners (6) | only at the Field Origins (6) |
+| a shared corner | 4 TetA + 4 TetB legs (4a) | one chamber (2, 4b) |
+| the root, cube to cube | constant (8) | alternates (8) |
+| the label is | the tetrahedron's orientation (9) | the corner's position (2, 9) |
+| the TetA legs form | two diamond nets (5a) | one fluorite net (5b) |
+| the root exchange | half a body diagonal (3) | one cube (3) |
+
 ## What this settles and what it does not
 
-Settled, exactly: the two labellings are different tilings, not two descriptions of one. They agree on the geometry (the same tetrahedral–octahedral honeycomb, since a star is unchanged by swapping its labels) and differ on every labelled structure: the symmetry group, the meaning of the global bit, the dual cube, and the net.
+Settled, exactly: the two labellings are different tilings, not two descriptions of one. They agree on the geometry (the same tetrahedral–octahedral honeycomb, since a star is unchanged by swapping its labels) and differ on every labelled structure.
 
-Not settled: which labelling the framework's tiling is. Each rests on a premise the framework states:
-- **C** rests on Paper I's closure, "where parts meet they agree", read as one label per shared corner.
-- **U** rests on every cube holding the same star, and on the lattice note's bond reciprocity: a TetA leg closes only through a TetB-shaped junction (lattice note, result 2). In U that junction is the dual cube's exchanged star.
+Not settled: which labelling the framework's tiling is. The framework's stated positions bear on it as follows.
+- **For C.** Paper I's closure, "where parts meet they agree", read as one label per shared corner. The position that each cube holds one whole stellated octahedron, never one straddling cubes or centred on a corner: C has stars in the cubes only, while U has them on every cube edge and at every corner as well (results 4, 7). Rule 3, that TetB is reached only through the Field Origin: C keeps every TetA–TetB contact at the cubes' Field Origins (result 6).
+- **For U.** The root is the same in every cube, as a frame field keeps its orientation wherever $\det e \neq 0$ (result 8). The lattice note's bond reciprocity: a TetA leg closes only through a TetB-shaped junction (lattice note, result 2), and the diamond nets. The label is a property of the shape, not of position (result 9).
 
-The proof of the tiling cannot be written until this choice is made. Everything up to it (the honeycomb, the shared octahedra, result 1) is common to both and can go in either way.
+The proof of the tiling cannot be written until this choice is made. Everything common to both (the honeycomb, the shared octahedra as regions, result 1) can go in either way.
 
 ## Next
 
 - Choose the labelling, or state both as the two cases of the proof.
-- Then the exact parts move to `proofs/`: the honeycomb and shared octahedra (already in the closure note), results 1–5 for the chosen labelling, and the lattice note's results 1–4 and 6 if U.
+- If C: say what the alternating root means. In C the parity image of one cube's frame sits in the next cube, so the two roots alternate in space, one cube to the next.
+- If U: say what the stars on the cube edges and at the corners are, since they straddle cubes.
+- Then the exact parts move to `proofs/`: the honeycomb and shared octahedra (already in the closure note) and the results above for the chosen labelling.
 
 ## Files
 
 | File | What it does |
 |---|---|
-| [`verify_cube_tiling.py`](verify_cube_tiling.py) | 11 exact checks, labelled by the results above |
+| [`verify_cube_tiling.py`](verify_cube_tiling.py) | 19 exact checks: parts 1–7 for results 1–5, parts 8–11 for results 6–9 |
 
 ## Related
 
