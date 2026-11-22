@@ -8,7 +8,7 @@
 
 ---
 
-This folder holds a four-page proof, a script that checks it (25 checks), two 3D numerical solutions, and a Lean 4 formalisation (10 theorems). It closes the step that the [time-leg](../sst-covariant-time-leg/), [net-field rule](../net-field-rule/) and [khronon](../sst-khronon-preferred-frame/) proofs left open. It has been through two external reviews; the changes are listed below.
+This folder holds a five-page proof, a script that checks it (26 checks), two 3D numerical solutions, and a Lean 4 formalisation (10 theorems). It closes the step that the [time-leg](../sst-covariant-time-leg/), [net-field rule](../net-field-rule/) and [khronon](../sst-khronon-preferred-frame/) proofs left open. It has been through three external reviews; the changes are listed below.
 
 ## The picture
 
@@ -50,9 +50,9 @@ So **fields overlap**, and neighbours read each other. What is single-valued is 
 7. **A field-dependent radius (Theorem 5)** only nudges the mountain (by 2 × 10⁻³ in the test). Each system's own field stays Newtonian by construction.
 8. **Nested envelopes and the faces (Theorem 7, Paper VII §IX).** Section IX says every system, atom, star or galaxy, closes its own envelope with the same k = 4 structure and the same Poisson equation. In the action this is exact:
    - **Nesting telescopes.** Sweeping onto the star's envelope and then onto the system's equals sweeping straight onto the system's, so each level is its own Poisson field with the same 4πG, and inner envelopes are invisible above their level.
-   - **4π = kπ.** Each face of the envelope's tetrahedron covers π steradians, so exactly πGM passes through each face, at any radius.
+   - **4π = kπ.** Each face of the envelope's tetrahedron covers π steradians. The total flux is 4πGM for any object (Gauss). Per face it is πGM for a centred, round mass; for an asymmetric object (an oblong asteroid) the faces differ by its dipole (zero if the sphere is centred on its centre of mass) and part of its quadrupole, suppressed by (s/R)², about 10⁻⁸ for the planets in the Sun's sphere. The four ports describe the coupling structure, not four equal fluxes.
    - **The faces read the ports.** Sampling a host field at the four face directions gives the clock rate exactly (the tide drops out) and the free fall, with a small *chiral* leak of the tide: + for TetA, − for TetB. **Both tetrahedra together, the stellated octahedron, read the ports exactly**: the leak cancels.
-   - **No length in the rule.** Every sphere is set by its own mass and its host's tide, so the same rule applies at every level; only a₀, in the law's crossover, sets a scale. (A Weyl rescaling is not a symmetry of these equations; these are the scale statements that hold.)
+   - **Scale-universal, not scale-invariant.** The same rule applies at every level, but the hierarchy is not self-similar: in a flat host, stretching the host by λ stretches a closure radius by λ^(2/3), and a₀ sets a scale in the law's crossover. (A Weyl rescaling is not a symmetry of these equations.)
 9. **The action does not choose the edge (Theorem 6),** shown for a centred spherical system. The edge is a binding criterion, which mass belongs to which field object, not an energy minimum.
 
 ## The 3D check
@@ -74,6 +74,11 @@ So **fields overlap**, and neighbours read each other. What is single-valued is 
 | Check C2 was `True` | Removed; every check computes something |
 | The 3D demo used a different projector | The 3D runs now use the ownership sweep itself, with one system and with two overlapping |
 | The mountain obeyed a projected law | It now obeys the plain law |
+| Theorem 7(b) claimed equal flux πGM through every face, for any shape (third review) | Corrected: the total is 4πGM; per face, πGM plus the object's dipole and part of its quadrupole, measured (29% through the nearest face for a mass 0.1R off-centre) |
+| Scale invariance (third review) | Now "scale-universal": the closure radius scales as λ^(2/3) in a flat host |
+| The four-port count 1 + 3 is generic for any smooth potential (third review) | Agreed and stated; the tetrahedral content is how the faces read the ports and the chiral cancellation |
+| Which level owns a planet's mass (third review) | Only drainless bound systems sweep, at the outermost level inside the drained host; drained systems (galaxies) are never swept; levels below the outermost do not matter (telescoping) |
+| Assumptions, constants and the matter test (third review) | Assumptions listed; G is Newton's G_N (Paper VII's (17/13)G_bare); the matter test compares forces, not potentials |
 | Pal 14's 8.9σ | Stated as the net-field analysis's figure; the literature is divided (Jordi 2009; Gentile 2010; Sollima 2012) |
 | The Jacobi radius is a premise | Agreed: the data give a window, and choosing r_J within it is the binding premise |
 
@@ -89,9 +94,9 @@ So **fields overlap**, and neighbours read each other. What is single-valued is 
 
 | File | What it is |
 |---|---|
-| [`sst_mountain_scale.pdf`](sst_mountain_scale.pdf) | The proof (4 pages) |
+| [`sst_mountain_scale.pdf`](sst_mountain_scale.pdf) | The proof (5 pages) |
 | [`sst_mountain_scale.tex`](sst_mountain_scale.tex) | LaTeX source (IOP class, [`iopjournal.cls`](iopjournal.cls)) |
-| [`verify_sst_mountain_scale.py`](verify_sst_mountain_scale.py), [`verify_output.txt`](verify_output.txt) | 25 checks: the split with overlapping spheres (1D, two laws), the matter equation, the four ports, the overlaps, a field-dependent radius, the edge, the 3D results, and nested envelopes and the faces |
+| [`verify_sst_mountain_scale.py`](verify_sst_mountain_scale.py), [`verify_output.txt`](verify_output.txt) | 26 checks: the split with overlapping spheres (1D, two laws), the matter equation, the four ports, the overlaps, a field-dependent radius, the edge, the 3D results, and nested envelopes and the faces |
 | [`demo_ownership_3d.py`](demo_ownership_3d.py), [`demo_ownership_output.txt`](demo_ownership_output.txt) | The 3D ownership solutions, one system and two overlapping (about 10 minutes) |
 | [`demo_mountain_scale.py`](demo_mountain_scale.py), [`demo_output.txt`](demo_output.txt) | The 3D solver and the pointwise reference (the tail); it also contains the earlier single-scale low-pass version |
 | [`make_figure.py`](make_figure.py) | Draws [`fig_demo`](fig_demo.pdf) |

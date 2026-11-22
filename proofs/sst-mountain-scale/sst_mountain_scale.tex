@@ -83,7 +83,15 @@ twelve contacts, of which the four face-to-face ones are the active
 ports~\cite{NelsonFace}. Fields overlap; what is single-valued is which
 object a piece of mass belongs to.
 
-Every statement is checked by script (25 checks) with two 3D solutions;
+\textbf{Assumptions.} The theorems below hold for: (i) a fixed
+assignment of mass to field objects (ownership, the binding premise);
+(ii) given closure spheres; (iii) balayage onto a sphere, which is
+well defined for any interior mass distribution; (iv) the static weak
+field on fixed slices of the preferred foliation. $G$ is Newton's
+constant $G_{\rm N}$ throughout; Paper~VII writes it as
+$(17/13)\,G_{\rm bare}$~\cite{NelsonVII}.
+
+Every statement is checked by script (26 checks) with two 3D solutions;
 the algebra is machine-checked in Lean~4 (10 theorems)~\cite{NelsonScript}.
 
 % ----------------------------------------------------------------------
@@ -106,7 +114,17 @@ system. The system's own interior field is
 \label{eq:d}
 \end{equation}
 and the mountain is $\bar\Phi = \Phi - \sum_k d_k$. Spheres may overlap
-and contain other systems: each sweeps only its own mass. On each slice
+and contain other systems: each sweeps only its own mass.
+
+\textbf{Which systems sweep.} Only drainless bound systems sweep: in a
+drained host, each piece of mass belongs to the outermost drainless
+bound system containing it (the solar system, a star cluster, a wide
+binary). Drained systems (a galaxy, a satellite galaxy with its own
+rotation curve) are never swept; their matter is the mountain, where
+the law acts. Below the outermost level the assignment does not matter:
+a planet's mass swept onto its own envelope, then the star's, then the
+system's, gives the same result as sweeping it straight onto the
+system's (Theorem~7(a)). On each slice
 of the preferred foliation, harmonic measure and $\nabla^2$ are those
 of the slice's metric, so the construction is covariant under the
 foliation's symmetry. The action is
@@ -134,8 +152,9 @@ With~(\ref{eq:d}),
 \end{equation}
 the plain law, not a projected one, on the density with every
 system's mass on its own sphere; and $\Phi = \bar\Phi + \sum_k d_k$,
-each $d_k$ Newtonian with the bare $G$, zero outside $\Sigma_k$, and
-the same for every law. Nothing requires the spheres to be disjoint.}
+each $d_k$ Newtonian with Newton's $G$ (no host factor), zero outside
+$\Sigma_k$, and the same for every law. Nothing requires the spheres to
+be disjoint. The split is exact for fixed ownership and fixed spheres.}
 
 \begin{proof}
 Subtract $\nabla^2\sum_kd_k$ (Lean \texttt{ownership\_split},
@@ -172,10 +191,14 @@ $3\times10^{-14}$ at Saturn.}
 Lean \texttt{four\_ports}; script C1--C2.
 \end{proof}
 
-These are the tetrad's four legs, one timelike and three spacelike,
+These match the tetrad's four legs, one timelike and three spacelike,
 and the four active ports of GFD's face structure~\cite{NelsonIV,
-NelsonFace}: the NET Field reaches a field object through them, and
-through nothing else at leading order. The count of twelve contacts in
+NelsonFace}. The count $1 + 3$ itself is generic: it is the constant
+and gradient of any smooth potential in three dimensions, so this
+theorem supports the correspondence but does not single out the
+tetrahedron. What the tetrahedral geometry adds is Theorem~7(c): how
+the faces read these four channels, and the chiral leak that the dual
+tetrad cancels. The count of twelve contacts in
 close packing is the framework's geometric statement and is not derived
 here.
 
@@ -183,9 +206,9 @@ here.
 
 \section*{Theorem 3 (the matter, and what follows)}
 
-\emph{(a) A system's own matter feels the total potential plus a term
-from the mountain's TetB density inside its own sphere ($10^{-3}$ of
-$\Phi$ in the 1D test). For the Sun, with the Galactic TetB density
+\emph{(a) A system's own matter feels the total field's force plus a force
+from the mountain's TetB density inside its own sphere ($2.5\times10^{-3}$
+of the force in the 1D test, compared as gradients). For the Sun, with the Galactic TetB density
 $5.4\times10^{-22}$~kg\,m$^{-3}$, it is $\sim2\times10^{-19}$~m/s$^2$
 inside Saturn's orbit, tide-sized, and that density is $5\times10^{-5}$
 of the ephemeris bound on unseen mass there~\cite{Pitjev2013}.
@@ -249,12 +272,14 @@ binding premise.
 \emph{If $r_{J,k}$ is read from the mountain's tide and the system's
 mass, $d_k$ remains Newtonian by construction (it depends on the
 field only through $r_{J,k}$, and is linear in $\rho_k$); varying the
-field through $r_{J,k}$ adds a term to the mountain's equation alone.}
+field through $r_{J,k}$ adds a source to the mountain's equation alone,
+so~(\ref{eq:mountain}) holds up to that term.}
 
 \begin{proof}
 Script E1--E2: in 1D, with the radius read from the mountain's slope,
 the extra term moves the mountain by $2\times10^{-3}$ of itself and
-leaves every $d_k$ unchanged.
+leaves every $d_k$ unchanged. The full variation, with the sweep and
+the matter varied together, is not carried out.
 \end{proof}
 
 % ----------------------------------------------------------------------
@@ -303,16 +328,21 @@ radii and shapes, are invisible above their own level.}
 
 \emph{(b) $4\pi = k\pi$ per face. The tetrahedron's rotations carry one
 face direction to all four, so its faces cut the sphere into four
-quarters of $\pi$ steradians each, and the swept field of an envelope's
-mass $M$ sends exactly $\pi GM$ through each face, at every radius.}
+quarters of $\pi$ steradians each. The total flux through an envelope
+is $4\pi GM$ for any interior mass (Gauss). Per face it is $\pi GM$ for
+a centred monopole; in general each face's flux is $\pi GM$ plus the
+object's dipole about the sphere's centre (zero when the sphere is
+centred on the centre of mass) and the part of its quadrupole that the
+four faces can see, suppressed by $(s/R)^2$: about $10^{-8}$ for the
+planets inside the Sun's $1.44$~pc sphere.}
 
-\emph{(c) The faces read the ports. Read at an envelope's face
-directions $n_f$, a host field $\bar\Phi = c_0 + b\cdot x +
-\tfrac12x\cdot Tx$ gives}
+\emph{(c) The faces read the ports. Read at the points $Rn_f$, with
+$n_f$ the unit face directions of an envelope of radius $R$, a host
+field $\bar\Phi = c_0 + b\cdot x + \tfrac12x\cdot Tx$ gives}
 \[
 \begin{aligned}
-\textstyle\sum_f\bar\Phi(n_f) &= 4c_0,\\
-\textstyle\sum_f n_f\,\bar\Phi(n_f) &= 4b \pm 4\,(T_{23}, T_{13}, T_{12}),
+\textstyle\sum_f\bar\Phi(Rn_f) &= 4c_0,\\
+\textstyle\sum_f n_f\,\bar\Phi(Rn_f) &= \tfrac43Rb \pm \tfrac{4}{3\sqrt3}R^2(T_{23}, T_{13}, T_{12}),
 \end{aligned}
 \]
 \emph{with $+$ for TetA and $-$ for TetB. The sum is the temporal port
@@ -320,22 +350,27 @@ directions $n_f$, a host field $\bar\Phi = c_0 + b\cdot x +
 spatial ports (free fall), with a chiral leak of the tide, the
 $x \leftrightarrow yz$ mixing of the Walsh-eigenmode
 proof~\cite{NelsonWalsh}. Read at both tetrahedra, the stellated
-octahedron's eight cube corners, it is $8c_0$ and $8b$ exactly: the
-leak cancels. A single tetrahedron reads the host exactly through the
+octahedron's eight cube corners, it is $8c_0$ and $\tfrac83Rb$ exactly:
+the leak cancels. A single tetrahedron reads the host exactly through the
 quadrupole (a spherical 2-design), the stellated octahedron through the
 octupole (a 3-design).}
 
-\emph{(d) No length in the rule. Each sphere is set by its own mass and
-its host's tide ($r_J \propto M^{1/3}$), and the same rule applies at
-every level. Stretching lengths by $\lambda$ at fixed mass, the
-envelopes' Poisson equation holds with $\Phi \to \Phi/\lambda$ (Kepler)
-and the deep mountain's law with $\Phi$ unchanged (flat curves); only
-$a_0$, in the law's crossover, sets a scale.}
+\emph{(d) Scale-universal, not scale-invariant. Each sphere is set by
+its own mass and its host's tide, and the same rule applies at every
+level. Stretching lengths by $\lambda$ at fixed mass, the envelopes'
+Poisson equation holds with $\Phi \to \Phi/\lambda$ (Kepler) and the
+deep mountain's law with $\Phi$ unchanged (flat curves). But the
+hierarchy is not self-similar: in a flat host, stretching the host's
+radius by $\lambda$ stretches a closure radius by $\lambda^{2/3}$, and
+$a_0$ sets a scale in the law's crossover.}
 
 \begin{proof}
 (a) Lean \texttt{nested\_telescope}; 1D, $2\times10^{-16}$ (script H1).
-(b) Script H2. (c) Lean \texttt{faces\_read\_ports}; script H3--H4.
-(d) Script H5.
+(b) Script H2: total $4\pi GM$; a mass $0.1R$ off-centre gives 29\% through
+the nearest face; a face-axis quadrupole gives $25.3\%$ at $0.1R$ and
+$27.4\%$ at $0.3R$; one of the other symmetry type does not show. (c)
+Lean \texttt{faces\_read\_ports} (with the unnormalised directions
+$(\pm1,\pm1,\pm1)$); script H3--H4. (d) Script H5--H6.
 \end{proof}
 
 So Section~IX's ``each scale closes independently'' is the telescoping
@@ -343,8 +378,9 @@ identity, its universal Poisson equation is the envelopes' equation at
 every level, and its $k = 4$ structure ``when interacting with external
 fields'' is the four ports, read cleanly by the dual tetrad. What is
 universal is the rule; the law acts only on the drained host's
-mountain. A Weyl rescaling is not a symmetry of these equations (the
-Laplacian picks up a $\nabla\omega\cdot\nabla\Phi$ term); the scale
+mountain. The four ports describe the coupling structure, not four
+equal fluxes. A Weyl rescaling is not a symmetry of these equations
+(the Laplacian picks up a $\nabla\omega\cdot\nabla\Phi$ term); the scale
 statements that hold are those of~(d).
 
 % ----------------------------------------------------------------------
@@ -365,7 +401,11 @@ it cannot come from minimising energy.
 \item \emph{Time-dependent ownership} (mergers, stripping).
 \item \emph{General shapes} in Theorem~6.
 \item \emph{Relativistic order}: $\gamma = 1$ and the khronon result at
-leading and linear order only.
+leading and linear order only; the sweep and $d_k$ are defined on
+static slices, and their definition and variation in a dynamical
+spacetime are not given.
+\item \emph{The full variation} with field-dependent spheres, the sweep
+and the matter varied together (Theorem~5 gives the leading term).
 \item \emph{The twelve-contact geometry}: Theorem~2 gives the four ports
 at the level of the action; the count of twelve contacts is the
 framework's.
