@@ -37,6 +37,7 @@ readings of the neutron-lifetime discrepancy, Paper VII, and the proton mass, re
 - papers/letter-radial-acceleration-relation-sparc/letter.tex -- the radial acceleration relation from the action, tested on SPARC
 - EINSTEIN_TETA_PARTITION.md -- the torsion-free projection as the TetA partition (Letter 3 summary)
 - THE_MISSING_MASS.md -- general-reader article: the missing mass, a_0, the second root, the tug of war, the vortex
+- CLOSURE_OF_CLOSURES.md -- general-reader article: distributed field processing and recursive closure; every object closes and is a pointer above its level; what is proved (nested sweeps, boundary record, four channels, the closure surface and its doors, anchoring, Cassini Q2) and what is not
 - proofs/constitutive-law-tug-of-war/ -- the solve of mu(x): which premises select x/(x+1), and drive/brake from decoded mass
 - proofs/net-field-rule/ -- where mu acts: only on a field with a drain; why the solar system is exactly GR with the bare G
 - proofs/sst-mountain-scale/ -- the net-field rule from the action: the law read at each system's Jacobi radius (the mountain scale)
