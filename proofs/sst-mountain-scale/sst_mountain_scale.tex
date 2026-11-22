@@ -45,8 +45,9 @@ system's own field is Newtonian with the bare $G$, the same for every
 law. Fields overlap and neighbours read each other; mass is owned once.
 At leading order a field object meets the NET Field through exactly
 four channels, one temporal (its clock rate) and three spatial (its
-free fall): the four ports of the tetrad. The tail is gone, in 1D and
-3D, for one system and for two whose spheres each contain the other.
+free fall): the four ports of the tetrad. The pointwise self-tail $a_0\mu$ is gone, in 1D and 3D, for one system
+and for two whose spheres each contain the other; small,
+environment-dependent terms remain and are sized.
 Nested envelopes telescope, each with the same Poisson constant, as
 Paper~VII's Section~IX requires; read at an envelope's four face
 directions, a host field gives exactly the four ports, with a chiral
@@ -87,7 +88,9 @@ object a piece of mass belongs to.
 assignment of mass to field objects (ownership, the binding premise);
 (ii) given closure spheres; (iii) balayage onto a sphere, which is
 well defined for any interior mass distribution; (iv) the static weak
-field on fixed slices of the preferred foliation. $G$ is Newton's
+field on fixed slices of the preferred foliation. $\gamma = 1$ and the
+khronon results are imported from~\cite{NelsonTL,NelsonKh} under their
+assumptions, not derived from the split. $G$ is Newton's
 constant $G_{\rm N}$ throughout; Paper~VII writes it as
 $(17/13)\,G_{\rm bare}$~\cite{NelsonVII}.
 
@@ -108,7 +111,10 @@ $\Omega$, $\kappa$ the host's circular and epicyclic frequencies
 ($2\Omega^2$ for a flat curve). Sweep $\rho_k$ onto $\Sigma_k$ by
 harmonic measure (balayage), $\rho_k \to B_k\rho_k$: the mass is moved
 to the sphere so that the field outside is unchanged, for any shape of
-system. The system's own interior field is
+system. Balayage works onto the boundary of any regular domain, so the
+sphere can be replaced by the true, anisotropic Jacobi surface; the
+sphere is the approximation for a near-circular orbit with $r_J$ small
+against the host's scale, and Theorem~1 holds for either. The system's own interior field is
 \begin{equation}
 \nabla^2 d_k = 4\pi G\,(\rho_k - B_k\rho_k),\qquad d_k = 0 \text{ outside } \Sigma_k,
 \label{eq:d}
@@ -124,19 +130,23 @@ rotation curve) are never swept; their matter is the mountain, where
 the law acts. Below the outermost level the assignment does not matter:
 a planet's mass swept onto its own envelope, then the star's, then the
 system's, gives the same result as sweeping it straight onto the
-system's (Theorem~7(a)). On each slice
+system's (Theorem~7(a)). Which systems are drainless, and which mass
+is bound to which, is the premise; the net-field rule names the
+observable a marker must measure, the growth of flux across empty
+shells~\cite{NelsonNFR}. On each slice
 of the preferred foliation, harmonic measure and $\nabla^2$ are those
 of the slice's metric, so the construction is covariant under the
 foliation's symmetry. The action is
 \begin{equation}
 \begin{aligned}
-S = \!\int\! d^4x\sqrt{-g}\Big[&\frac{R - 2a_0^2[F(\bar y) - \bar y]}{16\pi G}\\
+S = \!\int\! d^4x\sqrt{-g}\Big[&\frac{c^4}{16\pi G}\Big(R - \frac{2a_0^2}{c^4}[F(\bar y) - \bar y]\Big)\\
 &- \tfrac14e^{-2\Phi/c^2}F^2 + \mathcal L_{\rm m}\Big],
 \end{aligned}
 \label{eq:S}
 \end{equation}
-$\bar y = |\nabla\bar\Phi|^2/a_0^2$: the curvature term, all of Newton
-and Einstein, at every point; the TetB term on the mountain.
+$\bar y = |\nabla\bar\Phi|^2/a_0^2$ ($R$ in m$^{-2}$, $a_0^2/c^4$
+likewise): the curvature term, all of Newton and Einstein, at every
+point; the TetB term on the mountain.
 
 % ----------------------------------------------------------------------
 
@@ -175,8 +185,8 @@ excluded from the law, because only the Sun owns it.
 \section*{Theorem 2 (the four ports)}
 
 \emph{A field object with its centre of mass at the origin, in a
-harmonic NET Field $\bar\Phi = c_0 + b\cdot x + \tfrac12x\cdot T x$
-(traceless $T$), has interaction energy
+NET Field $\bar\Phi = c_0 + b\cdot x + \tfrac12x\cdot T x$
+($T$ symmetric), has interaction energy
 \[
 \textstyle\int\rho_k\bar\Phi = M_kc_0 + \tfrac12 T:Q_k ,
 \]
@@ -206,13 +216,19 @@ here.
 
 \section*{Theorem 3 (the matter, and what follows)}
 
-\emph{(a) A system's own matter feels the total field's force plus a force
-from the mountain's TetB density inside its own sphere ($2.5\times10^{-3}$
-of the force in the 1D test, compared as gradients). For the Sun, with the Galactic TetB density
+\emph{(a) With the sweep varied and the sphere fixed, a system's own matter
+feels the total field's force plus a force from the mountain's TetB
+density inside its own sphere ($2.5\times10^{-3}$ of the force in the 1D
+test, compared as gradients). If the sphere is centred on the system's
+centre of mass, its motion adds $(\partial S/\partial c)\,m_i/M$ to member
+$i$: one acceleration for every member, which moves the system as a
+whole and drops out of its internal motion; for the Sun about
+$7\times10^{-15}$~m/s$^2$, $3\times10^{-5}$ of the Galactic field. For the Sun, with the Galactic TetB density
 $5.4\times10^{-22}$~kg\,m$^{-3}$, it is $\sim2\times10^{-19}$~m/s$^2$
 inside Saturn's orbit, tide-sized, and that density is $5\times10^{-5}$
 of the ephemeris bound on unseen mass there~\cite{Pitjev2013}.
-(b) No tail. (c) Neighbours keep their full Newtonian pull on each
+(b) No self-tail: the pointwise $a_0\mu$ of a system's own field is
+absent; the environment-dependent terms of (a) remain. (c) Neighbours keep their full Newtonian pull on each
 other. (d) $\gamma = 1$ at leading order, and to linear order in the
 slow-motion limit the Sun carries no khronon of its own, while the
 galaxy's is flat across the solar system~\cite{NelsonKh}. (e) Outside
@@ -221,7 +237,7 @@ harmonic extension of its own multipoles from $\Sigma_k$ enters the
 mountain, suppressed as in Theorem~2.}
 
 \begin{proof}
-(a) script B1; (b), (c) Fig.~\ref{fig:demo} and script G1--G3; (d), (e)
+(a) script B1--B2; (b), (c) Fig.~\ref{fig:demo} and script G1--G3; (d), (e)
 from Theorems~1--2 and~\cite{NelsonTL,NelsonKh}.
 \end{proof}
 
@@ -246,8 +262,10 @@ its centre: no tail around either (script G3). Scripts:
 the Cassini bound ($0.058$~pc) to binding~\cite{NelsonNFR}. (b)
 $\alpha$~Centauri ($2\,M_\odot$, $1.34$~pc away) has $1.81$~pc: each
 sphere contains the other's centre. In the solar neighbourhood the
-spheres fill $\eta \approx 0.6$ of space, above the percolation
-threshold of overlapping spheres ($\eta_c \approx 0.34$), so merging
+spheres' reduced density is $\eta \approx 0.63$ (for Poisson-placed
+centres they cover $1 - e^{-\eta} \approx 47\%$ of space), above the
+percolation threshold of idealised equal spheres ($\eta_c \approx 0.34$;
+clustering and unequal radii shift it), so merging
 overlapping regions into one would join a single Newtonian region
 across the disc; ownership merges nothing. (c) Pal~14 and Pal~4 have
 spheres of $\approx160$ and $270$~pc around 26 and 18~pc bodies: each
@@ -291,8 +309,8 @@ sphere changes the law's energy only on the shell from $R$ to $R + dR$.
 The law's energy term $H(g) = a_0^2[F - y]$ is non-increasing and
 concave ($H' = -2g/(1+g/a_0)$, $H'' = -2/(1+g/a_0)^2$, the khronon's
 stability conditions~\cite{NelsonKh}), so by Jensen's inequality
-$dS/dR < 0$ at every $R$: no stationary edge, and energy alone would
-pick the pointwise reading.}
+$dS/dR < 0$ at every $R$: no stationary edge, so the action does not
+select a finite closure radius.}
 
 \begin{proof}
 Envelope theorem and Jensen; checked for $0.01 \le R/r_M \le 1000$
@@ -301,7 +319,7 @@ covered.
 \end{proof}
 
 So the edge is a binding criterion, which mass belongs to which field
-object, not an energy minimum: the stream decides what belongs to the
+object, not something the action selects: the stream decides what belongs to the
 mountain by where it flows, not by what costs least.
 
 % ----------------------------------------------------------------------
@@ -334,26 +352,32 @@ a centred monopole; in general each face's flux is $\pi GM$ plus the
 object's dipole about the sphere's centre (zero when the sphere is
 centred on the centre of mass) and the part of its quadrupole that the
 four faces can see, suppressed by $(s/R)^2$: about $10^{-8}$ for the
-planets inside the Sun's $1.44$~pc sphere.}
+planets inside the Sun's $1.44$~pc sphere. This is the Newtonian flux
+of the system's own field; for the mountain the conserved flux is the
+constitutive one, $\oint\bar\mu\nabla\bar\Phi\cdot d\mathbf A$. The $4\pi$
+itself is Gauss's geometry, which the four faces partition.}
 
 \emph{(c) The faces read the ports. Read at the points $Rn_f$, with
 $n_f$ the unit face directions of an envelope of radius $R$, a host
-field $\bar\Phi = c_0 + b\cdot x + \tfrac12x\cdot Tx$ gives}
+field $\bar\Phi = c_0 + b\cdot x + \tfrac12x\cdot Tx$ ($T$ symmetric) gives}
 \[
 \begin{aligned}
-\textstyle\sum_f\bar\Phi(Rn_f) &= 4c_0,\\
+\textstyle\sum_f\bar\Phi(Rn_f) &= 4c_0 + \tfrac23R^2\operatorname{tr}T,\\
 \textstyle\sum_f n_f\,\bar\Phi(Rn_f) &= \tfrac43Rb \pm \tfrac{4}{3\sqrt3}R^2(T_{23}, T_{13}, T_{12}),
 \end{aligned}
 \]
-\emph{with $+$ for TetA and $-$ for TetB. The sum is the temporal port
-(the clock rate; the tide drops out). The weighted sum is the three
+\emph{with $+$ for TetA and $-$ for TetB. The sum is the temporal port,
+the clock rate, plus the mean density inside, $\operatorname{tr}T =
+4\pi G(\rho_{\rm diffuse} + \rho_{\rm TetB})$; the traceless tide drops
+out. Inside an envelope the mountain is not harmonic in general, so the
+trace stays. The weighted sum is the three
 spatial ports (free fall), with a chiral leak of the tide, the
 $x \leftrightarrow yz$ mixing of the Walsh-eigenmode
 proof~\cite{NelsonWalsh}. Read at both tetrahedra, the stellated
-octahedron's eight cube corners, it is $8c_0$ and $\tfrac83Rb$ exactly:
-the leak cancels. A single tetrahedron reads the host exactly through the
-quadrupole (a spherical 2-design), the stellated octahedron through the
-octupole (a 3-design).}
+octahedron's eight cube corners, it is $8c_0 + \tfrac43R^2\operatorname{tr}T$
+and $\tfrac83Rb$: the chiral leak cancels. For a harmonic host, a single tetrahedron reads it exactly
+through the quadrupole (a spherical 2-design), the stellated octahedron
+through the octupole (a 3-design).}
 
 \emph{(d) Scale-universal, not scale-invariant. Each sphere is set by
 its own mass and its host's tide, and the same rule applies at every
@@ -405,7 +429,10 @@ leading and linear order only; the sweep and $d_k$ are defined on
 static slices, and their definition and variation in a dynamical
 spacetime are not given.
 \item \emph{The full variation} with field-dependent spheres, the sweep
-and the matter varied together (Theorem~5 gives the leading term).
+and the matter varied together: Theorem~5 gives the field's leading
+term and Theorem~3(a) the matter's, with the sphere centred on the
+centre of mass; a constrained variational formulation with ownership
+as a constraint is not given.
 \item \emph{The twelve-contact geometry}: Theorem~2 gives the four ports
 at the level of the action; the count of twelve contacts is the
 framework's.

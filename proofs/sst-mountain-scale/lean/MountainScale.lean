@@ -20,9 +20,9 @@ law's nonlinear flux and `s = 4πGρ`. Because `P` is idempotent and commutes wi
 * `four_ports`: a field object meets the NET Field through one temporal channel (the lapse) and
   three spatial ones (its centre of mass), plus a tidal term;
 * `faces_read_ports`, `nested_telescope` (Paper VII, Section IX): read at an envelope's four face
-  directions, a host field gives its clock rate and free fall, with a chiral tidal leak that TetA
-  and TetB carry with opposite signs and the stellated octahedron cancels; nested envelopes
-  telescope;
+  directions, a host field gives its clock rate (plus the mean density inside) and free fall,
+  with a chiral tidal leak that TetA and TetB carry with opposite signs and the stellated
+  octahedron cancels; nested envelopes telescope;
 * `no_tail_in_dimple`: the dimple's TetB share is zero, while read pointwise the law leaves a
   share strictly between 0 and `a₀` at every finite field (`strong_field_not_pure`).
 
@@ -128,27 +128,29 @@ theorem four_ports {n : ℕ} (m : Fin n → ℝ) (p : Fin n → Fin 3 → ℝ)
 -- The faces read the ports (Paper VII, Section IX)
 -- ============================================================================================
 
-/-- A host field near an envelope's centre: `c₀ + b ⬝ v + (1/2) vᵀ T v`, with `T` symmetric and
-traceless (harmonic), written in components. -/
-noncomputable def hostField (c₀ b₁ b₂ b₃ t₁₁ t₁₂ t₁₃ t₂₂ t₂₃ : ℝ) (v₁ v₂ v₃ : ℝ) : ℝ :=
+/-- A host field near an envelope's centre: `c₀ + b ⬝ v + (1/2) vᵀ T v`, with `T` any symmetric
+matrix, written in components. Inside an envelope the mountain need not be harmonic:
+`tr T = 4πG (ρ_diffuse + ρ_TetB)` there. -/
+noncomputable def hostField (c₀ b₁ b₂ b₃ t₁₁ t₁₂ t₁₃ t₂₂ t₂₃ t₃₃ : ℝ) (v₁ v₂ v₃ : ℝ) : ℝ :=
   c₀ + b₁ * v₁ + b₂ * v₂ + b₃ * v₃ +
-    (t₁₁ * v₁ ^ 2 + t₂₂ * v₂ ^ 2 + (-t₁₁ - t₂₂) * v₃ ^ 2 +
+    (t₁₁ * v₁ ^ 2 + t₂₂ * v₂ ^ 2 + t₃₃ * v₃ ^ 2 +
       2 * t₁₂ * v₁ * v₂ + 2 * t₁₃ * v₁ * v₃ + 2 * t₂₃ * v₂ * v₃) / 2
 
 /-- Read at TetA's four face directions `(1,1,1), (1,−1,−1), (−1,1,−1), (−1,−1,1)`, the host
-field's sum is `4c₀` (the temporal port; the tide drops out), and its face-weighted sum is
-`4b + 4(T₂₃, T₁₃, T₁₂)` (the three spatial ports, with a chiral leak of the tide). TetB's directions
-are the negatives: the same sum, and the leak with the opposite sign. Both together, the stellated
-octahedron's eight cube corners, read `8c₀` and `8b` exactly. -/
-theorem faces_read_ports (c₀ b₁ b₂ b₃ t₁₁ t₁₂ t₁₃ t₂₂ t₂₃ : ℝ) :
-    let F := hostField c₀ b₁ b₂ b₃ t₁₁ t₁₂ t₁₃ t₂₂ t₂₃
+field's sum is `4c₀ + 2 tr T` (the temporal port, plus the mean density inside; the trace vanishes
+only where the mountain is harmonic), and its face-weighted sum is `4b + 4(T₂₃, T₁₃, T₁₂)` (the three
+spatial ports, with a chiral leak of the tide; the trace does not enter). TetB's directions are the
+negatives: the same sum, and the leak with the opposite sign. Both together, the stellated
+octahedron's eight cube corners, read `8c₀ + 4 tr T` and `8b`: the leak cancels. -/
+theorem faces_read_ports (c₀ b₁ b₂ b₃ t₁₁ t₁₂ t₁₃ t₂₂ t₂₃ t₃₃ : ℝ) :
+    let F := hostField c₀ b₁ b₂ b₃ t₁₁ t₁₂ t₁₃ t₂₂ t₂₃ t₃₃
     -- TetA
-    F 1 1 1 + F 1 (-1) (-1) + F (-1) 1 (-1) + F (-1) (-1) 1 = 4 * c₀ ∧
+    F 1 1 1 + F 1 (-1) (-1) + F (-1) 1 (-1) + F (-1) (-1) 1 = 4 * c₀ + 2 * (t₁₁ + t₂₂ + t₃₃) ∧
     F 1 1 1 + F 1 (-1) (-1) - F (-1) 1 (-1) - F (-1) (-1) 1 = 4 * b₁ + 4 * t₂₃ ∧
     F 1 1 1 - F 1 (-1) (-1) + F (-1) 1 (-1) - F (-1) (-1) 1 = 4 * b₂ + 4 * t₁₃ ∧
     F 1 1 1 - F 1 (-1) (-1) - F (-1) 1 (-1) + F (-1) (-1) 1 = 4 * b₃ + 4 * t₁₂ ∧
     -- TetB
-    F (-1) (-1) (-1) + F (-1) 1 1 + F 1 (-1) 1 + F 1 1 (-1) = 4 * c₀ ∧
+    F (-1) (-1) (-1) + F (-1) 1 1 + F 1 (-1) 1 + F 1 1 (-1) = 4 * c₀ + 2 * (t₁₁ + t₂₂ + t₃₃) ∧
     -(F (-1) (-1) (-1)) - F (-1) 1 1 + F 1 (-1) 1 + F 1 1 (-1) = 4 * b₁ - 4 * t₂₃ ∧
     -- the stellated octahedron: the leak cancels
     (F 1 1 1 + F 1 (-1) (-1) - F (-1) 1 (-1) - F (-1) (-1) 1) +

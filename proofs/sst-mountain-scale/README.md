@@ -8,7 +8,7 @@
 
 ---
 
-This folder holds a five-page proof, a script that checks it (26 checks), two 3D numerical solutions, and a Lean 4 formalisation (10 theorems). It closes the step that the [time-leg](../sst-covariant-time-leg/), [net-field rule](../net-field-rule/) and [khronon](../sst-khronon-preferred-frame/) proofs left open. It has been through three external reviews; the changes are listed below.
+This folder holds a five-page proof, a script that checks it (27 checks), two 3D numerical solutions, and a Lean 4 formalisation (10 theorems). It closes the step that the [time-leg](../sst-covariant-time-leg/), [net-field rule](../net-field-rule/) and [khronon](../sst-khronon-preferred-frame/) proofs left open. It has been through four external reviews; the changes are listed below.
 
 ## The picture
 
@@ -79,6 +79,10 @@ So **fields overlap**, and neighbours read each other. What is single-valued is 
 | The four-port count 1 + 3 is generic for any smooth potential (third review) | Agreed and stated; the tetrahedral content is how the faces read the ports and the chiral cancellation |
 | Which level owns a planet's mass (third review) | Only drainless bound systems sweep, at the outermost level inside the drained host; drained systems (galaxies) are never swept; levels below the outermost do not matter (telescoping) |
 | Assumptions, constants and the matter test (third review) | Assumptions listed; G is Newton's G_N (Paper VII's (17/13)G_bare); the matter test compares forces, not potentials |
+| The matter variation was incomplete (fourth review) | With the sweep varied, the extra force is tide-sized (B1). With the sphere centred on the centre of mass, its motion gives every member the same acceleration, (∂S/∂c)m_i/M: it moves the system as a whole and drops out of internal motion (~7 × 10⁻¹⁵ m/s² for the Sun). A constrained variational formulation is still open |
+| Inside an envelope the mountain is not harmonic (fourth review) | Agreed: the face sum is 4c₀ + (2/3)R² tr T, tr T = 4πG(ρ_diffuse + ρ_TetB); the chiral cancellation is unaffected (Lean updated) |
+| Units in the action; Newtonian vs constitutive flux; "no tail" (fourth review) | c⁴ restored; the conserved flux for the mountain is ∮μ∇Φ̄·dA; "no tail" now means no pointwise self-tail, with the small environment-dependent terms sized |
+| Energy reading of Theorem 6; space-filling wording; real Jacobi surfaces (fourth review) | Now "the action does not select a finite radius"; η = 0.63 is the reduced density, covering 47%; sweeping works onto any closed surface, so the true anisotropic Jacobi surface can be used |
 | Pal 14's 8.9σ | Stated as the net-field analysis's figure; the literature is divided (Jordi 2009; Gentile 2010; Sollima 2012) |
 | The Jacobi radius is a premise | Agreed: the data give a window, and choosing r_J within it is the binding premise |
 
@@ -96,7 +100,7 @@ So **fields overlap**, and neighbours read each other. What is single-valued is 
 |---|---|
 | [`sst_mountain_scale.pdf`](sst_mountain_scale.pdf) | The proof (5 pages) |
 | [`sst_mountain_scale.tex`](sst_mountain_scale.tex) | LaTeX source (IOP class, [`iopjournal.cls`](iopjournal.cls)) |
-| [`verify_sst_mountain_scale.py`](verify_sst_mountain_scale.py), [`verify_output.txt`](verify_output.txt) | 26 checks: the split with overlapping spheres (1D, two laws), the matter equation, the four ports, the overlaps, a field-dependent radius, the edge, the 3D results, and nested envelopes and the faces |
+| [`verify_sst_mountain_scale.py`](verify_sst_mountain_scale.py), [`verify_output.txt`](verify_output.txt) | 27 checks: the split with overlapping spheres (1D, two laws), the matter equation, the four ports, the overlaps, a field-dependent radius, the edge, the 3D results, and nested envelopes and the faces |
 | [`demo_ownership_3d.py`](demo_ownership_3d.py), [`demo_ownership_output.txt`](demo_ownership_output.txt) | The 3D ownership solutions, one system and two overlapping (about 10 minutes) |
 | [`demo_mountain_scale.py`](demo_mountain_scale.py), [`demo_output.txt`](demo_output.txt) | The 3D solver and the pointwise reference (the tail); it also contains the earlier single-scale low-pass version |
 | [`make_figure.py`](make_figure.py) | Draws [`fig_demo`](fig_demo.pdf) |

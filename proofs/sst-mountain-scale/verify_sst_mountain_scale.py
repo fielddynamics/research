@@ -102,6 +102,19 @@ check(f"B1 the force on the Sun's own matter is the total field's gradient plus 
       "is ~(4 pi/3) G rho r = 2e-19 m/s^2, the same order as the tide, and the density is 5e-5 of the ephemeris bound on "
       "unseen mass there (1.1e-17 kg/m^3)", dev < 0.05)
 
+MA = A[0].sum() * h
+cA_com = (x * A[0]).sum() / A[0].sum()
+def S_sphere(shift):
+    dA_ = Kinv @ (A[0] - sweep(A[0], A[1] + shift, A[2] + shift)); return S(p1, d=dA_ + dB)
+dS_dc = (S_sphere(3 * h) - S_sphere(-3 * h)) / (6 * h)
+acc_common = abs(dS_dc) / A[0].sum()
+host_slope = abs(np.interp(cA_com + 0.01, x, p1 - dsum) - np.interp(cA_com - 0.01, x, p1 - dsum)) / 0.02
+check("B2 if the closure sphere is centred on its system's centre of mass c = sum m_i x_i / M, the sphere's motion adds "
+      "dS/dc (dc/dx_i) = (dS/dc) m_i/M to the force on member i: the same acceleration for every member, which moves the "
+      f"system as a whole and drops out of its internal motion. Here it is {acc_common / host_slope:.1e} of the host's field "
+      "at the system; for the Sun, (TetB mass inside its sphere, ~0.1 Msun)/M x (its pull at r_J, 7e-14 m/s^2) ~ 7e-15 m/s^2, "
+      "3e-5 of the Galactic field, acting on the Sun and planets alike", acc_common / host_slope < 0.05)
+
 # ------------------------------------------------------------------ Part C: the four ports
 X1, X2, X3, c0, b1, b2, b3 = sp.symbols("x1 x2 x3 c0 b1 b2 b3", real=True)
 t11, t12, t13, t22, t23 = sp.symbols("t11 t12 t13 t22 t23", real=True)
@@ -139,8 +152,9 @@ check(f"D1 the Sun's Jacobi radius is {rJ_sun / PCm:.2f} pc, inside the window f
       1.3 < rJ_sun / PCm < 1.6 and rJ_acen / PCm > 1.34 and rJ_sun / PCm > 1.34)
 rho_star = 0.05                                                # Msun/pc^3, local stellar mass density
 eta = rho_star * (4 * math.pi / 3) * (rJ_sun / PCm) ** 3        # sum of sphere volumes per unit volume (r_J^3 ~ M)
-check(f"D2 overlap is the rule, not the exception: Jacobi spheres in the solar neighbourhood fill eta = {eta:.2f} of space "
-      f"(union {1 - math.exp(-eta):.2f}), above the percolation threshold of overlapping spheres (eta_c ~ 0.34). Merging "
+check(f"D2 overlap is the rule, not the exception: the reduced density of Jacobi spheres in the solar neighbourhood is "
+      f"eta = {eta:.2f} (for Poisson-placed centres they cover 1 - e^-eta = {1 - math.exp(-eta):.2f} of space), above the "
+      "percolation threshold of idealised equal overlapping spheres (eta_c ~ 0.34; clustering and unequal radii shift it). Merging "
       "overlapping regions would join one Newtonian region across the disc and switch the law off there; sweeping by "
       "ownership does not merge anything", eta > 0.34)
 for name, M, Re, D_gc in (("Pal 14", 1.2e4, 26.0, 71), ("Pal 4", 2.98e4, 18.4, 103)):
@@ -186,7 +200,7 @@ def dSdR_sph(R, ge):
     return -0.5 * 4 * np.pi * R ** 2 * (H(ge) - np.trapezoid(H(gv), cth) / 2)
 check("F2 for a centred spherical system in a uniform host, enlarging its sphere only changes the law's energy on the "
       "shell between R and R + dR, and by Jensen's inequality dS/dR < 0 at every radius (0.01 to 1000 r_M, hosts at "
-      "x = 0.1, 1.5, 10): the action has no stationary edge, and energy alone would pick the pointwise reading. "
+      "x = 0.1, 1.5, 10): the action has no stationary edge, so it does not select a finite closure radius. "
       "For general shapes this is not proved",
       all(dSdR_sph(R, ge) < 0 for ge in (0.1, 1.5, 10.0) for R in np.logspace(-2, 3, 200)))
 
@@ -261,13 +275,17 @@ check("H2 4 pi = k pi: the tetrahedron's rotations carry one face direction to a
       f"when the sphere is centred on the centre of mass); a quadrupole along a face axis gives {100 * frQ1[0]:.2f}% at 0.1 R and "
       f"{100 * frQ3[0]:.1f}% at 0.3 R (quadratic); a quadrupole of the other symmetry type does not show in the faces "
       f"({100 * frE[0]:.2f}%). So each face carries pi G M up to the object's dipole and quadrupole, suppressed by (s/R)^2, "
-      "~1e-8 for the planets in the Sun's 1.44 pc sphere",
+      "~1e-8 for the planets in the Sun's 1.44 pc sphere. This is the Newtonian flux of a system's own field; for the "
+      "mountain the conserved flux is the constitutive one, the integral of mu grad Phi_bar. The 4 pi itself is Gauss's "
+      "geometry, which the four faces partition",
       orbit == {tuple(f_) for f_ in Fset} and R3.det() == 1 and R2.det() == 1
       and all(abs(x_ - 0.25) < 0.003 for x_ in fr0) and abs(tot0.sum() / (4 * np.pi) - 1) < 0.003
       and frD[0] > 0.28 and 0.002 < frQ1[0] - 0.25 < 0.006 and frQ3[0] - 0.25 > 0.015 and abs(frE[0] - 0.25) < 0.002)
 # H3: the four faces read the four ports; the dual tetrad reads them cleanly
 t11, t12, t13, t22, t23, c0s, b1s, b2s, b3s = sp.symbols("t11 t12 t13 t22 t23 c0 b1 b2 b3")
-Tm = sp.Matrix([[t11, t12, t13], [t12, t22, t23], [t13, t23, -t11 - t22]]); bv = sp.Matrix([b1s, b2s, b3s])
+t33 = sp.symbols("t33")
+Tm = sp.Matrix([[t11, t12, t13], [t12, t22, t23], [t13, t23, t33]]); bv = sp.Matrix([b1s, b2s, b3s])
+trT = t11 + t22 + t33
 Ph = lambda v: c0s + (bv.T * v)[0] + sp.Rational(1, 2) * (v.T * Tm * v)[0]
 TA = [sp.Matrix(v_) for v_ in [(1, 1, 1), (1, -1, -1), (-1, 1, -1), (-1, -1, 1)]]
 TB = [-v_ for v_ in TA]
@@ -275,13 +293,15 @@ def read(S):
     return sp.expand(sum(Ph(v_) for v_ in S)), sp.expand(sum((Ph(v_) * v_ for v_ in S), sp.zeros(3, 1)))
 (sA, vA), (sB, vB), (sC, vC) = read(TA), read(TB), read(TA + TB)
 leak = sp.Matrix([t23, t13, t12])
-check("H3 sampling a host field c0 + b.x + (1/2) x.T.x at an envelope's four face directions: the sum is 4 c0 for either "
-      "tetrahedron (the tide drops out: the temporal port, the clock rate); the face-weighted sum is 4b + 4(T23, T13, T12) "
-      "for TetA and 4b - 4(T23, T13, T12) for TetB (the three spatial ports, with a chiral leak of the tide, the x <-> yz "
-      "mixing of the Walsh-eigenmode proof); the dual tetrad, the cube's eight corners, reads 8 c0 and 8b exactly",
-      sp.simplify(sA - 4 * c0s) == 0 and sp.simplify(sB - 4 * c0s) == 0
+check("H3 sampling a host field c0 + b.x + (1/2) x.T.x (any symmetric T) at an envelope's four face directions "
+      "(+-1, +-1, +-1): the sum is 4 c0 + 2 tr T for either tetrahedron (the temporal port, the clock rate, plus the mean "
+      "density inside: tr T = 4 pi G (rho_diffuse + rho_TetB), zero only where the mountain is harmonic); the face-weighted "
+      "sum is 4b + 4(T23, T13, T12) for TetA and 4b - 4(T23, T13, T12) for TetB (the three spatial ports, with a chiral leak "
+      "of the tide, the x <-> yz mixing of the Walsh-eigenmode proof; the trace does not enter); the dual tetrad, the cube's "
+      "eight corners, reads 8 c0 + 4 tr T and 8b: the chiral leak cancels",
+      sp.simplify(sA - 4 * c0s - 2 * trT) == 0 and sp.simplify(sB - 4 * c0s - 2 * trT) == 0
       and sp.simplify(vA - 4 * bv - 4 * leak) == sp.zeros(3, 1) and sp.simplify(vB - 4 * bv + 4 * leak) == sp.zeros(3, 1)
-      and sp.simplify(sC - 8 * c0s) == 0 and sp.simplify(vC - 8 * bv) == sp.zeros(3, 1))
+      and sp.simplify(sC - 8 * c0s - 4 * trT) == 0 and sp.simplify(vC - 8 * bv) == sp.zeros(3, 1))
 check("H4 one level higher: the cubic harmonic xyz averages to 4 over TetA's directions and 0 over the cube's. A single "
       "tetrahedron reads the host exactly through the quadrupole (a spherical 2-design); the stellated octahedron through "
       "the octupole (a 3-design)",
