@@ -327,7 +327,7 @@ Mountain scale (proofs/sst-mountain-scale, machine-checked in Lean): the net-fie
   interior field). Exact split: the mountain obeys the plain law on the swept density; each d_k is Newtonian,
   bare G, the same for every law. Four ports: a field object meets the NET Field through its lapse (1 temporal)
   and free fall (3 spatial); tide suppressed by (s/r_J)^3. Overlap is generic (alpha Cen), so ownership, not
-  regions. No tail in 1D/3D. The action does not choose the edge: a binding criterion.
+  regions. No tail in 1D/3D. The action does not choose the edge; every object closes locally, a pointer above its own level.
   Paper VII Section IX made exact: nested envelopes telescope (B_k B_j = B_k), each level Poisson with one
   constant; total flux 4 pi G M, pi G M per face up to the object's dipole and quadrupole; a host field read at the 4 face directions gives 4 c0 + 2 trT (clock + mean density) and
   4b +- 4(T23,T13,T12) (free fall + chiral tide leak, + TetA / - TetB); the stellated octahedron reads 8c0, 8b exactly.

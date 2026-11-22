@@ -59,7 +59,8 @@ excludes; read by ownership, the Sun's swept shell is a homoeoid in the
 mountain's anisotropic response and leaves none: GFD predicts no
 anomalous $Q_2$, with residuals below $10^{-30}$~s$^{-2}$. The data
 fix each sphere at its system's Jacobi radius; the action does not choose it, at least
-for a centred spherical system, so the edge is a binding criterion.
+for a centred spherical system: every object closes, and where its
+surface sits is set by the dynamics.
 \end{abstract}
 
 \keywords{SST, net-field rule, field object, closure boundary, Jacobi radius, balayage, four ports, preferred foliation, action, MOND, proof}
@@ -91,7 +92,8 @@ ports~\cite{NelsonFace}. Fields overlap; what is single-valued is which
 object a piece of mass belongs to.
 
 \textbf{Assumptions.} The theorems below hold for: (i) a fixed
-assignment of mass to field objects (ownership, the binding premise);
+assignment of mass to field objects (ownership: each object closes
+locally, and the premise is where its surface sits);
 (ii) given closure spheres; (iii) balayage onto a sphere, which is
 well defined for any interior mass distribution; (iv) the static weak
 field on fixed slices of the preferred foliation. $\gamma = 1$ and the
@@ -100,8 +102,8 @@ assumptions, not derived from the split. $G$ is Newton's
 constant $G_{\rm N}$ throughout; Paper~VII writes it as
 $(17/13)\,G_{\rm bare}$~\cite{NelsonVII}.
 
-Every statement is checked by script (30 checks) with two 3D solutions;
-the algebra is machine-checked in Lean~4 (11 theorems)~\cite{NelsonScript}.
+Every statement is checked by script (34 checks) with two 3D solutions;
+the algebra is machine-checked in Lean~4 (14 theorems)~\cite{NelsonScript}.
 
 % ----------------------------------------------------------------------
 
@@ -128,18 +130,31 @@ against the host's scale, and Theorem~1 holds for either. The system's own inter
 and the mountain is $\bar\Phi = \Phi - \sum_k d_k$. Spheres may overlap
 and contain other systems: each sweeps only its own mass.
 
-\textbf{Which systems sweep.} Only drainless bound systems sweep: in a
-drained host, each piece of mass belongs to the outermost drainless
-bound system containing it (the solar system, a star cluster, a wide
-binary). Drained systems (a galaxy, a satellite galaxy with its own
-rotation curve) are never swept; their matter is the mountain, where
-the law acts. Below the outermost level the assignment does not matter:
-a planet's mass swept onto its own envelope, then the star's, then the
-system's, gives the same result as sweeping it straight onto the
-system's (Theorem~7(a)). Which systems are drainless, and which mass
-is bound to which, is the premise; the net-field rule names the
-observable a marker must measure, the growth of flux across empty
-shells~\cite{NelsonNFR}. On each slice
+\textbf{Every field object closes.} Closure is local and happens at
+every level, with no global coordination. An asteroid closes, and the
+solar system's accounting holds a pointer to it: its mass and position,
+on its own surface. The solar system closes, and the galaxy holds a
+pointer to it; a galaxy closes, and its group or cluster holds a
+pointer to it. No level re-accounts the one below: sweeping a planet
+onto its own envelope, then the star's, then the system's, is the same
+as sweeping it straight onto the system's (Theorem~7(a)), so the
+pointer is exact.
+
+The drain decides not whether an object closes but what its interior
+accounting contains. A drainless object (an asteroid, a star system, a
+wide binary, a cluster) has a pure-TetA interior: its own field $d_k$
+is Newtonian, as in~(\ref{eq:d}). A drained object (a galaxy) carries
+TetB inside, so the law acts within its own accounting. This note works
+inside one drained host, a galaxy: the law acts on its mountain, and
+every drainless object in it is swept. The drained level itself, a
+galaxy as a pointer in its cluster, is not treated here: its interior
+residual would solve the law rather than Poisson's equation, and what
+mass its pointer carries is open (Gauss's theorem for the law's flux
+gives the baryonic mass, while the field outside a galaxy looks
+heavier). Which objects are drained is the net-field rule's premise,
+which names the observable a marker must measure, the growth of flux
+across empty shells~\cite{NelsonNFR}; where each surface sits is set by
+the dynamics, here the Jacobi radius. On each slice
 of the preferred foliation, harmonic measure and $\nabla^2$ are those
 of the slice's metric, so the construction is covariant under the
 foliation's symmetry. The action is
@@ -287,7 +302,7 @@ halo; local stellar density $0.05\,M_\odot$\,pc$^{-3}$).
 \end{proof}
 
 The data give a window; choosing the Jacobi radius within it is the
-binding premise.
+premise of where the surface sits.
 
 % ----------------------------------------------------------------------
 
@@ -324,9 +339,9 @@ at host $x = 0.1, 1.5, 10$ (script F1--F2). General shapes are not
 covered.
 \end{proof}
 
-So the edge is a binding criterion, which mass belongs to which field
-object, not something the action selects: the stream decides what belongs to the
-mountain by where it flows, not by what costs least.
+So where the edge sits is not something the action selects: the
+stream decides where a closed eddy ends by where it flows, not by what
+costs least.
 
 % ----------------------------------------------------------------------
 
@@ -407,8 +422,9 @@ So Section~IX's ``each scale closes independently'' is the telescoping
 identity, its universal Poisson equation is the envelopes' equation at
 every level, and its $k = 4$ structure ``when interacting with external
 fields'' is the four ports, read cleanly by the dual tetrad. What is
-universal is the rule; the law acts only on the drained host's
-mountain. The four ports describe the coupling structure, not four
+universal is closure: every object, drained or not, is a pointer
+above its own level. The law acts only where there is a drain, here on
+the drained host's mountain. The four ports describe the coupling structure, not four
 equal fluxes. A Weyl rescaling is not a symmetry of these equations
 (the Laplacian picks up a $\nabla\omega\cdot\nabla\Phi$ term); the scale
 statements that hold are those of~(d).
@@ -460,8 +476,8 @@ So two of the three links the reviewers asked for are now explicit:
 registration (Paper~I's $B^*_\Sigma$) plus least-energy settlement
 gives the sweep, and the sweep gives the split (Theorem~1). The first
 link, that field closure in the dual-tetrad dynamics selects
-least-energy settlement, and the binding criterion that says which
-mass registers with which surface, remain open.
+least-energy settlement, and where each closure surface sits, remain
+open.
 
 % ----------------------------------------------------------------------
 
@@ -538,9 +554,12 @@ Not proved here:
 \begin{enumerate}
 \item \emph{Least-energy settlement}, Theorem~8's premise, as a
 consequence of field closure in the dual-tetrad dynamics.
-\item \emph{The binding criterion}: which mass belongs to which field
-object. It is the premise; Theorem~6 shows, in the spherical case, that
-it cannot come from minimising energy.
+\item \emph{Where each closure surface sits}, here the Jacobi radius.
+It is the premise; Theorem~6 shows, in the spherical case, that it
+cannot come from minimising energy.
+\item \emph{The drained level}: a galaxy as a pointer in its cluster,
+with the law acting inside its own accounting, and the mass its pointer
+carries.
 \item \emph{Time-dependent ownership} (mergers, stripping).
 \item \emph{General shapes} in Theorem~6, and the exact
 non-spherical closure surface in Theorem~9 (bounded there, not

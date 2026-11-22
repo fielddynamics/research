@@ -16,6 +16,7 @@ A mountain stream looks flat close up; zoomed out, it runs down a mountain.
 
 - **Inside a bound system** the host's field is a flat slope, and each body is a dimple with **no drain**: pure TetA.
 - **Seen from outside**, the whole mountain shows, and the law acts on it.
+- **Every object closes, locally, at every level.** An asteroid closes, and the solar system's accounting holds a pointer to it; the solar system closes, and the galaxy holds a pointer to it; a galaxy closes, and its cluster holds a pointer to it. The drain decides only what the interior contains: none means pure TetA, a drain means the law acts inside.
 
 ## GFD already says how a body meets the mountain
 
@@ -53,8 +54,8 @@ So **fields overlap**, and neighbours read each other. What is single-valued is 
    - **4π = kπ.** Each face of the envelope's tetrahedron covers π steradians. The total flux is 4πGM for any object (Gauss). Per face it is πGM for a centred, round mass; for an asymmetric object (an oblong asteroid) the faces differ by its dipole (zero if the sphere is centred on its centre of mass) and part of its quadrupole, suppressed by (s/R)², about 10⁻⁸ for the planets in the Sun's sphere. The four ports describe the coupling structure, not four equal fluxes.
    - **The faces read the ports.** Sampling a host field at the four face directions gives the clock rate exactly (the tide drops out) and the free fall, with a small *chiral* leak of the tide: + for TetA, − for TetB. **Both tetrahedra together, the stellated octahedron, read the ports exactly**: the leak cancels.
    - **Scale-universal, not scale-invariant.** The same rule applies at every level, but the hierarchy is not self-similar: in a flat host, stretching the host by λ stretches a closure radius by λ^(2/3), and a₀ sets a scale in the law's crossover. (A Weyl rescaling is not a symmetry of these equations.)
-9. **Registration implies the sweep (Theorem 8).** Paper I: at the closure boundary, settlement records a unique registered state B*_Σ. Take that state as the object's potential on its boundary, and add one premise: settlement fills the interior with the *least field energy* compatible with it. Then the interior field is harmonic and unique, and it is exactly the field of the object's mass swept onto the boundary, the ownership sweep. The energy splits exactly: own field = registered field + residual. For a mass off-centre the swept density is the Poisson kernel and the interior is the Kelvin image field (checked to 10⁻⁹ in 3D). So registration ⇒ sweep ⇒ split; what remains open is why field closure selects least-energy settlement, and which mass registers with which surface (binding).
-10. **The action does not choose the edge (Theorem 6),** shown for a centred spherical system. The edge is a binding criterion, which mass belongs to which field object, not an energy minimum.
+9. **Registration implies the sweep (Theorem 8).** Paper I: at the closure boundary, settlement records a unique registered state B*_Σ. Take that state as the object's potential on its boundary, and add one premise: settlement fills the interior with the *least field energy* compatible with it. Then the interior field is harmonic and unique, and it is exactly the field of the object's mass swept onto the boundary, the ownership sweep. The energy splits exactly: own field = registered field + residual. For a mass off-centre the swept density is the Poisson kernel and the interior is the Kelvin image field (checked to 10⁻⁹ in 3D). So registration ⇒ sweep ⇒ split; what remains open is why field closure selects least-energy settlement, and where each closure surface sits.
+10. **The action does not choose the edge (Theorem 6),** shown for a centred spherical system. Every object closes; where its surface sits is set by the dynamics, not by an energy minimum.
 
 ## The 3D check
 
@@ -87,7 +88,7 @@ In AQUAL the Sun's own field enters the law, and the Galactic field makes the re
 | Theorem 7(b) claimed equal flux πGM through every face, for any shape (third review) | Corrected: the total is 4πGM; per face, πGM plus the object's dipole and part of its quadrupole, measured (29% through the nearest face for a mass 0.1R off-centre) |
 | Scale invariance (third review) | Now "scale-universal": the closure radius scales as λ^(2/3) in a flat host |
 | The four-port count 1 + 3 is generic for any smooth potential (third review) | Agreed and stated; the tetrahedral content is how the faces read the ports and the chiral cancellation |
-| Which level owns a planet's mass (third review) | Only drainless bound systems sweep, at the outermost level inside the drained host; drained systems (galaxies) are never swept; levels below the outermost do not matter (telescoping) |
+| Which level owns a planet's mass (third review) | Every object closes, locally, at every level: the asteroid is a pointer in the solar system's accounting, the solar system in the galaxy's, the galaxy in its cluster's. Nested sweeps telescope, so the pointer is exact. The drain decides only what the interior contains: drainless means pure TetA (Newtonian), drained means the law acts inside. The drained level (a galaxy as a pointer in its cluster) is not treated here |
 | Assumptions, constants and the matter test (third review) | Assumptions listed; G is Newton's G_N (Paper VII's (17/13)G_bare); the matter test compares forces, not potentials |
 | The matter variation was incomplete (fourth review) | With the sweep varied, the extra force is tide-sized (B1). With the sphere centred on the centre of mass, its motion gives every member the same acceleration, (∂S/∂c)m_i/M: it moves the system as a whole and drops out of internal motion (~7 × 10⁻¹⁵ m/s² for the Sun). A constrained variational formulation is still open |
 | Inside an envelope the mountain is not harmonic (fourth review) | Agreed: the face sum is 4c₀ + (2/3)R² tr T, tr T = 4πG(ρ_diffuse + ρ_TetB); the chiral cancellation is unaffected (Lean updated) |
@@ -95,12 +96,13 @@ In AQUAL the Sun's own field enters the law, and the Galactic field makes the re
 | Energy reading of Theorem 6; space-filling wording; real Jacobi surfaces (fourth review) | Now "the action does not select a finite radius"; η = 0.63 is the reduced density, covering 47%; sweeping works onto any closed surface, so the true anisotropic Jacobi surface can be used |
 | Pal 14's 8.9σ | Stated as the net-field analysis's figure; the literature is divided (Jordi 2009; Gentile 2010; Sollima 2012) |
 | Fifth review: connections to potential theory | Adopted: telescoping is the strong Markov property of balayage (a mathematical equivalence, not a mechanism); the anisotropic response and trace corrector give Theorem 9. Not adopted: a two-radius reconstruction that cancels the trace term, because the trace is the local density the scalar port reads. A boundary (Dirichlet-to-Neumann) action is noted as a route for the full variation |
-| The Jacobi radius is a premise | Agreed: the data give a window, and choosing r_J within it is the binding premise |
+| The Jacobi radius is a premise | Agreed: the data give a window, and choosing r_J within it is the premise of where the surface sits |
 
 ## What it leaves open
 
 - **Least-energy settlement** (Theorem 8's premise) as a consequence of field closure in the dual-tetrad dynamics.
-- **The binding criterion** (which mass belongs to which field object). It is the premise; Theorem 6 shows, for a centred sphere, that energy cannot set it.
+- **Where each closure surface sits** (here the Jacobi radius). It is the premise; Theorem 6 shows, for a centred sphere, that energy cannot set it.
+- **The drained level:** a galaxy as a pointer in its cluster, with the law acting inside its own accounting, and what mass its pointer carries.
 - **Ownership that changes in time** (mergers, stripping).
 - **Theorem 6 for general shapes**, and the exact non-spherical closure surface in Theorem 9 (bounded, not computed).
 - **Higher relativistic order.**
