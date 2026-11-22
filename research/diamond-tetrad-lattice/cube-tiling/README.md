@@ -1,8 +1,8 @@
 # The Cube Tiling: Two Labellings, and the Ladder of Tiles
 
-*Field Dynamics Research, research folder, 2026-11-22. Status: research, not a proof. Verification: `python3 verify_cube_tiling.py` (19 checks) and `python3 verify_scale_ladder.py` (11 checks), exact integers and fractions.*
+*Field Dynamics Research, research folder, 2026-11-22. Status: research, not a proof. Verification: `python3 verify_cube_tiling.py` (19 checks) `python3 verify_scale_ladder.py` (11) and `python3 verify_sixteen_channels.py` (13), exact integers and fractions.*
 
-`tiling` `cube` `stellated-octahedron` `TetA` `TetB` `closure` `scale-ladder` `Field-Origin` `diamond` `fluorite` `research`
+`tiling` `cube` `stellated-octahedron` `TetA` `TetB` `closure` `scale-ladder` `Field-Origin` `affine-connection` `torsion` `diamond` `fluorite` `research`
 
 ---
 
@@ -80,6 +80,43 @@ $k \equiv 1 \pmod 4$ keeps every label, $k \equiv 3 \pmod 4$ exchanges TetA and 
 
 So the framework's statement that the stellated octahedron scales, with another stellated octahedron inside its Field Origin, is exact in the tiling: inscribed corner to face centroid, one level down at a factor of 3, with each chamber continuing into the same chamber.
 
+**13. The 16 channels of a face, in the tiling** (`verify_sixteen_channels.py`, 13a–13d). Each face of TetA is cut by the TetB corner that pierces it into a core triangle, a face of the Field Origin, and three corner triangles, faces of TetA's spikes: Letter 1's channels. In the tiling every channel is shared by exactly four tiles.
+- A corner channel is a face of one shared octahedron, so it is shared by the four tiles around that cube edge: the tile, two face neighbours and one edge neighbour.
+- The core channel bounds the tile's Field Origin, and its three vertices, cube face centres, are vertices of three face neighbours' Field Origins.
+
+So each face carries 4 channels × 4 tiles = **16 couplings, and the tetrahedron 4 × 16 = 64**, the number of components of the affine connection. Every channel of the face opposite $a$ leads to the TetB corner $-a$ that pierces it: the core channel is the base of TetB's spike at $-a$, and each corner channel's shared octahedron runs from its TetA corner to $-a$. A face reaches 7 of the 8 tiles around that TetB corner.
+
+**14. The 64 couplings are the affine connection, as a representation** (14a–14e). The symmetries keeping TetA ($T_d$, acting on its corners as $S_4$) permute the 64 couplings in orbits of sizes 4, 12, 12, 12 and 24, exactly as they permute the connection's index triples $(\lambda, \mu, \nu)$. The characters on the classes $(e, (12), (123), (1234), (12)(34))$ are:
+
+| | character | as in |
+|---|---|---|
+| all 64 couplings | $(64, 8, 1, 0, 0)$ | the connection $V \otimes V \otimes V$ |
+| the 40 in the four smaller orbits | $(40, 8, 1, 0, 0)$ | the Christoffel sector $V \otimes \mathrm{Sym}^2 V$ |
+| the 24 in the free orbit | $(24, 0, 0, 0, 0)$ | the torsion sector $V \otimes \Lambda^2 V$, the regular representation (torsion proof, Theorem 1) |
+
+The sign representation, the one scalar detector of orientation, occurs once in the 24 and never in the 40, as it does in torsion and the Christoffel sector (torsion proof, Theorem 2). The free 24 are exactly the corner channels' couplings to face neighbours.
+
+**15. One face is one slice, and the lower-index exchange has a tile meaning** (15a–15d). A dictionary that commutes with $T_d$ sends the face opposite $a$ to $\lambda = a$:
+
+| coupling | index triple |
+|---|---|
+| core channel, own tile | $(a, a, a)$ |
+| corner channel $p$, own tile | $(a, a, p)$ |
+| corner channel $p$, its edge neighbour | $(a, p, a)$ |
+| core channel, face neighbour across $\mathrm{mid}(q, r)$ | $(a, p, p)$, $p$ the face's third corner |
+| corner channel $p$, face neighbour across $\mathrm{mid}(p, q)$ | $(a, p, q)$ |
+
+Under it, exchanging the lower indices $\mu \leftrightarrow \nu$ reads on the tiles as: swap the two corner channels that reach the same face neighbour; swap a corner channel's coupling to its own tile with its coupling to its edge neighbour; leave the core channels fixed. Its even part is the 40 (Christoffel) and its odd part the 24 (torsion). So the torsion components are the differences between the two corner channels reaching one face neighbour, and between what a corner channel gives its own tile and its edge neighbour. One face's 16 fall, under the face's own symmetry, into the same orbits as one slice's ordered index pairs, and the corner-to-face-neighbour couplings are chiral: the face's rotations separate each channel's left and right neighbour, and its reflections exchange them.
+
+The sharing in 13–15 is geometric, so these results hold for either labelling.
+
+**What 13–15 do and do not say.**
+- They say the tile's 16 channels per face, read in the tiling, are a copy of one slice of the connection, and the four faces the whole connection, with its Christoffel and torsion sectors, as representations of the tetrahedral group, and with an explicit equivariant dictionary.
+- The 40 + 24 split as representations is canonical. The dictionary is one choice: the three orbits of 12 are alike as sets with symmetry, so they could be matched to the three repeated-index types differently. The table above is the choice under which $\mu \leftrightarrow \nu$ pairs couplings that reach the same tile.
+- They do not make the couplings into connection components of a field. That needs a field on the tiling whose coupling coefficients are $\Gamma$, which is the continuum step.
+- The 24 here are TetA's couplings, which run toward the TetB corner piercing each face (13c). How that bears on Letter 2's reading of the 24 torsion components as TetB is a question, not a result.
+- The per-face 16 is $K^2$. Whether it is the $K^2$ of $a_0 = K^2 G m_e / r_e^2$ is not shown.
+
 ## What this settles and what it does not
 
 Settled, exactly: the two labellings are different tilings, not two descriptions of one. They agree on the geometry (the same tetrahedral–octahedral honeycomb, since a star is unchanged by swapping its labels) and differ on every labelled structure.
@@ -95,12 +132,12 @@ The framework's positions now point one way, to C. Everything common to both (th
 
 - **Not a physical size ladder.** Results 10–12 are about the tiling's labels. Physical closure surfaces sit at each object's Jacobi radius (`proofs/closure-surface/`), which the factor 3 does not set. Compositional scale invariance (llms.txt, Rule 15) is the same rule at every level, not geometric self-similarity of objects.
 - **Not a reason for 3 from $D$.** The factor 3 is the smallest odd $k > 1$; result 10 holds in any dimension. It is not derived from $D = 3$ and should not be read as $D$.
-- **Not yet the 16.** Whether a tile's 16 boundary channels are its couplings to the lattice is still to be computed.
+- **The 16.** See results 13–15: each face's 16 channels are one slice of the connection; whether that is the $K^2$ of $a_0$ is not shown.
 
 ## Next
 
 - Build the tiling proof on C: the honeycomb and shared octahedra (closure note), the global board of corners (results 1–2), the contacts (6), and the ladder and the nested star (10–12).
-- The tile's 16 channels in the lattice: what each channel faces, and whether $K^2 = 16$ is the tile's coupling count.
+- A field on the tiling with the couplings of results 13–15 as its coefficients: the step from this representation to the connection itself, and the continuum limit.
 
 ## Files
 
@@ -108,6 +145,7 @@ The framework's positions now point one way, to C. Everything common to both (th
 |---|---|
 | [`verify_cube_tiling.py`](verify_cube_tiling.py) | 19 exact checks: parts 1–7 for results 1–5, parts 8–11 for results 6–9 |
 | [`verify_scale_ladder.py`](verify_scale_ladder.py) | 11 exact checks for results 10–12 |
+| [`verify_sixteen_channels.py`](verify_sixteen_channels.py) | 13 exact checks for results 13–15 |
 
 ## Related
 
