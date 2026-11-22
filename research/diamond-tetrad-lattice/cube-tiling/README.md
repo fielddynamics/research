@@ -6,6 +6,8 @@
 
 ---
 
+> **Read with both roots:** [`TWO_ROOTS.md`](TWO_ROOTS.md) (`verify_two_roots.py`, 16 checks) finds that the proof below used the wrong index pair as antisymmetric, and redoes the count on the TetA–TetB links: 16 shared + 24 + 24. The proof is under revision.
+>
 > **Now a proof:** results 13–17 (with the honeycomb and closure) are written up as [`proofs/tiled-cube-affine-connection/`](../../../proofs/tiled-cube-affine-connection/). This folder keeps the working notes, the comparison of the two labellings and the 3 × 3 × 3 ladder.
 
 ## Question

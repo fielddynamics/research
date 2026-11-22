@@ -1,5 +1,7 @@
 # The Affine Connection of the Tiled Cube
 
+> **Under revision (2026-11-22).** This proof assigns the index roles wrongly. Its antisymmetric pair (channel, leg of the coupled cube) is a reflection inside TetA, not the exchange of roots, so it puts all 64 couplings, torsion included, in TetA. GFD's established count is 16 shared + 24 TetA + 24 TetB, with the lower-index swap as the exchange of roots ([coupling algebra, Result 10](../../research/coupling-algebra/)). The geometry (honeycomb, four cubes per channel, the formula) stands; the sectors, the torsion reading and Theorem 6 are being rebuilt. See [`TWO_ROOTS.md`](../../research/diamond-tetrad-lattice/cube-tiling/TWO_ROOTS.md).
+
 The affine connection Γ^λ_μν is what tells a field how to change from one place to the next. General relativity gives it 64 components, keeps 40 of them, and sets the other 24, the torsion, to zero by convention. It never says why each index runs over four values, or what the discarded 24 are. **This proof shows that tiling space with GFD's cube builds the connection by itself, each index a piece of geometry, and that the 24 are the handedness of how cubes couple: a swirl around each face and a flow along each leg. The tiling's closure rule is what keeps that handedness inside TetA.**
 
 This folder holds a five-page proof with a figure, a script that checks every statement (47 exact checks, numbered by theorem), its output, and the script that draws the figure from the same coordinates. A Lean formalisation is to follow.
