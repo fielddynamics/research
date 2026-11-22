@@ -2,7 +2,7 @@
 
 *A condensed, LLM-oriented digest of every paper, letter, proof and manuscript in this repository, with the algebra written out. Companion to [`llms.txt`](llms.txt), which holds the rules and glossary; this file holds the content.*
 
-Stephen Nelson · Field Dynamics Research · fielddynamics.org · Last updated 2026-11-20
+Stephen Nelson · Field Dynamics Research · fielddynamics.org · Last updated 2026-11-22
 
 ---
 
@@ -503,6 +503,7 @@ Shell ceilings $\mathrm{CEIL} = B_{\rm Zn} + B_{\rm bdy} - \mu_b(2)[B_{\rm Zn} -
 24. The 40/24 proof note reads the subtracted "1" as the diagonal. There are $K$ diagonal entries, and they are the $+K$ that separates 10 from 6.
 25. **Ghost citation (VII, VIII).** VII cites Alexander, Marcianò & Smolin, PRD 89, 065017 (2014) for "a single orientation produces a scalar ghost; two opposite chambers cancel it", and VIII for "BD-ghost cancellation by opposite orientations". The paper's abstract and introduction say the reverse. Its parity-symmetric bimetric phase (massless graviton + massive spin-2 + scalar ghost, following Speziale) is unstable, and its parity-broken chiral phase is stable. It does not discuss tetrad orientation. A reading consistent with GFD: the closed frame is parity-broken, because the chiral holonomy (L3 supplement) distinguishes the two senses of circulation, 135° versus 155.8° ([`research/bimond-gfd/10_chiral_holonomy_check.py`](research/bimond-gfd/10_chiral_holonomy_check.py)). That is an alignment of descriptions, not a stability proof. Hassan–Rosen's proof that the BD ghost is absent assumes positive kinetic terms for both metrics, so extending it to opposite orientations is open. Linearising at the Field Origin cannot settle this: $\mathcal M$ is non-analytic at zero field, and no quadratic theory exists there ([`research/bimond-gfd/`](research/bimond-gfd/), script 09).
 26. **Chiral holonomy (L3 supplement).** The computation reproduces. Uniform transport gives the identity, which is the root-blind 40-component reading, as Letter 2's Lemma requires. Chiral transport winds on every cycle, and its two classes are the two senses of circulation, exchanged by parity. The note's TetB step $R(\hat n,-\theta)$ is exactly the transpose of the TetA step: the diagonal is shared and the triangles are exchanged. That is the Gram index grid's $24 + 16 + 24$, so the sign rule follows from the two-sector algebra ([`research/bimond-gfd/11_holonomy_robustness.py`](research/bimond-gfd/11_holonomy_robustness.py)). Erratum: exactly, $\cos\Theta = -4639/6561$ and $-5983/6561$ ($6561 = 3^8$), i.e. 134.996° and 155.770°, so "135° $= 3\pi/4$" is approximate. The cited script is not in the repository; the revised proof with its script is [`proofs/chiral-holonomy-closed-frame/`](proofs/chiral-holonomy-closed-frame/) (32 checks).
+27. **Paper VII §9 prefactor.** The paper gives $4\pi\times(17/13) = 16.493362$ (v5 and submitted sources, and the v5 planning notes). The product is $16.4329$; $G_{\rm eff} = (17/13)G_{\rm bare}$ is unaffected, only the printed decimal.
 
 ---
 
@@ -789,7 +790,7 @@ vs CODATA 137.035999177 (0.00021%). $2^d = 8$ orthants; $k^2+1 = 17$ = 16 tetrad
 - Scalar-tensor form $S_{\rm ST}$ (the four-term action; this is the SST). Term reading of $F$: $y$ ↔ $k^2$ (full interaction), $-2\sqrt y$ ↔ $k$ (face level; the sign echoes $s = -1$, the 2 counts two tetrahedra), $2\ln(1+\sqrt y)$ ↔ $k^0$ (the Field Origin floor). $e^{-2\Phi/c^2}$: the 2 counts two tetrahedra; $\gamma = 1$ (Cassini). Whether the scalar-tensor theory is the formal low-energy limit of the locked bimetric theory is stated as open.
 - 14 tests + 1 check: $\gamma = 1$; $|v_{gw}/c - 1| < 10^{-15}$; neutron bound-decay probability 1.084% vs $1.081\pm0.03$% (SM ≈ 0.0004%), tied to the tetrahedral dihedral angle $\arccos(-1/3)$; MW 225 vs 229 ± 5; Gaia wide-binary plateau 0.39 vs $0.5\pm0.15$ km/s; Bullet offset $150\pm30$ kpc "consistent with gas displacement" (no simulation).
 
-**Poisson and scale invariance (§9).** $k = 4$ is topological (immune to renormalisation); $4\pi = k\times\pi$ ($\pi$ steradians per face); $\nabla^2\Phi = k\pi\cdot\frac{k^2+1}{kd+1}G_{\rm bare}\rho = 16.493\,G_{\rm bare}\rho$, i.e. $G_{\rm eff} = (17/13)G_{\rm bare}$.
+**Poisson and scale invariance (§9).** $k = 4$ is topological (immune to renormalisation); $4\pi = k\times\pi$ ($\pi$ steradians per face); $\nabla^2\Phi = k\pi\cdot\frac{k^2+1}{kd+1}G_{\rm bare}\rho = 16.433\,G_{\rm bare}\rho$, i.e. $G_{\rm eff} = (17/13)G_{\rm bare}$. (The paper prints $16.493362$; $4\pi\cdot17/13 = 16.4329$, as the mountain-scale proof's Theorem 7 uses.)
 
 **Mechanism (§11).** Field Object, Field Atom $A_\Phi$ (a geon-like soliton of the massive spin-2 mode, with a "Valence Horizon"), Full State Snapshot, Settlement, Registration $`B^*_\Sigma`$ (grounded in ADM, Israel junction conditions, York–Lichnerowicz, Dirac constraints; appendix). **Bound vs unbound is defined here:** an *unbound* gravity-field envelope has an empty TetB chamber (massless mode; the mesh, "the stage"); a *bound* envelope has an occupied TetB (massive mode; matter, "the actors"). Binding by stellar compression, up to electron capture $p + e^-\to n + \nu_e$; TOV balance; the Field Origin as the eye of a self-sustaining vortex. Chessboard picture: bound configurations sit only on mesh nodes where $\det e\ne0$.
 
@@ -1519,7 +1520,7 @@ $V - E + F = 4 = 2\chi(S^2)$, two disjoint closed surfaces.
 
 ## The formal proofs (`proofs/`)
 
-*The repository now holds twenty-two proofs (index: [`proofs/README.md`](proofs/README.md); keys and Lean status in §0). The first six are summarised in detail below, as written when they were read in full (their check counts have since grown: the forced frame now has 36). The other fifteen are summarised in Part I: P-gram §2.3, P-walsh §2.6, P-vortex §2.7, P-bimond §9 and §13, P-tugofwar §4.8, P-netfield, P-khronon and P-mountain §5.4, P-chiral §12 item 26, P-bbp, P-gnull, P-sst, P-timeleg and P-lock in §13, and the half-space proof §2.2. Each proof lists its premises and shows them necessary by counterexample.*
+*The repository now holds twenty-two proofs (index: [`proofs/README.md`](proofs/README.md); keys and Lean status in §0). The first six are summarised in detail below, as written when they were read in full (their check counts have since grown: the forced frame now has 36). The other sixteen are summarised in Part I: P-gram §2.3, P-walsh §2.6, P-vortex §2.7, P-bimond §9 and §13, P-tugofwar §4.8, P-netfield, P-khronon, P-mountain and P-closure §5.4, P-chiral §12 item 26, P-bbp, P-gnull, P-sst, P-timeleg and P-lock in §13, and the half-space proof §2.2. Each proof lists its premises and shows them necessary by counterexample.*
 
 **P-aqual — The Energy Functional of $\mu = x/(x+1)$.**
 - $\mathcal L = -(a_0^2/8\pi G)F - \rho\Phi$.
