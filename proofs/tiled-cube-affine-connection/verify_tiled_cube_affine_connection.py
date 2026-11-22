@@ -82,6 +82,27 @@ check("2.4  a face reaches 7 of the 8 tiles around its piercing TetB corner, all
       all(reached[a] <= around[a] and len(reached[a]) == 7 and around[a] - reached[a] == {tuple((-a[i] - a[i]) // 2 for i in range(3))}
           for a in A))
 
+def fo_verts(n): return {tuple(Fr(2 * n[i] + (d if i == k else 0)) for i in range(3)) for k in range(3) for d in (1, -1)}
+def tri_of(a, r):
+    f = [p for p in A if p != a]
+    if r == "core": return {mid(p, q) for p, q in itertools.combinations(f, 2)}
+    return {F(r)} | {mid(r, q) for q in f if q != r}
+N3 = list(itertools.product((-1, 0, 1), repeat=3))
+fo_touch = {k: {n for n in N3 if tri_of(*k) & fo_verts(n)} for k in sub}
+check("2.6  (S) is one rule for every channel: the cubes whose Field Origin a channel touches are, for the core, exactly its "
+      "4 sharers, and for a corner channel a subset of the 4 cubes holding its octahedron (its two cube-face-centre corners "
+      "touch the Field Origins of the own cube and of two of the holders)",
+      all(fo_touch[k] == sub[k] for k in sub if k[1] == "core")
+      and all(fo_touch[k] <= sub[k] and len(fo_touch[k]) == 3 for k in sub if k[1] != "core"))
+def in_cube(pt, n): return all(abs(pt[i] - 2 * n[i]) <= 1 for i in range(3))
+point_touch = {k: {n for n in N3 if any(in_cube(v, n) for v in tri_of(*k))} for k in sub}
+check("2.7  (necessity of (S)) counting every point of contact instead: the core still reaches 4 cubes, but a corner channel's "
+      "spike tip, the cube corner, is touched by all 8 cubes around it, so a face would carry 4 + 3 x 8 = 28 couplings, not 16. "
+      "The tip is neither Field Origin nor a shared octahedron, and the vortices proof's cube graph bonds a corner only inward",
+      all(len(point_touch[k]) == 4 for k in sub if k[1] == "core")
+      and all(len(point_touch[k]) == 8 for k in sub if k[1] != "core")
+      and {a: sum(len(point_touch[k]) for k in sub if k[0] == a) for a in A} == {a: 28 for a in A})
+
 print("\n=== Theorem 4: the sectors (with 4.x checks below)")
 G = []
 for perm in itertools.permutations(range(3)):
@@ -141,7 +162,7 @@ def eps(l, m, n): return 1 if n in (l, m) else -1
 def tile(l, m, n): return vadd(vsc(-1, l), vsc(eps(l, m, n), n))          # tile centre -v_l + eps v_n (doubled coordinates)
 def channel(l, m): return (l, "core") if m == l else (l, m)               # half-space proof: face l's sub-region m
 check("3.2  the core channel of face lambda (mu = lambda) is shared by the tiles at -v_lambda + v_lambda = 0 and "
-      "-v_lambda - v_nu (nu != lambda): its vertices are the cube face centres (v_q + v_r)/2 = -(v_lambda + v_p)/2 by closure, "
+      "-v_lambda - v_nu (nu != lambda): its vertices are the cube face centres (v_q + v_r)/2 = -(v_lambda + v_p)/2 because the legs sum to zero, "
       "and a face centre f is shared by the tiles 0 and 2f",
       all(set(sub[channel(l, l)]) == {tuple(c // 2 for c in tile(l, l, n)) for n in V} for l in V)
       and all(vadd(q, r) == vsc(-1, vadd(l, p)) for l in V for p in V if p != l
@@ -317,7 +338,7 @@ check("5.10  swirl and directed flow are separate: the totally antisymmetric tor
       "closes on every face), and the vector torsion has no support on the all-different couplings that carry the circulation",
       displacement({t: omega(t) for t in T if omega(t) != 0}) == (0, 0, 0) and all(len(set(t)) < 3 for b in V for t in Tv(b)))
 
-print("\n=== Theorems 3, 4, 5, 6 and 7: TetB, the content, the vortex tube, closure")
+print("\n=== Theorems 3, 4 and 5: TetB, the content, the vortex reading; Theorem 6: closure")
 B = [neg(a) for a in A]                                   # TetB corners = the parity image
 
 # ---------- TetB: build its channels from the geometry, exactly as for TetA
@@ -345,7 +366,7 @@ check("3.10  spatial parity -I carries TetA's dictionary onto TetB's index for i
       "the same (lambda, mu, nu) on the legs -v",
       all(actP(Dc[(l, m, n)]) == DB[(neg(l), neg(m), neg(n))] for l, m, n in T))
 
-# ---------- the swirl as a vortex: angular momentum of omega about each face
+# ---------- the swirl as a vortex (remark under Theorem 5): circulation of omega about each face
 def centroid(pts): return tuple(sum(Fr(p[i]) for p in pts) / len(pts) for i in range(3))
 def channel_pos(ch, chamber):
     a, r = ch
@@ -353,7 +374,7 @@ def channel_pos(ch, chamber):
     if r == "core": return centroid([mid(p, q) for p, q in itertools.combinations(f, 2)])
     return centroid([F(r)] + [mid(r, q) for q in f if q != r])
 def cross(u, w): return (u[1]*w[2]-u[2]*w[1], u[2]*w[0]-u[0]*w[2], u[0]*w[1]-u[1]*w[0])
-def L_face(l, D, chamber, om):
+def L_face(l, D, chamber, om, pos):
     tot = (0, 0, 0)
     for m in chamber:
         for n in chamber:
@@ -361,28 +382,47 @@ def L_face(l, D, chamber, om):
             w = om(t)
             if w == 0: continue
             ch, tile_ = D[t]
-            tot = tuple(tot[i] + w * cross(channel_pos(ch, chamber), tuple(2 * x for x in tile_))[i] for i in range(3))
+            tot = tuple(tot[i] + w * cross(pos(ch, chamber), tuple(2 * x for x in tile_))[i] for i in range(3))
     return tot
-LA = {l: L_face(l, Dc, A, omega) for l in A}
-par = lambda u, w: cross(u, w) == (0, 0, 0) and any(x != 0 for x in u)
-check("6.1  each face's swirl is a vortex about its leg: the angular momentum sum omega (r_channel x d_tile) over the face is "
-      "nonzero and parallel to v_lambda, the axis from the tile's centre through the piercing TetB corner",
-      all(par(LA[l], l) for l in A))
-check("6.2  the four vortices balance: their angular momenta have one magnitude and sum to zero, as the legs close",
-      len({sum(x * x for x in LA[l]) for l in A}) == 1 and tuple(sum(LA[l][i] for l in A) for i in range(3)) == (0, 0, 0))
+def tip_pos(ch, chamber):   # the other natural point of a corner channel: its spike tip (omega lives only on corner channels)
+    a, r = ch
+    return channel_pos(ch, chamber) if r == "core" else F(r)
 idxB = {v: i for i, v in enumerate(B)}
 def omegaB(t):
     a, b, c = t
     if len({a, b, c}) < 3: return 0
     d = next(x for x in B if x not in t)
     return perm_sign([idxB[a], idxB[b], idxB[c], idxB[d]])
-LB = {l: L_face(l, DB, B, omegaB) for l in B}
-check("6.3  one tube through the Field Origin: TetA's vortex on face lambda sits on the -v_lambda side of the tile and "
-      "TetB's on face -v_lambda on the +v_lambda side, and the two carry the same angular momentum along the axis v_lambda "
-      "(parity keeps angular momentum, an axial vector): one swirl, TetA on one end and TetB on the other",
-      all(LB[neg(l)] == LA[l] for l in A))
-check("6.4  the directed flow balances too: the vector torsion's displacements along the four legs sum to zero "
-      "(sum over b of -2 v_b = 0, closure)", tuple(sum(displacement(Tv(b))[i] for b in V) for i in range(3)) == (0, 0, 0))
+LA = {pn: {l: L_face(l, Dc, A, omega, pf) for l in A} for pn, pf in (("centroid", channel_pos), ("tip", tip_pos))}
+LB = {pn: {l: L_face(l, DB, B, omegaB, pf) for l in B} for pn, pf in (("centroid", channel_pos), ("tip", tip_pos))}
+sense = lambda L, axis: (dot(L, axis) > 0) - (dot(L, axis) < 0)
+par = lambda u, w: cross(u, w) == (0, 0, 0) and any(x != 0 for x in u)
+check("5.13  (remark: the vortex reading) each face's swirl circulates about its own leg: with the channels placed at their "
+      "centroids or at their spike tips, sum omega (r_channel x d_tile) over the face is parallel to v_lambda, and the four "
+      "faces balance. Both facts are forced by symmetry; the magnitude depends on where the channel is placed and is not claimed",
+      all(par(LA[pn][l], l) for pn in LA for l in A)
+      and all(tuple(sum(LA[pn][l][i] for l in A) for i in range(3)) == (0, 0, 0) for pn in LA))
+check("5.14  one axis, two ends, one sense: TetA's swirl on its face opposite v_lambda reaches cubes on the -v_lambda side, "
+      "TetB's on its face opposite -v_lambda reaches cubes on the +v_lambda side, and the two turn the same way about v_lambda "
+      "for either placement (parity keeps the sense of a circulation, an axial vector)",
+      all(all(dot(tuple(2 * x for x in Dc[t][1]), l) < 0 for t in T if t[0] == l and omega(t) != 0) for l in A)
+      and all(all(dot(tuple(2 * x for x in DB[t][1]), l) > 0 for t in DB if t[0] == neg(l) and omegaB(t) != 0) for l in A)
+      and all(sense(LB[pn][neg(l)], l) == sense(LA[pn][l], l) != 0 for pn in LA for l in A))
+check("5.15  the flows balance too: the vector torsion's displacements along the four legs sum to zero, as the legs do",
+      tuple(sum(displacement(Tv(b))[i] for b in V) for i in range(3)) == (0, 0, 0))
+shift = (2, -4, 6)
+def displacement_from(vec, d):
+    tot = (0, 0, 0)
+    for t, w in vec.items(): tot = vadd(tot, vsc(w, vadd(tuple(2 * x for x in Dc[t][1]), d)))
+    return tot
+Tv_swapped = lambda b: {(a, n, m): w for (a, m, n), w in Tv(b).items()}
+check("5.16  the flow is intrinsic but its sign is a convention: its weights sum to zero, so the displacement does not depend "
+      "on the origin; the core couplings in it reach cubes on the -v_b side and the corner couplings it subtracts stay in the "
+      "own cube; and with the lower indices in the other order the same tensor reads +2 v_b",
+      all(sum(Tv(b).values()) == 0 and displacement_from(Tv(b), shift) == displacement(Tv(b)) for b in V)
+      and all(dot(tuple(2 * x for x in Dc[t][1]), b) < 0 for b in V for t, w in Tv(b).items() if w > 0)
+      and all(Dc[t][1] == (0, 0, 0) for b in V for t, w in Tv(b).items() if w < 0)
+      and all(displacement(Tv_swapped(b)) == vsc(2, b) for b in V))
 
 # ---------- the full irreducible content (torsion proof, Theorem 1; Paper B)
 def irr_mult(chi):
@@ -456,11 +496,17 @@ for (l, r), n in inc:
     e = octa_of[(l, r)]; p = r                               # this channel sits at the octahedron's TetA end p (own tile)
     for lab in ("C", "U"):
         same_end[lab].append(tetA_has(n, p, lab))            # does the neighbour's TetA meet the same octahedron at p too?
-check("7.1  reciprocity separates the labellings: under closure every neighbour reached through a shared octahedron meets "
-      "it with its own TetA at the same end, so TetA couples to TetA; under the uniform labelling the face neighbours meet it "
-      "with TetA at the other end, the TetB end, so the coupling crosses chambers",
+check("6.1  under closure every neighbour reached through a shared octahedron meets it with its own TetA at the same end, so "
+      "TetA couples to TetA; under the uniform labelling the face neighbours meet it with TetA at the other end, the TetB end",
       all(same_end["C"]) and sum(same_end["U"]) == sum(1 for (l, r), n in inc if r != "core" and n != (0, 0, 0)
                                                         and sum(map(abs, n)) == 2))
+def crosses(t, lab):
+    (l, r), n = Dc[t]
+    return r != "core" and n != (0, 0, 0) and not tetA_has(n, r, lab)
+check("6.2  what closure protects: under the uniform labelling the couplings that cross from TetA into TetB are exactly the 24 "
+      "whose three indices all differ, the ones that carry the swirl omega; under closure none crosses",
+      {t for t in T if crosses(t, "U")} == {t for t in T if len(set(t)) == 3} == {t for t in T if omega(t) != 0}
+      and not any(crosses(t, "C") for t in T))
 by = {}
 for i, r in zip(ids, ok): by.setdefault(i.split(".")[0], []).append(r)
 print("\nby theorem: " + ", ".join(f"Theorem {k}: {sum(v)}/{len(v)}" for k, v in sorted(by.items())))

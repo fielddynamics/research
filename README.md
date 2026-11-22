@@ -4,7 +4,7 @@
 
 Stephen Nelson · [Field Dynamics Research](https://fielddynamics.org) · [ORCID 0009-0008-6190-3269](https://orcid.org/0009-0008-6190-3269) · stephen@fielddynamics.org
 
-[![Licence: MIT](https://img.shields.io/badge/licence-MIT-blue.svg)](LICENSE) [![Proofs: 22, 954 checks pass](https://img.shields.io/badge/proofs-22%20%C2%B7%20954%20checks%20pass-brightgreen.svg)](proofs/README.md) [![Lean: 14 machine-checked](https://img.shields.io/badge/Lean%204-14%20machine--checked-purple.svg)](proofs/README.md) [![Status: preprints, not yet peer reviewed](https://img.shields.io/badge/status-preprints%2C%20not%20peer%20reviewed-orange.svg)](#status-and-known-limitations)
+[![Licence: MIT](https://img.shields.io/badge/licence-MIT-blue.svg)](LICENSE) [![Proofs: 23, 1001 checks pass](https://img.shields.io/badge/proofs-23%20%C2%B7%201001%20checks%20pass-brightgreen.svg)](proofs/README.md) [![Lean: 14 machine-checked](https://img.shields.io/badge/Lean%204-14%20machine--checked-purple.svg)](proofs/README.md) [![Status: preprints, not yet peer reviewed](https://img.shields.io/badge/status-preprints%2C%20not%20peer%20reviewed-orange.svg)](#status-and-known-limitations)
 
 Gravity Field Dynamics (GFD) reads the missing mass of galaxies as the second root of the tetrad equation. The equation that builds spacetime's geometry from Einstein's tetrad is quadratic, so it has two roots, mirror images of each other that interlock as a stellated octahedron: TetA, the root general relativity keeps, and TetB, the root it sets aside. GFD keeps both, and the gravitational field is shared between them as a tug of war. TetA pulls with the local acceleration $g$, TetB pulls with the fixed acceleration $a_0$, and TetA's share is
 
@@ -195,7 +195,7 @@ pip install numpy scipy sympy mpmath matplotlib
 | Script | Checks |
 |---|---|
 | [`papers/letter-radial-acceleration-relation-sparc/sparc_rar.py`](papers/letter-radial-acceleration-relation-sparc/sparc_rar.py) `--from-csv supplementary/sparc_rar.csv` | SPARC radial acceleration relation: figure, mean and scatter |
-| [`proofs/*/verify_*.py`](proofs/README.md) | The twenty-two formal proofs: 24 + 34 + 36 + 25 + 39 + 36 + 39 + 32 + 61 + 41 + 26 + 16 + 64 + 76 + 81 + 47 + 29 + 42 + 122 + 32 + 36 + 16 = 954 checks; fourteen also machine-checked in Lean 4 |
+| [`proofs/*/verify_*.py`](proofs/README.md) | The twenty-three formal proofs: 24 + 34 + 36 + 25 + 39 + 36 + 39 + 32 + 61 + 41 + 26 + 16 + 64 + 76 + 81 + 47 + 29 + 42 + 122 + 32 + 36 + 16 + 47 = 1001 checks; fourteen also machine-checked in Lean 4 |
 | [`papers/letter-1-tetrad-frame-geometry/Supplementary/run_all_validations.py`](papers/letter-1-tetrad-frame-geometry/Supplementary/run_all_validations.py) | Letter 1: tetrad frame geometry (29 claims) |
 | [`papers/letter-2-other-half-of-gravity-torsion/v2/Supplementary/run_all_validations.py`](papers/letter-2-other-half-of-gravity-torsion/v2/Supplementary/run_all_validations.py) | Letters 1–2: geometry, torsion = TetB (52 claims) |
 | [`papers/letter-3-field-closure-of-tetrad-frame/Supplementary/run_all_validations.py`](papers/letter-3-field-closure-of-tetrad-frame/Supplementary/run_all_validations.py) | Letter 3: 40/24 split, polynomial identity, partition (52 claims) |

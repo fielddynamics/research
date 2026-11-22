@@ -39,17 +39,19 @@ octahedron, and cubes tile space. Each face of the cube's
 tetrahedron TetA is cut into four channels, and in the tiling each
 channel is shared by exactly four cubes, so each face carries 16
 couplings and the tetrahedron 64. We prove that these 64 couplings
-are the connection's index triples, with one role per index: the
-face is $\lambda$, the channel is $\mu$ and the leg of the tetrad
-along which the coupled cube lies is $\nu$. The dictionary is a
-formula in the tetrad's legs, forced once the roles are fixed, and
-it carries the Christoffel and torsion sectors exactly. Torsion then
-has a plain meaning on the tiles: it is the handedness of the
-couplings, made of a circulation around each face and a flow along
-each leg toward the TetB corner, and the circulations of TetA and
-TetB form one vortex along each axis, through the Field Origin. A
-torsion-free connection is a tiling whose couplings have no
-handedness.
+correspond one-to-one with the connection's index triples, respecting
+every symmetry, with one role per index: the face is $\lambda$, the
+channel is $\mu$ and the leg of the tetrad along which the coupled
+cube lies is $\nu$. The dictionary is a formula in the tetrad's legs,
+forced once the roles are fixed, and under it the couplings split
+exactly as the Christoffel ($40$) and torsion ($24$) sectors do.
+Torsion then has a plain meaning on the tiles: it is the handedness
+of the couplings, made of a circulation around each face and a flow
+along each leg, in which the core's couplings reach across to the
+TetB side. With the tiling's closure rule nothing crosses from TetA
+to TetB; without it, exactly the 24 couplings that carry the
+circulation do. A torsion-free connection is a tiling whose couplings
+have no handedness.
 \end{abstract}
 
 \keywords{affine connection, torsion, Christoffel symbols, tetrad, stellated octahedron, tiling, vortex, proof}
@@ -91,7 +93,23 @@ stars, and each such octahedron is held jointly by the four cubes
 around a cube edge. The core faces the three neighbouring cubes
 whose Field Origins touch it at its corners. So every channel is
 shared by four cubes: $4 \times 4 = 16$ couplings per face, four
-faces, $64$.
+faces, $64$. Figure~\ref{fig:tiles} shows one face and one shared
+octahedron.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.92\textwidth]{tiled_cube_figure.png}
+\caption{(a) The face of TetA opposite $v_1$, cut by the TetB corner
+$-v_1$ (red; dashed, the TetB spike standing on the core) into the
+core (blue), a face of the Field Origin, and three corner channels
+(orange), faces of TetA's spikes. (b) The corner channel at $v_2$
+(orange) is a face of the octahedron on the cube edge from $v_2$ to
+$-v_1$, which is held by four cubes, one along each leg $\nu$ from
+$-v_1$: the cube itself ($\nu = 1$), the cube diagonally across
+($\nu = 2$) and two face neighbours ($\nu = 3, 4$). Drawn by
+\texttt{make\_figure.py} from the same coordinates as the checks.}
+\label{fig:tiles}
+\end{figure*}
 
 Each coupling is a channel of a face reaching a neighbouring cube,
 and the neighbour lies along one of the tetrad's four legs. Face,
@@ -127,13 +145,45 @@ shares it: when the channel is a face of an octahedron the cube helps
 hold, or when it touches the cube's Field Origin. Nothing couples at
 a distance; this is the Laplacian's neighbour comparison.
 
+\medskip\noindent
+(S) names the framework's two routes between cells. The vortices
+proof has the same two: a corner channel couples spatially, through
+the solid on its far side, and the core gravitationally, through the
+Field Origin~\cite{NelsonVortex}. The rule is applied the same way to
+every channel. A corner channel's two corners at cube-face centres
+also touch Field Origins, but only those of cubes already holding its
+octahedron, so both routes give the same four cubes (check~2.6). The
+one contact (S) leaves out is the spike tip, the cube corner, which
+all eight cubes around it touch. A tip is neither Field Origin nor a
+shared octahedron, and the vortices proof's cube graph bonds a corner
+only inward, to its own cube's Field Origin~\cite{NelsonVortex}.
+Counting that contact would give $4 + 3 \times 8 = 28$ couplings per
+face (check~2.7). A shared octahedron does run along a cube edge,
+from a TetA corner to a TetB corner, which is the bond the vortices
+proof leaves out. It is not added here: a coupling joins a channel to
+a cube, never one corner to another.
+
 \paragraph{(C) Closure.} Where cubes meet they agree: every shared
 corner carries one chamber, TetA or TetB, in all eight cubes
-around it~\cite{NelsonI,NelsonTiling}. Only Theorem~7 uses (C).
+around it~\cite{NelsonI,NelsonTiling}. Only Theorem~6 uses (C):
+Theorems~1--5 use (T) and (S) alone and hold for any labelling of the
+tiling. In this proof ``closure'' means (C) only.
 
 \medskip\noindent
 A \emph{coupling} is a pair (channel of a face of TetA, cube sharing
 it).
+
+\paragraph{Index roles.} In the dictionary below, $\nu$ is the
+direction (the leg along which the coupled cube lies) and $\mu$ is
+what is carried (the channel), so that
+$\Gamma^\lambda{}_{\mu\nu}$ reads as
+$\theta^\lambda(\nabla_{e_\nu} e_\mu)$. The order of the two lower
+indices differs across the literature: Carroll and Hawking--Ellis put
+the direction first~\cite{Carroll,HawkingEllis}. The two orders
+differ by $\mu \leftrightarrow \nu$, which leaves the $40/24$ split
+unchanged and reverses the sign of the torsion. Signs of torsion
+components below follow the torsion proof's
+$t_{a;bc} = (a,b,c) - (a,c,b)$~\cite{NelsonTorsion}.
 
 % ----------------------------------------------------------------------
 
@@ -148,8 +198,10 @@ equal volume.}
 
 \paragraph{Proof.} In units of the small tetrahedron the cube is
 $24$, a spike $1$ and an octahedron $4$: $8 + 4 = 12$, and the rest
-is $12$ quarter octahedra. The closure note checks the edge
-octahedra face by face~\cite{NelsonTiling}. \hfill $\square$
+is $12$ quarter octahedra. That the four wedges around each edge
+close into one octahedron, two faces from each cube, is checked face
+by face at every interior edge of a $3 \times 3 \times 3$ block
+(check~1.2; also~\cite{NelsonTiling}). \hfill $\square$
 
 % ----------------------------------------------------------------------
 
@@ -216,8 +268,9 @@ for index.}
 \paragraph{Proof.} For $\mu = \lambda$, Theorem~2(i) gives the cubes
 $0 = -v_\lambda + v_\lambda$ and $-v_\lambda - v_p$. For
 $\mu \ne \lambda$, the four cubes around the edge at
-$(v_\mu - v_\lambda)/2$ are $0$, $v_\mu - v_\lambda$ and, by
-closure, $-v_\lambda - v_q$, $-v_\lambda - v_r$: the cases
+$(v_\mu - v_\lambda)/2$ are $0$, $v_\mu - v_\lambda$ and, since
+the legs sum to zero, $-v_\lambda - v_q$, $-v_\lambda - v_r$
+(Theorem~1): the cases
 $\nu = \lambda$, $\nu = \mu$ and the other two legs. Distinct $\nu$
 give distinct cubes, since the legs and their negatives are eight
 distinct corners, so~(\ref{eq:map}) is injective, hence bijective.
@@ -244,13 +297,14 @@ $(64, 8, 1, 0, 0)$ on the classes $e$, $(12)$, $(123)$, $(1234)$,
 $(12)(34)$, that of $V \otimes V \otimes V$. Exchanging the lower
 indices, $\mu \leftrightarrow \nu$, splits them into}
 \begin{itemize}
-\item \emph{an even part, $40$ dimensions, carrying
+\item \emph{an even part, $40$ dimensions, isomorphic as a
+  representation of $T_d$ to the Christoffel sector
+  $V \otimes \mathrm{Sym}^2V$, namely
   $4\cdot\mathbf 1 \oplus 3V_2 \oplus 7\,\mathrm{std} \oplus
-  3(\mathrm{sgn}\otimes\mathrm{std})$, the Christoffel sector
-  $V \otimes \mathrm{Sym}^2V$~\cite{NelsonB};}
-\item \emph{an odd part, $24$ dimensions, carrying the regular
-  representation, the torsion sector
-  $V \otimes \Lambda^2V$~\cite{NelsonTorsion}.}
+  3(\mathrm{sgn}\otimes\mathrm{std})$~\cite{NelsonB};}
+\item \emph{an odd part, $24$ dimensions, isomorphic to the torsion
+  sector $V \otimes \Lambda^2V$, the regular
+  representation~\cite{NelsonTorsion}.}
 \end{itemize}
 \emph{The sign representation occurs once, in the odd part. The
 Field Origin is the row $\mu = \lambda$ of each slice, and the
@@ -293,9 +347,14 @@ theorem says which coupling each entry is.
   $-1$ for the other. It is unchanged by rotations and reversed by
   reflections: a circulation.}
 \item[(iv)] \emph{Flow. The vector torsion along leg $b$,
-  $\sum_a t_{a;ab}$, couples to the face neighbours at
-  $-v_a - v_b$ against the own cube: a net displacement $-2v_b$,
-  along the leg toward the TetB corner $-v_b$. It is a polar vector.}
+  $\sum_a t_{a;ab}$, pairs each core's coupling to the face neighbour
+  at $-v_a - v_b$, on the $-v_b$ side, with a corner channel's
+  coupling to its own cube. Its weights sum to zero, so its net
+  displacement, $-2v_b$, does not depend on the origin: a flow along
+  the leg, a polar vector. Its sign is the index convention's (the
+  other order reads $+2v_b$); what does not depend on it is that the
+  core's couplings reach across to the TetB side while the corner
+  couplings paired with them stay home.}
 \item[(v)] \emph{The swirl has no net displacement and the flow no
   support where the swirl lives. Torsion's vector part ($4$) lies on
   the incident couplings, its axial part ($4$) on the non-incident
@@ -308,48 +367,62 @@ reflection $\sigma$ exchanging $v_\mu$ and $v_\nu$ fixes $v_\lambda$
 and sends $c_{\lambda\mu\nu}$ to $c_{\lambda\nu\mu}$
 by~(\ref{eq:dict}). (ii)--(v) read~(\ref{eq:dict}) on the stated
 tensors~\cite{NelsonTorsion}; the sense of circulation is the face's
-rotation orbit, and the displacement is
-$\sum_{a \ne b}(-v_a - v_b) = -2v_b$ by~(\ref{eq:frame}).
-\hfill $\square$
+rotation orbit. In (iv) the weights are $+1$ on the three cores'
+couplings and $-1$ on three own-cube couplings, at $0$, so the
+displacement is $\sum_{a \ne b}(-v_a - v_b) = -2v_b$
+by~(\ref{eq:frame}), whatever the origin. \hfill $\square$
 
 % ----------------------------------------------------------------------
 
-\section*{Theorem 6 (one vortex through the Field Origin)}
-
-\emph{On each face the swirl's angular momentum,
-$L_\lambda = \sum \omega\,(r_{\rm channel} \times c)$, is nonzero
-and parallel to $v_\lambda$: a vortex about the leg. The four have
-one magnitude and sum to zero, and the four flows sum to zero. TetA's
-vortex on its face opposite $v_\lambda$ lies on the $-v_\lambda$ side
-of the cube, TetB's on its face opposite $-v_\lambda$ on the
-$+v_\lambda$ side, and the two carry the same angular momentum: one
-swirl along each axis, TetA at one end and TetB at the other, through
-the Field Origin.}
-
-\paragraph{Proof.} Direct computation from~(\ref{eq:dict}), with
-channel positions the triangles' centroids. The equality of the two
-angular momenta follows from parity, since angular momentum is an
-axial vector; the content is that the two vortices sit on opposite
-sides of one axis. \hfill $\square$
-
-\medskip\noindent
-This is the shape of a drained vortex, a swirl about an axis with a
-flow into the drain (the Burgers vortex of the tug-of-war
-proof~\cite{NelsonTug}), and of the framework's vortex, spiral,
-throat, spiral~\cite{NelsonVortex}. The reading is the framework's;
-the algebra under it is exact.
+\paragraph{Remark (the vortex reading).} Each face's swirl turns about
+that face's own leg $v_\lambda$, and the four balance. Both facts are
+forced by symmetry: the face's rotations fix only the axis
+$v_\lambda$, and the legs sum to zero. Any quantity built to measure
+the swirl, such as $\sum \omega\,(r_{\rm channel} \times c)$, points
+along $v_\lambda$. Its size depends on where in the channel $r$ is
+placed, so no size is claimed. What is not a matter of symmetry is
+where the swirls sit. TetA's swirl on its face opposite $v_\lambda$
+reaches cubes on the $-v_\lambda$ side, TetB's on its face opposite
+$-v_\lambda$ reaches cubes on the $+v_\lambda$ side, and, a
+circulation being an axial vector that parity keeps, the two turn
+the same way: one swirl along each axis, TetA at one end and TetB at
+the other, through the Field Origin (checks 5.13--5.14, for channels
+placed at their centroids or at their spike tips). With the flow of
+(iv) along the same leg, this is the shape of a drained vortex, a
+swirl about an axis with a flow into the drain (the Burgers vortex
+of the tug-of-war proof~\cite{NelsonTug}), and of the framework's
+vortex, spiral, throat, spiral~\cite{NelsonVortex}. The reading is
+the framework's; the algebra under it is exact.
 
 % ----------------------------------------------------------------------
 
-\section*{Theorem 7 (with closure, TetA couples to TetA)}
+\section*{Theorem 6 (closure keeps the swirl inside TetA)}
 
 \emph{Under (C), every neighbour reached through a shared octahedron
 meets that octahedron with its own TetA at the same end as the cube
-does, so the couplings close TetA to TetA across the tiling.}
+does, so no coupling crosses from TetA to TetB. If instead every cube
+is labelled alike, the couplings that cross are exactly the $24$ with
+three different indices: the corner channels' couplings to face
+neighbours, the ones on which the swirl $\omega$ lives.}
 
 \paragraph{Proof.} Under (C) a corner's chamber is the same in all
 eight cubes around it, so the end $v_\mu$ of the octahedron of
-Theorem~2(ii) is TetA for all four holders. \hfill $\square$
+Theorem~2(ii) is TetA for all four holders. Under the uniform
+labelling the cube diagonally across, at $v_\mu - v_\lambda$, sees
+$v_\mu$ at its own position $v_\lambda$, a TetA corner, while a face
+neighbour at $-v_\lambda - v_\nu$ sees it at
+$v_\mu + v_\lambda + v_\nu = -v_\rho$, $\rho$ the fourth leg, a TetB
+corner, by~(\ref{eq:frame}). By the
+dictionary these face neighbours are the $\nu \notin \{\lambda,\mu\}$
+cases, the triples with all indices different, the support of
+$\omega$ (Theorem~5(iii)). Checks 6.1--6.2. \hfill $\square$
+
+\medskip\noindent
+Given (C), the first sentence is immediate. The content is the
+contrast: the labelling decides whether the handed couplings stay in
+TetA, and closure is what keeps them there. This is not the torsion
+subspace itself, which is a set of differences of couplings, not a
+set of couplings.
 
 % ----------------------------------------------------------------------
 
@@ -363,10 +436,10 @@ Theorem~2(ii) is TetA for all four holders. \hfill $\square$
 Removed & What fails \\
 \hline
 (T) & An isolated cube: each channel couples only to its own cube, $16$ couplings, not $64$ \\
-(S) & Without sharing as the coupling rule the four cubes per channel, and so~(\ref{eq:dict}), have no source \\
+(S) & Without sharing as the coupling rule the four cubes per channel, and so~(\ref{eq:dict}), have no source; counting every point of contact instead, the spike tips included, gives $28$ per face, not $16$ \\
 roles & $1152$ bijections commute with $T_d$; the symmetry alone does not fix the dictionary \\
 $\varepsilon$ & Each of the other $31$ symmetric sign rules misses the couplings \\
-(C) & With every cube labelled alike, the face neighbours meet each shared octahedron with TetA at the other end: the coupling crosses chambers \\
+(C) & With every cube labelled alike, the face neighbours meet each shared octahedron with TetA at the other end: the $24$ couplings carrying the swirl cross into TetB \\
 \hline
 \end{tabular*}}
 \vspace{4pt}
@@ -381,12 +454,14 @@ tiles.
 
 \section*{What is proved and what is not}
 
-Proved: the tiling's couplings are the connection's index triples,
-by a forced, symmetric dictionary built from the tetrad's legs, with
-the Christoffel and torsion sectors, the Field Origin as the row
-$\mu = \lambda$, torsion as the handedness of the couplings (a swirl
-and a flow), the vortex through the Field Origin, and, with closure,
-TetA coupled to TetA.
+Proved: the tiling's couplings correspond one-to-one with the
+connection's index triples, by a forced, symmetric dictionary built
+from the tetrad's legs; under it they split as the Christoffel and
+torsion sectors do, the Field Origin is the row $\mu = \lambda$, and
+torsion is the handedness of the couplings (a swirl and a flow);
+closure is what keeps the handed couplings inside TetA. The vortex
+through the Field Origin is a reading of these facts, with its
+direction forced by symmetry.
 
 Not proved:
 \begin{enumerate}
@@ -398,7 +473,10 @@ Not proved:
   step.
 \item \emph{Letter 2's reading of the $24$ as TetB.} The handed
   couplings are TetA's, and they run toward the TetB corner piercing
-  each face (Theorem~2(ii)); that fits the reading without proving it.
+  each face (Theorem~2(ii)). Under the uniform labelling exactly the
+  $24$ couplings carrying the swirl reach TetB (Theorem~6); under
+  closure none does. Neither fact identifies the torsion subspace
+  with TetB, so the reading is neither proved nor refuted here.
 \item \emph{The $K^2$ of $a_0 = K^2Gm_e/r_e^2$.} Each face carries
   $K^2 = 16$ couplings; that this is the $K^2$ of $a_0$ is not shown.
 \item \emph{Lean.} The statements are finite and integer; the
@@ -409,7 +487,7 @@ Not proved:
 
 \section*{Verification}
 
-\texttt{verify\_tiled\_cube\_affine\_connection.py} runs $44$ exact
+\texttt{verify\_tiled\_cube\_affine\_connection.py} runs $47$ exact
 checks, numbered by theorem (check $i.j$ belongs to Theorem~$i$), in
 integers and fractions with no floating point. The working notes,
 with the two labellings of the tiling compared and the ladder of
@@ -458,6 +536,13 @@ S.~Nelson, \textit{Vortices of the Stellated Octahedron} (2026),
 \bibitem{NelsonTug}
 S.~Nelson, \textit{The Constitutive Law as a Tug of War} (2026),
 \texttt{proofs/constitutive-law-tug-of-war/}.
+
+\bibitem{Carroll}
+S.~M.~Carroll, \textit{Spacetime and Geometry} (Addison-Wesley, 2004).
+
+\bibitem{HawkingEllis}
+S.~W.~Hawking and G.~F.~R.~Ellis, \textit{The Large Scale Structure of
+Space-Time} (Cambridge University Press, 1973).
 
 \bibitem{NelsonI}
 S.~Nelson, \textit{The Gravitational Constitutive Law} (Paper~I, 2026),
