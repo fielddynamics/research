@@ -7,12 +7,15 @@ object's own field, the host's tide and the orbit's turning combine into one eff
 (x along the host's radius, z out of the plane). Two surfaces can be defined from it:
   Sigma_field  : the level set through the field's stagnation points (where the combined field vanishes), a property of
                  the field alone, with no orbits in it;
-  Sigma_Jacobi : the boundary that no orbit with Jacobi energy below the critical value can cross.
-They are the same surface, because the Coriolis force does no work. A vortex in a strain has the same structure: its
+  Sigma_Jacobi : the surface that matter with Jacobi energy below the critical value can never leave: it stays in
+                 the cell and cannot snap to a neighbouring cell.
+They are the same surface, because the Coriolis force does no work. Matter above the critical value can snap to a
+neighbouring cell, only through the necks that open at the two stagnation points. Without the host's tide there are
+no stagnation points and no boundary: a cell is anchored by the field around it. A vortex in a strain has the same structure: its
 closed streamlines are bounded by the separatrix through its stagnation points.
 
   Part A  the stagnation surface (field only)
-  Part B  the trapping surface (orbits), and that they coincide
+  Part B  the surface matter cannot leave (orbits), that they coincide, and snapping to a neighbouring cell
   Part C  the vortex: a point vortex in a strain
   Part D  the shape and size of the surface
   Part E  self-consistency with ownership: the tide is the mountain's
@@ -52,8 +55,13 @@ check("A2 they are saddles (stagnation points): the curvature of Phi_eff there i
       "part of {Phi_eff < E_c} around the object: defined by the field alone, with no orbits in it",
       sp.simplify(Hs - sp.diag(-3 * T, T, T + nu2)) == sp.zeros(3, 3)
       and sp.simplify(Ec + sp.Rational(3, 2) * GM / rJ) == 0)
+Gs, Ss = sp.symbols("Gamma S", positive=True)
+check("A3 the cell is anchored by its surroundings: as the host's tide T -> 0, r_J = (GM/T)^(1/3) -> infinity and the "
+      "stagnation points recede without limit; with no surrounding flow there is no boundary. The same holds for the "
+      "vortex: as the strain S -> 0 its stagnation points (a^2 = Gamma/(4 pi S)) recede to infinity",
+      sp.limit(rJ, T, 0, "+") == sp.oo and sp.limit(sp.sqrt(Gs / (4 * sp.pi * Ss)), Ss, 0, "+") == sp.oo)
 
-# ------------------------------------------------------------------ Part B: the trapping surface (orbits)
+# ------------------------------------------------------------------ Part B: held in the cell, or snapping out
 W = sp.symbols("Omega", positive=True)
 vx, vy, vz = sp.symbols("v_x v_y v_z", real=True)
 cor = sp.Matrix([2 * W * vy, -2 * W * vx, 0])                 # -2 Omega x v, Omega along z
@@ -87,24 +95,29 @@ def sample(Elo, Ehi, n, retro=None):
     return out
 Tend = 40 * 2 * math.pi / Om                                    # forty host orbits
 esc = lambda t, s: s[0] ** 2 + s[1] ** 2 + s[2] ** 2 - 9; esc.terminal = True
+cross = lambda t, s: s[0] ** 2 + s[1] ** 2 + s[2] ** 2 - 1.1     # just past r_J: where matter leaves the cell
 def run(s0):
-    return solve_ivp(rhs, [0, Tend], s0, events=esc, rtol=1e-10, atol=1e-12, method="DOP853")
+    return solve_ivp(rhs, [0, Tend], s0, events=[esc, cross], rtol=1e-10, atol=1e-12, method="DOP853")
 below = sample(-3.0, ECn - 1e-3, 40)
 res_b = [run(s0) for s0 in below]
 maxr = max(np.max(np.linalg.norm(sol.y[:3], axis=0)) for sol in res_b)
 drift = max(abs(EJ(sol.y[:, -1]) - EJ(sol.y[:, 0])) for sol in res_b)
-check(f"B2 orbits with E_J below E_c, started inside Sigma_field, never leave it: 40 orbits over forty host orbits each, "
-      f"the farthest reaching {maxr:.3f} r_J (the surface reaches r_J only at the saddles); E_J conserved to {drift:.0e}. "
-      "So Sigma_Jacobi = Sigma_field: one surface, read by the field or by the orbits",
+check(f"B2 matter with E_J below E_c, started inside Sigma_field, stays in the cell: 40 orbits over forty host orbits "
+      f"each, the farthest reaching {maxr:.3f} r_J (the surface reaches r_J only at the saddles); E_J conserved to "
+      f"{drift:.0e}. None snaps to a neighbouring cell. So Sigma_Jacobi = Sigma_field: one surface, read by the field or "
+      "by the orbits",
       maxr < 1.0 and drift < 1e-4 and all(sol.status == 0 for sol in res_b))
 above_p = [run(s0) for s0 in sample(ECn + 0.02, ECn + 0.3, 30, retro=False)]
 above_r = [run(s0) for s0 in sample(ECn + 0.02, ECn + 0.3, 30, retro=True)]
 fp = sum(sol.status == 1 for sol in above_p) / 30
 fr = sum(sol.status == 1 for sol in above_r) / 30
-check(f"B3 the energy condition is sufficient, not necessary: just above E_c, {fp:.0%} of prograde and {fr:.0%} of "
-      "retrograde orbits escape within forty host orbits. Retrograde orbits survive longer, as known for the Hill "
-      "problem; the surface bounds what is held for good, and some orbits above it linger",
-      fp > fr and fr < 1.0)
+exits = [sol.y_events[1][0] for sol in above_p + above_r if sol.status == 1]
+ang = [math.degrees(math.acos(min(1.0, abs(p_[0]) / np.linalg.norm(p_[:3])))) for p_ in exits]
+check(f"B3 above E_c matter can snap to a neighbouring cell, and only through the necks that open at the two "
+      f"stagnation points: every one of the {len(exits)} that left passed 1.05 r_J within {max(ang):.0f} degrees of the host's "
+      f"radius. The energy condition is sufficient, not necessary: just above E_c, {fp:.0%} of prograde and {fr:.0%} of "
+      "retrograde orbits snap out within forty host orbits; retrograde ones stay longer, as known for Hill's problem",
+      fp > fr and fr < 1.0 and len(exits) > 0 and max(ang) < 45)
 
 # ------------------------------------------------------------------ Part C: the vortex
 # A point vortex of circulation G in a pure strain of rate S: streamfunction psi = -(G/2 pi) ln r + S x y

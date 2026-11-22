@@ -11,8 +11,11 @@ restoring term combine into `Φ_eff = −GM/r − ½ T x² + ½ ν² z²`.
   the Jacobi radius;
 * `critical_level`: the level through those stagnation points is `E_c = −(3/2) GM/r_J`;
 * `coriolis_no_work`: the Coriolis force does no work, so the Jacobi energy is conserved;
-* `trapped`: with kinetic energy non-negative, an orbit with `E_J < E_c` keeps `Φ_eff < E_c`, so it
-  never reaches the stagnation level: the trapping surface is the field's own surface;
+* `held_in_cell`: with kinetic energy non-negative, matter with `E_J < E_c` keeps `Φ_eff < E_c`, so
+  it never reaches the stagnation level and cannot snap to a neighbouring cell: the surface it
+  cannot leave is the field's own surface;
+* `anchored`: as the host's tide `T → 0⁺`, `r_J³ = GM/T → ∞`: without its surroundings a cell has
+  no boundary; the surrounding flow anchors it;
 * `orbit_extent`: along the orbit the surface reaches `2/3` of `r_J`;
 * `held_for_good`: a Kepler orbit is held when `a < r_J/3` (the outer Oort cloud scale);
 * `binary_edge`: a pair is one cell when `v² < (GM/s)(2 − 3s/r_J)`.
@@ -45,10 +48,18 @@ theorem coriolis_no_work (Ω vx vy vz : ℝ) :
     vx * (2 * Ω * vy) + vy * (-2 * Ω * vx) + vz * 0 = 0 := by
   ring
 
-/-- Trapping. With `E = ½ k + P`, `k ≥ 0` (twice the kinetic energy) and `E < E_c`, the potential
-stays below the stagnation level, `P < E_c`: the orbit never reaches the field's surface. -/
-theorem trapped (E k P Ec : ℝ) (hE : E = k / 2 + P) (hk : 0 ≤ k) (hlt : E < Ec) : P < Ec := by
+/-- Held in the cell. With `E = ½ k + P`, `k ≥ 0` (twice the kinetic energy) and `E < E_c`, the
+potential stays below the stagnation level, `P < E_c`: the matter never reaches the field's surface,
+so it cannot snap to a neighbouring cell. -/
+theorem held_in_cell (E k P Ec : ℝ) (hE : E = k / 2 + P) (hk : 0 ≤ k) (hlt : E < Ec) : P < Ec := by
   linarith
+
+/-- Anchored by the surroundings. The cell's size is `r_J³ = GM/T`. As the host's tide `T` goes to
+zero this grows without bound: with no surrounding flow there are no stagnation points and no
+boundary. A cell is anchored by the field around it. -/
+theorem anchored (GM : ℝ) (hGM : 0 < GM) :
+    Filter.Tendsto (fun T : ℝ => GM * T⁻¹) (nhdsWithin 0 (Set.Ioi 0)) Filter.atTop :=
+  Filter.Tendsto.const_mul_atTop hGM tendsto_inv_nhdsGT_zero
 
 /-- Along the orbit (the y axis) `Φ_eff = −GM/y`; it reaches the stagnation level at `y = 2/3 r_J`. -/
 theorem orbit_extent (GM rJ : ℝ) (hGM : 0 < GM) (hr : 0 < rJ) :
@@ -86,7 +97,8 @@ end ClosureSurface
 #print axioms ClosureSurface.stagnation_radius
 #print axioms ClosureSurface.critical_level
 #print axioms ClosureSurface.coriolis_no_work
-#print axioms ClosureSurface.trapped
+#print axioms ClosureSurface.held_in_cell
+#print axioms ClosureSurface.anchored
 #print axioms ClosureSurface.orbit_extent
 #print axioms ClosureSurface.held_for_good
 #print axioms ClosureSurface.binary_edge

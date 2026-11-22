@@ -40,7 +40,7 @@ readings of the neutron-lifetime discrepancy, Paper VII, and the proton mass, re
 - proofs/constitutive-law-tug-of-war/ -- the solve of mu(x): which premises select x/(x+1), and drive/brake from decoded mass
 - proofs/net-field-rule/ -- where mu acts: only on a field with a drain; why the solar system is exactly GR with the bare G
 - proofs/sst-mountain-scale/ -- the net-field rule from the action: the law read at each system's Jacobi radius (the mountain scale)
-- proofs/closure-surface/ -- where closure sits: the field's stagnation surface is the Jacobi trapping surface (Lean)
+- proofs/closure-surface/ -- where closure sits: the field's stagnation surface is the surface matter cannot leave; snapping to a neighbouring cell only through the two stagnation points (Lean)
 - proofs/sst-khronon-preferred-frame/ -- the preferred frame: the khronon is the TetB share; stable at every acceleration; alpha_1 = alpha_2 = 0 in a star system (flat slope + drainless dimple)
 
 ## Core constants
@@ -324,7 +324,8 @@ Net-field rule (proofs/net-field-rule, machine-checked in Lean): a drain belongs
 Closure surface (proofs/closure-surface, machine-checked in Lean): where closure sits. In the frame turning with
   a bound object's orbit, Phi_eff = -GM/r - T x^2/2 + nu^2 z^2/2 (T = 4 Omega^2 - kappa^2). Its field vanishes only
   at x = +-r_J (r_J^3 = GM/T), saddles; the level through them (E_c = -3GM/2r_J) is the field's surface. Coriolis does
-  no work, so orbits below E_c never cross it: field surface = Jacobi trapping surface (a vortex's separatrix).
+  no work, so matter below E_c stays in its cell; above it, matter snaps to a neighbouring cell only through
+  the two stagnation points (a vortex's separatrix). No host tide, no boundary: the surroundings anchor the cell.
   Not a sphere (r_J x 2/3 r_J x 0.50 r_J for the Sun). Self-consistent under ownership. Oort edge a < r_J/3 ~ 1e5 AU;
   alpha Cen its own cell; wide-binary edge v/sqrt(GM/s) < sqrt(2 - 3s/r_J). Premise left: registration happens at
   the field's stagnation surface.
@@ -444,7 +445,7 @@ Each script is self-contained; run it from its own folder.
 - proofs/constitutive-law-tug-of-war/verify_constitutive_law_tug_of_war.py -- the tug of war: selection of mu, necessity, cap, decode, vortex (42 checks; Lean in lean/)
 - research/constitutive-law-u(x)/test_tug_of_war.py -- the same statements as 85 pytest tests
 - proofs/net-field-rule/verify_net_field_rule.py -- the net-field rule: four faces, forced per-mass tail, sheet split, Jacobi edge, clusters, wide binaries, RAR slope (122 checks; Lean in lean/)
-- proofs/closure-surface/verify_closure_surface.py -- where closure sits: stagnation surface = Jacobi trapping surface, the vortex separatrix, shape, self-consistency, Oort cloud, alpha Cen, wide-binary edge, Pal 14 (15 checks; Lean in lean/)
+- proofs/closure-surface/verify_closure_surface.py -- where closure sits: stagnation surface = the surface matter cannot leave, snapping out through the stagnation points, anchoring, the vortex separatrix, shape, self-consistency, Oort cloud, alpha Cen, wide-binary edge, Pal 14 (16 checks; Lean in lean/)
 - proofs/sst-mountain-scale/verify_sst_mountain_scale.py -- the mountain scale: exact split from the action, dimple blind to the law, curved-slice projector, Jacobi radii, ownership sweep with overlapping spheres, four ports, 3D solutions, edge test, nested envelopes and faces, registration, Cassini quadrupole, closure-surface kink (36 checks; Lean in lean/)
 - proofs/sst-khronon-preferred-frame/verify_sst_khronon_preferred_frame.py -- the preferred frame: khronon = TetB share, stability at every acceleration, forced tail, n = 1, flat slope and drainless dimple, empty sector inside a star system (32 checks; Lean in lean/)
 

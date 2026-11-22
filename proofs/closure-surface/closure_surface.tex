@@ -36,9 +36,13 @@ field, the host's tide and the orbit's turning make one effective
 potential. Its field vanishes at exactly two points, the stagnation
 points on the host's radius at the Jacobi radius, and the level through
 them defines a surface from the field alone. Because the Coriolis force
-does no work, the same surface is the one that no orbit below the
-critical Jacobi energy can cross. So the surface the field defines and
-the surface the orbits respect are one surface. A vortex in a strain
+does no work, the same surface is the one that matter below the
+critical Jacobi energy can never leave: it stays in its cell. Matter
+above it can snap to a neighbouring cell, and only through the necks
+that open at the two stagnation points. So the surface the field defines
+and the surface matter cannot leave are one surface. Without the host's
+tide there are no stagnation points and no boundary: the surrounding
+flow anchors the cell. A vortex in a strain
 has the same structure: its closed streamlines are bounded by the
 separatrix through its stagnation points. Under ownership the host's
 tide is the mountain's and the object's own field is Newtonian, so the
@@ -82,8 +86,8 @@ $\kappa$ the epicyclic and $\nu$ the vertical frequency. The members
 move by $\ddot{\mathbf r} = -\nabla\Phi_{\rm eff} - 2\boldsymbol\Omega
 \times\dot{\mathbf r}$~\cite{BT2008}.
 
-Every statement is checked by script (15 checks); the algebra is
-machine-checked in Lean~4 (7 theorems), importing the mountain-scale
+Every statement is checked by script (16 checks); the algebra is
+machine-checked in Lean~4 (8 theorems), importing the mountain-scale
 formalisation~\cite{NelsonScript}.
 
 % ----------------------------------------------------------------------
@@ -109,28 +113,43 @@ zero only on $y = z = 0$; there, $Tx = GM/x^2$. Lean
 
 % ----------------------------------------------------------------------
 
-\section*{Theorem 2 (the trapping surface is the same surface)}
+\section*{Theorem 2 (the surface matter cannot leave)}
 
-\emph{The Coriolis force does no work, so the Jacobi energy $E_J =
-\tfrac12v^2 + \Phi_{\rm eff}$ is conserved. An orbit with $E_J < E_c$
-that starts inside $\Sigma_{\rm field}$ keeps $\Phi_{\rm eff} \le E_J <
-E_c$ and never reaches the stagnation level, so it never leaves. The
-surface no orbit below $E_c$ can cross, $\Sigma_{\rm Jacobi}$, is
-$\Sigma_{\rm field}$. The condition is sufficient, not necessary: some
-orbits above $E_c$ stay for a long time, retrograde ones especially.}
+\emph{(a) The Coriolis force does no work, so the Jacobi energy $E_J =
+\tfrac12v^2 + \Phi_{\rm eff}$ is conserved. Matter with $E_J < E_c$
+inside $\Sigma_{\rm field}$ keeps $\Phi_{\rm eff} \le E_J < E_c$ and
+never reaches the stagnation level: it stays in its cell and cannot snap
+to a neighbouring one. The surface it cannot leave,
+$\Sigma_{\rm Jacobi}$, is $\Sigma_{\rm field}$. (b) Above $E_c$ the
+level opens in two necks around the stagnation points, and matter can
+snap to a neighbouring cell only through them. The condition is
+sufficient, not necessary: some matter above $E_c$ stays a long time,
+retrograde orbits especially. (c) The cell is anchored by its
+surroundings: as the host's tide $T \to 0$, $r_J = (GM/T)^{1/3} \to
+\infty$, and with no surrounding flow there are no stagnation points
+and no boundary.}
 
 \begin{proof}
-Lean \texttt{coriolis\_no\_work}, \texttt{trapped}. Script B2: 40 orbits
-below $E_c$ over forty host orbits each never leave (farthest $0.74\,r_J$;
-$E_J$ conserved to $10^{-5}$). B3: just above $E_c$, $70\%$ of prograde
-and $3\%$ of retrograde orbits escape in that time, as known for Hill's
-problem~\cite{Henon1970}.
+(a) Lean \texttt{coriolis\_no\_work}, \texttt{held\_in\_cell}. Script
+B2: 40 orbits below $E_c$ over forty host orbits each stay in the cell
+(farthest $0.74\,r_J$; $E_J$ conserved to $10^{-5}$). (b) Script B3:
+just above $E_c$, $70\%$ of prograde and $3\%$ of retrograde orbits
+snap out in that time, as known for Hill's problem~\cite{Henon1970},
+and every one that left passed $1.05\,r_J$ within $30^\circ$ of the
+host's radius, through the necks. (c) Lean \texttt{anchored}; script
+A3.
 \end{proof}
 
-So the reviewers' question, whether registration and trapping select
-the same surface, has a direct answer: they are the same level set of
-the same potential. One is read from the field, the other from the
-orbits.
+So the reviewers' question, whether registration and orbital binding
+select the same surface, has a direct answer: they are the same level
+set of the same potential, one read from the field, the other from the
+matter. Part~(c) says the boundary is not the object's alone: it exists
+only because of the field around it. In Paper~VII's picture the
+unbound envelopes, their TetB chambers empty, form the mesh, and bound
+envelopes, the matter, move through it~\cite{NelsonVII}; the mesh,
+vorticing into TetB, is the surrounding flow that anchors a bound cell.
+The proof's content is the tide's role; that this tide is the mesh's
+flow is the framework's reading.
 
 % ----------------------------------------------------------------------
 
@@ -237,8 +256,10 @@ projected, which spreads the edge.
 
 \section*{Scope}
 
-Proved here: the field's stagnation surface and the orbits' trapping
-surface are one surface, for a drainless object on a near-circular orbit
+Proved here: the field's stagnation surface and the surface matter
+cannot leave are one surface; matter snaps to a neighbouring cell only
+through the necks at the stagnation points; the cell is anchored by its
+surroundings; for a drainless object on a near-circular orbit
 in Hill's limit; its shape and size; its vortex counterpart; that
 ownership at it reproduces itself; and five tests.
 
@@ -247,6 +268,8 @@ Not proved here:
 \item \emph{That registration happens at the stagnation surface.} This
 is now the single geometric premise: the closure surface is the field's
 separatrix. It is not derived from the dual-tetrad dynamics.
+\item \emph{The snap itself}: what happens to the registered state on
+both sides when matter changes cells, treated as a discrete event.
 \item \emph{Eccentric orbits and a changing host}: the surface then
 breathes, and ownership changes in time (stripping, capture).
 \item \emph{Beyond Hill's limit}: when the object is not small against
@@ -272,6 +295,10 @@ S.~Nelson, \textit{The Gravitational Constitutive Law}, Paper~I
 \bibitem{NelsonII}
 S.~Nelson, \textit{A Covariant Theory Without Dark Matter}, Paper~II
 (2026), \S6.
+
+\bibitem{NelsonVII}
+S.~Nelson, \textit{Dual Tetrad Gravity and the Field Origin},
+Paper~VII (2026).
 
 \bibitem{NelsonScript}
 S.~Nelson, \texttt{verify\_closure\_surface.py} and
