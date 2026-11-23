@@ -1,8 +1,8 @@
 # The Cube Tiling: Two Labellings, and the Ladder of Tiles
 
-*Field Dynamics Research, research folder, 2026-11-22. Status: research, not a proof. Verification: `python3 verify_cube_tiling.py` (19 checks) `python3 verify_scale_ladder.py` (11) and `python3 verify_sixteen_channels.py` (41), exact integers and fractions.*
+*Field Dynamics Research, research folder, 2026-11-22. Status: research, not a proof. Verification: `python3 verify_cube_tiling.py` (19 checks) and `python3 verify_scale_ladder.py` (11), exact integers and fractions.*
 
-`tiling` `cube` `stellated-octahedron` `TetA` `TetB` `closure` `scale-ladder` `Field-Origin` `affine-connection` `torsion` `diamond` `fluorite` `research`
+`tiling` `cube` `stellated-octahedron` `TetA` `TetB` `closure` `scale-ladder` `Field-Origin` `diamond` `fluorite` `research`
 
 ---
 
@@ -80,70 +80,6 @@ $k \equiv 1 \pmod 4$ keeps every label, $k \equiv 3 \pmod 4$ exchanges TetA and 
 
 So the framework's statement that the stellated octahedron scales, with another stellated octahedron inside its Field Origin, is exact in the tiling: inscribed corner to face centroid, one level down at a factor of 3, with each chamber continuing into the same chamber.
 
-**13. The 16 channels of a face, in the tiling** (`verify_sixteen_channels.py`, 13a–13d). Each face of TetA is cut by the TetB corner that pierces it into a core triangle, a face of the Field Origin, and three corner triangles, faces of TetA's spikes: Letter 1's channels. In the tiling every channel is shared by exactly four tiles.
-- A corner channel is a face of one shared octahedron, so it is shared by the four tiles around that cube edge: the tile, two face neighbours and one edge neighbour.
-- The core channel bounds the tile's Field Origin, and its three vertices, cube face centres, are vertices of three face neighbours' Field Origins.
-
-So each face carries 4 channels × 4 tiles = **16 couplings, and the tetrahedron 4 × 16 = 64**, the number of components of the affine connection. Every channel of the face opposite $a$ leads to the TetB corner $-a$ that pierces it: the core channel is the base of TetB's spike at $-a$, and each corner channel's shared octahedron runs from its TetA corner to $-a$. A face reaches 7 of the 8 tiles around that TetB corner.
-
-**14. The 64 couplings are the affine connection, as a representation** (14a–14e). The symmetries keeping TetA ($T_d$, acting on its corners as $S_4$) permute the 64 couplings in orbits of sizes 4, 12, 12, 12 and 24, exactly as they permute the connection's index triples $(\lambda, \mu, \nu)$. The characters on the classes $(e, (12), (123), (1234), (12)(34))$ are:
-
-| | character | as in |
-|---|---|---|
-| all 64 couplings | $(64, 8, 1, 0, 0)$ | the connection $V \otimes V \otimes V$ |
-| the 40 in the four smaller orbits | $(40, 8, 1, 0, 0)$ | the Christoffel sector $V \otimes \mathrm{Sym}^2 V$ |
-| the 24 in the free orbit | $(24, 0, 0, 0, 0)$ | the torsion sector $V \otimes \Lambda^2 V$, the regular representation (torsion proof, Theorem 1) |
-
-The sign representation, the one scalar detector of orientation, occurs once in the 24 and never in the 40, as it does in torsion and the Christoffel sector (torsion proof, Theorem 2). The free 24 are exactly the corner channels' couplings to face neighbours.
-
-**15. The connection is the 16 channels × 4, algebraically** (15a–15h). The dictionary is not chosen: it is a formula in the forced frame's legs $v_1, \dots, v_4$ (the columns of $M$, with $\sum_a v_a = 0$ and $v_a \cdot v_b = 4\delta_{ab} - 1$), and each index of $\Gamma^\lambda{}_{\mu\nu}$ has one role.
-- **$\lambda$ is the face**, the face of TetA opposite $v_\lambda$, and with it the TetB corner $-v_\lambda$ that pierces it.
-- **$\mu$ is the channel**, in the half-space proof's own labels: $\mu = \lambda$ is the core, the face of the Field Origin; $\mu \neq \lambda$ is the corner channel at $v_\mu$.
-- **$\nu$ is the leg.** The four tiles sharing channel $\mu$ are centred at
-$$c_{\lambda\mu\nu} = -v_\lambda + \varepsilon_{\lambda\mu\nu}\, v_\nu, \qquad \varepsilon_{\lambda\mu\nu} = \begin{cases} +1 & \nu \in \{\lambda, \mu\} \\ -1 & \text{otherwise,}\end{cases}$$
-one tile along each leg from the piercing TetB corner.
-
-The proof uses only the frame. The core channel's vertices are cube face centres $(v_q + v_r)/2$, which closure rewrites as $-(v_\lambda + v_p)/2$, and a face centre $f$ is shared by the tiles at $0$ and $2f$ (15b). A corner channel $\mu \neq \lambda$ lies on the shared octahedron at the cube-edge midpoint $(v_\mu - v_\lambda)/2$, because $v_\mu \cdot v_\lambda = -1$ makes $(v_\mu + v_\lambda)/2$ a unit vector, and the four tiles holding that edge are exactly $c_{\lambda\mu\nu}$ (15c). So $(\lambda, \mu, \nu) \mapsto$ (channel $\mu$ of face $\lambda$, tile $c_{\lambda\mu\nu}$) is a bijection from the 64 index triples onto the 64 couplings, and it commutes with $T_d$ because it is built from the legs alone (15d). Each channel couples along all four legs of the tetrad, so a face is a $4 \times 4$, channels by legs, and the connection is these 16 per face times the 4 faces.
-
-In this dictionary (15e–15h):
-- **The Field Origin is the row $\mu = \lambda$** of each slice: the core channel, coupling the tile to itself and to the three face neighbours whose Field Origins it touches.
-- **The diagonal $\mu = \nu$** is each channel's coupling straight through, along its own leg: the core to its own tile, and a corner channel through its shared octahedron to the tile diagonally across.
-- **One face's 16** fall, under the face's own symmetry, into the orbits of one slice's ordered index pairs, and the corner channels' couplings to face neighbours are chiral: the face's rotations separate each channel's left and right neighbour, and its reflections exchange them.
-- **Exchanging the lower indices** $\mu \leftrightarrow \nu$ swaps a channel with a leg. Its even part is 40-dimensional (Christoffel) and its odd part 24 (torsion), and on the corner channels' couplings to face neighbours it exchanges the two senses of circulation around the face, as the [chiral-holonomy proof](../../../proofs/chiral-holonomy-closed-frame/)'s TetB step is the transpose of its TetA step.
-
-**16. The dictionary is forced, and torsion on the tiles is swirl plus directed flow** (16a–16l).
-- **Forced.** The symmetry alone allows 1152 equivariant bijections between couplings and index triples (16a). Fixing the roles, $\lambda$ the face and $\mu$ the channel by the half-space proof's labels, and asking that the tile lie along leg $\nu$ from the piercing TetB corner, leaves exactly one: the formula of result 15 (16b). The eight tiles around that corner are $-v_\lambda \pm v_\nu$, and the face reaches all but $-2v_\lambda$, the one sign the rule never uses (16c). Of the 32 symmetric sign rules, only $\varepsilon = +1 \Leftrightarrow \nu \in \{\lambda, \mu\}$ gives the couplings (16d).
-- **Torsion-free is mirror symmetry.** On the 24 couplings with three different indices, the corner channels' couplings to face neighbours, exchanging $\mu \leftrightarrow \nu$ is exactly the reflection exchanging legs $\mu$ and $\nu$ (16e). So a torsion-free connection is mirror-symmetric there, and torsion is the handedness of the couplings. On the other 24 with $\mu \neq \nu$, no symmetry maps a coupling to its partner (16f).
-- **The torsion proof's pieces, on the tiles** (16g). Its incident half $t_{a;ab}$ is the core channel's coupling to a face neighbour minus a corner channel's coupling to its own tile. Its non-incident half $t_{a;bc}$ is the difference of two mirror-image corner couplings.
-- **Swirl.** The totally antisymmetric torsion, the sign representation, lives only on the corner channels' couplings to face neighbours, $+1$ on one sense of circulation around each face and $-1$ on the other (16h). It is a pseudoscalar: unchanged by rotations, reversed by reflections (16i). It is the net circulation around the faces.
-- **Directed flow.** The vector torsion along leg $b$ (torsion proof, Theorem 3) couples to the face neighbours at $-v_a - v_b$ and subtracts the own tile: a net displacement of $-2v_b$, along the leg toward the TetB corner $-v_b$ (16j). It is polar (16k).
-- **Separate** (16l). The swirl has no net displacement, and the directed flow has no support where the swirl lives.
-
-In vortex terms, a drained vortex is a swirl about its axis plus an inflow into its drain (the Burgers vortex of the tug-of-war proof). The torsion carries exactly these two kinds of part: a circulation around the faces and a flow along the legs toward TetB, with the Christoffel sector the mirror-symmetric, unhanded remainder. That reading is the framework's; the algebra under it is exact.
-
-**17. TetB, the vortex tube, the full content and reciprocity** (17a–17l).
-- **TetB obeys the same formula** in its own legs $-v$, one tile per leg from the piercing TetA corner (17a), and parity carries TetA's dictionary onto TetB's index for index (17b).
-- **Each face's swirl is a vortex about its leg.** Its angular momentum, $\sum \omega\,(r_{\rm channel} \times d_{\rm tile})$ over the face, is parallel to $v_\lambda$ (17c). The four have one magnitude and sum to zero, as the legs close (17d), and the directed flow along the legs sums to zero as well (17f).
-- **One tube through the Field Origin** (17e). TetA's vortex on face $\lambda$ sits on the $-v_\lambda$ side of the tile, and TetB's on the $+v_\lambda$ side, with the same angular momentum along $v_\lambda$. That is one swirl along each axis, TetA at one end and TetB at the other, passing through the Field Origin: the spiral, throat, spiral of the framework's vortex. The equality itself follows from parity (angular momentum is an axial vector); the content is the placement on opposite sides of one axis.
-- **The full irreducible content** (17g, 17h). The mirror-symmetric couplings carry $4\cdot\mathbf 1 + 3V_2 + 7\,\mathrm{std} + 3(\mathrm{sgn}\otimes\mathrm{std})$, Paper B's decomposition of the Christoffel sector, with no sign representation. The handed couplings carry the regular representation, $1 + 1 + 2 + 3 + 3$.
-- **Torsion's three parts** (17i, 17j). On the couplings torsion has rank 24. Its vector part (4) lies on the incident couplings, its axial part (4) on the non-incident ones, and the tensor part is the remaining 16, 8 in each half, as in the torsion proof's Theorem 3. Each axial component $w^d$ is a circulation on the three faces other than face $d$.
-- **The Field Origin row in the lattice** (17k). It couples the tile to each of its six face neighbours exactly twice, through the two TetA faces of its Field Origin meeting at the shared cube-face centre.
-- **Reciprocity separates the labellings** (17l). Under closure, every neighbour reached through a shared octahedron meets it with its own TetA at the same end, so TetA couples to TetA across the lattice. Under the uniform labelling, the face neighbours meet it with TetA at the other end, so the coupling crosses chambers. This is the first result in 13–17 that depends on the labelling, and it sides with closure.
-
-The slice structure is the Gram paper's index grid: 6 upper + 4 diagonal (shared) + 6 lower per slice, $24 + 16 + 24 = 64$ ([Gram-matrix proof](../../../proofs/gram-matrix-tetrad-equation/), Part III; the GRAM manuscript; Letter 3). What the tiling adds is the geometric source of each index, and which coupling is which entry.
-
-*Correction.* An earlier version of this note used a table chosen so that $\mu \leftrightarrow \nu$ paired couplings reaching the same tile, and under it the core channel was the diagonal. The formula above replaces that table: under it the core channel is the row $\mu = \lambda$, and the diagonal is the straight-through coupling.
-
-The sharing in 13–16 is geometric, so those results hold for either labelling; 17l is the exception.
-
-**What 13–17 do and do not say.**
-- They say the tile's 16 channels per face, read in the tiling, are a copy of one slice of the connection, and the four faces the whole connection, with its Christoffel and torsion sectors, as representations of the tetrahedral group, and with an explicit equivariant dictionary.
-- The 40 + 24 split as representations is canonical, and the dictionary is the formula of result 15, built from the legs: no choice is made.
-- This is the level at which the connection itself is built. $\Gamma^\lambda{}_{\mu\nu}$ has 64 components because each of its three indices runs over 4: one slice per value of $\lambda$, times the $4 \times 4$ of $(\mu, \nu)$. Its 40 + 24 split is the symmetric and antisymmetric parts in $(\mu, \nu)$, an index symmetry. Results 13–15 reproduce exactly that: the count, the slices and the split under the same symmetry. In general relativity each factor of 4 is the number of coordinates; in the tiling each has a geometric source: the face ($\lambda$, with the TetB corner piercing it), the four channels of the face, and the four tiles sharing each channel. The four slices are the four coupled faces, each carrying one $4 \times 4$ copy.
-- What the index structure does not supply, in either case, is the dynamics: the transformation law and parallel transport. On the tiles that is a field whose coupling coefficients are $\Gamma$, the continuum step, where torsion would be read as the net circulation through the corner channels.
-- The 24 here are TetA's couplings, which run toward the TetB corner piercing each face (13c). How that bears on Letter 2's reading of the 24 torsion components as TetB is a question, not a result.
-- The per-face 16 is $K^2$. Whether it is the $K^2$ of $a_0 = K^2 G m_e / r_e^2$ is not shown.
-
 ## What this settles and what it does not
 
 Settled, exactly: the two labellings are different tilings, not two descriptions of one. They agree on the geometry (the same tetrahedral–octahedral honeycomb, since a star is unchanged by swapping its labels) and differ on every labelled structure.
@@ -159,12 +95,10 @@ The framework's positions now point one way, to C. Everything common to both (th
 
 - **Not a physical size ladder.** Results 10–12 are about the tiling's labels. Physical closure surfaces sit at each object's Jacobi radius (`proofs/closure-surface/`), which the factor 3 does not set. Compositional scale invariance (llms.txt, Rule 15) is the same rule at every level, not geometric self-similarity of objects.
 - **Not a reason for 3 from $D$.** The factor 3 is the smallest odd $k > 1$; result 10 holds in any dimension. It is not derived from $D = 3$ and should not be read as $D$.
-- **The 16.** See results 13–15: each face's 16 channels are one slice of the connection; whether that is the $K^2$ of $a_0$ is not shown.
 
 ## Next
 
 - Build the tiling proof on C: the honeycomb and shared octahedra (closure note), the global board of corners (results 1–2), the contacts (6), and the ladder and the nested star (10–12).
-- A field on the tiling with the couplings of results 13–15 as its coefficients: the step from this representation to the connection itself, and the continuum limit.
 
 ## Files
 
@@ -172,7 +106,6 @@ The framework's positions now point one way, to C. Everything common to both (th
 |---|---|
 | [`verify_cube_tiling.py`](verify_cube_tiling.py) | 19 exact checks: parts 1–7 for results 1–5, parts 8–11 for results 6–9 |
 | [`verify_scale_ladder.py`](verify_scale_ladder.py) | 11 exact checks for results 10–12 |
-| [`verify_sixteen_channels.py`](verify_sixteen_channels.py) | 41 exact checks for results 13–17 |
 
 ## Related
 
