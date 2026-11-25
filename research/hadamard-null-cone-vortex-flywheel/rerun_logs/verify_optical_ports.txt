@@ -1,0 +1,112 @@
+PASS 001 twelve ordered non-backtracking diamond routes
+PASS 002 one triplet per exact active Hadamard port
+PASS 003 column read is also four triplets
+PASS 004 row-column intersection
+PASS 005 symmetric read is an isometry on bright subspace
+PASS 006 orthogonal bright and dark projectors
+PASS 007 rank 4 bright and rank 8 dark
+PASS 008 each individual input participates equally, none is individually dark
+PASS 009 port read equivariant under tetrahedral permutation
+PASS 010 port read equivariant under tetrahedral permutation
+PASS 011 port read equivariant under tetrahedral permutation
+PASS 012 port read equivariant under tetrahedral permutation
+PASS 013 port read equivariant under tetrahedral permutation
+PASS 014 port read equivariant under tetrahedral permutation
+PASS 015 port read equivariant under tetrahedral permutation
+PASS 016 port read equivariant under tetrahedral permutation
+PASS 017 port read equivariant under tetrahedral permutation
+PASS 018 port read equivariant under tetrahedral permutation
+PASS 019 port read equivariant under tetrahedral permutation
+PASS 020 port read equivariant under tetrahedral permutation
+PASS 021 port read equivariant under tetrahedral permutation
+PASS 022 port read equivariant under tetrahedral permutation
+PASS 023 port read equivariant under tetrahedral permutation
+PASS 024 port read equivariant under tetrahedral permutation
+PASS 025 port read equivariant under tetrahedral permutation
+PASS 026 port read equivariant under tetrahedral permutation
+PASS 027 port read equivariant under tetrahedral permutation
+PASS 028 port read equivariant under tetrahedral permutation
+PASS 029 port read equivariant under tetrahedral permutation
+PASS 030 port read equivariant under tetrahedral permutation
+PASS 031 port read equivariant under tetrahedral permutation
+PASS 032 port read equivariant under tetrahedral permutation
+PASS 033 all 12 routes are one orbit: no invariant diagonal four-of-twelve selector
+PASS 034 origin initially dark through zero and one hop
+PASS 035 two-hop read is full row and column Hadamard combination
+PASS 036 three-hop polar read separates the two triplet copies
+PASS 037 two plus three hop read has rank seven
+PASS 038 eight row-dark and five row-and-column-dark
+PASS 039 three initially row-dark modes activate directional O
+PASS 040 common dark subspace invisible at O, power 0
+PASS 041 common dark subspace invisible at O, power 1
+PASS 042 common dark subspace invisible at O, power 2
+PASS 043 common dark subspace invisible at O, power 3
+PASS 044 common dark subspace invisible at O, power 4
+PASS 045 common dark subspace invisible at O, power 5
+PASS 046 common dark subspace invisible at O, power 6
+PASS 047 common dark subspace invisible at O, power 7
+PASS 048 common dark subspace invisible at O, power 8
+PASS 049 common dark subspace invisible at O, power 9
+PASS 050 common dark subspace invisible at O, power 10
+PASS 051 common dark subspace invisible at O, power 11
+PASS 052 common dark subspace invisible at O, power 12
+PASS 053 common dark subspace invisible at O, power 13
+PASS 054 common dark subspace invisible at O, power 14
+PASS 055 common dark subspace invisible at O, power 15
+PASS 056 common dark subspace invisible at O, power 16
+PASS 057 common dark subspace invisible at O, power 17
+PASS 058 common dark subspace invisible at O, power 18
+PASS 059 common dark subspace invisible at O, power 19
+PASS 060 common dark subspace invisible at O, power 20
+PASS 061 common dark subspace invisible at O, power 21
+PASS 062 common dark subspace invisible at O, power 22
+PASS 063 common dark subspace invisible at O, power 23
+PASS 064 common dark subspace invisible at O, power 24
+PASS 065 common dark subspace invisible at O, power 25
+PASS 066 common dark subspace invisible at O, power 26
+PASS 067 common dark subspace invisible at O, power 27
+PASS 068 common dark subspace invisible at O, power 28
+PASS 069 common dark subspace invisible at O, power 29
+PASS 070 common dark subspace invisible at O, power 30
+PASS 071 common dark subspace invisible at O, power 31
+PASS 072 common dark subspace invisible at O, power 32
+PASS 073 common dark subspace invisible at O, power 33
+PASS 074 common dark subspace invisible at O, power 34
+PASS 075 common dark subspace invisible at O, power 35
+PASS 076 Cayley-Hamilton: exactly five permanently origin-dark initial outer modes
+PASS 077 central-mediated rank-one candidate exact
+PASS 078 central row and column unchanged
+PASS 079 peripheral remainder rank three
+PASS 080 central rank-one amplitude eigenvalue 13/18
+PASS 081 full area kernel has no dark channels
+PASS 082 rank-one filter kills winding; unfiltered overlap transmits it
+PASS 083 rank-one filter kills winding; unfiltered overlap transmits it
+PASS 084 all local tile permutations preserve splitting
+PASS 085 all local tile permutations preserve splitting
+PASS 086 all local tile permutations preserve splitting
+PASS 087 all local tile permutations preserve splitting
+PASS 088 all local tile permutations preserve splitting
+PASS 089 all local tile permutations preserve splitting
+PASS 090 four normalized central-mediated resonator directions
+PASS 091 12 external inputs with exactly four independent resonator couplings
+PASS 092 lossless scattering unitary across 641 sampled frequencies
+PASS 093 reciprocal scattering
+PASS 094 eight coherent dark modes have no resonator-mediated response
+PASS 095 four bright response modes at every sampled nonsingular frequency
+PASS 096 unfiltered 12-channel scattering can have rank twelve
+PASS 097 all sixteen fields have four actual neighbours
+PASS 098 initial state occupies all eight outer rings
+PASS 099 initial row sums vanish
+PASS 100 full network Hermitian
+PASS 101 full norm and energy conserved
+PASS 102 full exact local flux ledger sampled
+PASS 103 full transport beyond immediate shell
+full peaks [0.31964382 0.05018718 0.36050574 0.09065645] errors 1.9984014443252818e-15 1.84297022087776e-14 3.677613769070831e-16
+PASS 104 central network Hermitian
+PASS 105 central norm and energy conserved
+PASS 106 central exact local flux ledger sampled
+PASS 107 central transport beyond immediate shell
+central peaks [0.20304092 0.02871101 0.37700695 0.07096762] errors 5.551115123125783e-15 1.2212453270876722e-14 2.7755575615628914e-16
+PASS 108 central-mediated network initial derivative does not transmit winding directly
+SCATTER max unitarity, reciprocity, dark, fifth singular 3.644660628346278e-15 3.700787686741094e-15 6.091761951466506e-17 4.472366241489957e-16 min fourth 0.0007069460575041784 max unfiltered twelfth 0.7688863356359468
+108/108 new optical-port assertions passed.

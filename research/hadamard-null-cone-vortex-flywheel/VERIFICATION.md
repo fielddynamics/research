@@ -1,6 +1,6 @@
-# Current verification guide — Stage IX
+# Verification guide — complete research record
 
-Fresh runs from this edition of the reorganized folder (NumPy, SciPy, SymPy, Matplotlib). Every historical mathematical verifier exited successfully. The first aggregate command timed out during Stage VII; Stage VII was then run separately to completion. All final logs are retained, including exit status in `rerun_logs/status.txt`.
+Historical Stage IX reruns from the reorganized folder (NumPy, SciPy, SymPy, Matplotlib). Every historical mathematical verifier exited successfully. The first aggregate command timed out during Stage VII; Stage VII was then run separately to completion. All final logs are retained, including exit status in `rerun_logs/status.txt`.
 
 | Stage | Script | New checks in that stage (freshly rerun) |
 |---|---|---:|
@@ -16,6 +16,8 @@ Fresh runs from this edition of the reorganized folder (NumPy, SciPy, SymPy, Mat
 | Total | | 2,852 |
 
 These are assertion counts, not independent theorems; imported checks may run more than once but are counted only in their originating stage. The archive's historical Stage VII snapshot is not a separate stage. No Lean compilation or full browser regression testing was performed. The new explorer visualizes the computed CSV, not a new simulation.
+
+The following historical runner executes Stages I–IX only. For the five subsequent verification commands see the extension sections below or the [current README](README.md#reproduce-the-results).
 
 ```sh
 python -m pip install numpy scipy sympy matplotlib
@@ -41,3 +43,8 @@ Stage IX log: [coupled_origins_verification_output.txt](coupled_origins_verifica
 ## Unified Hadamard–Flower field dynamics
 
 `OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python verify_unified_flower.py`: 316/316 fresh assertions; [log](unified_flower_verification_output.txt). Reuses the geometry/H definition prefix of Stage IX without running the historical test body. Tests exact port partition, symmetry, overlap spectrum and leading origin transfer, original diamond-net relation, connected 54-node periodic lattice and numerical current continuity, norm and energy at 401 times. Prior 3,557 recorded checks preserved, not rerun; cumulative 3,873 recorded checks. No new Lean or browser regression.
+
+
+## Optical four-port resonator
+
+`OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python verify_optical_ports.py`: 108/108 fresh assertions; [log](optical_ports_verification_output.txt). Exact projector ranks, permutation covariance, 36 integer Hamiltonian moments on the common dark kernel, central Schur split, 641-frequency unitary reciprocal optical comparison, and two 16-field conservative network runs at 321 time samples. Previous 3,873 recorded assertions retained, not rerun; cumulative 3,981. Assertion counts are not independent theorems. No Lean compilation.

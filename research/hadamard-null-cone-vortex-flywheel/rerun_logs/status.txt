@@ -11,3 +11,4 @@ verify_four_port_packing 0
 verify_corner_first 0
 verify_hadamard_flower 0
 verify_unified_flower 0
+verify_optical_ports 0

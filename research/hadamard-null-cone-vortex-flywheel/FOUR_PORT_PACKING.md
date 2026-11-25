@@ -1,5 +1,7 @@
 # Whole-field packing: twelve neighbours, four active links
 
+> **Optical extension:** [Four-port optical resonator](OPTICAL_FOUR_PORT_RESONATOR.md) proves the four-bright/eight-dark coherent mode split and models the isolated central-mediated overlap branch. It preserves the full previous geometry and distinguishes dark modes from inactive individual neighbours; capture remains unproved.
+
 > **Integration update.** The [unified synthesis](UNIFIED_HADAMARD_FIELD_DYNAMICS.md) compares this FCC selector model with the exact regular Hadamard corner-origin diamond. These are distinct adjacency geometries; the original 12-total/4-active/8-inactive regular-port claim has not been established.
 
 **Stage IX extension — geometric and graph witnesses, not a physical selection theorem.**

@@ -1,5 +1,7 @@
 # Unified Hadamard–Flower field dynamics
 
+> **Optical extension:** [Four-port optical resonator](OPTICAL_FOUR_PORT_RESONATOR.md) proves the four-bright/eight-dark coherent mode split and models the isolated central-mediated overlap branch. It preserves the full previous geometry and distinguishes dark modes from inactive individual neighbours; capture remains unproved.
+
 *Field Dynamics Research · November 2026 · Illustrated technical synthesis and reproducible candidate model*
 
 **One complete field, eight constituent vortices, one Field Origin, four reciprocal external ports.**

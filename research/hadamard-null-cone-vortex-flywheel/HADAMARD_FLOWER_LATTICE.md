@@ -1,5 +1,7 @@
 # Hadamard–Flower lattice: projection, overlap and four-port propagation
 
+> **Optical extension:** [Four-port optical resonator](OPTICAL_FOUR_PORT_RESONATOR.md) proves the four-bright/eight-dark coherent mode split and models the isolated central-mediated overlap branch. It preserves the full previous geometry and distinguishes dark modes from inactive individual neighbours; capture remains unproved.
+
 > **Integration update.** The [unified synthesis](UNIFIED_HADAMARD_FIELD_DYNAMICS.md#4-exact-overlap-geometry-becomes-a-full-cell-interface-td) now embeds W into the actual Stage IX 36-coordinate tile graph through an explicit opposite-face routing, checks tetrahedral covariance and simulates 54 complete fields. This supplies the previously missing model-level interface map, not a physical derivation of it.
 
 **Status:** [T] exact Euclidean geometry and finite algebra; [D] conservative transport conditional on the area-kernel Hamiltonian; [E] identification with physical GFD field dynamics. This extends the [corner-first packing theorem](CORNER_FIRST_PACKING.md), not its rigid-sphere assumptions. One complete stellated octahedron is one field; its eight constituent vortices and single Field Origin are retained. The diagrams are newly constructed from the coordinates, motivated by the user's Flower of Life / Metatron reference drawings. No numerology or additional field identity is inferred from the projection.

@@ -1,5 +1,7 @@
 # Bound Field Capture in the Stellar Forge — Stage X research specification
 
+> **Optical extension:** [Four-port optical resonator](OPTICAL_FOUR_PORT_RESONATOR.md) proves the four-bright/eight-dark coherent mode split and models the isolated central-mediated overlap branch. It preserves the full previous geometry and distinguishes dark modes from inactive individual neighbours; capture remains unproved.
+
 > **Integration update.** The [unified Flower lattice](UNIFIED_HADAMARD_FIELD_DYNAMICS.md) now supplies an explicit conservative multi-cell transport architecture. It does not model whole-cell capture, physical compression or retention. The two-factor screening proposal below remains conditional.
 
 **Status [E]: physical research premise and mathematical targets, not a new validated dynamical theorem.** Companion to [Stage IX](COUPLED_FIELD_ORIGINS.md). The 2,852 previously verified checks are unchanged; this note adds no tests or new physical constants.
