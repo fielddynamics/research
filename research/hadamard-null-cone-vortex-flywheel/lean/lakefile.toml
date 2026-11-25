@@ -1,0 +1,13 @@
+name = "hadamard_null_cone_core"
+defaultTargets = ["HadamardNullConeCore"]
+
+[[require]]
+name = "hadamard_cube_frame"
+path = "../../hadamard-cube-frame/lean"
+
+[[require]]
+name = "walsh_eigenmodes"
+path = "../../walsh-eigenmodes-of-the-cube/lean"
+
+[[lean_lib]]
+name = "HadamardNullConeCore"

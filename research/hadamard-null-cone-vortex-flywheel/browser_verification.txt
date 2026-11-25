@@ -1,0 +1,13 @@
+Chromium; self-contained HTML loaded from bytes. Local file navigation restricted in test environment.
+PASS HTML loaded; exact integer Gram and Walsh certificates
+PASS initial current divergence zero
+PASS uniform face ledger cancels
+PASS parity-only cycle
+PASS equal chambers eliminate complementary and parity cycles
+PASS opposite phase cancels bright drive
+PASS large detuning suppresses E occupation
+PASS eight simultaneous outer ring ledger contributions
+PASS opposite coefficients cancel principal ring contribution, not outer rings
+PASS zero chamber coefficient leaves four active rings
+PASS no JavaScript exceptions
+PASS mobile viewport no horizontal document overflow

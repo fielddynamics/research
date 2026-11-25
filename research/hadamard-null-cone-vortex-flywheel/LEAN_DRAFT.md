@@ -1,0 +1,7 @@
+# Lean draft audit — not yet compiled
+
+No Lean or Lake executable is installed in the available runtime. This folder therefore contains a **candidate** finite integer certificate, not a machine-checked result. Do not add a Lean success badge or [T+L] status until it has built and been audited.
+
+The draft imports the existing `HadamardCubeFrame` and `WalshEigenmodes` modules, with the sibling dependency paths used by the archive and Lean v4.36.0. It represents the explicit matrices from the Python suite, and attempts kernel `decide` proofs of the boundary-of-boundary, closed surface, face Gram, Walsh orthogonality and Laplacian, and square-ring identities. The draft has no `sorry` or `native_decide`. The finite index equivalence with the parent proofs' abstract corner definitions still needs a lemma; merely importing the modules does not make that dependency logically complete. The general Hodge decomposition, representation-theoretic, spin, nonlinear stability and Whitney registration theorems are not yet formalized.
+
+To try the draft, place the entire proof folder at `proofs/hadamard-null-cone-vortex-flywheel/` in a checkout of the GFD repository, then from `lean/` use `lake update`, `lake exe cache get` and `lake build`. Check each theorem's axioms, and resolve any elaboration/build failures before counting it as verified. A CI workflow should be added only after a successful build.
