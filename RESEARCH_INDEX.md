@@ -57,7 +57,7 @@ This is MOND's "simple" interpolating function, but here it is not chosen: the e
 | Decoded mass measures TetB's pull against $a_0$ (quiet, drive, brake) | Theorem + Lean ([tug of war](proofs/constitutive-law-tug-of-war/)) |
 | $\mu$ acts only on a field with a drain: inside a star system gravity is exactly Newton and GR with the bare $G$, and bound wide binaries are Newtonian to within $(s/r_J)^3$ | Theorem + Lean; tested on Cassini and globular clusters ([net-field rule](proofs/net-field-rule/)) |
 | The radial acceleration relation on SPARC, with nothing fitted per galaxy | Derived; tested ([below](#results-on-sparc)) |
-| $G$, $m_e$, $\alpha$ and $H_0$ from the coupling polynomial's integers | Exploratory |
+| $G$ and $m_e$ from the coupling polynomial's integers; $\alpha$ and $H_0$ as structural readings | $G$, $m_e$ derived; $\alpha$, $H_0$ exploratory ([details](#all-results-and-their-status)) |
 
 Every claim with its evidence is in [All results and their status](#all-results-and-their-status).
 
