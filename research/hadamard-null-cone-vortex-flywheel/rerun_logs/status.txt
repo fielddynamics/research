@@ -12,3 +12,6 @@ verify_corner_first 0
 verify_hadamard_flower 0
 verify_unified_flower 0
 verify_optical_ports 0
+verify_field_read 0
+verify_spectral_read 0
+verify_matter_charge 0

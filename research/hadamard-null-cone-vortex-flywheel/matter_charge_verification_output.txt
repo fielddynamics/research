@@ -1,0 +1,165 @@
+PASS 001 full eight-register Walsh transform is exactly orthogonal up to 8
+PASS 002 four records in each chamber resolve all four chamber coordinates
+PASS 003 complete dual-chamber read, inverse, independent intensities and parity difference
+PASS 004 separate chamber polar read and quadrupole alias removal identity
+PASS 005 interchanging chambers preserves total occupation and reverses signed read
+PASS 006 complete dual-chamber read, inverse, independent intensities and parity difference
+PASS 007 separate chamber polar read and quadrupole alias removal identity
+PASS 008 interchanging chambers preserves total occupation and reverses signed read
+PASS 009 complete dual-chamber read, inverse, independent intensities and parity difference
+PASS 010 separate chamber polar read and quadrupole alias removal identity
+PASS 011 interchanging chambers preserves total occupation and reverses signed read
+PASS 012 complete dual-chamber read, inverse, independent intensities and parity difference
+PASS 013 separate chamber polar read and quadrupole alias removal identity
+PASS 014 interchanging chambers preserves total occupation and reverses signed read
+PASS 015 complete dual-chamber read, inverse, independent intensities and parity difference
+PASS 016 separate chamber polar read and quadrupole alias removal identity
+PASS 017 interchanging chambers preserves total occupation and reverses signed read
+PASS 018 complete dual-chamber read, inverse, independent intensities and parity difference
+PASS 019 separate chamber polar read and quadrupole alias removal identity
+PASS 020 interchanging chambers preserves total occupation and reverses signed read
+PASS 021 complete dual-chamber read, inverse, independent intensities and parity difference
+PASS 022 separate chamber polar read and quadrupole alias removal identity
+PASS 023 interchanging chambers preserves total occupation and reverses signed read
+PASS 024 complete dual-chamber read, inverse, independent intensities and parity difference
+PASS 025 separate chamber polar read and quadrupole alias removal identity
+PASS 026 interchanging chambers preserves total occupation and reverses signed read
+PASS 027 complete dual-chamber read, inverse, independent intensities and parity difference
+PASS 028 separate chamber polar read and quadrupole alias removal identity
+PASS 029 interchanging chambers preserves total occupation and reverses signed read
+PASS 030 complete dual-chamber read, inverse, independent intensities and parity difference
+PASS 031 separate chamber polar read and quadrupole alias removal identity
+PASS 032 interchanging chambers preserves total occupation and reverses signed read
+PASS 033 complete dual-chamber read, inverse, independent intensities and parity difference
+PASS 034 separate chamber polar read and quadrupole alias removal identity
+PASS 035 interchanging chambers preserves total occupation and reverses signed read
+PASS 036 complete dual-chamber read, inverse, independent intensities and parity difference
+PASS 037 separate chamber polar read and quadrupole alias removal identity
+PASS 038 interchanging chambers preserves total occupation and reverses signed read
+PASS 039 complete dual-chamber read, inverse, independent intensities and parity difference
+PASS 040 separate chamber polar read and quadrupole alias removal identity
+PASS 041 interchanging chambers preserves total occupation and reverses signed read
+PASS 042 complete dual-chamber read, inverse, independent intensities and parity difference
+PASS 043 separate chamber polar read and quadrupole alias removal identity
+PASS 044 interchanging chambers preserves total occupation and reverses signed read
+PASS 045 complete dual-chamber read, inverse, independent intensities and parity difference
+PASS 046 separate chamber polar read and quadrupole alias removal identity
+PASS 047 interchanging chambers preserves total occupation and reverses signed read
+PASS 048 complete dual-chamber read, inverse, independent intensities and parity difference
+PASS 049 separate chamber polar read and quadrupole alias removal identity
+PASS 050 interchanging chambers preserves total occupation and reverses signed read
+PASS 051 old Hamiltonian has explicit cross-chamber bonds
+PASS 052 explicit old-state counterexample to chamber occupation charge conservation
+old cross-chamber bond count 48 counterexample indices 1 21 qdot 1.9999999999999996
+PASS 053 positive-energy vortex well and intervening barrier are exact stationary roots
+PASS 054 neutral exact static solution and correct radial sign
+PASS 055 neutral circular vortex read and empty/occupied excess sector
+PASS 056 neutral local-minimum normal directions have positive curvature
+PASS 057 neutral 100 local energy perturbations nonnegative
+PASS 058 neutral conservative perturbation integration successful
+PASS 059 neutral energy conserved
+PASS 060 neutral both excess-mode charges conserved separately
+neutral n= [0. 0.] q= 0.0 energy= 0.0 perturbed max drift 1.1356368970205644e-11 6.5260123693899885e-12
+PASS 061 neutral exact complex Hamiltonian gradient verified by finite difference
+PASS 062 inward A exact static solution and correct radial sign
+PASS 063 inward A circular vortex read and empty/occupied excess sector
+PASS 064 inward A local-minimum normal directions have positive curvature
+PASS 065 inward A 100 local energy perturbations nonnegative
+PASS 066 inward A conservative perturbation integration successful
+PASS 067 inward A energy conserved
+PASS 068 inward A both excess-mode charges conserved separately
+inward A n= [0.87748518 0.        ] q= -0.8774851773445588 energy= 0.18866798423603925 perturbed max drift 2.260393261455107e-10 7.784939359822829e-11
+PASS 069 inward A exact complex Hamiltonian gradient verified by finite difference
+PASS 070 outward B exact static solution and correct radial sign
+PASS 071 outward B circular vortex read and empty/occupied excess sector
+PASS 072 outward B local-minimum normal directions have positive curvature
+PASS 073 outward B 100 local energy perturbations nonnegative
+PASS 074 outward B conservative perturbation integration successful
+PASS 075 outward B energy conserved
+PASS 076 outward B both excess-mode charges conserved separately
+outward B n= [0.         0.87748518] q= 0.8774851773445588 energy= 0.18866798423603925 perturbed max drift 6.762418403027937e-11 1.7496892823487542e-11
+PASS 077 outward B exact complex Hamiltonian gradient verified by finite difference
+PASS 078 charge conjugate example energies equal and signs reverse
+PASS 079 four real geometric row projections annihilate symmetric sum
+PASS 080 neutral exact zero of nonnegative neutral-ring response energy
+PASS 081 neutral every neutral response ring has conserved circulating edge current
+PASS 082 neutral independent response phases and charge-conserving matter phases leave energy unchanged
+PASS 083 neutral positive response energy for 20 random perturbations
+neutral TetA response ring currents [0. 0. 0. 0.]
+PASS 084 inward A exact zero of nonnegative neutral-ring response energy
+PASS 085 inward A every neutral response ring has conserved circulating edge current
+PASS 086 inward A independent response phases and charge-conserving matter phases leave energy unchanged
+PASS 087 inward A positive response energy for 20 random perturbations
+inward A TetA response ring currents [ 0.23399605 -0.23399605 -0.23399605  0.23399605]
+PASS 088 outward B exact zero of nonnegative neutral-ring response energy
+PASS 089 outward B every neutral response ring has conserved circulating edge current
+PASS 090 outward B independent response phases and charge-conserving matter phases leave energy unchanged
+PASS 091 outward B positive response energy for 20 random perturbations
+outward B TetA response ring currents [ 0.23399605 -0.23399605 -0.23399605  0.23399605]
+PASS 092 neutral response geometry covariant under all 24 tetrahedral symmetries
+PASS 093 neutral response geometry covariant under all 24 tetrahedral symmetries
+PASS 094 neutral response geometry covariant under all 24 tetrahedral symmetries
+PASS 095 neutral response geometry covariant under all 24 tetrahedral symmetries
+PASS 096 neutral response geometry covariant under all 24 tetrahedral symmetries
+PASS 097 neutral response geometry covariant under all 24 tetrahedral symmetries
+PASS 098 neutral response geometry covariant under all 24 tetrahedral symmetries
+PASS 099 neutral response geometry covariant under all 24 tetrahedral symmetries
+PASS 100 neutral response geometry covariant under all 24 tetrahedral symmetries
+PASS 101 neutral response geometry covariant under all 24 tetrahedral symmetries
+PASS 102 neutral response geometry covariant under all 24 tetrahedral symmetries
+PASS 103 neutral response geometry covariant under all 24 tetrahedral symmetries
+PASS 104 neutral response geometry covariant under all 24 tetrahedral symmetries
+PASS 105 neutral response geometry covariant under all 24 tetrahedral symmetries
+PASS 106 neutral response geometry covariant under all 24 tetrahedral symmetries
+PASS 107 neutral response geometry covariant under all 24 tetrahedral symmetries
+PASS 108 neutral response geometry covariant under all 24 tetrahedral symmetries
+PASS 109 neutral response geometry covariant under all 24 tetrahedral symmetries
+PASS 110 neutral response geometry covariant under all 24 tetrahedral symmetries
+PASS 111 neutral response geometry covariant under all 24 tetrahedral symmetries
+PASS 112 neutral response geometry covariant under all 24 tetrahedral symmetries
+PASS 113 neutral response geometry covariant under all 24 tetrahedral symmetries
+PASS 114 neutral response geometry covariant under all 24 tetrahedral symmetries
+PASS 115 neutral response geometry covariant under all 24 tetrahedral symmetries
+PASS 116 dressed exchange invariant under relative chamber phase plus compensating rotor
+PASS 117 dressed exchange invariant under relative chamber phase plus compensating rotor
+PASS 118 dressed exchange invariant under relative chamber phase plus compensating rotor
+PASS 119 dressed exchange invariant under relative chamber phase plus compensating rotor
+PASS 120 dressed exchange invariant under relative chamber phase plus compensating rotor
+PASS 121 dressed exchange invariant under relative chamber phase plus compensating rotor
+PASS 122 dressed exchange invariant under relative chamber phase plus compensating rotor
+PASS 123 dressed exchange invariant under relative chamber phase plus compensating rotor
+PASS 124 dressed exchange invariant under relative chamber phase plus compensating rotor
+PASS 125 dressed exchange invariant under relative chamber phase plus compensating rotor
+PASS 126 dressed exchange invariant under relative chamber phase plus compensating rotor
+PASS 127 dressed exchange invariant under relative chamber phase plus compensating rotor
+PASS 128 dressed exchange integrated successfully
+PASS 129 bare chamber difference actually changes during dressed transfer
+PASS 130 dressed total charge, energy and norm conserved
+PASS 131 undressed or dressed nonzero linear hopping does not preserve exactly empty B
+PASS 132 same diamond graph has four ports and one gauge zero mode
+PASS 133 discrete Gauss law, orthogonality to divergence-free perturbations and minimal energy
+PASS 134 regional electric flux equals enclosed signed charge
+PASS 135 discrete Gauss law, orthogonality to divergence-free perturbations and minimal energy
+PASS 136 regional electric flux equals enclosed signed charge
+PASS 137 discrete Gauss law, orthogonality to divergence-free perturbations and minimal energy
+PASS 138 regional electric flux equals enclosed signed charge
+PASS 139 discrete Gauss law, orthogonality to divergence-free perturbations and minimal energy
+PASS 140 regional electric flux equals enclosed signed charge
+PASS 141 discrete Gauss law, orthogonality to divergence-free perturbations and minimal energy
+PASS 142 regional electric flux equals enclosed signed charge
+PASS 143 discrete Gauss law, orthogonality to divergence-free perturbations and minimal energy
+PASS 144 regional electric flux equals enclosed signed charge
+PASS 145 discrete Gauss law, orthogonality to divergence-free perturbations and minimal energy
+PASS 146 regional electric flux equals enclosed signed charge
+PASS 147 discrete Gauss law, orthogonality to divergence-free perturbations and minimal energy
+PASS 148 regional electric flux equals enclosed signed charge
+PASS 149 near-source Green function exceeds distant shell (sampled finite periodic graph)
+PASS 150 pair cross energy is signed Green interaction for opposite charges
+PASS 151 conditional positive-energy gravitational source has charge-even attractive kernel
+PASS 152 pair cross energy is signed Green interaction for opposite charges
+PASS 153 conditional positive-energy gravitational source has charge-even attractive kernel
+PASS 154 pair cross energy is signed Green interaction for opposite charges
+PASS 155 conditional positive-energy gravitational source has charge-even attractive kernel
+PASS 156 pair cross energy is signed Green interaction for opposite charges
+PASS 157 conditional positive-energy gravitational source has charge-even attractive kernel
+157/157 matter-charge checks passed.

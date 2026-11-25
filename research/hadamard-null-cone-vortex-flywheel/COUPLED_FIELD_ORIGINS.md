@@ -1,5 +1,8 @@
 # Stage IX — Coupled directional Field Origins
 
+> **New extension:** [Field Origin gravity read](FIELD_ORIGIN_GRAVITY_READ.md) derives a phase-neutral polar observable of the directional origin and its leading source-directed transfer; a separate static potential bridge is conditional.
+
+
 > **Integration update.** The [unified Flower model](UNIFIED_HADAMARD_FIELD_DYNAMICS.md) preserves the 36-coordinate cell but uses an overlapping hexagonal midplane area kernel instead of this matched-face reflection. Its exact cubic origin-to-origin term has central overlap factor 2/3 and opposite port record at the receiving origin. The two-cell nonlinear tests below are specific to this earlier interface.
 
 **[T] Conditional finite-graph results. [E] Physical interpretation.** This continues [Stage VIII](OPEN_THROAT.md). SST denotes only the full covariant action; no constitutive-law or gravitational-constant derivation is claimed. All eight constituent stellation vortices remain essential. The Field Origin is the central octahedron, with directional degrees of freedom now explicitly located at its centre O.

@@ -1,5 +1,10 @@
 # Four-port optical resonator: twelve channels, eight dark modes
 
+> **Matter/charge extension:** [Eight-register vortex and charge research](MATTER_VORTEX_CHARGE.md) distinguishes retained matter from optical occupation, proves the bare chamber-charge conservation obstruction, and supplies conditional inward/outward response models. Full microscopic capture, charge and physical work coupling remain open.
+
+> **New extension:** [Field Origin gravity read](FIELD_ORIGIN_GRAVITY_READ.md) derives a phase-neutral polar observable of the directional origin and its leading source-directed transfer; a separate static potential bridge is conditional.
+
+
 *Gravity Field Dynamics · Field Dynamics Research · November 2026*
 
 **One complete stellated octahedron per field; eight constituent vortices; one Field Origin; four reciprocal optical ports.**

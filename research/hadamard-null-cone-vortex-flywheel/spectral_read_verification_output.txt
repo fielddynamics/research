@@ -1,0 +1,199 @@
+PASS 001 polar and axial reads orthogonal and share finite capacity
+PASS 002 one chamber intensity aliases polar and quadrupole; both chambers remove alias
+PASS 003 opposite-intensity difference gives uncontaminated directional record
+PASS 004 capacity deficit is sum of squares
+PASS 005 polar and axial reads orthogonal and share finite capacity
+PASS 006 one chamber intensity aliases polar and quadrupole; both chambers remove alias
+PASS 007 opposite-intensity difference gives uncontaminated directional record
+PASS 008 capacity deficit is sum of squares
+PASS 009 polar and axial reads orthogonal and share finite capacity
+PASS 010 one chamber intensity aliases polar and quadrupole; both chambers remove alias
+PASS 011 opposite-intensity difference gives uncontaminated directional record
+PASS 012 capacity deficit is sum of squares
+PASS 013 polar and axial reads orthogonal and share finite capacity
+PASS 014 one chamber intensity aliases polar and quadrupole; both chambers remove alias
+PASS 015 opposite-intensity difference gives uncontaminated directional record
+PASS 016 capacity deficit is sum of squares
+PASS 017 polar and axial reads orthogonal and share finite capacity
+PASS 018 one chamber intensity aliases polar and quadrupole; both chambers remove alias
+PASS 019 opposite-intensity difference gives uncontaminated directional record
+PASS 020 capacity deficit is sum of squares
+PASS 021 polar and axial reads orthogonal and share finite capacity
+PASS 022 one chamber intensity aliases polar and quadrupole; both chambers remove alias
+PASS 023 opposite-intensity difference gives uncontaminated directional record
+PASS 024 capacity deficit is sum of squares
+PASS 025 polar and axial reads orthogonal and share finite capacity
+PASS 026 one chamber intensity aliases polar and quadrupole; both chambers remove alias
+PASS 027 opposite-intensity difference gives uncontaminated directional record
+PASS 028 capacity deficit is sum of squares
+PASS 029 polar and axial reads orthogonal and share finite capacity
+PASS 030 one chamber intensity aliases polar and quadrupole; both chambers remove alias
+PASS 031 opposite-intensity difference gives uncontaminated directional record
+PASS 032 capacity deficit is sum of squares
+PASS 033 polar and axial reads orthogonal and share finite capacity
+PASS 034 one chamber intensity aliases polar and quadrupole; both chambers remove alias
+PASS 035 opposite-intensity difference gives uncontaminated directional record
+PASS 036 capacity deficit is sum of squares
+PASS 037 polar and axial reads orthogonal and share finite capacity
+PASS 038 one chamber intensity aliases polar and quadrupole; both chambers remove alias
+PASS 039 opposite-intensity difference gives uncontaminated directional record
+PASS 040 capacity deficit is sum of squares
+PASS 041 polar and axial reads orthogonal and share finite capacity
+PASS 042 one chamber intensity aliases polar and quadrupole; both chambers remove alias
+PASS 043 opposite-intensity difference gives uncontaminated directional record
+PASS 044 capacity deficit is sum of squares
+PASS 045 polar and axial reads orthogonal and share finite capacity
+PASS 046 one chamber intensity aliases polar and quadrupole; both chambers remove alias
+PASS 047 opposite-intensity difference gives uncontaminated directional record
+PASS 048 capacity deficit is sum of squares
+PASS 049 polar and axial reads orthogonal and share finite capacity
+PASS 050 one chamber intensity aliases polar and quadrupole; both chambers remove alias
+PASS 051 opposite-intensity difference gives uncontaminated directional record
+PASS 052 capacity deficit is sum of squares
+PASS 053 polar and axial reads orthogonal and share finite capacity
+PASS 054 one chamber intensity aliases polar and quadrupole; both chambers remove alias
+PASS 055 opposite-intensity difference gives uncontaminated directional record
+PASS 056 capacity deficit is sum of squares
+PASS 057 polar and axial reads orthogonal and share finite capacity
+PASS 058 one chamber intensity aliases polar and quadrupole; both chambers remove alias
+PASS 059 opposite-intensity difference gives uncontaminated directional record
+PASS 060 capacity deficit is sum of squares
+PASS 061 polar and axial reads orthogonal and share finite capacity
+PASS 062 one chamber intensity aliases polar and quadrupole; both chambers remove alias
+PASS 063 opposite-intensity difference gives uncontaminated directional record
+PASS 064 capacity deficit is sum of squares
+PASS 065 polar and axial reads orthogonal and share finite capacity
+PASS 066 one chamber intensity aliases polar and quadrupole; both chambers remove alias
+PASS 067 opposite-intensity difference gives uncontaminated directional record
+PASS 068 capacity deficit is sum of squares
+PASS 069 polar and axial reads orthogonal and share finite capacity
+PASS 070 one chamber intensity aliases polar and quadrupole; both chambers remove alias
+PASS 071 opposite-intensity difference gives uncontaminated directional record
+PASS 072 capacity deficit is sum of squares
+PASS 073 polar and axial reads orthogonal and share finite capacity
+PASS 074 one chamber intensity aliases polar and quadrupole; both chambers remove alias
+PASS 075 opposite-intensity difference gives uncontaminated directional record
+PASS 076 capacity deficit is sum of squares
+PASS 077 polar and axial reads orthogonal and share finite capacity
+PASS 078 one chamber intensity aliases polar and quadrupole; both chambers remove alias
+PASS 079 opposite-intensity difference gives uncontaminated directional record
+PASS 080 capacity deficit is sum of squares
+PASS 081 polar and axial reads orthogonal and share finite capacity
+PASS 082 one chamber intensity aliases polar and quadrupole; both chambers remove alias
+PASS 083 opposite-intensity difference gives uncontaminated directional record
+PASS 084 capacity deficit is sum of squares
+PASS 085 polar and axial reads orthogonal and share finite capacity
+PASS 086 one chamber intensity aliases polar and quadrupole; both chambers remove alias
+PASS 087 opposite-intensity difference gives uncontaminated directional record
+PASS 088 capacity deficit is sum of squares
+PASS 089 polar and axial reads orthogonal and share finite capacity
+PASS 090 one chamber intensity aliases polar and quadrupole; both chambers remove alias
+PASS 091 opposite-intensity difference gives uncontaminated directional record
+PASS 092 capacity deficit is sum of squares
+PASS 093 polar and axial reads orthogonal and share finite capacity
+PASS 094 one chamber intensity aliases polar and quadrupole; both chambers remove alias
+PASS 095 opposite-intensity difference gives uncontaminated directional record
+PASS 096 capacity deficit is sum of squares
+PASS 097 polar and axial reads orthogonal and share finite capacity
+PASS 098 one chamber intensity aliases polar and quadrupole; both chambers remove alias
+PASS 099 opposite-intensity difference gives uncontaminated directional record
+PASS 100 capacity deficit is sum of squares
+PASS 101 polar and axial reads orthogonal and share finite capacity
+PASS 102 one chamber intensity aliases polar and quadrupole; both chambers remove alias
+PASS 103 opposite-intensity difference gives uncontaminated directional record
+PASS 104 capacity deficit is sum of squares
+PASS 105 polar and axial reads orthogonal and share finite capacity
+PASS 106 one chamber intensity aliases polar and quadrupole; both chambers remove alias
+PASS 107 opposite-intensity difference gives uncontaminated directional record
+PASS 108 capacity deficit is sum of squares
+PASS 109 polar and axial reads orthogonal and share finite capacity
+PASS 110 one chamber intensity aliases polar and quadrupole; both chambers remove alias
+PASS 111 opposite-intensity difference gives uncontaminated directional record
+PASS 112 capacity deficit is sum of squares
+PASS 113 polar and axial reads orthogonal and share finite capacity
+PASS 114 one chamber intensity aliases polar and quadrupole; both chambers remove alias
+PASS 115 opposite-intensity difference gives uncontaminated directional record
+PASS 116 capacity deficit is sum of squares
+PASS 117 polar and axial reads orthogonal and share finite capacity
+PASS 118 one chamber intensity aliases polar and quadrupole; both chambers remove alias
+PASS 119 opposite-intensity difference gives uncontaminated directional record
+PASS 120 capacity deficit is sum of squares
+PASS 121 polar and axial reads orthogonal and share finite capacity
+PASS 122 one chamber intensity aliases polar and quadrupole; both chambers remove alias
+PASS 123 opposite-intensity difference gives uncontaminated directional record
+PASS 124 capacity deficit is sum of squares
+PASS 125 polar and axial reads orthogonal and share finite capacity
+PASS 126 one chamber intensity aliases polar and quadrupole; both chambers remove alias
+PASS 127 opposite-intensity difference gives uncontaminated directional record
+PASS 128 capacity deficit is sum of squares
+PASS 129 capacity equality attainable with both reads nonzero
+PASS 130 full simple lowest k=0 eigenvalue and scalar origin
+PASS 131 full reduced resolvent identity
+PASS 132 full first-order eigenvector equation
+PASS 133 full first-order eigenvector equation
+PASS 134 full first-order eigenvector equation
+PASS 135 full polar response isotropic on both sublattices
+PASS 136 full positive isotropic diagonal stiffness
+PASS 137 full mixed Hessian vanishes
+PASS 138 full mixed Hessian vanishes
+PASS 139 full mixed Hessian vanishes
+PASS 140 full exact full-matrix inverse has scalar 1/k² pole and polar gradient limit
+PASS 141 full exact full-matrix inverse has scalar 1/k² pole and polar gradient limit
+PASS 142 full exact full-matrix inverse has scalar 1/k² pole and polar gradient limit
+PASS 143 full static real standing-wave polar read equals gradient of envelope intensity to leading order
+PASS 144 full static real standing-wave polar read equals gradient of envelope intensity to leading order
+PASS 145 full static real standing-wave polar read equals gradient of envelope intensity to leading order
+PASS 146 full static real standing-wave polar read equals gradient of envelope intensity to leading order
+PASS 147 full static real standing-wave polar read equals gradient of envelope intensity to leading order
+PASS 148 full static real standing-wave polar read equals gradient of envelope intensity to leading order
+PASS 149 full static real standing-wave polar read equals gradient of envelope intensity to leading order
+PASS 150 full static real standing-wave polar read equals gradient of envelope intensity to leading order
+PASS 151 full static real standing-wave polar read equals gradient of envelope intensity to leading order
+PASS 152 full static real standing-wave polar read equals gradient of envelope intensity to leading order
+PASS 153 full static real standing-wave polar read equals gradient of envelope intensity to leading order
+PASS 154 full static real standing-wave polar read equals gradient of envelope intensity to leading order
+PASS 155 full static real standing-wave polar read equals gradient of envelope intensity to leading order
+PARAMETERS ['full', np.float64(-7.442320567393303), np.float64(0.6988014873246033), np.float64(0.19673861360625733), np.float64(0.02462432045705575), np.float64(0.12429467326666906), np.float64(0.0048445546677173485), np.float64(0.07795273184915266)]
+PASS 156 full sampled band minimum not below k=0
+sampled min shift 1.7763568394002505e-15
+PASS 157 central simple lowest k=0 eigenvalue and scalar origin
+PASS 158 central reduced resolvent identity
+PASS 159 central first-order eigenvector equation
+PASS 160 central first-order eigenvector equation
+PASS 161 central first-order eigenvector equation
+PASS 162 central polar response isotropic on both sublattices
+PASS 163 central positive isotropic diagonal stiffness
+PASS 164 central mixed Hessian vanishes
+PASS 165 central mixed Hessian vanishes
+PASS 166 central mixed Hessian vanishes
+PASS 167 central exact full-matrix inverse has scalar 1/k² pole and polar gradient limit
+PASS 168 central exact full-matrix inverse has scalar 1/k² pole and polar gradient limit
+PASS 169 central exact full-matrix inverse has scalar 1/k² pole and polar gradient limit
+PASS 170 central static real standing-wave polar read equals gradient of envelope intensity to leading order
+PASS 171 central static real standing-wave polar read equals gradient of envelope intensity to leading order
+PASS 172 central static real standing-wave polar read equals gradient of envelope intensity to leading order
+PASS 173 central static real standing-wave polar read equals gradient of envelope intensity to leading order
+PASS 174 central static real standing-wave polar read equals gradient of envelope intensity to leading order
+PASS 175 central static real standing-wave polar read equals gradient of envelope intensity to leading order
+PASS 176 central static real standing-wave polar read equals gradient of envelope intensity to leading order
+PASS 177 central static real standing-wave polar read equals gradient of envelope intensity to leading order
+PASS 178 central static real standing-wave polar read equals gradient of envelope intensity to leading order
+PASS 179 central static real standing-wave polar read equals gradient of envelope intensity to leading order
+PASS 180 central static real standing-wave polar read equals gradient of envelope intensity to leading order
+PASS 181 central static real standing-wave polar read equals gradient of envelope intensity to leading order
+PASS 182 central static real standing-wave polar read equals gradient of envelope intensity to leading order
+PARAMETERS ['central', np.float64(-7.363072671294436), np.float64(0.5497513115902901), np.float64(0.2010226173523499), np.float64(0.022530069810678375), np.float64(0.10509418047367801), np.float64(0.00452905360247373), np.float64(0.08619037861203134)]
+PASS 183 central sampled band minimum not below k=0
+sampled min shift -4.440892098500626e-15
+PASS 184 uniform sphere interior/exterior value and derivative match
+PASS 185 weak source positive charge and inward exterior read
+PASS 186 uniform sphere interior/exterior value and derivative match
+PASS 187 weak source positive charge and inward exterior read
+PASS 188 uniform sphere interior/exterior value and derivative match
+PASS 189 weak source positive charge and inward exterior read
+PASS 190 uniform sphere interior/exterior value and derivative match
+PASS 191 weak source positive charge and inward exterior read
+PASS 192 uniform sphere interior/exterior value and derivative match
+PASS 193 weak source positive charge and inward exterior read
+PASS 194 uniform sphere weak-source charge coefficient
+194/194 spectral-read checks passed.

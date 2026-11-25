@@ -1,0 +1,132 @@
+PASS 001 exact polar intensity moment matrix
+PASS 002 exact polar intensity moment matrix
+PASS 003 exact polar intensity moment matrix
+PASS 004 exact mean occupation matrix
+PASS 005 neutral polar read of reconstructed records
+PASS 006 phase and conjugation invariance
+PASS 007 polar/axial inversion and time reversal
+PASS 008 neutral read magnitude bound
+PASS 009 neutral polar read of reconstructed records
+PASS 010 phase and conjugation invariance
+PASS 011 polar/axial inversion and time reversal
+PASS 012 neutral read magnitude bound
+PASS 013 neutral polar read of reconstructed records
+PASS 014 phase and conjugation invariance
+PASS 015 polar/axial inversion and time reversal
+PASS 016 neutral read magnitude bound
+PASS 017 neutral polar read of reconstructed records
+PASS 018 phase and conjugation invariance
+PASS 019 polar/axial inversion and time reversal
+PASS 020 neutral read magnitude bound
+PASS 021 neutral polar read of reconstructed records
+PASS 022 phase and conjugation invariance
+PASS 023 polar/axial inversion and time reversal
+PASS 024 neutral read magnitude bound
+PASS 025 neutral polar read of reconstructed records
+PASS 026 phase and conjugation invariance
+PASS 027 polar/axial inversion and time reversal
+PASS 028 neutral read magnitude bound
+PASS 029 neutral polar read of reconstructed records
+PASS 030 phase and conjugation invariance
+PASS 031 polar/axial inversion and time reversal
+PASS 032 neutral read magnitude bound
+PASS 033 neutral polar read of reconstructed records
+PASS 034 phase and conjugation invariance
+PASS 035 polar/axial inversion and time reversal
+PASS 036 neutral read magnitude bound
+PASS 037 neutral polar read of reconstructed records
+PASS 038 phase and conjugation invariance
+PASS 039 polar/axial inversion and time reversal
+PASS 040 neutral read magnitude bound
+PASS 041 neutral polar read of reconstructed records
+PASS 042 phase and conjugation invariance
+PASS 043 polar/axial inversion and time reversal
+PASS 044 neutral read magnitude bound
+PASS 045 neutral polar read of reconstructed records
+PASS 046 phase and conjugation invariance
+PASS 047 polar/axial inversion and time reversal
+PASS 048 neutral read magnitude bound
+PASS 049 neutral polar read of reconstructed records
+PASS 050 phase and conjugation invariance
+PASS 051 polar/axial inversion and time reversal
+PASS 052 neutral read magnitude bound
+PASS 053 circular pure triplet can circulate with zero polar intensity read
+PASS 054 full exact third-order origin read
+PASS 055 full receiving read points toward source at early time
+PASS 056 full predicted t^6 coefficient
+PASS 057 full exact third-order origin read
+PASS 058 full receiving read points toward source at early time
+PASS 059 full predicted t^6 coefficient
+PASS 060 full exact third-order origin read
+PASS 061 full receiving read points toward source at early time
+PASS 062 full predicted t^6 coefficient
+PASS 063 full exact third-order origin read
+PASS 064 full receiving read points toward source at early time
+PASS 065 full predicted t^6 coefficient
+PASS 066 central exact third-order origin read
+PASS 067 central receiving read points toward source at early time
+PASS 068 central predicted t^6 coefficient
+PASS 069 central exact third-order origin read
+PASS 070 central receiving read points toward source at early time
+PASS 071 central predicted t^6 coefficient
+PASS 072 central exact third-order origin read
+PASS 073 central receiving read points toward source at early time
+PASS 074 central predicted t^6 coefficient
+PASS 075 central exact third-order origin read
+PASS 076 central receiving read points toward source at early time
+PASS 077 central predicted t^6 coefficient
+PASS 078 tetrahedron tight frame
+PASS 079 four-port affine reconstruction
+PASS 080 exact quadratic read decomposition
+PASS 081 four-port affine reconstruction
+PASS 082 exact quadratic read decomposition
+PASS 083 four-port affine reconstruction
+PASS 084 exact quadratic read decomposition
+PASS 085 four-port affine reconstruction
+PASS 086 exact quadratic read decomposition
+PASS 087 four-port affine reconstruction
+PASS 088 exact quadratic read decomposition
+PASS 089 four-port affine reconstruction
+PASS 090 exact quadratic read decomposition
+PASS 091 four-port affine reconstruction
+PASS 092 exact quadratic read decomposition
+PASS 093 four-port affine reconstruction
+PASS 094 exact quadratic read decomposition
+PASS 095 four-port affine reconstruction
+PASS 096 exact quadratic read decomposition
+PASS 097 four-port affine reconstruction
+PASS 098 exact quadratic read decomposition
+PASS 099 four-port affine reconstruction
+PASS 100 exact quadratic read decomposition
+PASS 101 four-port affine reconstruction
+PASS 102 exact quadratic read decomposition
+PASS 103 four-port affine reconstruction
+PASS 104 exact quadratic read decomposition
+PASS 105 four-port affine reconstruction
+PASS 106 exact quadratic read decomposition
+PASS 107 four-port affine reconstruction
+PASS 108 exact quadratic read decomposition
+PASS 109 four-port affine reconstruction
+PASS 110 exact quadratic read decomposition
+PASS 111 four reciprocal direct neighbours
+PASS 112 exact twelve second neighbours after scalar elimination
+PASS 113 Schur complement is quarter FCC Laplacian
+PASS 114 one static constant gauge mode
+PASS 115 isotropic acoustic small-k limit
+PASS 116 constant shift gauge and global ledger
+PASS 117 variational gradient finite difference
+PASS 118 regional static interface ledger
+PASS 119 linear static stiffness is half diamond Laplacian
+PASS 120 constant shift gauge and global ledger
+PASS 121 variational gradient finite difference
+PASS 122 regional static interface ledger
+PASS 123 nonlinear periodic static solve residual
+PASS 124 nonlinear manufactured potential recovered
+PASS 125 constitutive energy derivative
+PASS 126 conditional vector settlement equilibrium
+PASS 127 conditional vector settlement equilibrium
+PASS 128 conditional vector settlement equilibrium
+PASS 129 conditional vector settlement equilibrium
+PASS 130 conditional vector settlement equilibrium
+MAX nonlinear potential error 3.0118130212031247e-12 residual 7.787158504829472e-13
+130/130 field-read checks passed.

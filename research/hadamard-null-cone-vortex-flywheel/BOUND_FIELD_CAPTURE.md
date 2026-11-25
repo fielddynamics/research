@@ -1,5 +1,7 @@
 # Bound Field Capture in the Stellar Forge — Stage X research specification
 
+> **Matter/charge extension:** [Eight-register vortex and charge research](MATTER_VORTEX_CHARGE.md) distinguishes retained matter from optical occupation, proves the bare chamber-charge conservation obstruction, and supplies conditional inward/outward response models. Full microscopic capture, charge and physical work coupling remain open.
+
 > **Optical extension:** [Four-port optical resonator](OPTICAL_FOUR_PORT_RESONATOR.md) proves the four-bright/eight-dark coherent mode split and models the isolated central-mediated overlap branch. It preserves the full previous geometry and distinguishes dark modes from inactive individual neighbours; capture remains unproved.
 
 > **Integration update.** The [unified Flower lattice](UNIFIED_HADAMARD_FIELD_DYNAMICS.md) now supplies an explicit conservative multi-cell transport architecture. It does not model whole-cell capture, physical compression or retention. The two-factor screening proposal below remains conditional.

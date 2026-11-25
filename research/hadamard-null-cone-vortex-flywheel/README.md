@@ -10,6 +10,8 @@ The Standard Field Model (SFM) is the proposed internal research reference archi
 
 ## Start here
 
+**Latest extension:** [Matter vortex and signed charge](MATTER_VORTEX_CHARGE.md) — complete eight-register read, chamber-charge conservation obstruction, conditional inward/outward vortex equilibria and static electric/gravity ledger. The [spectral gravity read](SPECTRAL_GRAVITY_READ.md) remains the microscopic scalar response bridge.
+
 | Resource | Purpose |
 |---|---|
 | [Unified technical synthesis](UNIFIED_HADAMARD_FIELD_DYNAMICS.md) | The full field architecture and network equations |
@@ -70,6 +72,14 @@ For a direct bond from field $i$ to field $j$ along corner $s$, the candidate Ha
 
 ## 4. Distributed Field Processing and bound states
 
+![Spectral gravity read](figures/33_spectral_read.svg)
+
+[D] The [spectral extension](SPECTRAL_GRAVITY_READ.md) derives an isotropic band-edge stiffness and polar intensity-gradient read from the same 72-coordinate microscopic Bloch operator. Its static susceptibility has a conditional inverse-Laplacian pole. The real scalar reference is not a circulating solution, and the physical source, normalization and work coupling remain [E].
+
+![Field read and static bridge checks](figures/32_field_read_bridge.svg)
+
+[T/D] The [field-read extension](FIELD_ORIGIN_GRAVITY_READ.md) establishes the neutral origin read $\mathbf P=2\operatorname{Re}(a^*\mathbf b)$ and a source-directed leading-order read in both Flower interface variants. A separate static potential functional on the diamond graph produces a twelve-neighbour Schur stencil and the Newtonian/AQUAL formal continuum operators. Physical identification of the two reads, mass coupling and microscopic stiffness remain [E].
+
 [D] The chosen Hermitian lattice dynamics conserve occupation and energy. For any set of cells $U$,
 
 $$\frac{d}{dt}\sum_{i\in U}N_i=-\sum_{i\in U,\,j\notin U}J_{i\to j}.$$
@@ -82,6 +92,14 @@ Internal transfers cancel, leaving the boundary ledger. This is a candidate micr
 
 ![Propagating and proposed bound field](figures/14_propagating_vs_bound.svg)
 
+### Matter and electrical response — latest research extension
+
+![Signed radial response and TetA circulation](figures/35_matter_response_rings.svg)
+
+[T] The complete eight-coordinate Walsh read separates the two chamber intensities; their difference $q=n_B-n_A$ is chamber-odd and their total is chamber-even. The existing optical Hamiltonian does **not** conserve the bare tile occupation difference. [D/E] A separately specified conservative reduced energy supports neutral, inward (empty retained TetB) and occupied-TetB outward-read minima and neutral TetA circulation. A dressed transfer witness conserves a total signed charge even with chamber exchange, and a separate constrained diamond graph yields static Gauss settlement. This is not yet a physical electron, charge quantization, actual capture or an electromagnetic field theory. See [the new proof and research gates](MATTER_VORTEX_CHARGE.md).
+
+![Reduced matter equilibria, charge compensation and electric kernel](figures/34_matter_charge.svg)
+
 ## 5. Status and decisive open questions
 
 | Result | Status |
@@ -92,6 +110,9 @@ Internal transfers cancel, leaving the boundary ledger. This is a candidate micr
 | Four bright / eight dark coherent modes | [T/D] Symmetric read and specified optical boundary selection |
 | Lossless reciprocal transport and collective ledger | [D] For the chosen Hamiltonian |
 | Physical interface selection, literal 12/4/8 neighbours, nonlinear stability and permanent capture | [E] Open |
+| Full eight-register parity read; bare chamber charge obstruction | [T/D] Exact algebra and original-H counterexample |
+| Reduced three-state vortex/charge model and neutral TetA response | [D] Conditional on chosen energy and response terms |
+| Physical electron, elementary charge, capture, Maxwell dynamics and common source coupling | [E] Open |
 | Microscopic derivation of gravity laws, physical scales and continuum limit | [E] Open |
 
 **Terminology:** follow the upstream [GFD conventions](https://github.com/fielddynamics/research/blob/main/llms.txt). SST names the full four-term covariant action only. $\mu(x)=x/(1+x)$ is the constitutive law, $x=g_t/a_0$; it acts at drained levels. Bound drainless systems use bare $G$ and Newton/GR at leading order. The proposed microscopic capture model has not derived $x(1-\mu_b)^2=\mu_b$. TetB is neither reverse time nor the deep field. Scale universality means compositional settlement and registration, not geometric self-similarity.
@@ -115,9 +136,12 @@ Internal transfers cancel, leaving the boundary ledger. This is a candidate micr
 | Flower | [Hadamard–Flower lattice](HADAMARD_FLOWER_LATTICE.md) | 314 |
 | Unified | [Unified field dynamics](UNIFIED_HADAMARD_FIELD_DYNAMICS.md) | 316 |
 | Optical | [Four-port optical resonator](OPTICAL_FOUR_PORT_RESONATOR.md) | 108 |
-| | **Total recorded passing assertions** | **3,981** |
+| Field read | [Field Origin gravity read](FIELD_ORIGIN_GRAVITY_READ.md) | 130 |
+| Spectral read | [Microscopic spectral gravity read](SPECTRAL_GRAVITY_READ.md) | 194 |
+| Matter read | [Matter vortex and signed charge](MATTER_VORTEX_CHARGE.md) | 157 |
+| | **Total recorded passing assertions** | **4,462** |
 
-The assertions are not independent theorems. Historical Stages I–IX were rerun at Stage IX; subsequent counts refer to the respective extension's own run. No numerical verifier was rerun for this documentation-only edition. No new Lean compilation or browser regression is claimed. The original documents and historical results remain intact.
+The assertions are not independent theorems. Historical Stages I–IX were rerun at Stage IX; subsequent counts refer to the respective extension's own run. Only the new matter-charge verifier was run in this edition; previous assertions remain recorded. No new Lean compilation or browser regression is claimed. The original documents and historical results remain intact.
 
 ## 7. Reproduce the results
 
@@ -133,9 +157,12 @@ python verify_corner_first.py
 python verify_hadamard_flower.py
 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python verify_unified_flower.py
 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python verify_optical_ports.py
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python verify_field_read.py
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python verify_spectral_read.py
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python verify_matter_charge.py
 ```
 
-See [VERIFICATION.md](VERIFICATION.md) for logs, environment notes and scope. Latest [optical log](optical_ports_verification_output.txt), [scattering CSV](optical_scattering.csv) and [network CSV](optical_network_dynamics.csv) are included.
+See [VERIFICATION.md](VERIFICATION.md) for logs, environment notes and scope. Latest [matter-charge log](matter_charge_verification_output.txt) and [response data](matter_charge_rings.csv); historical [optical log](optical_ports_verification_output.txt), [scattering CSV](optical_scattering.csv) and [network CSV](optical_network_dynamics.csv) are included.
 
 ## 8. Explorers and supporting material
 
