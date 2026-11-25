@@ -24,7 +24,7 @@ This joins three research directions: the geometry of the tetrad, a constitutive
 
 ![Framework overview: geometry, constitutive response, and distributed closure](diagrams/gfd-readme-architecture.svg)
 
-> **Research status:** An open research framework. The repository holds 22 proof packages, 954 scripted checks and 14 Lean 4 formalisations, each stating its premises. The mathematics is machine-checked; the physical identifications are stated as premises and tested against data. The papers are preprints, and Tetrad Letters 1–3 are under review at *Classical and Quantum Gravity*.
+> **Research status:** An open research framework. The repository holds 22 proof packages, 954 scripted checks and 14 Lean 4 formalisations, each stating its premises. The mathematics is machine-checked; TetB is the tetrad's second root, and the physical premises each result needs are stated and tested against data. The papers are preprints, and Tetrad Letters 1–3 are under review at *Classical and Quantum Gravity*.
 
 ## Results on SPARC
 
@@ -77,7 +77,7 @@ $$g_{\mu\nu}=\eta_{ab}e^a{}_{\mu}e^b{}_{\nu}.$$
 
 It fixes $(\det e)^2$, not the orientation sign. With a fixed future-pointing time leg, two spatial orientation sectors remain. The [forced-frame theorem](proofs/forced-tetrahedral-frame/) derives the regular tetrahedron under equal magnitude, equal relation, distinctness and three spatial dimensions. The [half-space proof](proofs/half-space-two-bounded-regions/) then establishes that exactly two of sixteen sign selections are bounded. Their compound is the stellated octahedron; the [scheme proof](proofs/tetrad-scheme-two-bounded-regions/) supplies a second route to the parity pair.
 
-In the GFD physical dictionary, TetA is the observable exterior, TetB is the dual throat interior, and the Field Origin is their coupling region. TetB is not reverse time, and the galactic deep field is not TetB itself.
+TetA is the observable exterior, TetB is the dual throat interior, and the Field Origin is their coupling region. **TetB is not an added assumption: it is the tetrad equation's second root.** General relativity keeps one root by the convention of restricting to $SO^+(1,3)$; GFD keeps both. TetB is not reverse time, and the galactic deep field is not TetB itself.
 
 <br clear="right">
 
@@ -177,7 +177,7 @@ The [proof index](proofs/README.md) links each theorem to its LaTeX source, PDF,
 | Research pillar | Representative proof packages | Status and scope |
 |---|---|---|
 | Tetrad geometry | [Forced frame](proofs/forced-tetrahedral-frame/), [Half-spaces](proofs/half-space-two-bounded-regions/), [Scheme](proofs/tetrad-scheme-two-bounded-regions/), [Hadamard frame](proofs/hadamard-cube-frame/) | [T+L] under stated spatial-realisation premises |
-| Connection & orientation | [Gram matrix](proofs/gram-matrix-tetrad-equation/), [Torsion representation](proofs/torsion-regular-representation/), [Chiral holonomy](proofs/chiral-holonomy-closed-frame/) | [T] algebra; physical interpretation is a further hypothesis |
+| Connection & orientation | [Gram matrix](proofs/gram-matrix-tetrad-equation/), [Torsion representation](proofs/torsion-regular-representation/), [Chiral holonomy](proofs/chiral-holonomy-closed-frame/) | [T] (Gram: + Lean) the 24 torsion components are the only place a metric connection can tell the roots apart: TetB's carrier (Letter 2) |
 | Constitutive response | [Exchange](proofs/constitutive-law-exchange-symmetry/), [Tug of war](proofs/constitutive-law-tug-of-war/), [AQUAL energy](proofs/aqual-energy-functional/) | [T+L] within specified classes |
 | Local state readout | [Walsh modes](proofs/walsh-eigenmodes-of-the-cube/), [Vortices](proofs/vortices-of-the-stellated-octahedron/) | [T] finite-dimensional symmetric models; physical realization open |
 | Field equations | [Quasi-static SST](proofs/sst-quasi-static-limit/), [Time leg](proofs/sst-covariant-time-leg/), [Preferred frame](proofs/sst-khronon-preferred-frame/) | [T/D] specified effective action and approximations |

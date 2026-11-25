@@ -20,7 +20,7 @@ The distinction is like the soap film and bubble in the [field-closure research 
 
 > **Every Field Object closes locally, continuously and as a whole. Its registered state participates in the next level of accounting without requiring that level to reconstruct its interior.**
 
-This is the proposed architecture of Gravity Field Dynamics. The static Newtonian mechanism for closing in stages is established under stated premises; the full nonlinear and relativistic architecture remains a research programme.
+This is a foundational requirement of Gravity Field Dynamics, not a computational convenience: cosmic closure works only if a larger system closes over already-closed smaller systems without reopening their accounting. The static Newtonian mechanism for closing in stages is proved; extending it to drained, nonlinear and relativistic fields is the active programme.
 
 ## 2. Snapshot accounting: READ, SETTLE, REGISTER
 
@@ -53,9 +53,11 @@ $$
 
 **REGISTER** names the result, not another independent physical mechanism after settlement. Registration is the state through which the object participates in its NET Field. In the static Newtonian construction, an exterior-equivalent boundary potential is a concrete gravitational representation of this state. It is not yet a proof of encoding the object's complete microscopic quantum state.
 
+The [Read-Settle-Register bridge](research/read-settle-register-bridge/READ_SETTLE_REGISTER_BRIDGE.md) carries this chain into the gravitational action: the Hadamard read of the cube gives the local time-leg acceleration, settlement at the Field Origin fixes a registered torsion response, and eliminating that response gives the SST's scalar sector. It is a conditional construction with 30 independent checks.
+
 Three requirements keep the terminology precise:
 
-- **Lossless:** the closure mechanism must not introduce spurious wakes, drag or hysteresis in its static limit. FSS concerns the relevant whole configuration; exterior equivalence concerns only what the exterior gravitational description needs. Ordinary radiation and physical dissipation are not excluded.
+- **Lossless:** the closure mechanism must not introduce spurious wakes, drag or hysteresis in its static limit. FSS concerns the relevant whole configuration; exterior equivalence concerns only what the exterior gravitational description needs. Gravitational radiation is not excluded.
 - **Local:** coupling is evaluated where object and NET Field meet. Changes propagate causally; a snapshot is not an instantaneous global read.
 - **Continuous:** the field remains coupled as the object moves or changes. Snapshot names a state; snapshot accounting names the ongoing enforcement of closure. No universal microscopic clock, batch interval or discrete update frequency is assumed.
 
@@ -80,7 +82,7 @@ $$
 
 Paper I uses this locality, together with gravitational-wave propagation, to motivate a distributed architecture. Local differential laws are not unique to GFD; the additional GFD proposal is that fields organise into interacting, locally closed configurations with registered boundaries.
 
-The mesh has two complementary relationships. Neighbours couple laterally through the NET Field. Closed objects also compose at larger scales through their registered contributions. These are two descriptions of the same field, not two independent forces. In later GFD terminology, unbound field envelopes (empty TetB) form the surrounding mesh; bound configurations move and couple through it. This picture is a proposed physical interpretation, not a demonstrated discrete lattice.
+The mesh has two complementary relationships. Neighbours couple laterally through the NET Field. Closed objects also compose at larger scales through their registered contributions. These are two descriptions of the same field, not two independent forces. Space is tiled in identical cubes, each holding one stellated octahedron, and the tile is set by the electron ([Paper III](papers/03-unit-of-gravity/); [cube tiling](research/diamond-tetrad-lattice/cube-tiling/)). Unbound cells (empty TetB) form the surrounding mesh; bound configurations move through it, snapping from cell to cell.
 
 ### 3.2 Four ports: one temporal, three spatial
 
@@ -156,9 +158,9 @@ The original DFP architecture is operational. The later research asks what physi
 
 The tetrad equation is $g_{\mu\nu}=\eta_{ab}e^a{}_\mu e^b{}_\nu$. A non-degenerate tetrad is needed for a non-degenerate metric. The [forced-frame proof](proofs/forced-tetrahedral-frame/) establishes a regular tetrahedral spatial projection under equal-magnitude, equal-pair-relation and distinct-leg premises. Four faces give the minimal polyhedral enclosure in three spatial dimensions ($K=D+1=4$).
 
-The two orientation sectors, read with a future-pointing time leg and the stated projection, give TetA and TetB. They form the interlocking tetrahedra of the stellated octahedron, coupled at the Field Origin in GFD's interpretation. The metric is insensitive to the choice of orientation sector. This does not establish that two physically independent fields must exist; it is the starting point of the GFD physical construction.
+The two orientation sectors, read with a future-pointing time leg and the stated projection, give TetA and TetB. They form the interlocking tetrahedra of the stellated octahedron, coupled at the Field Origin. The metric cannot tell the two roots apart, which is why general relativity, keeping one root by convention, never sees TetB. **TetB is not an added assumption: it is the tetrad equation's second root**, the only other bounded region ([half-space proof](proofs/half-space-two-bounded-regions/)), carried by the 24 torsion components ([Letter 2](papers/letter-2-other-half-of-gravity-torsion/)).
 
-The [field-closure research](research/field-closure/) records several exact structural identities. They include eight cube corners divided by parity, the graded coupling polynomial $f(K,s)=1+sK+K^2$ with values $21,17,13$, and the connection's symmetric/antisymmetric $40+24=64$ split. Those ledgers organise the proposed mechanism; they are not interchangeable with a complete macroscopic boundary registration.
+The [field-closure research](research/field-closure/) records several exact structural identities. They include eight cube corners divided by parity, the graded coupling polynomial $f(K,s)=1+sK+K^2$ with values $21,17,13$, and the connection's symmetric/antisymmetric $40+24=64$ split. Those ledgers organise the mechanism; they are not interchangeable with a complete macroscopic boundary registration.
 
 ### 5.2 Drain determines response, not whether an object closes
 
@@ -166,13 +168,14 @@ In GFD, a galaxy is a **drained** Field Object: its own NET Field is described a
 
 $$\mu(x)=\frac{x}{1+x},\qquad 1-\mu(x)=\frac{1}{1+x},\qquad x=\frac{g_t}{a_0}.$$
 
-The same law must not be applied independently to every constituent's own gravitational field. The [net-field rule](proofs/net-field-rule/) and [mountain-scale construction](proofs/sst-mountain-scale/) distinguish the drainless interior from the drained host's mountain. Within their static ownership construction the drainless own field is Newtonian with measured $G$; the environmental field still supplies common free fall, tides and smaller corrections. An object's enclosed TetB may already contribute to its measured $GM$.
+The same law must not be applied independently to every constituent's own gravitational field. The [net-field rule](proofs/net-field-rule/) and [mountain-scale construction](proofs/sst-mountain-scale/) distinguish the drainless interior from the drained host's mountain. Within their static ownership construction the drainless own field is Newtonian with measured $G$; the environmental field still supplies common free fall, tides and smaller corrections. Every body's own TetB is enclosed in its measured $GM$.
 
 | Object | Accounting rule |
 |---|---|
 | Asteroid, planet, star, binary or stellar system | Registers and settles; drainless mutual gravity is TetA in the current construction. |
 | Galaxy | Registers and settles; the constitutive law acts inside its own drained accounting. |
-| Cluster | Registers and settles; classified as drainless in the current net-field proposal, with drained galaxies among its children. |
+| Star cluster | Registers and settles; drainless, so pure TetA with the bare $G$ (globular clusters require it at more than $8\sigma$). |
+| Galaxy cluster | Registers and settles, with drained galaxies among its children; its own drain classification is not yet established. |
 
 **Every object closes, including a galaxy.** A galaxy is not an unbound envelope. The current formal sweep construction treats drainless objects in a drained host. It does not yet establish the galaxy-to-cluster boundary record or the effective mass registered there. The drain criterion itself remains a framework premise.
 
@@ -196,7 +199,7 @@ Without the host tide this finite Hill boundary recedes to infinity. The surroun
 
 *Figure 8 — A dictionary, not a nested geometric model. A Field Origin is not the host-scale transition ring or the Field Object's registration surface.*
 
-The Jacobi extent is not Paper I's constitutive crossover scale and not Paper III's proposed electron-scale tile. These quantities answer different questions: where a bound configuration meets its host; where a drained field changes constitutive regime; and what might set the microscopic field unit.
+The Jacobi extent is not Paper I's constitutive crossover scale and not Paper III's electron-scale tile. These quantities answer different questions: where a bound configuration meets its host; where a drained field changes constitutive regime; and what might set the microscopic field unit.
 
 ## 7. How Papers I–III fit the architecture
 
@@ -204,9 +207,9 @@ The Jacobi extent is not Paper I's constitutive crossover scale and not Paper II
 |---|---|
 | [I — The Gravitational Constitutive Law](papers/01-gravitational-constitutive-law/v6/Nelson_DFP_Gravitational_Constitutive_Law_v6.html) | Defines the canonical FSS chain, local closure and the conditional constitutive-law derivation. Its early pointwise applications are superseded by the current net-field rule. |
 | [II — A Covariant Theory Without Dark Matter](papers/02-covariant-theory-without-dark-matter/v4/Nelson_DFPII_A_Covariant_Theory_Without_Dark_Matter_v4.html) | Extends DFP to a proposed covariant action, overlapping closure tiling and cosmological acceleration-scale dependence. A full CMB spectrum is not established. |
-| [III — The Unit of Gravity](papers/03-unit-of-gravity/v5/Nelson_DFPIII_The_Unit_Of_Gravity_v5.html) | Asks what sets the size of the dimensionless four-port topology. The relation $r_e=K\sqrt{Gm_e/a_0}$, given its saturation premise and measured inputs, is close to the classical electron radius. It does not establish a universal physical lattice spacing. |
+| [III — The Unit of Gravity](papers/03-unit-of-gravity/v5/Nelson_DFPIII_The_Unit_Of_Gravity_v5.html) | Sets the size of the four-port tile: closure saturation gives $r_e=K\sqrt{Gm_e/a_0}$, the classical electron radius, which the paper identifies as the unit of gravity and which sets the lattice tile. |
 
-These papers motivate the progression from local coupling to interacting closure geometry and a proposed microscopic scale. The subsequent formal results supply a concrete mechanism for static recursive closure. Neither the electron-scale correspondence nor the proposed cosmological scaling law is required for the nested Newtonian theorem.
+These papers motivate the progression from local coupling to interacting closure geometry and the microscopic scale. The subsequent formal results supply a concrete mechanism for static recursive closure. Neither the electron scale nor the proposed cosmological scaling law is required for the nested Newtonian theorem.
 
 The closure-walk and BBP research asks a further question: whether the dual-tetrad geometry traverses its own structure through an intrinsic read. Its arithmetic identities are distinct from a demonstrated causal mechanism for FSS. The advanced companion treats that research in a separate section so it does not become an unsupported premise of recursive gravitational accounting.
 
@@ -222,17 +225,17 @@ Status follows [llms.txt](llms.txt) and [GFD Coles Notes](GFD_COLES_NOTES.md): [
 | [E] | Derive registration at the stagnation surface and least-energy settlement from the underlying dual-tetrad dynamics. |
 | [E] | Formulate drained-to-parent registration, effective mass, and ownership-compatible nonlinear composition. |
 | [E] | Derive causal evolution, moving interfaces, energy/momentum and changing ownership from the full dynamics. |
-| [O] | Rotation curves, Cassini and wide binaries probe the distinction between pointwise application and ownership-based GFD; these are not all decisive validations. |
+| [T/O] | The [net-field rule](proofs/net-field-rule/) (Theorem + Lean): Cassini excludes applying $\mu$ to the Sun's own field, globular clusters require the bare $G$ at more than $8\sigma$, and bound wide binaries are Newtonian to within $(s/r_J)^3$. |
 
 The architecture has a concrete static example and a precise remaining problem: **does the physical field implement a registered boundary response that remains sufficient when the next level has a different constitutive law?** That question is the centre of Part II.
 
-> Gravity's influence can extend over enormous distances without every distant system reopening its source. The proposed DFP architecture is continuous, local snapshot accounting, with cosmic closure emerging through composition of compatible registered states.
+> Gravity's influence can extend over enormous distances without every distant system reopening its source. The DFP architecture is continuous, local snapshot accounting, with cosmic closure emerging through composition of compatible registered states.
 
 ---
 
 ### Reading path
 
-- Geometric and dynamical bridge: [Einstein’s Equation as the TetA Partition](EINSTEIN_TETA_PARTITION.md).
+- Geometric and dynamical bridge: [Einstein’s Equation as the TetA Partition](EINSTEIN_TETA_PARTITION.md) and the [Read-Settle-Register bridge](research/read-settle-register-bridge/READ_SETTLE_REGISTER_BRIDGE.md).
 - Observational narrative: [The Other Root](THE_MISSING_MASS.md).
 - General-reader entry: [Closure of Closures](CLOSURE_OF_CLOSURES.md).
 - Technical companion: [Field Closure and Recursive Registration](FIELD_CLOSURE_AND_RECURSIVE_REGISTRATION.md).
