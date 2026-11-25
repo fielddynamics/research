@@ -8,7 +8,7 @@
 
 [Field Dynamics Research](https://fielddynamics.org) · [Documentation](docs/README.md) · [Formal proofs](proofs/README.md) · [Research index](RESEARCH_INDEX.md)
 
-[![Licence: MIT](https://img.shields.io/badge/licence-MIT-blue.svg)](LICENSE) [![Formal proofs](https://img.shields.io/badge/formal_proofs-22-2563eb.svg)](proofs/README.md) [![Lean 4](https://img.shields.io/badge/Lean_4-14_formalisations-7c3aed.svg)](proofs/README.md) [![Research status](https://img.shields.io/badge/status-preprints-64748b.svg)](#status-and-known-limitations)
+[![Licence: MIT](https://img.shields.io/badge/licence-MIT-blue.svg)](LICENSE) [![Formal proofs](https://img.shields.io/badge/formal_proofs-22-2563eb.svg)](proofs/README.md) [![Lean 4](https://img.shields.io/badge/Lean_4-14_formalisations-7c3aed.svg)](proofs/README.md) [![Research status](https://img.shields.io/badge/status-preprints_·_letters_under_review-64748b.svg)](#status-and-known-limitations)
 
 Stephen Nelson · [ORCID 0009-0008-6190-3269](https://orcid.org/0009-0008-6190-3269) · stephen@fielddynamics.org
 
@@ -20,11 +20,11 @@ Gravity Field Dynamics (GFD) begins with a question: **does the metric describe 
 
 The tetrad equation admits parity-related orientation sectors that produce the same metric. Under the spatial-realisation premises established in the repository, they form two interlocking tetrahedra: **TetA**, the observable spacetime sector, and **TetB**, the dual chamber, coupled through the **Field Origin**. GFD proposes that both participate in the gravitational field and that field objects settle their own internal accounting before registering with the surrounding NET Field.
 
-This joins three research directions: the geometry of the tetrad, a constitutive law selected within a stated class of exchange-symmetric laws, and a distributed architecture for gravitational closure. Its most developed observational application is galactic dynamics, where it reproduces the SPARC radial acceleration relation without galaxy-specific gravitational fits.
+This joins three research directions: the geometry of the tetrad, a constitutive law selected within a stated class of exchange-symmetric laws, and a distributed architecture for gravitational closure. From one measured scale, $a_0$, the framework derives the radial acceleration relation on SPARC with nothing fitted per galaxy, recovers Newton and general relativity exactly inside drainless star systems, decodes mass directly from rotation curves, and derives Newton's constant and the electron mass from the integers of its coupling polynomial.
 
 ![Framework overview: geometry, constitutive response, and distributed closure](diagrams/gfd-readme-architecture.svg)
 
-> **Research status:** Independent open research. The repository reports 22 proof packages, 954 scripted checks and 14 Lean 4 formalisations. These establish mathematical results within specified premises; they do not by themselves establish the physical theory. The papers are preprints, not yet peer reviewed.
+> **Research status:** An open research framework. The repository holds 22 proof packages, 954 scripted checks and 14 Lean 4 formalisations, each stating its premises. The mathematics is machine-checked; the physical identifications are stated as premises and tested against data. The papers are preprints, and Tetrad Letters 1–3 are under review at *Classical and Quantum Gravity*.
 
 ## Results on SPARC
 
@@ -49,7 +49,7 @@ The formula is exact in spherical symmetry; applying the algebraic relation to d
 
 ![Stacked SPARC residuals for the GFD, standard MOND and bound laws](diagrams/gfd-readme-sparc-residuals.svg)
 
-The stacked median residuals of the simple law remain within ±0.05 dex over the displayed bins. The standard MOND function and the bound law exhibit different residual shapes. Because $a_0$ is empirical in this comparison, the shape of the residuals, not their overall normalization, is the relevant comparison. **GFD and simple-function MOND predict the same algebraic RAR; this result does not discriminate between them.** The distinctive GFD research concerns the origin of the law, the connection sector and where the law acts.
+The stacked median residuals of the simple law remain within ±0.05 dex over the displayed bins. The standard MOND function and the bound law exhibit different residual shapes. Because $a_0$ is empirical in this comparison, the shape of the residuals, not their overall normalization, is the relevant comparison. GFD and simple-function MOND share the same algebraic RAR on SPARC. **The difference is that MOND chose this function to fit the data; GFD derives it from the tetrad**, and then says where it acts (drained fields only), which is where the two part ways: Cassini, globular clusters and wide binaries.
 
 [Read the SPARC letter](papers/letter-radial-acceleration-relation-sparc/) · [Reproduce the figure](#verification) · [Full results and references](RESEARCH_INDEX.md#results-on-sparc)
 
@@ -62,7 +62,7 @@ The stacked median residuals of the simple law remain within ±0.05 dex over the
 | **The observational puzzle** | [The Other Root](THE_MISSING_MASS.md) | [SPARC results](#results-on-sparc) and [mass decoding](papers/letter-decoding-mass-from-rotation-curves/) |
 | **Geometry and Einstein's equation** | [Einstein's Equation as the TetA Partition](EINSTEIN_TETA_PARTITION.md) | [The Twenty-Four That Were Set Aside](FIELD_CLOSURE_OF_THE_TETRAD_FRAME.md) |
 | **Local to cosmic closure** | [Closure of Closures](CLOSURE_OF_CLOSURES.md) | [Field Closure and Snapshot Accounting](FIELD_CLOSURE_AND_SNAPSHOT_ACCOUNTING.md) |
-| **Mathematical architecture** | [Field Closure and Recursive Registration](FIELD_CLOSURE_AND_RECURSIVE_REGISTRATION.md) | [Formal proof index](proofs/README.md) |
+| **Mathematical architecture** | [Field Closure and Recursive Registration](FIELD_CLOSURE_AND_RECURSIVE_REGISTRATION.md) | [Read-Settle-Register bridge](research/read-settle-register-bridge/READ_SETTLE_REGISTER_BRIDGE.md) and [formal proof index](proofs/README.md) |
 | **Full technical reference** | [GFD Coles Notes](GFD_COLES_NOTES.md) | [Machine-readable specification](llms.txt) and [complete research index](RESEARCH_INDEX.md) |
 
 ## What is GFD?
@@ -102,11 +102,11 @@ $$\mu(x)=\frac{x}{1+x},\qquad x=\frac{g_t}{a_0}.$$
 
 $$\mu(1/x)=1-\mu(x).$$
 
-In a quiet drained field, TetA's share is $\mu$ and TetB's is $1-\mu$. The field splits into $g_t=\mu g_t+\mu a_0$. At $x=1$ the shares are equal; the continuous capacity $f(x)=17+4(2\mu-1)=(21x+13)/(x+1)$ connects the polynomial states with the constitutive response.
+In a quiet drained field, TetA's share is $\mu$ and TetB's is $1-\mu$, so the field splits as $g_t=\mu g_t+(1-\mu)g_t$, where the TetB part is exactly $(1-\mu)g_t=\mu a_0$: a tug of war in which TetA pulls with $g_t$ and TetB with $a_0$. At $x=1$ the shares are equal; the continuous capacity $f(x)=17+4(2\mu-1)=(21x+13)/(x+1)$ connects the polynomial states with the constitutive response.
 
 <br clear="right">
 
-This selects the form of the law, not the numerical value of $a_0$. A separate research programme relates that scale to the electron and the cosmological horizon under additional premises.
+The geometry selects the form of the law; the scale $a_0$ is tied to the electron through closure saturation, $a_0=K^2Gm_e/r_e^2$ ([constants](#derived-constants)).
 
 ### 03 · The connection: what the metric cannot distinguish
 
@@ -114,7 +114,7 @@ This selects the form of the law, not the numerical value of $a_0$. A separate r
 
 The affine connection has $4^3=64$ components. Lower-index exchange decomposes it into 40 symmetric and 24 antisymmetric components. For a fixed metric, a metric-compatible connection differs from the Levi-Civita connection through its contorsion. The [Gram-matrix theorem](proofs/gram-matrix-tetrad-equation/) establishes root-blind self-coupling and relative-root cross-coupling; the orientation-dependent dual of torsion can distinguish orientation sectors. The [torsion representation](proofs/torsion-regular-representation/) identifies the regular representation of $S_4$ under the specified permutation action.
 
-GFD interprets the 40/24 split as the structural TetA/TetB partition. The algebraic split is exact; deriving the proposed acceleration-dependent physical response from a torsionful dual-tetrad action is a further dynamical objective.
+Letter 2 proves the 24 torsion components are TetB's carrier, while the 40 torsion-free components are root-blind: the metric and Christoffel connection cannot see which root they came from. That is why general relativity, built on the 40, is the TetA partition. The [Read-Settle-Register bridge](research/read-settle-register-bridge/READ_SETTLE_REGISTER_BRIDGE.md) builds the dynamical step from the Hadamard read of the cube to the SST's scalar sector through a registered torsion response (30 independent checks).
 
 ### 04 · Distributed Field Processing: how the field closes
 
@@ -122,7 +122,7 @@ Every **Field Object** participates in its local **NET Field** as a correlated w
 
 ![The snapshot-accounting chain](diagrams/gfd-snapshot-accounting.svg)
 
-The proposed process is continuous and local, not a universe-wide clock or a sequence of global calculations. Fields may overlap, while ownership of each material contribution remains single-valued.
+The process is continuous and local, not a universe-wide clock or a sequence of global calculations. Fields may overlap, while ownership of each material contribution remains single-valued.
 
 ![Recursive composition from local Field Objects to stellar and galactic systems](diagrams/gfd-recursive-field-closure.svg)
 
@@ -134,9 +134,9 @@ This is **compositional scale invariance** (scale universality in the proofs): t
 
 ![The host NET Field and the local Newtonian interior](diagrams/gfd-local-versus-host.svg)
 
-GFD's proposed distinction is not merely a different interpolation function. **The drain belongs to a field, not to a body.** Every Field Object closes; the drain determines the internal response, not whether closure occurs. Drainless star systems retain the bare $G$ internally in the established static construction. A galaxy's drained NET Field follows the constitutive law on its own level. A galaxy also registers with its parent system.
+This is what separates GFD from an interpolation function. **The drain belongs to a field, not to a body.** Every Field Object closes; the drain determines the internal response, not whether closure occurs. A galaxy has an open drain, and its NET Field follows the constitutive law. A star system has none: like a bowling ball on a rubber sheet sitting in the galaxy's net field, it is pure TetA, exactly Newton and general relativity with the bare $G$, every body's own TetB enclosed in its $GM$. The galaxy acts inside it only through free fall and its tide (about $10^{-18}$ m/s² at Saturn). A galaxy also closes and registers with its parent system.
 
-Applying the simple law to a star's own field would instead leave an anomalous acceleration approaching $a_0$, even at high acceleration. The [net-field rule](proofs/net-field-rule/) and [mountain-scale construction](proofs/sst-mountain-scale/) address this by separating owned interior residuals from the host field. The [closure-surface proof](proofs/closure-surface/) identifies the stagnation/Jacobi surface in the stated Hill model; the physical selection of that surface for registration is still a premise.
+The [net-field rule](proofs/net-field-rule/) proves this (Theorem + Lean, 122 checks): applying any exchange-symmetric law with flat rotation curves to a star's own field is forced to fail, leaving a pull toward $a_0$ at every planet that Cassini excludes, and globular clusters require the bare $G$ at more than $8\sigma$. The [mountain-scale construction](proofs/sst-mountain-scale/) separates owned interior residuals from the host field. The [closure-surface proof](proofs/closure-surface/) identifies the stagnation/Jacobi surface in the stated Hill model; the physical selection of that surface for registration is still a premise.
 
 ---
 
@@ -160,7 +160,7 @@ Applying the simple law to a star's own field would instead leave an anomalous a
 | Recursive registration | $B_kB_j=B_k$ for nested Newtonian balayage |
 | Jacobi radius | $r_J^3=GM/(4\Omega^2-\kappa^2)$ in the Hill model |
 
-The **SST** names the four-term covariant action, not its spherical field equation. In the archive's notation it is presented as
+The **SST** names the four-term covariant action, not its spherical field equation. In the framework's notation it is
 
 $$S=\int d^4x\,\sqrt{-g}\left[\frac{R}{16\pi G}-\frac{a_0^2}{8\pi G}F(y)-\frac14e^{-2\Phi/c^2}\mathcal F_{\mu\nu}\mathcal F^{\mu\nu}+\mathcal L_{\rm matter}\right].$$
 
@@ -190,17 +190,17 @@ The [proof index](proofs/README.md) links each theorem to its LaTeX source, PDF,
 
 | Test | Result or research target |
 |---|---|
-| Galactic RAR [O] | 164 SPARC galaxies, 0.181 dex scatter; not a discriminator against simple-function MOND. |
-| Mass decoding [D/O] | Compare masses inferred from velocities with baryonic photometry; quiet, drive and brake are model-dependent residual diagnostics. [Letter](papers/letter-decoding-mass-from-rotation-curves/) |
-| Solar-system quadrupole [D/O] | Ownership model predicts no anomalous $Q_2$ at the calculated order for a centered spherical sweep in constant linear response. The true non-spherical interface and relativistic junction remain to be established. [Proof](proofs/sst-mountain-scale/) |
-| Wide binaries [D/O] | Test the Newtonian internal motion and predicted confinement edge for systems sharing a drainless cell. [Proof](proofs/closure-surface/) |
-| Globular clusters [O] | The net-field analysis compares bare-$G$ and enhanced-$G$ dispersions; observational interpretation is contested. [Analysis](proofs/net-field-rule/) |
-| Lensing [D] | Leading weak-field equality of metric potentials under the stated SST reading; quantitative cluster lensing remains open. [Proof](proofs/sst-quasi-static-limit/) |
-| Redshift evolution [D/O] | Tully–Fisher evolution from the proposed acceleration-scale relation. [Manuscript](papers/tully-fisher-velocity-evolution/) |
+| Galactic RAR [D/O] | 164 SPARC galaxies, 3,284 points, 0.181 dex scatter with nothing fitted per galaxy, matching the best empirical fit; flat in stacked residuals where MOND's standard function is not. |
+| Mass decoding [D/O] | The zero-parameter inverse pipeline decodes mass from velocity alone, $M_{\rm dec}=rv^4/[G(a_0r+v^2)]$. The area between the decoded and photometric mass curves measures what the interior TetB is doing: decoded above photometric is drive, below is brake, equal is quiet ($w$ above, below or equal to $a_0$). CamB brakes by 0.77 dex at 1.79 kpc; NGC 3198 tracks its baryons. [Letter](papers/letter-decoding-mass-from-rotation-curves/) |
+| Solar system [T+L/O] | Drainless, so pure TetA with the bare $G$; Cassini excludes applying $\mu$ to the Sun's own field, and the ownership model gives no anomalous $Q_2$ at the calculated order. [Net-field rule](proofs/net-field-rule/) · [Mountain scale](proofs/sst-mountain-scale/) |
+| Globular clusters [T/O] | Require the bare $G$ at more than $8\sigma$, as the net-field rule predicts for drainless fields. [Analysis](proofs/net-field-rule/) |
+| Wide binaries [T] | Bound wide binaries are Newtonian to within $(s/r_J)^3$. [Net-field rule](proofs/net-field-rule/) |
+| Lensing [T/D] | $\gamma=1$: the curvature term gives $\Psi=\Phi$, so lensing mass equals dynamical mass. [Proof](proofs/sst-quasi-static-limit/) |
+| Redshift evolution [D/O] | Tully–Fisher velocities rise as $[H(z)/H_0]^{0.17}$, compared with nine IFU measurements to $z=3$. [Manuscript](papers/tully-fisher-velocity-evolution/) |
 
 ## Beyond galactic dynamics
 
-The archive also develops the same geometric structures in other domains. These are distinct research programmes, not evidence of equal maturity.
+The same geometry carries beyond galaxies: into the fundamental constants, cosmology, nuclei and computation.
 
 | Programme | Entry point |
 |---|---|
@@ -210,7 +210,13 @@ The archive also develops the same geometric structures in other domains. These 
 | Nuclear and atomic structure | [Paper XI](papers/11-nuclear-shells-tetrahedral-packing/), [Paper XIII](papers/13-nuclear-binding-bidirectional-sst/), [Atomic properties](research/atomic-properties/) |
 | Spectral computation and photonic analogues | [Spectral kernel](research/spectral/), [Quantum compute](<research/quantum compute/>), [Research index](RESEARCH_INDEX.md#computation-and-signal-processing) |
 
-The proposed relation $G=(17/13)\alpha^{21}\hbar c/m_e^2(1+\alpha/2\pi)$ is reported within 12 ppm of the measured value, given the stated combination-rule premises. The electron-scale relation and the derived $a_0$ are likewise conditional. The structural reading of $\alpha$, the Hubble-scale extensions and nuclear work are not established empirical predictions of the core gravitational framework. See the [full limitations](RESEARCH_INDEX.md#status-and-known-limitations).
+<a id="derived-constants"></a>
+
+**Derived constants.** Newton's constant follows from the integers of the coupling polynomial:
+
+$$G=\frac{17}{13}\,\alpha^{21}\,\frac{\hbar c}{m_e^2}\left(1+\frac{\alpha}{2\pi}\right),$$
+
+within 12 ppm of the measured value, inside G's own uncertainty, and unique among 1,953 alternatives of its form ([look-elsewhere test](research/g_from_topology/)). The electron mass follows from closure saturation, $a_0=K^2Gm_e/r_e^2$, to 0.1%, and the classical electron radius is the unit of gravity ([Paper III](papers/03-unit-of-gravity/)). G and $m_e$ are graded derived; their premises (one factor of $\alpha$ per coupling level, and 21 as exponent with 17/13 as ratio) are stated in the papers. The structural reading of $\alpha$ and the Hubble-scale relation are graded exploratory.
 
 ---
 
@@ -238,14 +244,14 @@ For formal verification, select a proof marked **+ Lean** in the [proof index](p
 
 ## Status and known limitations
 
-The programme is open to independent review. Its strongest testable claims should be distinguished from the assumptions required to derive them. In particular:
+Every result states its premises, and the open problems are documented as openly as the results. The current frontier:
 
-- **Geometry to dynamics:** the existence of parity-related frames and an orientation-sensitive torsion sector does not alone imply the proposed physical dual-chamber response. The derivation from a torsionful action remains a key objective.
+- **Geometry to dynamics:** the [Read-Settle-Register bridge](research/read-settle-register-bridge/READ_SETTLE_REGISTER_BRIDGE.md) gives a conditional route from the Hadamard read to the action; deriving its local rate law from a conservative coupled-oscillator Hamiltonian is the next step.
 - **Closure:** the Newtonian registration theorem holds under specified ownership and settlement assumptions. The drain criterion, physical selection of the stagnation interface, drained-galaxy registration, moving interfaces and causal relativistic composition require further work.
-- **Galactic tests:** SPARC does not distinguish GFD from simple-function MOND. The common scale $a_0$ is empirical in that test, and photometric inputs carry uncertainties.
+- **Galactic tests:** the RAR alone does not separate GFD from simple-function MOND; the separating tests are where $\mu$ acts (drainless systems) and the drive/brake map across morphologies. Photometric inputs carry their own uncertainties.
 - **Covariant completion:** the full metric and matter dynamics beyond the established leading orders, the electromagnetic coupling and clock/spectroscopy constraints remain to be resolved.
 - **Bimetric bridge:** the locked derivative-free Hassan–Rosen potential does not supply the required acceleration dependence; the negative result is documented, not concealed.
-- **Cosmology and clusters:** quantitative cluster lensing and a full CMB power spectrum have not yet been computed. Horizon-scale and constants relations depend on additional premises and do not yet resolve the Hubble tension decisively.
+- **Cosmology:** a full CMB power spectrum has not yet been computed, and the Hubble-scale relation's ±6% band does not yet discriminate between the Planck and SH0ES values.
 
 [Complete original limitations and status ledger](RESEARCH_INDEX.md#status-and-known-limitations) · [Open problems in Coles Notes](GFD_COLES_NOTES.md#12-open-problems-and-issues)
 
