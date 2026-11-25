@@ -1,0 +1,50 @@
+# Visual index — static figures and interactive companions
+
+All figures are packaged with relative Markdown links. The recent chat illustrations are recreated as SVGs so that the Markdown renders without JavaScript on GitHub. The original static figures and interactive HTML explorers are retained. Conceptual arrows are not simulated trajectories. The physical binding proposal remains exploratory.
+
+| Figure | Embedded in | Status |
+|---|---|---|
+| [13 Stellar-forge capture](figures/13_stellar_forge_capture.svg) | [Bound Field Capture](BOUND_FIELD_CAPTURE.md), [README](README.md) | Conceptual research hypothesis |
+| [14 Propagating vs bound](figures/14_propagating_vs_bound.svg) | Bound Field Capture, README | Conceptual regimes |
+| [15 Bound-law comparison](figures/15_bound_law_comparison.svg) | Bound Field Capture, README | Exact functions, conditional on x=A² |
+| [16 Recursive nesting](figures/16_recursive_nesting.svg) | Bound Field Capture, README | Proposed hierarchy, not verified packing |
+| [17 Matched Triforce interface](figures/17_matched_triforce_interface.svg) | [Coupled Field Origins](COUPLED_FIELD_ORIGINS.md), README | Exact local geometric match, conditional dynamics |
+| [18 Directional read](figures/18_directional_origin_read.svg) | Coupled Field Origins, README | Exact sign records and conditional centre model |
+| [19 Chamber flux comparison](figures/19_chamber_flux_comparison.svg) | [Open Throat](OPEN_THROAT.md) | Previous model results; asymmetric assignment is hypothetical |
+| [20 Axial receiver](figures/20_axial_receiver.svg) | Open Throat | Exact special-case solution with illustrative coefficients |
+| [21 Row/column read](figures/21_row_column_read.svg) | README | Exact tile-index duality |
+
+The existing 00–12 figures remain in the synthesis and the proof archive, including the original Triforce regrouping, geometry, cycle sectors, registration, harmonic conversion, current dynamics and two-cell calculations. The [geometry explorer](explorer.html), [sustained dynamics explorer](sustained_explorer.html) and [two-cell explorer](coupled_origins_explorer.html) remain standalone.
+
+Regenerate figures 13–21 using `python generate_bound_visuals.py` (NumPy and Matplotlib). This is an editorial/visual revision, not a new numerical validation of the capture mechanism. No new mathematical test count is claimed.
+
+
+## Whole-field packing
+
+![FCC whole-field neighbour model](figures/22_four_port_packing.svg)
+
+[Proof and model](FOUR_PORT_PACKING.md) · [Interactive explorer](four_port_packing_explorer.html) · regenerate with `python generate_four_port_visual.py`.
+
+## Corner-first packing
+
+[Figure 23](figures/23_corner_first_packing.svg): eight attaining contacts and four rigorous bounding caps. Regenerate with `python generate_corner_first_figure.py`.
+
+### Hadamard–Flower geometry
+
+| Figure | Description |
+|---|---|
+| [24](figures/24_hadamard_flower.svg) | Exact body-diagonal projection, two hexagons and Flower guide |
+| [25](figures/25_flower_triforce_overlap.svg) | Actual midplane cross-sections and rational four-channel kernel |
+| [26](figures/26_flower_diamond_network.svg) | Four direct and twelve second origins |
+
+Regenerate using `python generate_hadamard_flower_figures.py`. [Rotatable explorer](hadamard_flower_explorer.html).
+
+
+## Unified synthesis
+
+| Figure | Purpose | Generation |
+|---|---|---|
+| [27](figures/27_unified_field_architecture.svg) | Geometry, interface, network and proposed binding architecture | Standalone vector schematic |
+| [28](figures/28_unified_flower_dynamics.svg) | Computed 54-field transport and directional origin occupation | `python verify_unified_flower.py` |
+
+Both embedded in [the unified synthesis](UNIFIED_HADAMARD_FIELD_DYNAMICS.md) and README.

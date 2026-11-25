@@ -1,0 +1,316 @@
+PASS 001 Hadamard orthogonality
+PASS 002 orthogonal body-diagonal projection
+PASS 003 13 distinct projected positions from 15 spatial points
+PASS 004 three axial points coalesce
+PASS 005 inner ring radius squared 2/3
+PASS 006 outer ring aligned at double radius
+PASS 007 inner ring radius squared 2/3
+PASS 008 outer ring aligned at double radius
+PASS 009 inner ring radius squared 2/3
+PASS 010 outer ring aligned at double radius
+PASS 011 inner ring radius squared 2/3
+PASS 012 outer ring aligned at double radius
+PASS 013 inner ring radius squared 2/3
+PASS 014 outer ring aligned at double radius
+PASS 015 inner ring radius squared 2/3
+PASS 016 outer ring aligned at double radius
+PASS 017 cube projection outer radius or centre
+PASS 018 cube projection outer radius or centre
+PASS 019 cube projection outer radius or centre
+PASS 020 cube projection outer radius or centre
+PASS 021 cube projection outer radius or centre
+PASS 022 cube projection outer radius or centre
+PASS 023 cube projection outer radius or centre
+PASS 024 cube projection outer radius or centre
+PASS 025 12 non-backtracking two-step vectors
+PASS 026 two-step shell exactly FCC
+PASS 027 four nearest origins exactly tetrahedral
+PASS 028 28 overlapping equal envelopes (4+12+12)
+PASS 029 reciprocal exact tetrahedral edge
+PASS 030 reciprocal exact tetrahedral edge
+PASS 031 reciprocal exact tetrahedral edge
+PASS 032 reciprocal exact tetrahedral edge
+PASS 033 reciprocal exact tetrahedral edge
+PASS 034 reciprocal exact tetrahedral edge
+PASS 035 reciprocal exact tetrahedral edge
+PASS 036 reciprocal exact tetrahedral edge
+PASS 037 reciprocal exact tetrahedral edge
+PASS 038 reciprocal exact tetrahedral edge
+PASS 039 reciprocal exact tetrahedral edge
+PASS 040 reciprocal exact tetrahedral edge
+PASS 041 reciprocal exact tetrahedral edge
+PASS 042 reciprocal exact tetrahedral edge
+PASS 043 reciprocal exact tetrahedral edge
+PASS 044 reciprocal exact tetrahedral edge
+PASS 045 reciprocal exact tetrahedral edge
+PASS 046 reciprocal exact tetrahedral edge
+PASS 047 reciprocal exact tetrahedral edge
+PASS 048 reciprocal exact tetrahedral edge
+PASS 049 reciprocal exact tetrahedral edge
+PASS 050 reciprocal exact tetrahedral edge
+PASS 051 reciprocal exact tetrahedral edge
+PASS 052 reciprocal exact tetrahedral edge
+PASS 053 reciprocal exact tetrahedral edge
+PASS 054 reciprocal exact tetrahedral edge
+PASS 055 reciprocal exact tetrahedral edge
+PASS 056 reciprocal exact tetrahedral edge
+PASS 057 reciprocal exact tetrahedral edge
+PASS 058 reciprocal exact tetrahedral edge
+PASS 059 reciprocal exact tetrahedral edge
+PASS 060 reciprocal exact tetrahedral edge
+PASS 061 reciprocal exact tetrahedral edge
+PASS 062 reciprocal exact tetrahedral edge
+PASS 063 reciprocal exact tetrahedral edge
+PASS 064 reciprocal exact tetrahedral edge
+PASS 065 reciprocal exact tetrahedral edge
+PASS 066 reciprocal exact tetrahedral edge
+PASS 067 reciprocal exact tetrahedral edge
+PASS 068 reciprocal exact tetrahedral edge
+PASS 069 reciprocal exact tetrahedral edge
+PASS 070 reciprocal exact tetrahedral edge
+PASS 071 reciprocal exact tetrahedral edge
+PASS 072 reciprocal exact tetrahedral edge
+PASS 073 reciprocal exact tetrahedral edge
+PASS 074 reciprocal exact tetrahedral edge
+PASS 075 reciprocal exact tetrahedral edge
+PASS 076 reciprocal exact tetrahedral edge
+PASS 077 reciprocal exact tetrahedral edge
+PASS 078 reciprocal exact tetrahedral edge
+PASS 079 reciprocal exact tetrahedral edge
+PASS 080 reciprocal exact tetrahedral edge
+PASS 081 reciprocal exact tetrahedral edge
+PASS 082 reciprocal exact tetrahedral edge
+PASS 083 reciprocal exact tetrahedral edge
+PASS 084 reciprocal exact tetrahedral edge
+PASS 085 reciprocal exact tetrahedral edge
+PASS 086 reciprocal exact tetrahedral edge
+PASS 087 reciprocal exact tetrahedral edge
+PASS 088 reciprocal exact tetrahedral edge
+PASS 089 reciprocal exact tetrahedral edge
+PASS 090 reciprocal exact tetrahedral edge
+PASS 091 reciprocal exact tetrahedral edge
+PASS 092 reciprocal exact tetrahedral edge
+PASS 093 reciprocal exact tetrahedral edge
+PASS 094 reciprocal exact tetrahedral edge
+PASS 095 reciprocal exact tetrahedral edge
+PASS 096 reciprocal exact tetrahedral edge
+PASS 097 FCC primitive translation determinant
+PASS 098 integer FCC coordinates; connected by two-step generators
+PASS 099 integer FCC coordinates; connected by two-step generators
+PASS 100 integer FCC coordinates; connected by two-step generators
+PASS 101 integer FCC coordinates; connected by two-step generators
+PASS 102 integer FCC coordinates; connected by two-step generators
+PASS 103 integer FCC coordinates; connected by two-step generators
+PASS 104 integer FCC coordinates; connected by two-step generators
+PASS 105 integer FCC coordinates; connected by two-step generators
+PASS 106 integer FCC coordinates; connected by two-step generators
+PASS 107 integer FCC coordinates; connected by two-step generators
+PASS 108 integer FCC coordinates; connected by two-step generators
+PASS 109 integer FCC coordinates; connected by two-step generators
+PASS 110 integer FCC coordinates; connected by two-step generators
+PASS 111 integer FCC coordinates; connected by two-step generators
+PASS 112 integer FCC coordinates; connected by two-step generators
+PASS 113 integer FCC coordinates; connected by two-step generators
+PASS 114 integer FCC coordinates; connected by two-step generators
+PASS 115 integer FCC coordinates; connected by two-step generators
+PASS 116 integer FCC coordinates; connected by two-step generators
+PASS 117 integer FCC coordinates; connected by two-step generators
+PASS 118 integer FCC coordinates; connected by two-step generators
+PASS 119 integer FCC coordinates; connected by two-step generators
+PASS 120 integer FCC coordinates; connected by two-step generators
+PASS 121 integer FCC coordinates; connected by two-step generators
+PASS 122 integer FCC coordinates; connected by two-step generators
+PASS 123 integer FCC coordinates; connected by two-step generators
+PASS 124 integer FCC coordinates; connected by two-step generators
+PASS 125 integer FCC coordinates; connected by two-step generators
+PASS 126 integer FCC coordinates; connected by two-step generators
+PASS 127 integer FCC coordinates; connected by two-step generators
+PASS 128 integer FCC coordinates; connected by two-step generators
+PASS 129 integer FCC coordinates; connected by two-step generators
+PASS 130 integer FCC coordinates; connected by two-step generators
+PASS 131 integer FCC coordinates; connected by two-step generators
+PASS 132 integer FCC coordinates; connected by two-step generators
+PASS 133 integer FCC coordinates; connected by two-step generators
+PASS 134 integer FCC coordinates; connected by two-step generators
+PASS 135 integer FCC coordinates; connected by two-step generators
+PASS 136 integer FCC coordinates; connected by two-step generators
+PASS 137 integer FCC coordinates; connected by two-step generators
+PASS 138 integer FCC coordinates; connected by two-step generators
+PASS 139 integer FCC coordinates; connected by two-step generators
+PASS 140 integer FCC coordinates; connected by two-step generators
+PASS 141 integer FCC coordinates; connected by two-step generators
+PASS 142 integer FCC coordinates; connected by two-step generators
+PASS 143 integer FCC coordinates; connected by two-step generators
+PASS 144 integer FCC coordinates; connected by two-step generators
+PASS 145 integer FCC coordinates; connected by two-step generators
+PASS 146 integer FCC coordinates; connected by two-step generators
+PASS 147 integer FCC coordinates; connected by two-step generators
+PASS 148 integer FCC coordinates; connected by two-step generators
+PASS 149 integer FCC coordinates; connected by two-step generators
+PASS 150 integer FCC coordinates; connected by two-step generators
+PASS 151 integer FCC coordinates; connected by two-step generators
+PASS 152 integer FCC coordinates; connected by two-step generators
+PASS 153 integer FCC coordinates; connected by two-step generators
+PASS 154 integer FCC coordinates; connected by two-step generators
+PASS 155 integer FCC coordinates; connected by two-step generators
+PASS 156 integer FCC coordinates; connected by two-step generators
+PASS 157 integer FCC coordinates; connected by two-step generators
+PASS 158 integer FCC coordinates; connected by two-step generators
+PASS 159 integer FCC coordinates; connected by two-step generators
+PASS 160 integer FCC coordinates; connected by two-step generators
+PASS 161 integer FCC coordinates; connected by two-step generators
+PASS 162 integer FCC coordinates; connected by two-step generators
+PASS 163 integer FCC coordinates; connected by two-step generators
+PASS 164 integer FCC coordinates; connected by two-step generators
+PASS 165 integer FCC coordinates; connected by two-step generators
+PASS 166 integer FCC coordinates; connected by two-step generators
+PASS 167 integer FCC coordinates; connected by two-step generators
+PASS 168 integer FCC coordinates; connected by two-step generators
+PASS 169 integer FCC coordinates; connected by two-step generators
+PASS 170 integer FCC coordinates; connected by two-step generators
+PASS 171 integer FCC coordinates; connected by two-step generators
+PASS 172 integer FCC coordinates; connected by two-step generators
+PASS 173 integer FCC coordinates; connected by two-step generators
+PASS 174 integer FCC coordinates; connected by two-step generators
+PASS 175 integer FCC coordinates; connected by two-step generators
+PASS 176 integer FCC coordinates; connected by two-step generators
+PASS 177 integer FCC coordinates; connected by two-step generators
+PASS 178 integer FCC coordinates; connected by two-step generators
+PASS 179 integer FCC coordinates; connected by two-step generators
+PASS 180 integer FCC coordinates; connected by two-step generators
+PASS 181 integer FCC coordinates; connected by two-step generators
+PASS 182 integer FCC coordinates; connected by two-step generators
+PASS 183 integer FCC coordinates; connected by two-step generators
+PASS 184 integer FCC coordinates; connected by two-step generators
+PASS 185 integer FCC coordinates; connected by two-step generators
+PASS 186 integer FCC coordinates; connected by two-step generators
+PASS 187 integer FCC coordinates; connected by two-step generators
+PASS 188 integer FCC coordinates; connected by two-step generators
+PASS 189 integer FCC coordinates; connected by two-step generators
+PASS 190 integer FCC coordinates; connected by two-step generators
+PASS 191 integer FCC coordinates; connected by two-step generators
+PASS 192 integer FCC coordinates; connected by two-step generators
+PASS 193 second-neighbour solid contact at two cube-edge endpoints
+PASS 194 shared edge joins opposite parities
+PASS 195 second-neighbour solid contact at two cube-edge endpoints
+PASS 196 shared edge joins opposite parities
+PASS 197 second-neighbour solid contact at two cube-edge endpoints
+PASS 198 shared edge joins opposite parities
+PASS 199 second-neighbour solid contact at two cube-edge endpoints
+PASS 200 shared edge joins opposite parities
+PASS 201 second-neighbour solid contact at two cube-edge endpoints
+PASS 202 shared edge joins opposite parities
+PASS 203 second-neighbour solid contact at two cube-edge endpoints
+PASS 204 shared edge joins opposite parities
+PASS 205 second-neighbour solid contact at two cube-edge endpoints
+PASS 206 shared edge joins opposite parities
+PASS 207 second-neighbour solid contact at two cube-edge endpoints
+PASS 208 shared edge joins opposite parities
+PASS 209 second-neighbour solid contact at two cube-edge endpoints
+PASS 210 shared edge joins opposite parities
+PASS 211 second-neighbour solid contact at two cube-edge endpoints
+PASS 212 shared edge joins opposite parities
+PASS 213 second-neighbour solid contact at two cube-edge endpoints
+PASS 214 shared edge joins opposite parities
+PASS 215 second-neighbour solid contact at two cube-edge endpoints
+PASS 216 shared edge joins opposite parities
+PASS 217 three second neighbours incident at each cube corner
+PASS 218 three second neighbours incident at each cube corner
+PASS 219 three second neighbours incident at each cube corner
+PASS 220 three second neighbours incident at each cube corner
+PASS 221 three second neighbours incident at each cube corner
+PASS 222 three second neighbours incident at each cube corner
+PASS 223 three second neighbours incident at each cube corner
+PASS 224 three second neighbours incident at each cube corner
+PASS 225 Voronoi candidate has 16 vertices
+PASS 226 Voronoi cell contained in sphere R=sqrt(3)
+PASS 227 all nearby diamond halfspaces satisfied
+PASS 228 facet or point incidence classified
+PASS 229 all nearby diamond halfspaces satisfied
+PASS 230 facet or point incidence classified
+PASS 231 all nearby diamond halfspaces satisfied
+PASS 232 facet or point incidence classified
+PASS 233 all nearby diamond halfspaces satisfied
+PASS 234 facet or point incidence classified
+PASS 235 all nearby diamond halfspaces satisfied
+PASS 236 facet or point incidence classified
+PASS 237 all nearby diamond halfspaces satisfied
+PASS 238 facet or point incidence classified
+PASS 239 all nearby diamond halfspaces satisfied
+PASS 240 facet or point incidence classified
+PASS 241 all nearby diamond halfspaces satisfied
+PASS 242 facet or point incidence classified
+PASS 243 all nearby diamond halfspaces satisfied
+PASS 244 facet or point incidence classified
+PASS 245 all nearby diamond halfspaces satisfied
+PASS 246 facet or point incidence classified
+PASS 247 all nearby diamond halfspaces satisfied
+PASS 248 facet or point incidence classified
+PASS 249 all nearby diamond halfspaces satisfied
+PASS 250 facet or point incidence classified
+PASS 251 all nearby diamond halfspaces satisfied
+PASS 252 facet or point incidence classified
+PASS 253 all nearby diamond halfspaces satisfied
+PASS 254 facet or point incidence classified
+PASS 255 all nearby diamond halfspaces satisfied
+PASS 256 facet or point incidence classified
+PASS 257 all nearby diamond halfspaces satisfied
+PASS 258 facet or point incidence classified
+PASS 259 all nearby diamond halfspaces satisfied
+PASS 260 facet or point incidence classified
+PASS 261 all nearby diamond halfspaces satisfied
+PASS 262 facet or point incidence classified
+PASS 263 all nearby diamond halfspaces satisfied
+PASS 264 facet or point incidence classified
+PASS 265 all nearby diamond halfspaces satisfied
+PASS 266 facet or point incidence classified
+PASS 267 all nearby diamond halfspaces satisfied
+PASS 268 facet or point incidence classified
+PASS 269 all nearby diamond halfspaces satisfied
+PASS 270 facet or point incidence classified
+PASS 271 all nearby diamond halfspaces satisfied
+PASS 272 facet or point incidence classified
+PASS 273 all nearby diamond halfspaces satisfied
+PASS 274 facet or point incidence classified
+PASS 275 all nearby diamond halfspaces satisfied
+PASS 276 facet or point incidence classified
+PASS 277 all nearby diamond halfspaces satisfied
+PASS 278 facet or point incidence classified
+PASS 279 all nearby diamond halfspaces satisfied
+PASS 280 facet or point incidence classified
+PASS 281 all nearby diamond halfspaces satisfied
+PASS 282 facet or point incidence classified
+PASS 283 exact rational 4x4 Triforce overlap matrix
+PASS 284 reciprocal area kernel
+PASS 285 all four subchannels retained in overlap map
+PASS 286 exact overlap spectrum
+PASS 287 shared hexagon covers 2/3 of each triangle
+PASS 288 outer tiles partially shared, central tile fully shared
+PASS 289 midplane cross sections derived from tetrahedron edges
+PASS 290 actual shared hexagon vertices
+PASS 291 interface current reciprocal
+PASS 292 conditional unitary occupation/energy conservation
+PASS 293 interface current reciprocal
+PASS 294 conditional unitary occupation/energy conservation
+PASS 295 interface current reciprocal
+PASS 296 conditional unitary occupation/energy conservation
+PASS 297 interface current reciprocal
+PASS 298 conditional unitary occupation/energy conservation
+PASS 299 interface current reciprocal
+PASS 300 conditional unitary occupation/energy conservation
+PASS 301 interface current reciprocal
+PASS 302 conditional unitary occupation/energy conservation
+PASS 303 interface current reciprocal
+PASS 304 conditional unitary occupation/energy conservation
+PASS 305 interface current reciprocal
+PASS 306 conditional unitary occupation/energy conservation
+PASS 307 interface current reciprocal
+PASS 308 conditional unitary occupation/energy conservation
+PASS 309 interface current reciprocal
+PASS 310 conditional unitary occupation/energy conservation
+PASS 311 interface current reciprocal
+PASS 312 conditional unitary occupation/energy conservation
+PASS 313 interface current reciprocal
+PASS 314 conditional unitary occupation/energy conservation
+
+314/314 checks passed. Historical suites not rerun.

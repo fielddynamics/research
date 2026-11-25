@@ -1,5 +1,30 @@
 # The Hadamard Null Cone: Eight Triforce Vortices and Their Collective Core
 
+## Unified research — Hadamard–Flower field dynamics
+
+**[Read the unified technical synthesis](UNIFIED_HADAMARD_FIELD_DYNAMICS.md)** · [New network verifier](verify_unified_flower.py) · [316 passing checks](unified_flower_verification_output.txt).
+
+One complete stellated octahedron per field, eight constituent vortices, one directional Field Origin and four reciprocal external ports. The exact Flower Triforce area matrix is now embedded into the 36-coordinate vortex Hamiltonian. A conservative network of 54 complete fields (1,944 amplitudes) propagates an eight-ring state beyond its nearest neighbours, preserving the local occupation ledger. The original cubic-centre/junction lattice and overlapping-origin diamond model are distinguished; 12 total neighbours with 4 active and 8 inactive remains open. Nuclear capture remains a separate nonlinear research target.
+
+![Unified field architecture](figures/27_unified_field_architecture.svg)
+
+![Calculated 54-field transport](figures/28_unified_flower_dynamics.svg)
+
+The 316 new checks pass; 3,557 earlier recorded checks are retained, not rerun (3,873 cumulative).
+
+## Earlier result — corner-first packing theorem
+
+[Exact corner-first packing proof](CORNER_FIRST_PACKING.md) · [Verifier](verify_corner_first.py) · [43 passing checks](corner_first_verification_output.txt).
+
+With four prescribed regular Hadamard tetrahedral contacts, at most eight congruent, rigid, non-overlapping spheres can touch the central sphere. Four active and four complementary contacts attain this bound. The earlier FCC 12/4/8 graph is a distinct construction and cannot have four exact tetrahedral contact directions. GFD's overlapping closure envelopes or other adjacency rules remain possible research directions; the physical port selection has not been derived.
+
+![Corner-first Hadamard packing](figures/23_corner_first_packing.svg)
+
+
+> **New geometric extension:** [Whole-field four-port packing](FOUR_PORT_PACKING.md) models each FCC node as one complete stellated octahedron, with twelve geometric neighbours and explicit reciprocal four-of-twelve selectors. Includes the [rotatable packing explorer](four_port_packing_explorer.html), exact limitations and 348 fresh checks.
+
+![Whole-field FCC packing](figures/22_four_port_packing.svg)
+
 > **Current edition — Stage IX.** [Coupled directional Field Origins](COUPLED_FIELD_ORIGINS.md) extends the eight-vortex Triforce graph with a scalar and polar triplet at O, matches two identical cells across an actual four-tile face, proves exact interface conservation and integrates full neutral axial back-reaction. A closed pair exchanges occupation but cannot sustain indefinite one-way drainage. Stage VIII remains the driven open-boundary witness; all 2,737 earlier checks have been rerun and 115 new checks pass.
 
 > **Next research direction — stellar-forge binding [E].** [Bound Field Capture](BOUND_FIELD_CAPTURE.md) distinguishes ordinary conservative propagation from capture of a complete Hadamard cell through the receiving Field Origin into TetB, with mutual vortex back-reaction. This is a research specification, not an additional validated stage.
@@ -60,6 +85,8 @@ $$X=\begin{pmatrix}0&X_{12}&X_{13}&X_{14}\\X_{21}&0&X_{23}&X_{24}\\X_{31}&X_{32}
 
 - Read a **row**: three tiles meeting at an apex, forming a local vortex ring.
 - Read a **column**: three tiles belonging to an original Triforce face, coupling to its medial triangle.
+
+![Two complementary readings of the same lateral tiles](figures/21_row_column_read.svg)
 
 A pure local threefold winding has phase pattern \((1,\omega,\omega^2)\), with \(\omega=e^{2\pi i/3}\). Its row sum vanishes since \(1+\omega+\omega^2=0\). Its column contributions need not vanish. Thus a closed local winding can still excite the central triangles collectively.
 
@@ -177,11 +204,11 @@ Use the terminology in [llms.txt](https://github.com/fielddynamics/research/blob
 
 **Established:** the exact face/stellation correspondence; the Triforce row/column duality; eight pure stationary rings in a dark-core configuration; phase-dependent generation of inner occupation; an explicit all-bond Hamiltonian with persistent eight-ring and inner circulation; a separate stationary state stable under unrestricted small initial-amplitude perturbations.
 
-**Open:** physical selection of the Hamiltonian and relative phases; unrestricted nonlinear stability of all eight rings and their core together; a mechanism selecting a circulating state from more general initial conditions; derivation of through-flow and a drain marker; a connection between neighbouring null cones and physical compositional registration. In particular the explicit generation trajectory is not a proof of exact simultaneous pure single-helicity winding on all eight rings. The next strong result would derive a nonlinear interaction from independently justified premises, demonstrate coexistence and orbital stability in the full 33-site space, and determine whether the dynamics select the physical phase pattern without putting it in by hand.
+**Open at Stage VII (see Stages VIII–IX below for subsequent conditional results):** physical selection of the Hamiltonian and relative phases; unrestricted nonlinear stability of all eight rings and their core together; a mechanism selecting a circulating state from more general initial conditions; derivation of through-flow and a drain marker; a connection between neighbouring null cones and physical compositional registration. In particular the explicit generation trajectory is not a proof of exact simultaneous pure single-helicity winding on all eight rings. The next strong result would derive a nonlinear interaction from independently justified premises, demonstrate coexistence and orbital stability in the full 33-site space, and determine whether the dynamics select the physical phase pattern without putting it in by hand.
 
 ## 8. Research archive and verification
 
-The following files retain all seven stages of the research. Some early statements of open work were superseded by later stages; use this synthesis and the sustained theorem for the current status.
+The following files retain all nine validated stages of the research. Some early statements of open work were superseded by later stages; use the current entry points below for the latest status.
 
 | Stage | Mathematical proof / research notes | Recorded checks |
 |---|---|---:|
@@ -193,9 +220,10 @@ The following files retain all seven stages of the research. Some early statemen
 | VI | [Triforce flywheel](archive/stages-I-VI/TRIFORCE_FLYWHEEL.md) | 271 |
 | VII | [Sustained Triforce flywheel](SUSTAINED_TRIFORCE_FLYWHEEL.md) | 809 |
 | VIII | [Open directional throat](OPEN_THROAT.md) | 160 |
-| | **Cumulative recorded assertions** | **2,737** |
+| IX | [Coupled directional Field Origins](COUPLED_FIELD_ORIGINS.md) | 115 |
+| | **Cumulative recorded assertions** | **2,852** |
 
-These are recorded passing assertions across stages, not independent theorems and not one fresh run in the synthesis edition. The latest sustained verifier reran 984 inherited assertions and added 809 new ones. [Verification guide and logs](VERIFICATION.md) · [Lean draft audit](archive/stages-I-VI/LEAN_DRAFT.md). Lean has not been compiled; no [T+L] claim is made for these new results.
+These are recorded passing assertions across stages, not independent theorems. All nine scripts passed in the Stage IX rerun; this illustrated edition does not rerun or increase that count. [Verification guide and logs](VERIFICATION.md) · [Lean draft audit](archive/stages-I-VI/LEAN_DRAFT.md). Lean has not been compiled; no [T+L] claim is made for these new results.
 
 ### Upstream dependencies
 
@@ -209,6 +237,39 @@ The existing GFD [proof index](https://github.com/fielddynamics/research/tree/ma
 - [Historical synthesis and Stages I–VI](archive/stages-I-VI/README.md) (includes the historical Stage VII snapshot for reproducibility).
 - [Verification guide](VERIFICATION.md).
 
-## Stage IX — read first for the latest result
+## Stage IX — matched-face transport
 
 [Coupled Field Origins proof](COUPLED_FIELD_ORIGINS.md) · [Two-cell explorer](coupled_origins_explorer.html) · [Verifier](verify_coupled_origins.py) · [Fresh verification logs](VERIFICATION.md).
+
+
+![Directional Hadamard read at the Field Origin](figures/18_directional_origin_read.svg)
+
+![Matched four-subchannel Triforce interface](figures/17_matched_triforce_interface.svg)
+
+![Calculated two-cell exchange and occupation](figures/12_coupled_origins.svg)
+
+## Stage X — illustrated bound-field research specification [E]
+
+[Read the bound-field capture and nuclear-paper connection](BOUND_FIELD_CAPTURE.md). These figures represent the next research direction, not a completed capture theorem.
+
+![Stellar-forge compression and TetB capture hypothesis](figures/13_stellar_forge_capture.svg)
+
+![Propagating and bound vortex configurations](figures/14_propagating_vs_bound.svg)
+
+![Exact comparison of constitutive and bound laws under x=A²](figures/15_bound_law_comparison.svg)
+
+![Proposed 64-address recursive nesting](figures/16_recursive_nesting.svg)
+
+[Illustration index and regeneration instructions](VISUAL_INDEX.md).
+
+## Hadamard–Flower of Life extension — geometric lattice model
+
+[Exact proof and scope](HADAMARD_FLOWER_LATTICE.md) · [Interactive explorer](hadamard_flower_explorer.html) · [Verifier](verify_hadamard_flower.py).
+
+![Exact Hadamard Flower projection](figures/24_hadamard_flower.svg)
+
+![Reciprocal corner-origin lattice](figures/26_flower_diamond_network.svg)
+
+![Exact overlapping Triforce area kernel](figures/25_flower_triforce_overlap.svg)
+
+The corner-origin diamond lattice preserves four regular Hadamard ports per complete field. It has twelve second neighbours, not eight. The overlap cross-section supplies an exact rank-four area matrix, whose use as a Hamiltonian coupling is a separate model assumption. The 13 projected positions are not a count of physical neighbours. See the proof for the separate solid, sphere and Voronoi neighbour counts.

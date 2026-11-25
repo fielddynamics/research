@@ -1,5 +1,7 @@
 # Stage VIII — From circulation to an open directional throat
 
+> **Integration update.** The [unified synthesis](UNIFIED_HADAMARD_FIELD_DYNAMICS.md) extends transport to a closed multi-cell network using the Flower overlap matrix. The driven boundary result below remains distinct from conservative network exchange and nuclear capture.
+
 **Status:** [T] conditional finite-graph theorems; [E] physical identification with a GFD drain. Builds on [Stage VII](SUSTAINED_TRIFORCE_FLYWHEEL.md) and the [archived geometry](archive/stages-I-VI/TRIFORCE_FLYWHEEL.md). The eight constituent vortices remain one per octahedral face. The Field Origin is the central octahedron; its scalar centre O is only one site of the finite model.
 
 ## 1. The selection rule
@@ -21,6 +23,10 @@ Take a time-even and p time-odd. The energy is time-reversal even, Td invariant 
 $$a(t)=-g C\sin(\Omega t)/\Omega,\qquad p(t)=g C(1-\cos(\Omega t)).$$
 
 Indeed ȧ=p-gC, ṗ=-Ω²a, p×C=0 and the receiver plus interaction energy is identically zero. Conjugating the initial wave reverses C and reverses this receiver response. This is a quadratic axial response, not loss of occupation or steady through-flow. The receiver is an additional candidate dynamical variable, not a derived tetrad connection. The verifier checks the closed-form receiver energy and collinearity, not general nonlinear integration.
+
+![Closed axial receiver oscillation](figures/20_axial_receiver.svg)
+
+*Figure: exact collinear solution with illustrative g=0.7, Ω=1.3 and unit chirality. No drain is present.*
 
 ## 3. [T] A directional outlet on the actual Triforce graph
 
@@ -71,6 +77,10 @@ This is an exact quadratic directional read of the transported occupation. Repla
 A second explicitly marked candidate sets hopping magnitude to 21/17 on same-TetA bonds, 13/17 on same-TetB bonds, and 1 on cross-chamber or centre bonds. This is a mapping hypothesis inspired by f(4,s)=17+4s, not a derivation of those hopping strengths from the capacity polynomial. Site energies remain zero, and γ and ν unchanged.
 
 All eight ring means and all 24 directed ring signs remain nonzero, and actual inner circulation persists. Total outlet flux ≈0.506461; port occupation shares in the chosen ordering are ≈0.337452 and 0.169009. But the first four rings have net inward cut ≈−0.08066 each, the last four ≈+0.20728 each. One chamber returns some occupation outward. The combined inward flux remains positive and source-balanced. Thus chamber asymmetry can change the *distribution* and direction of transport. It is not yet gravitational quiet/drive/brake, which compares measured strength w with a0; this model has no acceleration read or gravitational calibration. No constitutive law, 16+24+24 connection dynamics, or SST derivation is claimed.
+
+![Uniform and candidate asymmetric chamber fluxes](figures/19_chamber_flux_comparison.svg)
+
+*Figure: positive flux is inward; negative is outward. The 21/17/13-inspired hopping assignment is a hypothesis, not a derivation of gravitational drive/brake.*
 
 ## 7. Reproduce and limitations
 

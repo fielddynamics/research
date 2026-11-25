@@ -27,7 +27,7 @@ PASS 026 all eight physical ring currents simultaneous in one stationary state
 PASS 027 registered core conserved and nonzero axial projection
 PASS 028 ring aggregation gives common axial contribution
 Example +z, branch 1: face currents [ 0.00683363 -0.00683363 -0.00683363  0.00683363 -0.00374274  0.00374274
-  0.00374274 -0.00374274] registered principal [-1.00397121e-16  9.50303204e-17  1.25987487e-01]
+  0.00374274 -0.00374274] registered principal [-1.02999206e-16  3.66460334e-17  1.25987487e-01]
 PASS 029 all eight physical ring currents simultaneous in one stationary state
 PASS 030 registered core conserved and nonzero axial projection
 PASS 031 ring aggregation gives common axial contribution
@@ -132,5 +132,5 @@ PASS 129 ring aggregation gives common axial contribution
 PASS 130 all eight physical ring currents simultaneous in one stationary state
 PASS 131 registered core conserved and nonzero axial projection
 PASS 132 ring aggregation gives common axial contribution
-Minimum |physical ring current|: 0.0003461224472842257 Minimum |registered principal coefficient|: 0.009082968226490237 Maximum ring error: 3.191891195797325e-16
+Minimum |physical ring current|: 0.0003461224472842257 Minimum |registered principal coefficient|: 0.009082968226490233 Maximum ring error: 2.914335439641036e-16
 132/132 new checks passed; 984 earlier checks rerun on import.

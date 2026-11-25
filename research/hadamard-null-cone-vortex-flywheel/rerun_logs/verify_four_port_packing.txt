@@ -1,0 +1,3 @@
+balanced: 32 sites, 64 active bonds, components [16, 16], imbalance sites [], lift translation index 1
+connected: 32 sites, 64 active bonds, components [32], imbalance sites [(0, 0, 0), (0, 1, 1), (1, 0, 1), (1, 1, 0)], lift translation index 1
+348/348 checks passed. No physical selector or regular face-to-face FCC tiling derived.

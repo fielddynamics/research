@@ -809,6 +809,6 @@ PASS 806 isolated triplet and all physical ring/core currents persist under grap
 PASS 807 isolated triplet and all physical ring/core currents persist under graph coupling perturbation
 PASS 808 isolated triplet and all physical ring/core currents persist under graph coupling perturbation
 PASS 809 isolated triplet and all physical ring/core currents persist under graph coupling perturbation
-Minimum sampled outer bond magnitude: 0.03770212913026815 minimum sampled inner current norm: 1.8855976227249821e-06 max full trajectory residual: 3.432888945762976e-14
+Minimum sampled outer bond magnitude: 0.03770212913026815 minimum sampled inner current norm: 1.8855976227249821e-06 max full trajectory residual: 3.5841025850816287e-14
 Exact time means |v|², |w|²: 50654/53361 6500/53361
 809/809 new checks passed; 984 inherited checks rerun.

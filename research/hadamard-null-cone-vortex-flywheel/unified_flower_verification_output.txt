@@ -1,0 +1,320 @@
+PASS 001 three lateral tiles plus actual base at each apex
+PASS 002 outer read uses lateral face opposite its base vertex
+PASS 003 outer read uses lateral face opposite its base vertex
+PASS 004 outer read uses lateral face opposite its base vertex
+PASS 005 base lies on active leg at s/3
+PASS 006 three lateral tiles plus actual base at each apex
+PASS 007 outer read uses lateral face opposite its base vertex
+PASS 008 outer read uses lateral face opposite its base vertex
+PASS 009 outer read uses lateral face opposite its base vertex
+PASS 010 base lies on active leg at s/3
+PASS 011 three lateral tiles plus actual base at each apex
+PASS 012 outer read uses lateral face opposite its base vertex
+PASS 013 outer read uses lateral face opposite its base vertex
+PASS 014 outer read uses lateral face opposite its base vertex
+PASS 015 base lies on active leg at s/3
+PASS 016 three lateral tiles plus actual base at each apex
+PASS 017 outer read uses lateral face opposite its base vertex
+PASS 018 outer read uses lateral face opposite its base vertex
+PASS 019 outer read uses lateral face opposite its base vertex
+PASS 020 base lies on active leg at s/3
+PASS 021 three lateral tiles plus actual base at each apex
+PASS 022 outer read uses lateral face opposite its base vertex
+PASS 023 outer read uses lateral face opposite its base vertex
+PASS 024 outer read uses lateral face opposite its base vertex
+PASS 025 base lies on active leg at s/3
+PASS 026 three lateral tiles plus actual base at each apex
+PASS 027 outer read uses lateral face opposite its base vertex
+PASS 028 outer read uses lateral face opposite its base vertex
+PASS 029 outer read uses lateral face opposite its base vertex
+PASS 030 base lies on active leg at s/3
+PASS 031 three lateral tiles plus actual base at each apex
+PASS 032 outer read uses lateral face opposite its base vertex
+PASS 033 outer read uses lateral face opposite its base vertex
+PASS 034 outer read uses lateral face opposite its base vertex
+PASS 035 base lies on active leg at s/3
+PASS 036 three lateral tiles plus actual base at each apex
+PASS 037 outer read uses lateral face opposite its base vertex
+PASS 038 outer read uses lateral face opposite its base vertex
+PASS 039 outer read uses lateral face opposite its base vertex
+PASS 040 base lies on active leg at s/3
+PASS 041 eight ports partition 32 tiles exactly
+PASS 042 four active ports use 16 disjoint tile coordinates
+PASS 043 all inactive port coordinates distinct from active ones
+PASS 044 orthonormal port embedding
+PASS 045 other seven ports orthogonal
+PASS 046 orthonormal port embedding
+PASS 047 other seven ports orthogonal
+PASS 048 orthonormal port embedding
+PASS 049 other seven ports orthogonal
+PASS 050 orthonormal port embedding
+PASS 051 other seven ports orthogonal
+PASS 052 orthonormal port embedding
+PASS 053 other seven ports orthogonal
+PASS 054 orthonormal port embedding
+PASS 055 other seven ports orthogonal
+PASS 056 orthonormal port embedding
+PASS 057 other seven ports orthogonal
+PASS 058 orthonormal port embedding
+PASS 059 other seven ports orthogonal
+PASS 060 Td covariance of facing port labels and area kernel
+PASS 061 Td covariance of facing port labels and area kernel
+PASS 062 Td covariance of facing port labels and area kernel
+PASS 063 Td covariance of facing port labels and area kernel
+PASS 064 Td covariance of facing port labels and area kernel
+PASS 065 Td covariance of facing port labels and area kernel
+PASS 066 Td covariance of facing port labels and area kernel
+PASS 067 Td covariance of facing port labels and area kernel
+PASS 068 Td covariance of facing port labels and area kernel
+PASS 069 Td covariance of facing port labels and area kernel
+PASS 070 Td covariance of facing port labels and area kernel
+PASS 071 Td covariance of facing port labels and area kernel
+PASS 072 Td covariance of facing port labels and area kernel
+PASS 073 Td covariance of facing port labels and area kernel
+PASS 074 Td covariance of facing port labels and area kernel
+PASS 075 Td covariance of facing port labels and area kernel
+PASS 076 Td covariance of facing port labels and area kernel
+PASS 077 Td covariance of facing port labels and area kernel
+PASS 078 Td covariance of facing port labels and area kernel
+PASS 079 Td covariance of facing port labels and area kernel
+PASS 080 Td covariance of facing port labels and area kernel
+PASS 081 Td covariance of facing port labels and area kernel
+PASS 082 Td covariance of facing port labels and area kernel
+PASS 083 Td covariance of facing port labels and area kernel
+PASS 084 Td covariance of facing port labels and area kernel
+PASS 085 Td covariance of facing port labels and area kernel
+PASS 086 Td covariance of facing port labels and area kernel
+PASS 087 Td covariance of facing port labels and area kernel
+PASS 088 Td covariance of facing port labels and area kernel
+PASS 089 Td covariance of facing port labels and area kernel
+PASS 090 Td covariance of facing port labels and area kernel
+PASS 091 Td covariance of facing port labels and area kernel
+PASS 092 Td covariance of facing port labels and area kernel
+PASS 093 Td covariance of facing port labels and area kernel
+PASS 094 Td covariance of facing port labels and area kernel
+PASS 095 Td covariance of facing port labels and area kernel
+PASS 096 Td covariance of facing port labels and area kernel
+PASS 097 Td covariance of facing port labels and area kernel
+PASS 098 Td covariance of facing port labels and area kernel
+PASS 099 Td covariance of facing port labels and area kernel
+PASS 100 Td covariance of facing port labels and area kernel
+PASS 101 Td covariance of facing port labels and area kernel
+PASS 102 Td covariance of facing port labels and area kernel
+PASS 103 Td covariance of facing port labels and area kernel
+PASS 104 Td covariance of facing port labels and area kernel
+PASS 105 Td covariance of facing port labels and area kernel
+PASS 106 Td covariance of facing port labels and area kernel
+PASS 107 Td covariance of facing port labels and area kernel
+PASS 108 Td covariance of facing port labels and area kernel
+PASS 109 Td covariance of facing port labels and area kernel
+PASS 110 Td covariance of facing port labels and area kernel
+PASS 111 Td covariance of facing port labels and area kernel
+PASS 112 Td covariance of facing port labels and area kernel
+PASS 113 Td covariance of facing port labels and area kernel
+PASS 114 Td covariance of facing port labels and area kernel
+PASS 115 Td covariance of facing port labels and area kernel
+PASS 116 Td covariance of facing port labels and area kernel
+PASS 117 Td covariance of facing port labels and area kernel
+PASS 118 Td covariance of facing port labels and area kernel
+PASS 119 Td covariance of facing port labels and area kernel
+PASS 120 Td covariance of facing port labels and area kernel
+PASS 121 Td covariance of facing port labels and area kernel
+PASS 122 Td covariance of facing port labels and area kernel
+PASS 123 Td covariance of facing port labels and area kernel
+PASS 124 Td covariance of facing port labels and area kernel
+PASS 125 Td covariance of facing port labels and area kernel
+PASS 126 Td covariance of facing port labels and area kernel
+PASS 127 Td covariance of facing port labels and area kernel
+PASS 128 Td covariance of facing port labels and area kernel
+PASS 129 Td covariance of facing port labels and area kernel
+PASS 130 Td covariance of facing port labels and area kernel
+PASS 131 Td covariance of facing port labels and area kernel
+PASS 132 Td covariance of facing port labels and area kernel
+PASS 133 Td covariance of facing port labels and area kernel
+PASS 134 Td covariance of facing port labels and area kernel
+PASS 135 Td covariance of facing port labels and area kernel
+PASS 136 Td covariance of facing port labels and area kernel
+PASS 137 Td covariance of facing port labels and area kernel
+PASS 138 Td covariance of facing port labels and area kernel
+PASS 139 Td covariance of facing port labels and area kernel
+PASS 140 Td covariance of facing port labels and area kernel
+PASS 141 Td covariance of facing port labels and area kernel
+PASS 142 Td covariance of facing port labels and area kernel
+PASS 143 Td covariance of facing port labels and area kernel
+PASS 144 Td covariance of facing port labels and area kernel
+PASS 145 Td covariance of facing port labels and area kernel
+PASS 146 Td covariance of facing port labels and area kernel
+PASS 147 Td covariance of facing port labels and area kernel
+PASS 148 Td covariance of facing port labels and area kernel
+PASS 149 Td covariance of facing port labels and area kernel
+PASS 150 Td covariance of facing port labels and area kernel
+PASS 151 Td covariance of facing port labels and area kernel
+PASS 152 Td covariance of facing port labels and area kernel
+PASS 153 Td covariance of facing port labels and area kernel
+PASS 154 Td covariance of facing port labels and area kernel
+PASS 155 Td covariance of facing port labels and area kernel
+PASS 156 area kernel exact spectrum
+PASS 157 zero-sum ring modes transmit at signed amplitude -2/9
+PASS 158 zero-sum ring modes transmit at signed amplitude -2/9
+PASS 159 winding subspace has zero direct central read
+PASS 160 reciprocal interface rank four
+PASS 161 no direct or two-hop O-to-O connection
+PASS 162 leading cubic block is -(2/3) n_B n_A^T
+PASS 163 reciprocal interface rank four
+PASS 164 no direct or two-hop O-to-O connection
+PASS 165 leading cubic block is -(2/3) n_B n_A^T
+PASS 166 reciprocal interface rank four
+PASS 167 no direct or two-hop O-to-O connection
+PASS 168 leading cubic block is -(2/3) n_B n_A^T
+PASS 169 reciprocal interface rank four
+PASS 170 no direct or two-hop O-to-O connection
+PASS 171 leading cubic block is -(2/3) n_B n_A^T
+PASS 172 all four direct port records resolve O
+PASS 173 primitive FCC determinant 16
+PASS 174 12 distinct directed two-step offsets
+PASS 175 four exact first-shell directions
+PASS 176 old cube net separates by centre parity class
+PASS 177 old cube net separates by centre parity class
+PASS 178 old cube net separates by centre parity class
+PASS 179 old cube net separates by centre parity class
+PASS 180 old cube net separates by centre parity class
+PASS 181 old cube net separates by centre parity class
+PASS 182 old cube net separates by centre parity class
+PASS 183 old cube net separates by centre parity class
+PASS 184 old cube net separates by centre parity class
+PASS 185 old cube net separates by centre parity class
+PASS 186 old cube net separates by centre parity class
+PASS 187 old cube net separates by centre parity class
+PASS 188 old cube net separates by centre parity class
+PASS 189 old cube net separates by centre parity class
+PASS 190 old cube net separates by centre parity class
+PASS 191 old cube net separates by centre parity class
+PASS 192 old cube net separates by centre parity class
+PASS 193 old cube net separates by centre parity class
+PASS 194 old cube net separates by centre parity class
+PASS 195 old cube net separates by centre parity class
+PASS 196 old cube net separates by centre parity class
+PASS 197 old cube net separates by centre parity class
+PASS 198 old cube net separates by centre parity class
+PASS 199 old cube net separates by centre parity class
+PASS 200 old cube net separates by centre parity class
+PASS 201 old cube net separates by centre parity class
+PASS 202 old cube net separates by centre parity class
+PASS 203 old cube net separates by centre parity class
+PASS 204 old cube net separates by centre parity class
+PASS 205 old cube net separates by centre parity class
+PASS 206 old cube net separates by centre parity class
+PASS 207 old cube net separates by centre parity class
+PASS 208 old cube net separates by centre parity class
+PASS 209 old cube net separates by centre parity class
+PASS 210 old cube net separates by centre parity class
+PASS 211 old cube net separates by centre parity class
+PASS 212 old cube net separates by centre parity class
+PASS 213 old cube net separates by centre parity class
+PASS 214 old cube net separates by centre parity class
+PASS 215 old cube net separates by centre parity class
+PASS 216 old cube net separates by centre parity class
+PASS 217 old cube net separates by centre parity class
+PASS 218 old cube net separates by centre parity class
+PASS 219 old cube net separates by centre parity class
+PASS 220 old cube net separates by centre parity class
+PASS 221 old cube net separates by centre parity class
+PASS 222 old cube net separates by centre parity class
+PASS 223 old cube net separates by centre parity class
+PASS 224 old cube net separates by centre parity class
+PASS 225 old cube net separates by centre parity class
+PASS 226 old cube net separates by centre parity class
+PASS 227 old cube net separates by centre parity class
+PASS 228 old cube net separates by centre parity class
+PASS 229 old cube net separates by centre parity class
+PASS 230 old cube net separates by centre parity class
+PASS 231 old cube net separates by centre parity class
+PASS 232 old cube net separates by centre parity class
+PASS 233 old cube net separates by centre parity class
+PASS 234 old cube net separates by centre parity class
+PASS 235 old cube net separates by centre parity class
+PASS 236 old cube net separates by centre parity class
+PASS 237 old cube net separates by centre parity class
+PASS 238 old cube net separates by centre parity class
+PASS 239 old cube net separates by centre parity class
+PASS 240 old cube net separates by centre parity class
+PASS 241 old cube net separates by centre parity class
+PASS 242 old cube net separates by centre parity class
+PASS 243 old cube net separates by centre parity class
+PASS 244 old cube net separates by centre parity class
+PASS 245 old cube net separates by centre parity class
+PASS 246 old cube net separates by centre parity class
+PASS 247 old cube net separates by centre parity class
+PASS 248 old cube net separates by centre parity class
+PASS 249 old cube net separates by centre parity class
+PASS 250 old cube net separates by centre parity class
+PASS 251 old cube net separates by centre parity class
+PASS 252 old cube net separates by centre parity class
+PASS 253 old cube net separates by centre parity class
+PASS 254 old cube net separates by centre parity class
+PASS 255 old cube net separates by centre parity class
+PASS 256 old cube net separates by centre parity class
+PASS 257 old cube net separates by centre parity class
+PASS 258 old cube net separates by centre parity class
+PASS 259 old cube net separates by centre parity class
+PASS 260 old cube net separates by centre parity class
+PASS 261 old cube net separates by centre parity class
+PASS 262 old cube net separates by centre parity class
+PASS 263 old cube net separates by centre parity class
+PASS 264 old cube net separates by centre parity class
+PASS 265 old cube net separates by centre parity class
+PASS 266 old cube net separates by centre parity class
+PASS 267 old cube net separates by centre parity class
+PASS 268 old cube net separates by centre parity class
+PASS 269 old cube net separates by centre parity class
+PASS 270 old cube net separates by centre parity class
+PASS 271 old cube net separates by centre parity class
+PASS 272 old cube net separates by centre parity class
+PASS 273 old cube net separates by centre parity class
+PASS 274 old cube net separates by centre parity class
+PASS 275 old cube net separates by centre parity class
+PASS 276 old cube net separates by centre parity class
+PASS 277 old cube net separates by centre parity class
+PASS 278 old cube net separates by centre parity class
+PASS 279 old cube net separates by centre parity class
+PASS 280 old cube net separates by centre parity class
+PASS 281 old cube net separates by centre parity class
+PASS 282 old cube net separates by centre parity class
+PASS 283 old cube net separates by centre parity class
+PASS 284 old cube net separates by centre parity class
+PASS 285 old cube net separates by centre parity class
+PASS 286 old cube net separates by centre parity class
+PASS 287 old cube net separates by centre parity class
+PASS 288 old cube net separates by centre parity class
+PASS 289 old cube net separates by centre parity class
+PASS 290 old cube net separates by centre parity class
+PASS 291 old cube net separates by centre parity class
+PASS 292 old cube net separates by centre parity class
+PASS 293 old cube net separates by centre parity class
+PASS 294 old cube net separates by centre parity class
+PASS 295 old cube net separates by centre parity class
+PASS 296 old cube net separates by centre parity class
+PASS 297 old cube net separates by centre parity class
+PASS 298 old cube net separates by centre parity class
+PASS 299 old cube net separates by centre parity class
+PASS 300 old cube net separates by centre parity class
+PASS 301 all 54 complete fields have four reciprocal active neighbours
+PASS 302 periodic network connected
+PASS 303 full network Hermitian
+PASS 304 no artificial exterior source/sink
+PASS 305 Bloch Hermiticity and time reversal
+PASS 306 Bloch Hermiticity and time reversal
+PASS 307 Bloch Hermiticity and time reversal
+PASS 308 eight initial winding rings and all 24 currents nonzero
+PASS 309 initial actual origins and central tiles empty
+PASS 310 network norm conserved
+PASS 311 network energy conserved
+PASS 312 local ledger equals net occupation change at every sample
+PASS 313 direct neighbours populated
+PASS 314 beyond first shell populated
+PASS 315 directional origin excited in source and neighbours
+PASS 316 simultaneous eight-ring circulation, inward origin current and outward transport sampled
+MAX ERRORS norm energy continuity 4.440892098500626e-15 2.19824158875781e-14 3.608224830031759e-16
+PEAKS first-shell beyond first-shell source O first-shell O [0.31786081 0.05097974 0.36053628 0.08984795]
+SIMULTANEOUS SAMPLES 167
+316/316 unified checks passed.

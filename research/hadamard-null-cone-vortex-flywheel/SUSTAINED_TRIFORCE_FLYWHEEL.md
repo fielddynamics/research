@@ -1,5 +1,7 @@
 # Generation and sustained circulation of the eight-vortex Triforce flywheel
 
+> **Integration update.** The [unified synthesis](UNIFIED_HADAMARD_FIELD_DYNAMICS.md) connects these local rings to a conservative network of complete cells. The new interface does not change the particular stationary or sustained solutions proved below.
+
 *Field Dynamics Research · Stage VII · [T] exact finite algebra and conditional linear Hamiltonian theorems; [E] physical selection and nonlinear stability open.*
 
 The eight constituent vortices, one per face of the central octahedron, are the eight stellations of the Hadamard null cone. This proof starts from their existing Triforce tiles and derives actual current between the eight central triangles. It does not prescribe a separate core oscillator. The input relative phases determine the collective chirality; it is not spontaneously generated from a real state. SST means only the full four-term covariant action, not the constitutive law.

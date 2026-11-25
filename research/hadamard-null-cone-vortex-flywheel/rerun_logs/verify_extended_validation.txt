@@ -1,5 +1,3 @@
-/mnt/data/gfd-triforce-stage9/archive/stages-I-VI/verify_extended_validation.py:124: DeprecationWarning: `trapz` is deprecated. Use `trapezoid` instead, or one of the numerical integration functions in `scipy.integrate`.
-  ts=np.linspace(0,T,n+1); integr=np.array([B@vC@(np.exp(-1j*eC*(T-t))*(vC.T@B.T@Q.T@trajectory(t))) for t in ts]); pred=-1j*A0@yT-np.trapz(integr,ts,axis=0); errors.append(np.linalg.norm(pred-truth))
 Inherited checks rerun: 501 + 483
 
 1. Exact algebra, reconstruction and coordinate independence
@@ -107,7 +105,7 @@ PASS 096 Schur resolvent exactly reproduces observed response
 PASS 097 Schur resolvent exactly reproduces observed response
 PASS 098 same retained initial state can have different time derivative
 PASS 099 memory kernel converges quadratically to exact projected dynamics
-Memory integration errors: [np.float64(9.18769353110164e-05), np.float64(2.2963513850168812e-05), np.float64(5.740521418674169e-06), np.float64(1.4351080469492957e-06)]
+Memory integration errors: [np.float64(0.0001137906421847169), np.float64(2.8441614702309695e-05), np.float64(7.11002624227828e-06), np.float64(1.777482977232432e-06)]
 
 4. Nonlinear invariants through sixth order
 PASS 100 complete monomial orbit basis: 1 complex triplets degree 0, conjugation closed

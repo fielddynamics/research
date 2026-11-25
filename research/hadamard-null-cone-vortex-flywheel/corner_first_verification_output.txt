@@ -1,0 +1,44 @@
+PASS 01: tetrahedral closure
+PASS 02: tight frame
+PASS 03: Gram matrix
+PASS 04: cap bound root
+PASS 05: cap diameter strictly below 60 degrees
+PASS 06: root in admissible interval
+PASS 07: sharp cap witness unit
+PASS 08: sharp cap witness projections
+PASS 09: sharp cap witness non-overlap
+PASS 10: cube contact pair 1,2 non-overlap
+PASS 11: cube contact pair 1,3 non-overlap
+PASS 12: cube contact pair 1,4 non-overlap
+PASS 13: cube contact pair 1,5 non-overlap
+PASS 14: cube contact pair 1,6 non-overlap
+PASS 15: cube contact pair 1,7 non-overlap
+PASS 16: cube contact pair 1,8 non-overlap
+PASS 17: cube contact pair 2,3 non-overlap
+PASS 18: cube contact pair 2,4 non-overlap
+PASS 19: cube contact pair 2,5 non-overlap
+PASS 20: cube contact pair 2,6 non-overlap
+PASS 21: cube contact pair 2,7 non-overlap
+PASS 22: cube contact pair 2,8 non-overlap
+PASS 23: cube contact pair 3,4 non-overlap
+PASS 24: cube contact pair 3,5 non-overlap
+PASS 25: cube contact pair 3,6 non-overlap
+PASS 26: cube contact pair 3,7 non-overlap
+PASS 27: cube contact pair 3,8 non-overlap
+PASS 28: cube contact pair 4,5 non-overlap
+PASS 29: cube contact pair 4,6 non-overlap
+PASS 30: cube contact pair 4,7 non-overlap
+PASS 31: cube contact pair 4,8 non-overlap
+PASS 32: cube contact pair 5,6 non-overlap
+PASS 33: cube contact pair 5,7 non-overlap
+PASS 34: cube contact pair 5,8 non-overlap
+PASS 35: cube contact pair 6,7 non-overlap
+PASS 36: cube contact pair 6,8 non-overlap
+PASS 37: cube contact pair 7,8 non-overlap
+PASS 38: fixed contact 1 at cube corner
+PASS 39: fixed contact 2 at cube corner
+PASS 40: fixed contact 3 at cube corner
+PASS 41: fixed contact 4 at cube corner
+PASS 42: FCC 12 directions
+PASS 43: FCC lacks regular tetrahedral pair angle
+43/43 checks passed. Analytic polytope and cap proof in CORNER_FIRST_PACKING.md.

@@ -1,5 +1,7 @@
 # Stage IX — Coupled directional Field Origins
 
+> **Integration update.** The [unified Flower model](UNIFIED_HADAMARD_FIELD_DYNAMICS.md) preserves the 36-coordinate cell but uses an overlapping hexagonal midplane area kernel instead of this matched-face reflection. Its exact cubic origin-to-origin term has central overlap factor 2/3 and opposite port record at the receiving origin. The two-cell nonlinear tests below are specific to this earlier interface.
+
 **[T] Conditional finite-graph results. [E] Physical interpretation.** This continues [Stage VIII](OPEN_THROAT.md). SST denotes only the full covariant action; no constitutive-law or gravitational-constant derivation is claimed. All eight constituent stellation vortices remain essential. The Field Origin is the central octahedron, with directional degrees of freedom now explicitly located at its centre O.
 
 ## 1. The missing throat, not another geometric object
@@ -11,6 +13,10 @@ For the eight central triangles indexed by their outward signs `s=(±1,±1,±1)`
 $$T^T T=8I_4.$$
 
 The four rows of either tetrahedron alone form a Hadamard matrix, with Gram matrix `4I`. Thus the four face-normal records of either chamber suffice to recover the four centre coordinates. The direction-dependent read is not an unrelated oscillator geometry: it is the Walsh read of the eight central triangles. With the Euclidean inner product specified, the sign weights are equal in magnitude. We choose the coupling matrix `-T` (so the original scalar hopping stays -1), and its transpose as the return coupling. This adds 24 signed coordinate couplings. The weight scale, choice of one shared triplet, and parity convention are assumptions. Normalized Walsh weights would instead be `T/sqrt(8)`; geometry alone does not select their physical scale.
+
+![Directional Field Origin read from the eight central triangle records](figures/18_directional_origin_read.svg)
+
+*Figure: the Hadamard records encode one scalar and three polar coordinates; the diagram is an algebraic read, not a physical Lorentz tetrad derivation.*
 
 The centre equation is
 
@@ -47,6 +53,10 @@ Choose the original tetrahedral face in the plane `s·x=1`, with `s=(1,1,1)`. It
 $$x'=(I-2ss^T/3)x+2s/3.$$
 
 Every vertex of every one of the four chosen subtriangles is fixed by this reflection. This is an exact local face match; it is not a proof that stellated octahedra tile space without overlapping or that this is the unique physical neighbour orientation. The two cells are represented in their own local coordinate frames; in world coordinates the second cell's polar vectors transform by the reflection and axial vectors by its determinant times the reflection.
+
+![Local reflection match of all four Triforce tiles](figures/17_matched_triforce_interface.svg)
+
+*Figure: the exact triangular interface at the selected plane, with both centres on the normal line. The matching geometry is exact; the hopping rule and physical neighbour identification are model premises.*
 
 Let `F` be the 36×4 selection matrix of the matched tiles, `K=FF^T`. Introduce reciprocal hopping -1 between each matched pair:
 
