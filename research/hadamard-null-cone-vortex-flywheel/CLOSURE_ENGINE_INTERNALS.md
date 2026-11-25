@@ -77,3 +77,10 @@ The boundary read now has a precise mathematical meaning and the existing engine
 ## Subsequent research: computational closure read
 
 [π-addressed Walsh–Hadamard closure](PI_WALK_FWHT.md) tests the distinction between the π address walk and the spectral read. The resulting algorithm has not yet been derived from this vortex exchange cycle.
+
+
+## Three-subread continuation
+
+See [Three sub-reads of one closure engine](THREE_SUBREAD_CLOSURE.md) for the reversible tree, actual native core Pauli ledger, projective invariant contrast count and controlled-rotation obstruction. This continuation does not derive physical attenuation or change the prior model.
+
+![Recursive closure architecture](figures/48_native_recursive_read.svg)

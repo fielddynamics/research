@@ -1,0 +1,93 @@
+PASS 001 fine orthogonal exactly
+PASS 002 intermediate orthogonal exactly
+PASS 003 root orthogonal exactly
+PASS 004 tree orthogonal exactly
+PASS 005 detail mixing orthogonal exactly
+PASS 006 FWHT orthogonal exactly
+PASS 007 tree plus detail mixing equals full Walsh exactly
+PASS 008 tree alone is not full Walsh
+PASS 009 final common scalar is sum / 8
+PASS 010 detail levels 1,3,12,48
+PASS 011 same level projectors under detail mixing
+PASS 012 all 64 basis inputs reconstruct exactly
+PASS 013 complex ledger 0 reversible and Parseval
+PASS 014 complex ledger 1 reversible and Parseval
+PASS 015 complex ledger 2 reversible and Parseval
+PASS 016 complex ledger 3 reversible and Parseval
+PASS 017 complex ledger 4 reversible and Parseval
+PASS 018 complex ledger 5 reversible and Parseval
+PASS 019 order three
+PASS 020 Walsh intertwines inverse
+PASS 021 orbit projector commutes with Walsh
+PASS 022 22-dimensional orbit space
+PASS 023 invariant detail dimensions 1,4,16
+PASS 024 tree symmetry is permutation
+PASS 025 same reduced tree dimensions
+PASS 026 tree induced permutation preserves detail strata
+PASS 027 one intermediate orbit crosses reader groups
+PASS 028 one fine orbit crosses reader groups
+PASS 029 mean-preserving isotropic contraction
+PASS 030 attenuation commutes with closure symmetry
+PASS 031 invariant attenuation singular values
+PASS 032 full attenuation singular values
+PASS 033 collective invariant determinant intensity alpha^21
+PASS 034 unreduced determinant intensity alpha^63
+PASS 035 lossless orthogonal dilation
+PASS 036 ordinary normalized contrast has intensity alpha, not alpha^21
+PASS 037 graded orbit trace 13
+PASS 038 graded orbit trace 17
+PASS 039 graded orbit trace 21
+PASS 040 negative intermediate exponent would amplify, not attenuate
+PASS 041 single-axis U unitary and U cubed = -I
+PASS 042 U implements exact 3-cycle of Pauli axes
+PASS 043 64 Pauli operators orthogonal
+PASS 044 all 64 operator labels cycle with same T
+PASS 045 core U3 conjugation has order three
+PASS 046 Pauli three-axis read reconstructs pure core 0
+PASS 047 projective twirl 0 positive trace one and rank <=3
+PASS 048 projective twirl 0 equals Pauli orbit averages
+PASS 049 Pauli three-axis read reconstructs pure core 1
+PASS 050 projective twirl 1 positive trace one and rank <=3
+PASS 051 projective twirl 1 equals Pauli orbit averages
+PASS 052 Pauli three-axis read reconstructs pure core 2
+PASS 053 projective twirl 2 positive trace one and rank <=3
+PASS 054 projective twirl 2 equals Pauli orbit averages
+PASS 055 Pauli three-axis read reconstructs pure core 3
+PASS 056 projective twirl 3 positive trace one and rank <=3
+PASS 057 projective twirl 3 equals Pauli orbit averages
+PASS 058 Pauli three-axis read reconstructs pure core 4
+PASS 059 projective twirl 4 positive trace one and rank <=3
+PASS 060 projective twirl 4 equals Pauli orbit averages
+PASS 061 U3 eigenspaces 2,3,3 give commutant 22
+PASS 062 spatial C3 has two fixed corners and two triples
+PASS 063 spatial C3 conjugation invariant dimension 24 not 22
+PASS 064 native inversion symmetry
+PASS 065 core inversion is XXX
+PASS 066 Pauli rotation does not commute with native inversion
+PASS 067 rotation converts native inversion into ZZZ
+PASS 068 native core compression at t=0.1 commutes with inversion
+PASS 069 native core compression at t=0.5 commutes with inversion
+PASS 070 native core compression at t=1 commutes with inversion
+PASS 071 native core compression at t=2 commutes with inversion
+PASS 072 native core compression at t=3 commutes with inversion
+PASS 073 axis 0 controlled rotation uses only existing cube bonds
+PASS 074 axis 1 controlled rotation uses only existing cube bonds
+PASS 075 axis 2 controlled rotation uses only existing cube bonds
+PASS 076 three controlled axis generators commute
+PASS 077 one controlled pulse implements U3
+PASS 078 controlled core pulse has no external leakage
+PASS 079 controlled pulse is not bare autonomous Hamiltonian
+PASS 080 coordinate cyclic rotation preserves projective symmetry
+PASS 081 middle grading not invariant under coordinate cyclic rotation
+PASS 082 one-axis dyadic-to-Pauli read unitary
+PASS 083 dyadic address interleave bijective
+PASS 084 three local Pauli reads equivalent to complete Pauli basis
+PASS 085 native history yields complete core in bit order
+PASS 086 native coherent history → three-axis phase-neutral Pauli ledger 0
+PASS 087 native coherent history → three-axis phase-neutral Pauli ledger 1
+PASS 088 native coherent history → three-axis phase-neutral Pauli ledger 2
+PASS 089 native coherent history → three-axis phase-neutral Pauli ledger 3
+PASS 090 native coherent history → three-axis phase-neutral Pauli ledger 4
+PASS 091 native coherent history → three-axis phase-neutral Pauli ledger 5
+History sample spacing: 0.8999999999999999 core decoder residual: 3.570236334396271e-15
+RESULT: 91 fresh assertions passed; prior 5417 recorded not rerun.

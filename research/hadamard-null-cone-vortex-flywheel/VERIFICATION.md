@@ -91,3 +91,11 @@ Documentation and dimensional-algebra update: [G normalization bridge](G_NORMALI
 ## Native Walsh read
 
 `OPENBLAS_NUM_THREADS=1 python verify_native_walsh.py` — 74/74 checks ([log](native_walsh_verification_output.txt)); 5,304 previous recorded assertions not rerun; 5,378 total.
+
+## Projective Walsh–G bridge
+
+`python verify_projective_walsh.py`: 39/39 new assertions ([log](projective_walsh_verification_output.txt)); 5,378 earlier recorded preserved, not rerun; total 5,417.
+
+## Three-subread closure
+
+`OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python verify_three_subreads.py`: 91/91 fresh assertions ([log](three_subreads_verification_output.txt)); 5,417 earlier recorded assertions preserved, not rerun; 5,508 total. Includes exact reversible tree, detail transform, orbit grading and invariance, conditional splitter, Pauli basis and twirl, native inversion obstruction, controlled gate and seven-sample native reconstruction.

@@ -52,3 +52,13 @@ The exact read error satisfies 0 ≤ π−π_N < 8^(-N). At N=332 it is below 8^
 ## Continuation
 
 [Native Walsh read](NATIVE_WALSH_READ.md) establishes exact reconstruction of all eight core coefficients through the unchanged four-port history; a controlled butterfly circuit is possible but not autonomous. This does not derive π generation.
+
+
+**Continuation:** [Projective Walsh–G bridge](PROJECTIVE_WALSH_G_BRIDGE.md) derives the exact 22-dimensional quotient read and 1/4/16 flag embedding; the 21 projective records alone are not closed under the full Walsh transform. Physical selection and attenuation remain open.
+
+
+## Three-subread continuation
+
+See [Three sub-reads of one closure engine](THREE_SUBREAD_CLOSURE.md) for the reversible tree, actual native core Pauli ledger, projective invariant contrast count and controlled-rotation obstruction. This continuation does not derive physical attenuation or change the prior model.
+
+![Recursive closure architecture](figures/48_native_recursive_read.svg)

@@ -22,3 +22,5 @@ verify_closure_engine 0
 verify_pi_fwht 0
 verify_electron_closure 0
 verify_g_closure 0
+verify_projective_walsh 0
+verify_three_subreads 0

@@ -10,7 +10,7 @@ The Standard Field Model (SFM) is the proposed internal research reference archi
 
 ## Start here
 
-**Latest extension:** [Native Walsh read](NATIVE_WALSH_READ.md) — complete core history decoder from the unchanged vortex Hamiltonian, exact grade resolvents, and symmetry obstruction to autonomous raw butterflies. Earlier: [π-addressed FWHT closure](PI_WALK_FWHT.md) — exact two-index Walsh read, π scheduling, sparse digit decoder and coverage-mask obstruction. Earlier: [Inside the closure engine](CLOSURE_ENGINE_INTERNALS.md) — boundary conjugate energy, exact angular flux through actual Triforce tiles, radial optical feedback and original-H vortex exchange clock. Earlier: [Electron closure settlement](ELECTRON_CLOSURE_SETTLEMENT.md) — simultaneous mass, closure radius and G, idempotent radial energy, conditional four-port impedance matching and normalization limits. Earlier: [Dynamic tetrad settlement](DYNAMIC_TETRAD_SETTLEMENT.md) — exact central-first response, scalar and full-cell optical observability, coexistence with circulating vortices, static slip counterexample and conditional GR settlement constraint. Earlier: [Collective optical closure normalization](G_CLOSURE_DERIVATION.md) — conditional electromagnetic-reference derivation and microscopic normalization obstruction. [Matter vortex and signed charge](MATTER_VORTEX_CHARGE.md) — complete eight-register read, chamber-charge conservation obstruction, conditional inward/outward vortex equilibria and static electric/gravity ledger. The [spectral gravity read](SPECTRAL_GRAVITY_READ.md) remains the microscopic scalar response bridge.
+**Latest extension:** [Three sub-reads of one closure engine](THREE_SUBREAD_CLOSURE.md) — exact reversible radix-four hierarchy, native phase-neutral Pauli read, 21 invariant contrast modes and conditional collective optical attenuation. Earlier: [Projective Walsh–G bridge](PROJECTIVE_WALSH_G_BRIDGE.md) — exact 64-address quotient into 22 orbit modes, 1/4/16 flag, and the reduced FWHT; physical attenuation remains open. Earlier: [Native Walsh read](NATIVE_WALSH_READ.md) — complete core history decoder from the unchanged vortex Hamiltonian, exact grade resolvents, and symmetry obstruction to autonomous raw butterflies. Earlier: [π-addressed FWHT closure](PI_WALK_FWHT.md) — exact two-index Walsh read, π scheduling, sparse digit decoder and coverage-mask obstruction. Earlier: [Inside the closure engine](CLOSURE_ENGINE_INTERNALS.md) — boundary conjugate energy, exact angular flux through actual Triforce tiles, radial optical feedback and original-H vortex exchange clock. Earlier: [Electron closure settlement](ELECTRON_CLOSURE_SETTLEMENT.md) — simultaneous mass, closure radius and G, idempotent radial energy, conditional four-port impedance matching and normalization limits. Earlier: [Dynamic tetrad settlement](DYNAMIC_TETRAD_SETTLEMENT.md) — exact central-first response, scalar and full-cell optical observability, coexistence with circulating vortices, static slip counterexample and conditional GR settlement constraint. Earlier: [Collective optical closure normalization](G_CLOSURE_DERIVATION.md) — conditional electromagnetic-reference derivation and microscopic normalization obstruction. [Matter vortex and signed charge](MATTER_VORTEX_CHARGE.md) — complete eight-register read, chamber-charge conservation obstruction, conditional inward/outward vortex equilibria and static electric/gravity ledger. The [spectral gravity read](SPECTRAL_GRAVITY_READ.md) remains the microscopic scalar response bridge.
 
 | Resource | Purpose |
 |---|---|
@@ -155,9 +155,13 @@ Internal transfers cancel, leaving the boundary ledger. This is a candidate micr
 | Dynamic tetrad | [Dynamic tetrad settlement](DYNAMIC_TETRAD_SETTLEMENT.md) | 210 |
 | Electron closure | [Electron closure settlement](ELECTRON_CLOSURE_SETTLEMENT.md) | 87 |
 | Closure engine | [Inside the four-port closure engine](CLOSURE_ENGINE_INTERNALS.md) | 104 |
-| | **Total recorded passing assertions** | **5,178** |
+| π walk | [π-addressed FWHT](PI_WALK_FWHT.md) | 126 |
+| Native Walsh | [Native core Walsh read](NATIVE_WALSH_READ.md) | 74 |
+| Projective | [Projective Walsh–G bridge](PROJECTIVE_WALSH_G_BRIDGE.md) | 39 |
+| Three sub-reads | [Recursive closure engine](THREE_SUBREAD_CLOSURE.md) | 91 |
+| | **Total recorded passing assertions** | **5,508** |
 
-The assertions are not independent theorems. Historical Stages I–IX were rerun at Stage IX; subsequent counts refer to the respective extension's own run. Only the new electron-closure verifier was run in this edition; previous assertions remain recorded. No new Lean compilation or browser regression is claimed. The original documents and historical results remain intact.
+The assertions are not independent theorems. Historical Stages I–IX were rerun at Stage IX; subsequent counts refer to the respective extension's own run. Only the new three-subread verifier was run in this edition; previous assertions remain recorded. No new Lean compilation or browser regression is claimed. The original documents and historical results remain intact.
 
 ### Dynamic tetrad settlement — previous extension
 
@@ -185,9 +189,15 @@ OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python verify_matter_charge.py
 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python verify_g_closure.py
 OPENBLAS_NUM_THREADS=1 python verify_tetrad_read.py
 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python verify_dynamic_tetrad.py
+python verify_electron_closure.py
+python verify_closure_engine.py
+python verify_pi_fwht.py
+python verify_native_walsh.py
+python verify_projective_walsh.py
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python verify_three_subreads.py
 ```
 
-See [VERIFICATION.md](VERIFICATION.md) for logs, environment notes and scope. Latest [dynamic tetrad log](dynamic_tetrad_verification_output.txt); [tetrad-read log](tetrad_read_verification_output.txt); [matter-charge log](matter_charge_verification_output.txt) and [response data](matter_charge_rings.csv); historical [optical log](optical_ports_verification_output.txt), [scattering CSV](optical_scattering.csv) and [network CSV](optical_network_dynamics.csv) are included.
+See [VERIFICATION.md](VERIFICATION.md) for logs, environment notes and scope. Latest [three-subread log](three_subreads_verification_output.txt); [dynamic tetrad log](dynamic_tetrad_verification_output.txt); [tetrad-read log](tetrad_read_verification_output.txt); [matter-charge log](matter_charge_verification_output.txt) and [response data](matter_charge_rings.csv); historical [optical log](optical_ports_verification_output.txt), [scattering CSV](optical_scattering.csv) and [network CSV](optical_network_dynamics.csv) are included.
 
 ## 8. Explorers and supporting material
 
@@ -223,8 +233,32 @@ Run `OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python verify_electron_closure.py`
 
 Run `OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python verify_closure_engine.py` ([log](closure_engine_verification_output.txt), [cycle CSV](closure_engine_cycle.csv)).
 
-## Native Walsh read — current extension
+## Native Walsh read
 
 ![Native core Walsh reconstruction](figures/42_native_walsh_read.svg)
 
 [Research note](NATIVE_WALSH_READ.md): 74 new checks; 5,378 cumulative recorded. Four coherent filtered port histories reconstruct eight core Walsh coefficients, not all 36 coordinates. Raw autonomous FWHT is excluded by inversion symmetry; controlled gates need additional physical controls. π remains a proposed addressing clock. Run `OPENBLAS_NUM_THREADS=1 python verify_native_walsh.py` ([log](native_walsh_verification_output.txt)).
+
+## Projective Walsh–G bridge — preceding extension
+
+![Projective Walsh and pi ledger](figures/43_projective_walsh.svg)
+
+[Research note](PROJECTIVE_WALSH_G_BRIDGE.md): 39 fresh checks; 5,417 cumulative recorded. The 64 address space splits under an order-three XOR cycle into zero plus 21 triple orbits. The FWHT preserves all 22 orbit-constant modes, but mixes the zero address with the projective mean. G’s 1/4/16 blocks admit an exact flag embedding in its Sierpinski factor; attenuation and physical grading are not derived. Run `python verify_projective_walsh.py` ([log](projective_walsh_verification_output.txt)).
+
+## Three nested sub-reads — current extension
+
+![Faces, subfaces and subchannels](figures/44_three_subread_tree.svg)
+
+[T] The candidate address tree has 21 four-way readers, 63 contrasts and one common coordinate. Its reversible transform becomes the full FWHT after within-detail mixing. The order-three symmetry leaves 21 invariant contrasts in strata 1,4,16. [D] Native histories recover a phase-neutral 64-coordinate Pauli ledger of the core; the 64 values are not independent for a pure state.
+
+![Three-stage exact transform](figures/45_three_subread_factorization.svg)
+
+![Native core to recursive closure](figures/48_native_recursive_read.svg)
+
+[T/D] The Pauli cycle has an exact unitary implementation using controlled phases and real/imaginary cube bonds, but native inversion symmetry forbids that arbitrary gate under the unchanged Hamiltonian. The physical spatial C3 rotation yields 24 invariant operator coordinates rather than 22.
+
+![Pauli versus spatial rotation](figures/46_pauli_cycle_obstruction.svg)
+
+![Collective attenuation distinction](figures/47_three_subread_attenuation.svg)
+
+[D/E] A common contrast splitter yields alpha^21 as the squared determinant on the invariant sector, not the ordinary transmission probability. Derive the physical read selection, signed middle grading, alpha coupling and 17/13 combination rule before identifying this with G. See [complete mathematical note](THREE_SUBREAD_CLOSURE.md) and [91 fresh checks](three_subreads_verification_output.txt).

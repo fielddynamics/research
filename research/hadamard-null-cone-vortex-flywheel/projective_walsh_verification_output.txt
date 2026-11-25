@@ -1,0 +1,43 @@
+PASS order-three XOR cycle
+PASS zero and 21 triples
+PASS orbit indicator basis
+PASS projective flag 16,4,1
+PASS seven degenerate triples; fourteen Fano orientation triples
+PASS Walsh interchanges order-three generator and inverse
+PASS Walsh preserves orbit-constant subspace
+PASS orbit projector exact
+PASS invariant rank 22
+PASS exact restricted FWHT
+PASS restricted inverse
+PASS zero-to-projective coupling
+PASS projective incidence form
+PASS symmetric incidence
+PASS five points on each polar line
+PASS projective plane incidence square
+PASS all 441 incidence entries equal GF(4) orthogonality
+PASS normalized quotient orthogonal involution
+PASS quotient spectrum 11+11
+PASS nonzero sector not closed under FWHT
+PASS 21-block squared is not identity
+PASS constant projective mode eigenvalue -1/8 normalized
+PASS 20 projective contrasts invariant
+PASS origin-selecting orbit symmetry not invariant under joint XOR translations
+PASS flag diagonal Sierpinski block 1
+PASS flag diagonal Sierpinski block 4
+PASS flag diagonal Sierpinski block 16
+PASS restricted Sierpinski has off-diagonal information
+PASS flag trace 21
+PASS graded trace 13 (specified middle grading)
+PASS graded rank s=-1
+PASS graded trace 17 (specified middle grading)
+PASS graded rank s=0
+PASS graded trace 21 (specified middle grading)
+PASS graded rank s=1
+PASS full pi closure at 332
+PASS all orbit classes visited
+PASS raw pi count ledger not orbit-constant
+PASS projective compression loses generic modular digit read
+First all 22 orbit classes: 156
+Restricted spectrum: [-1. -1. -1. -1. -1. -1. -1. -1. -1. -1. -1.  1.  1.  1.  1.  1.  1.  1.
+  1.  1.  1.  1.]
+39/39 checks passed. Prior 5378 recorded checks not rerun.

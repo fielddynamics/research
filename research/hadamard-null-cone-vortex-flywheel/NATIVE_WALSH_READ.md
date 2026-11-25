@@ -57,3 +57,13 @@ The [π ledger](PI_WALK_FWHT.md) addresses all 64 ordered vertex pairs after 332
 ## Reproduction
 
 `OPENBLAS_NUM_THREADS=1 python verify_native_walsh.py` (NumPy, SciPy, SymPy, Matplotlib). [74/74 new checks](native_walsh_verification_output.txt), 5,304 previous recorded assertions preserved but not rerun; 5,378 cumulative. No remote changes. This verifies mathematical readout, not the physical existence of a π-driven vortex processor.
+
+
+**Continuation:** [Projective Walsh–G bridge](PROJECTIVE_WALSH_G_BRIDGE.md) derives the exact 22-dimensional quotient read and 1/4/16 flag embedding; the 21 projective records alone are not closed under the full Walsh transform. Physical selection and attenuation remain open.
+
+
+## Three-subread continuation
+
+See [Three sub-reads of one closure engine](THREE_SUBREAD_CLOSURE.md) for the reversible tree, actual native core Pauli ledger, projective invariant contrast count and controlled-rotation obstruction. This continuation does not derive physical attenuation or change the prior model.
+
+![Recursive closure architecture](figures/48_native_recursive_read.svg)
