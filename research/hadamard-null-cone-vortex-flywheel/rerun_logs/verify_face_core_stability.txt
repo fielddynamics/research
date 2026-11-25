@@ -1,0 +1,136 @@
+PASS 001 complementary quartic homogeneous identity
+PASS 002 orthonormal tangent chart
+PASS 003 exact face Hessian
+PASS 004 positive determinant for beta > 1
+PASS 005 face-normal circular minimum
+PASS 006 face-normal circular minimum
+PASS 007 face-normal circular minimum
+PASS 008 face-normal circular minimum
+PASS 009 face-normal circular minimum
+PASS 010 face-normal circular minimum
+PASS 011 face-normal circular minimum
+PASS 012 face-normal circular minimum
+PASS 013 axial circular minimum
+PASS 014 axial circular minimum
+PASS 015 axial circular minimum
+PASS 016 axial circular minimum
+PASS 017 axial circular minimum
+PASS 018 axial circular minimum
+PASS 019 branch 1 both ring coefficients nonzero
+PASS 020 all eight physical ring currents simultaneous in one stationary state
+PASS 021 registered core conserved and nonzero axial projection
+PASS 022 ring aggregation gives common axial contribution
+PASS 023 all eight physical ring currents simultaneous in one stationary state
+PASS 024 registered core conserved and nonzero axial projection
+PASS 025 ring aggregation gives common axial contribution
+PASS 026 all eight physical ring currents simultaneous in one stationary state
+PASS 027 registered core conserved and nonzero axial projection
+PASS 028 ring aggregation gives common axial contribution
+Example +z, branch 1: face currents [ 0.00683363 -0.00683363 -0.00683363  0.00683363 -0.00374274  0.00374274
+  0.00374274 -0.00374274] registered principal [-1.00397121e-16  9.50303204e-17  1.25987487e-01]
+PASS 029 all eight physical ring currents simultaneous in one stationary state
+PASS 030 registered core conserved and nonzero axial projection
+PASS 031 ring aggregation gives common axial contribution
+PASS 032 all eight physical ring currents simultaneous in one stationary state
+PASS 033 registered core conserved and nonzero axial projection
+PASS 034 ring aggregation gives common axial contribution
+PASS 035 all eight physical ring currents simultaneous in one stationary state
+PASS 036 registered core conserved and nonzero axial projection
+PASS 037 ring aggregation gives common axial contribution
+PASS 038 branch 2 both ring coefficients nonzero
+PASS 039 all eight physical ring currents simultaneous in one stationary state
+PASS 040 registered core conserved and nonzero axial projection
+PASS 041 ring aggregation gives common axial contribution
+PASS 042 all eight physical ring currents simultaneous in one stationary state
+PASS 043 registered core conserved and nonzero axial projection
+PASS 044 ring aggregation gives common axial contribution
+PASS 045 all eight physical ring currents simultaneous in one stationary state
+PASS 046 registered core conserved and nonzero axial projection
+PASS 047 ring aggregation gives common axial contribution
+PASS 048 all eight physical ring currents simultaneous in one stationary state
+PASS 049 registered core conserved and nonzero axial projection
+PASS 050 ring aggregation gives common axial contribution
+PASS 051 all eight physical ring currents simultaneous in one stationary state
+PASS 052 registered core conserved and nonzero axial projection
+PASS 053 ring aggregation gives common axial contribution
+PASS 054 all eight physical ring currents simultaneous in one stationary state
+PASS 055 registered core conserved and nonzero axial projection
+PASS 056 ring aggregation gives common axial contribution
+PASS 057 branch 3 both ring coefficients nonzero
+PASS 058 all eight physical ring currents simultaneous in one stationary state
+PASS 059 registered core conserved and nonzero axial projection
+PASS 060 ring aggregation gives common axial contribution
+PASS 061 all eight physical ring currents simultaneous in one stationary state
+PASS 062 registered core conserved and nonzero axial projection
+PASS 063 ring aggregation gives common axial contribution
+PASS 064 all eight physical ring currents simultaneous in one stationary state
+PASS 065 registered core conserved and nonzero axial projection
+PASS 066 ring aggregation gives common axial contribution
+PASS 067 all eight physical ring currents simultaneous in one stationary state
+PASS 068 registered core conserved and nonzero axial projection
+PASS 069 ring aggregation gives common axial contribution
+PASS 070 all eight physical ring currents simultaneous in one stationary state
+PASS 071 registered core conserved and nonzero axial projection
+PASS 072 ring aggregation gives common axial contribution
+PASS 073 all eight physical ring currents simultaneous in one stationary state
+PASS 074 registered core conserved and nonzero axial projection
+PASS 075 ring aggregation gives common axial contribution
+PASS 076 branch 4 both ring coefficients nonzero
+PASS 077 all eight physical ring currents simultaneous in one stationary state
+PASS 078 registered core conserved and nonzero axial projection
+PASS 079 ring aggregation gives common axial contribution
+PASS 080 all eight physical ring currents simultaneous in one stationary state
+PASS 081 registered core conserved and nonzero axial projection
+PASS 082 ring aggregation gives common axial contribution
+PASS 083 all eight physical ring currents simultaneous in one stationary state
+PASS 084 registered core conserved and nonzero axial projection
+PASS 085 ring aggregation gives common axial contribution
+PASS 086 all eight physical ring currents simultaneous in one stationary state
+PASS 087 registered core conserved and nonzero axial projection
+PASS 088 ring aggregation gives common axial contribution
+PASS 089 all eight physical ring currents simultaneous in one stationary state
+PASS 090 registered core conserved and nonzero axial projection
+PASS 091 ring aggregation gives common axial contribution
+PASS 092 all eight physical ring currents simultaneous in one stationary state
+PASS 093 registered core conserved and nonzero axial projection
+PASS 094 ring aggregation gives common axial contribution
+PASS 095 branch 5 both ring coefficients nonzero
+PASS 096 all eight physical ring currents simultaneous in one stationary state
+PASS 097 registered core conserved and nonzero axial projection
+PASS 098 ring aggregation gives common axial contribution
+PASS 099 all eight physical ring currents simultaneous in one stationary state
+PASS 100 registered core conserved and nonzero axial projection
+PASS 101 ring aggregation gives common axial contribution
+PASS 102 all eight physical ring currents simultaneous in one stationary state
+PASS 103 registered core conserved and nonzero axial projection
+PASS 104 ring aggregation gives common axial contribution
+PASS 105 all eight physical ring currents simultaneous in one stationary state
+PASS 106 registered core conserved and nonzero axial projection
+PASS 107 ring aggregation gives common axial contribution
+PASS 108 all eight physical ring currents simultaneous in one stationary state
+PASS 109 registered core conserved and nonzero axial projection
+PASS 110 ring aggregation gives common axial contribution
+PASS 111 all eight physical ring currents simultaneous in one stationary state
+PASS 112 registered core conserved and nonzero axial projection
+PASS 113 ring aggregation gives common axial contribution
+PASS 114 branch 6 both ring coefficients nonzero
+PASS 115 all eight physical ring currents simultaneous in one stationary state
+PASS 116 registered core conserved and nonzero axial projection
+PASS 117 ring aggregation gives common axial contribution
+PASS 118 all eight physical ring currents simultaneous in one stationary state
+PASS 119 registered core conserved and nonzero axial projection
+PASS 120 ring aggregation gives common axial contribution
+PASS 121 all eight physical ring currents simultaneous in one stationary state
+PASS 122 registered core conserved and nonzero axial projection
+PASS 123 ring aggregation gives common axial contribution
+PASS 124 all eight physical ring currents simultaneous in one stationary state
+PASS 125 registered core conserved and nonzero axial projection
+PASS 126 ring aggregation gives common axial contribution
+PASS 127 all eight physical ring currents simultaneous in one stationary state
+PASS 128 registered core conserved and nonzero axial projection
+PASS 129 ring aggregation gives common axial contribution
+PASS 130 all eight physical ring currents simultaneous in one stationary state
+PASS 131 registered core conserved and nonzero axial projection
+PASS 132 ring aggregation gives common axial contribution
+Minimum |physical ring current|: 0.0003461224472842257 Minimum |registered principal coefficient|: 0.009082968226490237 Maximum ring error: 3.191891195797325e-16
+132/132 new checks passed; 984 earlier checks rerun on import.

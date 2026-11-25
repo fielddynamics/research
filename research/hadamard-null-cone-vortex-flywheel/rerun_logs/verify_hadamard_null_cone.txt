@@ -1,0 +1,507 @@
+PASS 001 Hadamard orthogonality
+PASS 002 parity-times-frame factorization
+PASS 003 null Gram = minus 2/3 Hamming distance (time-negative convention)
+PASS 004 each stellation base is exactly one core face
+PASS 005 all eight lateral pyramids have the same volume 1/3
+PASS 006 three edges per oriented face, two faces per edge
+PASS 007 boundary of boundary vanishes exactly
+PASS 008 closed surface: all oriented faces cancel
+PASS 009 oriented face Gram is the Hadamard cube Laplacian
+PASS 010 exact Walsh diagonalization of face Gram
+PASS 011 unsigned vertex incidence sees exactly scalar/vector Walsh grades
+PASS 012 face-to-edge rank seven
+PASS 013 vertex-edge rank five
+PASS 014 face map spans all divergence-free core currents
+PASS 015 grade-one face circulation is exactly twice the square-ring basis
+PASS 016 three square rings, four edges each
+PASS 017 hemisphere 0: four face loops give one square ring
+PASS 018 hemisphere 1: four face loops give one square ring
+PASS 019 hemisphere 2: four face loops give one square ring
+PASS 020 all three Walsh circulation sectors are orthogonal
+PASS 021 oriented boundary equivariance (determinant twist)
+PASS 022 oriented boundary equivariance (determinant twist)
+PASS 023 oriented boundary equivariance (determinant twist)
+PASS 024 oriented boundary equivariance (determinant twist)
+PASS 025 oriented boundary equivariance (determinant twist)
+PASS 026 oriented boundary equivariance (determinant twist)
+PASS 027 oriented boundary equivariance (determinant twist)
+PASS 028 oriented boundary equivariance (determinant twist)
+PASS 029 oriented boundary equivariance (determinant twist)
+PASS 030 oriented boundary equivariance (determinant twist)
+PASS 031 oriented boundary equivariance (determinant twist)
+PASS 032 oriented boundary equivariance (determinant twist)
+PASS 033 oriented boundary equivariance (determinant twist)
+PASS 034 oriented boundary equivariance (determinant twist)
+PASS 035 oriented boundary equivariance (determinant twist)
+PASS 036 oriented boundary equivariance (determinant twist)
+PASS 037 oriented boundary equivariance (determinant twist)
+PASS 038 oriented boundary equivariance (determinant twist)
+PASS 039 oriented boundary equivariance (determinant twist)
+PASS 040 oriented boundary equivariance (determinant twist)
+PASS 041 oriented boundary equivariance (determinant twist)
+PASS 042 oriented boundary equivariance (determinant twist)
+PASS 043 oriented boundary equivariance (determinant twist)
+PASS 044 oriented boundary equivariance (determinant twist)
+PASS 045 symbolic core current equals chirality cross product
+PASS 046 symbolic core current equals chirality cross product
+PASS 047 symbolic core current equals chirality cross product
+PASS 048 symbolic core current equals chirality cross product
+PASS 049 symbolic core current equals chirality cross product
+PASS 050 symbolic core current equals chirality cross product
+PASS 051 symbolic core current equals chirality cross product
+PASS 052 symbolic core current equals chirality cross product
+PASS 053 symbolic core current equals chirality cross product
+PASS 054 symbolic core current equals chirality cross product
+PASS 055 symbolic core current equals chirality cross product
+PASS 056 symbolic core current equals chirality cross product
+PASS 057 chamber A projects to sqrt(2) core triplet
+PASS 058 chamber B projects to sqrt(2) core triplet
+PASS 059 collective embedding is isometric
+PASS 060 invariant collective Hamiltonian equals M tensor I3
+PASS 061 collective triplet eigenstate and exact dark centre
+PASS 062 stationary physical current is divergence-free
+PASS 063 each eliminated apex preserves every incident bond current
+PASS 064 reduced core currents obey local continuity
+PASS 065 actual reduced core current equals oriented eight-face circulation
+PASS 066 core currents reverse under conjugation
+PASS 067 apex-mediated and direct coefficients recover formal secular current
+PASS 068 unique mean-zero face ledger recovered
+PASS 069 collective triplet eigenstate and exact dark centre
+PASS 070 stationary physical current is divergence-free
+PASS 071 each eliminated apex preserves every incident bond current
+PASS 072 reduced core currents obey local continuity
+PASS 073 actual reduced core current equals oriented eight-face circulation
+PASS 074 core currents reverse under conjugation
+PASS 075 apex-mediated and direct coefficients recover formal secular current
+PASS 076 unique mean-zero face ledger recovered
+PASS 077 collective triplet eigenstate and exact dark centre
+PASS 078 stationary physical current is divergence-free
+PASS 079 each eliminated apex preserves every incident bond current
+PASS 080 reduced core currents obey local continuity
+PASS 081 actual reduced core current equals oriented eight-face circulation
+PASS 082 core currents reverse under conjugation
+PASS 083 apex-mediated and direct coefficients recover formal secular current
+PASS 084 unique mean-zero face ledger recovered
+PASS 085 invariant collective Hamiltonian equals M tensor I3
+PASS 086 collective triplet eigenstate and exact dark centre
+PASS 087 stationary physical current is divergence-free
+PASS 088 each eliminated apex preserves every incident bond current
+PASS 089 reduced core currents obey local continuity
+PASS 090 actual reduced core current equals oriented eight-face circulation
+PASS 091 core currents reverse under conjugation
+PASS 092 apex-mediated and direct coefficients recover formal secular current
+PASS 093 unique mean-zero face ledger recovered
+PASS 094 collective triplet eigenstate and exact dark centre
+PASS 095 stationary physical current is divergence-free
+PASS 096 each eliminated apex preserves every incident bond current
+PASS 097 reduced core currents obey local continuity
+PASS 098 actual reduced core current equals oriented eight-face circulation
+PASS 099 core currents reverse under conjugation
+PASS 100 apex-mediated and direct coefficients recover formal secular current
+PASS 101 unique mean-zero face ledger recovered
+PASS 102 collective triplet eigenstate and exact dark centre
+PASS 103 stationary physical current is divergence-free
+PASS 104 each eliminated apex preserves every incident bond current
+PASS 105 reduced core currents obey local continuity
+PASS 106 actual reduced core current equals oriented eight-face circulation
+PASS 107 core currents reverse under conjugation
+PASS 108 apex-mediated and direct coefficients recover formal secular current
+PASS 109 unique mean-zero face ledger recovered
+PASS 110 invariant collective Hamiltonian equals M tensor I3
+PASS 111 collective triplet eigenstate and exact dark centre
+PASS 112 stationary physical current is divergence-free
+PASS 113 each eliminated apex preserves every incident bond current
+PASS 114 reduced core currents obey local continuity
+PASS 115 actual reduced core current equals oriented eight-face circulation
+PASS 116 core currents reverse under conjugation
+PASS 117 apex-mediated and direct coefficients recover formal secular current
+PASS 118 unique mean-zero face ledger recovered
+PASS 119 collective triplet eigenstate and exact dark centre
+PASS 120 stationary physical current is divergence-free
+PASS 121 each eliminated apex preserves every incident bond current
+PASS 122 reduced core currents obey local continuity
+PASS 123 actual reduced core current equals oriented eight-face circulation
+PASS 124 core currents reverse under conjugation
+PASS 125 apex-mediated and direct coefficients recover formal secular current
+PASS 126 unique mean-zero face ledger recovered
+PASS 127 collective triplet eigenstate and exact dark centre
+PASS 128 stationary physical current is divergence-free
+PASS 129 each eliminated apex preserves every incident bond current
+PASS 130 reduced core currents obey local continuity
+PASS 131 actual reduced core current equals oriented eight-face circulation
+PASS 132 core currents reverse under conjugation
+PASS 133 apex-mediated and direct coefficients recover formal secular current
+PASS 134 unique mean-zero face ledger recovered
+PASS 135 invariant collective Hamiltonian equals M tensor I3
+PASS 136 collective triplet eigenstate and exact dark centre
+PASS 137 stationary physical current is divergence-free
+PASS 138 each eliminated apex preserves every incident bond current
+PASS 139 reduced core currents obey local continuity
+PASS 140 actual reduced core current equals oriented eight-face circulation
+PASS 141 core currents reverse under conjugation
+PASS 142 apex-mediated and direct coefficients recover formal secular current
+PASS 143 unique mean-zero face ledger recovered
+PASS 144 collective triplet eigenstate and exact dark centre
+PASS 145 stationary physical current is divergence-free
+PASS 146 each eliminated apex preserves every incident bond current
+PASS 147 reduced core currents obey local continuity
+PASS 148 actual reduced core current equals oriented eight-face circulation
+PASS 149 core currents reverse under conjugation
+PASS 150 apex-mediated and direct coefficients recover formal secular current
+PASS 151 unique mean-zero face ledger recovered
+PASS 152 collective triplet eigenstate and exact dark centre
+PASS 153 stationary physical current is divergence-free
+PASS 154 each eliminated apex preserves every incident bond current
+PASS 155 reduced core currents obey local continuity
+PASS 156 actual reduced core current equals oriented eight-face circulation
+PASS 157 core currents reverse under conjugation
+PASS 158 apex-mediated and direct coefficients recover formal secular current
+PASS 159 unique mean-zero face ledger recovered
+PASS 160 invariant collective Hamiltonian equals M tensor I3
+PASS 161 collective triplet eigenstate and exact dark centre
+PASS 162 stationary physical current is divergence-free
+PASS 163 each eliminated apex preserves every incident bond current
+PASS 164 reduced core currents obey local continuity
+PASS 165 actual reduced core current equals oriented eight-face circulation
+PASS 166 core currents reverse under conjugation
+PASS 167 apex-mediated and direct coefficients recover formal secular current
+PASS 168 unique mean-zero face ledger recovered
+PASS 169 collective triplet eigenstate and exact dark centre
+PASS 170 stationary physical current is divergence-free
+PASS 171 each eliminated apex preserves every incident bond current
+PASS 172 reduced core currents obey local continuity
+PASS 173 actual reduced core current equals oriented eight-face circulation
+PASS 174 core currents reverse under conjugation
+PASS 175 apex-mediated and direct coefficients recover formal secular current
+PASS 176 unique mean-zero face ledger recovered
+PASS 177 collective triplet eigenstate and exact dark centre
+PASS 178 stationary physical current is divergence-free
+PASS 179 each eliminated apex preserves every incident bond current
+PASS 180 reduced core currents obey local continuity
+PASS 181 actual reduced core current equals oriented eight-face circulation
+PASS 182 core currents reverse under conjugation
+PASS 183 apex-mediated and direct coefficients recover formal secular current
+PASS 184 unique mean-zero face ledger recovered
+PASS 185 invariant collective Hamiltonian equals M tensor I3
+PASS 186 collective triplet eigenstate and exact dark centre
+PASS 187 stationary physical current is divergence-free
+PASS 188 each eliminated apex preserves every incident bond current
+PASS 189 reduced core currents obey local continuity
+PASS 190 actual reduced core current equals oriented eight-face circulation
+PASS 191 core currents reverse under conjugation
+PASS 192 apex-mediated and direct coefficients recover formal secular current
+PASS 193 unique mean-zero face ledger recovered
+PASS 194 collective triplet eigenstate and exact dark centre
+PASS 195 stationary physical current is divergence-free
+PASS 196 each eliminated apex preserves every incident bond current
+PASS 197 reduced core currents obey local continuity
+PASS 198 actual reduced core current equals oriented eight-face circulation
+PASS 199 core currents reverse under conjugation
+PASS 200 apex-mediated and direct coefficients recover formal secular current
+PASS 201 unique mean-zero face ledger recovered
+PASS 202 collective triplet eigenstate and exact dark centre
+PASS 203 stationary physical current is divergence-free
+PASS 204 each eliminated apex preserves every incident bond current
+PASS 205 reduced core currents obey local continuity
+PASS 206 actual reduced core current equals oriented eight-face circulation
+PASS 207 core currents reverse under conjugation
+PASS 208 apex-mediated and direct coefficients recover formal secular current
+PASS 209 unique mean-zero face ledger recovered
+PASS 210 invariant collective Hamiltonian equals M tensor I3
+PASS 211 collective triplet eigenstate and exact dark centre
+PASS 212 stationary physical current is divergence-free
+PASS 213 each eliminated apex preserves every incident bond current
+PASS 214 reduced core currents obey local continuity
+PASS 215 actual reduced core current equals oriented eight-face circulation
+PASS 216 core currents reverse under conjugation
+PASS 217 apex-mediated and direct coefficients recover formal secular current
+PASS 218 unique mean-zero face ledger recovered
+PASS 219 collective triplet eigenstate and exact dark centre
+PASS 220 stationary physical current is divergence-free
+PASS 221 each eliminated apex preserves every incident bond current
+PASS 222 reduced core currents obey local continuity
+PASS 223 actual reduced core current equals oriented eight-face circulation
+PASS 224 core currents reverse under conjugation
+PASS 225 apex-mediated and direct coefficients recover formal secular current
+PASS 226 unique mean-zero face ledger recovered
+PASS 227 collective triplet eigenstate and exact dark centre
+PASS 228 stationary physical current is divergence-free
+PASS 229 each eliminated apex preserves every incident bond current
+PASS 230 reduced core currents obey local continuity
+PASS 231 actual reduced core current equals oriented eight-face circulation
+PASS 232 core currents reverse under conjugation
+PASS 233 apex-mediated and direct coefficients recover formal secular current
+PASS 234 unique mean-zero face ledger recovered
+PASS 235 invariant collective Hamiltonian equals M tensor I3
+PASS 236 collective triplet eigenstate and exact dark centre
+PASS 237 stationary physical current is divergence-free
+PASS 238 each eliminated apex preserves every incident bond current
+PASS 239 reduced core currents obey local continuity
+PASS 240 actual reduced core current equals oriented eight-face circulation
+PASS 241 core currents reverse under conjugation
+PASS 242 apex-mediated and direct coefficients recover formal secular current
+PASS 243 unique mean-zero face ledger recovered
+PASS 244 collective triplet eigenstate and exact dark centre
+PASS 245 stationary physical current is divergence-free
+PASS 246 each eliminated apex preserves every incident bond current
+PASS 247 reduced core currents obey local continuity
+PASS 248 actual reduced core current equals oriented eight-face circulation
+PASS 249 core currents reverse under conjugation
+PASS 250 apex-mediated and direct coefficients recover formal secular current
+PASS 251 unique mean-zero face ledger recovered
+PASS 252 collective triplet eigenstate and exact dark centre
+PASS 253 stationary physical current is divergence-free
+PASS 254 each eliminated apex preserves every incident bond current
+PASS 255 reduced core currents obey local continuity
+PASS 256 actual reduced core current equals oriented eight-face circulation
+PASS 257 core currents reverse under conjugation
+PASS 258 apex-mediated and direct coefficients recover formal secular current
+PASS 259 unique mean-zero face ledger recovered
+PASS 260 invariant collective Hamiltonian equals M tensor I3
+PASS 261 collective triplet eigenstate and exact dark centre
+PASS 262 stationary physical current is divergence-free
+PASS 263 each eliminated apex preserves every incident bond current
+PASS 264 reduced core currents obey local continuity
+PASS 265 actual reduced core current equals oriented eight-face circulation
+PASS 266 core currents reverse under conjugation
+PASS 267 apex-mediated and direct coefficients recover formal secular current
+PASS 268 unique mean-zero face ledger recovered
+PASS 269 collective triplet eigenstate and exact dark centre
+PASS 270 stationary physical current is divergence-free
+PASS 271 each eliminated apex preserves every incident bond current
+PASS 272 reduced core currents obey local continuity
+PASS 273 actual reduced core current equals oriented eight-face circulation
+PASS 274 core currents reverse under conjugation
+PASS 275 apex-mediated and direct coefficients recover formal secular current
+PASS 276 unique mean-zero face ledger recovered
+PASS 277 collective triplet eigenstate and exact dark centre
+PASS 278 stationary physical current is divergence-free
+PASS 279 each eliminated apex preserves every incident bond current
+PASS 280 reduced core currents obey local continuity
+PASS 281 actual reduced core current equals oriented eight-face circulation
+PASS 282 core currents reverse under conjugation
+PASS 283 apex-mediated and direct coefficients recover formal secular current
+PASS 284 unique mean-zero face ledger recovered
+PASS 285 invariant collective Hamiltonian equals M tensor I3
+PASS 286 collective triplet eigenstate and exact dark centre
+PASS 287 stationary physical current is divergence-free
+PASS 288 each eliminated apex preserves every incident bond current
+PASS 289 reduced core currents obey local continuity
+PASS 290 actual reduced core current equals oriented eight-face circulation
+PASS 291 core currents reverse under conjugation
+PASS 292 apex-mediated and direct coefficients recover formal secular current
+PASS 293 unique mean-zero face ledger recovered
+PASS 294 collective triplet eigenstate and exact dark centre
+PASS 295 stationary physical current is divergence-free
+PASS 296 each eliminated apex preserves every incident bond current
+PASS 297 reduced core currents obey local continuity
+PASS 298 actual reduced core current equals oriented eight-face circulation
+PASS 299 core currents reverse under conjugation
+PASS 300 apex-mediated and direct coefficients recover formal secular current
+PASS 301 unique mean-zero face ledger recovered
+PASS 302 collective triplet eigenstate and exact dark centre
+PASS 303 stationary physical current is divergence-free
+PASS 304 each eliminated apex preserves every incident bond current
+PASS 305 reduced core currents obey local continuity
+PASS 306 actual reduced core current equals oriented eight-face circulation
+PASS 307 core currents reverse under conjugation
+PASS 308 apex-mediated and direct coefficients recover formal secular current
+PASS 309 unique mean-zero face ledger recovered
+PASS 310 invariant collective Hamiltonian equals M tensor I3
+PASS 311 collective triplet eigenstate and exact dark centre
+PASS 312 stationary physical current is divergence-free
+PASS 313 each eliminated apex preserves every incident bond current
+PASS 314 reduced core currents obey local continuity
+PASS 315 actual reduced core current equals oriented eight-face circulation
+PASS 316 core currents reverse under conjugation
+PASS 317 apex-mediated and direct coefficients recover formal secular current
+PASS 318 unique mean-zero face ledger recovered
+PASS 319 collective triplet eigenstate and exact dark centre
+PASS 320 stationary physical current is divergence-free
+PASS 321 each eliminated apex preserves every incident bond current
+PASS 322 reduced core currents obey local continuity
+PASS 323 actual reduced core current equals oriented eight-face circulation
+PASS 324 core currents reverse under conjugation
+PASS 325 apex-mediated and direct coefficients recover formal secular current
+PASS 326 unique mean-zero face ledger recovered
+PASS 327 collective triplet eigenstate and exact dark centre
+PASS 328 stationary physical current is divergence-free
+PASS 329 each eliminated apex preserves every incident bond current
+PASS 330 reduced core currents obey local continuity
+PASS 331 actual reduced core current equals oriented eight-face circulation
+PASS 332 core currents reverse under conjugation
+PASS 333 apex-mediated and direct coefficients recover formal secular current
+PASS 334 unique mean-zero face ledger recovered
+PASS 335 invariant collective Hamiltonian equals M tensor I3
+PASS 336 collective triplet eigenstate and exact dark centre
+PASS 337 stationary physical current is divergence-free
+PASS 338 each eliminated apex preserves every incident bond current
+PASS 339 reduced core currents obey local continuity
+PASS 340 actual reduced core current equals oriented eight-face circulation
+PASS 341 core currents reverse under conjugation
+PASS 342 apex-mediated and direct coefficients recover formal secular current
+PASS 343 unique mean-zero face ledger recovered
+PASS 344 collective triplet eigenstate and exact dark centre
+PASS 345 stationary physical current is divergence-free
+PASS 346 each eliminated apex preserves every incident bond current
+PASS 347 reduced core currents obey local continuity
+PASS 348 actual reduced core current equals oriented eight-face circulation
+PASS 349 core currents reverse under conjugation
+PASS 350 apex-mediated and direct coefficients recover formal secular current
+PASS 351 unique mean-zero face ledger recovered
+PASS 352 collective triplet eigenstate and exact dark centre
+PASS 353 stationary physical current is divergence-free
+PASS 354 each eliminated apex preserves every incident bond current
+PASS 355 reduced core currents obey local continuity
+PASS 356 actual reduced core current equals oriented eight-face circulation
+PASS 357 core currents reverse under conjugation
+PASS 358 apex-mediated and direct coefficients recover formal secular current
+PASS 359 unique mean-zero face ledger recovered
+PASS 360 bright flywheel reaches full core occupation at resonance
+PASS 361 dark flywheel cannot excite core in symmetric resonant model
+PASS 362 unitary evolution conserves total occupation
+PASS 363 grade-two loops are nonzero and invisible to square-ring projection
+PASS 364 parity loop also invisible to square-ring projection
+PASS 365 quadratic current scalar reads total vector and bivector intensity
+PASS 366 quadratic chamber sign reads vector-bivector interference
+PASS 367 quadratic current scalar reads total vector and bivector intensity
+PASS 368 quadratic chamber sign reads vector-bivector interference
+PASS 369 quadratic current scalar reads total vector and bivector intensity
+PASS 370 quadratic chamber sign reads vector-bivector interference
+PASS 371 quadratic current scalar reads total vector and bivector intensity
+PASS 372 quadratic chamber sign reads vector-bivector interference
+PASS 373 quadratic current scalar reads total vector and bivector intensity
+PASS 374 quadratic chamber sign reads vector-bivector interference
+PASS 375 Triforce ring tiles are exactly the three lateral faces of the stellation
+PASS 376 opposite-chamber central tile is exactly the triangular base
+PASS 377 Triforce ring tiles are exactly the three lateral faces of the stellation
+PASS 378 opposite-chamber central tile is exactly the triangular base
+PASS 379 Triforce ring tiles are exactly the three lateral faces of the stellation
+PASS 380 opposite-chamber central tile is exactly the triangular base
+PASS 381 Triforce ring tiles are exactly the three lateral faces of the stellation
+PASS 382 opposite-chamber central tile is exactly the triangular base
+PASS 383 Triforce ring tiles are exactly the three lateral faces of the stellation
+PASS 384 opposite-chamber central tile is exactly the triangular base
+PASS 385 Triforce ring tiles are exactly the three lateral faces of the stellation
+PASS 386 opposite-chamber central tile is exactly the triangular base
+PASS 387 Triforce ring tiles are exactly the three lateral faces of the stellation
+PASS 388 opposite-chamber central tile is exactly the triangular base
+PASS 389 Triforce ring tiles are exactly the three lateral faces of the stellation
+PASS 390 opposite-chamber central tile is exactly the triangular base
+PASS 391 Triforce has 33 sites and 104 bonds
+PASS 392 T2 character projector has rank 18
+PASS 393 six distinct T2 eigenbranches, each triply degenerate
+PASS 394 triplet admits nonzero isotropic polar read
+PASS 395 branch transforms as the polar spatial representation
+PASS 396 all eight physical Triforce ring currents share one chirality vector
+PASS 397 outward signed circulation sums separately to zero in each chamber
+PASS 398 oriented face aggregation separates common and chamber-difference Walsh cycles
+PASS 399 square-ring projection discards chamber-difference cycles
+PASS 400 all eight physical Triforce ring currents share one chirality vector
+PASS 401 outward signed circulation sums separately to zero in each chamber
+PASS 402 oriented face aggregation separates common and chamber-difference Walsh cycles
+PASS 403 square-ring projection discards chamber-difference cycles
+PASS 404 all eight physical Triforce ring currents share one chirality vector
+PASS 405 outward signed circulation sums separately to zero in each chamber
+PASS 406 oriented face aggregation separates common and chamber-difference Walsh cycles
+PASS 407 square-ring projection discards chamber-difference cycles
+PASS 408 all eight physical Triforce ring currents share one chirality vector
+PASS 409 outward signed circulation sums separately to zero in each chamber
+PASS 410 oriented face aggregation separates common and chamber-difference Walsh cycles
+PASS 411 square-ring projection discards chamber-difference cycles
+PASS 412 triplet admits nonzero isotropic polar read
+PASS 413 branch transforms as the polar spatial representation
+PASS 414 all eight physical Triforce ring currents share one chirality vector
+PASS 415 outward signed circulation sums separately to zero in each chamber
+PASS 416 oriented face aggregation separates common and chamber-difference Walsh cycles
+PASS 417 square-ring projection discards chamber-difference cycles
+PASS 418 all eight physical Triforce ring currents share one chirality vector
+PASS 419 outward signed circulation sums separately to zero in each chamber
+PASS 420 oriented face aggregation separates common and chamber-difference Walsh cycles
+PASS 421 square-ring projection discards chamber-difference cycles
+PASS 422 all eight physical Triforce ring currents share one chirality vector
+PASS 423 outward signed circulation sums separately to zero in each chamber
+PASS 424 oriented face aggregation separates common and chamber-difference Walsh cycles
+PASS 425 square-ring projection discards chamber-difference cycles
+PASS 426 all eight physical Triforce ring currents share one chirality vector
+PASS 427 outward signed circulation sums separately to zero in each chamber
+PASS 428 oriented face aggregation separates common and chamber-difference Walsh cycles
+PASS 429 square-ring projection discards chamber-difference cycles
+PASS 430 triplet admits nonzero isotropic polar read
+PASS 431 branch transforms as the polar spatial representation
+PASS 432 all eight physical Triforce ring currents share one chirality vector
+PASS 433 outward signed circulation sums separately to zero in each chamber
+PASS 434 oriented face aggregation separates common and chamber-difference Walsh cycles
+PASS 435 square-ring projection discards chamber-difference cycles
+PASS 436 all eight physical Triforce ring currents share one chirality vector
+PASS 437 outward signed circulation sums separately to zero in each chamber
+PASS 438 oriented face aggregation separates common and chamber-difference Walsh cycles
+PASS 439 square-ring projection discards chamber-difference cycles
+PASS 440 all eight physical Triforce ring currents share one chirality vector
+PASS 441 outward signed circulation sums separately to zero in each chamber
+PASS 442 oriented face aggregation separates common and chamber-difference Walsh cycles
+PASS 443 square-ring projection discards chamber-difference cycles
+PASS 444 all eight physical Triforce ring currents share one chirality vector
+PASS 445 outward signed circulation sums separately to zero in each chamber
+PASS 446 oriented face aggregation separates common and chamber-difference Walsh cycles
+PASS 447 square-ring projection discards chamber-difference cycles
+PASS 448 triplet admits nonzero isotropic polar read
+PASS 449 branch transforms as the polar spatial representation
+PASS 450 all eight physical Triforce ring currents share one chirality vector
+PASS 451 outward signed circulation sums separately to zero in each chamber
+PASS 452 oriented face aggregation separates common and chamber-difference Walsh cycles
+PASS 453 square-ring projection discards chamber-difference cycles
+PASS 454 all eight physical Triforce ring currents share one chirality vector
+PASS 455 outward signed circulation sums separately to zero in each chamber
+PASS 456 oriented face aggregation separates common and chamber-difference Walsh cycles
+PASS 457 square-ring projection discards chamber-difference cycles
+PASS 458 all eight physical Triforce ring currents share one chirality vector
+PASS 459 outward signed circulation sums separately to zero in each chamber
+PASS 460 oriented face aggregation separates common and chamber-difference Walsh cycles
+PASS 461 square-ring projection discards chamber-difference cycles
+PASS 462 all eight physical Triforce ring currents share one chirality vector
+PASS 463 outward signed circulation sums separately to zero in each chamber
+PASS 464 oriented face aggregation separates common and chamber-difference Walsh cycles
+PASS 465 square-ring projection discards chamber-difference cycles
+PASS 466 triplet admits nonzero isotropic polar read
+PASS 467 branch transforms as the polar spatial representation
+PASS 468 all eight physical Triforce ring currents share one chirality vector
+PASS 469 outward signed circulation sums separately to zero in each chamber
+PASS 470 oriented face aggregation separates common and chamber-difference Walsh cycles
+PASS 471 square-ring projection discards chamber-difference cycles
+PASS 472 all eight physical Triforce ring currents share one chirality vector
+PASS 473 outward signed circulation sums separately to zero in each chamber
+PASS 474 oriented face aggregation separates common and chamber-difference Walsh cycles
+PASS 475 square-ring projection discards chamber-difference cycles
+PASS 476 all eight physical Triforce ring currents share one chirality vector
+PASS 477 outward signed circulation sums separately to zero in each chamber
+PASS 478 oriented face aggregation separates common and chamber-difference Walsh cycles
+PASS 479 square-ring projection discards chamber-difference cycles
+PASS 480 all eight physical Triforce ring currents share one chirality vector
+PASS 481 outward signed circulation sums separately to zero in each chamber
+PASS 482 oriented face aggregation separates common and chamber-difference Walsh cycles
+PASS 483 square-ring projection discards chamber-difference cycles
+PASS 484 triplet admits nonzero isotropic polar read
+PASS 485 branch transforms as the polar spatial representation
+PASS 486 all eight physical Triforce ring currents share one chirality vector
+PASS 487 outward signed circulation sums separately to zero in each chamber
+PASS 488 oriented face aggregation separates common and chamber-difference Walsh cycles
+PASS 489 square-ring projection discards chamber-difference cycles
+PASS 490 all eight physical Triforce ring currents share one chirality vector
+PASS 491 outward signed circulation sums separately to zero in each chamber
+PASS 492 oriented face aggregation separates common and chamber-difference Walsh cycles
+PASS 493 square-ring projection discards chamber-difference cycles
+PASS 494 all eight physical Triforce ring currents share one chirality vector
+PASS 495 outward signed circulation sums separately to zero in each chamber
+PASS 496 oriented face aggregation separates common and chamber-difference Walsh cycles
+PASS 497 square-ring projection discards chamber-difference cycles
+PASS 498 all eight physical Triforce ring currents share one chirality vector
+PASS 499 outward signed circulation sums separately to zero in each chamber
+PASS 500 oriented face aggregation separates common and chamber-difference Walsh cycles
+PASS 501 square-ring projection discards chamber-difference cycles
+Largest Triforce ring-current identity residual: 2.290e-16
+Triforce branch coefficients (arbitrary model units): [[0.006833633888511937, 0.0037427367139764808], [0.010665433257621764, 0.01124896373314986], [0.026663892921198112, 0.0029597569433445466], [0.0016589162413243618, 0.025212631216686064], [0.0032161454073143217, 0.07966670801619863], [0.07932973359272044, 0.00034612244728423074]]
+
+Largest core current identity residual: 1.110e-16
+Example (energy, effective edge hopping, core/A/B mode weights): [(np.float64(-1.8357019518787716), np.float64(-1.8869949037577953), [-0.36718768713637495, -0.8912170406105878, -0.26628065821750185]), (np.float64(-0.5788429209192079), np.float64(-1.2585653882780181), [0.35903867420770647, -0.3998940472401228, 0.8433125051871856]), (np.float64(2.4061923407736856), np.float64(0.23395224256843916), [0.8580585252991849, -0.2140489138192977, -0.4668175549978461])]
+501/501 checks passed (exact integer/symbolic identities and finite numerical examples).

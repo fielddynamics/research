@@ -1,0 +1,195 @@
+PASS 001 33 sites, 104 actual edges, 8 disjoint three-tile rings
+PASS 002 six orthonormal directional output modes, no scalar outlet
+PASS 003 pure row-winding source with no initial core
+PASS 004 directional port projector respects Td
+PASS 005 chirality transforms axially
+PASS 006 uniform and capacity-assigned graph respect Td
+PASS 007 directional port projector respects Td
+PASS 008 chirality transforms axially
+PASS 009 uniform and capacity-assigned graph respect Td
+PASS 010 directional port projector respects Td
+PASS 011 chirality transforms axially
+PASS 012 uniform and capacity-assigned graph respect Td
+PASS 013 directional port projector respects Td
+PASS 014 chirality transforms axially
+PASS 015 uniform and capacity-assigned graph respect Td
+PASS 016 directional port projector respects Td
+PASS 017 chirality transforms axially
+PASS 018 uniform and capacity-assigned graph respect Td
+PASS 019 directional port projector respects Td
+PASS 020 chirality transforms axially
+PASS 021 uniform and capacity-assigned graph respect Td
+PASS 022 directional port projector respects Td
+PASS 023 chirality transforms axially
+PASS 024 uniform and capacity-assigned graph respect Td
+PASS 025 directional port projector respects Td
+PASS 026 chirality transforms axially
+PASS 027 uniform and capacity-assigned graph respect Td
+PASS 028 directional port projector respects Td
+PASS 029 chirality transforms axially
+PASS 030 uniform and capacity-assigned graph respect Td
+PASS 031 directional port projector respects Td
+PASS 032 chirality transforms axially
+PASS 033 uniform and capacity-assigned graph respect Td
+PASS 034 directional port projector respects Td
+PASS 035 chirality transforms axially
+PASS 036 uniform and capacity-assigned graph respect Td
+PASS 037 directional port projector respects Td
+PASS 038 chirality transforms axially
+PASS 039 uniform and capacity-assigned graph respect Td
+PASS 040 directional port projector respects Td
+PASS 041 chirality transforms axially
+PASS 042 uniform and capacity-assigned graph respect Td
+PASS 043 directional port projector respects Td
+PASS 044 chirality transforms axially
+PASS 045 uniform and capacity-assigned graph respect Td
+PASS 046 directional port projector respects Td
+PASS 047 chirality transforms axially
+PASS 048 uniform and capacity-assigned graph respect Td
+PASS 049 directional port projector respects Td
+PASS 050 chirality transforms axially
+PASS 051 uniform and capacity-assigned graph respect Td
+PASS 052 directional port projector respects Td
+PASS 053 chirality transforms axially
+PASS 054 uniform and capacity-assigned graph respect Td
+PASS 055 directional port projector respects Td
+PASS 056 chirality transforms axially
+PASS 057 uniform and capacity-assigned graph respect Td
+PASS 058 directional port projector respects Td
+PASS 059 chirality transforms axially
+PASS 060 uniform and capacity-assigned graph respect Td
+PASS 061 directional port projector respects Td
+PASS 062 chirality transforms axially
+PASS 063 uniform and capacity-assigned graph respect Td
+PASS 064 directional port projector respects Td
+PASS 065 chirality transforms axially
+PASS 066 uniform and capacity-assigned graph respect Td
+PASS 067 directional port projector respects Td
+PASS 068 chirality transforms axially
+PASS 069 uniform and capacity-assigned graph respect Td
+PASS 070 directional port projector respects Td
+PASS 071 chirality transforms axially
+PASS 072 uniform and capacity-assigned graph respect Td
+PASS 073 directional port projector respects Td
+PASS 074 chirality transforms axially
+PASS 075 uniform and capacity-assigned graph respect Td
+PASS 076 uniform collective sector exactly invariant
+PASS 077 uniform closed scalar centre is dark
+uniform candidate frequencies:
+-10 0.00047769405374300947 0.00011122439521735102 0.00025025488923903987
+-6 0.001027500279829862 0.0009949506255752067 0.0022386389075442145
+-4 0.0003660386677956411 0.009031893875246975 0.020321761219305692
+-3 -0.05833333333333369 0.23703703703703766 0.5333333333333348
+-2 -0.003987630208333354 0.018518518518518497 0.04166666666666662
+-1 -0.020833333333333343 4.680744920282655e-34 2.2978014504704604e-33
+0 -0.1927083333333336 0.23703703703703724 0.5333333333333339
+1 -0.020833333333333353 0.29629629629629617 0.6666666666666665
+2 0.009114583333333277 0.5333333333333331 1.1999999999999993
+3 0.04611423220973777 0.21306699958385342 0.4794007490636703
+4 0.008521174863387968 0.01942926533090467 0.043715846994535505
+6 0.002156471772480024 0.0018509075112848696 0.004164541900390957
+10 0.0006337859325638138 0.00016454483719325258 0.00037022588368481837
+PASS 078 capacity collective sector exactly invariant
+PASS 079 capacity closed scalar centre is dark
+capacity candidate frequencies:
+-10 0.0003702395877440145 0.00010419010294739131 0.000265482932090665
+-6 0.0007241687384021059 0.000916917644500543 0.002445768650327828
+-4 -0.00038839095129533196 0.008994035162773716 0.021204928967763863
+-3 -0.07540226903706232 0.23443207791917864 0.5956145774582051
+-2 -0.0077567631233656596 0.01776486678963773 0.05097789206346707
+-1 -0.018697655755685192 0.0007946302571105235 0.0023354543685357976
+0 -0.15617326552904545 0.1544480685188569 0.3676464374555153
+1 -0.03334170404934269 0.33678559707187355 0.7781199724731355
+2 0.02659273536032338 0.12429578119414254 0.5064609009687622
+3 0.0037019597551610425 0.497594078176134 1.7305968280205668
+4 0.0045221416576015135 0.02322798092626935 0.06461750512369395
+6 0.0013932426328286574 0.0018674473574549764 0.004847741843610644
+10 0.00044954799478232575 0.00015903504170243084 0.0004036130917676948
+PASS 080 uniform full forced equation
+PASS 081 uniform all 24 ring directions preserved in driven state
+PASS 082 uniform actual central angular current nonzero
+PASS 083 uniform physical inward cut flux = outlet = source
+PASS 084 uniform ring-resolved flux balances total cut
+PASS 085 all eight rings feed inner region with equal positive net cut
+uniform ring-resolved net inward cut: [0.15000000000000013, 0.15000000000000024, 0.14999999999999997, 0.14999999999999994, 0.1499999999999998, 0.14999999999999977, 0.1499999999999998, 0.14999999999999994]
+PASS 086 uniform scalar O still dark
+PASS 087 uniform local steady continuity including directional sink
+PASS 088 uniform local outlet loss nonnegative
+PASS 089 uniform axial output parallel to chirality
+PASS 090 uniform reversing input swirl reverses axial output but not mass/occupation flux
+PASS 091 uniform all eight ring means reverse under conjugate input polarization
+PASS 092 uniform integrated packet occupation conservation
+PASS 093 uniform unpumped packet drains and cannot supply indefinite throughput
+PASS 094 uniform closed packet conserves occupation
+PASS 095 capacity full forced equation
+PASS 096 capacity all 24 ring directions preserved in driven state
+PASS 097 capacity actual central angular current nonzero
+PASS 098 capacity physical inward cut flux = outlet = source
+PASS 099 capacity ring-resolved flux balances total cut
+PASS 100 asymmetry permits one chamber to feed and other to receive net inner flow
+capacity ring-resolved net inward cut: [-0.08066020540525556, -0.08066020540525554, -0.08066020540525567, -0.0806602054052556, 0.20727543064744613, 0.20727543064744605, 0.2072754306474461, 0.20727543064744613]
+PASS 101 capacity scalar O still dark
+PASS 102 capacity local steady continuity including directional sink
+PASS 103 capacity local outlet loss nonnegative
+PASS 104 capacity axial output parallel to chirality
+PASS 105 capacity reversing input swirl reverses axial output but not mass/occupation flux
+PASS 106 capacity all eight ring means reverse under conjugate input polarization
+PASS 107 capacity integrated packet occupation conservation
+PASS 108 capacity unpumped packet drains and cannot supply indefinite throughput
+PASS 109 capacity closed packet conserves occupation
+PASS 110 neutral axial receiver exact energy and collinearity
+PASS 111 neutral axial receiver exact energy and collinearity
+PASS 112 neutral axial receiver exact energy and collinearity
+PASS 113 neutral axial receiver exact energy and collinearity
+PASS 114 neutral axial receiver exact energy and collinearity
+PASS 115 neutral axial receiver exact energy and collinearity
+PASS 116 neutral axial receiver exact energy and collinearity
+PASS 117 neutral axial receiver exact energy and collinearity
+PASS 118 neutral axial receiver exact energy and collinearity
+PASS 119 neutral axial receiver exact energy and collinearity
+PASS 120 neutral axial receiver exact energy and collinearity
+PASS 121 neutral axial receiver exact energy and collinearity
+PASS 122 neutral axial receiver exact energy and collinearity
+PASS 123 neutral axial receiver exact energy and collinearity
+PASS 124 neutral axial receiver exact energy and collinearity
+PASS 125 neutral axial receiver exact energy and collinearity
+PASS 126 neutral axial receiver exact energy and collinearity
+PASS 127 neutral axial receiver exact energy and collinearity
+PASS 128 neutral axial receiver exact energy and collinearity
+PASS 129 neutral axial receiver exact energy and collinearity
+PASS 130 neutral axial receiver exact energy and collinearity
+PASS 131 neutral axial receiver exact energy and collinearity
+PASS 132 neutral axial receiver exact energy and collinearity
+PASS 133 neutral axial receiver exact energy and collinearity
+PASS 134 neutral axial receiver exact energy and collinearity
+PASS 135 neutral axial receiver exact energy and collinearity
+PASS 136 neutral axial receiver exact energy and collinearity
+PASS 137 neutral axial receiver exact energy and collinearity
+PASS 138 neutral axial receiver exact energy and collinearity
+PASS 139 neutral axial receiver exact energy and collinearity
+PASS 140 neutral axial receiver exact energy and collinearity
+PASS 141 chirality invariant under global phase
+PASS 142 chirality invariant under global phase
+PASS 143 chirality invariant under global phase
+PASS 144 chirality invariant under global phase
+PASS 145 chirality invariant under global phase
+PASS 146 chirality invariant under global phase
+PASS 147 chirality invariant under global phase
+PASS 148 chirality invariant under global phase
+PASS 149 chirality invariant under global phase
+PASS 150 chirality invariant under global phase
+PASS 151 chirality invariant under global phase
+PASS 152 chirality invariant under global phase
+PASS 153 chirality invariant under global phase
+PASS 154 uniform exact reduced graph and port intertwining
+PASS 155 uniform exact nonzero central coefficients for forced response
+uniform exact reduced coefficients: [-19/60 - I/5, -17/60 - 3*I/5, 8/5 + 4*I/5, -19/60 - I/5, -17/60 - 3*I/5, 8/5 + 4*I/5]
+PASS 156 uniform exact positive inward flux per ring
+PASS 157 uniform exact all 24 ring bond signs
+PASS 158 uniform exact total outlet occupation flux 6/5
+PASS 159 capacity exact reduced graph and port intertwining
+PASS 160 capacity exact nonzero central coefficients for forced response
+capacity exact reduced coefficients: [-207402644157028291/761798950971194508 - 17497440452046809*I/190449737742798627, -532886356259427809/761798950971194508 + 2158676759758839*I/63483245914266209, -171752663349769768/190449737742798627 + 189155029588133260*I/190449737742798627, 281426442568445641/761798950971194508 - 9948851966520351*I/63483245914266209, 1209884076731800739/761798950971194508 - 34310458681919629*I/63483245914266209, 179688753264515384/190449737742798627 + 6717508835903860*I/63483245914266209]
+model, steady flux, min directed ring bond, inner moment norm, packet outlet at t=30, port A, port B: ('uniform', np.float64(1.1999999999999997), np.float64(0.009114583333333277), np.float64(0.5333333333333331), np.float64(0.9988407250822194), np.float64(0.5999999999999996), np.float64(0.5999999999999999))
+model, steady flux, min directed ring bond, inner moment norm, packet outlet at t=30, port A, port B: ('capacity', np.float64(0.5064609009687622), np.float64(0.02659273536032338), np.float64(0.12429578119414254), np.float64(0.9988386568039376), np.float64(0.33745150010386815), np.float64(0.16900940086489397))
+160/160 new checks passed.

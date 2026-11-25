@@ -1,0 +1,498 @@
+Previous proof rerun: 501/501 passed
+PASS 001 exact conservation chain map L C1 = C0 L33
+PASS 002 every fine site has unit barycentric weight
+PASS 003 exact site equivariance
+PASS 004 exact edge equivariance
+PASS 005 exact site equivariance
+PASS 006 exact edge equivariance
+PASS 007 exact site equivariance
+PASS 008 exact edge equivariance
+PASS 009 exact site equivariance
+PASS 010 exact edge equivariance
+PASS 011 exact site equivariance
+PASS 012 exact edge equivariance
+PASS 013 exact site equivariance
+PASS 014 exact edge equivariance
+PASS 015 exact site equivariance
+PASS 016 exact edge equivariance
+PASS 017 exact site equivariance
+PASS 018 exact edge equivariance
+PASS 019 exact site equivariance
+PASS 020 exact edge equivariance
+PASS 021 exact site equivariance
+PASS 022 exact edge equivariance
+PASS 023 exact site equivariance
+PASS 024 exact edge equivariance
+PASS 025 exact site equivariance
+PASS 026 exact edge equivariance
+PASS 027 exact site equivariance
+PASS 028 exact edge equivariance
+PASS 029 exact site equivariance
+PASS 030 exact edge equivariance
+PASS 031 exact site equivariance
+PASS 032 exact edge equivariance
+PASS 033 exact site equivariance
+PASS 034 exact edge equivariance
+PASS 035 exact site equivariance
+PASS 036 exact edge equivariance
+PASS 037 exact site equivariance
+PASS 038 exact edge equivariance
+PASS 039 exact site equivariance
+PASS 040 exact edge equivariance
+PASS 041 exact site equivariance
+PASS 042 exact edge equivariance
+PASS 043 exact site equivariance
+PASS 044 exact edge equivariance
+PASS 045 exact site equivariance
+PASS 046 exact edge equivariance
+PASS 047 exact site equivariance
+PASS 048 exact edge equivariance
+PASS 049 exact site equivariance
+PASS 050 exact edge equivariance
+PASS 051 eight fine triangular rings map to eight oriented core face boundaries /4
+PASS 052 fine ring columns are divergence-free
+PASS 053 exact cycle orthogonality
+PASS 054 cycle projector equals I minus gradient projector
+PASS 055 pushforward spans complete core cycle space on fine cycles
+PASS 056 Lambda^2(1 T2) contains no A2, T1 multiplicity m(m+1)/2
+PASS 057 Lambda^2(2 T2) contains no A2, T1 multiplicity m(m+1)/2
+PASS 058 Lambda^2(3 T2) contains no A2, T1 multiplicity m(m+1)/2
+PASS 059 Lambda^2(6 T2) contains no A2, T1 multiplicity m(m+1)/2
+PASS 060 Lambda^2(10 T2) contains no A2, T1 multiplicity m(m+1)/2
+PASS 061 Triforce E isotypic rank 4
+PASS 062 all six aligned branches intertwine tetrahedral action
+PASS 063 stationary Triforce mapped current is divergence-free
+PASS 064 T2 stationary current has no parity cycle
+PASS 065 complete stationary current vector/bivector sectors align with same chirality
+PASS 066 stationary Triforce mapped current is divergence-free
+PASS 067 T2 stationary current has no parity cycle
+PASS 068 complete stationary current vector/bivector sectors align with same chirality
+PASS 069 stationary Triforce mapped current is divergence-free
+PASS 070 T2 stationary current has no parity cycle
+PASS 071 complete stationary current vector/bivector sectors align with same chirality
+PASS 072 stationary Triforce mapped current is divergence-free
+PASS 073 T2 stationary current has no parity cycle
+PASS 074 complete stationary current vector/bivector sectors align with same chirality
+PASS 075 stationary Triforce mapped current is divergence-free
+PASS 076 T2 stationary current has no parity cycle
+PASS 077 complete stationary current vector/bivector sectors align with same chirality
+PASS 078 stationary Triforce mapped current is divergence-free
+PASS 079 T2 stationary current has no parity cycle
+PASS 080 complete stationary current vector/bivector sectors align with same chirality
+PASS 081 fine continuity for coherent superposition
+PASS 082 coarse continuity for coherent superposition
+PASS 083 even arbitrary coherent T2 mixing has no A2 parity cycle
+PASS 084 actual T2 Hamiltonian has multiplicity tensor identity form
+PASS 085 shared spatial density including collective chirality is conserved
+PASS 086 local chirality can change while total is conserved
+PASS 087 E doublet gives stationary divergence-free current
+PASS 088 E doublet current can only occupy A2 cycle, not square/bivector rings
+PASS 089 E doublet gives stationary divergence-free current
+PASS 090 E doublet current can only occupy A2 cycle, not square/bivector rings
+PASS 091 all six aligned branches intertwine tetrahedral action
+PASS 092 stationary Triforce mapped current is divergence-free
+PASS 093 T2 stationary current has no parity cycle
+PASS 094 complete stationary current vector/bivector sectors align with same chirality
+PASS 095 stationary Triforce mapped current is divergence-free
+PASS 096 T2 stationary current has no parity cycle
+PASS 097 complete stationary current vector/bivector sectors align with same chirality
+PASS 098 stationary Triforce mapped current is divergence-free
+PASS 099 T2 stationary current has no parity cycle
+PASS 100 complete stationary current vector/bivector sectors align with same chirality
+PASS 101 stationary Triforce mapped current is divergence-free
+PASS 102 T2 stationary current has no parity cycle
+PASS 103 complete stationary current vector/bivector sectors align with same chirality
+PASS 104 stationary Triforce mapped current is divergence-free
+PASS 105 T2 stationary current has no parity cycle
+PASS 106 complete stationary current vector/bivector sectors align with same chirality
+PASS 107 stationary Triforce mapped current is divergence-free
+PASS 108 T2 stationary current has no parity cycle
+PASS 109 complete stationary current vector/bivector sectors align with same chirality
+PASS 110 fine continuity for coherent superposition
+PASS 111 coarse continuity for coherent superposition
+PASS 112 even arbitrary coherent T2 mixing has no A2 parity cycle
+PASS 113 actual T2 Hamiltonian has multiplicity tensor identity form
+PASS 114 shared spatial density including collective chirality is conserved
+PASS 115 local chirality can change while total is conserved
+PASS 116 E doublet gives stationary divergence-free current
+PASS 117 E doublet current can only occupy A2 cycle, not square/bivector rings
+PASS 118 E doublet gives stationary divergence-free current
+PASS 119 E doublet current can only occupy A2 cycle, not square/bivector rings
+PASS 120 all six aligned branches intertwine tetrahedral action
+PASS 121 stationary Triforce mapped current is divergence-free
+PASS 122 T2 stationary current has no parity cycle
+PASS 123 complete stationary current vector/bivector sectors align with same chirality
+PASS 124 stationary Triforce mapped current is divergence-free
+PASS 125 T2 stationary current has no parity cycle
+PASS 126 complete stationary current vector/bivector sectors align with same chirality
+PASS 127 stationary Triforce mapped current is divergence-free
+PASS 128 T2 stationary current has no parity cycle
+PASS 129 complete stationary current vector/bivector sectors align with same chirality
+PASS 130 stationary Triforce mapped current is divergence-free
+PASS 131 T2 stationary current has no parity cycle
+PASS 132 complete stationary current vector/bivector sectors align with same chirality
+PASS 133 stationary Triforce mapped current is divergence-free
+PASS 134 T2 stationary current has no parity cycle
+PASS 135 complete stationary current vector/bivector sectors align with same chirality
+PASS 136 stationary Triforce mapped current is divergence-free
+PASS 137 T2 stationary current has no parity cycle
+PASS 138 complete stationary current vector/bivector sectors align with same chirality
+PASS 139 fine continuity for coherent superposition
+PASS 140 coarse continuity for coherent superposition
+PASS 141 even arbitrary coherent T2 mixing has no A2 parity cycle
+PASS 142 actual T2 Hamiltonian has multiplicity tensor identity form
+PASS 143 shared spatial density including collective chirality is conserved
+PASS 144 local chirality can change while total is conserved
+PASS 145 E doublet gives stationary divergence-free current
+PASS 146 E doublet current can only occupy A2 cycle, not square/bivector rings
+PASS 147 E doublet gives stationary divergence-free current
+PASS 148 E doublet current can only occupy A2 cycle, not square/bivector rings
+PASS 149 all six aligned branches intertwine tetrahedral action
+PASS 150 stationary Triforce mapped current is divergence-free
+PASS 151 T2 stationary current has no parity cycle
+PASS 152 complete stationary current vector/bivector sectors align with same chirality
+PASS 153 stationary Triforce mapped current is divergence-free
+PASS 154 T2 stationary current has no parity cycle
+PASS 155 complete stationary current vector/bivector sectors align with same chirality
+PASS 156 stationary Triforce mapped current is divergence-free
+PASS 157 T2 stationary current has no parity cycle
+PASS 158 complete stationary current vector/bivector sectors align with same chirality
+PASS 159 stationary Triforce mapped current is divergence-free
+PASS 160 T2 stationary current has no parity cycle
+PASS 161 complete stationary current vector/bivector sectors align with same chirality
+PASS 162 stationary Triforce mapped current is divergence-free
+PASS 163 T2 stationary current has no parity cycle
+PASS 164 complete stationary current vector/bivector sectors align with same chirality
+PASS 165 stationary Triforce mapped current is divergence-free
+PASS 166 T2 stationary current has no parity cycle
+PASS 167 complete stationary current vector/bivector sectors align with same chirality
+PASS 168 fine continuity for coherent superposition
+PASS 169 coarse continuity for coherent superposition
+PASS 170 even arbitrary coherent T2 mixing has no A2 parity cycle
+PASS 171 actual T2 Hamiltonian has multiplicity tensor identity form
+PASS 172 shared spatial density including collective chirality is conserved
+PASS 173 local chirality can change while total is conserved
+PASS 174 E doublet gives stationary divergence-free current
+PASS 175 E doublet current can only occupy A2 cycle, not square/bivector rings
+PASS 176 E doublet gives stationary divergence-free current
+PASS 177 E doublet current can only occupy A2 cycle, not square/bivector rings
+PASS 178 all six aligned branches intertwine tetrahedral action
+PASS 179 stationary Triforce mapped current is divergence-free
+PASS 180 T2 stationary current has no parity cycle
+PASS 181 complete stationary current vector/bivector sectors align with same chirality
+PASS 182 stationary Triforce mapped current is divergence-free
+PASS 183 T2 stationary current has no parity cycle
+PASS 184 complete stationary current vector/bivector sectors align with same chirality
+PASS 185 stationary Triforce mapped current is divergence-free
+PASS 186 T2 stationary current has no parity cycle
+PASS 187 complete stationary current vector/bivector sectors align with same chirality
+PASS 188 stationary Triforce mapped current is divergence-free
+PASS 189 T2 stationary current has no parity cycle
+PASS 190 complete stationary current vector/bivector sectors align with same chirality
+PASS 191 stationary Triforce mapped current is divergence-free
+PASS 192 T2 stationary current has no parity cycle
+PASS 193 complete stationary current vector/bivector sectors align with same chirality
+PASS 194 stationary Triforce mapped current is divergence-free
+PASS 195 T2 stationary current has no parity cycle
+PASS 196 complete stationary current vector/bivector sectors align with same chirality
+PASS 197 fine continuity for coherent superposition
+PASS 198 coarse continuity for coherent superposition
+PASS 199 even arbitrary coherent T2 mixing has no A2 parity cycle
+PASS 200 actual T2 Hamiltonian has multiplicity tensor identity form
+PASS 201 shared spatial density including collective chirality is conserved
+PASS 202 local chirality can change while total is conserved
+PASS 203 E doublet gives stationary divergence-free current
+PASS 204 E doublet current can only occupy A2 cycle, not square/bivector rings
+PASS 205 E doublet gives stationary divergence-free current
+PASS 206 E doublet current can only occupy A2 cycle, not square/bivector rings
+PASS 207 all six aligned branches intertwine tetrahedral action
+PASS 208 stationary Triforce mapped current is divergence-free
+PASS 209 T2 stationary current has no parity cycle
+PASS 210 complete stationary current vector/bivector sectors align with same chirality
+PASS 211 stationary Triforce mapped current is divergence-free
+PASS 212 T2 stationary current has no parity cycle
+PASS 213 complete stationary current vector/bivector sectors align with same chirality
+PASS 214 stationary Triforce mapped current is divergence-free
+PASS 215 T2 stationary current has no parity cycle
+PASS 216 complete stationary current vector/bivector sectors align with same chirality
+PASS 217 stationary Triforce mapped current is divergence-free
+PASS 218 T2 stationary current has no parity cycle
+PASS 219 complete stationary current vector/bivector sectors align with same chirality
+PASS 220 stationary Triforce mapped current is divergence-free
+PASS 221 T2 stationary current has no parity cycle
+PASS 222 complete stationary current vector/bivector sectors align with same chirality
+PASS 223 stationary Triforce mapped current is divergence-free
+PASS 224 T2 stationary current has no parity cycle
+PASS 225 complete stationary current vector/bivector sectors align with same chirality
+PASS 226 fine continuity for coherent superposition
+PASS 227 coarse continuity for coherent superposition
+PASS 228 even arbitrary coherent T2 mixing has no A2 parity cycle
+PASS 229 actual T2 Hamiltonian has multiplicity tensor identity form
+PASS 230 shared spatial density including collective chirality is conserved
+PASS 231 local chirality can change while total is conserved
+PASS 232 E doublet gives stationary divergence-free current
+PASS 233 E doublet current can only occupy A2 cycle, not square/bivector rings
+PASS 234 E doublet gives stationary divergence-free current
+PASS 235 E doublet current can only occupy A2 cycle, not square/bivector rings
+PASS 236 all six aligned branches intertwine tetrahedral action
+PASS 237 stationary Triforce mapped current is divergence-free
+PASS 238 T2 stationary current has no parity cycle
+PASS 239 complete stationary current vector/bivector sectors align with same chirality
+PASS 240 stationary Triforce mapped current is divergence-free
+PASS 241 T2 stationary current has no parity cycle
+PASS 242 complete stationary current vector/bivector sectors align with same chirality
+PASS 243 stationary Triforce mapped current is divergence-free
+PASS 244 T2 stationary current has no parity cycle
+PASS 245 complete stationary current vector/bivector sectors align with same chirality
+PASS 246 stationary Triforce mapped current is divergence-free
+PASS 247 T2 stationary current has no parity cycle
+PASS 248 complete stationary current vector/bivector sectors align with same chirality
+PASS 249 stationary Triforce mapped current is divergence-free
+PASS 250 T2 stationary current has no parity cycle
+PASS 251 complete stationary current vector/bivector sectors align with same chirality
+PASS 252 stationary Triforce mapped current is divergence-free
+PASS 253 T2 stationary current has no parity cycle
+PASS 254 complete stationary current vector/bivector sectors align with same chirality
+PASS 255 fine continuity for coherent superposition
+PASS 256 coarse continuity for coherent superposition
+PASS 257 even arbitrary coherent T2 mixing has no A2 parity cycle
+PASS 258 actual T2 Hamiltonian has multiplicity tensor identity form
+PASS 259 shared spatial density including collective chirality is conserved
+PASS 260 local chirality can change while total is conserved
+PASS 261 E doublet gives stationary divergence-free current
+PASS 262 E doublet current can only occupy A2 cycle, not square/bivector rings
+PASS 263 E doublet gives stationary divergence-free current
+PASS 264 E doublet current can only occupy A2 cycle, not square/bivector rings
+PASS 265 all six aligned branches intertwine tetrahedral action
+PASS 266 stationary Triforce mapped current is divergence-free
+PASS 267 T2 stationary current has no parity cycle
+PASS 268 complete stationary current vector/bivector sectors align with same chirality
+PASS 269 stationary Triforce mapped current is divergence-free
+PASS 270 T2 stationary current has no parity cycle
+PASS 271 complete stationary current vector/bivector sectors align with same chirality
+PASS 272 stationary Triforce mapped current is divergence-free
+PASS 273 T2 stationary current has no parity cycle
+PASS 274 complete stationary current vector/bivector sectors align with same chirality
+PASS 275 stationary Triforce mapped current is divergence-free
+PASS 276 T2 stationary current has no parity cycle
+PASS 277 complete stationary current vector/bivector sectors align with same chirality
+PASS 278 stationary Triforce mapped current is divergence-free
+PASS 279 T2 stationary current has no parity cycle
+PASS 280 complete stationary current vector/bivector sectors align with same chirality
+PASS 281 stationary Triforce mapped current is divergence-free
+PASS 282 T2 stationary current has no parity cycle
+PASS 283 complete stationary current vector/bivector sectors align with same chirality
+PASS 284 fine continuity for coherent superposition
+PASS 285 coarse continuity for coherent superposition
+PASS 286 even arbitrary coherent T2 mixing has no A2 parity cycle
+PASS 287 actual T2 Hamiltonian has multiplicity tensor identity form
+PASS 288 shared spatial density including collective chirality is conserved
+PASS 289 local chirality can change while total is conserved
+PASS 290 E doublet gives stationary divergence-free current
+PASS 291 E doublet current can only occupy A2 cycle, not square/bivector rings
+PASS 292 E doublet gives stationary divergence-free current
+PASS 293 E doublet current can only occupy A2 cycle, not square/bivector rings
+PASS 294 all six aligned branches intertwine tetrahedral action
+PASS 295 stationary Triforce mapped current is divergence-free
+PASS 296 T2 stationary current has no parity cycle
+PASS 297 complete stationary current vector/bivector sectors align with same chirality
+PASS 298 stationary Triforce mapped current is divergence-free
+PASS 299 T2 stationary current has no parity cycle
+PASS 300 complete stationary current vector/bivector sectors align with same chirality
+PASS 301 stationary Triforce mapped current is divergence-free
+PASS 302 T2 stationary current has no parity cycle
+PASS 303 complete stationary current vector/bivector sectors align with same chirality
+PASS 304 stationary Triforce mapped current is divergence-free
+PASS 305 T2 stationary current has no parity cycle
+PASS 306 complete stationary current vector/bivector sectors align with same chirality
+PASS 307 stationary Triforce mapped current is divergence-free
+PASS 308 T2 stationary current has no parity cycle
+PASS 309 complete stationary current vector/bivector sectors align with same chirality
+PASS 310 stationary Triforce mapped current is divergence-free
+PASS 311 T2 stationary current has no parity cycle
+PASS 312 complete stationary current vector/bivector sectors align with same chirality
+PASS 313 fine continuity for coherent superposition
+PASS 314 coarse continuity for coherent superposition
+PASS 315 even arbitrary coherent T2 mixing has no A2 parity cycle
+PASS 316 actual T2 Hamiltonian has multiplicity tensor identity form
+PASS 317 shared spatial density including collective chirality is conserved
+PASS 318 local chirality can change while total is conserved
+PASS 319 E doublet gives stationary divergence-free current
+PASS 320 E doublet current can only occupy A2 cycle, not square/bivector rings
+PASS 321 E doublet gives stationary divergence-free current
+PASS 322 E doublet current can only occupy A2 cycle, not square/bivector rings
+PASS 323 all six aligned branches intertwine tetrahedral action
+PASS 324 stationary Triforce mapped current is divergence-free
+PASS 325 T2 stationary current has no parity cycle
+PASS 326 complete stationary current vector/bivector sectors align with same chirality
+PASS 327 stationary Triforce mapped current is divergence-free
+PASS 328 T2 stationary current has no parity cycle
+PASS 329 complete stationary current vector/bivector sectors align with same chirality
+PASS 330 stationary Triforce mapped current is divergence-free
+PASS 331 T2 stationary current has no parity cycle
+PASS 332 complete stationary current vector/bivector sectors align with same chirality
+PASS 333 stationary Triforce mapped current is divergence-free
+PASS 334 T2 stationary current has no parity cycle
+PASS 335 complete stationary current vector/bivector sectors align with same chirality
+PASS 336 stationary Triforce mapped current is divergence-free
+PASS 337 T2 stationary current has no parity cycle
+PASS 338 complete stationary current vector/bivector sectors align with same chirality
+PASS 339 stationary Triforce mapped current is divergence-free
+PASS 340 T2 stationary current has no parity cycle
+PASS 341 complete stationary current vector/bivector sectors align with same chirality
+PASS 342 fine continuity for coherent superposition
+PASS 343 coarse continuity for coherent superposition
+PASS 344 even arbitrary coherent T2 mixing has no A2 parity cycle
+PASS 345 actual T2 Hamiltonian has multiplicity tensor identity form
+PASS 346 shared spatial density including collective chirality is conserved
+PASS 347 local chirality can change while total is conserved
+PASS 348 E doublet gives stationary divergence-free current
+PASS 349 E doublet current can only occupy A2 cycle, not square/bivector rings
+PASS 350 E doublet gives stationary divergence-free current
+PASS 351 E doublet current can only occupy A2 cycle, not square/bivector rings
+PASS 352 counterexample: full projected current is not merely mapped outer mean ring currents
+PASS 353 counterexample: grade-2 cycle survives physical projection, absent from original 15-site T2 model
+E doublet maximum A2 current: 0.12261399272743774
+PASS 354 E doublet counterexample activates parity-only cycle
+PASS 355 stationary currents across tested Triforce branches span all seven cycles
+PASS 356 15-site E mode: exact energy Delta_f+2h, zero apex and centre
+PASS 357 15-site E mode: physical parity cycle equals h sqrt(3)/12 Dp
+PASS 358 15-site E mode: no axial square-ring read, current locally conserved
+PASS 359 15-site E mode: exact energy Delta_f+2h, zero apex and centre
+PASS 360 15-site E mode: physical parity cycle equals h sqrt(3)/12 Dp
+PASS 361 15-site E mode: no axial square-ring read, current locally conserved
+PASS 362 15-site E mode: exact energy Delta_f+2h, zero apex and centre
+PASS 363 15-site E mode: physical parity cycle equals h sqrt(3)/12 Dp
+PASS 364 15-site E mode: no axial square-ring read, current locally conserved
+PASS 365 15-site E mode: exact energy Delta_f+2h, zero apex and centre
+PASS 366 15-site E mode: physical parity cycle equals h sqrt(3)/12 Dp
+PASS 367 15-site E mode: no axial square-ring read, current locally conserved
+PASS 368 15-site E mode: exact energy Delta_f+2h, zero apex and centre
+PASS 369 15-site E mode: physical parity cycle equals h sqrt(3)/12 Dp
+PASS 370 15-site E mode: no axial square-ring read, current locally conserved
+PASS 371 15-site E mode: exact energy Delta_f+2h, zero apex and centre
+PASS 372 15-site E mode: physical parity cycle equals h sqrt(3)/12 Dp
+PASS 373 15-site E mode: no axial square-ring read, current locally conserved
+PASS 374 15-site E mode: exact energy Delta_f+2h, zero apex and centre
+PASS 375 15-site E mode: physical parity cycle equals h sqrt(3)/12 Dp
+PASS 376 15-site E mode: no axial square-ring read, current locally conserved
+PASS 377 15-site E mode: exact energy Delta_f+2h, zero apex and centre
+PASS 378 15-site E mode: physical parity cycle equals h sqrt(3)/12 Dp
+PASS 379 15-site E mode: no axial square-ring read, current locally conserved
+PASS 380 quadratic map T2 to E equivariant exactly in form
+PASS 381 quadratic map T2 to E equivariant exactly in form
+PASS 382 quadratic map T2 to E equivariant exactly in form
+PASS 383 quadratic map T2 to E equivariant exactly in form
+PASS 384 quadratic map T2 to E equivariant exactly in form
+PASS 385 quadratic map T2 to E equivariant exactly in form
+PASS 386 quadratic map T2 to E equivariant exactly in form
+PASS 387 quadratic map T2 to E equivariant exactly in form
+PASS 388 quadratic map T2 to E equivariant exactly in form
+PASS 389 quadratic map T2 to E equivariant exactly in form
+PASS 390 quadratic map T2 to E equivariant exactly in form
+PASS 391 quadratic map T2 to E equivariant exactly in form
+PASS 392 quadratic map T2 to E equivariant exactly in form
+PASS 393 quadratic map T2 to E equivariant exactly in form
+PASS 394 quadratic map T2 to E equivariant exactly in form
+PASS 395 quadratic map T2 to E equivariant exactly in form
+PASS 396 quadratic map T2 to E equivariant exactly in form
+PASS 397 quadratic map T2 to E equivariant exactly in form
+PASS 398 quadratic map T2 to E equivariant exactly in form
+PASS 399 quadratic map T2 to E equivariant exactly in form
+PASS 400 quadratic map T2 to E equivariant exactly in form
+PASS 401 quadratic map T2 to E equivariant exactly in form
+PASS 402 quadratic map T2 to E equivariant exactly in form
+PASS 403 quadratic map T2 to E equivariant exactly in form
+PASS 404 quadratic map T2 to E equivariant exactly in form
+PASS 405 quadratic map T2 to E equivariant exactly in form
+PASS 406 quadratic map T2 to E equivariant exactly in form
+PASS 407 quadratic map T2 to E equivariant exactly in form
+PASS 408 quadratic map T2 to E equivariant exactly in form
+PASS 409 quadratic map T2 to E equivariant exactly in form
+PASS 410 quadratic map T2 to E equivariant exactly in form
+PASS 411 quadratic map T2 to E equivariant exactly in form
+PASS 412 quadratic map T2 to E equivariant exactly in form
+PASS 413 quadratic map T2 to E equivariant exactly in form
+PASS 414 quadratic map T2 to E equivariant exactly in form
+PASS 415 quadratic map T2 to E equivariant exactly in form
+PASS 416 quadratic map T2 to E equivariant exactly in form
+PASS 417 quadratic map T2 to E equivariant exactly in form
+PASS 418 quadratic map T2 to E equivariant exactly in form
+PASS 419 quadratic map T2 to E equivariant exactly in form
+PASS 420 quadratic map T2 to E equivariant exactly in form
+PASS 421 quadratic map T2 to E equivariant exactly in form
+PASS 422 quadratic map T2 to E equivariant exactly in form
+PASS 423 quadratic map T2 to E equivariant exactly in form
+PASS 424 quadratic map T2 to E equivariant exactly in form
+PASS 425 quadratic map T2 to E equivariant exactly in form
+PASS 426 quadratic map T2 to E equivariant exactly in form
+PASS 427 quadratic map T2 to E equivariant exactly in form
+PASS 428 leg: nonzero E harmonic and backreaction stays along original T2 polarization
+PASS 429 leg: nonlinear receiver conserves charge N_z+2N_E
+PASS 430 leg: E conversion remains trace-free
+PASS 431 leg: numerical conversion matches exact resonant sech/tanh solution
+PASS 432 leg: harmonic produces only parity-cycle component
+PASS 433 leg: nonzero parity circulation selection
+leg quadratic E harmonic eta=0.577350269; max charge residual=5.941e-10; parity current norm=0.499431431
+PASS 434 axis: nonzero E harmonic and backreaction stays along original T2 polarization
+PASS 435 axis: nonlinear receiver conserves charge N_z+2N_E
+PASS 436 axis: E conversion remains trace-free
+PASS 437 axis: numerical conversion matches exact resonant sech/tanh solution
+PASS 438 axis: harmonic produces only parity-cycle component
+PASS 439 axis: zero parity circulation selection
+axis quadratic E harmonic eta=0.707106781; max charge residual=7.414e-10; parity current norm=0.000000000
+PASS 440 detuned E conversion conserves Hamiltonian
+PASS 441 detuned E conversion respects analytic population bound
+detuning=0.2: maximum E occupation=0.442397680, bound=0.442398044
+PASS 442 detuned E conversion conserves Hamiltonian
+PASS 443 detuned E conversion respects analytic population bound
+detuning=1: maximum E occupation=0.273532602, bound=0.273532789
+PASS 444 detuned E conversion conserves Hamiltonian
+PASS 445 detuned E conversion respects analytic population bound
+detuning=3: maximum E occupation=0.096487277, bound=0.096487372
+PASS 446 detuned E conversion conserves Hamiltonian
+PASS 447 detuned E conversion respects analytic population bound
+detuning=10: maximum E occupation=0.012665834, bound=0.012666351
+PASS 448 quadratic scalar total exactly norm sum
+PASS 449 quadratic chamber sign exactly interference
+PASS 450 quadratic read yields x/(1+x) ONLY under sqrt intensity-odds assignment
+PASS 451 same spatial coefficients allow independent linear scalar partition
+PASS 452 same spatial coefficients allow independent linear scalar partition
+PASS 453 same spatial coefficients allow independent linear scalar partition
+PASS 454 quadratic read yields x/(1+x) ONLY under sqrt intensity-odds assignment
+PASS 455 same spatial coefficients allow independent linear scalar partition
+PASS 456 same spatial coefficients allow independent linear scalar partition
+PASS 457 same spatial coefficients allow independent linear scalar partition
+PASS 458 quadratic read yields x/(1+x) ONLY under sqrt intensity-odds assignment
+PASS 459 same spatial coefficients allow independent linear scalar partition
+PASS 460 same spatial coefficients allow independent linear scalar partition
+PASS 461 same spatial coefficients allow independent linear scalar partition
+PASS 462 quadratic read yields x/(1+x) ONLY under sqrt intensity-odds assignment
+PASS 463 same spatial coefficients allow independent linear scalar partition
+PASS 464 same spatial coefficients allow independent linear scalar partition
+PASS 465 same spatial coefficients allow independent linear scalar partition
+PASS 466 quadratic read yields x/(1+x) ONLY under sqrt intensity-odds assignment
+PASS 467 same spatial coefficients allow independent linear scalar partition
+PASS 468 same spatial coefficients allow independent linear scalar partition
+PASS 469 same spatial coefficients allow independent linear scalar partition
+PASS 470 quadratic read yields x/(1+x) ONLY under sqrt intensity-odds assignment
+PASS 471 same spatial coefficients allow independent linear scalar partition
+PASS 472 same spatial coefficients allow independent linear scalar partition
+PASS 473 same spatial coefficients allow independent linear scalar partition
+PASS 474 quadratic read yields x/(1+x) ONLY under sqrt intensity-odds assignment
+PASS 475 same spatial coefficients allow independent linear scalar partition
+PASS 476 same spatial coefficients allow independent linear scalar partition
+PASS 477 same spatial coefficients allow independent linear scalar partition
+PASS 478 real quadratic scalar invariant under root-conjugate circulation reversal
+PASS 479 real quadratic scalar invariant under root-conjugate circulation reversal
+PASS 480 real quadratic scalar invariant under root-conjugate circulation reversal
+PASS 481 real quadratic scalar invariant under root-conjugate circulation reversal
+PASS 482 real quadratic scalar invariant under root-conjugate circulation reversal
+PASS 483 real quadratic scalar invariant under root-conjugate circulation reversal
+Routing counts: {'single face': 84, 'shared edge': 12, 'centre': 8}
+Largest coarse continuity residual: 6.245004513516506e-17
+Largest T2 forbidden parity residual: 2.816839872632174e-17
+Maximum stationary grade-2 cycle norm: 0.0401458962233442
+Maximum difference full current vs outer ring-only: 0.24130016070583354
+First Hamiltonian branch records [branch, square, grade2, ring-only discrepancy]: [(0, 0.23279241022447822, 0.00013468378155758587, 0.2289628462194815), (1, 0.08423845018073255, 0.0008539396145418394, 0.08761250007322914), (2, 0.0329067770747526, 0.0004466561151523121, 0.019080006936213895), (3, 0.00769519365610292, 0.0021186788966384078, 0.013059663598634379), (4, 0.03756741467296491, 0.01764803018192713, 0.015711498506690513), (5, 0.002692507986989766, 0.007175888503562517, 0.008700889858808222)]
+483/483 continuation checks passed; 501 earlier checks rerun.

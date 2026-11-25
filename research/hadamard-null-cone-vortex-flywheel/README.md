@@ -1,6 +1,8 @@
 # The Hadamard Null Cone: Eight Triforce Vortices and Their Collective Core
 
-> **Current edition — Stage VIII.** The eight Triforce stellation vortices remain the starting point. Stage VII proves closed circulation, not drainage. [Stage VIII](OPEN_THROAT.md) establishes an explicitly driven open graph with uniform weights: all eight rings feed the inner interface, and the net source, cut and outlet flux are exactly 6/5. The scalar O remains dark; the outlet is directional. The neutral axial receiver and open transport are distinct model constructions. Physical coupling selection and the full SST remain open. Earlier stages are archived with their original links and logs; the current README supersedes retired interpretations.
+> **Current edition — Stage IX.** [Coupled directional Field Origins](COUPLED_FIELD_ORIGINS.md) extends the eight-vortex Triforce graph with a scalar and polar triplet at O, matches two identical cells across an actual four-tile face, proves exact interface conservation and integrates full neutral axial back-reaction. A closed pair exchanges occupation but cannot sustain indefinite one-way drainage. Stage VIII remains the driven open-boundary witness; all 2,737 earlier checks have been rerun and 115 new checks pass.
+
+> **Next research direction — stellar-forge binding [E].** [Bound Field Capture](BOUND_FIELD_CAPTURE.md) distinguishes ordinary conservative propagation from capture of a complete Hadamard cell through the receiving Field Origin into TetB, with mutual vortex back-reaction. This is a research specification, not an additional validated stage.
 
 ![Open graph transport](figures/11_open_throat.svg)
 
@@ -206,3 +208,7 @@ The existing GFD [proof index](https://github.com/fielddynamics/research/tree/ma
 - [Stage VII closed proof](SUSTAINED_TRIFORCE_FLYWHEEL.md) and [verifier](verify_sustained_flywheel.py).
 - [Historical synthesis and Stages I–VI](archive/stages-I-VI/README.md) (includes the historical Stage VII snapshot for reproducibility).
 - [Verification guide](VERIFICATION.md).
+
+## Stage IX — read first for the latest result
+
+[Coupled Field Origins proof](COUPLED_FIELD_ORIGINS.md) · [Two-cell explorer](coupled_origins_explorer.html) · [Verifier](verify_coupled_origins.py) · [Fresh verification logs](VERIFICATION.md).

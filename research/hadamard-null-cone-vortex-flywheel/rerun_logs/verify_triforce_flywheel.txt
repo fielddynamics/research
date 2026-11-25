@@ -1,0 +1,278 @@
+PASS 001 tile (apex, omitted vertex) belongs to its original Triforce and stellation
+PASS 002 tile (apex, omitted vertex) belongs to its original Triforce and stellation
+PASS 003 tile (apex, omitted vertex) belongs to its original Triforce and stellation
+PASS 004 tile (apex, omitted vertex) belongs to its original Triforce and stellation
+PASS 005 tile (apex, omitted vertex) belongs to its original Triforce and stellation
+PASS 006 tile (apex, omitted vertex) belongs to its original Triforce and stellation
+PASS 007 tile (apex, omitted vertex) belongs to its original Triforce and stellation
+PASS 008 tile (apex, omitted vertex) belongs to its original Triforce and stellation
+PASS 009 tile (apex, omitted vertex) belongs to its original Triforce and stellation
+PASS 010 tile (apex, omitted vertex) belongs to its original Triforce and stellation
+PASS 011 tile (apex, omitted vertex) belongs to its original Triforce and stellation
+PASS 012 tile (apex, omitted vertex) belongs to its original Triforce and stellation
+PASS 013 tile (apex, omitted vertex) belongs to its original Triforce and stellation
+PASS 014 tile (apex, omitted vertex) belongs to its original Triforce and stellation
+PASS 015 tile (apex, omitted vertex) belongs to its original Triforce and stellation
+PASS 016 tile (apex, omitted vertex) belongs to its original Triforce and stellation
+PASS 017 tile (apex, omitted vertex) belongs to its original Triforce and stellation
+PASS 018 tile (apex, omitted vertex) belongs to its original Triforce and stellation
+PASS 019 tile (apex, omitted vertex) belongs to its original Triforce and stellation
+PASS 020 tile (apex, omitted vertex) belongs to its original Triforce and stellation
+PASS 021 tile (apex, omitted vertex) belongs to its original Triforce and stellation
+PASS 022 tile (apex, omitted vertex) belongs to its original Triforce and stellation
+PASS 023 tile (apex, omitted vertex) belongs to its original Triforce and stellation
+PASS 024 tile (apex, omitted vertex) belongs to its original Triforce and stellation
+PASS 025 24 ordered pairs exhaust outer tiles exactly
+PASS 026 row and column maps each have three tiles per entry
+PASS 027 local winding projector exact rank eight
+PASS 028 column registration on pure winding has exact singular spectrum
+PASS 029 bright dimension three, dark dimension five per chamber
+PASS 030 exact inner neighbors: opposite chamber base and own original central tile
+PASS 031 exact inner neighbors: opposite chamber base and own original central tile
+PASS 032 exact inner neighbors: opposite chamber base and own original central tile
+PASS 033 exact inner neighbors: opposite chamber base and own original central tile
+PASS 034 exact inner neighbors: opposite chamber base and own original central tile
+PASS 035 exact inner neighbors: opposite chamber base and own original central tile
+PASS 036 exact inner neighbors: opposite chamber base and own original central tile
+PASS 037 exact inner neighbors: opposite chamber base and own original central tile
+PASS 038 exact inner neighbors: opposite chamber base and own original central tile
+PASS 039 exact inner neighbors: opposite chamber base and own original central tile
+PASS 040 exact inner neighbors: opposite chamber base and own original central tile
+PASS 041 exact inner neighbors: opposite chamber base and own original central tile
+PASS 042 exact inner neighbors: opposite chamber base and own original central tile
+PASS 043 exact inner neighbors: opposite chamber base and own original central tile
+PASS 044 exact inner neighbors: opposite chamber base and own original central tile
+PASS 045 exact inner neighbors: opposite chamber base and own original central tile
+PASS 046 exact inner neighbors: opposite chamber base and own original central tile
+PASS 047 exact inner neighbors: opposite chamber base and own original central tile
+PASS 048 exact inner neighbors: opposite chamber base and own original central tile
+PASS 049 exact inner neighbors: opposite chamber base and own original central tile
+PASS 050 exact inner neighbors: opposite chamber base and own original central tile
+PASS 051 exact inner neighbors: opposite chamber base and own original central tile
+PASS 052 exact inner neighbors: opposite chamber base and own original central tile
+PASS 053 exact inner neighbors: opposite chamber base and own original central tile
+PASS 054 outward ring order is a positive three-cycle
+PASS 055 outward ring order is a positive three-cycle
+PASS 056 outward ring order is a positive three-cycle
+PASS 057 outward ring order is a positive three-cycle
+PASS 058 outward ring order is a positive three-cycle
+PASS 059 outward ring order is a positive three-cycle
+PASS 060 outward ring order is a positive three-cycle
+PASS 061 outward ring order is a positive three-cycle
+PASS 062 16 local winding modes orthonormal
+PASS 063 local winding projector real
+PASS 064 two chamber winding columns are orthonormal
+PASS 065 all eight rings have pure winding, opposite outward senses across chambers
+PASS 066 E and conjugate columns span the full four-dimensional E isotypic space
+PASS 067 phase-locked eight-ring sector invariant for generic Td Hamiltonian
+PASS 068 exact stationary eight pure local rings; all central amplitudes zero
+PASS 069 registered core circulation is purely parity and conserved
+PASS 070 ring currents constant per chamber
+PASS 071 opposite outward ring senses for negative hopping
+locked branch 0 ring currents [ 0.03986095  0.03986095  0.03986095  0.03986095 -0.08085535 -0.08085535
+ -0.08085535 -0.08085535] core norm 0.10454337465280623
+PASS 072 exact stationary eight pure local rings; all central amplitudes zero
+PASS 073 registered core circulation is purely parity and conserved
+PASS 074 ring currents constant per chamber
+PASS 075 opposite outward ring senses for negative hopping
+locked branch 1 ring currents [ 0.0887165   0.0887165   0.0887165   0.0887165  -0.03632887 -0.03632887
+ -0.03632887 -0.03632887] core norm 0.10829247170090187
+PASS 076 inner excitation rank six (three per chamber)
+PASS 077 initial condition has all eight nonzero local circulating rings and empty inner tiles
+PASS 078 actual inner derivative equals original Triforce column sum, row term cancels
+PASS 079 eight local rings excite inner tiles without imposed axis
+PASS 080 inner occupation has predicted quadratic onset
+PASS 081 finite-time evolution preserves norm and registered continuity
+PASS 082 excited central triangles carry actual shared-edge currents
+PASS 083 centre remains dark under invariant linear dynamics (no A1 component)
+PASS 084 phase-locked eight-ring sector invariant for generic Td Hamiltonian
+PASS 085 exact stationary eight pure local rings; all central amplitudes zero
+PASS 086 registered core circulation is purely parity and conserved
+PASS 087 ring currents constant per chamber
+PASS 088 opposite outward ring senses for negative hopping
+PASS 089 exact stationary eight pure local rings; all central amplitudes zero
+PASS 090 registered core circulation is purely parity and conserved
+PASS 091 ring currents constant per chamber
+PASS 092 opposite outward ring senses for negative hopping
+PASS 093 inner excitation rank six (three per chamber)
+PASS 094 initial condition has all eight nonzero local circulating rings and empty inner tiles
+PASS 095 actual inner derivative equals original Triforce column sum, row term cancels
+PASS 096 eight local rings excite inner tiles without imposed axis
+PASS 097 inner occupation has predicted quadratic onset
+PASS 098 finite-time evolution preserves norm and registered continuity
+PASS 099 excited central triangles carry actual shared-edge currents
+PASS 100 centre remains dark under invariant linear dynamics (no A1 component)
+PASS 101 phase-locked eight-ring sector invariant for generic Td Hamiltonian
+PASS 102 exact stationary eight pure local rings; all central amplitudes zero
+PASS 103 registered core circulation is purely parity and conserved
+PASS 104 ring currents constant per chamber
+PASS 105 opposite outward ring senses for negative hopping
+PASS 106 exact stationary eight pure local rings; all central amplitudes zero
+PASS 107 registered core circulation is purely parity and conserved
+PASS 108 ring currents constant per chamber
+PASS 109 opposite outward ring senses for negative hopping
+PASS 110 inner excitation rank six (three per chamber)
+PASS 111 initial condition has all eight nonzero local circulating rings and empty inner tiles
+PASS 112 actual inner derivative equals original Triforce column sum, row term cancels
+PASS 113 eight local rings excite inner tiles without imposed axis
+PASS 114 inner occupation has predicted quadratic onset
+PASS 115 finite-time evolution preserves norm and registered continuity
+PASS 116 excited central triangles carry actual shared-edge currents
+PASS 117 centre remains dark under invariant linear dynamics (no A1 component)
+PASS 118 phase-locked eight-ring sector invariant for generic Td Hamiltonian
+PASS 119 exact stationary eight pure local rings; all central amplitudes zero
+PASS 120 registered core circulation is purely parity and conserved
+PASS 121 ring currents constant per chamber
+PASS 122 opposite outward ring senses for negative hopping
+PASS 123 exact stationary eight pure local rings; all central amplitudes zero
+PASS 124 registered core circulation is purely parity and conserved
+PASS 125 ring currents constant per chamber
+PASS 126 opposite outward ring senses for negative hopping
+PASS 127 inner excitation rank six (three per chamber)
+PASS 128 initial condition has all eight nonzero local circulating rings and empty inner tiles
+PASS 129 actual inner derivative equals original Triforce column sum, row term cancels
+PASS 130 eight local rings excite inner tiles without imposed axis
+PASS 131 inner occupation has predicted quadratic onset
+PASS 132 finite-time evolution preserves norm and registered continuity
+PASS 133 excited central triangles carry actual shared-edge currents
+PASS 134 centre remains dark under invariant linear dynamics (no A1 component)
+PASS 135 phase-locked eight-ring sector invariant for generic Td Hamiltonian
+PASS 136 exact stationary eight pure local rings; all central amplitudes zero
+PASS 137 registered core circulation is purely parity and conserved
+PASS 138 ring currents constant per chamber
+PASS 139 opposite outward ring senses for negative hopping
+PASS 140 exact stationary eight pure local rings; all central amplitudes zero
+PASS 141 registered core circulation is purely parity and conserved
+PASS 142 ring currents constant per chamber
+PASS 143 opposite outward ring senses for negative hopping
+PASS 144 inner excitation rank six (three per chamber)
+PASS 145 initial condition has all eight nonzero local circulating rings and empty inner tiles
+PASS 146 actual inner derivative equals original Triforce column sum, row term cancels
+PASS 147 eight local rings excite inner tiles without imposed axis
+PASS 148 inner occupation has predicted quadratic onset
+PASS 149 finite-time evolution preserves norm and registered continuity
+PASS 150 excited central triangles carry actual shared-edge currents
+PASS 151 centre remains dark under invariant linear dynamics (no A1 component)
+PASS 152 phase-locked eight-ring sector invariant for generic Td Hamiltonian
+PASS 153 exact stationary eight pure local rings; all central amplitudes zero
+PASS 154 registered core circulation is purely parity and conserved
+PASS 155 ring currents constant per chamber
+PASS 156 opposite outward ring senses for negative hopping
+PASS 157 exact stationary eight pure local rings; all central amplitudes zero
+PASS 158 registered core circulation is purely parity and conserved
+PASS 159 ring currents constant per chamber
+PASS 160 opposite outward ring senses for negative hopping
+PASS 161 inner excitation rank six (three per chamber)
+PASS 162 initial condition has all eight nonzero local circulating rings and empty inner tiles
+PASS 163 actual inner derivative equals original Triforce column sum, row term cancels
+PASS 164 eight local rings excite inner tiles without imposed axis
+PASS 165 inner occupation has predicted quadratic onset
+PASS 166 finite-time evolution preserves norm and registered continuity
+PASS 167 excited central triangles carry actual shared-edge currents
+PASS 168 centre remains dark under invariant linear dynamics (no A1 component)
+PASS 169 phase-locked eight-ring sector invariant for generic Td Hamiltonian
+PASS 170 exact stationary eight pure local rings; all central amplitudes zero
+PASS 171 registered core circulation is purely parity and conserved
+PASS 172 ring currents constant per chamber
+PASS 173 opposite outward ring senses for negative hopping
+PASS 174 exact stationary eight pure local rings; all central amplitudes zero
+PASS 175 registered core circulation is purely parity and conserved
+PASS 176 ring currents constant per chamber
+PASS 177 opposite outward ring senses for negative hopping
+PASS 178 inner excitation rank six (three per chamber)
+PASS 179 initial condition has all eight nonzero local circulating rings and empty inner tiles
+PASS 180 actual inner derivative equals original Triforce column sum, row term cancels
+PASS 181 eight local rings excite inner tiles without imposed axis
+PASS 182 inner occupation has predicted quadratic onset
+PASS 183 finite-time evolution preserves norm and registered continuity
+PASS 184 excited central triangles carry actual shared-edge currents
+PASS 185 centre remains dark under invariant linear dynamics (no A1 component)
+PASS 186 phase-locked eight-ring sector invariant for generic Td Hamiltonian
+PASS 187 exact stationary eight pure local rings; all central amplitudes zero
+PASS 188 registered core circulation is purely parity and conserved
+PASS 189 ring currents constant per chamber
+PASS 190 opposite outward ring senses for negative hopping
+PASS 191 exact stationary eight pure local rings; all central amplitudes zero
+PASS 192 registered core circulation is purely parity and conserved
+PASS 193 ring currents constant per chamber
+PASS 194 opposite outward ring senses for negative hopping
+PASS 195 inner excitation rank six (three per chamber)
+PASS 196 initial condition has all eight nonzero local circulating rings and empty inner tiles
+PASS 197 actual inner derivative equals original Triforce column sum, row term cancels
+PASS 198 eight local rings excite inner tiles without imposed axis
+PASS 199 inner occupation has predicted quadratic onset
+PASS 200 finite-time evolution preserves norm and registered continuity
+PASS 201 excited central triangles carry actual shared-edge currents
+PASS 202 centre remains dark under invariant linear dynamics (no A1 component)
+PASS 203 phase-locked eight-ring sector invariant for generic Td Hamiltonian
+PASS 204 exact stationary eight pure local rings; all central amplitudes zero
+PASS 205 registered core circulation is purely parity and conserved
+PASS 206 ring currents constant per chamber
+PASS 207 opposite outward ring senses for negative hopping
+PASS 208 exact stationary eight pure local rings; all central amplitudes zero
+PASS 209 registered core circulation is purely parity and conserved
+PASS 210 ring currents constant per chamber
+PASS 211 opposite outward ring senses for negative hopping
+PASS 212 inner excitation rank six (three per chamber)
+PASS 213 initial condition has all eight nonzero local circulating rings and empty inner tiles
+PASS 214 actual inner derivative equals original Triforce column sum, row term cancels
+PASS 215 eight local rings excite inner tiles without imposed axis
+PASS 216 inner occupation has predicted quadratic onset
+PASS 217 finite-time evolution preserves norm and registered continuity
+PASS 218 excited central triangles carry actual shared-edge currents
+PASS 219 centre remains dark under invariant linear dynamics (no A1 component)
+PASS 220 phase-locked eight-ring sector invariant for generic Td Hamiltonian
+PASS 221 exact stationary eight pure local rings; all central amplitudes zero
+PASS 222 registered core circulation is purely parity and conserved
+PASS 223 ring currents constant per chamber
+PASS 224 opposite outward ring senses for negative hopping
+PASS 225 exact stationary eight pure local rings; all central amplitudes zero
+PASS 226 registered core circulation is purely parity and conserved
+PASS 227 ring currents constant per chamber
+PASS 228 opposite outward ring senses for negative hopping
+PASS 229 inner excitation rank six (three per chamber)
+PASS 230 initial condition has all eight nonzero local circulating rings and empty inner tiles
+PASS 231 actual inner derivative equals original Triforce column sum, row term cancels
+PASS 232 eight local rings excite inner tiles without imposed axis
+PASS 233 inner occupation has predicted quadratic onset
+PASS 234 finite-time evolution preserves norm and registered continuity
+PASS 235 excited central triangles carry actual shared-edge currents
+PASS 236 centre remains dark under invariant linear dynamics (no A1 component)
+PASS 237 phase-locked eight-ring sector invariant for generic Td Hamiltonian
+PASS 238 exact stationary eight pure local rings; all central amplitudes zero
+PASS 239 registered core circulation is purely parity and conserved
+PASS 240 ring currents constant per chamber
+PASS 241 opposite outward ring senses for negative hopping
+PASS 242 exact stationary eight pure local rings; all central amplitudes zero
+PASS 243 registered core circulation is purely parity and conserved
+PASS 244 ring currents constant per chamber
+PASS 245 opposite outward ring senses for negative hopping
+PASS 246 inner excitation rank six (three per chamber)
+PASS 247 initial condition has all eight nonzero local circulating rings and empty inner tiles
+PASS 248 actual inner derivative equals original Triforce column sum, row term cancels
+PASS 249 eight local rings excite inner tiles without imposed axis
+PASS 250 inner occupation has predicted quadratic onset
+PASS 251 finite-time evolution preserves norm and registered continuity
+PASS 252 excited central triangles carry actual shared-edge currents
+PASS 253 centre remains dark under invariant linear dynamics (no A1 component)
+PASS 254 phase-locked eight-ring sector invariant for generic Td Hamiltonian
+PASS 255 exact stationary eight pure local rings; all central amplitudes zero
+PASS 256 registered core circulation is purely parity and conserved
+PASS 257 ring currents constant per chamber
+PASS 258 opposite outward ring senses for negative hopping
+PASS 259 exact stationary eight pure local rings; all central amplitudes zero
+PASS 260 registered core circulation is purely parity and conserved
+PASS 261 ring currents constant per chamber
+PASS 262 opposite outward ring senses for negative hopping
+PASS 263 inner excitation rank six (three per chamber)
+PASS 264 initial condition has all eight nonzero local circulating rings and empty inner tiles
+PASS 265 actual inner derivative equals original Triforce column sum, row term cancels
+PASS 266 eight local rings excite inner tiles without imposed axis
+PASS 267 inner occupation has predicted quadratic onset
+PASS 268 finite-time evolution preserves norm and registered continuity
+PASS 269 excited central triangles carry actual shared-edge currents
+PASS 270 centre remains dark under invariant linear dynamics (no A1 component)
+PASS 271 tested E states have nonzero parity core registration
+Minimum stationary ring magnitude: 0.0355169722387932 minimum stationary registered parity norm: 0.0876868203496016
+Initial inner growth coefficient range: 0.6158574749831462 1.0294685285756155
+271/271 new checks passed; 984 inherited checks rerun.

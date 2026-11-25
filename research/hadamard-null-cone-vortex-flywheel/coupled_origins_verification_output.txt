@@ -1,0 +1,127 @@
+PASS 001 33 original geometric positions; 36 complex coordinates, four at O
+PASS 002 orthogonal scalar and polar centre channels
+PASS 003 centre retains all eight original scalar bonds
+PASS 004 24 directional couplings at O and 104 original bonds
+PASS 005 scalar and spatial orthogonality forces old scalar darkness
+PASS 006 full directional centre equivariance under Td
+PASS 007 full directional centre equivariance under Td
+PASS 008 full directional centre equivariance under Td
+PASS 009 full directional centre equivariance under Td
+PASS 010 full directional centre equivariance under Td
+PASS 011 full directional centre equivariance under Td
+PASS 012 full directional centre equivariance under Td
+PASS 013 full directional centre equivariance under Td
+PASS 014 full directional centre equivariance under Td
+PASS 015 full directional centre equivariance under Td
+PASS 016 full directional centre equivariance under Td
+PASS 017 full directional centre equivariance under Td
+PASS 018 full directional centre equivariance under Td
+PASS 019 full directional centre equivariance under Td
+PASS 020 full directional centre equivariance under Td
+PASS 021 full directional centre equivariance under Td
+PASS 022 full directional centre equivariance under Td
+PASS 023 full directional centre equivariance under Td
+PASS 024 full directional centre equivariance under Td
+PASS 025 full directional centre equivariance under Td
+PASS 026 full directional centre equivariance under Td
+PASS 027 full directional centre equivariance under Td
+PASS 028 full directional centre equivariance under Td
+PASS 029 full directional centre equivariance under Td
+PASS 030 chamber inversion symmetry including polar O
+PASS 031 opposite polar reads cancel for even chamber amplitudes
+PASS 032 odd chamber pattern is bright at O
+PASS 033 one actual original Triforce face has three outer tiles and one central tile
+PASS 034 face reflection is an exact improper isometry
+PASS 035 all vertices of matched subtriangle coincide exactly
+PASS 036 all vertices of matched subtriangle coincide exactly
+PASS 037 all vertices of matched subtriangle coincide exactly
+PASS 038 all vertices of matched subtriangle coincide exactly
+PASS 039 two distinct origins on opposite sides of shared plane
+PASS 040 matched interface is rank four and no edge/vertex-only exchange
+PASS 041 two identical cells with reciprocal Hermitian face matching
+PASS 042 four-channel interface admits orthogonal common/difference read
+PASS 043 no shorter path from source O to neighbour O
+PASS 044 no shorter path from source O to neighbour O
+PASS 045 exact third-order matched central tile transfer block
+third-order O→O block: [[-1, -1, -1, -1], [-1, -1, -1, -1], [-1, -1, -1, -1], [-1, -1, -1, -1]]
+PASS 046 leading spatial transfer rank one
+PASS 047 four face normals span the full four-coordinate origin
+PASS 048 four face normals span the full four-coordinate origin
+PASS 049 all eight initial rings row-closed and all 24 ring currents nonzero
+PASS 050 initial inner triangles and all centre components empty
+PASS 051 no first-order centre excitation from outer tiles
+PASS 052 second-order directional O excitation nonzero
+H² x at O: [-5.55111512e-17+0.00000000e+00j -3.26598632e+00-2.22044605e-16j
+  2.22044605e-16-3.26598632e+00j  0.00000000e+00-5.55111512e-17j]
+directional leading occupation coefficient: 5.333333333333335
+PASS 053 exact second-order face-first directional centre forcing
+PASS 054 exact raw outer basis normalization
+H² outer basis at O: [[0, 0, 0], [-64, 0, 0], [0, -64, 0], [0, 0, -64]]
+PASS 055 two-cell local continuity and reciprocal interface
+PASS 056 total norm and energy conserved
+PASS 057 two-cell local continuity and reciprocal interface
+PASS 058 total norm and energy conserved
+PASS 059 two-cell local continuity and reciprocal interface
+PASS 060 total norm and energy conserved
+PASS 061 two-cell local continuity and reciprocal interface
+PASS 062 total norm and energy conserved
+PASS 063 two-cell local continuity and reciprocal interface
+PASS 064 total norm and energy conserved
+PASS 065 two-cell local continuity and reciprocal interface
+PASS 066 total norm and energy conserved
+PASS 067 two-cell local continuity and reciprocal interface
+PASS 068 total norm and energy conserved
+PASS 069 two-cell local continuity and reciprocal interface
+PASS 070 total norm and energy conserved
+PASS 071 two-cell local continuity and reciprocal interface
+PASS 072 total norm and energy conserved
+PASS 073 two-cell local continuity and reciprocal interface
+PASS 074 total norm and energy conserved
+PASS 075 two-cell local continuity and reciprocal interface
+PASS 076 total norm and energy conserved
+PASS 077 two-cell local continuity and reciprocal interface
+PASS 078 total norm and energy conserved
+PASS 079 two-cell local continuity and reciprocal interface
+PASS 080 total norm and energy conserved
+PASS 081 directional O in both cells populated from eight face vortices
+PASS 082 nonzero interface transport into neighbouring cell
+PASS 083 all 24 original ring signs, inward O flux and outward face flux coexist at sampled times
+PASS 084 closed two-cell interface reverses flux, not permanent drain
+PASS 085 integral interface balance on dense time grid
+simultaneous ring/centre/interface samples: 126 range 0.03 4.78
+peak O occupation [0.35177799 0.096091  ] peak neighbour norm 0.4583897682305476
+PASS 086 nonlinear solver completed
+PASS 087 full nonlinear backreaction conserves energy
+PASS 088 full nonlinear backreaction conserves occupation
+PASS 089 neutral interaction does not spoil interface balance
+PASS 090 U(1) equivariance of full nonlinear equations
+PASS 091 full equations time-reversal covariant
+PASS 092 neutral axial receivers excited at both actual origins
+nonlinear case 0 max E,N errors 4.4228265494439256e-10 9.089551333829604e-11
+PASS 093 nonlinear solver completed
+PASS 094 full nonlinear backreaction conserves energy
+PASS 095 full nonlinear backreaction conserves occupation
+PASS 096 neutral interaction does not spoil interface balance
+PASS 097 U(1) equivariance of full nonlinear equations
+PASS 098 full equations time-reversal covariant
+PASS 099 noncollinear nonlinear backreaction actually active
+nonlinear case 1 max E,N errors 5.994108820406296e-10 9.111045251586347e-11
+PASS 100 nonlinear solver completed
+PASS 101 full nonlinear backreaction conserves energy
+PASS 102 full nonlinear backreaction conserves occupation
+PASS 103 neutral interaction does not spoil interface balance
+PASS 104 U(1) equivariance of full nonlinear equations
+PASS 105 full equations time-reversal covariant
+PASS 106 noncollinear nonlinear backreaction actually active
+nonlinear case 2 max E,N errors 8.430494358169227e-10 1.2355494405369427e-10
+PASS 107 nonlinear solver completed
+PASS 108 full nonlinear backreaction conserves energy
+PASS 109 full nonlinear backreaction conserves occupation
+PASS 110 neutral interaction does not spoil interface balance
+PASS 111 U(1) equivariance of full nonlinear equations
+PASS 112 full equations time-reversal covariant
+PASS 113 noncollinear nonlinear backreaction actually active
+nonlinear case 3 max E,N errors 8.196773815249969e-10 1.169881969076414e-10
+PASS 114 Stage VIII analytic collinear response with actual backreaction
+PASS 115 Stage VIII chirality constant without freezing wave
+115/115 Stage IX checks passed.

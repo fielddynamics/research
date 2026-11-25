@@ -1,0 +1,9 @@
+verify_hadamard_null_cone 0
+verify_current_closure 0
+verify_extended_validation 0
+verify_core_hardening 0
+verify_face_core_stability 0
+verify_triforce_flywheel 0
+verify_open_throat 0
+verify_sustained_flywheel 0
+verify_coupled_origins 0

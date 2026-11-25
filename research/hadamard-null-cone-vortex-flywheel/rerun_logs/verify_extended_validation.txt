@@ -1,0 +1,234 @@
+/mnt/data/gfd-triforce-stage9/archive/stages-I-VI/verify_extended_validation.py:124: DeprecationWarning: `trapz` is deprecated. Use `trapezoid` instead, or one of the numerical integration functions in `scipy.integrate`.
+  ts=np.linspace(0,T,n+1); integr=np.array([B@vC@(np.exp(-1j*eC*(T-t))*(vC.T@B.T@Q.T@trajectory(t))) for t in ts]); pred=-1j*A0@yT-np.trapz(integr,ts,axis=0); errors.append(np.linalg.norm(pred-truth))
+Inherited checks rerun: 501 + 483
+
+1. Exact algebra, reconstruction and coordinate independence
+PASS 001 exact Moore-Penrose inverse in Walsh coordinates
+PASS 002 reconstruction of every divergence-free current (basis proof)
+PASS 003 minimum-norm zero-mean face ledger
+PASS 004 all 4096 independent edge orientation choices preserve Gram and boundary
+PASS 005 paired frame relabelling preserves boundary spectrum and Walsh read
+PASS 006 paired frame relabelling preserves boundary spectrum and Walsh read
+PASS 007 paired frame relabelling preserves boundary spectrum and Walsh read
+PASS 008 paired frame relabelling preserves boundary spectrum and Walsh read
+PASS 009 paired frame relabelling preserves boundary spectrum and Walsh read
+PASS 010 paired frame relabelling preserves boundary spectrum and Walsh read
+PASS 011 paired frame relabelling preserves boundary spectrum and Walsh read
+PASS 012 paired frame relabelling preserves boundary spectrum and Walsh read
+PASS 013 paired frame relabelling preserves boundary spectrum and Walsh read
+PASS 014 paired frame relabelling preserves boundary spectrum and Walsh read
+PASS 015 paired frame relabelling preserves boundary spectrum and Walsh read
+PASS 016 paired frame relabelling preserves boundary spectrum and Walsh read
+PASS 017 paired frame relabelling preserves boundary spectrum and Walsh read
+PASS 018 paired frame relabelling preserves boundary spectrum and Walsh read
+PASS 019 paired frame relabelling preserves boundary spectrum and Walsh read
+PASS 020 paired frame relabelling preserves boundary spectrum and Walsh read
+PASS 021 paired frame relabelling preserves boundary spectrum and Walsh read
+PASS 022 paired frame relabelling preserves boundary spectrum and Walsh read
+PASS 023 paired frame relabelling preserves boundary spectrum and Walsh read
+PASS 024 paired frame relabelling preserves boundary spectrum and Walsh read
+PASS 025 paired frame relabelling preserves boundary spectrum and Walsh read
+PASS 026 paired frame relabelling preserves boundary spectrum and Walsh read
+PASS 027 paired frame relabelling preserves boundary spectrum and Walsh read
+PASS 028 paired frame relabelling preserves boundary spectrum and Walsh read
+PASS 029 zero-mean Walsh product is not associative: (x*x)*y != x*(x*y)
+PASS 030 all 64 full Walsh products are characters, with unique output
+
+2. Flywheel time evolution and conserved collective coherence
+PASS 031 resonant bright-state transfer and chirality conservation
+PASS 032 resonant bright-state transfer and chirality conservation
+PASS 033 resonant bright-state transfer and chirality conservation
+PASS 034 resonant bright-state transfer and chirality conservation
+PASS 035 resonant bright-state transfer and chirality conservation
+PASS 036 resonant bright-state transfer and chirality conservation
+PASS 037 resonant bright-state transfer and chirality conservation
+PASS 038 resonant bright-state transfer and chirality conservation
+PASS 039 resonant bright-state transfer and chirality conservation
+PASS 040 resonant bright-state transfer and chirality conservation
+PASS 041 resonant bright-state transfer and chirality conservation
+PASS 042 resonant bright-state transfer and chirality conservation
+PASS 043 resonant bright-state transfer and chirality conservation
+PASS 044 resonant bright-state transfer and chirality conservation
+PASS 045 resonant bright-state transfer and chirality conservation
+PASS 046 resonant bright-state transfer and chirality conservation
+PASS 047 resonant bright-state transfer and chirality conservation
+PASS 048 resonant bright-state transfer and chirality conservation
+PASS 049 resonant bright-state transfer and chirality conservation
+PASS 050 resonant bright-state transfer and chirality conservation
+PASS 051 resonant bright-state transfer and chirality conservation
+PASS 052 resonant bright-state transfer and chirality conservation
+PASS 053 resonant bright-state transfer and chirality conservation
+PASS 054 resonant bright-state transfer and chirality conservation
+PASS 055 resonant bright-state transfer and chirality conservation
+PASS 056 resonant bright-state transfer and chirality conservation
+PASS 057 resonant bright-state transfer and chirality conservation
+PASS 058 resonant bright-state transfer and chirality conservation
+PASS 059 resonant bright-state transfer and chirality conservation
+PASS 060 resonant bright-state transfer and chirality conservation
+PASS 061 resonant bright-state transfer and chirality conservation
+PASS 062 resonant bright-state transfer and chirality conservation
+PASS 063 resonant bright-state transfer and chirality conservation
+PASS 064 dark state remains dark for equal chamber energies
+PASS 065 unequal energies release dark mode at second order in amplitude
+PASS 066 unequal energies release dark mode at second order in amplitude
+PASS 067 unequal energies release dark mode at second order in amplitude
+PASS 068 general multiplicity dynamics preserves spatial Gram, energy and total chirality
+PASS 069 general multiplicity dynamics preserves spatial Gram, energy and total chirality
+PASS 070 general multiplicity dynamics preserves spatial Gram, energy and total chirality
+PASS 071 general multiplicity dynamics preserves spatial Gram, energy and total chirality
+PASS 072 general multiplicity dynamics preserves spatial Gram, energy and total chirality
+PASS 073 general multiplicity dynamics preserves spatial Gram, energy and total chirality
+PASS 074 general multiplicity dynamics preserves spatial Gram, energy and total chirality
+PASS 075 general multiplicity dynamics preserves spatial Gram, energy and total chirality
+PASS 076 full physical time reversal
+PASS 077 exact detuned bright transfer ceiling
+PASS 078 exact detuned bright transfer ceiling
+PASS 079 exact detuned bright transfer ceiling
+PASS 080 exact detuned bright transfer ceiling
+PASS 081 exact detuned bright transfer ceiling
+PASS 082 linear flywheel perturbation norm is preserved, not attracted
+PASS 083 linear flywheel perturbation norm is preserved, not attracted
+PASS 084 linear flywheel perturbation norm is preserved, not attracted
+PASS 085 linear flywheel perturbation norm is preserved, not attracted
+PASS 086 linear flywheel perturbation norm is preserved, not attracted
+PASS 087 linear flywheel perturbation norm is preserved, not attracted
+PASS 088 outer occupation alone does not imply vortex generation
+
+3. Registration ambiguity and exact dynamical memory
+PASS 089 nonzero alternative registration correction
+PASS 090 alternative preserves divergence and all eight outer rings
+PASS 091 alternative is exactly equivariant for all 24 symmetries
+PASS 092 space of ring-fixed conservative equivariant changes has positive dimension
+Dimension of unconstrained equivariant registration ambiguity: 16
+PASS 093 geometry observation has rank 15
+PASS 094 hidden dynamics couples to retained state, no autonomous exact 15-state linear evolution
+PASS 095 Schur resolvent exactly reproduces observed response
+PASS 096 Schur resolvent exactly reproduces observed response
+PASS 097 Schur resolvent exactly reproduces observed response
+PASS 098 same retained initial state can have different time derivative
+PASS 099 memory kernel converges quadratically to exact projected dynamics
+Memory integration errors: [np.float64(9.18769353110164e-05), np.float64(2.2963513850168812e-05), np.float64(5.740521418674169e-06), np.float64(1.4351080469492957e-06)]
+
+4. Nonlinear invariants through sixth order
+PASS 100 complete monomial orbit basis: 1 complex triplets degree 0, conjugation closed
+PASS 101 complete monomial orbit basis: 1 complex triplets degree 1, conjugation closed
+PASS 102 complete monomial orbit basis: 1 complex triplets degree 2, conjugation closed
+PASS 103 complete monomial orbit basis: 1 complex triplets degree 3, conjugation closed
+PASS 104 complete monomial orbit basis: 1 complex triplets degree 4, conjugation closed
+PASS 105 complete monomial orbit basis: 1 complex triplets degree 5, conjugation closed
+PASS 106 complete monomial orbit basis: 1 complex triplets degree 6, conjugation closed
+PASS 107 complete monomial orbit basis: 2 complex triplets degree 0, conjugation closed
+PASS 108 complete monomial orbit basis: 2 complex triplets degree 1, conjugation closed
+PASS 109 complete monomial orbit basis: 2 complex triplets degree 2, conjugation closed
+PASS 110 complete monomial orbit basis: 2 complex triplets degree 3, conjugation closed
+PASS 111 complete monomial orbit basis: 2 complex triplets degree 4, conjugation closed
+PASS 112 complete monomial orbit basis: 2 complex triplets degree 5, conjugation closed
+PASS 113 complete monomial orbit basis: 2 complex triplets degree 6, conjugation closed
+Counts (all / U(1)-neutral / time-reversal even): {(1, 0): (1, 1, 1), (1, 1): (0, 0, 0), (1, 2): (3, 1, 1), (1, 3): (4, 0, 0), (1, 4): (11, 3, 3), (1, 5): (12, 0, 0), (1, 6): (32, 6, 5), (2, 0): (1, 1, 1), (2, 1): (0, 0, 0), (2, 2): (10, 4, 3), (2, 3): (20, 0, 0), (2, 4): (90, 28, 19), (2, 5): (200, 0, 0), (2, 6): (654, 156, 89)}
+PASS 114 single triplet has exactly one quadratic neutral invariant
+PASS 115 holomorphic invariant Hilbert count matches degrees 2,3,4
+PASS 116 holomorphic invariant Hilbert count matches degrees 2,3,4
+PASS 117 holomorphic invariant Hilbert count matches degrees 2,3,4
+PASS 118 holomorphic invariant Hilbert count matches degrees 2,3,4
+PASS 119 holomorphic invariant Hilbert count matches degrees 2,3,4
+PASS 120 holomorphic invariant Hilbert count matches degrees 2,3,4
+PASS 121 holomorphic invariant Hilbert count matches degrees 2,3,4
+PASS 122 holomorphic invariant Hilbert count matches degrees 2,3,4
+PASS 123 holomorphic invariant Hilbert count matches degrees 2,3,4
+PASS 124 holomorphic invariant Hilbert count matches degrees 2,3,4
+PASS 125 holomorphic invariant Hilbert count matches degrees 2,3,4
+PASS 126 holomorphic invariant Hilbert count matches degrees 2,3,4
+PASS 127 holomorphic invariant Hilbert count matches degrees 2,3,4
+PASS 128 independent exact character count agrees with monomial orbit basis
+PASS 129 independent exact character count agrees with monomial orbit basis
+PASS 130 independent exact character count agrees with monomial orbit basis
+PASS 131 independent exact character count agrees with monomial orbit basis
+PASS 132 independent exact character count agrees with monomial orbit basis
+PASS 133 independent exact character count agrees with monomial orbit basis
+PASS 134 independent exact character count agrees with monomial orbit basis
+PASS 135 independent exact character count agrees with monomial orbit basis
+PASS 136 independent exact character count agrees with monomial orbit basis
+PASS 137 independent exact character count agrees with monomial orbit basis
+PASS 138 independent exact character count agrees with monomial orbit basis
+PASS 139 independent exact character count agrees with monomial orbit basis
+PASS 140 independent exact character count agrees with monomial orbit basis
+PASS 141 independent exact character count agrees with monomial orbit basis
+PASS 142 explicit neutral time-odd sextic is nonzero
+PASS 143 sextic invariant on all 24 tetrahedral transformations
+PASS 144 sextic reverses under conjugation and is invariant under a common phase
+PASS 145 two triplets have 4 neutral quadratic invariants, 3 time-even
+PASS 146 exact quadratic Walsh convolution reconstructs site multiplication
+PASS 147 exact quadratic Walsh convolution reconstructs site multiplication
+PASS 148 exact quadratic Walsh convolution reconstructs site multiplication
+PASS 149 exact quadratic Walsh convolution reconstructs site multiplication
+PASS 150 exact quadratic Walsh convolution reconstructs site multiplication
+PASS 151 exact quadratic Walsh convolution reconstructs site multiplication
+PASS 152 exact quadratic Walsh convolution reconstructs site multiplication
+PASS 153 exact quadratic Walsh convolution reconstructs site multiplication
+PASS 154 exact quadratic Walsh convolution reconstructs site multiplication
+PASS 155 exact quadratic Walsh convolution reconstructs site multiplication
+
+5. Constitutive-law selection and counterexamples
+PASS 156 exchange permits distinct screening exponent k=0.5
+PASS 157 exchange alone does not select the constitutive law
+PASS 158 exchange permits distinct screening exponent k=1
+PASS 159 exchange permits distinct screening exponent k=2
+PASS 160 exchange alone does not select the constitutive law
+PASS 161 exchange permits distinct screening exponent k=3
+PASS 162 exchange alone does not select the constitutive law
+PASS 163 prescribed acceleration odds reproduce linear chamber share independent of circulation
+PASS 164 drained partition has bounded TetB pull and adds to total
+PASS 165 prescribed acceleration odds reproduce linear chamber share independent of circulation
+PASS 166 drained partition has bounded TetB pull and adds to total
+PASS 167 prescribed acceleration odds reproduce linear chamber share independent of circulation
+PASS 168 drained partition has bounded TetB pull and adds to total
+PASS 169 prescribed acceleration odds reproduce linear chamber share independent of circulation
+PASS 170 drained partition has bounded TetB pull and adds to total
+PASS 171 prescribed acceleration odds reproduce linear chamber share independent of circulation
+PASS 172 drained partition has bounded TetB pull and adds to total
+PASS 173 prescribed acceleration odds reproduce linear chamber share independent of circulation
+PASS 174 drained partition has bounded TetB pull and adds to total
+PASS 175 prescribed acceleration odds reproduce linear chamber share independent of circulation
+PASS 176 drained partition has bounded TetB pull and adds to total
+PASS 177 prescribed acceleration odds reproduce linear chamber share independent of circulation
+PASS 178 drained partition has bounded TetB pull and adds to total
+PASS 179 prescribed acceleration odds reproduce linear chamber share independent of circulation
+PASS 180 drained partition has bounded TetB pull and adds to total
+PASS 181 prescribed acceleration odds reproduce linear chamber share independent of circulation
+PASS 182 drained partition has bounded TetB pull and adds to total
+PASS 183 prescribed acceleration odds reproduce linear chamber share independent of circulation
+PASS 184 drained partition has bounded TetB pull and adds to total
+PASS 185 prescribed acceleration odds reproduce linear chamber share independent of circulation
+PASS 186 drained partition has bounded TetB pull and adds to total
+PASS 187 prescribed acceleration odds reproduce linear chamber share independent of circulation
+PASS 188 drained partition has bounded TetB pull and adds to total
+PASS 189 conditional interior partition respects drain flag and total acceleration
+PASS 190 conditional interior partition respects drain flag and total acceleration
+PASS 191 kinetic functional derivative equals constitutive law
+
+6. Candidate lattice propagation: angular accuracy and causal distinction
+PASS 192 diagonal stencil has exact isotropic second moment
+PASS 193 weighted axial + diagonal unit vectors restore fourth moment isotropy
+PASS 194 diagonal stencil has exact isotropic second moment
+PASS 195 weighted axial + diagonal unit vectors restore fourth moment isotropy
+PASS 196 diagonal stencil has exact isotropic second moment
+PASS 197 weighted axial + diagonal unit vectors restore fourth moment isotropy
+PASS 198 eight directions alone are anisotropic at fourth order
+PASS 199 all-direction fourth-moment isotropy for 3:2 diagonal/axial mixture
+PASS 200 candidate walk has strict finite-step causal support and unit norm
+PASS 201 candidate walk has strict finite-step causal support and unit norm
+PASS 202 candidate walk has strict finite-step causal support and unit norm
+PASS 203 candidate walk has strict finite-step causal support and unit norm
+PASS 204 candidate walk has strict finite-step causal support and unit norm
+PASS 205 continuous-time finite-range hopping has nonzero amplitude outside one-step neighbourhood
+
+7. Coupling invariant: what topology does and does not select
+PASS 206 discrete structural states, K=4
+PASS 207 discrete structural states, K=4
+PASS 208 discrete structural states, K=4
+PASS 209 uniform attenuation on 21 states gives alpha^21
+PASS 210 tensor-functor attenuation on four-vector gives alpha^36, not alpha^21
+PASS 211 trace counts alone do not fix attenuation exponent
+Conclusion: neither 21 exponent nor 17/13 normalization selected by the new current algebra.
+
+211/211 new checks passed; inherited 984 rerun; total 1195.

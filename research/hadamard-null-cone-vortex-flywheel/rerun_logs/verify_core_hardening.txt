@@ -1,0 +1,188 @@
+Inherited rerun: 1195
+
+1. Hodge-Dirac
+PASS 001 square is block Hodge Laplacian
+PASS 002 exact Hodge spectrum {0: 1, 4: 3, 6: 2}
+PASS 003 exact Hodge spectrum {2: 3, 4: 6, 6: 3}
+PASS 004 exact Hodge spectrum {0: 1, 2: 3, 4: 3, 6: 1}
+PASS 005 exact Hodge spectrum {0: 2, 2: 6, 4: 12, 6: 6}
+PASS 006 Dirac characteristic polynomial
+PASS 007 exact spectral projector 0
+PASS 008 exact spectral projector 2
+PASS 009 exact spectral projector 4
+PASS 010 exact spectral projector 6
+PASS 011 orthogonal resolution of identity
+PASS 012 kernel constant vertex plus oriented fundamental face
+PASS 013 degree grading anticommutes with Dirac
+
+2. Torsion symmetry bridge
+PASS 014 Dirac equivariance with orientation twist
+PASS 015 torsion sign line transforms as orientation
+PASS 016 Dirac equivariance with orientation twist
+PASS 017 torsion sign line transforms as orientation
+PASS 018 Dirac equivariance with orientation twist
+PASS 019 torsion sign line transforms as orientation
+PASS 020 Dirac equivariance with orientation twist
+PASS 021 torsion sign line transforms as orientation
+PASS 022 Dirac equivariance with orientation twist
+PASS 023 torsion sign line transforms as orientation
+PASS 024 Dirac equivariance with orientation twist
+PASS 025 torsion sign line transforms as orientation
+PASS 026 Dirac equivariance with orientation twist
+PASS 027 torsion sign line transforms as orientation
+PASS 028 Dirac equivariance with orientation twist
+PASS 029 torsion sign line transforms as orientation
+PASS 030 Dirac equivariance with orientation twist
+PASS 031 torsion sign line transforms as orientation
+PASS 032 Dirac equivariance with orientation twist
+PASS 033 torsion sign line transforms as orientation
+PASS 034 Dirac equivariance with orientation twist
+PASS 035 torsion sign line transforms as orientation
+PASS 036 Dirac equivariance with orientation twist
+PASS 037 torsion sign line transforms as orientation
+PASS 038 Dirac equivariance with orientation twist
+PASS 039 torsion sign line transforms as orientation
+PASS 040 Dirac equivariance with orientation twist
+PASS 041 torsion sign line transforms as orientation
+PASS 042 Dirac equivariance with orientation twist
+PASS 043 torsion sign line transforms as orientation
+PASS 044 Dirac equivariance with orientation twist
+PASS 045 torsion sign line transforms as orientation
+PASS 046 Dirac equivariance with orientation twist
+PASS 047 torsion sign line transforms as orientation
+PASS 048 Dirac equivariance with orientation twist
+PASS 049 torsion sign line transforms as orientation
+PASS 050 Dirac equivariance with orientation twist
+PASS 051 torsion sign line transforms as orientation
+PASS 052 Dirac equivariance with orientation twist
+PASS 053 torsion sign line transforms as orientation
+PASS 054 Dirac equivariance with orientation twist
+PASS 055 torsion sign line transforms as orientation
+PASS 056 Dirac equivariance with orientation twist
+PASS 057 torsion sign line transforms as orientation
+PASS 058 Dirac equivariance with orientation twist
+PASS 059 torsion sign line transforms as orientation
+PASS 060 Dirac equivariance with orientation twist
+PASS 061 torsion sign line transforms as orientation
+PASS 062 cycle representation 2T1 + A2
+PASS 063 torsion regular representation
+PASS 064 24 nonzero Dirac modes not torsion representation
+PASS 065 cycle-to-torsion equivariant map space dimension seven
+Irrep order A1,A2,E,T1,T2: (0, 1, 0, 2, 0) (1, 1, 2, 3, 3) (0, 2, 2, 4, 2)
+
+3. Spin holonomy of uniform transport
+PASS 066 eight spin projectors Hermitian rank one
+PASS 067 oriented cube face has spin phase pi/3
+PASS 068 oriented cube face has spin phase pi/3
+PASS 069 oriented cube face has spin phase pi/3
+PASS 070 oriented cube face has spin phase pi/3
+PASS 071 oriented cube face has spin phase pi/3
+PASS 072 oriented cube face has spin phase pi/3
+PASS 073 twelve directed Hamiltonian cycles
+PASS 074 uniform spin holonomy reproduces minus sign
+PASS 075 uniform spin holonomy reproduces minus sign
+PASS 076 uniform spin holonomy reproduces minus sign
+PASS 077 uniform spin holonomy reproduces minus sign
+PASS 078 uniform spin holonomy reproduces minus sign
+PASS 079 uniform spin holonomy reproduces minus sign
+PASS 080 uniform spin holonomy reproduces minus sign
+PASS 081 uniform spin holonomy reproduces minus sign
+PASS 082 uniform spin holonomy reproduces minus sign
+PASS 083 uniform spin holonomy reproduces minus sign
+PASS 084 uniform spin holonomy reproduces minus sign
+PASS 085 uniform spin holonomy reproduces minus sign
+PASS 086 nonflat spin Laplacian has positive ground eigenvalue
+PASS 087 spin spectrum and Wilson loops gauge invariant
+PASS 088 spin spectrum and Wilson loops gauge invariant
+PASS 089 spin spectrum and Wilson loops gauge invariant
+PASS 090 spin spectrum and Wilson loops gauge invariant
+PASS 091 spin spectrum and Wilson loops gauge invariant
+PASS 092 spin spectrum and Wilson loops gauge invariant
+PASS 093 spin spectrum and Wilson loops gauge invariant
+PASS 094 spin spectrum and Wilson loops gauge invariant
+PASS 095 each chamber spin frame has frame operator 2 I
+PASS 096 antipodal spin lines orthogonal, all other cross-root overlaps squared 2/3
+PASS 097 connection Laplacian matches exact tight-frame spectrum
+Connection Laplacian: [0.55051026 0.55051026 3.         3.         3.         3.
+ 5.44948974 5.44948974]
+
+4. Multiplication and nonlinear stability
+PASS 098 nonlocal transported product unital commutative associative
+PASS 099 symmetry and associativity alone do not force pointwise product
+PASS 100 exact quartic Hadamard identity
+PASS 101 orientation quartic identity
+PASS 102 orientation quartic identity
+PASS 103 orientation quartic identity
+PASS 104 orientation quartic identity
+PASS 105 orientation quartic identity
+PASS 106 orientation quartic identity
+PASS 107 orientation quartic identity
+PASS 108 orientation quartic identity
+PASS 109 orientation quartic identity
+PASS 110 orientation quartic identity
+PASS 111 orientation quartic identity
+PASS 112 orientation quartic identity
+PASS 113 orientation quartic identity
+PASS 114 orientation quartic identity
+PASS 115 orientation quartic identity
+PASS 116 orientation quartic identity
+PASS 117 orientation quartic identity
+PASS 118 orientation quartic identity
+PASS 119 orientation quartic identity
+PASS 120 orientation quartic identity
+PASS 121 orientation quartic identity
+PASS 122 orientation quartic identity
+PASS 123 orientation quartic identity
+PASS 124 orientation quartic identity
+PASS 125 minimum gradient vanishes
+PASS 126 constrained Hessian exact and positive
+PASS 127 phase and radial Hessian modes zero
+Hessian eigenvalues: 8 beta, 8 beta+8, 4, 4
+PASS 128 symmetry-breaking perturbed minimum retains chirality and positive Hessian
+PASS 129 symmetry-breaking perturbed minimum retains chirality and positive Hessian
+PASS 130 symmetry-breaking perturbed minimum retains chirality and positive Hessian
+PASS 131 nonlinear evolution conserves occupation and energy
+PASS 132 near-minimum trajectory remains near circular orbit
+PASS 133 symmetry-breaking perturbed minimum retains chirality and positive Hessian
+PASS 134 symmetry-breaking perturbed minimum retains chirality and positive Hessian
+PASS 135 symmetry-breaking perturbed minimum retains chirality and positive Hessian
+PASS 136 nonlinear evolution conserves occupation and energy
+PASS 137 near-minimum trajectory remains near circular orbit
+PASS 138 symmetry-breaking perturbed minimum retains chirality and positive Hessian
+PASS 139 symmetry-breaking perturbed minimum retains chirality and positive Hessian
+PASS 140 symmetry-breaking perturbed minimum retains chirality and positive Hessian
+PASS 141 nonlinear evolution conserves occupation and energy
+PASS 142 near-minimum trajectory remains near circular orbit
+PASS 143 stable three-triplet lift has all core and chamber components and energy minimum
+PASS 144 hidden branch perturbation has energy cost bounded by spectral gap
+PASS 145 stable three-triplet lift has all core and chamber components and energy minimum
+PASS 146 hidden branch perturbation has energy cost bounded by spectral gap
+PASS 147 stable three-triplet lift has all core and chamber components and energy minimum
+PASS 148 hidden branch perturbation has energy cost bounded by spectral gap
+PASS 149 stable three-triplet lift has all core and chamber components and energy minimum
+PASS 150 hidden branch perturbation has energy cost bounded by spectral gap
+PASS 151 stable three-triplet lift has all core and chamber components and energy minimum
+PASS 152 hidden branch perturbation has energy cost bounded by spectral gap
+PASS 153 stable three-triplet lift has all core and chamber components and energy minimum
+PASS 154 hidden branch perturbation has energy cost bounded by spectral gap
+PASS 155 stable three-triplet lift has all core and chamber components and energy minimum
+PASS 156 hidden branch perturbation has energy cost bounded by spectral gap
+PASS 157 stable three-triplet lift has all core and chamber components and energy minimum
+PASS 158 hidden branch perturbation has energy cost bounded by spectral gap
+
+5. Conditional canonical registration
+PASS 159 Whitney straight-segment integral equals wedge of endpoints
+PASS 160 central flow feasible and orthogonal to cycles
+PASS 161 central flow feasible and orthogonal to cycles
+PASS 162 central flow feasible and orthogonal to cycles
+PASS 163 central flow feasible and orthogonal to cycles
+PASS 164 central flow feasible and orthogonal to cycles
+PASS 165 central flow feasible and orthogonal to cycles
+PASS 166 central flow feasible and orthogonal to cycles
+PASS 167 central flow feasible and orthogonal to cycles
+PASS 168 all 104 registration columns reproduced under route and norm premises
+PASS 169 changing path adds triangular circulation at fixed endpoints
+PASS 170 same-path subdivision additive
+Registration columns: {'single simplex Whitney': 84, 'two simplices via midpoint': 12, 'central gradient minimum': 8}
+
+170/170 new checks passed; inherited 1195 rerun; total 1365.

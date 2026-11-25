@@ -1,0 +1,814 @@
+PASS 001 all 104 graph bonds present and nonzero
+Bond classes: {'ring': 24, 'transpose': 12, 'base': 24, 'column': 24, 'central': 12, 'origin': 8}
+PASS 002 exact Td invariance
+PASS 003 exact Td invariance
+PASS 004 exact Td invariance
+PASS 005 exact Td invariance
+PASS 006 exact Td invariance
+PASS 007 exact Td invariance
+PASS 008 exact Td invariance
+PASS 009 exact Td invariance
+PASS 010 exact Td invariance
+PASS 011 exact Td invariance
+PASS 012 exact Td invariance
+PASS 013 exact Td invariance
+PASS 014 exact Td invariance
+PASS 015 exact Td invariance
+PASS 016 exact Td invariance
+PASS 017 exact Td invariance
+PASS 018 exact Td invariance
+PASS 019 exact Td invariance
+PASS 020 exact Td invariance
+PASS 021 exact Td invariance
+PASS 022 exact Td invariance
+PASS 023 exact Td invariance
+PASS 024 exact Td invariance
+PASS 025 exact Td invariance
+PASS 026 exact graph restriction for every complex q: H B = B (M tensor I3)
+PASS 027 metric of reduced coordinates and self-adjointness
+PASS 028 column amplitudes recover q from pure row-winding input
+PASS 029 stationary eight-ring and inner-occupied eigenvector exact
+PASS 030 eigenvalue is an isolated triplet on entire graph
+PASS 031 exact three eigenfrequencies
+PASS 032 exact spectral projection
+PASS 033 exact spectral projection
+PASS 034 exact spectral projection
+PASS 035 initial coefficients reconstructed
+PASS 036 closed-form coefficients
+PASS 037 v coefficients positive and dominant coefficient gives uniform lower bound
+PASS 038 w coefficients positive except first and sum zero
+PASS 039 frequency gap ratio has nonzero irrational coefficient
+PASS 040 row mean deviation bound exact
+PASS 041 positive exact infinite-time intensity means
+Sufficient all-bond winding threshold min |s.C| > 28*sqrt(33)/219 = 0.7344646306076018
+PASS 042 three outward edges sum to 4 face normals
+PASS 043 three outward edges sum to 4 face normals
+PASS 044 three outward edges sum to 4 face normals
+PASS 045 three outward edges sum to 4 face normals
+PASS 046 three outward edges sum to 4 face normals
+PASS 047 three outward edges sum to 4 face normals
+PASS 048 three outward edges sum to 4 face normals
+PASS 049 three outward edges sum to 4 face normals
+PASS 050 central shared-edge angular Gram equals 32I
+PASS 051 central current separately divergence-free for every q
+PASS 052 central current separately divergence-free for every q
+PASS 053 central current separately divergence-free for every q
+PASS 054 central current separately divergence-free for every q
+PASS 055 initial normalization exact
+PASS 056 generic face phases meet sufficient all-ring bound
+PASS 057 eight input rings have zero row sum and nonzero equally directed bond currents
+PASS 058 initial inner region empty and column source nonzero
+PASS 059 closed form matches full 33-site unitary evolution
+PASS 060 all 24 outer ring bonds retain their local circulation signs
+PASS 061 exact face-current means and physical inner moment
+PASS 062 physical inner subgraph has zero divergence and nonzero current
+PASS 063 origin dark and global norm conserved
+PASS 064 closed form matches full 33-site unitary evolution
+PASS 065 all 24 outer ring bonds retain their local circulation signs
+PASS 066 exact face-current means and physical inner moment
+PASS 067 physical inner subgraph has zero divergence and nonzero current
+PASS 068 origin dark and global norm conserved
+PASS 069 closed form matches full 33-site unitary evolution
+PASS 070 all 24 outer ring bonds retain their local circulation signs
+PASS 071 exact face-current means and physical inner moment
+PASS 072 physical inner subgraph has zero divergence and nonzero current
+PASS 073 origin dark and global norm conserved
+PASS 074 closed form matches full 33-site unitary evolution
+PASS 075 all 24 outer ring bonds retain their local circulation signs
+PASS 076 exact face-current means and physical inner moment
+PASS 077 physical inner subgraph has zero divergence and nonzero current
+PASS 078 origin dark and global norm conserved
+PASS 079 closed form matches full 33-site unitary evolution
+PASS 080 all 24 outer ring bonds retain their local circulation signs
+PASS 081 exact face-current means and physical inner moment
+PASS 082 physical inner subgraph has zero divergence and nonzero current
+PASS 083 origin dark and global norm conserved
+PASS 084 closed form matches full 33-site unitary evolution
+PASS 085 all 24 outer ring bonds retain their local circulation signs
+PASS 086 exact face-current means and physical inner moment
+PASS 087 physical inner subgraph has zero divergence and nonzero current
+PASS 088 origin dark and global norm conserved
+PASS 089 closed form matches full 33-site unitary evolution
+PASS 090 all 24 outer ring bonds retain their local circulation signs
+PASS 091 exact face-current means and physical inner moment
+PASS 092 physical inner subgraph has zero divergence and nonzero current
+PASS 093 origin dark and global norm conserved
+PASS 094 closed form matches full 33-site unitary evolution
+PASS 095 all 24 outer ring bonds retain their local circulation signs
+PASS 096 exact face-current means and physical inner moment
+PASS 097 physical inner subgraph has zero divergence and nonzero current
+PASS 098 origin dark and global norm conserved
+PASS 099 closed form matches full 33-site unitary evolution
+PASS 100 all 24 outer ring bonds retain their local circulation signs
+PASS 101 exact face-current means and physical inner moment
+PASS 102 physical inner subgraph has zero divergence and nonzero current
+PASS 103 origin dark and global norm conserved
+PASS 104 closed form matches full 33-site unitary evolution
+PASS 105 all 24 outer ring bonds retain their local circulation signs
+PASS 106 exact face-current means and physical inner moment
+PASS 107 physical inner subgraph has zero divergence and nonzero current
+PASS 108 origin dark and global norm conserved
+PASS 109 same Hamiltonian has stationary simultaneous eight full rings and actual core vortex
+PASS 110 unrestricted initial perturbation retains exact orbital distance
+PASS 111 perturbed stationary flywheel retains all eight rings and core angular sign
+PASS 112 unrestricted initial perturbation retains exact orbital distance
+PASS 113 perturbed stationary flywheel retains all eight rings and core angular sign
+PASS 114 unrestricted initial perturbation retains exact orbital distance
+PASS 115 perturbed stationary flywheel retains all eight rings and core angular sign
+PASS 116 unrestricted initial perturbation retains exact orbital distance
+PASS 117 perturbed stationary flywheel retains all eight rings and core angular sign
+PASS 118 generic face phases meet sufficient all-ring bound
+PASS 119 eight input rings have zero row sum and nonzero equally directed bond currents
+PASS 120 initial inner region empty and column source nonzero
+PASS 121 closed form matches full 33-site unitary evolution
+PASS 122 all 24 outer ring bonds retain their local circulation signs
+PASS 123 exact face-current means and physical inner moment
+PASS 124 physical inner subgraph has zero divergence and nonzero current
+PASS 125 origin dark and global norm conserved
+PASS 126 closed form matches full 33-site unitary evolution
+PASS 127 all 24 outer ring bonds retain their local circulation signs
+PASS 128 exact face-current means and physical inner moment
+PASS 129 physical inner subgraph has zero divergence and nonzero current
+PASS 130 origin dark and global norm conserved
+PASS 131 closed form matches full 33-site unitary evolution
+PASS 132 all 24 outer ring bonds retain their local circulation signs
+PASS 133 exact face-current means and physical inner moment
+PASS 134 physical inner subgraph has zero divergence and nonzero current
+PASS 135 origin dark and global norm conserved
+PASS 136 closed form matches full 33-site unitary evolution
+PASS 137 all 24 outer ring bonds retain their local circulation signs
+PASS 138 exact face-current means and physical inner moment
+PASS 139 physical inner subgraph has zero divergence and nonzero current
+PASS 140 origin dark and global norm conserved
+PASS 141 closed form matches full 33-site unitary evolution
+PASS 142 all 24 outer ring bonds retain their local circulation signs
+PASS 143 exact face-current means and physical inner moment
+PASS 144 physical inner subgraph has zero divergence and nonzero current
+PASS 145 origin dark and global norm conserved
+PASS 146 closed form matches full 33-site unitary evolution
+PASS 147 all 24 outer ring bonds retain their local circulation signs
+PASS 148 exact face-current means and physical inner moment
+PASS 149 physical inner subgraph has zero divergence and nonzero current
+PASS 150 origin dark and global norm conserved
+PASS 151 closed form matches full 33-site unitary evolution
+PASS 152 all 24 outer ring bonds retain their local circulation signs
+PASS 153 exact face-current means and physical inner moment
+PASS 154 physical inner subgraph has zero divergence and nonzero current
+PASS 155 origin dark and global norm conserved
+PASS 156 closed form matches full 33-site unitary evolution
+PASS 157 all 24 outer ring bonds retain their local circulation signs
+PASS 158 exact face-current means and physical inner moment
+PASS 159 physical inner subgraph has zero divergence and nonzero current
+PASS 160 origin dark and global norm conserved
+PASS 161 closed form matches full 33-site unitary evolution
+PASS 162 all 24 outer ring bonds retain their local circulation signs
+PASS 163 exact face-current means and physical inner moment
+PASS 164 physical inner subgraph has zero divergence and nonzero current
+PASS 165 origin dark and global norm conserved
+PASS 166 closed form matches full 33-site unitary evolution
+PASS 167 all 24 outer ring bonds retain their local circulation signs
+PASS 168 exact face-current means and physical inner moment
+PASS 169 physical inner subgraph has zero divergence and nonzero current
+PASS 170 origin dark and global norm conserved
+PASS 171 same Hamiltonian has stationary simultaneous eight full rings and actual core vortex
+PASS 172 unrestricted initial perturbation retains exact orbital distance
+PASS 173 perturbed stationary flywheel retains all eight rings and core angular sign
+PASS 174 unrestricted initial perturbation retains exact orbital distance
+PASS 175 perturbed stationary flywheel retains all eight rings and core angular sign
+PASS 176 unrestricted initial perturbation retains exact orbital distance
+PASS 177 perturbed stationary flywheel retains all eight rings and core angular sign
+PASS 178 unrestricted initial perturbation retains exact orbital distance
+PASS 179 perturbed stationary flywheel retains all eight rings and core angular sign
+PASS 180 generic face phases meet sufficient all-ring bound
+PASS 181 eight input rings have zero row sum and nonzero equally directed bond currents
+PASS 182 initial inner region empty and column source nonzero
+PASS 183 closed form matches full 33-site unitary evolution
+PASS 184 all 24 outer ring bonds retain their local circulation signs
+PASS 185 exact face-current means and physical inner moment
+PASS 186 physical inner subgraph has zero divergence and nonzero current
+PASS 187 origin dark and global norm conserved
+PASS 188 closed form matches full 33-site unitary evolution
+PASS 189 all 24 outer ring bonds retain their local circulation signs
+PASS 190 exact face-current means and physical inner moment
+PASS 191 physical inner subgraph has zero divergence and nonzero current
+PASS 192 origin dark and global norm conserved
+PASS 193 closed form matches full 33-site unitary evolution
+PASS 194 all 24 outer ring bonds retain their local circulation signs
+PASS 195 exact face-current means and physical inner moment
+PASS 196 physical inner subgraph has zero divergence and nonzero current
+PASS 197 origin dark and global norm conserved
+PASS 198 closed form matches full 33-site unitary evolution
+PASS 199 all 24 outer ring bonds retain their local circulation signs
+PASS 200 exact face-current means and physical inner moment
+PASS 201 physical inner subgraph has zero divergence and nonzero current
+PASS 202 origin dark and global norm conserved
+PASS 203 closed form matches full 33-site unitary evolution
+PASS 204 all 24 outer ring bonds retain their local circulation signs
+PASS 205 exact face-current means and physical inner moment
+PASS 206 physical inner subgraph has zero divergence and nonzero current
+PASS 207 origin dark and global norm conserved
+PASS 208 closed form matches full 33-site unitary evolution
+PASS 209 all 24 outer ring bonds retain their local circulation signs
+PASS 210 exact face-current means and physical inner moment
+PASS 211 physical inner subgraph has zero divergence and nonzero current
+PASS 212 origin dark and global norm conserved
+PASS 213 closed form matches full 33-site unitary evolution
+PASS 214 all 24 outer ring bonds retain their local circulation signs
+PASS 215 exact face-current means and physical inner moment
+PASS 216 physical inner subgraph has zero divergence and nonzero current
+PASS 217 origin dark and global norm conserved
+PASS 218 closed form matches full 33-site unitary evolution
+PASS 219 all 24 outer ring bonds retain their local circulation signs
+PASS 220 exact face-current means and physical inner moment
+PASS 221 physical inner subgraph has zero divergence and nonzero current
+PASS 222 origin dark and global norm conserved
+PASS 223 closed form matches full 33-site unitary evolution
+PASS 224 all 24 outer ring bonds retain their local circulation signs
+PASS 225 exact face-current means and physical inner moment
+PASS 226 physical inner subgraph has zero divergence and nonzero current
+PASS 227 origin dark and global norm conserved
+PASS 228 closed form matches full 33-site unitary evolution
+PASS 229 all 24 outer ring bonds retain their local circulation signs
+PASS 230 exact face-current means and physical inner moment
+PASS 231 physical inner subgraph has zero divergence and nonzero current
+PASS 232 origin dark and global norm conserved
+PASS 233 same Hamiltonian has stationary simultaneous eight full rings and actual core vortex
+PASS 234 unrestricted initial perturbation retains exact orbital distance
+PASS 235 perturbed stationary flywheel retains all eight rings and core angular sign
+PASS 236 unrestricted initial perturbation retains exact orbital distance
+PASS 237 perturbed stationary flywheel retains all eight rings and core angular sign
+PASS 238 unrestricted initial perturbation retains exact orbital distance
+PASS 239 perturbed stationary flywheel retains all eight rings and core angular sign
+PASS 240 unrestricted initial perturbation retains exact orbital distance
+PASS 241 perturbed stationary flywheel retains all eight rings and core angular sign
+PASS 242 generic face phases meet sufficient all-ring bound
+PASS 243 eight input rings have zero row sum and nonzero equally directed bond currents
+PASS 244 initial inner region empty and column source nonzero
+PASS 245 closed form matches full 33-site unitary evolution
+PASS 246 all 24 outer ring bonds retain their local circulation signs
+PASS 247 exact face-current means and physical inner moment
+PASS 248 physical inner subgraph has zero divergence and nonzero current
+PASS 249 origin dark and global norm conserved
+PASS 250 closed form matches full 33-site unitary evolution
+PASS 251 all 24 outer ring bonds retain their local circulation signs
+PASS 252 exact face-current means and physical inner moment
+PASS 253 physical inner subgraph has zero divergence and nonzero current
+PASS 254 origin dark and global norm conserved
+PASS 255 closed form matches full 33-site unitary evolution
+PASS 256 all 24 outer ring bonds retain their local circulation signs
+PASS 257 exact face-current means and physical inner moment
+PASS 258 physical inner subgraph has zero divergence and nonzero current
+PASS 259 origin dark and global norm conserved
+PASS 260 closed form matches full 33-site unitary evolution
+PASS 261 all 24 outer ring bonds retain their local circulation signs
+PASS 262 exact face-current means and physical inner moment
+PASS 263 physical inner subgraph has zero divergence and nonzero current
+PASS 264 origin dark and global norm conserved
+PASS 265 closed form matches full 33-site unitary evolution
+PASS 266 all 24 outer ring bonds retain their local circulation signs
+PASS 267 exact face-current means and physical inner moment
+PASS 268 physical inner subgraph has zero divergence and nonzero current
+PASS 269 origin dark and global norm conserved
+PASS 270 closed form matches full 33-site unitary evolution
+PASS 271 all 24 outer ring bonds retain their local circulation signs
+PASS 272 exact face-current means and physical inner moment
+PASS 273 physical inner subgraph has zero divergence and nonzero current
+PASS 274 origin dark and global norm conserved
+PASS 275 closed form matches full 33-site unitary evolution
+PASS 276 all 24 outer ring bonds retain their local circulation signs
+PASS 277 exact face-current means and physical inner moment
+PASS 278 physical inner subgraph has zero divergence and nonzero current
+PASS 279 origin dark and global norm conserved
+PASS 280 closed form matches full 33-site unitary evolution
+PASS 281 all 24 outer ring bonds retain their local circulation signs
+PASS 282 exact face-current means and physical inner moment
+PASS 283 physical inner subgraph has zero divergence and nonzero current
+PASS 284 origin dark and global norm conserved
+PASS 285 closed form matches full 33-site unitary evolution
+PASS 286 all 24 outer ring bonds retain their local circulation signs
+PASS 287 exact face-current means and physical inner moment
+PASS 288 physical inner subgraph has zero divergence and nonzero current
+PASS 289 origin dark and global norm conserved
+PASS 290 closed form matches full 33-site unitary evolution
+PASS 291 all 24 outer ring bonds retain their local circulation signs
+PASS 292 exact face-current means and physical inner moment
+PASS 293 physical inner subgraph has zero divergence and nonzero current
+PASS 294 origin dark and global norm conserved
+PASS 295 same Hamiltonian has stationary simultaneous eight full rings and actual core vortex
+PASS 296 unrestricted initial perturbation retains exact orbital distance
+PASS 297 perturbed stationary flywheel retains all eight rings and core angular sign
+PASS 298 unrestricted initial perturbation retains exact orbital distance
+PASS 299 perturbed stationary flywheel retains all eight rings and core angular sign
+PASS 300 unrestricted initial perturbation retains exact orbital distance
+PASS 301 perturbed stationary flywheel retains all eight rings and core angular sign
+PASS 302 unrestricted initial perturbation retains exact orbital distance
+PASS 303 perturbed stationary flywheel retains all eight rings and core angular sign
+PASS 304 generic face phases meet sufficient all-ring bound
+PASS 305 eight input rings have zero row sum and nonzero equally directed bond currents
+PASS 306 initial inner region empty and column source nonzero
+PASS 307 closed form matches full 33-site unitary evolution
+PASS 308 all 24 outer ring bonds retain their local circulation signs
+PASS 309 exact face-current means and physical inner moment
+PASS 310 physical inner subgraph has zero divergence and nonzero current
+PASS 311 origin dark and global norm conserved
+PASS 312 closed form matches full 33-site unitary evolution
+PASS 313 all 24 outer ring bonds retain their local circulation signs
+PASS 314 exact face-current means and physical inner moment
+PASS 315 physical inner subgraph has zero divergence and nonzero current
+PASS 316 origin dark and global norm conserved
+PASS 317 closed form matches full 33-site unitary evolution
+PASS 318 all 24 outer ring bonds retain their local circulation signs
+PASS 319 exact face-current means and physical inner moment
+PASS 320 physical inner subgraph has zero divergence and nonzero current
+PASS 321 origin dark and global norm conserved
+PASS 322 closed form matches full 33-site unitary evolution
+PASS 323 all 24 outer ring bonds retain their local circulation signs
+PASS 324 exact face-current means and physical inner moment
+PASS 325 physical inner subgraph has zero divergence and nonzero current
+PASS 326 origin dark and global norm conserved
+PASS 327 closed form matches full 33-site unitary evolution
+PASS 328 all 24 outer ring bonds retain their local circulation signs
+PASS 329 exact face-current means and physical inner moment
+PASS 330 physical inner subgraph has zero divergence and nonzero current
+PASS 331 origin dark and global norm conserved
+PASS 332 closed form matches full 33-site unitary evolution
+PASS 333 all 24 outer ring bonds retain their local circulation signs
+PASS 334 exact face-current means and physical inner moment
+PASS 335 physical inner subgraph has zero divergence and nonzero current
+PASS 336 origin dark and global norm conserved
+PASS 337 closed form matches full 33-site unitary evolution
+PASS 338 all 24 outer ring bonds retain their local circulation signs
+PASS 339 exact face-current means and physical inner moment
+PASS 340 physical inner subgraph has zero divergence and nonzero current
+PASS 341 origin dark and global norm conserved
+PASS 342 closed form matches full 33-site unitary evolution
+PASS 343 all 24 outer ring bonds retain their local circulation signs
+PASS 344 exact face-current means and physical inner moment
+PASS 345 physical inner subgraph has zero divergence and nonzero current
+PASS 346 origin dark and global norm conserved
+PASS 347 closed form matches full 33-site unitary evolution
+PASS 348 all 24 outer ring bonds retain their local circulation signs
+PASS 349 exact face-current means and physical inner moment
+PASS 350 physical inner subgraph has zero divergence and nonzero current
+PASS 351 origin dark and global norm conserved
+PASS 352 closed form matches full 33-site unitary evolution
+PASS 353 all 24 outer ring bonds retain their local circulation signs
+PASS 354 exact face-current means and physical inner moment
+PASS 355 physical inner subgraph has zero divergence and nonzero current
+PASS 356 origin dark and global norm conserved
+PASS 357 same Hamiltonian has stationary simultaneous eight full rings and actual core vortex
+PASS 358 unrestricted initial perturbation retains exact orbital distance
+PASS 359 perturbed stationary flywheel retains all eight rings and core angular sign
+PASS 360 unrestricted initial perturbation retains exact orbital distance
+PASS 361 perturbed stationary flywheel retains all eight rings and core angular sign
+PASS 362 unrestricted initial perturbation retains exact orbital distance
+PASS 363 perturbed stationary flywheel retains all eight rings and core angular sign
+PASS 364 unrestricted initial perturbation retains exact orbital distance
+PASS 365 perturbed stationary flywheel retains all eight rings and core angular sign
+PASS 366 generic face phases meet sufficient all-ring bound
+PASS 367 eight input rings have zero row sum and nonzero equally directed bond currents
+PASS 368 initial inner region empty and column source nonzero
+PASS 369 closed form matches full 33-site unitary evolution
+PASS 370 all 24 outer ring bonds retain their local circulation signs
+PASS 371 exact face-current means and physical inner moment
+PASS 372 physical inner subgraph has zero divergence and nonzero current
+PASS 373 origin dark and global norm conserved
+PASS 374 closed form matches full 33-site unitary evolution
+PASS 375 all 24 outer ring bonds retain their local circulation signs
+PASS 376 exact face-current means and physical inner moment
+PASS 377 physical inner subgraph has zero divergence and nonzero current
+PASS 378 origin dark and global norm conserved
+PASS 379 closed form matches full 33-site unitary evolution
+PASS 380 all 24 outer ring bonds retain their local circulation signs
+PASS 381 exact face-current means and physical inner moment
+PASS 382 physical inner subgraph has zero divergence and nonzero current
+PASS 383 origin dark and global norm conserved
+PASS 384 closed form matches full 33-site unitary evolution
+PASS 385 all 24 outer ring bonds retain their local circulation signs
+PASS 386 exact face-current means and physical inner moment
+PASS 387 physical inner subgraph has zero divergence and nonzero current
+PASS 388 origin dark and global norm conserved
+PASS 389 closed form matches full 33-site unitary evolution
+PASS 390 all 24 outer ring bonds retain their local circulation signs
+PASS 391 exact face-current means and physical inner moment
+PASS 392 physical inner subgraph has zero divergence and nonzero current
+PASS 393 origin dark and global norm conserved
+PASS 394 closed form matches full 33-site unitary evolution
+PASS 395 all 24 outer ring bonds retain their local circulation signs
+PASS 396 exact face-current means and physical inner moment
+PASS 397 physical inner subgraph has zero divergence and nonzero current
+PASS 398 origin dark and global norm conserved
+PASS 399 closed form matches full 33-site unitary evolution
+PASS 400 all 24 outer ring bonds retain their local circulation signs
+PASS 401 exact face-current means and physical inner moment
+PASS 402 physical inner subgraph has zero divergence and nonzero current
+PASS 403 origin dark and global norm conserved
+PASS 404 closed form matches full 33-site unitary evolution
+PASS 405 all 24 outer ring bonds retain their local circulation signs
+PASS 406 exact face-current means and physical inner moment
+PASS 407 physical inner subgraph has zero divergence and nonzero current
+PASS 408 origin dark and global norm conserved
+PASS 409 closed form matches full 33-site unitary evolution
+PASS 410 all 24 outer ring bonds retain their local circulation signs
+PASS 411 exact face-current means and physical inner moment
+PASS 412 physical inner subgraph has zero divergence and nonzero current
+PASS 413 origin dark and global norm conserved
+PASS 414 closed form matches full 33-site unitary evolution
+PASS 415 all 24 outer ring bonds retain their local circulation signs
+PASS 416 exact face-current means and physical inner moment
+PASS 417 physical inner subgraph has zero divergence and nonzero current
+PASS 418 origin dark and global norm conserved
+PASS 419 same Hamiltonian has stationary simultaneous eight full rings and actual core vortex
+PASS 420 unrestricted initial perturbation retains exact orbital distance
+PASS 421 perturbed stationary flywheel retains all eight rings and core angular sign
+PASS 422 unrestricted initial perturbation retains exact orbital distance
+PASS 423 perturbed stationary flywheel retains all eight rings and core angular sign
+PASS 424 unrestricted initial perturbation retains exact orbital distance
+PASS 425 perturbed stationary flywheel retains all eight rings and core angular sign
+PASS 426 unrestricted initial perturbation retains exact orbital distance
+PASS 427 perturbed stationary flywheel retains all eight rings and core angular sign
+PASS 428 generic face phases meet sufficient all-ring bound
+PASS 429 eight input rings have zero row sum and nonzero equally directed bond currents
+PASS 430 initial inner region empty and column source nonzero
+PASS 431 closed form matches full 33-site unitary evolution
+PASS 432 all 24 outer ring bonds retain their local circulation signs
+PASS 433 exact face-current means and physical inner moment
+PASS 434 physical inner subgraph has zero divergence and nonzero current
+PASS 435 origin dark and global norm conserved
+PASS 436 closed form matches full 33-site unitary evolution
+PASS 437 all 24 outer ring bonds retain their local circulation signs
+PASS 438 exact face-current means and physical inner moment
+PASS 439 physical inner subgraph has zero divergence and nonzero current
+PASS 440 origin dark and global norm conserved
+PASS 441 closed form matches full 33-site unitary evolution
+PASS 442 all 24 outer ring bonds retain their local circulation signs
+PASS 443 exact face-current means and physical inner moment
+PASS 444 physical inner subgraph has zero divergence and nonzero current
+PASS 445 origin dark and global norm conserved
+PASS 446 closed form matches full 33-site unitary evolution
+PASS 447 all 24 outer ring bonds retain their local circulation signs
+PASS 448 exact face-current means and physical inner moment
+PASS 449 physical inner subgraph has zero divergence and nonzero current
+PASS 450 origin dark and global norm conserved
+PASS 451 closed form matches full 33-site unitary evolution
+PASS 452 all 24 outer ring bonds retain their local circulation signs
+PASS 453 exact face-current means and physical inner moment
+PASS 454 physical inner subgraph has zero divergence and nonzero current
+PASS 455 origin dark and global norm conserved
+PASS 456 closed form matches full 33-site unitary evolution
+PASS 457 all 24 outer ring bonds retain their local circulation signs
+PASS 458 exact face-current means and physical inner moment
+PASS 459 physical inner subgraph has zero divergence and nonzero current
+PASS 460 origin dark and global norm conserved
+PASS 461 closed form matches full 33-site unitary evolution
+PASS 462 all 24 outer ring bonds retain their local circulation signs
+PASS 463 exact face-current means and physical inner moment
+PASS 464 physical inner subgraph has zero divergence and nonzero current
+PASS 465 origin dark and global norm conserved
+PASS 466 closed form matches full 33-site unitary evolution
+PASS 467 all 24 outer ring bonds retain their local circulation signs
+PASS 468 exact face-current means and physical inner moment
+PASS 469 physical inner subgraph has zero divergence and nonzero current
+PASS 470 origin dark and global norm conserved
+PASS 471 closed form matches full 33-site unitary evolution
+PASS 472 all 24 outer ring bonds retain their local circulation signs
+PASS 473 exact face-current means and physical inner moment
+PASS 474 physical inner subgraph has zero divergence and nonzero current
+PASS 475 origin dark and global norm conserved
+PASS 476 closed form matches full 33-site unitary evolution
+PASS 477 all 24 outer ring bonds retain their local circulation signs
+PASS 478 exact face-current means and physical inner moment
+PASS 479 physical inner subgraph has zero divergence and nonzero current
+PASS 480 origin dark and global norm conserved
+PASS 481 same Hamiltonian has stationary simultaneous eight full rings and actual core vortex
+PASS 482 unrestricted initial perturbation retains exact orbital distance
+PASS 483 perturbed stationary flywheel retains all eight rings and core angular sign
+PASS 484 unrestricted initial perturbation retains exact orbital distance
+PASS 485 perturbed stationary flywheel retains all eight rings and core angular sign
+PASS 486 unrestricted initial perturbation retains exact orbital distance
+PASS 487 perturbed stationary flywheel retains all eight rings and core angular sign
+PASS 488 unrestricted initial perturbation retains exact orbital distance
+PASS 489 perturbed stationary flywheel retains all eight rings and core angular sign
+PASS 490 generic face phases meet sufficient all-ring bound
+PASS 491 eight input rings have zero row sum and nonzero equally directed bond currents
+PASS 492 initial inner region empty and column source nonzero
+PASS 493 closed form matches full 33-site unitary evolution
+PASS 494 all 24 outer ring bonds retain their local circulation signs
+PASS 495 exact face-current means and physical inner moment
+PASS 496 physical inner subgraph has zero divergence and nonzero current
+PASS 497 origin dark and global norm conserved
+PASS 498 closed form matches full 33-site unitary evolution
+PASS 499 all 24 outer ring bonds retain their local circulation signs
+PASS 500 exact face-current means and physical inner moment
+PASS 501 physical inner subgraph has zero divergence and nonzero current
+PASS 502 origin dark and global norm conserved
+PASS 503 closed form matches full 33-site unitary evolution
+PASS 504 all 24 outer ring bonds retain their local circulation signs
+PASS 505 exact face-current means and physical inner moment
+PASS 506 physical inner subgraph has zero divergence and nonzero current
+PASS 507 origin dark and global norm conserved
+PASS 508 closed form matches full 33-site unitary evolution
+PASS 509 all 24 outer ring bonds retain their local circulation signs
+PASS 510 exact face-current means and physical inner moment
+PASS 511 physical inner subgraph has zero divergence and nonzero current
+PASS 512 origin dark and global norm conserved
+PASS 513 closed form matches full 33-site unitary evolution
+PASS 514 all 24 outer ring bonds retain their local circulation signs
+PASS 515 exact face-current means and physical inner moment
+PASS 516 physical inner subgraph has zero divergence and nonzero current
+PASS 517 origin dark and global norm conserved
+PASS 518 closed form matches full 33-site unitary evolution
+PASS 519 all 24 outer ring bonds retain their local circulation signs
+PASS 520 exact face-current means and physical inner moment
+PASS 521 physical inner subgraph has zero divergence and nonzero current
+PASS 522 origin dark and global norm conserved
+PASS 523 closed form matches full 33-site unitary evolution
+PASS 524 all 24 outer ring bonds retain their local circulation signs
+PASS 525 exact face-current means and physical inner moment
+PASS 526 physical inner subgraph has zero divergence and nonzero current
+PASS 527 origin dark and global norm conserved
+PASS 528 closed form matches full 33-site unitary evolution
+PASS 529 all 24 outer ring bonds retain their local circulation signs
+PASS 530 exact face-current means and physical inner moment
+PASS 531 physical inner subgraph has zero divergence and nonzero current
+PASS 532 origin dark and global norm conserved
+PASS 533 closed form matches full 33-site unitary evolution
+PASS 534 all 24 outer ring bonds retain their local circulation signs
+PASS 535 exact face-current means and physical inner moment
+PASS 536 physical inner subgraph has zero divergence and nonzero current
+PASS 537 origin dark and global norm conserved
+PASS 538 closed form matches full 33-site unitary evolution
+PASS 539 all 24 outer ring bonds retain their local circulation signs
+PASS 540 exact face-current means and physical inner moment
+PASS 541 physical inner subgraph has zero divergence and nonzero current
+PASS 542 origin dark and global norm conserved
+PASS 543 same Hamiltonian has stationary simultaneous eight full rings and actual core vortex
+PASS 544 unrestricted initial perturbation retains exact orbital distance
+PASS 545 perturbed stationary flywheel retains all eight rings and core angular sign
+PASS 546 unrestricted initial perturbation retains exact orbital distance
+PASS 547 perturbed stationary flywheel retains all eight rings and core angular sign
+PASS 548 unrestricted initial perturbation retains exact orbital distance
+PASS 549 perturbed stationary flywheel retains all eight rings and core angular sign
+PASS 550 unrestricted initial perturbation retains exact orbital distance
+PASS 551 perturbed stationary flywheel retains all eight rings and core angular sign
+PASS 552 generic face phases meet sufficient all-ring bound
+PASS 553 eight input rings have zero row sum and nonzero equally directed bond currents
+PASS 554 initial inner region empty and column source nonzero
+PASS 555 closed form matches full 33-site unitary evolution
+PASS 556 all 24 outer ring bonds retain their local circulation signs
+PASS 557 exact face-current means and physical inner moment
+PASS 558 physical inner subgraph has zero divergence and nonzero current
+PASS 559 origin dark and global norm conserved
+PASS 560 closed form matches full 33-site unitary evolution
+PASS 561 all 24 outer ring bonds retain their local circulation signs
+PASS 562 exact face-current means and physical inner moment
+PASS 563 physical inner subgraph has zero divergence and nonzero current
+PASS 564 origin dark and global norm conserved
+PASS 565 closed form matches full 33-site unitary evolution
+PASS 566 all 24 outer ring bonds retain their local circulation signs
+PASS 567 exact face-current means and physical inner moment
+PASS 568 physical inner subgraph has zero divergence and nonzero current
+PASS 569 origin dark and global norm conserved
+PASS 570 closed form matches full 33-site unitary evolution
+PASS 571 all 24 outer ring bonds retain their local circulation signs
+PASS 572 exact face-current means and physical inner moment
+PASS 573 physical inner subgraph has zero divergence and nonzero current
+PASS 574 origin dark and global norm conserved
+PASS 575 closed form matches full 33-site unitary evolution
+PASS 576 all 24 outer ring bonds retain their local circulation signs
+PASS 577 exact face-current means and physical inner moment
+PASS 578 physical inner subgraph has zero divergence and nonzero current
+PASS 579 origin dark and global norm conserved
+PASS 580 closed form matches full 33-site unitary evolution
+PASS 581 all 24 outer ring bonds retain their local circulation signs
+PASS 582 exact face-current means and physical inner moment
+PASS 583 physical inner subgraph has zero divergence and nonzero current
+PASS 584 origin dark and global norm conserved
+PASS 585 closed form matches full 33-site unitary evolution
+PASS 586 all 24 outer ring bonds retain their local circulation signs
+PASS 587 exact face-current means and physical inner moment
+PASS 588 physical inner subgraph has zero divergence and nonzero current
+PASS 589 origin dark and global norm conserved
+PASS 590 closed form matches full 33-site unitary evolution
+PASS 591 all 24 outer ring bonds retain their local circulation signs
+PASS 592 exact face-current means and physical inner moment
+PASS 593 physical inner subgraph has zero divergence and nonzero current
+PASS 594 origin dark and global norm conserved
+PASS 595 closed form matches full 33-site unitary evolution
+PASS 596 all 24 outer ring bonds retain their local circulation signs
+PASS 597 exact face-current means and physical inner moment
+PASS 598 physical inner subgraph has zero divergence and nonzero current
+PASS 599 origin dark and global norm conserved
+PASS 600 closed form matches full 33-site unitary evolution
+PASS 601 all 24 outer ring bonds retain their local circulation signs
+PASS 602 exact face-current means and physical inner moment
+PASS 603 physical inner subgraph has zero divergence and nonzero current
+PASS 604 origin dark and global norm conserved
+PASS 605 same Hamiltonian has stationary simultaneous eight full rings and actual core vortex
+PASS 606 unrestricted initial perturbation retains exact orbital distance
+PASS 607 perturbed stationary flywheel retains all eight rings and core angular sign
+PASS 608 unrestricted initial perturbation retains exact orbital distance
+PASS 609 perturbed stationary flywheel retains all eight rings and core angular sign
+PASS 610 unrestricted initial perturbation retains exact orbital distance
+PASS 611 perturbed stationary flywheel retains all eight rings and core angular sign
+PASS 612 unrestricted initial perturbation retains exact orbital distance
+PASS 613 perturbed stationary flywheel retains all eight rings and core angular sign
+PASS 614 generic face phases meet sufficient all-ring bound
+PASS 615 eight input rings have zero row sum and nonzero equally directed bond currents
+PASS 616 initial inner region empty and column source nonzero
+PASS 617 closed form matches full 33-site unitary evolution
+PASS 618 all 24 outer ring bonds retain their local circulation signs
+PASS 619 exact face-current means and physical inner moment
+PASS 620 physical inner subgraph has zero divergence and nonzero current
+PASS 621 origin dark and global norm conserved
+PASS 622 closed form matches full 33-site unitary evolution
+PASS 623 all 24 outer ring bonds retain their local circulation signs
+PASS 624 exact face-current means and physical inner moment
+PASS 625 physical inner subgraph has zero divergence and nonzero current
+PASS 626 origin dark and global norm conserved
+PASS 627 closed form matches full 33-site unitary evolution
+PASS 628 all 24 outer ring bonds retain their local circulation signs
+PASS 629 exact face-current means and physical inner moment
+PASS 630 physical inner subgraph has zero divergence and nonzero current
+PASS 631 origin dark and global norm conserved
+PASS 632 closed form matches full 33-site unitary evolution
+PASS 633 all 24 outer ring bonds retain their local circulation signs
+PASS 634 exact face-current means and physical inner moment
+PASS 635 physical inner subgraph has zero divergence and nonzero current
+PASS 636 origin dark and global norm conserved
+PASS 637 closed form matches full 33-site unitary evolution
+PASS 638 all 24 outer ring bonds retain their local circulation signs
+PASS 639 exact face-current means and physical inner moment
+PASS 640 physical inner subgraph has zero divergence and nonzero current
+PASS 641 origin dark and global norm conserved
+PASS 642 closed form matches full 33-site unitary evolution
+PASS 643 all 24 outer ring bonds retain their local circulation signs
+PASS 644 exact face-current means and physical inner moment
+PASS 645 physical inner subgraph has zero divergence and nonzero current
+PASS 646 origin dark and global norm conserved
+PASS 647 closed form matches full 33-site unitary evolution
+PASS 648 all 24 outer ring bonds retain their local circulation signs
+PASS 649 exact face-current means and physical inner moment
+PASS 650 physical inner subgraph has zero divergence and nonzero current
+PASS 651 origin dark and global norm conserved
+PASS 652 closed form matches full 33-site unitary evolution
+PASS 653 all 24 outer ring bonds retain their local circulation signs
+PASS 654 exact face-current means and physical inner moment
+PASS 655 physical inner subgraph has zero divergence and nonzero current
+PASS 656 origin dark and global norm conserved
+PASS 657 closed form matches full 33-site unitary evolution
+PASS 658 all 24 outer ring bonds retain their local circulation signs
+PASS 659 exact face-current means and physical inner moment
+PASS 660 physical inner subgraph has zero divergence and nonzero current
+PASS 661 origin dark and global norm conserved
+PASS 662 closed form matches full 33-site unitary evolution
+PASS 663 all 24 outer ring bonds retain their local circulation signs
+PASS 664 exact face-current means and physical inner moment
+PASS 665 physical inner subgraph has zero divergence and nonzero current
+PASS 666 origin dark and global norm conserved
+PASS 667 same Hamiltonian has stationary simultaneous eight full rings and actual core vortex
+PASS 668 unrestricted initial perturbation retains exact orbital distance
+PASS 669 perturbed stationary flywheel retains all eight rings and core angular sign
+PASS 670 unrestricted initial perturbation retains exact orbital distance
+PASS 671 perturbed stationary flywheel retains all eight rings and core angular sign
+PASS 672 unrestricted initial perturbation retains exact orbital distance
+PASS 673 perturbed stationary flywheel retains all eight rings and core angular sign
+PASS 674 unrestricted initial perturbation retains exact orbital distance
+PASS 675 perturbed stationary flywheel retains all eight rings and core angular sign
+PASS 676 generic face phases meet sufficient all-ring bound
+PASS 677 eight input rings have zero row sum and nonzero equally directed bond currents
+PASS 678 initial inner region empty and column source nonzero
+PASS 679 closed form matches full 33-site unitary evolution
+PASS 680 all 24 outer ring bonds retain their local circulation signs
+PASS 681 exact face-current means and physical inner moment
+PASS 682 physical inner subgraph has zero divergence and nonzero current
+PASS 683 origin dark and global norm conserved
+PASS 684 closed form matches full 33-site unitary evolution
+PASS 685 all 24 outer ring bonds retain their local circulation signs
+PASS 686 exact face-current means and physical inner moment
+PASS 687 physical inner subgraph has zero divergence and nonzero current
+PASS 688 origin dark and global norm conserved
+PASS 689 closed form matches full 33-site unitary evolution
+PASS 690 all 24 outer ring bonds retain their local circulation signs
+PASS 691 exact face-current means and physical inner moment
+PASS 692 physical inner subgraph has zero divergence and nonzero current
+PASS 693 origin dark and global norm conserved
+PASS 694 closed form matches full 33-site unitary evolution
+PASS 695 all 24 outer ring bonds retain their local circulation signs
+PASS 696 exact face-current means and physical inner moment
+PASS 697 physical inner subgraph has zero divergence and nonzero current
+PASS 698 origin dark and global norm conserved
+PASS 699 closed form matches full 33-site unitary evolution
+PASS 700 all 24 outer ring bonds retain their local circulation signs
+PASS 701 exact face-current means and physical inner moment
+PASS 702 physical inner subgraph has zero divergence and nonzero current
+PASS 703 origin dark and global norm conserved
+PASS 704 closed form matches full 33-site unitary evolution
+PASS 705 all 24 outer ring bonds retain their local circulation signs
+PASS 706 exact face-current means and physical inner moment
+PASS 707 physical inner subgraph has zero divergence and nonzero current
+PASS 708 origin dark and global norm conserved
+PASS 709 closed form matches full 33-site unitary evolution
+PASS 710 all 24 outer ring bonds retain their local circulation signs
+PASS 711 exact face-current means and physical inner moment
+PASS 712 physical inner subgraph has zero divergence and nonzero current
+PASS 713 origin dark and global norm conserved
+PASS 714 closed form matches full 33-site unitary evolution
+PASS 715 all 24 outer ring bonds retain their local circulation signs
+PASS 716 exact face-current means and physical inner moment
+PASS 717 physical inner subgraph has zero divergence and nonzero current
+PASS 718 origin dark and global norm conserved
+PASS 719 closed form matches full 33-site unitary evolution
+PASS 720 all 24 outer ring bonds retain their local circulation signs
+PASS 721 exact face-current means and physical inner moment
+PASS 722 physical inner subgraph has zero divergence and nonzero current
+PASS 723 origin dark and global norm conserved
+PASS 724 closed form matches full 33-site unitary evolution
+PASS 725 all 24 outer ring bonds retain their local circulation signs
+PASS 726 exact face-current means and physical inner moment
+PASS 727 physical inner subgraph has zero divergence and nonzero current
+PASS 728 origin dark and global norm conserved
+PASS 729 same Hamiltonian has stationary simultaneous eight full rings and actual core vortex
+PASS 730 unrestricted initial perturbation retains exact orbital distance
+PASS 731 perturbed stationary flywheel retains all eight rings and core angular sign
+PASS 732 unrestricted initial perturbation retains exact orbital distance
+PASS 733 perturbed stationary flywheel retains all eight rings and core angular sign
+PASS 734 unrestricted initial perturbation retains exact orbital distance
+PASS 735 perturbed stationary flywheel retains all eight rings and core angular sign
+PASS 736 unrestricted initial perturbation retains exact orbital distance
+PASS 737 perturbed stationary flywheel retains all eight rings and core angular sign
+PASS 738 generic face phases meet sufficient all-ring bound
+PASS 739 eight input rings have zero row sum and nonzero equally directed bond currents
+PASS 740 initial inner region empty and column source nonzero
+PASS 741 closed form matches full 33-site unitary evolution
+PASS 742 all 24 outer ring bonds retain their local circulation signs
+PASS 743 exact face-current means and physical inner moment
+PASS 744 physical inner subgraph has zero divergence and nonzero current
+PASS 745 origin dark and global norm conserved
+PASS 746 closed form matches full 33-site unitary evolution
+PASS 747 all 24 outer ring bonds retain their local circulation signs
+PASS 748 exact face-current means and physical inner moment
+PASS 749 physical inner subgraph has zero divergence and nonzero current
+PASS 750 origin dark and global norm conserved
+PASS 751 closed form matches full 33-site unitary evolution
+PASS 752 all 24 outer ring bonds retain their local circulation signs
+PASS 753 exact face-current means and physical inner moment
+PASS 754 physical inner subgraph has zero divergence and nonzero current
+PASS 755 origin dark and global norm conserved
+PASS 756 closed form matches full 33-site unitary evolution
+PASS 757 all 24 outer ring bonds retain their local circulation signs
+PASS 758 exact face-current means and physical inner moment
+PASS 759 physical inner subgraph has zero divergence and nonzero current
+PASS 760 origin dark and global norm conserved
+PASS 761 closed form matches full 33-site unitary evolution
+PASS 762 all 24 outer ring bonds retain their local circulation signs
+PASS 763 exact face-current means and physical inner moment
+PASS 764 physical inner subgraph has zero divergence and nonzero current
+PASS 765 origin dark and global norm conserved
+PASS 766 closed form matches full 33-site unitary evolution
+PASS 767 all 24 outer ring bonds retain their local circulation signs
+PASS 768 exact face-current means and physical inner moment
+PASS 769 physical inner subgraph has zero divergence and nonzero current
+PASS 770 origin dark and global norm conserved
+PASS 771 closed form matches full 33-site unitary evolution
+PASS 772 all 24 outer ring bonds retain their local circulation signs
+PASS 773 exact face-current means and physical inner moment
+PASS 774 physical inner subgraph has zero divergence and nonzero current
+PASS 775 origin dark and global norm conserved
+PASS 776 closed form matches full 33-site unitary evolution
+PASS 777 all 24 outer ring bonds retain their local circulation signs
+PASS 778 exact face-current means and physical inner moment
+PASS 779 physical inner subgraph has zero divergence and nonzero current
+PASS 780 origin dark and global norm conserved
+PASS 781 closed form matches full 33-site unitary evolution
+PASS 782 all 24 outer ring bonds retain their local circulation signs
+PASS 783 exact face-current means and physical inner moment
+PASS 784 physical inner subgraph has zero divergence and nonzero current
+PASS 785 origin dark and global norm conserved
+PASS 786 closed form matches full 33-site unitary evolution
+PASS 787 all 24 outer ring bonds retain their local circulation signs
+PASS 788 exact face-current means and physical inner moment
+PASS 789 physical inner subgraph has zero divergence and nonzero current
+PASS 790 origin dark and global norm conserved
+PASS 791 same Hamiltonian has stationary simultaneous eight full rings and actual core vortex
+PASS 792 unrestricted initial perturbation retains exact orbital distance
+PASS 793 perturbed stationary flywheel retains all eight rings and core angular sign
+PASS 794 unrestricted initial perturbation retains exact orbital distance
+PASS 795 perturbed stationary flywheel retains all eight rings and core angular sign
+PASS 796 unrestricted initial perturbation retains exact orbital distance
+PASS 797 perturbed stationary flywheel retains all eight rings and core angular sign
+PASS 798 unrestricted initial perturbation retains exact orbital distance
+PASS 799 perturbed stationary flywheel retains all eight rings and core angular sign
+PASS 800 isolated triplet and all physical ring/core currents persist under graph coupling perturbation
+PASS 801 isolated triplet and all physical ring/core currents persist under graph coupling perturbation
+PASS 802 isolated triplet and all physical ring/core currents persist under graph coupling perturbation
+PASS 803 isolated triplet and all physical ring/core currents persist under graph coupling perturbation
+PASS 804 isolated triplet and all physical ring/core currents persist under graph coupling perturbation
+PASS 805 isolated triplet and all physical ring/core currents persist under graph coupling perturbation
+PASS 806 isolated triplet and all physical ring/core currents persist under graph coupling perturbation
+PASS 807 isolated triplet and all physical ring/core currents persist under graph coupling perturbation
+PASS 808 isolated triplet and all physical ring/core currents persist under graph coupling perturbation
+PASS 809 isolated triplet and all physical ring/core currents persist under graph coupling perturbation
+Minimum sampled outer bond magnitude: 0.03770212913026815 minimum sampled inner current norm: 1.8855976227249821e-06 max full trajectory residual: 3.432888945762976e-14
+Exact time means |v|², |w|²: 50654/53361 6500/53361
+809/809 new checks passed; 984 inherited checks rerun.
