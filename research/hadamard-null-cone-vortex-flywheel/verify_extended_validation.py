@@ -121,7 +121,7 @@ T=1.; init=Q@rng.normal(size=15); init/=np.linalg.norm(init); ev,vec=eigh(H); eC
 def trajectory(t):return vec@(np.exp(-1j*ev*t)*(vec.T@init))
 truth=-1j*Q.T@H@trajectory(T); yT=Q.T@trajectory(T); errors=[]
 for n in [32,64,128,256]:
-    ts=np.linspace(0,T,n+1); integr=np.array([B@vC@(np.exp(-1j*eC*(T-t))*(vC.T@B.T@Q.T@trajectory(t))) for t in ts]); pred=-1j*A0@yT-np.trapz(integr,ts,axis=0); errors.append(np.linalg.norm(pred-truth))
+    ts=np.linspace(0,T,n+1); integr=np.array([B@vC@(np.exp(-1j*eC*(T-t))*(vC.T@B.T@Q.T@trajectory(t))) for t in ts]); pred=-1j*A0@yT-getattr(np,"trapezoid",getattr(np,"trapz",None))(integr,ts,axis=0); errors.append(np.linalg.norm(pred-truth))
 ck('memory kernel converges quadratically to exact projected dynamics',errors[-1]<errors[0]/50 and errors[-1]<1e-5)
 print('Memory integration errors:',errors)
 print('\n4. Nonlinear invariants through sixth order')
