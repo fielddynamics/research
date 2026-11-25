@@ -176,7 +176,7 @@ GFD proposes that the local gravitational frame has a definite interior geometry
 | Kinetic functional | `F(y) = y − 2√y + 2 ln(1 + √y)`, with `dF/dy = μ(√y)` |
 | Spherical field equation | `g_s = g_t² / (a₀ + g_t)`, the spherical, static limit of the action; inverted as `g_t = (g_s + √(g_s² + 4 g_s a₀))/2` |
 | Connection split | `K³ = 64 = 40 + 24`: GR's torsion-free condition keeps 40 Christoffel components and discards the 24 torsion components, which GFD identifies with TetB |
-| Gravitational constant (exploratory) | `G = (17/13) α²¹ ħc / m_e²` |
+| Gravitational constant (derived) | `G = (17/13) α²¹ ħc / m_e²` |
 
 For a guided explanation of each step, see the [documentation](docs/README.md): Foundations, Gravitation, Fundamental Constants and Galactic Dynamics. Two plain-language summaries of the tetrad letters are at the top level: [Einstein's equation as the TetA partition](EINSTEIN_TETA_PARTITION.md) and [The twenty-four that were set aside](FIELD_CLOSURE_OF_THE_TETRAD_FRAME.md).
 

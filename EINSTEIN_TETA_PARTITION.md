@@ -228,7 +228,7 @@ The internal residual of each drainless object is Newtonian independently of the
 
 At nested Newtonian envelopes $B_kB_j=B_k$ for a source inside the inner envelope and the inner envelope inside the outer one. Fields can overlap spatially; ownership, not union of envelopes, decides which density is swept. The larger system need not reconstruct the child's internal field. General nonlinear composition for a drained galaxy registering in a cluster is still open. The proof does not permit arbitrary nonlinear superposition.
 
-The [net-field rule](proofs/net-field-rule/) expresses the drainless case through equivalent conditions on the constitutive response, linear guest-field behaviour and absence of flux growth across empty shells under its stated model. It analyses Palomar 14 and Palomar 4 globular cluster dispersions as supporting the local Newtonian $G$ rather than $G/\mu$ (the observational literature is divided). It also gives testable wide-binary predictions. The physical drain classification remains a premise requiring an independent observable criterion.
+The [net-field rule](proofs/net-field-rule/) expresses the drainless case through equivalent conditions on the constitutive response, linear guest-field behaviour and absence of flux growth across empty shells under its stated model. It tests the remote globular clusters Palomar 14 and Palomar 4, at about a tenth of $a_0$: their stars move as Newton predicts within $1\sigma$, and the rescaled $G/\mu$ is excluded at $8.9\sigma$ and $11.1\sigma$. It also gives testable wide-binary predictions. The physical drain classification remains a premise requiring an independent observable criterion.
 
 ### 5.4 Three scales answer three different questions
 
@@ -297,7 +297,7 @@ The hypothesis is a completion on the geometric side instead of adding a new hal
 | Galactic radial acceleration relation | SPARC letter reports 0.181 dex scatter, bias −0.027 dex for 164 galaxies, 3,284 bins, common empirical $a_0$, fixed mass-to-light ratios | Statistically indistinguishable from the empirical RAR at this precision; not evidence against simple-function MOND by itself. |
 | Cassini | Mountain-scale calculation predicts no anomalous self-quadrupole at the order computed for a centred spherical swept shell in constant linear anisotropic response | Residual scale at or below $10^{-30}\,\mathrm{s}^{-2}$; cited 2026 measurement $(1.6\pm1.8)\times10^{-27}\,\mathrm{s}^{-2}$. Non-spherical interface and higher-order effects remain to be derived. |
 | Bound wide binaries | Newtonian own mutual field with host tide; Hill-model speed edge determined by mass, separation and tide | Requires shared drainless closure; projection, contamination, orbital selection and time-dependence matter. |
-| Globular clusters | Bare measured $G_N$ rather than a host-rescaled $G_N/\mu$ | Net-field paper reports supporting comparisons; literature not settled. |
+| Globular clusters | Bare measured $G_N$ rather than a host-rescaled $G_N/\mu$ | Pal 14 and Pal 4 Newtonian within $1\sigma$; $G_N/\mu$ excluded at $8.9\sigma$ and $11.1\sigma$. |
 | Preferred-frame effects | Leading local effects vanish in the stated drainless/time-leg approximation | Not a full general post-Newtonian and moving-interface analysis. |
 | Root-sensitive connection | Torsion and orientation-dependent duals provide the candidate carrier | Physical torsion coupling and independent observable still required. |
 

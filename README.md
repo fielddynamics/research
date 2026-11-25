@@ -194,7 +194,7 @@ The [proof index](proofs/README.md) links each theorem to its LaTeX source, PDF,
 | Mass decoding [D/O] | The zero-parameter inverse pipeline decodes mass from velocity alone, $M_{\rm dec}=rv^4/[G(a_0r+v^2)]$. The area between the decoded and photometric mass curves measures what the interior TetB is doing: decoded above photometric is drive, below is brake, equal is quiet ($w$ above, below or equal to $a_0$). CamB brakes by 0.77 dex at 1.79 kpc; NGC 3198 tracks its baryons. [Letter](papers/letter-decoding-mass-from-rotation-curves/) |
 | Solar system [T+L/O] | Drainless, so pure TetA with the bare $G$; Cassini excludes applying $\mu$ to the Sun's own field, and the ownership model gives no anomalous $Q_2$ at the calculated order. [Net-field rule](proofs/net-field-rule/) · [Mountain scale](proofs/sst-mountain-scale/) |
 | Globular clusters [T/O] | Require the bare $G$ at more than $8\sigma$, as the net-field rule predicts for drainless fields. [Analysis](proofs/net-field-rule/) |
-| Wide binaries [T] | Bound wide binaries are Newtonian to within $(s/r_J)^3$. [Net-field rule](proofs/net-field-rule/) |
+| Wide binaries [T] | Bound wide binaries are Newtonian to within $(s/r_J)^3$, with a speed edge $v/\sqrt{GM/s}<\sqrt{2-3s/r_J}$ set before any velocity is inspected. [Net-field rule](proofs/net-field-rule/) · [Closure surface](proofs/closure-surface/) |
 | Lensing [T/D] | $\gamma=1$: the curvature term gives $\Psi=\Phi$, so lensing mass equals dynamical mass. [Proof](proofs/sst-quasi-static-limit/) |
 | Redshift evolution [D/O] | Tully–Fisher velocities rise as $[H(z)/H_0]^{0.17}$, compared with nine IFU measurements to $z=3$. [Manuscript](papers/tully-fisher-velocity-evolution/) |
 
@@ -216,7 +216,7 @@ The same geometry carries beyond galaxies: into the fundamental constants, cosmo
 
 $$G=\frac{17}{13}\,\alpha^{21}\,\frac{\hbar c}{m_e^2}\left(1+\frac{\alpha}{2\pi}\right),$$
 
-within 12 ppm of the measured value, inside G's own uncertainty, and unique among 1,953 alternatives of its form ([look-elsewhere test](research/g_from_topology/)). The electron mass follows from closure saturation, $a_0=K^2Gm_e/r_e^2$, to 0.1%, and the classical electron radius is the unit of gravity ([Paper III](papers/03-unit-of-gravity/)). G and $m_e$ are graded derived; their premises (one factor of $\alpha$ per coupling level, and 21 as exponent with 17/13 as ratio) are stated in the papers. The structural reading of $\alpha$ and the Hubble-scale relation are graded exploratory.
+within 12 ppm of the measured value, inside G's own uncertainty, and unique among 1,953 alternatives of its form ([look-elsewhere test](research/g_from_topology/)). The electron mass follows from closure saturation, $a_0=K^2Gm_e/r_e^2$, to 0.1%, and the classical electron radius is the unit of gravity ([Paper III](papers/03-unit-of-gravity/)). G and $m_e$ are graded derived; their premises are one factor of $\alpha$ per coupling level and the combination rule (21 as exponent, 17/13 as ratio), which is still marked proposed. The structural reading of $\alpha$ and the Hubble-scale relation are graded exploratory.
 
 ---
 
