@@ -1,0 +1,32 @@
+PASS Walsh orthogonality
+PASS TetA rank four
+PASS TetB rank four
+PASS all complement aliases and opposite aliases
+PASS full state reconstructed
+PASS TetA gradient plus mixed-Hessian leak
+PASS TetB gradient minus mixed-Hessian leak
+PASS dual read exactly recovers quadratic gradient
+PASS within-frame swap involution
+PASS within-frame swap trace 16 => 40/24
+PASS ordinary 8x8 transpose trace 8 => 36/28
+PASS capacity law fixes cost derivative
+PASS cost strictly convex
+PASS finite capacity equilibrium
+PASS stationary energy
+PASS elimination recovers SST F/2
+PASS AQUAL current
+PASS radial tangent
+PASS gradient flow dissipation identity
+PASS auxiliary torsion realizes response vector
+PASS auxiliary torsion is antisymmetric
+PASS axial torsion vanishes
+PASS radial interior current equals exterior Newtonian current
+PASS negative interface residual cancels interior excess
+PASS local settling monotone, bounded, correct equilibrium x=0.01
+PASS local settling monotone, bounded, correct equilibrium x=0.1
+PASS local settling monotone, bounded, correct equilibrium x=1
+PASS local settling monotone, bounded, correct equilibrium x=10
+PASS local settling monotone, bounded, correct equilibrium x=100
+PASS weighted structural trace 13+8 mu
+
+30/30 checks passed.
