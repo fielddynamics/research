@@ -2,6 +2,9 @@
 All parameters in the explicit witness are dimensionless model choices, not physical constants.
 Run with numpy scipy sympy; reruns 984 inherited assertions on import.
 """
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parent / "archive" / "stages-I-VI"))
 from contextlib import redirect_stdout
 from io import StringIO
 with redirect_stdout(StringIO()):

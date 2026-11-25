@@ -1,5 +1,10 @@
 # The Hadamard Null Cone: Eight Triforce Vortices and Their Collective Core
 
+> **Current edition — Stage VIII.** The eight Triforce stellation vortices remain the starting point. Stage VII proves closed circulation, not drainage. [Stage VIII](OPEN_THROAT.md) establishes an explicitly driven open graph with uniform weights: all eight rings feed the inner interface, and the net source, cut and outlet flux are exactly 6/5. The scalar O remains dark; the outlet is directional. The neutral axial receiver and open transport are distinct model constructions. Physical coupling selection and the full SST remain open. Earlier stages are archived with their original links and logs; the current README supersedes retired interpretations.
+
+![Open graph transport](figures/11_open_throat.svg)
+
+
 *Gravity Field Dynamics (GFD) · Field Dynamics Research · November 2026 · Illustrated synthesis and reproducible mathematical research*
 
 **One Hadamard null cone. Eight constituent vortex stellations. One emergent collective octahedral circulation.**
@@ -139,7 +144,7 @@ The earlier stages are not separate physical mechanisms. They establish the alge
 | \(LD=0,\ D^TD=3I-A_{\rm cube}\) | [T] The oriented boundary map from eight faces to 12 octahedral edges conserves current; its Gram operator is the Hadamard cube Laplacian. |
 | \(\operatorname{im}D=\ker L\), rank seven | [T] All conserved core-edge currents have an eight-face ledger, unique up to a constant. There are two axial triplet sectors and one parity singlet. |
 | \(w_Aw_B=w_{A\triangle B}\) | [T] Full eight-mode Walsh multiplication is associative. Discarding the constant and projecting each product back into the seven-mode space breaks associativity. |
-| Hodge–Dirac operator | [T] Its squared blocks unify vertices, edges and faces; exact spectrum in the [core hardening proof](CORE_HARDENING.md). It is a discrete geometric operator, not a derived relativistic wave equation. |
+| Hodge–Dirac operator | [T] Its squared blocks unify vertices, edges and faces; exact spectrum in the [core hardening proof](archive/stages-I-VI/CORE_HARDENING.md). It is a discrete geometric operator, not a derived relativistic wave equation. |
 | Torsion and spin holonomy | [T] The circulation parity singlet has a unique symmetry-level map (up to scale) to torsion's sign representation. The full nonzero Hodge–Dirac sector is *not* the torsion representation. The spin transport Laplacian is distinct from the scalar Walsh Laplacian. |
 | Nonlinear candidates | [T, conditional] Geometric quartic energies admit stable axial or face-oriented circular states depending on energy coefficients. A quadratic E harmonic receiver permits parity circulation, but its coupling is not physically derived. These are subsidiary stability and selection theorems, not a proof of nonlinear eight-ring/core coexistence. |
 | Fine-to-coarse registration | [T] The exact 33-site-to-core chain map preserves divergence. Symmetry and flux constraints leave 16 degrees of freedom; Whitney integration with specified paths and a minimum-norm central rule selects the earlier map conditionally. Eliminated amplitudes can require a memory kernel. |
@@ -178,17 +183,26 @@ The following files retain all seven stages of the research. Some early statemen
 
 | Stage | Mathematical proof / research notes | Recorded checks |
 |---|---|---:|
-| I | [Technical foundation, Part I](TECHNICAL_FOUNDATION.md#part-i--the-hadamard-null-cone-and-the-stellated-octahedral-vortex-flywheel) | 501 |
-| II | [Technical foundation, Part II](TECHNICAL_FOUNDATION.md#part-ii--conservative-current-registration-and-nonlinear-core-harmonics) | 483 |
-| III | [Extended validation](EXTENDED_VALIDATION.md) | 211 |
-| IV | [Core hardening](CORE_HARDENING.md) | 170 |
-| V | [Face/core clarification](FACE_CORE_CLARIFICATION.md) | 132 |
-| VI | [Triforce flywheel](TRIFORCE_FLYWHEEL.md) | 271 |
+| I | [Technical foundation, Part I](archive/stages-I-VI/TECHNICAL_FOUNDATION.md#part-i--the-hadamard-null-cone-and-the-stellated-octahedral-vortex-flywheel) | 501 |
+| II | [Technical foundation, Part II](archive/stages-I-VI/TECHNICAL_FOUNDATION.md#part-ii--conservative-current-registration-and-nonlinear-core-harmonics) | 483 |
+| III | [Extended validation](archive/stages-I-VI/EXTENDED_VALIDATION.md) | 211 |
+| IV | [Core hardening](archive/stages-I-VI/CORE_HARDENING.md) | 170 |
+| V | [Face/core clarification](archive/stages-I-VI/FACE_CORE_CLARIFICATION.md) | 132 |
+| VI | [Triforce flywheel](archive/stages-I-VI/TRIFORCE_FLYWHEEL.md) | 271 |
 | VII | [Sustained Triforce flywheel](SUSTAINED_TRIFORCE_FLYWHEEL.md) | 809 |
-| | **Cumulative recorded assertions** | **2,577** |
+| VIII | [Open directional throat](OPEN_THROAT.md) | 160 |
+| | **Cumulative recorded assertions** | **2,737** |
 
-These are recorded passing assertions across stages, not independent theorems and not one fresh run in the synthesis edition. The latest sustained verifier reran 984 inherited assertions and added 809 new ones. [Verification guide and logs](VERIFICATION.md) · [Lean draft audit](LEAN_DRAFT.md). Lean has not been compiled; no [T+L] claim is made for these new results.
+These are recorded passing assertions across stages, not independent theorems and not one fresh run in the synthesis edition. The latest sustained verifier reran 984 inherited assertions and added 809 new ones. [Verification guide and logs](VERIFICATION.md) · [Lean draft audit](archive/stages-I-VI/LEAN_DRAFT.md). Lean has not been compiled; no [T+L] claim is made for these new results.
 
 ### Upstream dependencies
 
 The existing GFD [proof index](https://github.com/fielddynamics/research/tree/main/proofs), [Hadamard frame](https://github.com/fielddynamics/research/tree/main/proofs/hadamard-cube-frame), [Walsh eigenmodes](https://github.com/fielddynamics/research/tree/main/proofs/walsh-eigenmodes-of-the-cube), [Triforce synthesis](https://github.com/fielddynamics/research/blob/main/research/faces/enterprise_triforce_synthesis.md), [vortex theorem](https://github.com/fielddynamics/research/tree/main/proofs/vortices-of-the-stellated-octahedron), [chiral holonomy](https://github.com/fielddynamics/research/tree/main/proofs/chiral-holonomy-closed-frame), [torsion representation](https://github.com/fielddynamics/research/tree/main/proofs/torsion-regular-representation), [mountain scale](https://github.com/fielddynamics/research/tree/main/proofs/sst-mountain-scale) and [closure surface](https://github.com/fielddynamics/research/tree/main/proofs/closure-surface) provide the framework context. The proof archive records the premises and caveats for each connection.
+
+
+## Current research entry points
+
+- [Stage VIII proof](OPEN_THROAT.md) and [verifier](verify_open_throat.py).
+- [Stage VII closed proof](SUSTAINED_TRIFORCE_FLYWHEEL.md) and [verifier](verify_sustained_flywheel.py).
+- [Historical synthesis and Stages I–VI](archive/stages-I-VI/README.md) (includes the historical Stage VII snapshot for reproducibility).
+- [Verification guide](VERIFICATION.md).

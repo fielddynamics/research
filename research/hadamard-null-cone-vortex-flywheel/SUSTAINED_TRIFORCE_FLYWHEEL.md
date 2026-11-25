@@ -6,7 +6,7 @@ The eight constituent vortices, one per face of the central octahedron, are the 
 
 ![Actual model generation, maintained outer currents and stationary configuration](figures/10_sustained_flywheel.svg)
 
-Sources: [Triforce synthesis](https://github.com/fielddynamics/research/blob/main/research/faces/enterprise_triforce_synthesis.md), [Triforce vortex proof](https://github.com/fielddynamics/research/tree/main/research/diamond-tetrad-lattice/triforce-vortex), [consolidated vortex proof](https://github.com/fielddynamics/research/tree/main/proofs/vortices-of-the-stellated-octahedron), [Hadamard](https://github.com/fielddynamics/research/tree/main/proofs/hadamard-cube-frame), [Walsh eigenmodes](https://github.com/fielddynamics/research/tree/main/proofs/walsh-eigenmodes-of-the-cube), [llms.txt](https://github.com/fielddynamics/research/blob/main/llms.txt), and the preceding [row-column proof](TRIFORCE_FLYWHEEL.md).
+Sources: [Triforce synthesis](https://github.com/fielddynamics/research/blob/main/research/faces/enterprise_triforce_synthesis.md), [Triforce vortex proof](https://github.com/fielddynamics/research/tree/main/research/diamond-tetrad-lattice/triforce-vortex), [consolidated vortex proof](https://github.com/fielddynamics/research/tree/main/proofs/vortices-of-the-stellated-octahedron), [Hadamard](https://github.com/fielddynamics/research/tree/main/proofs/hadamard-cube-frame), [Walsh eigenmodes](https://github.com/fielddynamics/research/tree/main/proofs/walsh-eigenmodes-of-the-cube), [llms.txt](https://github.com/fielddynamics/research/blob/main/llms.txt), and the preceding [row-column proof](archive/stages-I-VI/TRIFORCE_FLYWHEEL.md).
 
 ## 1. [T] Exact bond dictionary and collective phase coordinates
 
