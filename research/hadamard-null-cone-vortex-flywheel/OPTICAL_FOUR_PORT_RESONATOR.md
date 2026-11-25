@@ -105,3 +105,6 @@ Next research target: derive the boundary selection from a wave equation or an e
 ## Reproduction
 
 `OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python verify_optical_ports.py` (NumPy, SymPy, SciPy, Matplotlib). The script reads the actual Stage IX geometry/H definition prefix and does not rerun or change the prior verifier body. [Log](optical_ports_verification_output.txt) · [Scattering CSV](optical_scattering.csv) · [Network CSV](optical_network_dynamics.csv). 108 new assertions passed; 3,873 previous recorded checks are preserved, not rerun. No Lean compilation, physical experiment or GitHub write was performed.
+
+
+**Continuation:** [Dynamic tetrad settlement](DYNAMIC_TETRAD_SETTLEMENT.md) tests this construction against the unchanged microscopic Hamiltonian, including central-first excitation, filtered observability, static slip and the remaining relativistic constraints.

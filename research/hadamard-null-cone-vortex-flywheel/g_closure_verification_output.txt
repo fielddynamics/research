@@ -1,0 +1,38 @@
+PASS 001 swap involution and orthogonality
+PASS 002 symmetric and antisymmetric projectors
+PASS 003 connection traces 10 and 6
+PASS 004 positive face read traces 21 17 13
+PASS 005 origin is average of chamber reads
+PASS 006 positive TetB operator is not a rank-13 projector
+PASS 007 isotropic unit trace average ratio
+PASS 008 full closure amplitude is determinant
+PASS 009 ordinary coherent port amplitude is one factor
+PASS 010 relative closure power with single electromagnetic read
+PASS 011 one sqrt(alpha) amplitude per mode gives relative alpha^20
+PASS 012 electron electromagnetic normalization gives tree-level target
+PASS 013 one-mode optical splitter is algebraically orthogonal
+PASS 014 one-mode transmission intensity is alpha
+PASS 015 21-mode all-pass amplitude is alpha^(21/2)
+PASS 016 21-mode all-pass intensity is alpha^21
+PASS 017 single scalar face direction has ratio one
+PASS 018 single antisymmetric direction has stiffness ratio one half
+PASS 019 symmetric direction has zero TetB stiffness
+PASS 020 primitive diamond cell volume is 16 a_cell^3
+PASS 021 full independently recomputed positive isotropic curvature
+PASS 022 full scalar defect Feynman-Hellmann derivative
+PASS 023 full energy rescaling changes stiffness without geometry
+PASS 024 full energy rescaling changes stiffness without geometry
+PASS 025 full energy rescaling changes stiffness without geometry
+PASS 026 full energy rescaling changes stiffness without geometry
+PASS 027 central independently recomputed positive isotropic curvature
+PASS 028 central scalar defect Feynman-Hellmann derivative
+PASS 029 central energy rescaling changes stiffness without geometry
+PASS 030 central energy rescaling changes stiffness without geometry
+PASS 031 central energy rescaling changes stiffness without geometry
+PASS 032 central energy rescaling changes stiffness without geometry
+PASS 033 actual full-to-central stiffness ratio is not 17/13
+Computed tree-level G 6.66647654148e-11
+With upstream proposed loop factor 6.67421905221e-11
+Dimensionless tree-level alpha_G 1.74975596874e-45
+Microscopic data [['full', np.float64(0.12429467326666904), np.float64(0.007768417079166815), np.float64(0.07741216416742366)], ['central', np.float64(0.10509418047367802), np.float64(0.006568386279604876), np.float64(0.08082018537437946)]]
+33/33 G closure checks passed.

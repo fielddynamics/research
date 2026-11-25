@@ -61,3 +61,33 @@ Stage IX log: [coupled_origins_verification_output.txt](coupled_origins_verifica
 ## Matter vortex and signed charge
 
 `OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python verify_matter_charge.py` — 157/157 new assertions; [log](matter_charge_verification_output.txt). Complete Walsh algebra, original 36-coordinate Hamiltonian charge obstruction, local energy minima and conservative numerical perturbations, neutral TetA circulation at reduced equilibria, all 24 tetrahedral symmetry checks, dressed exchange conservation, static 432-node diamond Gauss problem and kernel comparison. No full microscopic particle/capture simulation, empirical validation or Lean compilation. Prior 4,305 preserved, not rerun; total 4,462 recorded assertions.
+
+
+## G normalization reconciliation
+
+Documentation and dimensional-algebra update: [G normalization bridge](G_NORMALIZATION_BRIDGE.md). No new numerical physics checks claimed; 4,462 prior recorded assertions preserved, not rerun.
+
+## Collective optical closure normalization
+
+`OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python verify_g_closure.py`: 33/33 fresh checks ([log](g_closure_verification_output.txt)). Exact graded/swap traces and unitary splitter realization, microscopic curvature and defect derivatives, energy rescaling obstruction. 4,462 earlier assertions preserved, not rerun; 4,495 recorded total. Conditional model, not a derivation of its premises.
+
+
+## Triforce–tetrad dictionary
+
+`OPENBLAS_NUM_THREADS=1 python verify_tetrad_read.py`: 282/282 recorded assertions ([log](tetrad_read_verification_output.txt)); total at that stage 4,777. Not rerun here.
+
+## Dynamic tetrad settlement
+
+`OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python verify_dynamic_tetrad.py`: 210/210 fresh assertions ([log](dynamic_tetrad_verification_output.txt)). Exact local moment and scalar quotient identities, scalar history determinant, rational observability and flat dark subspace, numerical intensity and spectral checks, circulation bound, curvature obstruction and symbolic linear Einstein scalar identities. Previous 4,777 retained, not rerun; 4,987 total recorded assertions. No independent agents, Lean or empirical validation.
+
+## Electron closure settlement
+
+`OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python verify_electron_closure.py`: 87/87 fresh assertions ([log](electron_closure_verification_output.txt)). Symbolic joint solution, Jacobians, permutation-invariant pair read, normalized energy and competing power means, lossless matching, boundary variational distinction, numerical sensitivity. Prior 4,987 retained, not rerun; 5,074 total. These tests verify conditional mathematics, not the physical premises.
+
+## π-addressed FWHT closure
+
+`OPENBLAS_NUM_THREADS=1 python verify_pi_fwht.py` — 126/126 fresh assertions ([log](pi_fwht_verification_output.txt)). Prior 5,178 recorded assertions preserved, not rerun; 5,304 recorded total. Exact ledger and transform identities; not a physical simulation.
+
+## Native Walsh read
+
+`OPENBLAS_NUM_THREADS=1 python verify_native_walsh.py` — 74/74 checks ([log](native_walsh_verification_output.txt)); 5,304 previous recorded assertions not rerun; 5,378 total.

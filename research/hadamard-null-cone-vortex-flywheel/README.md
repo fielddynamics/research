@@ -10,7 +10,7 @@ The Standard Field Model (SFM) is the proposed internal research reference archi
 
 ## Start here
 
-**Latest extension:** [Matter vortex and signed charge](MATTER_VORTEX_CHARGE.md) — complete eight-register read, chamber-charge conservation obstruction, conditional inward/outward vortex equilibria and static electric/gravity ledger. The [spectral gravity read](SPECTRAL_GRAVITY_READ.md) remains the microscopic scalar response bridge.
+**Latest extension:** [Native Walsh read](NATIVE_WALSH_READ.md) — complete core history decoder from the unchanged vortex Hamiltonian, exact grade resolvents, and symmetry obstruction to autonomous raw butterflies. Earlier: [π-addressed FWHT closure](PI_WALK_FWHT.md) — exact two-index Walsh read, π scheduling, sparse digit decoder and coverage-mask obstruction. Earlier: [Inside the closure engine](CLOSURE_ENGINE_INTERNALS.md) — boundary conjugate energy, exact angular flux through actual Triforce tiles, radial optical feedback and original-H vortex exchange clock. Earlier: [Electron closure settlement](ELECTRON_CLOSURE_SETTLEMENT.md) — simultaneous mass, closure radius and G, idempotent radial energy, conditional four-port impedance matching and normalization limits. Earlier: [Dynamic tetrad settlement](DYNAMIC_TETRAD_SETTLEMENT.md) — exact central-first response, scalar and full-cell optical observability, coexistence with circulating vortices, static slip counterexample and conditional GR settlement constraint. Earlier: [Collective optical closure normalization](G_CLOSURE_DERIVATION.md) — conditional electromagnetic-reference derivation and microscopic normalization obstruction. [Matter vortex and signed charge](MATTER_VORTEX_CHARGE.md) — complete eight-register read, chamber-charge conservation obstruction, conditional inward/outward vortex equilibria and static electric/gravity ledger. The [spectral gravity read](SPECTRAL_GRAVITY_READ.md) remains the microscopic scalar response bridge.
 
 | Resource | Purpose |
 |---|---|
@@ -19,6 +19,10 @@ The Standard Field Model (SFM) is the proposed internal research reference archi
 | [Detailed illustrated walkthrough](TECHNICAL_WALKTHROUGH.md) | Preserved full earlier README: internal vortex mathematics, historical results and upstream context |
 | [Interactive Flower lattice](hadamard_flower_explorer.html) | Rotate the field lattice and examine the projection |
 | [Verification record](VERIFICATION.md) · [Visual index](VISUAL_INDEX.md) | Reproduction commands, proof logs and illustrations |
+
+## Gravitational normalization — one G, not two
+
+The SFM inherits the existing GFD tree-level normalization $G^{(0)}_{\rm GFD}=(17/13)\alpha_{\rm EM}^{21}\hbar c/m_e^2$ [D, conditional on photonic attenuation and the proposed structural combination rule]. Upstream also proposes the factor $1+\alpha_{\rm EM}/(2\pi)$. The spectral coefficient $\eta^2f_0^2/(2\pi K)$ is a **matching target**, not a free alternative G. The [collective optical closure extension](G_CLOSURE_DERIVATION.md) realizes the tree-level target conditionally via a full 21-mode amplitude and locked trace stiffness ratio, without fitting G. The existing SFM has not derived the required physical read selection or the loop correction. See the [G normalization bridge](G_NORMALIZATION_BRIDGE.md) for the dimensionless target and explicit missing steps.
 
 ## 1. Standard field specification
 
@@ -92,13 +96,19 @@ Internal transfers cancel, leaving the boundary ledger. This is a candidate micr
 
 ![Propagating and proposed bound field](figures/14_propagating_vs_bound.svg)
 
-### Matter and electrical response — latest research extension
+### Matter and electrical response
 
 ![Signed radial response and TetA circulation](figures/35_matter_response_rings.svg)
 
 [T] The complete eight-coordinate Walsh read separates the two chamber intensities; their difference $q=n_B-n_A$ is chamber-odd and their total is chamber-even. The existing optical Hamiltonian does **not** conserve the bare tile occupation difference. [D/E] A separately specified conservative reduced energy supports neutral, inward (empty retained TetB) and occupied-TetB outward-read minima and neutral TetA circulation. A dressed transfer witness conserves a total signed charge even with chamber exchange, and a separate constrained diamond graph yields static Gauss settlement. This is not yet a physical electron, charge quantization, actual capture or an electromagnetic field theory. See [the new proof and research gates](MATTER_VORTEX_CHARGE.md).
 
 ![Reduced matter equilibria, charge compensation and electric kernel](figures/34_matter_charge.svg)
+
+### Triforce–tetrad dictionary
+
+![Triforce channels and coframe](figures/37_triforce_tetrad_read.svg)
+
+[T/D] The [Triforce tetrad read](TRIFORCE_TETRAD_READ.md) defines a real lowered-index read $X$ on the actual 16 tiles of either chamber, $e=\eta UXU^T$, $g=UX^TJXU^T$, with flat reference $X=J$. It intertwines all 24 tetrahedral permutations and identifies 10 linear metric modes and 6 infinitesimal frame modes (3 edge-gradient boosts and 3 cycle rotations). In a specified weak scalar gauge, equal temporal and spatial potentials correspond to equal central contrasts. The continuous gauge symmetry, single physical metric, dynamical read, connection transport and Einstein action are not derived. The filtered optical interface transmits only four instantaneous dimensions, not all 16. The separate 40/24 connection split is not the coframe gauge split.
 
 ## 5. Status and decisive open questions
 
@@ -113,6 +123,7 @@ Internal transfers cancel, leaving the boundary ledger. This is a candidate micr
 | Full eight-register parity read; bare chamber charge obstruction | [T/D] Exact algebra and original-H counterexample |
 | Reduced three-state vortex/charge model and neutral TetA response | [D] Conditional on chosen energy and response terms |
 | Physical electron, elementary charge, capture, Maxwell dynamics and common source coupling | [E] Open |
+| G normalization | [D] inherited upstream conditional formula; [E] microscopic matching and loop derivation open |
 | Microscopic derivation of gravity laws, physical scales and continuum limit | [E] Open |
 
 **Terminology:** follow the upstream [GFD conventions](https://github.com/fielddynamics/research/blob/main/llms.txt). SST names the full four-term covariant action only. $\mu(x)=x/(1+x)$ is the constitutive law, $x=g_t/a_0$; it acts at drained levels. Bound drainless systems use bare $G$ and Newton/GR at leading order. The proposed microscopic capture model has not derived $x(1-\mu_b)^2=\mu_b$. TetB is neither reverse time nor the deep field. Scale universality means compositional settlement and registration, not geometric self-similarity.
@@ -139,9 +150,20 @@ Internal transfers cancel, leaving the boundary ledger. This is a candidate micr
 | Field read | [Field Origin gravity read](FIELD_ORIGIN_GRAVITY_READ.md) | 130 |
 | Spectral read | [Microscopic spectral gravity read](SPECTRAL_GRAVITY_READ.md) | 194 |
 | Matter read | [Matter vortex and signed charge](MATTER_VORTEX_CHARGE.md) | 157 |
-| | **Total recorded passing assertions** | **4,462** |
+| G normalization | [Collective optical closure](G_CLOSURE_DERIVATION.md) | 33 |
+| Tetrad read | [Triforce–tetrad dictionary](TRIFORCE_TETRAD_READ.md) | 282 |
+| Dynamic tetrad | [Dynamic tetrad settlement](DYNAMIC_TETRAD_SETTLEMENT.md) | 210 |
+| Electron closure | [Electron closure settlement](ELECTRON_CLOSURE_SETTLEMENT.md) | 87 |
+| Closure engine | [Inside the four-port closure engine](CLOSURE_ENGINE_INTERNALS.md) | 104 |
+| | **Total recorded passing assertions** | **5,178** |
 
-The assertions are not independent theorems. Historical Stages I–IX were rerun at Stage IX; subsequent counts refer to the respective extension's own run. Only the new matter-charge verifier was run in this edition; previous assertions remain recorded. No new Lean compilation or browser regression is claimed. The original documents and historical results remain intact.
+The assertions are not independent theorems. Historical Stages I–IX were rerun at Stage IX; subsequent counts refer to the respective extension's own run. Only the new electron-closure verifier was run in this edition; previous assertions remain recorded. No new Lean compilation or browser regression is claimed. The original documents and historical results remain intact.
+
+### Dynamic tetrad settlement — previous extension
+
+![Central response, slip and observability](figures/38_dynamic_tetrad.svg)
+
+[T/D] The [dynamic tetrad investigation](DYNAMIC_TETRAD_SETTLEMENT.md) proves central-first excitation and a five-coordinate scalar history read, exact filtered observability rank 26 versus full rank 36, and coexistence of stationary winding with a scalar mode in the filtered lattice. The raw static intensity dictionary fails the equal-potential GR constraint; two metric-sensitive E directions are hidden in the filtered histories. The GR settlement functional is expressed in channel coordinates as a matching target, not derived microscopic dynamics. G normalization, gauge, spin-2 and curvature remain open.
 
 ## 7. Reproduce the results
 
@@ -160,9 +182,12 @@ OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python verify_optical_ports.py
 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python verify_field_read.py
 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python verify_spectral_read.py
 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python verify_matter_charge.py
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python verify_g_closure.py
+OPENBLAS_NUM_THREADS=1 python verify_tetrad_read.py
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python verify_dynamic_tetrad.py
 ```
 
-See [VERIFICATION.md](VERIFICATION.md) for logs, environment notes and scope. Latest [matter-charge log](matter_charge_verification_output.txt) and [response data](matter_charge_rings.csv); historical [optical log](optical_ports_verification_output.txt), [scattering CSV](optical_scattering.csv) and [network CSV](optical_network_dynamics.csv) are included.
+See [VERIFICATION.md](VERIFICATION.md) for logs, environment notes and scope. Latest [dynamic tetrad log](dynamic_tetrad_verification_output.txt); [tetrad-read log](tetrad_read_verification_output.txt); [matter-charge log](matter_charge_verification_output.txt) and [response data](matter_charge_rings.csv); historical [optical log](optical_ports_verification_output.txt), [scattering CSV](optical_scattering.csv) and [network CSV](optical_network_dynamics.csv) are included.
 
 ## 8. Explorers and supporting material
 
@@ -177,3 +202,29 @@ See [VERIFICATION.md](VERIFICATION.md) for logs, environment notes and scope. La
 Open HTML files locally in a browser. The [Visual index](VISUAL_INDEX.md) catalogs illustrations and regeneration commands. The [historical archive](archive/stages-I-VI/README.md) retains earlier derivations and draft Lean proofs.
 
 Upstream: [GFD research repository](https://github.com/fielddynamics/research), [diamond tetrad lattice](https://github.com/fielddynamics/research/tree/main/research/diamond-tetrad-lattice), [Triforce synthesis](https://github.com/fielddynamics/research/blob/main/research/faces/enterprise_triforce_synthesis.md), [proof index](https://github.com/fielddynamics/research/tree/main/proofs). This package does not modify the upstream repository.
+
+### Collective optical closure normalization
+
+Run `OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python verify_g_closure.py` ([log](g_closure_verification_output.txt)). 33 checks at that stage; 4,495 recorded assertions before the tetrad extension. The tetrad-read total was 4,777; the dynamic-tetrad total was 4,987.
+
+## Electron closure settlement — preceding extension
+
+![Joint closure energy and optical matching](figures/39_electron_closure.svg)
+
+[Research note](ELECTRON_CLOSURE_SETTLEMENT.md): 87 new assertions; 5,074 recorded total. Uses the original electromagnetic, saturation and topology premises with independent a0; does not derive the physical saturation normalization, registered energy, or optical matching from the existing Hamiltonian. The rest energy is one registered record, not a sum of two independent energies.
+
+Run `OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python verify_electron_closure.py` ([log](electron_closure_verification_output.txt), [numerical cases](electron_closure_values.csv)).
+
+## Inside the four-port closure engine — preceding extension
+
+![Boundary registration and engine cycle](figures/40_closure_engine.svg)
+
+[Research note](CLOSURE_ENGINE_INTERNALS.md): 104 new assertions, 5,178 recorded total. Boundary mass-energy conjugate and saturation capacity, exact solid-angle tile flux, signed radial mismatch feedback, and an explicit conservative exchange cycle in the unchanged 36-coordinate H. The cycle is dark to the filtered ports; its clock is not automatically the Compton clock.
+
+Run `OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python verify_closure_engine.py` ([log](closure_engine_verification_output.txt), [cycle CSV](closure_engine_cycle.csv)).
+
+## Native Walsh read — current extension
+
+![Native core Walsh reconstruction](figures/42_native_walsh_read.svg)
+
+[Research note](NATIVE_WALSH_READ.md): 74 new checks; 5,378 cumulative recorded. Four coherent filtered port histories reconstruct eight core Walsh coefficients, not all 36 coordinates. Raw autonomous FWHT is excluded by inversion symmetry; controlled gates need additional physical controls. π remains a proposed addressing clock. Run `OPENBLAS_NUM_THREADS=1 python verify_native_walsh.py` ([log](native_walsh_verification_output.txt)).

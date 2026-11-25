@@ -1,5 +1,7 @@
 # Unified Hadamard–Flower field dynamics
 
+**Normalization convention (current):** use the existing GFD topology-derived bare G, conditional on its upstream premises. Any microscopic effective coefficient must match it; no independent G fit is introduced. See the [G normalization bridge](G_NORMALIZATION_BRIDGE.md).
+
 > **Matter/charge extension:** [Eight-register vortex and charge research](MATTER_VORTEX_CHARGE.md) distinguishes retained matter from optical occupation, proves the bare chamber-charge conservation obstruction, and supplies conditional inward/outward response models. Full microscopic capture, charge and physical work coupling remain open.
 
 > **New extension:** [Field Origin gravity read](FIELD_ORIGIN_GRAVITY_READ.md) derives a phase-neutral polar observable of the directional origin and its leading source-directed transfer; a separate static potential bridge is conditional.
@@ -165,3 +167,6 @@ The next technical priorities are deriving the section-to-surface interface from
 Run `OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python verify_unified_flower.py`. It passed 316 assertions; previous 3,557 recorded assertions are retained, not rerun, for a cumulative 3,873 recorded checks. These are not independent physical theorems. The existing [Flower explorer](hadamard_flower_explorer.html), [vortex explorer](sustained_explorer.html) and [two-cell explorer](coupled_origins_explorer.html) remain available; only the latter uses the earlier reflection-matched interface. No Lean compilation or repository update was performed in this edition.
 
 **Follow-up:** [Spectral gravity read](SPECTRAL_GRAVITY_READ.md) connects the same optical interface Hamiltonian to a conditional long-wavelength static response.
+
+
+**Continuation:** [Dynamic tetrad settlement](DYNAMIC_TETRAD_SETTLEMENT.md) tests this construction against the unchanged microscopic Hamiltonian, including central-first excitation, filtered observability, static slip and the remaining relativistic constraints.

@@ -15,3 +15,10 @@ verify_optical_ports 0
 verify_field_read 0
 verify_spectral_read 0
 verify_matter_charge 0
+verify_native_walsh 0
+verify_tetrad_read 0
+verify_dynamic_tetrad 0
+verify_closure_engine 0
+verify_pi_fwht 0
+verify_electron_closure 0
+verify_g_closure 0

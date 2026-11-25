@@ -1,0 +1,107 @@
+PASS 001 each actual Triforce face has four equal-area tiles
+PASS 002 central solid angle pi/2, lateral pi/6 each
+PASS 003 face sums to pi steradians
+PASS 004 each actual Triforce face has four equal-area tiles
+PASS 005 central solid angle pi/2, lateral pi/6 each
+PASS 006 face sums to pi steradians
+PASS 007 each actual Triforce face has four equal-area tiles
+PASS 008 central solid angle pi/2, lateral pi/6 each
+PASS 009 face sums to pi steradians
+PASS 010 each actual Triforce face has four equal-area tiles
+PASS 011 central solid angle pi/2, lateral pi/6 each
+PASS 012 face sums to pi steradians
+PASS 013 complete chamber flux 4pi
+PASS 014 actual tetrahedron area at circumradius sqrt3
+PASS 015 each actual Triforce face has four equal-area tiles
+PASS 016 central solid angle pi/2, lateral pi/6 each
+PASS 017 face sums to pi steradians
+PASS 018 each actual Triforce face has four equal-area tiles
+PASS 019 central solid angle pi/2, lateral pi/6 each
+PASS 020 face sums to pi steradians
+PASS 021 each actual Triforce face has four equal-area tiles
+PASS 022 central solid angle pi/2, lateral pi/6 each
+PASS 023 face sums to pi steradians
+PASS 024 each actual Triforce face has four equal-area tiles
+PASS 025 central solid angle pi/2, lateral pi/6 each
+PASS 026 face sums to pi steradians
+PASS 027 complete chamber flux 4pi
+PASS 028 actual tetrahedron area at circumradius sqrt3
+PASS 029 solid angle read not proportional to optical read
+PASS 030 geometric flux read bright squared projection 49/52
+PASS 031 remaining flux functional hidden to instantaneous filter
+PASS 032 explicit dark witness (2,2,2,-1)
+PASS 033 saturation boundary read quadratic radius
+PASS 034 Gauss mass read
+PASS 035 if instead uniform actual face-normal saturation then distinct area coefficient
+PASS 036 registered energy global excess factor
+PASS 037 energy reads have invariant product
+PASS 038 radial logarithmic force is signed optical mismatch
+PASS 039 positive reflection sign below closure and negative above
+PASS 040 mismatch slope at closure
+PASS 041 original vortex sector is orthonormal
+PASS 042 original vortex sector invariant with exact reduced block
+PASS 043 stationary and exchange eigenvectors
+PASS 044 both circulating eigenmodes are dark at all eight filtered ports
+PASS 045 both modes have empty ordinary central and origin amplitudes
+PASS 046 disjoint support 12 lateral tiles per chamber
+PASS 047 actual graph chamber occupancy and flux follow engine cycle
+PASS 048 all 24 signed ring currents follow chamber occupation
+PASS 049 all-time dark FO and filtered interfaces at sampled phase
+PASS 050 occupation and microscopic energy conserved
+PASS 051 actual graph chamber occupancy and flux follow engine cycle
+PASS 052 all 24 signed ring currents follow chamber occupation
+PASS 053 all-time dark FO and filtered interfaces at sampled phase
+PASS 054 occupation and microscopic energy conserved
+PASS 055 actual graph chamber occupancy and flux follow engine cycle
+PASS 056 all 24 signed ring currents follow chamber occupation
+PASS 057 all-time dark FO and filtered interfaces at sampled phase
+PASS 058 occupation and microscopic energy conserved
+PASS 059 actual graph chamber occupancy and flux follow engine cycle
+PASS 060 all 24 signed ring currents follow chamber occupation
+PASS 061 all-time dark FO and filtered interfaces at sampled phase
+PASS 062 occupation and microscopic energy conserved
+PASS 063 actual graph chamber occupancy and flux follow engine cycle
+PASS 064 all 24 signed ring currents follow chamber occupation
+PASS 065 all-time dark FO and filtered interfaces at sampled phase
+PASS 066 occupation and microscopic energy conserved
+PASS 067 actual graph chamber occupancy and flux follow engine cycle
+PASS 068 all 24 signed ring currents follow chamber occupation
+PASS 069 all-time dark FO and filtered interfaces at sampled phase
+PASS 070 occupation and microscopic energy conserved
+PASS 071 actual graph chamber occupancy and flux follow engine cycle
+PASS 072 all 24 signed ring currents follow chamber occupation
+PASS 073 all-time dark FO and filtered interfaces at sampled phase
+PASS 074 occupation and microscopic energy conserved
+PASS 075 actual graph chamber occupancy and flux follow engine cycle
+PASS 076 all 24 signed ring currents follow chamber occupation
+PASS 077 all-time dark FO and filtered interfaces at sampled phase
+PASS 078 occupation and microscopic energy conserved
+PASS 079 actual graph chamber occupancy and flux follow engine cycle
+PASS 080 all 24 signed ring currents follow chamber occupation
+PASS 081 all-time dark FO and filtered interfaces at sampled phase
+PASS 082 occupation and microscopic energy conserved
+PASS 083 actual graph chamber occupancy and flux follow engine cycle
+PASS 084 all 24 signed ring currents follow chamber occupation
+PASS 085 all-time dark FO and filtered interfaces at sampled phase
+PASS 086 occupation and microscopic energy conserved
+PASS 087 actual graph chamber occupancy and flux follow engine cycle
+PASS 088 all 24 signed ring currents follow chamber occupation
+PASS 089 all-time dark FO and filtered interfaces at sampled phase
+PASS 090 occupation and microscopic energy conserved
+PASS 091 actual graph chamber occupancy and flux follow engine cycle
+PASS 092 all 24 signed ring currents follow chamber occupation
+PASS 093 all-time dark FO and filtered interfaces at sampled phase
+PASS 094 occupation and microscopic energy conserved
+PASS 095 actual graph chamber occupancy and flux follow engine cycle
+PASS 096 all 24 signed ring currents follow chamber occupation
+PASS 097 all-time dark FO and filtered interfaces at sampled phase
+PASS 098 occupation and microscopic energy conserved
+PASS 099 exact cycle returns initial vector
+PASS 100 nonzero lower bound on all ring currents
+PASS 101 even scalar quotient invariant
+PASS 102 exact scalar cubic
+PASS 103 scalar eigenvalues irrational by irreducible cubic over Q
+PASS 104 exchange-gap rescaling preserves irreducibility (no rational frequency ratio)
+Scalar eigenvalues: [-7.07528013+0.j  2.45627205+0.j -1.38099192+0.j]
+Exchange/Compton angular frequency under c/R hopping: 274.071998354
+104/104 new checks passed

@@ -63,7 +63,7 @@ Here K is the dimensionful continuum energy coefficient corresponding to D once 
 
 $$\Delta\Phi=\frac{2\eta^2 f_0^2}{K}\rho+O(\eta^2\rho\,\delta f,|\nabla\delta f|^2),\qquad G_{\rm eff}=\frac{\eta^2 f_0^2}{2\pi K}.$$
 
-This is a conditional work-based Newtonian normalization, not a prediction of measured G. Universal source/test coupling is assumed. On a bounded domain with fixed boundary the quadratic energy is stable for sufficiently weak sources (e.g. $\eta\|\rho\|_\infty<K\lambda_1$ for first Dirichlet Laplacian eigenvalue $\lambda_1$); strong sources can destabilize this toy model.
+This is a conditional work-based response coefficient, **not a second independent gravitational constant**. It must match the inherited GFD tree-level normalization: $\eta^2 f_0^2/(2\pi K)=G^{(0)}_{\rm GFD}=(17/13)\alpha_{\rm EM}^{21}\hbar c/m_e^2$. Neither the equality nor the upstream proposed one-loop correction has yet been derived from this microscopic Hamiltonian. See [G normalization bridge](G_NORMALIZATION_BRIDGE.md). Imposing this match is calibration to the existing theory, not an independent prediction. Universal source/test coupling is assumed. On a bounded domain with fixed boundary the quadratic energy is stable for sufficiently weak sources (e.g. $\eta\|\rho\|_\infty<K\lambda_1$ for first Dirichlet Laplacian eigenvalue $\lambda_1$); strong sources can destabilize this toy model.
 
 For a uniform sphere of radius R and density rho, set $q^2=\eta\rho/K$. Interior regular solution $A\sin(qr)/r$, exterior $f=f_0+B/r$. Continuity yields $B=f_0[\tan(qR)/q-R]$ and $A=f_0/[q\cos(qR)]$. For $qR\ll1$, $B\simeq\eta f_0 M/(4\pi K)$; for $0<qR<\pi/2$, B is positive. Exterior acceleration is inward with magnitude $2\eta B(f_0+B/r)/r^2$. A nonlinear $1/r^3$ correction and source-structure-dependent charge arise. These are features of this optional completion, **not predictions of GFD**. They expose a consistency test: do not assume this quadratic intensity work is the exact gravitational potential beyond linear order. The full equation is $\Delta\Phi=2\eta^2\rho f^2/K-2\eta|\nabla f|^2$. It is not AQUAL and does not derive the existing constitutive law or bound law. In particular the drainless GFD Newton/GR limit must not be silently replaced by this nonlinear toy.
 
@@ -71,10 +71,17 @@ For a uniform sphere of radius R and density rho, set $q^2=\eta\rho/K$. Interior
 
 - Derive the physical scalar reference, source coupling and its universal energy normalization from the same stationary or slow manifold as the circulating vortices. Prove stability and causal dynamics, not just a static frequency response.
 - Test the two interface choices: they give different dimensionless D and $2\alpha\beta/D$ (0.07795273 vs 0.08619038). Geometry has not fixed a unique universal gravitational strength. Do not equate these ratios with alpha_G, 17/13 or alpha^21.
-- Test nonlinear settlement and drained/drainless selection, retaining every object's closure and single-valued ownership. A short-range finite analytic gapped reduction does not automatically give the nonanalytic deep-field AQUAL energy. Keep the earlier proposed G formula, a0 and nuclear binding premises separate until a physical bridge exists.
+- Test nonlinear settlement and drained/drainless selection, retaining every object's closure and single-valued ownership. A short-range finite analytic gapped reduction does not automatically give the nonanalytic deep-field AQUAL energy. Preserve the upstream G normalization and derive the matching identity in [G normalization bridge](G_NORMALIZATION_BRIDGE.md); keep the separate $a_0$ and nuclear binding premises explicit.
 - Check source-driven real read integrability beyond the linear scalar sector; arbitrary microscopic P is not necessarily curl-free. Test actual force with matter and covariance. No physical 12/4/8 spatial neighbour result is added here.
 
 ## Reproduce
 
 `OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python verify_spectral_read.py`.
 [Log](spectral_read_verification_output.txt) · [coefficients](spectral_read_parameters.csv) · [response data](spectral_read_response.csv). 194 new passing assertions (including 11 uniform-sphere checks), prior 4,111 recorded assertions preserved, not rerun. No Lean or empirical validation, no remote repository write.
+
+## Collective optical closure follow-up
+
+See [G from a collective optical closure](G_CLOSURE_DERIVATION.md) for the conditional electromagnetic-reference normalization, primitive-volume stiffness derivation and the unresolved source-selection and stiffness assignments. This does not introduce another G.
+
+
+**Continuation:** [Dynamic tetrad settlement](DYNAMIC_TETRAD_SETTLEMENT.md) tests this construction against the unchanged microscopic Hamiltonian, including central-first excitation, filtered observability, static slip and the remaining relativistic constraints.

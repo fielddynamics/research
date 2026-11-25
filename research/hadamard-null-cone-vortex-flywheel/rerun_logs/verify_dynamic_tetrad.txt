@@ -1,0 +1,221 @@
+PASS 001 actual chamber tiles partition into diagonal central and off-diagonal lateral
+PASS 002 actual chamber tiles partition into diagonal central and off-diagonal lateral
+PASS 003 central first-order amplitude -1 under H
+PASS 004 lateral second-order amplitude +2 under H squared
+PASS 005 central H squared entries +3
+PASS 006 five-dimensional scalar invariant sector
+Scalar quotient (O, C_B,C_A,L_A,L_B): [[0.0, -4.0, -4.0, 0.0, 0.0], [-1.0, 0.0, -3.0, -3.0, -3.0], [-1.0, -3.0, 0.0, -3.0, -3.0], [0.0, -1.0, -1.0, -2.0, -1.0], [0.0, -1.0, -1.0, -1.0, -2.0]]
+PASS 007 pure scalar orbit has no circulation at any time (each ring equal)
+PASS 008 early-time quadratic central and quartic lateral intensities
+PASS 009 early-time quadratic central and quartic lateral intensities
+PASS 010 early-time quadratic central and quartic lateral intensities
+PASS 011 early-time quadratic central and quartic lateral intensities
+PASS 012 early-time quadratic central and quartic lateral intensities
+PASS 013 early-time quadratic central and quartic lateral intensities
+PASS 014 early-time quadratic central and quartic lateral intensities
+PASS 015 early-time quadratic central and quartic lateral intensities
+PASS 016 early-time quadratic central and quartic lateral intensities
+PASS 017 early-time quadratic central and quartic lateral intensities
+PASS 018 early-time quadratic central and quartic lateral intensities
+PASS 019 early-time quadratic central and quartic lateral intensities
+PASS 020 early-time quadratic central and quartic lateral intensities
+PASS 021 early-time quadratic central and quartic lateral intensities
+PASS 022 early-time quadratic central and quartic lateral intensities
+PASS 023 early-time quadratic central and quartic lateral intensities
+PASS 024 early-time quadratic central and quartic lateral intensities
+PASS 025 early-time quadratic central and quartic lateral intensities
+PASS 026 early-time quadratic central and quartic lateral intensities
+PASS 027 early-time quadratic central and quartic lateral intensities
+PASS 028 early-time quadratic central and quartic lateral intensities
+PASS 029 early-time quadratic central and quartic lateral intensities
+PASS 030 early-time quadratic central and quartic lateral intensities
+PASS 031 early-time quadratic central and quartic lateral intensities
+PASS 032 early-time quadratic central and quartic lateral intensities
+PASS 033 early-time quadratic central and quartic lateral intensities
+PASS 034 early-time quadratic central and quartic lateral intensities
+PASS 035 early-time quadratic central and quartic lateral intensities
+PASS 036 early-time quadratic central and quartic lateral intensities
+PASS 037 early-time quadratic central and quartic lateral intensities
+PASS 038 early-time quadratic central and quartic lateral intensities
+PASS 039 early-time quadratic central and quartic lateral intensities
+PASS 040 single filtered optical port resolves all five scalar coordinates using four derivatives
+PASS 041 exact scalar history inverse reconstructs each basis direction
+PASS 042 exact scalar history inverse reconstructs each basis direction
+PASS 043 exact scalar history inverse reconstructs each basis direction
+PASS 044 exact scalar history inverse reconstructs each basis direction
+PASS 045 exact scalar history inverse reconstructs each basis direction
+PASS 046 full scalar band is simple, isolated at k=0
+PASS 047 full uniform but nonzero central and lateral reads
+PASS 048 full unfiltered intensity dictionary not equal GR potentials
+Static ['full', 'A', np.float64(0.030776551387064126), np.float64(0.008912655356687846), np.float64(0.380145691853783)]
+PASS 049 full uniform but nonzero central and lateral reads
+PASS 050 full unfiltered intensity dictionary not equal GR potentials
+Static ['full', 'B', np.float64(0.03633426427264985), np.float64(0.007158232583098592), np.float64(0.5046973802863881)]
+PASS 051 full full susceptibility approaches scalar eigenvector
+PASS 052 full static intensity slip persists as k tends to zero
+PASS 053 full static intensity slip persists as k tends to zero
+PASS 054 full full susceptibility approaches scalar eigenvector
+PASS 055 full static intensity slip persists as k tends to zero
+PASS 056 full static intensity slip persists as k tends to zero
+PASS 057 full full susceptibility approaches scalar eigenvector
+PASS 058 full static intensity slip persists as k tends to zero
+PASS 059 full static intensity slip persists as k tends to zero
+PASS 060 filtered scalar band is simple, isolated at k=0
+PASS 061 filtered uniform but nonzero central and lateral reads
+PASS 062 filtered unfiltered intensity dictionary not equal GR potentials
+Static ['filtered', 'A', np.float64(0.03146187711437737), np.float64(0.008084005469049119), np.float64(0.4196057781583036)]
+PASS 063 filtered uniform but nonzero central and lateral reads
+PASS 064 filtered unfiltered intensity dictionary not equal GR potentials
+Static ['filtered', 'B', np.float64(0.03711828909563751), np.float64(0.007355098070346306), np.float64(0.5028960627656631)]
+PASS 065 filtered full susceptibility approaches scalar eigenvector
+PASS 066 filtered static intensity slip persists as k tends to zero
+PASS 067 filtered static intensity slip persists as k tends to zero
+PASS 068 filtered full susceptibility approaches scalar eigenvector
+PASS 069 filtered static intensity slip persists as k tends to zero
+PASS 070 filtered static intensity slip persists as k tends to zero
+PASS 071 filtered full susceptibility approaches scalar eigenvector
+PASS 072 filtered static intensity slip persists as k tends to zero
+PASS 073 filtered static intensity slip persists as k tends to zero
+PASS 074 four-filter exact invariant unobservable subspace
+Observability four-filter [4, 8, 12, 16, 20, 23, 26] dark 10
+PASS 075 filtered rank sequence
+PASS 076 exactly two metric-sensitive hidden combinations
+PASS 077 hidden metric is traceless diagonal spatial E sector
+PASS 078 hidden metric is traceless diagonal spatial E sector
+PASS 079 exactly two metric-sensitive hidden combinations
+PASS 080 hidden metric is traceless diagonal spatial E sector
+PASS 081 hidden metric is traceless diagonal spatial E sector
+PASS 082 full intensity Jacobian has same two invisible metric directions
+PASS 083 full intensity Jacobian has same two invisible metric directions
+PASS 084 filtered intensity Jacobian has same two invisible metric directions
+PASS 085 filtered intensity Jacobian has same two invisible metric directions
+PASS 086 eight-filter exact invariant unobservable subspace
+Observability eight-filter [8, 16, 23, 26] dark 10
+PASS 087 dark kernel unchanged when all eight ports are read
+PASS 088 four-full exact invariant unobservable subspace
+Observability four-full [16, 32, 36] dark 0
+PASS 089 full interface history recovers all 36 coordinates
+PASS 090 all eight filtered bond factors annihilate exact dark kernel
+PASS 091 exact dark polynomial H(H-2I) vanishes on local kernel
+PASS 092 five dark eigenvectors at each of zero and two
+Local dark eigenvalues: [-0.0, -0.0, 0.0, 0.0, 0.0, 2.0, 2.0, 2.0, 2.0, 2.0]
+PASS 093 20 invariant flat dark directions per primitive cell independent of Bloch momentum
+PASS 094 20 invariant flat dark directions per primitive cell independent of Bloch momentum
+PASS 095 20 invariant flat dark directions per primitive cell independent of Bloch momentum
+PASS 096 Klein-four locked vortex subspace invariant
+PASS 097 zero-energy stationary eight-vortex state
+PASS 098 all eight rings carry exact common magnitude current
+PASS 099 vortex is dark to all eight filtered interfaces
+PASS 100 vortex is not dark to full overlap
+PASS 101 localized vortex is exact stationary mode of filtered periodic cell
+PASS 102 scalar mode exact
+PASS 103 all 24 vortex bond signs preserved in scalar superposition
+PASS 104 all 24 vortex bond signs preserved in scalar superposition
+PASS 105 all 24 vortex bond signs preserved in scalar superposition
+PASS 106 all 24 vortex bond signs preserved in scalar superposition
+PASS 107 all 24 vortex bond signs preserved in scalar superposition
+PASS 108 all 24 vortex bond signs preserved in scalar superposition
+PASS 109 all 24 vortex bond signs preserved in scalar superposition
+PASS 110 all 24 vortex bond signs preserved in scalar superposition
+PASS 111 all 24 vortex bond signs preserved in scalar superposition
+PASS 112 all 24 vortex bond signs preserved in scalar superposition
+PASS 113 all 24 vortex bond signs preserved in scalar superposition
+PASS 114 all 24 vortex bond signs preserved in scalar superposition
+PASS 115 all 24 vortex bond signs preserved in scalar superposition
+PASS 116 all 24 vortex bond signs preserved in scalar superposition
+PASS 117 all 24 vortex bond signs preserved in scalar superposition
+PASS 118 all 24 vortex bond signs preserved in scalar superposition
+PASS 119 all 24 vortex bond signs preserved in scalar superposition
+PASS 120 all 24 vortex bond signs preserved in scalar superposition
+PASS 121 all 24 vortex bond signs preserved in scalar superposition
+PASS 122 all 24 vortex bond signs preserved in scalar superposition
+PASS 123 all 24 vortex bond signs preserved in scalar superposition
+PASS 124 all 24 vortex bond signs preserved in scalar superposition
+PASS 125 all 24 vortex bond signs preserved in scalar superposition
+PASS 126 all 24 vortex bond signs preserved in scalar superposition
+PASS 127 all 24 vortex bond signs preserved in scalar superposition
+PASS 128 all 24 vortex bond signs preserved in scalar superposition
+PASS 129 all 24 vortex bond signs preserved in scalar superposition
+PASS 130 all 24 vortex bond signs preserved in scalar superposition
+PASS 131 all 24 vortex bond signs preserved in scalar superposition
+PASS 132 all 24 vortex bond signs preserved in scalar superposition
+PASS 133 all 24 vortex bond signs preserved in scalar superposition
+PASS 134 all 24 vortex bond signs preserved in scalar superposition
+PASS 135 all 24 vortex bond signs preserved in scalar superposition
+PASS 136 all 24 vortex bond signs preserved in scalar superposition
+PASS 137 all 24 vortex bond signs preserved in scalar superposition
+PASS 138 all 24 vortex bond signs preserved in scalar superposition
+PASS 139 all 24 vortex bond signs preserved in scalar superposition
+PASS 140 all 24 vortex bond signs preserved in scalar superposition
+PASS 141 all 24 vortex bond signs preserved in scalar superposition
+PASS 142 all 24 vortex bond signs preserved in scalar superposition
+PASS 143 all 24 vortex bond signs preserved in scalar superposition
+PASS 144 all 24 vortex bond signs preserved in scalar superposition
+PASS 145 all 24 vortex bond signs preserved in scalar superposition
+PASS 146 all 24 vortex bond signs preserved in scalar superposition
+PASS 147 all 24 vortex bond signs preserved in scalar superposition
+PASS 148 all 24 vortex bond signs preserved in scalar superposition
+PASS 149 all 24 vortex bond signs preserved in scalar superposition
+PASS 150 all 24 vortex bond signs preserved in scalar superposition
+PASS 151 all 24 vortex bond signs preserved in scalar superposition
+PASS 152 all 24 vortex bond signs preserved in scalar superposition
+PASS 153 all 24 vortex bond signs preserved in scalar superposition
+PASS 154 all 24 vortex bond signs preserved in scalar superposition
+PASS 155 all 24 vortex bond signs preserved in scalar superposition
+PASS 156 all 24 vortex bond signs preserved in scalar superposition
+PASS 157 all 24 vortex bond signs preserved in scalar superposition
+PASS 158 all 24 vortex bond signs preserved in scalar superposition
+PASS 159 all 24 vortex bond signs preserved in scalar superposition
+PASS 160 all 24 vortex bond signs preserved in scalar superposition
+PASS 161 all 24 vortex bond signs preserved in scalar superposition
+PASS 162 all 24 vortex bond signs preserved in scalar superposition
+PASS 163 all 24 vortex bond signs preserved in scalar superposition
+PASS 164 all 24 vortex bond signs preserved in scalar superposition
+PASS 165 all 24 vortex bond signs preserved in scalar superposition
+PASS 166 all 24 vortex bond signs preserved in scalar superposition
+PASS 167 all 24 vortex bond signs preserved in scalar superposition
+PASS 168 all 24 vortex bond signs preserved in scalar superposition
+PASS 169 all 24 vortex bond signs preserved in scalar superposition
+PASS 170 all 24 vortex bond signs preserved in scalar superposition
+PASS 171 all 24 vortex bond signs preserved in scalar superposition
+PASS 172 all 24 vortex bond signs preserved in scalar superposition
+PASS 173 all 24 vortex bond signs preserved in scalar superposition
+PASS 174 all 24 vortex bond signs preserved in scalar superposition
+PASS 175 all 24 vortex bond signs preserved in scalar superposition
+PASS 176 all 24 vortex bond signs preserved in scalar superposition
+PASS 177 all 24 vortex bond signs preserved in scalar superposition
+PASS 178 all 24 vortex bond signs preserved in scalar superposition
+PASS 179 all 24 vortex bond signs preserved in scalar superposition
+PASS 180 all 24 vortex bond signs preserved in scalar superposition
+PASS 181 all 24 vortex bond signs preserved in scalar superposition
+PASS 182 all 24 vortex bond signs preserved in scalar superposition
+PASS 183 all 24 vortex bond signs preserved in scalar superposition
+PASS 184 strict all-time circulation bound, not just samples
+All-phase current bound 0.06482757327209221 sample min 0.06581110896803218
+PASS 185 time-averaged intensity additive between distinct frequencies
+PASS 186 Lorentz boost preserves eta but not positive norm
+PASS 187 same metric, different Euclidean channel norm
+PASS 188 metric-compatible identity-spin link
+PASS 189 metric-compatible identity-spin link
+PASS 190 metric-compatible identity-spin link
+PASS 191 metric-compatible identity-spin link
+PASS 192 metric-compatible identity-spin link
+PASS 193 metric-compatible identity-spin link
+PASS 194 hexagonal closed pure-gauge link holonomy identity
+PASS 195 linear Einstein 00 read is 2 Laplacian spatial potential
+PASS 196 linear spatial Einstein tensor is derivative of slip
+PASS 197 linear spatial Einstein tensor is derivative of slip
+PASS 198 linear spatial Einstein tensor is derivative of slip
+PASS 199 linear spatial Einstein tensor is derivative of slip
+PASS 200 linear spatial Einstein tensor is derivative of slip
+PASS 201 linear spatial Einstein tensor is derivative of slip
+PASS 202 linear spatial Einstein tensor is derivative of slip
+PASS 203 linear spatial Einstein tensor is derivative of slip
+PASS 204 linear spatial Einstein tensor is derivative of slip
+PASS 205 static GR functional in central/lateral coordinates has exact completed square
+PASS 206 full rank-one residue of band-edge inverse
+PASS 207 filtered rank-one residue of band-edge inverse
+PASS 208 read amplitude normalization does not follow from eigenvectors alone
+PASS 209 read amplitude normalization does not follow from eigenvectors alone
+PASS 210 read amplitude normalization does not follow from eigenvectors alone
+TOTAL 210 checks passed

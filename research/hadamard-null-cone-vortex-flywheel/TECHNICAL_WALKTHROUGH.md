@@ -1,5 +1,7 @@
 > **Historical detailed walkthrough.** Preserved from the optical extension edition. For the current research status, model definition and complete proof index, see [README](README.md). Edition labels and historical totals below refer to the stages in which they were recorded.
 
+**Normalization convention (current):** use the existing GFD topology-derived bare G, conditional on its upstream premises. Any microscopic effective coefficient must match it; no independent G fit is introduced. See the [G normalization bridge](G_NORMALIZATION_BRIDGE.md).
+
 # The Hadamard Null Cone: Eight Triforce Vortices and Their Collective Core
 
 ## Current extension — four-port optical resonator

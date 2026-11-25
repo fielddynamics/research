@@ -1,0 +1,283 @@
+PASS 001 Hadamard orthogonality
+PASS 002 Lorentz channel Gram and signature
+PASS 003 flat reference is J
+PASS 004 16 distinct actual triangular tiles
+PASS 005 tile lies on original face opposite i
+PASS 006 tile centroid central or lateral
+PASS 007 tile lies on original face opposite i
+PASS 008 tile centroid central or lateral
+PASS 009 tile lies on original face opposite i
+PASS 010 tile centroid central or lateral
+PASS 011 tile lies on original face opposite i
+PASS 012 tile centroid central or lateral
+PASS 013 tile lies on original face opposite i
+PASS 014 tile centroid central or lateral
+PASS 015 tile lies on original face opposite i
+PASS 016 tile centroid central or lateral
+PASS 017 tile lies on original face opposite i
+PASS 018 tile centroid central or lateral
+PASS 019 tile lies on original face opposite i
+PASS 020 tile centroid central or lateral
+PASS 021 tile lies on original face opposite i
+PASS 022 tile centroid central or lateral
+PASS 023 tile lies on original face opposite i
+PASS 024 tile centroid central or lateral
+PASS 025 tile lies on original face opposite i
+PASS 026 tile centroid central or lateral
+PASS 027 tile lies on original face opposite i
+PASS 028 tile centroid central or lateral
+PASS 029 tile lies on original face opposite i
+PASS 030 tile centroid central or lateral
+PASS 031 tile lies on original face opposite i
+PASS 032 tile centroid central or lateral
+PASS 033 tile lies on original face opposite i
+PASS 034 tile centroid central or lateral
+PASS 035 tile lies on original face opposite i
+PASS 036 tile centroid central or lateral
+PASS 037 16 distinct actual triangular tiles
+PASS 038 tile lies on original face opposite i
+PASS 039 tile centroid central or lateral
+PASS 040 tile lies on original face opposite i
+PASS 041 tile centroid central or lateral
+PASS 042 tile lies on original face opposite i
+PASS 043 tile centroid central or lateral
+PASS 044 tile lies on original face opposite i
+PASS 045 tile centroid central or lateral
+PASS 046 tile lies on original face opposite i
+PASS 047 tile centroid central or lateral
+PASS 048 tile lies on original face opposite i
+PASS 049 tile centroid central or lateral
+PASS 050 tile lies on original face opposite i
+PASS 051 tile centroid central or lateral
+PASS 052 tile lies on original face opposite i
+PASS 053 tile centroid central or lateral
+PASS 054 tile lies on original face opposite i
+PASS 055 tile centroid central or lateral
+PASS 056 tile lies on original face opposite i
+PASS 057 tile centroid central or lateral
+PASS 058 tile lies on original face opposite i
+PASS 059 tile centroid central or lateral
+PASS 060 tile lies on original face opposite i
+PASS 061 tile centroid central or lateral
+PASS 062 tile lies on original face opposite i
+PASS 063 tile centroid central or lateral
+PASS 064 tile lies on original face opposite i
+PASS 065 tile centroid central or lateral
+PASS 066 tile lies on original face opposite i
+PASS 067 tile centroid central or lateral
+PASS 068 tile lies on original face opposite i
+PASS 069 tile centroid central or lateral
+PASS 070 Td intertwiner preserves time and eta
+PASS 071 channel conjugation agrees with frame conjugation
+PASS 072 Td intertwiner preserves time and eta
+PASS 073 channel conjugation agrees with frame conjugation
+PASS 074 Td intertwiner preserves time and eta
+PASS 075 channel conjugation agrees with frame conjugation
+PASS 076 Td intertwiner preserves time and eta
+PASS 077 channel conjugation agrees with frame conjugation
+PASS 078 Td intertwiner preserves time and eta
+PASS 079 channel conjugation agrees with frame conjugation
+PASS 080 Td intertwiner preserves time and eta
+PASS 081 channel conjugation agrees with frame conjugation
+PASS 082 Td intertwiner preserves time and eta
+PASS 083 channel conjugation agrees with frame conjugation
+PASS 084 Td intertwiner preserves time and eta
+PASS 085 channel conjugation agrees with frame conjugation
+PASS 086 Td intertwiner preserves time and eta
+PASS 087 channel conjugation agrees with frame conjugation
+PASS 088 Td intertwiner preserves time and eta
+PASS 089 channel conjugation agrees with frame conjugation
+PASS 090 Td intertwiner preserves time and eta
+PASS 091 channel conjugation agrees with frame conjugation
+PASS 092 Td intertwiner preserves time and eta
+PASS 093 channel conjugation agrees with frame conjugation
+PASS 094 Td intertwiner preserves time and eta
+PASS 095 channel conjugation agrees with frame conjugation
+PASS 096 Td intertwiner preserves time and eta
+PASS 097 channel conjugation agrees with frame conjugation
+PASS 098 Td intertwiner preserves time and eta
+PASS 099 channel conjugation agrees with frame conjugation
+PASS 100 Td intertwiner preserves time and eta
+PASS 101 channel conjugation agrees with frame conjugation
+PASS 102 Td intertwiner preserves time and eta
+PASS 103 channel conjugation agrees with frame conjugation
+PASS 104 Td intertwiner preserves time and eta
+PASS 105 channel conjugation agrees with frame conjugation
+PASS 106 Td intertwiner preserves time and eta
+PASS 107 channel conjugation agrees with frame conjugation
+PASS 108 Td intertwiner preserves time and eta
+PASS 109 channel conjugation agrees with frame conjugation
+PASS 110 Td intertwiner preserves time and eta
+PASS 111 channel conjugation agrees with frame conjugation
+PASS 112 Td intertwiner preserves time and eta
+PASS 113 channel conjugation agrees with frame conjugation
+PASS 114 Td intertwiner preserves time and eta
+PASS 115 channel conjugation agrees with frame conjugation
+PASS 116 Td intertwiner preserves time and eta
+PASS 117 channel conjugation agrees with frame conjugation
+PASS 118 lowered tetrad basis round trip
+PASS 119 linear metric response equals B+B^T
+PASS 120 lowered tetrad basis round trip
+PASS 121 linear metric response equals B+B^T
+PASS 122 lowered tetrad basis round trip
+PASS 123 linear metric response equals B+B^T
+PASS 124 lowered tetrad basis round trip
+PASS 125 linear metric response equals B+B^T
+PASS 126 lowered tetrad basis round trip
+PASS 127 linear metric response equals B+B^T
+PASS 128 lowered tetrad basis round trip
+PASS 129 linear metric response equals B+B^T
+PASS 130 lowered tetrad basis round trip
+PASS 131 linear metric response equals B+B^T
+PASS 132 lowered tetrad basis round trip
+PASS 133 linear metric response equals B+B^T
+PASS 134 lowered tetrad basis round trip
+PASS 135 linear metric response equals B+B^T
+PASS 136 lowered tetrad basis round trip
+PASS 137 linear metric response equals B+B^T
+PASS 138 lowered tetrad basis round trip
+PASS 139 linear metric response equals B+B^T
+PASS 140 lowered tetrad basis round trip
+PASS 141 linear metric response equals B+B^T
+PASS 142 lowered tetrad basis round trip
+PASS 143 linear metric response equals B+B^T
+PASS 144 lowered tetrad basis round trip
+PASS 145 linear metric response equals B+B^T
+PASS 146 lowered tetrad basis round trip
+PASS 147 linear metric response equals B+B^T
+PASS 148 lowered tetrad basis round trip
+PASS 149 linear metric response equals B+B^T
+PASS 150 two scalar mode decomposition
+PASS 151 equal potentials central tiles only
+PASS 152 recover both scalar potentials
+PASS 153 central-only finite coframe metric
+PASS 154 edge-gradient block only mixes time and space
+PASS 155 unique antisymmetric gradient/cycle split
+PASS 156 cycle block purely spatial
+PASS 157 split orthogonal
+PASS 158 unique antisymmetric gradient/cycle split
+PASS 159 cycle block purely spatial
+PASS 160 split orthogonal
+PASS 161 unique antisymmetric gradient/cycle split
+PASS 162 cycle block purely spatial
+PASS 163 split orthogonal
+PASS 164 unique antisymmetric gradient/cycle split
+PASS 165 cycle block purely spatial
+PASS 166 split orthogonal
+PASS 167 unique antisymmetric gradient/cycle split
+PASS 168 cycle block purely spatial
+PASS 169 split orthogonal
+PASS 170 unique antisymmetric gradient/cycle split
+PASS 171 cycle block purely spatial
+PASS 172 split orthogonal
+PASS 173 nondegenerate read Lorentz signature
+PASS 174 finite Lorentz gauge preserves metric
+PASS 175 induced channel gauge preserves channel metric
+PASS 176 metric compatible link from independent Lorentz transporter
+PASS 177 nondegenerate read Lorentz signature
+PASS 178 finite Lorentz gauge preserves metric
+PASS 179 induced channel gauge preserves channel metric
+PASS 180 metric compatible link from independent Lorentz transporter
+PASS 181 nondegenerate read Lorentz signature
+PASS 182 finite Lorentz gauge preserves metric
+PASS 183 induced channel gauge preserves channel metric
+PASS 184 metric compatible link from independent Lorentz transporter
+PASS 185 nondegenerate read Lorentz signature
+PASS 186 finite Lorentz gauge preserves metric
+PASS 187 induced channel gauge preserves channel metric
+PASS 188 metric compatible link from independent Lorentz transporter
+PASS 189 nondegenerate read Lorentz signature
+PASS 190 finite Lorentz gauge preserves metric
+PASS 191 induced channel gauge preserves channel metric
+PASS 192 metric compatible link from independent Lorentz transporter
+PASS 193 nondegenerate read Lorentz signature
+PASS 194 finite Lorentz gauge preserves metric
+PASS 195 induced channel gauge preserves channel metric
+PASS 196 metric compatible link from independent Lorentz transporter
+PASS 197 nondegenerate read Lorentz signature
+PASS 198 finite Lorentz gauge preserves metric
+PASS 199 induced channel gauge preserves channel metric
+PASS 200 metric compatible link from independent Lorentz transporter
+PASS 201 nondegenerate read Lorentz signature
+PASS 202 finite Lorentz gauge preserves metric
+PASS 203 induced channel gauge preserves channel metric
+PASS 204 metric compatible link from independent Lorentz transporter
+PASS 205 nondegenerate read Lorentz signature
+PASS 206 finite Lorentz gauge preserves metric
+PASS 207 induced channel gauge preserves channel metric
+PASS 208 metric compatible link from independent Lorentz transporter
+PASS 209 nondegenerate read Lorentz signature
+PASS 210 finite Lorentz gauge preserves metric
+PASS 211 induced channel gauge preserves channel metric
+PASS 212 metric compatible link from independent Lorentz transporter
+PASS 213 nondegenerate read Lorentz signature
+PASS 214 finite Lorentz gauge preserves metric
+PASS 215 induced channel gauge preserves channel metric
+PASS 216 metric compatible link from independent Lorentz transporter
+PASS 217 nondegenerate read Lorentz signature
+PASS 218 finite Lorentz gauge preserves metric
+PASS 219 induced channel gauge preserves channel metric
+PASS 220 metric compatible link from independent Lorentz transporter
+PASS 221 full face communication rank 4
+PASS 222 central filtered face communication rank 1
+PASS 223 four full faces carry 16 instantaneous coherent dimensions
+PASS 224 four filtered faces carry four instantaneous coherent dimensions
+PASS 225 10 symmetric and 6 antisymmetric lowered perturbations
+PASS 226 four connection blocks have 40 symmetric 24 antisymmetric entries
+PASS 227 weighted traces 21 17 13
+PASS 228 symmetric/antisymmetric characters
+PASS 229 symmetric/antisymmetric characters
+PASS 230 symmetric/antisymmetric characters
+PASS 231 symmetric/antisymmetric characters
+PASS 232 symmetric/antisymmetric characters
+PASS 233 symmetric/antisymmetric characters
+PASS 234 symmetric/antisymmetric characters
+PASS 235 symmetric/antisymmetric characters
+PASS 236 symmetric/antisymmetric characters
+PASS 237 symmetric/antisymmetric characters
+PASS 238 symmetric/antisymmetric characters
+PASS 239 symmetric/antisymmetric characters
+PASS 240 symmetric/antisymmetric characters
+PASS 241 symmetric/antisymmetric characters
+PASS 242 symmetric/antisymmetric characters
+PASS 243 symmetric/antisymmetric characters
+PASS 244 symmetric/antisymmetric characters
+PASS 245 symmetric/antisymmetric characters
+PASS 246 symmetric/antisymmetric characters
+PASS 247 symmetric/antisymmetric characters
+PASS 248 symmetric/antisymmetric characters
+PASS 249 symmetric/antisymmetric characters
+PASS 250 symmetric/antisymmetric characters
+PASS 251 symmetric/antisymmetric characters
+PASS 252 affine tetrad derivative from four ports
+PASS 253 weak acceleration from mean central tile gradient
+PASS 254 affine tetrad derivative from four ports
+PASS 255 weak acceleration from mean central tile gradient
+PASS 256 affine tetrad derivative from four ports
+PASS 257 weak acceleration from mean central tile gradient
+PASS 258 affine tetrad derivative from four ports
+PASS 259 weak acceleration from mean central tile gradient
+PASS 260 affine tetrad derivative from four ports
+PASS 261 weak acceleration from mean central tile gradient
+PASS 262 affine tetrad derivative from four ports
+PASS 263 weak acceleration from mean central tile gradient
+PASS 264 affine tetrad derivative from four ports
+PASS 265 weak acceleration from mean central tile gradient
+PASS 266 affine tetrad derivative from four ports
+PASS 267 weak acceleration from mean central tile gradient
+PASS 268 affine tetrad derivative from four ports
+PASS 269 weak acceleration from mean central tile gradient
+PASS 270 affine tetrad derivative from four ports
+PASS 271 weak acceleration from mean central tile gradient
+PASS 272 affine tetrad derivative from four ports
+PASS 273 weak acceleration from mean central tile gradient
+PASS 274 affine tetrad derivative from four ports
+PASS 275 weak acceleration from mean central tile gradient
+PASS 276 normalized null direction Gram
+PASS 277 central-only scalar pattern is not invariant under null rescaling
+PASS 278 parity chamber map same signature
+PASS 279 parity covariance of coframe map
+PASS 280 volume determinant identity
+PASS 281 independent spin connection metric-compatible at flat tetrad
+PASS 282 nonzero torsion with unchanged flat tetrad
+TOTAL 282 checks passed

@@ -1,0 +1,91 @@
+PASS 001 joint EM closure
+PASS 002 joint saturation
+PASS 003 joint topology
+PASS 004 joint radius product
+PASS 005 joint constant product
+PASS 006 log residual Jacobian determinant, fixed G
+PASS 007 log residual Jacobian determinant, inherited G(M)
+PASS 008 log three-variable closure system nonsingular
+PASS 009 a0 log sensitivity m
+PASS 010 a0 log sensitivity r
+PASS 011 a0 log sensitivity G
+PASS 012 gamma log sensitivity m
+PASS 013 gamma log sensitivity r
+PASS 014 gamma log sensitivity G
+PASS 015 raw pair read
+PASS 016 equal central raw pair read
+PASS 017 normalized pair read
+PASS 018 Hadamard orthonormal
+PASS 019 equal four central channels are pure scalar
+PASS 020 pair read permutation invariant (0, 1, 2, 3)
+PASS 021 pair read permutation invariant (0, 1, 3, 2)
+PASS 022 pair read permutation invariant (0, 2, 1, 3)
+PASS 023 pair read permutation invariant (0, 2, 3, 1)
+PASS 024 pair read permutation invariant (0, 3, 1, 2)
+PASS 025 pair read permutation invariant (0, 3, 2, 1)
+PASS 026 pair read permutation invariant (1, 0, 2, 3)
+PASS 027 pair read permutation invariant (1, 0, 3, 2)
+PASS 028 pair read permutation invariant (1, 2, 0, 3)
+PASS 029 pair read permutation invariant (1, 2, 3, 0)
+PASS 030 pair read permutation invariant (1, 3, 0, 2)
+PASS 031 pair read permutation invariant (1, 3, 2, 0)
+PASS 032 pair read permutation invariant (2, 0, 1, 3)
+PASS 033 pair read permutation invariant (2, 0, 3, 1)
+PASS 034 pair read permutation invariant (2, 1, 0, 3)
+PASS 035 pair read permutation invariant (2, 1, 3, 0)
+PASS 036 pair read permutation invariant (2, 3, 0, 1)
+PASS 037 pair read permutation invariant (2, 3, 1, 0)
+PASS 038 pair read permutation invariant (3, 0, 1, 2)
+PASS 039 pair read permutation invariant (3, 0, 2, 1)
+PASS 040 pair read permutation invariant (3, 1, 0, 2)
+PASS 041 pair read permutation invariant (3, 1, 2, 0)
+PASS 042 pair read permutation invariant (3, 2, 0, 1)
+PASS 043 pair read permutation invariant (3, 2, 1, 0)
+PASS 044 weighted read stationarity coefficient
+PASS 045 registered energy stationarity
+PASS 046 registered energy curvature
+PASS 047 registered energy equality
+PASS 048 old unnormalized energy double count
+PASS 049 normalized registered read minimum
+PASS 050 global minimum factorization
+PASS 051 dimensionless curvature
+PASS 052 power mean first log derivative
+PASS 053 power mean second log derivative
+PASS 054 geometric mean is flat
+PASS 055 optical interface orthogonal
+PASS 056 optical closure perfect transmission
+PASS 057 optical closure zero reflection
+PASS 058 optical reflection local curvature
+PASS 059 four ports all matched
+PASS 060 scale-homogeneous eigenenergy derivative
+PASS 061 free boundary matching
+PASS 062 free boundary positive curvature
+PASS 063 on-shell source-included static action has opposite field sign
+PASS 064 numeric EM closure 0 1.2e-10
+PASS 065 numeric grav saturation 0 1.2e-10
+PASS 066 numeric topology closure 0 1.2e-10
+PASS 067 numeric EM closure 0 1.22e-10
+PASS 068 numeric grav saturation 0 1.22e-10
+PASS 069 numeric topology closure 0 1.22e-10
+PASS 070 numeric EM closure 0 1.225e-10
+PASS 071 numeric grav saturation 0 1.225e-10
+PASS 072 numeric topology closure 0 1.225e-10
+PASS 073 numeric EM closure 0 1.22360643407059e-10
+PASS 074 numeric grav saturation 0 1.22360643407059e-10
+PASS 075 numeric topology closure 0 1.22360643407059e-10
+order=0: a0 required at reference mass=1.22360643407e-10, G at reference mass=6.6664765374e-11
+PASS 076 numeric EM closure 1 1.2e-10
+PASS 077 numeric grav saturation 1 1.2e-10
+PASS 078 numeric topology closure 1 1.2e-10
+PASS 079 numeric EM closure 1 1.22e-10
+PASS 080 numeric grav saturation 1 1.22e-10
+PASS 081 numeric topology closure 1 1.22e-10
+PASS 082 numeric EM closure 1 1.225e-10
+PASS 083 numeric grav saturation 1 1.225e-10
+PASS 084 numeric topology closure 1 1.225e-10
+PASS 085 numeric EM closure 1 1.22502754249138e-10
+PASS 086 numeric grav saturation 1 1.22502754249138e-10
+PASS 087 numeric topology closure 1 1.22502754249138e-10
+order=1: a0 required at reference mass=1.22502754249e-10, G at reference mass=6.67421904812e-11
+
+87/87 checks passed. Prior checks not rerun. No microscopic derivation of closure premises.

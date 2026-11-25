@@ -1,0 +1,81 @@
+PASS complete eight Walsh characters in geometry order
+PASS four optical port Hadamard combinations
+PASS native filtered history rank 26
+PASS all ten hidden coordinates have zero central component
+PASS hidden space invariant
+PASS central recovery rank by derivative order
+Central recoverable dimensions at order 0..6: [0, 0, 0, 1, 2, 5, 8]
+PASS exact native decoder for Walsh coordinate 0
+PASS Krylov minimal polynomial annihilates core mode 0
+PASS exact native decoder for Walsh coordinate 1
+PASS Krylov minimal polynomial annihilates core mode 1
+PASS exact native decoder for Walsh coordinate 2
+PASS grade 1 identical polynomial for all axes
+PASS Krylov minimal polynomial annihilates core mode 2
+PASS grade 1 exact same resolvent
+PASS exact native decoder for Walsh coordinate 3
+PASS grade 1 identical polynomial for all axes
+PASS Krylov minimal polynomial annihilates core mode 3
+PASS grade 1 exact same resolvent
+PASS exact native decoder for Walsh coordinate 4
+PASS Krylov minimal polynomial annihilates core mode 4
+PASS exact native decoder for Walsh coordinate 5
+PASS grade 2 identical polynomial for all axes
+PASS Krylov minimal polynomial annihilates core mode 5
+PASS grade 2 exact same resolvent
+PASS exact native decoder for Walsh coordinate 6
+PASS grade 2 identical polynomial for all axes
+PASS Krylov minimal polynomial annihilates core mode 6
+PASS grade 2 exact same resolvent
+PASS exact native decoder for Walsh coordinate 7
+PASS Krylov minimal polynomial annihilates core mode 7
+grade 0 decoder [-15/28, -13/112, 43/112, -17/336, -5/336, 0, 0] polynomial z**3 + 6*z**2 - 11*z - 24 core Green z*(z + 3)/(z**3 + 6*z**2 - 11*z - 24)
+grade 1 decoder [-3369/65224, 20421/260896, 196079/521792, -20525/260896, -9705/130448, 277/32612, 1725/521792] polynomial z**4 + 2*z**3 - 19*z**2 - 4*z + 32 core Green z*(z**2 + z - 4)/(z**4 + 2*z**3 - 19*z**2 - 4*z + 32)
+grade 2 decoder [16628/55493, -9657/110986, -103673/443944, 49613/887888, 38149/887888, -4805/887888, -1715/887888] polynomial z**3 - 7*z + 2 core Green (z - 1)*(z + 2)/(z**3 - 7*z + 2)
+grade 3 decoder [-1/24, -35/576, -5/576, 7/576, 1/576, 0, 0] polynomial z - 3 core Green 1/(z - 3)
+PASS core response moment 0 Walsh diagonal and grade-degenerate
+PASS core response moment 1 Walsh diagonal and grade-degenerate
+PASS core response moment 2 Walsh diagonal and grade-degenerate
+PASS core response moment 3 Walsh diagonal and grade-degenerate
+PASS core response moment 4 Walsh diagonal and grade-degenerate
+PASS core response moment 5 Walsh diagonal and grade-degenerate
+PASS core response moment 6 Walsh diagonal and grade-degenerate
+PASS core response moment 7 Walsh diagonal and grade-degenerate
+PASS core response moment 8 Walsh diagonal and grade-degenerate
+Example seven sample spacing, rank, condition, core residual, noise gain: (np.float64(0.8999999999999999), np.int64(26), np.float64(50.866347134431), np.float64(3.57023633439627e-15), np.float64(0.5768073551630182))
+PASS seven coherent samples recover all central records
+PASS arbitrary full-cell initial state Walsh read 0
+PASS arbitrary full-cell initial state Walsh read 1
+PASS arbitrary full-cell initial state Walsh read 2
+PASS arbitrary full-cell initial state Walsh read 3
+PASS arbitrary full-cell initial state Walsh read 4
+PASS arbitrary full-cell initial state Walsh read 5
+PASS arbitrary full-cell initial state Walsh read 6
+PASS arbitrary full-cell initial state Walsh read 7
+PASS arbitrary full-cell initial state Walsh read 8
+PASS arbitrary full-cell initial state Walsh read 9
+PASS arbitrary full-cell initial state Walsh read 10
+PASS arbitrary full-cell initial state Walsh read 11
+PASS native Hamiltonian inversion symmetric
+PASS target butterfly not inversion equivariant
+PASS native inversion-even uniform input cannot map to a single core corner
+PASS axis 0 four disjoint actual central bonds
+PASS axis 0 controlled pulse unitary
+PASS axis 0 no leakage with isolated controls
+PASS axis 1 four disjoint actual central bonds
+PASS axis 1 controlled pulse unitary
+PASS axis 1 no leakage with isolated controls
+PASS axis 2 four disjoint actual central bonds
+PASS axis 2 controlled pulse unitary
+PASS axis 2 no leakage with isolated controls
+PASS three controlled pulses implement normalized H8 up to global phase
+PASS two-pass normalized H64 arbitrary table 0
+PASS two-pass normalized H64 arbitrary table 1
+PASS two-pass normalized H64 arbitrary table 2
+PASS two-pass normalized H64 arbitrary table 3
+PASS two-pass normalized H64 arbitrary table 4
+PASS two-pass normalized H64 arbitrary table 5
+PASS two-pass normalized H64 arbitrary table 6
+PASS two-pass normalized H64 arbitrary table 7
+PASS controlled pulse Hamiltonian differs from original
+74/74 new assertions passed. 5304 previous recorded assertions not rerun.

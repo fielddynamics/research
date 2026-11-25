@@ -1,0 +1,127 @@
+PASS H8 orthogonal up to scale
+PASS H64 = H8 tensor H8
+PASS six-bit characters
+PASS pi first covers 64 ordered pairs at fractional digit 332
+PASS all pair addresses
+PASS raw visit count
+PASS completed binary coverage is pure DC
+PASS raw count ledger not pure DC
+PASS path endpoints determine marginal imbalance
+PASS digit kernel reconstructed exactly
+PASS digit kernel has 16 nonzero Walsh coefficients
+PASS modular walk is not XOR walk
+PASS digit decoded from pair (0,0)
+PASS digit decoded from pair (0,1)
+PASS digit decoded from pair (0,2)
+PASS digit decoded from pair (0,3)
+PASS digit decoded from pair (0,4)
+PASS digit decoded from pair (0,5)
+PASS digit decoded from pair (0,6)
+PASS digit decoded from pair (0,7)
+PASS digit decoded from pair (1,0)
+PASS digit decoded from pair (1,1)
+PASS digit decoded from pair (1,2)
+PASS digit decoded from pair (1,3)
+PASS digit decoded from pair (1,4)
+PASS digit decoded from pair (1,5)
+PASS digit decoded from pair (1,6)
+PASS digit decoded from pair (1,7)
+PASS digit decoded from pair (2,0)
+PASS digit decoded from pair (2,1)
+PASS digit decoded from pair (2,2)
+PASS digit decoded from pair (2,3)
+PASS digit decoded from pair (2,4)
+PASS digit decoded from pair (2,5)
+PASS digit decoded from pair (2,6)
+PASS digit decoded from pair (2,7)
+PASS digit decoded from pair (3,0)
+PASS digit decoded from pair (3,1)
+PASS digit decoded from pair (3,2)
+PASS digit decoded from pair (3,3)
+PASS digit decoded from pair (3,4)
+PASS digit decoded from pair (3,5)
+PASS digit decoded from pair (3,6)
+PASS digit decoded from pair (3,7)
+PASS digit decoded from pair (4,0)
+PASS digit decoded from pair (4,1)
+PASS digit decoded from pair (4,2)
+PASS digit decoded from pair (4,3)
+PASS digit decoded from pair (4,4)
+PASS digit decoded from pair (4,5)
+PASS digit decoded from pair (4,6)
+PASS digit decoded from pair (4,7)
+PASS digit decoded from pair (5,0)
+PASS digit decoded from pair (5,1)
+PASS digit decoded from pair (5,2)
+PASS digit decoded from pair (5,3)
+PASS digit decoded from pair (5,4)
+PASS digit decoded from pair (5,5)
+PASS digit decoded from pair (5,6)
+PASS digit decoded from pair (5,7)
+PASS digit decoded from pair (6,0)
+PASS digit decoded from pair (6,1)
+PASS digit decoded from pair (6,2)
+PASS digit decoded from pair (6,3)
+PASS digit decoded from pair (6,4)
+PASS digit decoded from pair (6,5)
+PASS digit decoded from pair (6,6)
+PASS digit decoded from pair (6,7)
+PASS digit decoded from pair (7,0)
+PASS digit decoded from pair (7,1)
+PASS digit decoded from pair (7,2)
+PASS digit decoded from pair (7,3)
+PASS digit decoded from pair (7,4)
+PASS digit decoded from pair (7,5)
+PASS digit decoded from pair (7,6)
+PASS digit decoded from pair (7,7)
+PASS pi-addressed streaming transform arbitrary matrix 0
+PASS six-stage butterfly agrees 0
+PASS lossless inverse 0
+PASS Parseval 0
+PASS pi-addressed streaming transform arbitrary matrix 1
+PASS six-stage butterfly agrees 1
+PASS lossless inverse 1
+PASS Parseval 1
+PASS pi-addressed streaming transform arbitrary matrix 2
+PASS six-stage butterfly agrees 2
+PASS lossless inverse 2
+PASS Parseval 2
+PASS pi-addressed streaming transform arbitrary matrix 3
+PASS six-stage butterfly agrees 3
+PASS lossless inverse 3
+PASS Parseval 3
+PASS pi-addressed streaming transform arbitrary matrix 4
+PASS six-stage butterfly agrees 4
+PASS lossless inverse 4
+PASS Parseval 4
+PASS pi-addressed streaming transform arbitrary matrix 5
+PASS six-stage butterfly agrees 5
+PASS lossless inverse 5
+PASS Parseval 5
+PASS pi-addressed streaming transform arbitrary matrix 6
+PASS six-stage butterfly agrees 6
+PASS lossless inverse 6
+PASS Parseval 6
+PASS pi-addressed streaming transform arbitrary matrix 7
+PASS six-stage butterfly agrees 7
+PASS lossless inverse 7
+PASS Parseval 7
+PASS discounted ledger total
+PASS pi fractional digit value from direct ledger
+PASS pi value from Walsh spectral ledger
+PASS exact FWHT for large-integer pi ledger
+PASS pi truncation error below 8^-332
+PASS discounted ledger retains ordered walk exactly
+PASS Walsh does not diagonalize modular shift
+PASS modular shift preserves dyadic Walsh blocks 1,1,2,4
+PASS XOR shift diagonal 0
+PASS XOR shift diagonal 1
+PASS XOR shift diagonal 2
+PASS XOR shift diagonal 3
+PASS XOR shift diagonal 4
+PASS XOR shift diagonal 5
+PASS XOR shift diagonal 6
+PASS XOR shift diagonal 7
+PASS TetA/TetB parity character
+PASS six-bit Walsh grade counts
+126/126 assertions passed; previous 5178 recorded checks not rerun.

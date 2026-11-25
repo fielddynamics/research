@@ -1,5 +1,7 @@
 # Matter, inward/outward vortex response and charge — eight-register extension
 
+**Normalization convention (current):** use the existing GFD topology-derived bare G, conditional on its upstream premises. Any microscopic effective coefficient must match it; no independent G fit is introduced. See the [G normalization bridge](G_NORMALIZATION_BRIDGE.md).
+
 *GFD Standard Field Model (SFM), November 2026. [T] algebraic identities; [D] results of specified reduced Hamiltonians and graph problems; [E] physical interpretation. Companion to [spectral gravity read](SPECTRAL_GRAVITY_READ.md), [bound capture](BOUND_FIELD_CAPTURE.md), [optical resonator](OPTICAL_FOUR_PORT_RESONATOR.md) and [unified field dynamics](UNIFIED_HADAMARD_FIELD_DYNAMICS.md).*
 
 ## 1. Physical premise and separation of reads
@@ -110,3 +112,9 @@ For sources at separated vertices the electric pair energy is proportional to $q
 `OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python verify_matter_charge.py`.
 
 [Verification log](matter_charge_verification_output.txt) · [response rings](matter_charge_rings.csv) · [dressed exchange](matter_charge_rotor.csv) · [static graph kernel](matter_charge_green.csv). 157 new passing assertions; previous 4,305 recorded checks retained, not rerun. These are checks of algebra and explicitly chosen reduced models, not independent theorems or empirical tests. No Lean compilation, remote GitHub write, or full microscopic matter solution claimed.
+
+## Collective optical closure follow-up
+
+See [G from a collective optical closure](G_CLOSURE_DERIVATION.md) for the conditional electromagnetic-reference normalization, primitive-volume stiffness derivation and the unresolved source-selection and stiffness assignments. This does not introduce another G.
+
+**Continuation:** [Electron closure settlement](ELECTRON_CLOSURE_SETTLEMENT.md) connects Papers IV/V and the existing topology normalization with a joint solution, conditional radial energy and optical matching.
