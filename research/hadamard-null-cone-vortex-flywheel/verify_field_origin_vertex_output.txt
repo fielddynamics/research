@@ -1,0 +1,10 @@
+PASS lambda|chi|^2 conserves N_A
+PASS lambda|chi|^2 conserves N_B
+PASS kappa Re(e^{i th} chi^2) conserves N_A + N_B
+PASS kappa Re(e^{i th} chi^2) transfers occupation (dN_A/dt not identically 0)
+PASS transfer rate is a constant multiple of kappa Im(e^{i th} chi^2)
+   dN_A/dt = ( 4 ) * kappa * Im(e^{i th} chi^2)
+PASS k Re(chi) is the bilinear bond k * sum Re(conj(qA_i) qB_i)
+PASS linear bond transfers occupation and conserves the total
+PASS chi^2 transfer stops exactly when Im(e^{i th} chi^2) = 0
+8/8 exact checks passed.

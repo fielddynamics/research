@@ -37,6 +37,8 @@
 
 These are compatible routes, not seven independent empirical confirmations. The half-space and scheme branches establish different properties of the realized tetrad; the Hadamard form is an equivalent coordinate realization. The cycle and column calculations require their own incidence and norm assumptions. All maps below use the same fixed four-label set, in a declared orientation.
 
+> **Interaction connectivity, not spatial continuity.** The shared geometry in this proof (the common Gram matrix, the octahedral core and the maps between representations) describes how TetA and TetB are connected through the Field Origin as an interaction structure. It does not imply a physical spatial passage between them: TetB shares no vertex, edge or face with TetA, and the chambers couple only through the nonlinear Field Origin vertex. Circulation currents on linear cross-chamber bonds are exact within the stated Stage VII model; whether that model emerges from the nonlinear vertex is the open [vertex research](../../research/hadamard-null-cone-vortex-flywheel/FIELD_ORIGIN_VERTEX.md). See [TetB is the subspace](../../TETB_THE_SUBSPACE.md). This clarification changes no theorem and no Lean statement.
+
 ## Theorem 1 — Recognition of the tetrahedral circulation incidence
 
 **Why.** The reverse direction from circulation to geometry should not begin by declaring the geometry tetrahedral.

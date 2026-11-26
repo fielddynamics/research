@@ -61,6 +61,7 @@ The stacked median residuals of the simple law remain within ±0.05 dex over the
 |---|---|---|
 | **The observational puzzle** | [The Other Root](THE_MISSING_MASS.md) | [SPARC results](#results-on-sparc) and [mass decoding](papers/letter-decoding-mass-from-rotation-curves/) |
 | **Geometry and Einstein's equation** | [Einstein's Equation as the TetA Partition](EINSTEIN_TETA_PARTITION.md) | [The Twenty-Four That Were Set Aside](FIELD_CLOSURE_OF_THE_TETRAD_FRAME.md) |
+| **Why TetB is the subspace** | [TetB Is the Subspace: Why 3+1 Spacetime Is TetA](TETB_THE_SUBSPACE.md) | [The Field Origin vertex: resonance and nonspatial transfer](research/hadamard-null-cone-vortex-flywheel/FIELD_ORIGIN_VERTEX.md) |
 | **Local to cosmic closure** | [Closure of Closures](CLOSURE_OF_CLOSURES.md) | [Field Closure and Snapshot Accounting](FIELD_CLOSURE_AND_SNAPSHOT_ACCOUNTING.md) |
 | **Mathematical architecture** | [Field Closure and Recursive Registration](FIELD_CLOSURE_AND_RECURSIVE_REGISTRATION.md) | [Read-Settle-Register bridge](research/read-settle-register-bridge/READ_SETTLE_REGISTER_BRIDGE.md) and [formal proof index](proofs/README.md) |
 | **Full technical reference** | [GFD Coles Notes](GFD_COLES_NOTES.md) | [Machine-readable specification](llms.txt) and [complete research index](RESEARCH_INDEX.md) |

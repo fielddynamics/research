@@ -19,7 +19,7 @@ This is MOND's "simple" interpolating function, but here it is not chosen: the e
 | If you want | Start with | Then |
 |---|---|---|
 | The ideas, in plain language | [**The Missing Mass**](THE_MISSING_MASS.md), a magazine-style article | [**Closure of Closures**](CLOSURE_OF_CLOSURES.md), how gravity keeps its books locally, then the [documentation](docs/README.md) |
-| The mathematics | [the constitutive law as a tug of war](proofs/constitutive-law-tug-of-war/) | [exchange symmetry](proofs/constitutive-law-exchange-symmetry/), [Einstein's equation as the TetA partition](EINSTEIN_TETA_PARTITION.md) |
+| The mathematics | [the constitutive law as a tug of war](proofs/constitutive-law-tug-of-war/) | [exchange symmetry](proofs/constitutive-law-exchange-symmetry/), [Einstein's equation as the TetA partition](EINSTEIN_TETA_PARTITION.md), [TetB is the subspace](TETB_THE_SUBSPACE.md) |
 | The data | [Results on SPARC](#results-on-sparc), below | [the radial acceleration relation letter](papers/letter-radial-acceleration-relation-sparc/) and `sparc_rar.py` |
 | The formal core | [the proofs index](proofs/README.md), with its Lean audits | [`GFD_COLES_NOTES.md`](GFD_COLES_NOTES.md), every paper condensed |
 | A machine-readable summary | [`llms.txt`](llms.txt) | |
