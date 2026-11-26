@@ -151,50 +151,59 @@ def L0X : Matrix Edge Tile ℚ :=
 
 theorem rowProjector_eq : rowProjector = PrX := by
   ext i j
+  simp only [rowProjector, Matrix.mul_apply, Matrix.transpose_apply, Matrix.smul_apply, Matrix.sub_apply, Matrix.add_apply, smul_eq_mul, Fin.sum_univ_succ, Fin.sum_univ_zero]
   fin_cases i <;> fin_cases j <;>
-    norm_num [rowProjector, PrX, R, Matrix.sub_apply, Matrix.one_apply, Matrix.mul_apply, Matrix.smul_apply, smul_eq_mul, Matrix.transpose_apply, Fin.sum_univ_succ]
+    norm_num [PrX, R, Matrix.one_apply, nsmul_eq_mul]
 
 theorem C_eq : C = CX := by
   ext i j
+  simp only [C, rowProjector_eq, Matrix.mul_apply, Matrix.transpose_apply, Matrix.smul_apply, Matrix.sub_apply, Matrix.add_apply, smul_eq_mul, Fin.sum_univ_succ, Fin.sum_univ_zero]
   fin_cases i <;> fin_cases j <;>
-    norm_num [C, rowProjector_eq, PrX, CX, Q, Matrix.mul_apply, Matrix.smul_apply, smul_eq_mul, Matrix.transpose_apply, Fin.sum_univ_succ]
+    norm_num [PrX, CX, Q, Matrix.one_apply, nsmul_eq_mul]
 
 theorem Z_eq : Z = ZX := by
   ext i j
+  simp only [Z, C_eq, Matrix.mul_apply, Matrix.transpose_apply, Matrix.smul_apply, Matrix.sub_apply, Matrix.add_apply, smul_eq_mul, Fin.sum_univ_succ, Fin.sum_univ_zero]
   fin_cases i <;> fin_cases j <;>
-    norm_num [Z, C_eq, CX, ZX, Matrix.mul_apply, Matrix.smul_apply, smul_eq_mul, Matrix.transpose_apply, Fin.sum_univ_succ]
+    norm_num [CX, ZX, Matrix.one_apply, nsmul_eq_mul]
 
 theorem L0_eq : L0 = L0X := by
   ext i j
+  simp only [L0, C_eq, Matrix.mul_apply, Matrix.transpose_apply, Matrix.smul_apply, Matrix.sub_apply, Matrix.add_apply, smul_eq_mul, Fin.sum_univ_succ, Fin.sum_univ_zero]
   fin_cases i <;> fin_cases j <;>
-    norm_num [L0, C_eq, CX, L0X, D, Matrix.mul_apply, Matrix.smul_apply, smul_eq_mul, Matrix.transpose_apply, Fin.sum_univ_succ]
+    norm_num [CX, L0X, D, Matrix.one_apply, nsmul_eq_mul]
 
 /-! Closed finite equalities are proved entrywise by kernel `decide`. -/
 theorem incidence_gram : (B : Matrix Label Edge ℚ) * (B : Matrix Label Edge ℚ)ᵀ = (G : Matrix Label Label ℚ) := by
   ext i j
+  simp only [Matrix.mul_apply, Matrix.transpose_apply, Matrix.smul_apply, Matrix.sub_apply, Matrix.add_apply, smul_eq_mul, Fin.sum_univ_succ, Fin.sum_univ_zero]
   fin_cases i <;> fin_cases j <;>
-    norm_num [B, G, Matrix.mul_apply, Matrix.smul_apply, smul_eq_mul, Matrix.transpose_apply, Fin.sum_univ_succ]
+    norm_num [B, G, Matrix.one_apply, nsmul_eq_mul]
 
 theorem cycle_gram : (D : Matrix Edge Label ℚ)ᵀ * (D : Matrix Edge Label ℚ) = (G : Matrix Label Label ℚ) := by
   ext i j
+  simp only [Matrix.mul_apply, Matrix.transpose_apply, Matrix.smul_apply, Matrix.sub_apply, Matrix.add_apply, smul_eq_mul, Fin.sum_univ_succ, Fin.sum_univ_zero]
   fin_cases i <;> fin_cases j <;>
-    norm_num [D, G, Matrix.mul_apply, Matrix.smul_apply, smul_eq_mul, Matrix.transpose_apply, Fin.sum_univ_succ]
+    norm_num [D, G, Matrix.one_apply, nsmul_eq_mul]
 
 theorem boundary_boundary : (B : Matrix Label Edge ℚ) * (D : Matrix Edge Label ℚ) = 0 := by
   ext i j
+  simp only [Matrix.mul_apply, Matrix.transpose_apply, Matrix.smul_apply, Matrix.sub_apply, Matrix.add_apply, smul_eq_mul, Fin.sum_univ_succ, Fin.sum_univ_zero]
   fin_cases i <;> fin_cases j <;>
-    norm_num [B, D, Matrix.mul_apply, Matrix.smul_apply, smul_eq_mul, Matrix.transpose_apply, Fin.sum_univ_succ]
+    norm_num [B, D, Matrix.one_apply, nsmul_eq_mul]
 
 theorem cycle_projector : (D : Matrix Edge Label ℚ) * (D : Matrix Edge Label ℚ)ᵀ +
     (B : Matrix Label Edge ℚ)ᵀ * (B : Matrix Label Edge ℚ) = 4 • (1 : Matrix Edge Edge ℚ) := by
   ext i j
+  simp only [Matrix.mul_apply, Matrix.transpose_apply, Matrix.smul_apply, Matrix.sub_apply, Matrix.add_apply, smul_eq_mul, Fin.sum_univ_succ, Fin.sum_univ_zero]
   fin_cases i <;> fin_cases j <;>
-    norm_num [D, B, Matrix.add_apply, Matrix.one_apply, nsmul_eq_mul, Matrix.mul_apply, Matrix.smul_apply, smul_eq_mul, Matrix.transpose_apply, Fin.sum_univ_succ]
+    norm_num [D, B, Matrix.add_apply, Matrix.one_apply, nsmul_eq_mul, Matrix.one_apply, nsmul_eq_mul]
 
 theorem gram_projector : P * P = P := by
   ext i j
+  simp only [Matrix.mul_apply, Matrix.transpose_apply, Matrix.smul_apply, Matrix.sub_apply, Matrix.add_apply, smul_eq_mul, Fin.sum_univ_succ, Fin.sum_univ_zero]
   fin_cases i <;> fin_cases j <;>
-    norm_num [P, G, Matrix.mul_apply, Matrix.smul_apply, smul_eq_mul, Matrix.transpose_apply, Fin.sum_univ_succ]
+    norm_num [P, G, Matrix.one_apply, nsmul_eq_mul]
 
 theorem cycle_zero_sum : (D : Matrix Edge Label ℚ).mulVec ones = 0 := by
   funext i
@@ -206,9 +215,9 @@ theorem real_cycle_projector (a b : Edge) :
     ((D : Matrix Edge Label ℝ) * (D : Matrix Edge Label ℝ)ᵀ +
       (B : Matrix Label Edge ℝ)ᵀ * (B : Matrix Label Edge ℝ)) a b =
       (4 • (1 : Matrix Edge Edge ℝ)) a b := by
-  fin_cases a <;> fin_cases b <;>
-    norm_num [D, B, Matrix.mul_apply, Matrix.add_apply, Matrix.one_apply, nsmul_eq_mul,
-      Matrix.smul_apply, Matrix.transpose_apply, Fin.sum_univ_succ]
+  simp only [Matrix.add_apply, Matrix.mul_apply, Matrix.transpose_apply, Matrix.smul_apply,
+    Fin.sum_univ_succ, Fin.sum_univ_zero]
+  fin_cases a <;> fin_cases b <;> norm_num [D, B, Matrix.one_apply, nsmul_eq_mul]
 
 /-- Gram equality with the existing real tetrad, not an independent frame axiom. -/
 theorem real_cycle_tetrad_gram (a b : Label) :
@@ -221,75 +230,87 @@ theorem real_cycle_tetrad_gram (a b : Label) :
 /-! ## 2. The independent row-closed column read and exact right inverse -/
 theorem row_gram : (R : Matrix Label Tile ℚ) * (R : Matrix Label Tile ℚ)ᵀ = 3 • (1 : Matrix Label Label ℚ) := by
   ext i j
+  simp only [Matrix.mul_apply, Matrix.transpose_apply, Matrix.smul_apply, Matrix.sub_apply, Matrix.add_apply, smul_eq_mul, Fin.sum_univ_succ, Fin.sum_univ_zero]
   fin_cases i <;> fin_cases j <;>
-    norm_num [R, Matrix.one_apply, nsmul_eq_mul, Matrix.mul_apply, Matrix.smul_apply, smul_eq_mul, Matrix.transpose_apply, Fin.sum_univ_succ]
+    norm_num [R, Matrix.one_apply, nsmul_eq_mul, Matrix.one_apply, nsmul_eq_mul]
 
 theorem row_projector_idempotent : rowProjector * rowProjector = rowProjector := by
   rw [rowProjector_eq]
   ext i j
+  simp only [Matrix.mul_apply, Matrix.transpose_apply, Matrix.smul_apply, Matrix.sub_apply, Matrix.add_apply, smul_eq_mul, Fin.sum_univ_succ, Fin.sum_univ_zero]
   fin_cases i <;> fin_cases j <;>
-    norm_num [PrX, Matrix.mul_apply, Matrix.smul_apply, smul_eq_mul, Matrix.transpose_apply, Fin.sum_univ_succ]
+    norm_num [PrX, Matrix.one_apply, nsmul_eq_mul]
 
 theorem row_projector_symmetric : rowProjectorᵀ = rowProjector := by
   rw [rowProjector_eq]
   ext i j
+  simp only [Matrix.mul_apply, Matrix.transpose_apply, Matrix.smul_apply, Matrix.sub_apply, Matrix.add_apply, smul_eq_mul, Fin.sum_univ_succ, Fin.sum_univ_zero]
   fin_cases i <;> fin_cases j <;>
-    norm_num [PrX, Matrix.mul_apply, Matrix.smul_apply, smul_eq_mul, Matrix.transpose_apply, Fin.sum_univ_succ]
+    norm_num [PrX, Matrix.one_apply, nsmul_eq_mul]
 
 theorem row_projector_closed : (R : Matrix Label Tile ℚ) * rowProjector = 0 := by
   rw [rowProjector_eq]
   ext i j
+  simp only [Matrix.mul_apply, Matrix.transpose_apply, Matrix.smul_apply, Matrix.sub_apply, Matrix.add_apply, smul_eq_mul, Fin.sum_univ_succ, Fin.sum_univ_zero]
   fin_cases i <;> fin_cases j <;>
-    norm_num [R, PrX, Matrix.mul_apply, Matrix.smul_apply, smul_eq_mul, Matrix.transpose_apply, Fin.sum_univ_succ]
+    norm_num [R, PrX, Matrix.one_apply, nsmul_eq_mul]
 
 theorem column_gram : C * Cᵀ = (2/3 : ℚ) • (G : Matrix Label Label ℚ) := by
   rw [C_eq]
   ext i j
+  simp only [Matrix.mul_apply, Matrix.transpose_apply, Matrix.smul_apply, Matrix.sub_apply, Matrix.add_apply, smul_eq_mul, Fin.sum_univ_succ, Fin.sum_univ_zero]
   fin_cases i <;> fin_cases j <;>
-    norm_num [CX, G, Matrix.mul_apply, Matrix.smul_apply, smul_eq_mul, Matrix.transpose_apply, Fin.sum_univ_succ]
+    norm_num [CX, G, Matrix.one_apply, nsmul_eq_mul]
 
 theorem read_right_inverse : (Q : Matrix Label Tile ℚ) * Z = P := by
   rw [Z_eq]
   ext i j
+  simp only [Matrix.mul_apply, Matrix.transpose_apply, Matrix.smul_apply, Matrix.sub_apply, Matrix.add_apply, smul_eq_mul, Fin.sum_univ_succ, Fin.sum_univ_zero]
   fin_cases i <;> fin_cases j <;>
-    norm_num [Q, ZX, P, G, Matrix.mul_apply, Matrix.smul_apply, smul_eq_mul, Matrix.transpose_apply, Fin.sum_univ_succ]
+    norm_num [Q, ZX, P, G, Matrix.one_apply, nsmul_eq_mul]
 
 theorem read_row_closed : (R : Matrix Label Tile ℚ) * Z = 0 := by
   rw [Z_eq]
   ext i j
+  simp only [Matrix.mul_apply, Matrix.transpose_apply, Matrix.smul_apply, Matrix.sub_apply, Matrix.add_apply, smul_eq_mul, Fin.sum_univ_succ, Fin.sum_univ_zero]
   fin_cases i <;> fin_cases j <;>
-    norm_num [R, ZX, Matrix.mul_apply, Matrix.smul_apply, smul_eq_mul, Matrix.transpose_apply, Fin.sum_univ_succ]
+    norm_num [R, ZX, Matrix.one_apply, nsmul_eq_mul]
 
 theorem read_norm : Zᵀ * Z = (3/8 : ℚ) • P := by
   rw [Z_eq]
   ext i j
+  simp only [Matrix.mul_apply, Matrix.transpose_apply, Matrix.smul_apply, Matrix.sub_apply, Matrix.add_apply, smul_eq_mul, Fin.sum_univ_succ, Fin.sum_univ_zero]
   fin_cases i <;> fin_cases j <;>
-    norm_num [ZX, P, G, Matrix.mul_apply, Matrix.smul_apply, smul_eq_mul, Matrix.transpose_apply, Fin.sum_univ_succ]
+    norm_num [ZX, P, G, Matrix.one_apply, nsmul_eq_mul]
 
 theorem read_orthogonality : Zᵀ = (3/8 : ℚ) • ((Q : Matrix Label Tile ℚ) - (1/3 : ℚ) •
     ((Q : Matrix Label Tile ℚ) * (R : Matrix Label Tile ℚ)ᵀ * (R : Matrix Label Tile ℚ))) := by
   rw [Z_eq]
   ext i j
+  simp only [Matrix.mul_apply, Matrix.transpose_apply, Matrix.smul_apply, Matrix.sub_apply, Matrix.add_apply, smul_eq_mul, Fin.sum_univ_succ, Fin.sum_univ_zero]
   fin_cases i <;> fin_cases j <;>
-    norm_num [ZX, Q, R, Matrix.sub_apply, Matrix.mul_apply, Matrix.smul_apply, smul_eq_mul, Matrix.transpose_apply, Fin.sum_univ_succ]
+    norm_num [ZX, Q, R, Matrix.sub_apply, Matrix.one_apply, nsmul_eq_mul]
 
 theorem isometry_maps_frame : L0 * Cᵀ = (D : Matrix Edge Label ℚ) := by
   rw [L0_eq, C_eq]
   ext i j
+  simp only [Matrix.mul_apply, Matrix.transpose_apply, Matrix.smul_apply, Matrix.sub_apply, Matrix.add_apply, smul_eq_mul, Fin.sum_univ_succ, Fin.sum_univ_zero]
   fin_cases i <;> fin_cases j <;>
-    norm_num [L0X, CX, D, Matrix.mul_apply, Matrix.smul_apply, smul_eq_mul, Matrix.transpose_apply, Fin.sum_univ_succ]
+    norm_num [L0X, CX, D, Matrix.one_apply, nsmul_eq_mul]
 
 theorem isometry_source_projector : L0ᵀ * L0 = (9/16 : ℚ) • (Cᵀ * C) := by
   rw [L0_eq, C_eq]
   ext i j
+  simp only [Matrix.mul_apply, Matrix.transpose_apply, Matrix.smul_apply, Matrix.sub_apply, Matrix.add_apply, smul_eq_mul, Fin.sum_univ_succ, Fin.sum_univ_zero]
   fin_cases i <;> fin_cases j <;>
-    norm_num [L0X, CX, Matrix.mul_apply, Matrix.smul_apply, smul_eq_mul, Matrix.transpose_apply, Fin.sum_univ_succ]
+    norm_num [L0X, CX, Matrix.one_apply, nsmul_eq_mul]
 
 theorem isometry_target_projector : L0 * L0ᵀ = (3/8 : ℚ) • ((D : Matrix Edge Label ℚ) * (D : Matrix Edge Label ℚ)ᵀ) := by
   rw [L0_eq]
   ext i j
+  simp only [Matrix.mul_apply, Matrix.transpose_apply, Matrix.smul_apply, Matrix.sub_apply, Matrix.add_apply, smul_eq_mul, Fin.sum_univ_succ, Fin.sum_univ_zero]
   fin_cases i <;> fin_cases j <;>
-    norm_num [L0X, D, Matrix.mul_apply, Matrix.smul_apply, smul_eq_mul, Matrix.transpose_apply, Fin.sum_univ_succ]
+    norm_num [L0X, D, Matrix.one_apply, nsmul_eq_mul]
 
 /-- For a real zero-sum read q, the analytic Gram normalization is 3/2.
     The rational Gram above is exact; this lemma verifies the square-root factor. -/
@@ -310,9 +331,9 @@ noncomputable def rowProjectorReal : Matrix Tile Tile ℝ :=
 /-- The explicit entries are the actual projected column read. -/
 theorem real_column_definition (i : Label) (t : Tile) :
     CReal i t = ((Q : Matrix Label Tile ℝ) * rowProjectorReal) i t := by
-  fin_cases i <;> fin_cases t <;>
-    norm_num [CReal, rowProjectorReal, Q, R, Matrix.mul_apply, Matrix.sub_apply,
-      Matrix.one_apply, Matrix.smul_apply, smul_eq_mul, Matrix.transpose_apply, Fin.sum_univ_succ]
+  simp only [rowProjectorReal, Matrix.mul_apply, Matrix.sub_apply, Matrix.smul_apply, smul_eq_mul,
+    Matrix.transpose_apply, Fin.sum_univ_succ, Fin.sum_univ_zero]
+  fin_cases i <;> fin_cases t <;> norm_num [CReal, Q, R, Matrix.one_apply]
 
 theorem real_column_gram (i j : Label) :
     (CReal * CRealᵀ) i j = (2/3 : ℝ) * (G : Matrix Label Label ℝ) i j := by
@@ -419,24 +440,28 @@ theorem all_relabelings (q : Label → Label) (h : Function.Injective q) :
 /-! ## 4. The actual twelve-edge octahedral core -/
 theorem inversion_squared : (invCore : Matrix Tile Tile ℚ) * (invCore : Matrix Tile Tile ℚ) = 1 := by
   ext i j
+  simp only [Matrix.mul_apply, Matrix.transpose_apply, Matrix.smul_apply, Matrix.sub_apply, Matrix.add_apply, smul_eq_mul, Fin.sum_univ_succ, Fin.sum_univ_zero]
   fin_cases i <;> fin_cases j <;>
-    norm_num [invCore, Matrix.one_apply, Matrix.mul_apply, Matrix.smul_apply, smul_eq_mul, Matrix.transpose_apply, Fin.sum_univ_succ]
+    norm_num [invCore, Matrix.one_apply, Matrix.one_apply, nsmul_eq_mul]
 
 theorem even_embedding : (invCore : Matrix Tile Tile ℚ) * (A : Matrix Tile Edge ℚ) = (A : Matrix Tile Edge ℚ) := by
   ext i j
+  simp only [Matrix.mul_apply, Matrix.transpose_apply, Matrix.smul_apply, Matrix.sub_apply, Matrix.add_apply, smul_eq_mul, Fin.sum_univ_succ, Fin.sum_univ_zero]
   fin_cases i <;> fin_cases j <;>
-    norm_num [invCore, A, Matrix.mul_apply, Matrix.smul_apply, smul_eq_mul, Matrix.transpose_apply, Fin.sum_univ_succ]
+    norm_num [invCore, A, Matrix.one_apply, nsmul_eq_mul]
 
 theorem even_embedding_norm : (A : Matrix Tile Edge ℚ)ᵀ * (A : Matrix Tile Edge ℚ) = 2 • (1 : Matrix Edge Edge ℚ) := by
   ext i j
+  simp only [Matrix.mul_apply, Matrix.transpose_apply, Matrix.smul_apply, Matrix.sub_apply, Matrix.add_apply, smul_eq_mul, Fin.sum_univ_succ, Fin.sum_univ_zero]
   fin_cases i <;> fin_cases j <;>
-    norm_num [A, Matrix.one_apply, nsmul_eq_mul, Matrix.mul_apply, Matrix.smul_apply, smul_eq_mul, Matrix.transpose_apply, Fin.sum_univ_succ]
+    norm_num [A, Matrix.one_apply, nsmul_eq_mul, Matrix.one_apply, nsmul_eq_mul]
 
 theorem even_cycles_are_core_cycles :
     (N : Matrix CoreNode Tile ℚ) * (A : Matrix Tile Edge ℚ) * (D : Matrix Edge Label ℚ) = 0 := by
   ext i j
+  simp only [Matrix.mul_apply, Matrix.transpose_apply, Matrix.smul_apply, Matrix.sub_apply, Matrix.add_apply, smul_eq_mul, Fin.sum_univ_succ, Fin.sum_univ_zero]
   fin_cases i <;> fin_cases j <;>
-    norm_num [N, A, D, Matrix.mul_apply, Matrix.smul_apply, smul_eq_mul, Matrix.transpose_apply, Fin.sum_univ_succ]
+    norm_num [N, A, D, Matrix.one_apply, nsmul_eq_mul]
 
 /-- The core current has zero diagonal; row sums express conservation.
     In either transpose sector the column sums then vanish as well. -/
