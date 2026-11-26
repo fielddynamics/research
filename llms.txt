@@ -16,7 +16,7 @@ Status tags used throughout this file (the same as GFD_COLES_NOTES.md):
   [D] derived: follows from the framework's stated assumptions
   [E] exploratory: a numerical correspondence or extension, not yet a derivation
   [O] observational: a comparison with data
-Formal proofs: 22 proofs, 954 scripted checks, 14 machine-checked in Lean 4 (proofs/README.md).
+Formal proofs: 23 proofs, 1,168 scripted checks, 15 machine-checked in Lean 4 (proofs/README.md).
 Strongest results:
   - [T+L] mu(x) = x/(x+1) selected premise by premise (exchange symmetry, screening, accelerations as strengths).
   - [O] SPARC (164 galaxies, 3284 points, no per-galaxy fit): scatter 0.181 dex, median residual within
@@ -80,6 +80,7 @@ Known limitations (README.md, "Status and known limitations"):
 - proofs/constitutive-law-tug-of-war/ -- the solve of mu(x): which premises select x/(x+1), and drive/brake from decoded mass
 - proofs/net-field-rule/ -- where mu acts: only on a field with a drain; why the solar system is exactly GR with the bare G
 - proofs/sst-mountain-scale/ -- the net-field rule from the action: the law read at each system's Jacobi radius (the mountain scale)
+- proofs/recursive-triforce-closure/ -- the tetrad's faces subdivided recursively: canonical octahedral-midpoint lattice, exact depth-two criterion, 64 paired addresses, 40/24 pointing parity, A4-equivariant map to the connection slots and the S4 obstruction (Lean)
 - proofs/closure-surface/ -- where closure sits: the field's stagnation surface is the surface matter cannot leave; snapping to a neighbouring cell only through the two stagnation points (Lean)
 - proofs/sst-khronon-preferred-frame/ -- the preferred frame: the khronon is the TetB share; stable at every acceleration; alpha_1 = alpha_2 = 0 in a star system (flat slope + drainless dimple)
 

@@ -5,13 +5,13 @@
 | **Formalisation source** | [`lean/RecursiveTriforceClosure.lean`](lean/RecursiveTriforceClosure.lean) |
 | **Toolchain** | Lean 4.36.0; Mathlib through the existing half-space package |
 | **Direct dependency** | [`../half-space-two-bounded-regions/lean/`](../half-space-two-bounded-regions/lean/), which imports the forced-frame proof |
-| **Build status** | **NOT RUN.** Lean, Lake and Elan are not installed in the current runtime. Network DNS access to GitHub is unavailable. |
-| **Axioms** | `#print axioms` commands included; their outputs have not been obtained. No custom axiom, `sorry`, `admit` or `native_decide` is intentionally used in the source. |
+| **Build status** | **Passed** on GitHub Actions ([run 45876921675](https://github.com/fielddynamics/research/actions/runs/45876921675), November 26, 2026): `lake build` with the half-space and forced-frame proofs it imports, Mathlib from the compiled cache. |
+| **Axioms** | All 23 `#print axioms` reports obtained. Every theorem depends only on Lean's standard axioms (`propext`, `Quot.sound`, and for 18 of them `Classical.choice`). No `sorry`, no custom axiom, no warnings in this file. |
 | **Independent verification** | 214/214 exact Python checks passed; not Lean proofs |
 | **Reproduce** | Place the directory in the repository, `cd proofs/recursive-triforce-closure/lean`, then `lake update`, `lake exe cache get`, `lake build`. |
-| **CI** | Not enabled. Add CI only after compiler and axiom gates pass. |
+| **CI** | [`lean-recursive-triforce-closure.yml`](../../.github/workflows/lean-recursive-triforce-closure.yml) rebuilds on every change to this proof or the proofs it imports, and fails on any warning, `sorry`, missing axiom report or non-standard axiom. [![Lean proof](https://github.com/fielddynamics/research/actions/workflows/lean-recursive-triforce-closure.yml/badge.svg)](https://github.com/fielddynamics/research/actions/workflows/lean-recursive-triforce-closure.yml) |
 
-**Verdict:** This is a proposed formalization, not a verified Lean result. The source contains actual theorem statements and proof terms/tactics, rather than placeholder axioms, but compilation may reveal elaboration, termination, finite-decision or import issues. In particular, some large finite `decide` goals may require splitting or a more structural proof. Do not add a green badge, change the formal proof count, or call this package machine-checked before an actual kernel build.
+**Verdict:** Verified Lean formalisation. The kernel build and axiom audit pass: all 23 reported theorems are proved using only Lean's standard axioms. As with every proof here, what is formalised is the mathematics; the physical selection of the lattice, maximal subdivision depth, dynamical degrees of freedom and torsion carrier remain open, as the manuscript states.
 
 ## Statement coverage
 

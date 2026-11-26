@@ -1,10 +1,13 @@
-# Recursive Triforce Closure of the Dual Tetrad 
+# Recursive Triforce Closure of the Dual Tetrad
+
+[![Lean proof](https://github.com/fielddynamics/research/actions/workflows/lean-recursive-triforce-closure.yml/badge.svg)](https://github.com/fielddynamics/research/actions/workflows/lean-recursive-triforce-closure.yml)
+
 
 *Dyadic depth, channel parity and a constructive connection dictionary · Gravity Field Dynamics (GFD) · Field Dynamics Research · November 2026*
 
 `tetrad` `stellated-octahedron` `Triforce` `lattice` `torsion` `representation-theory` `closure` `proof` `Lean`
 
-**Status.** Refined standalone mathematical manuscript and Lean source, based on repository commit `30f9d789dffc72adde5da566d0c120e5886d82cc`. The expanded exact Python verifier passed 214 checks. Lean source is supplied, but the kernel build and axiom audit have not been executed because Lean is unavailable here. See [LEAN_AUDIT.md](LEAN_AUDIT.md). The physical selection of the lattice, maximal subdivision depth, dynamical degrees of freedom and torsion carrier is open.
+**Status.** Refined standalone mathematical manuscript and Lean source, based on repository commit `30f9d789dffc72adde5da566d0c120e5886d82cc`. The expanded exact Python verifier passed 214 checks. The Lean 4 formalisation builds and passes the axiom audit on GitHub Actions: all 23 reported theorems use only Lean's standard axioms, with no `sorry`. See [LEAN_AUDIT.md](LEAN_AUDIT.md). The physical selection of the lattice, maximal subdivision depth, dynamical degrees of freedom and torsion carrier is open.
 
 ## The question
 

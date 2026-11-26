@@ -8,7 +8,7 @@
 
 [Field Dynamics Research](https://fielddynamics.org) · [Documentation](docs/README.md) · [Formal proofs](proofs/README.md) · [Research index](RESEARCH_INDEX.md)
 
-[![Licence: MIT](https://img.shields.io/badge/licence-MIT-blue.svg)](LICENSE) [![Formal proofs](https://img.shields.io/badge/formal_proofs-22-2563eb.svg)](proofs/README.md) [![Lean 4](https://img.shields.io/badge/Lean_4-14_formalisations-7c3aed.svg)](proofs/README.md) [![Research status](https://img.shields.io/badge/status-preprints_·_letters_under_review-64748b.svg)](#status-and-known-limitations)
+[![Licence: MIT](https://img.shields.io/badge/licence-MIT-blue.svg)](LICENSE) [![Formal proofs](https://img.shields.io/badge/formal_proofs-23-2563eb.svg)](proofs/README.md) [![Lean 4](https://img.shields.io/badge/Lean_4-15_formalisations-7c3aed.svg)](proofs/README.md) [![Research status](https://img.shields.io/badge/status-preprints_·_letters_under_review-64748b.svg)](#status-and-known-limitations)
 
 Stephen Nelson · [ORCID 0009-0008-6190-3269](https://orcid.org/0009-0008-6190-3269) · stephen@fielddynamics.org
 
@@ -24,7 +24,7 @@ This joins three research directions: the geometry of the tetrad, a constitutive
 
 ![Framework overview: geometry, constitutive response, and distributed closure](diagrams/gfd-readme-architecture.svg)
 
-> **Research status:** An open research framework. The repository holds 22 proof packages, 954 scripted checks and 14 Lean 4 formalisations, each stating its premises. The mathematics is machine-checked; TetB is the tetrad's second root, and the physical premises each result needs are stated and tested against data. The papers are preprints, and Tetrad Letters 1–3 are under review at *Classical and Quantum Gravity*.
+> **Research status:** An open research framework. The repository holds 23 proof packages, 1,168 scripted checks and 15 Lean 4 formalisations, each stating its premises. The mathematics is machine-checked; TetB is the tetrad's second root, and the physical premises each result needs are stated and tested against data. The papers are preprints, and Tetrad Letters 1–3 are under review at *Classical and Quantum Gravity*.
 
 ## Results on SPARC
 
@@ -236,9 +236,9 @@ For formal verification, select a proof marked **+ Lean** in the [proof index](p
 
 | Repository-reported coverage | Count |
 |---|---:|
-| Formal proof packages | 22 |
-| Scripted checks in those packages | 954 |
-| Lean 4 formalisations | 14 |
+| Formal proof packages | 23 |
+| Scripted checks in those packages | 1,168 |
+| Lean 4 formalisations | 15 |
 
 [All verification commands and validation suites](RESEARCH_INDEX.md#verification) · [Companion computational model](https://github.com/fielddynamics/dfp-gravity-field-model)
 
