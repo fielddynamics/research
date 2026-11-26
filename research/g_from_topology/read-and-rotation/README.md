@@ -200,8 +200,13 @@ The proof would not claim the physical steps in G. Those stay as the parent fold
 | [`verify_read_and_rotation.py`](verify_read_and_rotation.py) | 50 exact checks in parts A to I, tagged |
 | [`verify_output.txt`](verify_output.txt) | Output |
 
+## Continuation
+
+[The root exchange on the address tree](ROOT_EXCHANGE_ON_THE_ADDRESS_TREE.md) shows the graded identity is $I_s=\tfrac{1+s}{2}\mathbb 1+\tfrac{1-s}{2}\Pi$, with $\Pi$ the root exchange of Part D, so 17/13 is a count (root-blind dimension over the exchange's trace), not a weighting. It also shows the 120° closure rotation and the vortex/antivortex conjugation select the flag of $\mathrm{PG}(2,4)$ whose split 1 + 4 + 16 is scalar, legs and couplings, and that the closure tree read along the time diagonal carries exactly that grading (32 checks).
+
 ## Reproduce
 
 ```
 python verify_read_and_rotation.py      # 50/50 (needs sympy)
+python verify_root_exchange_tree.py     # 32/32 (needs numpy, sympy)
 ```

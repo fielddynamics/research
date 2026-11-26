@@ -1,0 +1,34 @@
+PASS root exchange is an involution on 1+V+V(x)V
+PASS tr I_s = f(4,+1) = 21
+PASS tr I_s = f(4,+0) = 17
+PASS tr I_s = f(4,-1) = 13
+PASS +1 eigenspace has dimension E = 1+K^2 = 17
+PASS -1 eigenspace has dimension O = K = 4
+PASS tr(root exchange) = 13
+PASS for general K: ((1+s)f(K,1)+(1-s)f(K,-1))/2 = 1+sK+K^2
+PASS swap on V(x)V has trace K (it fixes the K self-pairs)
+PASS swap realization tr(1 + (I + s tau)) = f(4,+1)
+PASS swap realization tr(1 + (I + s tau)) = f(4,+0)
+PASS swap realization tr(1 + (I + s tau)) = f(4,-1)
+PASS PG(2,4) has 21 points = 1+K+K^2
+PASS rotation fixes exactly 3 points
+PASS only the time point (1,1,1) is also fixed by conjugation
+PASS exactly two rotation-fixed lines pass through the time point
+PASS conjugation swaps those two lines (vortex <-> antivortex)
+PASS flag split is 1 + 4 + 16
+PASS rotation orbits on the 4 match the tetrad legs (1 fixed + 3 cycled)
+PASS rotation orbits on the 16 match the tetrad leg pairs (1 + five 3-cycles)
+PASS flag split is 1 + 4 + 16
+PASS rotation orbits on the 4 match the tetrad legs (1 fixed + 3 cycled)
+PASS rotation orbits on the 16 match the tetrad leg pairs (1 + five 3-cycles)
+PASS Walsh characters of GF(4)^3 are orthonormal
+PASS x-axis tree levels do NOT all commute with the rotation
+PASS x-axis tree: exchange is NOT +1,-1,+1 on its levels
+PASS vortex: exchange commutes with the rotation
+PASS vortex: time-adapted tree levels commute with the rotation (all 16 third vectors)
+PASS vortex: exchange is exactly +1, -1, +1 on the 1, 4, 16 levels (all 16 third vectors, same tree)
+PASS antivortex: exchange commutes with the rotation
+PASS antivortex: time-adapted tree levels commute with the rotation (all 16 third vectors)
+PASS antivortex: exchange is exactly +1, -1, +1 on the 1, 4, 16 levels (all 16 third vectors, same tree)
+
+32/32 checks passed
