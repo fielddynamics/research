@@ -7,6 +7,8 @@
 
 *TetA (spacetime) and TetB (subspace) are one coupled vortex structure across two distinct domains. They couple only through the Field Origin, through the time faces, with no spatial continuity between them.*
 
+> **Continued in [`vertex-research/`](vertex-research/):** the 48 cross-chamber links as one factorised matrix, the 16-channel time-face read, nonlinear dynamics, the registered spectrum and curvature thresholds, and a constitutive vertex built from μ(x), with an [interactive atlas](vertex-research/interactive/index.html). Conditional research, not a derived law.
+
 ## Why this research exists
 
 TetB shares no vertex, edge or face with TetA and has no Christoffel sector of its own ([synthesis](../../TETB_THE_SUBSPACE.md), steps 3–4). Its only contact with TetA is the Field Origin, the nonlinear interaction vertex where the two time faces couple. The [Stage VII flywheel](SUSTAINED_TRIFORCE_FLYWHEEL.md) instead joins the chambers by 48 direct linear bonds (12 outer transpose pairs, 12 central edges and 24 outer-to-opposite-face-centre edges). [Proofs 24](../../proofs/flywheel-tetrad-geometry/) and [25](../../proofs/tetrad-flywheel-convergence/) are exact within that stated model and are not changed by this note. The open question is whether the Stage VII model **emerges** from the nonlinear vertex as an effective approximation. If it does, both proofs gain a physical foundation without any change to their mathematics.

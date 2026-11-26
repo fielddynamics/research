@@ -101,3 +101,5 @@ Documentation and dimensional-algebra update: [G normalization bridge](G_NORMALI
 `OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python verify_three_subreads.py`: 91/91 fresh assertions ([log](three_subreads_verification_output.txt)); 5,417 earlier recorded assertions preserved, not rerun; 5,508 total. Includes exact reversible tree, detail transform, orbit grading and invariance, conditional splitter, Pauli basis and twirl, native inversion obstruction, controlled gate and seven-sample native reconstruction.
 
 `python verify_field_origin_vertex.py`: 8/8 exact assertions ([log](verify_field_origin_vertex_output.txt)) for the candidate Field Origin vertex ([note](FIELD_ORIGIN_VERTEX.md)): resonance conserves each chamber, nonlinear transfer conserves only the total, the linear term is the spatial bond, locking stops transfer; 5,516 total.
+
+`vertex-research/`: `verify_vertex.py` 122 exact + 2,588 numerical, `verify_vertex_spectrum.py` 104 + 282, `verify_mu_vertex.py` 38 + 75; all rerun and matching their logs ([folder](vertex-research/)). 3,209 assertions; 8,725 total.

@@ -1,0 +1,133 @@
+PASS exact vacancy cost derivative
+PASS exact vacancy cost strictly convex
+PASS exact unique stationary response
+PASS exact Legendre dual
+PASS exact dual slope is mu
+PASS exact dual curvature
+PASS exact exchange complement
+PASS exact logistic derivative
+PASS exact AQUAL relation
+PASS exact stationary eigenvector
+PASS exact normalized metric
+PASS exact overlap
+PASS exact metric self-adjoint
+PASS exact metric self-adjoint
+PASS exact metric self-adjoint
+PASS exact curvature threshold
+PASS exact slope matches Stage VII
+PASS exact curvature formula
+PASS exact threshold ratio
+PASS exact unit ratio below threshold
+PASS exact ratio two above threshold
+EXACT c,h_c,t_crit,h(1): 59/308 290521/42815 222607/119913 308/59
+PASS exact AQUAL normalized curvature
+PASS exact AQUAL bound exceeds threshold
+PASS exact tangent rank
+PASS exact tangent symmetry 1/10
+PASS exact tangent inertia 1/10
+PASS exact tangent symmetry 1/2
+PASS exact tangent inertia 1/2
+PASS exact tangent symmetry 1
+PASS exact tangent inertia 1
+PASS exact tangent symmetry 3/2
+PASS exact tangent inertia 3/2
+PASS exact tangent symmetry 2
+PASS exact tangent inertia 2
+PASS exact tangent symmetry 4
+PASS exact tangent inertia 4
+PASS numerical full stationary state
+PASS numerical full overlap
+PASS numerical local exact embedding numeric check
+PASS numerical local invariant complement
+PASS numerical vertex exact embedding numeric check
+PASS numerical vertex invariant complement
+PASS exact local exact invariant embedding
+PASS exact vertex exact invariant embedding
+PASS numerical stationary nonlinear r=0.1
+PASS numerical full Jacobian stability r=0.1
+growth 0.1 8.881784197001252e-16
+PASS numerical stationary nonlinear r=0.5
+PASS numerical full Jacobian stability r=0.5
+growth 0.5 8.022003884222104e-09
+PASS numerical stationary nonlinear r=1
+PASS numerical full Jacobian stability r=1
+growth 1 1.7944514875205822e-08
+PASS numerical stationary nonlinear r=1.5
+PASS numerical full Jacobian stability r=1.5
+growth 1.5 6.199648777682754e-08
+PASS numerical stationary nonlinear r=2
+PASS numerical full Jacobian stability r=2
+growth 2 1.7522647008700822
+PASS numerical stationary nonlinear r=4
+PASS numerical full Jacobian stability r=4
+growth 4 5.379077769566578
+PASS numerical integration 1.0 0.0001 balanced
+PASS numerical norm 1.0 0.0001 balanced
+PASS numerical energy 1.0 0.0001 balanced
+PASS numerical complement conservation 1.0 0.0001 balanced
+PASS numerical bounded orbital deviation 0.0001 balanced
+ORBIT 1.0 0.0001 balanced 0.00011315988903987485
+PASS numerical integration 1.0 0.0001 general
+PASS numerical norm 1.0 0.0001 general
+PASS numerical energy 1.0 0.0001 general
+PASS numerical complement conservation 1.0 0.0001 general
+PASS numerical bounded orbital deviation 0.0001 general
+ORBIT 1.0 0.0001 general 0.00010031217787010059
+PASS numerical integration 1.0 0.001 balanced
+PASS numerical norm 1.0 0.001 balanced
+PASS numerical energy 1.0 0.001 balanced
+PASS numerical complement conservation 1.0 0.001 balanced
+PASS numerical bounded orbital deviation 0.001 balanced
+ORBIT 1.0 0.001 balanced 0.0013164817523888324
+PASS numerical integration 1.0 0.001 general
+PASS numerical norm 1.0 0.001 general
+PASS numerical energy 1.0 0.001 general
+PASS numerical complement conservation 1.0 0.001 general
+PASS numerical bounded orbital deviation 0.001 general
+ORBIT 1.0 0.001 general 0.0010399010088753228
+PASS numerical integration 1.0 0.01 balanced
+PASS numerical norm 1.0 0.01 balanced
+PASS numerical energy 1.0 0.01 balanced
+PASS numerical complement conservation 1.0 0.01 balanced
+PASS numerical bounded orbital deviation 0.01 balanced
+ORBIT 1.0 0.01 balanced 0.022322069298217787
+PASS numerical integration 1.0 0.01 general
+PASS numerical norm 1.0 0.01 general
+PASS numerical energy 1.0 0.01 general
+PASS numerical complement conservation 1.0 0.01 general
+PASS numerical bounded orbital deviation 0.01 general
+ORBIT 1.0 0.01 general 0.010244814831464059
+PASS numerical integration 2.0 0.0001 balanced
+PASS numerical norm 2.0 0.0001 balanced
+PASS numerical energy 2.0 0.0001 balanced
+PASS numerical complement conservation 2.0 0.0001 balanced
+ORBIT 2.0 0.0001 balanced 0.012794244176010435
+PASS numerical integration 2.0 0.0001 general
+PASS numerical norm 2.0 0.0001 general
+PASS numerical energy 2.0 0.0001 general
+PASS numerical complement conservation 2.0 0.0001 general
+ORBIT 2.0 0.0001 general 0.5520447791672569
+PASS numerical integration 2.0 0.001 balanced
+PASS numerical norm 2.0 0.001 balanced
+PASS numerical energy 2.0 0.001 balanced
+PASS numerical complement conservation 2.0 0.001 balanced
+ORBIT 2.0 0.001 balanced 0.5489382452732992
+PASS numerical integration 2.0 0.001 general
+PASS numerical norm 2.0 0.001 general
+PASS numerical energy 2.0 0.001 general
+PASS numerical complement conservation 2.0 0.001 general
+ORBIT 2.0 0.001 general 0.012821551236080057
+PASS numerical integration 2.0 0.01 balanced
+PASS numerical norm 2.0 0.01 balanced
+PASS numerical energy 2.0 0.01 balanced
+PASS numerical complement conservation 2.0 0.01 balanced
+ORBIT 2.0 0.01 balanced 0.5519124894774968
+PASS numerical integration 2.0 0.01 general
+PASS numerical norm 2.0 0.01 general
+PASS numerical energy 2.0 0.01 general
+PASS numerical complement conservation 2.0 0.01 general
+ORBIT 2.0 0.01 general 0.5512005908135443
+PASS numerical no empty partner seed
+PASS numerical nonzero transfer for seeded partner
+PASS numerical exchange rate formula
+TOTAL {'exact': 38, 'numerical': 75} sum 113

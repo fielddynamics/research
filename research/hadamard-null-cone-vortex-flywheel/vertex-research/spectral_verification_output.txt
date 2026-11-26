@@ -1,0 +1,400 @@
+PASS exact fixed projector
+PASS exact independent relabel averaging
+PASS exact double average no spatial contrast
+PASS exact common registration equivariance 0
+PASS exact independent registered kernel covariance 0
+PASS exact common registration equivariance 1
+PASS exact independent registered kernel covariance 1
+PASS exact common registration equivariance 2
+PASS exact independent registered kernel covariance 2
+PASS exact common registration equivariance 3
+PASS exact independent registered kernel covariance 3
+PASS exact common registration equivariance 4
+PASS exact independent registered kernel covariance 4
+PASS exact common registration equivariance 5
+PASS exact independent registered kernel covariance 5
+PASS exact common registration equivariance 6
+PASS exact independent registered kernel covariance 6
+PASS exact common registration equivariance 7
+PASS exact independent registered kernel covariance 7
+PASS exact common registration equivariance 8
+PASS exact independent registered kernel covariance 8
+PASS exact common registration equivariance 9
+PASS exact independent registered kernel covariance 9
+PASS exact common registration equivariance 10
+PASS exact independent registered kernel covariance 10
+PASS exact common registration equivariance 11
+PASS exact independent registered kernel covariance 11
+PASS exact common registration equivariance 12
+PASS exact independent registered kernel covariance 12
+PASS exact common registration equivariance 13
+PASS exact independent registered kernel covariance 13
+PASS exact common registration equivariance 14
+PASS exact independent registered kernel covariance 14
+PASS exact common registration equivariance 15
+PASS exact independent registered kernel covariance 15
+PASS exact common registration equivariance 16
+PASS exact independent registered kernel covariance 16
+PASS exact common registration equivariance 17
+PASS exact independent registered kernel covariance 17
+PASS exact common registration equivariance 18
+PASS exact independent registered kernel covariance 18
+PASS exact common registration equivariance 19
+PASS exact independent registered kernel covariance 19
+PASS exact common registration equivariance 20
+PASS exact independent registered kernel covariance 20
+PASS exact common registration equivariance 21
+PASS exact independent registered kernel covariance 21
+PASS exact common registration equivariance 22
+PASS exact independent registered kernel covariance 22
+PASS exact common registration equivariance 23
+PASS exact independent registered kernel covariance 23
+PASS exact frame Gram
+PASS exact root blind rotated partner 0
+PASS exact relative Gram partial isometry 0
+PASS exact relative map reconstructs orientation 0
+PASS exact root blind rotated partner 1
+PASS exact relative Gram partial isometry 1
+PASS exact relative map reconstructs orientation 1
+PASS exact root blind rotated partner 2
+PASS exact relative Gram partial isometry 2
+PASS exact relative map reconstructs orientation 2
+PASS exact root blind rotated partner 3
+PASS exact relative Gram partial isometry 3
+PASS exact relative map reconstructs orientation 3
+PASS exact root blind rotated partner 4
+PASS exact relative Gram partial isometry 4
+PASS exact relative map reconstructs orientation 4
+PASS exact root blind rotated partner 5
+PASS exact relative Gram partial isometry 5
+PASS exact relative map reconstructs orientation 5
+PASS exact parity-aligned cross Gram
+PASS exact common row column dark rank five
+PASS exact dark split 2+3
+PASS exact dark subspace sees only transpose
+PASS exact uniform block
+PASS exact triplet block
+PASS exact complete orthogonal decomposition
+uniform characteristic: -3*a**2 + 3*d*k - d*t - 3*k*t + t**2 triplet characteristic: a**2*d - 3*a**2*t - d**2*k - d**2*t + k*t**2 + t**3
+PASS exact full charpoly witness
+PASS exact grade ranks
+PASS exact grade sum
+grade mixing 0 1 squared Frobenius 0
+PASS exact scalar first contrast prohibited
+grade mixing 0 2 squared Frobenius 3*(2*a - d + 3*k)**2/16
+PASS exact grade cross block 0 2 witness nonzero
+grade mixing 1 2 squared Frobenius 3*(4*a**2 + d**2 + 2*d*k + k**2)/4
+PASS exact grade cross block 1 2 witness nonzero
+PASS exact one 12 record junction plus Schur residual
+PASS exact shared junction rank twelve
+PASS exact witness cross inertia via LDL
+PASS numeric spectral witness inertia
+PASS numeric phase twist unitary
+PASS numeric phase matched factorization
+PASS exact one quartic law total conservation
+PASS exact single and pair transfer rates
+PASS exact seed empty partner
+PASS exact reduced transfer matches Hamiltonian derivative
+PASS exact balanced fixed point zero gradient if detuning zero
+PASS exact balanced Hessian population
+PASS exact balanced Hessian phase
+linear lock frequency squared (gamma + 2*kappa)*(gamma + kappa + lambda)
+PASS numeric stationary norm
+stationary overlap 0.19155844155844154 beta 5.220338983050848
+PASS numeric same stationary branch -2
+PASS numeric analytic tangent -2
+PASS numeric same stationary branch -1
+PASS numeric analytic tangent -1
+PASS numeric same stationary branch 0
+PASS numeric analytic tangent 0
+PASS numeric same stationary branch 0.5
+PASS numeric analytic tangent 0.5
+PASS numeric same stationary branch 1
+PASS numeric analytic tangent 1
+PASS numeric same stationary branch 2
+PASS numeric analytic tangent 2
+PASS numeric linear Hamiltonian trace -3.000
+PASS numeric linear Hamiltonian trace -2.975
+PASS numeric linear Hamiltonian trace -2.950
+PASS numeric linear Hamiltonian trace -2.925
+PASS numeric linear Hamiltonian trace -2.900
+PASS numeric linear Hamiltonian trace -2.875
+PASS numeric linear Hamiltonian trace -2.850
+PASS numeric linear Hamiltonian trace -2.825
+PASS numeric linear Hamiltonian trace -2.800
+PASS numeric linear Hamiltonian trace -2.775
+PASS numeric linear Hamiltonian trace -2.750
+PASS numeric linear Hamiltonian trace -2.725
+PASS numeric linear Hamiltonian trace -2.700
+PASS numeric linear Hamiltonian trace -2.675
+PASS numeric linear Hamiltonian trace -2.650
+PASS numeric linear Hamiltonian trace -2.625
+PASS numeric linear Hamiltonian trace -2.600
+PASS numeric linear Hamiltonian trace -2.575
+PASS numeric linear Hamiltonian trace -2.550
+PASS numeric linear Hamiltonian trace -2.525
+PASS numeric linear Hamiltonian trace -2.500
+PASS numeric linear Hamiltonian trace -2.475
+PASS numeric linear Hamiltonian trace -2.450
+PASS numeric linear Hamiltonian trace -2.425
+PASS numeric linear Hamiltonian trace -2.400
+PASS numeric linear Hamiltonian trace -2.375
+PASS numeric linear Hamiltonian trace -2.350
+PASS numeric linear Hamiltonian trace -2.325
+PASS numeric linear Hamiltonian trace -2.300
+PASS numeric linear Hamiltonian trace -2.275
+PASS numeric linear Hamiltonian trace -2.250
+PASS numeric linear Hamiltonian trace -2.225
+PASS numeric linear Hamiltonian trace -2.200
+PASS numeric linear Hamiltonian trace -2.175
+PASS numeric linear Hamiltonian trace -2.150
+PASS numeric linear Hamiltonian trace -2.125
+PASS numeric linear Hamiltonian trace -2.100
+PASS numeric linear Hamiltonian trace -2.075
+PASS numeric linear Hamiltonian trace -2.050
+PASS numeric linear Hamiltonian trace -2.025
+PASS numeric linear Hamiltonian trace -2.000
+PASS numeric linear Hamiltonian trace -1.975
+PASS numeric linear Hamiltonian trace -1.950
+PASS numeric linear Hamiltonian trace -1.925
+PASS numeric linear Hamiltonian trace -1.900
+PASS numeric linear Hamiltonian trace -1.875
+PASS numeric linear Hamiltonian trace -1.850
+PASS numeric linear Hamiltonian trace -1.825
+PASS numeric linear Hamiltonian trace -1.800
+PASS numeric linear Hamiltonian trace -1.775
+PASS numeric linear Hamiltonian trace -1.750
+PASS numeric linear Hamiltonian trace -1.725
+PASS numeric linear Hamiltonian trace -1.700
+PASS numeric linear Hamiltonian trace -1.675
+PASS numeric linear Hamiltonian trace -1.650
+PASS numeric linear Hamiltonian trace -1.625
+PASS numeric linear Hamiltonian trace -1.600
+PASS numeric linear Hamiltonian trace -1.575
+PASS numeric linear Hamiltonian trace -1.550
+PASS numeric linear Hamiltonian trace -1.525
+PASS numeric linear Hamiltonian trace -1.500
+PASS numeric linear Hamiltonian trace -1.475
+PASS numeric linear Hamiltonian trace -1.450
+PASS numeric linear Hamiltonian trace -1.425
+PASS numeric linear Hamiltonian trace -1.400
+PASS numeric linear Hamiltonian trace -1.375
+PASS numeric linear Hamiltonian trace -1.350
+PASS numeric linear Hamiltonian trace -1.325
+PASS numeric linear Hamiltonian trace -1.300
+PASS numeric linear Hamiltonian trace -1.275
+PASS numeric linear Hamiltonian trace -1.250
+PASS numeric linear Hamiltonian trace -1.225
+PASS numeric linear Hamiltonian trace -1.200
+PASS numeric linear Hamiltonian trace -1.175
+PASS numeric linear Hamiltonian trace -1.150
+PASS numeric linear Hamiltonian trace -1.125
+PASS numeric linear Hamiltonian trace -1.100
+PASS numeric linear Hamiltonian trace -1.075
+PASS numeric linear Hamiltonian trace -1.050
+PASS numeric linear Hamiltonian trace -1.025
+PASS numeric linear Hamiltonian trace -1.000
+PASS numeric linear Hamiltonian trace -0.975
+PASS numeric linear Hamiltonian trace -0.950
+PASS numeric linear Hamiltonian trace -0.925
+PASS numeric linear Hamiltonian trace -0.900
+PASS numeric linear Hamiltonian trace -0.875
+PASS numeric linear Hamiltonian trace -0.850
+PASS numeric linear Hamiltonian trace -0.825
+PASS numeric linear Hamiltonian trace -0.800
+PASS numeric linear Hamiltonian trace -0.775
+PASS numeric linear Hamiltonian trace -0.750
+PASS numeric linear Hamiltonian trace -0.725
+PASS numeric linear Hamiltonian trace -0.700
+PASS numeric linear Hamiltonian trace -0.675
+PASS numeric linear Hamiltonian trace -0.650
+PASS numeric linear Hamiltonian trace -0.625
+PASS numeric linear Hamiltonian trace -0.600
+PASS numeric linear Hamiltonian trace -0.575
+PASS numeric linear Hamiltonian trace -0.550
+PASS numeric linear Hamiltonian trace -0.525
+PASS numeric linear Hamiltonian trace -0.500
+PASS numeric linear Hamiltonian trace -0.475
+PASS numeric linear Hamiltonian trace -0.450
+PASS numeric linear Hamiltonian trace -0.425
+PASS numeric linear Hamiltonian trace -0.400
+PASS numeric linear Hamiltonian trace -0.375
+PASS numeric linear Hamiltonian trace -0.350
+PASS numeric linear Hamiltonian trace -0.325
+PASS numeric linear Hamiltonian trace -0.300
+PASS numeric linear Hamiltonian trace -0.275
+PASS numeric linear Hamiltonian trace -0.250
+PASS numeric linear Hamiltonian trace -0.225
+PASS numeric linear Hamiltonian trace -0.200
+PASS numeric linear Hamiltonian trace -0.175
+PASS numeric linear Hamiltonian trace -0.150
+PASS numeric linear Hamiltonian trace -0.125
+PASS numeric linear Hamiltonian trace -0.100
+PASS numeric linear Hamiltonian trace -0.075
+PASS numeric linear Hamiltonian trace -0.050
+PASS numeric linear Hamiltonian trace -0.025
+PASS numeric linear Hamiltonian trace 0.000
+PASS numeric linear Hamiltonian trace 0.025
+PASS numeric linear Hamiltonian trace 0.050
+PASS numeric linear Hamiltonian trace 0.075
+PASS numeric linear Hamiltonian trace 0.100
+PASS numeric linear Hamiltonian trace 0.125
+PASS numeric linear Hamiltonian trace 0.150
+PASS numeric linear Hamiltonian trace 0.175
+PASS numeric linear Hamiltonian trace 0.200
+PASS numeric linear Hamiltonian trace 0.225
+PASS numeric linear Hamiltonian trace 0.250
+PASS numeric linear Hamiltonian trace 0.275
+PASS numeric linear Hamiltonian trace 0.300
+PASS numeric linear Hamiltonian trace 0.325
+PASS numeric linear Hamiltonian trace 0.350
+PASS numeric linear Hamiltonian trace 0.375
+PASS numeric linear Hamiltonian trace 0.400
+PASS numeric linear Hamiltonian trace 0.425
+PASS numeric linear Hamiltonian trace 0.450
+PASS numeric linear Hamiltonian trace 0.475
+PASS numeric linear Hamiltonian trace 0.500
+PASS numeric linear Hamiltonian trace 0.525
+PASS numeric linear Hamiltonian trace 0.550
+PASS numeric linear Hamiltonian trace 0.575
+PASS numeric linear Hamiltonian trace 0.600
+PASS numeric linear Hamiltonian trace 0.625
+PASS numeric linear Hamiltonian trace 0.650
+PASS numeric linear Hamiltonian trace 0.675
+PASS numeric linear Hamiltonian trace 0.700
+PASS numeric linear Hamiltonian trace 0.725
+PASS numeric linear Hamiltonian trace 0.750
+PASS numeric linear Hamiltonian trace 0.775
+PASS numeric linear Hamiltonian trace 0.800
+PASS numeric linear Hamiltonian trace 0.825
+PASS numeric linear Hamiltonian trace 0.850
+PASS numeric linear Hamiltonian trace 0.875
+PASS numeric linear Hamiltonian trace 0.900
+PASS numeric linear Hamiltonian trace 0.925
+PASS numeric linear Hamiltonian trace 0.950
+PASS numeric linear Hamiltonian trace 0.975
+PASS numeric linear Hamiltonian trace 1.000
+PASS numeric linear Hamiltonian trace 1.025
+PASS numeric linear Hamiltonian trace 1.050
+PASS numeric linear Hamiltonian trace 1.075
+PASS numeric linear Hamiltonian trace 1.100
+PASS numeric linear Hamiltonian trace 1.125
+PASS numeric linear Hamiltonian trace 1.150
+PASS numeric linear Hamiltonian trace 1.175
+PASS numeric linear Hamiltonian trace 1.200
+PASS numeric linear Hamiltonian trace 1.225
+PASS numeric linear Hamiltonian trace 1.250
+PASS numeric linear Hamiltonian trace 1.275
+PASS numeric linear Hamiltonian trace 1.300
+PASS numeric linear Hamiltonian trace 1.325
+PASS numeric linear Hamiltonian trace 1.350
+PASS numeric linear Hamiltonian trace 1.375
+PASS numeric linear Hamiltonian trace 1.400
+PASS numeric linear Hamiltonian trace 1.425
+PASS numeric linear Hamiltonian trace 1.450
+PASS numeric linear Hamiltonian trace 1.475
+PASS numeric linear Hamiltonian trace 1.500
+PASS numeric linear Hamiltonian trace 1.525
+PASS numeric linear Hamiltonian trace 1.550
+PASS numeric linear Hamiltonian trace 1.575
+PASS numeric linear Hamiltonian trace 1.600
+PASS numeric linear Hamiltonian trace 1.625
+PASS numeric linear Hamiltonian trace 1.650
+PASS numeric linear Hamiltonian trace 1.675
+PASS numeric linear Hamiltonian trace 1.700
+PASS numeric linear Hamiltonian trace 1.725
+PASS numeric linear Hamiltonian trace 1.750
+PASS numeric linear Hamiltonian trace 1.775
+PASS numeric linear Hamiltonian trace 1.800
+PASS numeric linear Hamiltonian trace 1.825
+PASS numeric linear Hamiltonian trace 1.850
+PASS numeric linear Hamiltonian trace 1.875
+PASS numeric linear Hamiltonian trace 1.900
+PASS numeric linear Hamiltonian trace 1.925
+PASS numeric linear Hamiltonian trace 1.950
+PASS numeric linear Hamiltonian trace 1.975
+PASS numeric linear Hamiltonian trace 2.000
+PASS numeric linear Hamiltonian trace 2.025
+PASS numeric linear Hamiltonian trace 2.050
+PASS numeric linear Hamiltonian trace 2.075
+PASS numeric linear Hamiltonian trace 2.100
+PASS numeric linear Hamiltonian trace 2.125
+PASS numeric linear Hamiltonian trace 2.150
+PASS numeric linear Hamiltonian trace 2.175
+PASS numeric linear Hamiltonian trace 2.200
+PASS numeric linear Hamiltonian trace 2.225
+PASS numeric linear Hamiltonian trace 2.250
+PASS numeric linear Hamiltonian trace 2.275
+PASS numeric linear Hamiltonian trace 2.300
+PASS numeric linear Hamiltonian trace 2.325
+PASS numeric linear Hamiltonian trace 2.350
+PASS numeric linear Hamiltonian trace 2.375
+PASS numeric linear Hamiltonian trace 2.400
+PASS numeric linear Hamiltonian trace 2.425
+PASS numeric linear Hamiltonian trace 2.450
+PASS numeric linear Hamiltonian trace 2.475
+PASS numeric linear Hamiltonian trace 2.500
+PASS numeric linear Hamiltonian trace 2.525
+PASS numeric linear Hamiltonian trace 2.550
+PASS numeric linear Hamiltonian trace 2.575
+PASS numeric linear Hamiltonian trace 2.600
+PASS numeric linear Hamiltonian trace 2.625
+PASS numeric linear Hamiltonian trace 2.650
+PASS numeric linear Hamiltonian trace 2.675
+PASS numeric linear Hamiltonian trace 2.700
+PASS numeric linear Hamiltonian trace 2.725
+PASS numeric linear Hamiltonian trace 2.750
+PASS numeric linear Hamiltonian trace 2.775
+PASS numeric linear Hamiltonian trace 2.800
+PASS numeric linear Hamiltonian trace 2.825
+PASS numeric linear Hamiltonian trace 2.850
+PASS numeric linear Hamiltonian trace 2.875
+PASS numeric linear Hamiltonian trace 2.900
+PASS numeric linear Hamiltonian trace 2.925
+PASS numeric linear Hamiltonian trace 2.950
+PASS numeric linear Hamiltonian trace 2.975
+PASS numeric linear Hamiltonian trace 3.000
+scan min max growth 8.24579607258391 39.247690862103944 argmin 2.8000000000000007
+PASS numeric parity tangent block -2
+parity growth -2 8.245796072583946 32.341375990064996
+PASS numeric parity tangent block 0
+parity growth 0 8.245796072583943 7.570374222812186
+PASS numeric parity tangent block 1
+parity growth 1 8.245796072583937 6.661338147750939e-16
+PASS numeric parity tangent block 2
+parity growth 2 8.245796072583943 8.881784197001252e-16
+PASS exact exact stationary overlap
+PASS exact exact stationary kernel and metric symmetry
+PASS exact two negative nonzero L eigenvalues
+PASS exact exact squared tangent characteristic
+PASS exact sharp rank-one curvature threshold
+PASS exact pair curvature exceeds threshold
+PASS exact pair squared tangent has one positive and one negative nonzero root
+exact squared tangent pair polynomial lambda*(36875*lambda**2 - 2371450*lambda - 9233301)/36875
+sharp curvature threshold 290521/42815 6.785495737475184
+PASS exact flat-curvature potential has no bilinear field term
+PASS exact flat-curvature stationary slope
+PASS exact flat-curvature stationary Hessian
+PASS numeric flat stationary vector
+PASS numeric flat tangent equals Stage VII 0
+PASS numeric flat tangent equals Stage VII 1
+PASS numeric flat tangent equals Stage VII 2
+PASS numeric flat tangent equals Stage VII 3
+PASS numeric flat tangent equals Stage VII 4
+PASS numeric flat tangent equals Stage VII 5
+PASS numeric flat tangent equals Stage VII 6
+PASS numeric flat tangent equals Stage VII 7
+PASS numeric flat tangent equals Stage VII 8
+PASS numeric flat tangent equals Stage VII 9
+PASS numeric flat tangent equals Stage VII 10
+PASS numeric flat tangent equals Stage VII 11
+PASS numeric flat tangent equals Stage VII 12
+PASS numeric flat tangent equals Stage VII 13
+PASS numeric flat tangent equals Stage VII 14
+PASS numeric flat tangent equals Stage VII 15
+PASS numeric flat tangent equals Stage VII 16
+PASS numeric flat tangent equals Stage VII 17
+PASS numeric flat tangent equals Stage VII 18
+PASS numeric flat tangent equals Stage VII 19
+PASS exact grade separation forces a=d=k=0
+TOTAL {'exact': 104, 'numeric': 282}

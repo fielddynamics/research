@@ -1,0 +1,46 @@
+# Source register and acceptance gates
+
+## 1. Repository sources inspected
+
+All upstream links below are relative to the repository; the inspection was pinned to commit `a039b9194a4f5077a2fec405c4f61b28080f1447`. The new research is additive and does not overwrite an upstream file. The existing vertex note has its own eight recorded checks, not counted as new or rerun here.
+
+| Source | Result taken forward / correction |
+|---|---|
+| [Scheme proof](../../../proofs/tetrad-scheme-two-bounded-regions/README.md) (blob e4c07ecf) | Metric fibre, determinant roots, future orientation, fixed observer, parity, cited connectedness facts. The real determinant pieces are clopen; the full Lorentz group has four real components. |
+| [TetB subspace synthesis](../../../TETB_THE_SUBSPACE.md) (ebef695c) | Disjoint-domain interpretation, time faces, resonance and vertex transfer. Model premise distinguished from scheme result. |
+| [Field Origin opening note](../FIELD_ORIGIN_VERTEX.md) (09bcaa35) and [its verifier](../verify_field_origin_vertex.py) | Candidate overlap law and independent/common phase symmetries; factor of two clarified for standard Wirtinger convention; empty partner and locking obstructions added. |
+| [Resonant coupling through the Field Origin](../../antenna%20theory/resonant_coupling_field_origin.md) (31b5ccad) and [20 antenna tests](../../antenna%20theory/twenty_antenna_tests.py) | Self-similar antenna, feed point, spectral matching, 64 addresses, Möbius map, structural counts. Corrected distinctions between complete ledger and literal gasket, 12 actual octahedral edges, band hypotheses. No empirical antenna tests rerun. |
+| [Proof 23](../../../proofs/recursive-triforce-closure/README.md) (8259a69d) | Complete depth two per face under lattice premise, 64 paired addresses, signed pointing counts, A₄ connection dictionary. |
+| [Proof 24](../../../proofs/flywheel-tetrad-geometry/) and [Proof 25](../../../proofs/tetrad-flywheel-convergence/) | Exact common Gram, cycle and column read, geometry and conditional current reconstruction. Prior turn inspected these; both Lean audits report passing builds. No modifications or fresh Lean runs. |
+| [Sustained flywheel](../SUSTAINED_TRIFORCE_FLYWHEEL.md) | Actual 104 graph edges, original weights, three-amplitude solution. Reconstructed independently in the new script; not a rerun of every historical check. |
+| [Native Walsh read](../NATIVE_WALSH_READ.md) (bfb06309) | Coherent temporal observability differs from a Walsh gate. |
+| [Three-subread closure](../THREE_SUBREAD_CLOSURE.md) (da3d1ecb) | 64=1+3+12+48 tree, 21 readers, coherent temporal reference and C₃ invariants. |
+| [Optical four-port resonator](../OPTICAL_FOUR_PORT_RESONATOR.md) (a861c9a0) | Row winding versus column bright channels, projected optical response; distinction from total cross rank. |
+| [Two connections](../../two-connection-dual-chamber/README.md) (75becb19) | Coordinate torsion under constant parity, time-leg acceleration and axial distinction. |
+| [Nuclear synthesis](../../nuclear/gfd_nuclear_synthesis.md) (73f51f3e) | Older separate nuclear compression law and gate-frequency hypothesis; not silently substituted for the galactic partition. |
+
+Related inherited material already inspected in the preceding vortex research: [original vortex proof](../../../proofs/vortices-of-the-stellated-octahedron/), [open throat](../OPEN_THROAT.md), [coupled origins](../COUPLED_FIELD_ORIGINS.md), [Triforce tetrad read](../TRIFORCE_TETRAD_READ.md), [hourglass](../../vortex-hourglass/), [coupling algebra](../../coupling-algebra/), [read–settle–register](../../read-settle-register-bridge/), and [collective flywheel algebra](../../vortex-induced-triforce-refinement/collective-engine/). See the earlier source audit snapshot in `inherited-research/VORTEX_MATH_COVERAGE.md`. The current task does not recertify every repository paper or rerun the 3,191 preceding assertions. The exact new checks reconstruct the portions used here.
+
+## 2. Recovered discussion history (research leads, not source-certified theorems)
+
+Prior chats on April 5 and November 25 explicitly treat the chambers as matched Sierpiński-like antennas and the origin as a coupling state, not a spatial tunnel. The bracket notation [6]17[4] was understood as coupling-level participation, not a spatial partition. Earlier March discussions describe the primary vortex and time-face coupling; the 21/17/13 structural states were used as the two roots and central response, but not established as eigenfrequencies.
+
+From the November 25 work: a native TetB block characteristic polynomial (E−1)^6(E+1)^3(E+3)(E²−5)^3 was reported. This does not establish a universal dyadic spectrum; three commensurate closure bands would need selection of a subspace. An earlier square-root-envelope analysis reported central-filtered and full overlap coefficients ≈0.0752822120 and ≈0.0962066464, respectively, under its own normalization. Do not insert them into the new vertex without checking the underlying operator. The time-face canonical phase Θ=I dθ and Hadamard common time mode plus three contrasts were proposed routes; no common physical time or gravitational susceptibility follows yet. Earlier May discussions proposed compulsory Walsh reads 13→17→21→13, an α²¹(17/13) normalization and a phase-lock relation at 21. Keep these as leads, not results of this study. The April recursive C₃ algebra distinguishes a trivial coherent read from two nontrivial characters; see the exact new C₃ face calculation. Older speculative hinge, cavity and numerical matching claims have not been used as premises.
+
+The local `inherited-research/` files are copied from the recent delivered packages: native settlement (junction condition dk=a², conditional), native grading (13-rank response not universal), refined core trace, vortex–torsion README and the cross-model findings and coverage audit. These snapshots preserve original wording and relative links from their source folders; links within snapshots may not resolve in this new folder. Their algebra is referenced, not silently edited or promoted to proof.
+
+## 3. Acceptance gates before a new proof
+
+1. Scheme: preserve determinant sign and future-time distinction. Show how a physical amplitude record arises from the scheme; distinguish an expectation/partition from a determinant root. Do not claim the scheme itself supplies a second physical spacetime.
+2. Time face: derive the boundary read, its kernel and whether 16 independent complex channels or fewer are actually observable. Test exact stabilizer covariance and global covariance as the chosen time face transforms. Determine how the three subreads relate to temporal access rather than equating counts.
+3. Resonance: derive a wave/interaction action and its frequency dependence. Show matched spectra and the vertex coupling selection without importing C just to fit the original model. The explicit rank theorem provides a falsifiable capacity test.
+4. Nonlinear dynamics: derive one law capable of conservative resonance and transfer including capture from empty B if required. Test full-space nonlinear stability, conserved quantities and outgoing/incoming boundary conditions. The pair-overlap example fails the empty-boundary test and is sensitive off its invariant sector.
+5. Effective flywheel: compare the derived cross block, full Hessian (including any conjugate-amplitude terms), and projected phase dynamics with Stage VII, not merely the dimension or Gram. The norm lift demonstrates compatibility but deliberately leaves nonuniqueness.
+6. Gravity/torsion: derive the Cartan connection from the same vertex, preserve coordinate/frame distinction, obtain the static time-leg response and explain how a drainless field has zero local correction despite nonzero internal circulation. Separate angular swirl, chamber flux and physical matter transfer.
+7. Causality and time: supply the ordering law between the two time faces and observable relativistic causal constraints. Nonspatial interaction is not evidence of faster-than-light signalling or a physical wormhole.
+
+A negative result at any gate is part of the research. No formal proof number should be assigned until the precise mathematical result and the physical premises have been agreed.
+
+## Constitutive continuation sources
+
+Reopened at the same pinned repository commit: [exchange symmetry](../../../proofs/constitutive-law-exchange-symmetry/README.md) (premises and degree-one odds), [AQUAL energy](../../../proofs/aqual-energy-functional/README.md) (unique normalized energy, convexity), [read–settle–register bridge](../../read-settle-register-bridge/READ_SETTLE_REGISTER_BRIDGE.md) (§§3–4 vacancy law and work-conjugate cost; §5 torsion response), [net-field rule](../../../proofs/net-field-rule/README.md) (drain premise and zero local correction), [opening vertex note](../FIELD_ORIGIN_VERTEX.md) (locking and transfer criteria). These are inspected upstream documents, not rerun proof suites. The new candidate composes the existing dual with a dimensionless registered overlap; its physical identification and normalization are not in these sources. See CONSTITUTIVE_VERTEX.md.

@@ -1,0 +1,2716 @@
+PASS [exact] parity preserves metric
+PASS [exact] opposite determinant
+PASS [exact] straight path determinant
+PASS [exact] midpoint singular
+PASS [exact] metric midpoint singular
+PASS [exact] root projectors
+PASS [exact] offdiagonal interaction fails to commute with root sign
+PASS [exact] transpose involution
+PASS [exact] transpose exchanges row and column
+PASS [exact] row/column identities
+PASS [exact] Schur identity
+PASS [exact] K eigenvalues
+PASS [exact] exact LDL transpose factorization
+PASS [exact] 48 cross chamber edges
+PASS [exact] witness cross rank 16
+PASS [exact] witness det
+PASS [exact] rank stratum (1, 2, 4)
+PASS [exact] rank stratum (1, 2, 3)
+PASS [exact] rank stratum (0, 1, 0)
+PASS [exact] rank stratum (0, 1, 3)
+PASS [exact] rank stratum (0, 0, 1)
+PASS [exact] rank stratum (0, 0, 0)
+PASS [exact] rank stratum (-2, 3, -9/2)
+PASS [exact] address read is unitary
+PASS [exact] spectral read recovers all cross links
+PASS [exact] cross symmetry (0, 1, 2, 3)
+PASS [exact] read covariance (0, 1, 2, 3)
+PASS [exact] cross symmetry (0, 1, 3, 2)
+PASS [exact] read covariance (0, 1, 3, 2)
+PASS [exact] cross symmetry (0, 2, 1, 3)
+PASS [exact] read covariance (0, 2, 1, 3)
+PASS [exact] cross symmetry (0, 2, 3, 1)
+PASS [exact] read covariance (0, 2, 3, 1)
+PASS [exact] cross symmetry (0, 3, 1, 2)
+PASS [exact] read covariance (0, 3, 1, 2)
+PASS [exact] cross symmetry (0, 3, 2, 1)
+PASS [exact] read covariance (0, 3, 2, 1)
+PASS [exact] cross symmetry (1, 0, 2, 3)
+PASS [exact] read covariance (1, 0, 2, 3)
+PASS [exact] cross symmetry (1, 0, 3, 2)
+PASS [exact] read covariance (1, 0, 3, 2)
+PASS [exact] cross symmetry (1, 2, 0, 3)
+PASS [exact] read covariance (1, 2, 0, 3)
+PASS [exact] cross symmetry (1, 2, 3, 0)
+PASS [exact] read covariance (1, 2, 3, 0)
+PASS [exact] cross symmetry (1, 3, 0, 2)
+PASS [exact] read covariance (1, 3, 0, 2)
+PASS [exact] cross symmetry (1, 3, 2, 0)
+PASS [exact] read covariance (1, 3, 2, 0)
+PASS [exact] cross symmetry (2, 0, 1, 3)
+PASS [exact] read covariance (2, 0, 1, 3)
+PASS [exact] cross symmetry (2, 0, 3, 1)
+PASS [exact] read covariance (2, 0, 3, 1)
+PASS [exact] cross symmetry (2, 1, 0, 3)
+PASS [exact] read covariance (2, 1, 0, 3)
+PASS [exact] cross symmetry (2, 1, 3, 0)
+PASS [exact] read covariance (2, 1, 3, 0)
+PASS [exact] cross symmetry (2, 3, 0, 1)
+PASS [exact] read covariance (2, 3, 0, 1)
+PASS [exact] cross symmetry (2, 3, 1, 0)
+PASS [exact] read covariance (2, 3, 1, 0)
+PASS [exact] cross symmetry (3, 0, 1, 2)
+PASS [exact] read covariance (3, 0, 1, 2)
+PASS [exact] cross symmetry (3, 0, 2, 1)
+PASS [exact] read covariance (3, 0, 2, 1)
+PASS [exact] cross symmetry (3, 1, 0, 2)
+PASS [exact] read covariance (3, 1, 0, 2)
+PASS [exact] cross symmetry (3, 1, 2, 0)
+PASS [exact] read covariance (3, 1, 2, 0)
+PASS [exact] cross symmetry (3, 2, 0, 1)
+PASS [exact] read covariance (3, 2, 0, 1)
+PASS [exact] cross symmetry (3, 2, 1, 0)
+PASS [exact] read covariance (3, 2, 1, 0)
+PASS [exact] selected-face trace (0, 1, 2, 3)
+PASS [exact] selected-face trace (0, 1, 3, 2)
+PASS [exact] selected-face trace (0, 2, 1, 3)
+PASS [exact] selected-face trace (0, 2, 3, 1)
+PASS [exact] selected-face trace (0, 3, 1, 2)
+PASS [exact] selected-face trace (0, 3, 2, 1)
+PASS [exact] exchange symmetry
+PASS [exact] weighted capacity
+PASS [exact] level 0 complete count
+PASS [exact] level 0 pointing trace
+PASS [exact] level 0 Sierpinski retained area
+PASS [exact] level 1 complete count
+PASS [exact] level 1 pointing trace
+PASS [exact] level 1 Sierpinski retained area
+PASS [exact] level 2 complete count
+PASS [exact] level 2 pointing trace
+PASS [exact] level 2 Sierpinski retained area
+PASS [exact] level 3 complete count
+PASS [exact] level 3 pointing trace
+PASS [exact] level 3 Sierpinski retained area
+PASS [exact] level 4 complete count
+PASS [exact] level 4 pointing trace
+PASS [exact] level 4 Sierpinski retained area
+PASS [exact] three-digit gate depth distribution
+PASS [exact] one face depth two count
+PASS [exact] 64 full paired addresses
+PASS [exact] C3 face projector rank six
+PASS [exact] S3 selected-face irrep counts
+PASS [exact] S4 character distribution
+PASS [exact] collective cross block invariant
+PASS [exact] collective determinant
+PASS [exact] witness collective rank nine
+PASS [exact] shared-edge tuned collective rank six
+PASS [exact] same chamber reduction
+PASS [exact] full even Stage VII matrix
+PASS [exact] isolated four base histories rank eight
+PASS [exact] isolated row winding invisible to base histories
+isolated chamber observability ranks (Y,Q,Y+Q) at four steps 8 11 11
+PASS [exact] row closure
+PASS [exact] column read
+PASS [exact] initial transpose expectation
+PASS [exact] initial base excitation zero
+PASS [exact] opposite-column excites core
+PASS [exact] pair transfer exact factor 2
+PASS [exact] total occupation conservation
+PASS [exact] empty partner invariant for pair law
+PASS [exact] norm-lift permits empty partner seed
+PASS [exact] Bloch sphere identity
+PASS [exact] full Stage VII undirected edges
+PASS [exact] 48 removed cross links
+PASS [numeric] initial norm 1
+PASS [numeric] initial overlap -1/12
+Full-space overlap maximum parity error 0.5638268829565394
+PASS [numeric] full overlap conservation sample 0
+PASS [numeric] early independent full vs reduced 0
+PASS [numeric] full overlap conservation sample 1
+PASS [numeric] early independent full vs reduced 1
+PASS [numeric] full overlap conservation sample 2
+PASS [numeric] early independent full vs reduced 2
+PASS [numeric] full overlap conservation sample 3
+PASS [numeric] early independent full vs reduced 3
+PASS [numeric] full overlap conservation sample 4
+PASS [numeric] early independent full vs reduced 4
+PASS [numeric] full overlap conservation sample 5
+PASS [numeric] early independent full vs reduced 5
+PASS [numeric] full overlap conservation sample 6
+PASS [numeric] early independent full vs reduced 6
+PASS [numeric] full overlap conservation sample 7
+PASS [numeric] early independent full vs reduced 7
+PASS [numeric] full overlap conservation sample 8
+PASS [numeric] early independent full vs reduced 8
+PASS [numeric] full overlap conservation sample 9
+PASS [numeric] early independent full vs reduced 9
+PASS [numeric] full overlap conservation sample 10
+PASS [numeric] early independent full vs reduced 10
+PASS [numeric] full overlap conservation sample 11
+PASS [numeric] full overlap conservation sample 12
+PASS [numeric] full overlap conservation sample 13
+PASS [numeric] full overlap conservation sample 14
+PASS [numeric] full overlap conservation sample 15
+PASS [numeric] full overlap conservation sample 16
+PASS [numeric] full overlap conservation sample 17
+PASS [numeric] full overlap conservation sample 18
+PASS [numeric] full overlap conservation sample 19
+PASS [numeric] full overlap conservation sample 20
+PASS [numeric] full overlap conservation sample 21
+PASS [numeric] full overlap conservation sample 22
+PASS [numeric] full overlap conservation sample 23
+PASS [numeric] full overlap conservation sample 24
+PASS [numeric] full overlap conservation sample 25
+PASS [numeric] full overlap conservation sample 26
+PASS [numeric] full overlap conservation sample 27
+PASS [numeric] full overlap conservation sample 28
+PASS [numeric] full overlap conservation sample 29
+PASS [numeric] full overlap conservation sample 30
+PASS [numeric] full overlap conservation sample 31
+PASS [numeric] full overlap conservation sample 32
+PASS [numeric] full overlap conservation sample 33
+PASS [numeric] full overlap conservation sample 34
+PASS [numeric] full overlap conservation sample 35
+PASS [numeric] full overlap conservation sample 36
+PASS [numeric] full overlap conservation sample 37
+PASS [numeric] full overlap conservation sample 38
+PASS [numeric] full overlap conservation sample 39
+PASS [numeric] full overlap conservation sample 40
+PASS [numeric] full overlap conservation sample 41
+PASS [numeric] full overlap conservation sample 42
+PASS [numeric] full overlap conservation sample 43
+PASS [numeric] full overlap conservation sample 44
+PASS [numeric] full overlap conservation sample 45
+PASS [numeric] full overlap conservation sample 46
+PASS [numeric] full overlap conservation sample 47
+PASS [numeric] full overlap conservation sample 48
+PASS [numeric] full overlap conservation sample 49
+PASS [numeric] full overlap conservation sample 50
+PASS [numeric] full overlap conservation sample 51
+PASS [numeric] full overlap conservation sample 52
+PASS [numeric] full overlap conservation sample 53
+PASS [numeric] full overlap conservation sample 54
+PASS [numeric] full overlap conservation sample 55
+PASS [numeric] full overlap conservation sample 56
+PASS [numeric] full overlap conservation sample 57
+PASS [numeric] full overlap conservation sample 58
+PASS [numeric] full overlap conservation sample 59
+PASS [numeric] full overlap conservation sample 60
+PASS [numeric] full overlap conservation sample 61
+PASS [numeric] full overlap conservation sample 62
+PASS [numeric] full overlap conservation sample 63
+PASS [numeric] full overlap conservation sample 64
+PASS [numeric] full overlap conservation sample 65
+PASS [numeric] full overlap conservation sample 66
+PASS [numeric] full overlap conservation sample 67
+PASS [numeric] full overlap conservation sample 68
+PASS [numeric] full overlap conservation sample 69
+PASS [numeric] full overlap conservation sample 70
+PASS [numeric] full overlap conservation sample 71
+PASS [numeric] full overlap conservation sample 72
+PASS [numeric] full overlap conservation sample 73
+PASS [numeric] full overlap conservation sample 74
+PASS [numeric] full overlap conservation sample 75
+PASS [numeric] full overlap conservation sample 76
+PASS [numeric] full overlap conservation sample 77
+PASS [numeric] full overlap conservation sample 78
+PASS [numeric] full overlap conservation sample 79
+PASS [numeric] full overlap conservation sample 80
+PASS [numeric] full overlap conservation sample 81
+PASS [numeric] full overlap conservation sample 82
+PASS [numeric] full overlap conservation sample 83
+PASS [numeric] full overlap conservation sample 84
+PASS [numeric] full overlap conservation sample 85
+PASS [numeric] full overlap conservation sample 86
+PASS [numeric] full overlap conservation sample 87
+PASS [numeric] full overlap conservation sample 88
+PASS [numeric] full overlap conservation sample 89
+PASS [numeric] full overlap conservation sample 90
+PASS [numeric] full overlap conservation sample 91
+PASS [numeric] full overlap conservation sample 92
+PASS [numeric] full overlap conservation sample 93
+PASS [numeric] full overlap conservation sample 94
+PASS [numeric] full overlap conservation sample 95
+PASS [numeric] full overlap conservation sample 96
+PASS [numeric] full overlap conservation sample 97
+PASS [numeric] full overlap conservation sample 98
+PASS [numeric] full overlap conservation sample 99
+PASS [numeric] full overlap conservation sample 100
+PASS [numeric] full overlap conservation sample 101
+PASS [numeric] full overlap conservation sample 102
+PASS [numeric] full overlap conservation sample 103
+PASS [numeric] full overlap conservation sample 104
+PASS [numeric] full overlap conservation sample 105
+PASS [numeric] full overlap conservation sample 106
+PASS [numeric] full overlap conservation sample 107
+PASS [numeric] full overlap conservation sample 108
+PASS [numeric] full overlap conservation sample 109
+PASS [numeric] full overlap conservation sample 110
+PASS [numeric] full overlap conservation sample 111
+PASS [numeric] full overlap conservation sample 112
+PASS [numeric] full overlap conservation sample 113
+PASS [numeric] full overlap conservation sample 114
+PASS [numeric] full overlap conservation sample 115
+PASS [numeric] full overlap conservation sample 116
+PASS [numeric] full overlap conservation sample 117
+PASS [numeric] full overlap conservation sample 118
+PASS [numeric] full overlap conservation sample 119
+PASS [numeric] full overlap conservation sample 120
+PASS [numeric] full overlap conservation sample 121
+PASS [numeric] full overlap conservation sample 122
+PASS [numeric] full overlap conservation sample 123
+PASS [numeric] full overlap conservation sample 124
+PASS [numeric] full overlap conservation sample 125
+PASS [numeric] full overlap conservation sample 126
+PASS [numeric] full overlap conservation sample 127
+PASS [numeric] full overlap conservation sample 128
+PASS [numeric] full overlap conservation sample 129
+PASS [numeric] full overlap conservation sample 130
+PASS [numeric] full overlap conservation sample 131
+PASS [numeric] full overlap conservation sample 132
+PASS [numeric] full overlap conservation sample 133
+PASS [numeric] full overlap conservation sample 134
+PASS [numeric] full overlap conservation sample 135
+PASS [numeric] full overlap conservation sample 136
+PASS [numeric] full overlap conservation sample 137
+PASS [numeric] full overlap conservation sample 138
+PASS [numeric] full overlap conservation sample 139
+PASS [numeric] full overlap conservation sample 140
+PASS [numeric] full overlap conservation sample 141
+PASS [numeric] full overlap conservation sample 142
+PASS [numeric] full overlap conservation sample 143
+PASS [numeric] full overlap conservation sample 144
+PASS [numeric] full overlap conservation sample 145
+PASS [numeric] full overlap conservation sample 146
+PASS [numeric] full overlap conservation sample 147
+PASS [numeric] full overlap conservation sample 148
+PASS [numeric] full overlap conservation sample 149
+PASS [numeric] full overlap conservation sample 150
+PASS [numeric] full overlap conservation sample 151
+PASS [numeric] full overlap conservation sample 152
+PASS [numeric] full overlap conservation sample 153
+PASS [numeric] full overlap conservation sample 154
+PASS [numeric] full overlap conservation sample 155
+PASS [numeric] full overlap conservation sample 156
+PASS [numeric] full overlap conservation sample 157
+PASS [numeric] full overlap conservation sample 158
+PASS [numeric] full overlap conservation sample 159
+PASS [numeric] full overlap conservation sample 160
+PASS [numeric] full overlap conservation sample 161
+PASS [numeric] full overlap conservation sample 162
+PASS [numeric] full overlap conservation sample 163
+PASS [numeric] full overlap conservation sample 164
+PASS [numeric] full overlap conservation sample 165
+PASS [numeric] full overlap conservation sample 166
+PASS [numeric] full overlap conservation sample 167
+PASS [numeric] full overlap conservation sample 168
+PASS [numeric] full overlap conservation sample 169
+PASS [numeric] full overlap conservation sample 170
+PASS [numeric] full overlap conservation sample 171
+PASS [numeric] full overlap conservation sample 172
+PASS [numeric] full overlap conservation sample 173
+PASS [numeric] full overlap conservation sample 174
+PASS [numeric] full overlap conservation sample 175
+PASS [numeric] full overlap conservation sample 176
+PASS [numeric] full overlap conservation sample 177
+PASS [numeric] full overlap conservation sample 178
+PASS [numeric] full overlap conservation sample 179
+PASS [numeric] full overlap conservation sample 180
+PASS [numeric] full overlap conservation sample 181
+PASS [numeric] full overlap conservation sample 182
+PASS [numeric] full overlap conservation sample 183
+PASS [numeric] full overlap conservation sample 184
+PASS [numeric] full overlap conservation sample 185
+PASS [numeric] full overlap conservation sample 186
+PASS [numeric] full overlap conservation sample 187
+PASS [numeric] full overlap conservation sample 188
+PASS [numeric] full overlap conservation sample 189
+PASS [numeric] full overlap conservation sample 190
+PASS [numeric] full overlap conservation sample 191
+PASS [numeric] full overlap conservation sample 192
+PASS [numeric] full overlap conservation sample 193
+PASS [numeric] full overlap conservation sample 194
+PASS [numeric] full overlap conservation sample 195
+PASS [numeric] full overlap conservation sample 196
+PASS [numeric] full overlap conservation sample 197
+PASS [numeric] full overlap conservation sample 198
+PASS [numeric] full overlap conservation sample 199
+PASS [numeric] full overlap conservation sample 200
+PASS [numeric] full overlap conservation sample 201
+PASS [numeric] full overlap conservation sample 202
+PASS [numeric] full overlap conservation sample 203
+PASS [numeric] full overlap conservation sample 204
+PASS [numeric] full overlap conservation sample 205
+PASS [numeric] full overlap conservation sample 206
+PASS [numeric] full overlap conservation sample 207
+PASS [numeric] full overlap conservation sample 208
+PASS [numeric] full overlap conservation sample 209
+PASS [numeric] full overlap conservation sample 210
+PASS [numeric] full overlap conservation sample 211
+PASS [numeric] full overlap conservation sample 212
+PASS [numeric] full overlap conservation sample 213
+PASS [numeric] full overlap conservation sample 214
+PASS [numeric] full overlap conservation sample 215
+PASS [numeric] full overlap conservation sample 216
+PASS [numeric] full overlap conservation sample 217
+PASS [numeric] full overlap conservation sample 218
+PASS [numeric] full overlap conservation sample 219
+PASS [numeric] full overlap conservation sample 220
+PASS [numeric] full overlap conservation sample 221
+PASS [numeric] full overlap conservation sample 222
+PASS [numeric] full overlap conservation sample 223
+PASS [numeric] full overlap conservation sample 224
+PASS [numeric] full overlap conservation sample 225
+PASS [numeric] full overlap conservation sample 226
+PASS [numeric] full overlap conservation sample 227
+PASS [numeric] full overlap conservation sample 228
+PASS [numeric] full overlap conservation sample 229
+PASS [numeric] full overlap conservation sample 230
+PASS [numeric] full overlap conservation sample 231
+PASS [numeric] full overlap conservation sample 232
+PASS [numeric] full overlap conservation sample 233
+PASS [numeric] full overlap conservation sample 234
+PASS [numeric] full overlap conservation sample 235
+PASS [numeric] full overlap conservation sample 236
+PASS [numeric] full overlap conservation sample 237
+PASS [numeric] full overlap conservation sample 238
+PASS [numeric] full overlap conservation sample 239
+PASS [numeric] full overlap conservation sample 240
+PASS [numeric] full overlap conservation sample 241
+PASS [numeric] full overlap conservation sample 242
+PASS [numeric] full overlap conservation sample 243
+PASS [numeric] full overlap conservation sample 244
+PASS [numeric] full overlap conservation sample 245
+PASS [numeric] full overlap conservation sample 246
+PASS [numeric] full overlap conservation sample 247
+PASS [numeric] full overlap conservation sample 248
+PASS [numeric] full overlap conservation sample 249
+PASS [numeric] full overlap conservation sample 250
+PASS [numeric] full overlap conservation sample 251
+PASS [numeric] full overlap conservation sample 252
+PASS [numeric] full overlap conservation sample 253
+PASS [numeric] full overlap conservation sample 254
+PASS [numeric] full overlap conservation sample 255
+PASS [numeric] full overlap conservation sample 256
+PASS [numeric] full overlap conservation sample 257
+PASS [numeric] full overlap conservation sample 258
+PASS [numeric] full overlap conservation sample 259
+PASS [numeric] full overlap conservation sample 260
+PASS [numeric] full overlap conservation sample 261
+PASS [numeric] full overlap conservation sample 262
+PASS [numeric] full overlap conservation sample 263
+PASS [numeric] full overlap conservation sample 264
+PASS [numeric] full overlap conservation sample 265
+PASS [numeric] full overlap conservation sample 266
+PASS [numeric] full overlap conservation sample 267
+PASS [numeric] full overlap conservation sample 268
+PASS [numeric] full overlap conservation sample 269
+PASS [numeric] full overlap conservation sample 270
+PASS [numeric] full overlap conservation sample 271
+PASS [numeric] full overlap conservation sample 272
+PASS [numeric] full overlap conservation sample 273
+PASS [numeric] full overlap conservation sample 274
+PASS [numeric] full overlap conservation sample 275
+PASS [numeric] full overlap conservation sample 276
+PASS [numeric] full overlap conservation sample 277
+PASS [numeric] full overlap conservation sample 278
+PASS [numeric] full overlap conservation sample 279
+PASS [numeric] full overlap conservation sample 280
+PASS [numeric] full overlap conservation sample 281
+PASS [numeric] full overlap conservation sample 282
+PASS [numeric] full overlap conservation sample 283
+PASS [numeric] full overlap conservation sample 284
+PASS [numeric] full overlap conservation sample 285
+PASS [numeric] full overlap conservation sample 286
+PASS [numeric] full overlap conservation sample 287
+PASS [numeric] full overlap conservation sample 288
+PASS [numeric] full overlap conservation sample 289
+PASS [numeric] full overlap conservation sample 290
+PASS [numeric] full overlap conservation sample 291
+PASS [numeric] full overlap conservation sample 292
+PASS [numeric] full overlap conservation sample 293
+PASS [numeric] full overlap conservation sample 294
+PASS [numeric] full overlap conservation sample 295
+PASS [numeric] full overlap conservation sample 296
+PASS [numeric] full overlap conservation sample 297
+PASS [numeric] full overlap conservation sample 298
+PASS [numeric] full overlap conservation sample 299
+PASS [numeric] full overlap conservation sample 300
+PASS [numeric] full overlap conservation sample 301
+PASS [numeric] full overlap conservation sample 302
+PASS [numeric] full overlap conservation sample 303
+PASS [numeric] full overlap conservation sample 304
+PASS [numeric] full overlap conservation sample 305
+PASS [numeric] full overlap conservation sample 306
+PASS [numeric] full overlap conservation sample 307
+PASS [numeric] full overlap conservation sample 308
+PASS [numeric] full overlap conservation sample 309
+PASS [numeric] full overlap conservation sample 310
+PASS [numeric] full overlap conservation sample 311
+PASS [numeric] full overlap conservation sample 312
+PASS [numeric] full overlap conservation sample 313
+PASS [numeric] full overlap conservation sample 314
+PASS [numeric] full overlap conservation sample 315
+PASS [numeric] full overlap conservation sample 316
+PASS [numeric] full overlap conservation sample 317
+PASS [numeric] full overlap conservation sample 318
+PASS [numeric] full overlap conservation sample 319
+PASS [numeric] full overlap conservation sample 320
+PASS [numeric] full overlap conservation sample 321
+PASS [numeric] full overlap conservation sample 322
+PASS [numeric] full overlap conservation sample 323
+PASS [numeric] full overlap conservation sample 324
+PASS [numeric] full overlap conservation sample 325
+PASS [numeric] full overlap conservation sample 326
+PASS [numeric] full overlap conservation sample 327
+PASS [numeric] full overlap conservation sample 328
+PASS [numeric] full overlap conservation sample 329
+PASS [numeric] full overlap conservation sample 330
+PASS [numeric] full overlap conservation sample 331
+PASS [numeric] full overlap conservation sample 332
+PASS [numeric] full overlap conservation sample 333
+PASS [numeric] full overlap conservation sample 334
+PASS [numeric] full overlap conservation sample 335
+PASS [numeric] full overlap conservation sample 336
+PASS [numeric] full overlap conservation sample 337
+PASS [numeric] full overlap conservation sample 338
+PASS [numeric] full overlap conservation sample 339
+PASS [numeric] full overlap conservation sample 340
+PASS [numeric] full overlap conservation sample 341
+PASS [numeric] full overlap conservation sample 342
+PASS [numeric] full overlap conservation sample 343
+PASS [numeric] full overlap conservation sample 344
+PASS [numeric] full overlap conservation sample 345
+PASS [numeric] full overlap conservation sample 346
+PASS [numeric] full overlap conservation sample 347
+PASS [numeric] full overlap conservation sample 348
+PASS [numeric] full overlap conservation sample 349
+PASS [numeric] full overlap conservation sample 350
+PASS [numeric] full overlap conservation sample 351
+PASS [numeric] full overlap conservation sample 352
+PASS [numeric] full overlap conservation sample 353
+PASS [numeric] full overlap conservation sample 354
+PASS [numeric] full overlap conservation sample 355
+PASS [numeric] full overlap conservation sample 356
+PASS [numeric] full overlap conservation sample 357
+PASS [numeric] full overlap conservation sample 358
+PASS [numeric] full overlap conservation sample 359
+PASS [numeric] full overlap conservation sample 360
+PASS [numeric] full overlap conservation sample 361
+PASS [numeric] full overlap conservation sample 362
+PASS [numeric] full overlap conservation sample 363
+PASS [numeric] full overlap conservation sample 364
+PASS [numeric] full overlap conservation sample 365
+PASS [numeric] full overlap conservation sample 366
+PASS [numeric] full overlap conservation sample 367
+PASS [numeric] full overlap conservation sample 368
+PASS [numeric] full overlap conservation sample 369
+PASS [numeric] full overlap conservation sample 370
+PASS [numeric] full overlap conservation sample 371
+PASS [numeric] full overlap conservation sample 372
+PASS [numeric] full overlap conservation sample 373
+PASS [numeric] full overlap conservation sample 374
+PASS [numeric] full overlap conservation sample 375
+PASS [numeric] full overlap conservation sample 376
+PASS [numeric] full overlap conservation sample 377
+PASS [numeric] full overlap conservation sample 378
+PASS [numeric] full overlap conservation sample 379
+PASS [numeric] full overlap conservation sample 380
+PASS [numeric] full overlap conservation sample 381
+PASS [numeric] full overlap conservation sample 382
+PASS [numeric] full overlap conservation sample 383
+PASS [numeric] full overlap conservation sample 384
+PASS [numeric] full overlap conservation sample 385
+PASS [numeric] full overlap conservation sample 386
+PASS [numeric] full overlap conservation sample 387
+PASS [numeric] full overlap conservation sample 388
+PASS [numeric] full overlap conservation sample 389
+PASS [numeric] full overlap conservation sample 390
+PASS [numeric] full overlap conservation sample 391
+PASS [numeric] full overlap conservation sample 392
+PASS [numeric] full overlap conservation sample 393
+PASS [numeric] full overlap conservation sample 394
+PASS [numeric] full overlap conservation sample 395
+PASS [numeric] full overlap conservation sample 396
+PASS [numeric] full overlap conservation sample 397
+PASS [numeric] full overlap conservation sample 398
+PASS [numeric] full overlap conservation sample 399
+PASS [numeric] full overlap conservation sample 400
+PASS [numeric] lift projective trajectory sample 0
+PASS [numeric] lift all ring and effective core currents 0
+PASS [numeric] lift norm/energy 0
+PASS [numeric] overlap norm/energy 0
+PASS [numeric] overlap parity and dark scalar 0
+PASS [numeric] lift projective trajectory sample 1
+PASS [numeric] lift all ring and effective core currents 1
+PASS [numeric] lift norm/energy 1
+PASS [numeric] overlap norm/energy 1
+PASS [numeric] overlap parity and dark scalar 1
+PASS [numeric] lift projective trajectory sample 2
+PASS [numeric] lift all ring and effective core currents 2
+PASS [numeric] lift norm/energy 2
+PASS [numeric] overlap norm/energy 2
+PASS [numeric] overlap parity and dark scalar 2
+PASS [numeric] lift projective trajectory sample 3
+PASS [numeric] lift all ring and effective core currents 3
+PASS [numeric] lift norm/energy 3
+PASS [numeric] overlap norm/energy 3
+PASS [numeric] overlap parity and dark scalar 3
+PASS [numeric] lift projective trajectory sample 4
+PASS [numeric] lift all ring and effective core currents 4
+PASS [numeric] lift norm/energy 4
+PASS [numeric] overlap norm/energy 4
+PASS [numeric] overlap parity and dark scalar 4
+PASS [numeric] lift projective trajectory sample 5
+PASS [numeric] lift all ring and effective core currents 5
+PASS [numeric] lift norm/energy 5
+PASS [numeric] overlap norm/energy 5
+PASS [numeric] overlap parity and dark scalar 5
+PASS [numeric] lift projective trajectory sample 6
+PASS [numeric] lift all ring and effective core currents 6
+PASS [numeric] lift norm/energy 6
+PASS [numeric] overlap norm/energy 6
+PASS [numeric] overlap parity and dark scalar 6
+PASS [numeric] lift projective trajectory sample 7
+PASS [numeric] lift all ring and effective core currents 7
+PASS [numeric] lift norm/energy 7
+PASS [numeric] overlap norm/energy 7
+PASS [numeric] overlap parity and dark scalar 7
+PASS [numeric] lift projective trajectory sample 8
+PASS [numeric] lift all ring and effective core currents 8
+PASS [numeric] lift norm/energy 8
+PASS [numeric] overlap norm/energy 8
+PASS [numeric] overlap parity and dark scalar 8
+PASS [numeric] lift projective trajectory sample 9
+PASS [numeric] lift all ring and effective core currents 9
+PASS [numeric] lift norm/energy 9
+PASS [numeric] overlap norm/energy 9
+PASS [numeric] overlap parity and dark scalar 9
+PASS [numeric] lift projective trajectory sample 10
+PASS [numeric] lift all ring and effective core currents 10
+PASS [numeric] lift norm/energy 10
+PASS [numeric] overlap norm/energy 10
+PASS [numeric] overlap parity and dark scalar 10
+PASS [numeric] lift projective trajectory sample 11
+PASS [numeric] lift all ring and effective core currents 11
+PASS [numeric] lift norm/energy 11
+PASS [numeric] overlap norm/energy 11
+PASS [numeric] overlap parity and dark scalar 11
+PASS [numeric] lift projective trajectory sample 12
+PASS [numeric] lift all ring and effective core currents 12
+PASS [numeric] lift norm/energy 12
+PASS [numeric] overlap norm/energy 12
+PASS [numeric] overlap parity and dark scalar 12
+PASS [numeric] lift projective trajectory sample 13
+PASS [numeric] lift all ring and effective core currents 13
+PASS [numeric] lift norm/energy 13
+PASS [numeric] overlap norm/energy 13
+PASS [numeric] overlap parity and dark scalar 13
+PASS [numeric] lift projective trajectory sample 14
+PASS [numeric] lift all ring and effective core currents 14
+PASS [numeric] lift norm/energy 14
+PASS [numeric] overlap norm/energy 14
+PASS [numeric] overlap parity and dark scalar 14
+PASS [numeric] lift projective trajectory sample 15
+PASS [numeric] lift all ring and effective core currents 15
+PASS [numeric] lift norm/energy 15
+PASS [numeric] overlap norm/energy 15
+PASS [numeric] overlap parity and dark scalar 15
+PASS [numeric] lift projective trajectory sample 16
+PASS [numeric] lift all ring and effective core currents 16
+PASS [numeric] lift norm/energy 16
+PASS [numeric] overlap norm/energy 16
+PASS [numeric] overlap parity and dark scalar 16
+PASS [numeric] lift projective trajectory sample 17
+PASS [numeric] lift all ring and effective core currents 17
+PASS [numeric] lift norm/energy 17
+PASS [numeric] overlap norm/energy 17
+PASS [numeric] overlap parity and dark scalar 17
+PASS [numeric] lift projective trajectory sample 18
+PASS [numeric] lift all ring and effective core currents 18
+PASS [numeric] lift norm/energy 18
+PASS [numeric] overlap norm/energy 18
+PASS [numeric] overlap parity and dark scalar 18
+PASS [numeric] lift projective trajectory sample 19
+PASS [numeric] lift all ring and effective core currents 19
+PASS [numeric] lift norm/energy 19
+PASS [numeric] overlap norm/energy 19
+PASS [numeric] overlap parity and dark scalar 19
+PASS [numeric] lift projective trajectory sample 20
+PASS [numeric] lift all ring and effective core currents 20
+PASS [numeric] lift norm/energy 20
+PASS [numeric] overlap norm/energy 20
+PASS [numeric] overlap parity and dark scalar 20
+PASS [numeric] lift projective trajectory sample 21
+PASS [numeric] lift all ring and effective core currents 21
+PASS [numeric] lift norm/energy 21
+PASS [numeric] overlap norm/energy 21
+PASS [numeric] overlap parity and dark scalar 21
+PASS [numeric] lift projective trajectory sample 22
+PASS [numeric] lift all ring and effective core currents 22
+PASS [numeric] lift norm/energy 22
+PASS [numeric] overlap norm/energy 22
+PASS [numeric] overlap parity and dark scalar 22
+PASS [numeric] lift projective trajectory sample 23
+PASS [numeric] lift all ring and effective core currents 23
+PASS [numeric] lift norm/energy 23
+PASS [numeric] overlap norm/energy 23
+PASS [numeric] overlap parity and dark scalar 23
+PASS [numeric] lift projective trajectory sample 24
+PASS [numeric] lift all ring and effective core currents 24
+PASS [numeric] lift norm/energy 24
+PASS [numeric] overlap norm/energy 24
+PASS [numeric] overlap parity and dark scalar 24
+PASS [numeric] lift projective trajectory sample 25
+PASS [numeric] lift all ring and effective core currents 25
+PASS [numeric] lift norm/energy 25
+PASS [numeric] overlap norm/energy 25
+PASS [numeric] overlap parity and dark scalar 25
+PASS [numeric] lift projective trajectory sample 26
+PASS [numeric] lift all ring and effective core currents 26
+PASS [numeric] lift norm/energy 26
+PASS [numeric] overlap norm/energy 26
+PASS [numeric] overlap parity and dark scalar 26
+PASS [numeric] lift projective trajectory sample 27
+PASS [numeric] lift all ring and effective core currents 27
+PASS [numeric] lift norm/energy 27
+PASS [numeric] overlap norm/energy 27
+PASS [numeric] overlap parity and dark scalar 27
+PASS [numeric] lift projective trajectory sample 28
+PASS [numeric] lift all ring and effective core currents 28
+PASS [numeric] lift norm/energy 28
+PASS [numeric] overlap norm/energy 28
+PASS [numeric] overlap parity and dark scalar 28
+PASS [numeric] lift projective trajectory sample 29
+PASS [numeric] lift all ring and effective core currents 29
+PASS [numeric] lift norm/energy 29
+PASS [numeric] overlap norm/energy 29
+PASS [numeric] overlap parity and dark scalar 29
+PASS [numeric] lift projective trajectory sample 30
+PASS [numeric] lift all ring and effective core currents 30
+PASS [numeric] lift norm/energy 30
+PASS [numeric] overlap norm/energy 30
+PASS [numeric] overlap parity and dark scalar 30
+PASS [numeric] lift projective trajectory sample 31
+PASS [numeric] lift all ring and effective core currents 31
+PASS [numeric] lift norm/energy 31
+PASS [numeric] overlap norm/energy 31
+PASS [numeric] overlap parity and dark scalar 31
+PASS [numeric] lift projective trajectory sample 32
+PASS [numeric] lift all ring and effective core currents 32
+PASS [numeric] lift norm/energy 32
+PASS [numeric] overlap norm/energy 32
+PASS [numeric] overlap parity and dark scalar 32
+PASS [numeric] lift projective trajectory sample 33
+PASS [numeric] lift all ring and effective core currents 33
+PASS [numeric] lift norm/energy 33
+PASS [numeric] overlap norm/energy 33
+PASS [numeric] overlap parity and dark scalar 33
+PASS [numeric] lift projective trajectory sample 34
+PASS [numeric] lift all ring and effective core currents 34
+PASS [numeric] lift norm/energy 34
+PASS [numeric] overlap norm/energy 34
+PASS [numeric] overlap parity and dark scalar 34
+PASS [numeric] lift projective trajectory sample 35
+PASS [numeric] lift all ring and effective core currents 35
+PASS [numeric] lift norm/energy 35
+PASS [numeric] overlap norm/energy 35
+PASS [numeric] overlap parity and dark scalar 35
+PASS [numeric] lift projective trajectory sample 36
+PASS [numeric] lift all ring and effective core currents 36
+PASS [numeric] lift norm/energy 36
+PASS [numeric] overlap norm/energy 36
+PASS [numeric] overlap parity and dark scalar 36
+PASS [numeric] lift projective trajectory sample 37
+PASS [numeric] lift all ring and effective core currents 37
+PASS [numeric] lift norm/energy 37
+PASS [numeric] overlap norm/energy 37
+PASS [numeric] overlap parity and dark scalar 37
+PASS [numeric] lift projective trajectory sample 38
+PASS [numeric] lift all ring and effective core currents 38
+PASS [numeric] lift norm/energy 38
+PASS [numeric] overlap norm/energy 38
+PASS [numeric] overlap parity and dark scalar 38
+PASS [numeric] lift projective trajectory sample 39
+PASS [numeric] lift all ring and effective core currents 39
+PASS [numeric] lift norm/energy 39
+PASS [numeric] overlap norm/energy 39
+PASS [numeric] overlap parity and dark scalar 39
+PASS [numeric] lift projective trajectory sample 40
+PASS [numeric] lift all ring and effective core currents 40
+PASS [numeric] lift norm/energy 40
+PASS [numeric] overlap norm/energy 40
+PASS [numeric] overlap parity and dark scalar 40
+PASS [numeric] lift projective trajectory sample 41
+PASS [numeric] lift all ring and effective core currents 41
+PASS [numeric] lift norm/energy 41
+PASS [numeric] overlap norm/energy 41
+PASS [numeric] overlap parity and dark scalar 41
+PASS [numeric] lift projective trajectory sample 42
+PASS [numeric] lift all ring and effective core currents 42
+PASS [numeric] lift norm/energy 42
+PASS [numeric] overlap norm/energy 42
+PASS [numeric] overlap parity and dark scalar 42
+PASS [numeric] lift projective trajectory sample 43
+PASS [numeric] lift all ring and effective core currents 43
+PASS [numeric] lift norm/energy 43
+PASS [numeric] overlap norm/energy 43
+PASS [numeric] overlap parity and dark scalar 43
+PASS [numeric] lift projective trajectory sample 44
+PASS [numeric] lift all ring and effective core currents 44
+PASS [numeric] lift norm/energy 44
+PASS [numeric] overlap norm/energy 44
+PASS [numeric] overlap parity and dark scalar 44
+PASS [numeric] lift projective trajectory sample 45
+PASS [numeric] lift all ring and effective core currents 45
+PASS [numeric] lift norm/energy 45
+PASS [numeric] overlap norm/energy 45
+PASS [numeric] overlap parity and dark scalar 45
+PASS [numeric] lift projective trajectory sample 46
+PASS [numeric] lift all ring and effective core currents 46
+PASS [numeric] lift norm/energy 46
+PASS [numeric] overlap norm/energy 46
+PASS [numeric] overlap parity and dark scalar 46
+PASS [numeric] lift projective trajectory sample 47
+PASS [numeric] lift all ring and effective core currents 47
+PASS [numeric] lift norm/energy 47
+PASS [numeric] overlap norm/energy 47
+PASS [numeric] overlap parity and dark scalar 47
+PASS [numeric] lift projective trajectory sample 48
+PASS [numeric] lift all ring and effective core currents 48
+PASS [numeric] lift norm/energy 48
+PASS [numeric] overlap norm/energy 48
+PASS [numeric] overlap parity and dark scalar 48
+PASS [numeric] lift projective trajectory sample 49
+PASS [numeric] lift all ring and effective core currents 49
+PASS [numeric] lift norm/energy 49
+PASS [numeric] overlap norm/energy 49
+PASS [numeric] overlap parity and dark scalar 49
+PASS [numeric] lift projective trajectory sample 50
+PASS [numeric] lift all ring and effective core currents 50
+PASS [numeric] lift norm/energy 50
+PASS [numeric] overlap norm/energy 50
+PASS [numeric] overlap parity and dark scalar 50
+PASS [numeric] lift projective trajectory sample 51
+PASS [numeric] lift all ring and effective core currents 51
+PASS [numeric] lift norm/energy 51
+PASS [numeric] overlap norm/energy 51
+PASS [numeric] overlap parity and dark scalar 51
+PASS [numeric] lift projective trajectory sample 52
+PASS [numeric] lift all ring and effective core currents 52
+PASS [numeric] lift norm/energy 52
+PASS [numeric] overlap norm/energy 52
+PASS [numeric] overlap parity and dark scalar 52
+PASS [numeric] lift projective trajectory sample 53
+PASS [numeric] lift all ring and effective core currents 53
+PASS [numeric] lift norm/energy 53
+PASS [numeric] overlap norm/energy 53
+PASS [numeric] overlap parity and dark scalar 53
+PASS [numeric] lift projective trajectory sample 54
+PASS [numeric] lift all ring and effective core currents 54
+PASS [numeric] lift norm/energy 54
+PASS [numeric] overlap norm/energy 54
+PASS [numeric] overlap parity and dark scalar 54
+PASS [numeric] lift projective trajectory sample 55
+PASS [numeric] lift all ring and effective core currents 55
+PASS [numeric] lift norm/energy 55
+PASS [numeric] overlap norm/energy 55
+PASS [numeric] overlap parity and dark scalar 55
+PASS [numeric] lift projective trajectory sample 56
+PASS [numeric] lift all ring and effective core currents 56
+PASS [numeric] lift norm/energy 56
+PASS [numeric] overlap norm/energy 56
+PASS [numeric] overlap parity and dark scalar 56
+PASS [numeric] lift projective trajectory sample 57
+PASS [numeric] lift all ring and effective core currents 57
+PASS [numeric] lift norm/energy 57
+PASS [numeric] overlap norm/energy 57
+PASS [numeric] overlap parity and dark scalar 57
+PASS [numeric] lift projective trajectory sample 58
+PASS [numeric] lift all ring and effective core currents 58
+PASS [numeric] lift norm/energy 58
+PASS [numeric] overlap norm/energy 58
+PASS [numeric] overlap parity and dark scalar 58
+PASS [numeric] lift projective trajectory sample 59
+PASS [numeric] lift all ring and effective core currents 59
+PASS [numeric] lift norm/energy 59
+PASS [numeric] overlap norm/energy 59
+PASS [numeric] overlap parity and dark scalar 59
+PASS [numeric] lift projective trajectory sample 60
+PASS [numeric] lift all ring and effective core currents 60
+PASS [numeric] lift norm/energy 60
+PASS [numeric] overlap norm/energy 60
+PASS [numeric] overlap parity and dark scalar 60
+PASS [numeric] lift projective trajectory sample 61
+PASS [numeric] lift all ring and effective core currents 61
+PASS [numeric] lift norm/energy 61
+PASS [numeric] overlap norm/energy 61
+PASS [numeric] overlap parity and dark scalar 61
+PASS [numeric] lift projective trajectory sample 62
+PASS [numeric] lift all ring and effective core currents 62
+PASS [numeric] lift norm/energy 62
+PASS [numeric] overlap norm/energy 62
+PASS [numeric] overlap parity and dark scalar 62
+PASS [numeric] lift projective trajectory sample 63
+PASS [numeric] lift all ring and effective core currents 63
+PASS [numeric] lift norm/energy 63
+PASS [numeric] overlap norm/energy 63
+PASS [numeric] overlap parity and dark scalar 63
+PASS [numeric] lift projective trajectory sample 64
+PASS [numeric] lift all ring and effective core currents 64
+PASS [numeric] lift norm/energy 64
+PASS [numeric] overlap norm/energy 64
+PASS [numeric] overlap parity and dark scalar 64
+PASS [numeric] lift projective trajectory sample 65
+PASS [numeric] lift all ring and effective core currents 65
+PASS [numeric] lift norm/energy 65
+PASS [numeric] overlap norm/energy 65
+PASS [numeric] overlap parity and dark scalar 65
+PASS [numeric] lift projective trajectory sample 66
+PASS [numeric] lift all ring and effective core currents 66
+PASS [numeric] lift norm/energy 66
+PASS [numeric] overlap norm/energy 66
+PASS [numeric] overlap parity and dark scalar 66
+PASS [numeric] lift projective trajectory sample 67
+PASS [numeric] lift all ring and effective core currents 67
+PASS [numeric] lift norm/energy 67
+PASS [numeric] overlap norm/energy 67
+PASS [numeric] overlap parity and dark scalar 67
+PASS [numeric] lift projective trajectory sample 68
+PASS [numeric] lift all ring and effective core currents 68
+PASS [numeric] lift norm/energy 68
+PASS [numeric] overlap norm/energy 68
+PASS [numeric] overlap parity and dark scalar 68
+PASS [numeric] lift projective trajectory sample 69
+PASS [numeric] lift all ring and effective core currents 69
+PASS [numeric] lift norm/energy 69
+PASS [numeric] overlap norm/energy 69
+PASS [numeric] overlap parity and dark scalar 69
+PASS [numeric] lift projective trajectory sample 70
+PASS [numeric] lift all ring and effective core currents 70
+PASS [numeric] lift norm/energy 70
+PASS [numeric] overlap norm/energy 70
+PASS [numeric] overlap parity and dark scalar 70
+PASS [numeric] lift projective trajectory sample 71
+PASS [numeric] lift all ring and effective core currents 71
+PASS [numeric] lift norm/energy 71
+PASS [numeric] overlap norm/energy 71
+PASS [numeric] overlap parity and dark scalar 71
+PASS [numeric] lift projective trajectory sample 72
+PASS [numeric] lift all ring and effective core currents 72
+PASS [numeric] lift norm/energy 72
+PASS [numeric] overlap norm/energy 72
+PASS [numeric] overlap parity and dark scalar 72
+PASS [numeric] lift projective trajectory sample 73
+PASS [numeric] lift all ring and effective core currents 73
+PASS [numeric] lift norm/energy 73
+PASS [numeric] overlap norm/energy 73
+PASS [numeric] overlap parity and dark scalar 73
+PASS [numeric] lift projective trajectory sample 74
+PASS [numeric] lift all ring and effective core currents 74
+PASS [numeric] lift norm/energy 74
+PASS [numeric] overlap norm/energy 74
+PASS [numeric] overlap parity and dark scalar 74
+PASS [numeric] lift projective trajectory sample 75
+PASS [numeric] lift all ring and effective core currents 75
+PASS [numeric] lift norm/energy 75
+PASS [numeric] overlap norm/energy 75
+PASS [numeric] overlap parity and dark scalar 75
+PASS [numeric] lift projective trajectory sample 76
+PASS [numeric] lift all ring and effective core currents 76
+PASS [numeric] lift norm/energy 76
+PASS [numeric] overlap norm/energy 76
+PASS [numeric] overlap parity and dark scalar 76
+PASS [numeric] lift projective trajectory sample 77
+PASS [numeric] lift all ring and effective core currents 77
+PASS [numeric] lift norm/energy 77
+PASS [numeric] overlap norm/energy 77
+PASS [numeric] overlap parity and dark scalar 77
+PASS [numeric] lift projective trajectory sample 78
+PASS [numeric] lift all ring and effective core currents 78
+PASS [numeric] lift norm/energy 78
+PASS [numeric] overlap norm/energy 78
+PASS [numeric] overlap parity and dark scalar 78
+PASS [numeric] lift projective trajectory sample 79
+PASS [numeric] lift all ring and effective core currents 79
+PASS [numeric] lift norm/energy 79
+PASS [numeric] overlap norm/energy 79
+PASS [numeric] overlap parity and dark scalar 79
+PASS [numeric] lift projective trajectory sample 80
+PASS [numeric] lift all ring and effective core currents 80
+PASS [numeric] lift norm/energy 80
+PASS [numeric] overlap norm/energy 80
+PASS [numeric] overlap parity and dark scalar 80
+PASS [numeric] lift projective trajectory sample 81
+PASS [numeric] lift all ring and effective core currents 81
+PASS [numeric] lift norm/energy 81
+PASS [numeric] overlap norm/energy 81
+PASS [numeric] overlap parity and dark scalar 81
+PASS [numeric] lift projective trajectory sample 82
+PASS [numeric] lift all ring and effective core currents 82
+PASS [numeric] lift norm/energy 82
+PASS [numeric] overlap norm/energy 82
+PASS [numeric] overlap parity and dark scalar 82
+PASS [numeric] lift projective trajectory sample 83
+PASS [numeric] lift all ring and effective core currents 83
+PASS [numeric] lift norm/energy 83
+PASS [numeric] overlap norm/energy 83
+PASS [numeric] overlap parity and dark scalar 83
+PASS [numeric] lift projective trajectory sample 84
+PASS [numeric] lift all ring and effective core currents 84
+PASS [numeric] lift norm/energy 84
+PASS [numeric] overlap norm/energy 84
+PASS [numeric] overlap parity and dark scalar 84
+PASS [numeric] lift projective trajectory sample 85
+PASS [numeric] lift all ring and effective core currents 85
+PASS [numeric] lift norm/energy 85
+PASS [numeric] overlap norm/energy 85
+PASS [numeric] overlap parity and dark scalar 85
+PASS [numeric] lift projective trajectory sample 86
+PASS [numeric] lift all ring and effective core currents 86
+PASS [numeric] lift norm/energy 86
+PASS [numeric] overlap norm/energy 86
+PASS [numeric] overlap parity and dark scalar 86
+PASS [numeric] lift projective trajectory sample 87
+PASS [numeric] lift all ring and effective core currents 87
+PASS [numeric] lift norm/energy 87
+PASS [numeric] overlap norm/energy 87
+PASS [numeric] overlap parity and dark scalar 87
+PASS [numeric] lift projective trajectory sample 88
+PASS [numeric] lift all ring and effective core currents 88
+PASS [numeric] lift norm/energy 88
+PASS [numeric] overlap norm/energy 88
+PASS [numeric] overlap parity and dark scalar 88
+PASS [numeric] lift projective trajectory sample 89
+PASS [numeric] lift all ring and effective core currents 89
+PASS [numeric] lift norm/energy 89
+PASS [numeric] overlap norm/energy 89
+PASS [numeric] overlap parity and dark scalar 89
+PASS [numeric] lift projective trajectory sample 90
+PASS [numeric] lift all ring and effective core currents 90
+PASS [numeric] lift norm/energy 90
+PASS [numeric] overlap norm/energy 90
+PASS [numeric] overlap parity and dark scalar 90
+PASS [numeric] lift projective trajectory sample 91
+PASS [numeric] lift all ring and effective core currents 91
+PASS [numeric] lift norm/energy 91
+PASS [numeric] overlap norm/energy 91
+PASS [numeric] overlap parity and dark scalar 91
+PASS [numeric] lift projective trajectory sample 92
+PASS [numeric] lift all ring and effective core currents 92
+PASS [numeric] lift norm/energy 92
+PASS [numeric] overlap norm/energy 92
+PASS [numeric] overlap parity and dark scalar 92
+PASS [numeric] lift projective trajectory sample 93
+PASS [numeric] lift all ring and effective core currents 93
+PASS [numeric] lift norm/energy 93
+PASS [numeric] overlap norm/energy 93
+PASS [numeric] overlap parity and dark scalar 93
+PASS [numeric] lift projective trajectory sample 94
+PASS [numeric] lift all ring and effective core currents 94
+PASS [numeric] lift norm/energy 94
+PASS [numeric] overlap norm/energy 94
+PASS [numeric] overlap parity and dark scalar 94
+PASS [numeric] lift projective trajectory sample 95
+PASS [numeric] lift all ring and effective core currents 95
+PASS [numeric] lift norm/energy 95
+PASS [numeric] overlap norm/energy 95
+PASS [numeric] overlap parity and dark scalar 95
+PASS [numeric] lift projective trajectory sample 96
+PASS [numeric] lift all ring and effective core currents 96
+PASS [numeric] lift norm/energy 96
+PASS [numeric] overlap norm/energy 96
+PASS [numeric] overlap parity and dark scalar 96
+PASS [numeric] lift projective trajectory sample 97
+PASS [numeric] lift all ring and effective core currents 97
+PASS [numeric] lift norm/energy 97
+PASS [numeric] overlap norm/energy 97
+PASS [numeric] overlap parity and dark scalar 97
+PASS [numeric] lift projective trajectory sample 98
+PASS [numeric] lift all ring and effective core currents 98
+PASS [numeric] lift norm/energy 98
+PASS [numeric] overlap norm/energy 98
+PASS [numeric] overlap parity and dark scalar 98
+PASS [numeric] lift projective trajectory sample 99
+PASS [numeric] lift all ring and effective core currents 99
+PASS [numeric] lift norm/energy 99
+PASS [numeric] overlap norm/energy 99
+PASS [numeric] overlap parity and dark scalar 99
+PASS [numeric] lift projective trajectory sample 100
+PASS [numeric] lift all ring and effective core currents 100
+PASS [numeric] lift norm/energy 100
+PASS [numeric] overlap norm/energy 100
+PASS [numeric] overlap parity and dark scalar 100
+PASS [numeric] lift projective trajectory sample 101
+PASS [numeric] lift all ring and effective core currents 101
+PASS [numeric] lift norm/energy 101
+PASS [numeric] overlap norm/energy 101
+PASS [numeric] overlap parity and dark scalar 101
+PASS [numeric] lift projective trajectory sample 102
+PASS [numeric] lift all ring and effective core currents 102
+PASS [numeric] lift norm/energy 102
+PASS [numeric] overlap norm/energy 102
+PASS [numeric] overlap parity and dark scalar 102
+PASS [numeric] lift projective trajectory sample 103
+PASS [numeric] lift all ring and effective core currents 103
+PASS [numeric] lift norm/energy 103
+PASS [numeric] overlap norm/energy 103
+PASS [numeric] overlap parity and dark scalar 103
+PASS [numeric] lift projective trajectory sample 104
+PASS [numeric] lift all ring and effective core currents 104
+PASS [numeric] lift norm/energy 104
+PASS [numeric] overlap norm/energy 104
+PASS [numeric] overlap parity and dark scalar 104
+PASS [numeric] lift projective trajectory sample 105
+PASS [numeric] lift all ring and effective core currents 105
+PASS [numeric] lift norm/energy 105
+PASS [numeric] overlap norm/energy 105
+PASS [numeric] overlap parity and dark scalar 105
+PASS [numeric] lift projective trajectory sample 106
+PASS [numeric] lift all ring and effective core currents 106
+PASS [numeric] lift norm/energy 106
+PASS [numeric] overlap norm/energy 106
+PASS [numeric] overlap parity and dark scalar 106
+PASS [numeric] lift projective trajectory sample 107
+PASS [numeric] lift all ring and effective core currents 107
+PASS [numeric] lift norm/energy 107
+PASS [numeric] overlap norm/energy 107
+PASS [numeric] overlap parity and dark scalar 107
+PASS [numeric] lift projective trajectory sample 108
+PASS [numeric] lift all ring and effective core currents 108
+PASS [numeric] lift norm/energy 108
+PASS [numeric] overlap norm/energy 108
+PASS [numeric] overlap parity and dark scalar 108
+PASS [numeric] lift projective trajectory sample 109
+PASS [numeric] lift all ring and effective core currents 109
+PASS [numeric] lift norm/energy 109
+PASS [numeric] overlap norm/energy 109
+PASS [numeric] overlap parity and dark scalar 109
+PASS [numeric] lift projective trajectory sample 110
+PASS [numeric] lift all ring and effective core currents 110
+PASS [numeric] lift norm/energy 110
+PASS [numeric] overlap norm/energy 110
+PASS [numeric] overlap parity and dark scalar 110
+PASS [numeric] lift projective trajectory sample 111
+PASS [numeric] lift all ring and effective core currents 111
+PASS [numeric] lift norm/energy 111
+PASS [numeric] overlap norm/energy 111
+PASS [numeric] overlap parity and dark scalar 111
+PASS [numeric] lift projective trajectory sample 112
+PASS [numeric] lift all ring and effective core currents 112
+PASS [numeric] lift norm/energy 112
+PASS [numeric] overlap norm/energy 112
+PASS [numeric] overlap parity and dark scalar 112
+PASS [numeric] lift projective trajectory sample 113
+PASS [numeric] lift all ring and effective core currents 113
+PASS [numeric] lift norm/energy 113
+PASS [numeric] overlap norm/energy 113
+PASS [numeric] overlap parity and dark scalar 113
+PASS [numeric] lift projective trajectory sample 114
+PASS [numeric] lift all ring and effective core currents 114
+PASS [numeric] lift norm/energy 114
+PASS [numeric] overlap norm/energy 114
+PASS [numeric] overlap parity and dark scalar 114
+PASS [numeric] lift projective trajectory sample 115
+PASS [numeric] lift all ring and effective core currents 115
+PASS [numeric] lift norm/energy 115
+PASS [numeric] overlap norm/energy 115
+PASS [numeric] overlap parity and dark scalar 115
+PASS [numeric] lift projective trajectory sample 116
+PASS [numeric] lift all ring and effective core currents 116
+PASS [numeric] lift norm/energy 116
+PASS [numeric] overlap norm/energy 116
+PASS [numeric] overlap parity and dark scalar 116
+PASS [numeric] lift projective trajectory sample 117
+PASS [numeric] lift all ring and effective core currents 117
+PASS [numeric] lift norm/energy 117
+PASS [numeric] overlap norm/energy 117
+PASS [numeric] overlap parity and dark scalar 117
+PASS [numeric] lift projective trajectory sample 118
+PASS [numeric] lift all ring and effective core currents 118
+PASS [numeric] lift norm/energy 118
+PASS [numeric] overlap norm/energy 118
+PASS [numeric] overlap parity and dark scalar 118
+PASS [numeric] lift projective trajectory sample 119
+PASS [numeric] lift all ring and effective core currents 119
+PASS [numeric] lift norm/energy 119
+PASS [numeric] overlap norm/energy 119
+PASS [numeric] overlap parity and dark scalar 119
+PASS [numeric] lift projective trajectory sample 120
+PASS [numeric] lift all ring and effective core currents 120
+PASS [numeric] lift norm/energy 120
+PASS [numeric] overlap norm/energy 120
+PASS [numeric] overlap parity and dark scalar 120
+PASS [numeric] lift projective trajectory sample 121
+PASS [numeric] lift all ring and effective core currents 121
+PASS [numeric] lift norm/energy 121
+PASS [numeric] overlap norm/energy 121
+PASS [numeric] overlap parity and dark scalar 121
+PASS [numeric] lift projective trajectory sample 122
+PASS [numeric] lift all ring and effective core currents 122
+PASS [numeric] lift norm/energy 122
+PASS [numeric] overlap norm/energy 122
+PASS [numeric] overlap parity and dark scalar 122
+PASS [numeric] lift projective trajectory sample 123
+PASS [numeric] lift all ring and effective core currents 123
+PASS [numeric] lift norm/energy 123
+PASS [numeric] overlap norm/energy 123
+PASS [numeric] overlap parity and dark scalar 123
+PASS [numeric] lift projective trajectory sample 124
+PASS [numeric] lift all ring and effective core currents 124
+PASS [numeric] lift norm/energy 124
+PASS [numeric] overlap norm/energy 124
+PASS [numeric] overlap parity and dark scalar 124
+PASS [numeric] lift projective trajectory sample 125
+PASS [numeric] lift all ring and effective core currents 125
+PASS [numeric] lift norm/energy 125
+PASS [numeric] overlap norm/energy 125
+PASS [numeric] overlap parity and dark scalar 125
+PASS [numeric] lift projective trajectory sample 126
+PASS [numeric] lift all ring and effective core currents 126
+PASS [numeric] lift norm/energy 126
+PASS [numeric] overlap norm/energy 126
+PASS [numeric] overlap parity and dark scalar 126
+PASS [numeric] lift projective trajectory sample 127
+PASS [numeric] lift all ring and effective core currents 127
+PASS [numeric] lift norm/energy 127
+PASS [numeric] overlap norm/energy 127
+PASS [numeric] overlap parity and dark scalar 127
+PASS [numeric] lift projective trajectory sample 128
+PASS [numeric] lift all ring and effective core currents 128
+PASS [numeric] lift norm/energy 128
+PASS [numeric] overlap norm/energy 128
+PASS [numeric] overlap parity and dark scalar 128
+PASS [numeric] lift projective trajectory sample 129
+PASS [numeric] lift all ring and effective core currents 129
+PASS [numeric] lift norm/energy 129
+PASS [numeric] overlap norm/energy 129
+PASS [numeric] overlap parity and dark scalar 129
+PASS [numeric] lift projective trajectory sample 130
+PASS [numeric] lift all ring and effective core currents 130
+PASS [numeric] lift norm/energy 130
+PASS [numeric] overlap norm/energy 130
+PASS [numeric] overlap parity and dark scalar 130
+PASS [numeric] lift projective trajectory sample 131
+PASS [numeric] lift all ring and effective core currents 131
+PASS [numeric] lift norm/energy 131
+PASS [numeric] overlap norm/energy 131
+PASS [numeric] overlap parity and dark scalar 131
+PASS [numeric] lift projective trajectory sample 132
+PASS [numeric] lift all ring and effective core currents 132
+PASS [numeric] lift norm/energy 132
+PASS [numeric] overlap norm/energy 132
+PASS [numeric] overlap parity and dark scalar 132
+PASS [numeric] lift projective trajectory sample 133
+PASS [numeric] lift all ring and effective core currents 133
+PASS [numeric] lift norm/energy 133
+PASS [numeric] overlap norm/energy 133
+PASS [numeric] overlap parity and dark scalar 133
+PASS [numeric] lift projective trajectory sample 134
+PASS [numeric] lift all ring and effective core currents 134
+PASS [numeric] lift norm/energy 134
+PASS [numeric] overlap norm/energy 134
+PASS [numeric] overlap parity and dark scalar 134
+PASS [numeric] lift projective trajectory sample 135
+PASS [numeric] lift all ring and effective core currents 135
+PASS [numeric] lift norm/energy 135
+PASS [numeric] overlap norm/energy 135
+PASS [numeric] overlap parity and dark scalar 135
+PASS [numeric] lift projective trajectory sample 136
+PASS [numeric] lift all ring and effective core currents 136
+PASS [numeric] lift norm/energy 136
+PASS [numeric] overlap norm/energy 136
+PASS [numeric] overlap parity and dark scalar 136
+PASS [numeric] lift projective trajectory sample 137
+PASS [numeric] lift all ring and effective core currents 137
+PASS [numeric] lift norm/energy 137
+PASS [numeric] overlap norm/energy 137
+PASS [numeric] overlap parity and dark scalar 137
+PASS [numeric] lift projective trajectory sample 138
+PASS [numeric] lift all ring and effective core currents 138
+PASS [numeric] lift norm/energy 138
+PASS [numeric] overlap norm/energy 138
+PASS [numeric] overlap parity and dark scalar 138
+PASS [numeric] lift projective trajectory sample 139
+PASS [numeric] lift all ring and effective core currents 139
+PASS [numeric] lift norm/energy 139
+PASS [numeric] overlap norm/energy 139
+PASS [numeric] overlap parity and dark scalar 139
+PASS [numeric] lift projective trajectory sample 140
+PASS [numeric] lift all ring and effective core currents 140
+PASS [numeric] lift norm/energy 140
+PASS [numeric] overlap norm/energy 140
+PASS [numeric] overlap parity and dark scalar 140
+PASS [numeric] lift projective trajectory sample 141
+PASS [numeric] lift all ring and effective core currents 141
+PASS [numeric] lift norm/energy 141
+PASS [numeric] overlap norm/energy 141
+PASS [numeric] overlap parity and dark scalar 141
+PASS [numeric] lift projective trajectory sample 142
+PASS [numeric] lift all ring and effective core currents 142
+PASS [numeric] lift norm/energy 142
+PASS [numeric] overlap norm/energy 142
+PASS [numeric] overlap parity and dark scalar 142
+PASS [numeric] lift projective trajectory sample 143
+PASS [numeric] lift all ring and effective core currents 143
+PASS [numeric] lift norm/energy 143
+PASS [numeric] overlap norm/energy 143
+PASS [numeric] overlap parity and dark scalar 143
+PASS [numeric] lift projective trajectory sample 144
+PASS [numeric] lift all ring and effective core currents 144
+PASS [numeric] lift norm/energy 144
+PASS [numeric] overlap norm/energy 144
+PASS [numeric] overlap parity and dark scalar 144
+PASS [numeric] lift projective trajectory sample 145
+PASS [numeric] lift all ring and effective core currents 145
+PASS [numeric] lift norm/energy 145
+PASS [numeric] overlap norm/energy 145
+PASS [numeric] overlap parity and dark scalar 145
+PASS [numeric] lift projective trajectory sample 146
+PASS [numeric] lift all ring and effective core currents 146
+PASS [numeric] lift norm/energy 146
+PASS [numeric] overlap norm/energy 146
+PASS [numeric] overlap parity and dark scalar 146
+PASS [numeric] lift projective trajectory sample 147
+PASS [numeric] lift all ring and effective core currents 147
+PASS [numeric] lift norm/energy 147
+PASS [numeric] overlap norm/energy 147
+PASS [numeric] overlap parity and dark scalar 147
+PASS [numeric] lift projective trajectory sample 148
+PASS [numeric] lift all ring and effective core currents 148
+PASS [numeric] lift norm/energy 148
+PASS [numeric] overlap norm/energy 148
+PASS [numeric] overlap parity and dark scalar 148
+PASS [numeric] lift projective trajectory sample 149
+PASS [numeric] lift all ring and effective core currents 149
+PASS [numeric] lift norm/energy 149
+PASS [numeric] overlap norm/energy 149
+PASS [numeric] overlap parity and dark scalar 149
+PASS [numeric] lift projective trajectory sample 150
+PASS [numeric] lift all ring and effective core currents 150
+PASS [numeric] lift norm/energy 150
+PASS [numeric] overlap norm/energy 150
+PASS [numeric] overlap parity and dark scalar 150
+PASS [numeric] lift projective trajectory sample 151
+PASS [numeric] lift all ring and effective core currents 151
+PASS [numeric] lift norm/energy 151
+PASS [numeric] overlap norm/energy 151
+PASS [numeric] overlap parity and dark scalar 151
+PASS [numeric] lift projective trajectory sample 152
+PASS [numeric] lift all ring and effective core currents 152
+PASS [numeric] lift norm/energy 152
+PASS [numeric] overlap norm/energy 152
+PASS [numeric] overlap parity and dark scalar 152
+PASS [numeric] lift projective trajectory sample 153
+PASS [numeric] lift all ring and effective core currents 153
+PASS [numeric] lift norm/energy 153
+PASS [numeric] overlap norm/energy 153
+PASS [numeric] overlap parity and dark scalar 153
+PASS [numeric] lift projective trajectory sample 154
+PASS [numeric] lift all ring and effective core currents 154
+PASS [numeric] lift norm/energy 154
+PASS [numeric] overlap norm/energy 154
+PASS [numeric] overlap parity and dark scalar 154
+PASS [numeric] lift projective trajectory sample 155
+PASS [numeric] lift all ring and effective core currents 155
+PASS [numeric] lift norm/energy 155
+PASS [numeric] overlap norm/energy 155
+PASS [numeric] overlap parity and dark scalar 155
+PASS [numeric] lift projective trajectory sample 156
+PASS [numeric] lift all ring and effective core currents 156
+PASS [numeric] lift norm/energy 156
+PASS [numeric] overlap norm/energy 156
+PASS [numeric] overlap parity and dark scalar 156
+PASS [numeric] lift projective trajectory sample 157
+PASS [numeric] lift all ring and effective core currents 157
+PASS [numeric] lift norm/energy 157
+PASS [numeric] overlap norm/energy 157
+PASS [numeric] overlap parity and dark scalar 157
+PASS [numeric] lift projective trajectory sample 158
+PASS [numeric] lift all ring and effective core currents 158
+PASS [numeric] lift norm/energy 158
+PASS [numeric] overlap norm/energy 158
+PASS [numeric] overlap parity and dark scalar 158
+PASS [numeric] lift projective trajectory sample 159
+PASS [numeric] lift all ring and effective core currents 159
+PASS [numeric] lift norm/energy 159
+PASS [numeric] overlap norm/energy 159
+PASS [numeric] overlap parity and dark scalar 159
+PASS [numeric] lift projective trajectory sample 160
+PASS [numeric] lift all ring and effective core currents 160
+PASS [numeric] lift norm/energy 160
+PASS [numeric] overlap norm/energy 160
+PASS [numeric] overlap parity and dark scalar 160
+PASS [numeric] lift projective trajectory sample 161
+PASS [numeric] lift all ring and effective core currents 161
+PASS [numeric] lift norm/energy 161
+PASS [numeric] overlap norm/energy 161
+PASS [numeric] overlap parity and dark scalar 161
+PASS [numeric] lift projective trajectory sample 162
+PASS [numeric] lift all ring and effective core currents 162
+PASS [numeric] lift norm/energy 162
+PASS [numeric] overlap norm/energy 162
+PASS [numeric] overlap parity and dark scalar 162
+PASS [numeric] lift projective trajectory sample 163
+PASS [numeric] lift all ring and effective core currents 163
+PASS [numeric] lift norm/energy 163
+PASS [numeric] overlap norm/energy 163
+PASS [numeric] overlap parity and dark scalar 163
+PASS [numeric] lift projective trajectory sample 164
+PASS [numeric] lift all ring and effective core currents 164
+PASS [numeric] lift norm/energy 164
+PASS [numeric] overlap norm/energy 164
+PASS [numeric] overlap parity and dark scalar 164
+PASS [numeric] lift projective trajectory sample 165
+PASS [numeric] lift all ring and effective core currents 165
+PASS [numeric] lift norm/energy 165
+PASS [numeric] overlap norm/energy 165
+PASS [numeric] overlap parity and dark scalar 165
+PASS [numeric] lift projective trajectory sample 166
+PASS [numeric] lift all ring and effective core currents 166
+PASS [numeric] lift norm/energy 166
+PASS [numeric] overlap norm/energy 166
+PASS [numeric] overlap parity and dark scalar 166
+PASS [numeric] lift projective trajectory sample 167
+PASS [numeric] lift all ring and effective core currents 167
+PASS [numeric] lift norm/energy 167
+PASS [numeric] overlap norm/energy 167
+PASS [numeric] overlap parity and dark scalar 167
+PASS [numeric] lift projective trajectory sample 168
+PASS [numeric] lift all ring and effective core currents 168
+PASS [numeric] lift norm/energy 168
+PASS [numeric] overlap norm/energy 168
+PASS [numeric] overlap parity and dark scalar 168
+PASS [numeric] lift projective trajectory sample 169
+PASS [numeric] lift all ring and effective core currents 169
+PASS [numeric] lift norm/energy 169
+PASS [numeric] overlap norm/energy 169
+PASS [numeric] overlap parity and dark scalar 169
+PASS [numeric] lift projective trajectory sample 170
+PASS [numeric] lift all ring and effective core currents 170
+PASS [numeric] lift norm/energy 170
+PASS [numeric] overlap norm/energy 170
+PASS [numeric] overlap parity and dark scalar 170
+PASS [numeric] lift projective trajectory sample 171
+PASS [numeric] lift all ring and effective core currents 171
+PASS [numeric] lift norm/energy 171
+PASS [numeric] overlap norm/energy 171
+PASS [numeric] overlap parity and dark scalar 171
+PASS [numeric] lift projective trajectory sample 172
+PASS [numeric] lift all ring and effective core currents 172
+PASS [numeric] lift norm/energy 172
+PASS [numeric] overlap norm/energy 172
+PASS [numeric] overlap parity and dark scalar 172
+PASS [numeric] lift projective trajectory sample 173
+PASS [numeric] lift all ring and effective core currents 173
+PASS [numeric] lift norm/energy 173
+PASS [numeric] overlap norm/energy 173
+PASS [numeric] overlap parity and dark scalar 173
+PASS [numeric] lift projective trajectory sample 174
+PASS [numeric] lift all ring and effective core currents 174
+PASS [numeric] lift norm/energy 174
+PASS [numeric] overlap norm/energy 174
+PASS [numeric] overlap parity and dark scalar 174
+PASS [numeric] lift projective trajectory sample 175
+PASS [numeric] lift all ring and effective core currents 175
+PASS [numeric] lift norm/energy 175
+PASS [numeric] overlap norm/energy 175
+PASS [numeric] overlap parity and dark scalar 175
+PASS [numeric] lift projective trajectory sample 176
+PASS [numeric] lift all ring and effective core currents 176
+PASS [numeric] lift norm/energy 176
+PASS [numeric] overlap norm/energy 176
+PASS [numeric] overlap parity and dark scalar 176
+PASS [numeric] lift projective trajectory sample 177
+PASS [numeric] lift all ring and effective core currents 177
+PASS [numeric] lift norm/energy 177
+PASS [numeric] overlap norm/energy 177
+PASS [numeric] overlap parity and dark scalar 177
+PASS [numeric] lift projective trajectory sample 178
+PASS [numeric] lift all ring and effective core currents 178
+PASS [numeric] lift norm/energy 178
+PASS [numeric] overlap norm/energy 178
+PASS [numeric] overlap parity and dark scalar 178
+PASS [numeric] lift projective trajectory sample 179
+PASS [numeric] lift all ring and effective core currents 179
+PASS [numeric] lift norm/energy 179
+PASS [numeric] overlap norm/energy 179
+PASS [numeric] overlap parity and dark scalar 179
+PASS [numeric] lift projective trajectory sample 180
+PASS [numeric] lift all ring and effective core currents 180
+PASS [numeric] lift norm/energy 180
+PASS [numeric] overlap norm/energy 180
+PASS [numeric] overlap parity and dark scalar 180
+PASS [numeric] lift projective trajectory sample 181
+PASS [numeric] lift all ring and effective core currents 181
+PASS [numeric] lift norm/energy 181
+PASS [numeric] overlap norm/energy 181
+PASS [numeric] overlap parity and dark scalar 181
+PASS [numeric] lift projective trajectory sample 182
+PASS [numeric] lift all ring and effective core currents 182
+PASS [numeric] lift norm/energy 182
+PASS [numeric] overlap norm/energy 182
+PASS [numeric] overlap parity and dark scalar 182
+PASS [numeric] lift projective trajectory sample 183
+PASS [numeric] lift all ring and effective core currents 183
+PASS [numeric] lift norm/energy 183
+PASS [numeric] overlap norm/energy 183
+PASS [numeric] overlap parity and dark scalar 183
+PASS [numeric] lift projective trajectory sample 184
+PASS [numeric] lift all ring and effective core currents 184
+PASS [numeric] lift norm/energy 184
+PASS [numeric] overlap norm/energy 184
+PASS [numeric] overlap parity and dark scalar 184
+PASS [numeric] lift projective trajectory sample 185
+PASS [numeric] lift all ring and effective core currents 185
+PASS [numeric] lift norm/energy 185
+PASS [numeric] overlap norm/energy 185
+PASS [numeric] overlap parity and dark scalar 185
+PASS [numeric] lift projective trajectory sample 186
+PASS [numeric] lift all ring and effective core currents 186
+PASS [numeric] lift norm/energy 186
+PASS [numeric] overlap norm/energy 186
+PASS [numeric] overlap parity and dark scalar 186
+PASS [numeric] lift projective trajectory sample 187
+PASS [numeric] lift all ring and effective core currents 187
+PASS [numeric] lift norm/energy 187
+PASS [numeric] overlap norm/energy 187
+PASS [numeric] overlap parity and dark scalar 187
+PASS [numeric] lift projective trajectory sample 188
+PASS [numeric] lift all ring and effective core currents 188
+PASS [numeric] lift norm/energy 188
+PASS [numeric] overlap norm/energy 188
+PASS [numeric] overlap parity and dark scalar 188
+PASS [numeric] lift projective trajectory sample 189
+PASS [numeric] lift all ring and effective core currents 189
+PASS [numeric] lift norm/energy 189
+PASS [numeric] overlap norm/energy 189
+PASS [numeric] overlap parity and dark scalar 189
+PASS [numeric] lift projective trajectory sample 190
+PASS [numeric] lift all ring and effective core currents 190
+PASS [numeric] lift norm/energy 190
+PASS [numeric] overlap norm/energy 190
+PASS [numeric] overlap parity and dark scalar 190
+PASS [numeric] lift projective trajectory sample 191
+PASS [numeric] lift all ring and effective core currents 191
+PASS [numeric] lift norm/energy 191
+PASS [numeric] overlap norm/energy 191
+PASS [numeric] overlap parity and dark scalar 191
+PASS [numeric] lift projective trajectory sample 192
+PASS [numeric] lift all ring and effective core currents 192
+PASS [numeric] lift norm/energy 192
+PASS [numeric] overlap norm/energy 192
+PASS [numeric] overlap parity and dark scalar 192
+PASS [numeric] lift projective trajectory sample 193
+PASS [numeric] lift all ring and effective core currents 193
+PASS [numeric] lift norm/energy 193
+PASS [numeric] overlap norm/energy 193
+PASS [numeric] overlap parity and dark scalar 193
+PASS [numeric] lift projective trajectory sample 194
+PASS [numeric] lift all ring and effective core currents 194
+PASS [numeric] lift norm/energy 194
+PASS [numeric] overlap norm/energy 194
+PASS [numeric] overlap parity and dark scalar 194
+PASS [numeric] lift projective trajectory sample 195
+PASS [numeric] lift all ring and effective core currents 195
+PASS [numeric] lift norm/energy 195
+PASS [numeric] overlap norm/energy 195
+PASS [numeric] overlap parity and dark scalar 195
+PASS [numeric] lift projective trajectory sample 196
+PASS [numeric] lift all ring and effective core currents 196
+PASS [numeric] lift norm/energy 196
+PASS [numeric] overlap norm/energy 196
+PASS [numeric] overlap parity and dark scalar 196
+PASS [numeric] lift projective trajectory sample 197
+PASS [numeric] lift all ring and effective core currents 197
+PASS [numeric] lift norm/energy 197
+PASS [numeric] overlap norm/energy 197
+PASS [numeric] overlap parity and dark scalar 197
+PASS [numeric] lift projective trajectory sample 198
+PASS [numeric] lift all ring and effective core currents 198
+PASS [numeric] lift norm/energy 198
+PASS [numeric] overlap norm/energy 198
+PASS [numeric] overlap parity and dark scalar 198
+PASS [numeric] lift projective trajectory sample 199
+PASS [numeric] lift all ring and effective core currents 199
+PASS [numeric] lift norm/energy 199
+PASS [numeric] overlap norm/energy 199
+PASS [numeric] overlap parity and dark scalar 199
+PASS [numeric] lift projective trajectory sample 200
+PASS [numeric] lift all ring and effective core currents 200
+PASS [numeric] lift norm/energy 200
+PASS [numeric] overlap norm/energy 200
+PASS [numeric] overlap parity and dark scalar 200
+PASS [numeric] lift projective trajectory sample 201
+PASS [numeric] lift all ring and effective core currents 201
+PASS [numeric] lift norm/energy 201
+PASS [numeric] overlap norm/energy 201
+PASS [numeric] overlap parity and dark scalar 201
+PASS [numeric] lift projective trajectory sample 202
+PASS [numeric] lift all ring and effective core currents 202
+PASS [numeric] lift norm/energy 202
+PASS [numeric] overlap norm/energy 202
+PASS [numeric] overlap parity and dark scalar 202
+PASS [numeric] lift projective trajectory sample 203
+PASS [numeric] lift all ring and effective core currents 203
+PASS [numeric] lift norm/energy 203
+PASS [numeric] overlap norm/energy 203
+PASS [numeric] overlap parity and dark scalar 203
+PASS [numeric] lift projective trajectory sample 204
+PASS [numeric] lift all ring and effective core currents 204
+PASS [numeric] lift norm/energy 204
+PASS [numeric] overlap norm/energy 204
+PASS [numeric] overlap parity and dark scalar 204
+PASS [numeric] lift projective trajectory sample 205
+PASS [numeric] lift all ring and effective core currents 205
+PASS [numeric] lift norm/energy 205
+PASS [numeric] overlap norm/energy 205
+PASS [numeric] overlap parity and dark scalar 205
+PASS [numeric] lift projective trajectory sample 206
+PASS [numeric] lift all ring and effective core currents 206
+PASS [numeric] lift norm/energy 206
+PASS [numeric] overlap norm/energy 206
+PASS [numeric] overlap parity and dark scalar 206
+PASS [numeric] lift projective trajectory sample 207
+PASS [numeric] lift all ring and effective core currents 207
+PASS [numeric] lift norm/energy 207
+PASS [numeric] overlap norm/energy 207
+PASS [numeric] overlap parity and dark scalar 207
+PASS [numeric] lift projective trajectory sample 208
+PASS [numeric] lift all ring and effective core currents 208
+PASS [numeric] lift norm/energy 208
+PASS [numeric] overlap norm/energy 208
+PASS [numeric] overlap parity and dark scalar 208
+PASS [numeric] lift projective trajectory sample 209
+PASS [numeric] lift all ring and effective core currents 209
+PASS [numeric] lift norm/energy 209
+PASS [numeric] overlap norm/energy 209
+PASS [numeric] overlap parity and dark scalar 209
+PASS [numeric] lift projective trajectory sample 210
+PASS [numeric] lift all ring and effective core currents 210
+PASS [numeric] lift norm/energy 210
+PASS [numeric] overlap norm/energy 210
+PASS [numeric] overlap parity and dark scalar 210
+PASS [numeric] lift projective trajectory sample 211
+PASS [numeric] lift all ring and effective core currents 211
+PASS [numeric] lift norm/energy 211
+PASS [numeric] overlap norm/energy 211
+PASS [numeric] overlap parity and dark scalar 211
+PASS [numeric] lift projective trajectory sample 212
+PASS [numeric] lift all ring and effective core currents 212
+PASS [numeric] lift norm/energy 212
+PASS [numeric] overlap norm/energy 212
+PASS [numeric] overlap parity and dark scalar 212
+PASS [numeric] lift projective trajectory sample 213
+PASS [numeric] lift all ring and effective core currents 213
+PASS [numeric] lift norm/energy 213
+PASS [numeric] overlap norm/energy 213
+PASS [numeric] overlap parity and dark scalar 213
+PASS [numeric] lift projective trajectory sample 214
+PASS [numeric] lift all ring and effective core currents 214
+PASS [numeric] lift norm/energy 214
+PASS [numeric] overlap norm/energy 214
+PASS [numeric] overlap parity and dark scalar 214
+PASS [numeric] lift projective trajectory sample 215
+PASS [numeric] lift all ring and effective core currents 215
+PASS [numeric] lift norm/energy 215
+PASS [numeric] overlap norm/energy 215
+PASS [numeric] overlap parity and dark scalar 215
+PASS [numeric] lift projective trajectory sample 216
+PASS [numeric] lift all ring and effective core currents 216
+PASS [numeric] lift norm/energy 216
+PASS [numeric] overlap norm/energy 216
+PASS [numeric] overlap parity and dark scalar 216
+PASS [numeric] lift projective trajectory sample 217
+PASS [numeric] lift all ring and effective core currents 217
+PASS [numeric] lift norm/energy 217
+PASS [numeric] overlap norm/energy 217
+PASS [numeric] overlap parity and dark scalar 217
+PASS [numeric] lift projective trajectory sample 218
+PASS [numeric] lift all ring and effective core currents 218
+PASS [numeric] lift norm/energy 218
+PASS [numeric] overlap norm/energy 218
+PASS [numeric] overlap parity and dark scalar 218
+PASS [numeric] lift projective trajectory sample 219
+PASS [numeric] lift all ring and effective core currents 219
+PASS [numeric] lift norm/energy 219
+PASS [numeric] overlap norm/energy 219
+PASS [numeric] overlap parity and dark scalar 219
+PASS [numeric] lift projective trajectory sample 220
+PASS [numeric] lift all ring and effective core currents 220
+PASS [numeric] lift norm/energy 220
+PASS [numeric] overlap norm/energy 220
+PASS [numeric] overlap parity and dark scalar 220
+PASS [numeric] lift projective trajectory sample 221
+PASS [numeric] lift all ring and effective core currents 221
+PASS [numeric] lift norm/energy 221
+PASS [numeric] overlap norm/energy 221
+PASS [numeric] overlap parity and dark scalar 221
+PASS [numeric] lift projective trajectory sample 222
+PASS [numeric] lift all ring and effective core currents 222
+PASS [numeric] lift norm/energy 222
+PASS [numeric] overlap norm/energy 222
+PASS [numeric] overlap parity and dark scalar 222
+PASS [numeric] lift projective trajectory sample 223
+PASS [numeric] lift all ring and effective core currents 223
+PASS [numeric] lift norm/energy 223
+PASS [numeric] overlap norm/energy 223
+PASS [numeric] overlap parity and dark scalar 223
+PASS [numeric] lift projective trajectory sample 224
+PASS [numeric] lift all ring and effective core currents 224
+PASS [numeric] lift norm/energy 224
+PASS [numeric] overlap norm/energy 224
+PASS [numeric] overlap parity and dark scalar 224
+PASS [numeric] lift projective trajectory sample 225
+PASS [numeric] lift all ring and effective core currents 225
+PASS [numeric] lift norm/energy 225
+PASS [numeric] overlap norm/energy 225
+PASS [numeric] overlap parity and dark scalar 225
+PASS [numeric] lift projective trajectory sample 226
+PASS [numeric] lift all ring and effective core currents 226
+PASS [numeric] lift norm/energy 226
+PASS [numeric] overlap norm/energy 226
+PASS [numeric] overlap parity and dark scalar 226
+PASS [numeric] lift projective trajectory sample 227
+PASS [numeric] lift all ring and effective core currents 227
+PASS [numeric] lift norm/energy 227
+PASS [numeric] overlap norm/energy 227
+PASS [numeric] overlap parity and dark scalar 227
+PASS [numeric] lift projective trajectory sample 228
+PASS [numeric] lift all ring and effective core currents 228
+PASS [numeric] lift norm/energy 228
+PASS [numeric] overlap norm/energy 228
+PASS [numeric] overlap parity and dark scalar 228
+PASS [numeric] lift projective trajectory sample 229
+PASS [numeric] lift all ring and effective core currents 229
+PASS [numeric] lift norm/energy 229
+PASS [numeric] overlap norm/energy 229
+PASS [numeric] overlap parity and dark scalar 229
+PASS [numeric] lift projective trajectory sample 230
+PASS [numeric] lift all ring and effective core currents 230
+PASS [numeric] lift norm/energy 230
+PASS [numeric] overlap norm/energy 230
+PASS [numeric] overlap parity and dark scalar 230
+PASS [numeric] lift projective trajectory sample 231
+PASS [numeric] lift all ring and effective core currents 231
+PASS [numeric] lift norm/energy 231
+PASS [numeric] overlap norm/energy 231
+PASS [numeric] overlap parity and dark scalar 231
+PASS [numeric] lift projective trajectory sample 232
+PASS [numeric] lift all ring and effective core currents 232
+PASS [numeric] lift norm/energy 232
+PASS [numeric] overlap norm/energy 232
+PASS [numeric] overlap parity and dark scalar 232
+PASS [numeric] lift projective trajectory sample 233
+PASS [numeric] lift all ring and effective core currents 233
+PASS [numeric] lift norm/energy 233
+PASS [numeric] overlap norm/energy 233
+PASS [numeric] overlap parity and dark scalar 233
+PASS [numeric] lift projective trajectory sample 234
+PASS [numeric] lift all ring and effective core currents 234
+PASS [numeric] lift norm/energy 234
+PASS [numeric] overlap norm/energy 234
+PASS [numeric] overlap parity and dark scalar 234
+PASS [numeric] lift projective trajectory sample 235
+PASS [numeric] lift all ring and effective core currents 235
+PASS [numeric] lift norm/energy 235
+PASS [numeric] overlap norm/energy 235
+PASS [numeric] overlap parity and dark scalar 235
+PASS [numeric] lift projective trajectory sample 236
+PASS [numeric] lift all ring and effective core currents 236
+PASS [numeric] lift norm/energy 236
+PASS [numeric] overlap norm/energy 236
+PASS [numeric] overlap parity and dark scalar 236
+PASS [numeric] lift projective trajectory sample 237
+PASS [numeric] lift all ring and effective core currents 237
+PASS [numeric] lift norm/energy 237
+PASS [numeric] overlap norm/energy 237
+PASS [numeric] overlap parity and dark scalar 237
+PASS [numeric] lift projective trajectory sample 238
+PASS [numeric] lift all ring and effective core currents 238
+PASS [numeric] lift norm/energy 238
+PASS [numeric] overlap norm/energy 238
+PASS [numeric] overlap parity and dark scalar 238
+PASS [numeric] lift projective trajectory sample 239
+PASS [numeric] lift all ring and effective core currents 239
+PASS [numeric] lift norm/energy 239
+PASS [numeric] overlap norm/energy 239
+PASS [numeric] overlap parity and dark scalar 239
+PASS [numeric] lift projective trajectory sample 240
+PASS [numeric] lift all ring and effective core currents 240
+PASS [numeric] lift norm/energy 240
+PASS [numeric] overlap norm/energy 240
+PASS [numeric] overlap parity and dark scalar 240
+PASS [numeric] lift projective trajectory sample 241
+PASS [numeric] lift all ring and effective core currents 241
+PASS [numeric] lift norm/energy 241
+PASS [numeric] overlap norm/energy 241
+PASS [numeric] overlap parity and dark scalar 241
+PASS [numeric] lift projective trajectory sample 242
+PASS [numeric] lift all ring and effective core currents 242
+PASS [numeric] lift norm/energy 242
+PASS [numeric] overlap norm/energy 242
+PASS [numeric] overlap parity and dark scalar 242
+PASS [numeric] lift projective trajectory sample 243
+PASS [numeric] lift all ring and effective core currents 243
+PASS [numeric] lift norm/energy 243
+PASS [numeric] overlap norm/energy 243
+PASS [numeric] overlap parity and dark scalar 243
+PASS [numeric] lift projective trajectory sample 244
+PASS [numeric] lift all ring and effective core currents 244
+PASS [numeric] lift norm/energy 244
+PASS [numeric] overlap norm/energy 244
+PASS [numeric] overlap parity and dark scalar 244
+PASS [numeric] lift projective trajectory sample 245
+PASS [numeric] lift all ring and effective core currents 245
+PASS [numeric] lift norm/energy 245
+PASS [numeric] overlap norm/energy 245
+PASS [numeric] overlap parity and dark scalar 245
+PASS [numeric] lift projective trajectory sample 246
+PASS [numeric] lift all ring and effective core currents 246
+PASS [numeric] lift norm/energy 246
+PASS [numeric] overlap norm/energy 246
+PASS [numeric] overlap parity and dark scalar 246
+PASS [numeric] lift projective trajectory sample 247
+PASS [numeric] lift all ring and effective core currents 247
+PASS [numeric] lift norm/energy 247
+PASS [numeric] overlap norm/energy 247
+PASS [numeric] overlap parity and dark scalar 247
+PASS [numeric] lift projective trajectory sample 248
+PASS [numeric] lift all ring and effective core currents 248
+PASS [numeric] lift norm/energy 248
+PASS [numeric] overlap norm/energy 248
+PASS [numeric] overlap parity and dark scalar 248
+PASS [numeric] lift projective trajectory sample 249
+PASS [numeric] lift all ring and effective core currents 249
+PASS [numeric] lift norm/energy 249
+PASS [numeric] overlap norm/energy 249
+PASS [numeric] overlap parity and dark scalar 249
+PASS [numeric] lift projective trajectory sample 250
+PASS [numeric] lift all ring and effective core currents 250
+PASS [numeric] lift norm/energy 250
+PASS [numeric] overlap norm/energy 250
+PASS [numeric] overlap parity and dark scalar 250
+PASS [numeric] lift projective trajectory sample 251
+PASS [numeric] lift all ring and effective core currents 251
+PASS [numeric] lift norm/energy 251
+PASS [numeric] overlap norm/energy 251
+PASS [numeric] overlap parity and dark scalar 251
+PASS [numeric] lift projective trajectory sample 252
+PASS [numeric] lift all ring and effective core currents 252
+PASS [numeric] lift norm/energy 252
+PASS [numeric] overlap norm/energy 252
+PASS [numeric] overlap parity and dark scalar 252
+PASS [numeric] lift projective trajectory sample 253
+PASS [numeric] lift all ring and effective core currents 253
+PASS [numeric] lift norm/energy 253
+PASS [numeric] overlap norm/energy 253
+PASS [numeric] overlap parity and dark scalar 253
+PASS [numeric] lift projective trajectory sample 254
+PASS [numeric] lift all ring and effective core currents 254
+PASS [numeric] lift norm/energy 254
+PASS [numeric] overlap norm/energy 254
+PASS [numeric] overlap parity and dark scalar 254
+PASS [numeric] lift projective trajectory sample 255
+PASS [numeric] lift all ring and effective core currents 255
+PASS [numeric] lift norm/energy 255
+PASS [numeric] overlap norm/energy 255
+PASS [numeric] overlap parity and dark scalar 255
+PASS [numeric] lift projective trajectory sample 256
+PASS [numeric] lift all ring and effective core currents 256
+PASS [numeric] lift norm/energy 256
+PASS [numeric] overlap norm/energy 256
+PASS [numeric] overlap parity and dark scalar 256
+PASS [numeric] lift projective trajectory sample 257
+PASS [numeric] lift all ring and effective core currents 257
+PASS [numeric] lift norm/energy 257
+PASS [numeric] overlap norm/energy 257
+PASS [numeric] overlap parity and dark scalar 257
+PASS [numeric] lift projective trajectory sample 258
+PASS [numeric] lift all ring and effective core currents 258
+PASS [numeric] lift norm/energy 258
+PASS [numeric] overlap norm/energy 258
+PASS [numeric] overlap parity and dark scalar 258
+PASS [numeric] lift projective trajectory sample 259
+PASS [numeric] lift all ring and effective core currents 259
+PASS [numeric] lift norm/energy 259
+PASS [numeric] overlap norm/energy 259
+PASS [numeric] overlap parity and dark scalar 259
+PASS [numeric] lift projective trajectory sample 260
+PASS [numeric] lift all ring and effective core currents 260
+PASS [numeric] lift norm/energy 260
+PASS [numeric] overlap norm/energy 260
+PASS [numeric] overlap parity and dark scalar 260
+PASS [numeric] lift projective trajectory sample 261
+PASS [numeric] lift all ring and effective core currents 261
+PASS [numeric] lift norm/energy 261
+PASS [numeric] overlap norm/energy 261
+PASS [numeric] overlap parity and dark scalar 261
+PASS [numeric] lift projective trajectory sample 262
+PASS [numeric] lift all ring and effective core currents 262
+PASS [numeric] lift norm/energy 262
+PASS [numeric] overlap norm/energy 262
+PASS [numeric] overlap parity and dark scalar 262
+PASS [numeric] lift projective trajectory sample 263
+PASS [numeric] lift all ring and effective core currents 263
+PASS [numeric] lift norm/energy 263
+PASS [numeric] overlap norm/energy 263
+PASS [numeric] overlap parity and dark scalar 263
+PASS [numeric] lift projective trajectory sample 264
+PASS [numeric] lift all ring and effective core currents 264
+PASS [numeric] lift norm/energy 264
+PASS [numeric] overlap norm/energy 264
+PASS [numeric] overlap parity and dark scalar 264
+PASS [numeric] lift projective trajectory sample 265
+PASS [numeric] lift all ring and effective core currents 265
+PASS [numeric] lift norm/energy 265
+PASS [numeric] overlap norm/energy 265
+PASS [numeric] overlap parity and dark scalar 265
+PASS [numeric] lift projective trajectory sample 266
+PASS [numeric] lift all ring and effective core currents 266
+PASS [numeric] lift norm/energy 266
+PASS [numeric] overlap norm/energy 266
+PASS [numeric] overlap parity and dark scalar 266
+PASS [numeric] lift projective trajectory sample 267
+PASS [numeric] lift all ring and effective core currents 267
+PASS [numeric] lift norm/energy 267
+PASS [numeric] overlap norm/energy 267
+PASS [numeric] overlap parity and dark scalar 267
+PASS [numeric] lift projective trajectory sample 268
+PASS [numeric] lift all ring and effective core currents 268
+PASS [numeric] lift norm/energy 268
+PASS [numeric] overlap norm/energy 268
+PASS [numeric] overlap parity and dark scalar 268
+PASS [numeric] lift projective trajectory sample 269
+PASS [numeric] lift all ring and effective core currents 269
+PASS [numeric] lift norm/energy 269
+PASS [numeric] overlap norm/energy 269
+PASS [numeric] overlap parity and dark scalar 269
+PASS [numeric] lift projective trajectory sample 270
+PASS [numeric] lift all ring and effective core currents 270
+PASS [numeric] lift norm/energy 270
+PASS [numeric] overlap norm/energy 270
+PASS [numeric] overlap parity and dark scalar 270
+PASS [numeric] lift projective trajectory sample 271
+PASS [numeric] lift all ring and effective core currents 271
+PASS [numeric] lift norm/energy 271
+PASS [numeric] overlap norm/energy 271
+PASS [numeric] overlap parity and dark scalar 271
+PASS [numeric] lift projective trajectory sample 272
+PASS [numeric] lift all ring and effective core currents 272
+PASS [numeric] lift norm/energy 272
+PASS [numeric] overlap norm/energy 272
+PASS [numeric] overlap parity and dark scalar 272
+PASS [numeric] lift projective trajectory sample 273
+PASS [numeric] lift all ring and effective core currents 273
+PASS [numeric] lift norm/energy 273
+PASS [numeric] overlap norm/energy 273
+PASS [numeric] overlap parity and dark scalar 273
+PASS [numeric] lift projective trajectory sample 274
+PASS [numeric] lift all ring and effective core currents 274
+PASS [numeric] lift norm/energy 274
+PASS [numeric] overlap norm/energy 274
+PASS [numeric] overlap parity and dark scalar 274
+PASS [numeric] lift projective trajectory sample 275
+PASS [numeric] lift all ring and effective core currents 275
+PASS [numeric] lift norm/energy 275
+PASS [numeric] overlap norm/energy 275
+PASS [numeric] overlap parity and dark scalar 275
+PASS [numeric] lift projective trajectory sample 276
+PASS [numeric] lift all ring and effective core currents 276
+PASS [numeric] lift norm/energy 276
+PASS [numeric] overlap norm/energy 276
+PASS [numeric] overlap parity and dark scalar 276
+PASS [numeric] lift projective trajectory sample 277
+PASS [numeric] lift all ring and effective core currents 277
+PASS [numeric] lift norm/energy 277
+PASS [numeric] overlap norm/energy 277
+PASS [numeric] overlap parity and dark scalar 277
+PASS [numeric] lift projective trajectory sample 278
+PASS [numeric] lift all ring and effective core currents 278
+PASS [numeric] lift norm/energy 278
+PASS [numeric] overlap norm/energy 278
+PASS [numeric] overlap parity and dark scalar 278
+PASS [numeric] lift projective trajectory sample 279
+PASS [numeric] lift all ring and effective core currents 279
+PASS [numeric] lift norm/energy 279
+PASS [numeric] overlap norm/energy 279
+PASS [numeric] overlap parity and dark scalar 279
+PASS [numeric] lift projective trajectory sample 280
+PASS [numeric] lift all ring and effective core currents 280
+PASS [numeric] lift norm/energy 280
+PASS [numeric] overlap norm/energy 280
+PASS [numeric] overlap parity and dark scalar 280
+PASS [numeric] lift projective trajectory sample 281
+PASS [numeric] lift all ring and effective core currents 281
+PASS [numeric] lift norm/energy 281
+PASS [numeric] overlap norm/energy 281
+PASS [numeric] overlap parity and dark scalar 281
+PASS [numeric] lift projective trajectory sample 282
+PASS [numeric] lift all ring and effective core currents 282
+PASS [numeric] lift norm/energy 282
+PASS [numeric] overlap norm/energy 282
+PASS [numeric] overlap parity and dark scalar 282
+PASS [numeric] lift projective trajectory sample 283
+PASS [numeric] lift all ring and effective core currents 283
+PASS [numeric] lift norm/energy 283
+PASS [numeric] overlap norm/energy 283
+PASS [numeric] overlap parity and dark scalar 283
+PASS [numeric] lift projective trajectory sample 284
+PASS [numeric] lift all ring and effective core currents 284
+PASS [numeric] lift norm/energy 284
+PASS [numeric] overlap norm/energy 284
+PASS [numeric] overlap parity and dark scalar 284
+PASS [numeric] lift projective trajectory sample 285
+PASS [numeric] lift all ring and effective core currents 285
+PASS [numeric] lift norm/energy 285
+PASS [numeric] overlap norm/energy 285
+PASS [numeric] overlap parity and dark scalar 285
+PASS [numeric] lift projective trajectory sample 286
+PASS [numeric] lift all ring and effective core currents 286
+PASS [numeric] lift norm/energy 286
+PASS [numeric] overlap norm/energy 286
+PASS [numeric] overlap parity and dark scalar 286
+PASS [numeric] lift projective trajectory sample 287
+PASS [numeric] lift all ring and effective core currents 287
+PASS [numeric] lift norm/energy 287
+PASS [numeric] overlap norm/energy 287
+PASS [numeric] overlap parity and dark scalar 287
+PASS [numeric] lift projective trajectory sample 288
+PASS [numeric] lift all ring and effective core currents 288
+PASS [numeric] lift norm/energy 288
+PASS [numeric] overlap norm/energy 288
+PASS [numeric] overlap parity and dark scalar 288
+PASS [numeric] lift projective trajectory sample 289
+PASS [numeric] lift all ring and effective core currents 289
+PASS [numeric] lift norm/energy 289
+PASS [numeric] overlap norm/energy 289
+PASS [numeric] overlap parity and dark scalar 289
+PASS [numeric] lift projective trajectory sample 290
+PASS [numeric] lift all ring and effective core currents 290
+PASS [numeric] lift norm/energy 290
+PASS [numeric] overlap norm/energy 290
+PASS [numeric] overlap parity and dark scalar 290
+PASS [numeric] lift projective trajectory sample 291
+PASS [numeric] lift all ring and effective core currents 291
+PASS [numeric] lift norm/energy 291
+PASS [numeric] overlap norm/energy 291
+PASS [numeric] overlap parity and dark scalar 291
+PASS [numeric] lift projective trajectory sample 292
+PASS [numeric] lift all ring and effective core currents 292
+PASS [numeric] lift norm/energy 292
+PASS [numeric] overlap norm/energy 292
+PASS [numeric] overlap parity and dark scalar 292
+PASS [numeric] lift projective trajectory sample 293
+PASS [numeric] lift all ring and effective core currents 293
+PASS [numeric] lift norm/energy 293
+PASS [numeric] overlap norm/energy 293
+PASS [numeric] overlap parity and dark scalar 293
+PASS [numeric] lift projective trajectory sample 294
+PASS [numeric] lift all ring and effective core currents 294
+PASS [numeric] lift norm/energy 294
+PASS [numeric] overlap norm/energy 294
+PASS [numeric] overlap parity and dark scalar 294
+PASS [numeric] lift projective trajectory sample 295
+PASS [numeric] lift all ring and effective core currents 295
+PASS [numeric] lift norm/energy 295
+PASS [numeric] overlap norm/energy 295
+PASS [numeric] overlap parity and dark scalar 295
+PASS [numeric] lift projective trajectory sample 296
+PASS [numeric] lift all ring and effective core currents 296
+PASS [numeric] lift norm/energy 296
+PASS [numeric] overlap norm/energy 296
+PASS [numeric] overlap parity and dark scalar 296
+PASS [numeric] lift projective trajectory sample 297
+PASS [numeric] lift all ring and effective core currents 297
+PASS [numeric] lift norm/energy 297
+PASS [numeric] overlap norm/energy 297
+PASS [numeric] overlap parity and dark scalar 297
+PASS [numeric] lift projective trajectory sample 298
+PASS [numeric] lift all ring and effective core currents 298
+PASS [numeric] lift norm/energy 298
+PASS [numeric] overlap norm/energy 298
+PASS [numeric] overlap parity and dark scalar 298
+PASS [numeric] lift projective trajectory sample 299
+PASS [numeric] lift all ring and effective core currents 299
+PASS [numeric] lift norm/energy 299
+PASS [numeric] overlap norm/energy 299
+PASS [numeric] overlap parity and dark scalar 299
+PASS [numeric] lift projective trajectory sample 300
+PASS [numeric] lift all ring and effective core currents 300
+PASS [numeric] lift norm/energy 300
+PASS [numeric] overlap norm/energy 300
+PASS [numeric] overlap parity and dark scalar 300
+PASS [numeric] lift projective trajectory sample 301
+PASS [numeric] lift all ring and effective core currents 301
+PASS [numeric] lift norm/energy 301
+PASS [numeric] overlap norm/energy 301
+PASS [numeric] overlap parity and dark scalar 301
+PASS [numeric] lift projective trajectory sample 302
+PASS [numeric] lift all ring and effective core currents 302
+PASS [numeric] lift norm/energy 302
+PASS [numeric] overlap norm/energy 302
+PASS [numeric] overlap parity and dark scalar 302
+PASS [numeric] lift projective trajectory sample 303
+PASS [numeric] lift all ring and effective core currents 303
+PASS [numeric] lift norm/energy 303
+PASS [numeric] overlap norm/energy 303
+PASS [numeric] overlap parity and dark scalar 303
+PASS [numeric] lift projective trajectory sample 304
+PASS [numeric] lift all ring and effective core currents 304
+PASS [numeric] lift norm/energy 304
+PASS [numeric] overlap norm/energy 304
+PASS [numeric] overlap parity and dark scalar 304
+PASS [numeric] lift projective trajectory sample 305
+PASS [numeric] lift all ring and effective core currents 305
+PASS [numeric] lift norm/energy 305
+PASS [numeric] overlap norm/energy 305
+PASS [numeric] overlap parity and dark scalar 305
+PASS [numeric] lift projective trajectory sample 306
+PASS [numeric] lift all ring and effective core currents 306
+PASS [numeric] lift norm/energy 306
+PASS [numeric] overlap norm/energy 306
+PASS [numeric] overlap parity and dark scalar 306
+PASS [numeric] lift projective trajectory sample 307
+PASS [numeric] lift all ring and effective core currents 307
+PASS [numeric] lift norm/energy 307
+PASS [numeric] overlap norm/energy 307
+PASS [numeric] overlap parity and dark scalar 307
+PASS [numeric] lift projective trajectory sample 308
+PASS [numeric] lift all ring and effective core currents 308
+PASS [numeric] lift norm/energy 308
+PASS [numeric] overlap norm/energy 308
+PASS [numeric] overlap parity and dark scalar 308
+PASS [numeric] lift projective trajectory sample 309
+PASS [numeric] lift all ring and effective core currents 309
+PASS [numeric] lift norm/energy 309
+PASS [numeric] overlap norm/energy 309
+PASS [numeric] overlap parity and dark scalar 309
+PASS [numeric] lift projective trajectory sample 310
+PASS [numeric] lift all ring and effective core currents 310
+PASS [numeric] lift norm/energy 310
+PASS [numeric] overlap norm/energy 310
+PASS [numeric] overlap parity and dark scalar 310
+PASS [numeric] lift projective trajectory sample 311
+PASS [numeric] lift all ring and effective core currents 311
+PASS [numeric] lift norm/energy 311
+PASS [numeric] overlap norm/energy 311
+PASS [numeric] overlap parity and dark scalar 311
+PASS [numeric] lift projective trajectory sample 312
+PASS [numeric] lift all ring and effective core currents 312
+PASS [numeric] lift norm/energy 312
+PASS [numeric] overlap norm/energy 312
+PASS [numeric] overlap parity and dark scalar 312
+PASS [numeric] lift projective trajectory sample 313
+PASS [numeric] lift all ring and effective core currents 313
+PASS [numeric] lift norm/energy 313
+PASS [numeric] overlap norm/energy 313
+PASS [numeric] overlap parity and dark scalar 313
+PASS [numeric] lift projective trajectory sample 314
+PASS [numeric] lift all ring and effective core currents 314
+PASS [numeric] lift norm/energy 314
+PASS [numeric] overlap norm/energy 314
+PASS [numeric] overlap parity and dark scalar 314
+PASS [numeric] lift projective trajectory sample 315
+PASS [numeric] lift all ring and effective core currents 315
+PASS [numeric] lift norm/energy 315
+PASS [numeric] overlap norm/energy 315
+PASS [numeric] overlap parity and dark scalar 315
+PASS [numeric] lift projective trajectory sample 316
+PASS [numeric] lift all ring and effective core currents 316
+PASS [numeric] lift norm/energy 316
+PASS [numeric] overlap norm/energy 316
+PASS [numeric] overlap parity and dark scalar 316
+PASS [numeric] lift projective trajectory sample 317
+PASS [numeric] lift all ring and effective core currents 317
+PASS [numeric] lift norm/energy 317
+PASS [numeric] overlap norm/energy 317
+PASS [numeric] overlap parity and dark scalar 317
+PASS [numeric] lift projective trajectory sample 318
+PASS [numeric] lift all ring and effective core currents 318
+PASS [numeric] lift norm/energy 318
+PASS [numeric] overlap norm/energy 318
+PASS [numeric] overlap parity and dark scalar 318
+PASS [numeric] lift projective trajectory sample 319
+PASS [numeric] lift all ring and effective core currents 319
+PASS [numeric] lift norm/energy 319
+PASS [numeric] overlap norm/energy 319
+PASS [numeric] overlap parity and dark scalar 319
+PASS [numeric] lift projective trajectory sample 320
+PASS [numeric] lift all ring and effective core currents 320
+PASS [numeric] lift norm/energy 320
+PASS [numeric] overlap norm/energy 320
+PASS [numeric] overlap parity and dark scalar 320
+PASS [numeric] lift projective trajectory sample 321
+PASS [numeric] lift all ring and effective core currents 321
+PASS [numeric] lift norm/energy 321
+PASS [numeric] overlap norm/energy 321
+PASS [numeric] overlap parity and dark scalar 321
+PASS [numeric] lift projective trajectory sample 322
+PASS [numeric] lift all ring and effective core currents 322
+PASS [numeric] lift norm/energy 322
+PASS [numeric] overlap norm/energy 322
+PASS [numeric] overlap parity and dark scalar 322
+PASS [numeric] lift projective trajectory sample 323
+PASS [numeric] lift all ring and effective core currents 323
+PASS [numeric] lift norm/energy 323
+PASS [numeric] overlap norm/energy 323
+PASS [numeric] overlap parity and dark scalar 323
+PASS [numeric] lift projective trajectory sample 324
+PASS [numeric] lift all ring and effective core currents 324
+PASS [numeric] lift norm/energy 324
+PASS [numeric] overlap norm/energy 324
+PASS [numeric] overlap parity and dark scalar 324
+PASS [numeric] lift projective trajectory sample 325
+PASS [numeric] lift all ring and effective core currents 325
+PASS [numeric] lift norm/energy 325
+PASS [numeric] overlap norm/energy 325
+PASS [numeric] overlap parity and dark scalar 325
+PASS [numeric] lift projective trajectory sample 326
+PASS [numeric] lift all ring and effective core currents 326
+PASS [numeric] lift norm/energy 326
+PASS [numeric] overlap norm/energy 326
+PASS [numeric] overlap parity and dark scalar 326
+PASS [numeric] lift projective trajectory sample 327
+PASS [numeric] lift all ring and effective core currents 327
+PASS [numeric] lift norm/energy 327
+PASS [numeric] overlap norm/energy 327
+PASS [numeric] overlap parity and dark scalar 327
+PASS [numeric] lift projective trajectory sample 328
+PASS [numeric] lift all ring and effective core currents 328
+PASS [numeric] lift norm/energy 328
+PASS [numeric] overlap norm/energy 328
+PASS [numeric] overlap parity and dark scalar 328
+PASS [numeric] lift projective trajectory sample 329
+PASS [numeric] lift all ring and effective core currents 329
+PASS [numeric] lift norm/energy 329
+PASS [numeric] overlap norm/energy 329
+PASS [numeric] overlap parity and dark scalar 329
+PASS [numeric] lift projective trajectory sample 330
+PASS [numeric] lift all ring and effective core currents 330
+PASS [numeric] lift norm/energy 330
+PASS [numeric] overlap norm/energy 330
+PASS [numeric] overlap parity and dark scalar 330
+PASS [numeric] lift projective trajectory sample 331
+PASS [numeric] lift all ring and effective core currents 331
+PASS [numeric] lift norm/energy 331
+PASS [numeric] overlap norm/energy 331
+PASS [numeric] overlap parity and dark scalar 331
+PASS [numeric] lift projective trajectory sample 332
+PASS [numeric] lift all ring and effective core currents 332
+PASS [numeric] lift norm/energy 332
+PASS [numeric] overlap norm/energy 332
+PASS [numeric] overlap parity and dark scalar 332
+PASS [numeric] lift projective trajectory sample 333
+PASS [numeric] lift all ring and effective core currents 333
+PASS [numeric] lift norm/energy 333
+PASS [numeric] overlap norm/energy 333
+PASS [numeric] overlap parity and dark scalar 333
+PASS [numeric] lift projective trajectory sample 334
+PASS [numeric] lift all ring and effective core currents 334
+PASS [numeric] lift norm/energy 334
+PASS [numeric] overlap norm/energy 334
+PASS [numeric] overlap parity and dark scalar 334
+PASS [numeric] lift projective trajectory sample 335
+PASS [numeric] lift all ring and effective core currents 335
+PASS [numeric] lift norm/energy 335
+PASS [numeric] overlap norm/energy 335
+PASS [numeric] overlap parity and dark scalar 335
+PASS [numeric] lift projective trajectory sample 336
+PASS [numeric] lift all ring and effective core currents 336
+PASS [numeric] lift norm/energy 336
+PASS [numeric] overlap norm/energy 336
+PASS [numeric] overlap parity and dark scalar 336
+PASS [numeric] lift projective trajectory sample 337
+PASS [numeric] lift all ring and effective core currents 337
+PASS [numeric] lift norm/energy 337
+PASS [numeric] overlap norm/energy 337
+PASS [numeric] overlap parity and dark scalar 337
+PASS [numeric] lift projective trajectory sample 338
+PASS [numeric] lift all ring and effective core currents 338
+PASS [numeric] lift norm/energy 338
+PASS [numeric] overlap norm/energy 338
+PASS [numeric] overlap parity and dark scalar 338
+PASS [numeric] lift projective trajectory sample 339
+PASS [numeric] lift all ring and effective core currents 339
+PASS [numeric] lift norm/energy 339
+PASS [numeric] overlap norm/energy 339
+PASS [numeric] overlap parity and dark scalar 339
+PASS [numeric] lift projective trajectory sample 340
+PASS [numeric] lift all ring and effective core currents 340
+PASS [numeric] lift norm/energy 340
+PASS [numeric] overlap norm/energy 340
+PASS [numeric] overlap parity and dark scalar 340
+PASS [numeric] lift projective trajectory sample 341
+PASS [numeric] lift all ring and effective core currents 341
+PASS [numeric] lift norm/energy 341
+PASS [numeric] overlap norm/energy 341
+PASS [numeric] overlap parity and dark scalar 341
+PASS [numeric] lift projective trajectory sample 342
+PASS [numeric] lift all ring and effective core currents 342
+PASS [numeric] lift norm/energy 342
+PASS [numeric] overlap norm/energy 342
+PASS [numeric] overlap parity and dark scalar 342
+PASS [numeric] lift projective trajectory sample 343
+PASS [numeric] lift all ring and effective core currents 343
+PASS [numeric] lift norm/energy 343
+PASS [numeric] overlap norm/energy 343
+PASS [numeric] overlap parity and dark scalar 343
+PASS [numeric] lift projective trajectory sample 344
+PASS [numeric] lift all ring and effective core currents 344
+PASS [numeric] lift norm/energy 344
+PASS [numeric] overlap norm/energy 344
+PASS [numeric] overlap parity and dark scalar 344
+PASS [numeric] lift projective trajectory sample 345
+PASS [numeric] lift all ring and effective core currents 345
+PASS [numeric] lift norm/energy 345
+PASS [numeric] overlap norm/energy 345
+PASS [numeric] overlap parity and dark scalar 345
+PASS [numeric] lift projective trajectory sample 346
+PASS [numeric] lift all ring and effective core currents 346
+PASS [numeric] lift norm/energy 346
+PASS [numeric] overlap norm/energy 346
+PASS [numeric] overlap parity and dark scalar 346
+PASS [numeric] lift projective trajectory sample 347
+PASS [numeric] lift all ring and effective core currents 347
+PASS [numeric] lift norm/energy 347
+PASS [numeric] overlap norm/energy 347
+PASS [numeric] overlap parity and dark scalar 347
+PASS [numeric] lift projective trajectory sample 348
+PASS [numeric] lift all ring and effective core currents 348
+PASS [numeric] lift norm/energy 348
+PASS [numeric] overlap norm/energy 348
+PASS [numeric] overlap parity and dark scalar 348
+PASS [numeric] lift projective trajectory sample 349
+PASS [numeric] lift all ring and effective core currents 349
+PASS [numeric] lift norm/energy 349
+PASS [numeric] overlap norm/energy 349
+PASS [numeric] overlap parity and dark scalar 349
+PASS [numeric] lift projective trajectory sample 350
+PASS [numeric] lift all ring and effective core currents 350
+PASS [numeric] lift norm/energy 350
+PASS [numeric] overlap norm/energy 350
+PASS [numeric] overlap parity and dark scalar 350
+PASS [numeric] lift projective trajectory sample 351
+PASS [numeric] lift all ring and effective core currents 351
+PASS [numeric] lift norm/energy 351
+PASS [numeric] overlap norm/energy 351
+PASS [numeric] overlap parity and dark scalar 351
+PASS [numeric] lift projective trajectory sample 352
+PASS [numeric] lift all ring and effective core currents 352
+PASS [numeric] lift norm/energy 352
+PASS [numeric] overlap norm/energy 352
+PASS [numeric] overlap parity and dark scalar 352
+PASS [numeric] lift projective trajectory sample 353
+PASS [numeric] lift all ring and effective core currents 353
+PASS [numeric] lift norm/energy 353
+PASS [numeric] overlap norm/energy 353
+PASS [numeric] overlap parity and dark scalar 353
+PASS [numeric] lift projective trajectory sample 354
+PASS [numeric] lift all ring and effective core currents 354
+PASS [numeric] lift norm/energy 354
+PASS [numeric] overlap norm/energy 354
+PASS [numeric] overlap parity and dark scalar 354
+PASS [numeric] lift projective trajectory sample 355
+PASS [numeric] lift all ring and effective core currents 355
+PASS [numeric] lift norm/energy 355
+PASS [numeric] overlap norm/energy 355
+PASS [numeric] overlap parity and dark scalar 355
+PASS [numeric] lift projective trajectory sample 356
+PASS [numeric] lift all ring and effective core currents 356
+PASS [numeric] lift norm/energy 356
+PASS [numeric] overlap norm/energy 356
+PASS [numeric] overlap parity and dark scalar 356
+PASS [numeric] lift projective trajectory sample 357
+PASS [numeric] lift all ring and effective core currents 357
+PASS [numeric] lift norm/energy 357
+PASS [numeric] overlap norm/energy 357
+PASS [numeric] overlap parity and dark scalar 357
+PASS [numeric] lift projective trajectory sample 358
+PASS [numeric] lift all ring and effective core currents 358
+PASS [numeric] lift norm/energy 358
+PASS [numeric] overlap norm/energy 358
+PASS [numeric] overlap parity and dark scalar 358
+PASS [numeric] lift projective trajectory sample 359
+PASS [numeric] lift all ring and effective core currents 359
+PASS [numeric] lift norm/energy 359
+PASS [numeric] overlap norm/energy 359
+PASS [numeric] overlap parity and dark scalar 359
+PASS [numeric] lift projective trajectory sample 360
+PASS [numeric] lift all ring and effective core currents 360
+PASS [numeric] lift norm/energy 360
+PASS [numeric] overlap norm/energy 360
+PASS [numeric] overlap parity and dark scalar 360
+PASS [numeric] lift projective trajectory sample 361
+PASS [numeric] lift all ring and effective core currents 361
+PASS [numeric] lift norm/energy 361
+PASS [numeric] overlap norm/energy 361
+PASS [numeric] overlap parity and dark scalar 361
+PASS [numeric] lift projective trajectory sample 362
+PASS [numeric] lift all ring and effective core currents 362
+PASS [numeric] lift norm/energy 362
+PASS [numeric] overlap norm/energy 362
+PASS [numeric] overlap parity and dark scalar 362
+PASS [numeric] lift projective trajectory sample 363
+PASS [numeric] lift all ring and effective core currents 363
+PASS [numeric] lift norm/energy 363
+PASS [numeric] overlap norm/energy 363
+PASS [numeric] overlap parity and dark scalar 363
+PASS [numeric] lift projective trajectory sample 364
+PASS [numeric] lift all ring and effective core currents 364
+PASS [numeric] lift norm/energy 364
+PASS [numeric] overlap norm/energy 364
+PASS [numeric] overlap parity and dark scalar 364
+PASS [numeric] lift projective trajectory sample 365
+PASS [numeric] lift all ring and effective core currents 365
+PASS [numeric] lift norm/energy 365
+PASS [numeric] overlap norm/energy 365
+PASS [numeric] overlap parity and dark scalar 365
+PASS [numeric] lift projective trajectory sample 366
+PASS [numeric] lift all ring and effective core currents 366
+PASS [numeric] lift norm/energy 366
+PASS [numeric] overlap norm/energy 366
+PASS [numeric] overlap parity and dark scalar 366
+PASS [numeric] lift projective trajectory sample 367
+PASS [numeric] lift all ring and effective core currents 367
+PASS [numeric] lift norm/energy 367
+PASS [numeric] overlap norm/energy 367
+PASS [numeric] overlap parity and dark scalar 367
+PASS [numeric] lift projective trajectory sample 368
+PASS [numeric] lift all ring and effective core currents 368
+PASS [numeric] lift norm/energy 368
+PASS [numeric] overlap norm/energy 368
+PASS [numeric] overlap parity and dark scalar 368
+PASS [numeric] lift projective trajectory sample 369
+PASS [numeric] lift all ring and effective core currents 369
+PASS [numeric] lift norm/energy 369
+PASS [numeric] overlap norm/energy 369
+PASS [numeric] overlap parity and dark scalar 369
+PASS [numeric] lift projective trajectory sample 370
+PASS [numeric] lift all ring and effective core currents 370
+PASS [numeric] lift norm/energy 370
+PASS [numeric] overlap norm/energy 370
+PASS [numeric] overlap parity and dark scalar 370
+PASS [numeric] lift projective trajectory sample 371
+PASS [numeric] lift all ring and effective core currents 371
+PASS [numeric] lift norm/energy 371
+PASS [numeric] overlap norm/energy 371
+PASS [numeric] overlap parity and dark scalar 371
+PASS [numeric] lift projective trajectory sample 372
+PASS [numeric] lift all ring and effective core currents 372
+PASS [numeric] lift norm/energy 372
+PASS [numeric] overlap norm/energy 372
+PASS [numeric] overlap parity and dark scalar 372
+PASS [numeric] lift projective trajectory sample 373
+PASS [numeric] lift all ring and effective core currents 373
+PASS [numeric] lift norm/energy 373
+PASS [numeric] overlap norm/energy 373
+PASS [numeric] overlap parity and dark scalar 373
+PASS [numeric] lift projective trajectory sample 374
+PASS [numeric] lift all ring and effective core currents 374
+PASS [numeric] lift norm/energy 374
+PASS [numeric] overlap norm/energy 374
+PASS [numeric] overlap parity and dark scalar 374
+PASS [numeric] lift projective trajectory sample 375
+PASS [numeric] lift all ring and effective core currents 375
+PASS [numeric] lift norm/energy 375
+PASS [numeric] overlap norm/energy 375
+PASS [numeric] overlap parity and dark scalar 375
+PASS [numeric] lift projective trajectory sample 376
+PASS [numeric] lift all ring and effective core currents 376
+PASS [numeric] lift norm/energy 376
+PASS [numeric] overlap norm/energy 376
+PASS [numeric] overlap parity and dark scalar 376
+PASS [numeric] lift projective trajectory sample 377
+PASS [numeric] lift all ring and effective core currents 377
+PASS [numeric] lift norm/energy 377
+PASS [numeric] overlap norm/energy 377
+PASS [numeric] overlap parity and dark scalar 377
+PASS [numeric] lift projective trajectory sample 378
+PASS [numeric] lift all ring and effective core currents 378
+PASS [numeric] lift norm/energy 378
+PASS [numeric] overlap norm/energy 378
+PASS [numeric] overlap parity and dark scalar 378
+PASS [numeric] lift projective trajectory sample 379
+PASS [numeric] lift all ring and effective core currents 379
+PASS [numeric] lift norm/energy 379
+PASS [numeric] overlap norm/energy 379
+PASS [numeric] overlap parity and dark scalar 379
+PASS [numeric] lift projective trajectory sample 380
+PASS [numeric] lift all ring and effective core currents 380
+PASS [numeric] lift norm/energy 380
+PASS [numeric] overlap norm/energy 380
+PASS [numeric] overlap parity and dark scalar 380
+PASS [numeric] lift projective trajectory sample 381
+PASS [numeric] lift all ring and effective core currents 381
+PASS [numeric] lift norm/energy 381
+PASS [numeric] overlap norm/energy 381
+PASS [numeric] overlap parity and dark scalar 381
+PASS [numeric] lift projective trajectory sample 382
+PASS [numeric] lift all ring and effective core currents 382
+PASS [numeric] lift norm/energy 382
+PASS [numeric] overlap norm/energy 382
+PASS [numeric] overlap parity and dark scalar 382
+PASS [numeric] lift projective trajectory sample 383
+PASS [numeric] lift all ring and effective core currents 383
+PASS [numeric] lift norm/energy 383
+PASS [numeric] overlap norm/energy 383
+PASS [numeric] overlap parity and dark scalar 383
+PASS [numeric] lift projective trajectory sample 384
+PASS [numeric] lift all ring and effective core currents 384
+PASS [numeric] lift norm/energy 384
+PASS [numeric] overlap norm/energy 384
+PASS [numeric] overlap parity and dark scalar 384
+PASS [numeric] lift projective trajectory sample 385
+PASS [numeric] lift all ring and effective core currents 385
+PASS [numeric] lift norm/energy 385
+PASS [numeric] overlap norm/energy 385
+PASS [numeric] overlap parity and dark scalar 385
+PASS [numeric] lift projective trajectory sample 386
+PASS [numeric] lift all ring and effective core currents 386
+PASS [numeric] lift norm/energy 386
+PASS [numeric] overlap norm/energy 386
+PASS [numeric] overlap parity and dark scalar 386
+PASS [numeric] lift projective trajectory sample 387
+PASS [numeric] lift all ring and effective core currents 387
+PASS [numeric] lift norm/energy 387
+PASS [numeric] overlap norm/energy 387
+PASS [numeric] overlap parity and dark scalar 387
+PASS [numeric] lift projective trajectory sample 388
+PASS [numeric] lift all ring and effective core currents 388
+PASS [numeric] lift norm/energy 388
+PASS [numeric] overlap norm/energy 388
+PASS [numeric] overlap parity and dark scalar 388
+PASS [numeric] lift projective trajectory sample 389
+PASS [numeric] lift all ring and effective core currents 389
+PASS [numeric] lift norm/energy 389
+PASS [numeric] overlap norm/energy 389
+PASS [numeric] overlap parity and dark scalar 389
+PASS [numeric] lift projective trajectory sample 390
+PASS [numeric] lift all ring and effective core currents 390
+PASS [numeric] lift norm/energy 390
+PASS [numeric] overlap norm/energy 390
+PASS [numeric] overlap parity and dark scalar 390
+PASS [numeric] lift projective trajectory sample 391
+PASS [numeric] lift all ring and effective core currents 391
+PASS [numeric] lift norm/energy 391
+PASS [numeric] overlap norm/energy 391
+PASS [numeric] overlap parity and dark scalar 391
+PASS [numeric] lift projective trajectory sample 392
+PASS [numeric] lift all ring and effective core currents 392
+PASS [numeric] lift norm/energy 392
+PASS [numeric] overlap norm/energy 392
+PASS [numeric] overlap parity and dark scalar 392
+PASS [numeric] lift projective trajectory sample 393
+PASS [numeric] lift all ring and effective core currents 393
+PASS [numeric] lift norm/energy 393
+PASS [numeric] overlap norm/energy 393
+PASS [numeric] overlap parity and dark scalar 393
+PASS [numeric] lift projective trajectory sample 394
+PASS [numeric] lift all ring and effective core currents 394
+PASS [numeric] lift norm/energy 394
+PASS [numeric] overlap norm/energy 394
+PASS [numeric] overlap parity and dark scalar 394
+PASS [numeric] lift projective trajectory sample 395
+PASS [numeric] lift all ring and effective core currents 395
+PASS [numeric] lift norm/energy 395
+PASS [numeric] overlap norm/energy 395
+PASS [numeric] overlap parity and dark scalar 395
+PASS [numeric] lift projective trajectory sample 396
+PASS [numeric] lift all ring and effective core currents 396
+PASS [numeric] lift norm/energy 396
+PASS [numeric] overlap norm/energy 396
+PASS [numeric] overlap parity and dark scalar 396
+PASS [numeric] lift projective trajectory sample 397
+PASS [numeric] lift all ring and effective core currents 397
+PASS [numeric] lift norm/energy 397
+PASS [numeric] overlap norm/energy 397
+PASS [numeric] overlap parity and dark scalar 397
+PASS [numeric] lift projective trajectory sample 398
+PASS [numeric] lift all ring and effective core currents 398
+PASS [numeric] lift norm/energy 398
+PASS [numeric] overlap norm/energy 398
+PASS [numeric] overlap parity and dark scalar 398
+PASS [numeric] lift projective trajectory sample 399
+PASS [numeric] lift all ring and effective core currents 399
+PASS [numeric] lift norm/energy 399
+PASS [numeric] overlap norm/energy 399
+PASS [numeric] overlap parity and dark scalar 399
+PASS [numeric] lift projective trajectory sample 400
+PASS [numeric] lift all ring and effective core currents 400
+PASS [numeric] lift norm/energy 400
+PASS [numeric] overlap norm/energy 400
+PASS [numeric] overlap parity and dark scalar 400
+PASS [numeric] balanced exact reduced trajectory has zero net chamber transfer
+PASS [numeric] overlap seed at same initial derivative
+PASS [numeric] general-state lift 0
+PASS [numeric] general-state lift 1
+PASS [numeric] general-state lift 2
+PASS [numeric] general-state lift 3
+PASS [numeric] general-state lift 4
+PASS [numeric] general-state lift 5
+PASS [numeric] general-state lift 6
+PASS [numeric] general-state lift 7
+PASS [numeric] general-state lift 8
+PASS [numeric] general-state lift 9
+PASS [numeric] general-state lift 10
+PASS [numeric] general-state lift 11
+PASS [numeric] general-state lift 12
+PASS [numeric] general-state lift 13
+PASS [numeric] general-state lift 14
+PASS [numeric] general-state lift 15
+PASS [numeric] general-state lift 16
+PASS [numeric] general-state lift 17
+PASS [numeric] general-state lift 18
+PASS [numeric] general-state lift 19
+PASS [numeric] general-state lift 20
+PASS [numeric] general-state lift 21
+PASS [numeric] general-state lift 22
+PASS [numeric] general-state lift 23
+PASS [numeric] general-state lift 24
+PASS [numeric] general-state lift 25
+PASS [numeric] general-state lift 26
+PASS [numeric] general-state lift 27
+PASS [numeric] general-state lift 28
+PASS [numeric] general-state lift 29
+PASS [numeric] general-state lift 30
+PASS [numeric] general-state lift 31
+PASS [numeric] general-state lift 32
+PASS [numeric] general-state lift 33
+PASS [numeric] general-state lift 34
+PASS [numeric] general-state lift 35
+PASS [numeric] general-state lift 36
+PASS [numeric] general-state lift 37
+PASS [numeric] general-state lift 38
+PASS [numeric] general-state lift 39
+PASS [numeric] general-state lift 40
+PASS [numeric] initial flux zero
+PASS [numeric] instantaneous zero not invariant under detuning
+PASS [numeric] detuning 0 sample 0
+PASS [numeric] detuning 0 sample 1
+PASS [numeric] detuning 0 sample 2
+PASS [numeric] detuning 0 sample 3
+PASS [numeric] detuning 0 sample 4
+PASS [numeric] detuning 0 sample 5
+PASS [numeric] detuning 0 sample 6
+PASS [numeric] detuning 0 sample 7
+PASS [numeric] detuning 0 sample 8
+PASS [numeric] detuning 0 sample 9
+PASS [numeric] detuning 0 sample 10
+PASS [numeric] detuning 0 sample 11
+PASS [numeric] detuning 0 sample 12
+PASS [numeric] detuning 0 sample 13
+PASS [numeric] detuning 0 sample 14
+PASS [numeric] detuning 0 sample 15
+PASS [numeric] detuning 0 sample 16
+PASS [numeric] detuning 0 sample 17
+PASS [numeric] detuning 0 sample 18
+PASS [numeric] detuning 0 sample 19
+PASS [numeric] detuning 0 sample 20
+PASS [numeric] detuning 0 sample 21
+PASS [numeric] detuning 0 sample 22
+PASS [numeric] detuning 0 sample 23
+PASS [numeric] detuning 0 sample 24
+PASS [numeric] detuning 0 sample 25
+PASS [numeric] detuning 0 sample 26
+PASS [numeric] detuning 0 sample 27
+PASS [numeric] detuning 0 sample 28
+PASS [numeric] detuning 0 sample 29
+PASS [numeric] detuning 0 sample 30
+PASS [numeric] detuning 0.5 sample 0
+PASS [numeric] detuning 0.5 sample 1
+PASS [numeric] detuning 0.5 sample 2
+PASS [numeric] detuning 0.5 sample 3
+PASS [numeric] detuning 0.5 sample 4
+PASS [numeric] detuning 0.5 sample 5
+PASS [numeric] detuning 0.5 sample 6
+PASS [numeric] detuning 0.5 sample 7
+PASS [numeric] detuning 0.5 sample 8
+PASS [numeric] detuning 0.5 sample 9
+PASS [numeric] detuning 0.5 sample 10
+PASS [numeric] detuning 0.5 sample 11
+PASS [numeric] detuning 0.5 sample 12
+PASS [numeric] detuning 0.5 sample 13
+PASS [numeric] detuning 0.5 sample 14
+PASS [numeric] detuning 0.5 sample 15
+PASS [numeric] detuning 0.5 sample 16
+PASS [numeric] detuning 0.5 sample 17
+PASS [numeric] detuning 0.5 sample 18
+PASS [numeric] detuning 0.5 sample 19
+PASS [numeric] detuning 0.5 sample 20
+PASS [numeric] detuning 0.5 sample 21
+PASS [numeric] detuning 0.5 sample 22
+PASS [numeric] detuning 0.5 sample 23
+PASS [numeric] detuning 0.5 sample 24
+PASS [numeric] detuning 0.5 sample 25
+PASS [numeric] detuning 0.5 sample 26
+PASS [numeric] detuning 0.5 sample 27
+PASS [numeric] detuning 0.5 sample 28
+PASS [numeric] detuning 0.5 sample 29
+PASS [numeric] detuning 0.5 sample 30
+PASS [numeric] detuning 2 sample 0
+PASS [numeric] detuning 2 sample 1
+PASS [numeric] detuning 2 sample 2
+PASS [numeric] detuning 2 sample 3
+PASS [numeric] detuning 2 sample 4
+PASS [numeric] detuning 2 sample 5
+PASS [numeric] detuning 2 sample 6
+PASS [numeric] detuning 2 sample 7
+PASS [numeric] detuning 2 sample 8
+PASS [numeric] detuning 2 sample 9
+PASS [numeric] detuning 2 sample 10
+PASS [numeric] detuning 2 sample 11
+PASS [numeric] detuning 2 sample 12
+PASS [numeric] detuning 2 sample 13
+PASS [numeric] detuning 2 sample 14
+PASS [numeric] detuning 2 sample 15
+PASS [numeric] detuning 2 sample 16
+PASS [numeric] detuning 2 sample 17
+PASS [numeric] detuning 2 sample 18
+PASS [numeric] detuning 2 sample 19
+PASS [numeric] detuning 2 sample 20
+PASS [numeric] detuning 2 sample 21
+PASS [numeric] detuning 2 sample 22
+PASS [numeric] detuning 2 sample 23
+PASS [numeric] detuning 2 sample 24
+PASS [numeric] detuning 2 sample 25
+PASS [numeric] detuning 2 sample 26
+PASS [numeric] detuning 2 sample 27
+PASS [numeric] detuning 2 sample 28
+PASS [numeric] detuning 2 sample 29
+PASS [numeric] detuning 2 sample 30
+PASS [numeric] detuning 10 sample 0
+PASS [numeric] detuning 10 sample 1
+PASS [numeric] detuning 10 sample 2
+PASS [numeric] detuning 10 sample 3
+PASS [numeric] detuning 10 sample 4
+PASS [numeric] detuning 10 sample 5
+PASS [numeric] detuning 10 sample 6
+PASS [numeric] detuning 10 sample 7
+PASS [numeric] detuning 10 sample 8
+PASS [numeric] detuning 10 sample 9
+PASS [numeric] detuning 10 sample 10
+PASS [numeric] detuning 10 sample 11
+PASS [numeric] detuning 10 sample 12
+PASS [numeric] detuning 10 sample 13
+PASS [numeric] detuning 10 sample 14
+PASS [numeric] detuning 10 sample 15
+PASS [numeric] detuning 10 sample 16
+PASS [numeric] detuning 10 sample 17
+PASS [numeric] detuning 10 sample 18
+PASS [numeric] detuning 10 sample 19
+PASS [numeric] detuning 10 sample 20
+PASS [numeric] detuning 10 sample 21
+PASS [numeric] detuning 10 sample 22
+PASS [numeric] detuning 10 sample 23
+PASS [numeric] detuning 10 sample 24
+PASS [numeric] detuning 10 sample 25
+PASS [numeric] detuning 10 sample 26
+PASS [numeric] detuning 10 sample 27
+PASS [numeric] detuning 10 sample 28
+PASS [numeric] detuning 10 sample 29
+PASS [numeric] detuning 10 sample 30
+sampled extrema: stageVII [0.         0.03993089 0.        ] [0.10109989 0.0625     0.07148842] overlap [0.         0.05699834 0.        ] [0.00782682 0.0625     0.00226004]
+full vs reduced final deviation 1.5459045601388952
+overlap nonzero core sampled times 400 of 400
+TOTAL {'exact': 122, 'numeric': 2588} all passed
