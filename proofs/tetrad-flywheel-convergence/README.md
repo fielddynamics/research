@@ -10,7 +10,7 @@
 
 [Manuscript (PDF)](tetrad_flywheel_convergence.pdf) · [LaTeX](tetrad_flywheel_convergence.tex) · [IOP entry point](tetrad_flywheel_convergence_iop.tex) · [Python verifier](verify_convergence.py) · [Verification output](verification_output.txt) · [Lean source](lean/TetradFlywheelConvergence.lean) · [Lean audit](LEAN_AUDIT.md) · [Referee review](referee_review.md)
 
-**Status.** All 297 exact Python assertions pass. A Lean source draft is supplied, importing Proof 24; it has not been compiled. The hand proofs establish intrinsic finite geometry under stated assumptions. They do not establish dynamical self-assembly of an initially unconstrained field, a Lorentzian metric from a Euclidean graph norm, gravitational normalization, or physical torsion. Repository source inspected at `5ce5c650871754d1411ca165d673cc3551b6a798`.
+**Status.** All 297 exact Python assertions pass. 35 theorems are machine-checked in Lean 4, importing Proof 24 (standard axioms only; [Lean audit](LEAN_AUDIT.md)). The hand proofs establish intrinsic finite geometry under stated assumptions. They do not establish dynamical self-assembly of an initially unconstrained field, a Lorentzian metric from a Euclidean graph norm, gravitational normalization, or physical torsion. Repository source inspected at `5ce5c650871754d1411ca165d673cc3551b6a798`.
 
 ## Why these steps exist
 

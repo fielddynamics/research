@@ -6,7 +6,7 @@
 
 ---
 
-**Status:** Mathematical proof for the established labelled, equal-norm flywheel model. 65 new exact SymPy checks and 167 inherited checks (including full Stage VII Hamiltonian reconstruction and numerical evolution) pass. Lean source is supplied (50 theorem statements with axiom-report commands); the build was intentionally not run. This is not a physical stability theorem under geometric deformation or a derivation of gravitational constants. Repository basis `d69739e984e5f1f8de5e4639d8fd0e7a2a8214b8`.
+**Status:** Mathematical proof for the established labelled, equal-norm flywheel model. 65 new exact SymPy checks and 167 inherited checks (including full Stage VII Hamiltonian reconstruction and numerical evolution) pass. 50 theorem statements are machine-checked in Lean 4 (57 axiom reports with helper lemmas, standard axioms only; [Lean audit](LEAN_AUDIT.md)). This is not a physical stability theorem under geometric deformation or a derivation of gravitational constants. Repository basis `d69739e984e5f1f8de5e4639d8fd0e7a2a8214b8`.
 
 [Manuscript (PDF)](flywheel_tetrad_geometry.pdf) · [LaTeX (portable)](flywheel_tetrad_geometry.tex) · [IOP-format LaTeX](flywheel_tetrad_geometry_iop.tex) · [Exact verifier](verify_flywheel_tetrad.py) · [Output](verification_output.txt) · [Scope review](referee_review.md) · [Lean formalisation](lean/FlywheelTetradGeometry.lean) · [Lean audit](LEAN_AUDIT.md).
 
