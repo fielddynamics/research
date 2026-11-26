@@ -1,0 +1,9 @@
+name = "flywheel_tetrad_geometry"
+defaultTargets = ["FlywheelTetradGeometry"]
+
+[[require]]
+name = "recursive_triforce_closure"
+path = "../../recursive-triforce-closure/lean"
+
+[[lean_lib]]
+name = "FlywheelTetradGeometry"

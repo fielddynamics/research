@@ -1,0 +1,66 @@
+PASS 001 incidence and cycle Gram
+PASS 002 cycle kernel and projector
+PASS 003 row projector and column Gram
+PASS 004 explicit isometry and its adjoint
+PASS 005 minimum norm right inverse on zero-sum inputs
+PASS 006 minimum norm formula componentwise
+PASS 007 right inverse norm
+PASS 008 orthogonal to every invisible row-closed perturbation
+PASS 009 core dual incidence rank seven
+PASS 010 chamber inversion is signed transpose
+PASS 011 antisymmetric embedding norm
+PASS 012 even current cycles are exactly embedded four-leg cycles
+PASS 013 odd current cycles have dimension two
+PASS 014 even and odd span all five core cycles
+PASS 015 core even projector
+PASS 016 weighted Gram off diagonal 0,1
+PASS 017 weighted Gram off diagonal 0,2
+PASS 018 weighted Gram off diagonal 0,3
+PASS 019 weighted Gram off diagonal 1,2
+PASS 020 weighted Gram off diagonal 1,3
+PASS 021 weighted Gram off diagonal 2,3
+PASS 022 equal edge weights give scaled regular Gram
+PASS 023 anisotropic weights disprove geometry without metric premise
+PASS 024 symbolic phase wedge divergence
+PASS 025 symbolic phase wedge reconstruction
+PASS 026 symbolic area identity
+PASS 027 generic row shift cancels in cycle 0
+PASS 028 generic row shift cancels in cycle 1
+PASS 029 generic row shift cancels in cycle 2
+PASS 030 generic row shift cancels in cycle 3
+PASS 031 generic core phase products 0,1
+PASS 032 generic core phase products 0,2
+PASS 033 generic core phase products 0,3
+PASS 034 generic core phase products 1,2
+PASS 035 generic core phase products 1,3
+PASS 036 generic core phase products 2,3
+PASS 037 polar/axial intertwining (0, 1, 2, 3)
+PASS 038 polar/axial intertwining (0, 1, 3, 2)
+PASS 039 polar/axial intertwining (0, 2, 1, 3)
+PASS 040 polar/axial intertwining (0, 2, 3, 1)
+PASS 041 polar/axial intertwining (0, 3, 1, 2)
+PASS 042 polar/axial intertwining (0, 3, 2, 1)
+PASS 043 polar/axial intertwining (1, 0, 2, 3)
+PASS 044 polar/axial intertwining (1, 0, 3, 2)
+PASS 045 polar/axial intertwining (1, 2, 0, 3)
+PASS 046 polar/axial intertwining (1, 2, 3, 0)
+PASS 047 polar/axial intertwining (1, 3, 0, 2)
+PASS 048 polar/axial intertwining (1, 3, 2, 0)
+PASS 049 polar/axial intertwining (2, 0, 1, 3)
+PASS 050 polar/axial intertwining (2, 0, 3, 1)
+PASS 051 polar/axial intertwining (2, 1, 0, 3)
+PASS 052 polar/axial intertwining (2, 1, 3, 0)
+PASS 053 polar/axial intertwining (2, 3, 0, 1)
+PASS 054 polar/axial intertwining (2, 3, 1, 0)
+PASS 055 polar/axial intertwining (3, 0, 1, 2)
+PASS 056 polar/axial intertwining (3, 0, 2, 1)
+PASS 057 polar/axial intertwining (3, 1, 0, 2)
+PASS 058 polar/axial intertwining (3, 1, 2, 0)
+PASS 059 polar/axial intertwining (3, 2, 0, 1)
+PASS 060 polar/axial intertwining (3, 2, 1, 0)
+PASS 061 realization is a tight tetrahedral frame
+PASS 062 geometry is metric-dependent
+PASS 063 cross products match oriented difference globally
+PASS 064 six midpoints of tetrahedron are octahedral vertices
+PASS 065 eight frame directions and inverses are cube corners
+65/65 exact checks passed.

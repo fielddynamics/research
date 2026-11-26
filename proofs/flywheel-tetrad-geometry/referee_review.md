@@ -1,0 +1,11 @@
+# Internal scope and proof audit
+
+1. **Circularity:** Four labels and K4/simplex incidence are inherited from the Triforce flywheel. No claim that the graph emerges from unstructured initial vortices. Both Gram calculations precede any spatial realization. Added a weighted-edge counterexample and conditional uniqueness theorem.
+2. **Two matching Grams are not enough:** Explicit partial isometry with both adjoint projector identities and the full S4 orientation twist. A polar frame is not equated with an axial frame as an untwisted S4 representation.
+3. **Abstract triangular graph versus actual core:** Added the exact 3+2 decomposition of the actual bipartite core and its signed-transpose inversion. Only the antisymmetric sector is identified with the K4 cycles; no claim that K4 is the entire core or the entire 17-mode refined core.
+4. **Norm vs energy:** The minimal norm property is Euclidean linear algebra, not a new physical variational law. The five unobserved row-closed directions and two odd core cycle directions are capacity, not extra occupied systems.
+5. **Dynamical existence vs generation:** Stage VII provides an explicit conservative witness of eight rings and core. The proof reconstructs geometry from its labelled structure but does not derive the graph, metric or a stable embedded shape from an independent physical action. In particular, a single phase state need not determine the entire frame.
+6. **Zero winding:** State the undivided current identity; divide by |v|² only when nonzero. Global orientation fixed by alternating face boundaries; outward ring signs can differ by a common sign convention.
+7. **Verification:** 65 new exact checks; 167 inherited checks rerun. SymPy exact identities include generic symbolic phase and row-shift cancellation, plus all 24 symmetries. Inherited time-propagator comparisons are numerical. The Lean draft has been added with an explicit statement-coverage table; its build is pending by request. No external peer review.
+
+8. **Formalisation and dependencies:** The Lean source imports the verified recursive Triforce proof, with the common real Gram compared directly to the inherited `Mmat`. Explicit 3- and 2-parameter real core current families avoid merely inferring equality from dimension counts. The audit states the narrower formal coverage and does not claim a successful build.
