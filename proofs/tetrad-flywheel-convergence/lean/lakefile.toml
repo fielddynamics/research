@@ -1,0 +1,9 @@
+name = "tetrad_flywheel_convergence"
+defaultTargets = ["TetradFlywheelConvergence"]
+
+[[require]]
+name = "flywheel_tetrad_geometry"
+path = "../../flywheel-tetrad-geometry/lean"
+
+[[lean_lib]]
+name = "TetradFlywheelConvergence"
