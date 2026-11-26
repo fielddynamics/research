@@ -2,7 +2,7 @@ name: Lean proof — intrinsic flywheel geometry
 
 on:
   push:
-    branches: [main]
+    branches: [main, 'fix/proof24-lean']
     paths:
       - 'proofs/flywheel-tetrad-geometry/lean/**'
       - 'proofs/recursive-triforce-closure/lean/**'
