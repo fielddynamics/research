@@ -16,15 +16,17 @@ with 21, 17 and 13 the values of the coupling polynomial $f(K,s)=1+sK+K^2$ at Te
 
 The [unified closure research](../../unified-closure-action/) builds a 64-address closure tree whose three levels carry 1, 4 and 16 invariant contrast modes. Attenuating each level gives $\alpha\cdot\alpha^4\cdot\alpha^{16}=\alpha^{21}$. But that work had to *choose* which level plays the part of the legs, the term $sK$, and it called that choice a free "flag". If the choice is free, then 17 and 13 on the tree are a convention, and 17/13 is not geometry.
 
-This note shows the choice is not free. Three results:
+This note shows the choice is not free. Five results:
 
 1. **The coupling polynomial is the root exchange.** On the graded read space, the graded identity is a mix of the identity and the root exchange, so 21 is the dimension, 13 is the exchange's trace, and 17 is the dimension of its root-blind part. Nothing is weighted.
 2. **The closure rotation fixes the legs.** In the projective plane over $\mathbb F_4$ that the tree lives on, the 120° rotation about the time diagonal, together with the vortex/antivortex conjugation, selects one point and one line through it. That flag splits the 21 points as 1 + 4 + 16, with the same rotation pattern as the tetrad's scalar, four legs and sixteen leg pairs.
 3. **Read along the time diagonal, the tree is the polynomial.** With the tree's digits aligned to that flag, every tree level is invariant under the closure rotation, and the root exchange acts as exactly $+1,-1,+1$ on its 1, 4 and 16 levels. Read along the x-axis, as the unified closure notes currently do, neither holds.
+4. **The exchange is the cube's inversion.** Inversion reverses exactly four Walsh modes of the cube, and on TetA they are the Triforce read's four Hadamard legs. So $K\to-K$ is derived from the geometry, not assumed, and it is not a time reversal.
+5. **The physical tree needs no flag.** Two different 64-address ledgers are in use. On the physical one (face, tile, subchannel) the closure rotation permutes the tiles exactly and the tree's readers are scalar, legs and leg pairs by construction. The flag problem belongs only to the corner-pair ledger, where the time flag of results 2 and 3 resolves it.
 
 So 17/13 on the tree is forced by the rotation and the root exchange. The only thing left to choose is the handedness, vortex or antivortex, and both give identical numbers.
 
-Status labels follow the read-and-rotation note: **[T]** exact algebra, **[D]** follows from a framework definition, **[O]** open.
+Status labels follow the read-and-rotation note: **[T]** exact algebra, **[O]** open.
 
 ## 1. The coupling polynomial is the root exchange [T]
 
@@ -94,12 +96,39 @@ $$\det\!\big(\alpha^{I_s}\big)=\alpha^{\,1}\cdot\alpha^{\,4s}\cdot\alpha^{16}=\a
 
 The tree, the coupling polynomial and the root exchange are one structure.
 
-## 4. What this does not settle
+## 4. The exchange is the cube's inversion [T]
 
-- **[D] The definition of the exchange.** The sign on each leg is the read-and-rotation definition, $K\to-K$. This note uses it; it does not re-derive it from the tetrad's two roots. (Letter 2 and the Gram-matrix proof establish the roots and the torsion carrier.)
-- **[O] The physical digits.** The tree's three digits are named face, subface and subchannel. The result says the coarse digit must read along the time diagonal and the first two along a winding line. Showing that the physical face, subface and subchannel are those directions is still open.
+Section 1 used the read-and-rotation definition, $K\to-K$. It follows from the geometry.
+
+The scheme proof's root exchange is spatial inversion, which maps TetA's corners $s_i$ onto TetB's corners $-s_i$. On functions on the cube's eight corners, inversion fixes the four even Walsh characters $1, xy, yz, zx$ and reverses the four odd ones $x, y, z, xyz$. So exactly $K=4$ modes flip:
+- On TetA the odd characters $(xyz, x, y, z)$ are exactly the Triforce read's Hadamard legs $U=[1;s_i]/2$.
+- On TetB the same characters are $-U$: inversion reverses all four legs.
+
+So $K\to-K$ is inversion acting on the legs, and on scalar ⊕ legs ⊕ leg pairs it gives $+1,-1,+1$ and trace 13.
+
+The leg's "time" row is the chamber character $xyz$, which is $+1$ on TetA and $-1$ on TetB. It flips because it distinguishes the chambers, not because time reverses. The Triforce read's TetB dictionary $\operatorname{diag}(1,-1,-1,-1)\,U$ is the same leg block with that row renormalised to $+1$. This fits "TetB is not reverse time".
+
+## 5. Two ledgers share the number 64 [T]
+
+The research uses two different 64-address ledgers. Keeping them apart removes the flag problem from the physical one.
+
+| | Tile ledger | Pair ledger |
+|---|---|---|
+| Source | [Triforce tetrad read](../../hadamard-null-cone-vortex-flywheel/TRIFORCE_TETRAD_READ.md), [three sub-reads](../../hadamard-null-cone-vortex-flywheel/THREE_SUBREAD_CLOSURE.md) §1 | [projective Walsh bridge](../../hadamard-null-cone-vortex-flywheel/PROJECTIVE_WALSH_G_BRIDGE.md), the π walk |
+| Address | face $i$, tile $(i,j)$ at vertex $j$, subchannel | ordered pair of cube corners $(u,v)$ |
+| Digit alphabet | the four legs | a bit pair along one spatial axis, read as $\mathbb F_4$ |
+| Closure rotation | permutes the legs: $(i,j)\to(\pi i,\pi j)$ | cycles the axes $x\to y\to z$ |
+
+**On the tile ledger no flag is needed.** The 120° rotation about $s_0=(1,1,1)$ fixes leg 0 and cycles legs 1, 2 and 3. It carries tile $(i,j)$ exactly onto tile $(\pi i,\pi j)$. Every level of the face → tile → subchannel tree commutes with it. The invariant contrasts are 1, 4 and 16, one per reader: the root, the four face readers and the sixteen tile readers. The readers carry 0, 1 and 2 leg indices, so the tree's nodes are scalar ⊕ legs ⊕ leg pairs, and the middle level is the faces.
+
+**On the pair ledger the flag must be the time flag** (sections 2 and 3). There the closure rotation moves digits between levels unless the tree is read along the time diagonal. The three-sub-read note's §3 applies this ledger's axis pairing to the tree's digits. That is what produced the free flag.
+
+## 6. What this does not settle
+
+- **[O] The exchange on the tile ledger, level by level.** Section 4 fixes the exchange on legs, and section 5 shows the tile tree's readers carry 0, 1 and 2 leg indices. What remains is an explicit operator on the dual-chamber tile ledger (TetA ⊕ TetB) showing the contrast levels pick up exactly $+1,-1,+1$. That needs the subchannel index, which is still a candidate record index with no settled geometry.
+- **[O] The map between the two ledgers.** A map from corner pairs $(u,v)$ to faces and tiles that carries the time-adapted pair tree onto the tile tree would make the two 64s one.
 - **[O] Untouched premises.** Why each level attenuates by exactly α, why gravity takes the collective (determinant) read rather than a single channel, the drained/bound label from the drain, and the value of $a_0$ are all still open.
 
 ## Verification
 
-[`verify_root_exchange_tree.py`](verify_root_exchange_tree.py) (NumPy, SymPy) checks every statement above exactly: 32 checks, all passing ([output](root_exchange_tree_output.txt)). It rebuilds the projective plane, both trees and the Walsh characters from scratch, and tests every choice of the third basis direction for both handedness choices.
+[`verify_root_exchange_tree.py`](verify_root_exchange_tree.py) (NumPy, SymPy) checks every statement above exactly: 40 checks, all passing ([output](root_exchange_tree_output.txt)). It rebuilds the projective plane, the pair-ledger trees, the Walsh characters, the cube inversion and the Triforce tile tree from scratch, and tests every choice of the third basis direction for both handedness choices.

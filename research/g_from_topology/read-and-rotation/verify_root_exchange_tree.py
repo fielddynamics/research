@@ -10,6 +10,10 @@ Checks the three results of ROOT_EXCHANGE_ON_THE_ADDRESS_TREE.md:
   3. With tree digits adapted to that flag, every tree level commutes with the
      rotation and the root exchange is +1, -1, +1 on the 1, 4, 16 invariant
      contrast levels; with x-axis digits neither holds.
+  4. The root exchange is the cube's central inversion (-1 on the four odd
+     characters x, y, z, xyz, which on TetA are the Triforce Hadamard legs), and
+     the physical face -> tile -> subchannel tree commutes with the rotation and
+     has invariant contrasts 1, 4, 16 with no flag choice.
 
 Run: python verify_root_exchange_tree.py   (NumPy, SymPy)
 """
@@ -180,6 +184,47 @@ for name, L in (("vortex", through[0]), ("antivortex", through[1])):
             good &= all(np.allclose(a, b) for a, b in zip(first, Ps))
     check(f"{name}: time-adapted tree levels commute with the rotation (all 16 third vectors)", rotok)
     check(f"{name}: exchange is exactly +1, -1, +1 on the 1, 4, 16 levels (all 16 third vectors, same tree)", good)
+
+# ---------------------------------------------------------------- Part 4
+# Grounding: the root exchange is the cube's central inversion, and the physical
+# face -> tile -> subchannel tree carries the grading with no flag choice.
+verts = [np.array(v) for v in itertools.product((1, -1), repeat=3)]
+chars = {"1": lambda v: 1, "x": lambda v: v[0], "y": lambda v: v[1], "z": lambda v: v[2],
+         "xy": lambda v: v[0] * v[1], "yz": lambda v: v[1] * v[2], "zx": lambda v: v[2] * v[0],
+         "xyz": lambda v: v[0] * v[1] * v[2]}
+odd = [k_ for k_, f in chars.items() if all(f(-v) == -f(v) for v in verts)]
+check("cube inversion is -1 on exactly four characters: x, y, z, xyz (K = 4 legs)",
+      sorted(odd) == sorted(["x", "y", "z", "xyz"]))
+Sv = [np.array(v) for v in tet]
+Ut = np.array([[1] * 4] + [[s_[a] for s_ in Sv] for a in range(3)]) / 2
+UA = np.array([[chars[k_](s_) for s_ in Sv] for k_ in ["xyz", "x", "y", "z"]]) / 2
+UB = np.array([[chars[k_](-s_) for s_ in Sv] for k_ in ["xyz", "x", "y", "z"]]) / 2
+check("the odd characters on TetA are the Triforce read's Hadamard legs U", np.allclose(UA, Ut))
+check("on TetB the same characters are -U: inversion reverses all four legs", np.allclose(UB, -Ut))
+check("Triforce TetB read diag(1,-1,-1,-1)U = the same legs with time row -xyz (not time reversal)",
+      np.allclose(np.diag([-1, 1, 1, 1]) @ UB, np.diag([1, -1, -1, -1]) @ Ut))
+cent = lambda i, j: (-Sv[i] / 3 if i == j else (3 * Sv[j] - Sv[i]) / 6)
+Rg = np.array([[0, 0, 1], [1, 0, 0], [0, 1, 0]])
+pm = [next(k_ for k_ in range(4) if np.allclose(Rg @ Sv[i], Sv[k_])) for i in range(4)]
+check("120-degree rotation about s_0 = (1,1,1) fixes leg 0 and cycles legs 1, 2, 3", pm[0] == 0 and sorted(pm[1:]) == [1, 2, 3])
+check("it maps Triforce tile (i,j) to tile (pi i, pi j) exactly",
+      all(np.allclose(Rg @ cent(i, j), cent(pm[i], pm[j])) for i in range(4) for j in range(4)))
+idx3 = list(itertools.product(range(4), repeat=3)); ix3 = {v: n_ for n_, v in enumerate(idx3)}
+Mp = np.zeros((64, 64))
+for v in idx3:
+    Mp[ix3[tuple(pm[d] for d in v)], ix3[v]] = 1
+Pp = []
+for k_ in range(4):
+    A_ = np.zeros((64, 64))
+    for v in idx3:
+        grp = [u for u in idx3 if u[:k_] == v[:k_]]
+        for u in grp:
+            A_[ix3[v], ix3[u]] = 1 / len(grp)
+    Pp.append(A_)
+check("physical tree (face, tile, subchannel): every level commutes with the rotation", all(np.allclose(Mp @ P_, P_ @ Mp) for P_ in Pp))
+Qp = (np.eye(64) + Mp + Mp @ Mp) / 3
+check("its invariant contrasts are 1, 4, 16: one per root, face and tile reader",
+      [int(round(np.trace(Qp @ (Pp[k_] - Pp[k_ - 1])))) for k_ in (1, 2, 3)] == [1, 4, 16])
 
 n = len(checks); ok = sum(c for _, c in checks)
 print(f"\n{ok}/{n} checks passed")

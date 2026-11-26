@@ -30,5 +30,13 @@ PASS vortex: exchange is exactly +1, -1, +1 on the 1, 4, 16 levels (all 16 third
 PASS antivortex: exchange commutes with the rotation
 PASS antivortex: time-adapted tree levels commute with the rotation (all 16 third vectors)
 PASS antivortex: exchange is exactly +1, -1, +1 on the 1, 4, 16 levels (all 16 third vectors, same tree)
+PASS cube inversion is -1 on exactly four characters: x, y, z, xyz (K = 4 legs)
+PASS the odd characters on TetA are the Triforce read's Hadamard legs U
+PASS on TetB the same characters are -U: inversion reverses all four legs
+PASS Triforce TetB read diag(1,-1,-1,-1)U = the same legs with time row -xyz (not time reversal)
+PASS 120-degree rotation about s_0 = (1,1,1) fixes leg 0 and cycles legs 1, 2, 3
+PASS it maps Triforce tile (i,j) to tile (pi i, pi j) exactly
+PASS physical tree (face, tile, subchannel): every level commutes with the rotation
+PASS its invariant contrasts are 1, 4, 16: one per root, face and tile reader
 
-32/32 checks passed
+40/40 checks passed
