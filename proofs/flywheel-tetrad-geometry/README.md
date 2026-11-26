@@ -90,24 +90,18 @@ Choose an orthonormal realization of the common Gram G: rows s_i=(1,1,1),(1,−1
 Run `python verify_flywheel_tetrad.py` (SymPy). Then run `python verify_geometry_bridge.py` in the [inherited geometry-bridge research](../../research/vortex-induced-triforce-refinement/collective-engine/geometry-bridge/) (NumPy, SciPy, SymPy, Matplotlib). The latter reconstructs all 104 Stage VII bonds using labels alone, checks the invariant nine-dimensional collective sector, and compares the actual 33-coordinate evolution with its existing three-amplitude reduction. No new Hamiltonian parameters. The two scripts are complementary and overlap in some checks. Neither is a Lean kernel proof. The accompanying Lean source is built against the existing recursive Triforce package. Run `cd lean`, `lake update`, `lake exe cache get`, `lake build` when ready; see the audit for intended coverage and remaining analytic prose. The cycle Gram is Euclidean, not the Lorentz metric; no claim of physical stability, spontaneous geometry selection, time-axis identification, or G follows. The next step is an independently justified geometry-selection law, not a fitted energy functional designed to favor the desired tetrahedron.
 
 
-## Visual figures for the README and proof package
+## Visual figures
 
-The proof package now includes additional publication-style visuals that make the geometric claim explicit: the eight constituent vortices form the stellated octahedron, and the collective flywheel sustains the core vortex.
+These illustrations show the geometric claim at a glance: the eight constituent vortices form the stellated octahedron, and the collective flywheel sustains the core vortex. They are illustrations, not mathematical certificates; the exact figures above are generated from the verified matrices.
 
-### Suggested overview figures
+![How the vortices build the stellated octahedron](../../diagrams/gfd-vortices-building-stellated-octahedron.png)
 
-1. `visuals/vortices_building_stellated_octahedron_sequence.png`
-   - A four-stage sequence showing tetrad directions, interpenetrating tetrahedra, eight constituent vortices, and the completed collective flywheel with the core.
-   - This is the clearest single figure for introducing the reader to how the vortices realize the stellated octahedron.
+*Four stages: tetrad directions, interpenetrating tetrahedra, the eight constituent vortices, and the completed collective flywheel with its core.*
 
-2. `visuals/eight_vortices_stellated_octahedron_labeled.png`
-   - A labeled explanatory figure showing TetA vortices, TetB vortices, the Field Origin, the turning octahedron ring, the axial pair, and the complete stellated octahedron geometry.
-   - This is the best figure for the README because it names the parts directly.
+![The eight vortices of the stellated octahedron, labelled](../../diagrams/gfd-eight-vortices-stellated-octahedron-labeled.png)
 
-3. `visuals/stellated_octahedron_vortex_triptych.png`
-   - A three-panel summary figure separating the eight outer vortices, the core vortex, and the fully combined stellated octahedron.
-   - This is useful as a companion visual in the proof overview.
+*TetA and TetB vortices, the Field Origin, the turning octahedron ring, the axial pair and the complete stellated octahedron.*
 
-### Recommended README presentation
+![Outer vortices, core vortex and the combined geometry](../../diagrams/gfd-stellated-octahedron-vortex-triptych.png)
 
-For the repository README and this proof README, I recommend using the sequence figure first, followed by the labeled figure. Together they show, in a reader-friendly way, that the eight outer vortices are not merely placed inside the stellated octahedron: they collectively form its stellation geometry, while the core vortex expresses the shared octahedral circulation.
+*The eight outer vortices, the core vortex, and the two combined. The outer vortices do not merely sit inside the stellated octahedron: together they form its stellation geometry, while the core vortex carries the shared octahedral circulation.*
