@@ -2,15 +2,17 @@ import FlywheelTetradGeometry
 import Mathlib
 
 /-! Proof 25: common closure-space transport and the pair-incidence core.
-The real matrix lemmas are dimension-parametric. Finite matrix certificates
-use the kernel's `decide` over rationals. No physical axiom is supplied.
-Source draft: build and audit pending. -/
+The real matrix lemmas are dimension-parametric. Finite matrix identities
+are proved entry by entry with `fin_cases` and `norm_num`. No physical
+axiom is supplied; see LEAN_AUDIT.md for the build and axiom audit. -/
 namespace TetradFlywheelConvergence
 open Matrix
 open scoped BigOperators
 open FlywheelTetradGeometry
 set_option maxRecDepth 4096
 set_option maxHeartbeats 0
+-- The generic simp sets below list structural lemmas some identities do not need.
+set_option linter.unusedSimpArgs false
 
 /-! 1. The key combinatorial step in the incidence recognition theorem.
 After naming the reference triangle, an edge common to the first two
@@ -41,18 +43,28 @@ def dualEdge : Matrix Edge Edge ℚ :=
      0,0,-1,0,0,0; 0,1,0,0,0,0; -1,0,0,0,0,0]
 
 theorem dual_symmetric : dualEdgeᵀ = dualEdge := by
-  ext i j; revert i j; decide
+  ext i j
+  simp only [Matrix.mul_apply, Matrix.transpose_apply, Matrix.smul_apply, Matrix.sub_apply, Matrix.add_apply, smul_eq_mul, Fin.sum_univ_succ, Fin.sum_univ_zero]
+  fin_cases i <;> fin_cases j <;> norm_num [dualEdge, Matrix.one_apply, nsmul_eq_mul]
 
 theorem dual_involutive : dualEdge * dualEdge = 1 := by
-  ext i j; revert i j; decide
+  ext i j
+  simp only [Matrix.mul_apply, Matrix.transpose_apply, Matrix.smul_apply, Matrix.sub_apply, Matrix.add_apply, smul_eq_mul, Fin.sum_univ_succ, Fin.sum_univ_zero]
+  fin_cases i <;> fin_cases j <;> norm_num [dualEdge, Matrix.one_apply, nsmul_eq_mul]
 
-theorem dual_cut_cycle : dualEdge * (B : Matrix Label Edge ℚ)ᵀ = D := by
-  ext i j; revert i j; decide
+theorem dual_cut_cycle : dualEdge * (B : Matrix Label Edge ℚ)ᵀ = (D : Matrix Edge Label ℚ) := by
+  ext i j
+  simp only [Matrix.mul_apply, Matrix.transpose_apply, Matrix.smul_apply, Matrix.sub_apply, Matrix.add_apply, smul_eq_mul, Fin.sum_univ_succ, Fin.sum_univ_zero]
+  fin_cases i <;> fin_cases j <;> norm_num [dualEdge, B, D, Matrix.one_apply, nsmul_eq_mul]
 
-theorem dual_projectors : dualEdge * ((B : Matrix Label Edge ℚ)ᵀ * B) * dualEdge = D * (D : Matrix Edge Label ℚ)ᵀ := by
-  ext i j; revert i j; decide
+theorem dual_projectors :
+    dualEdge * ((B : Matrix Label Edge ℚ)ᵀ * (B : Matrix Label Edge ℚ)) * dualEdge =
+      (D : Matrix Edge Label ℚ) * (D : Matrix Edge Label ℚ)ᵀ := by
+  ext i j
+  simp only [Matrix.mul_apply, Matrix.transpose_apply, Matrix.smul_apply, Matrix.sub_apply, Matrix.add_apply, smul_eq_mul, Fin.sum_univ_succ, Fin.sum_univ_zero]
+  fin_cases i <;> fin_cases j <;> norm_num [dualEdge, B, D, Matrix.one_apply, nsmul_eq_mul]
 
-def closureP : Matrix Label Label ℝ := (1/4 : ℝ) • (G : Matrix Label Label ℝ)
+noncomputable def closureP : Matrix Label Label ℝ := (1/4 : ℝ) • (G : Matrix Label Label ℝ)
 
 theorem closureP_symm : closurePᵀ = closureP := by
   ext i j; fin_cases i <;> fin_cases j <;> norm_num [closureP, G]
@@ -67,21 +79,27 @@ theorem intrinsic_frame_gram :
     norm_num [closureP, G, Matrix.mul_apply, Fin.sum_univ_succ]
 
 /-- Reuse the actual frame and column read from Proof 24, not independent axioms. -/
-theorem inherited_cycle_gram : (D : Matrix Edge Label ℝ)ᵀ * D = (G : Matrix Label Label ℝ) := by
+theorem inherited_cycle_gram :
+    (D : Matrix Edge Label ℝ)ᵀ * (D : Matrix Edge Label ℝ) = (G : Matrix Label Label ℝ) := by
   ext i j
-  fin_cases i <;> fin_cases j <;> norm_num [D, G, Matrix.mul_apply, Fin.sum_univ_succ]
+  simp only [Matrix.mul_apply, Matrix.transpose_apply, Matrix.smul_apply, Matrix.sub_apply, Matrix.add_apply, smul_eq_mul, Fin.sum_univ_succ, Fin.sum_univ_zero]
+  fin_cases i <;> fin_cases j <;> norm_num [D, G, Matrix.one_apply, nsmul_eq_mul]
 
-theorem inherited_cut_gram : (B : Matrix Label Edge ℝ) * Bᵀ = (G : Matrix Label Label ℝ) := by
+theorem inherited_cut_gram :
+    (B : Matrix Label Edge ℝ) * (B : Matrix Label Edge ℝ)ᵀ = (G : Matrix Label Label ℝ) := by
   ext i j
-  fin_cases i <;> fin_cases j <;> norm_num [B, G, Matrix.mul_apply, Fin.sum_univ_succ]
+  simp only [Matrix.mul_apply, Matrix.transpose_apply, Matrix.smul_apply, Matrix.sub_apply, Matrix.add_apply, smul_eq_mul, Fin.sum_univ_succ, Fin.sum_univ_zero]
+  fin_cases i <;> fin_cases j <;> norm_num [B, G, Matrix.one_apply, nsmul_eq_mul]
 
 theorem inherited_spatial_gram : ForcedTetrahedralFrame.Mmatᵀ * ForcedTetrahedralFrame.Mmat = (G : Matrix Label Label ℝ) := by
   ext i j
-  rw [← real_cycle_tetrad_gram i j, inherited_cycle_gram]
+  exact (real_cycle_tetrad_gram i j).symm.trans
+    (congrArg (fun M : Matrix Label Label ℝ => M i j) inherited_cycle_gram)
 
 theorem inherited_flywheel_gram : FRealᵀ * FReal = (G : Matrix Label Label ℝ) := by
   ext i j
-  rw [common_real_gram i j, inherited_cycle_gram]
+  exact (common_real_gram i j).trans
+    (congrArg (fun M : Matrix Label Label ℝ => M i j) inherited_cycle_gram)
 
 /-! 3. Universal transport theorem. Use A=X/2, B=Y/2, C=Z/2,
 so the Gram is the projector itself and transport is B Aᵀ. -/
@@ -124,6 +142,7 @@ theorem transport_apply (X : Matrix n Label ℝ) (Y : Matrix m Label ℝ)
     transport X Y * X = Y := by
   rw [transport, Matrix.mul_assoc, hX, support_of_gram Y hY]
 
+omit [Fintype n] in
 theorem transport_composition (X : Matrix n Label ℝ) (Y : Matrix m Label ℝ)
     (Z : Matrix k Label ℝ) (hY : Yᵀ * Y = closureP) (hZ : Zᵀ * Z = closureP) :
     transport Y Z * transport X Y = transport X Z := by
@@ -196,14 +215,21 @@ def J₆ : Matrix Edge Edge ℚ := Matrix.of (fun _ _ => 1)
 def Mq : Matrix (Fin 3) Label ℚ := !![1,1,-1,-1;1,-1,1,-1;1,-1,-1,1]
 def coreV : Matrix (Fin 3) Edge ℚ := (1/2 : ℚ) • (Mq * pairInc)
 
-theorem pair_row_gram : pairInc * pairIncᵀ = (2 : ℚ) • (1 : Matrix Label Label ℚ) + Matrix.of (fun _ _ => 1) := by
-  ext i j; revert i j; decide
+theorem pair_row_gram :
+    pairInc * pairIncᵀ = (2 : ℚ) • (1 : Matrix Label Label ℚ) + Matrix.of (fun _ _ => 1) := by
+  ext i j
+  simp only [Matrix.mul_apply, Matrix.transpose_apply, Matrix.smul_apply, Matrix.sub_apply, Matrix.add_apply, smul_eq_mul, Fin.sum_univ_succ, Fin.sum_univ_zero]
+  fin_cases i <;> fin_cases j <;> norm_num [pairInc, Matrix.one_apply, nsmul_eq_mul]
 
 theorem core_vertex_gram : coreVᵀ * coreV = 2 • (1 : Matrix Edge Edge ℚ) + coreAdj - J₆ := by
-  ext i j; revert i j; decide
+  ext i j
+  simp only [coreV, coreAdj, J₆, Matrix.of_apply, Matrix.mul_apply, Matrix.transpose_apply, Matrix.smul_apply, Matrix.sub_apply, Matrix.add_apply, smul_eq_mul, Fin.sum_univ_succ, Fin.sum_univ_zero]
+  fin_cases i <;> fin_cases j <;> norm_num [Mq, pairInc, Matrix.one_apply, nsmul_eq_mul]
 
 theorem core_tight_frame : coreV * coreVᵀ = 2 • (1 : Matrix (Fin 3) (Fin 3) ℚ) := by
-  ext i j; revert i j; decide
+  ext i j
+  simp only [coreV, Matrix.mul_apply, Matrix.transpose_apply, Matrix.smul_apply, Matrix.sub_apply, Matrix.add_apply, smul_eq_mul, Fin.sum_univ_succ, Fin.sum_univ_zero]
+  fin_cases i <;> fin_cases j <;> norm_num [Mq, pairInc, Matrix.one_apply, nsmul_eq_mul]
 
 theorem core_spatial_bridge (i : Fin 3) (j : Label) : (Mq i j : ℝ) = ForcedTetrahedralFrame.Mmat i j := by
   fin_cases i <;> fin_cases j <;> norm_num [Mq, ForcedTetrahedralFrame.Mmat]
@@ -227,7 +253,14 @@ theorem diagonal_metric_rigidity (w : Edge → ℝ) (c : ℝ)
   have a12 := h 1 2 (by decide)
   have a13 := h 1 3 (by decide)
   have a23 := h 2 3 (by decide)
-  intro e; fin_cases e <;> linarith
+  intro e
+  fin_cases e
+  · show w 0 = c; linarith
+  · show w 1 = c; linarith
+  · show w 2 = c; linarith
+  · show w 3 = c; linarith
+  · show w 4 = c; linarith
+  · show w 5 = c; linarith
 
 theorem constant_weights_gram (c : ℝ) (i j : Label) :
     weightedGram (fun _ => c) i j = c * (G : Matrix Label Label ℝ) i j := by
@@ -239,9 +272,9 @@ theorem anisotropy_square (a b c d e f : ℝ) :
     (∑ i : Label, ∑ j : Label, (weightedGram (![a,b,c,d,e,f]) i j)^2) =
     2*(a^2+b^2+c^2+d^2+e^2+f^2) +
       (d+e+f)^2+(b+c+f)^2+(a+c+e)^2+(a+b+d)^2 := by
-  simp [weightedGram, D, Fin.sum_univ_succ] <;> ring
+  simp [weightedGram, D, Fin.sum_univ_succ]; ring
 
-/-! Axiom reports for the later kernel audit. -/
+/-! Axiom reports -/
 #print axioms shared_outside_vertex
 #print axioms attached_triangles
 #print axioms dual_symmetric
