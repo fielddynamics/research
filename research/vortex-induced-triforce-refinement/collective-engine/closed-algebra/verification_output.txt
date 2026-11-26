@@ -1,0 +1,152 @@
+Inherited reconstruction: 126/126 rerun passed
+PASS 001 native symmetric normalization
+PASS 002 core coupling norm exact
+PASS 003 coupling norm positive for nonzero pair
+PASS 004 exact dark-to-bright mixing numerator
+PASS 005 outer core-orthogonal combination
+PASS 006 dark-bright mixing identity
+PASS 007 outer dark eigenstate criterion via residual
+PASS 008 orthogonal columns for general core-coupled basis
+PASS 009 no direct core coupling to orthogonal outer coordinate
+PASS 010 general core Krylov determinant is precisely mixing numerator
+PASS 011 equal shared-edge access leaves nonzero mixing for a and r nonzero
+PASS 012 equal shared-edge access gives simple squared core coupling
+PASS 013 witness exact core link strength
+PASS 014 witness change of basis orthogonal
+PASS 015 witness exact serial chain
+PASS 016 both chain links nonzero
+PASS 017 core vector cyclic in the three-mode witness
+PASS 018 chain preserves exact characteristic polynomial
+PASS 019 exact original spectral coefficient at 11/10
+PASS 020 exact original spectral coefficient at -11/2 - sqrt(22)
+PASS 021 exact original spectral coefficient at -11/2 + sqrt(22)
+PASS 022 spectral decomposition of initial state
+PASS 023 winding coefficient dominant positive
+PASS 024 core coefficient signs and sums
+PASS 025 mean coefficients opposite and first zero
+PASS 026 two relative frequencies have irrational ratio
+PASS 027 sharp occupation bounds exact
+PASS 028 winding minimum and core maximum exhaust norm
+PASS 029 sharp edge gain supremum
+PASS 030 joint winding minimum/core maximum at same phase pair
+PASS 031 row mean bound attained on phase torus
+PASS 032 core edge map in occupation variables
+PASS 033 outer current vector read equals winding-weighted chirality
+PASS 034 core angular moment read equals core-weighted chirality
+PASS 035 combined current vector accounting
+PASS 036 outer mean-current squared norm
+PASS 037 core squared edge-current norm
+PASS 038 relative phase needed for current transfer: not new coordinates
+PASS 039 row-mean-zero invariant subspace iff both leakage couplings vanish
+PASS 040 stationary gain 2 Nc/Nv equals original value
+PASS 041 t=0.00: chain/full bond-current accounting
+PASS 042 t=1.50: chain/full bond-current accounting
+PASS 043 t=3.00: chain/full bond-current accounting
+PASS 044 t=4.50: chain/full bond-current accounting
+PASS 045 t=6.00: chain/full bond-current accounting
+PASS 046 t=7.50: chain/full bond-current accounting
+PASS 047 t=9.00: chain/full bond-current accounting
+PASS 048 t=10.50: chain/full bond-current accounting
+PASS 049 t=12.00: chain/full bond-current accounting
+PASS 050 t=13.50: chain/full bond-current accounting
+PASS 051 t=15.00: chain/full bond-current accounting
+PASS 052 t=16.50: chain/full bond-current accounting
+PASS 053 t=18.00: chain/full bond-current accounting
+PASS 054 t=19.50: chain/full bond-current accounting
+PASS 055 t=21.00: chain/full bond-current accounting
+PASS 056 t=22.50: chain/full bond-current accounting
+PASS 057 t=24.00: chain/full bond-current accounting
+PASS 058 t=25.50: chain/full bond-current accounting
+PASS 059 t=27.00: chain/full bond-current accounting
+PASS 060 t=28.50: chain/full bond-current accounting
+PASS 061 t=30.00: chain/full bond-current accounting
+PASS 062 t=31.50: chain/full bond-current accounting
+PASS 063 t=33.00: chain/full bond-current accounting
+PASS 064 t=34.50: chain/full bond-current accounting
+PASS 065 t=36.00: chain/full bond-current accounting
+PASS 066 t=37.50: chain/full bond-current accounting
+PASS 067 t=39.00: chain/full bond-current accounting
+PASS 068 t=40.50: chain/full bond-current accounting
+PASS 069 t=42.00: chain/full bond-current accounting
+PASS 070 t=43.50: chain/full bond-current accounting
+PASS 071 t=45.00: chain/full bond-current accounting
+PASS 072 t=46.50: chain/full bond-current accounting
+PASS 073 t=48.00: chain/full bond-current accounting
+PASS 074 t=49.50: chain/full bond-current accounting
+PASS 075 t=51.00: chain/full bond-current accounting
+PASS 076 t=52.50: chain/full bond-current accounting
+PASS 077 t=54.00: chain/full bond-current accounting
+PASS 078 t=55.50: chain/full bond-current accounting
+PASS 079 t=57.00: chain/full bond-current accounting
+PASS 080 t=58.50: chain/full bond-current accounting
+PASS 081 t=60.00: chain/full bond-current accounting
+PASS 082 t=61.50: chain/full bond-current accounting
+PASS 083 t=63.00: chain/full bond-current accounting
+PASS 084 t=64.50: chain/full bond-current accounting
+PASS 085 t=66.00: chain/full bond-current accounting
+PASS 086 t=67.50: chain/full bond-current accounting
+PASS 087 t=69.00: chain/full bond-current accounting
+PASS 088 t=70.50: chain/full bond-current accounting
+PASS 089 t=72.00: chain/full bond-current accounting
+PASS 090 t=73.50: chain/full bond-current accounting
+PASS 091 t=75.00: chain/full bond-current accounting
+PASS 092 t=76.50: chain/full bond-current accounting
+PASS 093 t=78.00: chain/full bond-current accounting
+PASS 094 t=79.50: chain/full bond-current accounting
+PASS 095 t=81.00: chain/full bond-current accounting
+PASS 096 t=82.50: chain/full bond-current accounting
+PASS 097 t=84.00: chain/full bond-current accounting
+PASS 098 t=85.50: chain/full bond-current accounting
+PASS 099 t=87.00: chain/full bond-current accounting
+PASS 100 t=88.50: chain/full bond-current accounting
+PASS 101 t=90.00: chain/full bond-current accounting
+PASS 102 t=91.50: chain/full bond-current accounting
+PASS 103 t=93.00: chain/full bond-current accounting
+PASS 104 t=94.50: chain/full bond-current accounting
+PASS 105 t=96.00: chain/full bond-current accounting
+PASS 106 t=97.50: chain/full bond-current accounting
+PASS 107 t=99.00: chain/full bond-current accounting
+PASS 108 t=100.50: chain/full bond-current accounting
+PASS 109 t=102.00: chain/full bond-current accounting
+PASS 110 t=103.50: chain/full bond-current accounting
+PASS 111 t=105.00: chain/full bond-current accounting
+PASS 112 t=106.50: chain/full bond-current accounting
+PASS 113 t=108.00: chain/full bond-current accounting
+PASS 114 t=109.50: chain/full bond-current accounting
+PASS 115 t=111.00: chain/full bond-current accounting
+PASS 116 t=112.50: chain/full bond-current accounting
+PASS 117 t=114.00: chain/full bond-current accounting
+PASS 118 t=115.50: chain/full bond-current accounting
+PASS 119 t=117.00: chain/full bond-current accounting
+PASS 120 t=118.50: chain/full bond-current accounting
+PASS 121 t=120.00: chain/full bond-current accounting
+PASS 122 t=0.00: two signed phase exchanges exhaust occupation derivatives
+PASS 123 t=6.00: two signed phase exchanges exhaust occupation derivatives
+PASS 124 t=12.00: two signed phase exchanges exhaust occupation derivatives
+PASS 125 t=18.00: two signed phase exchanges exhaust occupation derivatives
+PASS 126 t=24.00: two signed phase exchanges exhaust occupation derivatives
+PASS 127 t=30.00: two signed phase exchanges exhaust occupation derivatives
+PASS 128 t=36.00: two signed phase exchanges exhaust occupation derivatives
+PASS 129 t=42.00: two signed phase exchanges exhaust occupation derivatives
+PASS 130 t=48.00: two signed phase exchanges exhaust occupation derivatives
+PASS 131 t=54.00: two signed phase exchanges exhaust occupation derivatives
+PASS 132 t=60.00: two signed phase exchanges exhaust occupation derivatives
+PASS 133 t=66.00: two signed phase exchanges exhaust occupation derivatives
+PASS 134 t=72.00: two signed phase exchanges exhaust occupation derivatives
+PASS 135 t=78.00: two signed phase exchanges exhaust occupation derivatives
+PASS 136 t=84.00: two signed phase exchanges exhaust occupation derivatives
+PASS 137 t=90.00: two signed phase exchanges exhaust occupation derivatives
+PASS 138 t=96.00: two signed phase exchanges exhaust occupation derivatives
+PASS 139 t=102.00: two signed phase exchanges exhaust occupation derivatives
+PASS 140 t=108.00: two signed phase exchanges exhaust occupation derivatives
+PASS 141 t=114.00: two signed phase exchanges exhaust occupation derivatives
+PASS 142 t=120.00: two signed phase exchanges exhaust occupation derivatives
+PASS 143 all sampled occupations conserve norm
+PASS 144 all samples satisfy exact occupation envelopes
+PASS 145 all sampled edge gains obey sharp supremum
+PASS 146 combined current read error bounded by 1/99
+Exact winding lower bound 5329/5929 0.8988024962050936
+Exact core supremum 600/5929 0.1011975037949064
+Exact mean supremum 1/99 0.010101010101010102
+Exact edge-gain supremum 1200/5329 0.2251829611559392
+146/146 new checks passed

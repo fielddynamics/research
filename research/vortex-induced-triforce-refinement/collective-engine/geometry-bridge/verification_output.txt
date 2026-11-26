@@ -1,0 +1,168 @@
+PASS 001 row closed orthogonal projection rank eight
+PASS 002 column read Gram 2I minus off diagonal 2/3
+PASS 003 normalized physical read covectors reproduce tetrad Gram
+PASS 004 four read directions sum zero
+PASS 005 three-dimensional canonical column-active space
+PASS 006 five row-closed directions invisible to column read
+PASS 007 boundary of boundary zero
+PASS 008 four oriented triangular cycles reproduce tetrad Gram exactly
+PASS 009 cycle space is exactly three dimensional
+PASS 010 cycle projector is exact
+PASS 011 canonical map from read frame to cycles is partial isometry
+PASS 012 maps four read vectors to four oriented cycles
+PASS 013 standard tetrad factorization
+PASS 014 read isometry from intrinsic spatial triplet
+PASS 015 cycle isometry from intrinsic spatial triplet
+PASS 016 read covariance under (0, 1, 2, 3)
+PASS 017 oriented cycle covariance under (0, 1, 2, 3)
+PASS 018 read covariance under (0, 1, 3, 2)
+PASS 019 oriented cycle covariance under (0, 1, 3, 2)
+PASS 020 read covariance under (0, 2, 1, 3)
+PASS 021 oriented cycle covariance under (0, 2, 1, 3)
+PASS 022 read covariance under (0, 2, 3, 1)
+PASS 023 oriented cycle covariance under (0, 2, 3, 1)
+PASS 024 read covariance under (0, 3, 1, 2)
+PASS 025 oriented cycle covariance under (0, 3, 1, 2)
+PASS 026 read covariance under (0, 3, 2, 1)
+PASS 027 oriented cycle covariance under (0, 3, 2, 1)
+PASS 028 read covariance under (1, 0, 2, 3)
+PASS 029 oriented cycle covariance under (1, 0, 2, 3)
+PASS 030 read covariance under (1, 0, 3, 2)
+PASS 031 oriented cycle covariance under (1, 0, 3, 2)
+PASS 032 read covariance under (1, 2, 0, 3)
+PASS 033 oriented cycle covariance under (1, 2, 0, 3)
+PASS 034 read covariance under (1, 2, 3, 0)
+PASS 035 oriented cycle covariance under (1, 2, 3, 0)
+PASS 036 read covariance under (1, 3, 0, 2)
+PASS 037 oriented cycle covariance under (1, 3, 0, 2)
+PASS 038 read covariance under (1, 3, 2, 0)
+PASS 039 oriented cycle covariance under (1, 3, 2, 0)
+PASS 040 read covariance under (2, 0, 1, 3)
+PASS 041 oriented cycle covariance under (2, 0, 1, 3)
+PASS 042 read covariance under (2, 0, 3, 1)
+PASS 043 oriented cycle covariance under (2, 0, 3, 1)
+PASS 044 read covariance under (2, 1, 0, 3)
+PASS 045 oriented cycle covariance under (2, 1, 0, 3)
+PASS 046 read covariance under (2, 1, 3, 0)
+PASS 047 oriented cycle covariance under (2, 1, 3, 0)
+PASS 048 read covariance under (2, 3, 0, 1)
+PASS 049 oriented cycle covariance under (2, 3, 0, 1)
+PASS 050 read covariance under (2, 3, 1, 0)
+PASS 051 oriented cycle covariance under (2, 3, 1, 0)
+PASS 052 read covariance under (3, 0, 1, 2)
+PASS 053 oriented cycle covariance under (3, 0, 1, 2)
+PASS 054 read covariance under (3, 0, 2, 1)
+PASS 055 oriented cycle covariance under (3, 0, 2, 1)
+PASS 056 read covariance under (3, 1, 0, 2)
+PASS 057 oriented cycle covariance under (3, 1, 0, 2)
+PASS 058 read covariance under (3, 1, 2, 0)
+PASS 059 oriented cycle covariance under (3, 1, 2, 0)
+PASS 060 read covariance under (3, 2, 0, 1)
+PASS 061 oriented cycle covariance under (3, 2, 0, 1)
+PASS 062 read covariance under (3, 2, 1, 0)
+PASS 063 oriented cycle covariance under (3, 2, 1, 0)
+PASS 064 complementary cycle difference is actual cross product
+PASS 065 phase wedge conserved around four labels 0
+PASS 066 exact phase-wedge norm 0
+PASS 067 cycle currents equal axial read 0
+PASS 068 phase wedge conserved around four labels 1
+PASS 069 exact phase-wedge norm 1
+PASS 070 cycle currents equal axial read 1
+PASS 071 phase wedge conserved around four labels 2
+PASS 072 exact phase-wedge norm 2
+PASS 073 cycle currents equal axial read 2
+PASS 074 phase wedge conserved around four labels 3
+PASS 075 exact phase-wedge norm 3
+PASS 076 cycle currents equal axial read 3
+PASS 077 phase wedge conserved around four labels 4
+PASS 078 exact phase-wedge norm 4
+PASS 079 cycle currents equal axial read 4
+PASS 080 phase wedge conserved around four labels 5
+PASS 081 exact phase-wedge norm 5
+PASS 082 cycle currents equal axial read 5
+PASS 083 phase wedge conserved around four labels 6
+PASS 084 exact phase-wedge norm 6
+PASS 085 cycle currents equal axial read 6
+PASS 086 phase wedge conserved around four labels 7
+PASS 087 exact phase-wedge norm 7
+PASS 088 cycle currents equal axial read 7
+PASS 089 phase wedge conserved around four labels 8
+PASS 090 exact phase-wedge norm 8
+PASS 091 cycle currents equal axial read 8
+PASS 092 phase wedge conserved around four labels 9
+PASS 093 exact phase-wedge norm 9
+PASS 094 cycle currents equal axial read 9
+PASS 095 phase wedge conserved around four labels 10
+PASS 096 exact phase-wedge norm 10
+PASS 097 cycle currents equal axial read 10
+PASS 098 phase wedge conserved around four labels 11
+PASS 099 exact phase-wedge norm 11
+PASS 100 cycle currents equal axial read 11
+PASS 101 phase wedge conserved around four labels 12
+PASS 102 exact phase-wedge norm 12
+PASS 103 cycle currents equal axial read 12
+PASS 104 phase wedge conserved around four labels 13
+PASS 105 exact phase-wedge norm 13
+PASS 106 cycle currents equal axial read 13
+PASS 107 phase wedge conserved around four labels 14
+PASS 108 exact phase-wedge norm 14
+PASS 109 cycle currents equal axial read 14
+PASS 110 phase wedge conserved around four labels 15
+PASS 111 exact phase-wedge norm 15
+PASS 112 cycle currents equal axial read 15
+PASS 113 phase wedge conserved around four labels 16
+PASS 114 exact phase-wedge norm 16
+PASS 115 cycle currents equal axial read 16
+PASS 116 phase wedge conserved around four labels 17
+PASS 117 exact phase-wedge norm 17
+PASS 118 cycle currents equal axial read 17
+PASS 119 phase wedge conserved around four labels 18
+PASS 120 exact phase-wedge norm 18
+PASS 121 cycle currents equal axial read 18
+PASS 122 phase wedge conserved around four labels 19
+PASS 123 exact phase-wedge norm 19
+PASS 124 cycle currents equal axial read 19
+PASS 125 phase wedge conserved around four labels 20
+PASS 126 exact phase-wedge norm 20
+PASS 127 cycle currents equal axial read 20
+PASS 128 phase wedge conserved around four labels 21
+PASS 129 exact phase-wedge norm 21
+PASS 130 cycle currents equal axial read 21
+PASS 131 phase wedge conserved around four labels 22
+PASS 132 exact phase-wedge norm 22
+PASS 133 cycle currents equal axial read 22
+PASS 134 phase wedge conserved around four labels 23
+PASS 135 exact phase-wedge norm 23
+PASS 136 cycle currents equal axial read 23
+PASS 137 eight inversion-related read vertices equal cube corners
+PASS 138 six sums are octahedron vertices
+PASS 139 one nondegenerate stellation per direction (1, 1, 1)
+PASS 140 one nondegenerate stellation per direction (1, -1, -1)
+PASS 141 one nondegenerate stellation per direction (-1, 1, -1)
+PASS 142 one nondegenerate stellation per direction (-1, -1, 1)
+PASS 143 one nondegenerate stellation per direction (-1, -1, -1)
+PASS 144 one nondegenerate stellation per direction (-1, 1, 1)
+PASS 145 one nondegenerate stellation per direction (1, -1, 1)
+PASS 146 one nondegenerate stellation per direction (1, 1, -1)
+PASS 147 same four independent phase records allow nonisometric coordinate chart
+PASS 148 all original 104 bonds from labels alone
+PASS 149 published collective reduction follows from label graph before embedding
+PASS 150 intrinsic collective sector has nine dimensions
+PASS 151 intrinsic norm factors into multiplicity metric times W
+PASS 152 abstract full graph equals reduced evolution t=0
+PASS 153 actual ring-edge current telescoping t=0
+PASS 154 abstract full graph equals reduced evolution t=0.01
+PASS 155 actual ring-edge current telescoping t=0.01
+PASS 156 abstract full graph equals reduced evolution t=0.1
+PASS 157 actual ring-edge current telescoping t=0.1
+PASS 158 abstract full graph equals reduced evolution t=0.5
+PASS 159 actual ring-edge current telescoping t=0.5
+PASS 160 abstract full graph equals reduced evolution t=1
+PASS 161 actual ring-edge current telescoping t=1
+PASS 162 abstract full graph equals reduced evolution t=2
+PASS 163 actual ring-edge current telescoping t=2
+PASS 164 abstract full graph equals reduced evolution t=4
+PASS 165 actual ring-edge current telescoping t=4
+PASS 166 abstract full graph equals reduced evolution t=8
+PASS 167 actual ring-edge current telescoping t=8
+167/167 checks passed

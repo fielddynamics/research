@@ -4,6 +4,8 @@
 
 > **Recursive refinement continuation.** The [eight-ring and core study](../vortex-induced-triforce-refinement/core-flywheel/) derives the cubic orientation read and primal stream function from this same collective ansatz. The [refined core Hodge study](../vortex-induced-triforce-refinement/core-hodge/) establishes 5+12 circulation directions and the obstruction to projecting only after coarse aggregation. The axis-aligned circular ray has an improper stabilizer, so every phase-invariant sign scalar vanishes there. These results do not change the Stage VII witness or prove a fine Hamiltonian.
 
+> **Collective engine and geometry bridge.** The [collective engine](../vortex-induced-triforce-refinement/collective-engine/) and its [closed algebra](../vortex-induced-triforce-refinement/collective-engine/closed-algebra/) reduce this same collective ansatz to face currents, edge currents and a two-link chain, with no new variables. The [geometry bridge](../vortex-induced-triforce-refinement/collective-engine/geometry-bridge/) shows its four oriented stellation cycles carry the regular tetrahedral Gram matrix $4I-J$, conditional on the existing incidence structure and with an explicit reflection sign twist.
+
 
 *Field Dynamics Research · Stage VII · [T] exact finite algebra and conditional linear Hamiltonian theorems; [E] physical selection and nonlinear stability open.*
 

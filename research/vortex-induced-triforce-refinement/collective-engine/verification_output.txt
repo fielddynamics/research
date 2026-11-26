@@ -1,0 +1,127 @@
+PASS 001 tetrahedral tight frame
+PASS 002 actual complementary difference 0,1
+PASS 003 actual complementary difference 0,2
+PASS 004 actual complementary difference 0,3
+PASS 005 actual complementary difference 1,0
+PASS 006 actual complementary difference 1,2
+PASS 007 actual complementary difference 1,3
+PASS 008 actual complementary difference 2,0
+PASS 009 actual complementary difference 2,1
+PASS 010 actual complementary difference 2,3
+PASS 011 actual complementary difference 3,0
+PASS 012 actual complementary difference 3,1
+PASS 013 actual complementary difference 3,2
+PASS 014 edge operator factors through four face currents
+PASS 015 edge current is divergence free on all eight bases
+PASS 016 edge map has rank three and constant kernel
+PASS 017 edge map tight frame identity
+PASS 018 core vector tight frame
+PASS 019 edge angular moment operator
+PASS 020 row zero projection
+PASS 021 column read exact tight frame
+PASS 022 row closed eight dimensions split into three column-active and five dark
+PASS 023 unique least-norm column lift
+PASS 024 column lift orthogonal to row-column nullspace
+PASS 025 original row closed flywheel is exactly this lift
+PASS 026 exact row mean, winding and core reduction
+PASS 027 occupation diagonal in three existing coordinates
+PASS 028 normalized three-coordinate Hamiltonian real symmetric
+PASS 029 empty-core activation independent of base coupling b
+PASS 030 existing stationary branch unchanged
+PASS 031 stationary core-to-ring edge multiplier
+PASS 032 stationary normalized central occupation
+PASS 033 early core occupation second derivative
+PASS 034 all original 104 graph bonds
+PASS 035 full graph reduction exact
+PASS 036 full embedding norm exact
+PASS 037 actual bond currents agree with face-edge law
+PASS 038 actual edge and face current norm relation
+PASS 039 three-coordinate occupation equals full norm
+PASS 040 actual bond currents agree with face-edge law
+PASS 041 actual edge and face current norm relation
+PASS 042 three-coordinate occupation equals full norm
+PASS 043 actual bond currents agree with face-edge law
+PASS 044 actual edge and face current norm relation
+PASS 045 three-coordinate occupation equals full norm
+PASS 046 actual bond currents agree with face-edge law
+PASS 047 actual edge and face current norm relation
+PASS 048 three-coordinate occupation equals full norm
+PASS 049 actual bond currents agree with face-edge law
+PASS 050 actual edge and face current norm relation
+PASS 051 three-coordinate occupation equals full norm
+PASS 052 actual bond currents agree with face-edge law
+PASS 053 actual edge and face current norm relation
+PASS 054 three-coordinate occupation equals full norm
+PASS 055 actual bond currents agree with face-edge law
+PASS 056 actual edge and face current norm relation
+PASS 057 three-coordinate occupation equals full norm
+PASS 058 actual bond currents agree with face-edge law
+PASS 059 actual edge and face current norm relation
+PASS 060 three-coordinate occupation equals full norm
+PASS 061 actual bond currents agree with face-edge law
+PASS 062 actual edge and face current norm relation
+PASS 063 three-coordinate occupation equals full norm
+PASS 064 actual bond currents agree with face-edge law
+PASS 065 actual edge and face current norm relation
+PASS 066 three-coordinate occupation equals full norm
+PASS 067 actual bond currents agree with face-edge law
+PASS 068 actual edge and face current norm relation
+PASS 069 three-coordinate occupation equals full norm
+PASS 070 actual bond currents agree with face-edge law
+PASS 071 actual edge and face current norm relation
+PASS 072 three-coordinate occupation equals full norm
+PASS 073 actual bond currents agree with face-edge law
+PASS 074 actual edge and face current norm relation
+PASS 075 three-coordinate occupation equals full norm
+PASS 076 actual bond currents agree with face-edge law
+PASS 077 actual edge and face current norm relation
+PASS 078 three-coordinate occupation equals full norm
+PASS 079 actual bond currents agree with face-edge law
+PASS 080 actual edge and face current norm relation
+PASS 081 three-coordinate occupation equals full norm
+PASS 082 actual bond currents agree with face-edge law
+PASS 083 actual edge and face current norm relation
+PASS 084 three-coordinate occupation equals full norm
+PASS 085 actual bond currents agree with face-edge law
+PASS 086 actual edge and face current norm relation
+PASS 087 three-coordinate occupation equals full norm
+PASS 088 actual bond currents agree with face-edge law
+PASS 089 actual edge and face current norm relation
+PASS 090 three-coordinate occupation equals full norm
+PASS 091 actual bond currents agree with face-edge law
+PASS 092 actual edge and face current norm relation
+PASS 093 three-coordinate occupation equals full norm
+PASS 094 actual bond currents agree with face-edge law
+PASS 095 actual edge and face current norm relation
+PASS 096 three-coordinate occupation equals full norm
+PASS 097 actual bond currents agree with face-edge law
+PASS 098 actual edge and face current norm relation
+PASS 099 three-coordinate occupation equals full norm
+PASS 100 actual bond currents agree with face-edge law
+PASS 101 actual edge and face current norm relation
+PASS 102 three-coordinate occupation equals full norm
+PASS 103 actual bond currents agree with face-edge law
+PASS 104 actual edge and face current norm relation
+PASS 105 three-coordinate occupation equals full norm
+PASS 106 actual bond currents agree with face-edge law
+PASS 107 actual edge and face current norm relation
+PASS 108 three-coordinate occupation equals full norm
+PASS 109 identical full ring and core currents for opposite relative core phase
+PASS 110 same currents opposite occupation transfer
+PASS 111 reduced trajectory equals full graph
+PASS 112 full trajectory face-edge current law
+PASS 113 reduced trajectory equals full graph
+PASS 114 full trajectory face-edge current law
+PASS 115 reduced trajectory equals full graph
+PASS 116 full trajectory face-edge current law
+PASS 117 reduced trajectory equals full graph
+PASS 118 full trajectory face-edge current law
+PASS 119 reduced trajectory equals full graph
+PASS 120 full trajectory face-edge current law
+PASS 121 reduced trajectory equals full graph
+PASS 122 full trajectory face-edge current law
+PASS 123 reduced trajectory equals full graph
+PASS 124 full trajectory face-edge current law
+PASS 125 reduced trajectory equals full graph
+PASS 126 full trajectory face-edge current law
+126/126 checks passed
