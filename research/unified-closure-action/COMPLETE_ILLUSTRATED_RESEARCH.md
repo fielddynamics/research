@@ -4,7 +4,7 @@ subtitle: "Consolidated illustrated research edition"
 date: "November 2026"
 ---
 
-**Reading guide.** Parts I–III preserve the previously archived mathematical companion and the two latest research extensions. Part IV reconstructs additional chat visuals. All 27 numbered diagram designs are included as SVG and PNG, with the supplied original photograph separately. Exact identities, conditional constructions and physical proof obligations remain distinguished.
+**Reading guide.** Parts I–III preserve the previously archived mathematical companion and the two latest research extensions. Part IV reconstructs additional chat visuals. All 27 numbered diagram designs are included as SVG and PNG, the supplied original photograph is third-party and not reproduced. Exact identities, conditional constructions and physical proof obligations remain distinguished.
 
 [Open the numbered visual atlas](VISUAL_ATLAS.html) · [Original interactive companion](VISUAL_MATHEMATICAL_COMPANION.html)
 
