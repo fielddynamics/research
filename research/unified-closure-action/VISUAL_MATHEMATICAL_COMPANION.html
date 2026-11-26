@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>GFD — Three-subcycle settlement</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <style>body{max-width:880px;margin:0 auto;padding:36px 25px 70px;font:17px/1.65 system-ui,sans-serif;color:#17283d;background:#fff}h1,h2{line-height:1.2;color:#173758}header#title-block-header{border-bottom:2px solid #0d9488;margin-bottom:32px;padding-bottom:20px}header h1{font-size:2.4rem}h1:not(.title){font-size:1.65rem;margin-top:3rem}img{display:block;max-width:100%;max-height:720px;margin:0 auto}figure{margin:28px 0;padding:16px;border:1px solid #dbe3ec;border-radius:10px}figcaption{font-size:.9em;color:#526479;margin-top:8px;text-align:center}math[display=block]{margin:20px auto;overflow-x:auto;max-width:100%;font-size:1.1em}table{border-collapse:collapse;width:100%;font-size:.95em}td,th{padding:10px;border-bottom:1px solid #dbe3ec;text-align:left}th{background:#edf4f7}a{color:#166d92}.balance-control{padding:20px;border:1px solid #cbd5e1;border-radius:10px;background:#f8fafc}button{padding:8px 14px;border:1px solid #64748b;border-radius:5px;background:white;color:#17283d;cursor:pointer}nav#TOC{padding:18px 24px;background:#f1f5f9;border-radius:8px}nav#TOC a{text-decoration:none}code{font-size:.85em}@media print{body{max-width:none;padding:0}figure{break-inside:avoid}math{break-inside:avoid}nav{display:none}}</style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">GFD — Three-subcycle settlement</h1>
+<p class="subtitle">Illustrated mathematical companion to the chat
+derivations</p>
+<p class="date">November 2026</p>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#geometric-π-and-the-initial-three-cycle-hypothesis"
+id="toc-geometric-π-and-the-initial-three-cycle-hypothesis">1. Geometric
+π and the initial three-cycle hypothesis</a></li>
+<li><a href="#relational-ledger-and-recursive-closure"
+id="toc-relational-ledger-and-recursive-closure">2. Relational ledger
+and recursive closure</a></li>
+<li><a href="#collective-transmission-and-structural-coupling"
+id="toc-collective-transmission-and-structural-coupling">3. Collective
+transmission and structural coupling</a></li>
+<li><a href="#boundary-weighted-settlement"
+id="toc-boundary-weighted-settlement">4. Boundary-weighted
+settlement</a></li>
+<li><a href="#scalar-action-and-electron-closure"
+id="toc-scalar-action-and-electron-closure">5. Scalar action and
+electron closure</a></li>
+<li><a href="#microscopic-hamiltonian-stiffness"
+id="toc-microscopic-hamiltonian-stiffness">6. Microscopic Hamiltonian
+stiffness</a></li>
+<li><a href="#face-pair-exchange-and-the-1317-ratio"
+id="toc-face-pair-exchange-and-the-1317-ratio">7. Face-pair exchange and
+the 13/17 ratio</a></li>
+<li><a
+href="#electromagnetic-normalization-and-gravitational-settlement"
+id="toc-electromagnetic-normalization-and-gravitational-settlement">8.
+Electromagnetic normalization and gravitational settlement</a></li>
+<li><a href="#research-status-and-reproduction"
+id="toc-research-status-and-reproduction">9. Research status and
+reproduction</a></li>
+</ul>
+</nav>
+<p><strong>Scope.</strong> This companion reconstructs the nine visual
+diagrams from the chat and collects the associated mathematics in
+reading order. The diagrams are recreated graphics, not screenshots of
+the interface. The original two research notes, scripts, logs and
+supplied image are retained unchanged. Exact algebraic identities are
+distinguished from proposed physical mechanisms.</p>
+<h1 id="geometric-π-and-the-initial-three-cycle-hypothesis">1. Geometric
+π and the initial three-cycle hypothesis</h1>
+<figure>
+<p><em>Reference: the 2008 Barbury Castle π crop formation (photograph not reproduced here). The proposed three-circle interpretation is a GFD hypothesis, not evidence of a physical field mechanism.</em></p>
+<figcaption aria-hidden="true">Supplied geometric π reference. The
+proposed three-circle interpretation is a GFD hypothesis, not evidence
+of a physical field mechanism.</figcaption>
+</figure>
+<p>The decimal angular encoding uses increments of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>π</mi><mi>/</mi><mn>10</mn></mrow><annotation encoding="application/x-tex">2\pi/10</annotation></semantics></math>.
+For the ten digits of the rounded representation 3.141592654,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><mo>+</mo><mn>1</mn><mo>+</mo><mn>4</mn><mo>+</mo><mn>1</mn><mo>+</mo><mn>5</mn><mo>+</mo><mn>9</mn><mo>+</mo><mn>2</mn><mo>+</mo><mn>6</mn><mo>+</mo><mn>5</mn><mo>+</mo><mn>4</mn><mo>=</mo><mn>40</mn><mo>,</mo><mspace width="2.0em"></mspace><mn>40</mn><mfrac><mrow><mn>2</mn><mi>π</mi></mrow><mn>10</mn></mfrac><mo>=</mo><mn>8</mn><mi>π</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">3+1+4+1+5+9+2+6+5+4=40,\qquad 40\frac{2\pi}{10}=8\pi.</annotation></semantics></math></p>
+<p>This is four revolutions for that particular rounded representation,
+not a period of π. The three outer circles inspired the three-subcycle
+hypothesis. A separate exact mathematical connection is the eight-vertex
+Walsh transform:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>8</mn><mo>=</mo><msup><mn>2</mn><mn>3</mn></msup><mo>,</mo><mspace width="2.0em"></mspace><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>−</mi><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mi>a</mi><mo>⋅</mo><mi>b</mi></mrow></msup><mo>=</mo><msup><mi>e</mi><mrow><mi>i</mi><mi>π</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo>⋅</mo><mi>b</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></msup><mo>,</mo><mspace width="2.0em"></mspace><mover><mi>f</mi><mo accent="true">̂</mo></mover><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mfrac><mn>1</mn><msqrt><mn>8</mn></msqrt></mfrac><munder><mo>∑</mo><mrow><mi>b</mi><mo>∈</mo><mo stretchy="false" form="prefix">{</mo><mn>0</mn><mo>,</mo><mn>1</mn><msup><mo stretchy="false" form="postfix">}</mo><mn>3</mn></msup></mrow></munder><msup><mi>e</mi><mrow><mi>i</mi><mi>π</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo>⋅</mo><mi>b</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></msup><mi>f</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>b</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">8=2^3,\qquad (-1)^{a\cdot b}=e^{i\pi(a\cdot b)},\qquad \widehat f(a)=\frac{1}{\sqrt8}\sum_{b\in\{0,1\}^3}e^{i\pi(a\cdot b)}f(b).</annotation></semantics></math></p>
+<figure>
+<img src="diagrams/01_eight_channel_fwht.svg"
+alt="Eight-channel FWHT: three stages of four pairings each." />
+<figcaption aria-hidden="true">Eight-channel FWHT: three stages of four
+pairings each.</figcaption>
+</figure>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><mo>×</mo><mn>4</mn><mo>=</mo><mn>12</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">3\times4=12.</annotation></semantics></math></p>
+<p>The twelve butterfly pairings correspond combinatorially to the three
+groups of four parallel edges of a cube. The dual tetrahedra occupy its
+eight vertices. A Walsh sign phase does not, by itself, derive a
+physical π digit-address schedule.</p>
+<figure>
+<img src="diagrams/02_dual_tetrad_phase_engine.svg"
+alt="Original candidate dual-tetrad phase engine." />
+<figcaption aria-hidden="true">Original candidate dual-tetrad phase
+engine.</figcaption>
+</figure>
+<h1 id="relational-ledger-and-recursive-closure">2. Relational ledger
+and recursive closure</h1>
+<p>Eight vortex amplitudes admit a 64-coordinate dyadic operator ledger.
+A candidate three-level address structure is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>L</mi><mrow><mi>a</mi><mi>b</mi><mi>c</mi></mrow></msub><annotation encoding="application/x-tex">L_{abc}</annotation></semantics></math>
+with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>,</mo><mi>b</mi><mo>,</mo><mi>c</mi><mo>∈</mo><mo stretchy="false" form="prefix">{</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">a,b,c\in\{0,1,2,3\}</annotation></semantics></math>.
+A physical identification between the dyadic ledger and boundary records
+is still needed.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>8</mn><mn>2</mn></msup><mo>=</mo><msup><mn>4</mn><mn>3</mn></msup><mo>=</mo><mn>64</mn><mo>,</mo><mspace width="2.0em"></mspace><mi>N</mi><mo>=</mo><mfrac><mrow><msup><mn>4</mn><mn>3</mn></msup><mo>−</mo><mn>1</mn></mrow><mrow><mn>4</mn><mo>−</mo><mn>1</mn></mrow></mfrac><mo>=</mo><mn>21</mn><mo>,</mo><mspace width="2.0em"></mspace><mn>64</mn><mo>=</mo><mn>1</mn><mo>+</mo><mn>3</mn><mrow><mo stretchy="true" form="prefix">(</mo><mn>21</mn><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">8^2=4^3=64,\qquad N=\frac{4^3-1}{4-1}=21,\qquad 64=1+3(21).</annotation></semantics></math></p>
+<figure>
+<img src="diagrams/03_recursive_address_tree.svg"
+alt="Three-level address tree with four faces, sixteen subfaces and sixty-four terminal records." />
+<figcaption aria-hidden="true">Three-level address tree with four faces,
+sixteen subfaces and sixty-four terminal records.</figcaption>
+</figure>
+<p>The normalized four-way Hadamard matrix and full relational FWHT
+are</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mrow><mo stretchy="true" form="prefix">(</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><mi>F</mi><mo>=</mo><mi>h</mi><mo>⊗</mo><mi>h</mi><mo>⊗</mo><mi>h</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">h=\frac12\begin{pmatrix}1&amp;1&amp;1&amp;1\\1&amp;-1&amp;1&amp;-1\\1&amp;1&amp;-1&amp;-1\\1&amp;-1&amp;-1&amp;1\end{pmatrix},\qquad F=h\otimes h\otimes h.</annotation></semantics></math></p>
+<p>The reversible hierarchical read separates one common mode and
+contrast strata of dimensions 3, 12, 48. This tree is distinct from the
+full FWHT, which also mixes details within each stratum. Under the
+simultaneous nonzero-digit cycle
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>:</mo><mn>1</mn><mo>↦</mo><mn>2</mn><mo>↦</mo><mn>3</mn><mo>↦</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">M:1\mapsto2\mapsto3\mapsto1</annotation></semantics></math>
+fixing zero,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi><mo>=</mo><mfrac><mrow><mi>I</mi><mo>+</mo><mi>M</mi><mo>+</mo><msup><mi>M</mi><mn>2</mn></msup></mrow><mn>3</mn></mfrac><mo>,</mo><mspace width="2.0em"></mspace><mo>rank</mo><mi>Q</mi><mo>=</mo><mn>22</mn><mo>,</mo><mspace width="2.0em"></mspace><mn>21</mn><mo>=</mo><mn>1</mn><mo>+</mo><mn>4</mn><mo>+</mo><mn>16</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">Q=\frac{I+M+M^2}{3},\qquad \operatorname{rank}Q=22,\qquad 21=1+4+16.</annotation></semantics></math></p>
+<p>The invariant contrast dimensions are
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><mi>/</mi><mn>3</mn><mo>,</mo><mn>12</mn><mi>/</mi><mn>3</mn><mo>,</mo><mn>48</mn><mi>/</mi><mn>3</mn></mrow><annotation encoding="application/x-tex">3/3,12/3,48/3</annotation></semantics></math>.
+The particular middle-grade assignment is a choice, not forced by
+spatial symmetry alone.</p>
+<h1 id="collective-transmission-and-structural-coupling">3. Collective
+transmission and structural coupling</h1>
+<p>With a proposed elementary amplitude
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>=</mo><msqrt><mi>α</mi></msqrt></mrow><annotation encoding="application/x-tex">t=\sqrt\alpha</annotation></semantics></math>,
+the top exterior-power read on the 21-dimensional contrast sector
+yields</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mrow><mo stretchy="true" form="prefix">|</mo><mo>det</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><msub><mi>I</mi><mn>21</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">|</mo></mrow><mn>2</mn></msup><mo>=</mo><msup><mi>α</mi><mn>21</mn></msup><mo>=</mo><msup><mi>α</mi><mn>16</mn></msup><msup><mi>α</mi><mn>4</mn></msup><mi>α</mi><mo>≈</mo><mn>1.33804868</mn><mo>×</mo><msup><mn>10</mn><mrow><mi>−</mi><mn>45</mn></mrow></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">|\det(tI_{21})|^2=\alpha^{21}=\alpha^{16}\alpha^4\alpha\approx1.33804868\times10^{-45}.</annotation></semantics></math></p>
+<figure>
+<img src="diagrams/04_collective_attenuation.svg"
+alt="The proposed collective attenuation across the three grades." />
+<figcaption aria-hidden="true">The proposed collective attenuation
+across the three grades.</figcaption>
+</figure>
+<p>A serial network of independently routed reflected modes is an
+alternative mathematical realization. Each stage has a lossless
+dilation</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mi>t</mi></mtd><mtd columnalign="center" style="text-align: center"><msqrt><mrow><mn>1</mn><mo>−</mo><msup><mi>t</mi><mn>2</mn></msup></mrow></msqrt></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><msqrt><mrow><mn>1</mn><mo>−</mo><msup><mi>t</mi><mn>2</mn></msup></mrow></msqrt></mtd><mtd columnalign="center" style="text-align: center"><mi>−</mi><mi>t</mi></mtd></mtr></mtable><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><msup><mi>S</mi><mi>T</mi></msup><mi>S</mi><mo>=</mo><mi>I</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">S=\begin{pmatrix}t&amp;\sqrt{1-t^2}\\\sqrt{1-t^2}&amp;-t\end{pmatrix},\qquad S^TS=I.</annotation></semantics></math></p>
+<p>An ordinary one-mode projection has intensity
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>,
+not
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>α</mi><mn>21</mn></msup><annotation encoding="application/x-tex">\alpha^{21}</annotation></semantics></math>.
+Physical selection of the collective vertex and elementary attenuation
+remains open.</p>
+<p>The inherited coupling polynomial with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>=</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">K=4</annotation></semantics></math>
+is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>K</mi><mo>,</mo><mi>s</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>1</mn><mo>+</mo><mi>s</mi><mi>K</mi><mo>+</mo><msup><mi>K</mi><mn>2</mn></msup><mo>,</mo><mspace width="2.0em"></mspace><mi>f</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>4</mn><mo>,</mo><mi>+</mi><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>21</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>f</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>4</mn><mo>,</mo><mn>0</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>17</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>f</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>4</mn><mo>,</mo><mi>−</mi><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>13</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">f(K,s)=1+sK+K^2,\qquad f(4,+1)=21,\quad f(4,0)=17,\quad f(4,-1)=13.</annotation></semantics></math></p>
+<p>The tree-level GFD target is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>γ</mi><mi>G</mi></msub><mo>=</mo><mi>G</mi><msubsup><mi>m</mi><mi>e</mi><mn>2</mn></msubsup><mi>/</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>ℏ</mi><mi>c</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>17</mn><mi>/</mi><mn>13</mn><mo stretchy="true" form="postfix">)</mo></mrow><msup><mi>α</mi><mn>21</mn></msup></mrow><annotation encoding="application/x-tex">\gamma_G=Gm_e^2/(\hbar c)=(17/13)\alpha^{21}</annotation></semantics></math>.</p>
+<h1 id="boundary-weighted-settlement">4. Boundary-weighted
+settlement</h1>
+<p>A centered regular tetrahedron has four faces of solid angle
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>π</mi><annotation encoding="application/x-tex">\pi</annotation></semantics></math>.
+The central Triforce tile subtends
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>π</mi><mi>/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">\pi/2</annotation></semantics></math>,
+the three lateral tiles each
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>π</mi><mi>/</mi><mn>6</mn></mrow><annotation encoding="application/x-tex">\pi/6</annotation></semantics></math>.
+For four assumed equally weighted subchannel addresses per tile,</p>
+<figure>
+<img src="diagrams/05_triforce_solid_angles.svg"
+alt="The Triforce face solid-angle partition." />
+<figcaption aria-hidden="true">The Triforce face solid-angle
+partition.</figcaption>
+</figure>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>w</mi><mrow><mi>a</mi><mi>b</mi><mi>c</mi></mrow></msub><mo>=</mo><mrow><mo stretchy="true" form="prefix">{</mo><mtable><mtr><mtd columnalign="left" style="text-align: left"><mn>1</mn><mi>/</mi><mn>32</mn></mtd><mtd columnalign="left" style="text-align: left"><mi>b</mi><mo>=</mo><mn>0</mn><mo>,</mo></mtd></mtr><mtr><mtd columnalign="left" style="text-align: left"><mn>1</mn><mi>/</mi><mn>96</mn></mtd><mtd columnalign="left" style="text-align: left"><mi>b</mi><mo>≠</mo><mn>0</mn><mi>.</mi></mtd></mtr></mtable></mrow></mrow><annotation encoding="application/x-tex">w_{abc}=\begin{cases}1/32&amp;b=0,\\1/96&amp;b\ne0.\end{cases}</annotation></semantics></math></p>
+<p>Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>u</mi><mo>=</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>,</mo><mi>…</mi><mo>,</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mi>T</mi></msup></mrow><annotation encoding="application/x-tex">u=(1,\ldots,1)^T</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>w</mi><mi>T</mi></msup><mi>u</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">w^Tu=1</annotation></semantics></math>,
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo>=</mo><mi>u</mi><msup><mi>w</mi><mi>T</mi></msup></mrow><annotation encoding="application/x-tex">P=uw^T</annotation></semantics></math>.
+Then</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>P</mi><mn>2</mn></msup><mo>=</mo><mi>P</mi><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>J</mi><mi>α</mi></msub><mo>=</mo><msqrt><mi>α</mi></msqrt><mi>I</mi><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><msqrt><mi>α</mi></msqrt><mo stretchy="true" form="postfix">)</mo></mrow><mi>P</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">P^2=P,\qquad J_\alpha=\sqrt\alpha I+(1-\sqrt\alpha)P.</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>J</mi><mi>α</mi></msub><mi>u</mi><mo>=</mo><mi>u</mi><mo>,</mo><mspace width="2.0em"></mspace><msup><mi>w</mi><mi>T</mi></msup><msub><mi>J</mi><mi>α</mi></msub><mo>=</mo><msup><mi>w</mi><mi>T</mi></msup><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>J</mi><mi>α</mi></msub><mi>Q</mi><mo>=</mo><mi>Q</mi><msub><mi>J</mi><mi>α</mi></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">J_\alpha u=u,\qquad w^TJ_\alpha=w^T,\qquad J_\alpha Q=QJ_\alpha.</annotation></semantics></math></p>
+<p>In the quadrature metric
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>D</mi><mi>w</mi></msub><mo>=</mo><mo>diag</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>w</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">D_w=\operatorname{diag}(w)</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>D</mi><mi>w</mi></msub><msub><mi>J</mi><mi>α</mi></msub><mo>=</mo><msubsup><mi>J</mi><mi>α</mi><mi>T</mi></msubsup><msub><mi>D</mi><mi>w</mi></msub></mrow><annotation encoding="application/x-tex">D_wJ_\alpha=J_\alpha^TD_w</annotation></semantics></math>.
+Equivalently, with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi><mo>=</mo><msqrt><mi>w</mi></msqrt></mrow><annotation encoding="application/x-tex">v=\sqrt w</annotation></semantics></math>,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>D</mi><mi>w</mi><mrow><mn>1</mn><mi>/</mi><mn>2</mn></mrow></msubsup><msub><mi>J</mi><mi>α</mi></msub><msubsup><mi>D</mi><mi>w</mi><mrow><mi>−</mi><mn>1</mn><mi>/</mi><mn>2</mn></mrow></msubsup><mo>=</mo><mi>t</mi><mi>I</mi><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>v</mi><msup><mi>v</mi><mi>T</mi></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">D_w^{1/2}J_\alpha D_w^{-1/2}=tI+(1-t)vv^T.</annotation></semantics></math></p>
+<p>The invariant space contains one conserved scalar and twenty-one
+weighted-zero contrasts:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow><mo stretchy="true" form="prefix">|</mo><mo>det</mo><mo stretchy="false" form="prefix">(</mo><msub><mi>J</mi><mi>α</mi></msub><mo stretchy="true" form="postfix">|</mo></mrow><mrow><mo>im</mo><mi>Q</mi></mrow></msub><mo stretchy="false" form="postfix">)</mo><msup><mo stretchy="false" form="prefix">|</mo><mn>2</mn></msup><mo>=</mo><msup><mi>α</mi><mn>21</mn></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">|\det(J_\alpha|_{\operatorname{im}Q})|^2=\alpha^{21}.</annotation></semantics></math></p>
+<p>The FWHT of the weights has only four nonzero coordinates:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>F</mi><mi>w</mi><mo stretchy="true" form="postfix">)</mo></mrow><mn>000</mn></msub><mo>=</mo><mn>1</mn><mi>/</mi><mn>8</mn><mo>,</mo><mspace width="2.0em"></mspace><msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>F</mi><mi>w</mi><mo stretchy="true" form="postfix">)</mo></mrow><mn>010</mn></msub><mo>=</mo><msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>F</mi><mi>w</mi><mo stretchy="true" form="postfix">)</mo></mrow><mn>020</mn></msub><mo>=</mo><msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>F</mi><mi>w</mi><mo stretchy="true" form="postfix">)</mo></mrow><mn>030</mn></msub><mo>=</mo><mn>1</mn><mi>/</mi><mn>24</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">(Fw)_{000}=1/8,\qquad (Fw)_{010}=(Fw)_{020}=(Fw)_{030}=1/24.</annotation></semantics></math></p>
+<p>The squared contrast norm is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mi>/</mi><mn>192</mn></mrow><annotation encoding="application/x-tex">1/192</annotation></semantics></math>
+versus
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mi>/</mi><mn>64</mn></mrow><annotation encoding="application/x-tex">1/64</annotation></semantics></math>
+for the common mode. This connects the boundary read to an invariant
+intermediate direction but does not derive its physical signed
+coupling.</p>
+<h1 id="scalar-action-and-electron-closure">5. Scalar action and
+electron closure</h1>
+<p>For a dimensionless microscopic scalar
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>q</mi><annotation encoding="application/x-tex">q</annotation></semantics></math>
+with stiffness
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>κ</mi><annotation encoding="application/x-tex">\kappa</annotation></semantics></math>
+and collective coupling amplitude
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>λ</mi><annotation encoding="application/x-tex">\lambda</annotation></semantics></math>,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>q</mi><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><msub><mo>∫</mo><mi>Ω</mi></msub><mrow><mo stretchy="true" form="prefix">[</mo><mfrac><mi>κ</mi><mn>2</mn></mfrac><msup><mrow><mo stretchy="true" form="prefix">|</mo><mi>∇</mi><mi>q</mi><mo stretchy="true" form="postfix">|</mo></mrow><mn>2</mn></msup><mo>−</mo><msup><mi>c</mi><mn>2</mn></msup><mi>ρ</mi><mi>λ</mi><mi>q</mi><mo stretchy="true" form="postfix">]</mo></mrow><msup><mi>d</mi><mn>3</mn></msup><mi>x</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">S[q]=\int_\Omega\left[\frac\kappa2|\nabla q|^2-c^2\rho\lambda q\right]d^3x.</annotation></semantics></math></p>
+<p>With
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo>=</mo><mi>λ</mi><mi>q</mi><mo>=</mo><mi>−</mi><mi>Φ</mi><mi>/</mi><msup><mi>c</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">d=\lambda q=-\Phi/c^2</annotation></semantics></math>
+at fixed universal parameters,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>d</mi><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><msub><mo>∫</mo><mi>Ω</mi></msub><mrow><mo stretchy="true" form="prefix">[</mo><mfrac><mi>κ</mi><mrow><mn>2</mn><msup><mi>λ</mi><mn>2</mn></msup></mrow></mfrac><msup><mrow><mo stretchy="true" form="prefix">|</mo><mi>∇</mi><mi>d</mi><mo stretchy="true" form="postfix">|</mo></mrow><mn>2</mn></msup><mo>−</mo><msup><mi>c</mi><mn>2</mn></msup><mi>ρ</mi><mi>d</mi><mo stretchy="true" form="postfix">]</mo></mrow><msup><mi>d</mi><mn>3</mn></msup><mi>x</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">S[d]=\int_\Omega\left[\frac{\kappa}{2\lambda^2}|\nabla d|^2-c^2\rho d\right]d^3x.</annotation></semantics></math></p>
+<p>Matching the inherited drainless weak-field functional</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>d</mi><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><msub><mo>∫</mo><mi>Ω</mi></msub><mrow><mo stretchy="true" form="prefix">[</mo><mfrac><msup><mi>c</mi><mn>4</mn></msup><mrow><mn>8</mn><mi>π</mi><mi>G</mi></mrow></mfrac><msup><mrow><mo stretchy="true" form="prefix">|</mo><mi>∇</mi><mi>d</mi><mo stretchy="true" form="postfix">|</mo></mrow><mn>2</mn></msup><mo>−</mo><msup><mi>c</mi><mn>2</mn></msup><mi>ρ</mi><mi>d</mi><mo stretchy="true" form="postfix">]</mo></mrow><msup><mi>d</mi><mn>3</mn></msup><mi>x</mi></mrow><annotation encoding="application/x-tex">S[d]=\int_\Omega\left[\frac{c^4}{8\pi G}|\nabla d|^2-c^2\rho d\right]d^3x</annotation></semantics></math></p>
+<p>gives</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi><mo>=</mo><mfrac><mrow><msup><mi>c</mi><mn>4</mn></msup><msup><mi>λ</mi><mn>2</mn></msup></mrow><mrow><mn>4</mn><mi>π</mi><mi>κ</mi></mrow></mfrac><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>κ</mi><mi>G</mi></msub><mo>=</mo><mfrac><mn>13</mn><mn>17</mn></mfrac><mfrac><mrow><msubsup><mi>m</mi><mi>e</mi><mn>2</mn></msubsup><msup><mi>c</mi><mn>3</mn></msup></mrow><mrow><mn>4</mn><mi>π</mi><mi>ℏ</mi></mrow></mfrac><mspace width="1.0em"></mspace><mrow><mtext mathvariant="normal">if </mtext><mspace width="0.333em"></mspace></mrow><msup><mi>λ</mi><mn>2</mn></msup><mo>=</mo><msup><mi>α</mi><mn>21</mn></msup><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> and the topology target holds</mtext></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">G=\frac{c^4\lambda^2}{4\pi\kappa},\qquad \kappa_G=\frac{13}{17}\frac{m_e^2c^3}{4\pi\hbar}\quad\text{if }\lambda^2=\alpha^{21}\text{ and the topology target holds}.</annotation></semantics></math></p>
+<p>The boundary conjugate is the source registration, not an additional
+stored energy:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>E</mi><mrow><mi mathvariant="normal">r</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">g</mi></mrow></msub><mo>=</mo><mi>−</mi><mfrac><msup><mi>c</mi><mn>4</mn></msup><mrow><mn>4</mn><mi>π</mi><mi>G</mi></mrow></mfrac><mo>∮</mo><msub><mi>∂</mi><mi>n</mi></msub><mi>d</mi><mspace width="0.167em"></mspace><mi>d</mi><mi>A</mi><mo>=</mo><mi>m</mi><msup><mi>c</mi><mn>2</mn></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">E_{\mathrm{reg}}=-\frac{c^4}{4\pi G}\oint\partial_n d\,dA=mc^2.</annotation></semantics></math></p>
+<p>At the inherited saturation threshold
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>g</mi><mrow><mi mathvariant="normal">s</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">t</mi></mrow></msub><mo>=</mo><msub><mi>a</mi><mn>0</mn></msub><mi>/</mi><mn>16</mn></mrow><annotation encoding="application/x-tex">g_{\mathrm{sat}}=a_0/16</annotation></semantics></math>
+the spherical capacity is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>E</mi><mi>C</mi></msub><mo>=</mo><mfrac><mrow><msub><mi>a</mi><mn>0</mn></msub><msup><mi>c</mi><mn>2</mn></msup><msup><mi>R</mi><mn>2</mn></msup></mrow><mrow><mn>16</mn><mi>G</mi></mrow></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">E_C=\frac{a_0c^2R^2}{16G}.</annotation></semantics></math></p>
+<p>The three inherited closure equations are</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><msup><mi>c</mi><mn>2</mn></msup><mo>=</mo><mfrac><mrow><mi>α</mi><mi>ℏ</mi><mi>c</mi></mrow><mi>R</mi></mfrac><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>a</mi><mn>0</mn></msub><mo>=</mo><mfrac><mrow><mn>16</mn><mi>G</mi><mi>m</mi></mrow><msup><mi>R</mi><mn>2</mn></msup></mfrac><mo>,</mo><mspace width="2.0em"></mspace><mi>G</mi><msup><mi>m</mi><mn>2</mn></msup><mo>=</mo><msub><mi>γ</mi><mi>G</mi></msub><mi>ℏ</mi><mi>c</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">mc^2=\frac{\alpha\hbar c}{R},\qquad a_0=\frac{16Gm}{R^2},\qquad Gm^2=\gamma_G\hbar c.</annotation></semantics></math></p>
+<p>Their unique positive joint solution is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>=</mo><mfrac><mrow><msub><mi>a</mi><mn>0</mn></msub><msup><mi>α</mi><mn>2</mn></msup><mi>ℏ</mi></mrow><mrow><mn>16</mn><msub><mi>γ</mi><mi>G</mi></msub><msup><mi>c</mi><mn>3</mn></msup></mrow></mfrac><mo>,</mo><mspace width="2.0em"></mspace><mi>R</mi><mo>=</mo><mfrac><mrow><mn>16</mn><msub><mi>γ</mi><mi>G</mi></msub><msup><mi>c</mi><mn>2</mn></msup></mrow><mrow><mi>α</mi><msub><mi>a</mi><mn>0</mn></msub></mrow></mfrac><mo>,</mo><mspace width="2.0em"></mspace><mi>G</mi><mo>=</mo><mfrac><mrow><mn>256</mn><msubsup><mi>γ</mi><mi>G</mi><mn>3</mn></msubsup><msup><mi>c</mi><mn>7</mn></msup></mrow><mrow><msup><mi>α</mi><mn>4</mn></msup><mi>ℏ</mi><msubsup><mi>a</mi><mn>0</mn><mn>2</mn></msubsup></mrow></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">m=\frac{a_0\alpha^2\hbar}{16\gamma_Gc^3},\qquad R=\frac{16\gamma_Gc^2}{\alpha a_0},\qquad G=\frac{256\gamma_G^3c^7}{\alpha^4\hbar a_0^2}.</annotation></semantics></math></p>
+<p>For the proposed, not derived, loop factor
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>γ</mi><mi>G</mi></msub><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>17</mn><mi>/</mi><mn>13</mn><mo stretchy="true" form="postfix">)</mo></mrow><msup><mi>α</mi><mn>21</mn></msup><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>+</mo><mi>α</mi><mi>/</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>2</mn><mi>π</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\gamma_G=(17/13)\alpha^{21}(1+\alpha/(2\pi))</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>a</mi><mn>0</mn></msub><mo>=</mo><mn>1.225</mn><mo>×</mo><msup><mn>10</mn><mrow><mi>−</mi><mn>10</mn></mrow></msup><mspace width="0.167em"></mspace><mrow><mi mathvariant="normal">m</mi><mi mathvariant="normal">/</mi><msup><mi mathvariant="normal">s</mi><mn mathvariant="normal">2</mn></msup></mrow></mrow><annotation encoding="application/x-tex">a_0=1.225\times10^{-10}\,\mathrm{m/s^2}</annotation></semantics></math>:</p>
+<table>
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 36%" />
+<col style="width: 36%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Quantity</th>
+<th style="text-align: right;">Joint compatibility value</th>
+<th style="text-align: right;">Reference deviation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Electron mass</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>9.1091789125</mn><mo>×</mo><msup><mn>10</mn><mrow><mi>−</mi><mn>31</mn></mrow></msup></mrow><annotation encoding="application/x-tex">9.1091789125\times10^{-31}</annotation></semantics></math>
+kg</td>
+<td style="text-align: right;">−22.48 ppm</td>
+</tr>
+<tr class="even">
+<td>Gravitational constant</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>6.6745191675</mn><mo>×</mo><msup><mn>10</mn><mrow><mi>−</mi><mn>11</mn></mrow></msup></mrow><annotation encoding="application/x-tex">6.6745191675\times10^{-11}</annotation></semantics></math>
+SI</td>
+<td style="text-align: right;">+32.84 ppm</td>
+</tr>
+<tr class="odd">
+<td>Electromagnetic closure radius</td>
+<td style="text-align: right;">2.8180036761 fm</td>
+<td style="text-align: right;">—</td>
+</tr>
+</tbody>
+</table>
+<p>The selected acceleration may itself depend on electron properties;
+this is not then an independent prediction. The radius is not a measured
+physical electron size.</p>
+<figure>
+<img src="diagrams/06_weighted_unified_engine.svg"
+alt="Unified weighted settlement architecture." />
+<figcaption aria-hidden="true">Unified weighted settlement
+architecture.</figcaption>
+</figure>
+<h1 id="microscopic-hamiltonian-stiffness">6. Microscopic Hamiltonian
+stiffness</h1>
+<p>The original 36-coordinate field and its two-site 72-coordinate Bloch
+operator have a simple lowest scalar band locally near zero
+momentum:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>𝐤</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msub><mi>E</mi><mn>0</mn></msub><mo>+</mo><mi>D</mi><msup><mrow><mo stretchy="true" form="prefix">|</mo><mi>𝐤</mi><mo stretchy="true" form="postfix">|</mo></mrow><mn>2</mn></msup><mo>+</mo><mi>O</mi><mrow><mo stretchy="true" form="prefix">(</mo><msup><mrow><mo stretchy="true" form="prefix">|</mo><mi>𝐤</mi><mo stretchy="true" form="postfix">|</mo></mrow><mn>4</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">E(\mathbf k)=E_0+D|\mathbf k|^2+O(|\mathbf k|^4).</annotation></semantics></math></p>
+<p>For normalized eigenvector
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>u</mi><annotation encoding="application/x-tex">u</annotation></semantics></math>,
+reduced resolvent
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo>=</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>M</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>0</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><msub><mi>E</mi><mn>0</mn></msub><mi>I</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo></msup></mrow><annotation encoding="application/x-tex">R=(M(0)-E_0 I)^+</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>M</mi><mi>j</mi></msub><mo>=</mo><mi>i</mi><msub><mi>Q</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">M_j=iQ_j</annotation></semantics></math>,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>D</mi><mi>j</mi></msub><mo>=</mo><mfrac displaystyle="false"><mn>1</mn><mn>2</mn></mfrac><msup><mi>u</mi><mi>T</mi></msup><msub><mi>M</mi><mrow><mi>j</mi><mi>j</mi></mrow></msub><mi>u</mi><mo>+</mo><msup><mi>u</mi><mi>T</mi></msup><msub><mi>Q</mi><mi>j</mi></msub><mi>R</mi><msub><mi>Q</mi><mi>j</mi></msub><mi>u</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">D_j=\tfrac12u^TM_{jj}u+u^TQ_jRQ_ju.</annotation></semantics></math></p>
+<table>
+<thead>
+<tr class="header">
+<th>Interface</th>
+<th style="text-align: right;">Calculated dimensionless curvature</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Full Triforce</td>
+<td style="text-align: right;">0.1242946733</td>
+</tr>
+<tr class="even">
+<td>Central-mediated</td>
+<td style="text-align: right;">0.1050941805</td>
+</tr>
+</tbody>
+</table>
+<p>Their ratio is approximately 1.1827, not 17/13. The primitive volume
+is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>16</mn><msup><mi>a</mi><mn>3</mn></msup></mrow><annotation encoding="application/x-tex">16a^3</annotation></semantics></math>
+with microscopic energy unit
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>E</mi><mo>*</mo></msub><annotation encoding="application/x-tex">E_*</annotation></semantics></math>.
+For the unit-normalized scalar envelope,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>q</mi><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><mo>∫</mo><mfrac><mrow><msub><mi>E</mi><mo>*</mo></msub><mi>D</mi></mrow><mrow><mn>16</mn><mi>a</mi></mrow></mfrac><msup><mrow><mo stretchy="true" form="prefix">|</mo><mi>∇</mi><mi>q</mi><mo stretchy="true" form="postfix">|</mo></mrow><mn>2</mn></msup><mspace width="0.167em"></mspace><msup><mi>d</mi><mn>3</mn></msup><mi>x</mi><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>κ</mi><mrow><mi mathvariant="normal">m</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">c</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">o</mi></mrow></msub><mo>=</mo><mfrac><mrow><msub><mi>E</mi><mo>*</mo></msub><mi>D</mi></mrow><mrow><mn>8</mn><mi>a</mi></mrow></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">S[q]=\int\frac{E_*D}{16a}|\nabla q|^2\,d^3x,\qquad \kappa_{\mathrm{micro}}=\frac{E_*D}{8a}.</annotation></semantics></math></p>
+<p>The dimensionful scale is not fixed by the dimensionless
+Hamiltonian.</p>
+<h1 id="face-pair-exchange-and-the-1317-ratio">7. Face-pair exchange and
+the 13/17 ratio</h1>
+<p>On the sixteen ordered pairs
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>=</mo><msup><mi>ℝ</mi><mn>4</mn></msup><mo>⊗</mo><msup><mi>ℝ</mi><mn>4</mn></msup></mrow><annotation encoding="application/x-tex">V=\mathbb R^4\otimes\mathbb R^4</annotation></semantics></math>
+define
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>τ</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>e</mi><mi>i</mi></msub><mo>⊗</mo><msub><mi>e</mi><mi>j</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msub><mi>e</mi><mi>j</mi></msub><mo>⊗</mo><msub><mi>e</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">\tau(e_i\otimes e_j)=e_j\otimes e_i</annotation></semantics></math>.
+The three operators including an independent origin scalar are</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>C</mi><mi>A</mi></msub><mo>=</mo><mn>1</mn><mo>⊕</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>I</mi><mo>+</mo><mi>τ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>C</mi><mi>O</mi></msub><mo>=</mo><mn>1</mn><mo>⊕</mo><mi>I</mi><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>C</mi><mi>B</mi></msub><mo>=</mo><mn>1</mn><mo>⊕</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>I</mi><mo>−</mo><mi>τ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">C_A=1\oplus(I+\tau),\qquad C_O=1\oplus I,\qquad C_B=1\oplus(I-\tau).</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>Tr</mo><mi>τ</mi><mo>=</mo><mn>4</mn><mo>,</mo><mspace width="1.0em"></mspace><mo>Tr</mo><msub><mi>C</mi><mi>A</mi></msub><mo>=</mo><mn>21</mn><mo>,</mo><mspace width="1.0em"></mspace><mo>Tr</mo><msub><mi>C</mi><mi>O</mi></msub><mo>=</mo><mn>17</mn><mo>,</mo><mspace width="1.0em"></mspace><mo>Tr</mo><msub><mi>C</mi><mi>B</mi></msub><mo>=</mo><mn>13</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">\operatorname{Tr}\tau=4,\quad \operatorname{Tr}C_A=21,\quad \operatorname{Tr}C_O=17,\quad \operatorname{Tr}C_B=13.</annotation></semantics></math></p>
+<figure>
+<img src="diagrams/07_face_pair_exchange.svg"
+alt="Canonical diagonal stiffness weights of the face-pair exchange operator. Off-diagonal exchange terms remain essential for coherent superpositions." />
+<figcaption aria-hidden="true">Canonical diagonal stiffness weights of
+the face-pair exchange operator. Off-diagonal exchange terms remain
+essential for coherent superpositions.</figcaption>
+</figure>
+<p>The twelve cross-pair diagonal contributions, four zero self-pair
+contributions and independent origin yield a balanced locked-read
+stiffness</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>κ</mi><mi>B</mi></msub><mo>=</mo><mfrac><mrow><mn>12</mn><mo>+</mo><mn>1</mn></mrow><mrow><mn>16</mn><mo>+</mo><mn>1</mn></mrow></mfrac><msub><mi>κ</mi><mi>O</mi></msub><mo>=</mo><mfrac><mn>13</mn><mn>17</mn></mfrac><msub><mi>κ</mi><mi>O</mi></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">\kappa_B=\frac{12+1}{16+1}\kappa_O=\frac{13}{17}\kappa_O.</annotation></semantics></math></p>
+<p>This is a trace average, not the rank of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>C</mi><mi>B</mi></msub><annotation encoding="application/x-tex">C_B</annotation></semantics></math>
+(which is seven). The Walsh invariance follows from</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>τ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>h</mi><mo>⊗</mo><mi>h</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>h</mi><mo>⊗</mo><mi>h</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>τ</mi><mo>,</mo></mrow><annotation encoding="application/x-tex">\tau(h\otimes h)=(h\otimes h)\tau,</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>h</mi><mo>⊗</mo><mi>h</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>T</mi></msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>I</mi><mo>−</mo><mi>τ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>h</mi><mo>⊗</mo><mi>h</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>I</mi><mo>−</mo><mi>τ</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">(h\otimes h)^T(I-\tau)(h\otimes h)=I-\tau.</annotation></semantics></math></p>
+<p>For origin share
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>r</mi><annotation encoding="application/x-tex">r</annotation></semantics></math>
+and conditional self-pair share
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><msub><mi>κ</mi><mi>B</mi></msub><msub><mi>κ</mi><mi>O</mi></msub></mfrac><mo>=</mo><mi>r</mi><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>r</mi><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>p</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><mi>r</mi><mo>=</mo><mn>1</mn><mi>/</mi><mn>17</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>p</mi><mo>=</mo><mn>1</mn><mi>/</mi><mn>4</mn><mo>⟹</mo><mfrac><msub><mi>κ</mi><mi>B</mi></msub><msub><mi>κ</mi><mi>O</mi></msub></mfrac><mo>=</mo><mn>13</mn><mi>/</mi><mn>17</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">\frac{\kappa_B}{\kappa_O}=r+(1-r)(1-p),\qquad r=1/17,\quad p=1/4\implies\frac{\kappa_B}{\kappa_O}=13/17.</annotation></semantics></math></p>
+<figure>
+<img src="diagrams/08_closure_balance.svg"
+alt="Static closure-balance curve. An interactive version follows in the HTML edition." />
+<figcaption aria-hidden="true">Static closure-balance curve. An
+interactive version follows in the HTML edition.</figcaption>
+</figure>
+<div class="balance-control">
+<label for="selfpair">Self-pair weighting (origin share fixed at 1/17):
+<strong id="pval">25%</strong></label>
+<input id="selfpair" type="range" min="0" max="100" value="25" step="1" style="width:100%" oninput="updateBalance()">
+<p>
+Relative TetB stiffness: <strong id="stiffness">0.764706</strong> ·
+Inverse stiffness ratio: <strong id="inverse">1.307692</strong>
+</p>
+<button onclick="document.getElementById(&#39;selfpair&#39;).value=25;updateBalance()">
+Restore balanced closure
+</button>
+</div>
+<script>
+function updateBalance(){const p=Number(document.getElementById('selfpair').value);const ratio=1-16*p/1700;document.getElementById('pval').textContent=p+'%';document.getElementById('stiffness').textContent=ratio.toFixed(6);document.getElementById('inverse').textContent=(1/ratio).toFixed(6);}
+</script>
+<p>The π-walk must prove these occupation and dwell weights, not merely
+coverage. A deterministic equally weighted snapshot read is sufficient
+for the algebra but is not derived native motion.</p>
+<h1 id="electromagnetic-normalization-and-gravitational-settlement">8.
+Electromagnetic normalization and gravitational settlement</h1>
+<p>For the proposed common scalar kernel and elementary electrical
+transmission
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mi>E</mi></msub><mo>=</mo><msqrt><mi>α</mi></msqrt></mrow><annotation encoding="application/x-tex">T_E=\sqrt\alpha</annotation></semantics></math>,
+the electron pair interaction magnitude is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">|</mo><msub><mi>U</mi><mi>E</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>r</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">|</mo></mrow><mo>=</mo><mfrac><mrow><msubsup><mi>m</mi><mi>e</mi><mn>2</mn></msubsup><msup><mi>c</mi><mn>4</mn></msup><mi>α</mi></mrow><mrow><mn>4</mn><mi>π</mi><msub><mi>κ</mi><mi>E</mi></msub><mi>r</mi></mrow></mfrac><mo>=</mo><mfrac><mrow><mi>α</mi><mi>ℏ</mi><mi>c</mi></mrow><mi>r</mi></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">|U_E(r)|=\frac{m_e^2c^4\alpha}{4\pi\kappa_Er}=\frac{\alpha\hbar c}{r}.</annotation></semantics></math></p>
+<p>Thus</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>κ</mi><mi>E</mi></msub><mo>=</mo><mfrac><mrow><msubsup><mi>m</mi><mi>e</mi><mn>2</mn></msubsup><msup><mi>c</mi><mn>3</mn></msup></mrow><mrow><mn>4</mn><mi>π</mi><mi>ℏ</mi></mrow></mfrac><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>κ</mi><mi>G</mi></msub><mo>=</mo><mfrac><mn>13</mn><mn>17</mn></mfrac><msub><mi>κ</mi><mi>E</mi></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">\kappa_E=\frac{m_e^2c^3}{4\pi\hbar},\qquad \kappa_G=\frac{13}{17}\kappa_E.</annotation></semantics></math></p>
+<p>Substitution into the gravitational matching identity gives</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi><mo>=</mo><mfrac><mrow><msup><mi>c</mi><mn>4</mn></msup><msup><mi>α</mi><mn>21</mn></msup></mrow><mrow><mn>4</mn><mi>π</mi><msub><mi>κ</mi><mi>G</mi></msub></mrow></mfrac><mo>=</mo><mfrac><mn>17</mn><mn>13</mn></mfrac><msup><mi>α</mi><mn>21</mn></msup><mfrac><mrow><mi>ℏ</mi><mi>c</mi></mrow><msubsup><mi>m</mi><mi>e</mi><mn>2</mn></msubsup></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">G=\frac{c^4\alpha^{21}}{4\pi\kappa_G}=\frac{17}{13}\alpha^{21}\frac{\hbar c}{m_e^2}.</annotation></semantics></math></p>
+<p>This is conditional on the shared scalar-kernel source normalization
+and the collective read, not a derivation of Maxwell dynamics or
+electromagnetic force sign. With
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>λ</mi><mi>e</mi></msub><mo>=</mo><mi>ℏ</mi><mi>/</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>m</mi><mi>e</mi></msub><mi>c</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\lambda_e=\hbar/(m_ec)</annotation></semantics></math>,
+equating the Hamiltonian stiffness to the electromagnetic reference
+requires</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mi>a</mi><msub><mi>λ</mi><mi>e</mi></msub></mfrac><mo>=</mo><mfrac><mrow><mi>π</mi><mi>D</mi></mrow><mn>2</mn></mfrac><mfrac><msub><mi>E</mi><mo>*</mo></msub><mrow><msub><mi>m</mi><mi>e</mi></msub><msup><mi>c</mi><mn>2</mn></msup></mrow></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">\frac{a}{\lambda_e}=\frac{\pi D}{2}\frac{E_*}{m_ec^2}.</annotation></semantics></math></p>
+<p>If
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>E</mi><mo>*</mo></msub><mo>=</mo><msub><mi>m</mi><mi>e</mi></msub><msup><mi>c</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">E_*=m_ec^2</annotation></semantics></math>,
+the required lattice coordinate unit is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.1952416162</mn><msub><mi>λ</mi><mi>e</mi></msub></mrow><annotation encoding="application/x-tex">0.1952416162\lambda_e</annotation></semantics></math>
+(full) or
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.1650815527</mn><msub><mi>λ</mi><mi>e</mi></msub></mrow><annotation encoding="application/x-tex">0.1650815527\lambda_e</annotation></semantics></math>
+(central). These are matching targets, not physical lengths
+independently predicted by the graph.</p>
+<figure>
+<img src="diagrams/09_microscopic_stiffness_engine.svg"
+alt="Final unified microscopic stiffness architecture." />
+<figcaption aria-hidden="true">Final unified microscopic stiffness
+architecture.</figcaption>
+</figure>
+<h1 id="research-status-and-reproduction">9. Research status and
+reproduction</h1>
+<p>The exact finite-dimensional identities, calculated graph curvature
+and conditional matching relations are supported by the included
+verifiers. The native autonomous π-walk, selection of the collective
+attenuation, origin of the physical energy/length scales,
+electromagnetic normalization premise and loop correction remain open.
+Conservative unitary dynamics do not supply attenuation without an
+additional channel or projection. No empirical validation or remote
+repository modification is claimed.</p>
+<p>See <code>research/WEIGHTED_CLOSURE_SETTLEMENT.md</code>,
+<code>research/MICROSCOPIC_STIFFNESS_DERIVATION.md</code> and
+<code>verification/</code> for original notes and reproduction
+instructions. The visual reconstructions are available in both SVG and
+high-resolution PNG.</p>
+</body>
+</html>

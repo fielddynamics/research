@@ -1,0 +1,1 @@
+All weighted closure checks passed; invariant rank: 22 log probability: -103.32511683963779 alpha^21: 1.3380486818590715e-45

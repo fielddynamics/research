@@ -1,0 +1,2 @@
+New extension: pi_sweep_extension/PI_SWEEP_GRAVITY_BRIDGE.md
+Includes three SVG/PNG figures, Python verifier, and passing log. Previous unified closure archive retained.

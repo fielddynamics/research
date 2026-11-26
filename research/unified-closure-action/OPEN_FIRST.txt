@@ -1,0 +1,7 @@
+GFD — COMPLETE ILLUSTRATED RESEARCH
+
+1. Open COMPLETE_ILLUSTRATED_RESEARCH.html for the consolidated illustrated mathematics (offline MathML).
+2. Open VISUAL_ATLAS.html to browse all 27 SVG/PNG diagram pairs.
+3. The original companion, research notes, interactive closure balance and verification scripts/logs remain preserved.
+
+Diagrams are reconstructed from chat concepts, not exact screenshots. The original reference photograph is third-party and not reproduced here. No physical unification or empirical proof is claimed.

@@ -396,6 +396,7 @@ Most research folders follow the same pattern: a **`*_synthesis.md`** that expla
 | [`quantum compute/`](<research/quantum compute/>) | The oscillator Ising machine: the GFD oscillator as a D-Wave-compatible solver for Ising and QUBO problems, benchmarked against D-Wave's classical solvers. Also the original graph solver (Max-Cut, colouring, TSP, community detection), the t-bit algebra and earlier oscillator versions. Start with its README |
 | [`spectral/`](research/spectral/) | Walsh–Hadamard spectral kernel (PyTorch) |
 | [`3 sweep understanding/`](<research/3 sweep understanding/>) | Closure-algebra pipeline and Walsh-spectral compute primitive syntheses |
+| [`unified-closure-action/`](research/unified-closure-action/) | Illustrated unified closure action: weighted three-subcycle settlement (21 contrast modes, weighted boundary conservation), microscopic stiffness from the H36 spectrum with the 21/17/13 exchange traces, the π-sweep gravity bridge, and a 27-figure visual atlas with offline HTML companions (four verifiers, all re-run). Native selection of the balanced π walk, attenuation and dimensional normalization are open |
 | [`antenna theory/`](<research/antenna theory/>) | Resonant coupling through the Field Origin |
 
 ### Exploratory work — [`research/exploratory/`](research/exploratory/)

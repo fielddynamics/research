@@ -1,0 +1,86 @@
+PASS clock order eight
+PASS eight equal amplitude steps give 1/16
+PASS BBP clock read at y=0.0
+PASS BBP clock read at y=0.05
+PASS BBP clock read at y=0.1
+PASS BBP clock read at y=0.15
+PASS BBP clock read at y=0.2
+PASS BBP clock read at y=0.25
+PASS BBP clock read at y=0.3
+PASS BBP clock read at y=0.35
+PASS BBP clock read at y=0.4
+PASS BBP clock read at y=0.45
+PASS BBP clock read at y=0.5
+PASS BBP clock read at y=0.55
+PASS BBP clock read at y=0.6
+PASS BBP clock read at y=0.65
+PASS BBP clock read at y=0.7
+PASS BBP clock read at y=0.75
+PASS BBP clock read at y=0.8
+PASS BBP clock read at y=0.85
+PASS BBP clock read at y=0.9
+PASS BBP clock read at y=0.95
+PASS BBP clock read at y=1.0
+PASS BBP integral equals pi
+PASS clock is not Walsh diagonal
+PASS three-bit carry at 0
+PASS three-bit carry at 1
+PASS three-bit carry at 2
+PASS three-bit carry at 3
+PASS three-bit carry at 4
+PASS three-bit carry at 5
+PASS three-bit carry at 6
+PASS three-bit carry at 7
+PASS first complete coverage at transition 332
+PASS balanced pair registration
+PASS complement pair diagonal count is 80
+PASS raw face-pair stiffness differs from balanced
+PASS uniform cube second moment isotropic
+PASS cube fourth moment formula
+PASS cube degree-four multipole
+PASS cube fourth moment formula
+PASS cube degree-four multipole
+PASS cube fourth moment formula
+PASS cube degree-four multipole
+PASS axis harmonic Gram l=1
+PASS three-sweep norm and repeated eigenvalue l=1
+PASS axis harmonic Gram l=2
+PASS three-sweep norm and repeated eigenvalue l=2
+PASS axis harmonic Gram l=3
+PASS three-sweep norm and repeated eigenvalue l=3
+PASS axis harmonic Gram l=4
+PASS three-sweep norm and repeated eigenvalue l=4
+PASS axis harmonic Gram l=5
+PASS three-sweep norm and repeated eigenvalue l=5
+PASS axis harmonic Gram l=6
+PASS three-sweep norm and repeated eigenvalue l=6
+PASS axis harmonic Gram l=7
+PASS three-sweep norm and repeated eigenvalue l=7
+PASS axis harmonic Gram l=8
+PASS three-sweep norm and repeated eigenvalue l=8
+PASS axis harmonic Gram l=9
+PASS three-sweep norm and repeated eigenvalue l=9
+PASS axis harmonic Gram l=10
+PASS three-sweep norm and repeated eigenvalue l=10
+PASS axis harmonic Gram l=11
+PASS three-sweep norm and repeated eigenvalue l=11
+PASS axis harmonic Gram l=12
+PASS three-sweep norm and repeated eigenvalue l=12
+PASS literal spatial rotation has 24 orbit records
+PASS axial-only complement identification yields 22 records
+Transition matrix
+ [[ 8  6  7  6  6  6  4  7]
+ [ 5  7  6  5  3  6  5  2]
+ [ 8  4  7  3  5  4  7  5]
+ [ 9  4  1  6  6  2  3  5]
+ [ 6  4  7  1  8  8  6  6]
+ [ 7  4  6  7  5  1  6  1]
+ [ 4  5  7  3  4  6  1 10]
+ [ 3  5  3  4  9  4  8  5]] 
+Face pair matrix
+ [[23 23 20 25]
+ [21 18 25 15]
+ [21 21 18 20]
+ [26 17 18 21]] 
+Raw stiffness 0.7732104890148831 
+Checks passed: 70

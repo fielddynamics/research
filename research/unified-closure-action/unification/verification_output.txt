@@ -1,0 +1,44 @@
+PASS weights sum to one
+PASS Q rank 22
+PASS P0 idempotence, weighted adjoint, symmetry
+PASS P1 idempotence, weighted adjoint, symmetry
+PASS P2 idempotence, weighted adjoint, symmetry
+PASS P3 idempotence, weighted adjoint, symmetry
+PASS grade 1 rank 1 on invariant space
+PASS grade 1 raw rank 3
+PASS grade product 1,1
+PASS grade product 1,2
+PASS grade product 1,3
+PASS grade 2 rank 4 on invariant space
+PASS grade 2 raw rank 12
+PASS grade product 2,1
+PASS grade product 2,2
+PASS grade product 2,3
+PASS grade 3 rank 16 on invariant space
+PASS grade 3 raw rank 48
+PASS grade product 3,1
+PASS grade product 3,2
+PASS grade product 3,3
+PASS factorization
+PASS common state and charge invariant
+PASS lossless dilation 1
+PASS grade 1 log determinant
+PASS lossless dilation 2
+PASS grade 2 log determinant
+PASS lossless dilation 3
+PASS grade 3 log determinant
+PASS collective log determinant
+PASS drained response
+PASS bound response
+PASS positive auxiliary curvatures
+PASS Legendre primitive b=0
+PASS positive radial and transverse stiffness b=0
+PASS spacelike scalar characteristic ratio b=0
+PASS naive scalar cone exceeds c b=0
+PASS Legendre primitive b=1
+PASS positive radial and transverse stiffness b=1
+PASS spacelike scalar characteristic ratio b=1
+PASS naive scalar cone exceeds c b=1
+PASS uniform ordered pair diagonal share
+PASS central-tile total share differs from uniform self-pair share
+43 checks passed

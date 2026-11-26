@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="640.8pt" height="413.317031pt" viewBox="0 0 640.8 413.317031" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-11-25T05:26:30.202325</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.8, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 413.317031 
+L 640.8 413.317031 
+L 640.8 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 186.444 117.562631 
+L 501.156 117.562631 
+Q 507.852 117.562631 507.852 110.909831 
+L 507.852 76.537031 
+Q 507.852 69.884231 501.156 69.884231 
+L 186.444 69.884231 
+Q 179.748 69.884231 179.748 76.537031 
+L 179.748 110.909831 
+Q 179.748 117.562631 186.444 117.562631 
+z
+" clip-path="url(#p41177f6f0d)" style="fill: #edf3f8; stroke: #2563a6; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 186.444 176.329031 
+L 501.156 176.329031 
+Q 507.852 176.329031 507.852 169.676231 
+L 507.852 135.303431 
+Q 507.852 128.650631 501.156 128.650631 
+L 186.444 128.650631 
+Q 179.748 128.650631 179.748 135.303431 
+L 179.748 169.676231 
+Q 179.748 176.329031 186.444 176.329031 
+z
+" clip-path="url(#p41177f6f0d)" style="fill: #edf3f8; stroke: #087e83; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 343.8 117.342279 
+Q 343.8 123.106329 343.8 127.305132 
+" clip-path="url(#p41177f6f0d)" style="fill: none; stroke: #7b8b9c; stroke-width: 1.4; stroke-linecap: round"/>
+    <path d="M 346.4 122.105132 
+L 343.8 127.305132 
+L 341.2 122.105132 
+z
+" clip-path="url(#p41177f6f0d)" style="fill: #7b8b9c; stroke: #7b8b9c; stroke-width: 1.4; stroke-linecap: round"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 186.444 235.095431 
+L 501.156 235.095431 
+Q 507.852 235.095431 507.852 228.442631 
+L 507.852 194.069831 
+Q 507.852 187.417031 501.156 187.417031 
+L 186.444 187.417031 
+Q 179.748 187.417031 179.748 194.069831 
+L 179.748 228.442631 
+Q 179.748 235.095431 186.444 235.095431 
+z
+" clip-path="url(#p41177f6f0d)" style="fill: #edf3f8; stroke: #bd741b; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 343.8 176.108679 
+Q 343.8 181.872729 343.8 186.071532 
+" clip-path="url(#p41177f6f0d)" style="fill: none; stroke: #7b8b9c; stroke-width: 1.4; stroke-linecap: round"/>
+    <path d="M 346.4 180.871532 
+L 343.8 186.071532 
+L 341.2 180.871532 
+z
+" clip-path="url(#p41177f6f0d)" style="fill: #7b8b9c; stroke: #7b8b9c; stroke-width: 1.4; stroke-linecap: round"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 186.444 293.861831 
+L 501.156 293.861831 
+Q 507.852 293.861831 507.852 287.209031 
+L 507.852 252.836231 
+Q 507.852 246.183431 501.156 246.183431 
+L 186.444 246.183431 
+Q 179.748 246.183431 179.748 252.836231 
+L 179.748 287.209031 
+Q 179.748 293.861831 186.444 293.861831 
+z
+" clip-path="url(#p41177f6f0d)" style="fill: #edf3f8; stroke: #8058a3; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 343.8 234.875079 
+Q 343.8 240.639129 343.8 244.837932 
+" clip-path="url(#p41177f6f0d)" style="fill: none; stroke: #7b8b9c; stroke-width: 1.4; stroke-linecap: round"/>
+    <path d="M 346.4 239.637932 
+L 343.8 244.837932 
+L 341.2 239.637932 
+z
+" clip-path="url(#p41177f6f0d)" style="fill: #7b8b9c; stroke: #7b8b9c; stroke-width: 1.4; stroke-linecap: round"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 186.444 352.628231 
+L 501.156 352.628231 
+Q 507.852 352.628231 507.852 345.975431 
+L 507.852 311.602631 
+Q 507.852 304.949831 501.156 304.949831 
+L 186.444 304.949831 
+Q 179.748 304.949831 179.748 311.602631 
+L 179.748 345.975431 
+Q 179.748 352.628231 186.444 352.628231 
+z
+" clip-path="url(#p41177f6f0d)" style="fill: #edf3f8; stroke: #2563a6; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 343.8 293.641479 
+Q 343.8 299.405529 343.8 303.604332 
+" clip-path="url(#p41177f6f0d)" style="fill: none; stroke: #7b8b9c; stroke-width: 1.4; stroke-linecap: round"/>
+    <path d="M 346.4 298.404332 
+L 343.8 303.604332 
+L 341.2 298.404332 
+z
+" clip-path="url(#p41177f6f0d)" style="fill: #7b8b9c; stroke: #7b8b9c; stroke-width: 1.4; stroke-linecap: round"/>
+   </g>
+   <g id="patch_11">
+    <path d="M 506.878394 325.842453 
+Q 369.567562 210.147462 505.595826 95.533073 
+" clip-path="url(#p41177f6f0d)" style="fill: none; stroke-dasharray: 5.55,2.4; stroke-dashoffset: 0; stroke: #8999a9; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 499.943911 96.895372 
+L 505.595826 95.533073 
+L 503.294516 100.871984 
+z
+" clip-path="url(#p41177f6f0d)" style="fill: #8999a9; stroke-dasharray: 5.55,2.4; stroke-dashoffset: 0; stroke: #8999a9; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #2563a6" x="343.8" y="91.798622" transform="rotate(-0 343.8 91.798622)">Stellated geometry</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #23364b" x="343.8" y="106.428742" transform="rotate(-0 343.8 106.428742)">Three axis vectors</text>
+   </g>
+   <g id="text_3">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #087e83" x="343.8" y="150.611897" transform="rotate(-0 343.8 150.611897)">BBP resonator</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #23364b" x="343.8" y="165.195142" transform="rotate(-0 343.8 165.195142)">Octal π output</text>
+   </g>
+   <g id="text_5">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #bd741b" x="343.8" y="209.331422" transform="rotate(-0 343.8 209.331422)">I Ching traversal</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #23364b" x="343.8" y="223.961542" transform="rotate(-0 343.8 223.961542)">64 ordered addresses</text>
+   </g>
+   <g id="text_7">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #8058a3" x="343.8" y="268.144697" transform="rotate(-0 343.8 268.144697)">Walsh phase read</text>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #23364b" x="343.8" y="282.727942" transform="rotate(-0 343.8 282.727942)">Three paired coordinates</text>
+   </g>
+   <g id="text_9">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #2563a6" x="343.8" y="326.864222" transform="rotate(-0 343.8 326.864222)">Boundary settlement</text>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #23364b" x="343.8" y="341.494342" transform="rotate(-0 343.8 341.494342)">Common charge + contrast read</text>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; fill: #23364b" transform="translate(541.4375 195.623219)">Candidate</text>
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; fill: #23364b" transform="translate(544.029688 206.821031)">feedback</text>
+   </g>
+  </g>
+  <g id="text_12">
+   <text style="font-weight: 700; font-size: 19px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #23364b" x="18" y="32.437031" transform="rotate(-0 18 32.437031)">Proposed π–Walsh settlement feedback</text>
+  </g>
+  <g id="text_13">
+   <text style="font-size: 10.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #52667a" x="18" y="56.197031" transform="rotate(-0 18 56.197031)">Separate exact mathematical operations from the open physical identification.</text>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p41177f6f0d">
+   <rect x="64.8" y="62.677031" width="558" height="332.64"/>
+  </clipPath>
+ </defs>
+</svg>

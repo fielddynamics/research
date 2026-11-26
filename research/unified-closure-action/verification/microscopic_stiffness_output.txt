@@ -1,0 +1,4 @@
+full D= 0.12429467326666904 a/lambda_e (E*=mc², baseline)= 0.19524161620745556
+central D= 0.10509418047367802 a/lambda_e (E*=mc², baseline)= 0.1650815526555734
+locked face pair stiffness: 0.7647058823529411 ratio: 1.3076923076923077
+PASS: original graph curvatures, swap grade, Walsh invariance, collision dependence
