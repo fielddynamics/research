@@ -14,6 +14,12 @@ Let $S=\{(1,1,1),(1,-1,-1),(-1,1,-1),(-1,-1,1)\}$, $C=S\cup(-S)$, $E=\{\pm e_1,\
 
 The six inner projected points are octahedral vertices, not automatically six neighbouring Field Origins. Likewise the projected centre contains three distinct geometric points, not three automatically occupied field nodes. A drawing cannot replace the three-dimensional adjacency proof.
 
+### 1a. Conditional maximum depth of recursive Triforce refinement [T/D]
+
+In the existing lattice basis $p=P(e_1)/2$, $q=P(e_2)/2$ the projected normal-face vertices are $(4,0),(0,4),(-4,-4)$ up to sign and permutation. The edge components have joint gcd 4. Every vertex of a complete dyadic medial subdivision belongs to the fixed lattice iff $2^n\mid4$. Thus maximal complete depth is two: 16 equal-area triangles and 15 vertices per face; four coupled directions give 64 paired addresses. This holds in each face's own normal projection by tetrahedral symmetry. It is not a claim that the circles are vortices, that the lattice pitch is dynamically forced, or that all children carry independent modes. See [recursive Triforce geometry](../recursive-triforce-geometry/).
+
+![Recursive Triforce lattice-depth test](../recursive-triforce-geometry/recursive_triforce.svg)
+
 ## 2. Reciprocal corner-origin construction
 
 Instead of non-overlapping tangent spheres, put neighbouring origins at the four corners $s_i$ on the spherical boundary. Reverse the active parity at every adjacent origin: an A-site has links $+S$, a B-site has links $-S$. These sites carry **identical complete dual tetrahedra**; A/B here denotes lattice sublattice and active port orientation, not separate TetA-only/TetB-only fields.
@@ -46,7 +52,9 @@ $$W=\frac19\begin{pmatrix}0&2&2&1\\2&0&2&1\\2&2&0&1\\1&1&1&6\end{pmatrix}.$$
 
 ![Triforce subdivisions of the overlap and exact area kernel](figures/25_flower_triforce_overlap.svg)
 
-All four channels remain independent: $\operatorname{rank}W=4$ and $\operatorname{spec}W=\{7/9,1/3,-2/9,-2/9\}$. Each outer tile shares $5/9$ of its area, while the central tile shares its entire area. The sum of entries is $8/3$, giving the $2/3$ total overlap fraction after dividing by four. The negative eigenvalues describe signed amplitude modes of a nonnegative area matrix; no negative overlap is implied. This is a **different** interface from Stage IX's matched triangular face: the present matrix describes overlapping midplane cross-sections, not the original 33-site Triforce tiles. It provides a geometric candidate for an interface map. It is not yet a derivation that this map is the physical transmission kernel or an embedding of this map into the 36-coordinate cell Hamiltonian.
+All four channels remain independent in this first-level area kernel: $\operatorname{rank}W=4$ and $\operatorname{spec}W=\{7/9,1/3,-2/9,-2/9\}$. Each outer tile shares $5/9$ of its area, while the central tile shares its entire area. The sum of entries is $8/3$, giving the $2/3$ total overlap fraction after dividing by four. Negative eigenvalues describe signed amplitude modes, not negative overlap. This is an inter-field midplane interface, different from Stage IX's matched triangular face. Its transmission interpretation remains conditional; the unified synthesis gives a model-level embedding into H36.
+
+The exact second-level polygon clipping in [recursive Triforce geometry](../recursive-triforce-geometry/) gives a $16\times16$ area matrix, 49 nonzero entries and rank 13; three corner tiles have no positive-area overlap. Total overlap remains $2/3$. This does not identify rank 13 with TetB or establish an internal TetA/TetB coupling kernel. Equal Euclidean child areas also do not mean equal radial solid angles.
 
 ## 5. Conditional conservative propagation
 

@@ -1,8 +1,8 @@
-# Projective Walsh closure and G from topology
+# Projective Walsh addressing algebra and the conditional G bridge
 
 *GFD Standard Field Model — November 2026*
 
-**Status:** [T] exact finite-field and Walsh identities; [D] consequences conditional on the specified ledger and orbit symmetry; [E] physical identification of orbit projection, attenuation, closure grading and G combination rule. No new physical constants or fitted parameters introduced.
+**Status:** [T] exact finite-field and Walsh identities; [D] conditional on the chosen ordered-pair representation and orbit symmetry; [E] physical identification and G combination rule. The [recursive Triforce geometry](../recursive-triforce-geometry/) is the primary geometric candidate. Its actual spatial rotation has invariant dimension 22, whereas spatial rotation on ordered corner pairs has dimension 24. No rotation-equivariant address bijection exists. The XOR quotient below is retained as computational mathematics, not a second physical ledger.
 
 ![Projective quotient, reduced Walsh operator and pi coverage](figures/43_projective_walsh.png)
 
@@ -10,11 +10,11 @@
 
 The upstream [G matrix synthesis](https://github.com/fielddynamics/research/blob/main/research/g_from_topology/g_matrix_synthesis.md) assigns the scalar, vector and tensor read blocks dimensions 1, 4, 16, with graded traces 21, 17, 13. The [closure climb](https://github.com/fielddynamics/research/blob/main/research/g_from_topology/g_from_the_closure_climb.md) makes the 17 the mean per distinct newly registered address, not per unit time; the physical combination rule remains proposed. The [null-rotation proof](https://github.com/fielddynamics/research/tree/main/proofs/g-null-rotation) identifies the Sierpinski factors of the Walsh matrices with null rotations in a spinor representation, but the full Walsh read itself has different character. The upstream [coupling algebra](https://github.com/fielddynamics/research/tree/main/research/coupling-algebra) already identifies the 21 projective points over GF(4). The new result here is the exact reduction of the **actual six-bit ordered-pair Walsh operator** to that projective space, including its zero-mode mixing and the original Sierpinski block sizes.
 
-## 2. An order-three cycle on the ordered-pair ledger [T]
+## 2. An order-three XOR cycle on ordered-pair addresses [T]
 
 Let u,v be three-bit addresses. On the 64-element set define T(u,v)=(v,u XOR v). Then T^2(u,v)=(u XOR v,u) and T^3=1. The only fixed point is (0,0). All other addresses lie in 21 orbits of length three. Seven orbits contain a zero vertex or equal vertices; the other fourteen are the two orientations of each of the seven Fano lines on the nonzero three-bit vectors. This is a transformation of the pair ledger, **not** a spatial rotation of the stellated solid or the modulo-eight pi walk.
 
-Pair source and destination bits by spatial coordinate. With the self-dual GF(4) basis (omega,omega^2), the three paired coordinates form GF(4)^3; T is multiplication by omega. Its nonzero orbits are the one-dimensional subspaces of GF(4)^3, i.e. PG(2,4). Choosing a coordinate flag and normalizing the first nonzero coordinate to field unity gives representatives (0,0,1), (0,1,z), (1,y,z), with z,y in GF(4). Their counts are 1,4,16. The flag is a choice; no physical axis or chamber interpretation is forced.
+Pair source and destination bits by spatial coordinate. With the self-dual GF(4) basis (omega,omega^2), the three paired coordinates form GF(4)^3; T is multiplication by omega. Its nonzero orbits are the one-dimensional subspaces, PG(2,4). A coordinate flag gives representatives (0,0,1), (0,1,z), (1,y,z), with counts 1,4,16. The [time-adapted flag research](../g_from_topology/read-and-rotation/ROOT_EXCHANGE_ON_THE_ADDRESS_TREE.md) constrains this abstract flag to a conjugate pair under the specified rotation and conjugation. Neither flag establishes a physical map to the recursive channels or selects a chamber-sensitive physical operator.
 
 ## 3. Exact projective FWHT [T]
 
@@ -40,7 +40,7 @@ Under the original convention starting at 3 and adding fractional octal digits m
 
 ## 6. Next physical proof
 
-Derive an actual three-state cyclic symmetry on the native field-connection records from the eight-vortex dynamics, test if the projective orbit projection commutes with the physical time evolution, and determine whether the 21 independent orbit records are subject to a common electromagnetic attenuation. Derive the 4-block grading from the chamber transformation (not from a choice of flag), and establish the closure mean/start rule. Only then can the exact projective quotient supply a microscopic explanation of the existing G formula. Retain the full 64-address ledger for reconstruction and the zero-mode mixing in any candidate settlement dynamics.
+Preserve the quotient as a computational construction. Do not introduce a physical XOR orbit merely to match 21 readers. First derive the actual recursive Triforce subchannel dynamics and physical settlement operator. If the native dynamics independently provide a three-state cyclic operator, test its symmetry, information retention, map to the geometric records and commutation with physical evolution. Only with that bridge, independently derived attenuation and the gravity source functional could this quotient support a microscopic G derivation. The full ordered-pair table remains necessary to reconstruct arbitrary pair data.
 
 ## Verification
 

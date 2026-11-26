@@ -4,7 +4,7 @@ subtitle: "Consolidated illustrated research edition"
 date: "November 2026"
 ---
 
-**Reading guide.** Parts I–III preserve the previously archived mathematical companion and the two latest research extensions. Part IV reconstructs additional chat visuals. All 27 numbered diagram designs are included as SVG and PNG, the supplied original photograph is third-party and not reproduced. Exact identities, conditional constructions and physical proof obligations remain distinguished.
+**Reading guide.** This illustrated edition retains all original mathematical derivations and figures, with the geometric interpretation corrected to the [recursive Triforce research](../recursive-triforce-geometry/). Ordered-pair and Pauli algebra are computational representations, not a second physical ledger. Generated HTML and historical output may reflect the earlier version; this Markdown is the current source.
 
 [Open the numbered visual atlas](VISUAL_ATLAS.html) · [Original interactive companion](VISUAL_MATHEMATICAL_COMPANION.html)
 
@@ -33,9 +33,9 @@ The twelve butterfly pairings correspond combinatorially to the three groups of 
 
 ![Original candidate dual-tetrad phase engine.](diagrams/02_dual_tetrad_phase_engine.svg)
 
-# 2. Relational ledger and recursive closure
+# 2. Recursive closure geometry and operator coordinates
 
-Eight vortex amplitudes admit a 64-coordinate dyadic operator ledger. A candidate three-level address structure is $L_{abc}$ with $a,b,c\in\{0,1,2,3\}$. A physical identification between the dyadic ledger and boundary records is still needed.
+The primary candidate geometric hierarchy is the [recursive Triforce geometry](../recursive-triforce-geometry/): four coupled face directions, four medial tiles per face and four medial children per tile. Eight core amplitudes also admit a 64-coordinate dyadic operator representation. These are distinct mathematical observables, not two physical ledgers. Spatial rotation fixes one recursive leaf versus four ordered corner pairs, so no rotation-equivariant bijection exists. The fixed Flower lattice allows a maximum of two complete dyadic subdivisions; physical lattice selection and subchannel dynamics remain open.
 
 $$8^2=4^3=64,\qquad N=\frac{4^3-1}{4-1}=21,\qquad 64=1+3(21).$$
 
@@ -49,7 +49,7 @@ The reversible hierarchical read separates one common mode and contrast strata o
 
 $$Q=\frac{I+M+M^2}{3},\qquad \operatorname{rank}Q=22,\qquad 21=1+4+16.$$
 
-The invariant contrast dimensions are $3/3,12/3,48/3$. The particular middle-grade assignment is a choice, not forced by spatial symmetry alone.
+The invariant contrast ranks are 1,4,16 for the stated digit cycle; the actual recursive geometric prefix projections have the same ranks by the fixed-leaf argument. The equal ranks do not identify the two rotations, the contrast operators or the physical sign grading.
 
 # 3. Collective transmission and structural coupling
 
@@ -73,7 +73,7 @@ The tree-level GFD target is $\gamma_G=Gm_e^2/(\hbar c)=(17/13)\alpha^{21}$.
 
 # 4. Boundary-weighted settlement
 
-A centered regular tetrahedron has four faces of solid angle $\pi$. The central Triforce tile subtends $\pi/2$, the three lateral tiles each $\pi/6$. For four assumed equally weighted subchannel addresses per tile,
+A centered regular tetrahedron has four faces of solid angle $\pi$. Each central primary tile subtends $\pi/2$ and each lateral primary tile $\pi/6$. The following equal-child weights are a simplified quadrature, **not the exact radial solid angles** of the second medial subdivision. The [recursive geometry](../recursive-triforce-geometry/) gives the actual unequal child weights. General weighted projection identities remain valid for any positive normalized rotation-invariant weights; the particular numerical Walsh weight pattern below belongs only to the simplified model.
 
 ![The Triforce face solid-angle partition.](diagrams/05_triforce_solid_angles.svg)
 
@@ -241,7 +241,7 @@ GFD Standard Field Model — research extension, November 2026. Companion to the
 
 ### 1. Three subcycles, one conserved registration
 
-Let the address space be (a,b,c) in {0,1,2,3}³ with weights w=1/32 for b=0 and 1/96 otherwise, using equal candidate subchannel subdivision. Let P_k be conditional averaging over addresses sharing their first k digits, k=0,1,2,3. Thus P_0=1wᵀ, P_3=I, and P_jP_k=P_min(j,k). With W=diag(w), WP_k=P_kᵀW. The orthogonal detail projections D_k=P_k-P_(k-1) satisfy D_iD_j=δ_ij D_i and sum to I-P_0. Raw ranks are 3,12,48. For the simultaneous digit cycle 0→0, 1→2→3→1, the invariant projector Q=(I+M+M²)/3 commutes with all these projections; its rank is 22 and invariant detail ranks are 1,4,16. These are abstract read channels, not automatically Pauli or connection components.
+Let the primary candidate address space be the [recursive Triforce geometry](../recursive-triforce-geometry/): (a,b,c) in {0,1,2,3}³ for coupled face, primary tile and secondary medial tile. Let positive normalized weights w be invariant under the geometric C3 rotation. The earlier simplified equal-child quadrature assigns 1/32 for a central parent and 1/96 otherwise; actual radial solid-angle weights are unequal within each parent, given by the recursive geometry note. Let P_k be conditional averaging over prefixes of length k, so P_0=1wᵀ, P_3=I, and P_jP_k=P_min(j,k). With W=diag(w), WP_k=P_kᵀW. The detail projections D_k=P_k-P_(k-1) obey D_iD_j=δ_ij D_i and sum to I-P_0; raw ranks are 3,12,48. The physical rotation preserves prefixes and weights, so Q=(I+M+M²)/3 commutes with these projections, rank Q=22 and invariant detail ranks 1,4,16. This is a weighted geometric construction, not an identification with Pauli operators or connection components.
 
 For t=√α define J_k=I+(t-1)D_k. Then
 
@@ -253,7 +253,7 @@ There is an explicit conservative realization for each stage. In weighted-orthon
 
 ![Three-grade closure](unification/12_three_grade_closure.svg)
 
-A balanced reference face-pair schedule can be constructed by reading all 64 addresses once (four repeats of each ordered pair) and adding four independent origin reads with equal dwell weights. Then the 68 records give origin share 1/17 and pair-diagonal share 1/4, yielding 13/17 for the locked exchange read. A permutation generated by any deterministic address schedule preserves this count, but π-digit coverage is not a proof of the native dwell weights or a physical period. Do not conflate uniform structural read weights and physical solid-angle weights: a central tile carries half the boundary flux on its face; if the self-pair is identified with the central tile on every face, the weighted diagonal share is 1/2, not 1/4. A physical dictionary and distinct normalization must be established.
+An illustrative balanced abstract face-pair schedule uses four repeats of each ordered pair and four independent origin reads with equal dwell weights. Its 68 entries give origin share 1/17 and pair-diagonal share 1/4, yielding 13/17 for the specified locked exchange read. This is a separate conditional normalization model, not a physical schedule of the recursive geometry: a spatial-rotation-equivariant bijection from corner pairs to the recursive addresses is impossible. Equal-area children have unequal solid angles, and structural traces are not flux weights. Derive the physical dwell/settlement law rather than identify a diagonal pair with a central tile by counting.
 
 ### 2. One odds variable, two constitutive responses
 
@@ -400,11 +400,11 @@ At each radius, angular averaging preserves the integral of a scalar radial flux
 
 ### 7. Distinguish physical and internal threefold symmetry
 
-For literal 120-degree rotation of the cube about the Heaven–Earth diagonal, two vertices are fixed and the other six form two triples. The diagonal action on 64 ordered pairs has (64+4+4)/3=24 orbits: four fixed axial pairs and twenty length-three orbits. This differs from the previously proposed internal Pauli-cycle action (22 orbit coordinates). A candidate axial boundary condition identifying (0,0) with (7,7) and (0,7) with (7,0) would reduce the 24-dimensional physical-invariant ledger to 22 dimensions, one common plus 21 contrasts. This is a new **conditional** identification, not forced by spatial rotation or BBP TIME silence. It preserves only axial orientation reversal, not full inversion of the cube. No proof identifies its grade decomposition with 1+4+16 or its determinant with the gravity vertex. This is a useful constraint on the next microscopic derivation.
+For literal 120-degree cube rotation, two corners are fixed; ordered pairs therefore have 24 invariant coordinates, whereas the recursive Triforce geometry has one fixed leaf and 22 invariant coordinates. The internal XOR/Pauli cycle also has 22, but is a different operation. The prior proposal of identifying the four axial pairs into two is an optional quotient imposed by hand, not a derived physical boundary condition, and cannot repair the missing equivariant bijection. Do not adopt it merely to force 22. Derive any physical map, dynamics and source functional independently.
 
 ### 8. Next proof target
 
-Construct a single energy-conserving microscopic dynamics for H36 plus physical phase transport with the following outputs: a BBP-type read (or explicit alternative), a coherent address ledger, no double counting, weighted angular averaging, and an external flux coupling. Prove why the proposed 21-mode collective determinant rather than an ordinary intensity supplies the source vertex, and derive its alpha factor and the 13/17 stiffness normalization. Only then can the new angular result be promoted from a conditional geometric mechanism to a physical unification.
+First derive the independently specified recursive fine-field dynamics, geometric lattice restriction and energy-conserving settlement operator. Then test whether an explicit phase-transport or computational address map emerges, with no double counting and actual solid-angle weighting. A BBP generator, source determinant, elementary alpha and 13/17 stiffness normalization remain separate proof obligations; none may be selected merely to obtain the target numbers.
 
 ### Verification
 

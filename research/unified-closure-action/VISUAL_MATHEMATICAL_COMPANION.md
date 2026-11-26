@@ -26,9 +26,9 @@ The twelve butterfly pairings correspond combinatorially to the three groups of 
 
 ![Original candidate dual-tetrad phase engine.](diagrams/02_dual_tetrad_phase_engine.svg)
 
-# 2. Relational ledger and recursive closure
+# 2. Recursive closure geometry and operator coordinates
 
-Eight vortex amplitudes admit a 64-coordinate dyadic operator ledger. A candidate three-level address structure is $L_{abc}$ with $a,b,c\in\{0,1,2,3\}$. A physical identification between the dyadic ledger and boundary records is still needed.
+The primary candidate geometric hierarchy is the [recursive Triforce geometry](../recursive-triforce-geometry/): four coupled face directions, four medial tiles per face and four medial children per tile. Eight core amplitudes also admit a 64-coordinate dyadic operator representation. These are distinct mathematical observables, not two physical ledgers. Spatial rotation fixes one recursive leaf versus four ordered corner pairs, so no rotation-equivariant bijection exists. The fixed Flower lattice allows a maximum of two complete dyadic subdivisions; physical lattice selection and subchannel dynamics remain open.
 
 $$8^2=4^3=64,\qquad N=\frac{4^3-1}{4-1}=21,\qquad 64=1+3(21).$$
 
@@ -42,7 +42,7 @@ The reversible hierarchical read separates one common mode and contrast strata o
 
 $$Q=\frac{I+M+M^2}{3},\qquad \operatorname{rank}Q=22,\qquad 21=1+4+16.$$
 
-The invariant contrast dimensions are $3/3,12/3,48/3$. The particular middle-grade assignment is a choice, not forced by spatial symmetry alone.
+The invariant contrast ranks are 1,4,16 for the stated digit cycle; the recursive geometric prefix projections have the same ranks by the fixed-leaf argument. Equal ranks do not identify the rotations, sign grading or the physical gravity read.
 
 # 3. Collective transmission and structural coupling
 
@@ -66,7 +66,7 @@ The tree-level GFD target is $\gamma_G=Gm_e^2/(\hbar c)=(17/13)\alpha^{21}$.
 
 # 4. Boundary-weighted settlement
 
-A centered regular tetrahedron has four faces of solid angle $\pi$. The central Triforce tile subtends $\pi/2$, the three lateral tiles each $\pi/6$. For four assumed equally weighted subchannel addresses per tile,
+A centered regular tetrahedron has four faces of solid angle $\pi$. Each central primary tile subtends $\pi/2$ and each lateral primary tile $\pi/6$. The following equal-child weights are a simplified quadrature, **not the exact radial solid angles** of the second medial subdivision. The [recursive geometry](../recursive-triforce-geometry/) gives the actual unequal child weights. General weighted projection identities remain valid for any positive normalized rotation-invariant weights; the particular numerical Walsh weight pattern below belongs only to the simplified model.
 
 ![The Triforce face solid-angle partition.](diagrams/05_triforce_solid_angles.svg)
 

@@ -1,6 +1,6 @@
 # Unified closure action: illustrated research
 
-This folder collects three successive stages of one line of research on the geometric π walk, closure settlement and the gravitational read. Each stage kept the previous one unchanged, so everything from all three is here.
+This folder collects three stages of research on geometric π addressing, closure settlement and the gravitational read. The current [recursive Triforce geometry](../recursive-triforce-geometry/) supplies the primary candidate geometric hierarchy; the stage Markdown documents are corrected in place to distinguish it from the ordered-pair and Pauli representations. Historical numerical outputs, figures and generated HTML snapshots are retained; the corrected Markdown takes precedence.
 
 | Stage | What it adds | Main document | Verifier |
 |---|---|---|---|
@@ -43,6 +43,6 @@ All four pass and match their recorded logs (`verification/*_output.txt`, `unifi
 
 ## Status
 
-The 17/13 ratio comes from the coupling polynomial, not from a read weighting: see [the root exchange on the address tree](../g_from_topology/read-and-rotation/ROOT_EXCHANGE_ON_THE_ADDRESS_TREE.md), which also shows the tree must be read along the time diagonal (not the x-axis, as in these notes) for its three levels to carry the scalar, legs and couplings exactly.
+The coupling polynomial gives the 17/13 trace ratio that G's combination rule uses; reading it as a physical stiffness ratio in this model is not independently derived. The [root-exchange note](../g_from_topology/read-and-rotation/ROOT_EXCHANGE_ON_THE_ADDRESS_TREE.md) determines a time-adapted flag for the computational projective representation, not the sign grading of the recursive geometry. The [recursive Triforce geometry](../recursive-triforce-geometry/) has a conditional fixed-lattice depth of two, a 40/24 pointing split, a symmetry obstruction to direct corner-pair identification and a corrected radial solid-angle quadrature. Keep geometric addresses, structural traces, source weighting and attenuation distinct.
 
 Exact identities, conditional constructions and open physical proof obligations are labelled throughout. Still open: native physical selection of the balanced π walk, the attenuation, dimensional normalization, the native H36 dynamics, physical charge, spin-2 and the full covariant completion. The related syntheses are in [`../3 sweep understanding/`](<../3 sweep understanding/>) and the vortex-flywheel model in [`../hadamard-null-cone-vortex-flywheel/`](../hadamard-null-cone-vortex-flywheel/).

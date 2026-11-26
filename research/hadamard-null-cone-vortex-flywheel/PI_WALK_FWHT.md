@@ -2,7 +2,7 @@
 
 *GFD Standard Field Model · computational interpretation of the closure engine · November 2026*
 
-**Status:** [T] denotes exact algebra, [D] results conditional on explicit premises, [E] exploratory physical identification. This note does not derive π from vortex dynamics, nor claim the walk is itself the FWHT. It links the existing walk to an exact spectral read.
+**Status:** [T] exact algebra, [D] conditional read assumptions, [E] exploratory physical interpretation. This note analyzes a supplied π address schedule and Walsh transform on ordered corner pairs. The primary geometric candidate is the [recursive Triforce hierarchy](../recursive-triforce-geometry/), not a second physical ledger of corner pairs. Spatial rotation has 24 invariant dimensions on corner pairs and 22 on the recursive geometry, so direct equivariant relabelling is impossible. No physical π generator or transduction map is established.
 
 ## 1. Upstream and scope
 
@@ -21,9 +21,9 @@
 
 [D] Assume the table X is stationary over the closure, or that a coherent history model compensates for the evolving values. On the first occurrence of pair (u,v), sample X_uv, mark its mask bit, and add X_uv H[:,u]H[:,v]^T to Y. On a repeat, do nothing to this particular first-visit accumulator. At full coverage every summand is present once, so Y=HXH independently of order. Equivalently fill X by random-access reads, then apply the FWHT. The latter is the fast algorithm; the streaming outer-product rule is a direct transform, not a fast butterfly implementation. If observations are only four rank-one optical ports, arbitrary independent X entries are not automatically accessible; see existing observability limits.
 
-[T] At n=332, π first covers all 64 addresses (reproduced independently with 400-digit mpmath π, not an independent BBP derivation). The final newly visited pair is (3,2). Coverage means complete sampling, not physical simultaneous settlement. A changing table instead produces a mixed-time ledger, and no claim of an atomic snapshot follows without a synchronization model.
+[T] At n=332, the supplied π schedule first covers all 64 **ordered corner-pair addresses** (reproduced independently with 400-digit mpmath π, not an independent BBP derivation). The final newly visited pair is (3,2). This is complete mathematical table sampling, not physical settlement of the recursive geometry. A changing table gives mixed-time data without a synchronization model.
 
-## 4. Three ledgers must not be confused
+## 4. Three representations of the same mathematical walk
 
 - Coverage mask M_uv=1 if visited, 0 otherwise. At closure M=11^T, HMH=64 e0 e0^T. All nonconstant Walsh coefficients vanish; the mask cannot encode π at completion.
 - Counts C_uv=# visits. HC H retains count information but generally loses order. Row minus column marginals equal e_start−e_end exactly for any walk.
@@ -43,7 +43,7 @@ The exact read error satisfies 0 ≤ π−π_N < 8^(-N). At N=332 it is below 8^
 
 ## 6. Candidate engine interpretation
 
-[E] BBP supplies random-access π digits; the π-driven walk supplies addresses; the full 64-entry read is resolved in six Walsh stages; a suitable read/settle/register law could act on selected spectral coordinates. For a single field, the eight-vertex Walsh coefficients split as scalar (1), polar (3), parity-weighted polar (3), chamber parity (1), consistent with the earlier eight-coordinate read. Two-index extension is an algebraic bridge, not a proof that the 64 ledger coordinates transform like a connection. The 36-coordinate vortex Hamiltonian does not yet implement these six butterfly stages, nor prove that it generates BBP, rather than consuming π as a clock. The decisive test is an explicit time-dependent local map on the actual Triforce graph, with norm/energy accounting, producing the normalized H64 for arbitrary independent input tables, not just a single digit stream. Also distinguish the clock rate from the Compton clock; no tick duration follows from the count 332. A reset and repeated closure could change the next cycle length. The optical and gravitational read normalizations remain those of the existing research; this stage does not derive G, a0 or electron mass.
+[E] BBP can supply π digits to the mathematical address scheduler, and the 64-entry corner-pair table can be resolved by six Walsh stages. A single field has eight vertex Walsh coefficients in scalar (1), polar (3), parity-weighted polar (3), chamber parity (1) blocks. These are valid algebraic observables; they do not define the physical 64-channel geometry or connection. The H36 engine has not been shown to implement the six butterflies or generate BBP. The primary next task is the independently derived recursive Triforce refinement and settlement operator; a π read must then be justified by an explicit transduction and dynamics, with norm/energy accounting. Neither 332 nor an abstract coverage reset supplies a physical clock or Compton period. No new G, a0 or electron mass derivation.
 
 ## 7. Reproduce
 

@@ -30,12 +30,29 @@ Q on the physical invariant sector has 14 positive and 8 negative coordinates: s
 
 In parent barycentric coordinates scaled by 12 the upstream inter-field midplane triangles are T=((0,0),(12,0),(0,12)) and B=((8,8),(-4,8),(8,-4)). Exact polygon clipping gives 13 nonzero entries and rank 4 at depth one; 49 nonzero entries and rank 13 at depth two. The common area remains 2/3 of the parent. This is not the internal TetA/TetB interface. Rank 13 is not proof of TetB coupling. Three corner tiles lack positive-area overlap at depth two.
 
+## Actual refined radial solid-angle quadrature [T/D]
+
+For a centered radial inverse-square field the physical angular fraction of a surface triangle with vertex vectors $a,b,c$ is $w=\Omega/(4\pi)$, where
+
+$$\Omega=2\operatorname{atan2}\left(|\det(a,b,c)|,\ |a||b||c|+(a\cdot b)|c|+(b\cdot c)|a|+(c\cdot a)|b|\right).$$
+
+This follows from the solid angle of the spherical triangle obtained by radial projection; the formula uses the exact rational vertex vectors of the medial refinement. The resulting normalized weights per representative face, with children listed center first, are:
+
+| Primary tile | Central child | Lateral child 1 | Lateral child 2 | Lateral child 3 | Total |
+|---|---:|---:|---:|---:|---:|
+| Central | 0.043869914023 | 0.027043361992 | 0.027043361992 | 0.027043361992 | 1/8 |
+| Lateral (each of three) | 0.010506209937 | 0.004117094737 | 0.013521680996 | 0.013521680996 | 1/24 |
+
+For a lateral parent, lateral child 1 is the child at the original tetrahedral vertex. The other two are equivalent by reflection. Each face registers one quarter and all four sum to one. The original equal-child weights 1/32 and 1/96 are a simplified quadrature, not exact radial flux shares. The actual weights preserve the physical rotation, so normalized weighted prefix averaging still gives nested orthogonal projections in the weighted inner product and invariant detail ranks 1,4,16. This does not prove the attenuation or source operator; arbitrary angular fields require cell averages or an independently controlled quadrature. Do not add both enclosing chamber surfaces as separate source charges.
+
+`python verify_refinement_weights.py` checks the rational 3D geometry and evaluates solid angles numerically (35 checks; [output](refinement_weights_output.txt)). In particular the rotation is tested directly on all 64 actual triangles, without assuming a simultaneous digit permutation.
+
 ## Next physical proof: nodal and refinement tests
 
 The current H36 has first-level tile coordinates, not spatially resolved second-level amplitudes. It cannot alone derive finer physical boundaries. Recover a continuous face field from the existing action or independently derive a fine Hamiltonian. Test whether its nodal or flux-separation boundaries coincide with medial segments and whether the equations recur on each child with energy and flux matching. No artificial subdivision-specific weights. For a linear fine Hamiltonian H_f and normalized piecewise-constant prolongation E (E*E=I), exact autonomous coarse evolution for all coarse states holds iff (I-EE*)H_f E=0. Then H_c=E*H_f E. If leakage is nonzero, retain detail modes or derive a controlled effective response. For nonlinear evolution test tangency to the coarse image. Derive the lattice restriction, maximal-depth occupancy, chamber registration and source attenuation independently. A negative result is acceptable.
 
 ## Reproduction
 
-Run `python verify_recursive_triforce.py` (Python standard library). The tests use exact rational geometry, integer/rational rank, symmetry and orbit counts. Not a vortex simulation, physical experiment, or Lean proof.
+Run `python verify_recursive_triforce.py` (Python standard library). The tests use exact rational geometry, integer/rational rank, symmetry and orbit counts. Not a vortex simulation, physical experiment, or Lean proof. Run `python verify_refinement_weights.py` for the additional refined radial weights and actual 3D rotation tests.
 
 Sources (repository-relative links): [Enterprise Triforce](../faces/enterprise_triforce_synthesis.md), [Flower lattice](../hadamard-null-cone-vortex-flywheel/HADAMARD_FLOWER_LATTICE.md), [original projection](../hadamard-null-cone-vortex-flywheel/figures/24_hadamard_flower.svg), [Triforce tetrad read](../hadamard-null-cone-vortex-flywheel/TRIFORCE_TETRAD_READ.md), [three subreads](../hadamard-null-cone-vortex-flywheel/THREE_SUBREAD_CLOSURE.md), [projective Walsh](../hadamard-null-cone-vortex-flywheel/PROJECTIVE_WALSH_G_BRIDGE.md), [pi walk](../hadamard-null-cone-vortex-flywheel/PI_WALK_FWHT.md), [root exchange](../g_from_topology/read-and-rotation/ROOT_EXCHANGE_ON_THE_ADDRESS_TREE.md), [sustained flywheel](../hadamard-null-cone-vortex-flywheel/SUSTAINED_TRIFORCE_FLYWHEEL.md), [optical ports](../hadamard-null-cone-vortex-flywheel/OPTICAL_FOUR_PORT_RESONATOR.md).

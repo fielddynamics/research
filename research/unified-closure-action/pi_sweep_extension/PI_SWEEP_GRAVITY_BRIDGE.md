@@ -68,11 +68,11 @@ At each radius, angular averaging preserves the integral of a scalar radial flux
 
 ## 7. Distinguish physical and internal threefold symmetry
 
-For literal 120-degree rotation of the cube about the Heaven–Earth diagonal, two vertices are fixed and the other six form two triples. The diagonal action on 64 ordered pairs has (64+4+4)/3=24 orbits: four fixed axial pairs and twenty length-three orbits. This differs from the previously proposed internal Pauli-cycle action (22 orbit coordinates). A candidate axial boundary condition identifying (0,0) with (7,7) and (0,7) with (7,0) would reduce the 24-dimensional physical-invariant ledger to 22 dimensions, one common plus 21 contrasts. This is a new **conditional** identification, not forced by spatial rotation or BBP TIME silence. It preserves only axial orientation reversal, not full inversion of the cube. No proof identifies its grade decomposition with 1+4+16 or its determinant with the gravity vertex. This is a useful constraint on the next microscopic derivation.
+For literal 120-degree cube rotation, two corners are fixed; ordered pairs therefore have 24 invariant coordinates, whereas the [recursive Triforce geometry](../../recursive-triforce-geometry/) has one fixed leaf and 22 invariant coordinates. The internal XOR/Pauli cycle also has 22, but is a different operation. The prior proposal of identifying the four axial pairs into two is an optional quotient imposed by hand, not a derived physical boundary condition, and cannot repair the missing equivariant bijection. Do not adopt it merely to force 22. Derive any physical map, dynamics and source functional independently.
 
 ## 8. Next proof target
 
-Construct a single energy-conserving microscopic dynamics for H36 plus physical phase transport with the following outputs: a BBP-type read (or explicit alternative), a coherent address ledger, no double counting, weighted angular averaging, and an external flux coupling. Prove why the proposed 21-mode collective determinant rather than an ordinary intensity supplies the source vertex, and derive its alpha factor and the 13/17 stiffness normalization. Only then can the new angular result be promoted from a conditional geometric mechanism to a physical unification.
+Derive the actual recursive face geometry and energy-conserving refinement/settlement dynamics first. Then test whether any native phase-transport or π-type addressing map realizes the physical records. No double counting, actual solid-angle quadrature, and external flux coupling are required. The proposed collective determinant, elementary alpha and 13/17 stiffness normalization remain independent proof obligations; a BBP-type read is not required by the existing algebra.
 
 ## Verification
 

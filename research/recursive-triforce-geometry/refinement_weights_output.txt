@@ -1,0 +1,41 @@
+PASS face 0 total equals quarter
+PASS face 0 parent 0 child flux sums to parent
+PASS face 0 parent 1 child flux sums to parent
+PASS face 0 parent 2 child flux sums to parent
+PASS face 0 parent 3 child flux sums to parent
+PASS face 0 central children not equally weighted
+PASS face 0 lateral children not equally weighted
+Face 0 weights as fractions of full-surface flux; rows = parent, cols = child
+0.043869914023 0.027043361992 0.027043361992 0.027043361992
+0.010506209937 0.004117094737 0.013521680996 0.013521680996
+0.010506209937 0.004117094737 0.013521680996 0.013521680996
+0.010506209937 0.004117094737 0.013521680996 0.013521680996
+PASS central parent is one eighth
+PASS lateral parents each one twenty-fourth
+PASS face 1 total equals quarter
+PASS face 1 parent 0 child flux sums to parent
+PASS face 1 parent 1 child flux sums to parent
+PASS face 1 parent 2 child flux sums to parent
+PASS face 1 parent 3 child flux sums to parent
+PASS face 1 central children not equally weighted
+PASS face 1 lateral children not equally weighted
+PASS face 2 total equals quarter
+PASS face 2 parent 0 child flux sums to parent
+PASS face 2 parent 1 child flux sums to parent
+PASS face 2 parent 2 child flux sums to parent
+PASS face 2 parent 3 child flux sums to parent
+PASS face 2 central children not equally weighted
+PASS face 2 lateral children not equally weighted
+PASS face 3 total equals quarter
+PASS face 3 parent 0 child flux sums to parent
+PASS face 3 parent 1 child flux sums to parent
+PASS face 3 parent 2 child flux sums to parent
+PASS face 3 parent 3 child flux sums to parent
+PASS face 3 central children not equally weighted
+PASS face 3 lateral children not equally weighted
+PASS 64 positive weights normalize to one
+PASS 64 distinct actual triangles on one tetrahedron
+PASS physical rotation permutes all triangles
+PASS one fixed refined tile under physical rotation
+PASS radial quadrature invariant under physical rotation
+35/35 checks passed

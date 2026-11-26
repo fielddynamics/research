@@ -6,7 +6,9 @@
 
 ## 1. Face, subface, subchannel
 
-The proposed architecture reads four original faces, four Triforce tiles per face and four algebraic subchannel addresses per tile. The last index is a **candidate record index**, not a proved new physical subdivision of a triangle. One chamber's 16 tiles do not replace the dual-tetrad solid or its 36 complex coordinates. Addressing proceeds down the hierarchy; reversible aggregation proceeds upward.
+The primary candidate is the [recursive Triforce geometry](../recursive-triforce-geometry/): four coupled face directions, four medial tiles per face and four medial children per tile, including the central child. This supplies 64 paired geometric addresses. The specified Flower lattice permits at most two complete dyadic subdivisions; whether dynamics require this lattice and occupy the maximal depth remains open. The two chambers retain distinct surfaces, and the refined addresses do not replace the 36 complex microscopic coordinates. Address downward and aggregate upward.
+
+![Recursive Triforce geometry and depth rule](../recursive-triforce-geometry/recursive_triforce.svg)
 
 ![Three nested sub-reads and terminal addresses](figures/44_three_subread_tree.svg)
 
@@ -26,13 +28,15 @@ $$H_{64}/8=(h\otimes h\otimes h)=DB.$$
 
 D only mixes detail coordinates within a scale; it is not an extra physical closure cycle. The tree alone requires 21 four-way transforms, whereas the full radix-four Walsh transform requires 16 transforms in each of three stages (48 total). Do not confuse the internal-reader count with the total number of FWHT arithmetic operations.
 
-## 3. Threefold symmetry selects 21 invariant differences [T]
+## 3. Threefold symmetry of the recursive geometry [T]
 
-Pair the source and destination bits along each spatial coordinate as in [projective closure](PROJECTIVE_WALSH_G_BRIDGE.md). In the four-element digit alphabet encode the simultaneous XOR cycle by 0→0, 1→2→3→1. Let M act on all three digits and Q=(I+M+M²)/3. The full Walsh F obeys FM=M^T F and FQ=QF. In the tree basis the symmetry becomes BMB^T, also a permutation, preserving the four detail strata. The common coordinate is fixed. All three nonzero detail strata contain triples, with invariant dimensions 3/3=1, 12/3=4, 48/3=16. Thus the same 21 count is the exact dimension of the invariant **contrast** space after one common scalar has been separated.
+Under the actual spatial $120^\circ$ rotation there is one fixed face; on that face the central child is fixed and the other three cycle, at both refinement levels. Every prefix partition is preserved. The invariant dimensions of the prefix-constant spaces at depths 0, 1, 2, 3 are $(4^k+2)/3=1,2,6,22$; subtracting adjacent ranks gives contrast dimensions 1, 4, 16. The 21 internal readers and 21 invariant contrasts are different structures, not individually identified modes.
 
-The triples can cross local reader groups; one cannot identify each orbit with a single physical reader by counting alone. The flag used to name the middle 4-level stratum is a choice; a cyclic permutation of spatial coordinate factors preserves Q but not the middle-grade projector. This rules out deriving the chamber-sensitive middle grade from the abstract symmetry alone. Retain the zero/mean mixing of the projective FWHT; the original 21 projective nonzero-address coordinates are not closed under F without the zero address.
+Separately, the [projective corner-pair construction](PROJECTIVE_WALSH_G_BRIDGE.md) uses a simultaneous XOR digit cycle $M$, with $Q=(I+M+M^2)/3$. Its Walsh operator satisfies $FM=M^TF$ and $FQ=QF$; the tree detail strata also have invariant dimensions 1,4,16. This is an exact identity for the computational representation, not proof that it represents the physical rotation on corner pairs. Spatial rotation on corner pairs has invariant dimension 24, versus 22 for recursive triangles. No direct equivariant relabelling exists. The projective time-adapted flag is described in the [root-exchange note](../g_from_topology/read-and-rotation/ROOT_EXCHANGE_ON_THE_ADDRESS_TREE.md); it does not select the physical chamber-sensitive operator. Preserve the zero/mean mixing of the projective FWHT.
 
-## 4. A native core operator ledger [T/D]
+For the recursive geometry, the pointing operator $J\otimes J$ has 10/6 signs per face, but the uniform-mean-zero invariant compression has spectrum $+1$ (13), $-1$ (7), $-1/4$ (1). Thus it is not the assumed $+,-,+$ contrast grading. See [recursive Triforce geometry](../recursive-triforce-geometry/).
+
+## 4. Native core operator coordinates (a separate mathematical observable) [T/D]
 
 ![Native coherent read and three-axis operator resolution](figures/48_native_recursive_read.svg)
 
@@ -68,7 +72,7 @@ $$J_\alpha=t I+(1-t)ee^T.$$
 
 This commutes with Q. On all 64 records its eigenvalues are one and 63 copies of t. On the 22-dimensional invariant sector they are one and 21 copies of t. Therefore the squared determinant is alpha^21 on the reduced sector, versus alpha^63 on the full sector. Ordinary normalized contrast transmission is just alpha. A different, independently attenuated three-stage serial path would give alpha^3; that is not the operation calculated here. The contraction has an exact lossless orthogonal dilation with complementary reflected modes; no probability vanishes in the combined model.
 
-The original GFD coupling polynomial is then represented by signed traces of the three invariant contrast blocks (1,4,16): f=1+4s+16. This obtains 21,17,13 from the tree and projective symmetry together, **given the middle-grade choice**. Negative s would entail gain if interpreted as a passive optical exponent in that block, so the TetB trace must not be equated with passive per-channel attenuation. The physical selection of the determinant rather than ordinary transmission, the per-contrast alpha coupling, the middle-grade assignment and the 17/13 mean/start normalization all remain open. No alternative G is introduced. The inherited tree-level target remains
+The abstract coupling polynomial can be represented by signed traces of three invariant contrast blocks (1,4,16) **if** the middle grade is selected. This is not the physical pointing-parity operator, and the projective flag does not derive that selection for the recursive face geometry. Negative s would entail gain if interpreted as a passive optical exponent. The physical selection of a determinant rather than ordinary transmission, the per-contrast alpha coupling, the middle-grade assignment and the 17/13 normalization remain open. The inherited conditional target remains
 
 $$G=(17/13)\alpha^{21}\hbar c/m_e^2,$$
 
@@ -76,7 +80,7 @@ with the proposed upstream loop factor 1+alpha/(2 pi). The electron closure equa
 
 ## 7. Pi addressing and next derivation
 
-The original [pi walk](PI_WALK_FWHT.md) addresses 64 ordered pairs with modular addition, not XOR. A fixed relabeling can address the 64 Pauli records; an actual field snapshot must transport values, not merely visit indices. The pi schedule covers all records at the previously recorded 332 fractional digits and the 22 quotient classes at 156. Neither is shown to be a physical period, nor does the native H generate BBP. The three sub-reads unify address resolution and the mathematical operator ledger; deriving an autonomous nonlinear or state-dependent core rotation, closure scheduling and physical registration is the next step. The native read and collective contraction must be linked to the existing weak-field settlement and conserved boundary energy, not asserted to be the same observable.
+The [pi walk](PI_WALK_FWHT.md) addresses ordered corner pairs by modular addition, not XOR. Its 332-digit coverage and 156-digit projective quotient coverage are exact properties of the supplied schedule, not physical periods. Treat this as a candidate computational addressing procedure; no rotation-equivariant relabelling to recursive face addresses exists, and no native transduction law or BBP generator is established. The core Pauli coefficients are a separate observable, not a second physical closure ledger. First derive actual subchannel boundaries, lattice selection, a fine-scale Hamiltonian compatible with H36 and a physical registration law. Only then test whether a Walsh or pi read realizes that geometry and whether the source selects the collective contraction.
 
 ## Verification
 

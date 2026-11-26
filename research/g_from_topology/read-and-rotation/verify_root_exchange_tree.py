@@ -1,19 +1,17 @@
 """Verify: the root exchange on the graded read space and on the address tree.
 
-Checks the three results of ROOT_EXCHANGE_ON_THE_ADDRESS_TREE.md:
-  1. On 1 + V + V(x)V the root exchange (legs reversed) is an involution Pi with
-     I_s = ((1+s) I + (1-s) Pi)/2, so f(K,s) = 1 + sK + K^2 = tr I_s.
-  2. In PG(2,4) the 120-degree rotation about the time diagonal, together with
-     Galois conjugation, fixes one point (the time point) and a conjugate pair of
-     lines through it (vortex, antivortex); each gives the split 1 + 4 + 16 with
-     the same rotation orbits as the tetrad's scalar, legs and leg pairs.
-  3. With tree digits adapted to that flag, every tree level commutes with the
-     rotation and the root exchange is +1, -1, +1 on the 1, 4, 16 invariant
-     contrast levels; with x-axis digits neither holds.
-  4. The root exchange is the cube's central inversion (-1 on the four odd
-     characters x, y, z, xyz, which on TetA are the Triforce Hadamard legs), and
-     the physical face -> tile -> subchannel tree commutes with the rotation and
-     has invariant contrasts 1, 4, 16 with no flag choice.
+Checks the abstract algebra of ROOT_EXCHANGE_ON_THE_ADDRESS_TREE.md:
+  1. On 1 + V + V(x)V the leg-sign involution has traces 21,17,13.
+  2. In PG(2,4), rotation and field conjugation constrain a projective flag.
+  3. The constructed projective sign operator has the prescribed grades on
+     the time-adapted frequency tree. This does not derive physical exchange.
+  4. Cube inversion reverses four odd Walsh characters. The prefix permutation
+     tree has invariant contrast dimensions 1,4,16. This is an abstract
+     permutation test, not a derivation of the physical sign operator or an
+     identification of each contrast with a particular reader.
+
+See recursive-triforce-geometry for actual medial refinement, the spatial
+rotation obstruction, the pointing-parity compression and the weighted read.
 
 Run: python verify_root_exchange_tree.py   (NumPy, SymPy)
 """
@@ -221,9 +219,9 @@ for k_ in range(4):
         for u in grp:
             A_[ix3[v], ix3[u]] = 1 / len(grp)
     Pp.append(A_)
-check("physical tree (face, tile, subchannel): every level commutes with the rotation", all(np.allclose(Mp @ P_, P_ @ Mp) for P_ in Pp))
+check("recursive prefix permutation model: every level commutes with the rotation", all(np.allclose(Mp @ P_, P_ @ Mp) for P_ in Pp))
 Qp = (np.eye(64) + Mp + Mp @ Mp) / 3
-check("its invariant contrasts are 1, 4, 16: one per root, face and tile reader",
+check("its invariant contrast ranks are 1, 4, 16 (not individual reader identities)",
       [int(round(np.trace(Qp @ (Pp[k_] - Pp[k_ - 1])))) for k_ in (1, 2, 3)] == [1, 4, 16])
 
 n = len(checks); ok = sum(c for _, c in checks)

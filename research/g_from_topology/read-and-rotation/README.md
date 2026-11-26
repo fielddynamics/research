@@ -202,7 +202,7 @@ The proof would not claim the physical steps in G. Those stay as the parent fold
 
 ## Continuation
 
-[The root exchange on the address tree](ROOT_EXCHANGE_ON_THE_ADDRESS_TREE.md) shows the graded identity is $I_s=\tfrac{1+s}{2}\mathbb 1+\tfrac{1-s}{2}\Pi$, with $\Pi$ the root exchange of Part D, so 17/13 is a count (root-blind dimension over the exchange's trace), not a weighting. It also shows the 120° closure rotation and the vortex/antivortex conjugation select the flag of $\mathrm{PG}(2,4)$ whose split 1 + 4 + 16 is scalar, legs and couplings, and that the closure tree read along the time diagonal carries exactly that grading. The exchange is derived as the cube's inversion, and the physical face → tile tree carries the grading with no flag choice (40 checks).
+[The root exchange on the address tree](ROOT_EXCHANGE_ON_THE_ADDRESS_TREE.md) establishes the abstract graded trace $I_s=\tfrac{1+s}{2}\mathbb 1+\tfrac{1-s}{2}\Pi$, cube-Walsh odd-character reversal and a time-adapted projective flag with 1/4/16 strata. The projective sign assignment is a defined operator, not the derived physical settlement law. The [recursive Triforce geometry](../../recursive-triforce-geometry/) supplies the primary candidate hierarchy, the conditional depth-two lattice theorem and an obstruction to a rotation-equivariant corner-pair bijection. Its pointing parity fails to reproduce the proposed contrast grading and cannot be identified with connection swap under full face symmetry. The ratio 17/13 remains an exact structural trace ratio; its physical stiffness/source selection is open.
 
 ## Reproduce
 

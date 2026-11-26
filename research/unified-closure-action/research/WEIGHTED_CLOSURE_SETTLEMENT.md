@@ -6,13 +6,13 @@ GFD Standard Field Model · November 2026
 
 ## 1. Flux-weighted register
 
-For a radial inverse-square field centered on a regular tetrahedron, each primary face subtends π, its central Triforce tile π/2, and each lateral tile π/6. Thus the 16 tile shares of the total flux are 1/8 (central) and 1/24 (lateral). Equal division into four candidate subchannels per tile gives the 64 weights
+For a radial inverse-square field centered on a regular tetrahedron, each face subtends π, its central primary tile π/2, and each lateral primary tile π/6. The 16 tile shares of the total flux are 1/8 (central) and 1/24 (lateral). In the [recursive Triforce geometry](../../recursive-triforce-geometry/) the four medial children of each tile have equal Euclidean area but unequal solid angle. The following weights are the original **simplified equal-child quadrature**, retained for its exact model algebra:
 
 $$w_{abc}=\begin{cases}1/32&b=0\\1/96&b\ne0.\end{cases}$$
 
-The last split is an assumed address convention, not established physical subgeometry. Let $x$ denote scalar flux densities normalized to the tile solid-angle measure, not Pauli expectation values. Then $w^T x$ is the registered scalar. The threefold simultaneous nonzero-digit cycle $M$ preserves $w$ and $u=(1,\ldots,1)^T$. The projector $Q=(I+M+M^2)/3$ has rank 22.
+For the actual radial quadrature use w_abc=Ω_abc/(4π), with Ω the solid angle of each secondary triangle (see the recursive geometry verification). It is positive, normalized and invariant under spatial rotation. Let x denote scalar flux densities normalized to this measure, not Pauli expectations. Then wᵀx is the discrete flux register; for nonconstant density inside a tile a quadrature or cell-average assumption is required. The physical C3 rotation preserves weights and the prefix partitions; Q=(I+M+M²)/3 has rank 22. This does not identify the physical rotation with the ordered-pair XOR cycle.
 
-With normalized four-point Hadamard $h$, $F=h^{\otimes3}$, the only nonzero components of $Fw$ are $(Fw)_{000}=1/8$ and $(Fw)_{0b0}=1/24$ for $b=1,2,3$. Thus the geometric boundary functional contains the uniform common coordinate and one invariant direction of the intermediate contrast block. Its squared Euclidean contrast norm is $1/192$, one third of its common squared norm $1/64$. This is an explicit link to the middle scale, not a derivation of its signed physical coupling.
+For the simplified equal-child weights above only, with normalized four-point Hadamard $h$, $F=h^{\otimes3}$, the only nonzero components of $Fw$ are $(Fw)_{000}=1/8$ and $(Fw)_{0b0}=1/24$ for $b=1,2,3$. Thus the geometric boundary functional contains the uniform common coordinate and one invariant direction of the intermediate contrast block. Its squared Euclidean contrast norm is $1/192$, one third of its common squared norm $1/64$. This is an explicit link to the middle scale, not a derivation of its signed physical coupling.
 
 ## 2. A conserved weighted closure operator
 
@@ -24,7 +24,7 @@ Since $w^Tu=1$, $P^2=P$. Hence $Ju=u$, $w^TJ=w^T$ and $JQ=QJ$. In the physical q
 
 $$|\det(J|_{\operatorname{im}Q})|^2=\alpha^{21}.$$
 
-If Euclidean self-adjointness is required instead while keeping both $u$ and $w$ fixed, there must be at least two unit eigenvectors, leaving at most 20 attenuated invariant directions. The weighted metric resolves that obstruction. The operator is a candidate coarse-graining, not yet derived from H36. The 64-coordinate physical flux ledger and the Pauli ledger require an explicit physical dictionary; equal dimensionality does not identify them.
+If Euclidean self-adjointness is required instead while keeping both u and a nonuniform w fixed, there must be at least two unit eigenvectors, leaving at most 20 attenuated invariant directions. The weighted metric resolves that obstruction. The argument holds for the corrected radial weights as well as the simplified quadrature, since both are positive and rotation-invariant. The contraction is a candidate coarse-graining, not derived from H36. Core Pauli coordinates are a distinct observable; equal dimensions are not a physical dictionary.
 
 ```mermaid
 flowchart TD
