@@ -1,0 +1,29 @@
+PASS depth 0 tile/vertex count
+PASS depth 0 lattice inclusion
+PASS depth 0 pointing parity
+PASS depth 1 tile/vertex count
+PASS depth 1 lattice inclusion
+PASS depth 1 pointing parity
+PASS depth 2 tile/vertex count
+PASS depth 2 lattice inclusion
+PASS depth 2 pointing parity
+PASS depth 3 tile/vertex count
+PASS depth 3 lattice inclusion
+PASS depth 3 pointing parity
+PASS depth 4 tile/vertex count
+PASS depth 4 lattice inclusion
+PASS depth 4 pointing parity
+PASS overlap depth 1 area
+PASS overlap depth 1 rank/support
+  rank 4 support 13
+PASS overlap depth 2 area
+PASS overlap depth 2 rank/support
+  rank 13 support 49
+PASS signed characters identity/C3/S3
+PASS physical leaf orbits
+PASS physical invariant pointing split
+PASS full pointing split
+PASS mean compression mixed eigenvalue
+PASS trace polynomial
+PASS corner pairs invariant dimension
+26/26 checks passed

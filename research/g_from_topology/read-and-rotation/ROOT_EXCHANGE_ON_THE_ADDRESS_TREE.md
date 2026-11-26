@@ -125,8 +125,8 @@ The research uses two different 64-address ledgers. Keeping them apart removes t
 
 ## 6. What this does not settle
 
-- **[O] The exchange on the tile ledger, level by level.** Section 4 fixes the exchange on legs, and section 5 shows the tile tree's readers carry 0, 1 and 2 leg indices. What remains is an explicit operator on the dual-chamber tile ledger (TetA ⊕ TetB) showing the contrast levels pick up exactly $+1,-1,+1$. That needs the subchannel index, which is still a candidate record index with no settled geometry.
-- **[O] The map between the two ledgers.** A map from corner pairs $(u,v)$ to faces and tiles that carries the time-adapted pair tree onto the tile tree would make the two 64s one.
+- **[O] The exchange on the tile ledger, level by level.** Section 4 fixes the exchange on legs, and section 5 shows the tile tree's readers carry 0, 1 and 2 leg indices. What remains is an explicit operator on the dual-chamber tile ledger (TetA ⊕ TetB) showing the contrast levels pick up exactly $+1,-1,+1$. [Recursive Triforce geometry](../../recursive-triforce-geometry/) now gives the subchannel a geometry, as the second medial subdivision of each tile. It also shows that *pointing parity* (up versus down triangles) is not that operator: on the invariant sector it does not reproduce the 1/4/16 grading.
+- **[T] No equivariant map between the two ledgers.** [Recursive Triforce geometry](../../recursive-triforce-geometry/) shows the closure rotation has 22 invariant dimensions on the tile tree and 24 on the corner pairs, so no rotation-equivariant bijection exists. The corner-pair ledger is a computational representation, not a second physical ledger.
 - **[O] Untouched premises.** Why each level attenuates by exactly α, why gravity takes the collective (determinant) read rather than a single channel, the drained/bound label from the drain, and the value of $a_0$ are all still open.
 
 ## Verification
