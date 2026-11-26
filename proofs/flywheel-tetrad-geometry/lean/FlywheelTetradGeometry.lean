@@ -15,6 +15,8 @@ open scoped BigOperators
 open Matrix
 set_option maxRecDepth 4096
 set_option maxHeartbeats 0
+-- The generic simp sets below list structural lemmas some identities do not need.
+set_option linter.unusedSimpArgs false
 
 abbrev Label := Fin 4
 abbrev Edge := Fin 6
@@ -94,9 +96,10 @@ def invCore {K : Type*} [Ring K] : Matrix Tile Tile K :=
 
 def ones {K : Type*} [Ring K] : Label → K := fun _ => 1
 
-def rowProjector : Matrix Tile Tile ℚ := 1 - (1/3 : ℚ) • ((R : Matrix Label Tile ℚ)ᵀ * R)
+def rowProjector : Matrix Tile Tile ℚ :=
+  1 - (1/3 : ℚ) • ((R : Matrix Label Tile ℚ)ᵀ * (R : Matrix Label Tile ℚ))
 
-def C : Matrix Label Tile ℚ := Q * rowProjector
+def C : Matrix Label Tile ℚ := (Q : Matrix Label Tile ℚ) * rowProjector
 
 def P : Matrix Label Label ℚ := (1/4 : ℚ) • G
 
