@@ -1,0 +1,9 @@
+name = "recursive_triforce_closure"
+defaultTargets = ["RecursiveTriforceClosure"]
+
+[[require]]
+name = "half_space_two_bounded_regions"
+path = "../../half-space-two-bounded-regions/lean"
+
+[[lean_lib]]
+name = "RecursiveTriforceClosure"

@@ -1,0 +1,216 @@
+PASS 12 distinct octahedron edge midpoints
+PASS all doubled generators have even coordinate sum
+PASS three generators span index-two even-sum lattice
+PASS body-diagonal projection is the Flower lattice
+PASS face 0, depth 0: distinct triangle and vertex counts
+PASS face 0, depth 0: all vertices in midpoint lattice iff n<=2
+PASS face 0, depth 1: distinct triangle and vertex counts
+PASS face 0, depth 1: all vertices in midpoint lattice iff n<=2
+PASS face 0, depth 2: distinct triangle and vertex counts
+PASS face 0, depth 2: all vertices in midpoint lattice iff n<=2
+PASS face 0, depth 3: distinct triangle and vertex counts
+PASS face 0, depth 3: all vertices in midpoint lattice iff n<=2
+PASS face 0: depth-three vertices retain precisely depth-two lattice vertices
+PASS face 1, depth 0: distinct triangle and vertex counts
+PASS face 1, depth 0: all vertices in midpoint lattice iff n<=2
+PASS face 1, depth 1: distinct triangle and vertex counts
+PASS face 1, depth 1: all vertices in midpoint lattice iff n<=2
+PASS face 1, depth 2: distinct triangle and vertex counts
+PASS face 1, depth 2: all vertices in midpoint lattice iff n<=2
+PASS face 1, depth 3: distinct triangle and vertex counts
+PASS face 1, depth 3: all vertices in midpoint lattice iff n<=2
+PASS face 1: depth-three vertices retain precisely depth-two lattice vertices
+PASS face 2, depth 0: distinct triangle and vertex counts
+PASS face 2, depth 0: all vertices in midpoint lattice iff n<=2
+PASS face 2, depth 1: distinct triangle and vertex counts
+PASS face 2, depth 1: all vertices in midpoint lattice iff n<=2
+PASS face 2, depth 2: distinct triangle and vertex counts
+PASS face 2, depth 2: all vertices in midpoint lattice iff n<=2
+PASS face 2, depth 3: distinct triangle and vertex counts
+PASS face 2, depth 3: all vertices in midpoint lattice iff n<=2
+PASS face 2: depth-three vertices retain precisely depth-two lattice vertices
+PASS face 3, depth 0: distinct triangle and vertex counts
+PASS face 3, depth 0: all vertices in midpoint lattice iff n<=2
+PASS face 3, depth 1: distinct triangle and vertex counts
+PASS face 3, depth 1: all vertices in midpoint lattice iff n<=2
+PASS face 3, depth 2: distinct triangle and vertex counts
+PASS face 3, depth 2: all vertices in midpoint lattice iff n<=2
+PASS face 3, depth 3: distinct triangle and vertex counts
+PASS face 3, depth 3: all vertices in midpoint lattice iff n<=2
+PASS face 3: depth-three vertices retain precisely depth-two lattice vertices
+PASS 64 distinct labeled actual triangles
+PASS actual triangle covariance (0, 1, 2, 3)
+PASS actual triangle covariance (0, 1, 3, 2)
+PASS actual triangle covariance (0, 2, 1, 3)
+PASS actual triangle covariance (0, 2, 3, 1)
+PASS actual triangle covariance (0, 3, 1, 2)
+PASS actual triangle covariance (0, 3, 2, 1)
+PASS actual triangle covariance (1, 0, 2, 3)
+PASS actual triangle covariance (1, 0, 3, 2)
+PASS actual triangle covariance (1, 2, 0, 3)
+PASS actual triangle covariance (1, 2, 3, 0)
+PASS actual triangle covariance (1, 3, 0, 2)
+PASS actual triangle covariance (1, 3, 2, 0)
+PASS actual triangle covariance (2, 0, 1, 3)
+PASS actual triangle covariance (2, 0, 3, 1)
+PASS actual triangle covariance (2, 1, 0, 3)
+PASS actual triangle covariance (2, 1, 3, 0)
+PASS actual triangle covariance (2, 3, 0, 1)
+PASS actual triangle covariance (2, 3, 1, 0)
+PASS actual triangle covariance (3, 0, 1, 2)
+PASS actual triangle covariance (3, 0, 2, 1)
+PASS actual triangle covariance (3, 1, 0, 2)
+PASS actual triangle covariance (3, 1, 2, 0)
+PASS actual triangle covariance (3, 2, 0, 1)
+PASS actual triangle covariance (3, 2, 1, 0)
+PASS 40/24 pointing split
+PASS 64 connection basis images distinct
+PASS every image has correct exchange sector
+PASS A4 explicit graded intertwiner (0, 1, 2, 3)
+PASS incident equivariance (0, 1, 2, 3)
+PASS nonincident sign-twisted equivariance (0, 1, 2, 3)
+PASS geometric characters (0, 1, 2, 3)
+PASS proper rotation characters match connection (0, 1, 2, 3)
+PASS incident equivariance (0, 1, 3, 2)
+PASS nonincident sign-twisted equivariance (0, 1, 3, 2)
+PASS geometric characters (0, 1, 3, 2)
+PASS incident equivariance (0, 2, 1, 3)
+PASS nonincident sign-twisted equivariance (0, 2, 1, 3)
+PASS geometric characters (0, 2, 1, 3)
+PASS A4 explicit graded intertwiner (0, 2, 3, 1)
+PASS incident equivariance (0, 2, 3, 1)
+PASS nonincident sign-twisted equivariance (0, 2, 3, 1)
+PASS geometric characters (0, 2, 3, 1)
+PASS proper rotation characters match connection (0, 2, 3, 1)
+PASS A4 explicit graded intertwiner (0, 3, 1, 2)
+PASS incident equivariance (0, 3, 1, 2)
+PASS nonincident sign-twisted equivariance (0, 3, 1, 2)
+PASS geometric characters (0, 3, 1, 2)
+PASS proper rotation characters match connection (0, 3, 1, 2)
+PASS incident equivariance (0, 3, 2, 1)
+PASS nonincident sign-twisted equivariance (0, 3, 2, 1)
+PASS geometric characters (0, 3, 2, 1)
+PASS incident equivariance (1, 0, 2, 3)
+PASS nonincident sign-twisted equivariance (1, 0, 2, 3)
+PASS geometric characters (1, 0, 2, 3)
+PASS A4 explicit graded intertwiner (1, 0, 3, 2)
+PASS incident equivariance (1, 0, 3, 2)
+PASS nonincident sign-twisted equivariance (1, 0, 3, 2)
+PASS geometric characters (1, 0, 3, 2)
+PASS proper rotation characters match connection (1, 0, 3, 2)
+PASS A4 explicit graded intertwiner (1, 2, 0, 3)
+PASS incident equivariance (1, 2, 0, 3)
+PASS nonincident sign-twisted equivariance (1, 2, 0, 3)
+PASS geometric characters (1, 2, 0, 3)
+PASS proper rotation characters match connection (1, 2, 0, 3)
+PASS incident equivariance (1, 2, 3, 0)
+PASS nonincident sign-twisted equivariance (1, 2, 3, 0)
+PASS geometric characters (1, 2, 3, 0)
+PASS incident equivariance (1, 3, 0, 2)
+PASS nonincident sign-twisted equivariance (1, 3, 0, 2)
+PASS geometric characters (1, 3, 0, 2)
+PASS A4 explicit graded intertwiner (1, 3, 2, 0)
+PASS incident equivariance (1, 3, 2, 0)
+PASS nonincident sign-twisted equivariance (1, 3, 2, 0)
+PASS geometric characters (1, 3, 2, 0)
+PASS proper rotation characters match connection (1, 3, 2, 0)
+PASS A4 explicit graded intertwiner (2, 0, 1, 3)
+PASS incident equivariance (2, 0, 1, 3)
+PASS nonincident sign-twisted equivariance (2, 0, 1, 3)
+PASS geometric characters (2, 0, 1, 3)
+PASS proper rotation characters match connection (2, 0, 1, 3)
+PASS incident equivariance (2, 0, 3, 1)
+PASS nonincident sign-twisted equivariance (2, 0, 3, 1)
+PASS geometric characters (2, 0, 3, 1)
+PASS incident equivariance (2, 1, 0, 3)
+PASS nonincident sign-twisted equivariance (2, 1, 0, 3)
+PASS geometric characters (2, 1, 0, 3)
+PASS A4 explicit graded intertwiner (2, 1, 3, 0)
+PASS incident equivariance (2, 1, 3, 0)
+PASS nonincident sign-twisted equivariance (2, 1, 3, 0)
+PASS geometric characters (2, 1, 3, 0)
+PASS proper rotation characters match connection (2, 1, 3, 0)
+PASS A4 explicit graded intertwiner (2, 3, 0, 1)
+PASS incident equivariance (2, 3, 0, 1)
+PASS nonincident sign-twisted equivariance (2, 3, 0, 1)
+PASS geometric characters (2, 3, 0, 1)
+PASS proper rotation characters match connection (2, 3, 0, 1)
+PASS incident equivariance (2, 3, 1, 0)
+PASS nonincident sign-twisted equivariance (2, 3, 1, 0)
+PASS geometric characters (2, 3, 1, 0)
+PASS incident equivariance (3, 0, 1, 2)
+PASS nonincident sign-twisted equivariance (3, 0, 1, 2)
+PASS geometric characters (3, 0, 1, 2)
+PASS A4 explicit graded intertwiner (3, 0, 2, 1)
+PASS incident equivariance (3, 0, 2, 1)
+PASS nonincident sign-twisted equivariance (3, 0, 2, 1)
+PASS geometric characters (3, 0, 2, 1)
+PASS proper rotation characters match connection (3, 0, 2, 1)
+PASS A4 explicit graded intertwiner (3, 1, 0, 2)
+PASS incident equivariance (3, 1, 0, 2)
+PASS nonincident sign-twisted equivariance (3, 1, 0, 2)
+PASS geometric characters (3, 1, 0, 2)
+PASS proper rotation characters match connection (3, 1, 0, 2)
+PASS incident equivariance (3, 1, 2, 0)
+PASS nonincident sign-twisted equivariance (3, 1, 2, 0)
+PASS geometric characters (3, 1, 2, 0)
+PASS incident equivariance (3, 2, 0, 1)
+PASS nonincident sign-twisted equivariance (3, 2, 0, 1)
+PASS geometric characters (3, 2, 0, 1)
+PASS A4 explicit graded intertwiner (3, 2, 1, 0)
+PASS incident equivariance (3, 2, 1, 0)
+PASS nonincident sign-twisted equivariance (3, 2, 1, 0)
+PASS geometric characters (3, 2, 1, 0)
+PASS proper rotation characters match connection (3, 2, 1, 0)
+PASS reflection obstructs parity-preserving S4 isomorphism
+PASS negative family is a regular A4 orbit
+PASS negative family is a regular A4 orbit
+PASS face 0: entire midpoint-lattice intersection equals quarter barycentric grid
+PASS face 0: nearest-neighbour elementary triangles are exactly the 16 medial tiles
+PASS face 0: triangular mesh has 30 edges and Euler characteristic one
+PASS face 1: entire midpoint-lattice intersection equals quarter barycentric grid
+PASS face 1: nearest-neighbour elementary triangles are exactly the 16 medial tiles
+PASS face 1: triangular mesh has 30 edges and Euler characteristic one
+PASS face 2: entire midpoint-lattice intersection equals quarter barycentric grid
+PASS face 2: nearest-neighbour elementary triangles are exactly the 16 medial tiles
+PASS face 2: triangular mesh has 30 edges and Euler characteristic one
+PASS face 3: entire midpoint-lattice intersection equals quarter barycentric grid
+PASS face 3: nearest-neighbour elementary triangles are exactly the 16 medial tiles
+PASS face 3: triangular mesh has 30 edges and Euler characteristic one
+PASS explicit inverse left identity on all geometric addresses
+PASS explicit inverse right identity on every symmetric/antisymmetric slot
+PASS graded repaired S4 action agrees with connection (0, 1, 2, 3)
+PASS graded repaired S4 action agrees with connection (0, 1, 3, 2)
+PASS graded repaired S4 action agrees with connection (0, 2, 1, 3)
+PASS graded repaired S4 action agrees with connection (0, 2, 3, 1)
+PASS graded repaired S4 action agrees with connection (0, 3, 1, 2)
+PASS graded repaired S4 action agrees with connection (0, 3, 2, 1)
+PASS graded repaired S4 action agrees with connection (1, 0, 2, 3)
+PASS graded repaired S4 action agrees with connection (1, 0, 3, 2)
+PASS graded repaired S4 action agrees with connection (1, 2, 0, 3)
+PASS graded repaired S4 action agrees with connection (1, 2, 3, 0)
+PASS graded repaired S4 action agrees with connection (1, 3, 0, 2)
+PASS graded repaired S4 action agrees with connection (1, 3, 2, 0)
+PASS graded repaired S4 action agrees with connection (2, 0, 1, 3)
+PASS graded repaired S4 action agrees with connection (2, 0, 3, 1)
+PASS graded repaired S4 action agrees with connection (2, 1, 0, 3)
+PASS graded repaired S4 action agrees with connection (2, 1, 3, 0)
+PASS graded repaired S4 action agrees with connection (2, 3, 0, 1)
+PASS graded repaired S4 action agrees with connection (2, 3, 1, 0)
+PASS graded repaired S4 action agrees with connection (3, 0, 1, 2)
+PASS graded repaired S4 action agrees with connection (3, 0, 2, 1)
+PASS graded repaired S4 action agrees with connection (3, 1, 0, 2)
+PASS graded repaired S4 action agrees with connection (3, 1, 2, 0)
+PASS graded repaired S4 action agrees with connection (3, 2, 0, 1)
+PASS graded repaired S4 action agrees with connection (3, 2, 1, 0)
+PASS repaired signed action obeys group law for all 24^2 permutations and 64 addresses
+PASS nontrivial face-preserving A4 equivariant relabeling of incident family
+PASS full 64x64 tree transform: B B^T = 64 I exactly
+PASS full tree has 21 nodes and 63 noncommon rows
+PASS physical prefix orbits depth 1: 2
+PASS physical prefix orbits depth 2: 6
+PASS physical prefix orbits depth 3: 22
+PASS physical pointing sector has 14 positive and 8 negative orbit modes
+PASS mean-zero pointing compression mixed eigenvalue is exactly -1/4
+
+214/214 checks passed (combined)
