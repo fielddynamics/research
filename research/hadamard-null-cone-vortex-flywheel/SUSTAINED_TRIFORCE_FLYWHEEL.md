@@ -2,6 +2,9 @@
 
 > **Integration update.** The [unified synthesis](UNIFIED_HADAMARD_FIELD_DYNAMICS.md) connects these local rings to a conservative network of complete cells. The new interface does not change the particular stationary or sustained solutions proved below.
 
+> **Recursive refinement continuation.** The [eight-ring and core study](../vortex-induced-triforce-refinement/core-flywheel/) derives the cubic orientation read and primal stream function from this same collective ansatz. The [refined core Hodge study](../vortex-induced-triforce-refinement/core-hodge/) establishes 5+12 circulation directions and the obstruction to projecting only after coarse aggregation. The axis-aligned circular ray has an improper stabilizer, so every phase-invariant sign scalar vanishes there. These results do not change the Stage VII witness or prove a fine Hamiltonian.
+
+
 *Field Dynamics Research · Stage VII · [T] exact finite algebra and conditional linear Hamiltonian theorems; [E] physical selection and nonlinear stability open.*
 
 The eight constituent vortices, one per face of the central octahedron, are the eight stellations of the Hadamard null cone. This proof starts from their existing Triforce tiles and derives actual current between the eight central triangles. It does not prescribe a separate core oscillator. The input relative phases determine the collective chirality; it is not spontaneously generated from a real state. SST means only the full four-term covariant action, not the constitutive law.

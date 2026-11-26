@@ -1,0 +1,416 @@
+PASS 001 native geometry: 32 tile sites, 104 scalar graph bonds, four origin coordinates
+PASS 002 native H36 symmetric
+PASS 003 fine graph 128 distinct secondary triangles (both chamber surfaces)
+PASS 004 intra-parent graph: three medial edges per tile
+PASS 005 each of 96 original tile bonds splits into two actual matching edges
+PASS 006 prolongation E=E2/2 is isometric
+PASS 007 constructed fine Hamiltonian exactly compresses to H36
+PASS 008 any uniform within-parent Laplacian scaling leaves leakage unchanged
+PASS 009 exact Stage VII witness all original 104 bonds
+PASS 010 exact Stage VII reduction HB=B(M tensor I3)
+PASS 011 Stage VII stationary branch exact
+PASS 012 exact Stage IX parity 1 reduction
+PASS 013 parity 1 metric self-adjointness
+Stage IX parity 1 charpoly lambda**3 - 7*lambda + 2
+PASS 014 exact Stage IX parity -1 reduction
+PASS 015 parity -1 metric self-adjointness
+Stage IX parity -1 charpoly lambda**4 + 2*lambda**3 - 19*lambda**2 - 4*lambda + 32
+PASS 016 two parity reductions orthogonal
+PASS 017 exact tetrahedral cubic moment
+PASS 018 exact opposite chamber sign
+PASS 019 linear winding mean vanishes for any collective axial vector
+PASS 020 cubic axial pseudoscalar covariance (0, 1, 2, 3)
+PASS 021 cubic axial pseudoscalar covariance (0, 1, 3, 2)
+PASS 022 cubic axial pseudoscalar covariance (0, 2, 1, 3)
+PASS 023 cubic axial pseudoscalar covariance (0, 2, 3, 1)
+PASS 024 cubic axial pseudoscalar covariance (0, 3, 1, 2)
+PASS 025 cubic axial pseudoscalar covariance (0, 3, 2, 1)
+PASS 026 cubic axial pseudoscalar covariance (1, 0, 2, 3)
+PASS 027 cubic axial pseudoscalar covariance (1, 0, 3, 2)
+PASS 028 cubic axial pseudoscalar covariance (1, 2, 0, 3)
+PASS 029 cubic axial pseudoscalar covariance (1, 2, 3, 0)
+PASS 030 cubic axial pseudoscalar covariance (1, 3, 0, 2)
+PASS 031 cubic axial pseudoscalar covariance (1, 3, 2, 0)
+PASS 032 cubic axial pseudoscalar covariance (2, 0, 1, 3)
+PASS 033 cubic axial pseudoscalar covariance (2, 0, 3, 1)
+PASS 034 cubic axial pseudoscalar covariance (2, 1, 0, 3)
+PASS 035 cubic axial pseudoscalar covariance (2, 1, 3, 0)
+PASS 036 cubic axial pseudoscalar covariance (2, 3, 0, 1)
+PASS 037 cubic axial pseudoscalar covariance (2, 3, 1, 0)
+PASS 038 cubic axial pseudoscalar covariance (3, 0, 1, 2)
+PASS 039 cubic axial pseudoscalar covariance (3, 0, 2, 1)
+PASS 040 cubic axial pseudoscalar covariance (3, 1, 0, 2)
+PASS 041 cubic axial pseudoscalar covariance (3, 1, 2, 0)
+PASS 042 cubic axial pseudoscalar covariance (3, 2, 0, 1)
+PASS 043 cubic axial pseudoscalar covariance (3, 2, 1, 0)
+PASS 044 quartic phase scalar equals 3/2 product on circular normalized states
+PASS 045 quartic phase scalar U(1) invariant
+PASS 046 quartic phase scalar reflection law
+PASS 047 quartic phase scalar reflection law
+PASS 048 quartic phase scalar reflection law
+PASS 049 quartic phase scalar reflection law
+PASS 050 quartic phase scalar reflection law
+PASS 051 quartic phase scalar reflection law
+PASS 052 quartic phase scalar reflection law
+PASS 053 quartic phase scalar reflection law
+PASS 054 quartic phase scalar reflection law
+PASS 055 quartic phase scalar reflection law
+PASS 056 quartic phase scalar reflection law
+PASS 057 quartic phase scalar reflection law
+PASS 058 quartic phase scalar reflection law
+PASS 059 quartic phase scalar reflection law
+PASS 060 quartic phase scalar reflection law
+PASS 061 quartic phase scalar reflection law
+PASS 062 quartic phase scalar reflection law
+PASS 063 quartic phase scalar reflection law
+PASS 064 quartic phase scalar reflection law
+PASS 065 quartic phase scalar reflection law
+PASS 066 quartic phase scalar reflection law
+PASS 067 quartic phase scalar reflection law
+PASS 068 quartic phase scalar reflection law
+PASS 069 quartic phase scalar reflection law
+PASS 070 quartic phase scalar equals 3/2 product on circular normalized states
+PASS 071 quartic phase scalar U(1) invariant
+PASS 072 quartic phase scalar reflection law
+PASS 073 quartic phase scalar reflection law
+PASS 074 quartic phase scalar reflection law
+PASS 075 quartic phase scalar reflection law
+PASS 076 quartic phase scalar reflection law
+PASS 077 quartic phase scalar reflection law
+PASS 078 quartic phase scalar reflection law
+PASS 079 quartic phase scalar reflection law
+PASS 080 quartic phase scalar reflection law
+PASS 081 quartic phase scalar reflection law
+PASS 082 quartic phase scalar reflection law
+PASS 083 quartic phase scalar reflection law
+PASS 084 quartic phase scalar reflection law
+PASS 085 quartic phase scalar reflection law
+PASS 086 quartic phase scalar reflection law
+PASS 087 quartic phase scalar reflection law
+PASS 088 quartic phase scalar reflection law
+PASS 089 quartic phase scalar reflection law
+PASS 090 quartic phase scalar reflection law
+PASS 091 quartic phase scalar reflection law
+PASS 092 quartic phase scalar reflection law
+PASS 093 quartic phase scalar reflection law
+PASS 094 quartic phase scalar reflection law
+PASS 095 quartic phase scalar reflection law
+PASS 096 quartic phase scalar equals 3/2 product on circular normalized states
+PASS 097 quartic phase scalar U(1) invariant
+PASS 098 quartic phase scalar reflection law
+PASS 099 quartic phase scalar reflection law
+PASS 100 quartic phase scalar reflection law
+PASS 101 quartic phase scalar reflection law
+PASS 102 quartic phase scalar reflection law
+PASS 103 quartic phase scalar reflection law
+PASS 104 quartic phase scalar reflection law
+PASS 105 quartic phase scalar reflection law
+PASS 106 quartic phase scalar reflection law
+PASS 107 quartic phase scalar reflection law
+PASS 108 quartic phase scalar reflection law
+PASS 109 quartic phase scalar reflection law
+PASS 110 quartic phase scalar reflection law
+PASS 111 quartic phase scalar reflection law
+PASS 112 quartic phase scalar reflection law
+PASS 113 quartic phase scalar reflection law
+PASS 114 quartic phase scalar reflection law
+PASS 115 quartic phase scalar reflection law
+PASS 116 quartic phase scalar reflection law
+PASS 117 quartic phase scalar reflection law
+PASS 118 quartic phase scalar reflection law
+PASS 119 quartic phase scalar reflection law
+PASS 120 quartic phase scalar reflection law
+PASS 121 quartic phase scalar reflection law
+PASS 122 quartic phase scalar equals 3/2 product on circular normalized states
+PASS 123 quartic phase scalar U(1) invariant
+PASS 124 quartic phase scalar reflection law
+PASS 125 quartic phase scalar reflection law
+PASS 126 quartic phase scalar reflection law
+PASS 127 quartic phase scalar reflection law
+PASS 128 quartic phase scalar reflection law
+PASS 129 quartic phase scalar reflection law
+PASS 130 quartic phase scalar reflection law
+PASS 131 quartic phase scalar reflection law
+PASS 132 quartic phase scalar reflection law
+PASS 133 quartic phase scalar reflection law
+PASS 134 quartic phase scalar reflection law
+PASS 135 quartic phase scalar reflection law
+PASS 136 quartic phase scalar reflection law
+PASS 137 quartic phase scalar reflection law
+PASS 138 quartic phase scalar reflection law
+PASS 139 quartic phase scalar reflection law
+PASS 140 quartic phase scalar reflection law
+PASS 141 quartic phase scalar reflection law
+PASS 142 quartic phase scalar reflection law
+PASS 143 quartic phase scalar reflection law
+PASS 144 quartic phase scalar reflection law
+PASS 145 quartic phase scalar reflection law
+PASS 146 quartic phase scalar reflection law
+PASS 147 quartic phase scalar reflection law
+PASS 148 quartic phase scalar equals 3/2 product on circular normalized states
+PASS 149 quartic phase scalar U(1) invariant
+PASS 150 quartic phase scalar reflection law
+PASS 151 quartic phase scalar reflection law
+PASS 152 quartic phase scalar reflection law
+PASS 153 quartic phase scalar reflection law
+PASS 154 quartic phase scalar reflection law
+PASS 155 quartic phase scalar reflection law
+PASS 156 quartic phase scalar reflection law
+PASS 157 quartic phase scalar reflection law
+PASS 158 quartic phase scalar reflection law
+PASS 159 quartic phase scalar reflection law
+PASS 160 quartic phase scalar reflection law
+PASS 161 quartic phase scalar reflection law
+PASS 162 quartic phase scalar reflection law
+PASS 163 quartic phase scalar reflection law
+PASS 164 quartic phase scalar reflection law
+PASS 165 quartic phase scalar reflection law
+PASS 166 quartic phase scalar reflection law
+PASS 167 quartic phase scalar reflection law
+PASS 168 quartic phase scalar reflection law
+PASS 169 quartic phase scalar reflection law
+PASS 170 quartic phase scalar reflection law
+PASS 171 quartic phase scalar reflection law
+PASS 172 quartic phase scalar reflection law
+PASS 173 quartic phase scalar reflection law
+PASS 174 VII ring means from actual directed bond currents
+PASS 175 VII exact core angular current law (numerical witness)
+PASS 176 VII core current independently divergence-free
+PASS 177 VII nonzero cubic read despite zero mean read
+PASS 178 VII cubic core angular read same orientation up to parity
+PASS 179 VII ring means from actual directed bond currents
+PASS 180 VII exact core angular current law (numerical witness)
+PASS 181 VII core current independently divergence-free
+PASS 182 VII nonzero cubic read despite zero mean read
+PASS 183 VII cubic core angular read same orientation up to parity
+PASS 184 VII ring means from actual directed bond currents
+PASS 185 VII exact core angular current law (numerical witness)
+PASS 186 VII core current independently divergence-free
+PASS 187 VII nonzero cubic read despite zero mean read
+PASS 188 VII cubic core angular read same orientation up to parity
+PASS 189 VII ring means from actual directed bond currents
+PASS 190 VII exact core angular current law (numerical witness)
+PASS 191 VII core current independently divergence-free
+PASS 192 VII nonzero cubic read despite zero mean read
+PASS 193 VII cubic core angular read same orientation up to parity
+PASS 194 VII ring means from actual directed bond currents
+PASS 195 VII exact core angular current law (numerical witness)
+PASS 196 VII core current independently divergence-free
+PASS 197 VII nonzero cubic read despite zero mean read
+PASS 198 VII cubic core angular read same orientation up to parity
+PASS 199 VII ring means from actual directed bond currents
+PASS 200 VII exact core angular current law (numerical witness)
+PASS 201 VII core current independently divergence-free
+PASS 202 VII nonzero cubic read despite zero mean read
+PASS 203 VII cubic core angular read same orientation up to parity
+PASS 204 IX-even ring means from actual directed bond currents
+PASS 205 IX-even exact core angular current law (numerical witness)
+PASS 206 IX-even core current independently divergence-free
+PASS 207 IX-even nonzero cubic read despite zero mean read
+PASS 208 IX-even cubic core angular read same orientation up to parity
+PASS 209 IX-even ring means from actual directed bond currents
+PASS 210 IX-even exact core angular current law (numerical witness)
+PASS 211 IX-even core current independently divergence-free
+PASS 212 IX-even nonzero cubic read despite zero mean read
+PASS 213 IX-even cubic core angular read same orientation up to parity
+PASS 214 IX-even ring means from actual directed bond currents
+PASS 215 IX-even exact core angular current law (numerical witness)
+PASS 216 IX-even core current independently divergence-free
+PASS 217 IX-even nonzero cubic read despite zero mean read
+PASS 218 IX-even cubic core angular read same orientation up to parity
+PASS 219 IX-even ring means from actual directed bond currents
+PASS 220 IX-even exact core angular current law (numerical witness)
+PASS 221 IX-even core current independently divergence-free
+PASS 222 IX-even nonzero cubic read despite zero mean read
+PASS 223 IX-even cubic core angular read same orientation up to parity
+PASS 224 IX-even ring means from actual directed bond currents
+PASS 225 IX-even exact core angular current law (numerical witness)
+PASS 226 IX-even core current independently divergence-free
+PASS 227 IX-even nonzero cubic read despite zero mean read
+PASS 228 IX-even cubic core angular read same orientation up to parity
+PASS 229 IX-even ring means from actual directed bond currents
+PASS 230 IX-even exact core angular current law (numerical witness)
+PASS 231 IX-even core current independently divergence-free
+PASS 232 IX-even nonzero cubic read despite zero mean read
+PASS 233 IX-even cubic core angular read same orientation up to parity
+PASS 234 IX-odd ring means from actual directed bond currents
+PASS 235 IX-odd exact core angular current law (numerical witness)
+PASS 236 IX-odd core current independently divergence-free
+PASS 237 IX-odd nonzero cubic read despite zero mean read
+PASS 238 IX-odd cubic core angular read same orientation up to parity
+PASS 239 IX-odd ring means from actual directed bond currents
+PASS 240 IX-odd exact core angular current law (numerical witness)
+PASS 241 IX-odd core current independently divergence-free
+PASS 242 IX-odd nonzero cubic read despite zero mean read
+PASS 243 IX-odd cubic core angular read same orientation up to parity
+PASS 244 IX-odd ring means from actual directed bond currents
+PASS 245 IX-odd exact core angular current law (numerical witness)
+PASS 246 IX-odd core current independently divergence-free
+PASS 247 IX-odd nonzero cubic read despite zero mean read
+PASS 248 IX-odd cubic core angular read same orientation up to parity
+PASS 249 IX-odd ring means from actual directed bond currents
+PASS 250 IX-odd exact core angular current law (numerical witness)
+PASS 251 IX-odd core current independently divergence-free
+PASS 252 IX-odd nonzero cubic read despite zero mean read
+PASS 253 IX-odd cubic core angular read same orientation up to parity
+PASS 254 IX-odd ring means from actual directed bond currents
+PASS 255 IX-odd exact core angular current law (numerical witness)
+PASS 256 IX-odd core current independently divergence-free
+PASS 257 IX-odd nonzero cubic read despite zero mean read
+PASS 258 IX-odd cubic core angular read same orientation up to parity
+PASS 259 IX-odd ring means from actual directed bond currents
+PASS 260 IX-odd exact core angular current law (numerical witness)
+PASS 261 IX-odd core current independently divergence-free
+PASS 262 IX-odd nonzero cubic read despite zero mean read
+PASS 263 IX-odd cubic core angular read same orientation up to parity
+PASS 264 Stage VII witness all 24 bonds circulate and actual core moment nonzero
+PASS 265 Stage VII witness q cubic nonzero and earlier mean read zero
+Stage VII stationary norm, ring cubic, core moment: 1.0 5.343068294847865e-06 [-0.0005746490534771513, -0.0009194384855634409, -0.011492981069543027]
+PASS 266 actual octahedral shared edge: outward cross equals twice directed primal edge
+PASS 267 actual octahedral shared edge: outward cross equals twice directed primal edge
+PASS 268 actual octahedral shared edge: outward cross equals twice directed primal edge
+PASS 269 actual octahedral shared edge: outward cross equals twice directed primal edge
+PASS 270 actual octahedral shared edge: outward cross equals twice directed primal edge
+PASS 271 actual octahedral shared edge: outward cross equals twice directed primal edge
+PASS 272 actual octahedral shared edge: outward cross equals twice directed primal edge
+PASS 273 actual octahedral shared edge: outward cross equals twice directed primal edge
+PASS 274 actual octahedral shared edge: outward cross equals twice directed primal edge
+PASS 275 actual octahedral shared edge: outward cross equals twice directed primal edge
+PASS 276 actual octahedral shared edge: outward cross equals twice directed primal edge
+PASS 277 actual octahedral shared edge: outward cross equals twice directed primal edge
+PASS 278 axis-aligned counterexample: all ring means nonzero but cubic read zero
+PASS 279 no quadratic S4 pseudoscalar on any number of T2 copies
+PASS 280 one axial vector in T2 tensor T2
+PASS 281 signed ring representation A2+T1, no scalar contribution from T2 bilinear
+PASS 282 VII actual fine geometry preserves all tetrahedral permutations
+PASS 283 IX actual fine geometry preserves all tetrahedral permutations
+PASS 284 VII actual fine geometry preserves all tetrahedral permutations
+PASS 285 IX actual fine geometry preserves all tetrahedral permutations
+PASS 286 VII actual fine geometry preserves all tetrahedral permutations
+PASS 287 IX actual fine geometry preserves all tetrahedral permutations
+PASS 288 VII actual fine geometry preserves all tetrahedral permutations
+PASS 289 IX actual fine geometry preserves all tetrahedral permutations
+PASS 290 VII actual fine geometry preserves all tetrahedral permutations
+PASS 291 IX actual fine geometry preserves all tetrahedral permutations
+PASS 292 VII actual fine geometry preserves all tetrahedral permutations
+PASS 293 IX actual fine geometry preserves all tetrahedral permutations
+PASS 294 VII actual fine geometry preserves all tetrahedral permutations
+PASS 295 IX actual fine geometry preserves all tetrahedral permutations
+PASS 296 VII actual fine geometry preserves all tetrahedral permutations
+PASS 297 IX actual fine geometry preserves all tetrahedral permutations
+PASS 298 VII actual fine geometry preserves all tetrahedral permutations
+PASS 299 IX actual fine geometry preserves all tetrahedral permutations
+PASS 300 VII actual fine geometry preserves all tetrahedral permutations
+PASS 301 IX actual fine geometry preserves all tetrahedral permutations
+PASS 302 VII actual fine geometry preserves all tetrahedral permutations
+PASS 303 IX actual fine geometry preserves all tetrahedral permutations
+PASS 304 VII actual fine geometry preserves all tetrahedral permutations
+PASS 305 IX actual fine geometry preserves all tetrahedral permutations
+PASS 306 VII actual fine geometry preserves all tetrahedral permutations
+PASS 307 IX actual fine geometry preserves all tetrahedral permutations
+PASS 308 VII actual fine geometry preserves all tetrahedral permutations
+PASS 309 IX actual fine geometry preserves all tetrahedral permutations
+PASS 310 VII actual fine geometry preserves all tetrahedral permutations
+PASS 311 IX actual fine geometry preserves all tetrahedral permutations
+PASS 312 VII actual fine geometry preserves all tetrahedral permutations
+PASS 313 IX actual fine geometry preserves all tetrahedral permutations
+PASS 314 VII actual fine geometry preserves all tetrahedral permutations
+PASS 315 IX actual fine geometry preserves all tetrahedral permutations
+PASS 316 VII actual fine geometry preserves all tetrahedral permutations
+PASS 317 IX actual fine geometry preserves all tetrahedral permutations
+PASS 318 VII actual fine geometry preserves all tetrahedral permutations
+PASS 319 IX actual fine geometry preserves all tetrahedral permutations
+PASS 320 VII actual fine geometry preserves all tetrahedral permutations
+PASS 321 IX actual fine geometry preserves all tetrahedral permutations
+PASS 322 VII actual fine geometry preserves all tetrahedral permutations
+PASS 323 IX actual fine geometry preserves all tetrahedral permutations
+PASS 324 VII actual fine geometry preserves all tetrahedral permutations
+PASS 325 IX actual fine geometry preserves all tetrahedral permutations
+PASS 326 VII actual fine geometry preserves all tetrahedral permutations
+PASS 327 IX actual fine geometry preserves all tetrahedral permutations
+PASS 328 VII actual fine geometry preserves all tetrahedral permutations
+PASS 329 IX actual fine geometry preserves all tetrahedral permutations
+PASS 330 VII fine compression matches actual coarse Hamiltonian
+PASS 331 VII aggregate fine ring and core currents reproduce coarse exactly at uniform prolongation
+PASS 332 VII fine coarse leakage independent of intra scale
+PASS 333 IX-even fine compression matches actual coarse Hamiltonian
+PASS 334 IX-even aggregate fine ring and core currents reproduce coarse exactly at uniform prolongation
+PASS 335 IX-even fine coarse leakage independent of intra scale
+PASS 336 IX-odd fine compression matches actual coarse Hamiltonian
+PASS 337 IX-odd aggregate fine ring and core currents reproduce coarse exactly at uniform prolongation
+PASS 338 IX-odd fine coarse leakage independent of intra scale
+PASS 339 VII-empty initial all eight rings circulate
+PASS 340 VII-empty k=0 norm conservation
+PASS 341 VII-empty k=0 energy conservation
+PASS 342 VII-empty k=0 core axis locked and ring means follow tetrahedral axial vector
+Fine diagnostic ('VII-empty', 0, np.float64(0.9712907544167381), np.float64(-0.007256939845042328), 0.897196261682243, 1.0) core row divergence max 0.006832095523489049
+PASS 343 VII-empty k=1 norm conservation
+PASS 344 VII-empty k=1 energy conservation
+PASS 345 VII-empty k=1 core axis locked and ring means follow tetrahedral axial vector
+Fine diagnostic ('VII-empty', 1, np.float64(0.7764109792861187), np.float64(-0.0581696835828789), 0.3146417445482866, 0.4672897196261682) core row divergence max 0.017124049058351923
+PASS 346 VII-empty k=4 norm conservation
+PASS 347 VII-empty k=4 energy conservation
+PASS 348 VII-empty k=4 core axis locked and ring means follow tetrahedral axial vector
+Fine diagnostic ('VII-empty', 4, np.float64(0.507838452457736), np.float64(0.012715919061051103), 1.0, 1.0) core row divergence max 0.01341966356746518
+PASS 349 VII-empty k=16 norm conservation
+PASS 350 VII-empty k=16 energy conservation
+PASS 351 VII-empty k=16 core axis locked and ring means follow tetrahedral axial vector
+Fine diagnostic ('VII-empty', 16, np.float64(0.34708139702468477), np.float64(0.014367347267080239), 1.0, 1.0) core row divergence max 0.00946624998638191
+PASS 352 VII-empty k=64 norm conservation
+PASS 353 VII-empty k=64 energy conservation
+PASS 354 VII-empty k=64 core axis locked and ring means follow tetrahedral axial vector
+Fine diagnostic ('VII-empty', 64, np.float64(0.009264730866493529), np.float64(0.031333807955533234), 1.0, 1.0) core row divergence max 0.001437735770822374
+PASS 355 VII-stationary initial all eight rings circulate
+PASS 356 VII-stationary k=0 norm conservation
+PASS 357 VII-stationary k=0 energy conservation
+PASS 358 VII-stationary k=0 core axis locked and ring means follow tetrahedral axial vector
+Fine diagnostic ('VII-stationary', 0, np.float64(0.9640624304195683), np.float64(-0.006396361718575029), 0.9065420560747663, 1.0) core row divergence max 0.006879874162176634
+PASS 359 VII-stationary k=1 norm conservation
+PASS 360 VII-stationary k=1 energy conservation
+PASS 361 VII-stationary k=1 core axis locked and ring means follow tetrahedral axial vector
+Fine diagnostic ('VII-stationary', 1, np.float64(0.7837591001582661), np.float64(-0.06055859544340043), 0.3115264797507788, 0.48909657320872274) core row divergence max 0.015324223918077837
+PASS 362 VII-stationary k=4 norm conservation
+PASS 363 VII-stationary k=4 energy conservation
+PASS 364 VII-stationary k=4 core axis locked and ring means follow tetrahedral axial vector
+Fine diagnostic ('VII-stationary', 4, np.float64(0.510647766563432), np.float64(0.014602084179340533), 1.0, 1.0) core row divergence max 0.008306164106309463
+PASS 365 VII-stationary k=16 norm conservation
+PASS 366 VII-stationary k=16 energy conservation
+PASS 367 VII-stationary k=16 core axis locked and ring means follow tetrahedral axial vector
+Fine diagnostic ('VII-stationary', 16, np.float64(0.3133203387095595), np.float64(0.017070517405756578), 1.0, 1.0) core row divergence max 0.004671382819097748
+PASS 368 VII-stationary k=64 norm conservation
+PASS 369 VII-stationary k=64 energy conservation
+PASS 370 VII-stationary k=64 core axis locked and ring means follow tetrahedral axial vector
+Fine diagnostic ('VII-stationary', 64, np.float64(0.007419836679931301), np.float64(0.04827345634107236), 1.0, 1.0) core row divergence max 0.0005741851937822422
+PASS 371 IX-odd-empty initial all eight rings circulate
+PASS 372 IX-odd-empty k=0 norm conservation
+PASS 373 IX-odd-empty k=0 energy conservation
+PASS 374 IX-odd-empty k=0 core axis locked and ring means follow tetrahedral axial vector
+Fine diagnostic ('IX-odd-empty', 0, np.float64(0.961302108571973), np.float64(0.0026547678987609985), 1.0, 1.0) core row divergence max 0.015185858297861414
+PASS 375 IX-odd-empty k=1 norm conservation
+PASS 376 IX-odd-empty k=1 energy conservation
+PASS 377 IX-odd-empty k=1 core axis locked and ring means follow tetrahedral axial vector
+Fine diagnostic ('IX-odd-empty', 1, np.float64(0.4937193381308204), np.float64(-0.0036873134769771212), 0.9781931464174455, 1.0) core row divergence max 0.009791990353838164
+PASS 378 IX-odd-empty k=4 norm conservation
+PASS 379 IX-odd-empty k=4 energy conservation
+PASS 380 IX-odd-empty k=4 core axis locked and ring means follow tetrahedral axial vector
+Fine diagnostic ('IX-odd-empty', 4, np.float64(0.48681023765097475), np.float64(-0.004775281569686096), 0.9719626168224299, 1.0) core row divergence max 0.006262803999587983
+PASS 381 IX-odd-empty k=16 norm conservation
+PASS 382 IX-odd-empty k=16 energy conservation
+PASS 383 IX-odd-empty k=16 core axis locked and ring means follow tetrahedral axial vector
+Fine diagnostic ('IX-odd-empty', 16, np.float64(0.13981334571948342), np.float64(-0.021263237804670175), 0.5482866043613707, 1.0) core row divergence max 0.007514523244841026
+PASS 384 IX-odd-empty k=64 norm conservation
+PASS 385 IX-odd-empty k=64 energy conservation
+PASS 386 IX-odd-empty k=64 core axis locked and ring means follow tetrahedral axial vector
+Fine diagnostic ('IX-odd-empty', 64, np.float64(0.003768039038498824), np.float64(-0.019409709616090405), 0.6074766355140186, 1.0) core row divergence max 0.0011340078146380912
+PASS 387 detail dimension 96
+PASS 388 intra-parent detail Laplacian gap one
+PASS 389 VII-empty exact Schur compression numerical identity
+PASS 390 VII-empty passive upper-half-plane self energy
+PASS 391 VII-empty resolvent norm bound
+PASS 392 VII-stationary exact Schur compression numerical identity
+PASS 393 VII-stationary passive upper-half-plane self energy
+PASS 394 VII-stationary resolvent norm bound
+PASS 395 IX-odd-empty exact Schur compression numerical identity
+PASS 396 IX-odd-empty passive upper-half-plane self energy
+PASS 397 IX-odd-empty resolvent norm bound
+397/397 checks passed

@@ -1,0 +1,110 @@
+PASS 001 native geometry: 32 tile sites, 104 scalar graph bonds, four origin coordinates
+PASS 002 native H36 symmetric
+PASS 003 fine graph 128 distinct secondary triangles (both chamber surfaces)
+PASS 004 intra-parent graph: three medial edges per tile
+PASS 005 each of 96 original tile bonds splits into two actual matching edges
+PASS 006 prolongation E=E2/2 is isometric
+PASS 007 constructed fine Hamiltonian exactly compresses to H36
+PASS 008 any uniform within-parent Laplacian scaling leaves leakage unchanged
+PASS 009 exact Stage VII witness all original 104 bonds
+PASS 010 exact Stage VII reduction HB=B(M tensor I3)
+PASS 011 Stage VII stationary branch exact
+PASS 012 exact Stage IX parity 1 reduction
+PASS 013 parity 1 metric self-adjointness
+Stage IX parity 1 charpoly lambda**3 - 7*lambda + 2
+PASS 014 exact Stage IX parity -1 reduction
+PASS 015 parity -1 metric self-adjointness
+Stage IX parity -1 charpoly lambda**4 + 2*lambda**3 - 19*lambda**2 - 4*lambda + 32
+PASS 016 two parity reductions orthogonal
+PASS H001 coarse octahedral mesh counts
+PASS H002 coarse Euler sphere
+PASS H003 coarse boundary of boundary zero
+PASS H004 coarse connected dual graph
+PASS H005 coarse connected primal graph
+PASS H006 coarse every divergence-free current is a stream difference
+PASS H007 fine octahedral mesh counts
+PASS H008 fine Euler sphere
+PASS H009 fine boundary of boundary zero
+PASS H010 fine connected dual graph
+PASS H011 fine connected primal graph
+PASS H012 fine every divergence-free current is a stream difference
+PASS H013 two child fluxes per coarse edge
+PASS H014 aggregation commutes with divergence
+PASS H015 stream restriction commutes with aggregation
+PASS H016 cycle ranks 5 and 17; kernel of aggregation on cycles dimension 12
+PASS H017 Dirichlet block positive definite
+PASS H018 harmonic extension preserves restriction
+PASS H019 harmonic and hidden loops orthogonal
+PASS H020 12 independent hidden loops aggregate to zero
+PASS H021 visible cycles aggregate to coarse stream
+PASS H022 constant gauge preserved
+Kron stiffness [[11/4, -5/8, -5/8, -5/8, -5/8, -1/4], [-5/8, 11/4, -5/8, -5/8, -1/4, -5/8], [-5/8, -5/8, 11/4, -1/4, -5/8, -5/8], [-5/8, -5/8, -1/4, 11/4, -5/8, -5/8], [-5/8, -1/4, -5/8, -5/8, 11/4, -5/8], [-1/4, -5/8, -5/8, -5/8, -5/8, 11/4]]
+Kron spectrum {15/4: 2, 3: 3, 0: 1}
+PASS H023 dipole stiffness eigenspaces exact
+dipole coarse 4 refined 3 ratio 3/4
+PASS H024 quadrupole stiffness eigenspaces exact
+quadrupole coarse 6 refined 15/4 ratio 5/8
+PASS H025 coarse exact Hodge projection
+PASS H026 fine exact Hodge projection
+PASS H027 fine cycles aggregate to coarse cycles
+PASS H028 commutator equals coarse projection of aggregated fine gradient
+PASS H029 projection and aggregation do not commute
+gradient contamination spectrum {2/5: 2, 2/3: 3, 0: 7}
+PASS H030 exact gradient contamination spectrum
+PASS H031 dipole pure-gradient contamination spans coarse sector
+PASS H032 dipole explicit false circulation witness from a fine gradient
+PASS H033 quadrupole pure-gradient contamination spans coarse sector
+PASS H034 quadrupole explicit false circulation witness from a fine gradient
+PASS H035 uniform lift preserves coarse edge read
+PASS H036 uniform lift of coarse cycles not necessarily divergence free
+PASS H037 axis-aligned phase ray has odd stabilizer
+odd stabilizers [(1, 3, 0, 2), (2, 0, 3, 1)]
+PASS H038 exact odd ray stabilizer, not a numerical tolerance
+odd ray stabilizer matrix [[0, 1, 0], [-1, 0, 0], [0, 0, -1]] phase I
+PASS H039 visible and hidden cycle projectors orthogonal
+PASS H040 VII empty k=0 local continuity
+PASS H041 VII empty k=0 orthogonal current split and invisible loop cancellation
+DIAGNOSTIC ['VII empty', 0, np.float64(0.003371062278532495), np.float64(0.009437757530194324), np.float64(0.005792942273687009), np.float64(0.9987161846319541), np.float64(0.04738676811926325)]
+PASS H042 VII empty k=1 local continuity
+PASS H043 VII empty k=1 orthogonal current split and invisible loop cancellation
+DIAGNOSTIC ['VII empty', 1, np.float64(0.005381410515007274), np.float64(0.028917348460911423), np.float64(0.014462474359053883), np.float64(0.9998342569643768), np.float64(0.05612866639366529)]
+PASS H044 VII empty k=4 local continuity
+PASS H045 VII empty k=4 orthogonal current split and invisible loop cancellation
+DIAGNOSTIC ['VII empty', 4, np.float64(0.10301772625844616), np.float64(0.025293150566967848), np.float64(0.044375560744401917), np.float64(0.9999557516626018), np.float64(0.25447467897983383)]
+PASS H046 VII empty k=16 local continuity
+PASS H047 VII empty k=16 orthogonal current split and invisible loop cancellation
+DIAGNOSTIC ['VII empty', 16, np.float64(0.3615111180598468), np.float64(0.20027496607286338), np.float64(0.6061072773960794), np.float64(0.9989770894014999), np.float64(0.4906230754140362)]
+PASS H048 VII empty k=64 local continuity
+PASS H049 VII empty k=64 orthogonal current split and invisible loop cancellation
+DIAGNOSTIC ['VII empty', 64, np.float64(0.10547294260950565), np.float64(0.02882805809529005), np.float64(0.11707481948664512), np.float64(0.999997294773097), np.float64(0.26076049393987494)]
+PASS H050 VII stationary k=0 local continuity
+PASS H051 VII stationary k=0 orthogonal current split and invisible loop cancellation
+DIAGNOSTIC ['VII stationary', 0, np.float64(0.0028575942437677076), np.float64(0.00467029353128686), np.float64(0.0032949158324415946), np.float64(0.9994349007261102), np.float64(0.04361546058032827)]
+PASS H052 VII stationary k=1 local continuity
+PASS H053 VII stationary k=1 orthogonal current split and invisible loop cancellation
+DIAGNOSTIC ['VII stationary', 1, np.float64(0.005452075507428558), np.float64(0.011769953890794025), np.float64(0.014953951320867975), np.float64(0.9999997328665717), np.float64(0.04674361944574424)]
+PASS H054 VII stationary k=4 local continuity
+PASS H055 VII stationary k=4 orthogonal current split and invisible loop cancellation
+DIAGNOSTIC ['VII stationary', 4, np.float64(0.05445537415391756), np.float64(0.006124796962613907), np.float64(0.07083148558357388), np.float64(0.9999986898382756), np.float64(0.17719431141456973)]
+PASS H056 VII stationary k=16 local continuity
+PASS H057 VII stationary k=16 orthogonal current split and invisible loop cancellation
+DIAGNOSTIC ['VII stationary', 16, np.float64(0.1704910449986654), np.float64(0.11861858676936116), np.float64(0.3899774727824994), np.float64(0.9999154980546718), np.float64(0.33688414165073444)]
+PASS H058 VII stationary k=64 local continuity
+PASS H059 VII stationary k=64 orthogonal current split and invisible loop cancellation
+DIAGNOSTIC ['VII stationary', 64, np.float64(0.029972029440064912), np.float64(0.011923986836007296), np.float64(0.038680330702952154), np.float64(0.9998709636418771), np.float64(0.14060830183610074)]
+PASS H060 IX odd empty k=0 local continuity
+PASS H061 IX odd empty k=0 orthogonal current split and invisible loop cancellation
+DIAGNOSTIC ['IX odd empty', 0, np.float64(0.01671848303846416), np.float64(0.0245033619473337), np.float64(0.019892616365225112), np.float64(0.9595869802613674), np.float64(0.10557054063167938)]
+PASS H062 IX odd empty k=1 local continuity
+PASS H063 IX odd empty k=1 orthogonal current split and invisible loop cancellation
+DIAGNOSTIC ['IX odd empty', 1, np.float64(0.011828692707367104), np.float64(0.015807077830143082), np.float64(0.007189620083592613), np.float64(0.9993564014808164), np.float64(0.08812209996679583)]
+PASS H064 IX odd empty k=4 local continuity
+PASS H065 IX odd empty k=4 orthogonal current split and invisible loop cancellation
+DIAGNOSTIC ['IX odd empty', 4, np.float64(0.009849772841818313), np.float64(0.0026260458588361806), np.float64(0.005759835042400947), np.float64(0.9994076340891279), np.float64(0.07744702642982311)]
+PASS H066 IX odd empty k=16 local continuity
+PASS H067 IX odd empty k=16 orthogonal current split and invisible loop cancellation
+DIAGNOSTIC ['IX odd empty', 16, np.float64(0.08285177969685921), np.float64(0.12704102776019927), np.float64(0.26010507485918916), np.float64(0.9999622416487374), np.float64(0.22244179518278523)]
+PASS H068 IX odd empty k=64 local continuity
+PASS H069 IX odd empty k=64 orthogonal current split and invisible loop cancellation
+DIAGNOSTIC ['IX odd empty', 64, np.float64(0.03249352413463499), np.float64(0.09215650899667825), np.float64(0.0911064853604926), np.float64(0.9998467173507192), np.float64(0.11910176376761115)]
+69/69 new Hodge checks passed; 16 reconstruction checks rerun

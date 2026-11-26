@@ -1,0 +1,344 @@
+PASS 001 native geometry: 32 tile sites, 104 scalar graph bonds, four origin coordinates
+PASS 002 native H36 symmetric
+PASS 003 native S4 covariance (0, 1, 2, 3)
+PASS 004 native S4 covariance (0, 1, 3, 2)
+PASS 005 native S4 covariance (0, 2, 1, 3)
+PASS 006 native S4 covariance (0, 2, 3, 1)
+PASS 007 native S4 covariance (0, 3, 1, 2)
+PASS 008 native S4 covariance (0, 3, 2, 1)
+PASS 009 native S4 covariance (1, 0, 2, 3)
+PASS 010 native S4 covariance (1, 0, 3, 2)
+PASS 011 native S4 covariance (1, 2, 0, 3)
+PASS 012 native S4 covariance (1, 2, 3, 0)
+PASS 013 native S4 covariance (1, 3, 0, 2)
+PASS 014 native S4 covariance (1, 3, 2, 0)
+PASS 015 native S4 covariance (2, 0, 1, 3)
+PASS 016 native S4 covariance (2, 0, 3, 1)
+PASS 017 native S4 covariance (2, 1, 0, 3)
+PASS 018 native S4 covariance (2, 1, 3, 0)
+PASS 019 native S4 covariance (2, 3, 0, 1)
+PASS 020 native S4 covariance (2, 3, 1, 0)
+PASS 021 native S4 covariance (3, 0, 1, 2)
+PASS 022 native S4 covariance (3, 0, 2, 1)
+PASS 023 native S4 covariance (3, 1, 0, 2)
+PASS 024 native S4 covariance (3, 1, 2, 0)
+PASS 025 native S4 covariance (3, 2, 0, 1)
+PASS 026 native S4 covariance (3, 2, 1, 0)
+PASS 027 native chamber inversion commutes
+PASS 028 A4/V4 cyclic order three
+PASS 029 both A4 helicity basis vectors have 12 nonzero tile entries and no core
+PASS 030 proper rotations preserve winding ray (0, 1, 2, 3)
+PASS 031 proper rotations preserve winding ray (0, 2, 3, 1)
+PASS 032 proper rotations preserve winding ray (0, 3, 1, 2)
+PASS 033 proper rotations preserve winding ray (1, 0, 3, 2)
+PASS 034 proper rotations preserve winding ray (1, 2, 0, 3)
+PASS 035 proper rotations preserve winding ray (1, 3, 2, 0)
+PASS 036 proper rotations preserve winding ray (2, 0, 1, 3)
+PASS 037 proper rotations preserve winding ray (2, 1, 3, 0)
+PASS 038 proper rotations preserve winding ray (2, 3, 0, 1)
+PASS 039 proper rotations preserve winding ray (3, 0, 2, 1)
+PASS 040 proper rotations preserve winding ray (3, 1, 0, 2)
+PASS 041 proper rotations preserve winding ray (3, 2, 1, 0)
+PASS 042 exact two-dimensional helicity restriction
+Helicity chamber matrix: [[1, -1], [-1, 1]]
+PASS 043 both helicities dark to all 8 central triangles and four origin coordinates
+PASS 044 odd permutation exchanges helicity spaces (0, 1, 3, 2)
+PASS 045 odd permutation exchanges helicity spaces (0, 2, 1, 3)
+PASS 046 odd permutation exchanges helicity spaces (0, 3, 2, 1)
+PASS 047 odd permutation exchanges helicity spaces (1, 0, 2, 3)
+PASS 048 odd permutation exchanges helicity spaces (1, 2, 3, 0)
+PASS 049 odd permutation exchanges helicity spaces (1, 3, 0, 2)
+PASS 050 odd permutation exchanges helicity spaces (2, 0, 3, 1)
+PASS 051 odd permutation exchanges helicity spaces (2, 1, 0, 3)
+PASS 052 odd permutation exchanges helicity spaces (2, 3, 1, 0)
+PASS 053 odd permutation exchanges helicity spaces (3, 0, 1, 2)
+PASS 054 odd permutation exchanges helicity spaces (3, 1, 2, 0)
+PASS 055 odd permutation exchanges helicity spaces (3, 2, 0, 1)
+PASS 056 helicity eigenvalue 0: full native stationary state
+PASS 057 helicity eigenvalue 0: all eight rings circulate
+PASS 058 helicity eigenvalue 0: current to origin identically zero
+PASS 059 helicity eigenvalue 2: full native stationary state
+PASS 060 helicity eigenvalue 2: all eight rings circulate
+PASS 061 helicity eigenvalue 2: current to origin identically zero
+Helicity eigenvalues: [0.0, 2.0] ring currents: [(0.0, [0.07216878364870323, 0.07216878364870323, 0.07216878364870323, 0.07216878364870323, -0.07216878364870323, -0.07216878364870323, -0.07216878364870323, -0.07216878364870323]), (2.0, [0.07216878364870323, 0.07216878364870323, 0.07216878364870323, 0.07216878364870323, -0.07216878364870323, -0.07216878364870323, -0.07216878364870323, -0.07216878364870323])]
+PASS 062 native A4 decomposition 5 trivial + two copies each helicity + nine vector copies
+PASS 063 exact stationary eight-ring current magnitudes sqrt(3)/24
+PASS 064 exact stationary eight-ring current magnitudes sqrt(3)/24
+PASS 065 reflection has four fixed negative tiles; unsigned vs wedge trace differs
+PASS 066 stationary chiral state has nonzero opposite chamber pseudoscalars
+Native normalized winding read (A,B): 0.07216878364870323 -0.07216878364870323
+PASS 067 current pseudoscalar covariance state 0 permutation (0, 1, 2, 3)
+PASS 068 current pseudoscalar covariance state 0 permutation (0, 1, 3, 2)
+PASS 069 current pseudoscalar covariance state 0 permutation (0, 2, 1, 3)
+PASS 070 current pseudoscalar covariance state 0 permutation (0, 2, 3, 1)
+PASS 071 current pseudoscalar covariance state 0 permutation (0, 3, 1, 2)
+PASS 072 current pseudoscalar covariance state 0 permutation (0, 3, 2, 1)
+PASS 073 current pseudoscalar covariance state 0 permutation (1, 0, 2, 3)
+PASS 074 current pseudoscalar covariance state 0 permutation (1, 0, 3, 2)
+PASS 075 current pseudoscalar covariance state 0 permutation (1, 2, 0, 3)
+PASS 076 current pseudoscalar covariance state 0 permutation (1, 2, 3, 0)
+PASS 077 current pseudoscalar covariance state 0 permutation (1, 3, 0, 2)
+PASS 078 current pseudoscalar covariance state 0 permutation (1, 3, 2, 0)
+PASS 079 current pseudoscalar covariance state 0 permutation (2, 0, 1, 3)
+PASS 080 current pseudoscalar covariance state 0 permutation (2, 0, 3, 1)
+PASS 081 current pseudoscalar covariance state 0 permutation (2, 1, 0, 3)
+PASS 082 current pseudoscalar covariance state 0 permutation (2, 1, 3, 0)
+PASS 083 current pseudoscalar covariance state 0 permutation (2, 3, 0, 1)
+PASS 084 current pseudoscalar covariance state 0 permutation (2, 3, 1, 0)
+PASS 085 current pseudoscalar covariance state 0 permutation (3, 0, 1, 2)
+PASS 086 current pseudoscalar covariance state 0 permutation (3, 0, 2, 1)
+PASS 087 current pseudoscalar covariance state 0 permutation (3, 1, 0, 2)
+PASS 088 current pseudoscalar covariance state 0 permutation (3, 1, 2, 0)
+PASS 089 current pseudoscalar covariance state 0 permutation (3, 2, 0, 1)
+PASS 090 current pseudoscalar covariance state 0 permutation (3, 2, 1, 0)
+PASS 091 chamber inversion exchanges and reverses outward winding
+PASS 092 complex conjugation reverses winding
+PASS 093 current pseudoscalar covariance state 1 permutation (0, 1, 2, 3)
+PASS 094 current pseudoscalar covariance state 1 permutation (0, 1, 3, 2)
+PASS 095 current pseudoscalar covariance state 1 permutation (0, 2, 1, 3)
+PASS 096 current pseudoscalar covariance state 1 permutation (0, 2, 3, 1)
+PASS 097 current pseudoscalar covariance state 1 permutation (0, 3, 1, 2)
+PASS 098 current pseudoscalar covariance state 1 permutation (0, 3, 2, 1)
+PASS 099 current pseudoscalar covariance state 1 permutation (1, 0, 2, 3)
+PASS 100 current pseudoscalar covariance state 1 permutation (1, 0, 3, 2)
+PASS 101 current pseudoscalar covariance state 1 permutation (1, 2, 0, 3)
+PASS 102 current pseudoscalar covariance state 1 permutation (1, 2, 3, 0)
+PASS 103 current pseudoscalar covariance state 1 permutation (1, 3, 0, 2)
+PASS 104 current pseudoscalar covariance state 1 permutation (1, 3, 2, 0)
+PASS 105 current pseudoscalar covariance state 1 permutation (2, 0, 1, 3)
+PASS 106 current pseudoscalar covariance state 1 permutation (2, 0, 3, 1)
+PASS 107 current pseudoscalar covariance state 1 permutation (2, 1, 0, 3)
+PASS 108 current pseudoscalar covariance state 1 permutation (2, 1, 3, 0)
+PASS 109 current pseudoscalar covariance state 1 permutation (2, 3, 0, 1)
+PASS 110 current pseudoscalar covariance state 1 permutation (2, 3, 1, 0)
+PASS 111 current pseudoscalar covariance state 1 permutation (3, 0, 1, 2)
+PASS 112 current pseudoscalar covariance state 1 permutation (3, 0, 2, 1)
+PASS 113 current pseudoscalar covariance state 1 permutation (3, 1, 0, 2)
+PASS 114 current pseudoscalar covariance state 1 permutation (3, 1, 2, 0)
+PASS 115 current pseudoscalar covariance state 1 permutation (3, 2, 0, 1)
+PASS 116 current pseudoscalar covariance state 1 permutation (3, 2, 1, 0)
+PASS 117 chamber inversion exchanges and reverses outward winding
+PASS 118 complex conjugation reverses winding
+PASS 119 current pseudoscalar covariance state 2 permutation (0, 1, 2, 3)
+PASS 120 current pseudoscalar covariance state 2 permutation (0, 1, 3, 2)
+PASS 121 current pseudoscalar covariance state 2 permutation (0, 2, 1, 3)
+PASS 122 current pseudoscalar covariance state 2 permutation (0, 2, 3, 1)
+PASS 123 current pseudoscalar covariance state 2 permutation (0, 3, 1, 2)
+PASS 124 current pseudoscalar covariance state 2 permutation (0, 3, 2, 1)
+PASS 125 current pseudoscalar covariance state 2 permutation (1, 0, 2, 3)
+PASS 126 current pseudoscalar covariance state 2 permutation (1, 0, 3, 2)
+PASS 127 current pseudoscalar covariance state 2 permutation (1, 2, 0, 3)
+PASS 128 current pseudoscalar covariance state 2 permutation (1, 2, 3, 0)
+PASS 129 current pseudoscalar covariance state 2 permutation (1, 3, 0, 2)
+PASS 130 current pseudoscalar covariance state 2 permutation (1, 3, 2, 0)
+PASS 131 current pseudoscalar covariance state 2 permutation (2, 0, 1, 3)
+PASS 132 current pseudoscalar covariance state 2 permutation (2, 0, 3, 1)
+PASS 133 current pseudoscalar covariance state 2 permutation (2, 1, 0, 3)
+PASS 134 current pseudoscalar covariance state 2 permutation (2, 1, 3, 0)
+PASS 135 current pseudoscalar covariance state 2 permutation (2, 3, 0, 1)
+PASS 136 current pseudoscalar covariance state 2 permutation (2, 3, 1, 0)
+PASS 137 current pseudoscalar covariance state 2 permutation (3, 0, 1, 2)
+PASS 138 current pseudoscalar covariance state 2 permutation (3, 0, 2, 1)
+PASS 139 current pseudoscalar covariance state 2 permutation (3, 1, 0, 2)
+PASS 140 current pseudoscalar covariance state 2 permutation (3, 1, 2, 0)
+PASS 141 current pseudoscalar covariance state 2 permutation (3, 2, 0, 1)
+PASS 142 current pseudoscalar covariance state 2 permutation (3, 2, 1, 0)
+PASS 143 chamber inversion exchanges and reverses outward winding
+PASS 144 complex conjugation reverses winding
+PASS 145 real initial data have zero instantaneous pseudoscalar
+PASS 146 helicity-localized chamber winding transfer agrees with exact two-mode solution
+PASS 147 helicity-localized chamber winding transfer agrees with exact two-mode solution
+PASS 148 helicity-localized chamber winding transfer agrees with exact two-mode solution
+PASS 149 helicity-localized chamber winding transfer agrees with exact two-mode solution
+PASS 150 helicity-localized chamber winding transfer agrees with exact two-mode solution
+PASS 151 helicity-localized chamber winding transfer agrees with exact two-mode solution
+PASS 152 helicity-localized chamber winding transfer agrees with exact two-mode solution
+PASS 153 ring-current pseudoscalar equals quadratic form
+PASS 154 ring-current pseudoscalar equals quadratic form
+PASS 155 ring-current pseudoscalar equals quadratic form
+PASS 156 ring-current pseudoscalar equals quadratic form
+PASS 157 ring-current pseudoscalar equals quadratic form
+PASS 158 native winding is not a conserved charge for arbitrary states
+PASS 159 winding form odd under reflections and even under proper rotations
+PASS 160 chamber-odd outward winding is even under full spatial inversion
+PASS 161 scalar origin is invariant under all S4 permutations
+PASS 162 no pseudoscalar on the scalar Krylov orbit
+PASS 163 repair involution orthogonal and symmetric
+PASS 164 repair involution splits 40 invariant and 24 sign-changing directions
+PASS 165 orientation repair commutes with geometry (0, 1, 2, 3)
+PASS 166 exact orientation-conditioned covariance (0, 1, 2, 3), q=-3
+PASS 167 exact orientation-conditioned covariance (0, 1, 2, 3), q=-1
+PASS 168 exact orientation-conditioned covariance (0, 1, 2, 3), q=0
+PASS 169 exact orientation-conditioned covariance (0, 1, 2, 3), q=1
+PASS 170 exact orientation-conditioned covariance (0, 1, 2, 3), q=2
+PASS 171 orientation repair commutes with geometry (0, 1, 3, 2)
+PASS 172 exact orientation-conditioned covariance (0, 1, 3, 2), q=-3
+PASS 173 exact orientation-conditioned covariance (0, 1, 3, 2), q=-1
+PASS 174 exact orientation-conditioned covariance (0, 1, 3, 2), q=0
+PASS 175 exact orientation-conditioned covariance (0, 1, 3, 2), q=1
+PASS 176 exact orientation-conditioned covariance (0, 1, 3, 2), q=2
+PASS 177 orientation repair commutes with geometry (0, 2, 1, 3)
+PASS 178 exact orientation-conditioned covariance (0, 2, 1, 3), q=-3
+PASS 179 exact orientation-conditioned covariance (0, 2, 1, 3), q=-1
+PASS 180 exact orientation-conditioned covariance (0, 2, 1, 3), q=0
+PASS 181 exact orientation-conditioned covariance (0, 2, 1, 3), q=1
+PASS 182 exact orientation-conditioned covariance (0, 2, 1, 3), q=2
+PASS 183 orientation repair commutes with geometry (0, 2, 3, 1)
+PASS 184 exact orientation-conditioned covariance (0, 2, 3, 1), q=-3
+PASS 185 exact orientation-conditioned covariance (0, 2, 3, 1), q=-1
+PASS 186 exact orientation-conditioned covariance (0, 2, 3, 1), q=0
+PASS 187 exact orientation-conditioned covariance (0, 2, 3, 1), q=1
+PASS 188 exact orientation-conditioned covariance (0, 2, 3, 1), q=2
+PASS 189 orientation repair commutes with geometry (0, 3, 1, 2)
+PASS 190 exact orientation-conditioned covariance (0, 3, 1, 2), q=-3
+PASS 191 exact orientation-conditioned covariance (0, 3, 1, 2), q=-1
+PASS 192 exact orientation-conditioned covariance (0, 3, 1, 2), q=0
+PASS 193 exact orientation-conditioned covariance (0, 3, 1, 2), q=1
+PASS 194 exact orientation-conditioned covariance (0, 3, 1, 2), q=2
+PASS 195 orientation repair commutes with geometry (0, 3, 2, 1)
+PASS 196 exact orientation-conditioned covariance (0, 3, 2, 1), q=-3
+PASS 197 exact orientation-conditioned covariance (0, 3, 2, 1), q=-1
+PASS 198 exact orientation-conditioned covariance (0, 3, 2, 1), q=0
+PASS 199 exact orientation-conditioned covariance (0, 3, 2, 1), q=1
+PASS 200 exact orientation-conditioned covariance (0, 3, 2, 1), q=2
+PASS 201 orientation repair commutes with geometry (1, 0, 2, 3)
+PASS 202 exact orientation-conditioned covariance (1, 0, 2, 3), q=-3
+PASS 203 exact orientation-conditioned covariance (1, 0, 2, 3), q=-1
+PASS 204 exact orientation-conditioned covariance (1, 0, 2, 3), q=0
+PASS 205 exact orientation-conditioned covariance (1, 0, 2, 3), q=1
+PASS 206 exact orientation-conditioned covariance (1, 0, 2, 3), q=2
+PASS 207 orientation repair commutes with geometry (1, 0, 3, 2)
+PASS 208 exact orientation-conditioned covariance (1, 0, 3, 2), q=-3
+PASS 209 exact orientation-conditioned covariance (1, 0, 3, 2), q=-1
+PASS 210 exact orientation-conditioned covariance (1, 0, 3, 2), q=0
+PASS 211 exact orientation-conditioned covariance (1, 0, 3, 2), q=1
+PASS 212 exact orientation-conditioned covariance (1, 0, 3, 2), q=2
+PASS 213 orientation repair commutes with geometry (1, 2, 0, 3)
+PASS 214 exact orientation-conditioned covariance (1, 2, 0, 3), q=-3
+PASS 215 exact orientation-conditioned covariance (1, 2, 0, 3), q=-1
+PASS 216 exact orientation-conditioned covariance (1, 2, 0, 3), q=0
+PASS 217 exact orientation-conditioned covariance (1, 2, 0, 3), q=1
+PASS 218 exact orientation-conditioned covariance (1, 2, 0, 3), q=2
+PASS 219 orientation repair commutes with geometry (1, 2, 3, 0)
+PASS 220 exact orientation-conditioned covariance (1, 2, 3, 0), q=-3
+PASS 221 exact orientation-conditioned covariance (1, 2, 3, 0), q=-1
+PASS 222 exact orientation-conditioned covariance (1, 2, 3, 0), q=0
+PASS 223 exact orientation-conditioned covariance (1, 2, 3, 0), q=1
+PASS 224 exact orientation-conditioned covariance (1, 2, 3, 0), q=2
+PASS 225 orientation repair commutes with geometry (1, 3, 0, 2)
+PASS 226 exact orientation-conditioned covariance (1, 3, 0, 2), q=-3
+PASS 227 exact orientation-conditioned covariance (1, 3, 0, 2), q=-1
+PASS 228 exact orientation-conditioned covariance (1, 3, 0, 2), q=0
+PASS 229 exact orientation-conditioned covariance (1, 3, 0, 2), q=1
+PASS 230 exact orientation-conditioned covariance (1, 3, 0, 2), q=2
+PASS 231 orientation repair commutes with geometry (1, 3, 2, 0)
+PASS 232 exact orientation-conditioned covariance (1, 3, 2, 0), q=-3
+PASS 233 exact orientation-conditioned covariance (1, 3, 2, 0), q=-1
+PASS 234 exact orientation-conditioned covariance (1, 3, 2, 0), q=0
+PASS 235 exact orientation-conditioned covariance (1, 3, 2, 0), q=1
+PASS 236 exact orientation-conditioned covariance (1, 3, 2, 0), q=2
+PASS 237 orientation repair commutes with geometry (2, 0, 1, 3)
+PASS 238 exact orientation-conditioned covariance (2, 0, 1, 3), q=-3
+PASS 239 exact orientation-conditioned covariance (2, 0, 1, 3), q=-1
+PASS 240 exact orientation-conditioned covariance (2, 0, 1, 3), q=0
+PASS 241 exact orientation-conditioned covariance (2, 0, 1, 3), q=1
+PASS 242 exact orientation-conditioned covariance (2, 0, 1, 3), q=2
+PASS 243 orientation repair commutes with geometry (2, 0, 3, 1)
+PASS 244 exact orientation-conditioned covariance (2, 0, 3, 1), q=-3
+PASS 245 exact orientation-conditioned covariance (2, 0, 3, 1), q=-1
+PASS 246 exact orientation-conditioned covariance (2, 0, 3, 1), q=0
+PASS 247 exact orientation-conditioned covariance (2, 0, 3, 1), q=1
+PASS 248 exact orientation-conditioned covariance (2, 0, 3, 1), q=2
+PASS 249 orientation repair commutes with geometry (2, 1, 0, 3)
+PASS 250 exact orientation-conditioned covariance (2, 1, 0, 3), q=-3
+PASS 251 exact orientation-conditioned covariance (2, 1, 0, 3), q=-1
+PASS 252 exact orientation-conditioned covariance (2, 1, 0, 3), q=0
+PASS 253 exact orientation-conditioned covariance (2, 1, 0, 3), q=1
+PASS 254 exact orientation-conditioned covariance (2, 1, 0, 3), q=2
+PASS 255 orientation repair commutes with geometry (2, 1, 3, 0)
+PASS 256 exact orientation-conditioned covariance (2, 1, 3, 0), q=-3
+PASS 257 exact orientation-conditioned covariance (2, 1, 3, 0), q=-1
+PASS 258 exact orientation-conditioned covariance (2, 1, 3, 0), q=0
+PASS 259 exact orientation-conditioned covariance (2, 1, 3, 0), q=1
+PASS 260 exact orientation-conditioned covariance (2, 1, 3, 0), q=2
+PASS 261 orientation repair commutes with geometry (2, 3, 0, 1)
+PASS 262 exact orientation-conditioned covariance (2, 3, 0, 1), q=-3
+PASS 263 exact orientation-conditioned covariance (2, 3, 0, 1), q=-1
+PASS 264 exact orientation-conditioned covariance (2, 3, 0, 1), q=0
+PASS 265 exact orientation-conditioned covariance (2, 3, 0, 1), q=1
+PASS 266 exact orientation-conditioned covariance (2, 3, 0, 1), q=2
+PASS 267 orientation repair commutes with geometry (2, 3, 1, 0)
+PASS 268 exact orientation-conditioned covariance (2, 3, 1, 0), q=-3
+PASS 269 exact orientation-conditioned covariance (2, 3, 1, 0), q=-1
+PASS 270 exact orientation-conditioned covariance (2, 3, 1, 0), q=0
+PASS 271 exact orientation-conditioned covariance (2, 3, 1, 0), q=1
+PASS 272 exact orientation-conditioned covariance (2, 3, 1, 0), q=2
+PASS 273 orientation repair commutes with geometry (3, 0, 1, 2)
+PASS 274 exact orientation-conditioned covariance (3, 0, 1, 2), q=-3
+PASS 275 exact orientation-conditioned covariance (3, 0, 1, 2), q=-1
+PASS 276 exact orientation-conditioned covariance (3, 0, 1, 2), q=0
+PASS 277 exact orientation-conditioned covariance (3, 0, 1, 2), q=1
+PASS 278 exact orientation-conditioned covariance (3, 0, 1, 2), q=2
+PASS 279 orientation repair commutes with geometry (3, 0, 2, 1)
+PASS 280 exact orientation-conditioned covariance (3, 0, 2, 1), q=-3
+PASS 281 exact orientation-conditioned covariance (3, 0, 2, 1), q=-1
+PASS 282 exact orientation-conditioned covariance (3, 0, 2, 1), q=0
+PASS 283 exact orientation-conditioned covariance (3, 0, 2, 1), q=1
+PASS 284 exact orientation-conditioned covariance (3, 0, 2, 1), q=2
+PASS 285 orientation repair commutes with geometry (3, 1, 0, 2)
+PASS 286 exact orientation-conditioned covariance (3, 1, 0, 2), q=-3
+PASS 287 exact orientation-conditioned covariance (3, 1, 0, 2), q=-1
+PASS 288 exact orientation-conditioned covariance (3, 1, 0, 2), q=0
+PASS 289 exact orientation-conditioned covariance (3, 1, 0, 2), q=1
+PASS 290 exact orientation-conditioned covariance (3, 1, 0, 2), q=2
+PASS 291 orientation repair commutes with geometry (3, 1, 2, 0)
+PASS 292 exact orientation-conditioned covariance (3, 1, 2, 0), q=-3
+PASS 293 exact orientation-conditioned covariance (3, 1, 2, 0), q=-1
+PASS 294 exact orientation-conditioned covariance (3, 1, 2, 0), q=0
+PASS 295 exact orientation-conditioned covariance (3, 1, 2, 0), q=1
+PASS 296 exact orientation-conditioned covariance (3, 1, 2, 0), q=2
+PASS 297 orientation repair commutes with geometry (3, 2, 0, 1)
+PASS 298 exact orientation-conditioned covariance (3, 2, 0, 1), q=-3
+PASS 299 exact orientation-conditioned covariance (3, 2, 0, 1), q=-1
+PASS 300 exact orientation-conditioned covariance (3, 2, 0, 1), q=0
+PASS 301 exact orientation-conditioned covariance (3, 2, 0, 1), q=1
+PASS 302 exact orientation-conditioned covariance (3, 2, 0, 1), q=2
+PASS 303 orientation repair commutes with geometry (3, 2, 1, 0)
+PASS 304 exact orientation-conditioned covariance (3, 2, 1, 0), q=-3
+PASS 305 exact orientation-conditioned covariance (3, 2, 1, 0), q=-1
+PASS 306 exact orientation-conditioned covariance (3, 2, 1, 0), q=0
+PASS 307 exact orientation-conditioned covariance (3, 2, 1, 0), q=1
+PASS 308 exact orientation-conditioned covariance (3, 2, 1, 0), q=2
+PASS 309 achiral orientation read is rank 40
+PASS 310 orientation inverse T(q)T(1/q) exact q=-3
+PASS 311 orientation inverse T(q)T(1/q) exact q=-1
+PASS 312 orientation inverse T(q)T(1/q) exact q=1
+PASS 313 orientation inverse T(q)T(1/q) exact q=2
+S4 graded positive geometry [3, 1, 3, 6, 4] connection [4, 0, 3, 7, 3] maximum equivariant rank 36
+PASS 314 S4 graded maximal rank positive
+S4 graded negative geometry [2, 0, 2, 4, 2] connection [1, 1, 2, 3, 3] maximum equivariant rank 20
+PASS 315 S4 graded maximal rank negative
+PASS 316 fine graph 128 distinct secondary triangles (both chamber surfaces)
+PASS 317 intra-parent graph: three medial edges per tile
+PASS 318 each of 96 original tile bonds splits into two actual matching edges
+PASS 319 prolongation E=E2/2 is isometric
+PASS 320 constructed fine Hamiltonian exactly compresses to H36
+PASS 321 leakage nonzero, so compression is not dynamical equivalence
+PASS 322 leakage is orthogonal to coarse space
+Fine graph edge counts 96 192 leakage rank 32 kernel 4
+PASS 323 all four origin directions have zero instantaneous fine leakage
+PASS 324 single coarse adjacency has child-detail norm exactly 1
+PASS 325 fine H commutes with geometric inversion
+PASS 326 paired scalar coordinates not full field: even 65, odd 67
+Coarse leakage-observability ranks k=0..3: [32, 36, 36, 36]
+PASS 327 no nonzero exact coarse-only trajectory for this fine model
+Scalar origin first leakage derivative order 2
+PASS 328 scalar origin leakage first appears at quadratic amplitude order
+PASS 329 fine second moment differs by positive semidefinite leakage term
+PASS 330 any uniform within-parent Laplacian scaling leaves leakage unchanged
+Leakage spectral norm: 4.358898943540675 Frobenius norm: 13.856406460551018
+internal strength 0 peak detail by initial [('origin scalar', np.float64(0.471502)), ('one tile', np.float64(0.653486)), ('A4 helicity', np.float64(0.933557))]
+internal strength 1 peak detail by initial [('origin scalar', np.float64(0.524675)), ('one tile', np.float64(0.693287)), ('A4 helicity', np.float64(0.701197))]
+internal strength 4 peak detail by initial [('origin scalar', np.float64(0.800716)), ('one tile', np.float64(0.450184)), ('A4 helicity', np.float64(0.598859))]
+internal strength 16 peak detail by initial [('origin scalar', np.float64(0.052254)), ('one tile', np.float64(0.081394)), ('A4 helicity', np.float64(0.325343))]
+330/330 checks passed

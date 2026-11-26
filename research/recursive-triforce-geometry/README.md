@@ -51,6 +51,10 @@ For a lateral parent, lateral child 1 is the child at the original tetrahedral v
 
 The current H36 has first-level tile coordinates, not spatially resolved second-level amplitudes. It cannot alone derive finer physical boundaries. Recover a continuous face field from the existing action or independently derive a fine Hamiltonian. Test whether its nodal or flux-separation boundaries coincide with medial segments and whether the equations recur on each child with energy and flux matching. No artificial subdivision-specific weights. For a linear fine Hamiltonian H_f and normalized piecewise-constant prolongation E (E*E=I), exact autonomous coarse evolution for all coarse states holds iff (I-EE*)H_f E=0. Then H_c=E*H_f E. If leakage is nonzero, retain detail modes or derive a controlled effective response. For nonlinear evolution test tangency to the coarse image. Derive the lattice restriction, maximal-depth occupancy, chamber registration and source attenuation independently. A negative result is acceptable.
 
+## Dynamical continuation
+
+The [integrated vortex refinement research](../vortex-induced-triforce-refinement/) and [core Hodge decomposition](../vortex-induced-triforce-refinement/core-hodge/) test the physical bridge beyond Proof 23. The secondary mesh supports twelve circulation patterns invisible to the five-dimensional coarse cycle read, but does not select a fine Hamiltonian. A coarse cycle projection can be contaminated by fine gradients, and a global phase-invariant sign scalar cannot repair the connection dictionary at an axis-aligned circular ray. The physical edge metric, lattice selection, through-flow and connection dynamics remain open.
+
 ## Reproduction
 
 Run `python verify_recursive_triforce.py` (Python standard library). The tests use exact rational geometry, integer/rational rank, symmetry and orbit counts. Not a vortex simulation, physical experiment, or Lean proof. Run `python verify_refinement_weights.py` for the additional refined radial weights and actual 3D rotation tests.
