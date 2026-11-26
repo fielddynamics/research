@@ -16,7 +16,7 @@ Status tags used throughout this file (the same as GFD_COLES_NOTES.md):
   [D] derived: follows from the framework's stated assumptions
   [E] exploratory: a numerical correspondence or extension, not yet a derivation
   [O] observational: a comparison with data
-Formal proofs: 23 proofs, 1,168 scripted checks, 15 machine-checked in Lean 4 (proofs/README.md).
+Formal proofs: 25 proofs, 1,530 scripted checks, 17 machine-checked in Lean 4 (proofs/README.md).
 Strongest results:
   - [T+L] mu(x) = x/(x+1) selected premise by premise (exchange symmetry, screening, accelerations as strengths).
   - [O] SPARC (164 galaxies, 3284 points, no per-galaxy fit): scatter 0.181 dex, median residual within

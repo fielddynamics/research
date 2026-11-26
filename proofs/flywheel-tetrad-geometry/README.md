@@ -12,6 +12,8 @@
 
 This folder follows the proof programme’s manuscript, exact verifier, referee review, figures and Lean package convention. The supplied PDF is a three-page two-column preprint rendered using the portable article class. The IOP entry point follows the existing vortex proof’s `iopjournal` format and shares the same abstract and body; it requires the repository’s IOP class and has not been compiled here.
 
+> **Next proof:** [Proof 25 — Convergence of the Tetrad and Collective Flywheel Geometries](../tetrad-flywheel-convergence/) gives the unified normed frame, explicit composition law, intrinsic convex reconstruction and sharp metric bounds. [Root reading path](../../README.md#reading-path-from-the-tetrad-to-the-collective-flywheel).
+
 ## The question
 
 The [tetrad geometry paper](../../papers/letter-1-tetrad-frame-geometry/) and [Gram matrix paper](../../papers/gram-matrix-of-tetrad-equation/) recover two tetrahedra from the spatial frame. The [vortex proof](../vortices-of-the-stellated-octahedron/) establishes circulating states, and the [sustained flywheel](../../research/hadamard-null-cone-vortex-flywheel/SUSTAINED_TRIFORCE_FLYWHEEL.md) establishes simultaneous eight-ring and core circulation in its specified model. The reverse question is whether the normed circulation and phase-read algebra independently determines the same intrinsic regular frame. No spatial coordinates enter either Gram calculation below.

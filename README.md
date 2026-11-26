@@ -8,7 +8,7 @@
 
 [Field Dynamics Research](https://fielddynamics.org) · [Documentation](docs/README.md) · [Formal proofs](proofs/README.md) · [Research index](RESEARCH_INDEX.md)
 
-[![Licence: MIT](https://img.shields.io/badge/licence-MIT-blue.svg)](LICENSE) [![Formal proofs](https://img.shields.io/badge/formal_proofs-23-2563eb.svg)](proofs/README.md) [![Lean 4](https://img.shields.io/badge/Lean_4-15_formalisations-7c3aed.svg)](proofs/README.md) [![Research status](https://img.shields.io/badge/status-preprints_·_letters_under_review-64748b.svg)](#status-and-known-limitations)
+[![Licence: MIT](https://img.shields.io/badge/licence-MIT-blue.svg)](LICENSE) [![Formal proofs](https://img.shields.io/badge/formal_proofs-25-2563eb.svg)](proofs/README.md) [![Lean 4](https://img.shields.io/badge/Lean_4-17_formalisations-7c3aed.svg)](proofs/README.md) [![Research status](https://img.shields.io/badge/status-preprints_·_letters_under_review-64748b.svg)](#status-and-known-limitations)
 
 Stephen Nelson · [ORCID 0009-0008-6190-3269](https://orcid.org/0009-0008-6190-3269) · stephen@fielddynamics.org
 
@@ -24,7 +24,7 @@ This joins three research directions: the geometry of the tetrad, a constitutive
 
 ![Framework overview: geometry, constitutive response, and distributed closure](diagrams/gfd-readme-architecture.svg)
 
-> **Research status:** An open research framework. The repository holds 23 proof packages, 1,168 scripted checks and 15 Lean 4 formalisations, each stating its premises. The mathematics is machine-checked; TetB is the tetrad's second root, and the physical premises each result needs are stated and tested against data. The papers are preprints, and Tetrad Letters 1–3 are under review at *Classical and Quantum Gravity*.
+> **Research status:** An open research framework. The repository holds 25 proof packages, 1,530 scripted checks and 17 Lean 4 formalisations, each stating its premises. The mathematics is machine-checked; TetB is the tetrad's second root, and the physical premises each result needs are stated and tested against data. The papers are preprints, and Tetrad Letters 1–3 are under review at *Classical and Quantum Gravity*.
 
 ## Results on SPARC
 
@@ -174,12 +174,26 @@ Here $\mathcal F_{\mu\nu}$ denotes the electromagnetic field tensor, distinct fr
 
 The [proof index](proofs/README.md) links each theorem to its LaTeX source, PDF, verification script and, where present, Lean audit. Formally established mathematical results are distinguished from physical identifications, derived consequences and observations.
 
+### Reading path: from the tetrad to the collective flywheel
+
+**[Start with Proof 25 — Convergence of the Tetrad and Collective Flywheel Geometries](proofs/tetrad-flywheel-convergence/)** for a guided synthesis of the geometric foundations, the explicit common Gram matrix, the isometries joining the routes, and their exact assumptions. The reading paths below converge in that proof; they do not represent independent physical measurements.
+
+| Reading order | Geometry branch | Circulation branch |
+|---|---|---|
+| 1. Foundations | [Letter 1](papers/letter-1-tetrad-frame-geometry/) · [Forced frame](proofs/forced-tetrahedral-frame/) | [Vortex proof](proofs/vortices-of-the-stellated-octahedron/) |
+| 2. Construction | [Half-spaces](proofs/half-space-two-bounded-regions/) · [Tetrad scheme](proofs/tetrad-scheme-two-bounded-regions/) | [Sustained eight-ring flywheel](research/hadamard-null-cone-vortex-flywheel/SUSTAINED_TRIFORCE_FLYWHEEL.md) |
+| 3. Common metric | [Gram matrix](proofs/gram-matrix-tetrad-equation/) · [Hadamard frame](proofs/hadamard-cube-frame/) | [Proof 24: Intrinsic flywheel geometry](proofs/flywheel-tetrad-geometry/) |
+| 4. Convergence | [Proof 25: exact transport and intrinsic solids](proofs/tetrad-flywheel-convergence/) | [Proof 25: core incidence and current reconstruction](proofs/tetrad-flywheel-convergence/#theorem-5--core-geometry-incidence-and-collective-current) |
+| 5. Downstream geometry | [Proof 23: recursive Triforce closure](proofs/recursive-triforce-closure/) | Physical geometry selection, covariant dynamics and settlement remain open. |
+
+[Focused convergence diagram](diagrams/gfd-tetrad-flywheel-convergence.svg) · [Visual guide and proof PDF](proofs/tetrad-flywheel-convergence/tetrad_flywheel_convergence.pdf)
+
 | Research pillar | Representative proof packages | Status and scope |
 |---|---|---|
 | Tetrad geometry | [Forced frame](proofs/forced-tetrahedral-frame/), [Half-spaces](proofs/half-space-two-bounded-regions/), [Scheme](proofs/tetrad-scheme-two-bounded-regions/), [Hadamard frame](proofs/hadamard-cube-frame/) | [T+L] under stated spatial-realisation premises |
 | Connection & orientation | [Gram matrix](proofs/gram-matrix-tetrad-equation/), [Torsion representation](proofs/torsion-regular-representation/), [Chiral holonomy](proofs/chiral-holonomy-closed-frame/) | [T] (Gram: + Lean) the 24 torsion components are the only place a metric connection can tell the roots apart: TetB's carrier (Letter 2) |
 | Constitutive response | [Exchange](proofs/constitutive-law-exchange-symmetry/), [Tug of war](proofs/constitutive-law-tug-of-war/), [AQUAL energy](proofs/aqual-energy-functional/) | [T+L] within specified classes |
-| Local state readout | [Walsh modes](proofs/walsh-eigenmodes-of-the-cube/), [Vortices](proofs/vortices-of-the-stellated-octahedron/) | [T] finite-dimensional symmetric models; physical realization open |
+| Local state readout | [Walsh modes](proofs/walsh-eigenmodes-of-the-cube/), [Vortices](proofs/vortices-of-the-stellated-octahedron/), [Proof 24](proofs/flywheel-tetrad-geometry/), [Proof 25](proofs/tetrad-flywheel-convergence/) | [T] finite-dimensional symmetric models and exact finite geometry; physical realization open |
 | Field equations | [Quasi-static SST](proofs/sst-quasi-static-limit/), [Time leg](proofs/sst-covariant-time-leg/), [Preferred frame](proofs/sst-khronon-preferred-frame/) | [T/D] specified effective action and approximations |
 | Distributed closure | [Net field](proofs/net-field-rule/), [Mountain scale](proofs/sst-mountain-scale/), [Closure surface](proofs/closure-surface/) | [T+L/D] static ownership, nesting and Hill-model results; general dynamics open |
 | Extensions & structural algebra | [Bimetric energy](proofs/bimetric-two-potential-energy/), [Bimetric lock](proofs/bimetric-lock-constitutive-law/), [BBP ladder](proofs/bbp-coupling-polynomial-ladder/), [Null rotation](proofs/g-null-rotation/) | [T] scoped algebra; broader physical interpretations vary in status |
@@ -236,9 +250,9 @@ For formal verification, select a proof marked **+ Lean** in the [proof index](p
 
 | Repository-reported coverage | Count |
 |---|---:|
-| Formal proof packages | 23 |
-| Scripted checks in those packages | 1,168 |
-| Lean 4 formalisations | 15 |
+| Formal proof packages | 25 |
+| Scripted checks in those packages | 1,530 |
+| Lean 4 formalisations | 17 |
 
 [All verification commands and validation suites](RESEARCH_INDEX.md#verification) · [Companion computational model](https://github.com/fielddynamics/dfp-gravity-field-model)
 

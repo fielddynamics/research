@@ -61,6 +61,8 @@ It ends with `29/29 claims verified. 0 failures.`
 
 ## Later work in this repository
 
+- **Proof 25 — [Convergence of the Tetrad and Collective Flywheel Geometries](../../proofs/tetrad-flywheel-convergence/):** explicit isometries and a single normed closure-space reconstruction join the earlier geometry and circulation results, with stated conditions and counterexamples.
+
 These build on the Letter. They do not change it.
 - **Letter 2**, [`../letter-2-other-half-of-gravity-torsion/`](../letter-2-other-half-of-gravity-torsion/): a torsion-free connection cannot tell TetA from TetB, and TetB carries the field fraction 1/(x + 1).
 - **Letter 3**, [`../letter-3-field-closure-of-tetrad-frame/`](../letter-3-field-closure-of-tetrad-frame/): the 40/24 split of the connection, and field closure.

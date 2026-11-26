@@ -120,6 +120,8 @@ pdflatex -jobname=vortices_of_the_stellated_octahedron '\providecommand\ead[1]{\
 
 ## Related
 
+- **Synthesis:** [Proof 25 — Convergence of the Tetrad and Collective Flywheel Geometries](../tetrad-flywheel-convergence/). It joins the geometry and vortex constructions and states the shared premises explicitly.
+
 - [Research note and theorem](../../research/diamond-tetrad-lattice/vortex-theorem/THEOREM.md), with the earlier research notes and the scripts that make the renders. Those scripts use the reversed current sign; the note carries a correction.
 - [The Gram matrix of the tetrad equation](../gram-matrix-tetrad-equation/): TetA and TetB as the two roots, and the stellated octahedron's symmetry.
 - [The Walsh eigenmodes of the cube](../walsh-eigenmodes-of-the-cube/): the vortices are made of the T₂ (vector and bivector) modes.

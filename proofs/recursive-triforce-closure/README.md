@@ -119,4 +119,6 @@ Run `python verify_recursive_triforce_closure.py` using the standard library; th
 
 ## Related
 
+- **Synthesis:** [Proof 25 — Convergence of the Tetrad and Collective Flywheel Geometries](../tetrad-flywheel-convergence/). It joins the geometry and vortex constructions and states the shared premises explicitly.
+
 The proofs of the [forced frame](../forced-tetrahedral-frame/), [two bounded regions](../half-space-two-bounded-regions/), [Hadamard cube](../hadamard-cube-frame/), [torsion regular representation](../torsion-regular-representation/), [Walsh modes](../walsh-eigenmodes-of-the-cube/) and [vortices](../vortices-of-the-stellated-octahedron/) supply the context. The [recursive Triforce research](../../research/recursive-triforce-geometry/) remains the place for dynamical hypotheses. The proposed proof dependencies are not a claim that all those packages are Lean imports.
