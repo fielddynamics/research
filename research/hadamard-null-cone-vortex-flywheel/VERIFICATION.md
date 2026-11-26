@@ -103,3 +103,5 @@ Documentation and dimensional-algebra update: [G normalization bridge](G_NORMALI
 `python verify_field_origin_vertex.py`: 8/8 exact assertions ([log](verify_field_origin_vertex_output.txt)) for the candidate Field Origin vertex ([note](FIELD_ORIGIN_VERTEX.md)): resonance conserves each chamber, nonlinear transfer conserves only the total, the linear term is the spatial bond, locking stops transfer; 5,516 total.
 
 `vertex-research/`: `verify_vertex.py` 122 exact + 2,588 numerical, `verify_vertex_spectrum.py` 104 + 282, `verify_mu_vertex.py` 38 + 75; all rerun and matching their logs ([folder](vertex-research/)). 3,209 assertions; 8,725 total.
+
+`vertex-research/` continued: `verify_ordered_response.py` 51 exact + 107 numerical, `verify_aperture.py` 45 + 263; both rerun and matching their logs. Folder total 3,675; 9,191 total.

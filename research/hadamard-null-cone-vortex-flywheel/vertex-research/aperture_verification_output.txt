@@ -1,0 +1,321 @@
+PASS exact local metric self-adjoint
+PASS exact cross metric self-adjoint
+PASS exact empty partner row winding local eigenstate
+PASS exact zero central component
+PASS exact unit projector
+PASS exact D annihilates background
+PASS exact D commutes with complement
+PASS exact local characteristic
+PASS exact D negative on complement by trace and product
+PASS exact parallel cross coefficient
+PASS exact transverse read
+PASS exact transverse exposure
+PASS exact total exposure
+PASS exact rank-one real anomalous term
+PASS exact exact seed susceptibility
+PASS exact exact threshold
+PASS exact exact squared-frequency polynomial
+PASS exact threshold is polynomial root
+PASS exact all positive constitutive scale ratios supercritical at empty partner
+PASS exact balanced stable interval nonempty
+PASS exact t=1 gain derivative
+PASS exact channel law convex in capacity
+PASS exact exact Jensen remainder
+PASS exact exact endpoint chord remainder
+PASS exact upper lower gap
+PASS exact open channel endpoint
+PASS exact closed channel endpoint
+PASS exact large acceleration first two moments
+PASS exact C invertible
+PASS exact C symmetric
+PASS exact shared-junction condition gives rank twelve
+PASS exact shared-junction nullspace dimension four
+PASS exact junction null vector exact
+PASS exact junction null vector exact
+PASS exact junction null vector exact
+PASS exact junction null vector exact
+PASS exact same inventory dark-to-base exposure
+PASS exact same inventory uniform central exposure
+PASS exact exposure not scalar inventory
+collective coefficient exposure 0 7/12
+PASS exact positive collective exposure 0
+collective coefficient exposure 1 13/4
+PASS exact positive collective exposure 1
+collective coefficient exposure 2 4
+PASS exact positive collective exposure 2
+PASS exact balanced stationary matched eigenstate
+PASS exact balanced stationary nonzero cross exposure
+PASS exact balanced stationary nonzero overlap
+PASS numerical embedding metric
+PASS numerical embedding local
+PASS numerical embedding cross
+PASS numerical origin dark all collective modes
+PASS numerical exact empty trajectory vector field t=0.2
+PASS numerical growth eigenvalue agrees t=0.2
+PASS numerical one strictly growing mode t=0.2
+PASS numerical exact empty trajectory vector field t=1
+PASS numerical growth eigenvalue agrees t=1
+PASS numerical one strictly growing mode t=1
+PASS numerical exact empty trajectory vector field t=1.8
+PASS numerical growth eigenvalue agrees t=1.8
+PASS numerical one strictly growing mode t=1.8
+PASS numerical exact empty trajectory vector field t=4
+PASS numerical growth eigenvalue agrees t=4
+PASS numerical one strictly growing mode t=4
+GROWTH amplitude exponent 14.744416039878534
+PASS numerical integration seed 0
+PASS numerical norm conservation seed 0
+PASS numerical energy conservation seed 0
+PASS numerical O dark seed 0
+PASS numerical empty B remains empty
+SEED 0 peak NB 0.0
+PASS numerical integration seed 1e-08
+PASS numerical norm conservation seed 1e-08
+PASS numerical energy conservation seed 1e-08
+PASS numerical O dark seed 1e-08
+PASS numerical early linear seed amplification 1e-08
+PASS numerical seed recruitment finite-time witness 1e-08
+SEED 1e-08 peak NB 0.1356664827062367
+PASS numerical integration seed 1e-06
+PASS numerical norm conservation seed 1e-06
+PASS numerical energy conservation seed 1e-06
+PASS numerical O dark seed 1e-06
+PASS numerical early linear seed amplification 1e-06
+PASS numerical seed recruitment finite-time witness 1e-06
+SEED 1e-06 peak NB 0.13566795560310085
+PASS numerical integration seed 0.0001
+PASS numerical norm conservation seed 0.0001
+PASS numerical energy conservation seed 0.0001
+PASS numerical O dark seed 0.0001
+PASS numerical early linear seed amplification 0.0001
+PASS numerical seed recruitment finite-time witness 0.0001
+SEED 0.0001 peak NB 0.16090531981216832
+PASS numerical spectral aperture identity 0
+PASS numerical spectral aperture bounds 0
+PASS numerical mixture bracket 0 0.001
+PASS numerical mixture bracket 0 0.1
+PASS numerical mixture bracket 0 1
+PASS numerical mixture bracket 0 10
+PASS numerical mixture bracket 0 1000
+PASS numerical spectral aperture identity 1
+PASS numerical spectral aperture bounds 1
+PASS numerical mixture bracket 1 0.001
+PASS numerical mixture bracket 1 0.1
+PASS numerical mixture bracket 1 1
+PASS numerical mixture bracket 1 10
+PASS numerical mixture bracket 1 1000
+PASS numerical spectral aperture identity 2
+PASS numerical spectral aperture bounds 2
+PASS numerical mixture bracket 2 0.001
+PASS numerical mixture bracket 2 0.1
+PASS numerical mixture bracket 2 1
+PASS numerical mixture bracket 2 10
+PASS numerical mixture bracket 2 1000
+PASS numerical spectral aperture identity 3
+PASS numerical spectral aperture bounds 3
+PASS numerical mixture bracket 3 0.001
+PASS numerical mixture bracket 3 0.1
+PASS numerical mixture bracket 3 1
+PASS numerical mixture bracket 3 10
+PASS numerical mixture bracket 3 1000
+PASS numerical spectral aperture identity 4
+PASS numerical spectral aperture bounds 4
+PASS numerical mixture bracket 4 0.001
+PASS numerical mixture bracket 4 0.1
+PASS numerical mixture bracket 4 1
+PASS numerical mixture bracket 4 10
+PASS numerical mixture bracket 4 1000
+PASS numerical spectral aperture identity 5
+PASS numerical spectral aperture bounds 5
+PASS numerical mixture bracket 5 0.001
+PASS numerical mixture bracket 5 0.1
+PASS numerical mixture bracket 5 1
+PASS numerical mixture bracket 5 10
+PASS numerical mixture bracket 5 1000
+PASS numerical spectral aperture identity 6
+PASS numerical spectral aperture bounds 6
+PASS numerical mixture bracket 6 0.001
+PASS numerical mixture bracket 6 0.1
+PASS numerical mixture bracket 6 1
+PASS numerical mixture bracket 6 10
+PASS numerical mixture bracket 6 1000
+PASS numerical spectral aperture identity 7
+PASS numerical spectral aperture bounds 7
+PASS numerical mixture bracket 7 0.001
+PASS numerical mixture bracket 7 0.1
+PASS numerical mixture bracket 7 1
+PASS numerical mixture bracket 7 10
+PASS numerical mixture bracket 7 1000
+PASS numerical spectral aperture identity 8
+PASS numerical spectral aperture bounds 8
+PASS numerical mixture bracket 8 0.001
+PASS numerical mixture bracket 8 0.1
+PASS numerical mixture bracket 8 1
+PASS numerical mixture bracket 8 10
+PASS numerical mixture bracket 8 1000
+PASS numerical spectral aperture identity 9
+PASS numerical spectral aperture bounds 9
+PASS numerical mixture bracket 9 0.001
+PASS numerical mixture bracket 9 0.1
+PASS numerical mixture bracket 9 1
+PASS numerical mixture bracket 9 10
+PASS numerical mixture bracket 9 1000
+PASS numerical spectral aperture identity 10
+PASS numerical spectral aperture bounds 10
+PASS numerical mixture bracket 10 0.001
+PASS numerical mixture bracket 10 0.1
+PASS numerical mixture bracket 10 1
+PASS numerical mixture bracket 10 10
+PASS numerical mixture bracket 10 1000
+PASS numerical spectral aperture identity 11
+PASS numerical spectral aperture bounds 11
+PASS numerical mixture bracket 11 0.001
+PASS numerical mixture bracket 11 0.1
+PASS numerical mixture bracket 11 1
+PASS numerical mixture bracket 11 10
+PASS numerical mixture bracket 11 1000
+PASS numerical spectral aperture identity 12
+PASS numerical spectral aperture bounds 12
+PASS numerical mixture bracket 12 0.001
+PASS numerical mixture bracket 12 0.1
+PASS numerical mixture bracket 12 1
+PASS numerical mixture bracket 12 10
+PASS numerical mixture bracket 12 1000
+PASS numerical spectral aperture identity 13
+PASS numerical spectral aperture bounds 13
+PASS numerical mixture bracket 13 0.001
+PASS numerical mixture bracket 13 0.1
+PASS numerical mixture bracket 13 1
+PASS numerical mixture bracket 13 10
+PASS numerical mixture bracket 13 1000
+PASS numerical spectral aperture identity 14
+PASS numerical spectral aperture bounds 14
+PASS numerical mixture bracket 14 0.001
+PASS numerical mixture bracket 14 0.1
+PASS numerical mixture bracket 14 1
+PASS numerical mixture bracket 14 10
+PASS numerical mixture bracket 14 1000
+PASS numerical spectral aperture identity 15
+PASS numerical spectral aperture bounds 15
+PASS numerical mixture bracket 15 0.001
+PASS numerical mixture bracket 15 0.1
+PASS numerical mixture bracket 15 1
+PASS numerical mixture bracket 15 10
+PASS numerical mixture bracket 15 1000
+PASS numerical spectral aperture identity 16
+PASS numerical spectral aperture bounds 16
+PASS numerical mixture bracket 16 0.001
+PASS numerical mixture bracket 16 0.1
+PASS numerical mixture bracket 16 1
+PASS numerical mixture bracket 16 10
+PASS numerical mixture bracket 16 1000
+PASS numerical spectral aperture identity 17
+PASS numerical spectral aperture bounds 17
+PASS numerical mixture bracket 17 0.001
+PASS numerical mixture bracket 17 0.1
+PASS numerical mixture bracket 17 1
+PASS numerical mixture bracket 17 10
+PASS numerical mixture bracket 17 1000
+PASS numerical spectral aperture identity 18
+PASS numerical spectral aperture bounds 18
+PASS numerical mixture bracket 18 0.001
+PASS numerical mixture bracket 18 0.1
+PASS numerical mixture bracket 18 1
+PASS numerical mixture bracket 18 10
+PASS numerical mixture bracket 18 1000
+PASS numerical spectral aperture identity 19
+PASS numerical spectral aperture bounds 19
+PASS numerical mixture bracket 19 0.001
+PASS numerical mixture bracket 19 0.1
+PASS numerical mixture bracket 19 1
+PASS numerical mixture bracket 19 10
+PASS numerical mixture bracket 19 1000
+PASS numerical spectral aperture identity 20
+PASS numerical spectral aperture bounds 20
+PASS numerical mixture bracket 20 0.001
+PASS numerical mixture bracket 20 0.1
+PASS numerical mixture bracket 20 1
+PASS numerical mixture bracket 20 10
+PASS numerical mixture bracket 20 1000
+PASS numerical spectral aperture identity 21
+PASS numerical spectral aperture bounds 21
+PASS numerical mixture bracket 21 0.001
+PASS numerical mixture bracket 21 0.1
+PASS numerical mixture bracket 21 1
+PASS numerical mixture bracket 21 10
+PASS numerical mixture bracket 21 1000
+PASS numerical spectral aperture identity 22
+PASS numerical spectral aperture bounds 22
+PASS numerical mixture bracket 22 0.001
+PASS numerical mixture bracket 22 0.1
+PASS numerical mixture bracket 22 1
+PASS numerical mixture bracket 22 10
+PASS numerical mixture bracket 22 1000
+PASS numerical spectral aperture identity 23
+PASS numerical spectral aperture bounds 23
+PASS numerical mixture bracket 23 0.001
+PASS numerical mixture bracket 23 0.1
+PASS numerical mixture bracket 23 1
+PASS numerical mixture bracket 23 10
+PASS numerical mixture bracket 23 1000
+PASS numerical spectral aperture identity 24
+PASS numerical spectral aperture bounds 24
+PASS numerical mixture bracket 24 0.001
+PASS numerical mixture bracket 24 0.1
+PASS numerical mixture bracket 24 1
+PASS numerical mixture bracket 24 10
+PASS numerical mixture bracket 24 1000
+PASS numerical spectral aperture identity 25
+PASS numerical spectral aperture bounds 25
+PASS numerical mixture bracket 25 0.001
+PASS numerical mixture bracket 25 0.1
+PASS numerical mixture bracket 25 1
+PASS numerical mixture bracket 25 10
+PASS numerical mixture bracket 25 1000
+PASS numerical spectral aperture identity 26
+PASS numerical spectral aperture bounds 26
+PASS numerical mixture bracket 26 0.001
+PASS numerical mixture bracket 26 0.1
+PASS numerical mixture bracket 26 1
+PASS numerical mixture bracket 26 10
+PASS numerical mixture bracket 26 1000
+PASS numerical spectral aperture identity 27
+PASS numerical spectral aperture bounds 27
+PASS numerical mixture bracket 27 0.001
+PASS numerical mixture bracket 27 0.1
+PASS numerical mixture bracket 27 1
+PASS numerical mixture bracket 27 10
+PASS numerical mixture bracket 27 1000
+PASS numerical spectral aperture identity 28
+PASS numerical spectral aperture bounds 28
+PASS numerical mixture bracket 28 0.001
+PASS numerical mixture bracket 28 0.1
+PASS numerical mixture bracket 28 1
+PASS numerical mixture bracket 28 10
+PASS numerical mixture bracket 28 1000
+PASS numerical spectral aperture identity 29
+PASS numerical spectral aperture bounds 29
+PASS numerical mixture bracket 29 0.001
+PASS numerical mixture bracket 29 0.1
+PASS numerical mixture bracket 29 1
+PASS numerical mixture bracket 29 10
+PASS numerical mixture bracket 29 1000
+PASS numerical spectral aperture identity 30
+PASS numerical spectral aperture bounds 30
+PASS numerical mixture bracket 30 0.001
+PASS numerical mixture bracket 30 0.1
+PASS numerical mixture bracket 30 1
+PASS numerical mixture bracket 30 10
+PASS numerical mixture bracket 30 1000
+PASS numerical spectral aperture identity 31
+PASS numerical spectral aperture bounds 31
+PASS numerical mixture bracket 31 0.001
+PASS numerical mixture bracket 31 0.1
+PASS numerical mixture bracket 31 1
+PASS numerical mixture bracket 31 10
+PASS numerical mixture bracket 31 1000
+NATIVE C spectral squared / maximum [1.00000000e+00 1.15293370e-01 1.15293370e-01 1.15293370e-01
+ 1.65551914e-02 1.65551914e-02 4.13229462e-04 4.13229462e-04
+ 4.13229462e-04 9.86667708e-03 1.65551914e-02 1.65551914e-02
+ 1.65551914e-02 3.80949144e-01 3.80949144e-01 3.80949144e-01]
+TOTAL {'exact': 45, 'numerical': 263} passed 308

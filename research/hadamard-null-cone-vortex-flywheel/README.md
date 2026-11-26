@@ -165,8 +165,8 @@ Internal transfers cancel, leaving the boundary ledger. This is a candidate micr
 | Projective | [Projective Walsh–G bridge](PROJECTIVE_WALSH_G_BRIDGE.md) | 39 |
 | Three sub-reads | [Recursive closure engine](THREE_SUBREAD_CLOSURE.md) | 91 |
 | Vertex | [Field Origin vertex: resonance and nonspatial transfer](FIELD_ORIGIN_VERTEX.md) (opening note; candidate law) | 8 |
-| Vertex research | [Factorisation, nonlinear dynamics, spectrum, curvature and constitutive vertex](vertex-research/) ([interactive](vertex-research/interactive/index.html)) | 3,209 |
-| | **Total recorded passing assertions** | **8,725** |
+| Vertex research | [Factorisation, nonlinear dynamics, spectrum, curvature, constitutive vertex, ordered response and aperture](vertex-research/) ([interactive](vertex-research/interactive/index.html)) | 3,675 |
+| | **Total recorded passing assertions** | **9,191** |
 
 The assertions are not independent theorems. Historical Stages I–IX were rerun at Stage IX; subsequent counts refer to the respective extension's own run. Only the new three-subread verifier was run in this edition; previous assertions remain recorded. No new Lean compilation or browser regression is claimed. The original documents and historical results remain intact.
 

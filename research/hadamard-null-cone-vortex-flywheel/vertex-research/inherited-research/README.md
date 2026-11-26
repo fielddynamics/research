@@ -4,7 +4,7 @@
 
 **Status:** The original 581 exact assertions and eleven recovered research suites (2,121 named assertions) have been freshly rerun; the expanded cross-model suite adds 144 exact and 345 numerical assertions. See [coverage audit](VORTEX_MATH_COVERAGE.md) and [new results](CROSS_MODEL_FINDINGS.md). New research on the existing eight-vortex flywheel, with no additional dynamical state, coupling, or fitted constant. [T] denotes exact finite algebra, [D] consequences conditional on the published Stage VII model, [E] physical interpretation/selection still open. This is **not** Proof 26, a Lean certification, a derived Lorentz-covariant field theory, or an empirical identification of GFD with gravity. Repository basis: [`46e5ca1`](https://github.com/fielddynamics/research/tree/46e5ca1fef621f8fc4243a01324fe93342633354).
 
-> **Repository note.** These notes record earlier research carried into the vertex work. Their own scripts, data files, figures and the `ALGEBRA.md`, `RESEARCH_GATES.md` and `SOURCES.md` companions were not included with them, so their assertion counts cannot be reproduced from this folder, and links to those files do not resolve. The vertex research's own three verifiers, in the parent folder, are complete and rerun.
+> **Repository note.** These notes record earlier research carried into the vertex work. Their own scripts, data files, figures and the `ALGEBRA.md`, `RESEARCH_GATES.md` and `SOURCES.md` companions were not included with them, so their assertion counts cannot be reproduced from this folder, and links to those files do not resolve. The vertex research's own verifiers, in the parent folder, are complete and rerun.
 
 ## The question
 

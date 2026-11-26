@@ -10,7 +10,7 @@ The problem is not to discover a second engine. The GFD premise is that TetA and
 
 ## Interactive HTML atlas (offline)
 
-[Open the interactive explorer index](interactive/index.html). All four explorers are self-contained browser pages with embedded data, no external libraries or server required. Extract the archive and open `interactive/index.html`.
+[Open the interactive explorer index](interactive/index.html). All six explorers are self-contained browser pages with embedded data, no external libraries or server required. Extract the archive and open `interactive/index.html`.
 
 | Explorer | Interactive calculation or replay |
 |---|---|
@@ -18,10 +18,36 @@ The problem is not to discover a second engine. The GFD premise is that TetA and
 | [Registered 16-channel kernel](interactive/kernel.html) | Adjustable d, a, k; native/Walsh matrices, rank, determinant and cross-grade mixing |
 | [Collective flywheel](interactive/flywheel.html) | Play/scrub recorded Stage VII and nonlinear overlap trajectory samples |
 | [Constitutive law and stability](interactive/constitutive.html) | μ and curvature, saturation and transfer illustrations, full-state perturbation playback, historical scans |
+| [Ordered response and drain](interactive/ordered.html) | Compare static closures and native coherent exchange |
+| [Aperture and seed recruitment](interactive/aperture.html) | Exact seed-instability threshold, capacity distribution bounds, full-state trajectory replay |
 
 The explorers display the same conditional model results; they do not rerun the Python suites or establish new physical claims. The original figures and all recorded verification logs are retained.
 
-## Latest continuation: the constitutive vertex and orbital stability
+## Latest continuation: time-face aperture and seeded recruitment
+
+[Time-face aperture and seeded TetB recruitment](APERTURE_AND_SEED_RECRUITMENT.md) adds **308 new passing assertions (45 exact + 263 numerical); cumulative recorded total 3,675**. The previous 3,367 are preserved, not rerun.
+
+- A-only row-winding state with dark O and B=0 is invariant, but a selected arbitrarily small B seed has an exact growing linear mode for h>1863/458. The same constitutive family is supercritical at the empty-partner state for every positive scale ratio; its earlier balanced stability interval remains unchanged. Full-coordinate runs illustrate substantial occupation transfer, not irreversible capture.
+- The native C² spectral exposure differs at equal inventory and is strictly positive for every nonempty B. Exact drainless closure cannot be selected by this exposure alone. The previously studied rank-12 junction supplies a possible nullspace, not a derived physical switch.
+- The two earlier partial-drain formulas are sharp lower/upper bounds for a mixture of reduced-capacity channels with fixed mean capacity. Their equality cases are uniform partial opening and binary opening. This links the boundary problem to the spectral distribution without assuming the physical selection law.
+
+![Aperture bounds and seeded dynamics](figures/aperture_and_seed.png)
+
+Reproduce: `OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python verify_aperture.py > aperture_verification_output.txt`. [Interactive explorer](interactive/aperture.html).
+
+## Previous continuation: ordered response and drain closure
+
+[Ordered time-face response](ORDERED_RESPONSE_AND_DRAIN.md) reconnects the vertex with the earlier settlement action. **158 new checks (51 exact + 107 numerical); cumulative recorded total 3,367**. Earlier checks preserved, not rerun.
+
+- Pointwise spatial parity leaves the time leg and its acceleration unchanged; reciprocal constitutive odds exchange ordered responses, not merely determinant labels.
+- The actual chamber population imbalance has full 18-dimensional real linear observable closure under the two native generators in the fixed-q six-complex-coordinate sector. Zero instantaneous flux does not prove locking: an exact native common eigenchannel yields coherent exchange from a zero-flux initial state.
+- The existing static settlement acceleration gives the correct ordered odds, but its microscopic identification is open. Two distinct conditional boundary-availability closures of the same cost give exact drainless GR and recover the fully open law; partial openness distinguishes them. No new internal oscillator is needed, and no physical boundary selection is claimed.
+
+![Ordered response and coherent exchange](figures/ordered_response.png)
+
+Reproduce: `OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python verify_ordered_response.py > ordered_response_verification_output.txt`. [Interactive comparison](interactive/ordered.html).
+
+## Previous continuation: the constitutive vertex and orbital stability
 
 [Constitutive saturation of the registered Field Origin](CONSTITUTIVE_VERTEX.md) derives a nonlinear candidate from the earlier finite-capacity settlement cost, rather than inventing a new polynomial. The same research folder retains every preceding stage. The new verifier passed **38 exact + 75 numerical = 113 assertions**; the earlier 3,096 recorded assertions are preserved (not rerun).
 

@@ -1,0 +1,160 @@
+PASS exact constant parity preserves metric
+PASS exact parity leaves time coframe unchanged
+PASS exact parity flips determinant
+PASS exact occupation contrast Cayley odds
+PASS exact occupation share complementary
+PASS exact root exchange changes contrast sign
+PASS exact response odds swap
+PASS exact log odds susceptibility
+PASS exact response odds exact
+PASS exact response fraction not capacity occupancy
+PASS exact AQUAL radial potential derivative
+PASS exact capacity stationary work conjugacy
+PASS exact capacity strict convexity
+PASS exact capacity dual
+PASS exact capacity response from dual derivative
+PASS exact capacity full-open recovery
+PASS exact capacity closed drain limit
+PASS exact capacity Newtonian flux at closed drain
+PASS exact parallel stationary work conjugacy
+PASS exact parallel strict convexity
+PASS exact parallel dual
+PASS exact parallel response from dual derivative
+PASS exact parallel full-open recovery
+PASS exact parallel closed drain limit
+PASS exact parallel Newtonian flux at closed drain
+PASS exact capacity effective mu
+PASS exact parallel effective mu
+PASS exact partial gates not equivalent
+PASS exact different deep limit capacity
+PASS exact different deep limit parallel
+PASS exact capacity radial differential response
+PASS exact parallel radial differential response
+PASS exact detailed balance equilibrium
+PASS exact unique relaxation exponent
+PASS exact relabeling rate exchanges equilibrium
+PASS exact open detailed balance recovers mu
+PASS exact closed outward rate gives full retained response
+PASS exact positive balanced exchange despite zero net
+PASS exact canonical transfer sign
+PASS exact coherence derivative purely imaginary in eigenchannel
+PASS exact imaginary coherence derivative
+PASS exact zero flux need not remain zero
+PASS exact local G symmetry
+PASS exact cross G symmetry
+PASS exact local and cross do not commute
+IMBALANCE OBSERVABLE CLOSURE dimension 18 mod 1009 words ['Z', 'VZ', 'LVZ', 'VVZ', 'LLVZ', 'VLVZ', 'VVVZ', 'LLLVZ', 'VLLVZ', 'LVLVZ', 'VVLVZ', 'VVVVZ', 'LLLLVZ', 'VLLLVZ', 'LVLLVZ', 'VVLLVZ', 'VLVLVZ', 'VLLLLVZ']
+PASS exact imbalance requires full 18 real off-diagonal directions
+PASS exact common dark symmetric channel dimension
+PASS exact native common eigenvector local
+PASS exact native common eigenvector cross
+PASS exact native common eigenvector local
+PASS exact native common eigenvector cross
+PASS numerical Rabi integration 0
+PASS numerical native full Rabi formula 0
+PASS numerical energy conservation 0
+PASS numerical constant overlap 0
+PASS numerical Rabi integration 0.5235987755982988
+PASS numerical native full Rabi formula 0.5235987755982988
+PASS numerical energy conservation 0.5235987755982988
+PASS numerical constant overlap 0.5235987755982988
+PASS numerical Rabi integration 1.5707963267948966
+PASS numerical native full Rabi formula 1.5707963267948966
+PASS numerical energy conservation 1.5707963267948966
+PASS numerical constant overlap 1.5707963267948966
+PASS numerical Rabi integration 3.141592653589793
+PASS numerical native full Rabi formula 3.141592653589793
+PASS numerical energy conservation 3.141592653589793
+PASS numerical constant overlap 3.141592653589793
+PASS numerical Rabi integration 3.9269908169872414
+PASS numerical native full Rabi formula 3.9269908169872414
+PASS numerical energy conservation 3.9269908169872414
+PASS numerical constant overlap 3.9269908169872414
+PASS numerical zero initial flux later moves
+PASS numerical full transfer identity 0
+PASS numerical full coherence identity 0
+PASS numerical bound overlap 0
+PASS numerical full transfer identity 1
+PASS numerical full coherence identity 1
+PASS numerical bound overlap 1
+PASS numerical full transfer identity 2
+PASS numerical full coherence identity 2
+PASS numerical bound overlap 2
+PASS numerical full transfer identity 3
+PASS numerical full coherence identity 3
+PASS numerical bound overlap 3
+PASS numerical full transfer identity 4
+PASS numerical full coherence identity 4
+PASS numerical bound overlap 4
+PASS numerical full transfer identity 5
+PASS numerical full coherence identity 5
+PASS numerical bound overlap 5
+PASS numerical full transfer identity 6
+PASS numerical full coherence identity 6
+PASS numerical bound overlap 6
+PASS numerical full transfer identity 7
+PASS numerical full coherence identity 7
+PASS numerical bound overlap 7
+PASS numerical full transfer identity 8
+PASS numerical full coherence identity 8
+PASS numerical bound overlap 8
+PASS numerical full transfer identity 9
+PASS numerical full coherence identity 9
+PASS numerical bound overlap 9
+PASS numerical full transfer identity 10
+PASS numerical full coherence identity 10
+PASS numerical bound overlap 10
+PASS numerical full transfer identity 11
+PASS numerical full coherence identity 11
+PASS numerical bound overlap 11
+PASS numerical full transfer identity 12
+PASS numerical full coherence identity 12
+PASS numerical bound overlap 12
+PASS numerical full transfer identity 13
+PASS numerical full coherence identity 13
+PASS numerical bound overlap 13
+PASS numerical full transfer identity 14
+PASS numerical full coherence identity 14
+PASS numerical bound overlap 14
+PASS numerical full transfer identity 15
+PASS numerical full coherence identity 15
+PASS numerical bound overlap 15
+PASS numerical full transfer identity 16
+PASS numerical full coherence identity 16
+PASS numerical bound overlap 16
+PASS numerical full transfer identity 17
+PASS numerical full coherence identity 17
+PASS numerical bound overlap 17
+PASS numerical full transfer identity 18
+PASS numerical full coherence identity 18
+PASS numerical bound overlap 18
+PASS numerical full transfer identity 19
+PASS numerical full coherence identity 19
+PASS numerical bound overlap 19
+PASS numerical full transfer identity 20
+PASS numerical full coherence identity 20
+PASS numerical bound overlap 20
+PASS numerical full transfer identity 21
+PASS numerical full coherence identity 21
+PASS numerical bound overlap 21
+PASS numerical full transfer identity 22
+PASS numerical full coherence identity 22
+PASS numerical bound overlap 22
+PASS numerical full transfer identity 23
+PASS numerical full coherence identity 23
+PASS numerical bound overlap 23
+PASS numerical uniform exposure fraction 1
+PASS numerical aligned exposure 1
+PASS numerical dark exposure 1
+PASS numerical uniform exposure fraction 4
+PASS numerical aligned exposure 4
+PASS numerical dark exposure 4
+PASS numerical uniform exposure fraction 8
+PASS numerical aligned exposure 8
+PASS numerical dark exposure 8
+PASS numerical uniform exposure fraction 12
+PASS numerical aligned exposure 12
+PASS numerical dark exposure 12
+PASS numerical uniform exposure fraction 16
+PASS numerical aligned exposure 16
+TOTAL {'exact': 51, 'numerical': 107} sum 158
