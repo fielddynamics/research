@@ -406,9 +406,21 @@ $$G = \frac{17}{13}\,\alpha^{21}\,\frac{\hbar c}{m_e^2} = \frac{(d+1)^2+1}{d(d+1
 
 $= 1.3077 \times 1.338\times10^{-45}\times3.810\times10^{34} = 6.666\times10^{-11}$ m³ kg⁻¹ s⁻² (0.12% tree level; 0.001% with a one-loop Schwinger correction, research/g_from_topology). Exponent 21 = coupling depth; $\alpha^{20}\approx10^{-43}$ is the gravity/EM hierarchy. A 0.001% change in $\alpha$ shifts $G$ by 0.021%.
 
+*Gravity as the response of field closure: the research arc.* Every field object must keep a consistent state while its neighbours' fields reach into it; where the right settlement depends on them, closure cannot be blind (P-response Thm 1). Proof 26 joins several lines of the programme around that requirement:
+
+| Step | Source | Status |
+|---|---|---|
+| Retained TetB inventory organised as a recursive four-child Sierpiński packing walk over 64 addresses | Papers XI, XIII (§10); `research/matter/` | [E] |
+| The recursive Triforce address geometry: 64 paired addresses, invariant detail ranks 1, 4, 16 | P-triforce (§2.8) | [T+L] |
+| The collective eight-vortex flywheel on the same fixed tetrahedral frame | P-flywheel, P-convergence (§2.8) | [T+L] |
+| Reversible three-sweep accounting; completed blocks keep their inventory as a pointer; the vortex responds while the geometry stays fixed | P-response Thms 3–6, 9–10 | [T] |
+| Gravity as the response of the vortex to keeping closure consistent: $(17/13)\alpha^{21}$ if the source is the 21-direction determinant and $|t|^2 = \alpha$ | P-response Thms 8, 11 | [D], premises stated |
+
+Read across phenomena, this is a candidate single accounting architecture: nuclear packing as retained TetB inventory [E]; atomic structure as the vortex configuration that inventory produces ([D], conditional witness in `research/g_from_topology/updated-research/ATOMIC_INVENTORY_VORTEX_BRIDGE.md`); field closure as recursive accounting and settlement [T]; gravity as the response to closure (candidate); distributed field processing as hierarchical registration of completed closures [T+L]/[T]. The value of G was already in Paper VI; what Proof 26 adds is an explicit architecture for the mechanism that could produce it. The address-space identities are exact; they are not a nuclear Hamiltonian or a new nuclear prediction.
+
 *How read and settlement produce it [T/D], candidate (P-response, Proof 26).* G's construction above is the target; Proof 26 asks how closure realises it.
 - Closure that depends on its environment cannot be blind: a blind state exists only if all feasible sets share a point, and a read $R$ suffices exactly when $R(y) = R(z) \Rightarrow S(y) = S(z)$ (Thm 1).
-- On the 64 Triforce addresses $X = (\mathbb F_2^2)^3$ the reversible read is $W = H_4^{\otimes3}/8$, three commuting radix-4 sweeps, $W = W^{-1}$ (Thm 3); the inverse is $H = S\,\mathrm{diag}((-2)^{|c|})\,S^T$ with $S = L^{\otimes m}$ the Sierpiński matrix (Thm 4).
+- On the 64 Triforce addresses $X = (\mathbb F_2^2)^3$ the reversible read is $W = H_4^{\otimes3}/8$, three commuting radix-4 sweeps, $W = W^{-1}$ (Thm 3). The unnormalized Hadamard factors through Sierpiński matrices, $H_{2^m} = S\,\mathrm{diag}((-2)^{|c|})\,S^T$ with $S = L^{\otimes m}$, so $H_{64}^{-1} = H_{64}/64 = 2^{-6}SDS^T$ (Thm 4).
 - The order-3 label rotation is multiplication by $\omega$ in $\mathbb F_4$; the detail spaces (dimensions 3, 12, 48) have invariant subspaces of dimensions 1, 4, 16 (Thm 5), so 21 = $(4^3-1)/(4-1)$, the points of PG(2,4).
 - With gain $t_j$ on grade $j$, $\det(T^\dagger T) = |t_1|^2|t_2|^8|t_3|^{32}$ on the invariant space (Thm 8). With the inherited ratio $\gamma_0 = f(4,0)/f(4,-1) = 17/13$, the response is $(17/13)|t|^{42}$, and $|t|^2 = \alpha$ gives $(17/13)\alpha^{21}$. A source that is degree one in each of the 21 intensities and vanishes when any is zero is forced to be their product (Proposition), but symmetry alone does not force it: $\mathrm{tr}/21$ and $\det$ are both basis-invariant and equal 1 at $T = I$, yet give $|t|^2$ and $|t|^{42}$.
 - The cube stays fixed and the vortex responds: exact susceptibility on the inherited flywheel branch (Thm 9); registration composes by partial minimisation (Thm 10); a positive isotropic long-wave action gives $G_{\rm eff} = q^2/4\pi\kappa$ (Thm 11).

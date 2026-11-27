@@ -66,7 +66,40 @@ Known limitations (README.md, "Status and known limitations"):
   tide (proofs/net-field-rule/).
 - A galaxy is a vortex: visible matter is the surface flow (TetA), TetB is the drain beyond the
   Field Origin. Decoded mass reads TetB's pull against a_0: quiet, drive, brake.
+- Gravity as the response of field closure (candidate, Proof 26): a field object's closure depends on its
+  neighbours, so it cannot be blind to them; it must read them. On the fixed 64-address Triforce geometry the
+  read is a reversible three-sweep Walsh-Hadamard accounting whose invariant grades (1, 4, 16) carry the 21
+  of G's exponent. The geometry stays fixed; settlement changes the vortex, and the proposed gravitational
+  response is that change. See "Gravity as the response of field closure" below for status.
 - For a general reader: THE_MISSING_MASS.md, then CLOSURE_OF_CLOSURES.md. For the algebra: GFD_COLES_NOTES.md.
+
+## Gravity as the response of field closure (Proof 26, candidate)
+Every field object must keep a consistent state while its neighbours' fields reach into it. Where the right
+settlement depends on those neighbours, closure cannot be blind: it needs a sufficient read [T]. Proof 26
+(proofs/recursive-field-closure-response/) brings several lines of GFD research together around that read:
+  1. [E] Nuclear and atomic research (Papers XI, XIII; research/matter/) organises retained TetB inventory as
+     a recursive four-child Sierpinski packing walk over 64 addresses.
+  2. [T+L] Proof 23 establishes that address geometry: the recursive Triforce, 64 paired addresses, and
+     invariant detail ranks 1, 4, 16.
+  3. [T+L] Proofs 24 and 25 tie the collective eight-vortex flywheel to the same fixed tetrahedral frame
+     (common Gram G = 4I - J by every route).
+  4. [T] Proof 26 gives the accounting on it: a reversible three-sweep Walsh read; completed blocks drop out
+     of the contrasts but keep their inventory in the common record (so a closed child registers as a
+     pointer); the 21 invariant directions; exact vortex susceptibility with the geometry held fixed.
+  5. [D, premises stated] If the source reads all 21 directions together (a determinant) and each carries
+     |t|^2 = alpha, the response is (17/13) alpha^21, G's tree-level form.
+The proposed reading: gravity is not a separate operation the field performs, but the response of the vortex
+to keeping closure consistent. Status by layer:
+  - Nuclear packing as retained TetB inventory: [E] (Papers XI, XIII).
+  - Atomic structure as the vortex configuration that inventory produces: [D] conditional witness
+    (research/g_from_topology/updated-research/ATOMIC_INVENTORY_VORTEX_BRIDGE.md).
+  - Field closure as recursive accounting and settlement: [T] for the read and accounting (Proofs 23, 26).
+  - Gravity as the response to closure: candidate; the determinant read, |t|^2 = alpha and the source action
+    are premises.
+  - Distributed field processing as hierarchical registration of completed closures: [T+L] static
+    registration (mountain-scale proof), [T] partial-minimisation composition (Proof 26).
+What Proof 26 adds is not the value of G (already in Paper VI and research/g_from_topology/) but an explicit
+mathematical architecture for the mechanism that could produce it.
   For proofs: proofs/README.md.
 
 ## Priority pages (read these first)
