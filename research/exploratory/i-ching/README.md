@@ -18,7 +18,7 @@ The folder holds two layers of work, written at different times.
 
 1. **The result.** [`BOOK_OF_CHANGES_AND_PI.md`](BOOK_OF_CHANGES_AND_PI.md) is the current, tested account. It shows that the trigrams are the stellated octahedron, that π's base-16 formulas form exactly one family, and that silence on the TIME axis (father and mother) selects the BBP formula from that family. Every statement in it is checked by script. **Start here.**
 2. **The hexagrams and the closure read.** [`HEXAGRAMS_AND_THE_CLOSURE_READ.md`](HEXAGRAMS_AND_THE_CLOSURE_READ.md) connects the 64 hexagrams to the formal proofs. The map R(a, b) = (b, a ⊕ b) is multiplication by ω in F₄ on the corresponding lines (1 & 4, 2 & 5, 3 & 6). It leaves 21 directions in grades 1, 4, 16, the points of PG(2,4) that give G its exponent in [Proof 26](../../../proofs/recursive-field-closure-response/), with a Fano subplane of 7. The families, lines and line changes are the tetrahedra, core and core bonds of [Proofs 24](../../../proofs/flywheel-tetrad-geometry/) and [25](../../../proofs/tetrad-flywheel-convergence/). The rotation about TIME gives 23 instead, and the π walk does not perform the read. 26 checks.
-3. **Finite-field reciprocity.** Two notes take the hexagram algebra further, with four diagrams and 100 tests in [`scripts/finite_field_reciprocity/`](scripts/finite_field_reciprocity/).
+3. **Finite-field reciprocity.** Five notes take the hexagram algebra further, with nine diagrams and 241 tests in [`scripts/finite_field_reciprocity/`](scripts/finite_field_reciprocity/).
    - [`ICHING_FINITE_FIELD_RECIPROCITY.md`](ICHING_FINITE_FIELD_RECIPROCITY.md):
      - the trigrams as GF(8) in a self-dual normal basis, and a hexagram as a + ωb in GF(64);
      - the Walsh read as a Hermitian incidence transform on the 22 invariant coordinates;
@@ -28,6 +28,19 @@ The folder holds two layers of work, written at different times.
      - Frobenius and inversion on the 273-point plane, which gives 17 = 5 + 12 and 13 = 1 + 2·6 as a matching;
      - a canonical one-address-per-sector sampling of the 13 Baer sectors;
      - the Fano-plane decomposition of the eight trigrams, 28 = 7 + 7·3.
+   - [`SHARED_ZONE_HEXAGRAM_READ.md`](SHARED_ZONE_HEXAGRAM_READ.md):
+     - the "shared zone" of hexagrams whose trigrams are equal or opposite, and its threefold saturation under R: 40 hexagrams carrying 13 directions, against 8 outside;
+     - a nested 17 ⊃ 13 register built without a field extension, from a candidate boundary rule;
+     - the four shared Walsh channels.
+   - [`SHARED_ZONE_WALSH_ROTATION.md`](SHARED_ZONE_WALSH_ROTATION.md):
+     - the Walsh read restricted to the 22 invariant directions, and a second exact order-three operation built from two reflections;
+     - the 17-direction register characterised as the unique minimal even completion of the 13. It is not itself a closed Walsh space: its full Walsh closure has dimension 20.
+   - [`WALSH_SKEW_CHANNEL_ACTION.md`](WALSH_SKEW_CHANNEL_ACTION.md):
+     - the 28 skew channels as an exact Walsh eigenspace, with a bit-native basis;
+     - a symmetry average that gives every channel weight 1/28;
+     - an exact reciprocal channel.
+
+     It also records, as conditional, that 137 + 1/28 = 3837/28 would follow if a physical action combined those counts. That value differs from the measured 1/α by about 2 ppm, and nothing is fitted; it is not a derivation of α.
 4. **The original notes.** The files in [`notes/`](notes/), [`scripts/`](scripts/) and [`interactive/`](interactive/) are the exploratory work from March 2026 that led to the result. They are kept as they were written. Some of their claims were later sharpened or corrected by testing; the [status table](#status-of-the-original-claims) below says which.
 
 ```
@@ -37,6 +50,9 @@ i-ching/
 ├── HEXAGRAMS_AND_THE_CLOSURE_READ.md   the hexagrams and Proofs 23-26
 ├── ICHING_FINITE_FIELD_RECIPROCITY.md  GF(8)/GF(64) trigrams, Walsh incidence, reciprocal edges
 ├── FROBENIUS_RECIPROCAL_TOWER.md       Frobenius matching, Baer sampling, Fano decomposition
+├── SHARED_ZONE_HEXAGRAM_READ.md        the shared zone, its 13-direction saturation, a nested 17/13
+├── SHARED_ZONE_WALSH_ROTATION.md       Walsh rotation on the 22, the 17 as a minimal even completion
+├── WALSH_SKEW_CHANNEL_ACTION.md        the 28 skew channels, the 1/28 average, a reciprocal channel
 ├── figures/                      the figure for the write-up, and the script that draws it
 ├── notes/                        the original syntheses and the six-constraint derivation
 ├── scripts/                      the original verification scripts and analysis engines
