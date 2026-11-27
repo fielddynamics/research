@@ -32,7 +32,7 @@ Let the source and receiver supports lie in balls of radii $a,b$ with centres se
 
 $$|C_{xy}|\le \frac{\|q_x\|_1\|q_y\|_1}{4\pi(R-a-b)}.$$
 
-For outgoing waves with $\operatorname{Im}k\ge0$ the bound includes the extra factor $e^{-\operatorname{Im}k(R-a-b)}$. A point monopole yields the exact $1/R$ amplitude law; intensity of a freely propagating spherical wave scales as $1/R^2$. Directional beams and bounded media require their own Green functions, so this is not a universal range law for all possible systems. No scaling can be extrapolated from air to interplanetary vacuum without a physical field that actually propagates there.
+For outgoing waves with $\mathrm{Im}k\ge0$ the bound includes the extra factor $e^{-\mathrm{Im}k(R-a-b)}$. A point monopole yields the exact $1/R$ amplitude law; intensity of a freely propagating spherical wave scales as $1/R^2$. Directional beams and bounded media require their own Green functions, so this is not a universal range law for all possible systems. No scaling can be extrapolated from air to interplanetary vacuum without a physical field that actually propagates there.
 
 ![Range](figures/fig2_range_baseline.svg)
 

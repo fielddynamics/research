@@ -123,7 +123,7 @@ which tends to $\pi/(2k)$ and 1 as $\gamma \to 0$. Both the coupling rate and th
 
 Within the two-site model, a measured transfer probability $P$ by time $T$ requires
 
-$$\int_0^T|\kappa(t)|\,dt \ge \arcsin\sqrt P,\qquad \operatorname*{ess\,sup}_{[0,T]}|\kappa| \ge \frac{\arcsin\sqrt P}{T}.$$
+$$\int_0^T|\kappa(t)|\,dt \ge \arcsin\sqrt P,\qquad \mathrm{ess\,sup}_{[0,T]}|\kappa| \ge \frac{\arcsin\sqrt P}{T}.$$
 
 This is a lower bound on the coupling that a positive result implies. A null result constrains only specific calibrated models of drive, detuning, loss and observation time.
 

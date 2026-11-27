@@ -43,7 +43,7 @@ So **full registration is compatible with every value of coherence**, including 
 
 Let $\varphi = \arg m_1$ be the mean phase. Then
 
-$$\boxed{\;1 - \operatorname{Re}\!\left(e^{-iN\varphi}\,m_N\right) \;\le\; N^2\,(1 - C_1)\;}$$
+$$\boxed{\;1 - \mathrm{Re}\!\left(e^{-iN\varphi}\,m_N\right) \;\le\; N^2\,(1 - C_1)\;}$$
 
 and so $C_N \ge 1 - N^2(1-C_1)$. The constant $N^2$ is sharp.
 

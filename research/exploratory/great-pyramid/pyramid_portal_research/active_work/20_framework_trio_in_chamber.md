@@ -27,9 +27,9 @@ where $\sigma_2$ is the second elementary symmetric polynomial:
 
 $$\sigma_2(\hat k) \;=\; \hat k_1 \hat k_2 + \hat k_2 \hat k_3 + \hat k_3 \hat k_1$$
 
-**Proof.** $|R_\perp|_F^2 = \operatorname{tr}(PRPR^T)$ where $P = I - \hat k \hat k^T$. Expanding:
+**Proof.** $|R_\perp|_F^2 = \mathrm{tr}(PRPR^T)$ where $P = I - \hat k \hat k^T$. Expanding:
 
-$$\operatorname{tr}(PRPR^T) \;=\; \operatorname{tr}(RR^T) - 2 \operatorname{tr}(\hat k \hat k^T RR^T) + (\hat k^T R \hat k)^2 \;=\; 3 - 2 + \sigma_2^2 \;=\; 1 + \sigma_2^2$$
+$$\mathrm{tr}(PRPR^T) \;=\; \mathrm{tr}(RR^T) - 2 \mathrm{tr}(\hat k \hat k^T RR^T) + (\hat k^T R \hat k)^2 \;=\; 3 - 2 + \sigma_2^2 \;=\; 1 + \sigma_2^2$$
 
 so purity $= |R_\perp|_F^2/2 = (1 + \sigma_2^2)/2$. ∎
 

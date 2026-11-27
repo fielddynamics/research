@@ -94,7 +94,7 @@ Using GP-3's grading (orthogonal projectors $P_{\rm even}$ of rank 17 and $P_{\r
 
 $$A_B(u) = P_{\rm even} + \bigl[2(1-u)^2 - 1\bigr]P_{\rm odd}.$$
 
-Then $\operatorname{Tr}A_B(u) = 13 + 8\mu_B(u)$. Also $A_B(0) = I$ (trace 21), $A_B(u^*) = P_{\rm even}$ (trace 17) and $A_B(1) = J = P_{\rm even} - P_{\rm odd}$ (trace 13). At the balance level the four-dimensional signed sector is exactly suppressed: $A_B(u^*)P_{\rm odd} = 0$. This upgrades the labelling of Proposition 6 to an operator that singles out a sector. The algebra is exact. Whether any material or field dynamics realises this operator is **[E]**: it does not identify the half-flux plane with the native Field Origin, and it does not equate $\mu_B$ with the gravitational share $\mu_g$ (GP-2, Theorem 8).
+Then $\mathrm{Tr}A_B(u) = 13 + 8\mu_B(u)$. Also $A_B(0) = I$ (trace 21), $A_B(u^*) = P_{\rm even}$ (trace 17) and $A_B(1) = J = P_{\rm even} - P_{\rm odd}$ (trace 13). At the balance level the four-dimensional signed sector is exactly suppressed: $A_B(u^*)P_{\rm odd} = 0$. This upgrades the labelling of Proposition 6 to an operator that singles out a sector. The algebra is exact. Whether any material or field dynamics realises this operator is **[E]**: it does not identify the half-flux plane with the native Field Origin, and it does not equate $\mu_B$ with the gravitational share $\mu_g$ (GP-2, Theorem 8).
 
 ![Trace of the graded structural operator against height](figures/fig4_graded_trace.svg)
 

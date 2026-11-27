@@ -39,7 +39,7 @@ $$\boxed{\;\mu_B(u) = (1-u)^2\,(1 + b\,u),\qquad b = \frac{J_z(\text{apex})}{J_z
 
 So the whole effect of an affine background is **one number**: the fractional change of $J_z$ from the base centroid to the apex. The tilt, the horizontal gradients and the shear off the centroid line drop out.
 
-**(b) Frustum balance.** The net outward flux of the frustum is $\operatorname{tr}(M)\cdot\mathrm{Vol}$. So the split "base in = section out + lateral out" holds exactly when $\nabla\cdot\mathbf J = \operatorname{tr}M = 0$. The script checks both cases face by face, with exact rational vector areas.
+**(b) Frustum balance.** The net outward flux of the frustum is $\mathrm{tr}(M)\cdot\mathrm{Vol}$. So the split "base in = section out + lateral out" holds exactly when $\nabla\cdot\mathbf J = \mathrm{tr}M = 0$. The script checks both cases face by face, with exact rational vector areas.
 
 ## Theorem 3 (the balance level is unique for every real $b$)
 

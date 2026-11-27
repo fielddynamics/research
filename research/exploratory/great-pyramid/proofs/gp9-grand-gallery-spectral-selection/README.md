@@ -86,7 +86,7 @@ $$T=\frac1{1+\tfrac14(m-m^{-1})^2\sin^2(k\ell)}.$$
 
 In a uniform guide of area A with matched leads, suppose there are N ideal lossless point shunts B(V_j), V_j≥0, with arbitrary nonoverlapping positions. Then
 
-$$\boxed{\mathcal R\le \tanh^2\left(\sum_{j=1}^N\operatorname{arsinh}\frac{|k|V_j}{2A}\right)\le \left(\frac{|k|\sum_j V_j}{2A}\right)^2.}$$
+$$\boxed{\mathcal R\le \tanh^2\left(\sum_{j=1}^N\mathrm{arsinh}\frac{|k|V_j}{2A}\right)\le \left(\frac{|k|\sum_j V_j}{2A}\right)^2.}$$
 
 **Proof.** Use travelling-wave coordinates normalized to power, v=(p,ρcU) with p=(a_++a_-)/√A and ρcU=√A(a_+−a_-). In this basis each segment is a diagonal unitary phase matrix. A shunt becomes a determinant-one matrix preserving diag(1,−1) of the form [[α,β],[β̄,ᾱ]] with |α|²−|β|²=1, |β|=|k|V_j/(2A). The singular values are |α|±|β|=exp(±η_j), with η_j=arsinh|β| (obtain them by diagonalizing M†M or from trace and determinant). The product is again of that form. Its largest singular value exp(η) is bounded by the product of the individual spectral norms, so η≤Ση_j. With no returning incident wave at the receiving lead, |r|=|β|/|α|=tanh η. The first bound follows by monotonicity, and the second from tanh t≤t and arsinh t≤t for t≥0. Equality in the first bound holds for a single shunt; for multiple shunts, arbitrary spacings need not saturate it. □
 

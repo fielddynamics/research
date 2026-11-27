@@ -158,7 +158,7 @@ y=c_0+c_1x_1+c_2x_2+c_3x_1x_2+c_4x_3+c_5x_1x_3+c_6x_2x_3+c_7x_1x_2x_3.
 Boolean readout is:
 
 \[
-\operatorname{sign}(y).
+\mathrm{sign}(y).
 \]
 
 So externally:

@@ -37,7 +37,7 @@ The Cl(3,0) Ω-action on R³ is the cyclic permutation matrix $R = (\text{perm}(
 1. The transverse plane $\hat k^\perp \subset \mathbb R^3$ has dimension 2
 2. Ω may or may not preserve this plane; the restriction $R_\perp = \Pi_\perp \, R \, \Pi_\perp$ is a 2×2 matrix where $\Pi_\perp$ projects out the longitudinal direction
 3. Eigenvalues of $R_\perp$ give the Z_3 character of the two transverse polarizations
-4. Transverse purity := $\operatorname{tr}(R_\perp R_\perp^T)/2 \in [0, 1]$ measures how Ω-invariant the transverse plane is
+4. Transverse purity := $\mathrm{tr}(R_\perp R_\perp^T)/2 \in [0, 1]$ measures how Ω-invariant the transverse plane is
 
 **Result:** For every one of the 21 lowest modes, the transverse Ω-rotation angle is within ±10° of the ideal 120°, and mean purity is 0.831. The 2 transverse polarizations of every mode approximately form an (ω, ω̄) circular-polarization eigenstate pair under Ω.
 

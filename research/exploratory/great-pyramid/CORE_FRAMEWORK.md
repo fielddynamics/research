@@ -72,7 +72,7 @@ Together, GP-1 and GP-2 make the balance plane a **theorem of geometry with a co
 **GP-4 · Registration and coherence** ([proof](proofs/gp4-registration-and-coherence/)).
 
 - **Registration does not imply coherence.** Registration $C_N = 1$ means support on one $N$-gon coset, and it allows any coherence $C_1$.
-- **Coherence forces registration.** $1 - \operatorname{Re}(e^{-iN\varphi}m_N) \le N^2(1-C_1)$, and the constant $N^2$ is sharp.
+- **Coherence forces registration.** $1 - \mathrm{Re}(e^{-iN\varphi}m_N) \le N^2(1-C_1)$, and the constant $N^2$ is sharp.
 - **Stage-wise registration is coherence.** Registration at coprime orders (3 and 7) forces full coherence. So $\mathbb Z_3\times\mathbb Z_7\cong\mathbb Z_{21}$ does **not** factor the registration condition.
 - **Exact selection needs all 21 characters.** Only the full character sum selects exactly. Every proper filter has sidelobes of at least $\sqrt{(N/|S|-1)/(N-1)}$, and the 14-character filter's are exactly ½.
 

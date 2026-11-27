@@ -22,7 +22,7 @@ Ordinary GR is the symmetric, local, torsion-free, parity-even projection:
 
 $$
 \boxed{\;
-G_{\mu\nu} = \operatorname{Tr}_{AB} \Pi_{\rm GR} \left[ \mathbb{G}_{\mu\nu}^{AB} \right]
+G_{\mu\nu} = \mathrm{Tr}_{AB} \Pi_{\rm GR} \left[ \mathbb{G}_{\mu\nu}^{AB} \right]
 \;}
 $$
 

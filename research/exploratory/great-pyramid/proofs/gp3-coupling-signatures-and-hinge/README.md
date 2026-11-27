@@ -108,13 +108,13 @@ The hinge is visible here as geometry. TetB's 13 at $K = 4$ is the projective pl
 
 On $T_K = \mathbf 1 \oplus V \oplus (V\otimes V)$ with $\dim V = K$:
 
-- $\operatorname{Tr}(P_{\rm even} + sP_{\rm odd}) = f(K,s)$;
-- an involution $J$ with $\operatorname{Tr}I = 21$ and $\operatorname{Tr}J = 13$ has multiplicities $(17,4)$, and these are forced;
+- $\mathrm{Tr}(P_{\rm even} + sP_{\rm odd}) = f(K,s)$;
+- an involution $J$ with $\mathrm{Tr}I = 21$ and $\mathrm{Tr}J = 13$ has multiplicities $(17,4)$, and these are forced;
 - $\det\alpha^{\mathbb I_s} = \alpha^{17+4s}$.
 
 These identities are in README §3, and in Proof 26 Theorem 7 as grade traces. The script re-checks them with explicit projectors for $K = 2,\ldots,5$.
 
-**Theorem 6b (unitary rigidity).** Let $J$ be a self-adjoint involution on a 21-dimensional complex (or real) Hilbert space with $\operatorname{Tr}J = 13$. Then $J$ is unitarily (orthogonally) equivalent to $I_{17} \oplus (-I_4)$, by the spectral theorem and the multiplicities above. With $P_{\rm FO} = (I+J)/2$ and $P_{\rm odd} = (I-J)/2$, the operators $A_s = P_{\rm FO} + sP_{\rm odd}$ satisfy $A_{+1} = I$, $A_0 = P_{\rm FO}$ and $A_{-1} = J$, with traces 21, 17 and 13. So the "Field Origin" is the parity-even **projection** (rank 17). TetB's 13 is a signed trace, not the dimension of a 13-dimensional space. Unitary equivalence classifies the abstract operator; it does not pick a canonical basis relative to a specific Walsh read, and it does not show that any physical transfer is $\alpha^{A_s}$.
+**Theorem 6b (unitary rigidity).** Let $J$ be a self-adjoint involution on a 21-dimensional complex (or real) Hilbert space with $\mathrm{Tr}J = 13$. Then $J$ is unitarily (orthogonally) equivalent to $I_{17} \oplus (-I_4)$, by the spectral theorem and the multiplicities above. With $P_{\rm FO} = (I+J)/2$ and $P_{\rm odd} = (I-J)/2$, the operators $A_s = P_{\rm FO} + sP_{\rm odd}$ satisfy $A_{+1} = I$, $A_0 = P_{\rm FO}$ and $A_{-1} = J$, with traces 21, 17 and 13. So the "Field Origin" is the parity-even **projection** (rank 17). TetB's 13 is a signed trace, not the dimension of a 13-dimensional space. Unitary equivalence classifies the abstract operator; it does not pick a canonical basis relative to a specific Walsh read, and it does not show that any physical transfer is $\alpha^{A_s}$.
 
 ## Theorem 7 (every exact interlevel intertwiner lives on the hinge block)
 
@@ -126,7 +126,7 @@ By Theorem 2, the only equality between the two spectra is $f(K, +1) = f(K+1, -1
 
 $$\boxed{T = P_{K+1,-}\,T\,P_{K,+},}$$
 
-and, conversely, every map supported on that block intertwines. The space of intertwiners is exactly $\operatorname{Hom}(E_{K,+}, E_{K+1,-})$. Its dimension is $\dim E_{K,+} \times \dim E_{K+1,-}$, which the script checks on 12 random multiplicity patterns. Two non-adjacent shells ($K \to K+2$) admit only $T = 0$.
+and, conversely, every map supported on that block intertwines. The space of intertwiners is exactly $\mathrm{Hom}(E_{K,+}, E_{K+1,-})$. Its dimension is $\dim E_{K,+} \times \dim E_{K+1,-}$, which the script checks on 12 random multiplicity patterns. Two non-adjacent shells ($K \to K+2$) admit only $T = 0$.
 
 Two cautions. First, $T = 0$ is always an intertwiner: matching bands do not imply a nonzero transition. Second, when the eigenspaces are larger than one-dimensional, choosing a particular $T$ needs a symmetry or dynamical selection rule. This is the complete solution space, not one chosen rank-one map. Reading shell labels as energies is still a premise.
 

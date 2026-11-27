@@ -122,7 +122,7 @@ $$P_{\rm even}=P_0+P_2,\qquad P_{\rm odd}=P_1,\qquad J=P_{\rm even}-P_{\rm odd}.
 
 The three signatures are three reads of the same representation:
 
-$$\boxed{\mathbb I_s=P_{\rm even}+sP_{\rm odd},\qquad \operatorname{Tr}(\mathbb I_s)=17+4s\quad(K=4).}$$
+$$\boxed{\mathbb I_s=P_{\rm even}+sP_{\rm odd},\qquad \mathrm{Tr}(\mathbb I_s)=17+4s\quad(K=4).}$$
 
 | Signature | Operator | Invariant contribution | Signed contribution | Trace |
 |---|---|---:|---:|---:|
@@ -138,11 +138,11 @@ $$\boxed{P_{\rm FO}=\frac{I+J}{2},\qquad P_{\rm odd}=\frac{I-J}{2}.}$$
 
 The invariant part has rank 17 and the signed sector has rank four. TetA retains the latter with positive sign, TetB reverses its sign, and the Field Origin projects it out. TetB's value 13 is a **signed trace**, not the rank of a 13-dimensional chamber: $J$ has full rank 21. The parity-even projection is an algebraic result; physical realization by the chamber is a hypothesis, not implied by the trace identity.
 
-The operator construction can also be expressed without choosing a basis. Since $J^2=I$, its spectrum is $\{+1,-1\}$. If $\operatorname{Tr}I=21$ and $\operatorname{Tr}J=13$, the multiplicities are uniquely determined:
+The operator construction can also be expressed without choosing a basis. Since $J^2=I$, its spectrum is $\{+1,-1\}$. If $\mathrm{Tr}I=21$ and $\mathrm{Tr}J=13$, the multiplicities are uniquely determined:
 
 $$m_++m_-=21,\qquad m_+-m_-=13\quad\Longrightarrow\quad(m_+,m_-)=(17,4).$$
 
-For any $\alpha>0$, $\det(\alpha^{\mathbb I_s})=\exp(\log\alpha\,\operatorname{Tr}\mathbb I_s)=\alpha^{17+4s}$. Thus the three characters also determine the formal determinant factors $\alpha^{21},\alpha^{17},\alpha^{13}$. This is an operator identity, not a derivation of the physical choice of microscopic gain or of the observable that measures that determinant.
+For any $\alpha>0$, $\det(\alpha^{\mathbb I_s})=\exp(\log\alpha\,\mathrm{Tr}\mathbb I_s)=\alpha^{17+4s}$. Thus the three characters also determine the formal determinant factors $\alpha^{21},\alpha^{17},\alpha^{13}$. This is an operator identity, not a derivation of the physical choice of microscopic gain or of the observable that measures that determinant.
 
 For the pyramid, this places the King's Chamber, at the proposed half-flux plane, at the **neutral signature 17**. The reported 0.82-inch geometrical residual tests the plane's location; it does not independently measure the coupling signature or establish a physical parity filter.
 

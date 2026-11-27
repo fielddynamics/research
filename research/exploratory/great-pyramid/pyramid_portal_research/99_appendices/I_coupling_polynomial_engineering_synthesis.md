@@ -721,7 +721,7 @@ f(K,s)=K^2+sK+1.
 Let \(R_\theta\) be a 2D rotation matrix. Since
 
 \[
-\operatorname{tr}(R_\theta)=2\cos\theta=s,
+\mathrm{tr}(R_\theta)=2\cos\theta=s,
 \]
 
 and
