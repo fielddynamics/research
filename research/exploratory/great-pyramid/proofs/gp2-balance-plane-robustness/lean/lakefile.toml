@@ -1,0 +1,11 @@
+name = "gp2_balance_robustness"
+defaultTargets = ["BalanceRobustness"]
+
+# Exploratory Great Pyramid proof; same Lean and Mathlib versions as the root proofs/ chain.
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4"
+rev = "v4.36.0"
+
+[[lean_lib]]
+name = "BalanceRobustness"
