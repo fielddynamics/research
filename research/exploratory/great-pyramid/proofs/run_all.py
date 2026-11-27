@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Run the five Great Pyramid core-framework verifiers and summarise.
+"""Run the eight Great Pyramid core-framework verifiers and summarise.
 
     python run_all.py            # from this folder
 
@@ -19,6 +19,9 @@ PROOFS = [
     ("GP-3", "gp3-coupling-signatures-and-hinge", "verify_gp3_signatures_hinge.py"),
     ("GP-4", "gp4-registration-and-coherence", "verify_gp4_registration_coherence.py"),
     ("GP-5", "gp5-two-site-transfer-bound", "verify_gp5_transfer_bound.py"),
+    ("GP-6", "gp6-structural-boundary-response", "verify_gp6_boundary_response.py"),
+    ("GP-7", "gp7-chamber-spectral-selection", "verify_gp7_chamber_spectrum.py"),
+    ("GP-8", "gp8-reciprocal-resonator-matching", "verify_gp8_reciprocal_matching.py"),
 ]
 
 total_pass = total = 0

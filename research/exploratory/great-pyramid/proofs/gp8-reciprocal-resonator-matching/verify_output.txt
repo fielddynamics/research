@@ -1,0 +1,9 @@
+[PASS] radial Helmholtz equation off origin
+[PASS] Green source normalization
+[PASS] 200 reciprocal discrete aperture bounds
+[PASS] opposite parity cancels despite identical support shape
+[PASS] 200 positive resolvent overlap bounds
+[PASS] 100 exact GP-5 peak transfer comparisons
+
+==============================================================================
+GP-8: 6/6 checks passed

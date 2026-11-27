@@ -2,18 +2,18 @@
 
 *What is proved, what is inherited, what is observed and what is hypothesis, in one dependency structure · Gravity Field Dynamics (GFD) · Exploratory research programme · 27 November 2026*
 
-[![Core proofs](https://img.shields.io/badge/core_proofs-5-2563eb.svg)](proofs/README.md) [![Scripted checks](https://img.shields.io/badge/scripted_checks-233_passing-2563eb.svg)](proofs/README.md) [![Lean 4](https://img.shields.io/badge/Lean_4-65_theorems-7c3aed.svg)](proofs/README.md) [![Verified metrics](https://img.shields.io/badge/metrics-112_verified-0d9488.svg)](metrics/README.md) [![Research status](https://img.shields.io/badge/status-exploratory-64748b.svg)](#layer-3--hypotheses-e-restated-against-layer-1)
+[![Core proofs](https://img.shields.io/badge/core_proofs-8-2563eb.svg)](proofs/README.md) [![Scripted checks](https://img.shields.io/badge/scripted_checks-257_passing-2563eb.svg)](proofs/README.md) [![Lean 4](https://img.shields.io/badge/Lean_4-65_theorems-7c3aed.svg)](proofs/README.md) [![Verified metrics](https://img.shields.io/badge/metrics-112_verified-0d9488.svg)](metrics/README.md) [![Research status](https://img.shields.io/badge/status-exploratory-64748b.svg)](#layer-3--hypotheses-e-restated-against-layer-1)
 
 ---
 
 ## Purpose
 
-The Great Pyramid folder holds a large exploratory programme: about 120 notes, 1,210 passing regression tests and a Stargate hypothesis. This document picks out the part of it that is solid and arranges it as a framework with explicit layers. Each statement sits in one of four layers, and each layer may use only the layers below it. Five new proofs ([`proofs/`](proofs/), 233 checks, 65 Lean theorems) supply the load-bearing theorems that were previously missing, stated only in a special case, or stated without their converse.
+The Great Pyramid folder holds a large exploratory programme: about 120 notes, 1,210 passing regression tests and a Stargate hypothesis. This document picks out the part of it that is solid and arranges it as a framework with explicit layers. Each statement sits in one of four layers, and each layer may use only the layers below it. Eight core proofs ([`proofs/`](proofs/), 257 checks, 65 Lean theorems) supply the load-bearing theorems that were previously missing, stated only in a special case, or stated without their converse.
 
 | Layer | Content | Tag |
 |---|---|---|
 | **0. Inherited** | Results proved elsewhere in the repository and used here unchanged | [T], [T+L], [D] as tagged at source |
-| **1. Core theorems** | GP-1 to GP-5: geometry, flux, integers, phases, transfer | [T] |
+| **1. Core theorems** | GP-1 to GP-8: geometry, flux, integers, phases, transfer, boundary response, chamber spectrum, reciprocal coupling | [T] |
 | **2. Observations** | Survey-based comparisons with the monument | [O] |
 | **3. Hypotheses** | Sector readings, resonator, address, portal | [E] |
 
@@ -85,6 +85,24 @@ Together, GP-1 and GP-2 make the balance plane a **theorem of geometry with a co
 - **Preregistration rule.** The detuning tolerance is $|\Delta| \le 2|\kappa|\sqrt{(1-\eta)/\eta}$.
 - **The selector cannot add a channel.** The Gram mismatch $d_G$ is a pseudometric, and the mirror selector $M_{xy}\in[0,1]$ can only reduce the usable coupling.
 
+### Response, spectrum and coupling: testing the geometry against physics
+
+**GP-6 · Structural boundary response** ([proof](proofs/gp6-structural-boundary-response/)).
+
+- Varying the action gives the sourced balance $F_z + L_z = F_0 + M(z)$. Equal outgoing flux, $2F_z = F_0 + M$, is a different condition from the source-free half-section; at Giza the two root definitions differ by only −0.013 in.
+- The linear response $K = \mu I + x\mu' ee^T$ is positive, and the boundary map is reciprocal and positive definite. So a static response has no automatic 4-dimensional kernel, which rules out equating it with the rank-17 projection.
+- A geometric cut leaves the solution unchanged. A physical response needs a material interface, a source or an independently derived driven field.
+
+**GP-7 · Chamber spectral selection** ([proof](proofs/gp7-chamber-spectral-selection/)).
+
+- The surveyed King's Chamber, as a rigid box, has 89 modes below 120 Hz. Floor-ratio degeneracies survive the survey; the height-ratio pair splits by 63.3 mHz.
+- Reflection parity is a genuine selection rule. The box has no 3-, 7- or 21-fold symmetry, so its geometry cannot by itself force GP-4's cyclic phase action.
+
+**GP-8 · Reciprocal resonator matching** ([proof](proofs/gp8-reciprocal-resonator-matching/)).
+
+- Through a named field the coupling kernel is reciprocal and falls off at least as $1/(R - a - b)$. Opposite parity forbids the channel exactly, the mediator overlap obeys Cauchy–Schwarz, and the response arrives no sooner than the propagation delay.
+- Spectral matching is necessary for large exchange but never sufficient: the channel must come from a propagating field.
+
 ### Dependency structure
 
 ```
@@ -146,7 +164,7 @@ These follow from Layer 1 and the repository's own naming rules. The notes thems
 
 ## The three missing bridges
 
-The five proofs are infrastructure. What turns them into a physical hypothesis is three maps, none yet derived. They are the programme's central open problems.
+The core proofs are infrastructure. What turns them into a physical hypothesis is three maps, none yet derived. They are the programme's central open problems.
 
 - **Bridge A: geometry → registration.** $\mathcal A(u) = P_{17} + [2\mu_B(u) - 1]P_4$ (GP-1 P6b) is the neutral projection at the half-section plane by definition. A native transduction theorem must show that a physical coupling has this spatial dependence. It should start from the action on a bounded domain and derive the boundary functional. It must prove, not assume, that its parity-odd matrix elements vanish at structural balance. And it must keep the geometric plane, the constitutive ring $x = 1$ and the native Field Origin distinct.
 - **Bridge B: registration → phase dynamics.** $\mathcal V(\Psi) = V_{\rm radial}(|\Psi|) - 2h|\Psi|^{21}\cos 21\theta$ (GP-4 P6b). Dimension 21 does not imply a $\mathbb Z_{21}$ phase symmetry, so the actual symmetry group and its action on the order parameter must be derived. If the group acts by $e^{2\pi i/21}$, harmonic 21 is the first allowed one, but its coefficient could still vanish: the dynamics must produce it. It must also be settled whether the 3- and 7-fold stages implement registration, separate locking (which forces coherence, GP-4 T4b) or complementary selection (GP-4 T5b).
@@ -167,10 +185,10 @@ The five proofs are infrastructure. What turns them into a physical hypothesis i
 
 ```bash
 cd research/exploratory/great-pyramid/proofs
-python run_all.py                      # 233 checks, ~1 min (sympy, mpmath, numpy, scipy)
+python run_all.py                      # 257 checks, ~1 min (sympy, mpmath, numpy, scipy)
 
 cd ../pyramid_portal_research
 python -m pytest python/tests -q       # 1210 regression tests of the existing programme
 ```
 
-*Scope: the five proofs are mathematics with stated premises. The observations are comparisons with a 19th-century survey. The hypotheses are hypotheses. The framework's purpose is to keep the three apart.*
+*Scope: the core proofs are mathematics with stated premises. The observations are comparisons with a 19th-century survey. The hypotheses are hypotheses. The framework's purpose is to keep the three apart.*

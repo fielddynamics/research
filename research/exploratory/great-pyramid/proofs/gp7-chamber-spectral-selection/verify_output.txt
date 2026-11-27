@@ -1,0 +1,13 @@
+[PASS] three integer degeneracies
+[PASS] entire equal-height floor pair family (integer polynomial)
+[PASS] modular necessities across enumerated degeneracies
+[PASS] reflection characters separate stated pairs
+[PASS] nominal floor degeneracies
+[PASS] height-sensitive split
+split 0.06327189079931372 Hz; beat period 15.80480664268131 s
+[PASS] complete illustrative 120 Hz band
+[PASS] 89 frequency sensitivity checks
+[PASS] 890 bounded dimension samples
+
+==============================================================================
+GP-7: 9/9 checks passed

@@ -1,0 +1,13 @@
+[PASS] mass fraction
+[PASS] mass at half section
+[PASS] longitudinal Hessian
+[PASS] response ratio
+[PASS] sourced frustum identity
+[PASS] outgoing equality residual
+[PASS] source shift sign and first-order error
+m = 9.632793028605208e-06 root-definition shift (inches) = -0.012716564612715864 first order = -0.012716484963729926
+[PASS] 200 sourced interval witnesses
+[PASS] 100 linear harmonic reciprocal energy witnesses
+
+==============================================================================
+GP-6: 9/9 checks passed

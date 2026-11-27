@@ -4,7 +4,7 @@
 
 *Gravity Field Dynamics (GFD) · Exploratory research programme*
 
-[![Licence: MIT](https://img.shields.io/badge/licence-MIT-blue.svg)](../../../LICENSE) [![Core proofs](https://img.shields.io/badge/core_proofs-5-2563eb.svg)](proofs/README.md) [![Scripted checks](https://img.shields.io/badge/scripted_checks-233_passing-2563eb.svg)](proofs/README.md) [![Lean 4](https://img.shields.io/badge/Lean_4-65_theorems-7c3aed.svg)](proofs/README.md) [![Verified metrics](https://img.shields.io/badge/metrics-112_verified-0d9488.svg)](metrics/README.md) [![Research status](https://img.shields.io/badge/status-exploratory-64748b.svg)](CORE_FRAMEWORK.md)
+[![Licence: MIT](https://img.shields.io/badge/licence-MIT-blue.svg)](../../../LICENSE) [![Core proofs](https://img.shields.io/badge/core_proofs-8-2563eb.svg)](proofs/README.md) [![Scripted checks](https://img.shields.io/badge/scripted_checks-257_passing-2563eb.svg)](proofs/README.md) [![Lean 4](https://img.shields.io/badge/Lean_4-65_theorems-7c3aed.svg)](proofs/README.md) [![Verified metrics](https://img.shields.io/badge/metrics-112_verified-0d9488.svg)](metrics/README.md) [![Research status](https://img.shields.io/badge/status-exploratory-64748b.svg)](CORE_FRAMEWORK.md)
 
 ![Two pyramids on distant worlds joined by a luminous hexagram representing the proposed dual-tetrad interface](diagrams/stargate-worlds.jpg)
 
@@ -19,7 +19,7 @@ The starting point is a geometrical result. The GFD bounded-closure model locate
 
 The Stargate hypothesis builds on this result. If the Field Origin is the interface between the observable TetA sector and its dual TetB sector, and if a physical resonator can coherently drive that interface, then two mirror-matched structures might act as transmitter and receiver. In this picture, distance in ordinary space and matching in the proposed closure address space are distinct variables. The latter is not yet a demonstrated physical channel.
 
-> **Core framework and proofs.** [`CORE_FRAMEWORK.md`](CORE_FRAMEWORK.md) sorts this programme into four layers: inherited GFD theorems, five new core proofs, survey observations and hypotheses. The proofs are in [`proofs/`](proofs/) (GP-1 to GP-5, 233 scripted checks and 65 Lean theorems). They prove the balance plane for any cone, with an error budget. They show that the plane's structural share is *not* the constitutive TetA/TetB split at Giza (the net-field rule gives μ = 1 there), that 13/17/21 are forced and the 4→5 hinge is the only link between levels, that registration and coherence are distinct, and that any remote transfer is bounded by the integrated coupling. Read the framework before citing the sections below.
+> **Core framework and proofs.** [`CORE_FRAMEWORK.md`](CORE_FRAMEWORK.md) sorts this programme into four layers: inherited GFD theorems, eight core proofs, survey observations and hypotheses. The proofs are in [`proofs/`](proofs/) (GP-1 to GP-8, 257 scripted checks and 65 Lean theorems). They prove the balance plane for any cone, with an error budget. They show that the plane's structural share is *not* the constitutive TetA/TetB split at Giza (the net-field rule gives μ = 1 there), that 13/17/21 are forced and the 4→5 hinge is the only link between levels, that registration and coherence are distinct, and that any remote transfer is bounded by the integrated coupling. GP-6 to GP-8 then test the geometry against a sourced material response, the chamber's real acoustic spectrum and a named reciprocal field. Read the framework before citing the sections below.
 
 The programme has three linked questions: **where is the interface, how does it operate, and can it be addressed?** The geometry answers the first within the bounded-closure model; the graded algebra gives a candidate architecture for the second; the portal hypothesis turns the third into a testable research objective.
 
@@ -454,7 +454,7 @@ If the operator can be established, it advances the theory independently of the 
 |---|---|
 | [Core framework](CORE_FRAMEWORK.md) | Layered structure: inherited theorems, core proofs, observations, hypotheses; corrections to the notes |
 | [Verified metrics](metrics/) | 112 measurements (Petrie 1883 + modern surveys), each checked verbatim against its source; 36 cross-checks |
-| [Core proofs GP-1 to GP-5](proofs/) | Half-section theorem, robustness and constitutive status, signatures and hinge, registration and coherence, transfer bound (233 checks, 65 Lean theorems, figures) |
+| [Core proofs GP-1 to GP-8](proofs/) | Half-section theorem, robustness and constitutive status, signatures and hinge, registration and coherence, transfer bound, structural boundary response, chamber spectral selection, reciprocal resonator matching (257 checks, 65 Lean theorems, figures) |
 | [Research compendium](pyramid_portal_research/) | Full theoretical programme, engineering studies and references |
 | [Executive summary](pyramid_portal_research/00_executive_summary.md) | Original unified portal model |
 | [Programme definition](pyramid_portal_research/PROGRAMME.md) | Scope, methods, evidence and tests |

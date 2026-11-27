@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate the figures embedded in the GP-1 ... GP-5 READMEs.
+"""Generate the figures embedded in the GP-1 ... GP-8 READMEs.
 
     python make_figures.py          # writes gp*/figures/*.svg
 
@@ -340,6 +340,137 @@ def gp5():
     save(fig, P, "fig4_induced_coupling")
 
 
+# ---------------------------------------------------------------------------
+# GP-6, GP-7, GP-8
+# ---------------------------------------------------------------------------
+from itertools import product  # noqa: E402
+from matplotlib.patches import Polygon, Rectangle, FancyArrowPatch  # noqa: E402
+
+STONE = "#2c3f4f"   # stone fill on the navy surface
+
+
+def gp6():
+    P = "gp6-structural-boundary-response"
+    u0 = U3
+    fig, ax = plt.subplots(figsize=(8.6, 4.6)); ax.set_aspect("equal"); ax.axis("off")
+    ax.set_xlim(-1.2, 2.45); ax.set_ylim(-0.22, 1.12)
+    ax.add_patch(Polygon([(-1, 0), (1, 0), (0, 1)], closed=True, fc=STONE, ec=S2, lw=1.8))
+    a = 1 - u0
+    ax.add_patch(Polygon([(-1, 0), (1, 0), (a, u0), (-a, u0)], closed=True, fc=S1, alpha=0.18, lw=0))
+    ax.plot([-a, a], [u0, u0], color=S3, lw=2.5)
+    ax.text(0, 0.62, "upper volume\n35.36%", ha="center", va="center", fontsize=10)
+    ax.text(0, 0.10, "lower volume 64.64%", ha="center", fontsize=10)
+    ax.annotate("half-section plane\nA/A₀ = 1/2", xy=(a, u0), xytext=(1.12, 0.50),
+                arrowprops=dict(arrowstyle="-", color=S3, lw=0.9), color=S3, fontsize=10)
+    for x in (-0.65, -0.3, 0.3, 0.65):
+        ax.annotate("", xy=(x, 0.02), xytext=(x, -0.17), arrowprops=dict(arrowstyle="->", color=S1, lw=1.6))
+    ax.text(1.12, 0.10, "equal outgoing flux:\n2 F_z = F_0 + M(z)", fontsize=10, color=INK)
+    ax.set_title("Sourced boundary accounting", loc="left")
+    save(fig, P, "fig1_sourced_closure")
+
+    fig, ax = plt.subplots(figsize=(7.2, 3.8))
+    x = np.logspace(-3, 4, 500)
+    ax.semilogx(x, x / (1 + x), color=S1, lw=2, label="transverse  μ")
+    ax.semilogx(x, 1 - 1 / (1 + x) ** 2, color=S3, lw=2, label="longitudinal  μ + xμ′")
+    ax.axvline(1, ls=":", color=INK2, lw=0.8)
+    ax.set_xlabel("background field ratio x = |∇Φ|/a₀"); ax.set_ylabel("response eigenvalue"); ax.set_ylim(0, 1.05)
+    ax.legend(loc="lower right"); ax.set_title("Constitutive response (where the interpolating law applies)", loc="left")
+    save(fig, P, "fig2_response_tensor")
+
+    fig, ax = plt.subplots(figsize=(8.0, 3.4)); ax.axis("off"); ax.set_xlim(0, 10); ax.set_ylim(0, 3)
+    yy = 0.5 + 2.1 * u0
+    for i, (name, col) in enumerate([("virtual boundary", INK2), ("solid body", S2), ("chambered body", S3)]):
+        c = 1.7 + 3.3 * i
+        ax.add_patch(Polygon([(c - 1.15, 0.5), (c + 1.15, 0.5), (c, 2.6)], closed=True,
+                             fc="none" if i == 0 else STONE, ec=col, ls="--" if i == 0 else "-", lw=1.8))
+        ax.plot([c - 1.15 * (1 - u0), c + 1.15 * (1 - u0)], [yy, yy], color=S3, lw=2)
+        ax.text(c, 0.12, name, ha="center", fontweight="bold", fontsize=10)
+        if i == 2:
+            ax.add_patch(Rectangle((c - 0.25, yy), 0.5, 0.19, fc=BG0, ec=S3, lw=1.2))
+    ax.set_title("A geometric cut is not a material interface", loc="left")
+    save(fig, P, "fig3_virtual_solid_chambered")
+
+
+def gp7():
+    P = "gp7-chamber-spectral-selection"
+    L, W, Hh = np.array([412.24, 206.12, 230.09]) * 0.0254
+    cs = 343.0
+    ideal = np.array([L, L / 2, L * np.sqrt(5) / 4]); actual = np.array([L, W, Hh])
+    freq = lambda n, d: cs / 2 * np.linalg.norm(np.array(n) / d)
+    fig, ax = plt.subplots(figsize=(8.0, 4.0))
+    modes = [n for n in product(range(9), repeat=3) if any(n) and freq(n, actual) <= 120]
+    cols = [S1, S3, S2]
+    for n in modes:
+        k = sum(v > 0 for v in n)
+        ax.vlines(freq(n, actual), k - 0.29, k + 0.29, color=cols[k - 1], lw=1.4)
+    counts = [sum(sum(v > 0 for v in n) == k for n in modes) for k in (1, 2, 3)]
+    ax.set_yticks([1, 2, 3]); ax.set_yticklabels([f"axial ({counts[0]})", f"tangential ({counts[1]})", f"oblique ({counts[2]})"])
+    ax.set_xlabel("ideal rigid-wall acoustic frequency (Hz)"); ax.set_xlim(0, 122); ax.set_ylim(0.45, 3.55)
+    ax.grid(axis="y", visible=False)
+    ax.set_title(f"The complete King's Chamber mode spectrum to 120 Hz: {len(modes)} modes (c = 343 m/s)", loc="left")
+    save(fig, P, "fig1_complete_mode_spectrum")
+
+    pairs = [((2, 2, 1), (4, 1, 1)), ((2, 2, 2), (4, 1, 2)), ((3, 1, 3), (5, 1, 2))]
+    fig, ax = plt.subplots(figsize=(8.0, 3.6))
+    for i, (a, b) in enumerate(pairs):
+        fi = freq(a, ideal)
+        sh = (np.array([freq(a, actual), freq(b, actual)]) - fi) * 1000
+        ax.plot(sh, [i, i], color=MUTED, lw=2)
+        ax.scatter(sh, [i, i], color=[S1, S3], s=60, zorder=3)
+        ax.text(max(sh) + 4, i, f"split {abs(sh[0] - sh[1]):.1f} mHz", va="center", fontsize=9)
+    ax.axvline(0, ls=":", color=INK2, lw=0.8)
+    ax.set_yticks(range(3)); ax.set_yticklabels([f"{a} / {b}" for a, b in pairs]); ax.invert_yaxis()
+    ax.set_xlabel("shift from the ideal 20 : 10 : 5√5 pair frequency (mHz)"); ax.set_xlim(-5, 195)
+    ax.grid(axis="y", visible=False)
+    ax.set_title("Which ideal degeneracies survive the surveyed geometry?", loc="left")
+    save(fig, P, "fig2_degeneracy_splitting")
+
+    fig, axes = plt.subplots(1, 3, figsize=(9.0, 3.0))
+    X, Y = np.meshgrid(np.linspace(0, 1, 150), np.linspace(0, 1, 90))
+    for ax, n in zip(axes, [(1, 0), (2, 1), (3, 2)]):
+        Z = np.cos(n[0] * np.pi * X) * np.cos(n[1] * np.pi * Y)
+        ax.imshow(Z, extent=(0, 2, 0, 1), origin="lower", cmap="RdBu_r", vmin=-1, vmax=1)
+        ax.set_title(f"mode ({n[0]}, {n[1]}, 0)", fontsize=10); ax.set_xticks([]); ax.set_yticks([]); ax.grid(False)
+        ax.set_xlabel(f"x parity {'even' if n[0] % 2 == 0 else 'odd'} · y parity {'even' if n[1] % 2 == 0 else 'odd'}", fontsize=9)
+    fig.suptitle("Mode parity is fixed by the rectangular shape", x=0.02, ha="left", fontsize=11, fontweight="bold", color=INK)
+    fig.tight_layout(); save(fig, P, "fig3_mode_parity")
+
+
+def gp8():
+    P = "gp8-reciprocal-resonator-matching"
+    fig, ax = plt.subplots(figsize=(8.0, 3.6)); ax.axis("off"); ax.set_xlim(0, 10); ax.set_ylim(0, 4)
+    for cx, name in [(1.7, "terminal A"), (8.3, "terminal B")]:
+        ax.add_patch(Polygon([(cx - 1.15, 1), (cx + 1.15, 1), (cx, 3.3)], closed=True, fc=STONE, ec=S2, lw=1.8))
+        ax.add_patch(Rectangle((cx - 0.22, 1.66), 0.44, 0.19, fc=S3, ec=BG0))
+        ax.text(cx, 0.62, name, ha="center", fontsize=10, fontweight="bold")
+    for y, col in [(2.2, S1), (1.65, S3)]:
+        ax.add_patch(FancyArrowPatch((2.95, y), (7.05, y), arrowstyle="<->", mutation_scale=14, color=col, lw=1.8))
+    ax.text(5, 2.6, "specified reciprocal field", ha="center", fontsize=10)
+    ax.text(5, 1.1, "G(ω; x, y) = G(ω; y, x)", ha="center", fontsize=10)
+    ax.text(5, 0.2, "matching selects a response; propagation supplies the channel", ha="center", color=INK2, fontsize=9)
+    ax.set_title("Two resonators coupled through a physical field", loc="left")
+    save(fig, P, "fig1_reciprocal_channel")
+
+    fig, ax = plt.subplots(figsize=(7.2, 3.8))
+    d = np.logspace(0, 5, 400)
+    ax.loglog(d, 1 / d, color=S1, lw=2, label="amplitude ∝ 1/R")
+    ax.loglog(d, 1 / d ** 2, color=S3, lw=2, label="intensity ∝ 1/R²")
+    ax.set_xlabel("distance / reference distance"); ax.set_ylabel("relative free-space response")
+    ax.legend(loc="lower left"); ax.grid(True, which="both", alpha=0.6)
+    ax.set_title("Conventional propagation baseline", loc="left")
+    save(fig, P, "fig2_range_baseline")
+
+    fig, ax = plt.subplots(figsize=(7.2, 3.8))
+    u = np.linspace(0, 2, 500)
+    for D, col in [(0, S3), (2, S1), (6, S2)]:
+        Om = np.sqrt(D ** 2 + 4)
+        ax.plot(u, 4 / (D ** 2 + 4) * np.sin(Om * u * np.pi / 2) ** 2, color=col, lw=1.8, label=f"|Δ|/|κ| = {D}")
+    ax.set_xlabel("normalised time |κ|t/π"); ax.set_ylabel("transfer probability"); ax.set_ylim(0, 1.05)
+    ax.legend(loc="upper center", bbox_to_anchor=(0.5, -0.2), ncol=3)
+    ax.set_title("GP-5 applied to a calibrated coherent coupling", loc="left")
+    save(fig, P, "fig3_transfer_detuning")
+
+
 if __name__ == "__main__":
-    for fn in (gp1, gp2, gp3, gp4, gp5):
+    for fn in (gp1, gp2, gp3, gp4, gp5, gp6, gp7, gp8):
         fn()
