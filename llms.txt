@@ -538,6 +538,9 @@ Proof 26 (proofs/recursive-field-closure-response/) has 532 exact checks, plus
 568 in an optional projective appendix; its 36 finite and algebraic theorems are machine-checked in Lean
 (LEAN_AUDIT.md), while its physical premises and conditional G conclusion are not formalised. It builds on Proofs 23-25 and the background research
 in research/g_from_topology/updated-research/.
+Further conditional continuations (time faces and the lapse u = ln N, the recursive Field Origin with a nested
+stellated octahedron, and the BBP read at the core; 12 notes, 442 checks, Proof 26 unchanged) are in
+research/g_from_topology/updated-research/gravity-time-recursion-bbp/.
 
 ### Related papers in this repository
 - papers/letter-1-tetrad-frame-geometry/ -- Letter 1: the tetrad's coordinate-space geometry (the stellated octahedron)

@@ -29,8 +29,6 @@ How G is constructed is known (21/17/13 from the coupling polynomial, α²¹ ove
 
 Total: 442 checks, all passing.
 
-Folder 12 also keeps the snapshots of notes 9 and 11 that it was written against (identical copies), so it stands on its own.
-
 ## Reproduce
 
 Each verifier runs from its own folder and writes its log there (`verification.txt`, or `verification_output.txt` in folder 08). Requires numpy, scipy, sympy, mpmath and matplotlib.
