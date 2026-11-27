@@ -38,9 +38,10 @@ theorem read_factorization {X Y Z : Type*} [Nonempty X] (R : Y → Z) (S : Y →
   · intro H
     refine ⟨fun z => if h : ∃ y, R y = z then S h.choose else Classical.arbitrary X, ?_⟩
     intro y
-    have h : ∃ y', R y' = R y := ⟨y, rfl⟩
-    rw [dif_pos h]
-    exact H y h.choose h.choose_spec.symm
+    show S y = dite _ _ _
+    split_ifs with h
+    · exact H y h.choose h.choose_spec.symm
+    · exact absurd ⟨y, rfl⟩ h
 
 /-! ## Theorem 3. Three Walsh sweeps -/
 
@@ -97,17 +98,22 @@ def S4 : Matrix Label Label ℤ := Matrix.of
   (![![1,0,0,0],![1,1,0,0],![1,0,1,0],![1,1,1,1]] : Label → Label → ℤ)
 
 /-- The weight `(-2)^|c|`. -/
-def D4 : Matrix Label Label ℤ := Matrix.diagonal ![1,-2,-2,4]
+def D4 : Matrix Label Label ℤ := Matrix.of
+  (![![1,0,0,0],![0,-2,0,0],![0,0,-2,0],![0,0,0,4]] : Label → Label → ℤ)
 
 theorem sierpinski_four : S4 * D4 * S4ᵀ = Hm := by
   ext i j
-  fin_cases i <;> fin_cases j <;>
-    simp [S4, D4, Hm, H4, Matrix.mul_apply, Fin.sum_univ_four, Matrix.diagonal]
+  fin_cases i <;> fin_cases j <;> decide
 
 /-- At size 64 the Hadamard matrix is Sierpiński · weight · Sierpiński-transpose. -/
 theorem sierpinski_sixtyfour :
     (S4 ⊗ₖ (S4 ⊗ₖ S4)) * (D4 ⊗ₖ (D4 ⊗ₖ D4)) * (S4 ⊗ₖ (S4 ⊗ₖ S4))ᵀ = H64 := by
-  simp only [Matrix.kroneckerMap_transpose, ← Matrix.mul_kronecker_mul, sierpinski_four, H64]
+  have ht : (S4 ⊗ₖ (S4 ⊗ₖ S4))ᵀ = S4ᵀ ⊗ₖ (S4ᵀ ⊗ₖ S4ᵀ) := by
+    ext ⟨a1, a2, a3⟩ ⟨b1, b2, b3⟩
+    simp [Matrix.kroneckerMap_apply, Matrix.transpose_apply]
+  rw [ht]
+  simp only [← Matrix.mul_kronecker_mul]
+  rw [sierpinski_four, H64]
 
 /-- The lower shear on two bits. -/
 def shear {R : Type*} [CommRing R] (z : R) : Matrix (Fin 2) (Fin 2) R := !![1, 0; z, 1]
@@ -212,9 +218,19 @@ theorem orbit_sum_plane :
 theorem walsh_product (a : Address) (u v w : Label → ℤ) :
     (∑ x : Address, H4e a x * (u x.1 * v x.2.1 * w x.2.2)) =
       (∑ i, H4 a.1 i * u i) * (∑ j, H4 a.2.1 j * v j) * (∑ k, H4 a.2.2 k * w k) := by
-  simp only [Fintype.sum_prod_type, Finset.sum_mul, Finset.mul_sum, H4e]
-  refine Finset.sum_congr rfl fun i _ => Finset.sum_congr rfl fun j _ =>
-    Finset.sum_congr rfl fun k _ => by ring
+  calc (∑ x : Address, H4e a x * (u x.1 * v x.2.1 * w x.2.2))
+      = ∑ i, ∑ j, ∑ k, (H4 a.1 i * u i) * (H4 a.2.1 j * v j) * (H4 a.2.2 k * w k) := by
+        simp only [Fintype.sum_prod_type, H4e]
+        exact Finset.sum_congr rfl fun i _ => Finset.sum_congr rfl fun j _ =>
+          Finset.sum_congr rfl fun k _ => by ring
+    _ = ∑ i, ∑ j, (H4 a.1 i * u i) * (H4 a.2.1 j * v j) * ∑ k, (H4 a.2.2 k * w k) := by
+        refine Finset.sum_congr rfl fun i _ => Finset.sum_congr rfl fun j _ => ?_
+        rw [Finset.mul_sum]
+    _ = ∑ i, (H4 a.1 i * u i) * (∑ j, H4 a.2.1 j * v j) * ∑ k, (H4 a.2.2 k * w k) := by
+        refine Finset.sum_congr rfl fun i _ => ?_
+        rw [Finset.mul_sum, Finset.sum_mul]
+    _ = (∑ i, H4 a.1 i * u i) * (∑ j, H4 a.2.1 j * v j) * (∑ k, H4 a.2.2 k * w k) := by
+        rw [Finset.sum_mul, Finset.sum_mul]
 
 theorem row_sum (i : Label) : (∑ j, H4 i j * 1) = if i = 0 then 4 else 0 := by
   fin_cases i <;> decide
@@ -239,7 +255,7 @@ theorem H4e_orthogonal (x y : Address) :
     (∑ a : Address, H4e a x * H4e a y) = if x = y then 64 else 0 := by
   have hs : ∀ a, H4e a x * H4e a y =
       H4e x a * ((H4 a.1 y.1) * (H4 a.2.1 y.2.1) * (H4 a.2.2 y.2.2)) := by
-    intro a; simp only [H4e, H4_symm a.1 x.1, H4_symm a.2.1 x.2.1, H4_symm a.2.2 x.2.2]; ring
+    intro a; simp only [H4e, H4_symm a.1 x.1, H4_symm a.2.1 x.2.1, H4_symm a.2.2 x.2.2]
   simp only [hs]
   rw [walsh_product x (fun i => H4 i y.1) (fun j => H4 j y.2.1) (fun k => H4 k y.2.2)]
   simp only [show ∀ r s : Label, (∑ i, H4 r i * H4 i s) = if r = s then 4 else 0 from
@@ -270,10 +286,10 @@ theorem binary_accounting (b : Address → ℤ) (hb : ∀ x, b x = 0 ∨ b x = 1
       _ = ∑ x, ∑ y, b x * b y * ∑ a, H4e a x * H4e a y := by
           rw [Finset.sum_comm]
           refine Finset.sum_congr rfl fun x _ => ?_
-          rw [Finset.sum_comm, Finset.mul_sum]
+          rw [Finset.sum_comm]
           refine Finset.sum_congr rfl fun y _ => ?_
           rw [Finset.mul_sum]
-          refine Finset.sum_congr rfl fun a _ => by ring
+          exact Finset.sum_congr rfl fun a _ => by ring
       _ = ∑ x, b x * b x * 64 := by
           refine Finset.sum_congr rfl fun x _ => ?_
           simp only [H4e_orthogonal]
@@ -310,7 +326,7 @@ def depthSign : Grade → ℤ
   | Sum.inr (Sum.inr _) => 1
 
 theorem graded_traces :
-    (∑ g : Grade, (1 : ℤ)) = 21 ∧
+    (∑ _g : Grade, (1 : ℤ)) = 21 ∧
     (∑ g : Grade, (1 + depthSign g) / 2) = 17 ∧
     (∑ g : Grade, depthSign g) = 13 ∧
     Fintype.card ((Fin 1 × Fin 1) ⊕ (Fin 4 × Fin 4) ⊕ (Fin 16 × Fin 16)) = 273 := by
