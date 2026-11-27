@@ -10,7 +10,7 @@ The problem is not to discover a second engine. The GFD premise is that TetA and
 
 ## Interactive HTML atlas (offline)
 
-[Open the interactive explorer index](interactive/index.html). All nine explorers are self-contained browser pages with embedded data, no external libraries or server required. Extract the archive and open `interactive/index.html`.
+[Open the interactive explorer index](interactive/index.html). All six explorers are self-contained browser pages with embedded data, no external libraries or server required. Extract the archive and open `interactive/index.html`.
 
 | Explorer | Interactive calculation or replay |
 |---|---|
@@ -20,55 +20,10 @@ The problem is not to discover a second engine. The GFD premise is that TetA and
 | [Constitutive law and stability](interactive/constitutive.html) | μ and curvature, saturation and transfer illustrations, full-state perturbation playback, historical scans |
 | [Ordered response and drain](interactive/ordered.html) | Compare static closures and native coherent exchange |
 | [Aperture and seed recruitment](interactive/aperture.html) | Exact seed-instability threshold, capacity distribution bounds, full-state trajectory replay |
-| [Clock closure and escape necks](interactive/clock.html) | Mass, host tide, critical clock rate, Hill shape and local phase-space aperture |
-| [Clock registration and nested response](interactive/registration.html) | Interior/exterior harmonic response, same trace with differing masses, nested clock gaps and current |
-| [Hierarchical NET Field closure](interactive/hierarchy.html) | Local residual, host clock lift, source registration, nonlinear leakage and double application |
 
 The explorers display the same conditional model results; they do not rerun the Python suites or establish new physical claims. The original figures and all recorded verification logs are retained.
 
-## Latest continuation: atomic inverse reconstruction
-
-[Atomic inverse reconstruction and gravitational coupling](ATOMIC_INVERSE_RECONSTRUCTION.md) adds **89 checks (32 exact + 57 numerical); cumulative recorded 4,200**. The conditional complete-frame registration theorem identifies a unique squared determinant under calibrated single-direction transmission, independent basis invariance and serial multiplicativity. Atomic agreement alone is insufficient; a shared gate is a counterexample. The native Stage VII graph has only one common diagonal phase symmetry. A nested one-dimensional uniform-mode overlap gives the candidate elementary alpha, while a mass-coupled effective action reproduces G conditional on the source and winding stiffness. Gaussian integration alone cannot select a determinant source. The required native source deletion test is specified; G is not yet derived.
-
-Reproduce: `OPENBLAS_NUM_THREADS=1 python verify_atomic_reconstruction.py > atomic_reconstruction_verification_output.txt`.
-
-## Previous continuation: hierarchical NET Field closure
-
-[Hierarchical NET Field closure](HIERARCHICAL_NET_FIELD_CLOSURE.md) adds **273 checks (29 exact + 244 numerical); cumulative recorded total 4,111**. The solar residual is the locally settled result of TetA and TetB together, not an empty or inactive TetB. This interpretation supersedes earlier attempts to identify local closure with microscopic inactivity.
-
-- Nested stiffness-orthogonal projectors are idempotent and compose; their duals sweep sources without counting them twice. The registered boundary action includes flux and susceptibility, not just a clock scalar.
-- Partial minimization of the energy composes exactly even for nonlinear child and parent. Applying the constitutive flux map to its own output is not idempotent.
-- A fixed ownership-separable action preserves internal residuals under parent-mode changes. Pointwise μ on the sum instead couples them (exact leakage counterexample). Deriving ownership selection from the native time-face vertex remains open.
-
-![Hierarchical closure](figures/hierarchical_closure.png)
-
-Reproduce: `OPENBLAS_NUM_THREADS=1 python verify_hierarchical_closure.py > hierarchical_closure_verification_output.txt`. [Interactive explorer](interactive/hierarchy.html).
-
-## Previous continuation: clock registration and nested response
-
-[Clock registration and nested response](CLOCK_REGISTRATION_AND_NESTED_RESPONSE.md) adds **112 passing checks (24 exact + 88 numerical); cumulative recorded total 3,838**. Earlier logs are retained, not rerun.
-
-- A constant scalar clock trace has no Walsh contrasts or harmonic interior gradient, but matter still produces a nonzero residual and normal flux. The interior/exterior spherical Dirichlet-to-Neumann eigenvalues differ by 1/R, including the monopole.
-- Projecting the existing settlement dual onto the harmonic boundary lift gives a conditional local Newtonian branch even with retained matter. Any boundary-only functional has zero interior variation, however: it cannot produce the bulk galactic correction by itself.
-- Nested constant-clock surfaces with distinct registered values have nonzero response; a capacitance matrix encodes their relative clocks. The fully open spherical constitutive law gives an exact clock-gap primitive, different from the Newtonian law at the same source flux. Clocks alone cannot select the law. The ownership-dependent response space and microscopic clock/flux read remain open.
-
-![Clock registration](figures/clock_registration.png)
-
-Reproduce: `OPENBLAS_NUM_THREADS=1 python verify_clock_registration.py > clock_registration_verification_output.txt`. [Interactive explorer](interactive/registration.html).
-
-## Previous continuation: the solar clock-closure surface
-
-[Clock closure and drain](CLOCK_CLOSURE_AND_DRAIN.md) adds **51 new passing checks (17 exact + 34 numerical); cumulative recorded total 3,726**. Earlier checks are preserved, not rerun. The upstream closure/settlement notes were inspected at commit `aad94e0e1ec766e9bf8615d8fbcf07126cbd2f95`.
-
-- In the stationary circular Hill limit, the critical Jacobi surface is a constant co-rotating clock-rate surface; the exact Killing energy inequality explains its binding significance. Its clock norm is not automatically the SST foliation lapse. The surface is not a horizon, physical clock discontinuity or shield.
-- The constant clock trace fixes a nonconstant self-potential trace; a Dirichlet trace correction connects it to ownership without assuming a sphere. The local quadratic escape neck has area proportional to positive excess energy and microcanonical crossing flux proportional to its square.
-- Isochrony does not imply a closed gravitational drain: the normal gradient and settlement response remain nonzero away from the saddle points. A channel-to-boundary energy mapping and a scale-sensitive drain selector remain open.
-
-![Clock closure](figures/clock_closure.png)
-
-Reproduce: `python verify_clock_boundary.py > clock_boundary_verification_output.txt`. [Interactive explorer](interactive/clock.html).
-
-## Previous continuation: time-face aperture and seeded recruitment
+## Latest continuation: time-face aperture and seeded recruitment
 
 [Time-face aperture and seeded TetB recruitment](APERTURE_AND_SEED_RECRUITMENT.md) adds **308 new passing assertions (45 exact + 263 numerical); cumulative recorded total 3,675**. The previous 3,367 are preserved, not rerun.
 
@@ -171,15 +126,6 @@ The verifier produces two figures and `trajectory.csv`. **122 exact + 2,588 nume
 
 Derive the actual vertex read and nonlinear kernel from a time-face boundary/interaction action; distinguish the root-sign invariant from a continuous state share; derive the causal time ordering and physically meaningful conserved quantity; test full-space nonlinear stability and empty-TetB capture; derive the drainless net-field response rather than equate it to phase locking. A failure at any gate is a result, not a reason to alter Proofs 24 and 25.
 
-## Recursive Sierpiński generator continuation
+## Later continuations
 
-See [RECURSIVE_SIERPINSKI_GENERATOR.md](RECURSIVE_SIERPINSKI_GENERATOR.md) for the signed counting identity, detail-only gain, tensor-replication obstruction, and conservative paired four-port read. 83 new assertions passed; physical gain and complete-frame source remain open.
-
-## Native generator normalization continuation
-
-[NATIVE_GENERATOR_NORMALIZATION.md](NATIVE_GENERATOR_NORMALIZATION.md): exact isolated native pulse obstruction, unique minimum-trace positive reciprocal completion and conditional metric-normalized common transmission. 65 new assertions passed; gain, physical metric and source selection remain open.
-
-### Projective norm and Walsh bridge
-See [PROJECTIVE_NORM_WALSH_BRIDGE.md](PROJECTIVE_NORM_WALSH_BRIDGE.md). Exact GF(4)/GF(16) projective enumeration, Baer transversals and compression of the global trace constraint. 71 new assertions; conditional gravitational normalization, not a new proof of G.
-
-**Visual continuation:** [Projective Walsh explorer](interactive/projective_walsh.html), [six static diagrams](PROJECTIVE_NORM_WALSH_BRIDGE.md#6-visual-atlas-and-interactive-explorer), and `make_projective_visuals.py`. Ten offline explorers are now included.
+The continuations after the aperture study (clock closure and registration, hierarchical NET Field closure, atomic inverse reconstruction, the recursive Sierpiński generator, native generator normalization and the projective norm Walsh bridge) are in [`research/g_from_topology/updated-research/`](../../g_from_topology/updated-research/).
