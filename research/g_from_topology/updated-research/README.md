@@ -134,6 +134,10 @@ Alternating sweeps form a rotation. All three shears have determinant one; loss 
 
 ![Even and odd vortex responses](figures/atomic_even_odd_response.svg)
 
+## Further continuations: time faces, recursion and BBP
+
+[gravity-time-recursion-bbp/](gravity-time-recursion-bbp/README.md) holds twelve further continuations, each in its own numbered folder with its verifier: the native settlement vertex, the coupled time faces and the lapse (u = ln N), the nested stellated octahedron inside the Field Origin, and the BBP read at the core. 442 checks. Same status as the notes above: conditional finite-domain mathematics, Proof 26 unchanged.
+
 ## What stays open
 
 Across all eleven notes, these remain open:

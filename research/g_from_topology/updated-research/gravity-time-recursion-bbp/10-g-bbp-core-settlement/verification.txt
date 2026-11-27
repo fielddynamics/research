@@ -1,0 +1,28 @@
+PASS reduced BBP integrand
+PASS phase plus logarithm derivative
+PASS initial read
+PASS closure read
+PASS phase slope
+PASS log slope
+PASS stationarity
+PASS phase curvature
+PASS log curvature
+PASS total curvature
+PASS third derivative
+PASS log lapse candidate slope
+PASS log lapse candidate curvature
+PASS complex modulus squared
+PASS complex closure
+PASS complex closure slope
+PASS level 1 curvature pullback
+PASS level 2 curvature pullback
+PASS level 3 curvature pullback
+PASS level 4 curvature pullback
+PASS level 5 curvature pullback
+PASS level 1 error ratio approaches 1/9
+PASS level 2 error ratio approaches 1/9
+PASS level 3 error ratio approaches 1/9
+PASS level 4 error ratio approaches 1/9
+PASS level 5 error ratio approaches 1/9
+PASS level 6 error ratio approaches 1/9
+27 checks passed

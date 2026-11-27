@@ -1,0 +1,39 @@
+PASS tetrahedron equal squared edge length
+PASS tetrahedron volume 8/3
+PASS tetrahedron normal halfspaces
+PASS tetrahedron equal squared edge length
+PASS tetrahedron volume 8/3
+PASS tetrahedron normal halfspaces
+PASS eight octahedral face centroids
+PASS inner cube largest aligned centered cube
+PASS inner tetrahedral distances scale squared by 1/9
+PASS inner stella volume 1/27 of parent
+PASS four-port Gram
+PASS eight inner corner common and polar records
+PASS rank-four common-polar projector
+PASS all eight core coordinates have orthogonal Walsh basis
+PASS affine lapse gradient
+PASS trial shell energy
+PASS trial shell capacity for a=b/3
+PASS series Schur complement n=1
+PASS conserved flux n=1
+PASS series Schur complement n=2
+PASS conserved flux n=2
+PASS series Schur complement n=3
+PASS conserved flux n=3
+PASS series Schur complement n=4
+PASS conserved flux n=4
+PASS series Schur complement n=5
+PASS conserved flux n=5
+PASS series Schur complement n=6
+PASS conserved flux n=6
+PASS series Schur complement n=7
+PASS conserved flux n=7
+PASS series Schur complement n=8
+PASS conserved flux n=8
+PASS inverse-radius series stiffness n=1
+PASS inverse-radius series stiffness n=2
+PASS inverse-radius series stiffness n=3
+PASS inverse-radius series stiffness n=4
+PASS inverse-radius series stiffness n=5
+TOTAL 38 checks passed

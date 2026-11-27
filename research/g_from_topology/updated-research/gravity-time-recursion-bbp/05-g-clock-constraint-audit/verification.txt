@@ -1,0 +1,39 @@
+PASS 01 constraint rank three
+PASS 02 one exact null direction
+PASS 03 massless projector
+PASS 04 massless residue
+PASS 05 sum massive residues is one minus massless
+PASS 06 massive eigenvalues equal those of CC^T
+PASS 07 unrestricted signed capacity 13
+PASS 08 unrestricted neutral capacity 17
+PASS 09 C3 invariant projector
+PASS 10 C3 invariant neutral dimension
+PASS 11 C3 invariant signed capacity
+PASS 12 S3 invariant projector
+PASS 13 S3 invariant neutral dimension
+PASS 14 S3 invariant signed capacity
+PASS 15 S4 invariant projector
+PASS 16 S4 invariant neutral dimension
+PASS 17 S4 invariant signed capacity
+PASS 18 ADM determinant lapse ratio exact
+PASS 19 ADM inverse time component
+PASS 20 constant determinant attenuation cancels
+PASS 21 tetrad volume is exp(u-3v)
+PASS 22 fixed volume imposes v=u/3
+PASS 23 GR weak spatial lock is not fixed volume
+PASS 24 pure conformal scaling leaves optical index one
+PASS 25 lapse-only optical index first-order coefficient
+PASS 26 GR weak optical index first-order coefficient
+PASS 27 clock susceptibility coordinate invariant
+PASS 28 high precision gapless eigenvalue
+PASS 29 high precision residue formula
+PASS 30 spectral weights sum to one
+PASS 31 massive branches positive
+PASS 32 force crossover verified
+alpha^21 1.33804868198008e-45
+w0 1.32835520568603e-45
+eigenvalues 0.99999961426233878138 1.0 1.0072977411376993942
+weights 1.32835520568603e-45 4.34548470977295e-22 1.0 6.41759228104148e-35
+1 percent force crossover r/ell 112.670865004728
+equality force at r/ell=100 2828.51809493274
+32 checks passed

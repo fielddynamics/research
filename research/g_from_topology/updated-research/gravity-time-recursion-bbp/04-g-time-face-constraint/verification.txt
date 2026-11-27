@@ -1,0 +1,24 @@
+PASS 01 three constraints independent
+PASS 02 null branch exact
+PASS 03 constraint coordinates unimodular
+PASS 04 terminal coordinate response
+PASS 05 positive sum of squares
+PASS 06 exact inverse in residual coordinates
+PASS 07 pole plus local contacts
+PASS 08 massless pole exponent 42 in amplitude t
+PASS 09 root read instead gives unsuppressed pole
+PASS 10 grade 0 pole
+PASS 11 grade 1 pole
+PASS 12 grade 2 pole
+PASS 13 grade 3 pole
+PASS 14 all-gradient massless residue exact
+PASS 15 massless branch normalized stiffness
+PASS 16 generic read has lower-order bypasses
+PASS 17 equal root and terminal reads unsuppressed
+PASS 18 internal constraint Hessian rank three
+PASS 19 null branch not localized on terminal
+PASS 20 spatial constraint gradient equals lapse gradient
+PASS 21 reduced Einstein stiffness
+PASS 22 dimensionless response
+PASS 23 required stiffness for ratio, not a prediction
+23/23 checks passed

@@ -1,0 +1,29 @@
+PASS 33 geometric positions, 104 bonds
+PASS Hadamard orthogonality
+PASS full Hermitian
+PASS full shortest path order 3
+PASS full exact three-hop blocks
+PASS full t6 isotropic
+PASS full t7 vanishes
+PASS full t8 scalar/triplet symmetry
+full t8 coefficients -125041/131220 -105583/131220 difference -1081/7290
+PASS central Hermitian
+PASS central shortest path order 3
+PASS central exact three-hop blocks
+PASS central t6 isotropic
+PASS central t7 vanishes
+PASS central t8 scalar/triplet symmetry
+central t8 coefficients -111377/131220 -19291/26244 difference -829/7290
+PASS full numerical Taylor at t=0.01
+PASS full numerical Taylor at t=0.02
+PASS full numerical Taylor at t=0.04
+PASS central numerical Taylor at t=0.01
+PASS central numerical Taylor at t=0.02
+PASS central numerical Taylor at t=0.04
+PASS ordinary Schur response begins at t^2
+PASS collective determinant intensity t^42
+22 checks passed
+PASS oriented volume changes sign on exchange
+PASS rank deficient nonzero read has zero determinant and nonzero norm
+PASS collective intensity factors under concatenation
+25 total checks passed

@@ -1,0 +1,22 @@
+PASS four-port vector sum
+PASS tetrahedral metric
+PASS Hadamard completeness
+PASS affine lapse gradient recovery
+PASS bond sum
+PASS continuum stiffness
+PASS gravitational coefficient
+PASS discrete source normalization
+PASS dimensionless coupling
+PASS target stiffness matching
+PASS common transmission factor cancels
+PASS log determinant derivative is trace
+PASS clock compliance enters squared
+PASS linear static R00
+PASS linear static R0i
+PASS linear static Rij
+PASS linear static G00
+PASS zero spatial stress with equal potentials
+PASS flat spatial metric generally fails vacuum equations
+PASS Schwarzschild spatial factor in lapse
+PASS weak spatial factor
+21/21 checks passed

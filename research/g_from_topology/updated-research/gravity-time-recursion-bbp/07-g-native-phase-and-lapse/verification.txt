@@ -1,0 +1,32 @@
+PASS 1 native stationary vector
+PASS 2 metric self adjoint blocks
+PASS 3 native overlap
+PASS 4 odd determinant
+PASS 5 odd characteristic polynomial
+PASS 6 phase rational kernel
+PASS 7 occupation rational kernel
+PASS 8 no static phase pole
+PASS 9 static population response
+PASS 10 phase transfer vanishes at zero frequency
+PASS 11 all three modes participate in phase read
+PASS 12 real even curvature self adjoint
+PASS 13 real even curvature determinant
+PASS 14 imaginary even curvature rank two
+PASS 15 real Hessian symmetric
+PASS 16 rank eleven
+PASS 17 only common phase is null
+PASS 18 common occupation source orthogonal to phase
+PASS 19 chamber load source orthogonal to phase
+PASS 20 static common norm susceptibility
+PASS 21 inverse compressibility
+PASS 22 step response at 0.1
+PASS 23 step response at 1
+PASS 24 step response at 4
+PASS 25 step response at 13
+PASS 26 step response at 30
+PASS 27 phase Ward identity for arbitrary Hermitian energy
+PASS 28 lapse energy derivative
+PASS 29 log lapse derivative
+odd eigenfrequencies: [0.28566829056752446, 1.695709521753172, 13.789958768814348]
+relative phase low-frequency coefficient: 11.15601459030768
+29 checks passed

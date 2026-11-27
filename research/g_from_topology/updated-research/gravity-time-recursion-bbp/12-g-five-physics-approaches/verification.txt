@@ -1,0 +1,53 @@
+PASS two symmetric row-column dark directions
+PASS native Stage IX invariant two-chamber sector
+PASS rank four sector
+PASS central interface dark
+PASS filtered outward interface dark
+PASS two zero and two positive energy eigenmodes
+PASS isolated dark block depth 2 level 0
+PASS isolated dark block depth 2 level 1
+PASS isolated dark block depth 3 level 0
+PASS isolated dark block depth 3 level 1
+PASS isolated dark block depth 3 level 2
+PASS isolated dark block depth 4 level 0
+PASS isolated dark block depth 4 level 1
+PASS isolated dark block depth 4 level 2
+PASS isolated dark block depth 4 level 3
+PASS exact difference of recursive Mobius maps
+PASS grade 0 p0
+PASS grade 0 m0
+PASS grade 0 m slope
+PASS grade 0 e0
+PASS grade 0 depth 1 leading change
+PASS grade 0 depth 1 selfsimilar leading change
+PASS grade 0 depth 2 leading change
+PASS grade 0 depth 2 selfsimilar leading change
+PASS grade 0 depth 3 leading change
+PASS grade 0 depth 3 selfsimilar leading change
+PASS grade 0 depth 4 leading change
+PASS grade 0 depth 4 selfsimilar leading change
+PASS grade 1 p0
+PASS grade 1 m0
+PASS grade 1 m slope
+PASS grade 1 e0
+PASS grade 1 depth 1 leading change
+PASS grade 1 depth 1 selfsimilar leading change
+PASS grade 1 depth 2 leading change
+PASS grade 1 depth 2 selfsimilar leading change
+PASS grade 1 depth 3 leading change
+PASS grade 1 depth 3 selfsimilar leading change
+PASS grade 1 depth 4 leading change
+PASS grade 1 depth 4 selfsimilar leading change
+PASS probability normalization
+PASS odds are exp(2v)
+PASS paired deficit derivative equals tanh
+PASS paired deficit curvature at balance
+PASS BBP paired vacancy slope
+PASS one-sided vacancy slope
+PASS different odds constitutive slopes
+PASS 21-register Hessian is identity
+PASS uniform collective curvature is 21
+PASS static physical lapse response
+PASS coordinate rescaling leaves susceptibility
+PASS physical stiffness scaling changes coupling
+TOTAL 52

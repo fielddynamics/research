@@ -1,0 +1,38 @@
+PASS 01 native geometry 33 positions and 104 original bonds
+PASS 02 H36 real symmetric and zero diagonal
+PASS 03 exact native characteristic polynomial
+PASS 04 exact spectral moments
+PASS 05 16 TetB tiles and no additional origin coordinate
+PASS 06 throat perturbation contains only existing centre bonds
+PASS 07 TetB onsite exact moments
+TetB onsite offset 4/9 scale 0 moment residual -16/9
+PASS 08 TetB onsite universal clock moment test
+PASS 09 throat coupling exact moments
+throat coupling offset 0 scale 1/4 moment residual 60
+PASS 10 throat coupling universal clock moment test
+PASS 11 uniform clock exact moments
+uniform clock offset 0 scale 1 moment residual 0
+PASS 12 uniform clock universal clock moment test
+PASS 13 core parity clock has exact eigenvalue 3
+PASS 14 parity clock has half its occupation in TetB
+PASS 15 parity clock is throat dark
+PASS 16 14 distinct eigenvalues
+PASS 17 degenerate group uniform scaling -7.07528
+PASS 18 degenerate group uniform scaling -5.25184
+PASS 19 degenerate group uniform scaling -2.77846
+PASS 20 degenerate group uniform scaling -1.38099
+PASS 21 degenerate group uniform scaling -1.37405
+PASS 22 degenerate group uniform scaling -1.0
+PASS 23 degenerate group uniform scaling -0.0
+PASS 24 degenerate group uniform scaling 0.28917
+PASS 25 degenerate group uniform scaling 1.35622
+PASS 26 degenerate group uniform scaling 2.0
+PASS 27 degenerate group uniform scaling 2.45627
+PASS 28 degenerate group uniform scaling 2.48929
+PASS 29 degenerate group uniform scaling 3.0
+PASS 30 degenerate group uniform scaling 3.26968
+PASS 31 both local loads fail affine spectral scaling
+ground referenced fractional slopes TetB range -0.030234514316198793 0.009879234139685132 throat range -0.07772842379595211 0.3764595594201012
+PASS 32 static matter phase coupling has identically zero bulk Euler-Lagrange source
+PASS 33 static coordinate coupling supplies nonzero linear source
+33 checks passed

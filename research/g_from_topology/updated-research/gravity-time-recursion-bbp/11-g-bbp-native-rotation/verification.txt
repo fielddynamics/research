@@ -1,0 +1,64 @@
+PASS half-angle reduction
+PASS complementary quadrature norm
+PASS BBP angular closure
+PASS BBP angular stationarity
+PASS BBP angular curvature
+PASS BBP curvature in x
+PASS start of BBP path
+PASS time-reversed read difference
+PASS even arithmetic read
+PASS even geometric read squared
+PASS even log slope
+PASS even log product curvature
+PASS native symmetric row-column dark dimension
+PASS local eigenvector 0
+PASS cross eigenvector 0
+PASS origin and filtered reads dark 0
+PASS local eigenvector 1
+PASS cross eigenvector 1
+PASS origin and filtered reads dark 1
+PASS population derivative
+PASS coherent quadrature derivative
+PASS real overlap conserved
+PASS native norm invariant
+PASS native overlap invariant
+PASS native Z
+PASS native Y
+PASS nonlinear orbit projection 0.25 0.8
+PASS nonlinear orbit energy constant 0.25 0.8
+PASS nonlinear orbit projection 0.25 0.6
+PASS nonlinear orbit energy constant 0.25 0.6
+PASS nonlinear orbit projection 1.0 0.8
+PASS nonlinear orbit energy constant 1.0 0.8
+PASS nonlinear orbit projection 1.0 0.6
+PASS nonlinear orbit energy constant 1.0 0.6
+PASS nonlinear orbit projection 1.5 0.8
+PASS nonlinear orbit energy constant 1.5 0.8
+PASS nonlinear orbit projection 1.5 0.6
+PASS nonlinear orbit energy constant 1.5 0.6
+PASS scalar zero read
+PASS polar zero read
+PASS scalar first derivative
+PASS polar first derivative
+PASS log scalar polar ratio slope
+PASS log ratio curvature
+PASS conjugate symmetry 0
+PASS modulus-square slope 0
+PASS conjugate symmetry 1
+PASS modulus-square slope 1
+PASS conjugate symmetry 2
+PASS modulus-square slope 2
+PASS normalized squared quadrature probability minus
+PASS normalized squared quadrature probability plus
+PASS probabilities sum
+PASS probability product
+PASS paired vacancy cost derivative
+PASS paired vacancy curvature
+PASS even BBP deficit derivative
+PASS even BBP deficit reference
+PASS Bernoulli relative entropy derivative
+PASS Bernoulli relative entropy reference
+PASS paired vacancy cost derivative
+PASS paired vacancy cost reference
+PASS even BBP information curvature
+63 checks passed
