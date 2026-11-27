@@ -160,7 +160,7 @@ $$\boxed{S = \int d^4x\,\sqrt{-g}\left[\frac{R}{16\pi G} - \frac{a_0^2}{8\pi G}\
 - **Electromagnetic term:** $-\tfrac14e^{-2\Phi/c^2}F_{\mu\nu}F^{\mu\nu}$. The supplement assigns it no lensing role (null rays are unaffected) and a cosmological one (a redshift dependence in EM scaling relations). **Unaddressed constraint:** with $\Phi$ the Newtonian potential, this term is a dilaton-type coupling, $\alpha_{\rm eff} = \alpha\,e^{2\Phi/c^2}$, i.e. $\delta\alpha/\alpha = k_\alpha\,\delta U/c^2$ with $|k_\alpha| = 2$. Clock and spectroscopy tests of $\alpha$'s dependence on the Sun's potential (annual $\delta U/c^2 \approx 3\times10^{-10}$) bound $|k_\alpha|$ at roughly $10^{-6}$–$10^{-7}$. None of the papers discusses this.
 - **Weak field:** $g_{00} = -(1+2\Phi/c^2)$, $g_{ij} = (1-2\Phi/c^2)\delta_{ij}$; GW speed equals $c$.
 - **Split (what GFD does *not* do):** the L3 supplement describes the scalar-tensor embedding as $\nabla^2\Phi_N = 4\pi G\rho$ (40 components) plus a scalar supplement $\nabla\cdot[(\mu - 1)\nabla\Phi] = 0$ carrying its own stress–energy, and attributes the $\gamma = \mu$ lensing deficit to that decomposition; GFD keeps the single equation $\nabla\cdot[\mu\nabla\Phi] = 4\pi G\rho$.
-- **Open:** the action is complete and matter is ordinary and minimally coupled, but the papers do not derive the source term $-\rho\Phi$ that makes the scalar equation sourced from $\mathcal L_{\rm matter}$ (research/aqual docs note, check D1–D2).
+- **Matter coupling:** $\mathcal L_{\rm matter}$ is ordinary, minimally coupled matter. With $\Phi$ the metric's Newtonian potential, the source term $-\rho\Phi$ that sources the scalar equation follows from $-mc^2\sqrt{-g_{00}}$ in the static weak field (P-sst, `proofs/sst-quasi-static-limit/`, checked by its verifier). The papers did not show this step; the proof does.
 
 ### 3.1 The kinetic functional [T+L] (FY, P-aqual, 24 checks)
 
@@ -499,7 +499,7 @@ Shell ceilings $\mathrm{CEIL} = B_{\rm Zn} + B_{\rm bdy} - \mu_b(2)[B_{\rm Zn} -
 3. $H_0$ is quoted as 69.92 and 70.21 (the same formula with the empirical and the electron-derived $a_0$) and 70.29 (70.21 with the one-loop correction); the ±6.2% cage does not discriminate Planck from SH0ES.
 4. Clusters and the Bullet Cluster: qualitative only (VII); no lensing reconstruction.
 5. CMB: one enhancement factor, no full power spectrum.
-6. The action is complete; the matter source term $-\rho\Phi$ is not yet derived from $\mathcal L_{\rm matter}$, and the metric equations are solved only to the established weak-field and quasi-static orders.
+6. The action is complete and the matter source term $-\rho\Phi$ follows from minimal coupling (P-sst); the metric equations are solved only to the established weak-field and quasi-static orders.
 7. Constants: G and $m_e$ derived given stated premises (the combination rule for G is still proposed); α's 1/28 a structural reading; look-elsewhere test included. How read and settlement produce G is Proof 26 (§8.1); its G conclusion is conditional: the determinant read, $|t|^2 = \alpha$ and the source action are premises.
 8. No peer-reviewed publication yet.
 

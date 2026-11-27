@@ -45,9 +45,9 @@ Known limitations (README.md, "Status and known limitations"):
     alpha's 1/28 is a structural reading [E]. A look-elsewhere test is included.
   - gamma = 1 is argued from a single-potential weak-field metric; the metric field equations are not solved.
   - Lensing, clusters (incl. the Bullet Cluster) and the CMB spectrum: qualitative or partial only.
-  - The covariant action is complete; what is open is solving it beyond leading order. Matter is ordinary and
-    minimally coupled, but the source term -rho Phi that drives the scalar equation is not yet derived from
-    L_matter. The closure premises (registration at the stagnation surface; drained-level composition) are not
+  - The covariant action is complete; what is open is solving it beyond leading order. L_matter is ordinary,
+    minimally coupled matter; with Phi the metric's Newtonian potential, its weak-field source term -rho Phi
+    follows from -m c^2 sqrt(-g_00) (proofs/sst-quasi-static-limit/). The closure premises (registration at the stagnation surface; drained-level composition) are not
     derived from the dual-tetrad dynamics.
   - Proof 26 proves the read-and-settlement architecture (finite theorems machine-checked in Lean); its G
     conclusion is conditional: the collective determinant read, the per-direction gain |t|^2 = alpha and the
