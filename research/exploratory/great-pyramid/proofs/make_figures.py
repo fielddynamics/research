@@ -4,9 +4,10 @@
     python make_figures.py          # writes gp*/figures/*.svg
 
 Every curve is computed here from the formulas proved and checked in the
-proofs (nothing is hand-drawn). Static SVG on a white surface, so the figures
-read the same in light and dark GitHub themes. Palette: the reference
-categorical slots 1-3 (blue, orange, aqua), text in neutral inks.
+proofs (nothing is hand-drawn). Static SVG in the repository's dark diagram
+style (navy gradient #102237 -> #162f43, border #496075, light inks; the
+palette of diagrams/closure-hinge.svg), so the figures match the existing
+diagrams in both GitHub themes.
 Requires numpy, scipy, matplotlib.
 """
 import math
@@ -20,24 +21,45 @@ import matplotlib.pyplot as plt  # noqa: E402
 from scipy.linalg import expm  # noqa: E402
 
 HERE = Path(__file__).resolve().parent
-S1, S2, S3, S4 = "#257de0", "#f47230", "#00b894", "#6a4ce2"   # blue, orange, aqua, violet
-INK, INK2, GRID, SURF = "#191919", "#666666", "#e6e6e6", "#ffffff"
+S1, S2, S3, S4 = "#78bdf0", "#d6a15e", "#59d4b5", "#f0cf7d"   # sky, amber, teal, gold (repo diagram accents)
+INK, INK2, GRID, SURF = "#eef5fb", "#b7c9d7", "#26435a", "#13283d"
+PANEL, MUTED, EDGE = "#1b3a52", "#6f8699", "#496075"
+BG0, BG1 = "#102237", "#162f43"
 
 plt.rcParams.update({
-    "figure.facecolor": SURF, "axes.facecolor": SURF, "savefig.facecolor": SURF,
+    "figure.facecolor": SURF, "axes.facecolor": "none", "savefig.facecolor": SURF,
     "axes.edgecolor": INK2, "axes.labelcolor": INK, "text.color": INK,
     "xtick.color": INK2, "ytick.color": INK2, "axes.grid": True, "grid.color": GRID,
     "grid.linewidth": 0.8, "axes.spines.top": False, "axes.spines.right": False,
     "lines.linewidth": 1.6, "font.size": 10, "axes.titlesize": 11, "axes.titleweight": "bold",
-    "legend.frameon": False, "svg.fonttype": "path",
+    "axes.titlecolor": INK, "legend.labelcolor": INK, "legend.frameon": False, "svg.fonttype": "path",
+    "font.family": "DejaVu Sans",
 })
+
+
+def _dress(path):
+    """Replace matplotlib's flat figure background with the repository's
+    diagram frame: navy gradient, rounded corners, #496075 border."""
+    import re
+    svg = path.read_text()
+    w = float(re.search(r'width="([\d.]+)pt"', svg).group(1))
+    h = float(re.search(r'height="([\d.]+)pt"', svg).group(1))
+    frame = (f'<defs><linearGradient id="gpbg" x2="1" y2="1"><stop stop-color="{BG0}"/>'
+             f'<stop offset="1" stop-color="{BG1}"/></linearGradient></defs>'
+             f'<rect x="0.75" y="0.75" width="{w - 1.5:.2f}" height="{h - 1.5:.2f}" rx="12" '
+             f'fill="url(#gpbg)" stroke="{EDGE}" stroke-width="1.2"/>')
+    svg, n = re.subn(r'<g id="patch_1">\s*<path d="[^"]*"\s*style="fill: {0}"\s*/>\s*</g>'.format(SURF), frame, svg, count=1)
+    assert n == 1, path
+    path.write_text(svg)
 
 
 def save(fig, proof, name):
     out = HERE / proof / "figures"
     out.mkdir(exist_ok=True)
-    fig.savefig(out / f"{name}.svg", bbox_inches="tight")
+    path = out / f"{name}.svg"
+    fig.savefig(path, bbox_inches="tight", pad_inches=0.22)
     plt.close(fig)
+    _dress(path)
     print(f"  {proof}/figures/{name}.svg")
 
 
@@ -52,7 +74,7 @@ def gp1():
     # 1. meridional section with the three halving levels
     fig, ax = plt.subplots(figsize=(7.2, 4.2))
     ax.grid(False)
-    ax.fill([-1, 1, 0], [0, 0, 1], color="#f3f3f3", ec=INK2, lw=1.2)
+    ax.fill([-1, 1, 0], [0, 0, 1], color=PANEL, ec=INK2, lw=1.2)
     levels = [(1 - 2 ** (-1 / 3), "volume halved", S3), (U3, "section area halved (uniform flux)", S1), (0.5, "height halved", S2)]
     for lv, lab, col in levels:
         w = 1 - lv
@@ -61,7 +83,7 @@ def gp1():
     ax.fill([-(1 - U3), 1 - U3, 0], [U3, U3, 1], color=S1, alpha=0.10)
     kc = 1692.55 / H_IN
     ax.plot([-0.08, 0.08], [kc, kc], color=INK, lw=3, solid_capstyle="butt")
-    ax.annotate("King's Chamber floor (Petrie)\n1692.55 in = 0.29303 h", xy=(-0.08, kc), xytext=(-1.95, 0.40),
+    ax.annotate("King's Chamber floor (Petrie)\n1692.55 in = 0.29303 h", xy=(-0.08, kc), xytext=(-1.95, 0.66),
                 fontsize=9, color=INK, arrowprops=dict(arrowstyle="-", color=INK2, lw=0.8))
     ax.text(0, 0.80, "area above\nthe blue level = 1/2", ha="center", fontsize=9, color=S1)
     ax.set_xlim(-2.0, 2.4); ax.set_ylim(-0.03, 1.05); ax.set_yticks([0, 0.25, 0.5, 0.75, 1]); ax.set_xticks([])
@@ -95,7 +117,7 @@ def gp1():
             ax.plot([c - d, c + d], [y, y], color=col, lw=6, alpha=0.35, solid_capstyle="round")
         ax.plot([c], [y], "o", color=col, ms=8)
         ax.text(1686.4, y, lab, va="center", ha="left", fontsize=9)
-    ax.axvspan(1691.4, 1693.7, color="#f3f3f3", zorder=0)
+    ax.axvspan(1691.4, 1693.7, color=PANEL, zorder=0)
     ax.set_yticks([]); ax.set_xlim(1686.3, 1696.5); ax.set_ylim(-0.6, 2.6)
     ax.set_xlabel("height above pavement (in)")
     ax.set_title("Residual +0.80 in inside a combined allowance of ±3.80 in", loc="left")
@@ -150,9 +172,9 @@ def gp2():
     fig, ax = plt.subplots(figsize=(7.2, 3.0))
     items = [("Earth's gradient (exact solid angle)", 0.0276, S3),
              ("gravity budget, refined (4πGρR_eq)", 0.163, S1),
-             ("gravity budget, original (8πGρR_c)", 0.356, "#9c9c9c"),
+             ("gravity budget, original (8πGρR_c)", 0.356, MUTED),
              ("observed residual", 0.80, S2),
-             ("height-reconstruction allowance", 2.05, "#9c9c9c")]
+             ("height-reconstruction allowance", 2.05, MUTED)]
     for i, (lab, v, col) in enumerate(items[::-1]):
         ax.barh(i, v, color=col, height=0.55)
         ax.text(v + 0.03, i, f"{v:.3g} in", va="center", fontsize=9)
@@ -191,7 +213,7 @@ def gp3():
     labs_b = ["K+1: 21"] * db[0] + ["K+1: 26"] * db[1] + ["K+1: 31"] * db[2]
     Mmask = np.zeros((sum(db), sum(da)))
     Mmask[:db[0], da[0] + da[1]:] = 1
-    ax.imshow(Mmask, cmap=matplotlib.colors.ListedColormap(["#f3f3f3", S1]), aspect="equal")
+    ax.imshow(Mmask, cmap=matplotlib.colors.ListedColormap([PANEL, S1]), aspect="equal")
     ax.set_xticks(range(sum(da))); ax.set_xticklabels(labs_a, rotation=60, fontsize=8)
     ax.set_yticks(range(sum(db))); ax.set_yticklabels(labs_b, fontsize=8)
     ax.grid(False)
@@ -258,9 +280,10 @@ def gp4():
                             (axs[2], F21, S1, "(2/3) F₁₄ + (1/3) F₇ = δ")]:
         ax.vlines(d, 0, F, color=col, lw=2); ax.plot(d, F, "o", color=col, ms=5)
         ax.axhline(0, color=INK2, lw=0.8); ax.set_ylim(-0.7, 1.15); ax.set_ylabel("F(d)")
-        ax.text(20.6, 0.85, lab, ha="right", fontsize=9)
+        ax.set_title(lab, loc="right", fontsize=9, fontweight="normal", color=INK2)
     axs[2].set_xlabel("address offset d"); axs[2].set_xticks(range(0, 21, 7))
-    axs[0].set_title("Complementary reconstruction of the exact 21-address selector", loc="left")
+    fig.suptitle("Complementary reconstruction of the exact 21-address selector", x=0.02, ha="left",
+                 fontsize=11, fontweight="bold", color=INK)
     fig.tight_layout(); save(fig, P, "fig3_characters")
 
 
