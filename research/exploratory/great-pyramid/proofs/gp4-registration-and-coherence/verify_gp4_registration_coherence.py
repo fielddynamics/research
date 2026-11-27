@@ -215,6 +215,57 @@ check("P6 -cos(21 theta) has its minima exactly at theta_n = 2 pi n / 21 (21 of 
 check("P6 a population spread evenly over those minima is registered (C_21 = 1) but incoherent (C_1 = 0)",
       abs(abs(harmonic(uni21, 21)) - 1) < TOL and abs(harmonic(uni21, 1)) < TOL)
 
+
+print("\n-- Theorem 1b (referee): the rotated polygon's harmonics carry the rotation phase")
+ok = True
+for N in (3, 7, 21):
+    th0 = mp.mpf("0.731")
+    dist = [(th0 + two_pi * n / N, mp.mpf(1) / N) for n in range(N)]
+    for k in range(0, 2 * N + 1):
+        target = mp.e ** (1j * k * th0) if k % N == 0 else 0
+        if abs(harmonic(dist, k) - target) > TOL:
+            ok = False
+check("T1b uniform rotated N-gon: m_k = e^{i k theta0} if N | k, else 0 (N = 3, 7, 21)", ok)
+
+print("\n-- Theorem 4b (referee): approximate coprime locking, C1 >= 1 - [sqrt(1-C7) + 2 sqrt(1-C3)]^2")
+ok, worst = True, mp.mpf(1)
+for trial in range(3000):
+    n = rng.randint(1, 8)
+    c = mp.mpf(rng.uniform(0, 6.3)); sd = rng.choice([0.003, 0.03, 0.2, 1.0, 3.0])
+    dist = [(c + mp.mpf(rng.gauss(0, sd)), mp.mpf(rng.random())) for _ in range(n)]
+    dist = [(t, p) for (t, _), p in zip(dist, normalise([p for _, p in dist]))]
+    C1, C3, C7 = (abs(harmonic(dist, k)) for k in (1, 3, 7))
+    bound = max(mp.mpf(0), 1 - (mp.sqrt(1 - C7) + 2 * mp.sqrt(1 - C3)) ** 2)
+    worst = min(worst, C1 - bound)
+    if C1 < bound - mp.mpf("1e-30"):
+        ok = False
+check("T4b 3000 random ensembles satisfy the bound", ok, f"min(C1 - bound) = {float(worst):.2e}")
+check("T4b equal stages C3 = C7 = r give C1 >= 1 - 9(1 - r): 99% per stage guarantees 91% coherence",
+      abs((1 - (mp.sqrt(mp.mpf("0.01")) + 2 * mp.sqrt(mp.mpf("0.01"))) ** 2) - mp.mpf("0.91")) < 1e-40)
+
+print("\n-- Theorem 5b (referee): complementary reconstruction F21 = (2/3) F14 + (1/3) F7")
+S7 = [k for k in range(21) if k % 3 == 0]
+F7 = filtered(S7, 21)
+check("T5b the 7 characters k = 0 mod 3: F7(d) = 1 if 7 | d, else 0",
+      all(abs(F7[d] - (1 if d % 7 == 0 else 0)) < TOL for d in range(21)))
+F21 = [mp.mpf(2) / 3 * F14[d] + mp.mpf(1) / 3 * F7[d] for d in range(21)]
+check("T5b coherent recombination (2/3) F14 + (1/3) F7 is exactly delta_{d,0}",
+      all(abs(F21[d] - (1 if d == 0 else 0)) < TOL for d in range(21)))
+check("T5b incoherent (intensity) addition cannot cancel the aliases: (2/3)|F14|^2 + (1/3)|F7|^2 = 1/2 at d = 7",
+      abs(mp.mpf(2) / 3 * abs(F14[7]) ** 2 + mp.mpf(1) / 3 * abs(F7[7]) ** 2 - mp.mpf(1) / 2) < TOL)
+check("T5b the scalar 14-filter separates a match (1) from an alias (-1/2) but not the two aliases from each other",
+      abs(F14[0] - 1) < TOL and abs(F14[7] - F14[14]) < TOL and abs(F14[7] + mp.mpf(1) / 2) < TOL)
+
+print("\n-- Proposition 6b (referee): a coercive amplitude-phase potential with 21 phase minima")
+rho_, th_, a_, b4, c_, h_ = sp.symbols("rho theta a b c h", real=True)
+Vp = a_ * rho_ ** 2 + b4 * rho_ ** 4 + c_ * rho_ ** 22 - 2 * h_ * rho_ ** 21 * sp.cos(21 * th_)
+stiff = sp.simplify(sp.diff(Vp, th_, 2).subs(th_, 2 * sp.pi * 5 / 21))
+check("P6b angular stiffness at theta_n = 2 pi n/21 is 2 h rho^21 (21)^2 = 882 h rho^21",
+      sp.simplify(stiff - 882 * h_ * rho_ ** 21) == 0)
+Vnum = sp.lambdify(rho_, Vp.subs({a_: -1, b4: sp.Rational(1, 2), c_: 1, h_: 1, th_: 0}))
+check("P6b with c > 0 the potential is bounded below (coercive); with a = -1 a nonzero minimum exists",
+      Vnum(3.0) > 0 and Vnum(10.0) > Vnum(3.0) and min(Vnum(x / 100) for x in range(1, 200)) < Vnum(0))
+
 print("\n" + "=" * 78)
 print(f"GP-4: {sum(RESULTS)}/{len(RESULTS)} checks passed")
 sys.exit(0 if all(RESULTS) else 1)

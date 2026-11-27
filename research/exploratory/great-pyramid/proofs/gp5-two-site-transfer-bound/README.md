@@ -8,7 +8,9 @@
 
 **Lean.** 12 statements machine-checked in Lean 4 / Mathlib ([`lean/`](lean/), [audit](LEAN_AUDIT.md)).
 
-**Status.** Theorems 1, 2 and 6, Corollary 3 and Propositions 4–5 are **[T]**: proved below, with every step checked by [`verify_gp5_transfer_bound.py`](verify_gp5_transfer_bound.py) (22 checks, [output](verify_output.txt)). The closed forms are checked symbolically; the time-dependent drives use exact matrix exponentials, to tolerance $10^{-12}$. The two-site Hamiltonian is an **illustrative model**, as README §9 says, not a derived GFD action. Every statement about a portal is therefore conditional on that model, and its coupling $\kappa$ is **[E]**.
+**Status.** Theorems 1, 2, 6, 6b and 7, Corollaries 3 and 9 and Propositions 4, 5 and 8 are **[T]**: proved below, with every step checked by [`verify_gp5_transfer_bound.py`](verify_gp5_transfer_bound.py) (33 checks, [output](verify_output.txt)). The closed forms are checked symbolically; the time-dependent drives use exact matrix exponentials, to tolerance $10^{-12}$. The two-site Hamiltonian is an **illustrative model**, as README §9 says, not a derived GFD action. Every statement about a portal is therefore conditional on that model, and its coupling $\kappa$ is **[E]**.
+
+**Revision 2 (27 Nov 2026, after the [referee audit](../referee-audit/)).** The saturation statement is sharpened (equality only up to the first complete transfer). The selector is repaired so that relabelling a frame cannot flip its handedness (Theorem 6b). Three results are added: a coupling **derived** from an intermediate sector (Theorem 7), the exact optimum under equal loss (Proposition 8), and an inverse bound for experiments (Corollary 9). Point-by-point: [`../REFEREE_RESPONSE.md`](../REFEREE_RESPONSE.md).
 
 ---
 
@@ -42,7 +44,7 @@ For every drive $H(t)$, with any detuning programme, any frequency sweep and any
 
 $$\boxed{\;|c_y(t)| \;\le\; \sin\!\Big(\min\Big\{\int_0^t|\kappa(s)|\,ds,\ \frac\pi2\Big\}\Big)\;}$$
 
-The bound is attained by a resonant constant drive.
+A resonant constant drive attains the bound **up to the first complete transfer**, $t = \pi/(2|\kappa|)$. After that the constant drive falls back below the bound, which is then 1. Equality beyond that point needs the coupling to be switched off at the first full transfer.
 
 *Proof.*
 
@@ -56,7 +58,9 @@ The bound is attained by a resonant constant drive.
 - If $\kappa \equiv 0$, then $P \equiv 0$, for every $\omega_x(t)$ and $\omega_y(t)$. No resonance condition and no frequency programme can produce transfer from detuning alone.
 - If $\sup|\kappa| \le k$, no drive completes the transfer before $t = \pi/(2k)$.
 
-This is the precise content of README §9's sentence "resonance selects a channel; it does not create the channel". Tuning decides *how much* of an existing coupling is used: at most all of it, at the resonant rate. The coupling budget $\int|\kappa|$ is the only resource.
+This is the precise content of README §9's sentence "resonance selects a channel; it does not create the channel". Tuning decides *how much* of an existing coupling is used: at most all of it, at the resonant rate. Within the ideal two-state model, the coupling budget $\int|\kappa|$ is the only resource. A physical apparatus also has power, control, energy and loss requirements, which this bound does not address.
+
+![Detuned and resonant transfer under the coupling-budget bound](figures/fig1_transfer_budget.svg)
 
 ## Proposition 4 (detuning tolerance)
 
@@ -70,6 +74,8 @@ So 50% transfer needs $|\Delta| \le 2|\kappa|$, and 99% needs $|\Delta| \le 0.20
 
 Adding equal loss $-i\gamma/2$ to both sites multiplies the transfer by $e^{-\gamma t}$ exactly. Loss is a second, independent cap on top of Theorem 2.
 
+![Equal loss: the transfer curves and their optimum times](figures/fig2_loss_optimum.svg)
+
 ## Theorem 6 (the mirror-address mismatch and selector)
 
 For triad Gram matrices, define $d_G(G_x, G_y) = \min_{P\in S_3}\|G_x - P^TG_yP\|_F$. Then:
@@ -81,7 +87,51 @@ For triad Gram matrices, define $d_G(G_x, G_y) = \min_{P\in S_3}\|G_x - P^TG_yP\
   $$M_{xy} = e^{-d_G^2/2\epsilon^2}\cdot\tfrac{1-\chi_x\chi_y}{2}\cdot\cos^2\tfrac{\Theta_x-\Theta_y}{2}$$
 
   lies in $[0,1]$. It equals 1 if and only if $d_G = 0$, $\chi_x = -\chi_y$ and $\Theta_x \equiv \Theta_y \pmod{2\pi}$.
-- **A mismatch only slows transfer.** With $\kappa = \kappa_0 M_{xy}$, Theorem 2 gives $P(t) \le \sin^2(\min\{\kappa_0M_{xy}t, \pi/2\})$. A mismatch therefore lowers the transfer rate, and an exact match only restores the bare rate $\kappa_0$. Matching never adds a channel that $\kappa_0$ does not already supply.
+- **A mismatch lowers the budget.** With $\kappa = \kappa_0 M_{xy}$, Theorem 2 gives $P(t) \le \sin^2(\min\{\kappa_0M_{xy}t, \pi/2\})$. A mismatch lowers this **bound**, and an exact match only restores the bare rate $\kappa_0$; matching never adds a channel that $\kappa_0$ does not already supply. It does not follow that the instantaneous probability is lower at every late time, because Rabi oscillations can reverse that ordering.
+
+**Theorem 6b (chirality inside the relabelling, from the referee).** The selector above minimises over all six permutations and tests handedness separately. That is coordinate-dependent. An odd permutation reverses a triad's orientation while leaving its Gram matrix congruent: swapping two columns of an orthonormal triad keeps $G = I_3$ but flips $\det$. In the script, relabelling the receiver changes the old selector's verdict from 1 to 0. The repaired selector tests chirality with the **same** permutation:
+
+$$M_{xy} = \max_{P\in\mathcal P}\Bigl[e^{-d_P^2/2\epsilon^2}\,\tfrac{1 - \chi_x\chi_y\det P}{2}\,L_P\Bigr],\qquad d_P = \|G_x - P^TG_yP\|_F,$$
+
+with $L_P \in [0,1]$ the permutation-consistent phase factor. The script shows it is invariant under relabelling. One caveat remains. With full relabelling freedom, a symmetric Gram matrix (such as $I_3$) has odd automorphisms that undo the handedness test. So genuine chirality discrimination needs an intrinsically labelled, non-coplanar oriented frame, or a restricted relabelling group. Coplanar triads have no chirality sign, and a Gram matrix fixes relative angles, not absolute directions.
+
+## Theorem 7 (a coupling induced by an intermediate sector, from the referee)
+
+Rather than insert $\kappa$ by hand, let the terminals (sector $A$) talk only through an intermediate sector $B$:
+
+$$\mathcal H = \begin{pmatrix}H_A & V\\ V^\dagger & H_B\end{pmatrix}.$$
+
+From the stationary equations, $b = (E - H_B)^{-1}V^\dagger a$ wherever the resolvent exists, which gives the exact Schur-complement reduction
+
+$$\boxed{H_{\rm eff}(E) = H_A + V(E - H_B)^{-1}V^\dagger,\qquad \hbar\kappa^{\rm induced}_{xy}(E) = \langle v_x,(E - H_B)^{-1}v_y\rangle,}$$
+
+with $v_x = V^\dagger|x\rangle$ and $v_y = V^\dagger|y\rangle$. Any direct term in $H_A$ adds separately, and the diagonal elements shift the resonance (self-energies).
+
+- **Exactness.** Every eigenvalue $E$ of the full system is an eigenvalue of $H_{\rm eff}(E)$; the script checks this on 40 random systems.
+- **Dispersive limit.** For one detuned intermediate mode, $\kappa = g_x\bar g_y/(\omega - \omega_B)$, with shifts $|g_{x,y}|^2/(\omega - \omega_B)$. The three-mode dynamics reproduce it. Near $\omega = \omega_B$ the resolvent is singular, so the full system must be solved instead.
+- **Zero-channel countermodel.** If the intermediate dynamics are block-local with disjoint supports for $v_x$ and $v_y$, then $\kappa^{\rm induced} = 0$ exactly, however well the signatures match.
+
+This turns "$\kappa_0$ is unknown" into three derivable objects: $H_B$, the local vertices $v_x, v_y$, and a propagator with a nonzero off-diagonal element between separated sites. That is a research route, not a demonstration of an intersite interaction.
+
+![Exact three-mode transfer against the dispersive two-mode reduction](figures/fig4_induced_coupling.svg)
+
+## Proposition 8 (optimum transfer under equal loss, from the referee)
+
+At resonance with equal loss, $P_\gamma(t) = e^{-\gamma t}\sin^2(kt)$, with $k = |\kappa|$. The first maximum is the global one:
+
+$$t_{\rm opt} = \frac1k\arctan\frac{2k}{\gamma},\qquad P_{\rm opt} = \frac{4k^2}{\gamma^2 + 4k^2}\exp\Bigl[-\frac{\gamma}{k}\arctan\frac{2k}{\gamma}\Bigr],$$
+
+which tends to $\pi/(2k)$ and 1 as $\gamma \to 0$. Both the coupling rate and the loss must be measured. A high quality factor helps, but it is no substitute for a nonzero coupling.
+
+## Corollary 9 (inverse bound, for experiments)
+
+Within the two-site model, a measured transfer probability $P$ by time $T$ requires
+
+$$\int_0^T|\kappa(t)|\,dt \ge \arcsin\sqrt P,\qquad \operatorname*{ess\,sup}_{[0,T]}|\kappa| \ge \frac{\arcsin\sqrt P}{T}.$$
+
+This is a lower bound on the coupling that a positive result implies. A null result constrains only specific calibrated models of drive, detuning, loss and observation time.
+
+![Required integrated coupling against measured transfer probability](figures/fig3_inverse_bound.svg)
 
 ## What this does not show
 
@@ -90,5 +140,5 @@ It does not supply $\kappa_0$, a mechanism for it, or any claim that it is nonze
 ## Verification
 
 ```bash
-python verify_gp5_transfer_bound.py    # 22 checks; ~2 s
+python verify_gp5_transfer_bound.py    # 33 checks; ~4 s
 ```

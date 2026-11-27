@@ -19,7 +19,8 @@ What is formalised:
 * `seventeen_unique` : `f K s = 17` only at `(K,s) = (4,0)` (for `K ≥ 1`, `s ∈ {-1,0,1}`).
 * `coprime_plus_minus`, `coprime_zero_plus`, `coprime_zero_minus` (Theorem 3): pairwise coprime
   for every integer `K`; `midpoint`: `f K 1 + f K (-1) = 2 f K 0`.
-* `fusion`, `fusion'`, `tower` (Theorem 4).
+* `fusion`, `fusion'`, `tower` (Theorem 4); `tower_pairwise_coprime`, `tower_head_coprime` (Theorem 4b:
+  the whole fusion tower is pairwise coprime, for every integer `K`).
 * `graded_trace` and `involution_multiplicities` (Theorem 6).
 
 Not formalised (checked by the script): `φ(n) = 2 ↔ n ∈ {3,4,6}` and Niven's theorem (cited);
@@ -173,6 +174,26 @@ theorem tower (K : ℤ) (n : ℕ) :
   | succ n ih =>
     rw [Finset.prod_range_succ, ← mul_assoc, ← ih, fusion, ← pow_mul, ← pow_succ]
 
+/-- Theorem 4b: every tower factor `B_j = f(K^(2^j), -1)` with `j < n` divides `A_n = f(K^(2^n), 1)`. -/
+theorem tower_factor_dvd (K : ℤ) {j n : ℕ} (hj : j < n) :
+    f (K ^ (2 ^ j)) (-1) ∣ f (K ^ (2 ^ n)) 1 := by
+  rw [tower]
+  exact Dvd.dvd.mul_left (Finset.dvd_prod_of_mem _ (Finset.mem_range.mpr hj)) _
+
+/-- Theorem 4b: `A_0 = f(K, 1)` divides every `A_n`. -/
+theorem tower_head_dvd (K : ℤ) (n : ℕ) : f K 1 ∣ f (K ^ (2 ^ n)) 1 := by
+  rw [tower]; exact dvd_mul_right _ _
+
+/-- Theorem 4b: the tower factors `B_j` and `B_n` (`j < n`) are coprime, for every integer `K`. -/
+theorem tower_pairwise_coprime (K : ℤ) {j n : ℕ} (hj : j < n) :
+    IsCoprime (f (K ^ (2 ^ j)) (-1)) (f (K ^ (2 ^ n)) (-1)) :=
+  (coprime_plus_minus (K ^ (2 ^ n))).of_isCoprime_of_dvd_left (tower_factor_dvd K hj)
+
+/-- Theorem 4b: the head `A_0` is coprime to every `B_n`. -/
+theorem tower_head_coprime (K : ℤ) (n : ℕ) : IsCoprime (f K 1) (f (K ^ (2 ^ n)) (-1)) :=
+  (coprime_plus_minus (K ^ (2 ^ n))).of_isCoprime_of_dvd_left (tower_head_dvd K n)
+
+
 theorem tower_at_four :
     f 4 1 = 21 ∧ f 4 (-1) = 13 ∧ f 4 0 = 17 ∧ f 16 1 = 273 ∧ f 16 (-1) = 241 ∧
       f 256 1 = 65793 ∧ 21 * 13 * 241 = (65793 : ℤ) ∧ f 5 (-1) = 21 ∧ f 3 1 = 13 := by
@@ -205,6 +226,10 @@ end GP3
 #print axioms GP3.fusion
 #print axioms GP3.fusion'
 #print axioms GP3.tower
+#print axioms GP3.tower_factor_dvd
+#print axioms GP3.tower_head_dvd
+#print axioms GP3.tower_pairwise_coprime
+#print axioms GP3.tower_head_coprime
 #print axioms GP3.tower_at_four
 #print axioms GP3.graded_trace
 #print axioms GP3.involution_multiplicities

@@ -8,7 +8,9 @@
 
 **Lean.** 9 statements machine-checked in Lean 4 / Mathlib ([`lean/`](lean/), [audit](LEAN_AUDIT.md)).
 
-**Status.** Theorems 1–5 and Proposition 6 are **[T]**: proved below, with every step checked by [`verify_gp4_registration_coherence.py`](verify_gp4_registration_coherence.py) (35 checks, [output](verify_output.txt)). The checks are exact where algebraic and use 50-digit numerics for the 21st roots of unity. Mapping these ensembles onto gravitational or apparatus states is **[E]** (README §8).
+**Status.** Theorems 1–5 and Proposition 6 are **[T]**: proved below, with every step checked by [`verify_gp4_registration_coherence.py`](verify_gp4_registration_coherence.py) (44 checks, [output](verify_output.txt)). The checks are exact where algebraic and use 50-digit numerics for the 21st roots of unity. Mapping these ensembles onto gravitational or apparatus states is **[E]** (README §8).
+
+**Revision 2 (27 Nov 2026, after the [referee audit](../referee-audit/)).** The rotated-polygon phase convention is made explicit; an **approximate** coprime-locking theorem is added (Theorem 4b); the 14-character statement is corrected and completed by an exact 14 + 7 reconstruction (Theorem 5b); and a coercive amplitude-phase potential replaces the unstable one (Proposition 6b). Point-by-point: [`../REFEREE_RESPONSE.md`](../REFEREE_RESPONSE.md).
 
 ---
 
@@ -23,7 +25,7 @@ README §8 introduces this pair for $N = 21$ and gives three ideal ensembles. Th
 
 ## Theorem 1 (what registration means)
 
-$C_N = 1$ if and only if $P$ is supported on a single coset $\theta_0 + \tfrac{2\pi}{N}\mathbb Z$ of the $N$-gon. For the uniform $N$-gon, $m_k = 1$ if $N \mid k$ and $m_k = 0$ otherwise.
+$C_N = 1$ if and only if $P$ is supported on a single coset $\theta_0 + \tfrac{2\pi}{N}\mathbb Z$ of the $N$-gon. For the uniform $N$-gon rotated by $\theta_0$, $m_k = e^{ik\theta_0}$ if $N \mid k$ and $m_k = 0$ otherwise. The unrotated polygon has $m_k = 1$ at multiples of $N$. Magnitudes do not see $\theta_0$, but addressing does, so the phase factor matters.
 
 *Proof.* $|\mathbb E\,e^{iN\theta}| = 1$ exactly when $e^{iN\theta}$ is almost surely constant. The uniform-gon harmonics are the geometric sum $\sum_n \zeta^{kn}$. $\square$
 
@@ -38,6 +40,8 @@ So **full registration is compatible with every value of coherence**, including 
 | uniform continuous | 0 | 0 |
 | uniform 21-gon | 1 | 0 |
 | single phase | 1 | 1 |
+
+![Disordered, registered and coherent ensembles of 210 phases](figures/fig1_ensembles.svg)
 
 ## Theorem 3 (coherence implies registration, with a sharp constant)
 
@@ -64,6 +68,14 @@ If $C_a = C_b = 1$, then $C_{\gcd(a,b)} = 1$. In particular, $C_3 = C_7 = 1$ imp
 
 The uniform 21-gon has $C_{21} = 1$ but $C_3 = C_7 = 0$. A two-stage 3 × 7 filter that demands registration at each stage therefore selects coherent states. It does not select 21-sector registered ones. Any apparatus model must say which of the two it means.
 
+**Theorem 4b (approximate coprime locking, from the referee).** Exact registration is never observed, so the useful statement is quantitative. Let $Z = e^{i\theta}$ and let $a_j$ be the unit phase of $m_j$. Then $\|Z^j - a_j\|_2 = \sqrt{2(1 - C_j)}$. Using $Z = Z^7\,\overline{Z^3}^{\,2}$ and $|z^2 - w^2| \le 2|z - w|$ for unit $z, w$,
+
+$$\boxed{C_1 \ge \max\bigl\{0,\ 1 - [\sqrt{1 - C_7} + 2\sqrt{1 - C_3}]^2\bigr\}.}$$
+
+With equal stages $C_3 = C_7 = r$ this gives $C_1 \ge 1 - 9(1 - r)$, so 99% registration in each stage guarantees at least 91% coherence. The bound is sufficient, not optimal. The script finds no violation in 3,000 random ensembles.
+
+![The N² bound and approximate coprime locking](figures/fig2_bounds.svg)
+
 ## Theorem 5 (the only exact selector; sidelobes otherwise)
 
 $$\frac1N\sum_{k=0}^{N-1}e^{2\pi ik(a-b)/N} = \delta_{ab}.$$
@@ -78,11 +90,25 @@ $$\max_{d\ne0}|F_S(d)| \;\ge\; \sqrt{\frac{N/|S| - 1}{N-1}} > 0 .$$
 
 $$F_S(d) = \frac{21\,[21\mid d] - 7\,[7\mid d]}{14} = \begin{cases}1 & d = 0\\ -\tfrac12 & d = 7, 14\\ 0 & \text{otherwise.}\end{cases}$$
 
-Its sidelobes have magnitude ½, well above the Parseval floor $\sqrt{1/40} = 0.158$. A 14-character filter cannot tell an address from its two $\mathbb Z_3$-translates by 7.
+Its sidelobes have magnitude ½, well above the Parseval floor $\sqrt{1/40} = 0.158$. The scalar 14-character response therefore **does** separate a match (amplitude 1) from an alias (amplitude −½), by amplitude or phase. What it cannot do is separate the two aliases $d = 7$ and $d = 14$ from each other, so it is not an exact selector. (The earlier sentence, that it cannot tell an address from its translates, was too strong.)
+
+**Theorem 5b (complementary reconstruction, from the referee).** The seven characters $k \equiv 0 \pmod 3$ give $F_7(d) = 1$ if $7 \mid d$ and $0$ otherwise. Recombined **coherently** with weights equal to the character counts,
+
+$$F_{21}(d) = \tfrac23 F_{14}(d) + \tfrac13 F_7(d) = \delta_{d0}\quad\text{exactly},$$
+
+since at each alias $\tfrac23(-\tfrac12) + \tfrac13(1) = 0$. Adding intensities instead cannot cancel the aliases: $\tfrac23|F_{14}|^2 + \tfrac13|F_7|^2 = \tfrac12$ at $d = 7$. For an apparatus the testable question is whether the "suppressed" seven-character sector is truly absent or available to a complementary read. The test is to measure complex transfer coefficients and look for this cancellation.
+
+![The 14-character filter, its 7-character complement and their exact recombination](figures/fig3_characters.svg)
 
 ## Proposition 6 (the 21-fold lock potential)
 
-$V = -\cos 21\theta$ has its minima exactly at $\theta_n = 2\pi n/21$. A population spread evenly over those minima is registered ($C_{21} = 1$) and incoherent ($C_1 = 0$). The README's caveat stands: a positive quartic term cannot stabilise a degree-21 term at large amplitude. That is a statement about the amplitude potential, not about this phase result.
+$V = -\cos 21\theta$ has its minima exactly at $\theta_n = 2\pi n/21$. A population spread evenly over those minima is registered ($C_{21} = 1$) and incoherent ($C_1 = 0$). The README's caveat stands: a positive quartic term cannot stabilise a degree-21 term at large amplitude.
+
+**Proposition 6b (a coercive candidate, from the referee).**
+
+$$V(\Psi) = a|\Psi|^2 + b|\Psi|^4 + c|\Psi|^{22} - h(\Psi^{21} + \bar\Psi^{21}),\qquad c, h > 0.$$
+
+With $\Psi = \rho e^{i\theta}$, $V = a\rho^2 + b\rho^4 + c\rho^{22} - 2h\rho^{21}\cos 21\theta$. The $\rho^{22}$ term makes $V$ bounded below. At any nonzero equilibrium amplitude the phase minima are $\theta_n = 2\pi n/21$, with angular stiffness $\partial_\theta^2 V = 882\,h\rho^{21}$. A nonzero equilibrium amplitude exists for suitable radial parameters (for example $a < 0$). This is a candidate model: dimension 21 does not by itself imply a cyclic $\mathbb Z_{21}$ symmetry, and the coefficient $h$ must come from the dynamics.
 
 ## What this does not show
 
@@ -91,5 +117,5 @@ It does not show that any physical system carries these phases, that 21 is the p
 ## Verification
 
 ```bash
-python verify_gp4_registration_coherence.py    # 35 checks; ~8 s
+python verify_gp4_registration_coherence.py    # 44 checks; ~10 s
 ```

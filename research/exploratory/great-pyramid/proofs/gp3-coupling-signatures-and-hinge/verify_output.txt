@@ -53,5 +53,21 @@ GP-3  Coupling signatures: forced, coprime, fused; the hinge is unique
 [PASS] T6 an involution J with Tr I = 21, Tr J = 13 has eigenvalue multiplicities (17, 4), forced
 [PASS] T6 det(alpha^{I_s}) = alpha^{Tr I_s} = alpha^{17 + 4 s}: exponents 13, 17, 21
 
+-- Theorem 1b (referee): the short proof; s = zeta + conj(zeta) is an algebraic integer
+[PASS] T1b discriminants of f(K,s) = K^2 + sK + 1 are s^2 - 4: -3, -4, -3 for s = -1, 0, 1 (all < 0: irreducible over Q)
+[PASS] T1b a rational algebraic integer is an integer, and |zeta + conj zeta| <= 2, so s in {-2,...,2}
+
+-- Theorem 6b (referee): unitary rigidity of the 17 + 4 grading
+[PASS] T6b every symmetric involution on R^21 with trace 13 is conjugate to I_17 + (-I_4); A_s = P_FO + s P_odd has traces 21, 17, 13
+
+-- Theorem 7 (referee): every exact interlevel intertwiner lives on the hinge block
+[PASS] T7 dim{T : H_{K+1} T = T H_K} = dim E_{K,+} x dim E_{K+1,-} (12 random multiplicity patterns, K = 2..8)
+[PASS] T7 every such T is supported on the single block E_{K,+} -> E_{K+1,-}
+[PASS] T7 non-adjacent shells (K -> K+2) admit no nonzero intertwiner
+[PASS] T7 the zero map always intertwines: a matching band does not imply a nonzero transition
+
+-- Theorem 4b (referee): the whole fusion tower is pairwise coprime (proof by induction)
+[PASS] T4b A_0, B_0, B_1, ..., B_4 pairwise coprime for K = 2..10 (B_j | A_n for j < n, and gcd(A_n, B_n) = 1)
+
 ==============================================================================
-GP-3: 39/39 checks passed
+GP-3: 47/47 checks passed

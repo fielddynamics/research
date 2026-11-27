@@ -8,7 +8,9 @@
 
 **Lean.** 11 statements machine-checked in Lean 4 / Mathlib ([`lean/`](lean/), [audit](LEAN_AUDIT.md)).
 
-**Status.** Theorems 1–7 are **[T]**: proved below, with every step checked by [`verify_gp2_robustness.py`](verify_gp2_robustness.py) (42 checks, [output](verify_output.txt)). Theorems 1–4 are checked exactly; T5–T7 use 40-digit numerics. Theorem 8 is **[T]** given the net-field rule, which is itself **[T+L]** in [`proofs/net-field-rule/`](../../../../../proofs/net-field-rule/).
+**Status.** Theorems 1–7 are **[T]**: proved below, with every step checked by [`verify_gp2_robustness.py`](verify_gp2_robustness.py) (52 checks, [output](verify_output.txt)). Theorems 1–4 are checked exactly; T5–T7 use 40-digit numerics. Theorem 8 is **[T]** given the net-field rule, which is itself **[T+L]** in [`proofs/net-field-rule/`](../../../../../proofs/net-field-rule/).
+
+**Revision 2 (27 Nov 2026, after the [referee audit](../referee-audit/)).** Uniqueness now holds for **every real** gradient $b$; the sharpness witnesses are properly normalised ($r(0) = 1$), with explicit existence and uniqueness hypotheses; the self-gravity bound is sharpened from 0.36 in to 0.163 in; Theorem 8 separates three shares by name. Point-by-point: [`../REFEREE_RESPONSE.md`](../REFEREE_RESPONSE.md).
 
 ---
 
@@ -43,14 +45,19 @@ So the whole effect of an affine background is **one number**: the fractional ch
 
 **(b) Frustum balance.** The net outward flux of the frustum is $\operatorname{tr}(M)\cdot\mathrm{Vol}$. So the split "base in = section out + lateral out" holds exactly when $\nabla\cdot\mathbf J = \operatorname{tr}M = 0$. The script checks both cases face by face, with exact rational vector areas.
 
-## Theorem 3 (uniqueness for every $b > -1$)
+## Theorem 3 (the balance level is unique for every real $b$)
 
-Let $g(u) = (1-u)^2(1+bu)$. Then $g'(u) = -(1-u)(2 - b + 3bu)$.
+Let $g_b(u) = (1-u)^2(1+bu)$, the **signed** normalised section flux. For **every** $b \in \mathbb R$ there is exactly one $u \in (0,1)$ with $g_b(u) = \tfrac12$.
 
-- For $-1 < b \le 2$, $g$ is strictly decreasing on $[0,1)$.
-- For $b > 2$, $g$ rises from 1 to a maximum and then decreases to 0.
+*Proof (referee's argument, verified exactly).* Solving $g_b(u) = \tfrac12$ for $b$ gives
 
-In both cases $g = \tfrac12$ has **exactly one** root in $(0,1)$. For $b \le -1$, $J_z$ vanishes or changes sign on the axis inside the cone, and no flux share is defined.
+$$b = B(u) = \frac{1/[2(1-u)^2] - 1}{u},\qquad B'(u) = \frac{(1-u)^3 + u^2(3-u)}{2u^2(1-u)^3} > 0 \ \text{on } (0,1),$$
+
+with $B(0^+) = -\infty$ and $B(1^-) = +\infty$. So $B$ is an increasing bijection $(0,1) \to \mathbb R$, and each $b$ has exactly one balance level. $\square$
+
+The ratio stays defined for $b \le -1$: the base flux is nonzero, and $J_z$ merely changes sign on the axis (e.g. $g_{-2}(3/4) = -1/32$). The earlier restriction to $b > -1$ is needed only if one also wants $g_b$ to be a **positive share** in $[0,1]$, which requires $b \ge -1$ (and $g_b$ exceeds 1 somewhere when $b > 2$). The Lean file proves strict monotonicity for $-1 < b \le 2$; the all-$b$ statement is checked exactly by script.
+
+![The signed share for three gradients, and the bijection B(u)](figures/fig1_all_b_uniqueness.svg)
 
 ## Theorem 4 (the shift, in closed form)
 
@@ -60,13 +67,23 @@ For $h = 5776$ in the first coefficient is **598.1 in per unit $b$**. This repro
 
 ## Theorem 5 (any bounded non-uniformity)
 
-Let $\mathbf J$ be **any** field, not necessarily affine or divergence-free. Suppose its mean axial density $\bar\jmath(u) = \Phi_\Sigma/A$ satisfies $|\bar\jmath(u)/\bar\jmath(0) - 1| \le \varepsilon < 1$ on $[0,1]$. Then every balance level satisfies
+Let $\mathbf J$ be **any** field, not necessarily affine or divergence-free. Suppose its normalised mean axial density $r(u) = \bar\jmath(u)/\bar\jmath(0)$ (with $\bar\jmath = \Phi_\Sigma/A$) satisfies $|r(u) - 1| \le \varepsilon < 1$ on $[0,1]$. Then every balance level satisfies
 
-$$1 - \frac{1}{\sqrt{2(1-\varepsilon)}} \;\le\; u^* \;\le\; 1 - \frac{1}{\sqrt{2(1+\varepsilon)}}.$$
+$$1 - \frac{1}{\sqrt{2(1-\varepsilon)}} \;\le\; u^* \;\le\; 1 - \frac{1}{\sqrt{2(1+\varepsilon)}},$$
 
-The bounds are sharp: constant ratios $1 \pm \varepsilon$ attain them. The half-width is $\varepsilon/(2\sqrt2) + O(\varepsilon^2)$.
+intersected with $[0,1]$. The half-width is $\varepsilon/(2\sqrt2) + O(\varepsilon^2)$, and for finite $\varepsilon$ the interval is asymmetric.
 
-*Proof.* At a root, $(1-u)^2 = \tfrac12\,\bar\jmath(0)/\bar\jmath(u)$, and the ratio lies in $[1/(1+\varepsilon), 1/(1-\varepsilon)]$. No monotonicity is needed. $\square$
+*Proof.* At a root, $(1-u)^2 = \tfrac12/r(u)$, and $1/r(u) \in [1/(1+\varepsilon), 1/(1-\varepsilon)]$. No monotonicity is needed. $\square$
+
+**Existence and uniqueness (hypotheses made explicit).** If the normalised section flux $(1-u)^2 r(u)$ is continuous, it runs from 1 at the base to 0 at the apex, so a root exists by the intermediate value theorem. If $r$ is differentiable and positive with $r'/r < 2/(1-u)$, then $(1-u)^2 r$ is strictly decreasing and the root is unique.
+
+**Sharpness, with properly normalised witnesses.** The earlier version used constant ratios $1 \pm \varepsilon$, which violate $r(0) = 1$. The correct witnesses are
+
+$$r_\pm(u) = 1 \pm \varepsilon\,\min(u/u_\pm, 1),$$
+
+with $u_\pm$ the corresponding endpoint. They satisfy $r(0) = 1$ and $|r - 1| \le \varepsilon$, and each puts a root exactly at its endpoint. The lower endpoint is positive, and so attainable, only for $\varepsilon < 1/2$.
+
+![The asymmetric interval and its first-order approximation](figures/fig2_interval.svg)
 
 With Phase 0's reported uniformity, $\varepsilon = 5\times10^{-5}$, the level is confined to **±0.10 in**.
 
@@ -84,15 +101,21 @@ which is exact. Solving $\mu_B = \tfrac12$ with Petrie's base of 9068.8 in and h
 
 ## Theorem 7 (the pyramid's self-gravity)
 
-The self-field is *sourced* ($\nabla\cdot\mathbf J \ne 0$ inside the stone), so the frustum balance does not hold for it. $\mu_B$ as a ratio of section fluxes is still defined, and Theorem 5 applies.
+The self-field is *sourced* ($\nabla\cdot\mathbf J = \rho \ne 0$ inside the stone, in the normalisation $\mathbf J = \mu\nabla\Phi/4\pi G$), so the frustum balance does not hold for it: the enclosed source must be accounted for. $\mu_B$ as a ratio of section fluxes is still defined, and Theorem 5 applies.
 
-For a body of density $\rho$ inside a ball of radius $R_c$ about its base centre:
+**Sharper bound by rearrangement (referee).** For mass of density at most $\rho$ filling a volume $V$, the integral $\int_B |x-y|^{-2}dy$ is largest when $B$ is the ball of equal volume centred at $x$, because the kernel decreases with distance. Hence
 
-$$|\mathbf g_{\rm self}| \le G\rho\int_{|y-x|<2R_c}\frac{dy}{|y-x|^2} = 8\pi G\rho R_c .$$
+$$|\mathbf g_{\rm self}(x)| \le 4\pi G\rho R_{\rm eq},\qquad R_{\rm eq} = (3V/4\pi)^{1/3}.$$
 
-With $\rho = 2300$ kg m⁻³ and $R_c = 163$ m this gives $|\mathbf g_{\rm self}| \le 6.3\times10^{-4}$ m s⁻², so $\varepsilon \le 1.3\times10^{-4}$. Adding the Earth's gradient, **the gravitational balance level lies within 0.36 in of $0.292893\,h$**.
+With $V = a^2h/3$ (Petrie's $a = 230.348$ m, $h = 146.710$ m), $R_{\rm eq} = 85.25$ m and, for $\rho = 2300$ kg m⁻³, $|\mathbf g_{\rm self}| \le 1.64\times10^{-4}$ m s⁻². Combine it with the Earth's fractional variation $\varepsilon_E = 4.61\times10^{-5}$ conservatively, normalising by the smallest possible base density:
 
-So the gravitational field locates the plane to a third of an inch. The 0.80 in residual of GP-1 Observation 7 is a survey-level number: the height reconstruction alone contributes ±2.05 in. No field effect is needed to explain it, and the residual cannot be used to measure one.
+$$\varepsilon_{\rm total} \le \frac{g_0\varepsilon_E + 2g_{\rm self}}{g_0 - g_{\rm self}} = 7.96\times10^{-5}.$$
+
+Theorem 5, taking the larger endpoint, then puts **the gravitational balance level within 0.163 in of $0.292893\,h$**. The earlier, cruder bound $8\pi G\rho R_c$ gave 0.36 in and remains true, but is superseded.
+
+![The gravity budget against the residual and the survey allowance](figures/fig3_gravity_budget.svg)
+
+So gravity locates the plane to about a sixth of an inch. The 0.80 in residual of GP-1 Observation 7 is survey-level: the height reconstruction alone contributes ±2.05 in. No field effect is needed to explain it, and the residual cannot be used to measure one. These figures are conditional on the adopted density and the monopole Earth model.
 
 ## Theorem 8 (the structural share is not the constitutive share)
 
@@ -102,7 +125,9 @@ At the Earth's surface $x = g/a_0 = 8.2\times10^{10}$.
 2. Even if the law were applied per mass, which the rule forbids, the TetB share would be $1/(1+x) = 1.2\times10^{-11}$.
 3. The constitutive law reaches $\mu = \tfrac12$ only at $g = a_0$, a field $8\times10^{10}$ times weaker than Giza's.
 
-At the balance plane $\mu_B = \tfrac12$ while $\mu = 1$. So **$\mu_B$ is a property of geometry and of whatever divergence-free field passes through the body. It is not the TetA/TetB partition of the gravitational field.**
+**Three different quantities, three names.** $\mu_g$ is the constitutive (gravitational) share, $\mu_B$ the structural flux share of GP-1, and $s_{\rm reg}$ a candidate registration signature for a driven apparatus. A proposed transduction law would read $s_{\rm reg} = 2\mu_B - 1$. It must never be written $\mu_g = \mu_B$.
+
+At the balance plane $\mu_B = \tfrac12$ while $\mu_g = 1$. So **$\mu_B$ is a property of geometry and of whatever divergence-free field passes through the body. It is not the TetA/TetB partition of the gravitational field.**
 
 This corrects assumption A3 of `01.7`, which identifies the axial and lateral flux shares with TetA and TetB and calls that "part of GFD itself". For the gravitational field, A3 contradicts the net-field rule. For a *driven* non-gravitational field (electromagnetic, acoustic), the sector identification is a hypothesis **[E]**, to be stated as such.
 
@@ -112,7 +137,8 @@ The half-flux level of a cone is set by geometry to $1 - 1/\sqrt2$. The level is
 
 - an affine background moves it by $0.1036\,b\,h$;
 - any non-uniformity of fractional size $\varepsilon$ moves it by at most $\approx0.354\,\varepsilon\,h$;
-- the Earth's gravity and the pyramid's own gravity together move it by at most 0.36 in.
+- the level is unique for every real affine gradient;
+- the Earth's gravity and the pyramid's own gravity together move it by at most 0.163 in.
 
 The level is a geometric and kinematic fact about the stone and its surroundings. It is not where GFD's constitutive law changes hands: at Giza that law is pure TetA.
 
@@ -130,5 +156,5 @@ The level is a geometric and kinematic fact about the stone and its surroundings
 ## Verification
 
 ```bash
-python verify_gp2_robustness.py    # 42 checks; ~4 s
+python verify_gp2_robustness.py    # 52 checks; ~5 s
 ```

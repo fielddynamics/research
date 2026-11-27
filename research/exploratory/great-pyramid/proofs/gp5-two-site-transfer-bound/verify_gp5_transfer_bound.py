@@ -186,6 +186,82 @@ check("T6 M_xy = 1 iff d_G = 0, chi_x = -chi_y and dTheta = 0 mod 2 pi",
 check("T6 with kappa = kappa_0 M_xy the coupling budget gives P(t) <= sin^2(min(kappa_0 M t, pi/2)): a mismatch slows transfer, it never adds a channel",
       all(math.sin(min(0.5 * m * 3.0, math.pi / 2)) ** 2 <= math.sin(min(0.5 * 3.0, math.pi / 2)) ** 2 for m in np.linspace(0, 1, 11)))
 
+
+print("\n-- Theorem 2b (referee): saturation holds up to the first complete transfer, not beyond")
+res2 = evolve([(0.0, 0.0, 0.5)] * 400, 0.025)          # resonant, k = 0.5, to t = 10 > pi/(2k)
+before = [abs(a - math.sin(bb)) < 1e-12 for a, bb in res2 if bb <= math.pi / 2]
+after = [a < 1 - 1e-3 for a, bb in res2 if bb > math.pi / 2 + 0.3]
+check("T2b equality |c_y| = sin(int|kappa|) holds until pi/2; afterwards the constant drive falls back below the bound (= 1)",
+      all(before) and any(after))
+Pm = 0.6
+check("C9 inverse bound: a measured transfer P by time T needs int_0^T |kappa| >= arcsin sqrt P (P = 0.6: 0.886)",
+      abs(math.asin(math.sqrt(Pm)) - 0.8861) < 1e-3)
+okinv = True
+for trial in range(200):
+    steps = [(3 * rng.normal(), 3 * rng.normal(), rng.normal() + 1j * rng.normal()) for _ in range(20)]
+    for amp, bud in evolve(steps, 0.05):
+        if bud < math.asin(min(1.0, amp)) - 1e-12:
+            okinv = False
+check("C9 the inverse bound holds on 200 random drives", okinv)
+
+print("\n-- Theorem 7 (referee): an induced coupling from an intermediate sector (Schur complement)")
+okS = True
+for trial in range(40):
+    nB = int(rng.integers(1, 5))
+    HA = np.diag(rng.normal(size=2)); HB = np.diag(rng.normal(size=nB) + 6.0)
+    Vc = rng.normal(size=(2, nB)) * 0.3
+    Hfull = np.block([[HA, Vc], [Vc.T, HB]])
+    lam = np.linalg.eigvalsh(Hfull)[:2]                   # the two eigenvalues near the terminals
+    for E in lam:
+        Heff = HA + Vc @ np.linalg.inv(E * np.eye(nB) - HB) @ Vc.T
+        if np.min(np.abs(np.linalg.eigvalsh(Heff) - E)) > 1e-8:
+            okS = False
+check("T7 every eigenvalue E of the full system is an eigenvalue of H_eff(E) = H_A + V (E - H_B)^-1 V^T (40 random systems)", okS)
+gx, gy, wB, w0 = 0.05, 0.07, 1.0, 0.0
+H3 = np.array([[w0, 0, gx], [0, w0, gy], [gx, gy, wB]])
+kap_pred = gx * gy / (w0 - wB)
+tt = np.linspace(0, 2 * math.pi / abs(kap_pred), 4000)
+Py = [abs((expm(-1j * H3 * t) @ np.array([1, 0, 0]))[1]) ** 2 for t in tt]
+shift_x, shift_y = gx * gx / (w0 - wB), gy * gy / (w0 - wB)
+Delta_eff = shift_x - shift_y
+Pmax_pred = 4 * kap_pred ** 2 / (Delta_eff ** 2 + 4 * kap_pred ** 2)
+check("T7 dispersive limit: one intermediate mode gives kappa = g_x g_y/(w - w_B) and self-energy shifts g^2/(w - w_B); the 3-mode peak transfer matches",
+      abs(max(Py) - Pmax_pred) < 0.02, f"3-mode {max(Py):.4f} vs dispersive {Pmax_pred:.4f}")
+HBl = np.diag([5.0, 7.0]); Vl = np.array([[0.3, 0.0], [0.0, 0.4]])   # disjoint invariant supports
+Heff0 = Vl @ np.linalg.inv(0.0 * np.eye(2) - HBl) @ Vl.T
+check("T7 zero-channel countermodel: block-local intermediate dynamics with disjoint supports give kappa_induced = 0 exactly",
+      abs(Heff0[0, 1]) < 1e-15)
+
+print("\n-- Theorem 6b (referee): chirality must be tested inside the same relabelling")
+Fr0 = np.eye(3); Fsw = Fr0[:, [1, 0, 2]]
+chi = lambda F: int(np.sign(np.linalg.det(F)))
+G0, Gsw = Fr0.T @ Fr0, Fsw.T @ Fsw
+def M_old(Gx, Gy, cx, cy):
+    return math.exp(-dG(Gx, Gy) ** 2 / 2) * (1 - cx * cy) / 2
+def M_new(Gx, Gy, cx, cy):
+    best = 0.0
+    for Pm_ in PERMS:
+        dP = np.linalg.norm(Gx - Pm_.T @ Gy @ Pm_)
+        best = max(best, math.exp(-dP ** 2 / 2) * (1 - cx * cy * round(np.linalg.det(Pm_))) / 2)
+    return best
+mirror = -Fr0
+check("T6b old selector: relabelling the receiver (an odd swap) flips its chirality label and changes acceptance 1 -> 0",
+      M_old(G0, G0, chi(Fr0), chi(mirror)) == 1 and M_old(G0, Gsw, chi(Fr0), chi(-Fsw)) == 0)
+check("T6b repaired selector (chirality x det P inside the max) is invariant under relabelling the receiver",
+      M_new(G0, G0, chi(Fr0), chi(mirror)) == M_new(G0, Gsw, chi(Fr0), chi(-Fsw)) == 1)
+check("T6b caveat: with full relabelling freedom a symmetric Gram (here I_3) also admits odd automorphisms, so chirality "
+      "discrimination needs intrinsically labelled axes", M_new(G0, G0, chi(Fr0), chi(Fr0)) == 1)
+
+print("\n-- Proposition 8 (referee): optimum transfer time under equal loss")
+kk_, gg_ = 0.7, 0.3
+topt = math.atan(2 * kk_ / gg_) / kk_
+Popt = 4 * kk_ ** 2 / (gg_ ** 2 + 4 * kk_ ** 2) * math.exp(-gg_ / kk_ * math.atan(2 * kk_ / gg_))
+tg = np.linspace(0, 20, 400001); Pg = np.exp(-gg_ * tg) * np.sin(kk_ * tg) ** 2
+check("P8 t_opt = arctan(2k/gamma)/k and P_opt = 4k^2/(gamma^2+4k^2) exp[-(gamma/k) arctan(2k/gamma)] (k = 0.7, gamma = 0.3)",
+      abs(tg[Pg.argmax()] - topt) < 1e-3 and abs(Pg.max() - Popt) < 1e-9, f"t_opt {topt:.4f}, P_opt {Popt:.4f}")
+check("P8 gamma -> 0 recovers t_opt = pi/(2k) and P_opt = 1",
+      abs(math.atan(2 * kk_ / 1e-12) / kk_ - math.pi / (2 * kk_)) < 1e-9)
+
 print("\n" + "=" * 78)
 print(f"GP-5: {sum(RESULTS)}/{len(RESULTS)} checks passed")
 sys.exit(0 if all(RESULTS) else 1)

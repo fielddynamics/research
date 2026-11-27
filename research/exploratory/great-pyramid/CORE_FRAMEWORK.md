@@ -6,7 +6,7 @@
 
 ## Purpose
 
-The Great Pyramid folder holds a large exploratory programme: about 120 notes, 1,210 passing regression tests and a Stargate hypothesis. This document picks out the part of it that is solid and arranges it as a framework with explicit layers. Each statement sits in one of four layers, and each layer may use only the layers below it. Five new proofs ([`proofs/`](proofs/), 191 checks) supply the load-bearing theorems that were previously missing, stated only in a special case, or stated without their converse.
+The Great Pyramid folder holds a large exploratory programme: about 120 notes, 1,210 passing regression tests and a Stargate hypothesis. This document picks out the part of it that is solid and arranges it as a framework with explicit layers. Each statement sits in one of four layers, and each layer may use only the layers below it. Five new proofs ([`proofs/`](proofs/), 233 checks, 65 Lean theorems; revised after a [referee audit](proofs/referee-audit/)) supply the load-bearing theorems that were previously missing, stated only in a special case, or stated without their converse.
 
 | Layer | Content | Tag |
 |---|---|---|
@@ -50,7 +50,8 @@ A layer-3 claim may be motivated by layers 0–2, but it is never promoted by th
 - **Uniqueness.** The level is unique for every $b > -1$.
 - **Shift.** $du^*/db = (\sqrt2-1)/4$.
 - **Any non-uniformity.** A non-uniformity of size $\varepsilon$ confines the level to $\pm\varepsilon h/(2\sqrt2)$, and the bound is sharp.
-- **Gravity at Giza.** The Earth's gravity moves the level by 0.70 mm. With the pyramid's self-gravity, the total is under 0.36 in.
+- **Uniqueness.** The balance level is unique for every real affine gradient $b$.
+- **Gravity at Giza.** The Earth's gravity moves the level by 0.70 mm. With the pyramid's self-gravity, the total is under 0.163 in (rearrangement bound).
 - **Structural share ≠ constitutive share.** At Giza the constitutive share is $\mu = 1$ exactly (net-field rule), while $\mu_B$ covers $[0,1]$ inside the stone. So $\mu_B$ is not the TetA/TetB partition of gravity.
 
 Together, GP-1 and GP-2 make the balance plane a **theorem of geometry with a computed error budget**. They also say exactly what it is *not*.
@@ -108,8 +109,8 @@ Every dimension used here is a verified row of [`metrics/`](metrics/): 112 metri
 
 | Observation | Value | Status after Layer 1 |
 |---|---|---|
-| King's Chamber floor against the area-balance level | +0.80 in, 0.30 σ (GP-1 O7) | Stands. It discriminates the area measure from the volume measure (186 σ) and the height measure (443 σ). Under a stated uniform-placement null, the chance of landing within 1 σ of one of the three canonical planes is < 0.6%. |
-| Size of the residual against the field budget | 0.80 in against a gravitational budget of < 0.36 in (GP-2 T7) | The residual is survey-limited (height ±2.05 in). It cannot measure a field non-uniformity. |
+| King's Chamber floor against the area-balance level | +0.80 in, inside a combined allowance of ±3.80 in (GP-1 O7) | Stands, stated with bounded allowances, not as a σ. The volume and height levels lie 132 and 315 allowances away. Under an illustrative uniform-placement null, the chance of landing in one of the three canonical windows is 5δ/(h/2) = 0.66%. That is not a calibrated p-value; a preregistered cross-monument test is the real one. |
+| Size of the residual against the field budget | 0.80 in against a gravitational budget of < 0.163 in (GP-2 T7) | The residual is survey-limited (height ±2.05 in). It cannot measure a field non-uniformity. |
 | Coffer volume ratio near $1/\alpha$ | 137.17 or 140.2, depending on the height convention | Unchanged. It is a convention-sensitive correspondence (README §6). Nothing in Layer 1 supports or weakens it. |
 | Relieving-chamber volumes $\propto 5\alpha V_{KC}$ | failed by ~×10 | Retained as a failed prediction. |
 | Chamber polarisation sums 13/17/21 | retracted (AW-21) | Retained as a retraction. |
@@ -135,11 +136,19 @@ These follow from Layer 1 and the repository's own naming rules. The notes thems
 1. **01.6 §1 and AW-05 §4** call the $\mu_B = \tfrac12$ level, or $x = 1$, "the Field Origin". llms.txt says $\sigma = 0$ is the ring $x = 1$, not the Field Origin, and it reserves $s$ for the discrete label. Read "local Field Origin" in those notes as "balance plane, $\sigma_B = 0$". The identification is [E].
 2. **01.7 §8, A3** says that "axial ↔ TetA, lateral ↔ TetB" is "part of GFD itself". For gravity this contradicts the net-field rule (GP-2 T8). It is a hypothesis about a driven field.
 3. **01.7 §7** gives the shift numerically (599 in per unit gradient). The exact value is $\frac{\sqrt2-1}{4}h = 598.1$ in, with second coefficient $1 - 11\sqrt2/16$ (GP-2 T4).
-4. **01.7 §7** says the field must be uniform to 0.1%. In fact the residual does not constrain the field at all: the survey uncertainty (±2.05 in) is larger than the residual, and the gravitational budget is < 0.36 in (GP-2 T5–T7). Once the survey reaches sub-inch precision, a residual $\delta$ attributed to the field says two things. For an affine driven field it fixes $b = 4\delta/((\sqrt2-1)h)$ (GP-2 T4). For an arbitrary field, Theorem 5 gives the minimum non-uniformity needed to produce it, $\varepsilon \ge 2\sqrt2\,|\delta|/h$.
+4. **01.7 §7** says the field must be uniform to 0.1%. In fact the residual does not constrain the field at all: the survey uncertainty (±2.05 in) is larger than the residual, and the gravitational budget is < 0.163 in (GP-2 T5–T7). Once the survey reaches sub-inch precision, a residual $\delta$ attributed to the field says two things. For an affine driven field it fixes $b = 4\delta/((\sqrt2-1)h)$ (GP-2 T4). For an arbitrary field, Theorem 5 gives the minimum non-uniformity needed to produce it, $\varepsilon \ge 2\sqrt2\,|\delta|/h$.
 5. **README §6** reads $\mathbb Z_3\times\mathbb Z_7\cong\mathbb Z_{21}$ as a phase architecture. The group identity is exact, but the registration conditions do not factor (GP-4 T4).
 6. **`field_origin_geometry/` tests** import a package `gravity_field_model` that is not in the repository, so they cannot be collected. This is pre-existing. The 1,210 tests in `pyramid_portal_research/python/tests` pass once `scipy` is installed.
 
 ---
+
+## The three missing bridges (from the referee audit)
+
+The five proofs are infrastructure. What turns them into a physical hypothesis is three maps, none yet derived. The referee's formulations are recorded here as the programme's central open problems.
+
+- **Bridge A: geometry → registration.** $\mathcal A(u) = P_{17} + [2\mu_B(u) - 1]P_4$ (GP-1 P6b) is the neutral projection at the half-section plane by definition. A native transduction theorem must show that a physical coupling has this spatial dependence. It should start from the action on a bounded domain and derive the boundary functional. It must prove, not assume, that its parity-odd matrix elements vanish at structural balance. And it must keep the geometric plane, the constitutive ring $x = 1$ and the native Field Origin distinct.
+- **Bridge B: registration → phase dynamics.** $\mathcal V(\Psi) = V_{\rm radial}(|\Psi|) - 2h|\Psi|^{21}\cos 21\theta$ (GP-4 P6b). Dimension 21 does not imply a $\mathbb Z_{21}$ phase symmetry, so the actual symmetry group and its action on the order parameter must be derived. If the group acts by $e^{2\pi i/21}$, harmonic 21 is the first allowed one, but its coefficient could still vanish: the dynamics must produce it. It must also be settled whether the 3- and 7-fold stages implement registration, separate locking (which forces coherence, GP-4 T4b) or complementary selection (GP-4 T5b).
+- **Bridge C: coherence → intersite interaction.** With local vertices $v_x = v_x[\mathcal A(u_x), \Psi_x]$, the mediated coupling is $\hbar\kappa_{xy}(E) = \langle v_x, (E - H_B)^{-1}v_y\rangle$ (GP-5 Thm 7). $H_B$, the vertices and the propagator must come from the native action. The resulting kernel must be nonzero for separated sites, must obey the proposed phase, geometry and chirality selection, and must predict magnitude, range, frequency dependence and loss. Only then is a Stargate-specific prediction, beyond standard cavity physics, testable.
 
 ## Open problems, in priority order
 
@@ -156,7 +165,7 @@ These follow from Layer 1 and the repository's own naming rules. The notes thems
 
 ```bash
 cd research/exploratory/great-pyramid/proofs
-python run_all.py                      # 191 checks, ~45 s (sympy, mpmath, numpy, scipy)
+python run_all.py                      # 233 checks, ~1 min (sympy, mpmath, numpy, scipy)
 
 cd ../pyramid_portal_research
 python -m pytest python/tests -q       # 1210 regression tests of the existing programme

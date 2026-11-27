@@ -323,6 +323,61 @@ check("T8 net-field rule [T+L]: inside the drainless solar system mu = 1 exactly
 check("T8 within the constitutive law, mu = 1/2 requires g = a0, i.e. a field 8e10 times weaker than Giza's",
       sp.solve(sp.Eq(sp.Symbol('X') / (sp.Symbol('X') + 1), sp.Rational(1, 2)), sp.Symbol('X')) == [1])
 
+
+print("\n-- Theorem 3b (referee): the balance level is unique for EVERY real b")
+uu = sp.symbols("uu", positive=True)
+Bf = (1 / (2 * (1 - uu) ** 2) - 1) / uu
+dB = sp.together(sp.diff(Bf, uu))
+claim = ((1 - uu) ** 3 + uu ** 2 * (3 - uu)) / (2 * uu ** 2 * (1 - uu) ** 3)
+check("T3b B(u) = (1/(2(1-u)^2) - 1)/u has B'(u) = [(1-u)^3 + u^2(3-u)] / [2u^2(1-u)^3] > 0 on (0,1)",
+      sp.simplify(dB - claim) == 0)
+check("T3b B(0+) = -oo and B(1-) = +oo, so B is an increasing bijection (0,1) -> R",
+      sp.limit(Bf, uu, 0, "+") == -sp.oo and sp.limit(Bf, uu, 1, "-") == sp.oo)
+ok = True
+for bv in [-1000, -50, -10, -3, -2, -1, sp.Rational(-1, 2), 0, 2, 10, 1000]:
+    poly = sp.Poly(sp.expand(g.subs(b_, bv) - sp.Rational(1, 2)), u_)
+    if len([r for r in poly.real_roots() if 0 < r < 1]) != 1:
+        ok = False
+check("T3b exactly one root in (0,1) for b in {-1000,-50,-10,-3,-2,-1,-1/2,0,2,10,1000} (exact isolation)", ok)
+check("T3b for b < -1 the signed ratio is defined (g(0) = 1) and turns negative near the apex: g_{-2}(3/4) = -1/32",
+      g.subs({b_: -2, u_: 0}) == 1 and g.subs({b_: -2, u_: sp.Rational(3, 4)}) == sp.Rational(-1, 32))
+
+print("\n-- Theorem 5b (referee): normalised sharpness witnesses and existence/uniqueness hypotheses")
+ok = True
+for epsv in [mp.mpf("0.01"), mp.mpf("0.1"), mp.mpf("0.4")]:
+    lo, hi = interval(epsv)
+    for sign, ustar in ((+1, hi), (-1, lo)):
+        r = lambda x, sign=sign, ustar=ustar: 1 + sign * epsv * min(x / ustar, 1)
+        if abs(r(0) - 1) > 1e-40 or abs((1 - ustar) ** 2 * r(ustar) - mp.mpf(1) / 2) > 1e-35:
+            ok = False
+        if not all(abs(r(x) - 1) <= epsv + 1e-40 for x in [mp.mpf(i) / 50 for i in range(51)]):
+            ok = False
+check("T5b r_+-(u) = 1 +- eps min(u/u*, 1) satisfy r(0) = 1, |r - 1| <= eps, and put a root exactly at each endpoint", ok)
+check("T5b the lower endpoint is positive (attainable) iff eps < 1/2",
+      float(interval(mp.mpf("0.49"))[0]) > 0 and float(interval(mp.mpf("0.5"))[0]) <= 1e-30)
+x_ = sp.symbols("x_")
+rr = sp.Function("r")
+check("T5b (1-u)^2 r(u) is strictly decreasing iff r'/r < 2/(1-u) (derivative identity)",
+      sp.simplify(sp.diff((1 - x_) ** 2 * rr(x_), x_) - (1 - x_) * ((1 - x_) * sp.diff(rr(x_), x_) - 2 * rr(x_))) == 0)
+
+print("\n-- Theorem 7b (referee): sharper self-gravity bound by rearrangement, 4 pi G rho R_eq")
+Vpy = (SIDE ** 2) * H / 3
+R_eq = (3 * Vpy / (4 * mp.pi)) ** (mp.mpf(1) / 3)
+g_self_eq = 4 * mp.pi * G * rho * R_eq
+eps_E = 1 - (R_m / (R_m + H)) ** 2
+g0 = mp.mpf("9.793")
+eps_tot2 = (g0 * eps_E + 2 * g_self_eq) / (g0 - g_self_eq)
+lo2, hi2 = interval(eps_tot2)
+u0f = 1 - 1 / mp.sqrt(2)
+disp2 = max(u0f - lo2, hi2 - u0f) * h_in
+check("T7b R_eq = (3V/4pi)^(1/3) = 85.25 m and |g_self| <= 4 pi G rho R_eq = 1.64e-4 m/s^2",
+      abs(R_eq - mp.mpf("85.246")) < 0.01 and abs(g_self_eq - mp.mpf("1.644e-4")) < 1e-7,
+      f"R_eq {float(R_eq):.3f} m, bound {float(g_self_eq):.4e}")
+check("T7b eps_total <= (g0 eps_E + 2 g_self)/(g0 - g_self) = 7.96e-5 gives |shift| <= 0.163 in (larger endpoint)",
+      abs(eps_tot2 - mp.mpf("7.964e-5")) < 1e-8 and abs(disp2 - mp.mpf("0.1626")) < 0.001,
+      f"eps {float(eps_tot2):.3e}, {float(disp2):.3f} in")
+check("T7b the refined gravitational budget (0.163 in) is below the original conservative 0.36 in", disp2 < 0.36)
+
 print("\n" + "=" * 78)
 print(f"GP-2: {sum(RESULTS)}/{len(RESULTS)} checks passed")
 sys.exit(0 if all(RESULTS) else 1)

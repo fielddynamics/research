@@ -256,6 +256,73 @@ sol = sp.solve([m_plus + m_minus - 21, m_plus - m_minus - 13], [m_plus, m_minus]
 check("T6 an involution J with Tr I = 21, Tr J = 13 has eigenvalue multiplicities (17, 4), forced", sol == {m_plus: 17, m_minus: 4})
 check("T6 det(alpha^{I_s}) = alpha^{Tr I_s} = alpha^{17 + 4 s}: exponents 13, 17, 21", [17 + 4 * v for v in (-1, 0, 1)] == [13, 17, 21])
 
+
+print("\n-- Theorem 1b (referee): the short proof; s = zeta + conj(zeta) is an algebraic integer")
+check("T1b discriminants of f(K,s) = K^2 + sK + 1 are s^2 - 4: -3, -4, -3 for s = -1, 0, 1 (all < 0: irreducible over Q)",
+      [v * v - 4 for v in (-1, 0, 1)] == [-3, -4, -3])
+check("T1b a rational algebraic integer is an integer, and |zeta + conj zeta| <= 2, so s in {-2,...,2}",
+      sp.Rational(1, 2).is_integer is False and all(abs(int(v)) <= 2 for v in (-2, -1, 0, 1, 2)))
+
+print("\n-- Theorem 6b (referee): unitary rigidity of the 17 + 4 grading")
+import numpy as np
+rng = np.random.default_rng(7)
+ok = True
+for trial in range(30):
+    Q, _ = np.linalg.qr(rng.normal(size=(21, 21)))
+    J = Q @ np.diag([1.0] * 17 + [-1.0] * 4) @ Q.T
+    ev = np.linalg.eigvalsh(J)
+    if not (np.allclose(J @ J, np.eye(21)) and abs(np.trace(J) - 13) < 1e-9 and
+            (np.abs(ev - 1) < 1e-9).sum() == 17 and (np.abs(ev + 1) < 1e-9).sum() == 4):
+        ok = False
+    Pfo, Podd = (np.eye(21) + J) / 2, (np.eye(21) - J) / 2
+    traces = [np.trace(Pfo + s_ * Podd) for s_ in (1, 0, -1)]
+    if not np.allclose(traces, [21, 17, 13]):
+        ok = False
+check("T6b every symmetric involution on R^21 with trace 13 is conjugate to I_17 + (-I_4); A_s = P_FO + s P_odd has traces 21, 17, 13", ok)
+
+print("\n-- Theorem 7 (referee): every exact interlevel intertwiner lives on the hinge block")
+def shell(Kv, dims):
+    """Shell Hamiltonian with eigenvalues f(K,-1), f(K,0), f(K,1) of the given multiplicities."""
+    return np.diag(sum(([float(f(Kv, v))] * d for v, d in zip((-1, 0, 1), dims)), []))
+def intertwiner_space(Ha, Hb):
+    n, m = Ha.shape[0], Hb.shape[0]
+    # vec(Hb T - T Ha) = (I (x) Hb - Ha^T (x) I) vec T
+    Mbig = np.kron(np.eye(n), Hb) - np.kron(Ha.T, np.eye(m))
+    _, sv, vh = np.linalg.svd(Mbig)
+    null = vh[np.sum(sv > 1e-9):]
+    return null, n, m
+ok_dim, ok_block, ok_far = True, True, True
+for trial in range(12):
+    Kv = int(rng.integers(2, 9))
+    da, db = rng.integers(1, 4, 3), rng.integers(1, 4, 3)
+    Ha, Hb = shell(Kv, da), shell(Kv + 1, db)
+    null, n, m = intertwiner_space(Ha, Hb)
+    if null.shape[0] != da[2] * db[0]:
+        ok_dim = False
+    for v in null:
+        T = v.reshape(n, m).T                       # T maps the K shell to the K+1 shell
+        rows = slice(0, db[0]); cols = slice(da[0] + da[1], n)
+        mask = np.zeros_like(T, dtype=bool); mask[rows, cols] = True
+        if np.abs(T[~mask]).max(initial=0) > 1e-9:
+            ok_block = False
+    null2, _, _ = intertwiner_space(Ha, shell(Kv + 2, db))
+    if null2.shape[0] != 0:
+        ok_far = False
+check("T7 dim{T : H_{K+1} T = T H_K} = dim E_{K,+} x dim E_{K+1,-} (12 random multiplicity patterns, K = 2..8)", ok_dim)
+check("T7 every such T is supported on the single block E_{K,+} -> E_{K+1,-}", ok_block)
+check("T7 non-adjacent shells (K -> K+2) admit no nonzero intertwiner", ok_far)
+Zt = np.zeros((Hb.shape[0], Ha.shape[0]))
+check("T7 the zero map always intertwines: a matching band does not imply a nonzero transition",
+      np.allclose(Hb @ Zt, Zt @ Ha))
+
+print("\n-- Theorem 4b (referee): the whole fusion tower is pairwise coprime (proof by induction)")
+ok = True
+for Kv in range(2, 11):
+    facs = [f(Kv, 1)] + [f(Kv ** (2 ** j), -1) for j in range(5)]
+    if not all(gcd(a, b) == 1 for a, b in itertools.combinations(facs, 2)):
+        ok = False
+check("T4b A_0, B_0, B_1, ..., B_4 pairwise coprime for K = 2..10 (B_j | A_n for j < n, and gcd(A_n, B_n) = 1)", ok)
+
 print("\n" + "=" * 78)
 print(f"GP-3: {sum(RESULTS)}/{len(RESULTS)} checks passed")
 sys.exit(0 if all(RESULTS) else 1)

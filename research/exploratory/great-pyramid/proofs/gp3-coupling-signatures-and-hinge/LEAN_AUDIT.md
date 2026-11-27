@@ -4,7 +4,7 @@
 |---|---|
 | **File** | [`lean/SignaturesHinge.lean`](lean/SignaturesHinge.lean) |
 | **Imports** | `Mathlib` (v4.36.0, the same version as the root `proofs/` chain) |
-| **Theorems** | 20 |
+| **Theorems** | 24 |
 | **Axioms** | every `#print axioms` reports only `propext`, `Classical.choice`, `Quot.sound` (some fewer); no `sorry` |
 | **CI** | [`.github/workflows/lean-great-pyramid-gp3.yml`](../../../../../.github/workflows/lean-great-pyramid-gp3.yml): builds, then fails on any warning, error, `sorry` or non-standard axiom |
 
@@ -24,6 +24,8 @@
 | Theorem 3 | `midpoint` | `f K 1 + f K (-1) = 2 f K 0` |
 | Theorem 4 | `fusion, fusion'` | `f K 1 · f K (-1) = f (K²) 1 = 1 + K² f K 0` |
 | Theorem 4 | `tower` | `f(K^(2^n),1) = f(K,1) ∏_{j<n} f(K^(2^j),-1)` |
+| Theorem 4b | `tower_factor_dvd, tower_head_dvd` | every earlier tower factor divides `A_n = f(K^(2^n), 1)` |
+| Theorem 4b | `tower_pairwise_coprime, tower_head_coprime` | `A_0, B_0, B_1, …` pairwise coprime, for every `K : ℤ` (referee's induction) |
 | Theorem 4 | `tower_at_four` | the K = 4 values 21, 13, 17, 273, 241, 65793, … |
 | Theorem 6 | `graded_trace, involution_multiplicities` | trace form; multiplicities (17, 4) forced |
 

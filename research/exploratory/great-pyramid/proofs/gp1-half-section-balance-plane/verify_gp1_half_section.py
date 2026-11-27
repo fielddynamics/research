@@ -283,27 +283,47 @@ check("P6 exchange mu_B -> 1 - mu_B has the balance level as its only fixed leve
       [r for r in sp.solve(sp.Eq(muB, 1 - muB), u) if 0 <= float(r) <= 1] == [1 - sp.sqrt(2) / 2])
 
 # ---------------------------------------------------------------------------
-print("\n-- Observation O7: the Great Pyramid (Petrie 1883, as cited in 01.6) [O]")
+print("\n-- Proposition 6b: the graded structural operator A_B(u) = P_even + (2 mu_B - 1) P_odd (conditional)")
+Pe = sp.diag(*([1] * 17 + [0] * 4)); Po = sp.eye(21) - Pe
+AB = lambda uu: Pe + (2 * (1 - uu) ** 2 - 1) * Po
+check("P6b Tr A_B(u) = 13 + 8 mu_B(u) for symbolic u", sp.simplify(AB(u).trace() - (13 + 8 * (1 - u) ** 2)) == 0)
+check("P6b A_B(0) = I (trace 21), A_B(u*) = P_even (trace 17), A_B(1) = J = P_even - P_odd (trace 13)",
+      AB(0) == sp.eye(21) and sp.simplify(AB(u3) - Pe) == sp.zeros(21) and AB(1) == Pe - Po)
+check("P6b at the balance level the 4-dimensional signed sector is exactly suppressed: A_B(u*) P_odd = 0",
+      sp.simplify(AB(u3) * Po) == sp.zeros(21))
+
+print("\n-- Observation O7: the Great Pyramid (Petrie 1883; values verified in ../../metrics) [O]")
 h_in, dh = 5776.0, 7.0
 target = float(u3) * h_in
 dtarget = float(u3) * dh
 floor_lo, floor_hi = 1691.4, 1693.7
 floor_mean = 0.5 * (floor_lo + floor_hi)
+floor_allow = 0.5 * (floor_hi - floor_lo) + 0.6          # half-range plus Petrie's stated .6 allowance
 resid = floor_mean - target
-sig = (dtarget ** 2 + (0.6 + 0.5 * (floor_hi - floor_lo)) ** 2) ** 0.5
-check("O7 area-balance target 0.292893 h = 1691.75 +- 2.05 in", abs(target - 1691.75) < 0.01 and abs(dtarget - 2.05) < 0.01,
-      f"{target:.2f} +- {dtarget:.2f} in")
-check("O7 King's Chamber floor mean 1692.55 in is within 1 sigma of the target", abs(resid) < sig,
-      f"residual {resid:+.2f} in, combined sigma {sig:.2f} in, {abs(resid)/sig:.2f} sigma")
+allow = dtarget + floor_allow                            # bounded allowances add (no Gaussian assumption)
+check("O7 area-balance target 0.292893 h = 1691.75 in, allowance +-2.05 in from the height reconstruction",
+      abs(target - 1691.75) < 0.01 and abs(dtarget - 2.05) < 0.01, f"{target:.2f} +- {dtarget:.2f} in")
+check("O7 floor midpoint 1692.55 in with allowance +-1.75 in (half of the 1691.4-1693.7 range plus 0.6)",
+      abs(floor_mean - 1692.55) < 1e-9 and abs(floor_allow - 1.75) < 1e-9)
+check("O7 residual +0.80 in lies well inside the combined allowance +-3.80 in (an allowance interval, not a sigma)",
+      abs(resid - 0.80) < 0.01 and abs(allow - 3.80) < 0.01 and abs(resid) < allow,
+      f"residual {resid:+.2f} in, allowance +-{allow:.2f} in")
 vol_plane = float(levels[3]) * h_in
 len_plane = 0.5 * h_in
-check("O7 the volume-balance level (1191.6 in) and height-balance level (2888.0 in) are excluded by > 150 sigma",
-      abs(floor_mean - vol_plane) / sig > 150 and abs(floor_mean - len_plane) / sig > 150,
-      f"{vol_plane:.1f} in ({abs(floor_mean - vol_plane)/sig:.0f} sigma), {len_plane:.1f} in ({abs(floor_mean - len_plane)/sig:.0f} sigma)")
-# look-elsewhere under a stated null: a floor level uniform on [0, h/2]
-p_one = 2 * sig / (0.5 * h_in)
-check("O7 null model (floor uniform on [0, h/2]): chance of landing within 1 sigma of a given plane ~ 0.19%; of any of the 3 canonical planes < 0.6%",
-      p_one < 0.002 and 3 * p_one < 0.006, f"{100*p_one:.3f}% per plane")
+check("O7 the volume-balance (1191.6 in) and height-balance (2888.0 in) levels lie > 100 allowances from the floor",
+      abs(floor_mean - vol_plane) / allow > 100 and abs(floor_mean - len_plane) / allow > 100,
+      f"{abs(floor_mean - vol_plane)/allow:.0f} and {abs(floor_mean - len_plane)/allow:.0f} allowances")
+# look-elsewhere: windows of radius delta about the three planes, intersected with [0, h/2];
+# the height plane sits at the boundary h/2, so its window contributes delta, not 2 delta.
+def null_prob(delta):
+    L = 0.5 * h_in
+    win = 0.0
+    for c in (vol_plane, target, len_plane):
+        win += max(0.0, min(L, c + delta) - max(0.0, c - delta))
+    return win / L
+check("O7 null model (floor uniform on [0, h/2]): P(any canonical window of radius delta) = 5 delta/(h/2)",
+      abs(null_prob(3.80) - 5 * 3.80 / (0.5 * h_in)) < 1e-12 and abs(null_prob(2.70) - 0.004675) < 1e-5,
+      f"{100*null_prob(3.80):.2f}% at delta = 3.80 in; {100*null_prob(2.70):.2f}% at 2.70 in (not a calibrated p-value)")
 
 print("\n" + "=" * 78)
 n_pass = sum(RESULTS)

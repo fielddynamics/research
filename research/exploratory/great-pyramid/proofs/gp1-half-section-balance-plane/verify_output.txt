@@ -63,11 +63,17 @@ GP-1  The half-section theorem: the balance plane of a cone
 [PASS] P6 f_B = 13 + 8 mu_B runs 21 (base) -> 17 (balance) -> 13 (apex)
 [PASS] P6 exchange mu_B -> 1 - mu_B has the balance level as its only fixed level
 
--- Observation O7: the Great Pyramid (Petrie 1883, as cited in 01.6) [O]
-[PASS] O7 area-balance target 0.292893 h = 1691.75 +- 2.05 in  -- 1691.75 +- 2.05 in
-[PASS] O7 King's Chamber floor mean 1692.55 in is within 1 sigma of the target  -- residual +0.80 in, combined sigma 2.70 in, 0.30 sigma
-[PASS] O7 the volume-balance level (1191.6 in) and height-balance level (2888.0 in) are excluded by > 150 sigma  -- 1191.6 in (186 sigma), 2888.0 in (443 sigma)
-[PASS] O7 null model (floor uniform on [0, h/2]): chance of landing within 1 sigma of a given plane ~ 0.19%; of any of the 3 canonical planes < 0.6%  -- 0.187% per plane
+-- Proposition 6b: the graded structural operator A_B(u) = P_even + (2 mu_B - 1) P_odd (conditional)
+[PASS] P6b Tr A_B(u) = 13 + 8 mu_B(u) for symbolic u
+[PASS] P6b A_B(0) = I (trace 21), A_B(u*) = P_even (trace 17), A_B(1) = J = P_even - P_odd (trace 13)
+[PASS] P6b at the balance level the 4-dimensional signed sector is exactly suppressed: A_B(u*) P_odd = 0
+
+-- Observation O7: the Great Pyramid (Petrie 1883; values verified in ../../metrics) [O]
+[PASS] O7 area-balance target 0.292893 h = 1691.75 in, allowance +-2.05 in from the height reconstruction  -- 1691.75 +- 2.05 in
+[PASS] O7 floor midpoint 1692.55 in with allowance +-1.75 in (half of the 1691.4-1693.7 range plus 0.6)
+[PASS] O7 residual +0.80 in lies well inside the combined allowance +-3.80 in (an allowance interval, not a sigma)  -- residual +0.80 in, allowance +-3.80 in
+[PASS] O7 the volume-balance (1191.6 in) and height-balance (2888.0 in) levels lie > 100 allowances from the floor  -- 132 and 315 allowances
+[PASS] O7 null model (floor uniform on [0, h/2]): P(any canonical window of radius delta) = 5 delta/(h/2)  -- 0.66% at delta = 3.80 in; 0.47% at 2.70 in (not a calibrated p-value)
 
 ==============================================================================
-GP-1: 53/53 checks passed
+GP-1: 57/57 checks passed
