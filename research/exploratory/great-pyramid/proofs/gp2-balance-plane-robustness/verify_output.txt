@@ -1,0 +1,66 @@
+==============================================================================
+GP-2  Robustness of the balance plane; the constitutive share at Giza
+==============================================================================
+
+-- Theorem 1: centroid identity  int_S J_z dA = A(S) J_z(c(S))  for affine J
+[PASS] T1 random affine J #1: section flux = area x J_z(centroid), exactly
+[PASS] T1 random affine J #2: section flux = area x J_z(centroid), exactly
+[PASS] T1 random affine J #3: section flux = area x J_z(centroid), exactly
+[PASS] T1 random affine J #4: section flux = area x J_z(centroid), exactly
+[PASS] T1 random affine J #5: section flux = area x J_z(centroid), exactly
+[PASS] T1 random affine J #6: section flux = area x J_z(centroid), exactly
+
+-- Theorem 2: in a cone, mu_B(u) = (1-u)^2 (1 + b u),  b = J_z(apex)/J_z(base centroid) - 1
+[PASS] T2 oblique pentagonal cone, random affine J #1: mu_B(u) = (1-u)^2(1+bu) exactly (b = -0.1837)
+[PASS] T2 oblique pentagonal cone, random affine J #2: mu_B(u) = (1-u)^2(1+bu) exactly (b = +0.0565)
+[PASS] T2 oblique pentagonal cone, random affine J #3: mu_B(u) = (1-u)^2(1+bu) exactly (b = +0.0594)
+[PASS] T2 oblique pentagonal cone, random affine J #4: mu_B(u) = (1-u)^2(1+bu) exactly (b = -0.1048)
+[PASS] T2 oblique pentagonal cone, random affine J #5: mu_B(u) = (1-u)^2(1+bu) exactly (b = -0.1152)
+[PASS] T2 oblique pentagonal cone, random affine J #6: mu_B(u) = (1-u)^2(1+bu) exactly (b = -0.1117)
+
+-- Theorem 2(b): for div J = tr M = 0 the frustum balance base = section + lateral holds face by face; otherwise the defect is tr(M) x volume
+[PASS] T2b affine J #1, tr M = 0: net outward flux of the frustum is 0 (base_in = section_out + lateral_out)
+[PASS] T2b affine J #1, tr M != 0: net outward flux = tr(M) x frustum volume
+[PASS] T2b affine J #2, tr M = 0: net outward flux of the frustum is 0 (base_in = section_out + lateral_out)
+[PASS] T2b affine J #2, tr M != 0: net outward flux = tr(M) x frustum volume
+[PASS] T2b affine J #3, tr M = 0: net outward flux of the frustum is 0 (base_in = section_out + lateral_out)
+[PASS] T2b affine J #3, tr M != 0: net outward flux = tr(M) x frustum volume
+[PASS] T2b affine J #4, tr M = 0: net outward flux of the frustum is 0 (base_in = section_out + lateral_out)
+[PASS] T2b affine J #4, tr M != 0: net outward flux = tr(M) x frustum volume
+
+-- Theorem 3: the balance level is unique for every b > -1
+[PASS] T3 g'(u) = -(1-u)(2 - b + 3bu)  -- (u - 1)*(3*b*u - b + 2)
+[PASS] T3 exactly one root of g(u) = 1/2 in (0,1) for b in {-0.99,-1/2,-1/10,0,1/2,1,2,3,10,50,1000} (exact real-root isolation)
+[PASS] T3 b = -1: J_z vanishes at the apex (1 + b u -> 0); b < -1: J_z changes sign inside the cone, no flux share
+
+-- Theorem 4: shift of the balance level  du*/db at b = 0 equals (sqrt 2 - 1)/4
+[PASS] T4 du*/db|_{b=0} = (sqrt 2 - 1)/4 = 0.103553  -- 0.103553
+[PASS] T4 d2u*/db2|_{b=0} = 1 - 11 sqrt(2)/16 = 0.027728 (exact)  -- 0.027728
+[PASS] T4 Great Pyramid (h = 5776 in): 598.1 in per unit b, reproducing 01.7's numerical 599 in exactly in closed form  -- 598.12 in
+[PASS] T4 exact root at b = 1e-3 agrees with the first two Taylor terms to < 1e-9
+
+-- Theorem 5: any field whose mean axial density varies by at most a fraction eps keeps u* in a closed interval
+[PASS] T5 300 random non-uniform profiles: every balance root lies in [1 - 1/sqrt(2(1-eps)), 1 - 1/sqrt(2(1+eps))]
+[PASS] T5 sharp: constant ratio 1+eps puts u* at the upper endpoint, 1-eps at the lower
+[PASS] T5 half-width = eps / (2 sqrt 2) + O(eps^2) = 0.35355 eps  -- 0.353553
+[PASS] T5 Phase 0's reported axial uniformity 5e-5 confines the plane to +-0.10 in of 0.292893 h  -- +-0.102 in
+
+-- Theorem 6: the Earth's own field fixes the plane to within a millimetre
+[PASS] T6 Earth monopole field, exact solid-angle fluxes: balance level shifts by -0.70 mm (downwards)  -- -0.6997 mm
+[PASS] T6 affine prediction (sqrt2-1)/4 b h with b = (R/(R+h))^2 - 1 agrees to better than 1%  -- predicted -0.6997 mm, b = -4.605e-05
+[PASS] T6 the Earth's gradient is about 29 times too small to account for the 0.80 in residual  -- ratio 29
+[PASS] T6 the exterior monopole field is divergence-free (so base = section + lateral exactly)
+
+-- Theorem 7: the pyramid's self-gravity, bounded
+[PASS] T7 |g_self| <= 8 pi G rho R_c  (B lies in the ball of radius 2 R_c about any of its points)  -- 6.28e-04 m/s^2
+[PASS] T7 the self-field, though sourced (div J != 0 inside), moves the section-flux balance level by at most 0.6 in  -- bound 0.262 in (eps = 1.28e-04)
+[PASS] T7 Earth gradient + self-gravity together: the gravitational balance level lies within 0.36 in of 0.292893 h  -- bound 0.356 in (eps = 1.74e-04)
+
+-- Theorem 8: the structural share mu_B is not the constitutive share mu at Giza
+[PASS] T8 at the Earth's surface x = g/a0 = 8.2e10  -- x = 8.158e+10
+[PASS] T8 even applied per mass (which the net-field rule forbids), the TetB share 1/(1+x) is 1.2e-11  -- 1.23e-11
+[PASS] T8 net-field rule [T+L]: inside the drainless solar system mu = 1 exactly; at the balance plane mu_B = 1/2, so |mu_B - mu| = 1/2
+[PASS] T8 within the constitutive law, mu = 1/2 requires g = a0, i.e. a field 8e10 times weaker than Giza's
+
+==============================================================================
+GP-2: 42/42 checks passed

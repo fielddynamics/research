@@ -1,0 +1,53 @@
+==============================================================================
+GP-4  Registration and coherence of phase ensembles
+==============================================================================
+
+-- Theorem 1: C_N = 1 iff the ensemble lies on one coset of the N-gon
+[PASS] T1 (if) N = 3: 40 random ensembles on a rotated 3-gon have C_3 = 1 to 1e-40
+[PASS] T1 (if) N = 7: 40 random ensembles on a rotated 7-gon have C_7 = 1 to 1e-40
+[PASS] T1 (if) N = 21: 40 random ensembles on a rotated 21-gon have C_21 = 1 to 1e-40
+[PASS] T1 (only if) N = 3: moving any atom off the coset makes C_3 < 1
+[PASS] T1 (only if) N = 7: moving any atom off the coset makes C_7 < 1
+[PASS] T1 (only if) N = 21: moving any atom off the coset makes C_21 < 1
+[PASS] T1 uniform 3-gon: m_k = 1 if 3 | k else 0, for k = 0..6
+[PASS] T1 uniform 7-gon: m_k = 1 if 7 | k else 0, for k = 0..14
+[PASS] T1 uniform 21-gon: m_k = 1 if 21 | k else 0, for k = 0..42
+
+-- Theorem 2: registration does not imply coherence; every C_1 in [0,1] occurs with C_N = 1
+[PASS] T2 N = 3: the mixture (1-t) uniform + t point has C_3 = 1 and C_1 = t (t = 0, 1/4, 1/2, 0.9, 1)
+[PASS] T2 N = 7: the mixture (1-t) uniform + t point has C_7 = 1 and C_1 = t (t = 0, 1/4, 1/2, 0.9, 1)
+[PASS] T2 N = 21: the mixture (1-t) uniform + t point has C_21 = 1 and C_1 = t (t = 0, 1/4, 1/2, 0.9, 1)
+[PASS] T2 the README table: uniform circle (0,0), uniform 21-gon (C_21 = 1, C_1 = 0), single phase (1, 1)
+
+-- Theorem 3: coherence implies registration:  1 - Re(e^{-i N phi} m_N) <= N^2 (1 - C_1)
+[PASS] T3 lemma N = 2: sin(Nx)/sin(x) = U_(N-1)(cos x), a polynomial in cos x
+[PASS] T3 lemma N = 3: sin(Nx)/sin(x) = U_(N-1)(cos x), a polynomial in cos x
+[PASS] T3 lemma N = 4: sin(Nx)/sin(x) = U_(N-1)(cos x), a polynomial in cos x
+[PASS] T3 lemma N = 5: sin(Nx)/sin(x) = U_(N-1)(cos x), a polynomial in cos x
+[PASS] T3 lemma N = 7: sin(Nx)/sin(x) = U_(N-1)(cos x), a polynomial in cos x
+[PASS] T3 lemma |sin(N t)| <= N |sin t| on a 6400-point grid, N = 2, 3, 7, 21
+[PASS] T3 1600 random ensembles (N = 2, 3, 7, 21): the inequality holds  -- max lhs/rhs = 1.0000
+[PASS] T3 the constant N^2 is sharp: a symmetric pair at +-d has ratio -> 1 as d -> 0 (N = 21)  -- [0.9963387007926426, 0.999999633333387, 0.9999999999633333]
+[PASS] T3 corollary (N = 21): C_1 >= 1 - 1/882 guarantees C_21 >= 1/2
+
+-- Theorem 4: registration at coprime orders is coherence (Bezout);  C_a = C_b = 1  =>  C_gcd(a,b) = 1
+[PASS] T4 Bezout: 1 = 7 x 1 - 3 x 2, so e^{i theta} = e^{7 i theta} (e^{3 i theta})^(-2)
+[PASS] T4 the 3-gon coset and the 7-gon coset meet in at most one point (generic: none; compatible: exactly one)
+[PASS] T4 contrast: the uniform 21-gon has C_21 = 1 but C_3 = C_7 = 0, so registration in Z_21 is strictly weaker than registration in Z_3 and Z_7
+[PASS] T4 the group isomorphism Z_3 x Z_7 = Z_21 (CRT) holds: k -> (k mod 3, k mod 7) is a bijection
+[PASS] T4 general form: {e^{ia t} = e^{ib t} = 1} is exactly the gcd(a,b)-gon, for six (a, b) pairs
+
+-- Theorem 5: the full character sum is the only exact selector; filtered sums have sidelobes
+[PASS] T5 (1/21) sum_k e^{2 pi i k d/21} = delta_{d,0} for d = 0..20
+[PASS] T5 Parseval: sum_d |F_S(d)|^2 = N/|S| (570 random subsets of Z_21)
+[PASS] T5 sidelobe bound: max_{d != 0} |F_S(d)| >= sqrt((N/|S| - 1)/(N - 1)) for every proper subset tested
+[PASS] T5 no proper subset gives an exact selector (every tested F_S has a nonzero sidelobe)
+[PASS] T5 the 14 characters k not divisible by 3: F(d) = 1 at d = 0, -1/2 at d = 7, 14, and 0 elsewhere (exact: (21[21|d] - 7[7|d])/14)
+[PASS] T5 its sidelobe 1/2 exceeds the Parseval floor sqrt(1/40) = 0.158
+
+-- Proposition 6: the 21-fold lock potential (README section 8), as stated there
+[PASS] P6 -cos(21 theta) has its minima exactly at theta_n = 2 pi n / 21 (21 of them on [0, 2 pi))
+[PASS] P6 a population spread evenly over those minima is registered (C_21 = 1) but incoherent (C_1 = 0)
+
+==============================================================================
+GP-4: 35/35 checks passed

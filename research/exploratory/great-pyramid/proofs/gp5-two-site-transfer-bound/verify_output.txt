@@ -1,0 +1,40 @@
+==============================================================================
+GP-5  Two-site transfer bound; the mirror-address selector
+==============================================================================
+
+-- Theorem 1: constant coupling, the exact two-mode solution
+[PASS] T1 (c_x, c_y) solve i d/dt c = H c with c(0) = (1, 0)
+[PASS] T1 P(t) = 4|k|^2/(D^2 + 4|k|^2) sin^2(Omega t/2), Omega = sqrt(D^2 + 4|k|^2)
+[PASS] T1 norm is conserved, |c_x|^2 + |c_y|^2 = 1
+[PASS] T1 the peak 4|k|^2/(D^2+4|k|^2) equals 1 iff D = 0 (for k != 0)
+[PASS] T1 the peak is below min(1, 4|k|^2/D^2)  (grid of |k| and D)
+[PASS] T1 at D = 0 the first complete transfer is at t = pi/(2|k|)
+
+-- Theorem 2: the coupling budget  |c_y(t)| <= sin(min(int_0^t |kappa|, pi/2))  for ANY drive
+[PASS] T2 300 random piecewise-constant drives (detunings up to 100, phase-modulated couplings): bound never violated  -- max |c_y|/bound = 1.000000
+[PASS] T2 the bound is attained: resonant constant coupling gives |c_y| = sin(|k| t) exactly until pi/2
+[PASS] T2 lemma: in the interaction picture |d a/dt| = |kappa| |a| = |kappa| (off-diagonal generator, unit state)
+[PASS] T2 lemma: the great-circle distance on S^3 from (1,0) to any state with |a_y| = sin beta is >= beta
+
+-- Corollary 3: no coupling, no transfer -- for every frequency programme
+[PASS] C3 kappa = 0: P(t) = 0 identically, for 100 random detuning programmes (any resonance, any sweep)
+[PASS] C3 with sup|kappa| <= k no drive completes the transfer before t = pi/(2k) (100 random drives)
+
+-- Proposition 4: detuning tolerance for a target efficiency eta (constant coupling)
+[PASS] P4 peak >= eta  iff  |Delta| <= 2|k| sqrt((1 - eta)/eta)
+[PASS] P4 eta = 1/2 gives |Delta| <= 2|k|; eta = 0.99 gives |Delta| <= 0.201|k|
+
+-- Proposition 5: equal loss on both sites only rescales the transfer, P_loss = e^{-gamma t} P
+[PASS] P5 20 random Hamiltonians, gamma = 0.3: |c_y|^2 with loss = e^{-gamma t} |c_y|^2 without
+
+-- Theorem 6: the Gram mismatch d_G is a pseudometric; the selector M_xy lies in [0,1]
+[PASS] T6 d_G is symmetric (25 random triad Grams)
+[PASS] T6 d_G satisfies the triangle inequality (1728 triples)
+[PASS] T6 d_G(G, P^T G P) = 0 for every relabelling P: zero exactly on relabellings
+[PASS] T6 d_G(G, H) > 0 for Grams that are not relabellings of each other
+[PASS] T6 M_xy in [0, 1] over a parameter grid
+[PASS] T6 M_xy = 1 iff d_G = 0, chi_x = -chi_y and dTheta = 0 mod 2 pi
+[PASS] T6 with kappa = kappa_0 M_xy the coupling budget gives P(t) <= sin^2(min(kappa_0 M t, pi/2)): a mismatch slows transfer, it never adds a channel
+
+==============================================================================
+GP-5: 22/22 checks passed
