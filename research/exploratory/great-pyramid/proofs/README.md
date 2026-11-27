@@ -19,4 +19,4 @@ python run_all.py        # all five, ~45 s; requires sympy, mpmath, numpy, scipy
 
 **Status tags** follow the repository (llms.txt, Rule 11): **[T]** theorem, **[D]** derived, **[E]** exploratory, **[O]** observational.
 
-**Lean.** These five proofs are checked by script only. A Lean 4 formalisation, in the style of the main [`proofs/`](../../../../proofs/) folder, is a natural next step for GP-1 Theorems 1–5, GP-2 Theorems 2–4 and GP-3 Theorems 2–4, all of which are finite algebra. No Lean claim is made here.
+**Lean.** Each proof also has a `lean/` folder with a Lean 4 / Mathlib (v4.36.0) formalisation of its algebraic and finite statements: 61 theorems in all (GP-1 9, GP-2 11, GP-3 20, GP-4 9, GP-5 12), no `sorry`, standard axioms only. GitHub Actions builds each one and audits its axioms on every change (`.github/workflows/lean-great-pyramid-gp*.yml`). Each folder's `LEAN_AUDIT.md` lists what is formalised and what is still checked only by script (measure-theoretic flux, numerics, finite-field enumeration, the time-dependent transfer bound).

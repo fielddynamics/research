@@ -1,0 +1,166 @@
+==============================================================================
+Great Pyramid metrics: source verification and cross-checks
+==============================================================================
+
+-- Q: every quote occurs verbatim in its source; every value occurs in its quote
+[PASS] Q base_side_mean           §25        petrie_c6
+[PASS] Q height_original          §25        petrie_c6
+[PASS] Q face_angle               §25        petrie_c6
+[PASS] Q base_N                   §21        petrie_c6
+[PASS] Q base_E                   §21        petrie_c6
+[PASS] Q base_S                   §21        petrie_c6
+[PASS] Q base_W                   §21        petrie_c6
+[PASS] Q base_azimuth_mean        §21        petrie_c6
+[PASS] Q base_mean_error          §21        petrie_c6
+[PASS] Q core_plane_side_mean     §20        petrie_c6
+[PASS] Q socket_side_mean         §20        petrie_c6
+[PASS] Q socket_NE                §22        petrie_c6
+[PASS] Q socket_SE                §22        petrie_c6
+[PASS] Q socket_SW                §22        petrie_c6
+[PASS] Q socket_NW                §22        petrie_c6
+[PASS] Q casing_base_level        §26        petrie_c6
+[PASS] Q casing_joint_mean        §26        petrie_c6
+[PASS] Q casing_thickness_top     §26        petrie_c6
+[PASS] Q course_25_level          §146       petrie_c21
+[PASS] Q course_50_level          §146       petrie_c21
+[PASS] Q basalt_pavement          §28        petrie_c6
+[PASS] Q weight_petrie            §145       petrie_c21
+[PASS] Q entrance_level           §64        petrie_c7
+[PASS] Q entrance_east_offset     §149       petrie_c21
+[PASS] Q entrance_angle           §151       petrie_c21
+[PASS] Q entrance_floor_length    §149       petrie_c21
+[PASS] Q entrance_height          §150       petrie_c21
+[PASS] Q passage_height_range     §150       petrie_c21
+[PASS] Q entrance_end_level       §64        petrie_c7
+[PASS] Q ascending_length         §149       petrie_c21
+[PASS] Q ascending_angle          §39        petrie_c7
+[PASS] Q ascending_begin_level    §64        petrie_c7
+[PASS] Q ascending_end_level      §64        petrie_c7
+[PASS] Q granite_plug_width       §38        petrie_c7
+[PASS] Q subt_length              §152       petrie_c21
+[PASS] Q subt_width               §152       petrie_c21
+[PASS] Q subt_roof_level          §148       petrie_c21
+[PASS] Q subt_unfinished          §37        petrie_c7
+[PASS] Q qc_width                 §41        petrie_c7
+[PASS] Q qc_length                §41        petrie_c7
+[PASS] Q qc_wall_height           §41        petrie_c7
+[PASS] Q qc_ridge_height          §41        petrie_c7
+[PASS] Q qc_floor_level           §64        petrie_c7
+[PASS] Q qc_roof_level            §64        petrie_c7
+[PASS] Q qc_niche_height          §153       petrie_c21
+[PASS] Q gg_floor_end_level       §45        petrie_c7
+[PASS] Q gg_floor_horizontal      §148       petrie_c21
+[PASS] Q gg_roof_length           §46        petrie_c7
+[PASS] Q gg_angle                 §45        petrie_c7
+[PASS] Q gg_top_width             §46        petrie_c7
+[PASS] Q gg_lower_width           §150       petrie_c21
+[PASS] Q gg_laps_overhang         §46        petrie_c7
+[PASS] Q ac_length                §48        petrie_c7
+[PASS] Q ac_breadth               §48        petrie_c7
+[PASS] Q ac_height                §48        petrie_c7
+[PASS] Q ac_granite_floor         §154       petrie_c21
+[PASS] Q ac_floor_level           §64        petrie_c7
+[PASS] Q kc_width                 §155       petrie_c21
+[PASS] Q kc_length                §155       petrie_c21
+[PASS] Q kc_height_floor          §155       petrie_c21
+[PASS] Q kc_wall_height           §150       petrie_c21
+[PASS] Q kc_N_wall_mean           §52        petrie_c7
+[PASS] Q kc_floor_level           §64        petrie_c7
+[PASS] Q kc_floor_range           §148       petrie_c21
+[PASS] Q kc_wall_base_level       §64        petrie_c7
+[PASS] Q kc_roof_level            §64        petrie_c7
+[PASS] Q kc_floor_raise           §155       petrie_c21
+[PASS] Q kc_course_height         §150       petrie_c21
+[PASS] Q kc_first_course          §155       petrie_c21
+[PASS] Q kc_roof_beams            §53        petrie_c7
+[PASS] Q kc_cubit                 §52        petrie_c7
+[PASS] Q kc_cubic_diagonal        §156       petrie_c21
+[PASS] Q kc_channel_N_angle       §56        petrie_c7
+[PASS] Q kc_channel_S_angle       §56        petrie_c7
+[PASS] Q kc_channel_N_section     §56        petrie_c7
+[PASS] Q coffer_material          §57        petrie_c7
+[PASS] Q coffer_contents          §61        petrie_c7
+[PASS] Q coffer_bulk              §61        petrie_c7
+[PASS] Q coffer_volume_overall    §61        petrie_c7
+[PASS] Q coffer_volume_calipers   §61        petrie_c7
+[PASS] Q coffer_outer_height      §156       petrie_c21
+[PASS] Q coffer_outer_length      §156       petrie_c21
+[PASS] Q coffer_outer_width       §156       petrie_c21
+[PASS] Q coffer_inner_length      §156       petrie_c21
+[PASS] Q coffer_inner_width       §156       petrie_c21
+[PASS] Q coffer_inner_height      §156       petrie_c21
+[PASS] Q rc_count                 §62        petrie_c7
+[PASS] Q rc_first_S               §62        petrie_c7
+[PASS] Q rc_top_S                 §62        petrie_c7
+[PASS] Q rc_apex_level            §148       petrie_c21
+[PASS] Q rc_materials             §63        petrie_c7
+[PASS] Q cubit_from_height        §144       petrie_c21
+[PASS] Q saw_thickness            §130       petrie_c19
+[PASS] Q coffer_length_feet       §130       petrie_c19
+[PASS] Q drill_load               §133       petrie_c19
+[PASS] Q jewel_points             §129       petrie_c19
+[PASS] Q cole_sides               note 1031  wikipedia_great_pyramid
+[PASS] Q base_infobox             infobox    wikipedia_great_pyramid
+[PASS] Q height_original_m        infobox    wikipedia_great_pyramid
+[PASS] Q height_current_m         infobox    wikipedia_great_pyramid
+[PASS] Q slope_seked              infobox    wikipedia_great_pyramid
+[PASS] Q volume_m3                infobox    wikipedia_great_pyramid
+[PASS] Q blocks                   Materials  wikipedia_great_pyramid
+[PASS] Q material_masses          Materials  wikipedia_great_pyramid
+[PASS] Q granite_source           Materials  wikipedia_great_pyramid
+[PASS] Q granite_beams            Materials  wikipedia_great_pyramid
+[PASS] Q casing_source            History    wikipedia_great_pyramid
+[PASS] Q big_void                 The Big Void wikipedia_great_pyramid
+[PASS] Q nf_corridor              North Face Corridor wikipedia_great_pyramid
+[PASS] Q entrance_course          Entrance   wikipedia_great_pyramid
+[PASS] Q summit_loss              Casing     wikipedia_great_pyramid
+[PASS] Q coordinates              infobox    wikipedia_great_pyramid
+[PASS] Q metric ids are unique  -- 112 metrics
+
+-- X: cross-checks
+[PASS] X height = (base/2) tan(angle) reproduces 5776.0 ± 7.0 (Petrie §25)  -- 5776.0 in; 2' in angle moves it ±6.9 in
+[PASS] X mean of the four casing sides = 9068.8 (§21)  -- 9068.800
+[PASS] X socket square exceeds the casing square by 2 x (20–30 in) (§20: sockets lie outside the casing foot)  -- 57.1 in
+[PASS] X seked 5½ palms (rise 28 : run 5.5×4) gives 51°50'34", within Petrie's 51°52' ± 2'  -- 51.8428° = 51°50.57'
+[PASS] X seked angle agrees with the infobox slope 51°50'40" to 6"  -- -6.0"
+[PASS] X one cubit (20.61–20.72 in) fits base, height, King's Chamber, antechamber and passages  -- base / 440 20.611; height / 280 20.629; KC width / 10 20.612; KC length / 20 20.612; KC base (Petrie §52) 20.632; antechamber granite floor / 5 20.640; ascending passage / 75 20.620; entrance floor / 200 20.715
+[PASS] X the five most accurate parts agree on the cubit to 0.02 in (base, height, KC width, length, base cubit)
+[PASS] X King's Chamber: length = 2 x width (20 : 10 cubits) within the probable errors  -- L - 2w = +0.00 in
+[PASS] X King's Chamber height above floor = half the floor diagonal (√125 cubits), within 3 probable errors  -- half-diagonal 230.45 vs 230.09 ± .15 (2.4 p.e.)
+[PASS] X space diagonal from w, L, h = 515.17 (§156) = 25 cubits  -- 515.14 in = 24.968 cubits
+[PASS] X wall height − height above floor = floor raise 5.11 (§155)  -- 5.11
+[PASS] X five wall courses of 47.04 make the wall height 235.20  -- 235.20
+[PASS] X floor level + height above floor lands inside the roof range 1921.6–1923.7 (§64)  -- 1922.9
+[PASS] X antechamber floor (1692.6) and King's Chamber floor (1692.8) are one level within errors
+[PASS] X Queen's Chamber: floor + ridge height = roof level 1078.7 ± .6 within errors  -- 1079.5
+[PASS] X Gallery: roof horizontal = floor horizontal − 40.45 (= 2 x 20.2 cubit laps), §46
+[PASS] X Petrie's three coincident levels: gallery floor end, gallery horizontal length, KC wall base, within 1 in
+[PASS] X entrance passage: 668.2 − 4140 sin(26°31'23") − 0.8 = −1181 (Petrie's own computation, §36)  -- -1181.3
+[PASS] X coffer outer L x W x H reproduces the independently integrated volume 142,530 to 0.1%  -- 142,535 in³
+[PASS] X coffer inner L x W x H reproduces the contents 72,030 to 0.1%  -- 72,034 in³
+[PASS] X coffer: contents ≈ bulk to 1/50 (Petrie §156)  -- 2.124%
+[PASS] X offsets and calipers agree on the coffer's overall volume to 0.05%
+[PASS] X coffer length 89.62 in ≈ 7 ft 6 in (90 in) of §130
+[PASS] X repo claim: V_KC (floor-to-ceiling) / V_coffer,ext = 137.17  -- 137.171
+[PASS] X repo claim: base-of-walls convention gives about 140.2  -- 140.22
+[PASS] X repo claim: the 137.17 ratio is 0.10% from 1/alpha = 137.036  -- 0.0984%
+[PASS] X repo claim: KC proportions 20 : 10 : 5√5 have space diagonal 25 cubits
+[PASS] X GP-1: the area-balance level 0.292893 h = 1691.75 lies inside the KC floor range 1691.4–1693.7  -- 1691.75 in
+[PASS] X Queen's Chamber floor 834.4 is near (not at) half the KC floor level (846.4); Petrie §148 leaves it open  -- difference -12.0 in
+[PASS] X Petrie's mean base (230.348 m) agrees with Cole 1925 (230.364 m) to 2 cm  -- Petrie 230.348 m, Cole 230.3635 m
+[PASS] X Petrie's height 146.71 ± 0.18 m vs the commonly quoted 146.6 m (= 280 cubits of 0.5236 m)  -- 146.710 m
+[PASS] X volume b²h/3 = 2.595e6 m³, matching '2.6 million m³'  -- 2,594,817 m³
+[PASS] X Petrie's 5,923,400 tons implies a mean density 2,320 kg/m³ (plausible for limestone with joints)  -- 2319 kg/m³
+[PASS] X limestone + granite + mortar (6.008 Mt) is consistent with Petrie's mass (6.019e9 kg) to 0.5%
+[PASS] X entrance level 668.2 in = 16.97 m, matching 'approximately 17 metres'  -- 16.97 m
+[PASS] X height lost 146.6 − 138.5 = 8.1 m, matching 'about 8 metres'
+
+-- F: findings (discrepancies the cross-checks expose; asserted so they stay recorded)
+[PASS] F the infobox base 230.33 m is NOT the mean of the side lengths it cites (230.364 m): 3.4 cm discrepancy  -- 230.33 vs 230.3635
+[PASS] F Wikipedia's entrance offset '15 royal cubits (7.9 m)' exceeds Petrie's measured axis offset 287 in (7.29 m) by 0.6 m  -- 15 cubits = 309 in vs 287 in; Petrie §149 also rejects 12 cubits (247 in)
+[PASS] F KC height above floor sits 2.4 p.e. below the half-diagonal: the '√125 cubits' design fits only loosely
+[PASS] F Petrie gives the coffer outer length as 89.62 and 89.63 in two tables of §156 (rounding)
+
+==============================================================================
+Metrics: 112 (96 primary, 16 secondary); verified against source: 112/112
+Checks: Q 113/113, X 36/36, F 4/4; total 153/153 passed

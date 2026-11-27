@@ -4,6 +4,10 @@
 
 `flux` `centroid` `perturbation-bound` `net-field-rule` `proof`
 
+[![Lean proof](https://github.com/fielddynamics/research/actions/workflows/lean-great-pyramid-gp2.yml/badge.svg)](https://github.com/fielddynamics/research/actions/workflows/lean-great-pyramid-gp2.yml)
+
+**Lean.** 11 statements machine-checked in Lean 4 / Mathlib ([`lean/`](lean/), [audit](LEAN_AUDIT.md)).
+
 **Status.** Theorems 1–7 are **[T]**: proved below, with every step checked by [`verify_gp2_robustness.py`](verify_gp2_robustness.py) (42 checks, [output](verify_output.txt)). Theorems 1–4 are checked exactly; T5–T7 use 40-digit numerics. Theorem 8 is **[T]** given the net-field rule, which is itself **[T+L]** in [`proofs/net-field-rule/`](../../../../../proofs/net-field-rule/).
 
 ---

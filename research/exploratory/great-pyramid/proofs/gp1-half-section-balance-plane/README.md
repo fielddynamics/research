@@ -4,6 +4,10 @@
 
 `geometry` `flux` `divergence-theorem` `balance-plane` `D=3` `proof`
 
+[![Lean proof](https://github.com/fielddynamics/research/actions/workflows/lean-great-pyramid-gp1.yml/badge.svg)](https://github.com/fielddynamics/research/actions/workflows/lean-great-pyramid-gp1.yml)
+
+**Lean.** 9 statements machine-checked in Lean 4 / Mathlib ([`lean/`](lean/), [audit](LEAN_AUDIT.md)).
+
 **Status.** Theorems 1–5 are **[T]**: proved below, with every step checked by [`verify_gp1_half_section.py`](verify_gp1_half_section.py) (53 exact checks, [output](verify_output.txt)). Proposition 6 is a labelling and is not a derivation. Observation 7 is **[O]**. Calling the balance plane a "local Field Origin" is **[E]** (see *Naming* below).
 
 ---

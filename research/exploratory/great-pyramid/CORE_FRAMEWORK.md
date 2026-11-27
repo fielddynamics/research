@@ -104,6 +104,8 @@ GP-4 and GP-5 use no GFD premise at all. They are the mathematics that any secto
 
 ## Layer 2 — Observations [O]
 
+Every dimension used here is a verified row of [`metrics/`](metrics/): 112 metrics from Petrie (1883) and later surveys, each found verbatim in its source, with 36 cross-checks.
+
 | Observation | Value | Status after Layer 1 |
 |---|---|---|
 | King's Chamber floor against the area-balance level | +0.80 in, 0.30 σ (GP-1 O7) | Stands. It discriminates the area measure from the volume measure (186 σ) and the height measure (443 σ). Under a stated uniform-placement null, the chance of landing within 1 σ of one of the three canonical planes is < 0.6%. |

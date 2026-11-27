@@ -4,6 +4,10 @@
 
 `coupling-polynomial` `cyclotomic` `Niven` `finite-geometry` `PG(2,4)` `ovoid` `proof`
 
+[![Lean proof](https://github.com/fielddynamics/research/actions/workflows/lean-great-pyramid-gp3.yml/badge.svg)](https://github.com/fielddynamics/research/actions/workflows/lean-great-pyramid-gp3.yml)
+
+**Lean.** 20 statements machine-checked in Lean 4 / Mathlib ([`lean/`](lean/), [audit](LEAN_AUDIT.md)).
+
 **Status.** Theorems 1–6 are **[T]**: proved below, with every step checked by [`verify_gp3_signatures_hinge.py`](verify_gp3_signatures_hinge.py) (39 exact checks, [output](verify_output.txt)). They are statements about integers, polynomials and finite fields. That these numbers *carry* physical couplings is the framework's reading (llms.txt, Rules 5–6), not something proved here.
 
 ---

@@ -451,6 +451,7 @@ If the operator can be established, it advances the theory independently of the 
 | Resource | Purpose |
 |---|---|
 | [Core framework](CORE_FRAMEWORK.md) | Layered structure: inherited theorems, core proofs, observations, hypotheses; corrections to the notes |
+| [Verified metrics](metrics/) | 112 measurements (Petrie 1883 + modern surveys), each checked verbatim against its source; 36 cross-checks |
 | [Core proofs GP-1 to GP-5](proofs/) | Half-section theorem, robustness and constitutive status, signatures and hinge, registration and coherence, transfer bound (191 checks) |
 | [Research compendium](pyramid_portal_research/) | Full theoretical programme, engineering studies and references |
 | [Executive summary](pyramid_portal_research/00_executive_summary.md) | Original unified portal model |

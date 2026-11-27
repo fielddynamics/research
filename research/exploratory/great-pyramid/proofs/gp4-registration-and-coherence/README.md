@@ -4,6 +4,10 @@
 
 `phase` `order-parameter` `roots-of-unity` `CRT` `Parseval` `selector` `proof`
 
+[![Lean proof](https://github.com/fielddynamics/research/actions/workflows/lean-great-pyramid-gp4.yml/badge.svg)](https://github.com/fielddynamics/research/actions/workflows/lean-great-pyramid-gp4.yml)
+
+**Lean.** 9 statements machine-checked in Lean 4 / Mathlib ([`lean/`](lean/), [audit](LEAN_AUDIT.md)).
+
 **Status.** Theorems 1–5 and Proposition 6 are **[T]**: proved below, with every step checked by [`verify_gp4_registration_coherence.py`](verify_gp4_registration_coherence.py) (35 checks, [output](verify_output.txt)). The checks are exact where algebraic and use 50-digit numerics for the 21st roots of unity. Mapping these ensembles onto gravitational or apparatus states is **[E]** (README §8).
 
 ---

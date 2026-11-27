@@ -4,6 +4,10 @@
 
 `two-level-system` `Rabi` `quantum-speed-limit` `selector` `pseudometric` `proof`
 
+[![Lean proof](https://github.com/fielddynamics/research/actions/workflows/lean-great-pyramid-gp5.yml/badge.svg)](https://github.com/fielddynamics/research/actions/workflows/lean-great-pyramid-gp5.yml)
+
+**Lean.** 12 statements machine-checked in Lean 4 / Mathlib ([`lean/`](lean/), [audit](LEAN_AUDIT.md)).
+
 **Status.** Theorems 1, 2 and 6, Corollary 3 and Propositions 4–5 are **[T]**: proved below, with every step checked by [`verify_gp5_transfer_bound.py`](verify_gp5_transfer_bound.py) (22 checks, [output](verify_output.txt)). The closed forms are checked symbolically; the time-dependent drives use exact matrix exponentials, to tolerance $10^{-12}$. The two-site Hamiltonian is an **illustrative model**, as README §9 says, not a derived GFD action. Every statement about a portal is therefore conditional on that model, and its coupling $\kappa$ is **[E]**.
 
 ---
