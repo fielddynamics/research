@@ -8,7 +8,7 @@
 
 [Field Dynamics Research](https://fielddynamics.org) · [Documentation](docs/README.md) · [Formal proofs](proofs/README.md) · [Research index](RESEARCH_INDEX.md)
 
-[![Licence: MIT](https://img.shields.io/badge/licence-MIT-blue.svg)](LICENSE) [![Formal proofs](https://img.shields.io/badge/formal_proofs-26-2563eb.svg)](proofs/README.md) [![Lean 4](https://img.shields.io/badge/Lean_4-17_formalisations-7c3aed.svg)](proofs/README.md) [![Research status](https://img.shields.io/badge/status-preprints_·_letters_under_review-64748b.svg)](#status-and-known-limitations)
+[![Licence: MIT](https://img.shields.io/badge/licence-MIT-blue.svg)](LICENSE) [![Formal proofs](https://img.shields.io/badge/formal_proofs-26-2563eb.svg)](proofs/README.md) [![Lean 4](https://img.shields.io/badge/Lean_4-18_formalisations-7c3aed.svg)](proofs/README.md) [![Research status](https://img.shields.io/badge/status-preprints_·_letters_under_review-64748b.svg)](#status-and-known-limitations)
 
 Stephen Nelson · [ORCID 0009-0008-6190-3269](https://orcid.org/0009-0008-6190-3269) · stephen@fielddynamics.org
 
@@ -24,7 +24,7 @@ This joins three research directions: the geometry of the tetrad, a constitutive
 
 ![Framework overview: geometry, constitutive response, and distributed closure](diagrams/gfd-readme-architecture.svg)
 
-> **Research status:** An open research framework. The repository holds 26 proof packages, 2,062 scripted checks and 17 Lean 4 formalisations, each stating its premises. The mathematics is machine-checked; TetB is the tetrad's second root, and the physical premises each result needs are stated and tested against data. The papers are preprints, and Tetrad Letters 1–3 are under review at *Classical and Quantum Gravity*.
+> **Research status:** An open research framework. The repository holds 26 proof packages, 2,062 scripted checks and 18 Lean 4 formalisations, each stating its premises. The mathematics is machine-checked; TetB is the tetrad's second root, and the physical premises each result needs are stated and tested against data. The papers are preprints, and Tetrad Letters 1–3 are under review at *Classical and Quantum Gravity*.
 
 ## Results on SPARC
 
@@ -204,7 +204,7 @@ It can't. If the right settlement depends on the environment, a "blind" closure 
 
 ![Proof 26: fixed geometry, changing vortex](proofs/recursive-field-closure-response/figures/proof26_architecture.svg)
 
-What it leaves open is stated just as plainly: why the native action reads the whole frame as a determinant, what sets the per-direction gain, and the long-wave source action. Proof 26 is a candidate research draft with 532 exact checks (plus 568 in an optional projective appendix) and no Lean formalisation yet. [Proof](proofs/recursive-field-closure-response/proof26.pdf) · [Referee-style audit](proofs/recursive-field-closure-response/REFEREE_REVIEW.md) · [Revision notes](proofs/recursive-field-closure-response/REVISION_4.md) · [Background research](research/g_from_topology/updated-research/)
+What it leaves open is stated just as plainly: why the native action reads the whole frame as a determinant, what sets the per-direction gain, and the long-wave source action. Proof 26 is a candidate research draft with 532 exact checks (plus 568 in an optional projective appendix) and its finite theorems machine-checked in Lean 4 (36 theorems, standard axioms only); the physical premises and the conditional G conclusion are not formalised. [Proof](proofs/recursive-field-closure-response/proof26.pdf) · [Referee-style audit](proofs/recursive-field-closure-response/REFEREE_REVIEW.md) · [Revision notes](proofs/recursive-field-closure-response/REVISION_4.md) · [Background research](research/g_from_topology/updated-research/)
 
 | Research pillar | Representative proof packages | Status and scope |
 |---|---|---|
@@ -270,7 +270,7 @@ For formal verification, select a proof marked **+ Lean** in the [proof index](p
 |---|---:|
 | Formal proof packages | 26 (one candidate) |
 | Scripted checks in those packages | 2,062 |
-| Lean 4 formalisations | 17 |
+| Lean 4 formalisations | 18 |
 
 [All verification commands and validation suites](RESEARCH_INDEX.md#verification) · [Companion computational model](https://github.com/fielddynamics/dfp-gravity-field-model)
 

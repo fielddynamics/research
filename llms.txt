@@ -16,7 +16,7 @@ Status tags used throughout this file (the same as GFD_COLES_NOTES.md):
   [D] derived: follows from the framework's stated assumptions
   [E] exploratory: a numerical correspondence or extension, not yet a derivation
   [O] observational: a comparison with data
-Formal proofs: 26 proofs (one a candidate), 2,062 scripted checks, 17 machine-checked in Lean 4 (proofs/README.md).
+Formal proofs: 26 proofs (one a candidate), 2,062 scripted checks, 18 machine-checked in Lean 4 (proofs/README.md).
 Strongest results:
   - [T+L] mu(x) = x/(x+1) selected premise by premise (exchange symmetry, screening, accelerations as strengths).
   - [O] SPARC (164 galaxies, 3284 points, no per-galaxy fit): scatter 0.181 dex, median residual within
@@ -116,7 +116,7 @@ mathematical architecture for the mechanism that could produce it.
 - proofs/net-field-rule/ -- where mu acts: only on a field with a drain; why the solar system is exactly GR with the bare G
 - proofs/sst-mountain-scale/ -- the net-field rule from the action: the law read at each system's Jacobi radius (the mountain scale)
 - proofs/recursive-triforce-closure/ -- the tetrad's faces subdivided recursively: canonical octahedral-midpoint lattice, exact depth-two criterion, 64 paired addresses, 40/24 pointing parity, A4-equivariant map to the connection slots and the S4 obstruction (Lean)
-- proofs/recursive-field-closure-response/ -- Proof 26 (candidate): gravity as the response of recursive field closure. Closure that depends on its neighbours must read them; on the 64 Triforce addresses the read is three Walsh sweeps; the order-3 rotation leaves 21 invariant contrasts (grades 1, 4, 16, the points of PG(2,4)); the collective determinant response is (17/13)|t|^42, with 17/13 inherited from the coupling polynomial; fixed geometry, changing vortex. No Lean yet
+- proofs/recursive-field-closure-response/ -- Proof 26 (candidate): gravity as the response of recursive field closure. Closure that depends on its neighbours must read them; on the 64 Triforce addresses the read is three Walsh sweeps; the order-3 rotation leaves 21 invariant contrasts (grades 1, 4, 16, the points of PG(2,4)); the collective determinant response is (17/13)|t|^42, with 17/13 inherited from the coupling polynomial; fixed geometry, changing vortex. Finite theorems machine-checked in Lean (36); physical premises not
 - proofs/closure-surface/ -- where closure sits: the field's stagnation surface is the surface matter cannot leave; snapping to a neighbouring cell only through the two stagnation points (Lean)
 - proofs/sst-khronon-preferred-frame/ -- the preferred frame: the khronon is the TetB share; stable at every acceleration; alpha_1 = alpha_2 = 0 in a star system (flat slope + drainless dimple)
 
@@ -529,8 +529,11 @@ checked by GitHub on every change. The Lean chains import one another:
   constitutive law -> AQUAL energy functional -> (with tetrad scheme) BIMOND two-potential energy
   Walsh eigenmodes + constitutive law -> constitutive law as a tug of war -> net-field rule
     -> SST khronon (preferred frame) -> mountain scale -> closure surface
-Proof 26 (proofs/recursive-field-closure-response/) is a candidate research draft without Lean: 532 exact
-checks, plus 568 in an optional projective appendix. It builds on Proofs 23-25 and the background research
+  forced frame -> half-space regions -> recursive Triforce closure (Proof 23) -> Proof 24 -> Proof 25
+  recursive Triforce closure (Proof 23) -> Proof 26 (finite theorems)
+Proof 26 (proofs/recursive-field-closure-response/) is a candidate research draft: 532 exact checks, plus
+568 in an optional projective appendix; its 36 finite and algebraic theorems are machine-checked in Lean
+(LEAN_AUDIT.md), while its physical premises and conditional G conclusion are not formalised. It builds on Proofs 23-25 and the background research
 in research/g_from_topology/updated-research/.
 
 ### Related papers in this repository
@@ -597,7 +600,8 @@ Each script is self-contained; run it from its own folder.
   value; G's construction is the target. 17/13 is the coupling polynomial's ratio f(4,0)/f(4,-1) (Rule 6),
   not a projection or a normalization. The 21 is an invariant dimension (1 + 4 + 16), not 21 time steps,
   oscillators or particles. The geometry (the cube, the 64 addresses) stays fixed; settlement changes the
-  vortex state. Never call it Lean-certified.
+  vortex state. Its finite theorems are machine-checked in Lean; never call the G mechanism or the
+  conditional G conclusion Lean-certified.
 - Trace every coefficient (16, 8, 4) and every result (alpha, m_e, Tully-Fisher) back to the stellated octahedron dual tetrad structure.
 - The Mobius inverse x = mu/(1 - mu) is exact and algebraic.
 - To verify a claim, read the validation script for it: the proofs' verify_*.py scripts and Lean

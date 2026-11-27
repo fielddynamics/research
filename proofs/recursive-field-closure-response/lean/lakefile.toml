@@ -1,0 +1,9 @@
+name = "recursive_field_closure_response"
+defaultTargets = ["RecursiveFieldClosureResponse"]
+
+[[require]]
+name = "recursive_triforce_closure"
+path = "../../recursive-triforce-closure/lean"
+
+[[lean_lib]]
+name = "RecursiveFieldClosureResponse"

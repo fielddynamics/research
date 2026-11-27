@@ -1,6 +1,8 @@
 # Proof 26 candidate — Gravity as the response of recursive field closure
 
-**Revision 4 — referee-aware research draft.** The previous topology calculation of G is taken as the target, not as evidence that the physical mechanism has been independently verified. The fixed Triforce/Hadamard architecture accounts for TetB inventory; compatible settlement responds to neighbors; the vortex is the variable state. The proposed collective determinant response reproduces the existing normalization under explicit additional premises.
+[![Lean proof](https://github.com/fielddynamics/research/actions/workflows/lean-recursive-field-closure-response.yml/badge.svg)](https://github.com/fielddynamics/research/actions/workflows/lean-recursive-field-closure-response.yml)
+
+**Revision 4 — referee-aware research draft.** Its finite and algebraic theorems are machine-checked in Lean 4: 36 theorems, standard axioms only, importing Proof 23 ([Lean audit](LEAN_AUDIT.md)). The physical premises and the conditional G conclusion are not formalised. The previous topology calculation of G is taken as the target, not as evidence that the physical mechanism has been independently verified. The fixed Triforce/Hadamard architecture accounts for TetB inventory; compatible settlement responds to neighbors; the vortex is the variable state. The proposed collective determinant response reproduces the existing normalization under explicit additional premises.
 
 ## Read in order
 

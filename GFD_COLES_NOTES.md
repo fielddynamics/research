@@ -42,9 +42,9 @@ Stephen Nelson · Field Dynamics Research · fielddynamics.org · Last updated 2
 | P-triforce (Proof 23) | `recursive-triforce-closure/` | 214 | yes |
 | P-flywheel (Proof 24) | `flywheel-tetrad-geometry/` | 65 | yes |
 | P-convergence (Proof 25) | `tetrad-flywheel-convergence/` | 297 | yes |
-| P-response (Proof 26, candidate) | `recursive-field-closure-response/` | 532 (+568 appendix) | — |
+| P-response (Proof 26, candidate) | `recursive-field-closure-response/` | 532 (+568 appendix) | yes (finite theorems) |
 
-The Lean formalisations import one another, so each chain is checked as a whole: P-forced → P-two-regions (half-space) → P-two-regions (scheme) → P-gram → P-walsh; P-forced → P-hadamard; P-exchange → P-aqual → (with the scheme) P-bimond; P-walsh + P-exchange → P-tugofwar → P-netfield → P-khronon → P-mountain → P-closure; P-forced → P-two-regions (half-space) → P-triforce → P-flywheel → P-convergence (all three built and axiom-audited on GitHub Actions, 26 November 2026).
+The Lean formalisations import one another, so each chain is checked as a whole: P-forced → P-two-regions (half-space) → P-two-regions (scheme) → P-gram → P-walsh; P-forced → P-hadamard; P-exchange → P-aqual → (with the scheme) P-bimond; P-walsh + P-exchange → P-tugofwar → P-netfield → P-khronon → P-mountain → P-closure; P-forced → P-two-regions (half-space) → P-triforce → P-flywheel → P-convergence (all three built and axiom-audited on GitHub Actions, 26 November 2026); P-triforce → P-response (its 36 finite theorems; the physical premises are not formalised).
 
 ### Notation
 
@@ -1672,5 +1672,5 @@ $V - E + F = 4 = 2\chi(S^2)$, two disjoint closed surfaces.
 - Thm 7: on grades $1, K, K^2$ the traces of $I$, $(I+D)/2$, $D$ give $f(K,s)$ for $s = +1, 0, -1$; capacity $1 + K^2 + K^4 = f(K,1)f(K,-1) = 1 + K^2f(K,0)$ (273). The Sierpiński blocks have 91 nonzero entries and unit determinant.
 - Thm 8: $\det(T^\dagger T) = |t_1|^2|t_2|^8|t_3|^{32}$; the response $(17/13)\det(T^\dagger T)$ is a conditional compatibility result, with 17/13 inherited, not derived as a stiffness.
 - Thms 9–11: fixed-geometry vortex susceptibility; recursive registration by partial minimisation; conditional $G_{\rm eff} = q^2/4\pi\kappa$ from a posited isotropic action.
-- Scope, as stated: P23's physical pointing obstruction is kept (its compressed spectrum is not the 17/4 depth grading, and the ordered cube-pair action has 24 invariants against the Triforce's 22). Not Lean-certified. Revision 4 moved the Revision 3 projective pencil to an optional appendix.
+- Scope, as stated: P23's physical pointing obstruction is kept (its compressed spectrum is not the 17/4 depth grading, and the ordered cube-pair action has 24 invariants against the Triforce's 22). Lean: 36 finite and algebraic theorems (Thms 1, 3–8, witnesses for 9–10), standard axioms only; the physical premises and conditional G conclusion are not formalised. Revision 4 moved the Revision 3 projective pencil to an optional appendix.
 
