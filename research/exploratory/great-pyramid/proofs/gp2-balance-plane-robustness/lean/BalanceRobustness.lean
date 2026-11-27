@@ -80,8 +80,11 @@ theorem partials (b u : ℝ) :
       simpa using (hasDerivAt_id u).const_sub 1
     have h2 : HasDerivAt (fun w : ℝ => 1 + b * w) b u := by
       simpa using ((hasDerivAt_id u).const_mul b).const_add 1
-    have h4 := (h1.pow 2).mul h2
-    exact h4.congr_deriv (by simp only [Nat.cast_ofNat, show (2 : ℕ) - 1 = 1 from rfl, pow_one]; ring)
+    have h4 := (h1.mul h1).mul h2
+    have e : (fun w => g b w) = fun w => (1 - w) * (1 - w) * (1 + b * w) := by
+      funext w; unfold g; ring
+    rw [e]
+    exact h4.congr_deriv (by ring)
   · have h2 : HasDerivAt (fun c : ℝ => 1 + c * u) u b := by
       simpa using ((hasDerivAt_id b).mul_const u).const_add 1
     exact (h2.const_mul ((1 - u) ^ 2)).congr_deriv (by ring)

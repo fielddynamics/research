@@ -184,6 +184,7 @@ theorem orbitDist_triangle (x y z : X) :
     _ = dist x (g • y) + dist y (h • z) := by rw [mul_smul, hiso]
     _ = orbitDist (G := G) x y + orbitDist (G := G) y z := by rw [e1, e2]
 
+omit hiso in
 theorem orbitDist_self_smul (x : X) (g : G) : orbitDist (G := G) x (g • x) = 0 := by
   apply le_antisymm
   · calc orbitDist (G := G) x (g • x) ≤ dist x (g⁻¹ • g • x) := orbitDist_le_of x _ g⁻¹
