@@ -4,9 +4,9 @@
 
 *Gravity Field Dynamics (GFD) · Exploratory research programme*
 
-![Concept illustration of two matched pyramids on distant worlds](diagrams/stargate-worlds.jpg)
+![Two pyramids on distant worlds joined by a luminous hexagram representing the proposed dual-tetrad interface](diagrams/stargate-worlds.jpg)
 
-*Concept illustration — not an observation of another pyramid or an established transport channel. Each world has its own local dual-tetrad closure; the proposed link is through the TetB sector.*
+*Concept artwork — the central Star of David represents two complementary tetrahedral sectors projected onto a common plane. The two pyramids are hypothetical address partners, each with its own local Field Origin; the luminous connection represents the proposed TetB link, not an observed transport channel.*
 
 > “The design of the level of the King's Chamber was the halving of the vertical area of the Pyramid.”  
 > — W. M. Flinders Petrie, *The Pyramids and Temples of Gizeh* (1883), §148
@@ -60,9 +60,11 @@ The scalar sector of the GFD action gives the closure current
 
 $$\mathbf J=\frac{\mu(|\nabla\Phi|/a_0)\nabla\Phi}{4\pi G}.$$
 
-For the source-free driven component, the divergence theorem gives
+For a source-free driven component, the divergence theorem gives
 
 $$\Phi_{\rm base}=\Phi_{\rm axial}(z)+\Phi_{\rm lateral}(0,z).$$
+
+Here the base flux is counted inward and the lateral and axial fluxes outward. For the full current with $\nabla\cdot\mathbf J=\rho$, the right-hand side must additionally subtract the enclosed source integral $\int_{V_z}\rho\,dV$. The source-free identity therefore applies to the background component, not indiscriminately to the pyramid’s self-gravity.
 
 The bounded-closure model identifies the axial and lateral shares with the two closure sectors. When the axial current density is approximately uniform,
 
@@ -70,7 +72,7 @@ $$\mu_B(z)=\frac{\Phi_{\rm axial}(z)}{\Phi_{\rm base}}\simeq\frac{A(z)}{A_0}.$$
 
 Phase 0 includes the Earth's gravitational background, its gradient and the pyramid's self-gravity in its closure-current calculation. It reports axial uniformity at roughly $5\times10^{-5}$, sufficient for the half-area approximation.
 
-A useful distinction: the gravitational current locates the proposed structural Field Origin, whereas the modelled atmospheric electric flux balances around 61 m, approximately 18 m higher. The field that locates the chamber is not necessarily the field that would energise it.
+A useful distinction: the modelled gravitational current locates the proposed structural Field Origin, whereas the modelled atmospheric electric flux balances around 61 m, approximately 18 m higher. The field that locates the chamber is not necessarily the field that would energise it.
 
 **The remaining theoretical bridge:** the structural flux fraction $\mu_B$ is not automatically the local constitutive response $\mu(g/a_0)$. The sector identification must be derived dynamically if the geometrical plane is to be understood as a physical TetA/TetB exchange point rather than only a flux-balance surface.
 
@@ -110,7 +112,7 @@ has even dimension $K^2+1$, odd dimension $K$, total dimension $K^2+K+1$ and sup
 
 ### The physical signatures: 17 is the neutral Field Origin
 
-The primary dual-tetrad interpretation is the graded operator of [01.3](pyramid_portal_research/01_framework_foundations/01.3_graded_identity_operator.md), not a Venn diagram of two equal chambers. Let $P_0,P_1,P_2$ be the orthogonal projectors onto the respective $1,K,K^2$ components of $\mathcal T_K$. Write
+The primary dual-tetrad interpretation is the signed graded operator of [01.3](pyramid_portal_research/01_framework_foundations/01.3_graded_identity_operator.md). Let $P_0,P_1,P_2$ be the orthogonal projectors onto the respective $1,K,K^2$ components of $\mathcal T_K$. Write
 
 $$P_{\rm even}=P_0+P_2,\qquad P_{\rm odd}=P_1,\qquad J=P_{\rm even}-P_{\rm odd}.$$
 
@@ -140,65 +142,40 @@ For any $\alpha>0$, $\det(\alpha^{\mathbb I_s})=\exp(\log\alpha\,\operatorname{T
 
 For the pyramid, this places the King's Chamber, at the proposed half-flux plane, at the **neutral signature 17**. The reported 0.82-inch geometrical residual tests the plane's location; it does not independently measure the coupling signature or establish a physical parity filter.
 
-### A separate construction: recursive register growth
+Read: [Closure-read representation](pyramid_portal_research/01_framework_foundations/01.2_closure_read_representation.md) · [Graded identity](pyramid_portal_research/01_framework_foundations/01.3_graded_identity_operator.md).
 
-The **parity pushout** of Active Work 14 gives another realization of the same three integers. Construct two abstract sheets $A_K,B_K$ with a common core of size $C_K$ and $K$ exclusive elements each. These sheets are combinatorial bookkeeping objects, not the physical TetA and TetB coupling signatures:
+## 4. The hinge: a completed read meets the next shell
 
-$$|A_K|=|B_K|=E_K,\qquad |A_K\cup B_K|=U_K.$$
+The same signed coupling law extends to the adjacent shell. Its three values are always centred on the neutral character $K^2+1$, with equal offsets $\pm K$. In particular,
 
-![Abstract parity pushout: two 17-element sheets with a 13-element intersection and a 21-element union](diagrams/parity-pushout.svg)
+$$\begin{aligned}
+K=4:&\quad 13\ \xrightarrow{+4}\ 17\ \xrightarrow{+4}\ 21,\\
+K=5:&\quad 21\ \xrightarrow{+5}\ 26\ \xrightarrow{+5}\ 31.
+\end{aligned}$$
 
-An explicit register realization makes the construction tangible. The shared core consists of a distinguished closure element and the $K(K-1)$ directed off-diagonal interactions of $K$ labelled frame vertices. Add two $K$-element sets of incoming and outgoing channels.
+The upper signature at one level equals the lower signature at the next:
 
-| Register at K=4 | Count |
-|---|---:|
-| Distinguished closure / orientation element | 1 |
-| Ordered off-diagonal frame interactions | 12 |
-| First exclusive register | 4 |
-| Second exclusive register | 4 |
-| **Complete closure register** | **21** |
+$$\boxed{f(K,+1)=K^2+K+1=f(K+1,-1).}$$
 
-This is a combinatorial realization of the pushout, not yet a unique physical identification of every channel. Neither 17-element sheet is to be identified with a physical tetrad, and the 13-element shared core is not the neutral Field Origin. In particular, the 13-dimensional overlap in this realization must not be confused with the 13-valued supertrace of the graded representation: their numerical equality is exact, while a dynamical correspondence requires a map.
-
-Together these constructions motivate the interpretation that the coupling polynomial describes not only a coupling strength, but the **organization of information being registered, reconciled and settled during closure**. The signed operator governs the three coupling signatures; the pushout models how a register can grow between levels. Their numerical agreement does not identify their operators.
-
-Read: [Closure-read representation](pyramid_portal_research/01_framework_foundations/01.2_closure_read_representation.md) · [Graded identity](pyramid_portal_research/01_framework_foundations/01.3_graded_identity_operator.md) · [Parity-pushout recursion](pyramid_portal_research/active_work/14_parity_pushout_recursion.md) · [Engineering synthesis](pyramid_portal_research/99_appendices/I_coupling_polynomial_engineering_synthesis.md).
-
-## 4. The hinge: when one closure becomes the next shared core
-
-The adjacent-shell identity is exact for every integer $K$:
-
-$$\boxed{\Phi_3(K)=\Phi_6(K+1)}.$$
-
-The following table refers to the **abstract pushout cardinalities**, not physical chamber dimensions.
-
-| Shell | Shared core | Each abstract sheet | Complete union |
+| Shell | Negative signature | Neutral signature | Positive signature |
 |---|---:|---:|---:|
-| K=1 | 1 | 2 | 3 |
-| K=2 | 3 | 5 | 7 |
-| K=3 | 7 | 10 | 13 |
-| **K=4** | **13** | **17** | **21** |
-| **K=5** | **21** | **26** | **31** |
+| $K=1$ | 1 | 2 | 3 |
+| $K=2$ | 3 | 5 | 7 |
+| $K=3$ | 7 | 10 | 13 |
+| **$K=4$** | **13 (TetB)** | **17 (Field Origin)** | **21 (TetA)** |
+| **$K=5$** | **21** | **26** | **31** |
 
-![The K=4 to K=5 closure hinge](diagrams/closure-hinge.svg)
+![Signed coupling ladder: the positive K=4 signature and negative K=5 signature match at 21](diagrams/closure-hinge.svg)
 
-There is a constructive explanation. Four vertices have 12 directed edges. Adding a fifth vertex contributes exactly four incoming and four outgoing edges. Including the distinguished element gives
+The equality gives a natural candidate for an interlevel interface without changing the local Field Origin's neutral signature. **The local interface is 17; the interlevel matching label is 21.** These are different roles. In particular, the 21 of the next shell's negative signature is not the Field Origin of the original K=4 structure.
 
-$$1+4(4-1)+4+4=1+5(5-1)=21.$$
-
-Equivalently, the next shared core is the previous union:
-
-$$C_{K+1}=A_K\cup_{C_K}B_K,\qquad |C_{K+1}|=|C_K|+2K.$$
-
-This is a model of **hierarchical registration**. Previously exclusive content becomes part of a shared register at the next level. It offers a possible algebraic basis for recursive settlement without recounting every microscopic constituent of a larger structure.
-
-The portal research formalizes the $K=4\rightarrow5$ hinge as the partial isometry
+The portal research represents the adjacent-shell match by a partial isometry
 
 $$J_4=|5,-\rangle\langle4,+|,\qquad H_5J_4=J_4H_4=21J_4,$$
 
-where the shell operators have the chosen cyclotomic eigenvalues. This is an exact intertwining relation in that abstract model. The equality is dimensionless; it does not determine a physical transition frequency or prove that the two shells couple in nature.
+where the dimensionless shell operators have the assigned cyclotomic eigenvalues. The intertwining equation follows directly from those eigenvalues. It establishes a consistent algebraic matching condition, not the existence of a physical transition. An interaction Hamiltonian and an energy scale must be derived separately.
 
-**The K=5 shell can initially be read as an extended closure register**, with the pentachoron supplying a candidate geometry, rather than an assertion of a fifth physical spatial dimension.
+This is the proposed mathematical bridge between the local dual-tetrad read and an extended closure register. The pentachoron offers a candidate geometry for K=5, but no fifth physical spatial dimension is implied by the identity.
 
 Read: [Shift identity](pyramid_portal_research/01_framework_foundations/01.4_shift_identity_proof.md) · [Interlevel hinge](pyramid_portal_research/03_portal_topology/03.1_K4_to_K5_hinge.md) · [Pentachoron edge network](pyramid_portal_research/03_portal_topology/03.2_pentachoron_edge_network.md).
 
@@ -222,7 +199,7 @@ For each nontrivial cubic phase, $1+\omega+\omega^2=0$. The projector preserves 
 
 $$R(a,b,c)=(a\star b)\star c-a\star(b\star c).$$
 
-The model places its output in the axial invariant sector. Active Work 12 uses the projected associator as a time-dependent complex readout for the proposed cross-sheet order parameter, rather than inserting an arbitrary amplitude.
+Because the outermost product in each term is projected, the associator output belongs to the axial invariant sector. This does not guarantee a nonzero residue on native trajectories. Active Work 12 uses the projected associator as a time-dependent complex readout for the proposed cross-sheet order parameter, rather than inserting an arbitrary amplitude.
 
 ![Walsh–Clifford closure architecture](diagrams/closure-core.svg)
 
@@ -261,13 +238,13 @@ The King's Chamber's idealized cubit proportions are $20:10:5\sqrt5$, yielding t
 
 $$\sqrt{20^2+10^2+(5\sqrt5)^2}=25=5^2.$$
 
-The two equal squares in its floor plan suggest a dual-register geometry. The coffer breaks that symmetry. Petrie's measured exterior coffer volume and floor-to-ceiling chamber volume give a ratio near $1/\alpha$:
+The rectangular floor consists of two equal squares. Whether this geometry participates in a dual-register mechanism is an open engineering question; the off-centre coffer is a candidate localized load. Petrie's measured exterior coffer volume and floor-to-ceiling chamber volume give a ratio near $1/\alpha$:
 
 $$\frac{V_{\rm KC}}{V_{\rm coffer,ext}}\simeq137.17,\qquad\alpha^{-1}\simeq137.036.$$
 
 The difference is approximately 0.10%, but depends on the height convention: the base-of-walls convention gives about 140.2. This correspondence deserves a modern independent measurement rather than a stronger claim of precision. The coffer's interior and stone volumes are also approximately equal (72,000 and 70,500 cubic inches in Petrie's account).
 
-The seven corbels and three grooves suggest a 21-sector phase architecture through the exact group identity
+The seven corbel courses and three portcullis slots suggest a 21-sector phase architecture through the exact group identity
 
 $$\mathbb Z_3\times\mathbb Z_7\cong\mathbb Z_{21}.$$
 
@@ -291,13 +268,13 @@ Here 21 is the full closure character (TetA), 17 the even character (Field Origi
 
 Active Work 17 supplies a potentially deeper connection: it separates the spatial order-three symmetry of the node from the temporal advancement of its closure phase. The π-walk research investigates the ordered read of the stellated-octahedron's spectral state.
 
-The working hypothesis is that standing waves and vortices hold the inventory, while a π-driven traversal schedules its read and settlement. Three sweeps through 13 → 21, each resetting directly to 13, are a candidate schedule. The I Ching computation reports 332 transitions (333 indexed positions including the initial position); it does not show that these transitions implement the Walsh read or divide into three physical sweeps. Indeed, the later hexagram note distinguishes the π traversal from the XOR rotation. The three-snapshot theorem separately requires three independently variable snapshots to span the generic 21-dimensional fixed-trace density register; three copies or three transform passes on the same snapshot do not suffice.
+The working hypothesis is that standing waves and vortices hold the inventory, while a π-driven traversal schedules its read and settlement. Three sweeps through 13 → 21, each resetting directly to 13, are a candidate schedule. The I Ching computation reports 332 transitions (333 indexed positions including the initial position); it does not show that these transitions implement the Walsh read or divide into three physical sweeps. Indeed, the later hexagram note distinguishes the π traversal from the XOR rotation. Under the candidate order-three density pinching, the three-snapshot theorem separately requires three independently variable snapshots to span the generic 21-dimensional fixed-trace density register; three copies or three transform passes on the same snapshot do not suffice.
 
 ![The three-sweep π-walk hypothesis](diagrams/pi-walk.svg)
 
 This suggests a research direction more fundamental than finding an acoustic resonance. The apparatus would have to condition the **phase of the read operation**, not simply reproduce the microscopic traversal rate. A macroscopic acoustic or electromagnetic carrier could only act on that read operation if a definite coupling mechanism and its dimensional scale are derived.
 
-The 333-step proposal should not be confused with the separate 21-channel register or with the group $\mathbb Z_{21}$. Establishing their operator-level relation is precisely the task.
+The 333-position proposal should not be confused with the separate 21-channel register or with the group $\mathbb Z_{21}$. Establishing their operator-level relation is precisely the task.
 
 Read: [Vortex calibration](pyramid_portal_research/active_work/17_vortex_calibration.md) · [Gravity equation](pyramid_portal_research/02_gravity_derivation/02.1_gravity_equation.md) · [I Ching and closure-read explorations](../i-ching/).
 
@@ -337,7 +314,7 @@ Read: [King's Chamber vertex model](pyramid_portal_research/active_work/11_kings
 
 ## 9. Two pyramids, one address: the Stargate hypothesis
 
-Imagine the Great Pyramid at site $x$ on Earth and a mirror-matched resonator at site $y$ on another world. In the proposed architecture, the local TetA interface registers the state, the local Field Origin provides a parity-even coupling point, and the complementary TetB sector mediates a candidate shared address. The destination is not literally the same local TetB tetrahedron relocated to another planet. Each apparatus has its own local dual-tetrad structure. A remote apparatus would be a complementary **address partner**.
+Imagine the Great Pyramid at site $x$ on Earth and a mirror-matched resonator at site $y$ on another world. In the proposed architecture, the local TetA interface registers the state, the local Field Origin (signature 17) provides a candidate parity-even coupling point, and the complementary TetB sector (signature 13 at K=4) is hypothesized to mediate the address link. The destination is not literally the same local TetB tetrahedron relocated to another planet. Each apparatus has its own local dual-tetrad structure. A remote apparatus would be a complementary **address partner**.
 
 ![Source and receiver: local interfaces and proposed shared TetB channel](diagrams/mirror-transfer.svg)
 
@@ -425,11 +402,11 @@ The programme deliberately separates mathematical identities, surveyed geometry,
 |---|---|
 | Graded character and cyclotomic identities | Exact in the defined representations |
 | Graded coupling signatures: TetA 21, Field Origin 17, TetB 13 | Exact trace and projection identities in the graded representation |
-| Parity-pushout recursion and 21-channel extension | Separate explicit combinatorial construction; not physical chamber sizes |
+| Adjacent-shell matching at 21 | Exact cyclotomic identity; physical transition not derived |
 | Three-phase projector and registration/coherence distinction | Exact mathematical statements |
 | King's Chamber half-area position | Survey-based geometric correspondence |
 | Phase 0 half-flux plane within 0.82 in of floor | Reported numerical model result, conditional on the sector identification |
-| Coffer volume ratio near $\alpha$ | Approximate measured correspondence; height-convention sensitive |
+| Coffer volume ratio near $\alpha^{-1}$ | Approximate measured correspondence; height-convention sensitive |
 | Classical resonant response | Supported by electromagnetic modelling; specific phase architecture unverified |
 | Chamber's 21-mode / 14-active / 7-suppressed selection | Unverified; requires independent spectral predictions and measurements |
 | Five relieving chamber volumes proportional to $5\alpha V_{\rm KC}$ | Existing prediction failed by roughly a factor of ten |
