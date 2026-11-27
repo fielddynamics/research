@@ -84,7 +84,7 @@ theorem partials (b u : ℝ) :
     have e : (fun w => g b w) = fun w => (1 - w) * (1 - w) * (1 + b * w) := by
       funext w; unfold g; ring
     rw [e]
-    exact h4.congr_deriv (by ring)
+    exact h4.congr_deriv (by simp only [Pi.mul_apply]; ring)
   · have h2 : HasDerivAt (fun c : ℝ => 1 + c * u) u b := by
       simpa using ((hasDerivAt_id b).mul_const u).const_add 1
     exact (h2.const_mul ((1 - u) ^ 2)).congr_deriv (by ring)
