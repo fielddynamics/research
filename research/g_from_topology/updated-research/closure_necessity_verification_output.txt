@@ -1,0 +1,37 @@
+PASS dependent constraint can have common blind solution
+PASS different required states have empty intersection
+PASS read collision with different settlements is insufficient
+PASS read collision can preserve settlement
+PASS positive internal stiffness
+PASS stationarity
+PASS implicit sensitivity
+PASS rank sensitivity equals rank cross block
+PASS minimal linear read suffices
+PASS kernel inclusion
+PASS Schur energy
+PASS Schur Hessian
+PASS shared trace stationarity
+PASS equal opposite flux
+PASS neighbor dependence A
+PASS neighbor dependence B
+PASS registered interface energy
+PASS source balance
+PASS additive source under constant shift
+PASS nested minimization equals joint
+PASS nested interface state agrees
+PASS recovered child state agrees
+PASS mechanical branch stationarity
+PASS envelope identity
+PASS explicit force
+PASS settled Hessian Schur identity
+PASS nonblind does not imply force
+PASS discarded nonzero mode
+PASS invariant norm counterexample
+PASS Walsh orthogonal
+PASS Walsh self inverse
+PASS depth 1 invariant dimension
+PASS depth 2 invariant dimension
+PASS depth 3 invariant dimension
+PASS recursive invariant contrast dimensions
+
+35 exact assertions passed. Prior suites not rerun.

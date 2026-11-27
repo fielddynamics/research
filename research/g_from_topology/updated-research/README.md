@@ -8,7 +8,7 @@ This folder holds the newer Field Origin continuations that bear on G and the co
 
 ## Interactive explorers
 
-Each explorer is a self-contained browser page with embedded data, no external libraries or server required. The [explorer index](interactive/index.html) covers all ten: the four below, and the six earlier ones in the vertex-research folder.
+Each explorer is a self-contained browser page with embedded data, no external libraries or server required. The [explorer index](interactive/index.html) covers all fourteen: the eight below, and the six earlier ones in the vertex-research folder.
 
 | Explorer | What you can change |
 |---|---|
@@ -16,6 +16,10 @@ Each explorer is a self-contained browser page with embedded data, no external l
 | [Clock registration and nested response](interactive/registration.html) | Interior/exterior harmonic response, same trace with differing masses, nested clock gaps and current |
 | [Hierarchical NET Field closure](interactive/hierarchy.html) | Local residual, host clock lift, source registration, nonlinear leakage and double application |
 | [Projective norm and Walsh bridge](interactive/projective_walsh.html) | Projective plane modes and grade gains, forward H → bridge → inverse H (with a √α preset), the Baer partition and norm fibres, trace compression, and the alternating-shear rotation (with an animated sweep) |
+| [Necessity of read, settlement and registration](interactive/closure_necessity.html) | Neighbouring states, sufficient information, and settled energy varied to give a conservative force |
+| [Closure information and Green response](interactive/closure_information.html) | The exact separator read, and the settled force scale compared with ordinary and complete-frame transmission |
+| [Fixed geometry, responsive vortex](interactive/fixed_vortex_response.html) | Stationary susceptibility of the inherited vortex branch against the constitutive curvature h, up to the soft point h_c |
+| [Atomic inventory and vortex response](interactive/atomic_vortex_response.html) | Even (inventory) and odd (signed) drives of one fixed-geometry vortex energy |
 
 ## Reading order
 
@@ -86,14 +90,59 @@ Alternating sweeps form a rotation. All three shears have determinant one; loss 
 
 ![Alternating shears form a rotation](figures/projective_06_alternating_shears.svg)
 
+### 8. [Necessity of read, settlement and registration](NECESSITY_OF_READ_SETTLE_REGISTER.md): 35 exact checks
+
+- Blind closure works for every environment only if all the feasible sets share a point. For genuinely coupled neighbours, closure cannot be blind.
+- A read is sufficient exactly when equal reads force equal settlements (S = F∘R). It need not record the raw interior.
+- Nested closure is partial minimization of one action, so a parent registers each child's boundary functional without counting its source twice.
+- Force is the variation of the settled energy, F = −dE*/dr. The sign and the distance law come from the actual interaction, not from closure alone.
+
+![Read sufficiency and blind closure](figures/necessity_01_read.svg)
+
+![Mutual inclusion and registered interface](figures/necessity_02_registration.svg)
+
+![Force from variation of settled energy](figures/necessity_03_force.svg)
+
+### 9. [Closure information and Green response](CLOSURE_INFORMATION_AND_GREEN_RESPONSE.md): 100 exact checks
+
+- The minimum sufficient linear read across a boundary has dimension rank C, the interface coupling. It is set by the interface, not the total inventory.
+- On a connected grounded graph the Green function is strictly positive, so a positive local closure law cannot be blind to any connected source.
+- The cross energy of two sources is a mixed derivative of the same settled energy. In an isotropic 3D continuum this gives E_AB = −(q²/4πκ) m_A m_B / r, so G_eff = q²/(4πκ).
+- Two obstructions: scaling the energy by λ leaves every closure condition unchanged, so geometry cannot fix G's scale; and an ordinary static read scales as |t|², not |t|⁴², so the α²¹ complete-frame source cannot come from it.
+
+![Interface read and register](figures/information_01_separator.svg)
+
+![Dense global Green response and rank-one separator](figures/information_02_green.svg)
+
+![Inverse-square response and scale ambiguity](figures/information_03_force.svg)
+
+### 10. [Fixed geometry, dynamical vortex response](FIXED_GEOMETRY_VORTEX_RESPONSE.md): 38 exact checks
+
+- The address geometry (W, the graph, C, the projective counts) stays fixed while the vortex amplitudes respond.
+- On the inherited balanced stationary branch, an external registered drive gives the exact susceptibility u′(0) = 2k/(1 − hk), with k = 42815/290521. At the constitutive example h = 308/59, u′ = 5052170/3953719 ≈ 1.278.
+- The response diverges at h_c = 1/k, where the branch gains a soft direction.
+
+![Fixed geometry and moving state](figures/fixed_geometry_vortex.svg)
+
+![Response of the fixed kernel](figures/fixed_vortex_susceptibility.svg)
+
+### 11. [Atomic inventory and vortex bridge](ATOMIC_INVENTORY_VORTEX_BRIDGE.md): 53 exact checks
+
+- Reconciles the atomic sources: the nuclear walk counts A, the electron note counts occupancy, and inventory (s = n_A + n_B) is kept distinct from signed charge (q = n_B − n_A).
+- An exact witness energy with fixed geometry gives an exchange-even response x* = s/k_e + βq²/d² and an exchange-odd response y* = q/d from one energy. The even response to signed drive is quadratic.
+- This is a conditional model, not the native H36 action.
+
+![Even and odd vortex responses](figures/atomic_even_odd_response.svg)
+
 ## What stays open
 
-Across all seven notes, these remain open:
+Across all eleven notes, these remain open:
 
 - the physical gain t, which is where α enters;
 - the native selection of the detail-only map;
 - the complete-frame source read;
-- the ownership selection from the time-face vertex.
+- the ownership selection from the time-face vertex;
+- the energy scale and source normalization: closure alone fixes neither q²/(4πκ) nor the α²¹ complete-frame source.
 
 ## Reproduce
 
@@ -107,7 +156,13 @@ OPENBLAS_NUM_THREADS=1 python verify_atomic_reconstruction.py > atomic_reconstru
 OPENBLAS_NUM_THREADS=1 python verify_recursive_generator.py   > recursive_generator_verification_output.txt
 OPENBLAS_NUM_THREADS=1 python verify_native_generator.py      > native_generator_verification_output.txt
 OPENBLAS_NUM_THREADS=1 python verify_projective_bridge.py     > projective_bridge_verification_output.txt
+OPENBLAS_NUM_THREADS=1 python verify_closure_necessity.py     > closure_necessity_verification_output.txt
+OPENBLAS_NUM_THREADS=1 python verify_closure_information.py   > closure_information_verification_output.txt
+OPENBLAS_NUM_THREADS=1 python verify_fixed_vortex_response.py > fixed_vortex_verification_output.txt
+OPENBLAS_NUM_THREADS=1 python verify_atomic_vortex_response.py > atomic_vortex_response_verification_output.txt
 python make_projective_visuals.py
+python make_closure_necessity_visuals.py
+python make_closure_information_visuals.py
 ```
 
-All seven verifiers were rerun after the move to this folder: 744 checks pass. Sources for each continuation are in [SOURCE_REGISTER.md](SOURCE_REGISTER.md).
+All eleven verifiers have been run from this folder: 970 checks pass. Sources for each continuation are in [SOURCE_REGISTER.md](SOURCE_REGISTER.md).

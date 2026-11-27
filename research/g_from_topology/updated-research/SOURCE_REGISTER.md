@@ -30,3 +30,17 @@ Projective norm continuation: user-supplied five-point Walsh/Sierpiński and fin
 
 ### Projective visual atlas
 Six SVG diagrams and the offline explorer are derived from `PROJECTIVE_NORM_WALSH_BRIDGE.md` and the exact enumeration in `verify_projective_bridge.py`. No new physical claims.
+
+### Closure necessity continuation
+Reopened the prior projective visual ZIP, and the preceding conversation's source excerpts from unified closure action, read–settle–register bridge and net-field rule at `a3a019cc553476c4288aa7a64bac8b04d754782d`. New abstract blind-closure and factorization criteria, rank bound, and finite static witnesses; inherited boundary registration and charge composition are explicitly identified. 35 exact assertions passed; prior suites not rerun, no Lean build or live repository changes. Three SVGs and eleventh explorer included.
+
+### Closure information continuation
+
+Reopened NECESSITY_OF_READ_SETTLE_REGISTER.md and its cumulative archive. New separator factorization, grounded-graph positivity and Green-energy source response, continuum witness, energy scaling obstruction and local time-onset checks. 100 exact assertions; previous tests not rerun. No new native physical law, Lean or live repository update.
+
+### Fixed vortex response
+Reopened CONSTITUTIVE_VERTEX.md and VERTEX_CURVATURE.md from the cumulative archive. Inherited matrices and norm; new conditional external overlap drive, projected stationary derivative and envelope identity. 38 exact checks. No upstream changes or reruns.
+
+### Atomic inventory bridge
+
+Inspected ten source documents at 1d73ef8ad10000861a25e1c67e58ddcfc4f563ad. Full source links, failed screening disclosures and source/model distinctions in ATOMIC_INVENTORY_VORTEX_BRIDGE.md. 53 exact assertions passed; conditional witness only.
