@@ -7,7 +7,7 @@ Phi_bar = P Phi, P the projector onto spatial modes longer than the mountain sca
 
 Euler-Lagrange (P is self-adjoint):  lap Phi + P div[(mu - 1) grad Phi_bar] = 4 pi G rho.
 Because P is idempotent and commutes with derivatives, this splits exactly:
-    the dimple   phi' = (1 - P) Phi:  lap phi' = 4 pi G (1 - P) rho              (linear: pure TetA, bare G)
+    the dimple   phi' = (1 - P) Phi:  lap phi' = 4 pi G (1 - P) rho              (linear: settled residual, bare G)
     the mountain Phi_bar = P Phi:     P div[mu grad Phi_bar] = 4 pi G P rho     (the law, at the mountain's scale)
 
 The demo puts a 'galaxy' (wide blob) and a 'Sun' (compact mass) in a periodic box, solves both the mountain-scale
@@ -75,7 +75,7 @@ if __name__ == "__main__":
         Phi_both, r1 = solve(rho_gal + rho_sun, l)
         Phi_gal, r2 = solve(rho_gal, l)
         out[name] = (Phi_both, Phi_gal, max(r1, r2))
-    Phi_sunN = inv_lap(rho_sun)            # the Sun's own Newtonian (pure TetA) potential
+    Phi_sunN = inv_lap(rho_sun)            # the Sun's own locally settled Newtonian potential
     # 1. the exact split for the mountain-scale solution
     P = projector(ell)
     Phi_both = out["mountain"][0]

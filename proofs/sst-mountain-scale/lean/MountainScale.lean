@@ -8,7 +8,7 @@ is read on the mountain's potential `P Φ`, with `P` the projector onto modes lo
 mountain scale. Its field equation is `L Φ + P (N (P Φ)) = s`, with `L` the Laplacian, `N` the
 law's nonlinear flux and `s = 4πGρ`. Because `P` is idempotent and commutes with `L`:
 
-* `mountain_split`: the dimple `Φ − PΦ` obeys `L (Φ − PΦ) = s − P s` (linear: pure TetA, bare
+* `mountain_split`: the dimple `Φ − PΦ` obeys `L (Φ − PΦ) = s − P s` (linear: locally settled residual, bare
   `G`), and the mountain obeys `P (L (PΦ) + P N(PΦ)) = P s` (the law at the mountain's scale);
 * `dimple_blind_to_law`: if `L` is injective, the dimple is the same for every law `N`;
 * `energy_split`, `energy_blind_to_law`: the same, needing only that `P` be idempotent and
@@ -30,7 +30,7 @@ law's nonlinear flux and `s = 4πGρ`. Because `P` is idempotent and commutes wi
 * `least_energy`: registration implies the sweep. With the registered state held fixed, the
   harmonic (energy-orthogonal) completion has the least field energy, and the energy splits
   exactly into the registered part and the residual;
-* `no_tail_in_dimple`: the dimple's TetB share is zero, while read pointwise the law leaves a
+* `no_tail_in_dimple`: the dimple has no additional constitutive correction, while read pointwise the law leaves a
   share strictly between 0 and `a₀` at every finite field (`strong_field_not_pure`).
 
 The projector's properties on a curved leaf, the 1D and 3D solutions, and the numbers for the
@@ -62,9 +62,9 @@ theorem dimple_blind_to_law (L P : V →ₗ[ℝ] V) (N₁ N₂ : V → V) (Φ₁
   apply hL
   rw [(mountain_split L P N₁ Φ₁ s hP hc h₁).1, (mountain_split L P N₂ Φ₂ s hP hc h₂).1]
 
-/-- The dimple's own law is linear (`μ = 1`), so its TetB share is zero; read pointwise, the
-law leaves a share strictly between 0 and `a₀` (in units of `a₀`, between 0 and 1) at every
-finite field: the tail. -/
+/-- The dimple's own law is linear (`μ = 1`), so its additional constitutive correction is zero;
+this does not assert that TetB is absent. Read pointwise, the law leaves a share strictly between
+0 and `a₀` (in units of `a₀`, between 0 and 1) at every finite field: the tail. -/
 theorem no_tail_in_dimple (g x : ℝ) (hx : 0 < x) :
     (1 - 1) * g = 0 ∧ 0 < x * (1 - ConstitutiveLaw.law x) ∧ x * (1 - ConstitutiveLaw.law x) < 1 :=
   ⟨by ring, KhrononPreferredFrame.strong_field_not_pure x hx⟩
@@ -233,7 +233,7 @@ theorem trace_corrector (t R s : ℝ) :
     convert this using 1; push_cast; ring
   · simpa using (hasDerivAt_id s).const_mul (t / 3)
 
-/-- The closure surface carries the TetB share. Across the surface, write `jd` for the jump in the
+/-- The closure surface carries the additional parent-level TetB response. Across the surface, write `jd` for the jump in the
 residual's normal slope, `jPb` for the mountain's, and `jmu` for that of `μ̄` times the mountain's.
 The sweep gives `jd = −s` and the mountain's flux condition `jmu = s` (`s = 4πGσ`), so the total
 field's slope jumps by `jPb + jd = jPb − jmu`, the `(1 − μ̄)` part: a phantom surface layer. For the
