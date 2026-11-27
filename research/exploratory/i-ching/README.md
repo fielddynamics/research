@@ -18,7 +18,7 @@ The folder holds two layers of work, written at different times.
 
 1. **The result.** [`BOOK_OF_CHANGES_AND_PI.md`](BOOK_OF_CHANGES_AND_PI.md) is the current, tested account. It shows that the trigrams are the stellated octahedron, that π's base-16 formulas form exactly one family, and that silence on the TIME axis (father and mother) selects the BBP formula from that family. Every statement in it is checked by script. **Start here.**
 2. **The hexagrams and the closure read.** [`HEXAGRAMS_AND_THE_CLOSURE_READ.md`](HEXAGRAMS_AND_THE_CLOSURE_READ.md) connects the 64 hexagrams to the formal proofs. The map R(a, b) = (b, a ⊕ b) is multiplication by ω in F₄ on the corresponding lines (1 & 4, 2 & 5, 3 & 6). It leaves 21 directions in grades 1, 4, 16, the points of PG(2,4) that give G its exponent in [Proof 26](../../../proofs/recursive-field-closure-response/), with a Fano subplane of 7. The families, lines and line changes are the tetrahedra, core and core bonds of [Proofs 24](../../../proofs/flywheel-tetrad-geometry/) and [25](../../../proofs/tetrad-flywheel-convergence/). The rotation about TIME gives 23 instead, and the π walk does not perform the read. 26 checks.
-3. **Finite-field reciprocity.** Six notes take the hexagram algebra further, with ten diagrams and 258 tests in [`scripts/finite_field_reciprocity/`](scripts/finite_field_reciprocity/).
+3. **Finite-field reciprocity.** Eight notes take the hexagram algebra further, with thirteen diagrams and 301 tests in [`scripts/finite_field_reciprocity/`](scripts/finite_field_reciprocity/).
    - [`ICHING_FINITE_FIELD_RECIPROCITY.md`](ICHING_FINITE_FIELD_RECIPROCITY.md):
      - the trigrams as GF(8) in a self-dual normal basis, and a hexagram as a + ωb in GF(64);
      - the Walsh read as a Hermitian incidence transform on the 22 invariant coordinates;
@@ -42,6 +42,14 @@ The folder holds two layers of work, written at different times.
 
      It also records, as conditional, that 137 + 1/28 = 3837/28 would follow if a physical action combined those counts. That value differs from the measured 1/α by about 2 ppm, and nothing is fitted; it is not a derivation of α.
    - [`COMMON_MODE_AND_SHARED_ZONE_PROOF.md`](COMMON_MODE_AND_SHARED_ZONE_PROOF.md): a proof that every shared-zone read and its Walsh dual keep exactly one common line, f = 𝟙[a=0] + 𝟙[b=0] + 𝟙[a=b], fixed by the Walsh read, R and the swap. This removes the zero-address deletion problem: on the 21 directions orthogonal to f, the 13- and 17-direction registers are genuine projections with rank ratio exactly 17/13. It also gives an analytic proof of the six 60° mixing planes. It shows the coherent three-read return gives 59/25, not 17/13, so the ratio holds only for a per-channel logarithmic volume observable, whose physical selection is open.
+   - [`ORIENTATION_CHARACTER_AND_SEED_DUAL.md`](ORIENTATION_CHARACTER_AND_SEED_DUAL.md):
+     - The dependent-trigram seed and its Walsh dual together span the whole exchange-even register. So the 17-direction register is forced as the smallest one containing the shared zone and that dual, with no choice of parity.
+     - The orientation operators S_u = Q_u + (I − Q_u)J form a representation of the eight-trigram group: S_u S_v = S_{u⊕v}.
+     - On the 21 directions, one operator gives all three numbers: dimension 21, positive rank 17, trace 13. So f(4,s) is one character identity, realising Proof 26's abstract depth sign concretely.
+     - Its 28 flip labels, u·n = 1, are the same labels as the skew channels. That is a label-level match, not an identification of operators.
+   - [`WORK_METRIC_RIGIDITY.md`](WORK_METRIC_RIGIDITY.md):
+     - The read algebra allows exactly two work weights, a on the even sector and b on the odd, and the weighted ratio is 17/13 if and only if a = b.
+     - If each chamber's work metric is independent (h ⊗ k) and the XOR read preserves work, both are forced to be scalar, so a = b. Whether the native action factorises this way is open.
 4. **The coupling polynomial at the prime two.** [`THE_COUPLING_POLYNOMIAL_AT_TWO.md`](THE_COUPLING_POLYNOMIAL_AT_TWO.md) shows that 21, 17 and 13 are det(K·I − Cₙ) for the lattice rotations of order 3, 4 and 6. Reduced mod 2, TetA's and TetB's rotations both become the read R, because 2 stays prime in the Eisenstein integers with residue field F₄, which is where K = 4 comes from. The Field Origin's rotation becomes the trigram swap, which is conjugate to the Sierpiński generator, because 2 ramifies in the Gaussian integers. So a binary register carries G's 21 but loses the root sign that separates 21 from 13. 28 checks.
 5. **The original notes.** The files in [`notes/`](notes/), [`scripts/`](scripts/) and [`interactive/`](interactive/) are the exploratory work from March 2026 that led to the result. They are kept as they were written. Some of their claims were later sharpened or corrected by testing; the [status table](#status-of-the-original-claims) below says which.
 
@@ -56,6 +64,8 @@ i-ching/
 ├── SHARED_ZONE_WALSH_ROTATION.md       Walsh rotation on the 22, the 17 as a minimal even completion
 ├── WALSH_SKEW_CHANNEL_ACTION.md        the 28 skew channels, the 1/28 average, a reciprocal channel
 ├── COMMON_MODE_AND_SHARED_ZONE_PROOF.md the unique common line and the 13/17 contrast registers
+├── ORIENTATION_CHARACTER_AND_SEED_DUAL.md  one binary character gives 21, 17, 13 and the 28 labels
+├── WORK_METRIC_RIGIDITY.md             two work weights; 17/13 iff they agree; factorised-metric theorem
 ├── THE_COUPLING_POLYNOMIAL_AT_TWO.md    21/17/13 as det(K I - C_n), reduced at the prime 2
 ├── figures/                      the figure for the write-up, and the script that draws it
 ├── notes/                        the original syntheses and the six-constraint derivation
