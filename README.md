@@ -8,7 +8,7 @@
 
 [Field Dynamics Research](https://fielddynamics.org) · [Documentation](docs/README.md) · [Formal proofs](proofs/README.md) · [Research index](RESEARCH_INDEX.md)
 
-[![Licence: MIT](https://img.shields.io/badge/licence-MIT-blue.svg)](LICENSE) [![Formal proofs](https://img.shields.io/badge/formal_proofs-25-2563eb.svg)](proofs/README.md) [![Lean 4](https://img.shields.io/badge/Lean_4-17_formalisations-7c3aed.svg)](proofs/README.md) [![Research status](https://img.shields.io/badge/status-preprints_·_letters_under_review-64748b.svg)](#status-and-known-limitations)
+[![Licence: MIT](https://img.shields.io/badge/licence-MIT-blue.svg)](LICENSE) [![Formal proofs](https://img.shields.io/badge/formal_proofs-26-2563eb.svg)](proofs/README.md) [![Lean 4](https://img.shields.io/badge/Lean_4-17_formalisations-7c3aed.svg)](proofs/README.md) [![Research status](https://img.shields.io/badge/status-preprints_·_letters_under_review-64748b.svg)](#status-and-known-limitations)
 
 Stephen Nelson · [ORCID 0009-0008-6190-3269](https://orcid.org/0009-0008-6190-3269) · stephen@fielddynamics.org
 
@@ -24,7 +24,7 @@ This joins three research directions: the geometry of the tetrad, a constitutive
 
 ![Framework overview: geometry, constitutive response, and distributed closure](diagrams/gfd-readme-architecture.svg)
 
-> **Research status:** An open research framework. The repository holds 25 proof packages, 1,530 scripted checks and 17 Lean 4 formalisations, each stating its premises. The mathematics is machine-checked; TetB is the tetrad's second root, and the physical premises each result needs are stated and tested against data. The papers are preprints, and Tetrad Letters 1–3 are under review at *Classical and Quantum Gravity*.
+> **Research status:** An open research framework. The repository holds 26 proof packages, 2,062 scripted checks and 17 Lean 4 formalisations, each stating its premises. The mathematics is machine-checked; TetB is the tetrad's second root, and the physical premises each result needs are stated and tested against data. The papers are preprints, and Tetrad Letters 1–3 are under review at *Classical and Quantum Gravity*.
 
 ## Results on SPARC
 
@@ -186,8 +186,25 @@ The [proof index](proofs/README.md) links each theorem to its LaTeX source, PDF,
 | 3. Common metric | [Gram matrix](proofs/gram-matrix-tetrad-equation/) · [Hadamard frame](proofs/hadamard-cube-frame/) | [Proof 24: Intrinsic flywheel geometry](proofs/flywheel-tetrad-geometry/) |
 | 4. Convergence | [Proof 25: exact transport and intrinsic solids](proofs/tetrad-flywheel-convergence/) | [Proof 25: core incidence and current reconstruction](proofs/tetrad-flywheel-convergence/#theorem-5--core-geometry-incidence-and-collective-current) |
 | 5. Downstream geometry | [Proof 23: recursive Triforce closure](proofs/recursive-triforce-closure/) | Physical geometry selection, covariant dynamics and settlement remain open. |
+| 6. Closure response | [Proof 26 (candidate): the read, the 21 directions and G](proofs/recursive-field-closure-response/) | [Proof 26: fixed geometry, changing vortex](proofs/recursive-field-closure-response/) |
 
 [Focused convergence diagram](diagrams/gfd-tetrad-flywheel-convergence.svg) · [Visual guide and proof PDF](proofs/tetrad-flywheel-convergence/tetrad_flywheel_convergence.pdf)
+
+### New: Proof 26 — what does a closing field have to read?
+
+**[Proof 26 (candidate): Gravity as the Response of Recursive Field Closure](proofs/recursive-field-closure-response/)** starts from one plain question. A field object closes its own accounting, but its neighbours' fields reach into it. Can it close without looking at them?
+
+It can't. If the right settlement depends on the environment, a "blind" closure is impossible, and the object has to read *something* about its neighbours (Theorem 1). The rest of the proof follows that read and finds that it is surprisingly specific:
+
+- **The read is three sweeps.** On the 64 addresses of the recursive Triforce, a complete, reversible read is the Walsh–Hadamard transform, and it factors into exactly three commuting four-way stages, one per level of the Sierpiński subdivision. Its inverse is a Sierpiński down-sweep, a weight, and a Sierpiński up-sweep.
+- **Symmetry leaves 21 directions.** The tetrad's order-three rotation turns the four labels into the field F₄. What survives it is exactly 21 independent contrasts, in grades of 1, 4 and 16, which are the 21 points of the projective plane over F₄. That is the same 21 as in G's exponent.
+- **Finished blocks disappear from the read but keep their mass.** A completed block contributes nothing to the contrasts and everything to the common record, so a parent field can hold a closed child as one pointer.
+- **The response has G's shape.** If the read registers all 21 directions together, as one volume, the collective response is (17/13)·|t|⁴², where 17/13 is the coupling polynomial's own ratio f(4,0)/f(4,−1). With one factor of α per direction, |t|² = α, this is the tree-level formula below.
+- **The cube stays fixed; the vortex moves.** Settlement doesn't change the geometry. It changes the vortex state, and the proof computes that response exactly on the inherited flywheel branch.
+
+![Proof 26: fixed geometry, changing vortex](proofs/recursive-field-closure-response/figures/proof26_architecture.svg)
+
+What it leaves open is stated just as plainly: why the native action reads the whole frame as a determinant, what sets the per-direction gain, and the long-wave source action. Proof 26 is a candidate research draft with 532 exact checks (plus 568 in an optional projective appendix) and no Lean formalisation yet. [Proof](proofs/recursive-field-closure-response/proof26.pdf) · [Referee-style audit](proofs/recursive-field-closure-response/REFEREE_REVIEW.md) · [Revision notes](proofs/recursive-field-closure-response/REVISION_4.md) · [Background research](research/g_from_topology/updated-research/)
 
 | Research pillar | Representative proof packages | Status and scope |
 |---|---|---|
@@ -196,7 +213,7 @@ The [proof index](proofs/README.md) links each theorem to its LaTeX source, PDF,
 | Constitutive response | [Exchange](proofs/constitutive-law-exchange-symmetry/), [Tug of war](proofs/constitutive-law-tug-of-war/), [AQUAL energy](proofs/aqual-energy-functional/) | [T+L] within specified classes |
 | Local state readout | [Walsh modes](proofs/walsh-eigenmodes-of-the-cube/), [Vortices](proofs/vortices-of-the-stellated-octahedron/), [Proof 24](proofs/flywheel-tetrad-geometry/), [Proof 25](proofs/tetrad-flywheel-convergence/) | [T] finite-dimensional symmetric models and exact finite geometry; physical realization open |
 | Field equations | [Quasi-static SST](proofs/sst-quasi-static-limit/), [Time leg](proofs/sst-covariant-time-leg/), [Preferred frame](proofs/sst-khronon-preferred-frame/) | [T/D] specified effective action and approximations |
-| Distributed closure | [Net field](proofs/net-field-rule/), [Mountain scale](proofs/sst-mountain-scale/), [Closure surface](proofs/closure-surface/) | [T+L/D] static ownership, nesting and Hill-model results; general dynamics open |
+| Distributed closure | [Net field](proofs/net-field-rule/), [Mountain scale](proofs/sst-mountain-scale/), [Closure surface](proofs/closure-surface/), [Proof 26 (candidate)](proofs/recursive-field-closure-response/) | [T+L/D] static ownership, nesting and Hill-model results; Proof 26 [T/D]: necessity of the read, the 21-direction Walsh read and conditional G response; general dynamics open |
 | Extensions & structural algebra | [Bimetric energy](proofs/bimetric-two-potential-energy/), [Bimetric lock](proofs/bimetric-lock-constitutive-law/), [BBP ladder](proofs/bbp-coupling-polynomial-ladder/), [Null rotation](proofs/g-null-rotation/) | [T] scoped algebra; broader physical interpretations vary in status |
 
 **Status key:** [T] mathematical theorem · [L] Lean formalisation · [D] derived under stated physical premises · [O] observational comparison · [E] exploratory research. The complete result-by-result status inventory is preserved in the [research index](RESEARCH_INDEX.md#all-results-and-their-status) and [Coles Notes](GFD_COLES_NOTES.md).
@@ -231,7 +248,7 @@ The same geometry carries beyond galaxies: into the fundamental constants, cosmo
 
 $$G=\frac{17}{13}\,\alpha^{21}\,\frac{\hbar c}{m_e^2}\left(1+\frac{\alpha}{2\pi}\right),$$
 
-within 12 ppm of the measured value, inside G's own uncertainty, and unique among 1,953 alternatives of its form ([look-elsewhere test](research/g_from_topology/)). The electron mass follows from closure saturation, $a_0=K^2Gm_e/r_e^2$, to 0.1%, and the classical electron radius is the unit of gravity ([Paper III](papers/03-unit-of-gravity/)). G and $m_e$ are graded derived; their premises are one factor of $\alpha$ per coupling level and the combination rule (21 as exponent, 17/13 as ratio), which is still marked proposed. The structural reading of $\alpha$ and the Hubble-scale relation are graded exploratory.
+within 12 ppm of the measured value, inside G's own uncertainty, and unique among 1,953 alternatives of its form ([look-elsewhere test](research/g_from_topology/)). The electron mass follows from closure saturation, $a_0=K^2Gm_e/r_e^2$, to 0.1%, and the classical electron radius is the unit of gravity ([Paper III](papers/03-unit-of-gravity/)). G and $m_e$ are graded derived; their premises are one factor of $\alpha$ per coupling level and the combination rule (21 as exponent, 17/13 as ratio), which is still marked proposed. The structural reading of $\alpha$ and the Hubble-scale relation are graded exploratory. [Proof 26](proofs/recursive-field-closure-response/) (candidate) works on the other side of this formula: how read and settlement produce it, with the exponent 21 appearing as the read's invariant directions.
 
 ---
 
@@ -251,8 +268,8 @@ For formal verification, select a proof marked **+ Lean** in the [proof index](p
 
 | Repository-reported coverage | Count |
 |---|---:|
-| Formal proof packages | 25 |
-| Scripted checks in those packages | 1,530 |
+| Formal proof packages | 26 (one candidate) |
+| Scripted checks in those packages | 2,062 |
 | Lean 4 formalisations | 17 |
 
 [All verification commands and validation suites](RESEARCH_INDEX.md#verification) · [Companion computational model](https://github.com/fielddynamics/dfp-gravity-field-model)
