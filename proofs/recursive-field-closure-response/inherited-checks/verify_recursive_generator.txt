@@ -1,0 +1,84 @@
+PASS level 0 trace
+PASS level 0 determinant
+PASS level 0 support
+PASS level 0 scalar gain determinant
+PASS level 0 inverse sign
+PASS level 1 trace
+PASS level 1 determinant
+PASS level 1 support
+PASS level 1 scalar gain determinant
+PASS level 1 inverse sign
+PASS level 2 trace
+PASS level 2 determinant
+PASS level 2 support
+PASS level 2 scalar gain determinant
+PASS level 2 inverse sign
+PASS capacity
+PASS support
+PASS trace
+PASS root parity trace
+PASS root even trace
+PASS capacity relation
+PASS center average not zero-branch
+PASS C3 projector
+PASS invariant total
+PASS detail 0 projection
+PASS detail 0 equivariance
+PASS detail 0 rank
+PASS detail 0 invariant rank
+PASS detail 1 projection
+PASS detail 1 equivariance
+PASS detail 1 rank
+PASS detail 1 invariant rank
+PASS detail 1 orthogonal previous
+PASS detail 2 projection
+PASS detail 2 equivariance
+PASS detail 2 rank
+PASS detail 2 invariant rank
+PASS detail 2 orthogonal previous
+PASS detail 2 orthogonal previous
+PASS complete tree decomposition
+PASS common preserved
+PASS S4 commute (0, 1, 2, 3)
+PASS S4 commute (0, 1, 3, 2)
+PASS S4 commute (0, 2, 1, 3)
+PASS S4 commute (0, 2, 3, 1)
+PASS S4 commute (0, 3, 1, 2)
+PASS S4 commute (0, 3, 2, 1)
+PASS S4 commute (1, 0, 2, 3)
+PASS S4 commute (1, 0, 3, 2)
+PASS S4 commute (1, 2, 0, 3)
+PASS S4 commute (1, 2, 3, 0)
+PASS S4 commute (1, 3, 0, 2)
+PASS S4 commute (1, 3, 2, 0)
+PASS S4 commute (2, 0, 1, 3)
+PASS S4 commute (2, 0, 3, 1)
+PASS S4 commute (2, 1, 0, 3)
+PASS S4 commute (2, 1, 3, 0)
+PASS S4 commute (2, 3, 0, 1)
+PASS S4 commute (2, 3, 1, 0)
+PASS S4 commute (3, 0, 1, 2)
+PASS S4 commute (3, 0, 2, 1)
+PASS S4 commute (3, 1, 0, 2)
+PASS S4 commute (3, 1, 2, 0)
+PASS S4 commute (3, 2, 0, 1)
+PASS S4 commute (3, 2, 1, 0)
+PASS local determinant
+PASS physical amplitude free
+PASS composition
+PASS tensor replicate determinant exponent
+PASS scalar four-way tensor replication exponent
+PASS paired chamber lossless 3/5
+PASS paired chamber retained 3/5
+PASS paired chamber complement 3/5
+PASS paired chamber lossless 5/13
+PASS paired chamber retained 5/13
+PASS paired chamber complement 5/13
+PASS invariant contrast frame
+PASS actual invariant determinant (0.3, 0.3, 0.3)
+PASS scalar unchanged (0.3, 0.3, 0.3)
+PASS actual invariant determinant (0.7, 0.5, 0.9)
+PASS scalar unchanged (0.7, 0.5, 0.9)
+PASS actual invariant determinant (0.12, 0.33, 0.88)
+PASS scalar unchanged (0.12, 0.33, 0.88)
+83 assertions passed

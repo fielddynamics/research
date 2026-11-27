@@ -1,0 +1,102 @@
+PASS grounded path positive definite
+PASS no direct inner/exterior coupling
+PASS strictly positive inverse
+PASS path Green exact 1,1
+PASS path Green exact 1,2
+PASS path Green exact 1,3
+PASS path Green exact 1,4
+PASS path Green exact 1,5
+PASS path Green exact 1,6
+PASS path Green exact 2,1
+PASS path Green exact 2,2
+PASS path Green exact 2,3
+PASS path Green exact 2,4
+PASS path Green exact 2,5
+PASS path Green exact 2,6
+PASS path Green exact 3,1
+PASS path Green exact 3,2
+PASS path Green exact 3,3
+PASS path Green exact 3,4
+PASS path Green exact 3,5
+PASS path Green exact 3,6
+PASS path Green exact 4,1
+PASS path Green exact 4,2
+PASS path Green exact 4,3
+PASS path Green exact 4,4
+PASS path Green exact 4,5
+PASS path Green exact 4,6
+PASS path Green exact 5,1
+PASS path Green exact 5,2
+PASS path Green exact 5,3
+PASS path Green exact 5,4
+PASS path Green exact 5,5
+PASS path Green exact 5,6
+PASS path Green exact 6,1
+PASS path Green exact 6,2
+PASS path Green exact 6,3
+PASS path Green exact 6,4
+PASS path Green exact 6,5
+PASS path Green exact 6,6
+PASS external source sensitivity is rank one
+PASS separator read rank one
+PASS exact separator factorization
+PASS boundary transfer is nonzero
+PASS interior solve
+PASS registered interface equals global solution
+PASS registered child reconstructs global interior
+PASS registered exterior reconstructs global state
+PASS interface stiffness positive
+PASS boundary source read rank equals interface coupling rank
+PASS invisible source difference example
+PASS invisible source changes interior
+PASS invisible source changes constant energy
+PASS source Hessian is negative Green
+PASS attractive cross energy coefficient 0,5
+PASS attractive cross energy coefficient 1,4
+PASS attractive cross energy coefficient 2,3
+PASS inverse square force from continuum Green
+PASS energy scaling changes force
+PASS energy scaling leaves stationary solutions
+PASS rank-deficient bridge has zero determinant
+PASS rank-deficient bridge has nonzero ordinary susceptibility
+PASS uniform bridge source response is quadratic not 21st power
+PASS local walk onset 0,0
+PASS local walk onset 0,1
+PASS local walk onset 0,2
+PASS local walk onset 0,3
+PASS local walk onset 0,4
+PASS local walk onset 0,5
+PASS local walk onset 1,0
+PASS local walk onset 1,1
+PASS local walk onset 1,2
+PASS local walk onset 1,3
+PASS local walk onset 1,4
+PASS local walk onset 1,5
+PASS local walk onset 2,0
+PASS local walk onset 2,1
+PASS local walk onset 2,2
+PASS local walk onset 2,3
+PASS local walk onset 2,4
+PASS local walk onset 2,5
+PASS local walk onset 3,0
+PASS local walk onset 3,1
+PASS local walk onset 3,2
+PASS local walk onset 3,3
+PASS local walk onset 3,4
+PASS local walk onset 3,5
+PASS local walk onset 4,0
+PASS local walk onset 4,1
+PASS local walk onset 4,2
+PASS local walk onset 4,3
+PASS local walk onset 4,4
+PASS local walk onset 4,5
+PASS local walk onset 5,0
+PASS local walk onset 5,1
+PASS local walk onset 5,2
+PASS local walk onset 5,3
+PASS local walk onset 5,4
+PASS local walk onset 5,5
+PASS tetrahedral linear term zero
+PASS tetrahedral quadratic symbol isotropic
+
+100 exact assertions passed

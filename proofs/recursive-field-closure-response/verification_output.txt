@@ -1,0 +1,493 @@
+PASS T3 full three sweeps
+PASS T3 inverse
+PASS T3 commuting stages
+PASS T3 commuting stages
+PASS T3 commuting stages
+PASS T3 commuting stages
+PASS T3 commuting stages
+PASS T3 commuting stages
+PASS T3 commuting stages
+PASS T3 commuting stages
+PASS T3 commuting stages
+PASS T3 XOR character translation 0
+PASS T3 XOR character translation 1
+PASS T3 XOR character translation 2
+PASS T3 XOR character translation 3
+PASS T3 XOR character translation 4
+PASS T3 XOR character translation 5
+PASS T3 XOR character translation 6
+PASS T3 XOR character translation 7
+PASS T3 XOR character translation 8
+PASS T3 XOR character translation 9
+PASS T3 XOR character translation 10
+PASS T3 XOR character translation 11
+PASS T3 XOR character translation 12
+PASS T3 XOR character translation 13
+PASS T3 XOR character translation 14
+PASS T3 XOR character translation 15
+PASS T3 XOR character translation 16
+PASS T3 XOR character translation 17
+PASS T3 XOR character translation 18
+PASS T3 XOR character translation 19
+PASS T3 XOR character translation 20
+PASS T3 XOR character translation 21
+PASS T3 XOR character translation 22
+PASS T3 XOR character translation 23
+PASS T3 XOR character translation 24
+PASS T3 XOR character translation 25
+PASS T3 XOR character translation 26
+PASS T3 XOR character translation 27
+PASS T3 XOR character translation 28
+PASS T3 XOR character translation 29
+PASS T3 XOR character translation 30
+PASS T3 XOR character translation 31
+PASS T3 XOR character translation 32
+PASS T3 XOR character translation 33
+PASS T3 XOR character translation 34
+PASS T3 XOR character translation 35
+PASS T3 XOR character translation 36
+PASS T3 XOR character translation 37
+PASS T3 XOR character translation 38
+PASS T3 XOR character translation 39
+PASS T3 XOR character translation 40
+PASS T3 XOR character translation 41
+PASS T3 XOR character translation 42
+PASS T3 XOR character translation 43
+PASS T3 XOR character translation 44
+PASS T3 XOR character translation 45
+PASS T3 XOR character translation 46
+PASS T3 XOR character translation 47
+PASS T3 XOR character translation 48
+PASS T3 XOR character translation 49
+PASS T3 XOR character translation 50
+PASS T3 XOR character translation 51
+PASS T3 XOR character translation 52
+PASS T3 XOR character translation 53
+PASS T3 XOR character translation 54
+PASS T3 XOR character translation 55
+PASS T3 XOR character translation 56
+PASS T3 XOR character translation 57
+PASS T3 XOR character translation 58
+PASS T3 XOR character translation 59
+PASS T3 XOR character translation 60
+PASS T3 XOR character translation 61
+PASS T3 XOR character translation 62
+PASS T3 XOR character translation 63
+PASS T4 zeta factorization 0
+PASS T4 unit triangular 0
+PASS T4 zeta factorization 1
+PASS T4 unit triangular 1
+PASS T4 zeta factorization 2
+PASS T4 unit triangular 2
+PASS T4 zeta factorization 3
+PASS T4 unit triangular 3
+PASS T4 zeta factorization 4
+PASS T4 unit triangular 4
+PASS T4 zeta factorization 5
+PASS T4 unit triangular 5
+PASS T4 zeta factorization 6
+PASS T4 unit triangular 6
+PASS T5 order three
+PASS T5 orbit average commutes with H
+PASS T5 prefix invariant count 0
+PASS T5 prefix invariant count 1
+PASS T5 prefix invariant count 2
+PASS T5 prefix invariant count 3
+PASS T5 1/4/16 invariant grades
+PASS T5 plane contrasts orthogonal
+PASS T5 plane counts 0
+PASS T5 plane counts 1
+PASS T5 plane counts 2
+PASS T5 plane counts 3
+PASS T5 plane counts 4
+PASS T5 plane counts 5
+PASS T5 plane counts 6
+PASS T5 plane counts 7
+PASS T5 plane counts 8
+PASS T5 plane counts 9
+PASS T5 plane counts 10
+PASS T5 plane counts 11
+PASS T5 plane counts 12
+PASS T5 plane counts 13
+PASS T5 plane counts 14
+PASS T5 plane counts 15
+PASS T5 plane counts 16
+PASS T5 plane counts 17
+PASS T5 plane counts 18
+PASS T5 plane counts 19
+PASS T5 plane counts 20
+PASS P23 pointing signs
+PASS P23 pointing invariant multiplicities
+PASS P23 compressed exceptional eigenvalue
+PASS P23 distinct pair action
+PASS T6 prefix ()
+PASS T6 prefix (0,)
+PASS T6 prefix (1,)
+PASS T6 prefix (2,)
+PASS T6 prefix (3,)
+PASS T6 prefix (0, 0)
+PASS T6 prefix (0, 1)
+PASS T6 prefix (0, 2)
+PASS T6 prefix (0, 3)
+PASS T6 prefix (1, 0)
+PASS T6 prefix (1, 1)
+PASS T6 prefix (1, 2)
+PASS T6 prefix (1, 3)
+PASS T6 prefix (2, 0)
+PASS T6 prefix (2, 1)
+PASS T6 prefix (2, 2)
+PASS T6 prefix (2, 3)
+PASS T6 prefix (3, 0)
+PASS T6 prefix (3, 1)
+PASS T6 prefix (3, 2)
+PASS T6 prefix (3, 3)
+PASS T6 prefix (0, 0, 0)
+PASS T6 prefix (0, 0, 1)
+PASS T6 prefix (0, 0, 2)
+PASS T6 prefix (0, 0, 3)
+PASS T6 prefix (0, 1, 0)
+PASS T6 prefix (0, 1, 1)
+PASS T6 prefix (0, 1, 2)
+PASS T6 prefix (0, 1, 3)
+PASS T6 prefix (0, 2, 0)
+PASS T6 prefix (0, 2, 1)
+PASS T6 prefix (0, 2, 2)
+PASS T6 prefix (0, 2, 3)
+PASS T6 prefix (0, 3, 0)
+PASS T6 prefix (0, 3, 1)
+PASS T6 prefix (0, 3, 2)
+PASS T6 prefix (0, 3, 3)
+PASS T6 prefix (1, 0, 0)
+PASS T6 prefix (1, 0, 1)
+PASS T6 prefix (1, 0, 2)
+PASS T6 prefix (1, 0, 3)
+PASS T6 prefix (1, 1, 0)
+PASS T6 prefix (1, 1, 1)
+PASS T6 prefix (1, 1, 2)
+PASS T6 prefix (1, 1, 3)
+PASS T6 prefix (1, 2, 0)
+PASS T6 prefix (1, 2, 1)
+PASS T6 prefix (1, 2, 2)
+PASS T6 prefix (1, 2, 3)
+PASS T6 prefix (1, 3, 0)
+PASS T6 prefix (1, 3, 1)
+PASS T6 prefix (1, 3, 2)
+PASS T6 prefix (1, 3, 3)
+PASS T6 prefix (2, 0, 0)
+PASS T6 prefix (2, 0, 1)
+PASS T6 prefix (2, 0, 2)
+PASS T6 prefix (2, 0, 3)
+PASS T6 prefix (2, 1, 0)
+PASS T6 prefix (2, 1, 1)
+PASS T6 prefix (2, 1, 2)
+PASS T6 prefix (2, 1, 3)
+PASS T6 prefix (2, 2, 0)
+PASS T6 prefix (2, 2, 1)
+PASS T6 prefix (2, 2, 2)
+PASS T6 prefix (2, 2, 3)
+PASS T6 prefix (2, 3, 0)
+PASS T6 prefix (2, 3, 1)
+PASS T6 prefix (2, 3, 2)
+PASS T6 prefix (2, 3, 3)
+PASS T6 prefix (3, 0, 0)
+PASS T6 prefix (3, 0, 1)
+PASS T6 prefix (3, 0, 2)
+PASS T6 prefix (3, 0, 3)
+PASS T6 prefix (3, 1, 0)
+PASS T6 prefix (3, 1, 1)
+PASS T6 prefix (3, 1, 2)
+PASS T6 prefix (3, 1, 3)
+PASS T6 prefix (3, 2, 0)
+PASS T6 prefix (3, 2, 1)
+PASS T6 prefix (3, 2, 2)
+PASS T6 prefix (3, 2, 3)
+PASS T6 prefix (3, 3, 0)
+PASS T6 prefix (3, 3, 1)
+PASS T6 prefix (3, 3, 2)
+PASS T6 prefix (3, 3, 3)
+PASS T6 common count 0
+PASS T6 detail Parseval 0
+PASS T6 cycle registration (0, 1)
+PASS T6 cycle registration (0, 3)
+PASS T6 common count 1
+PASS T6 detail Parseval 1
+PASS T6 cycle registration (1, 1)
+PASS T6 cycle registration (1, 3)
+PASS T6 common count 2
+PASS T6 detail Parseval 2
+PASS T6 cycle registration (2, 1)
+PASS T6 cycle registration (2, 3)
+PASS T6 common count 3
+PASS T6 detail Parseval 3
+PASS T6 cycle registration (3, 1)
+PASS T6 cycle registration (3, 3)
+PASS T6 common count 4
+PASS T6 detail Parseval 4
+PASS T6 cycle registration (4, 1)
+PASS T6 cycle registration (4, 3)
+PASS T6 common count 5
+PASS T6 detail Parseval 5
+PASS T6 cycle registration (5, 1)
+PASS T6 cycle registration (5, 3)
+PASS T6 common count 6
+PASS T6 detail Parseval 6
+PASS T6 cycle registration (6, 1)
+PASS T6 cycle registration (6, 3)
+PASS T6 common count 7
+PASS T6 detail Parseval 7
+PASS T6 cycle registration (7, 1)
+PASS T6 cycle registration (7, 3)
+PASS T6 common count 8
+PASS T6 detail Parseval 8
+PASS T6 cycle registration (8, 1)
+PASS T6 cycle registration (8, 3)
+PASS T6 common count 9
+PASS T6 detail Parseval 9
+PASS T6 cycle registration (9, 1)
+PASS T6 cycle registration (9, 3)
+PASS T6 common count 10
+PASS T6 detail Parseval 10
+PASS T6 cycle registration (10, 1)
+PASS T6 cycle registration (10, 3)
+PASS T6 common count 11
+PASS T6 detail Parseval 11
+PASS T6 cycle registration (11, 1)
+PASS T6 cycle registration (11, 3)
+PASS T6 common count 12
+PASS T6 detail Parseval 12
+PASS T6 cycle registration (12, 1)
+PASS T6 cycle registration (12, 3)
+PASS T6 common count 13
+PASS T6 detail Parseval 13
+PASS T6 cycle registration (13, 1)
+PASS T6 cycle registration (13, 3)
+PASS T6 common count 14
+PASS T6 detail Parseval 14
+PASS T6 cycle registration (14, 1)
+PASS T6 cycle registration (14, 3)
+PASS T6 common count 15
+PASS T6 detail Parseval 15
+PASS T6 cycle registration (15, 1)
+PASS T6 cycle registration (15, 3)
+PASS T6 common count 16
+PASS T6 detail Parseval 16
+PASS T6 cycle registration (16, 1)
+PASS T6 cycle registration (16, 3)
+PASS T6 common count 17
+PASS T6 detail Parseval 17
+PASS T6 cycle registration (17, 1)
+PASS T6 cycle registration (17, 3)
+PASS T6 common count 18
+PASS T6 detail Parseval 18
+PASS T6 cycle registration (18, 1)
+PASS T6 cycle registration (18, 3)
+PASS T6 common count 19
+PASS T6 detail Parseval 19
+PASS T6 cycle registration (19, 1)
+PASS T6 cycle registration (19, 3)
+PASS T6 common count 20
+PASS T6 detail Parseval 20
+PASS T6 cycle registration (20, 1)
+PASS T6 cycle registration (20, 3)
+PASS T6 common count 21
+PASS T6 detail Parseval 21
+PASS T6 cycle registration (21, 1)
+PASS T6 cycle registration (21, 3)
+PASS T6 common count 22
+PASS T6 detail Parseval 22
+PASS T6 cycle registration (22, 1)
+PASS T6 cycle registration (22, 3)
+PASS T6 common count 23
+PASS T6 detail Parseval 23
+PASS T6 cycle registration (23, 1)
+PASS T6 cycle registration (23, 3)
+PASS T6 common count 24
+PASS T6 detail Parseval 24
+PASS T6 cycle registration (24, 1)
+PASS T6 cycle registration (24, 3)
+PASS T6 common count 25
+PASS T6 detail Parseval 25
+PASS T6 cycle registration (25, 1)
+PASS T6 cycle registration (25, 3)
+PASS T6 common count 26
+PASS T6 detail Parseval 26
+PASS T6 cycle registration (26, 1)
+PASS T6 cycle registration (26, 3)
+PASS T6 common count 27
+PASS T6 detail Parseval 27
+PASS T6 cycle registration (27, 1)
+PASS T6 cycle registration (27, 3)
+PASS T6 common count 28
+PASS T6 detail Parseval 28
+PASS T6 cycle registration (28, 1)
+PASS T6 cycle registration (28, 3)
+PASS T6 common count 29
+PASS T6 detail Parseval 29
+PASS T6 cycle registration (29, 1)
+PASS T6 cycle registration (29, 3)
+PASS T6 common count 30
+PASS T6 detail Parseval 30
+PASS T6 cycle registration (30, 1)
+PASS T6 cycle registration (30, 3)
+PASS T6 common count 31
+PASS T6 detail Parseval 31
+PASS T6 cycle registration (31, 1)
+PASS T6 cycle registration (31, 3)
+PASS T6 common count 32
+PASS T6 detail Parseval 32
+PASS T6 cycle registration (32, 1)
+PASS T6 cycle registration (32, 3)
+PASS T6 common count 33
+PASS T6 detail Parseval 33
+PASS T6 cycle registration (33, 1)
+PASS T6 cycle registration (33, 3)
+PASS T6 common count 34
+PASS T6 detail Parseval 34
+PASS T6 cycle registration (34, 1)
+PASS T6 cycle registration (34, 3)
+PASS T6 common count 35
+PASS T6 detail Parseval 35
+PASS T6 cycle registration (35, 1)
+PASS T6 cycle registration (35, 3)
+PASS T6 common count 36
+PASS T6 detail Parseval 36
+PASS T6 cycle registration (36, 1)
+PASS T6 cycle registration (36, 3)
+PASS T6 common count 37
+PASS T6 detail Parseval 37
+PASS T6 cycle registration (37, 1)
+PASS T6 cycle registration (37, 3)
+PASS T6 common count 38
+PASS T6 detail Parseval 38
+PASS T6 cycle registration (38, 1)
+PASS T6 cycle registration (38, 3)
+PASS T6 common count 39
+PASS T6 detail Parseval 39
+PASS T6 cycle registration (39, 1)
+PASS T6 cycle registration (39, 3)
+PASS T6 common count 40
+PASS T6 detail Parseval 40
+PASS T6 cycle registration (40, 1)
+PASS T6 cycle registration (40, 3)
+PASS T6 common count 41
+PASS T6 detail Parseval 41
+PASS T6 cycle registration (41, 1)
+PASS T6 cycle registration (41, 3)
+PASS T6 common count 42
+PASS T6 detail Parseval 42
+PASS T6 cycle registration (42, 1)
+PASS T6 cycle registration (42, 3)
+PASS T6 common count 43
+PASS T6 detail Parseval 43
+PASS T6 cycle registration (43, 1)
+PASS T6 cycle registration (43, 3)
+PASS T6 common count 44
+PASS T6 detail Parseval 44
+PASS T6 cycle registration (44, 1)
+PASS T6 cycle registration (44, 3)
+PASS T6 common count 45
+PASS T6 detail Parseval 45
+PASS T6 cycle registration (45, 1)
+PASS T6 cycle registration (45, 3)
+PASS T6 common count 46
+PASS T6 detail Parseval 46
+PASS T6 cycle registration (46, 1)
+PASS T6 cycle registration (46, 3)
+PASS T6 common count 47
+PASS T6 detail Parseval 47
+PASS T6 cycle registration (47, 1)
+PASS T6 cycle registration (47, 3)
+PASS T6 common count 48
+PASS T6 detail Parseval 48
+PASS T6 cycle registration (48, 1)
+PASS T6 cycle registration (48, 3)
+PASS T6 common count 49
+PASS T6 detail Parseval 49
+PASS T6 cycle registration (49, 1)
+PASS T6 cycle registration (49, 3)
+PASS T6 common count 50
+PASS T6 detail Parseval 50
+PASS T6 cycle registration (50, 1)
+PASS T6 cycle registration (50, 3)
+PASS T6 common count 51
+PASS T6 detail Parseval 51
+PASS T6 cycle registration (51, 1)
+PASS T6 cycle registration (51, 3)
+PASS T6 common count 52
+PASS T6 detail Parseval 52
+PASS T6 cycle registration (52, 1)
+PASS T6 cycle registration (52, 3)
+PASS T6 common count 53
+PASS T6 detail Parseval 53
+PASS T6 cycle registration (53, 1)
+PASS T6 cycle registration (53, 3)
+PASS T6 common count 54
+PASS T6 detail Parseval 54
+PASS T6 cycle registration (54, 1)
+PASS T6 cycle registration (54, 3)
+PASS T6 common count 55
+PASS T6 detail Parseval 55
+PASS T6 cycle registration (55, 1)
+PASS T6 cycle registration (55, 3)
+PASS T6 common count 56
+PASS T6 detail Parseval 56
+PASS T6 cycle registration (56, 1)
+PASS T6 cycle registration (56, 3)
+PASS T6 common count 57
+PASS T6 detail Parseval 57
+PASS T6 cycle registration (57, 1)
+PASS T6 cycle registration (57, 3)
+PASS T6 common count 58
+PASS T6 detail Parseval 58
+PASS T6 cycle registration (58, 1)
+PASS T6 cycle registration (58, 3)
+PASS T6 common count 59
+PASS T6 detail Parseval 59
+PASS T6 cycle registration (59, 1)
+PASS T6 cycle registration (59, 3)
+PASS T6 common count 60
+PASS T6 detail Parseval 60
+PASS T6 cycle registration (60, 1)
+PASS T6 cycle registration (60, 3)
+PASS T6 common count 61
+PASS T6 detail Parseval 61
+PASS T6 cycle registration (61, 1)
+PASS T6 cycle registration (61, 3)
+PASS T6 common count 62
+PASS T6 detail Parseval 62
+PASS T6 cycle registration (62, 1)
+PASS T6 cycle registration (62, 3)
+PASS T6 common count 63
+PASS T6 detail Parseval 63
+PASS T6 cycle registration (63, 1)
+PASS T6 cycle registration (63, 3)
+PASS T6 common count 64
+PASS T6 detail Parseval 64
+PASS T6 cycle registration (64, 1)
+PASS T6 cycle registration (64, 3)
+PASS T7 signed product
+PASS T7 capacity
+PASS T7 support not capacity
+PASS T8 cyclic norm fibres
+PASS T8 embedded subgroup transversal
+PASS T8 coset partition
+PASS T9 fibre coisometry
+PASS T9 trace transversal
+PASS T9 exact compression
+PASS T9 normalized trace
+PASS T9 nonordinary normalization
+PASS T9 uniform eigenvalue
+PASS T10 derivative exact
+PASS T10 arbitrary gain determinant (Fraction(1, 2), Fraction(2, 3), Fraction(3, 5))
+PASS T10 arbitrary gain determinant (Fraction(0, 1), Fraction(1, 1), Fraction(1, 1))
+PASS T10 arbitrary gain determinant (Fraction(1, 1), Fraction(1, 1), Fraction(1, 1))
+PASS source blocked 0
+PASS source blocked 1
+PASS source blocked 2
+PASS source blocked 3
+PASS source common gain exponent
+PASS T2 stationarity
+PASS T2 Schur complement
+PASS T2 moving minimum zero force
+PASS T13 inverse square
+TOTAL 492 fresh exact assertions passed

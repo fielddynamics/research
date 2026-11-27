@@ -1,0 +1,1 @@
+6 synthesis explorer calculation checks passed in a simulated DOM; full browser rendering not tested.
