@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="698.4pt" height="405.792pt" viewBox="0 0 698.4 405.792" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-11-27T23:40:28.069119</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.8, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 405.792 
+L 698.4 405.792 
+L 698.4 -0 
+L 0 -0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 32.256 160.88832 
+L 219.744 160.88832 
+Q 221.976 160.88832 221.976 158.73408 
+L 221.976 82.79712 
+Q 221.976 80.64288 219.744 80.64288 
+L 32.256 80.64288 
+Q 30.024 80.64288 30.024 82.79712 
+L 30.024 158.73408 
+Q 30.024 160.88832 32.256 160.88832 
+z
+" clip-path="url(#p46c02929df)" style="fill: #e9f2f4; stroke: #28688a; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 225.09561 121.03488 
+Q 237.879561 121.03488 248.986461 121.03488 
+" clip-path="url(#p46c02929df)" style="fill: none; stroke: #637887; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 243.786461 118.43488 
+L 248.986461 121.03488 
+L 243.786461 123.63488 
+z
+" clip-path="url(#p46c02929df)" style="fill: #637887; stroke: #637887; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 255.456 160.88832 
+L 442.944 160.88832 
+Q 445.176 160.88832 445.176 158.73408 
+L 445.176 82.79712 
+Q 445.176 80.64288 442.944 80.64288 
+L 255.456 80.64288 
+Q 253.224 80.64288 253.224 82.79712 
+L 253.224 158.73408 
+Q 253.224 160.88832 255.456 160.88832 
+z
+" clip-path="url(#p46c02929df)" style="fill: #e9f2f4; stroke: #28688a; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 448.29561 121.03488 
+Q 461.079561 121.03488 472.186461 121.03488 
+" clip-path="url(#p46c02929df)" style="fill: none; stroke: #637887; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 466.986461 118.43488 
+L 472.186461 121.03488 
+L 466.986461 123.63488 
+z
+" clip-path="url(#p46c02929df)" style="fill: #637887; stroke: #637887; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 478.656 160.88832 
+L 666.144 160.88832 
+Q 668.376 160.88832 668.376 158.73408 
+L 668.376 82.79712 
+Q 668.376 80.64288 666.144 80.64288 
+L 478.656 80.64288 
+Q 476.424 80.64288 476.424 82.79712 
+L 476.424 158.73408 
+Q 476.424 160.88832 478.656 160.88832 
+z
+" clip-path="url(#p46c02929df)" style="fill: #e9f2f4; stroke: #28688a; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 194.076 377.38944 
+L 504.324 377.38944 
+Q 506.556 377.38944 506.556 375.2352 
+L 506.556 327.84192 
+Q 506.556 325.68768 504.324 325.68768 
+L 194.076 325.68768 
+Q 191.844 325.68768 191.844 327.84192 
+L 191.844 375.2352 
+Q 191.844 377.38944 194.076 377.38944 
+z
+" clip-path="url(#p46c02929df)" style="fill: #e9f2f4; stroke: #28688a; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 349.2 313.68697 
+Q 349.2 318.417625 349.2 321.47123 
+" clip-path="url(#p46c02929df)" style="fill: none; stroke: #637887; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 351.8 316.27123 
+L 349.2 321.47123 
+L 346.6 316.27123 
+z
+" clip-path="url(#p46c02929df)" style="fill: #637887; stroke: #637887; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="line2d_1">
+    <path d="M 48.996 254.0592 
+L 126 232.5168 
+L 201.33 210.9744 
+" clip-path="url(#p46c02929df)" style="fill: none; stroke: #28688a; stroke-width: 2.8; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_2">
+    <path d="M 201.33 210.9744 
+L 201.33 254.0592 
+" clip-path="url(#p46c02929df)" style="fill: none; stroke-dasharray: 5.18,2.24; stroke-dashoffset: 0; stroke: #ac4b43; stroke-width: 1.4"/>
+   </g>
+   <g id="line2d_3">
+    <path d="M 272.196 254.0592 
+L 349.2 232.5168 
+L 424.53 210.9744 
+" clip-path="url(#p46c02929df)" style="fill: none; stroke: #158477; stroke-width: 2.8; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_4">
+    <path d="M 424.53 210.9744 
+L 424.53 254.0592 
+" clip-path="url(#p46c02929df)" style="fill: none; stroke-dasharray: 5.18,2.24; stroke-dashoffset: 0; stroke: #ac4b43; stroke-width: 1.4"/>
+   </g>
+   <g id="line2d_5">
+    <path d="M 495.396 254.0592 
+L 572.4 232.5168 
+L 647.73 210.9744 
+" clip-path="url(#p46c02929df)" style="fill: none; stroke: #cf8b30; stroke-width: 2.8; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_6">
+    <path d="M 647.73 210.9744 
+L 647.73 254.0592 
+" clip-path="url(#p46c02929df)" style="fill: none; stroke-dasharray: 5.18,2.24; stroke-dashoffset: 0; stroke: #ac4b43; stroke-width: 1.4"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 19px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #172d40" x="28.35" y="31.63392" transform="rotate(-0 28.35 31.63392)">THREE SWEEPS  /  ONE COUPLING POLYNOMIAL</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #637887" x="28.35" y="55.33056" transform="rotate(-0 28.35 55.33056)">Chronological depth is the working theory; structural counts are exact in the model.</text>
+   </g>
+   <g id="text_3">
+    <text style="font-weight: 700; font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #172d40" x="126" y="107.40176" transform="rotate(-0 126 107.40176)">Sweep 1 · Face</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #172d40" x="126" y="136.524541" transform="rotate(-0 126 136.524541)">1 reader → 4 faces</text>
+   </g>
+   <g id="text_5">
+    <text style="font-weight: 700; font-size: 19px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #28688a" x="126" y="180.27648" transform="rotate(-0 126 180.27648)">1</text>
+   </g>
+   <g id="text_6">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #172d40" x="48.996" y="246.51936" transform="rotate(-0 48.996 246.51936)">13</text>
+   </g>
+   <g id="text_7">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #172d40" x="126" y="224.97696" transform="rotate(-0 126 224.97696)">17</text>
+   </g>
+   <g id="text_8">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #172d40" x="201.33" y="203.43456" transform="rotate(-0 201.33 203.43456)">21</text>
+   </g>
+   <g id="text_9">
+    <text style="font-weight: 700; font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #172d40" x="349.2" y="107.40176" transform="rotate(-0 349.2 107.40176)">Sweep 2 · Channel</text>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #172d40" x="349.2" y="136.524541" transform="rotate(-0 349.2 136.524541)">4 readers → 16 channels</text>
+   </g>
+   <g id="text_11">
+    <text style="font-weight: 700; font-size: 19px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #158477" x="349.2" y="180.27648" transform="rotate(-0 349.2 180.27648)">sK</text>
+   </g>
+   <g id="text_12">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #172d40" x="272.196" y="246.51936" transform="rotate(-0 272.196 246.51936)">13</text>
+   </g>
+   <g id="text_13">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #172d40" x="349.2" y="224.97696" transform="rotate(-0 349.2 224.97696)">17</text>
+   </g>
+   <g id="text_14">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #172d40" x="424.53" y="203.43456" transform="rotate(-0 424.53 203.43456)">21</text>
+   </g>
+   <g id="text_15">
+    <text style="font-weight: 700; font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #172d40" x="572.4" y="107.40176" transform="rotate(-0 572.4 107.40176)">Sweep 3 · Subchannel</text>
+   </g>
+   <g id="text_16">
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #172d40" x="572.4" y="136.524541" transform="rotate(-0 572.4 136.524541)">16 readers → 64 subchannels</text>
+   </g>
+   <g id="text_17">
+    <text style="font-weight: 700; font-size: 19px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #cf8b30" x="572.4" y="180.27648" transform="rotate(-0 572.4 180.27648)">K²</text>
+   </g>
+   <g id="text_18">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #172d40" x="495.396" y="246.51936" transform="rotate(-0 495.396 246.51936)">13</text>
+   </g>
+   <g id="text_19">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #172d40" x="572.4" y="224.97696" transform="rotate(-0 572.4 224.97696)">17</text>
+   </g>
+   <g id="text_20">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #172d40" x="647.73" y="203.43456" transform="rotate(-0 647.73 203.43456)">21</text>
+   </g>
+   <g id="text_21">
+    <text style="font-weight: 700; font-size: 15px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #172d40" x="349.2" y="279.91008" transform="rotate(-0 349.2 279.91008)">Every sweep uses the full character:  f(4,s) = 1 + 4s + 16</text>
+   </g>
+   <g id="text_22">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #637887" x="349.2" y="302.5296" transform="rotate(-0 349.2 302.5296)">Only the middle term changes:  −4 → 0 → +4    |    immediate reset, retained record</text>
+   </g>
+   <g id="text_23">
+    <text style="font-weight: 700; font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #172d40" x="349.2" y="344.168893" transform="rotate(-0 349.2 344.168893)">One complete closure snapshot</text>
+   </g>
+   <g id="text_24">
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #172d40" x="349.2" y="362.445076" transform="rotate(-0 349.2 362.445076)">Register / settle → next closure</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p46c02929df">
+   <rect x="14.4" y="14.4" width="669.6" height="376.992"/>
+  </clipPath>
+ </defs>
+</svg>

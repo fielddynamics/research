@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="642.6pt" height="278.28pt" viewBox="0 0 642.6 278.28" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-11-27T23:40:27.125067</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.8, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 278.28 
+L 642.6 278.28 
+L 642.6 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 23.86275 177.55992 
+L 191.63475 177.55992 
+Q 192.65775 177.55992 192.65775 175.56408 
+L 192.65775 97.72632 
+Q 192.65775 95.73048 191.63475 95.73048 
+L 23.86275 95.73048 
+Q 22.83975 95.73048 22.83975 97.72632 
+L 22.83975 175.56408 
+Q 22.83975 177.55992 23.86275 177.55992 
+z
+" clip-path="url(#pc01a0d85ee)" style="fill: #e9f2f4; stroke: #28688a; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 194.148199 136.6452 
+Q 204.295209 136.6452 212.765167 136.6452 
+" clip-path="url(#pc01a0d85ee)" style="fill: none; stroke: #637887; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 207.565167 134.0452 
+L 212.765167 136.6452 
+L 207.565167 139.2452 
+z
+" clip-path="url(#pc01a0d85ee)" style="fill: #637887; stroke: #637887; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 220.79025 177.55992 
+L 388.56225 177.55992 
+Q 389.58525 177.55992 389.58525 175.56408 
+L 389.58525 97.72632 
+Q 389.58525 95.73048 388.56225 95.73048 
+L 220.79025 95.73048 
+Q 219.76725 95.73048 219.76725 97.72632 
+L 219.76725 175.56408 
+Q 219.76725 177.55992 220.79025 177.55992 
+z
+" clip-path="url(#pc01a0d85ee)" style="fill: #e9f2f4; stroke: #28688a; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 391.075699 136.6452 
+Q 401.222709 136.6452 409.692667 136.6452 
+" clip-path="url(#pc01a0d85ee)" style="fill: none; stroke: #637887; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 404.492667 134.0452 
+L 409.692667 136.6452 
+L 404.492667 139.2452 
+z
+" clip-path="url(#pc01a0d85ee)" style="fill: #637887; stroke: #637887; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 417.71775 177.55992 
+L 585.48975 177.55992 
+Q 586.51275 177.55992 586.51275 175.56408 
+L 586.51275 97.72632 
+Q 586.51275 95.73048 585.48975 95.73048 
+L 417.71775 95.73048 
+Q 416.69475 95.73048 416.69475 97.72632 
+L 416.69475 175.56408 
+Q 416.69475 177.55992 417.71775 177.55992 
+z
+" clip-path="url(#pc01a0d85ee)" style="fill: #e9f2f4; stroke: #28688a; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 16px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #172d40" x="19.515" y="29.3688" transform="rotate(-0 19.515 29.3688)">THREE SUB-READS OF THE 4 × 4 × 4 TREE</text>
+   </g>
+   <g id="text_2">
+    <text style="font-weight: 700; font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #172d40" x="107.74875" y="122.915457" transform="rotate(-0 107.74875 122.915457)">Fine subchannels</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; fill: #172d40" transform="translate(47.670234 147.661334)">16 four-port Walsh readers</text>
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; fill: #172d40" transform="translate(55.394063 157.739365)">48 retained differences</text>
+   </g>
+   <g id="text_4">
+    <text style="font-weight: 700; font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #172d40" x="304.67625" y="122.915457" transform="rotate(-0 304.67625 122.915457)">Intermediate subfaces</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; fill: #172d40" transform="translate(247.460859 147.661334)">4 four-port Walsh readers</text>
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; fill: #172d40" transform="translate(252.321563 157.739365)">12 retained differences</text>
+   </g>
+   <g id="text_6">
+    <text style="font-weight: 700; font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #172d40" x="501.60375" y="122.915457" transform="rotate(-0 501.60375 122.915457)">Coarse faces</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; fill: #172d40" transform="translate(444.388359 147.661334)">1 four-port Walsh readers</text>
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; fill: #172d40" transform="translate(452.112188 157.739365)">3 retained differences</text>
+   </g>
+   <g id="text_8">
+    <text style="font-weight: 700; font-size: 14px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #172d40" x="24.63" y="218.9736" transform="rotate(-0 24.63 218.9736)">64 = 48 + 12 + 3 + 1 common scalar</text>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #637887" x="24.63" y="246.4164" transform="rotate(-0 24.63 246.4164)">Tree transform B is reversible. Full FWHT = D B, where D mixes only retained detail strata.</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pc01a0d85ee">
+   <rect x="14.4" y="14.4" width="613.8" height="249.48"/>
+  </clipPath>
+ </defs>
+</svg>
