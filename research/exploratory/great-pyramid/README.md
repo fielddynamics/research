@@ -1,141 +1,412 @@
-# The Great Pyramid as a Field Resonator
+# The Great Pyramid and the Field Origin
 
-*Exploratory programme, Gravity Field Dynamics (GFD) · Field Dynamics Research*
+### Coherent field closure through macroscopic resonance
 
-`great-pyramid` `giza` `archaeoastronomy` `acoustics` `resonance` `antenna-theory` `piezoelectricity` `stellated-octahedron`
+*An exploratory programme in Gravity Field Dynamics (GFD) · Field Dynamics Research*
+
+`field-origin` `dual-tetrad` `walsh-hadamard` `cyclotomic-algebra` `resonance` `giza` `archaeoacoustics`
 
 ---
 
-> "The design of the level of the King's Chamber was the halving of the vertical area of the Pyramid."
-> — W. M. Flinders Petrie, *The Pyramids and Temples of Gizeh* (1883)
+> “The design of the level of the King's Chamber was the halving of the vertical area of the Pyramid.”  
+> — W. M. Flinders Petrie, *The Pyramids and Temples of Gizeh* (1883), §148
 
-Petrie surveyed the Great Pyramid with a precision no one had attempted before, and he noticed something he could describe but not explain. The floor of the King's Chamber, the only room in the monument built entirely of granite, lies at the height that divides the pyramid's vertical cross-section into two equal areas.
+**What if the Great Pyramid was not designed merely to resonate with the field, but to bring the field's own closure mechanism into coherence?**
 
-Gravity Field Dynamics gives that height a physical meaning. In GFD, every closed structure carries the same two-chambered field geometry at every scale. The point where its two chambers balance is the **Field Origin**, where the constitutive law gives $\mu = \tfrac12$. For any body that tapers to an apex, the theory places that point at a fixed fraction of the height, independent of size or shape:
+In 1883, Petrie identified a striking geometrical property of the Great Pyramid: the floor of its granite King's Chamber sits at the level that divides the pyramid's vertical cross-section into two equal areas. More than a century later, Gravity Field Dynamics arrives at that same level through a model of the balance between two sectors of a bounded field closure.
 
-$$\frac{z^*}{h} \;=\; 1 - \frac{1}{\sqrt2} \;=\; 0.29289\ldots$$
+The Phase 0 numerical model places its half-flux plane **0.82 inches (2.1 cm) below the measured floor of the King's Chamber**. The monument is approximately 146.7 metres tall. The modelled target is within one inch of the chamber floor, without tuning a parameter to that floor.
 
-For the Great Pyramid, that is the floor of the King's Chamber.
+This is the starting point, not the conclusion. The research asks whether the geometry, materials, internal chambers and spectral response of the pyramid can be understood as components of a single apparatus — one that couples to the universal field-closure operation proposed by GFD.
 
-This folder develops what follows from taking that coincidence seriously: a structure whose form places its granite chamber at its own Field Origin, and whose other architectural elements can be read, and tested, as the parts of a resonant antenna.
+The deeper question is not archaeological. It is physical: **can the same operation that registers matter and produces gravity be driven coherently at a macroscopic scale?**
 
-## The central result
+## 1. A chamber within one inch of the Field Origin target
 
-| Quantity | Value | Source |
+For a self-similarly tapering pyramid, the horizontal cross-sectional area at height $z$ above the base is
+
+$$A(z)=A_0\left(1-\frac{z}{h}\right)^2.$$
+
+In the GFD bounded-closure construction, a uniform axial closure current gives the structural partition
+
+$$\mu_B(z)=\frac{A(z)}{A_0}.$$
+
+At the local balance plane, $\mu_B=1/2$. Therefore
+
+$$\boxed{\frac{z^*}{h}=1-\frac{1}{\sqrt{2}}=0.292893218\ldots}$$
+
+The same height divides the vertical triangular section into two equal areas. It does **not** divide the pyramid into two equal volumes.
+
+![King’s Chamber and the equal-area plane](diagrams/field-origin.svg)
+
+| Quantity | Result |
+|---|---:|
+| Reconstructed original pyramid height (Petrie, §144) | 5776.0 ± 7.0 in |
+| Analytical Field Origin target | 1691.8 ± 2.1 in above base |
+| King's Chamber floor (Petrie, §148) | 1691.4–1693.7 ± 0.6 in |
+| Phase 0 modelled half-flux plane | 42.970 m above base |
+| **Modelled residual relative to chamber floor** | **0.82 in (2.1 cm)** |
+
+The model's prespecified confirmation window was ±3 inches, with falsification beyond 10 inches. The reported result falls inside the confirmation window. The 0.82-inch figure is a **model residual**, not an assertion of sub-inch absolute survey accuracy; the reconstructed height alone contributes roughly ±2.1 inches to the analytical target.
+
+### Why the location follows from the field model
+
+The scalar sector of the GFD action gives the closure current
+
+$$\mathbf J=\frac{\mu(|\nabla\Phi|/a_0)\nabla\Phi}{4\pi G}.$$
+
+For the source-free driven component, the divergence theorem gives
+
+$$\Phi_{\rm base}=\Phi_{\rm axial}(z)+\Phi_{\rm lateral}(0,z).$$
+
+The bounded-closure model identifies the axial and lateral shares with the two closure sectors. When the axial current density is approximately uniform,
+
+$$\mu_B(z)=\frac{\Phi_{\rm axial}(z)}{\Phi_{\rm base}}\simeq\frac{A(z)}{A_0}.$$
+
+Phase 0 includes the Earth's gravitational background, its gradient and the pyramid's self-gravity in its closure-current calculation. It reports axial uniformity at roughly $5\times10^{-5}$, sufficient for the half-area approximation.
+
+A useful distinction: the gravitational current locates the proposed structural Field Origin, whereas the modelled atmospheric electric flux balances around 61 m, approximately 18 m higher. The field that locates the chamber is not necessarily the field that would energise it.
+
+**The remaining theoretical bridge:** the structural flux fraction $\mu_B$ is not automatically the local constitutive response $\mu(g/a_0)$. The sector identification must be derived dynamically if the geometrical plane is to be understood as a physical TetA/TetB exchange point rather than only a flux-balance surface.
+
+Read: [Local Field Origin theorem](pyramid_portal_research/01_framework_foundations/01.6_local_field_origin_theorem.md) · [Areal closure from the action](pyramid_portal_research/01_framework_foundations/01.7_areal_closure_from_action.md) · [Phase 0 results](pyramid_portal_research/phase0/P0.1_field_model_results.md) · [King's Chamber Field Origin](pyramid_portal_research/FIELD_ORIGIN_KINGS_CHAMBER.md).
+
+## 2. The deeper thesis: one operation, three manifestations
+
+GFD proposes a dual-tetrad field geometry: TetA is the observable sector; TetB is its proposed dual sector. Their exchange is represented by a local Field Origin. In the exploratory model, the interaction is universal; an apparatus would not create it, but condition its coherence.
+
+![Three proposed regimes of universal exchange](diagrams/universal-exchange.svg)
+
+These are proposed regimes of one underlying operation, not three independently established mechanisms. The research challenge is to derive all three from the same dynamics.
+
+The analogy is a laser: a laser does not invent the electromagnetic interaction. It organises existing microscopic transitions into a coherent mode. The Great Pyramid hypothesis asks whether a structure can perform an analogous conditioning of field closure.
+
+Read: [Universal vertex reframe](pyramid_portal_research/01_framework_foundations/01.5_universal_vertex_reframe.md) · [Universal vertex operator](pyramid_portal_research/06_master_equations/06.1_universal_vertex_operator.md).
+
+## 3. The algebraic heart: 13, 17 and 21
+
+The coupling polynomial is
+
+$$f(K,s)=1+sK+K^2,$$
+
+with the three discrete characters
+
+$$\begin{aligned}
+C_K&=f(K,-1)=K^2-K+1=\Phi_6(K),\\
+E_K&=f(K,0)=K^2+1=\Phi_4(K),\\
+U_K&=f(K,+1)=K^2+K+1=\Phi_3(K).
+\end{aligned}$$
+
+At $K=4$, these give $13,17,21$. The graded representation
+
+$$\mathcal T_K=\mathbf1\oplus V\oplus(V\otimes V),\qquad \dim V=K,$$
+
+has even dimension $K^2+1$, odd dimension $K$, total dimension $K^2+K+1$ and superdimension $K^2-K+1$. Thus the same integers arise as a graded character and as degree-two cyclotomic evaluations. The polynomial also admits the norm form $f(K,s)=|K+e^{i\theta}|^2$ when $s=2\cos\theta$.
+
+But the most revealing interpretation is the **parity pushout**. Construct two sheets $A_K,B_K$ with a common core of size $C_K$ and $K$ exclusive elements each:
+
+$$|A_K|=|B_K|=E_K,\qquad |A_K\cup B_K|=U_K.$$
+
+![The 13 / 17 / 21 parity registers](diagrams/parity-registers.svg)
+
+An explicit register realization makes the construction tangible. The shared core consists of a distinguished closure element and the $K(K-1)$ directed off-diagonal interactions of $K$ labelled frame vertices. Add two $K$-element sets of incoming and outgoing channels.
+
+| Register at K=4 | Count |
+|---|---:|
+| Distinguished closure / orientation element | 1 |
+| Ordered off-diagonal frame interactions | 12 |
+| First exclusive register | 4 |
+| Second exclusive register | 4 |
+| **Complete closure register** | **21** |
+
+This is a combinatorial realization of the pushout, not yet a unique physical identification of every channel. In particular, the 13-dimensional overlap in this realization must not be confused with the 13-valued supertrace of the graded representation: their numerical equality is exact, while a dynamical correspondence requires a map.
+
+The new interpretation is that the coupling polynomial describes not only a coupling strength, but the **organization of information being registered, reconciled and settled during closure**.
+
+Read: [Closure-read representation](pyramid_portal_research/01_framework_foundations/01.2_closure_read_representation.md) · [Graded identity](pyramid_portal_research/01_framework_foundations/01.3_graded_identity_operator.md) · [Parity-pushout recursion](pyramid_portal_research/active_work/14_parity_pushout_recursion.md) · [Engineering synthesis](pyramid_portal_research/99_appendices/I_coupling_polynomial_engineering_synthesis.md).
+
+## 4. The hinge: when one closure becomes the next shared core
+
+The adjacent-shell identity is exact for every integer $K$:
+
+$$\boxed{\Phi_3(K)=\Phi_6(K+1)}.$$
+
+| Shell | Shared core | Sheet | Complete union |
+|---|---:|---:|---:|
+| K=1 | 1 | 2 | 3 |
+| K=2 | 3 | 5 | 7 |
+| K=3 | 7 | 10 | 13 |
+| **K=4** | **13** | **17** | **21** |
+| **K=5** | **21** | **26** | **31** |
+
+![The K=4 to K=5 closure hinge](diagrams/closure-hinge.svg)
+
+There is a constructive explanation. Four vertices have 12 directed edges. Adding a fifth vertex contributes exactly four incoming and four outgoing edges. Including the distinguished element gives
+
+$$1+4(4-1)+4+4=1+5(5-1)=21.$$
+
+Equivalently, the next shared core is the previous union:
+
+$$C_{K+1}=A_K\cup_{C_K}B_K,\qquad |C_{K+1}|=|C_K|+2K.$$
+
+This is a model of **hierarchical registration**. Previously exclusive content becomes part of a shared register at the next level. It offers a possible algebraic basis for recursive settlement without recounting every microscopic constituent of a larger structure.
+
+The portal research formalizes the $K=4\rightarrow5$ hinge as the partial isometry
+
+$$J_4=|5,-\rangle\langle4,+|,\qquad H_5J_4=J_4H_4=21J_4,$$
+
+where the shell operators have the chosen cyclotomic eigenvalues. This is an exact intertwining relation in that abstract model. The equality is dimensionless; it does not determine a physical transition frequency or prove that the two shells couple in nature.
+
+**The K=5 shell can initially be read as an extended closure register**, with the pentachoron supplying a candidate geometry, rather than an assertion of a fifth physical spatial dimension.
+
+Read: [Shift identity](pyramid_portal_research/01_framework_foundations/01.4_shift_identity_proof.md) · [Interlevel hinge](pyramid_portal_research/03_portal_topology/03.1_K4_to_K5_hinge.md) · [Pentachoron edge network](pyramid_portal_research/03_portal_topology/03.2_pentachoron_edge_network.md).
+
+## 5. The spectral engine: cube outside, hexagon inside
+
+The primitive node has eight binary states, carried by the vertices of a cube. The parity character partitions them into the two tetrahedra of the stella octangula. The Walsh basis of the three-cube has the grade counts $1+3+3+1$, also the dimensions of the graded Clifford basis in three dimensions.
+
+Projecting the cube along a body diagonal gives two axial vertices and a hexagon of six remaining vertices. The closure-core construction organizes the eight channels as two axial components and three Eisenstein pairs:
+
+$$\mathcal A_3=\langle1,I\rangle\oplus\mathbb Z[\omega]^3,\qquad \omega=e^{2\pi i/3}.$$
+
+Here the notation denotes an additive channel decomposition with the multiplication and rotation specified in the closure-algebra model. The geometric projection and algebraic pairing are distinct constructions linked by the proposed representation.
+
+![Eight-state node: axial and rotational channels](diagrams/eight-state-node.svg)
+
+The temporal closure rotation satisfies $\Omega^3=\mathrm{Id}$. The three-phase projector is
+
+$$P_\Omega=\frac{\mathrm{Id}+\Omega+\Omega^2}{3}.$$
+
+For each nontrivial cubic phase, $1+\omega+\omega^2=0$. The projector preserves the invariant component and cancels the nontrivial phase sectors. The closure product is defined by $a\star b=P_\Omega(ab)$, with $ab$ the chosen Clifford product. Its associator is
+
+$$R(a,b,c)=(a\star b)\star c-a\star(b\star c).$$
+
+The model places its output in the axial invariant sector. Active Work 12 uses the projected associator as a time-dependent complex readout for the proposed cross-sheet order parameter, rather than inserting an arbitrary amplitude.
+
+![Walsh–Clifford closure architecture](diagrams/closure-core.svg)
+
+The proposed architecture scales from 8 states to a 64-state tensor tile, and then to four tiles (256 state coordinates). Per face, the rank-two decomposition of a four-dimensional frame is $16=10+6$; four faces give $64=40+24$. The dimensional agreement supplies a candidate link to the GFD symmetric/contorsion sector decomposition. An isomorphism that respects the dynamics would establish more than agreement of counts.
+
+The same construction contains the scale-fusion identity
+
+$$\Phi_3(K)\Phi_6(K)=\Phi_3(K^2),\qquad21\cdot13=273=1+16+256.$$
+
+At $K=4$, 273 is also the point count of $\mathbb P^2(\mathbb F_{16})$. This offers a precise mathematical link between parity fusion, projective geometry and the recursive operator architecture; the choice of physical readout still needs justification.
+
+Read: [Walsh-spectral synthesis](pyramid_portal_research/99_appendices/F_walsh_spectral_compute_synthesis.md) · [Closure algebra pipeline](pyramid_portal_research/99_appendices/G_closure_algebra_pipeline.md) · [ClosureCore256](pyramid_portal_research/99_appendices/H_closure_core_architecture.md) · [Closure-core integration](pyramid_portal_research/active_work/12_closure_core_integration.md) · [Cyclotomic-12 advancement](pyramid_portal_research/99_appendices/J_closure_algebra_advancement.md).
+
+## 6. A pyramid as a spectral apparatus
+
+If a coherent local Field Origin could be realised physically, the pyramid's architecture invites a functional interpretation. The following is a candidate circuit, not an established description of how the building operated.
+
+![Proposed resonant apparatus](diagrams/resonant-apparatus.svg)
+
+| Architectural element | Proposed function | Concrete investigation |
 |---|---|---|
-| Height of the pyramid | 5776.0 ± 7.0 in (280 royal cubits) | Petrie, §144 |
-| Predicted Field Origin, $h(1 - 1/\sqrt2)$ | **1691.8 ± 2.1 in** | Theorem, [`01.6`](pyramid_portal_research/01_framework_foundations/01.6_local_field_origin_theorem.md) |
-| King's Chamber floor (measured) | **1691.4–1693.7 ± 0.6 in** | Petrie, §148 |
-| Half-flux plane of the full field model | 0.82 in below the floor | Phase 0, [`P0.1`](pyramid_portal_research/phase0/P0.1_field_model_results.md) |
+| Conductive apex (gold/electrum hypothesis) | Environmental electric-field input | Field enhancement; conductive path; material traces |
+| Limestone body | Passive dielectric propagation medium | Permittivity, attenuation, global modes |
+| Granite King's Chamber | Electromechanical resonator at the balance plane | Elastic/acoustic/EM modes; Q; transduction |
+| Granite coffer | Primitive coupling element | Exterior/chamber volume ratio; loaded cavity response |
+| Five relieving chambers | Coupled cavities / candidate K=5 network | Measured mode coupling and compartment dimensions |
+| Grand Gallery, seven corbel courses | Seven-stage spectral conditioning | Transfer function and mode shapes |
+| Antechamber, three portcullis grooves | Three-phase selection | Phase-dependent transmission |
+| Open King's Chamber shafts | Directional waveguides | Cutoff near 0.68 GHz for ideal 22 cm air-filled square guides |
+| Sealed Queen's Chamber shafts | Candidate resonant stubs | Surveyed lengths, boundaries and mode structure |
+| Subterranean chamber | Candidate ground return | Conductivity and electrical continuity |
 
-Three steps stand behind the table.
+### Geometry, material and frequency
 
-1. **The theorem** ([`01.6`](pyramid_portal_research/01_framework_foundations/01.6_local_field_origin_theorem.md)). If closure is carried across a body's level sections in proportion to their area, the Field Origin of any apex body lies at $z^*/h = 1 - 1/\sqrt2$. Petrie's half-area criterion selects the same plane.
-2. **The derivation** ([`01.7`](pyramid_portal_research/01_framework_foundations/01.7_areal_closure_from_action.md)). That areal law is not assumed. It follows from the GFD action: the closure current is the Noether current of the scalar sector, $\mathbf J = \mu\nabla\Phi/4\pi G$, and the divergence theorem makes it areal in a uniform field.
-3. **The field model** ([`P0.1`](pyramid_portal_research/phase0/P0.1_field_model_results.md)). A numerical model of the closure current threading the real structure, including the Earth's field, its gradient and the pyramid's own gravity, places the half-flux plane within 0.82 in of the chamber floor. The test was set in advance: confirmation within ±3 in, falsification beyond 10 in. It passed.
+The King's Chamber's idealized cubit proportions are $20:10:5\sqrt5$, yielding the space diagonal
 
-No parameter was adjusted to reach the chamber. The only inputs are the pyramid's height and the geometry of a tapering body.
+$$\sqrt{20^2+10^2+(5\sqrt5)^2}=25=5^2.$$
 
-## An antenna in stone
+The two equal squares in its floor plan suggest a dual-register geometry. The coffer breaks that symmetry. Petrie's measured exterior coffer volume and floor-to-ceiling chamber volume give a ratio near $1/\alpha$:
 
-If the King's Chamber sits at the Field Origin, the rest of the architecture invites a functional reading. The companion letter, [*The Great Pyramid as a Dual-Tetrad Resonant Antenna*](great_pyramid_antenna_theory.md), assigns each element a role in a resonant structure:
+$$\frac{V_{\rm KC}}{V_{\rm coffer,ext}}\simeq137.17,\qquad\alpha^{-1}\simeq137.036.$$
 
-| Element | Proposed role | What can be computed or measured |
+The difference is approximately 0.10%, but depends on the height convention: the base-of-walls convention gives about 140.2. This correspondence deserves a modern independent measurement rather than a stronger claim of precision. The coffer's interior and stone volumes are also approximately equal (72,000 and 70,500 cubic inches in Petrie's account).
+
+The seven corbels and three grooves suggest a 21-sector phase architecture through the exact group identity
+
+$$\mathbb Z_3\times\mathbb Z_7\cong\mathbb Z_{21}.$$
+
+The five relieving compartments suggest a five-vertex network of 20 directed interactions. If each directed link contributes a primitive factor $\alpha$, phase closure on those links and one additional primitive step give $\alpha^{20}\alpha=\alpha^{21}$. This is a proposed physical realization of the attenuation, not a consequence of the chamber count alone.
+
+The materials are relevant: calcite is centrosymmetric and non-piezoelectric, while quartz is piezoelectric. Granite contains quartz, but its bulk electromechanical response depends on grain orientation, material structure and boundary conditions; it must be measured rather than inferred from pure quartz.
+
+An independent electromagnetic study by Balezin et al. (2018) found internal field concentration under radio-wave illumination at wavelengths of 200–600 m. This establishes that the monument can be modelled as a classical resonant structure; it does not establish a gravitational coupling or ancient technological intent.
+
+Phase 0 estimates that an earthed, capstone-equipped model can collect approximately 0.22 μA of fair-weather atmospheric current. This is a conditional model result, not a measurement of present operation. Electrical continuity, usable voltage, coupling and dissipation remain to be demonstrated. A static geomagnetic field by itself is not a sustained energy source; time-varying fields or another driven mechanism would be required for continuous work.
+
+Read: [Antenna theory letter](great_pyramid_antenna_theory.md) · [Apparatus engineering](pyramid_portal_research/04_apparatus_engineering/) · [Cavity operation](pyramid_portal_research/05_cavity_QED_operation/) · [Petrie measurements](pyramid_portal_research/99_appendices/E_petrie_measurements.md).
+
+## 7. Gravity, resonance and the π-walk
+
+The GFD gravity expression developed in the compendium is
+
+$$\alpha_G=\frac{Gm_e^2}{\hbar c}=\frac{17}{13}\alpha^{21}\frac{g_e}{2}.$$
+
+Here 21 is the full closure character, 17 the even character, and 13 the supercharacter. The numerical agreement with measured gravity is interesting; it does not by itself establish the choice of determinant attenuation, ratio normalization, or electron spin correction as a unique physical consequence. The expression uses the fine-structure constant, electron mass and electron magnetic moment as dimensional or numerical inputs.
+
+Active Work 17 supplies a potentially deeper connection: it separates the spatial order-three symmetry of the node from the temporal advancement of its closure phase. The π-walk research investigates the ordered read of the stellated-octahedron's spectral state.
+
+The current working hypothesis is that standing waves and vortices hold the inventory, while the π-walk reads and settles it. Three sweeps through the resolutions 13 to 21, with the proposed 333-step π-walk, are a candidate schedule for this process. The count and ordering must be linked explicitly to the actual Walsh-Hadamard operations; this is not yet a proven equivalence.
+
+![The three-sweep π-walk hypothesis](diagrams/pi-walk.svg)
+
+This suggests a research direction more fundamental than finding an acoustic resonance. The apparatus would have to condition the **phase of the read operation**, not simply reproduce the microscopic traversal rate. A macroscopic acoustic or electromagnetic carrier could only act on that read operation if a definite coupling mechanism and its dimensional scale are derived.
+
+The 333-step proposal should not be confused with the separate 21-channel register or with the group $\mathbb Z_{21}$. Establishing their operator-level relation is precisely the task.
+
+Read: [Vortex calibration](pyramid_portal_research/active_work/17_vortex_calibration.md) · [Gravity equation](pyramid_portal_research/02_gravity_derivation/02.1_gravity_equation.md) · [I Ching and closure-read explorations](../i-ching/).
+
+## 8. A new distinction: registration is not coherence
+
+The existing Field Origin model introduces a complex cross-sheet order parameter $\Psi=\rho e^{i\theta}$ and a candidate 21-fold phase potential. At fixed amplitude its angular term is
+
+$$V_{\rm lock}=-2h_{21}\rho^{21}\cos(21\theta).$$
+
+For positive $h_{21}$, its 21 angular minima are $\theta_n=2\pi n/21$. A full amplitude-dependent energy functional would also require stabilization at large $\rho$; a positive quartic alone cannot stabilize a negative degree-21 term.
+
+There is a useful new algebraic distinction. Define
+
+$$C_1=|\langle e^{i\theta}\rangle|,\qquad C_{21}=|\langle e^{21i\theta}\rangle|.$$
+
+For a uniform distribution over the 21 roots of unity,
+
+$$\frac1{21}\sum_{n=0}^{20}e^{2\pi i n/21}=0,\qquad\frac1{21}\sum_{n=0}^{20}e^{21(2\pi i n/21)}=1.$$
+
+Thus a population may be completely registered into the permitted phase sectors while possessing no net first-harmonic coherence.
+
+| Ideal phase ensemble | Registration $C_{21}$ | Coherence $C_1$ |
+|---|---:|---:|
+| Uniform continuous phase | 0 | 0 |
+| Uniform population of the 21 permitted phases | 1 | 0 |
+| Single occupied permitted phase | 1 | 1 |
+
+![Phase registration versus coherence](diagrams/registration-coherence.svg)
+
+These are ideal mathematical ensembles. Mapping them to gravitational and apparatus states is a new proposed interpretation, not an established result. Also, a single arbitrary phase has unit *magnitudes* for both observables; registration to a fixed external reference must additionally check the phase of $\langle e^{21i\theta}\rangle$.
+
+This distinction may be the key to the whole programme: the closure mechanism need not change between distributed and coherent operation. The phase distribution of its output changes.
+
+A useful next derivation is to obtain the phase dynamics and the two order parameters from the same three-sweep spectral update, with an energy-conserving coupling to a physical resonator. The existing code implements pieces of that chain, but does not yet derive the complete feedback or coupling.
+
+Read: [King's Chamber vertex model](pyramid_portal_research/active_work/11_kings_chamber_field_origin.md) · [Closure-core integration](pyramid_portal_research/active_work/12_closure_core_integration.md).
+
+## 9. Beyond the antenna: the portal hypothesis
+
+The most ambitious extension asks whether two independently driven Field Origins could exchange a state through a common address register. The compendium expresses this as
+
+$$\mathcal P_{y\leftarrow x}=\mathsf A_y^\dagger J_{4,y}^\dagger\,\mathcal M(U_x,V_y)\,\alpha_G J_{4,x}\mathsf A_x.$$
+
+The apparatus operators $\mathsf A$ condition the state, $J_4$ lifts the state to the shared shell, and $\mathcal M$ is a proposed mirror-address functional with conditions on the Gram matrix, chirality and phase.
+
+![Hypothetical mirror-matched state transfer](diagrams/mirror-transfer.svg)
+
+| Proposed regime | Gravity | Coherent transfer |
 |---|---|---|
-| Gilded capstone | input coupler to the Earth–atmosphere field | apex field enhancement; the continuous current drawn from the atmosphere |
-| Limestone body | passive propagation medium | permittivity and loss; the resonances of the whole body |
-| Granite King's Chamber | transducer at the Field Origin | cavity modes (lowest near 29 MHz); acoustic spectrum and Q |
-| Five relieving chambers | coupled-cavity band-pass filter | the cavity frequencies of each chamber and how they step |
-| Sealed Queen's Chamber shafts | resonant stubs that select frequency | standing-wave modes from the surveyed lengths |
-| Open King's Chamber shafts | directional waveguides | cutoff near 0.68 GHz for their ~22 cm bore |
-| Subterranean chamber | ground return in the bedrock | the conductive path from apex to bedrock |
+| Character | Incoherent distributed exchange | Phase-selected exchange |
+| Kernel in the exploratory model | Spatial $1/r$ | Address functional $\mathcal M(U,V)$ |
+| Shared algebraic ingredient | $\alpha_G J_4$ | $\alpha_G J_4$ |
+| Physical status | Must recover measured gravitational laws | No demonstrated state-transfer channel |
 
-**The choice of materials fits the reading.** Limestone is made of calcite, a crystal with a centre of symmetry, and such crystals cannot be piezoelectric. Granite is rich in quartz, which is. The architecture therefore sets its one electromechanically active material at the coupling point, inside a body that is electrically passive.
+The research investigates the pentachoron boundary, the Hopf bundle, icosahedral symmetry, $\mathrm{SU}(2)_{19}$ and the Poincaré homology sphere as possible address-space structures. These are mathematical models; equal sector counts alone do not select one unique physical topology. In particular, a continuous address manifold is not a finite set merely because its symmetry group is finite.
 
-**The energy scale is small, and the requirement is continuity.** The phase 0 model finds that an earthed, capstone-tipped structure carries a steady current of about 0.22 µA from the fair-weather atmosphere, gathered over about $1.1 \times 10^5$ m². The scalar field energy stored in the whole volume is of order a microjoule. On this reading the pyramid is not a store of energy but a conduit. What it needs is a closed electrical path from capstone to ground.
+The antenna letter also proposes a threshold at $1/\varphi^2\approx0.382$ separating signal and transport regimes. This is an exploratory interpretation of its energy-functional and bimetric-lock analysis. It does not establish transport, a physical throat or an energy budget. The transfer equation does not itself define a causal, unitary, energy-conserving communication channel. The existence of a matched second apparatus is unverified.
 
-**The field that locates is not the field that energises.** The same model separates two roles. The gravitational closure current puts the Field Origin at the chamber floor. The atmospheric electric field, which supplies the current, balances 18 m higher and plays no part in setting the location.
+Read: [Portal topology](pyramid_portal_research/03_portal_topology/) · [Transfer operator](pyramid_portal_research/06_master_equations/06.2_portal_operator.md) · [Mirror address functional](pyramid_portal_research/06_master_equations/06.3_mirror_address_functional.md) · [Two-mode operation](pyramid_portal_research/06_master_equations/06.4_two_mode_operation.md) · [Energy budget](pyramid_portal_research/08_open_questions/08.4_energy_budget.md).
 
-**An independent study points the same way.** Balezin and colleagues (*J. Appl. Phys.*, 2018) modelled the pyramid's response to radio waves 200–600 m long. They found that its internal chambers act as resonators that concentrate electromagnetic energy. That band contains the structure's natural quarter-wave resonance as a monopole over the ground, $\lambda \approx 4h \approx 586$ m.
+## 10. The three-pyramid array and the wider algebraic programme
 
-## Beyond the antenna: the portal hypothesis
+Active Work 24–30 explores the three Giza pyramids as a possible multi-scale resonant array. The nominal base ratios relative to Khufu are approximately $1:15/16:8/17$. If analogous chambers scaled linearly with those ratios and had the same wave speed, the fundamental frequency ratios would be $1:16/15:17/8$.
 
-An antenna couples a structure to the field around it. The programme's central thesis goes one step further, and it follows from the two-chambered geometry itself.
+![Conditional three-pyramid frequency array](diagrams/three-pyramid-array.svg)
 
-**Two sectors, one throat.** In GFD the gravitational field has two sectors:
-- **TetA**, the observable sector, described by general relativity;
-- **TetB**, the dual sector, which the torsion-free condition of general relativity removes from the connection (Letter 3).
+The resulting ideal air-acoustic estimates are around 46.9, 50.0 and 99.7 Hz. The assumed chamber scaling is not an independently measured property of the three monuments. The true cavity geometries, boundary conditions and coupling must be used before the array interpretation can be evaluated.
 
-The Field Origin is the one place where the two sectors meet and exchange. A structure that holds a resonator coherently on its own Field Origin is therefore more than an antenna radiating into the observable sector. It is a **throat between the two sectors of the field**: a controlled channel through which a state prepared at one Field Origin can be transferred to a matched one elsewhere. In popular language this is a *stargate*. In the language of the programme it is a portal.
+The same active-work sequence explores dimensionless expressions for the fine-structure constant, the electron/proton mass ratio, electroweak mixing and cosmological quantities. These numerical constructions are useful as hypotheses for further derivation; they are not independent confirmations of the pyramid mechanism. Many use shared inputs, and successively adjusted expressions require an explicit accounting of candidate selection and out-of-sample tests.
 
-**The operator form.** The programme states the idea precisely ([`06.2`](pyramid_portal_research/06_master_equations/06.2_portal_operator.md), [`06.4`](pyramid_portal_research/06_master_equations/06.4_two_mode_operation.md)). The same universal TetA/TetB vertex, with the same coupling $\alpha_G$, acts in two modes:
+Read: [Three-pyramid scaling](pyramid_portal_research/active_work/24_three_pyramid_scaling.md) · [Frequency comb](pyramid_portal_research/active_work/26_three_pyramid_frequency_comb.md) · [Algebraic pipeline](pyramid_portal_research/active_work/30_complete_algebraic_pipeline_K4_uniqueness.md) · [Gravity tile and electron vortex](pyramid_portal_research/active_work/31_gravity_tile_electron_vortex.md) · [Complete active-work archive](pyramid_portal_research/active_work/).
 
-| | Gravity | Portal |
-|---|---|---|
-| Character | spontaneous, incoherent | stimulated, coherent |
-| Kernel | spatial, $1/\lvert x - y\rvert$ | address-space, $\mathcal M(U, V)$ |
-| Range | unlimited, falling with distance | discrete: full when the addresses match, zero otherwise |
+## 11. What is exact, what is measured, and what must be tested
 
-Gravity is the always-on, statistical form of the exchange. The portal is the same exchange driven coherently between two apparatus whose addresses match:
+The programme deliberately separates mathematical identities, surveyed geometry, model output and physical inference.
 
-$$\mathcal P_{y \leftarrow x} \;=\; \mathsf A_y^\dagger\, J_{4,y}^\dagger\, \mathcal M(U,V)\, \alpha_G\, J_{4,x}\, \mathsf A_x .$$
-
-Here $\mathsf A_x$ is the apparatus at the King's Chamber, and $J_4$ lifts the state at the Field Origin into the next shell of the structure. $\mathcal M(U,V)$ equals one only when the chamber's address triad (the direction of its shafts, its chirality and its phase; [`04.7`](pyramid_portal_research/04_apparatus_engineering/04.7_shaft_address_triad.md)) mirror-matches that of the remote site. In the words of the antenna letter, this is *resonant coupling between two matched dual-tetrad structures*.
-
-**Signal and transport.** The energy-functional analysis of the letter adds a threshold. Below a coupling fraction of $1/\varphi^2 \approx 0.382$, the two sectors exchange only signal. Above it, the bimetric lock engages and the throat opens for transport, physical passage between the chambers.
-
-**What would test it.** The portal channel has consequences that ordinary gravity does not:
-- magnetic shielding of the chamber should suppress it ([`07.4`](pyramid_portal_research/07_predictions_and_tests/07.4_magnetic_shielding_test.md));
-- its activity should correlate with geomagnetic storms ([`07.5`](pyramid_portal_research/07_predictions_and_tests/07.5_geomagnetic_storm_correlation.md));
-- it depends on the restored capstone and a closed conductive path ([`07.6`](pyramid_portal_research/07_predictions_and_tests/07.6_capstone_restoration.md); H5, H6).
-
-The energy budget of a transfer is set out as an open question in [`08.4`](pyramid_portal_research/08_open_questions/08.4_energy_budget.md).
-
-**Its status.** The location of the throat, the King's Chamber on the pyramid's own Field Origin, is derived and matched to the survey record. The portal operator is a formal statement of what a coherently driven Field Origin would do. Whether a transfer occurs is the experimental question the programme is built to answer.
-
-## What is established, and what is open
-
-| Established | Open: the programme's pre-registered measurements |
+| Finding | Present status |
 |---|---|
-| The Field Origin theorem and its derivation from the action | **H1:** chamber-to-coffer volume ratio equal to $1/\alpha$ (Petrie's figures give 137.17) |
-| The chamber floor on the predicted plane, to within measurement | **H2–H3:** the chamber's acoustic spectrum and its quality factor |
-| The field model's confirmation of the location | **H4:** gold on the summit stones and apex casing (non-destructive XRF) |
-| The continuous atmospheric current through an earthed capstone | **H5–H6:** coupling to the geomagnetic field; a granite electromechanical response |
-| The historical record of a gilded pyramidion (Sahure's causeway reliefs) | **H7:** a gravity residual in the chamber against the mass model |
-| | **H8:** the three-dimensional geometry of the shafts |
-| | **H9:** cast versus cut blocks |
+| Graded character and cyclotomic identities | Exact in the defined representations |
+| Parity-pushout recursion and 21-channel extension | Explicit combinatorial construction |
+| Three-phase projector and registration/coherence distinction | Exact mathematical statements |
+| King's Chamber half-area position | Survey-based geometric correspondence |
+| Phase 0 half-flux plane within 0.82 in of floor | Reported numerical model result, conditional on the sector identification |
+| Coffer volume ratio near $\alpha$ | Approximate measured correspondence; height-convention sensitive |
+| Classical resonant response | Supported by electromagnetic modelling; specific phase architecture unverified |
+| Chamber's 21-mode / 14-active / 7-suppressed selection | Unverified; requires independent spectral predictions and measurements |
+| Five relieving chamber volumes proportional to $5\alpha V_{\rm KC}$ | Existing prediction failed by roughly a factor of ten |
+| Chamber polarization sums equal 13/17/21 | Retracted in Active Work 21 |
+| Coherent TetA/TetB transfer and geomagnetic strong coupling | Proposed, not empirically established; interaction and energy budget open |
+| Portal transport | Unverified hypothesis |
 
-Each hypothesis has a stated confirmation and falsification criterion in [`PROGRAMME.md`](pyramid_portal_research/PROGRAMME.md). The natural next step for the antenna reading is to compute the frequencies in the table above, starting with the relieving chambers, the sealed shafts and the King's Chamber cavity, and to ask with a criterion fixed in advance whether they form a designed set.
+The retractions are important: the research should retain failed predictions, not reinterpret approximate integers as exact matches. A passing regression suite verifies the stated mathematical or numerical implementation; it does not substitute for an experiment.
 
-## How to read this folder
+### The decisive research path
 
-| Path | Contents |
+| Test | Question |
 |---|---|
-| [`pyramid_portal_research/`](pyramid_portal_research/) | **The research programme.** Start with its [key findings](pyramid_portal_research/README.md#key-findings) and the [programme definition](pyramid_portal_research/PROGRAMME.md). Then read the Field Origin derivation ([`01.6`](pyramid_portal_research/01_framework_foundations/01.6_local_field_origin_theorem.md), [`01.7`](pyramid_portal_research/01_framework_foundations/01.7_areal_closure_from_action.md)), the Phase 0 field model ([`P0.1`](pyramid_portal_research/phase0/P0.1_field_model_results.md)), and how the Field Origin is realised in the chamber ([`FIELD_ORIGIN_KINGS_CHAMBER.md`](pyramid_portal_research/FIELD_ORIGIN_KINGS_CHAMBER.md)). |
-| [`great_pyramid_antenna_theory.md`](great_pyramid_antenna_theory.md) | The companion letter: the pyramid as a dual-tetrad resonant antenna, element by element, with the energy-functional analysis. |
-| [`field_origin_geometry/`](field_origin_geometry/) | Tests of the Field Origin's geometry: centrality, the medial-triangle subdivision of each face, symmetry. Several import `gravity_field_model` from the companion model repository. |
-| [`test_historical_binary_system.py`](test_historical_binary_system.py) | Tests of the binary vertex encoding, the parity partition of the cube's eight vertices into the two tetrahedra. |
-| [`../../antenna theory/`](../../antenna%20theory/) | Background notes on Sierpiński antennas and resonant coupling through the Field Origin. |
+| H1 · Coffer and chamber metrology | Does the ratio survive a fixed height convention and modern survey? |
+| H2–H3 · Acoustic spectrum and Q | Does the cavity exhibit an independently predicted phase-selection structure beyond standard acoustics? |
+| H4 · Apex material evidence | Is there evidence for a historical conductive capstone? |
+| H5–H6 · Field and transduction | Are there measurable environment-dependent electromechanical effects beyond controls? |
+| H7 · Precision gravimetry | Is there a reproducible residual after ordinary mass, environmental and instrument modelling? |
+| H8 · Shaft survey | Does the measured three-dimensional geometry support a nondegenerate address construction? |
+| H9 · Materials analysis | What do the stone fabrication and physical properties imply for the model? |
 
-**Reproduce the central results:**
+The priority is a complete coupled elastic/electromagnetic transfer model, with physically measured material properties and independent control cavities. From that baseline, the framework must specify a quantitative anomalous observable. Test any additional phase-locking or gravitational prediction against that baseline, with thresholds fixed before data collection. All fieldwork must respect the monument and require appropriate permissions; scale models are preferable for invasive or active tests.
+
+Read: [Programme and pre-registered tests](pyramid_portal_research/PROGRAMME.md) · [Prediction archive](pyramid_portal_research/07_predictions_and_tests/) · [Open questions](pyramid_portal_research/08_open_questions/).
+
+## 12. Where the research is going
+
+The most productive question is no longer whether a particular pyramid dimension can be matched to a fundamental integer. The algebra offers a more precise target: derive one dynamical operator that connects the vortex inventory to the spectral read, the three-sweep reconciliation, the axial settlement and the next closure register.
+
+![The closure engine](diagrams/closure-engine.svg)
+
+The necessary steps are an explicit π-walk/FWHT schedule, a proof of its equivalence to the closure update, a physical phase and time normalization, and a derived coupling to measurable acoustic or electromagnetic modes. The bridge from the structural flux balance to the constitutive field, and the normalization of the gravity read, must remain explicit.
+
+If the operator can be established, it advances the theory independently of the historical interpretation of the pyramid. If a resonator can also drive the operator coherently, it becomes a laboratory question rather than an archaeological speculation.
+
+**The pyramid is the proposed apparatus. The closure engine is the research.**
+
+## Reading guide and reproduction
+
+| Resource | Purpose |
+|---|---|
+| [Research compendium](pyramid_portal_research/) | Full theoretical programme, engineering studies and references |
+| [Executive summary](pyramid_portal_research/00_executive_summary.md) | Original unified portal model |
+| [Programme definition](pyramid_portal_research/PROGRAMME.md) | Scope, methods, evidence and tests |
+| [Field Origin at the King's Chamber](pyramid_portal_research/FIELD_ORIGIN_KINGS_CHAMBER.md) | The geometric and physical thesis |
+| [Phase 0](pyramid_portal_research/phase0/P0.1_field_model_results.md) | Numerical half-flux plane and atmospheric input |
+| [Antenna letter](great_pyramid_antenna_theory.md) | Companion dual-tetrad resonant antenna proposal |
+| [Active work](pyramid_portal_research/active_work/) | The evolving algebraic investigations, including retractions |
+| [Closure geometry tests](field_origin_geometry/) | Centrality, subdivision and geometric symmetry |
+| [Historical binary-system test](test_historical_binary_system.py) | Cube parity and vertex encoding |
+| [Python implementation and tests](pyramid_portal_research/python/) | Executable models and regression tests |
+| [Related I Ching / closure research](../i-ching/) | Spectral closure read and finite-field investigations |
 
 ```bash
 cd research/exploratory/great-pyramid/pyramid_portal_research
-python -m pytest python/tests                  # theorem, areal closure and field-model tests
-python -m python.phase0_field_model            # the full Phase 0 field model (~1 minute)
+python -m pytest python/tests
+python -m python.phase0_field_model
 ```
 
-## A note on scope
+### Sources
 
-This is exploratory work. It carries GFD into a domain where the framework makes definite, checkable statements about an existing structure. The Field Origin result is derived and matched to the survey record. The functional reading of the other elements, and the portal hypothesis built on it, are set out so that each part can be computed, measured and, if the numbers say so, rejected.
-
-The programme does not claim to resolve the historical question of the pyramid's purpose. Its claim is narrower. A civilisation seeking to build a physical instance of the stellated-octahedron field topology would arrive at an architecture of this kind: not only an antenna, but a throat between the two sectors of the field, a device for resonant coupling and transfer between matched dual-tetrad structures. The elements that architecture calls for have frequencies and responses that can now be computed and measured.
+- W. M. Flinders Petrie (1883), *The Pyramids and Temples of Gizeh*, especially §§144, 148, 155–156. [Survey text](https://www.ronaldbirdsall.com/gizeh/petrie/).
+- M. Balezin, K. V. Baryshnikova, P. Kapitanova and A. B. Evlyukhin (2018), “Electromagnetic properties of the Great Pyramid: First multipole resonances and energy concentration,” *Journal of Applied Physics* **124**, 034903. [Article record](https://ui.adsabs.harvard.edu/abs/2018JAP...124c4903B/abstract).
+- *International Tables for Crystallography*, Vol. D, §1.1.4.4. [Crystal symmetry and piezoelectricity](https://it.iucr.org/Da/ch1o1v0001/sec1o1o4o4/).
+- Z. Hawass and M. Verner (1996), on gilded pyramidion imagery in Sahure's causeway reliefs; see the [materials study](pyramid_portal_research/05_cavity_QED_operation/05.2_material_specification.md) and programme bibliography. This is historical context, not direct evidence of Khufu's capstone material.
 
 ---
 
-**Sources**
-
-- W. M. F. Petrie (1883). *The Pyramids and Temples of Gizeh*, §§144, 148. [Online text](https://www.ronaldbirdsall.com/gizeh/petrie/c21.html)
-- M. Balezin, K. V. Baryshnikova, P. Kapitanova and A. B. Evlyukhin (2018). Electromagnetic properties of the Great Pyramid: first multipole resonances and energy concentration. *J. Appl. Phys.* 124, 034903. [ADS](https://ui.adsabs.harvard.edu/abs/2018JAP...124c4903B/abstract)
-- Piezoelectricity and crystal symmetry: *International Tables for Crystallography*, Vol. D, §1.1.4.4. [IUCr](https://it.iucr.org/Da/ch1o1v0001/sec1o1o4o4/)
-- Z. Hawass and M. Verner (1996), on the gilded pyramidion in the reliefs of Sahure's causeway; see [`05.2`](pyramid_portal_research/05_cavity_QED_operation/05.2_material_specification.md) and [`PROGRAMME.md`](pyramid_portal_research/PROGRAMME.md).
+*Scope: This is exploratory theoretical and computational research, not an assertion that the historical purpose of the Great Pyramid has been established. It proposes an experimentally discriminable physical interpretation and preserves the distinction between exact algebra, numerical correspondence and unverified mechanism.*
