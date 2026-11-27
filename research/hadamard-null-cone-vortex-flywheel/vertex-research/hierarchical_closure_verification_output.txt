@@ -1,0 +1,274 @@
+PASS exact child idempotence
+PASS exact child energy adjoint
+PASS exact parent idempotence
+PASS exact parent energy adjoint
+PASS exact nested forward
+PASS exact nested reverse
+PASS exact band 0 idempotence
+PASS exact orthogonal 0 1
+PASS exact orthogonal 0 2
+PASS exact band 1 idempotence
+PASS exact orthogonal 1 0
+PASS exact orthogonal 1 2
+PASS exact band 2 idempotence
+PASS exact orthogonal 2 0
+PASS exact orthogonal 2 1
+PASS exact partition
+PASS exact dual sweep nesting
+PASS exact sweep distributes half to either boundary
+PASS exact two sweeps vs direct
+PASS exact mass on outer boundary
+PASS exact adjacent nonnested projections need not commute
+PASS exact mu composed with mu
+PASS exact pointwise flux double partition
+PASS exact Schur value
+PASS exact boundary gradient
+PASS exact boundary record source
+PASS exact internal residual independent of boundary
+PASS exact unprojected nonlinear residual at host zero
+PASS exact unprojected nonlinear residual at host one
+PASS numerical 5 nesting
+PASS numerical 5 reverse nesting
+PASS numerical 5 idempotence 0
+PASS numerical 5 selfadjoint 0
+PASS numerical 5 orthogonal 0,1
+PASS numerical 5 orthogonal 0,2
+PASS numerical 5 idempotence 1
+PASS numerical 5 selfadjoint 1
+PASS numerical 5 orthogonal 1,2
+PASS numerical 5 idempotence 2
+PASS numerical 5 selfadjoint 2
+PASS numerical 5.0 eliminated sources
+PASS numerical 5.0 source mass
+PASS numerical 5.0 telescoping sweep
+PASS numerical 5.0 parent field
+PASS numerical 5.0 energy split
+PASS numerical 5.0 child unaffected by host
+PASS numerical 5.1 eliminated sources
+PASS numerical 5.1 source mass
+PASS numerical 5.1 telescoping sweep
+PASS numerical 5.1 parent field
+PASS numerical 5.1 energy split
+PASS numerical 5.1 child unaffected by host
+PASS numerical 5.2 eliminated sources
+PASS numerical 5.2 source mass
+PASS numerical 5.2 telescoping sweep
+PASS numerical 5.2 parent field
+PASS numerical 5.2 energy split
+PASS numerical 5.2 child unaffected by host
+PASS numerical 5.3 eliminated sources
+PASS numerical 5.3 source mass
+PASS numerical 5.3 telescoping sweep
+PASS numerical 5.3 parent field
+PASS numerical 5.3 energy split
+PASS numerical 5.3 child unaffected by host
+PASS numerical 5.4 eliminated sources
+PASS numerical 5.4 source mass
+PASS numerical 5.4 telescoping sweep
+PASS numerical 5.4 parent field
+PASS numerical 5.4 energy split
+PASS numerical 5.4 child unaffected by host
+PASS numerical 7 nesting
+PASS numerical 7 reverse nesting
+PASS numerical 7 idempotence 0
+PASS numerical 7 selfadjoint 0
+PASS numerical 7 orthogonal 0,1
+PASS numerical 7 orthogonal 0,2
+PASS numerical 7 idempotence 1
+PASS numerical 7 selfadjoint 1
+PASS numerical 7 orthogonal 1,2
+PASS numerical 7 idempotence 2
+PASS numerical 7 selfadjoint 2
+PASS numerical 7.0 eliminated sources
+PASS numerical 7.0 source mass
+PASS numerical 7.0 telescoping sweep
+PASS numerical 7.0 parent field
+PASS numerical 7.0 energy split
+PASS numerical 7.0 child unaffected by host
+PASS numerical 7.1 eliminated sources
+PASS numerical 7.1 source mass
+PASS numerical 7.1 telescoping sweep
+PASS numerical 7.1 parent field
+PASS numerical 7.1 energy split
+PASS numerical 7.1 child unaffected by host
+PASS numerical 7.2 eliminated sources
+PASS numerical 7.2 source mass
+PASS numerical 7.2 telescoping sweep
+PASS numerical 7.2 parent field
+PASS numerical 7.2 energy split
+PASS numerical 7.2 child unaffected by host
+PASS numerical 7.3 eliminated sources
+PASS numerical 7.3 source mass
+PASS numerical 7.3 telescoping sweep
+PASS numerical 7.3 parent field
+PASS numerical 7.3 energy split
+PASS numerical 7.3 child unaffected by host
+PASS numerical 7.4 eliminated sources
+PASS numerical 7.4 source mass
+PASS numerical 7.4 telescoping sweep
+PASS numerical 7.4 parent field
+PASS numerical 7.4 energy split
+PASS numerical 7.4 child unaffected by host
+PASS numerical 9 nesting
+PASS numerical 9 reverse nesting
+PASS numerical 9 idempotence 0
+PASS numerical 9 selfadjoint 0
+PASS numerical 9 orthogonal 0,1
+PASS numerical 9 orthogonal 0,2
+PASS numerical 9 idempotence 1
+PASS numerical 9 selfadjoint 1
+PASS numerical 9 orthogonal 1,2
+PASS numerical 9 idempotence 2
+PASS numerical 9 selfadjoint 2
+PASS numerical 9.0 eliminated sources
+PASS numerical 9.0 source mass
+PASS numerical 9.0 telescoping sweep
+PASS numerical 9.0 parent field
+PASS numerical 9.0 energy split
+PASS numerical 9.0 child unaffected by host
+PASS numerical 9.1 eliminated sources
+PASS numerical 9.1 source mass
+PASS numerical 9.1 telescoping sweep
+PASS numerical 9.1 parent field
+PASS numerical 9.1 energy split
+PASS numerical 9.1 child unaffected by host
+PASS numerical 9.2 eliminated sources
+PASS numerical 9.2 source mass
+PASS numerical 9.2 telescoping sweep
+PASS numerical 9.2 parent field
+PASS numerical 9.2 energy split
+PASS numerical 9.2 child unaffected by host
+PASS numerical 9.3 eliminated sources
+PASS numerical 9.3 source mass
+PASS numerical 9.3 telescoping sweep
+PASS numerical 9.3 parent field
+PASS numerical 9.3 energy split
+PASS numerical 9.3 child unaffected by host
+PASS numerical 9.4 eliminated sources
+PASS numerical 9.4 source mass
+PASS numerical 9.4 telescoping sweep
+PASS numerical 9.4 parent field
+PASS numerical 9.4 energy split
+PASS numerical 9.4 child unaffected by host
+PASS numerical 11 nesting
+PASS numerical 11 reverse nesting
+PASS numerical 11 idempotence 0
+PASS numerical 11 selfadjoint 0
+PASS numerical 11 orthogonal 0,1
+PASS numerical 11 orthogonal 0,2
+PASS numerical 11 idempotence 1
+PASS numerical 11 selfadjoint 1
+PASS numerical 11 orthogonal 1,2
+PASS numerical 11 idempotence 2
+PASS numerical 11 selfadjoint 2
+PASS numerical 11.0 eliminated sources
+PASS numerical 11.0 source mass
+PASS numerical 11.0 telescoping sweep
+PASS numerical 11.0 parent field
+PASS numerical 11.0 energy split
+PASS numerical 11.0 child unaffected by host
+PASS numerical 11.1 eliminated sources
+PASS numerical 11.1 source mass
+PASS numerical 11.1 telescoping sweep
+PASS numerical 11.1 parent field
+PASS numerical 11.1 energy split
+PASS numerical 11.1 child unaffected by host
+PASS numerical 11.2 eliminated sources
+PASS numerical 11.2 source mass
+PASS numerical 11.2 telescoping sweep
+PASS numerical 11.2 parent field
+PASS numerical 11.2 energy split
+PASS numerical 11.2 child unaffected by host
+PASS numerical 11.3 eliminated sources
+PASS numerical 11.3 source mass
+PASS numerical 11.3 telescoping sweep
+PASS numerical 11.3 parent field
+PASS numerical 11.3 energy split
+PASS numerical 11.3 child unaffected by host
+PASS numerical 11.4 eliminated sources
+PASS numerical 11.4 source mass
+PASS numerical 11.4 telescoping sweep
+PASS numerical 11.4 parent field
+PASS numerical 11.4 energy split
+PASS numerical 11.4 child unaffected by host
+PASS numerical nonlinear 0 boundary state
+PASS numerical nonlinear 0 energy composition
+PASS numerical nonlinear 0 recovered full field
+PASS numerical nonlinear 0 interface flux
+PASS numerical nonlinear 1 boundary state
+PASS numerical nonlinear 1 energy composition
+PASS numerical nonlinear 1 recovered full field
+PASS numerical nonlinear 1 interface flux
+PASS numerical nonlinear 2 boundary state
+PASS numerical nonlinear 2 energy composition
+PASS numerical nonlinear 2 recovered full field
+PASS numerical nonlinear 2 interface flux
+PASS numerical nonlinear 3 boundary state
+PASS numerical nonlinear 3 energy composition
+PASS numerical nonlinear 3 recovered full field
+PASS numerical nonlinear 3 interface flux
+PASS numerical nonlinear 4 boundary state
+PASS numerical nonlinear 4 energy composition
+PASS numerical nonlinear 4 recovered full field
+PASS numerical nonlinear 4 interface flux
+PASS numerical nonlinear 5 boundary state
+PASS numerical nonlinear 5 energy composition
+PASS numerical nonlinear 5 recovered full field
+PASS numerical nonlinear 5 interface flux
+PASS numerical nonlinear 6 boundary state
+PASS numerical nonlinear 6 energy composition
+PASS numerical nonlinear 6 recovered full field
+PASS numerical nonlinear 6 interface flux
+PASS numerical nonlinear 7 boundary state
+PASS numerical nonlinear 7 energy composition
+PASS numerical nonlinear 7 recovered full field
+PASS numerical nonlinear 7 interface flux
+PASS numerical nonlinear 8 boundary state
+PASS numerical nonlinear 8 energy composition
+PASS numerical nonlinear 8 recovered full field
+PASS numerical nonlinear 8 interface flux
+PASS numerical nonlinear 9 boundary state
+PASS numerical nonlinear 9 energy composition
+PASS numerical nonlinear 9 recovered full field
+PASS numerical nonlinear 9 interface flux
+PASS numerical nonlinear 10 boundary state
+PASS numerical nonlinear 10 energy composition
+PASS numerical nonlinear 10 recovered full field
+PASS numerical nonlinear 10 interface flux
+PASS numerical nonlinear 11 boundary state
+PASS numerical nonlinear 11 energy composition
+PASS numerical nonlinear 11 recovered full field
+PASS numerical nonlinear 11 interface flux
+PASS numerical nonlinear 12 boundary state
+PASS numerical nonlinear 12 energy composition
+PASS numerical nonlinear 12 recovered full field
+PASS numerical nonlinear 12 interface flux
+PASS numerical nonlinear 13 boundary state
+PASS numerical nonlinear 13 energy composition
+PASS numerical nonlinear 13 recovered full field
+PASS numerical nonlinear 13 interface flux
+PASS numerical nonlinear 14 boundary state
+PASS numerical nonlinear 14 energy composition
+PASS numerical nonlinear 14 recovered full field
+PASS numerical nonlinear 14 interface flux
+PASS numerical nonlinear 15 boundary state
+PASS numerical nonlinear 15 energy composition
+PASS numerical nonlinear 15 recovered full field
+PASS numerical nonlinear 15 interface flux
+PASS numerical nonlinear 16 boundary state
+PASS numerical nonlinear 16 energy composition
+PASS numerical nonlinear 16 recovered full field
+PASS numerical nonlinear 16 interface flux
+PASS numerical nonlinear 17 boundary state
+PASS numerical nonlinear 17 energy composition
+PASS numerical nonlinear 17 recovered full field
+PASS numerical nonlinear 17 interface flux
+PASS numerical nonlinear 18 boundary state
+PASS numerical nonlinear 18 energy composition
+PASS numerical nonlinear 18 recovered full field
+PASS numerical nonlinear 18 interface flux
+PASS numerical nonlinear 19 boundary state
+PASS numerical nonlinear 19 energy composition
+PASS numerical nonlinear 19 recovered full field
+PASS numerical nonlinear 19 interface flux
+TOTAL 273: 29 exact + 244 numerical passed

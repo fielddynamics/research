@@ -1,0 +1,72 @@
+PASS exact symmetric native C
+PASS exact invertible
+PASS exact characteristic polynomial
+PASS exact uniform roots irrational discriminant
+PASS exact triplet cubic irreducible over Q
+PASS exact triplet sum
+PASS exact no signed sum equals triplet sum (-1, -1, -1)
+PASS exact no signed sum equals triplet sum (-1, -1, 1)
+PASS exact no signed sum equals triplet sum (-1, 1, -1)
+PASS exact no signed sum equals triplet sum (-1, 1, 1)
+PASS exact no signed sum equals triplet sum (1, -1, -1)
+PASS exact no signed sum equals triplet sum (1, -1, 1)
+PASS exact no signed sum equals triplet sum (1, 1, -1)
+PASS exact no signed sum equals triplet sum (1, 1, 1)
+PASS exact local graph does not commute with cross kernel
+PASS exact constant record not eigenvector
+native characteristic: (2*x - 1)**3*(2*x + 1)**2*(2*x**2 + 7*x - 3)*(4*x**3 - 4*x**2 - 13*x - 1)**3/4096
+native common row sums: [-6, -3/2]
+PASS numerical sign inertia 7/9
+PASS numerical metric whitened sign
+PASS numerical sign orthogonal
+PASS numerical minimum block PSD
+PASS numerical minimum block rank 16
+PASS numerical minimum trace
+PASS numerical positive added stiffness 0
+PASS numerical positive added stiffness 1
+PASS numerical positive added stiffness 2
+PASS numerical positive added stiffness 3
+PASS numerical positive added stiffness 4
+PASS numerical positive added stiffness 5
+PASS numerical positive added stiffness 6
+PASS numerical positive added stiffness 7
+PASS numerical raw pulse conservation 0
+PASS numerical whitened common gain 0
+PASS numerical whitened pulse conservation 0
+PASS numerical raw pulse conservation 0.1
+PASS numerical whitened common gain 0.1
+PASS numerical whitened pulse conservation 0.1
+PASS numerical raw pulse unequal gains 0.1
+PASS numerical raw pulse conservation 0.5
+PASS numerical whitened common gain 0.5
+PASS numerical whitened pulse conservation 0.5
+PASS numerical raw pulse unequal gains 0.5
+PASS numerical raw pulse conservation 1
+PASS numerical whitened common gain 1
+PASS numerical whitened pulse conservation 1
+PASS numerical raw pulse unequal gains 1
+PASS numerical raw pulse conservation 2
+PASS numerical whitened common gain 2
+PASS numerical whitened pulse conservation 2
+PASS numerical raw pulse unequal gains 2
+PASS numerical raw pulse conservation 7
+PASS numerical whitened common gain 7
+PASS numerical whitened pulse conservation 7
+PASS numerical raw pulse unequal gains 7
+PASS numerical raw pulse conservation 11
+PASS numerical whitened common gain 11
+PASS numerical whitened pulse conservation 11
+PASS numerical raw pulse unequal gains 11
+PASS exact normalized two-channel determinant
+PASS exact Schur stiffness
+PASS exact constitutive gain at witness
+PASS exact curvature rank-one coefficient free
+PASS numerical 21 determinant arbitrary calibration 0.0072973525643314245
+PASS numerical 21 determinant arbitrary calibration 0.1
+PASS numerical 21 determinant arbitrary calibration 0.25
+PASS numerical 21 determinant arbitrary calibration 0.9
+native eigenvalues: [-3.88600094 -1.31948685 -1.31948685 -1.31948685 -0.5        -0.5
+ -0.07899481 -0.07899481 -0.07899481  0.38600094  0.5         0.5
+  0.5         2.39848166  2.39848166  2.39848166]
+minimum metric trace: 18.16289182516195
+SUMMARY {'exact': 20, 'numerical': 45} total 65

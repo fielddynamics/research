@@ -52,3 +52,32 @@ The new study reopens the cumulative constitutive/scheme notes and Python operat
 ## Aperture and seed continuation
 
 Reopened the exact cumulative ordered-response ZIP and inspected its constitutive, ordered-response and registered-kernel notes and verifier definitions. The new verifier reconstructs M,K,G and the full 33-coordinate H₀,V independently from these sources. New results: empty-partner linear susceptibility and instability threshold; full-coordinate seed amplification with energy/norm verification; same-inventory exposure counterexamples; positive-definite aperture obstruction and rank-12 junction nullspace; sharp Jensen/chord bounds and equality cases for a distributed-capacity response. The latter assumes additive channel dual energies and fixed weights/capacities. No physical drain selection, additional oscillator, causal-time mechanism, upstream rerun or Lean certification is claimed.
+
+## Clock-closure continuation (source audit)
+
+Inspected at repository commit `aad94e0e1ec766e9bf8615d8fbcf07126cbd2f95`: `proofs/closure-surface/README.md`, `proofs/sst-mountain-scale/README.md`, `proofs/net-field-rule/README.md`, `research/read-settle-register-bridge/READ_SETTLE_REGISTER_BRIDGE.md`, `research/hadamard-null-cone-vortex-flywheel/FIELD_ORIGIN_GRAVITY_READ.md`. These are linked in `CLOCK_CLOSURE_AND_DRAIN.md`; the prior source archive is preserved. Standard GR Killing norm and weak-field clock-rate identities are applied separately from the GFD premises. The full clock/phase-space derivations, limitations, 51 checks, illustrative numbers and new interactive explorer belong to this continuation. The closure surface was derived in the repository's Hill model; physical registration at it remains a premise.
+
+## Clock registration and nested response continuation
+
+Reopened the exact preceding clock-closure ZIP, CLOCK_CLOSURE_AND_DRAIN.md, verifier and source register. No new upstream source inspection or build was required for these mathematical derivations. New results are scalar weak-field harmonic projection, interior/exterior Dirichlet-to-Neumann asymmetry, trace-only variational obstruction, annular capacitance and the exact spherical AQUAL clock-gap primitive. The choice of a harmonic-projected settlement drive is a new conditional model premise, not a physical selection rule. See CLOCK_REGISTRATION_AND_NESTED_RESPONSE.md. The 112 assertions are new, and earlier verification logs were not rerun.
+
+## Hierarchical NET Field closure continuation
+
+Reopened the exact preceding cumulative clock-registration ZIP and inspected its note, README and source register. Re-inspected the upstream mountain-scale, net-field rule and three-subread closure READMEs/notes at `aad94e0e1ec766e9bf8615d8fbcf07126cbd2f95`. The nested projector, Schur boundary action, nonlinear partial minimization and host leakage results are new conditional derivations; the underlying source sweep telescoping already appears upstream. 273 fresh checks, previous logs preserved. No new upstream build or physical selection claim.
+
+## Atomic inverse reconstruction continuation
+
+Reopened the upstream `THREE_SUBREAD_CLOSURE.md`, `PROJECTIVE_WALSH_G_BRIDGE.md`, `proofs/g-null-rotation/README.md`, `CLOSURE_ENGINE_INTERNALS.md`, `UNIFIED_CLOSURE_ACTION.md`, `READ_SETTLE_REGISTER_BRIDGE.md`, `what_is_gravity.md`, and `SUSTAINED_TRIFORCE_FLYWHEEL.md` at `a3a019cc553476c4288aa7a64bac8b04d754782d` in this conversation. Complete-frame uniqueness, gate-deletion condition, phase-constraint rank, overlap and source-action examples are conditional new mathematical research; no native source selection, independent alpha or G derivation, Lean build or upstream verifier rerun.
+
+## Recursive Sierpiński generator continuation
+
+The atomic reconstruction note and its cited upstream three-subread and null-rotation work are the basis of this extension. Exact projector and generator algebra, and a conditional eight-coordinate conservative read, are new here. No native physical alpha or G is derived; prior assertions were not rerun.
+
+## Native generator normalization
+
+Reopened the cumulative recursive-generator archive, including RECURSIVE_SIERPINSKI_GENERATOR.md, REGISTERED_SPECTRAL_VERTEX.md, CONSTITUTIVE_VERTEX.md and the inherited exact Stage VII matrix definitions in verify_mu_vertex.py. New proof: isolated scalar-pulse obstruction for the actual cross kernel and minimum-trace reciprocal positive completion. The physical stiffness principle and normalized dynamical metric are new conditional hypotheses, not upstream findings. No upstream rerun or Lean certification.
+
+Projective norm continuation: user-supplied five-point Walsh/Sierpiński and finite-projective synthesis; inherited recursive and native generator notes; fresh field enumeration and exact matrix compression. The chosen flag, trace-zero constraint, norm averaging and finest-grade normalization are mathematical construction data, not derived physical identifications. No upstream rerun.
+
+### Projective visual atlas
+Six SVG diagrams and the offline explorer are derived from `PROJECTIVE_NORM_WALSH_BRIDGE.md` and the exact enumeration in `verify_projective_bridge.py`. No new physical claims.

@@ -1,0 +1,117 @@
+PASS [exact] interior spherical harmonic radial equation
+PASS [exact] interior unit boundary trace
+PASS [exact] interior normal eigenvalue
+PASS [exact] exterior spherical harmonic radial equation
+PASS [exact] exterior unit boundary trace
+PASS [exact] exterior normal eigenvalue
+PASS [exact] uniform sphere boundary clock
+PASS [exact] uniform sphere Poisson source
+PASS [exact] uniform sphere flux
+PASS [exact] boundary-normal drive
+PASS [exact] point-mass exterior clock has nonzero flux
+PASS [exact] annulus inner trace
+PASS [exact] annulus outer trace
+PASS [exact] annulus harmonic equation
+PASS [exact] annulus conserved radial current
+PASS [exact] annulus energy
+PASS [exact] AQUAL spherical conserved current
+PASS [exact] AQUAL clock gap primitive
+PASS [exact] deep-field coefficient
+PASS [exact] Newtonian short-radius coefficient
+PASS [exact] harmonic boundary lift
+PASS [exact] integration-by-parts divergence identity
+PASS [numeric] grid 4: DtN symmetric
+PASS [numeric] grid 4: DtN constants kernel
+PASS [numeric] grid 4: DtN PSD, exactly one zero
+PASS [numeric] grid 4 trial 0: harmonic lift residual
+PASS [numeric] grid 4 trial 0: orthogonal energy split
+PASS [numeric] grid 4 trial 0: projected correction invisible to interior
+PASS [numeric] grid 4 trial 0: nonlinear trace correction invariant under interior variation
+PASS [numeric] grid 4 trial 1: harmonic lift residual
+PASS [numeric] grid 4 trial 1: orthogonal energy split
+PASS [numeric] grid 4 trial 1: projected correction invisible to interior
+PASS [numeric] grid 4 trial 1: nonlinear trace correction invariant under interior variation
+PASS [numeric] grid 4 trial 2: harmonic lift residual
+PASS [numeric] grid 4 trial 2: orthogonal energy split
+PASS [numeric] grid 4 trial 2: projected correction invisible to interior
+PASS [numeric] grid 4 trial 2: nonlinear trace correction invariant under interior variation
+PASS [numeric] grid 4 trial 3: harmonic lift residual
+PASS [numeric] grid 4 trial 3: orthogonal energy split
+PASS [numeric] grid 4 trial 3: projected correction invisible to interior
+PASS [numeric] grid 4 trial 3: nonlinear trace correction invariant under interior variation
+PASS [numeric] grid 4: arbitrary internal field with constant trace has zero boundary correction
+PASS [numeric] grid 6: DtN symmetric
+PASS [numeric] grid 6: DtN constants kernel
+PASS [numeric] grid 6: DtN PSD, exactly one zero
+PASS [numeric] grid 6 trial 0: harmonic lift residual
+PASS [numeric] grid 6 trial 0: orthogonal energy split
+PASS [numeric] grid 6 trial 0: projected correction invisible to interior
+PASS [numeric] grid 6 trial 0: nonlinear trace correction invariant under interior variation
+PASS [numeric] grid 6 trial 1: harmonic lift residual
+PASS [numeric] grid 6 trial 1: orthogonal energy split
+PASS [numeric] grid 6 trial 1: projected correction invisible to interior
+PASS [numeric] grid 6 trial 1: nonlinear trace correction invariant under interior variation
+PASS [numeric] grid 6 trial 2: harmonic lift residual
+PASS [numeric] grid 6 trial 2: orthogonal energy split
+PASS [numeric] grid 6 trial 2: projected correction invisible to interior
+PASS [numeric] grid 6 trial 2: nonlinear trace correction invariant under interior variation
+PASS [numeric] grid 6 trial 3: harmonic lift residual
+PASS [numeric] grid 6 trial 3: orthogonal energy split
+PASS [numeric] grid 6 trial 3: projected correction invisible to interior
+PASS [numeric] grid 6 trial 3: nonlinear trace correction invariant under interior variation
+PASS [numeric] grid 6: arbitrary internal field with constant trace has zero boundary correction
+PASS [numeric] grid 9: DtN symmetric
+PASS [numeric] grid 9: DtN constants kernel
+PASS [numeric] grid 9: DtN PSD, exactly one zero
+PASS [numeric] grid 9 trial 0: harmonic lift residual
+PASS [numeric] grid 9 trial 0: orthogonal energy split
+PASS [numeric] grid 9 trial 0: projected correction invisible to interior
+PASS [numeric] grid 9 trial 0: nonlinear trace correction invariant under interior variation
+PASS [numeric] grid 9 trial 1: harmonic lift residual
+PASS [numeric] grid 9 trial 1: orthogonal energy split
+PASS [numeric] grid 9 trial 1: projected correction invisible to interior
+PASS [numeric] grid 9 trial 1: nonlinear trace correction invariant under interior variation
+PASS [numeric] grid 9 trial 2: harmonic lift residual
+PASS [numeric] grid 9 trial 2: orthogonal energy split
+PASS [numeric] grid 9 trial 2: projected correction invisible to interior
+PASS [numeric] grid 9 trial 2: nonlinear trace correction invariant under interior variation
+PASS [numeric] grid 9 trial 3: harmonic lift residual
+PASS [numeric] grid 9 trial 3: orthogonal energy split
+PASS [numeric] grid 9 trial 3: projected correction invisible to interior
+PASS [numeric] grid 9 trial 3: nonlinear trace correction invariant under interior variation
+PASS [numeric] grid 9: arbitrary internal field with constant trace has zero boundary correction
+PASS [numeric] annulus K=0.01, [0.1,1]: exact primitive
+PASS [numeric] annulus K=0.01, [0.1,1]: drained clock difference exceeds Newton
+PASS [numeric] annulus K=0.01, [1,3]: exact primitive
+PASS [numeric] annulus K=0.01, [1,3]: drained clock difference exceeds Newton
+PASS [numeric] annulus K=0.01, [1,30]: exact primitive
+PASS [numeric] annulus K=0.01, [1,30]: drained clock difference exceeds Newton
+PASS [numeric] annulus K=0.01, [10,100]: exact primitive
+PASS [numeric] annulus K=0.01, [10,100]: drained clock difference exceeds Newton
+PASS [numeric] annulus K=1, [0.1,1]: exact primitive
+PASS [numeric] annulus K=1, [0.1,1]: drained clock difference exceeds Newton
+PASS [numeric] annulus K=1, [1,3]: exact primitive
+PASS [numeric] annulus K=1, [1,3]: drained clock difference exceeds Newton
+PASS [numeric] annulus K=1, [1,30]: exact primitive
+PASS [numeric] annulus K=1, [1,30]: drained clock difference exceeds Newton
+PASS [numeric] annulus K=1, [10,100]: exact primitive
+PASS [numeric] annulus K=1, [10,100]: drained clock difference exceeds Newton
+PASS [numeric] annulus K=100, [0.1,1]: exact primitive
+PASS [numeric] annulus K=100, [0.1,1]: drained clock difference exceeds Newton
+PASS [numeric] annulus K=100, [1,3]: exact primitive
+PASS [numeric] annulus K=100, [1,3]: drained clock difference exceeds Newton
+PASS [numeric] annulus K=100, [1,30]: exact primitive
+PASS [numeric] annulus K=100, [1,30]: drained clock difference exceeds Newton
+PASS [numeric] annulus K=100, [10,100]: exact primitive
+PASS [numeric] annulus K=100, [10,100]: drained clock difference exceeds Newton
+PASS [numeric] fixed clock difference 0.01: both laws admissible with different source flux
+CLOCK GAP 0.01: Newton K=0.0111111111, drained K=1.88292015e-05
+PASS [numeric] fixed clock difference 0.1: both laws admissible with different source flux
+CLOCK GAP 0.1: Newton K=0.111111111, drained K=0.00185458187
+PASS [numeric] fixed clock difference 1: both laws admissible with different source flux
+CLOCK GAP 1: Newton K=1.11111111, drained K=0.160900221
+PASS [numeric] fixed clock difference 10: both laws admissible with different source flux
+CLOCK GAP 10: Newton K=11.1111111, drained K=6.79683801
+PASS [exact] 16-address detail projector rank 15
+PASS [exact] 16-address uniform trace annihilated
+112 passed: 24 exact + 88 numerical.

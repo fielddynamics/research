@@ -1,0 +1,90 @@
+PASS [exact] depth 0 orbit count
+PASS [exact] depth 0 invariant rank
+PASS [exact] depth 1 orbit count
+PASS [exact] depth 1 invariant rank
+PASS [exact] depth 2 orbit count
+PASS [exact] depth 2 invariant rank
+PASS [exact] depth 3 orbit count
+PASS [exact] depth 3 invariant rank
+PASS [exact] invariant grades
+PASS [numerical] tree orthogonality
+PASS [numerical] tree rotation equivariance
+PASS [numerical] tree preserves volume
+PASS [numerical] detail mixer orthogonality
+PASS [numerical] detail mixer rotation equivariance
+PASS [numerical] detail mixer preserves volume
+PASS [numerical] Walsh orthogonality
+PASS [numerical] Walsh rotation equivariance
+PASS [numerical] Walsh preserves volume
+PASS [numerical] Walsh tree factorization
+PASS [numerical] inverse tree factorization
+PASS [numerical] rotation average projector
+PASS [numerical] prefix 0 rank
+PASS [numerical] prefix 1 rank
+PASS [numerical] prefix 1 contrast rank
+PASS [numerical] prefix 2 rank
+PASS [numerical] prefix 2 contrast rank
+PASS [numerical] prefix 3 rank
+PASS [numerical] prefix 3 contrast rank
+PASS [exact] Sierpinski 21x21
+PASS [exact] Sierpinski 91 filled entries
+PASS [exact] Sierpinski det is one
+PASS [exact] Sierpinski trace 21
+PASS [exact] 273-272 identity
+PASS [exact] winding determinant
+PASS [exact] relative settled compliance
+PASS [exact] deletion criterion a
+PASS [exact] deletion criterion b
+PASS [exact] deletion criterion c
+PASS [exact] joint completion with interaction has same leading product but non-universal coefficient
+PASS [exact] independent versus common-gate probability n=1
+PASS [exact] independent versus common-gate probability n=4
+PASS [exact] independent versus common-gate probability n=16
+PASS [exact] independent versus common-gate probability n=21
+PASS [exact] atomicity does not imply independence
+PASS [exact] 1D top-hat overlap integral
+PASS [exact] 2D top-hat overlap integral
+PASS [exact] 3D top-hat overlap integral
+PASS [exact] native graph 104 bonds
+PASS [exact] native diagonal phase constraint rank 32 (one common phase)
+PASS [numerical] principal-angle determinant 0
+PASS [numerical] ordinary read 0
+PASS [numerical] rank loss complete-volume versus ordinary source 0
+PASS [numerical] complement preserves norm 0
+PASS [numerical] principal-angle determinant 1
+PASS [numerical] ordinary read 1
+PASS [numerical] rank loss complete-volume versus ordinary source 1
+PASS [numerical] complement preserves norm 1
+PASS [numerical] principal-angle determinant 2
+PASS [numerical] ordinary read 2
+PASS [numerical] rank loss complete-volume versus ordinary source 2
+PASS [numerical] complement preserves norm 2
+PASS [numerical] principal-angle determinant 3
+PASS [numerical] ordinary read 3
+PASS [numerical] rank loss complete-volume versus ordinary source 3
+PASS [numerical] complement preserves norm 3
+PASS [numerical] principal-angle determinant 4
+PASS [numerical] ordinary read 4
+PASS [numerical] rank loss complete-volume versus ordinary source 4
+PASS [numerical] complement preserves norm 4
+PASS [numerical] principal-angle determinant 5
+PASS [numerical] ordinary read 5
+PASS [numerical] rank loss complete-volume versus ordinary source 5
+PASS [numerical] complement preserves norm 5
+PASS [numerical] principal-angle determinant 6
+PASS [numerical] ordinary read 6
+PASS [numerical] rank loss complete-volume versus ordinary source 6
+PASS [numerical] complement preserves norm 6
+PASS [numerical] principal-angle determinant 7
+PASS [numerical] ordinary read 7
+PASS [numerical] rank loss complete-volume versus ordinary source 7
+PASS [numerical] complement preserves norm 7
+PASS [numerical] ordered inverse determinant 0
+PASS [numerical] ordered inverse determinant 1
+PASS [numerical] ordered inverse determinant 2
+PASS [numerical] ordered inverse determinant 3
+PASS [numerical] ordered inverse determinant 4
+PASS [numerical] ordered inverse determinant 5
+PASS [exact] source energy from inverse Hessian
+PASS [exact] conditional G from mass-coupled effective action
+TOTAL 89 = 32 exact + 57 numerical

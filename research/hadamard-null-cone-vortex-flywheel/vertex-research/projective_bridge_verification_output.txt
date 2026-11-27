@@ -1,0 +1,72 @@
+PASS F64 multiplication: nonzero inverses
+PASS 21 projective classes, 1/4/16
+PASS H^2=64 I
+PASS scalar rotation order 3, only zero fixed
+PASS Walsh intertwines orbit average
+PASS plane contrast 1: +3 on 16 addresses, -1 on 48
+PASS plane contrast 4: +3 on 16 addresses, -1 on 48
+PASS plane contrast 5: +3 on 16 addresses, -1 on 48
+PASS plane contrast 6: +3 on 16 addresses, -1 on 48
+PASS plane contrast 7: +3 on 16 addresses, -1 on 48
+PASS plane contrast 16: +3 on 16 addresses, -1 on 48
+PASS plane contrast 17: +3 on 16 addresses, -1 on 48
+PASS plane contrast 18: +3 on 16 addresses, -1 on 48
+PASS plane contrast 19: +3 on 16 addresses, -1 on 48
+PASS plane contrast 20: +3 on 16 addresses, -1 on 48
+PASS plane contrast 21: +3 on 16 addresses, -1 on 48
+PASS plane contrast 22: +3 on 16 addresses, -1 on 48
+PASS plane contrast 23: +3 on 16 addresses, -1 on 48
+PASS plane contrast 24: +3 on 16 addresses, -1 on 48
+PASS plane contrast 25: +3 on 16 addresses, -1 on 48
+PASS plane contrast 26: +3 on 16 addresses, -1 on 48
+PASS plane contrast 27: +3 on 16 addresses, -1 on 48
+PASS plane contrast 28: +3 on 16 addresses, -1 on 48
+PASS plane contrast 29: +3 on 16 addresses, -1 on 48
+PASS plane contrast 30: +3 on 16 addresses, -1 on 48
+PASS plane contrast 31: +3 on 16 addresses, -1 on 48
+PASS 21 plane contrasts orthogonal
+PASS all plane contrasts zero mean
+PASS all plane contrasts rotation invariant
+PASS quadratic extension irreducible
+PASS same-grade pairs give 273 distinct F16 projective points
+PASS norm nonzero for every nonzero pair
+PASS norm projectively independent of F16 representative
+PASS 21 norm fibres of 13
+PASS embedded Baer plane has 21 points
+PASS Baer coset size 21, disjoint
+PASS each Baer coset is transversal to norm fibres
+PASS Baer coset size 21, disjoint
+PASS each Baer coset is transversal to norm fibres
+PASS Baer coset size 21, disjoint
+PASS each Baer coset is transversal to norm fibres
+PASS Baer coset size 21, disjoint
+PASS each Baer coset is transversal to norm fibres
+PASS Baer coset size 21, disjoint
+PASS each Baer coset is transversal to norm fibres
+PASS Baer coset size 21, disjoint
+PASS each Baer coset is transversal to norm fibres
+PASS Baer coset size 21, disjoint
+PASS each Baer coset is transversal to norm fibres
+PASS Baer coset size 21, disjoint
+PASS each Baer coset is transversal to norm fibres
+PASS Baer coset size 21, disjoint
+PASS each Baer coset is transversal to norm fibres
+PASS Baer coset size 21, disjoint
+PASS each Baer coset is transversal to norm fibres
+PASS Baer coset size 21, disjoint
+PASS each Baer coset is transversal to norm fibres
+PASS Baer coset size 21, disjoint
+PASS each Baer coset is transversal to norm fibres
+PASS Baer coset size 21, disjoint
+PASS each Baer coset is transversal to norm fibres
+PASS 13 disjoint Baer planes
+PASS M M^T = 13 I
+PASS diagonal identity is transversal
+PASS identity vector squared norm 21
+PASS 273 times compressed operator =273 I - J
+PASS compressed trace=272/13
+PASS trace normalized by 16 =17/13
+PASS uniform mode eigenvalue 12/13
+PASS alternating shears exact rotation
+PASS one-way shears additive
+TOTAL 71 assertions passed
