@@ -1,0 +1,14 @@
+cubit_m=0.524052800
+area_m2=12.476109318
+length_m=46.116646400
+volume_m3=575.356321864
+slot_volume_proxy_m3=0.755496000
+first_even_hz=23.228263992
+first_odd_hz=88.461688910
+odd_lower_hz=81.814275203
+even_upper_hz=25.641618576
+odd_upper_hz=110.173018351
+FSR_hz=3.718830691
+Bragg_hz=102.694610778
+slots_only_R_upper_20Hz=0.000123038731
+virtual_run_minus_GP1_inches=-2.851231867

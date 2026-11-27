@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""Run the eight Great Pyramid core-framework verifiers and summarise.
+"""Run the nine Great Pyramid core-framework verifiers and summarise.
 
     python run_all.py            # from this folder
 
 Each verifier runs in its own folder and prints PASS/FAIL per check; this
 script reports the per-proof totals and exits non-zero if any check fails.
-Requires: sympy, mpmath, numpy, scipy.
+Requires: sympy, mpmath, numpy, scipy (GP-9 also pytest).
 """
 import re
 import subprocess
@@ -22,6 +22,7 @@ PROOFS = [
     ("GP-6", "gp6-structural-boundary-response", "verify_gp6_boundary_response.py"),
     ("GP-7", "gp7-chamber-spectral-selection", "verify_gp7_chamber_spectrum.py"),
     ("GP-8", "gp8-reciprocal-resonator-matching", "verify_gp8_reciprocal_matching.py"),
+    ("GP-9", "gp9-grand-gallery-spectral-selection", "verify_gp9_grand_gallery.py"),
 ]
 
 total_pass = total = 0

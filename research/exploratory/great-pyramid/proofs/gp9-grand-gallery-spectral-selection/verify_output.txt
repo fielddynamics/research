@@ -1,0 +1,20 @@
+[PASS] section area A = 318/7 cubit^2 exactly
+[PASS] moments M1 = 15181/49, M2 = 140270/49, X2 = 1990/49 exactly
+[PASS] T2 bounds: f_e1 <= 25.64162, 81.81427 <= f_o1 <= 110.17302 Hz (conservatively rounded)
+[PASS] T2 window: KC height and width inside (25.64, 81.81) Hz, length below it
+[PASS] r=4 cutoffs: first even 23.228 Hz, first odd 88.462 Hz, both inside the T2 bounds
+[PASS] smooth equal-area control within 0.2 Hz of the seven steps (first of each parity)
+[PASS] T3 F(k) = e^{i(N-1)kd} sin(Nkd)/sin(kd) against the direct sum (N = 1..28)
+[PASS] T3 alternating superperiod: M(a-b), M(a+b) and the odd-N forms
+[PASS] Bragg 102.69461 Hz, half order 51.34731 Hz; five even and one odd mode already below it
+[PASS] T4 200 random cascades: det 1, flux-preserving, S symmetric and unitary
+[PASS] T4 expansion chamber T = 1/(1 + (m - 1/m)^2 sin^2(kl)/4)
+[PASS] C4 88-cubit comb: spacing 3.718831 Hz, round trip 0.268902 s
+[PASS] T5 gallery area 12.4761 m^2, slot proxy 0.755496 m^3, bound at 20 Hz = 1.23039e-4
+[PASS] T5 120 random slot positions never exceed the bound; one shunt attains it
+[PASS] T6 virtual run - GP-1 = -2.85123 in; floor - run = 3.65 in; allowance +/-2.05 in
+[PASS] T6 dilation: cutoffs divide by b, balance fraction fixed, kV/A invariant
+[PASS] regression suite tests/: 100 pytest cases passed, none failed
+
+==============================================================================
+GP-9: 17/17 checks passed

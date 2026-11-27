@@ -2,7 +2,7 @@
 
 *What is proved, what is inherited, what is observed and what is hypothesis, in one dependency structure · Gravity Field Dynamics (GFD) · Exploratory research programme · 27 November 2026*
 
-[![Core proofs](https://img.shields.io/badge/core_proofs-8-2563eb.svg)](proofs/README.md) [![Scripted checks](https://img.shields.io/badge/scripted_checks-257_passing-2563eb.svg)](proofs/README.md) [![Lean 4](https://img.shields.io/badge/Lean_4-65_theorems-7c3aed.svg)](proofs/README.md) [![Verified metrics](https://img.shields.io/badge/metrics-112_verified-0d9488.svg)](metrics/README.md) [![Research status](https://img.shields.io/badge/status-exploratory-64748b.svg)](#layer-3--hypotheses-e-restated-against-layer-1)
+[![Core proofs](https://img.shields.io/badge/core_proofs-9-2563eb.svg)](proofs/README.md) [![Scripted checks](https://img.shields.io/badge/scripted_checks-274_passing-2563eb.svg)](proofs/README.md) [![Lean 4](https://img.shields.io/badge/Lean_4-65_theorems-7c3aed.svg)](proofs/README.md) [![Verified metrics](https://img.shields.io/badge/metrics-112_verified-0d9488.svg)](metrics/README.md) [![Research status](https://img.shields.io/badge/status-exploratory-64748b.svg)](#layer-3--hypotheses-e-restated-against-layer-1)
 
 ---
 
@@ -13,7 +13,7 @@ The Great Pyramid folder holds a large exploratory programme: about 120 notes, 1
 | Layer | Content | Tag |
 |---|---|---|
 | **0. Inherited** | Results proved elsewhere in the repository and used here unchanged | [T], [T+L], [D] as tagged at source |
-| **1. Core theorems** | GP-1 to GP-8: geometry, flux, integers, phases, transfer, boundary response, chamber spectrum, reciprocal coupling | [T] |
+| **1. Core theorems** | GP-1 to GP-9: geometry, flux, integers, phases, transfer, boundary response, chamber spectrum, reciprocal coupling, gallery spectrum | [T] |
 | **2. Observations** | Survey-based comparisons with the monument | [O] |
 | **3. Hypotheses** | Sector readings, resonator, address, portal | [E] |
 
@@ -103,6 +103,11 @@ Together, GP-1 and GP-2 make the balance plane a **theorem of geometry with a co
 - Through a named field the coupling kernel is reciprocal and falls off at least as $1/(R - a - b)$. Opposite parity forbids the channel exactly, the mediator overlap obeys Cauchy–Schwarz, and the response arrives no sooner than the propagation delay.
 - Spectral matching is necessary for large exchange but never sufficient: the channel must come from a propagating field.
 
+**GP-9 · Grand Gallery spectral selection** ([proof](proofs/gp9-grand-gallery-spectral-selection/)).
+
+- In rigid-wall acoustics the gallery's symmetric cross-section splits every mode into even and odd sectors. Analytically, every frequency between 25.64 and 81.81 Hz carries at least two propagating even modes and no odd mode; the King's Chamber height and width fundamentals fall in that band.
+- The 27 slot pairs obey an exact finite-array law with a two-cell alternation, but at the Bragg frequency the gallery is already multimode. As empty compliances they reflect at most 0.0123% of the power at 20 Hz, wherever they sit. The network is reciprocal and passive. A smooth equal-area roof gives nearly the same low-order cutoffs, so the seven steps are not shown to be special, and reflection parity is Z₂, not Z₇.
+
 ### Dependency structure
 
 ```
@@ -185,7 +190,7 @@ The core proofs are infrastructure. What turns them into a physical hypothesis i
 
 ```bash
 cd research/exploratory/great-pyramid/proofs
-python run_all.py                      # 257 checks, ~1 min (sympy, mpmath, numpy, scipy)
+python run_all.py                      # 274 checks, ~1 min (sympy, mpmath, numpy, scipy, pytest)
 
 cd ../pyramid_portal_research
 python -m pytest python/tests -q       # 1210 regression tests of the existing programme
