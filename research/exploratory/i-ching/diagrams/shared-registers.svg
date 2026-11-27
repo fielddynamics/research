@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="380" viewBox="0 0 960 380" role="img" aria-label="From 64 addresses to the shared contrast">
+<rect x="1" y="1" width="958" height="378" rx="18" fill="#101c2c" stroke="#354c65"/>
+<defs><marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6Z" fill="#a9b9c9"/></marker></defs>
+<g font-family="Arial, Helvetica, sans-serif">
+<text x="30" y="38" fill="#edf2f8" font-size="25" text-anchor="start" font-weight="700">From 64 addresses to the shared contrast</text>
+<text x="30" y="63" fill="#a9b9c9" font-size="14" text-anchor="start">Saturation under R; separate the common line, then complete the exterior even sector</text>
+<rect x="42" y="105" width="326.5" height="42" rx="5" fill="#f0bd72" stroke="#101c2c"/>
+<text x="206.25" y="132" fill="#101c2c" font-size="15" text-anchor="middle" font-weight="700">24 exclusive</text>
+<rect x="370.5" y="105" width="217.0" height="42" rx="5" fill="#61e0bd" stroke="#101c2c"/>
+<text x="480.0" y="132" fill="#101c2c" font-size="15" text-anchor="middle" font-weight="700">16 shared</text>
+<rect x="589.5" y="105" width="326.5" height="42" rx="5" fill="#76b9fa" stroke="#101c2c"/>
+<text x="753.75" y="132" fill="#101c2c" font-size="15" text-anchor="middle" font-weight="700">24 exclusive</text>
+<rect x="42" y="171" width="545.5" height="42" rx="5" fill="#61e0bd" stroke="#101c2c"/>
+<text x="315.75" y="198" fill="#101c2c" font-size="15" text-anchor="middle" font-weight="700">40 saturated</text>
+<rect x="589.5" y="171" width="326.5" height="42" rx="5" fill="#76b9fa" stroke="#101c2c"/>
+<text x="753.75" y="198" fill="#101c2c" font-size="15" text-anchor="middle" font-weight="700">24 exterior</text>
+<rect x="42" y="237" width="37.81818181818182" height="42" rx="5" fill="#a9b9c9" stroke="#101c2c"/>
+<text x="61.90909090909091" y="264" fill="#101c2c" font-size="15" text-anchor="middle" font-weight="700"></text>
+<rect x="81.81818181818181" y="237" width="515.6363636363636" height="42" rx="5" fill="#61e0bd" stroke="#101c2c"/>
+<text x="340.6363636363636" y="264" fill="#101c2c" font-size="15" text-anchor="middle" font-weight="700">13 shared</text>
+<rect x="599.4545454545455" y="237" width="157.27272727272728" height="42" rx="5" fill="#f0bd72" stroke="#101c2c"/>
+<text x="679.0909090909091" y="264" fill="#101c2c" font-size="15" text-anchor="middle" font-weight="700">4 even</text>
+<rect x="758.7272727272727" y="237" width="157.27272727272728" height="42" rx="5" fill="#76b9fa" stroke="#101c2c"/>
+<text x="838.3636363636364" y="264" fill="#101c2c" font-size="15" text-anchor="middle" font-weight="700">4 odd</text>
+<text x="63" y="305" fill="#a9b9c9" font-size="13" text-anchor="middle">1 common</text>
+<text x="385" y="305" fill="#61e0bd" font-size="17" text-anchor="middle" font-weight="700">13 + 4 = 17 positive directions</text>
+<text x="780" y="305" fill="#76b9fa" font-size="14" text-anchor="middle">4 negative directions</text>
+<text x="30" y="360" fill="#a9b9c9" font-size="13" text-anchor="start">The final row is the 22-dimensional invariant register; the 21 contrast directions exclude the common line.</text>
+</g></svg>

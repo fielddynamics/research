@@ -1,253 +1,276 @@
-# The I Ching and the Stellated Octahedron
+# The I Ching and the Architecture of Field Closure
 
-*Exploratory programme, Gravity Field Dynamics (GFD) · Field Dynamics Research*
+### From eight trigrams to 64 records, 21 spectral directions and the arithmetic of gravity
 
-`i-ching` `trigrams` `hexagrams` `binary` `combinatorics` `history-of-mathematics` `stellated-octahedron` `bbp-formula`
+*Gravity Field Dynamics (GFD) · Exploratory research · November 2026*
 
----
-
-On 1 April 1703, Gottfried Wilhelm Leibniz received a letter from Peking. Its author, the Jesuit mathematician Joachim Bouvet, enclosed a woodcut of the 64 hexagrams of the *I Ching* in the arrangement attributed to the legendary sage Fu Xi. Leibniz had been developing binary arithmetic for two decades. In the diagram he recognised his own numbers, 0 to 63, written in broken and unbroken lines. Within a week he sent his *Explication de l'arithmétique binaire* to the Paris Academy, citing the hexagrams as an ancient anticipation of the binary system.
-
-Leibniz saw that the *I Ching* counts. This folder asks a further question: **what geometry does it count?** The answer it develops is the stellated octahedron, the object GFD places at the centre of the gravitational field, and through it the Bailey–Borwein–Plouffe (BBP) formula for π.
+`binary geometry` · `stellated octahedron` · `π` · `Walsh–Hadamard` · `finite fields` · `field closure`
 
 ---
 
-## How to read this folder
+In 1703, Gottfried Wilhelm Leibniz recognised his binary arithmetic in a diagram of the 64 hexagrams of the *I Ching*. Broken and unbroken lines could encode every number from zero to sixty-three. A book about change contained a complete binary address space.
 
-The folder holds two layers of work, written at different times.
+But what if counting is only the beginning?
 
-1. **The result.** [`BOOK_OF_CHANGES_AND_PI.md`](BOOK_OF_CHANGES_AND_PI.md) is the current, tested account. It shows that the trigrams are the stellated octahedron, that π's base-16 formulas form exactly one family, and that silence on the TIME axis (father and mother) selects the BBP formula from that family. Every statement in it is checked by script. **Start here.**
-2. **The hexagrams and the closure read.** [`HEXAGRAMS_AND_THE_CLOSURE_READ.md`](HEXAGRAMS_AND_THE_CLOSURE_READ.md) connects the 64 hexagrams to the formal proofs. The map R(a, b) = (b, a ⊕ b) is multiplication by ω in F₄ on the corresponding lines (1 & 4, 2 & 5, 3 & 6). It leaves 21 directions in grades 1, 4, 16, the points of PG(2,4) that give G its exponent in [Proof 26](../../../proofs/recursive-field-closure-response/), with a Fano subplane of 7. The families, lines and line changes are the tetrahedra, core and core bonds of [Proofs 24](../../../proofs/flywheel-tetrad-geometry/) and [25](../../../proofs/tetrad-flywheel-convergence/). The rotation about TIME gives 23 instead, and the π walk does not perform the read. 26 checks.
-3. **Finite-field reciprocity.** Eleven notes take the hexagram algebra further, with seventeen diagrams and 359 tests in [`scripts/finite_field_reciprocity/`](scripts/finite_field_reciprocity/).
-   - [`ICHING_FINITE_FIELD_RECIPROCITY.md`](ICHING_FINITE_FIELD_RECIPROCITY.md):
-     - the trigrams as GF(8) in a self-dual normal basis, and a hexagram as a + ωb in GF(64);
-     - the Walsh read as a Hermitian incidence transform on the 22 invariant coordinates;
-     - a theorem that every pair of the 17 pencil directions of PG(2,16) has exactly one reciprocal edge, so 137 = 1 + C(17,2). This is a structural count, conditional on that quotient being the intended one; it does not derive α;
-     - the symmetry and π-walk obstructions.
-   - [`FROBENIUS_RECIPROCAL_TOWER.md`](FROBENIUS_RECIPROCAL_TOWER.md):
-     - Frobenius and inversion on the 273-point plane, which gives 17 = 5 + 12 and 13 = 1 + 2·6 as a matching;
-     - a canonical one-address-per-sector sampling of the 13 Baer sectors;
-     - the Fano-plane decomposition of the eight trigrams, 28 = 7 + 7·3.
-   - [`SHARED_ZONE_HEXAGRAM_READ.md`](SHARED_ZONE_HEXAGRAM_READ.md):
-     - the "shared zone" of hexagrams whose trigrams are equal or opposite, and its threefold saturation under R: 40 hexagrams carrying 13 directions, against 8 outside;
-     - a nested 17 ⊃ 13 register built without a field extension, from a candidate boundary rule;
-     - the four shared Walsh channels.
-   - [`SHARED_ZONE_WALSH_ROTATION.md`](SHARED_ZONE_WALSH_ROTATION.md):
-     - the Walsh read restricted to the 22 invariant directions, and a second exact order-three operation built from two reflections;
-     - the 17-direction register characterised as the unique minimal even completion of the 13. It is not itself a closed Walsh space: its full Walsh closure has dimension 20.
-   - [`WALSH_SKEW_CHANNEL_ACTION.md`](WALSH_SKEW_CHANNEL_ACTION.md):
-     - the 28 skew channels as an exact Walsh eigenspace, with a bit-native basis;
-     - a symmetry average that gives every channel weight 1/28;
-     - an exact reciprocal channel.
+Place the eight trigrams at the corners of a cube. Separate the father's family from the mother's family. Two regular tetrahedra appear. Pair the trigrams to form hexagrams, and an order-three operation on their corresponding lines generates exactly 21 nonzero projective directions. Apply a Walsh transform, and those directions acquire an incidence geometry. Mark the shared zone, and a single orientation character exposes the three integers **13, 17 and 21** that recur throughout GFD.
 
-     It also records, as conditional, that 137 + 1/28 = 3837/28 would follow if a physical action combined those counts. That value differs from the measured 1/α by about 2 ppm, and nothing is fitted; it is not a derivation of α.
-   - [`COMMON_MODE_AND_SHARED_ZONE_PROOF.md`](COMMON_MODE_AND_SHARED_ZONE_PROOF.md): a proof that every shared-zone read and its Walsh dual keep exactly one common line, f = 𝟙[a=0] + 𝟙[b=0] + 𝟙[a=b], fixed by the Walsh read, R and the swap. This removes the zero-address deletion problem: on the 21 directions orthogonal to f, the 13- and 17-direction registers are genuine projections with rank ratio exactly 17/13. It also gives an analytic proof of the six 60° mixing planes. It shows the coherent three-read return gives 59/25, not 17/13, so the ratio holds only for a per-channel logarithmic volume observable, whose physical selection is open.
-   - [`ORIENTATION_CHARACTER_AND_SEED_DUAL.md`](ORIENTATION_CHARACTER_AND_SEED_DUAL.md):
-     - The dependent-trigram seed and its Walsh dual together span the whole exchange-even register. So the 17-direction register is forced as the smallest one containing the shared zone and that dual, with no choice of parity.
-     - The orientation operators S_u = Q_u + (I − Q_u)J form a representation of the eight-trigram group: S_u S_v = S_{u⊕v}.
-     - On the 21 directions, one operator gives all three numbers: dimension 21, positive rank 17, trace 13. So f(4,s) is one character identity, realising Proof 26's abstract depth sign concretely.
-     - Its 28 flip labels, u·n = 1, are the same labels as the skew channels. That is a label-level match, not an identification of operators.
-   - [`WORK_METRIC_RIGIDITY.md`](WORK_METRIC_RIGIDITY.md):
-     - The read algebra allows exactly two work weights, a on the even sector and b on the odd, and the weighted ratio is 17/13 if and only if a = b.
-     - If each chamber's work metric is independent (h ⊗ k) and the XOR read preserves work, both are forced to be scalar, so a = b. Whether the native action factorises this way is open.
-   - [`WORK_METRIC_FROM_THE_CONSERVED_NORM.md`](WORK_METRIC_FROM_THE_CONSERVED_NORM.md):
-     - It closes that question without the factorisation. A work metric that is diagonal in the records and preserved by the complete Walsh read must be a scalar, because the read is flat: every coefficient sees every record at weight 1/64. So a = b and the ratio is 17/13 on every axis.
-     - The native vertex dynamics, iψ̇ = (H₀ + g(u)V)ψ, conserves exactly that metric, the Euclidean norm in which the chambers exchange occupation.
-     - The one premise left is that registration counts occupation, not energy. The next note corrects the claim about the native model.
-   - [`DENSITY_REGISTER_AND_THREE_SNAPSHOT_THEOREM.md`](DENSITY_REGISTER_AND_THREE_SNAPSHOT_THEOREM.md):
-     - The 64 records are the Pauli coordinates of the eight-amplitude core density ρ = zz†, not 64 independent native occupations, and the core's occupation changes under flux.
-     - A threefold-averaged source needs **three independent snapshots**. One snapshot reaches 12 of the 21 directions, two reach 19, three reach all 21. Repeating the read on one snapshot does not count.
-     - The physical trace direction and the Walsh common line differ (overlap c² = 3/10); mixing them gives 29/23, not 17/13.
-     - An amplitude gain √p on the eight amplitudes gives p²¹ on the density, not p⁴². The register and its gain must be specified together.
-   - [`METATRON_SHARED_ZONE_GEOMETRY.md`](METATRON_SHARED_ZONE_GEOMETRY.md):
-     - Projecting two nested cubes along the Heaven–Earth axis places the 13 shared-zone labels exactly on the 13 centres of Metatron's Cube: the centre, an inner hexagon and an outer hexagon at twice the radius.
-     - The 4 exterior plane normals are the cube's four body diagonals, a regular tetrahedron, giving 17 = 13 + 4.
-     - An explicit isometry maps these labels onto the 21-dimensional contrast space without deleting the common mode.
+The investigation is not an attempt to derive physics from an ancient text. It is an attempt to understand why the same algebra appears in binary geometry, number theory and the proposed field-closure engine—and to identify which mathematical bridges are exact, which are conditional, and which require a physical mechanism.
 
-     The scale factor of two is the conventional drawing's, not forced by the algebra, and the note claims no physical interaction along the drawn lines. Related: the vortex-flywheel programme's [Hadamard flower lattice](../../hadamard-null-cone-vortex-flywheel/HADAMARD_FLOWER_LATTICE.md).
-4. **The coupling polynomial at the prime two.** [`THE_COUPLING_POLYNOMIAL_AT_TWO.md`](THE_COUPLING_POLYNOMIAL_AT_TWO.md) shows that 21, 17 and 13 are det(K·I − Cₙ) for the lattice rotations of order 3, 4 and 6. Reduced mod 2, TetA's and TetB's rotations both become the read R, because 2 stays prime in the Eisenstein integers with residue field F₄, which is where K = 4 comes from. The Field Origin's rotation becomes the trigram swap, which is conjugate to the Sierpiński generator, because 2 ramifies in the Gaussian integers. So a binary register carries G's 21 but loses the root sign that separates 21 from 13. 28 checks.
-5. **The original notes.** The files in [`notes/`](notes/), [`scripts/`](scripts/) and [`interactive/`](interactive/) are the exploratory work from March 2026 that led to the result. They are kept as they were written. Some of their claims were later sharpened or corrected by testing; the [status table](#status-of-the-original-claims) below says which.
+![Architecture of the research programme](diagrams/closure-architecture.svg)
 
-```
-i-ching/
-├── README.md                     this guide
-├── BOOK_OF_CHANGES_AND_PI.md     the result: start here
-├── HEXAGRAMS_AND_THE_CLOSURE_READ.md   the hexagrams and Proofs 23-26
-├── ICHING_FINITE_FIELD_RECIPROCITY.md  GF(8)/GF(64) trigrams, Walsh incidence, reciprocal edges
-├── FROBENIUS_RECIPROCAL_TOWER.md       Frobenius matching, Baer sampling, Fano decomposition
-├── SHARED_ZONE_HEXAGRAM_READ.md        the shared zone, its 13-direction saturation, a nested 17/13
-├── SHARED_ZONE_WALSH_ROTATION.md       Walsh rotation on the 22, the 17 as a minimal even completion
-├── WALSH_SKEW_CHANNEL_ACTION.md        the 28 skew channels, the 1/28 average, a reciprocal channel
-├── COMMON_MODE_AND_SHARED_ZONE_PROOF.md the unique common line and the 13/17 contrast registers
-├── ORIENTATION_CHARACTER_AND_SEED_DUAL.md  one binary character gives 21, 17, 13 and the 28 labels
-├── WORK_METRIC_RIGIDITY.md             two work weights; 17/13 iff they agree; factorised-metric theorem
-├── WORK_METRIC_FROM_THE_CONSERVED_NORM.md  flat read + independent records force a = b; the native norm
-├── DENSITY_REGISTER_AND_THREE_SNAPSHOT_THEOREM.md  the density register, three snapshots, two common modes
-├── METATRON_SHARED_ZONE_GEOMETRY.md    the 13 shared labels as Metatron's Cube; 4 tetrahedral exterior normals
-├── THE_COUPLING_POLYNOMIAL_AT_TWO.md    21/17/13 as det(K I - C_n), reduced at the prime 2
-├── figures/                      the figure for the write-up, and the script that draws it
-├── notes/                        the original syntheses and the six-constraint derivation
-├── scripts/                      the original verification scripts and analysis engines
-├── interactive/                  two interactive HTML charts
-└── paper/                        the full Paper IX manuscript, with its I Ching section
-```
+> **Core thesis:** the hexagrams provide a complete binary representation of the dual-tetrad core's candidate closure register. A threefold spectral read, a reciprocal shared-zone geometry, and the registration of standing-wave inventory may be different aspects of one field-closure mechanism. The outstanding task is to derive their composition from the native dynamics, rather than identify them merely because their dimensions agree.
 
-The proofs and the full test suite live in the model repository, in [`bbp_structure/`](https://github.com/fielddynamics/dfp-gravity-field-model/tree/test/bbp-octahedron-hypothesis/gravity_field_model/engine_core/field_closure/bbp_structure) (`PROOF.md`, 17 core tests and 26 extensions).
+## 1. The book is a cube
 
----
+Read each trigram from bottom to top as three bits, with yang = 1 and yin = 0. For a bit vector $a=(a_1,a_2,a_3)$, place it at $s(a)=((-1)^{a_1},(-1)^{a_2},(-1)^{a_3})$.
 
-## The findings
+| Trigram | Name | Bits | Family |
+|---|---|---|---|
+| ☰ | Qian · Heaven | 111 | Father, TetA |
+| ☳ | Zhen · Thunder | 100 | Eldest son, TetA |
+| ☵ | Kan · Water | 010 | Middle son, TetA |
+| ☶ | Gen · Mountain | 001 | Youngest son, TetA |
+| ☷ | Kun · Earth | 000 | Mother, TetB |
+| ☴ | Xun · Wind | 011 | Eldest daughter, TetB |
+| ☲ | Li · Fire | 101 | Middle daughter, TetB |
+| ☱ | Dui · Lake | 110 | Youngest daughter, TetB |
 
-**π is the stellated octahedron's number.** Give each corner of the cube a weight, and turn the weights into a number with the slot map
-$$S(w) = \sum_{j=1}^{8} w_j \sum_{k\ge0} \frac{1}{16^k(8k+j)},$$
-where the term $8k+j$ belongs to the corner labelled $j \bmod 8$. The octahedron's own conditions single out one weighting:
-- Heaven and Earth (the TIME axis) silent;
-- weights summing to zero (closure);
-- two corners from each family.
+![The two tetrahedra of the trigram cube](diagrams/trigram-cube.svg)
 
-That weighting is Mountain $+4$, Thunder $-2$, Fire $-1$, Lake $-1$, the BBP formula, and its value is π. No other constant has such a weighting, and the *I Ching*'s rank order of the children is the only order that writes it out. The slot map itself, base $16 = K^2$ and period $8 = 2^D$, is built from the octahedron's numbers. It is an input, not something the geometry forces.
+Each family has constant bit parity. Distinct members of a family differ in exactly two bits, so their distances are all $2\sqrt2$ in the sign-coordinate cube. Each family is a regular tetrahedron; their intersection is the octahedral core. Their four complementary pairs lie on the four body diagonals, meeting at the common centre, the candidate Field Origin. The Heaven–Earth diagonal is the marked TIME axis in GFD's interpretation.
 
-**Why π.** In the BBP integral, π comes from the pole $1+i$, of length √2 at 45°. Those are the octahedron's own ratios: a tetrahedron edge is √2 times the cube's edge and runs at 45° to it. In the Gaussian integers $2 = -i(1+i)^2$, so this is where the powers of two (the binary cube) meet the circle. In the family base $2^{D+1}$, period $2^D$, that happens only in three dimensions.
+A single changing line flips a bit and traverses a cube edge. There are twelve such edges. The six signed coordinate directions form an octahedron. The cycle-space dimension of the connected cube graph is $12-8+1=5$. These are not approximate correspondences; they are exact properties of the chosen binary representation.
 
-**The sequence is π, at three levels.**
+**Read:** [The Book of Changes and π](BOOK_OF_CHANGES_AND_PI.md) · [The hexagrams and the closure read](HEXAGRAMS_AND_THE_CLOSURE_READ.md) · [Proof 25](../../../proofs/tetrad-flywheel-convergence/)
 
-| Level | Does it identify π? | Why |
-|---|---|---|
-| **The rule** | Yes (proved) | The octahedron's own conditions select the BBP weighting, whose value is π |
-| **The sequence** | Yes (exactly) | The walk is π re-encoded: its digits come back as $d_n = (v_n - v_{n-1}) \bmod 8$, and any step can be checked on its own against the BBP formula |
-| **The statistics** | No | The walk's frequencies, closure step and other overall properties are those of random digits, as for ln 2, √2 or e |
+## 2. The hexagrams are the complete address space
 
-So the walk that settles the 64 hexagrams is driven by π, and every step of it can be verified as π's. What the walk's statistics cannot do is tell π from another well-mixed number. That is why the evidence for π lies in the rule, not in the walk's statistics.
+Two trigrams form a hexagram. Write it as $(a,b)$, with $a,b\in V=\mathbb F_2^3$. The complete register is $X=V\times V$, with $8^2=64$ addresses. There are 32 pairs of the same parity and 32 of opposite parity. The labels may be viewed as a matrix, with a lower trigram indexing its row and an upper trigram indexing its column.
 
-These are proved or tested in the model repository's [`bbp_structure/`](https://github.com/fielddynamics/dfp-gravity-field-model/tree/test/bbp-octahedron-hypothesis/gravity_field_model/engine_core/field_closure/bbp_structure) (`PROOF.md`, Theorems 2–6 and §10; extension tests 02, 21, 23, 24 and 27).
+![The complete 8 by 8 hexagram address space](diagrams/hexagram-register.svg)
 
----
+The modern algebraic operation on corresponding lines is
 
-## Contents
+$$R(a,b)=(b,a\oplus b).$$
 
-### The result
+It sends $(a,b)\to(b,a\oplus b)\to(a\oplus b,a)\to(a,b)$. Thus $R^3=I$. Only $(0,0)$ is fixed. The other 63 addresses fall into 21 three-element orbits.
 
-| File | Contents |
+$$\boxed{64=1+3\times21}$$
+
+![The threefold XOR cycle](diagrams/xor-orbit.svg)
+
+Pair each lower line with its corresponding upper line. Each pair is an element of $\mathbb F_4=\{0,1,\omega,\omega^2\}$ with $\omega^2=\omega+1$. Multiplication by $\omega$ sends $x+y\omega$ to $y+(x+y)\omega$. Therefore the threefold read is scalar multiplication by $\omega$ on $\mathbb F_4^3$.
+
+The nonzero orbits are precisely the points of $PG(2,4)$. Filtering by the highest nonzero corresponding pair gives grades
+
+$$21=\frac{4-1}{3}+\frac{16-4}{3}+\frac{64-16}{3}=1+4+16.$$
+
+There is a second decomposition: seven dependent-pair orbits make the Fano subplane $PG(2,2)$; fourteen independent-pair orbits make its complement. Trigram exchange fixes the seven dependent labels and swaps the other fourteen in pairs. These two decompositions illuminate different aspects of the same register.
+
+Do not confuse this operation with the geometric rotation cycling the three line positions about the Heaven–Earth axis. That rotation fixes four hexagrams and has 24 total orbits (23 after omitting zero), whereas $R$ has 22 total orbits. The physical time-face operation must select the correct action.
+
+## 3. One spectral transform, three sweeps
+
+The complete six-bit Walsh–Hadamard read can be factored in two ways, after consistently ordering its bits:
+
+$$H_{64}=H_8\otimes H_8=H_4\otimes H_4\otimes H_4=H_2^{\otimes6}.$$
+
+![Three radix-four sweeps of the hexagram register](diagrams/walsh-sweeps.svg)
+
+The first factorisation reads two trigrams; the second reads three corresponding pairs. Each radix-four stage applies the normalized $4\times4$ Walsh matrix along one coordinate, operating on sixteen groups of four. The stages commute and their complete product is a reversible, norm-preserving transform. This is an algebraic connection to [Proof 26](../../../proofs/recursive-field-closure-response/), not yet a demonstration of how the standing waves physically implement it.
+
+For the symplectic version, define $B((a,b),(c,d))=a\cdot d+b\cdot c$ over $\mathbb F_2$. Then $W_{xy}=(-1)^{B(x,y)}/8$. This differs from the ordinary Walsh read by a trigram swap on its input. It is symmetric, orthogonal, and commutes with $R$ and trigram exchange.
+
+Using a self-dual normal basis for $\mathbb F_8$, a hexagram becomes $a+\omega b\in\mathbb F_{64}$. The symplectic pairing is the binary trace of a Hermitian form over $\mathbb F_4$. On the normalized orbit basis of the invariant 22-dimensional space, the induced read is
+
+$$W_{22}=\frac18\begin{pmatrix}1&\sqrt3\,\mathbf1^T\\\sqrt3\,\mathbf1&4N-J\end{pmatrix},$$
+
+where $N$ is the Hermitian polarity incidence matrix on $PG(2,4)$ and $J$ is the all-ones matrix. Each row of $N$ contains five ones and $N^2=4I+J$. This is an exact, lossless incidence transform. Simply dropping the zero coordinate produces a different, non-orthogonal read.
+
+**Read:** [Finite-field reciprocity](ICHING_FINITE_FIELD_RECIPROCITY.md) · [Hexagrams and the closure read](HEXAGRAMS_AND_THE_CLOSURE_READ.md)
+
+## 4. Where the 13, 17 and 21 come from
+
+Begin with the marked axis $u=111$ and let $L=\{0,u\}$. The shared zone consists of equal or complementary pairs: $a\oplus b\in L$. There are 16 shared addresses; the exclusive Hamming-distance-one and distance-two zones contain 24 each.
+
+Saturating the shared zone under the threefold read gives
+
+$$U=\{(a,b):a\in L\text{ or }b\in L\text{ or }a\oplus b\in L\}.$$
+
+The three sets each have 16 addresses, and their pairwise and triple intersections all have four. Inclusion–exclusion gives $|U|=48-12+4=40=1+3\times13$. Thus the invariant shared support has rank 14, before separating the common mode.
+
+![Shared-zone saturation and orientation completion](diagrams/shared-registers.svg)
+
+The common-mode theorem identifies the unique Walsh-preserved line simultaneously shared by all marked-axis support reads:
+
+$$f(a,b)=\mathbf1_{a=0}+\mathbf1_{b=0}+\mathbf1_{a=b},\qquad \|f\|^2=30.$$
+
+It is fixed by $W$, $R$, trigram exchange $J$ and every shared-zone projector $Q_u$. Separate its projector $F=ff^T/30$, without deleting any raw address. On $\mathcal H_0=f^\perp\cap\operatorname{Fix}(R)$, the reduced shared projector $Q_u-F$ has rank 13. Adjoining the universal dependent-seed Walsh dual supplies the minimal exchange-even completion $P_u=Q_u+(I-Q_u)(I+J)/2$, of reduced rank 17.
+
+The crucial result is even simpler. Define a single orientation gate
+
+$$S_u=Q_u+(I-Q_u)J.$$
+
+It swaps the orientations of an independent plane exactly when the marked axis lies outside that plane. The contrast space carries fourteen trivial binary characters and each of the seven nontrivial characters once. For any nonzero $u$, exactly four of the seven nontrivial characters change sign. Hence
+
+$$\boxed{\dim\mathcal H_0=21,\quad\operatorname{rank}\frac{I+S_u}{2}=17,\quad\operatorname{tr}S_u=13.}$$
+
+![One orientation character, three coupling numbers](diagrams/orientation-character.svg)
+
+GFD's coupling polynomial $f(K,s)=1+sK+K^2$ at $K=4$ is recovered as a trace of the positive and negative sectors, $17+4s$. This is a structural identity, with no need to impose the three numbers separately. The shared projector of rank 13 and the signed involution of trace 13 are nevertheless different operators. A physical law must select the corresponding work observable.
+
+**Read:** [Shared-zone read](SHARED_ZONE_HEXAGRAM_READ.md) · [Walsh rotation](SHARED_ZONE_WALSH_ROTATION.md) · [Common-mode proof](COMMON_MODE_AND_SHARED_ZONE_PROOF.md) · [Orientation character](ORIENTATION_CHARACTER_AND_SEED_DUAL.md)
+
+## 5. The geometry hidden in the shared zone
+
+The 13 nonzero shared labels consist of one central orbit, six inner-ring labels and six outer-ring labels. Project the cube along the Heaven–Earth axis. Its complementary axial corners project to the centre; the remaining six project to a regular hexagon. A second ring at twice the radius reproduces the conventional thirteen-centre drawing known as Metatron's Cube.
+
+![Thirteen shared labels and four exterior dual axes](diagrams/nested-cube.svg)
+
+The eight exterior orbits are the two orientations of each of four planes avoiding the marked axis. Their four binary normals are $001,010,100,111$; the corresponding sign vectors are the vertices of a regular tetrahedron. The exterior even completion adds four directions, giving $13+4=17$.
+
+The note constructs an explicit polar-normalized isometry from the 21 orbit labels to the contrast space. The radial factor two is a conventional geometric choice, not forced by the binary algebra. The drawing does not imply physical interactions along all of its lines, and the four exterior normals are not four extra planar centres.
+
+**Read:** [Metatron shared-zone geometry](METATRON_SHARED_ZONE_GEOMETRY.md)
+
+## 6. Reciprocity, the next scale and the number 137
+
+The 21-point plane embeds into $PG(2,16)$ using the subfield tower $\mathbb F_4\subset\mathbb F_{16}$ and $\mathbb F_{64}\subset\mathbb F_{4096}$. The larger plane contains
+
+$$16^2+16+1=273=21\times13$$
+
+points. Its multiplicative quotient is cyclic of order 273; the embedded plane of order four is a subgroup of order 21. A norm map supplies a distinguished transversal of 13 points, once the field tower is chosen.
+
+More generally, mark $O=[1]$ in $PG(2,q)$. A non-origin point $[x]$ determines the pencil direction through $O$ and $[x]$, and a reciprocal direction through $O$ and $[x^{-1}]$. These directions differ: otherwise $x$ would satisfy a quadratic over $\mathbb F_q$ in a cubic extension. The ordered pair uniquely determines the point, by intersecting the line constraints or equivalently solving the reciprocal equation. The resulting bijection identifies non-origin points with the directed edges of $K_{q+1}$.
+
+For $q=16$, there are 17 pencil directions, 272 directed edges and 136 unordered reciprocal edges. Including the origin gives 137 inversion-even directions. Frobenius conjugation splits the pencil into five rational directions and six pairs of exterior directions; its composition with inversion fixes the origin and twelve directed matching edges, giving 13.
+
+![Reciprocal projective tower and Frobenius matching](diagrams/reciprocal-tower.svg)
+
+These are exact dimension and symmetry identities. They are not yet a derivation of the measured inverse fine-structure constant, $\alpha^{-1}\approx137.036$. In particular the 28 skew Walsh channels are another structural count: on $8\times8$ real matrices $W(X)=H_8 X^T H_8$, conjugate by the change of variables $Y=XH_8$ to transpose. The negative eigenspace is $\Lambda^2\mathbb R^8$, dimension 28. Its labels $(d,k)$ have $d\cdot k=1$, exactly seven sets of four. A full shift/modulation and $GL(3,2)$ symmetry average makes its channel covariance scalar, with factor $1/28$. Whether the physical response performs that average or converts it into an additive inverse gain is open.
+
+**Read:** [Reciprocal tower](FROBENIUS_RECIPROCAL_TOWER.md) · [Walsh skew channels](WALSH_SKEW_CHANNEL_ACTION.md)
+
+## 7. The coupling polynomial at the prime two
+
+The three structural values also arise from integer lattice rotations of orders three, four and six:
+
+$$\det(KI-C_n)=\Phi_n(K),\qquad n=3,4,6.$$
+
+For $K=4$ the respective cyclotomic polynomials yield 21, 17 and 13. In the Eisenstein integers $\mathbb Z[\omega]$ the prime 2 is inert, giving residue field $\mathbb F_4$. The order-three and order-six matrices reduce to the same XOR rotation mod 2 (in the specified coordinate convention); their sign difference survives mod 4. In the Gaussian integers $\mathbb Z[i]$, $2=-i(1+i)^2$ ramifies. The order-four matrix reduces to trigram swap, conjugate to the binary Sierpiński shear.
+
+This is why a binary register can preserve the 21-direction read while forgetting the root sign distinguishing TetA from TetB. Recovering the physical orientation therefore requires more than an undifferentiated binary address count.
+
+**Read:** [The coupling polynomial at two](THE_COUPLING_POLYNOMIAL_AT_TWO.md)
+
+## 8. π: the traversal of the register
+
+The eight trigrams also supply slots for a base-sixteen, period-eight series. With the historical bottom-to-top numbering, the Bailey–Borwein–Plouffe formula is
+
+$$\pi=\sum_{k=0}^{\infty}16^{-k}\left(\frac4{8k+1}-\frac2{8k+4}-\frac1{8k+5}-\frac1{8k+6}\right).$$
+
+![The four BBP coefficients and the silent TIME axis](diagrams/bbp-slots.svg)
+
+Mountain, Thunder, Fire and Lake carry weights $+4,-2,-1,-1$; the Heaven and Earth slots are silent, and the weights sum to zero. The companion work proves the selection of BBP within the stipulated rational base-16 formula family for π by requiring both axial slots silent. The slot map, base, period and line ordering are explicit premises; geometry alone does not uniquely determine arbitrary constants or orderings. The Gaussian pole $1+i$ has length $\sqrt2$ and angle $45^\circ$, the same ratios present in the cube's face diagonals.
+
+The original closure walk uses base-eight digits $d_n$ of π. Its position follows $v_n=(v_{n-1}+d_n)\bmod8$, and consecutive positions label a hexagram. The recorded implementation first covers all 64 ordered pairs at step 332 (333 indexed positions including the initial position). It is losslessly decodable: $d_n=(v_n-v_{n-1})\bmod8$. The closure statistic itself is not exceptional against random or other well-mixed digits.
+
+![Traversal versus spectral read](diagrams/traversal-vs-read.svg)
+
+The modern research provides an important discriminator: the π-driven addition uses carries, while $R$ uses XOR. In the first 20,000 digits the next-state rule agrees with $R$ on 2,504 of 19,999 transitions, close to the random rate $1/8$. **The walk traverses the register; the XOR symmetry and Walsh transform read it.** The two may ultimately be synchronized, but the π walk is not a demonstrated step-by-step FWHT. The effective physical operator connecting them is a central open problem.
+
+**Read:** [The Book of Changes and π](BOOK_OF_CHANGES_AND_PI.md) · [Closure walk synthesis](notes/circular_closure_walk_synthesis.md) · [Why π](notes/why_pi_formal_derivation.md)
+
+## 9. The standing wave and the three-snapshot theorem
+
+A new bridge to the native GFD flywheel begins not with 64 separate oscillators, but with eight complex central amplitudes $z\in\mathbb C^8$. Their density $\rho=zz^\dagger$ has 64 real Hermitian coordinates in a normalized three-qubit Pauli basis. Parseval gives
+
+$$\sum_\mu x_\mu^2=\operatorname{tr}(\rho^2)=(z^\dagger z)^2.$$
+
+This is a natural inventory register for amplitudes and coherences. Those 64 coordinates are constrained by the rank-one density; they are not 64 independent occupations. The full Hermitian dynamics conserves total norm, but the central core can exchange norm with its surroundings.
+
+A candidate threefold conjugation built from $U=(I+i(X+Y+Z))/2$ on each axis has a commutant $\operatorname{Herm}(2)\oplus\operatorname{Herm}(3)\oplus\operatorname{Herm}(3)$. It has real dimension $4+9+9=22$, or 21 at fixed trace. For $r$ independent pure snapshots, the attainable positive blocks each have rank at most $r$. The maximal fixed-trace dimension is
+
+$$d_r=\sum_{m\in\{2,3,3\}}(2m\min(m,r)-\min(m,r)^2)-1.$$
+
+![Independent snapshots unlock the 21-dimensional register](diagrams/three-snapshots.svg)
+
+One snapshot reaches a 12-dimensional stratum; two reach 19; three span the full 21-dimensional interior. Three independent snapshots are necessary and sufficient for arbitrary invariant positive targets. Three transforms of one snapshot are **not** three independent snapshots. This theorem gives a precise candidate reason a closure engine may need three registrations, independent of the three-factor FWHT.
+
+There is a further discriminator: the Walsh common line $f$ and the physical trace coordinate $e$ have squared overlap $3/10$, not one. Their orthogonal complements both have dimension 21 but are different. The induced metric of an uncorrected projection between them gives a weighted rank ratio $29/23$, not $17/13$. That counterexample identifies the transduction law that must be derived: how the native density is registered into the Walsh contrast space, with trace and norm conventions transported consistently.
+
+**Read:** [Native density and three snapshots](DENSITY_REGISTER_AND_THREE_SNAPSHOT_THEOREM.md) · [Native Walsh read](../../hadamard-null-cone-vortex-flywheel/NATIVE_WALSH_READ.md) · [Three subread closure](../../hadamard-null-cone-vortex-flywheel/THREE_SUBREAD_CLOSURE.md)
+
+## 10. Towards a single engine
+
+The following is a research architecture, not a completed derivation. In the GFD picture, the standing-wave core holds inventory; a π-driven traversal could coordinate read timing; the three Walsh sweeps transform the register; a threefold reconciliation registers spectral directions; and the Field Origin settles the dual-tetrad exchange.
+
+![Candidate closure timeline](diagrams/closure-timeline.svg)
+
+The proposed 13→17→21 sweep then resets immediately to 13, three times per closure cycle. The 333 indexed π positions are an observed traversal count under the existing convention, not yet a derived clock for these sweeps. No mathematical identity presently partitions the traversal into three physical reads. The density theorem concerns independent snapshots, not the sawtooth or the number of π steps. A successful native model must make these independent constraints agree without inserting a schedule by hand.
+
+The work metric adds another condition. The read algebra allows exchange-even and exchange-odd weights $a,b$. Its positive-to-signed weighted trace ratio is $(14a+3b)/(14a-b)$, which equals $17/13$ exactly when $a=b$. A flat orthogonal read preserves a diagonal metric only if the metric is scalar: every diagonal entry of its conjugate is the mean of all entries. This is a rigidity theorem, not a derivation that native mechanical work is diagonal in the hexagram coordinates. The density and trace distinction remains essential.
+
+With the premises of Proof 26, uniform density gain $\alpha$ over the 21 contrasts yields $\det(\alpha I_{21})=\alpha^{21}$. Equivalently an amplitude gain $\sqrt\alpha$ yields this density gain. The proposed GFD expression is
+
+$$\alpha_G=\frac{17}{13}\alpha^{21}\frac{g_e}{2},\qquad G=\alpha_G\frac{\hbar c}{m_e^2}.$$
+
+The hexagram algebra explains structural candidates for the exponent and ratio. It does not independently establish the native gain, the collective determinant as source, the electron factor, or a physical long-range gravitational action. The task is to derive that chain, not simply to reproduce the numbers.
+
+**Read:** [Work-metric rigidity](WORK_METRIC_RIGIDITY.md) · [Conserved-norm metric](WORK_METRIC_FROM_THE_CONSERVED_NORM.md) · [Proof 26](../../../proofs/recursive-field-closure-response/)
+
+## 11. What the next experiment must decide
+
+| Mathematical result | Native-action discriminator |
 |---|---|
-| [`BOOK_OF_CHANGES_AND_PI.md`](BOOK_OF_CHANGES_AND_PI.md) | The I Ching as the stellated octahedron; π's formulas as one family; the TIME axis selecting BBP; where π enters; the reading of BBP in the trigram lines; the ladder into base 8; what is not claimed; a sense of rotation; what a particle physicist would ask |
-| [`figures/bbp_octahedron.png`](figures/bbp_octahedron.png) | The trigrams on the cube with the four BBP corners, and four members of π's formula family shown corner by corner |
-| [`figures/plot_bbp_octahedron.py`](figures/plot_bbp_octahedron.py) | Draws the figure |
+| Threefold XOR read has 21 nonzero orbits | Does actual time-face evolution induce $R$, rather than spatial rotation $T$? |
+| Full symplectic Walsh read is orthogonal | Does the core produce the corresponding transfer matrix with the correct trace functional? |
+| Common-line and nested 13/17 projections | Does native registration select the seed dual and common mode? |
+| Six nontrivial shared-zone principal planes have overlap cosine $1/2$ | Does the native transfer have the predicted 60° planes and dark modes? |
+| Three independent density snapshots reach all 21 contrasts | Are the three physical samples independent in the spectral blocks? |
+| Flat diagonal metric forces equal weights | Is native work registered in that metric, including core flux? |
+| π traverses all 64 addresses | Can an independently defined effective operator link the walk to the Walsh sweeps? |
+| Reciprocal and skew-channel dimensions 137 and 28 | Does a native electromagnetic response select the symmetry average and inverse-gain rule? |
 
-### The original notes ([`notes/`](notes/))
+A valuable next calculation is to instrument the native flywheel Hamiltonian over a complete candidate cycle. Record $z(t)$, core/environment flux and the three candidate density snapshots. Extract the three invariant blocks, test their ranks, measure the induced Walsh transfer and its singular values, then evaluate the physical source functional against the 13/17 work prediction. Compare to phase-randomized and non-π control schedules, specified in advance. If the proposed operator fails, preserve the algebra and reject or revise the dynamical identification.
 
-Read in this order:
+## 12. Research map and reproduction
 
-| File | Contents |
+| Starting point | Contents |
 |---|---|
-| [`circular_closure_walk_synthesis.md`](notes/circular_closure_walk_synthesis.md) | The first full synthesis: the trigram geometry, the three axis vectors, the reading mechanism, the hexagram walk and the dual-source verification |
-| [`why_pi_formal_derivation.md`](notes/why_pi_formal_derivation.md) | The derivation of the BBP series from six constraints on the closure walk (also kept in [`research/field-closure/`](../../field-closure/)) |
-| [`closure_vortex_synthesis-1.md`](notes/closure_vortex_synthesis-1.md), [`closure_vortex_synthesis-2.md`](notes/closure_vortex_synthesis-2.md) | Two versions of the vortex synthesis: the coupling polynomial as the radial profile of closure, the sawtooth, the last-hexagram gaps and the fine-structure correspondence |
+| [BOOK_OF_CHANGES_AND_PI.md](BOOK_OF_CHANGES_AND_PI.md) | Geometry, BBP selection, π walk and historical context |
+| [HEXAGRAMS_AND_THE_CLOSURE_READ.md](HEXAGRAMS_AND_THE_CLOSURE_READ.md) | Order-three read, projective directions and Proofs 23–26 |
+| [ICHING_FINITE_FIELD_RECIPROCITY.md](ICHING_FINITE_FIELD_RECIPROCITY.md) · [FROBENIUS_RECIPROCAL_TOWER.md](FROBENIUS_RECIPROCAL_TOWER.md) | Finite fields, Walsh incidence, reciprocal edges and norm tower |
+| [SHARED_ZONE_HEXAGRAM_READ.md](SHARED_ZONE_HEXAGRAM_READ.md) · [SHARED_ZONE_WALSH_ROTATION.md](SHARED_ZONE_WALSH_ROTATION.md) | Shared support, principal planes and completion |
+| [COMMON_MODE_AND_SHARED_ZONE_PROOF.md](COMMON_MODE_AND_SHARED_ZONE_PROOF.md) · [ORIENTATION_CHARACTER_AND_SEED_DUAL.md](ORIENTATION_CHARACTER_AND_SEED_DUAL.md) | Common seed, orientation character and the 13/17 identity |
+| [WALSH_SKEW_CHANNEL_ACTION.md](WALSH_SKEW_CHANNEL_ACTION.md) · [THE_COUPLING_POLYNOMIAL_AT_TWO.md](THE_COUPLING_POLYNOMIAL_AT_TWO.md) | Skew channels and cyclotomic bridge |
+| [WORK_METRIC_RIGIDITY.md](WORK_METRIC_RIGIDITY.md) · [WORK_METRIC_FROM_THE_CONSERVED_NORM.md](WORK_METRIC_FROM_THE_CONSERVED_NORM.md) | Metric selection and its limitations |
+| [DENSITY_REGISTER_AND_THREE_SNAPSHOT_THEOREM.md](DENSITY_REGISTER_AND_THREE_SNAPSHOT_THEOREM.md) | Density register, three snapshots, trace/common-mode obstruction |
+| [METATRON_SHARED_ZONE_GEOMETRY.md](METATRON_SHARED_ZONE_GEOMETRY.md) | Nested cube projection and isometric label mapping |
+| [notes/](notes/) · [scripts/](scripts/) · [figures/](figures/) | Earlier syntheses, verification code and original figures |
+| [interactive charts](interactive/) · [Paper IX manuscript](paper/Nelson_2026_GFD_Complete_Field_Closure_from_Stellated_Octahedron_Topology.pdf) | Exploratory visualisations and original historical correspondence section |
 
-### The original scripts ([`scripts/`](scripts/))
-
-| File | Contents |
-|---|---|
-| [`closure_walk_proof_iching.py`](scripts/closure_walk_proof_iching.py) | π in base 8 from mpmath and from the three-axis (BBP) mechanism, matched digit for digit; the walk closes at step 332 |
-| [`why_pi_verification.py`](scripts/why_pi_verification.py) | Each of the six constraints, and the term-by-term identity with the BBP series |
-| [`run_all_validations_with_i-ching-intact.py`](scripts/run_all_validations_with_i-ching-intact.py) | The validation suite of Paper IX with its I Ching section (Section 13) intact: 46 checks in 16 sections |
-| [`traversal_analyzer.py`](scripts/traversal_analyzer.py), [`tetragram_analyzer.py`](scripts/tetragram_analyzer.py) | Analysis engines: a step-by-step ledger of the walk (faces, orbits, macro-cycles, chamber crossings) and its resolution into 32 sub-channels. Copies of the modules in the model repository's `engine_core/common/`, where they run; they import its `gravity_field_model` package |
-
-### Interactive charts ([`interactive/`](interactive/))
-
-| File | Contents |
-|---|---|
-| [`coupling_channel_analysis.html`](interactive/coupling_channel_analysis.html) | The coupling-polynomial sawtooth over four closure cycles |
-| [`element_closure_is_iching.html`](interactive/element_closure_is_iching.html) | The closure walk applied to the 83 stable elements and their binding curve |
-
-### The source paper ([`paper/`](paper/))
-
-The material here began as a section of Paper IX, *Complete Field Closure from Stellated Octahedron Topology*. The full manuscript, including that section ("Historical Correspondence"), is [`paper/Nelson_2026_GFD_Complete_Field_Closure_from_Stellated_Octahedron_Topology.pdf`](paper/Nelson_2026_GFD_Complete_Field_Closure_from_Stellated_Octahedron_Topology.pdf). The version deposited on Zenodo ([`papers/09-complete-field-closure/`](../../../papers/09-complete-field-closure/)) omits the I Ching section, so that the published argument rests on the topology and the closure condition alone.
-
----
-
-## The background in brief
-
-### The trigrams are the vertices of the cube
-
-A trigram is three lines, each broken (yin, 0) or unbroken (yang, 1). Reading the lines as three binary digits places each trigram at a vertex of a cube, one bit per spatial axis. Dividing the vertices by the parity of their yang count splits the cube into two regular tetrahedra, TetA and TetB, which together form the stellated octahedron. The classical texts already make this division. The *Shuo Gua* (*Discussion of the Trigrams*) arranges the trigrams as a family:
-
-| Trigram | Name | Binary (bottom → top) | Family role | Chamber | Opposite |
-|---|---|---|---|---|---|
-| ☰ | Heaven (*Qian*) | 111 | Father | TetA | Earth |
-| ☳ | Thunder (*Zhen*) | 100 | Eldest son | TetA | Wind |
-| ☵ | Water (*Kan*) | 010 | Middle son | TetA | Fire |
-| ☶ | Mountain (*Gen*) | 001 | Youngest son | TetA | Lake |
-| ☷ | Earth (*Kun*) | 000 | Mother | TetB | Heaven |
-| ☴ | Wind (*Xun*) | 011 | Eldest daughter | TetB | Thunder |
-| ☲ | Fire (*Li*) | 101 | Middle daughter | TetB | Water |
-| ☱ | Lake (*Dui*) | 110 | Youngest daughter | TetB | Mountain |
-
-- **The family is the parity partition.** Father and sons form TetA, mother and daughters TetB.
-- **The opposites are the body diagonals.** The four Fu Xi pairs are a vertex and its complement, meeting at the centre, the Field Origin.
-- **The hexagrams are the complete state space.** There are $8 \times 8 = 64 = K^D$ of them, 32 within a chamber and 32 across the Field Origin.
-- **The ranks fix the coordinates.** Each child's rank (eldest, middle, youngest) is the position of its distinctive line from the bottom. That holds only if the bottom line is the most significant bit, as in the table.
-
-### The closure walk
-
-Write π in base 8; each digit names a trigram. A walker moves to the vertex given by the running sum of the digits modulo 8, and each consecutive pair of positions is a hexagram. The walk *closes* when all 64 hexagrams have occurred: for π at step 332. The notes read each closure through the coupling polynomial $f(K,s) = 1 + sK + K^2$, which climbs from 13 (TetB) through 17 (the Field Origin) to 21 (TetA) and resets: a sawtooth the notes call the field's breath.
-
-### The bridge to BBP
-
-The BBP formula is
-$$\pi = \sum_{k\ge0} \frac{1}{16^k}\left[\frac{4}{8k+1} - \frac{2}{8k+4} - \frac{1}{8k+5} - \frac{1}{8k+6}\right].$$
-The six-constraint derivation reads its base, its period and its coefficients from the face normals of the tetrahedron. The write-up takes this further: within the octahedron's own conditions, BBP is the only formula of its kind for π (proof by Baker's theorem), and the reading rules are recovered without assuming π. The [findings](#the-findings) above state the result.
-
----
-
-## Status of the original claims
-
-Testing in the model repository sorted the notes' claims into established, corrected and interpretation.
-
-| Claim in the notes | Status | Where |
-|---|---|---|
-| Trigrams = cube vertices; families = the two tetrahedra; opposites = body diagonals; 64 hexagrams = $K^D$ | **Established** (identities, any encoding) | Write-up, "The book is a cube" |
-| The bottom line is the most significant bit | **Established**, fixed by the *Shuo Gua*'s ranks and Shao Yong's numbering; the synthesis's three geometric reasons hold under every encoding | Write-up; `test_iching_encoding_selection.py` |
-| BBP is the octahedron's formula for π | **Established, and strengthened**: π's formulas of this kind form one family, and only BBP leaves the TIME axis silent | Write-up; `PROOF.md`, Theorems 2–3 |
-| The geometry leaves "no freedom" for the coefficients | **Corrected.** The order of the children is free; only the *I Ching*'s rank order gives π | `test_reading_symmetry.py` |
-| The numerators come from an "agreement rule" | **Corrected.** No agreement rule gives π; the rule is ordered (first child doubles, last child sets the step) | `test_reading_weight_rule.py`; `PROOF.md`, Theorem 6 |
-| The walk is driven by π | **Established, exactly.** The walk is a lossless re-encoding of π's digits, and each step can be checked on its own against the BBP formula: π's walk passes 200 of 200 checks, e's walk about one in eight | `PROOF.md` §10; extension test 27 |
-| Closure at step 332 shows the structure | **Corrected.** Closure belongs to the space, not to π: random digits close at about step 304 on average, π's 332 is typical, and ln 2, √2 and e close too. The walk before closure shows no signal after a trials factor | `test_hexagram_closure_null.py`; extension tests 16 and 24 |
-| The "dual-source" proof: two independent sources of π's digits | **Clarified.** The three-axis mechanism is the BBP series term by term, so both sources compute π; they agree, as they must | `scripts/why_pi_verification.py` |
-| Coupling-polynomial sawtooth, vortex breath, fine-structure correspondence | **Interpretation**, not tested here | `notes/closure_vortex_synthesis-*.md` |
-
----
-
-## Reproduce
-
-The original scripts need only `mpmath`:
+From this directory in the existing repository:
 
 ```bash
-pip install mpmath
-cd research/exploratory/i-ching/scripts
-python closure_walk_proof_iching.py                  # dual-source check; closure at step 332
-python why_pi_verification.py                        # the six constraints and the BBP identity
-python run_all_validations_with_i-ching-intact.py    # 46 checks
+python -m pip install -r scripts/finite_field_reciprocity/requirements.txt
+python -m pip install mpmath
+python scripts/verify_hexagram_closure_read.py
+python scripts/verify_prime_two.py
+python -m pytest -q scripts/finite_field_reciprocity
+python scripts/closure_walk_proof_iching.py
 ```
 
-The proofs and tests behind the write-up are in the model repository:
-
-```bash
-python -m gravity_field_model.engine_core.field_closure.bbp_structure.test_bbp_completeness_proof
-```
+The linked notes report their own verification counts. This overview does not claim a fresh execution of the full research suite or a new formal proof. The companion [BBP proof and model tests](https://github.com/fielddynamics/dfp-gravity-field-model/tree/test/bbp-octahedron-hypothesis/gravity_field_model/engine_core/field_closure/bbp_structure) contain the fuller formula-family analysis. Earlier notes are preserved because their conjectures motivate tests; the newer exact notes take precedence where a claim was corrected.
 
 ---
 
-## A note on scope
+### The larger question
 
-The first part of this work is mathematics: the trigrams of the *I Ching* are the vertices of the cube, their family and their opposites are the stellated octahedron's two tetrahedra and four body diagonals, and the octahedron's TIME axis selects the BBP formula for π. The second part, the walk as the field reading its own faces, is interpretation.
+The ancient book provides the labels; the cube supplies the geometry; finite fields supply the threefold symmetry; the Walsh transform supplies the spectral read. The density matrix offers a way to represent the inventory of a standing wave. π supplies an independently specified traversal.
 
-No claim is made that the authors of the *I Ching* knew this geometry. The claim is structural: a system built three thousand years ago to describe change is, in its organisation, the complete state space of the object GFD places at the heart of the gravitational field. Leibniz found binary arithmetic in the hexagrams. The stellated octahedron is the geometry that arithmetic draws.
+What remains is the physics of their synchronization.
 
----
+If GFD can derive that synchronization from a local Field Origin action, it would connect the smallest candidate closure register to the broader programme of recursive registration and settlement. Until then, the exact algebra stands independently of that physical interpretation. No claim is made that the historical authors encoded modern field theory, or that the shared geometry alone establishes gravity.
 
-**Sources**
-
-- Leibniz receives Bouvet's letter and publishes the *Explication de l'arithmétique binaire*: [History of Information](https://www.historyofinformation.com/detail.php?entryid=454); the Leibniz–Bouvet correspondence, annotated: [Swarthmore College](https://archive.swarthmore.edu/leibniz-bouvet/index.html)
-- *Shuo Gua*, the family of the trigrams and the Earlier Heaven opposites: R. Wilhelm, *The I Ching or Book of Changes*, trans. C. F. Baynes (Princeton University Press, 1950), *Shuo Kua* chs. 3 and 10
-- D. H. Bailey, P. B. Borwein and S. Plouffe (1997). On the rapid computation of various polylogarithmic constants. *Math. Comp.* 66, 903–913. [AMS](https://www.ams.org/mcom/1997-66-218/S0025-5718-97-00856-9/)
-- GFD geometry: [`docs/01-foundations/04-dual-tetrahedron-field-origin.md`](../../../docs/01-foundations/04-dual-tetrahedron-field-origin.md), [`10-stellated-octahedron.md`](../../../docs/01-foundations/10-stellated-octahedron.md); Paper IX, [`papers/09-complete-field-closure/`](../../../papers/09-complete-field-closure/)
+**Background:** [GFD foundations](../../../docs/01-foundations/) · [Paper IX](../../../papers/09-complete-field-closure/) · [Great Pyramid exploratory programme](../great-pyramid/) · [Bailey, Borwein & Plouffe, 1997](https://www.ams.org/mcom/1997-66-218/S0025-5718-97-00856-9/) · [Leibniz–Bouvet correspondence](https://archive.swarthmore.edu/leibniz-bouvet/index.html)

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="390" viewBox="0 0 960 390" role="img" aria-label="Two operations on one address space">
+<rect x="1" y="1" width="958" height="388" rx="18" fill="#101c2c" stroke="#354c65"/>
+<defs><marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6Z" fill="#a9b9c9"/></marker></defs>
+<g font-family="Arial, Helvetica, sans-serif">
+<text x="30" y="38" fill="#edf2f8" font-size="25" text-anchor="start" font-weight="700">Two operations on one address space</text>
+<text x="30" y="63" fill="#a9b9c9" font-size="14" text-anchor="start">π traversal is not the threefold XOR read</text>
+<rect x="40" y="110" width="410" height="76" rx="10" fill="#1b3045" stroke="#f0bd72"/>
+<text x="245.0" y="140" fill="#f0bd72" font-size="19" text-anchor="middle" font-weight="700">Traversal</text>
+<text x="245.0" y="163" fill="#a9b9c9" font-size="13" text-anchor="middle">integer addition modulo eight</text>
+<rect x="510" y="110" width="410" height="76" rx="10" fill="#1b3045" stroke="#76b9fa"/>
+<text x="715.0" y="140" fill="#76b9fa" font-size="19" text-anchor="middle" font-weight="700">Read symmetry</text>
+<text x="715.0" y="163" fill="#a9b9c9" font-size="13" text-anchor="middle">bitwise XOR · period three</text>
+<text x="245" y="222" fill="#f0bd72" font-size="19" text-anchor="middle" font-weight="700">(a,b) → (b,b + d mod 8)</text>
+<text x="715" y="222" fill="#76b9fa" font-size="19" text-anchor="middle" font-weight="700">(a,b) → (b,a XOR b)</text>
+<text x="245" y="258" fill="#a9b9c9" font-size="16" text-anchor="middle">Covers all 64 pairs at step 332</text>
+<text x="715" y="258" fill="#a9b9c9" font-size="16" text-anchor="middle">Remains inside one 3-cycle</text>
+<line x1="245" y1="284" x2="245" y2="307" stroke="#a9b9c9" stroke-width="2"/>
+<line x1="245" y1="307" x2="715" y2="307" stroke="#a9b9c9" stroke-width="2" stroke-dasharray="5 5"/>
+<line x1="715" y1="307" x2="715" y2="284" stroke="#a9b9c9" stroke-width="2"/>
+<text x="480" y="339" fill="#61e0bd" font-size="18" text-anchor="middle" font-weight="700">Physical synchronization: unresolved</text>
+<text x="30" y="370" fill="#a9b9c9" font-size="13" text-anchor="start">Observed next-state agreement: 2504 / 19999, consistent with chance.</text>
+</g></svg>

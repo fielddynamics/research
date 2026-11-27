@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="365" viewBox="0 0 960 365" role="img" aria-label="Three radix-four Walsh sweeps">
+<rect x="1" y="1" width="958" height="363" rx="18" fill="#101c2c" stroke="#354c65"/>
+<defs><marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6Z" fill="#a9b9c9"/></marker></defs>
+<g font-family="Arial, Helvetica, sans-serif">
+<text x="30" y="38" fill="#edf2f8" font-size="25" text-anchor="start" font-weight="700">Three radix-four Walsh sweeps</text>
+<text x="30" y="63" fill="#a9b9c9" font-size="14" text-anchor="start">A reversible transform on all 64 records</text>
+<rect x="35" y="105" width="280" height="75" rx="10" fill="#1b3045" stroke="#76b9fa"/>
+<text x="175.0" y="135" fill="#76b9fa" font-size="19" text-anchor="middle" font-weight="700">H₄ ⊗ I ⊗ I</text>
+<text x="175.0" y="158" fill="#a9b9c9" font-size="13" text-anchor="middle">corresponding pair 1</text>
+<text x="175" y="205" fill="#a9b9c9" font-size="14" text-anchor="middle">16 groups × 4 records</text>
+<line x1="315" y1="143" x2="337" y2="143" stroke="#a9b9c9" stroke-width="2" marker-end="url(#arr)"/>
+<rect x="340" y="105" width="280" height="75" rx="10" fill="#1b3045" stroke="#76b9fa"/>
+<text x="480.0" y="135" fill="#76b9fa" font-size="19" text-anchor="middle" font-weight="700">I ⊗ H₄ ⊗ I</text>
+<text x="480.0" y="158" fill="#a9b9c9" font-size="13" text-anchor="middle">corresponding pair 2</text>
+<text x="480" y="205" fill="#a9b9c9" font-size="14" text-anchor="middle">16 groups × 4 records</text>
+<line x1="620" y1="143" x2="642" y2="143" stroke="#a9b9c9" stroke-width="2" marker-end="url(#arr)"/>
+<rect x="645" y="105" width="280" height="75" rx="10" fill="#1b3045" stroke="#76b9fa"/>
+<text x="785.0" y="135" fill="#76b9fa" font-size="19" text-anchor="middle" font-weight="700">I ⊗ I ⊗ H₄</text>
+<text x="785.0" y="158" fill="#a9b9c9" font-size="13" text-anchor="middle">corresponding pair 3</text>
+<text x="785" y="205" fill="#a9b9c9" font-size="14" text-anchor="middle">16 groups × 4 records</text>
+<text x="480" y="270" fill="#61e0bd" font-size="27" text-anchor="middle" font-weight="700">H₆₄ = H₄ ⊗ H₄ ⊗ H₄ = H₈ ⊗ H₈</text>
+<text x="30" y="345" fill="#a9b9c9" font-size="13" text-anchor="start">The factors commute; this diagram does not prescribe a native clock or a π-driven schedule.</text>
+</g></svg>

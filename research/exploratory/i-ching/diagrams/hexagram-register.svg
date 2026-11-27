@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="520" viewBox="0 0 960 520" role="img" aria-label="The 64 hexagrams">
+<rect x="1" y="1" width="958" height="518" rx="18" fill="#101c2c" stroke="#354c65"/>
+<defs><marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6Z" fill="#a9b9c9"/></marker></defs>
+<g font-family="Arial, Helvetica, sans-serif">
+<text x="30" y="38" fill="#edf2f8" font-size="25" text-anchor="start" font-weight="700">The 64 hexagrams</text>
+<text x="30" y="63" fill="#a9b9c9" font-size="14" text-anchor="start">Each cell is one ordered pair of three-bit trigrams</text>
+<text x="100" y="105" fill="#a9b9c9" font-size="12" text-anchor="middle">000</text>
+<text x="60" y="137" fill="#a9b9c9" font-size="12" text-anchor="middle">000</text>
+<rect x="78" y="115" width="43" height="43" rx="3" fill="#244663" stroke="#61e0bd"/>
+<circle cx="99" cy="136" r="4" fill="#61e0bd" stroke="none"/>
+<rect x="123" y="115" width="43" height="43" rx="3" fill="#674d31" stroke="#101c2c"/>
+<rect x="168" y="115" width="43" height="43" rx="3" fill="#674d31" stroke="#101c2c"/>
+<rect x="213" y="115" width="43" height="43" rx="3" fill="#244663" stroke="#101c2c"/>
+<rect x="258" y="115" width="43" height="43" rx="3" fill="#674d31" stroke="#101c2c"/>
+<rect x="303" y="115" width="43" height="43" rx="3" fill="#244663" stroke="#101c2c"/>
+<rect x="348" y="115" width="43" height="43" rx="3" fill="#244663" stroke="#101c2c"/>
+<rect x="393" y="115" width="43" height="43" rx="3" fill="#674d31" stroke="#61e0bd"/>
+<circle cx="414" cy="136" r="4" fill="#61e0bd" stroke="none"/>
+<text x="145" y="105" fill="#a9b9c9" font-size="12" text-anchor="middle">001</text>
+<text x="60" y="182" fill="#a9b9c9" font-size="12" text-anchor="middle">001</text>
+<rect x="78" y="160" width="43" height="43" rx="3" fill="#674d31" stroke="#101c2c"/>
+<rect x="123" y="160" width="43" height="43" rx="3" fill="#244663" stroke="#61e0bd"/>
+<circle cx="144" cy="181" r="4" fill="#61e0bd" stroke="none"/>
+<rect x="168" y="160" width="43" height="43" rx="3" fill="#244663" stroke="#101c2c"/>
+<rect x="213" y="160" width="43" height="43" rx="3" fill="#674d31" stroke="#101c2c"/>
+<rect x="258" y="160" width="43" height="43" rx="3" fill="#244663" stroke="#101c2c"/>
+<rect x="303" y="160" width="43" height="43" rx="3" fill="#674d31" stroke="#101c2c"/>
+<rect x="348" y="160" width="43" height="43" rx="3" fill="#674d31" stroke="#61e0bd"/>
+<circle cx="369" cy="181" r="4" fill="#61e0bd" stroke="none"/>
+<rect x="393" y="160" width="43" height="43" rx="3" fill="#244663" stroke="#101c2c"/>
+<text x="190" y="105" fill="#a9b9c9" font-size="12" text-anchor="middle">010</text>
+<text x="60" y="227" fill="#a9b9c9" font-size="12" text-anchor="middle">010</text>
+<rect x="78" y="205" width="43" height="43" rx="3" fill="#674d31" stroke="#101c2c"/>
+<rect x="123" y="205" width="43" height="43" rx="3" fill="#244663" stroke="#101c2c"/>
+<rect x="168" y="205" width="43" height="43" rx="3" fill="#244663" stroke="#61e0bd"/>
+<circle cx="189" cy="226" r="4" fill="#61e0bd" stroke="none"/>
+<rect x="213" y="205" width="43" height="43" rx="3" fill="#674d31" stroke="#101c2c"/>
+<rect x="258" y="205" width="43" height="43" rx="3" fill="#244663" stroke="#101c2c"/>
+<rect x="303" y="205" width="43" height="43" rx="3" fill="#674d31" stroke="#61e0bd"/>
+<circle cx="324" cy="226" r="4" fill="#61e0bd" stroke="none"/>
+<rect x="348" y="205" width="43" height="43" rx="3" fill="#674d31" stroke="#101c2c"/>
+<rect x="393" y="205" width="43" height="43" rx="3" fill="#244663" stroke="#101c2c"/>
+<text x="235" y="105" fill="#a9b9c9" font-size="12" text-anchor="middle">011</text>
+<text x="60" y="272" fill="#a9b9c9" font-size="12" text-anchor="middle">011</text>
+<rect x="78" y="250" width="43" height="43" rx="3" fill="#244663" stroke="#101c2c"/>
+<rect x="123" y="250" width="43" height="43" rx="3" fill="#674d31" stroke="#101c2c"/>
+<rect x="168" y="250" width="43" height="43" rx="3" fill="#674d31" stroke="#101c2c"/>
+<rect x="213" y="250" width="43" height="43" rx="3" fill="#244663" stroke="#61e0bd"/>
+<circle cx="234" cy="271" r="4" fill="#61e0bd" stroke="none"/>
+<rect x="258" y="250" width="43" height="43" rx="3" fill="#674d31" stroke="#61e0bd"/>
+<circle cx="279" cy="271" r="4" fill="#61e0bd" stroke="none"/>
+<rect x="303" y="250" width="43" height="43" rx="3" fill="#244663" stroke="#101c2c"/>
+<rect x="348" y="250" width="43" height="43" rx="3" fill="#244663" stroke="#101c2c"/>
+<rect x="393" y="250" width="43" height="43" rx="3" fill="#674d31" stroke="#101c2c"/>
+<text x="280" y="105" fill="#a9b9c9" font-size="12" text-anchor="middle">100</text>
+<text x="60" y="317" fill="#a9b9c9" font-size="12" text-anchor="middle">100</text>
+<rect x="78" y="295" width="43" height="43" rx="3" fill="#674d31" stroke="#101c2c"/>
+<rect x="123" y="295" width="43" height="43" rx="3" fill="#244663" stroke="#101c2c"/>
+<rect x="168" y="295" width="43" height="43" rx="3" fill="#244663" stroke="#101c2c"/>
+<rect x="213" y="295" width="43" height="43" rx="3" fill="#674d31" stroke="#61e0bd"/>
+<circle cx="234" cy="316" r="4" fill="#61e0bd" stroke="none"/>
+<rect x="258" y="295" width="43" height="43" rx="3" fill="#244663" stroke="#61e0bd"/>
+<circle cx="279" cy="316" r="4" fill="#61e0bd" stroke="none"/>
+<rect x="303" y="295" width="43" height="43" rx="3" fill="#674d31" stroke="#101c2c"/>
+<rect x="348" y="295" width="43" height="43" rx="3" fill="#674d31" stroke="#101c2c"/>
+<rect x="393" y="295" width="43" height="43" rx="3" fill="#244663" stroke="#101c2c"/>
+<text x="325" y="105" fill="#a9b9c9" font-size="12" text-anchor="middle">101</text>
+<text x="60" y="362" fill="#a9b9c9" font-size="12" text-anchor="middle">101</text>
+<rect x="78" y="340" width="43" height="43" rx="3" fill="#244663" stroke="#101c2c"/>
+<rect x="123" y="340" width="43" height="43" rx="3" fill="#674d31" stroke="#101c2c"/>
+<rect x="168" y="340" width="43" height="43" rx="3" fill="#674d31" stroke="#61e0bd"/>
+<circle cx="189" cy="361" r="4" fill="#61e0bd" stroke="none"/>
+<rect x="213" y="340" width="43" height="43" rx="3" fill="#244663" stroke="#101c2c"/>
+<rect x="258" y="340" width="43" height="43" rx="3" fill="#674d31" stroke="#101c2c"/>
+<rect x="303" y="340" width="43" height="43" rx="3" fill="#244663" stroke="#61e0bd"/>
+<circle cx="324" cy="361" r="4" fill="#61e0bd" stroke="none"/>
+<rect x="348" y="340" width="43" height="43" rx="3" fill="#244663" stroke="#101c2c"/>
+<rect x="393" y="340" width="43" height="43" rx="3" fill="#674d31" stroke="#101c2c"/>
+<text x="370" y="105" fill="#a9b9c9" font-size="12" text-anchor="middle">110</text>
+<text x="60" y="407" fill="#a9b9c9" font-size="12" text-anchor="middle">110</text>
+<rect x="78" y="385" width="43" height="43" rx="3" fill="#244663" stroke="#101c2c"/>
+<rect x="123" y="385" width="43" height="43" rx="3" fill="#674d31" stroke="#61e0bd"/>
+<circle cx="144" cy="406" r="4" fill="#61e0bd" stroke="none"/>
+<rect x="168" y="385" width="43" height="43" rx="3" fill="#674d31" stroke="#101c2c"/>
+<rect x="213" y="385" width="43" height="43" rx="3" fill="#244663" stroke="#101c2c"/>
+<rect x="258" y="385" width="43" height="43" rx="3" fill="#674d31" stroke="#101c2c"/>
+<rect x="303" y="385" width="43" height="43" rx="3" fill="#244663" stroke="#101c2c"/>
+<rect x="348" y="385" width="43" height="43" rx="3" fill="#244663" stroke="#61e0bd"/>
+<circle cx="369" cy="406" r="4" fill="#61e0bd" stroke="none"/>
+<rect x="393" y="385" width="43" height="43" rx="3" fill="#674d31" stroke="#101c2c"/>
+<text x="415" y="105" fill="#a9b9c9" font-size="12" text-anchor="middle">111</text>
+<text x="60" y="452" fill="#a9b9c9" font-size="12" text-anchor="middle">111</text>
+<rect x="78" y="430" width="43" height="43" rx="3" fill="#674d31" stroke="#61e0bd"/>
+<circle cx="99" cy="451" r="4" fill="#61e0bd" stroke="none"/>
+<rect x="123" y="430" width="43" height="43" rx="3" fill="#244663" stroke="#101c2c"/>
+<rect x="168" y="430" width="43" height="43" rx="3" fill="#244663" stroke="#101c2c"/>
+<rect x="213" y="430" width="43" height="43" rx="3" fill="#674d31" stroke="#101c2c"/>
+<rect x="258" y="430" width="43" height="43" rx="3" fill="#244663" stroke="#101c2c"/>
+<rect x="303" y="430" width="43" height="43" rx="3" fill="#674d31" stroke="#101c2c"/>
+<rect x="348" y="430" width="43" height="43" rx="3" fill="#674d31" stroke="#101c2c"/>
+<rect x="393" y="430" width="43" height="43" rx="3" fill="#244663" stroke="#61e0bd"/>
+<circle cx="414" cy="451" r="4" fill="#61e0bd" stroke="none"/>
+<rect x="515" y="125" width="365" height="72" rx="10" fill="#1b3045" stroke="#76b9fa"/>
+<text x="697.5" y="155" fill="#76b9fa" font-size="19" text-anchor="middle" font-weight="700">32 same-parity pairs</text>
+<text x="697.5" y="178" fill="#a9b9c9" font-size="13" text-anchor="middle">including the 8 equal pairs</text>
+<rect x="515" y="213" width="365" height="72" rx="10" fill="#1b3045" stroke="#f0bd72"/>
+<text x="697.5" y="243" fill="#f0bd72" font-size="19" text-anchor="middle" font-weight="700">32 opposite-parity pairs</text>
+<text x="697.5" y="266" fill="#a9b9c9" font-size="13" text-anchor="middle">including the 8 complements</text>
+<rect x="515" y="301" width="365" height="72" rx="10" fill="#1b3045" stroke="#61e0bd"/>
+<text x="697.5" y="331" fill="#61e0bd" font-size="19" text-anchor="middle" font-weight="700">16 shared addresses</text>
+<text x="697.5" y="354" fill="#a9b9c9" font-size="13" text-anchor="middle">equal or complementary</text>
+<text x="30" y="500" fill="#a9b9c9" font-size="13" text-anchor="start">Rows = lower trigram; columns = upper trigram. Outline and dot mark the shared zone.</text>
+</g></svg>

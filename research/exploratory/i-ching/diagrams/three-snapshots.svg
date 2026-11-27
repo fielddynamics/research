@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="395" viewBox="0 0 960 395" role="img" aria-label="Three independent snapshots">
+<rect x="1" y="1" width="958" height="393" rx="18" fill="#101c2c" stroke="#354c65"/>
+<defs><marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6Z" fill="#a9b9c9"/></marker></defs>
+<g font-family="Arial, Helvetica, sans-serif">
+<text x="30" y="38" fill="#edf2f8" font-size="25" text-anchor="start" font-weight="700">Three independent snapshots</text>
+<text x="30" y="63" fill="#a9b9c9" font-size="14" text-anchor="start">Invariant density blocks of sizes 2, 3, 3; fixed total trace</text>
+<text x="35" y="133" fill="#edf2f8" font-size="18" text-anchor="start" font-weight="700">1 snapshot</text>
+<rect x="200" y="108" width="550" height="36" rx="5" fill="#203348" stroke="#354c65"/>
+<rect x="200" y="108" width="314.2857142857143" height="36" rx="5" fill="#76b9fa" stroke="none"/>
+<text x="775" y="134" fill="#76b9fa" font-size="21" text-anchor="start" font-weight="700">12 / 21</text>
+<text x="200" y="163" fill="#a9b9c9" font-size="13" text-anchor="start">block ranks ≤ 1</text>
+<text x="35" y="213" fill="#edf2f8" font-size="18" text-anchor="start" font-weight="700">2 snapshots</text>
+<rect x="200" y="188" width="550" height="36" rx="5" fill="#203348" stroke="#354c65"/>
+<rect x="200" y="188" width="497.6190476190476" height="36" rx="5" fill="#76b9fa" stroke="none"/>
+<text x="775" y="214" fill="#76b9fa" font-size="21" text-anchor="start" font-weight="700">19 / 21</text>
+<text x="200" y="243" fill="#a9b9c9" font-size="13" text-anchor="start">block ranks ≤ 2</text>
+<text x="35" y="293" fill="#edf2f8" font-size="18" text-anchor="start" font-weight="700">3 snapshots</text>
+<rect x="200" y="268" width="550" height="36" rx="5" fill="#203348" stroke="#354c65"/>
+<rect x="200" y="268" width="550.0" height="36" rx="5" fill="#61e0bd" stroke="none"/>
+<text x="775" y="294" fill="#61e0bd" font-size="21" text-anchor="start" font-weight="700">21 / 21</text>
+<text x="200" y="323" fill="#a9b9c9" font-size="13" text-anchor="start">block ranks ≤ 3</text>
+<text x="30" y="375" fill="#a9b9c9" font-size="13" text-anchor="start">Repeated transforms of a single pure snapshot do not supply independent rank.</text>
+</g></svg>

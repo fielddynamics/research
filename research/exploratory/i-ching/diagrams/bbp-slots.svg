@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="380" viewBox="0 0 960 380" role="img" aria-label="The four BBP coefficients">
+<rect x="1" y="1" width="958" height="378" rx="18" fill="#101c2c" stroke="#354c65"/>
+<defs><marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6Z" fill="#a9b9c9"/></marker></defs>
+<g font-family="Arial, Helvetica, sans-serif">
+<text x="30" y="38" fill="#edf2f8" font-size="25" text-anchor="start" font-weight="700">The four BBP coefficients</text>
+<text x="30" y="63" fill="#a9b9c9" font-size="14" text-anchor="start">Base 16 · period 8 · historical trigram numbering</text>
+<rect x="32" y="102" width="104" height="148" rx="8" fill="#1b3045" stroke="#a9b9c9"/>
+<text x="84" y="129" fill="#a9b9c9" font-size="14" text-anchor="middle" font-weight="700">Earth</text>
+<text x="84" y="152" fill="#a9b9c9" font-size="13" text-anchor="middle">0</text>
+<text x="84" y="199" fill="#a9b9c9" font-size="35" text-anchor="middle" font-weight="700">0</text>
+<text x="84" y="232" fill="#a9b9c9" font-size="12" text-anchor="middle">silent</text>
+<rect x="144" y="102" width="104" height="148" rx="8" fill="#1b3045" stroke="#61e0bd"/>
+<text x="196" y="129" fill="#61e0bd" font-size="14" text-anchor="middle" font-weight="700">Mountain</text>
+<text x="196" y="152" fill="#a9b9c9" font-size="13" text-anchor="middle">1</text>
+<text x="196" y="199" fill="#61e0bd" font-size="35" text-anchor="middle" font-weight="700">+4</text>
+<text x="196" y="232" fill="#a9b9c9" font-size="12" text-anchor="middle">weight</text>
+<rect x="256" y="102" width="104" height="148" rx="8" fill="#1b3045" stroke="#a9b9c9"/>
+<text x="308" y="129" fill="#a9b9c9" font-size="14" text-anchor="middle" font-weight="700">Water</text>
+<text x="308" y="152" fill="#a9b9c9" font-size="13" text-anchor="middle">2</text>
+<text x="308" y="199" fill="#a9b9c9" font-size="35" text-anchor="middle" font-weight="700">0</text>
+<text x="308" y="232" fill="#a9b9c9" font-size="12" text-anchor="middle">weight</text>
+<rect x="368" y="102" width="104" height="148" rx="8" fill="#1b3045" stroke="#a9b9c9"/>
+<text x="420" y="129" fill="#a9b9c9" font-size="14" text-anchor="middle" font-weight="700">Wind</text>
+<text x="420" y="152" fill="#a9b9c9" font-size="13" text-anchor="middle">3</text>
+<text x="420" y="199" fill="#a9b9c9" font-size="35" text-anchor="middle" font-weight="700">0</text>
+<text x="420" y="232" fill="#a9b9c9" font-size="12" text-anchor="middle">weight</text>
+<rect x="480" y="102" width="104" height="148" rx="8" fill="#1b3045" stroke="#f0bd72"/>
+<text x="532" y="129" fill="#f0bd72" font-size="14" text-anchor="middle" font-weight="700">Thunder</text>
+<text x="532" y="152" fill="#a9b9c9" font-size="13" text-anchor="middle">4</text>
+<text x="532" y="199" fill="#f0bd72" font-size="35" text-anchor="middle" font-weight="700">-2</text>
+<text x="532" y="232" fill="#a9b9c9" font-size="12" text-anchor="middle">weight</text>
+<rect x="592" y="102" width="104" height="148" rx="8" fill="#1b3045" stroke="#f0bd72"/>
+<text x="644" y="129" fill="#f0bd72" font-size="14" text-anchor="middle" font-weight="700">Fire</text>
+<text x="644" y="152" fill="#a9b9c9" font-size="13" text-anchor="middle">5</text>
+<text x="644" y="199" fill="#f0bd72" font-size="35" text-anchor="middle" font-weight="700">-1</text>
+<text x="644" y="232" fill="#a9b9c9" font-size="12" text-anchor="middle">weight</text>
+<rect x="704" y="102" width="104" height="148" rx="8" fill="#1b3045" stroke="#f0bd72"/>
+<text x="756" y="129" fill="#f0bd72" font-size="14" text-anchor="middle" font-weight="700">Lake</text>
+<text x="756" y="152" fill="#a9b9c9" font-size="13" text-anchor="middle">6</text>
+<text x="756" y="199" fill="#f0bd72" font-size="35" text-anchor="middle" font-weight="700">-1</text>
+<text x="756" y="232" fill="#a9b9c9" font-size="12" text-anchor="middle">weight</text>
+<rect x="816" y="102" width="104" height="148" rx="8" fill="#1b3045" stroke="#a9b9c9"/>
+<text x="868" y="129" fill="#a9b9c9" font-size="14" text-anchor="middle" font-weight="700">Heaven</text>
+<text x="868" y="152" fill="#a9b9c9" font-size="13" text-anchor="middle">7</text>
+<text x="868" y="199" fill="#a9b9c9" font-size="35" text-anchor="middle" font-weight="700">0</text>
+<text x="868" y="232" fill="#a9b9c9" font-size="12" text-anchor="middle">silent</text>
+<text x="480" y="302" fill="#61e0bd" font-size="26" text-anchor="middle" font-weight="700">+4 − 2 − 1 − 1 = 0</text>
+<text x="30" y="360" fill="#a9b9c9" font-size="13" text-anchor="start">Earth is slot 8 in the BBP denominator convention; its binary index is 0.</text>
+</g></svg>

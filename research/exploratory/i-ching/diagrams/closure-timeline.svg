@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="400" viewBox="0 0 960 400" role="img" aria-label="Candidate three-sweep settlement">
+<rect x="1" y="1" width="958" height="398" rx="18" fill="#101c2c" stroke="#354c65"/>
+<defs><marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6Z" fill="#a9b9c9"/></marker></defs>
+<g font-family="Arial, Helvetica, sans-serif">
+<text x="30" y="38" fill="#edf2f8" font-size="25" text-anchor="start" font-weight="700">Candidate three-sweep settlement</text>
+<text x="30" y="63" fill="#a9b9c9" font-size="14" text-anchor="start">Proposed read schedule; not derived from π traversal or native dynamics</text>
+<text x="54" y="295" fill="#a9b9c9" font-size="15" text-anchor="middle">13</text>
+<line x1="80" y1="290" x2="920" y2="290" stroke="#354c65" stroke-width="1" stroke-dasharray="4 5"/>
+<text x="54" y="223" fill="#a9b9c9" font-size="15" text-anchor="middle">17</text>
+<line x1="80" y1="218" x2="920" y2="218" stroke="#354c65" stroke-width="1" stroke-dasharray="4 5"/>
+<text x="54" y="151" fill="#a9b9c9" font-size="15" text-anchor="middle">21</text>
+<line x1="80" y1="146" x2="920" y2="146" stroke="#354c65" stroke-width="1" stroke-dasharray="4 5"/>
+<line x1="105" y1="290" x2="217" y2="218" stroke="#61e0bd" stroke-width="3"/>
+<line x1="217" y1="218" x2="329" y2="146" stroke="#61e0bd" stroke-width="3"/>
+<circle cx="105" cy="290" r="5" fill="#61e0bd" stroke="none"/>
+<circle cx="217" cy="218" r="5" fill="#61e0bd" stroke="none"/>
+<circle cx="329" cy="146" r="5" fill="#61e0bd" stroke="none"/>
+<text x="217" y="110" fill="#edf2f8" font-size="19" text-anchor="middle" font-weight="700">Sweep 1</text>
+<line x1="329" y1="146" x2="329" y2="290" stroke="#f0bd72" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arr)"/>
+<line x1="329" y1="290" x2="383" y2="290" stroke="#f0bd72" stroke-width="2" stroke-dasharray="6 4"/>
+<line x1="383" y1="290" x2="495" y2="218" stroke="#61e0bd" stroke-width="3"/>
+<line x1="495" y1="218" x2="607" y2="146" stroke="#61e0bd" stroke-width="3"/>
+<circle cx="383" cy="290" r="5" fill="#61e0bd" stroke="none"/>
+<circle cx="495" cy="218" r="5" fill="#61e0bd" stroke="none"/>
+<circle cx="607" cy="146" r="5" fill="#61e0bd" stroke="none"/>
+<text x="495" y="110" fill="#edf2f8" font-size="19" text-anchor="middle" font-weight="700">Sweep 2</text>
+<line x1="607" y1="146" x2="607" y2="290" stroke="#f0bd72" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arr)"/>
+<line x1="607" y1="290" x2="661" y2="290" stroke="#f0bd72" stroke-width="2" stroke-dasharray="6 4"/>
+<line x1="661" y1="290" x2="773" y2="218" stroke="#61e0bd" stroke-width="3"/>
+<line x1="773" y1="218" x2="885" y2="146" stroke="#61e0bd" stroke-width="3"/>
+<circle cx="661" cy="290" r="5" fill="#61e0bd" stroke="none"/>
+<circle cx="773" cy="218" r="5" fill="#61e0bd" stroke="none"/>
+<circle cx="885" cy="146" r="5" fill="#61e0bd" stroke="none"/>
+<text x="773" y="110" fill="#edf2f8" font-size="19" text-anchor="middle" font-weight="700">Sweep 3</text>
+<text x="480" y="340" fill="#f0bd72" font-size="19" text-anchor="middle" font-weight="700">13 → 17 → 21 · immediate reset to 13</text>
+<text x="30" y="380" fill="#a9b9c9" font-size="13" text-anchor="start">333 indexed π positions are a separate traversal observation; no sweep timing is implied.</text>
+</g></svg>

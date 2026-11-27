@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="395" viewBox="0 0 960 395" role="img" aria-label="Reciprocity at the next scale">
+<rect x="1" y="1" width="958" height="393" rx="18" fill="#101c2c" stroke="#354c65"/>
+<defs><marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6Z" fill="#a9b9c9"/></marker></defs>
+<g font-family="Arial, Helvetica, sans-serif">
+<text x="30" y="38" fill="#edf2f8" font-size="25" text-anchor="start" font-weight="700">Reciprocity at the next scale</text>
+<text x="30" y="63" fill="#a9b9c9" font-size="14" text-anchor="start">PG(2,16) · 17 pencil directions · 273 projective points</text>
+<line x1="270.0" y1="93.0" x2="318.76762493526564" y2="102.11624903041196" stroke="#61e0bd" stroke-width="1.6"/>
+<line x1="270.0" y1="93.0" x2="360.9489118922852" y2="128.233796175211" stroke="#61e0bd" stroke-width="1.6"/>
+<line x1="270.0" y1="93.0" x2="390.8470443329334" y2="167.82532197016735" stroke="#61e0bd" stroke-width="1.6"/>
+<line x1="270.0" y1="93.0" x2="404.4241137998297" y2="215.54377147245424" stroke="#61e0bd" stroke-width="1.6"/>
+<line x1="318.76762493526564" y1="102.11624903041196" x2="360.9489118922852" y2="128.233796175211" stroke="#61e0bd" stroke-width="1.6"/>
+<line x1="318.76762493526564" y1="102.11624903041196" x2="390.8470443329334" y2="167.82532197016735" stroke="#61e0bd" stroke-width="1.6"/>
+<line x1="318.76762493526564" y1="102.11624903041196" x2="404.4241137998297" y2="215.54377147245424" stroke="#61e0bd" stroke-width="1.6"/>
+<line x1="360.9489118922852" y1="128.233796175211" x2="390.8470443329334" y2="167.82532197016735" stroke="#61e0bd" stroke-width="1.6"/>
+<line x1="360.9489118922852" y1="128.233796175211" x2="404.4241137998297" y2="215.54377147245424" stroke="#61e0bd" stroke-width="1.6"/>
+<line x1="390.8470443329334" y1="167.82532197016735" x2="404.4241137998297" y2="215.54377147245424" stroke="#61e0bd" stroke-width="1.6"/>
+<line x1="399.8464618283306" y1="264.9445036597312" x2="377.73232568283237" y2="309.35567591119957" stroke="#f0bd72" stroke-width="3"/>
+<line x1="341.0683419884431" y1="342.7793133234979" x2="294.806184905237" y2="360.70136845732674" stroke="#f0bd72" stroke-width="3"/>
+<line x1="245.193815094763" y1="360.70136845732674" x2="198.93165801155695" y2="342.7793133234979" stroke="#f0bd72" stroke-width="3"/>
+<line x1="162.26767431716775" y1="309.35567591119974" x2="140.15353817166942" y2="264.9445036597312" stroke="#f0bd72" stroke-width="3"/>
+<line x1="135.57588620017034" y1="215.54377147245415" x2="149.15295566706655" y2="167.8253219701674" stroke="#f0bd72" stroke-width="3"/>
+<line x1="179.0510881077147" y1="128.23379617521107" x2="221.23237506473436" y2="102.11624903041196" stroke="#f0bd72" stroke-width="3"/>
+<circle cx="270.0" cy="93.0" r="7" fill="#61e0bd" stroke="#101c2c"/>
+<circle cx="318.76762493526564" cy="102.11624903041196" r="7" fill="#61e0bd" stroke="#101c2c"/>
+<circle cx="360.9489118922852" cy="128.233796175211" r="7" fill="#61e0bd" stroke="#101c2c"/>
+<circle cx="390.8470443329334" cy="167.82532197016735" r="7" fill="#61e0bd" stroke="#101c2c"/>
+<circle cx="404.4241137998297" cy="215.54377147245424" r="7" fill="#61e0bd" stroke="#101c2c"/>
+<circle cx="399.8464618283306" cy="264.9445036597312" r="7" fill="#f0bd72" stroke="#101c2c"/>
+<circle cx="377.73232568283237" cy="309.35567591119957" r="7" fill="#f0bd72" stroke="#101c2c"/>
+<circle cx="341.0683419884431" cy="342.7793133234979" r="7" fill="#f0bd72" stroke="#101c2c"/>
+<circle cx="294.806184905237" cy="360.70136845732674" r="7" fill="#f0bd72" stroke="#101c2c"/>
+<circle cx="245.193815094763" cy="360.70136845732674" r="7" fill="#f0bd72" stroke="#101c2c"/>
+<circle cx="198.93165801155695" cy="342.7793133234979" r="7" fill="#f0bd72" stroke="#101c2c"/>
+<circle cx="162.26767431716775" cy="309.35567591119974" r="7" fill="#f0bd72" stroke="#101c2c"/>
+<circle cx="140.15353817166942" cy="264.9445036597312" r="7" fill="#f0bd72" stroke="#101c2c"/>
+<circle cx="135.57588620017034" cy="215.54377147245415" r="7" fill="#f0bd72" stroke="#101c2c"/>
+<circle cx="149.15295566706655" cy="167.8253219701674" r="7" fill="#f0bd72" stroke="#101c2c"/>
+<circle cx="179.0510881077147" cy="128.23379617521107" r="7" fill="#f0bd72" stroke="#101c2c"/>
+<circle cx="221.23237506473436" cy="102.11624903041196" r="7" fill="#f0bd72" stroke="#101c2c"/>
+<circle cx="270" cy="228" r="8" fill="#edf2f8" stroke="none"/>
+<text x="270" y="253" fill="#edf2f8" font-size="14" text-anchor="middle">O</text>
+<text x="670" y="123" fill="#61e0bd" font-size="32" text-anchor="middle" font-weight="700">273 = 21 × 13</text>
+<text x="670" y="154" fill="#a9b9c9" font-size="16" text-anchor="middle">1 origin + 272 directed edges</text>
+<text x="670" y="206" fill="#76b9fa" font-size="31" text-anchor="middle" font-weight="700">137 = 1 + 136</text>
+<text x="670" y="235" fill="#a9b9c9" font-size="16" text-anchor="middle">inversion-even directions</text>
+<text x="670" y="285" fill="#f0bd72" font-size="27" text-anchor="middle" font-weight="700">13 = 1 + 2 × 6</text>
+<text x="670" y="313" fill="#a9b9c9" font-size="16" text-anchor="middle">origin + directed matching edges</text>
+<text x="30" y="375" fill="#a9b9c9" font-size="13" text-anchor="start">Five rational directions (green); six Frobenius-conjugate pairs (gold). Other edges omitted.</text>
+</g></svg>

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="395" viewBox="0 0 960 395" role="img" aria-label="The architecture of closure">
+<rect x="1" y="1" width="958" height="393" rx="18" fill="#101c2c" stroke="#354c65"/>
+<defs><marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6Z" fill="#a9b9c9"/></marker></defs>
+<g font-family="Arial, Helvetica, sans-serif">
+<text x="30" y="38" fill="#edf2f8" font-size="25" text-anchor="start" font-weight="700">The architecture of closure</text>
+<text x="30" y="63" fill="#a9b9c9" font-size="14" text-anchor="start">Exact representation above · proposed physical synthesis below</text>
+<rect x="30" y="105" width="210" height="76" rx="10" fill="#1b3045" stroke="#76b9fa"/>
+<text x="135.0" y="135" fill="#76b9fa" font-size="19" text-anchor="middle" font-weight="700">8 trigrams</text>
+<text x="135.0" y="158" fill="#a9b9c9" font-size="13" text-anchor="middle">two tetrahedra</text>
+<line x1="240" y1="143" x2="258" y2="143" stroke="#a9b9c9" stroke-width="2" marker-end="url(#arr)"/>
+<rect x="260" y="105" width="210" height="76" rx="10" fill="#1b3045" stroke="#f0bd72"/>
+<text x="365.0" y="135" fill="#f0bd72" font-size="19" text-anchor="middle" font-weight="700">64 hexagrams</text>
+<text x="365.0" y="158" fill="#a9b9c9" font-size="13" text-anchor="middle">binary addresses</text>
+<line x1="470" y1="143" x2="488" y2="143" stroke="#a9b9c9" stroke-width="2" marker-end="url(#arr)"/>
+<rect x="490" y="105" width="210" height="76" rx="10" fill="#1b3045" stroke="#61e0bd"/>
+<text x="595.0" y="135" fill="#61e0bd" font-size="19" text-anchor="middle" font-weight="700">22 orbit modes</text>
+<text x="595.0" y="158" fill="#a9b9c9" font-size="13" text-anchor="middle">one + 21</text>
+<line x1="700" y1="143" x2="718" y2="143" stroke="#a9b9c9" stroke-width="2" marker-end="url(#arr)"/>
+<rect x="720" y="105" width="210" height="76" rx="10" fill="#1b3045" stroke="#61e0bd"/>
+<text x="825.0" y="135" fill="#61e0bd" font-size="19" text-anchor="middle" font-weight="700">13 / 17 / 21</text>
+<text x="825.0" y="158" fill="#a9b9c9" font-size="13" text-anchor="middle">orientation character</text>
+<line x1="480" y1="185" x2="480" y2="235" stroke="#a9b9c9" stroke-width="2" stroke-dasharray="5 5" marker-end="url(#arr)"/>
+<rect x="30" y="242" width="210" height="76" rx="10" fill="#1b3045" stroke="#f0bd72"/>
+<text x="135.0" y="272" fill="#f0bd72" font-size="19" text-anchor="middle" font-weight="700">Standing waves</text>
+<text x="135.0" y="295" fill="#a9b9c9" font-size="13" text-anchor="middle">density inventory</text>
+<line x1="240" y1="280" x2="258" y2="280" stroke="#a9b9c9" stroke-width="2" marker-end="url(#arr)"/>
+<rect x="260" y="242" width="210" height="76" rx="10" fill="#1b3045" stroke="#f0bd72"/>
+<text x="365.0" y="272" fill="#f0bd72" font-size="19" text-anchor="middle" font-weight="700">Three snapshots</text>
+<text x="365.0" y="295" fill="#a9b9c9" font-size="13" text-anchor="middle">independent samples</text>
+<line x1="470" y1="280" x2="488" y2="280" stroke="#a9b9c9" stroke-width="2" marker-end="url(#arr)"/>
+<rect x="490" y="242" width="210" height="76" rx="10" fill="#1b3045" stroke="#f0bd72"/>
+<text x="595.0" y="272" fill="#f0bd72" font-size="19" text-anchor="middle" font-weight="700">Spectral read</text>
+<text x="595.0" y="295" fill="#a9b9c9" font-size="13" text-anchor="middle">three Walsh factors</text>
+<line x1="700" y1="280" x2="718" y2="280" stroke="#a9b9c9" stroke-width="2" marker-end="url(#arr)"/>
+<rect x="720" y="242" width="210" height="76" rx="10" fill="#1b3045" stroke="#f0bd72"/>
+<text x="825.0" y="272" fill="#f0bd72" font-size="19" text-anchor="middle" font-weight="700">Field Origin</text>
+<text x="825.0" y="295" fill="#a9b9c9" font-size="13" text-anchor="middle">proposed settlement</text>
+<text x="30" y="375" fill="#a9b9c9" font-size="13" text-anchor="start">The lower chain is a research hypothesis; dimensions alone do not derive its dynamics.</text>
+</g></svg>
