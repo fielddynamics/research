@@ -5,102 +5,102 @@
  -->
 <!-- Title: G Pages: 1 -->
 <svg width="676pt" height="413pt"
- viewBox="0.00 0.00 676.20 413.20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ viewBox="0.00 0.00 676.20 413.20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><linearGradient id="gpbg" x2="1" y2="1"><stop stop-color="#102237"/><stop offset="1" stop-color="#162f43"/></linearGradient></defs>
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(21.6 391.6)">
 <title>G</title>
-<polygon fill="#f6f8fa" stroke="transparent" points="-21.6,21.6 -21.6,-391.6 654.6,-391.6 654.6,21.6 -21.6,21.6"/>
-<text text-anchor="middle" x="316.5" y="-350" font-family="DejaVu Sans" font-size="20.00" fill="#142d43">Walsh–Clifford closure architecture</text>
+<polygon fill="url(#gpbg)" stroke="#496075" points="-21.6,21.6 -21.6,-391.6 654.6,-391.6 654.6,21.6 -21.6,21.6"/>
+<text text-anchor="middle" x="316.5" y="-350" font-family="DejaVu Sans" font-size="20.00" fill="#eef5fb">Walsh–Clifford closure architecture</text>
 <!-- A -->
 <g id="node1" class="node">
 <title>A</title>
-<path fill="#e5eff3" stroke="#7492a4" d="M263,-340C263,-340 150,-340 150,-340 144,-340 138,-334 138,-328 138,-328 138,-316 138,-316 138,-310 144,-304 150,-304 150,-304 263,-304 263,-304 269,-304 275,-310 275,-316 275,-316 275,-328 275,-328 275,-334 269,-340 263,-340"/>
-<text text-anchor="middle" x="206.5" y="-318.9" font-family="DejaVu Sans" font-size="12.00" fill="#142d43">8&#45;state cube node</text>
+<path fill="#1b3a52" stroke="#78bdf0" d="M263,-340C263,-340 150,-340 150,-340 144,-340 138,-334 138,-328 138,-328 138,-316 138,-316 138,-310 144,-304 150,-304 150,-304 263,-304 263,-304 269,-304 275,-310 275,-316 275,-316 275,-328 275,-328 275,-334 269,-340 263,-340"/>
+<text text-anchor="middle" x="206.5" y="-318.9" font-family="DejaVu Sans" font-size="12.00" fill="#eef5fb">8&#45;state cube node</text>
 </g>
 <!-- B -->
 <g id="node2" class="node">
 <title>B</title>
-<path fill="#e5eff3" stroke="#7492a4" d="M173,-268C173,-268 46,-268 46,-268 40,-268 34,-262 34,-256 34,-256 34,-236 34,-236 34,-230 40,-224 46,-224 46,-224 173,-224 173,-224 179,-224 185,-230 185,-236 185,-236 185,-256 185,-256 185,-262 179,-268 173,-268"/>
-<text text-anchor="middle" x="109.5" y="-249.4" font-family="DejaVu Sans" font-size="12.00" fill="#142d43">Walsh basis / Clifford</text>
-<text text-anchor="middle" x="109.5" y="-236.4" font-family="DejaVu Sans" font-size="12.00" fill="#142d43">orientation</text>
+<path fill="#1b3a52" stroke="#78bdf0" d="M173,-268C173,-268 46,-268 46,-268 40,-268 34,-262 34,-256 34,-256 34,-236 34,-236 34,-230 40,-224 46,-224 46,-224 173,-224 173,-224 179,-224 185,-230 185,-236 185,-236 185,-256 185,-256 185,-262 179,-268 173,-268"/>
+<text text-anchor="middle" x="109.5" y="-249.4" font-family="DejaVu Sans" font-size="12.00" fill="#eef5fb">Walsh basis / Clifford</text>
+<text text-anchor="middle" x="109.5" y="-236.4" font-family="DejaVu Sans" font-size="12.00" fill="#eef5fb">orientation</text>
 </g>
 <!-- A&#45;&gt;B -->
 <g id="edge1" class="edge">
 <title>A&#45;&gt;B</title>
-<path fill="none" stroke="#607f90" d="M184,-303.84C171.87,-294.58 156.65,-282.97 143.14,-272.66"/>
-<polygon fill="#607f90" stroke="#607f90" points="144.62,-270.49 137.07,-268.03 141.44,-274.67 144.62,-270.49"/>
+<path fill="none" stroke="#91a9bc" d="M184,-303.84C171.87,-294.58 156.65,-282.97 143.14,-272.66"/>
+<polygon fill="#91a9bc" stroke="#91a9bc" points="144.62,-270.49 137.07,-268.03 141.44,-274.67 144.62,-270.49"/>
 </g>
 <!-- F -->
 <g id="node6" class="node">
 <title>F</title>
-<path fill="#e5eff3" stroke="#7492a4" d="M404,-264C404,-264 233,-264 233,-264 227,-264 221,-258 221,-252 221,-252 221,-240 221,-240 221,-234 227,-228 233,-228 233,-228 404,-228 404,-228 410,-228 416,-234 416,-240 416,-240 416,-252 416,-252 416,-258 410,-264 404,-264"/>
-<text text-anchor="middle" x="318.5" y="-242.9" font-family="DejaVu Sans" font-size="12.00" fill="#142d43">Tensor two nodes: 64 states</text>
+<path fill="#1b3a52" stroke="#78bdf0" d="M404,-264C404,-264 233,-264 233,-264 227,-264 221,-258 221,-252 221,-252 221,-240 221,-240 221,-234 227,-228 233,-228 233,-228 404,-228 404,-228 410,-228 416,-234 416,-240 416,-240 416,-252 416,-252 416,-258 410,-264 404,-264"/>
+<text text-anchor="middle" x="318.5" y="-242.9" font-family="DejaVu Sans" font-size="12.00" fill="#eef5fb">Tensor two nodes: 64 states</text>
 </g>
 <!-- A&#45;&gt;F -->
 <g id="edge5" class="edge">
 <title>A&#45;&gt;F</title>
-<path fill="none" stroke="#607f90" d="M232.48,-303.84C248.45,-293.28 269.05,-279.67 286.09,-268.42"/>
-<polygon fill="#607f90" stroke="#607f90" points="287.85,-270.39 292.66,-264.07 284.96,-266.01 287.85,-270.39"/>
+<path fill="none" stroke="#91a9bc" d="M232.48,-303.84C248.45,-293.28 269.05,-279.67 286.09,-268.42"/>
+<polygon fill="#91a9bc" stroke="#91a9bc" points="287.85,-270.39 292.66,-264.07 284.96,-266.01 287.85,-270.39"/>
 </g>
 <!-- C -->
 <g id="node3" class="node">
 <title>C</title>
-<path fill="#e5eff3" stroke="#7492a4" d="M177,-184C177,-184 12,-184 12,-184 6,-184 0,-178 0,-172 0,-172 0,-160 0,-160 0,-154 6,-148 12,-148 12,-148 177,-148 177,-148 183,-148 189,-154 189,-160 189,-160 189,-172 189,-172 189,-178 183,-184 177,-184"/>
-<text text-anchor="middle" x="94.5" y="-162.9" font-family="DejaVu Sans" font-size="12.00" fill="#142d43">2 axial + 3 Eisenstein pairs</text>
+<path fill="#1b3a52" stroke="#78bdf0" d="M177,-184C177,-184 12,-184 12,-184 6,-184 0,-178 0,-172 0,-172 0,-160 0,-160 0,-154 6,-148 12,-148 12,-148 177,-148 177,-148 183,-148 189,-154 189,-160 189,-160 189,-172 189,-172 189,-178 183,-184 177,-184"/>
+<text text-anchor="middle" x="94.5" y="-162.9" font-family="DejaVu Sans" font-size="12.00" fill="#eef5fb">2 axial + 3 Eisenstein pairs</text>
 </g>
 <!-- B&#45;&gt;C -->
 <g id="edge2" class="edge">
 <title>B&#45;&gt;C</title>
-<path fill="none" stroke="#607f90" d="M105.4,-223.69C103.49,-213.77 101.21,-201.91 99.23,-191.61"/>
-<polygon fill="#607f90" stroke="#607f90" points="101.78,-190.96 97.79,-184.09 96.63,-191.95 101.78,-190.96"/>
+<path fill="none" stroke="#91a9bc" d="M105.4,-223.69C103.49,-213.77 101.21,-201.91 99.23,-191.61"/>
+<polygon fill="#91a9bc" stroke="#91a9bc" points="101.78,-190.96 97.79,-184.09 96.63,-191.95 101.78,-190.96"/>
 </g>
 <!-- D -->
 <g id="node4" class="node">
 <title>D</title>
-<path fill="#e5eff3" stroke="#7492a4" d="M166,-108C166,-108 23,-108 23,-108 17,-108 11,-102 11,-96 11,-96 11,-84 11,-84 11,-78 17,-72 23,-72 23,-72 166,-72 166,-72 172,-72 178,-78 178,-84 178,-84 178,-96 178,-96 178,-102 172,-108 166,-108"/>
-<text text-anchor="middle" x="94.5" y="-86.9" font-family="DejaVu Sans" font-size="12.00" fill="#142d43">Three&#45;phase projection</text>
+<path fill="#1b3a52" stroke="#78bdf0" d="M166,-108C166,-108 23,-108 23,-108 17,-108 11,-102 11,-96 11,-96 11,-84 11,-84 11,-78 17,-72 23,-72 23,-72 166,-72 166,-72 172,-72 178,-78 178,-84 178,-84 178,-96 178,-96 178,-102 172,-108 166,-108"/>
+<text text-anchor="middle" x="94.5" y="-86.9" font-family="DejaVu Sans" font-size="12.00" fill="#eef5fb">Three&#45;phase projection</text>
 </g>
 <!-- C&#45;&gt;D -->
 <g id="edge3" class="edge">
 <title>C&#45;&gt;D</title>
-<path fill="none" stroke="#607f90" d="M94.5,-147.84C94.5,-138.31 94.5,-126.29 94.5,-115.76"/>
-<polygon fill="#607f90" stroke="#607f90" points="97.13,-115.57 94.5,-108.07 91.88,-115.57 97.13,-115.57"/>
+<path fill="none" stroke="#91a9bc" d="M94.5,-147.84C94.5,-138.31 94.5,-126.29 94.5,-115.76"/>
+<polygon fill="#91a9bc" stroke="#91a9bc" points="97.13,-115.57 94.5,-108.07 91.88,-115.57 97.13,-115.57"/>
 </g>
 <!-- E -->
 <g id="node5" class="node">
 <title>E</title>
-<path fill="#e5eff3" stroke="#7492a4" d="M169,-36C169,-36 20,-36 20,-36 14,-36 8,-30 8,-24 8,-24 8,-12 8,-12 8,-6 14,0 20,0 20,0 169,0 169,0 175,0 181,-6 181,-12 181,-12 181,-24 181,-24 181,-30 175,-36 169,-36"/>
-<text text-anchor="middle" x="94.5" y="-14.9" font-family="DejaVu Sans" font-size="12.00" fill="#142d43">Axial associator readout</text>
+<path fill="#1b3a52" stroke="#78bdf0" d="M169,-36C169,-36 20,-36 20,-36 14,-36 8,-30 8,-24 8,-24 8,-12 8,-12 8,-6 14,0 20,0 20,0 169,0 169,0 175,0 181,-6 181,-12 181,-12 181,-24 181,-24 181,-30 175,-36 169,-36"/>
+<text text-anchor="middle" x="94.5" y="-14.9" font-family="DejaVu Sans" font-size="12.00" fill="#eef5fb">Axial associator readout</text>
 </g>
 <!-- D&#45;&gt;E -->
 <g id="edge4" class="edge">
 <title>D&#45;&gt;E</title>
-<path fill="none" stroke="#607f90" d="M94.5,-71.7C94.5,-63.3 94.5,-53.07 94.5,-43.86"/>
-<polygon fill="#607f90" stroke="#607f90" points="97.13,-43.6 94.5,-36.1 91.88,-43.6 97.13,-43.6"/>
+<path fill="none" stroke="#91a9bc" d="M94.5,-71.7C94.5,-63.3 94.5,-53.07 94.5,-43.86"/>
+<polygon fill="#91a9bc" stroke="#91a9bc" points="97.13,-43.6 94.5,-36.1 91.88,-43.6 97.13,-43.6"/>
 </g>
 <!-- H -->
 <g id="node7" class="node">
 <title>H</title>
-<path fill="#e5eff3" stroke="#7492a4" d="M413.5,-188C413.5,-188 223.5,-188 223.5,-188 217.5,-188 211.5,-182 211.5,-176 211.5,-176 211.5,-156 211.5,-156 211.5,-150 217.5,-144 223.5,-144 223.5,-144 413.5,-144 413.5,-144 419.5,-144 425.5,-150 425.5,-156 425.5,-156 425.5,-176 425.5,-176 425.5,-182 419.5,-188 413.5,-188"/>
-<text text-anchor="middle" x="318.5" y="-169.4" font-family="DejaVu Sans" font-size="12.00" fill="#142d43">Four faces: 40 symmetric + 24</text>
-<text text-anchor="middle" x="318.5" y="-156.4" font-family="DejaVu Sans" font-size="12.00" fill="#142d43">exterior</text>
+<path fill="#1b3a52" stroke="#78bdf0" d="M413.5,-188C413.5,-188 223.5,-188 223.5,-188 217.5,-188 211.5,-182 211.5,-176 211.5,-176 211.5,-156 211.5,-156 211.5,-150 217.5,-144 223.5,-144 223.5,-144 413.5,-144 413.5,-144 419.5,-144 425.5,-150 425.5,-156 425.5,-156 425.5,-176 425.5,-176 425.5,-182 419.5,-188 413.5,-188"/>
+<text text-anchor="middle" x="318.5" y="-169.4" font-family="DejaVu Sans" font-size="12.00" fill="#eef5fb">Four faces: 40 symmetric + 24</text>
+<text text-anchor="middle" x="318.5" y="-156.4" font-family="DejaVu Sans" font-size="12.00" fill="#eef5fb">exterior</text>
 </g>
 <!-- F&#45;&gt;H -->
 <g id="edge6" class="edge">
 <title>F&#45;&gt;H</title>
-<path fill="none" stroke="#607f90" d="M318.5,-227.69C318.5,-218.3 318.5,-206.45 318.5,-195.72"/>
-<polygon fill="#607f90" stroke="#607f90" points="321.13,-195.65 318.5,-188.15 315.88,-195.65 321.13,-195.65"/>
+<path fill="none" stroke="#91a9bc" d="M318.5,-227.69C318.5,-218.3 318.5,-206.45 318.5,-195.72"/>
+<polygon fill="#91a9bc" stroke="#91a9bc" points="321.13,-195.65 318.5,-188.15 315.88,-195.65 321.13,-195.65"/>
 </g>
 <!-- G -->
 <g id="node8" class="node">
 <title>G</title>
-<path fill="#d5eee6" stroke="#067d6c" d="M621,-184C621,-184 460,-184 460,-184 454,-184 448,-178 448,-172 448,-172 448,-160 448,-160 448,-154 454,-148 460,-148 460,-148 621,-148 621,-148 627,-148 633,-154 633,-160 633,-160 633,-172 633,-172 633,-178 627,-184 621,-184"/>
-<text text-anchor="middle" x="540.5" y="-162.9" font-family="DejaVu Sans" font-size="12.00" fill="#142d43">Four tiles: ClosureCore256</text>
+<path fill="#173f45" stroke="#59d4b5" d="M621,-184C621,-184 460,-184 460,-184 454,-184 448,-178 448,-172 448,-172 448,-160 448,-160 448,-154 454,-148 460,-148 460,-148 621,-148 621,-148 627,-148 633,-154 633,-160 633,-160 633,-172 633,-172 633,-178 627,-184 621,-184"/>
+<text text-anchor="middle" x="540.5" y="-162.9" font-family="DejaVu Sans" font-size="12.00" fill="#eef5fb">Four tiles: ClosureCore256</text>
 </g>
 <!-- F&#45;&gt;G -->
 <g id="edge7" class="edge">
 <title>F&#45;&gt;G</title>
-<path fill="none" stroke="#607f90" d="M366.94,-227.98C401.63,-215.79 448.42,-199.35 484.67,-186.62"/>
-<polygon fill="#607f90" stroke="#607f90" points="485.57,-189.08 491.78,-184.12 483.83,-184.13 485.57,-189.08"/>
+<path fill="none" stroke="#91a9bc" d="M366.94,-227.98C401.63,-215.79 448.42,-199.35 484.67,-186.62"/>
+<polygon fill="#91a9bc" stroke="#91a9bc" points="485.57,-189.08 491.78,-184.12 483.83,-184.13 485.57,-189.08"/>
 </g>
 </g>
 </svg>

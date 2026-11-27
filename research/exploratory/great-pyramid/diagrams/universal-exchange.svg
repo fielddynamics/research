@@ -5,104 +5,104 @@
  -->
 <!-- Title: G Pages: 1 -->
 <svg width="641pt" height="362pt"
- viewBox="0.00 0.00 641.20 362.20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ viewBox="0.00 0.00 641.20 362.20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><linearGradient id="gpbg" x2="1" y2="1"><stop stop-color="#102237"/><stop offset="1" stop-color="#162f43"/></linearGradient></defs>
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(21.6 340.6)">
 <title>G</title>
-<polygon fill="#f6f8fa" stroke="transparent" points="-21.6,21.6 -21.6,-340.6 619.6,-340.6 619.6,21.6 -21.6,21.6"/>
-<text text-anchor="middle" x="299" y="-299" font-family="DejaVu Sans" font-size="20.00" fill="#142d43">Three proposed regimes of universal exchange</text>
+<polygon fill="url(#gpbg)" stroke="#496075" points="-21.6,21.6 -21.6,-340.6 619.6,-340.6 619.6,21.6 -21.6,21.6"/>
+<text text-anchor="middle" x="299" y="-299" font-family="DejaVu Sans" font-size="20.00" fill="#eef5fb">Three proposed regimes of universal exchange</text>
 <!-- U -->
 <g id="node1" class="node">
 <title>U</title>
-<path fill="#e5eff3" stroke="#7492a4" d="M374.5,-289C374.5,-289 201.5,-289 201.5,-289 195.5,-289 189.5,-283 189.5,-277 189.5,-277 189.5,-257 189.5,-257 189.5,-251 195.5,-245 201.5,-245 201.5,-245 374.5,-245 374.5,-245 380.5,-245 386.5,-251 386.5,-257 386.5,-257 386.5,-277 386.5,-277 386.5,-283 380.5,-289 374.5,-289"/>
-<text text-anchor="middle" x="288" y="-270.4" font-family="DejaVu Sans" font-size="12.00" fill="#142d43">Universal TetA / TetB closure</text>
-<text text-anchor="middle" x="288" y="-257.4" font-family="DejaVu Sans" font-size="12.00" fill="#142d43">exchange</text>
+<path fill="#1b3a52" stroke="#78bdf0" d="M374.5,-289C374.5,-289 201.5,-289 201.5,-289 195.5,-289 189.5,-283 189.5,-277 189.5,-277 189.5,-257 189.5,-257 189.5,-251 195.5,-245 201.5,-245 201.5,-245 374.5,-245 374.5,-245 380.5,-245 386.5,-251 386.5,-257 386.5,-257 386.5,-277 386.5,-277 386.5,-283 380.5,-289 374.5,-289"/>
+<text text-anchor="middle" x="288" y="-270.4" font-family="DejaVu Sans" font-size="12.00" fill="#eef5fb">Universal TetA / TetB closure</text>
+<text text-anchor="middle" x="288" y="-257.4" font-family="DejaVu Sans" font-size="12.00" fill="#eef5fb">exchange</text>
 </g>
 <!-- M -->
 <g id="node2" class="node">
 <title>M</title>
-<path fill="#e5eff3" stroke="#7492a4" d="M172,-204C172,-204 12,-204 12,-204 6,-204 0,-198 0,-192 0,-192 0,-180 0,-180 0,-174 6,-168 12,-168 12,-168 172,-168 172,-168 178,-168 184,-174 184,-180 184,-180 184,-192 184,-192 184,-198 178,-204 172,-204"/>
-<text text-anchor="middle" x="92" y="-182.9" font-family="DejaVu Sans" font-size="12.00" fill="#142d43">Persistent local circulation</text>
+<path fill="#1b3a52" stroke="#78bdf0" d="M172,-204C172,-204 12,-204 12,-204 6,-204 0,-198 0,-192 0,-192 0,-180 0,-180 0,-174 6,-168 12,-168 12,-168 172,-168 172,-168 178,-168 184,-174 184,-180 184,-180 184,-192 184,-192 184,-198 178,-204 172,-204"/>
+<text text-anchor="middle" x="92" y="-182.9" font-family="DejaVu Sans" font-size="12.00" fill="#eef5fb">Persistent local circulation</text>
 </g>
 <!-- U&#45;&gt;M -->
 <g id="edge1" class="edge">
 <title>U&#45;&gt;M</title>
-<path fill="none" stroke="#607f90" d="M235.73,-244.93C206.46,-233.13 170.17,-218.51 141.38,-206.9"/>
-<polygon fill="#607f90" stroke="#607f90" points="142.17,-204.39 134.23,-204.02 140.21,-209.26 142.17,-204.39"/>
+<path fill="none" stroke="#91a9bc" d="M235.73,-244.93C206.46,-233.13 170.17,-218.51 141.38,-206.9"/>
+<polygon fill="#91a9bc" stroke="#91a9bc" points="142.17,-204.39 134.23,-204.02 140.21,-209.26 142.17,-204.39"/>
 </g>
 <!-- G -->
 <g id="node3" class="node">
 <title>G</title>
-<path fill="#e5eff3" stroke="#7492a4" d="M356.5,-208C356.5,-208 219.5,-208 219.5,-208 213.5,-208 207.5,-202 207.5,-196 207.5,-196 207.5,-176 207.5,-176 207.5,-170 213.5,-164 219.5,-164 219.5,-164 356.5,-164 356.5,-164 362.5,-164 368.5,-170 368.5,-176 368.5,-176 368.5,-196 368.5,-196 368.5,-202 362.5,-208 356.5,-208"/>
-<text text-anchor="middle" x="288" y="-189.4" font-family="DejaVu Sans" font-size="12.00" fill="#142d43">Distributed incoherent</text>
-<text text-anchor="middle" x="288" y="-176.4" font-family="DejaVu Sans" font-size="12.00" fill="#142d43">exchange</text>
+<path fill="#1b3a52" stroke="#78bdf0" d="M356.5,-208C356.5,-208 219.5,-208 219.5,-208 213.5,-208 207.5,-202 207.5,-196 207.5,-196 207.5,-176 207.5,-176 207.5,-170 213.5,-164 219.5,-164 219.5,-164 356.5,-164 356.5,-164 362.5,-164 368.5,-170 368.5,-176 368.5,-176 368.5,-196 368.5,-196 368.5,-202 362.5,-208 356.5,-208"/>
+<text text-anchor="middle" x="288" y="-189.4" font-family="DejaVu Sans" font-size="12.00" fill="#eef5fb">Distributed incoherent</text>
+<text text-anchor="middle" x="288" y="-176.4" font-family="DejaVu Sans" font-size="12.00" fill="#eef5fb">exchange</text>
 </g>
 <!-- U&#45;&gt;G -->
 <g id="edge2" class="edge">
 <title>U&#45;&gt;G</title>
-<path fill="none" stroke="#607f90" d="M288,-244.83C288,-235.97 288,-225.54 288,-215.99"/>
-<polygon fill="#607f90" stroke="#607f90" points="290.63,-215.73 288,-208.23 285.38,-215.73 290.63,-215.73"/>
+<path fill="none" stroke="#91a9bc" d="M288,-244.83C288,-235.97 288,-225.54 288,-215.99"/>
+<polygon fill="#91a9bc" stroke="#91a9bc" points="290.63,-215.73 288,-208.23 285.38,-215.73 290.63,-215.73"/>
 </g>
 <!-- C -->
 <g id="node4" class="node">
 <title>C</title>
-<path fill="#e5eff3" stroke="#7492a4" d="M575.5,-204C575.5,-204 402.5,-204 402.5,-204 396.5,-204 390.5,-198 390.5,-192 390.5,-192 390.5,-180 390.5,-180 390.5,-174 396.5,-168 402.5,-168 402.5,-168 575.5,-168 575.5,-168 581.5,-168 587.5,-174 587.5,-180 587.5,-180 587.5,-192 587.5,-192 587.5,-198 581.5,-204 575.5,-204"/>
-<text text-anchor="middle" x="489" y="-182.9" font-family="DejaVu Sans" font-size="12.00" fill="#142d43">Coherently driven exchange</text>
+<path fill="#1b3a52" stroke="#78bdf0" d="M575.5,-204C575.5,-204 402.5,-204 402.5,-204 396.5,-204 390.5,-198 390.5,-192 390.5,-192 390.5,-180 390.5,-180 390.5,-174 396.5,-168 402.5,-168 402.5,-168 575.5,-168 575.5,-168 581.5,-168 587.5,-174 587.5,-180 587.5,-180 587.5,-192 587.5,-192 587.5,-198 581.5,-204 575.5,-204"/>
+<text text-anchor="middle" x="489" y="-182.9" font-family="DejaVu Sans" font-size="12.00" fill="#eef5fb">Coherently driven exchange</text>
 </g>
 <!-- U&#45;&gt;C -->
 <g id="edge3" class="edge">
 <title>U&#45;&gt;C</title>
-<path fill="none" stroke="#607f90" d="M341.6,-244.93C371.62,-233.13 408.83,-218.51 438.36,-206.9"/>
-<polygon fill="#607f90" stroke="#607f90" points="439.67,-209.21 445.69,-204.02 437.75,-204.32 439.67,-209.21"/>
+<path fill="none" stroke="#91a9bc" d="M341.6,-244.93C371.62,-233.13 408.83,-218.51 438.36,-206.9"/>
+<polygon fill="#91a9bc" stroke="#91a9bc" points="439.67,-209.21 445.69,-204.02 437.75,-204.32 439.67,-209.21"/>
 </g>
 <!-- MM -->
 <g id="node5" class="node">
 <title>MM</title>
-<path fill="#e5eff3" stroke="#7492a4" d="M167,-123C167,-123 13,-123 13,-123 7,-123 1,-117 1,-111 1,-111 1,-99 1,-99 1,-93 7,-87 13,-87 13,-87 167,-87 167,-87 173,-87 179,-93 179,-99 179,-99 179,-111 179,-111 179,-117 173,-123 167,-123"/>
-<text text-anchor="middle" x="90" y="-101.9" font-family="DejaVu Sans" font-size="12.00" fill="#142d43">Matter / vortex inventory</text>
+<path fill="#1b3a52" stroke="#78bdf0" d="M167,-123C167,-123 13,-123 13,-123 7,-123 1,-117 1,-111 1,-111 1,-99 1,-99 1,-93 7,-87 13,-87 13,-87 167,-87 167,-87 173,-87 179,-93 179,-99 179,-99 179,-111 179,-111 179,-117 173,-123 167,-123"/>
+<text text-anchor="middle" x="90" y="-101.9" font-family="DejaVu Sans" font-size="12.00" fill="#eef5fb">Matter / vortex inventory</text>
 </g>
 <!-- M&#45;&gt;MM -->
 <g id="edge4" class="edge">
 <title>M&#45;&gt;MM</title>
-<path fill="none" stroke="#607f90" d="M91.57,-167.86C91.29,-156.99 90.93,-142.75 90.62,-130.67"/>
-<polygon fill="#607f90" stroke="#607f90" points="93.25,-130.54 90.43,-123.11 88,-130.67 93.25,-130.54"/>
+<path fill="none" stroke="#91a9bc" d="M91.57,-167.86C91.29,-156.99 90.93,-142.75 90.62,-130.67"/>
+<polygon fill="#91a9bc" stroke="#91a9bc" points="93.25,-130.54 90.43,-123.11 88,-130.67 93.25,-130.54"/>
 </g>
 <!-- GG -->
 <g id="node6" class="node">
 <title>GG</title>
-<path fill="#d5eee6" stroke="#067d6c" d="M365,-123C365,-123 213,-123 213,-123 207,-123 201,-117 201,-111 201,-111 201,-99 201,-99 201,-93 207,-87 213,-87 213,-87 365,-87 365,-87 371,-87 377,-93 377,-99 377,-99 377,-111 377,-111 377,-117 371,-123 365,-123"/>
-<text text-anchor="middle" x="289" y="-101.9" font-family="DejaVu Sans" font-size="12.00" fill="#142d43">Gravity / field settlement</text>
+<path fill="#173f45" stroke="#59d4b5" d="M365,-123C365,-123 213,-123 213,-123 207,-123 201,-117 201,-111 201,-111 201,-99 201,-99 201,-93 207,-87 213,-87 213,-87 365,-87 365,-87 371,-87 377,-93 377,-99 377,-99 377,-111 377,-111 377,-117 371,-123 365,-123"/>
+<text text-anchor="middle" x="289" y="-101.9" font-family="DejaVu Sans" font-size="12.00" fill="#eef5fb">Gravity / field settlement</text>
 </g>
 <!-- G&#45;&gt;GG -->
 <g id="edge5" class="edge">
 <title>G&#45;&gt;GG</title>
-<path fill="none" stroke="#607f90" d="M288.27,-163.83C288.4,-153.7 288.55,-141.51 288.68,-130.94"/>
-<polygon fill="#607f90" stroke="#607f90" points="291.31,-130.77 288.78,-123.23 286.06,-130.7 291.31,-130.77"/>
+<path fill="none" stroke="#91a9bc" d="M288.27,-163.83C288.4,-153.7 288.55,-141.51 288.68,-130.94"/>
+<polygon fill="#91a9bc" stroke="#91a9bc" points="291.31,-130.77 288.78,-123.23 286.06,-130.7 291.31,-130.77"/>
 </g>
 <!-- CC -->
 <g id="node7" class="node">
 <title>CC</title>
-<path fill="#d5eee6" stroke="#067d6c" d="M554.5,-127C554.5,-127 423.5,-127 423.5,-127 417.5,-127 411.5,-121 411.5,-115 411.5,-115 411.5,-95 411.5,-95 411.5,-89 417.5,-83 423.5,-83 423.5,-83 554.5,-83 554.5,-83 560.5,-83 566.5,-89 566.5,-95 566.5,-95 566.5,-115 566.5,-115 566.5,-121 560.5,-127 554.5,-127"/>
-<text text-anchor="middle" x="489" y="-108.4" font-family="DejaVu Sans" font-size="12.00" fill="#142d43">Resonant Field Origin</text>
-<text text-anchor="middle" x="489" y="-95.4" font-family="DejaVu Sans" font-size="12.00" fill="#142d43">apparatus</text>
+<path fill="#173f45" stroke="#59d4b5" d="M554.5,-127C554.5,-127 423.5,-127 423.5,-127 417.5,-127 411.5,-121 411.5,-115 411.5,-115 411.5,-95 411.5,-95 411.5,-89 417.5,-83 423.5,-83 423.5,-83 554.5,-83 554.5,-83 560.5,-83 566.5,-89 566.5,-95 566.5,-95 566.5,-115 566.5,-115 566.5,-121 560.5,-127 554.5,-127"/>
+<text text-anchor="middle" x="489" y="-108.4" font-family="DejaVu Sans" font-size="12.00" fill="#eef5fb">Resonant Field Origin</text>
+<text text-anchor="middle" x="489" y="-95.4" font-family="DejaVu Sans" font-size="12.00" fill="#eef5fb">apparatus</text>
 </g>
 <!-- C&#45;&gt;CC -->
 <g id="edge6" class="edge">
 <title>C&#45;&gt;CC</title>
-<path fill="none" stroke="#607f90" d="M489,-167.86C489,-158.22 489,-145.93 489,-134.85"/>
-<polygon fill="#607f90" stroke="#607f90" points="491.63,-134.55 489,-127.05 486.38,-134.55 491.63,-134.55"/>
+<path fill="none" stroke="#91a9bc" d="M489,-167.86C489,-158.22 489,-145.93 489,-134.85"/>
+<polygon fill="#91a9bc" stroke="#91a9bc" points="491.63,-134.55 489,-127.05 486.38,-134.55 491.63,-134.55"/>
 </g>
 <!-- T -->
 <g id="node8" class="node">
 <title>T</title>
-<path fill="#e5eff3" stroke="#7492a4" d="M586,-36C586,-36 392,-36 392,-36 386,-36 380,-30 380,-24 380,-24 380,-12 380,-12 380,-6 386,0 392,0 392,0 586,0 586,0 592,0 598,-6 598,-12 598,-12 598,-24 598,-24 598,-30 592,-36 586,-36"/>
-<text text-anchor="middle" x="489" y="-14.9" font-family="DejaVu Sans" font-size="12.00" fill="#142d43">Matched state&#45;transfer channel</text>
+<path fill="#1b3a52" stroke="#78bdf0" d="M586,-36C586,-36 392,-36 392,-36 386,-36 380,-30 380,-24 380,-24 380,-12 380,-12 380,-6 386,0 392,0 392,0 586,0 586,0 592,0 598,-6 598,-12 598,-12 598,-24 598,-24 598,-30 592,-36 586,-36"/>
+<text text-anchor="middle" x="489" y="-14.9" font-family="DejaVu Sans" font-size="12.00" fill="#eef5fb">Matched state&#45;transfer channel</text>
 </g>
 <!-- CC&#45;&gt;T -->
 <g id="edge7" class="edge">
 <title>CC&#45;&gt;T</title>
-<path fill="none" stroke="#607f90" stroke-dasharray="5,2" d="M489,-82.99C489,-71.13 489,-56.25 489,-43.82"/>
-<polygon fill="#607f90" stroke="#607f90" points="491.63,-43.56 489,-36.06 486.38,-43.56 491.63,-43.56"/>
-<text text-anchor="middle" x="537.5" y="-57" font-family="DejaVu Sans" font-size="10.00" fill="#52677a">proposed extension</text>
+<path fill="none" stroke="#91a9bc" stroke-dasharray="5,2" d="M489,-82.99C489,-71.13 489,-56.25 489,-43.82"/>
+<polygon fill="#91a9bc" stroke="#91a9bc" points="491.63,-43.56 489,-36.06 486.38,-43.56 491.63,-43.56"/>
+<text text-anchor="middle" x="537.5" y="-57" font-family="DejaVu Sans" font-size="10.00" fill="#b7c9d7">proposed extension</text>
 </g>
 </g>
 </svg>

@@ -5,65 +5,65 @@
  -->
 <!-- Title: G Pages: 1 -->
 <svg width="706pt" height="225pt"
- viewBox="0.00 0.00 706.20 225.20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ viewBox="0.00 0.00 706.20 225.20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><linearGradient id="gpbg" x2="1" y2="1"><stop stop-color="#102237"/><stop offset="1" stop-color="#162f43"/></linearGradient></defs>
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(21.6 203.6)">
 <title>G</title>
-<polygon fill="#f6f8fa" stroke="transparent" points="-21.6,21.6 -21.6,-203.6 684.6,-203.6 684.6,21.6 -21.6,21.6"/>
-<text text-anchor="middle" x="331.5" y="-162" font-family="DejaVu Sans" font-size="20.00" fill="#142d43">Conditional three&#45;pyramid frequency array</text>
+<polygon fill="url(#gpbg)" stroke="#496075" points="-21.6,21.6 -21.6,-203.6 684.6,-203.6 684.6,21.6 -21.6,21.6"/>
+<text text-anchor="middle" x="331.5" y="-162" font-family="DejaVu Sans" font-size="20.00" fill="#eef5fb">Conditional three&#45;pyramid frequency array</text>
 <!-- A -->
 <g id="node1" class="node">
 <title>A</title>
-<path fill="#e5eff3" stroke="#7492a4" d="M179,-152C179,-152 29,-152 29,-152 23,-152 17,-146 17,-140 17,-140 17,-128 17,-128 17,-122 23,-116 29,-116 29,-116 179,-116 179,-116 185,-116 191,-122 191,-128 191,-128 191,-140 191,-140 191,-146 185,-152 179,-152"/>
-<text text-anchor="middle" x="104" y="-130.9" font-family="DejaVu Sans" font-size="12.00" fill="#142d43">Khufu: reference scale 1</text>
+<path fill="#1b3a52" stroke="#78bdf0" d="M179,-152C179,-152 29,-152 29,-152 23,-152 17,-146 17,-140 17,-140 17,-128 17,-128 17,-122 23,-116 29,-116 29,-116 179,-116 179,-116 185,-116 191,-122 191,-128 191,-128 191,-140 191,-140 191,-146 185,-152 179,-152"/>
+<text text-anchor="middle" x="104" y="-130.9" font-family="DejaVu Sans" font-size="12.00" fill="#eef5fb">Khufu: reference scale 1</text>
 </g>
 <!-- D -->
 <g id="node2" class="node">
 <title>D</title>
-<path fill="#e5eff3" stroke="#7492a4" d="M423,-94C423,-94 256,-94 256,-94 250,-94 244,-88 244,-82 244,-82 244,-70 244,-70 244,-64 250,-58 256,-58 256,-58 423,-58 423,-58 429,-58 435,-64 435,-70 435,-70 435,-82 435,-82 435,-88 429,-94 423,-94"/>
-<text text-anchor="middle" x="339.5" y="-72.9" font-family="DejaVu Sans" font-size="12.00" fill="#142d43">Candidate three&#45;tone array</text>
+<path fill="#1b3a52" stroke="#78bdf0" d="M423,-94C423,-94 256,-94 256,-94 250,-94 244,-88 244,-82 244,-82 244,-70 244,-70 244,-64 250,-58 256,-58 256,-58 423,-58 423,-58 429,-58 435,-64 435,-70 435,-70 435,-82 435,-82 435,-88 429,-94 423,-94"/>
+<text text-anchor="middle" x="339.5" y="-72.9" font-family="DejaVu Sans" font-size="12.00" fill="#eef5fb">Candidate three&#45;tone array</text>
 </g>
 <!-- A&#45;&gt;D -->
 <g id="edge1" class="edge">
 <title>A&#45;&gt;D</title>
-<path fill="none" stroke="#607f90" d="M177.6,-115.97C203.3,-109.58 232.34,-102.37 258.61,-95.84"/>
-<polygon fill="#607f90" stroke="#607f90" points="259.3,-98.38 265.94,-94.02 258.03,-93.28 259.3,-98.38"/>
+<path fill="none" stroke="#91a9bc" d="M177.6,-115.97C203.3,-109.58 232.34,-102.37 258.61,-95.84"/>
+<polygon fill="#91a9bc" stroke="#91a9bc" points="259.3,-98.38 265.94,-94.02 258.03,-93.28 259.3,-98.38"/>
 </g>
 <!-- E -->
 <g id="node5" class="node">
 <title>E</title>
-<path fill="#e5eff3" stroke="#7492a4" d="M651,-98C651,-98 483,-98 483,-98 477,-98 471,-92 471,-86 471,-86 471,-66 471,-66 471,-60 477,-54 483,-54 483,-54 651,-54 651,-54 657,-54 663,-60 663,-66 663,-66 663,-86 663,-86 663,-92 657,-98 651,-98"/>
-<text text-anchor="middle" x="567" y="-79.4" font-family="DejaVu Sans" font-size="12.00" fill="#142d43">Conditional tones: 1, 16/15,</text>
-<text text-anchor="middle" x="567" y="-66.4" font-family="DejaVu Sans" font-size="12.00" fill="#142d43">17/8</text>
+<path fill="#1b3a52" stroke="#78bdf0" d="M651,-98C651,-98 483,-98 483,-98 477,-98 471,-92 471,-86 471,-86 471,-66 471,-66 471,-60 477,-54 483,-54 483,-54 651,-54 651,-54 657,-54 663,-60 663,-66 663,-66 663,-86 663,-86 663,-92 657,-98 651,-98"/>
+<text text-anchor="middle" x="567" y="-79.4" font-family="DejaVu Sans" font-size="12.00" fill="#eef5fb">Conditional tones: 1, 16/15,</text>
+<text text-anchor="middle" x="567" y="-66.4" font-family="DejaVu Sans" font-size="12.00" fill="#eef5fb">17/8</text>
 </g>
 <!-- D&#45;&gt;E -->
 <g id="edge4" class="edge">
 <title>D&#45;&gt;E</title>
-<path fill="none" stroke="#607f90" d="M435.15,-76C444.47,-76 453.96,-76 463.36,-76"/>
-<polygon fill="#607f90" stroke="#607f90" points="463.37,-78.63 470.87,-76 463.37,-73.38 463.37,-78.63"/>
+<path fill="none" stroke="#91a9bc" d="M435.15,-76C444.47,-76 453.96,-76 463.36,-76"/>
+<polygon fill="#91a9bc" stroke="#91a9bc" points="463.37,-78.63 470.87,-76 463.37,-73.38 463.37,-78.63"/>
 </g>
 <!-- B -->
 <g id="node3" class="node">
 <title>B</title>
-<path fill="#e5eff3" stroke="#7492a4" d="M189.5,-94C189.5,-94 18.5,-94 18.5,-94 12.5,-94 6.5,-88 6.5,-82 6.5,-82 6.5,-70 6.5,-70 6.5,-64 12.5,-58 18.5,-58 18.5,-58 189.5,-58 189.5,-58 195.5,-58 201.5,-64 201.5,-70 201.5,-70 201.5,-82 201.5,-82 201.5,-88 195.5,-94 189.5,-94"/>
-<text text-anchor="middle" x="104" y="-72.9" font-family="DejaVu Sans" font-size="12.00" fill="#142d43">Khafre: nominal scale 15/16</text>
+<path fill="#1b3a52" stroke="#78bdf0" d="M189.5,-94C189.5,-94 18.5,-94 18.5,-94 12.5,-94 6.5,-88 6.5,-82 6.5,-82 6.5,-70 6.5,-70 6.5,-64 12.5,-58 18.5,-58 18.5,-58 189.5,-58 189.5,-58 195.5,-58 201.5,-64 201.5,-70 201.5,-70 201.5,-82 201.5,-82 201.5,-88 195.5,-94 189.5,-94"/>
+<text text-anchor="middle" x="104" y="-72.9" font-family="DejaVu Sans" font-size="12.00" fill="#eef5fb">Khafre: nominal scale 15/16</text>
 </g>
 <!-- B&#45;&gt;D -->
 <g id="edge2" class="edge">
 <title>B&#45;&gt;D</title>
-<path fill="none" stroke="#607f90" d="M201.66,-76C213.08,-76 224.77,-76 236.27,-76"/>
-<polygon fill="#607f90" stroke="#607f90" points="236.29,-78.63 243.79,-76 236.29,-73.38 236.29,-78.63"/>
+<path fill="none" stroke="#91a9bc" d="M201.66,-76C213.08,-76 224.77,-76 236.27,-76"/>
+<polygon fill="#91a9bc" stroke="#91a9bc" points="236.29,-78.63 243.79,-76 236.29,-73.38 236.29,-78.63"/>
 </g>
 <!-- C -->
 <g id="node4" class="node">
 <title>C</title>
-<path fill="#e5eff3" stroke="#7492a4" d="M196,-36C196,-36 12,-36 12,-36 6,-36 0,-30 0,-24 0,-24 0,-12 0,-12 0,-6 6,0 12,0 12,0 196,0 196,0 202,0 208,-6 208,-12 208,-12 208,-24 208,-24 208,-30 202,-36 196,-36"/>
-<text text-anchor="middle" x="104" y="-14.9" font-family="DejaVu Sans" font-size="12.00" fill="#142d43">Menkaure: nominal scale 8/17</text>
+<path fill="#1b3a52" stroke="#78bdf0" d="M196,-36C196,-36 12,-36 12,-36 6,-36 0,-30 0,-24 0,-24 0,-12 0,-12 0,-6 6,0 12,0 12,0 196,0 196,0 202,0 208,-6 208,-12 208,-12 208,-24 208,-24 208,-30 202,-36 196,-36"/>
+<text text-anchor="middle" x="104" y="-14.9" font-family="DejaVu Sans" font-size="12.00" fill="#eef5fb">Menkaure: nominal scale 8/17</text>
 </g>
 <!-- C&#45;&gt;D -->
 <g id="edge3" class="edge">
 <title>C&#45;&gt;D</title>
-<path fill="none" stroke="#607f90" d="M177.6,-36.03C203.3,-42.42 232.34,-49.63 258.61,-56.16"/>
-<polygon fill="#607f90" stroke="#607f90" points="258.03,-58.72 265.94,-57.98 259.3,-53.62 258.03,-58.72"/>
+<path fill="none" stroke="#91a9bc" d="M177.6,-36.03C203.3,-42.42 232.34,-49.63 258.61,-56.16"/>
+<polygon fill="#91a9bc" stroke="#91a9bc" points="258.03,-58.72 265.94,-57.98 259.3,-53.62 258.03,-58.72"/>
 </g>
 </g>
 </svg>
