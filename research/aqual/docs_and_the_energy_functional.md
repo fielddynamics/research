@@ -79,6 +79,8 @@ Every statement below is checked by [`verify_docs_intersection.py`](verify_docs_
 
    Paper VII's action leaves $\mathcal L_{\text{matter}}$ unspecified, so the paper is not contradicted, only docs 06. One sentence would close this: say how matter couples to $\Phi$. In RAQUAL, matter couples to $\tilde g = e^{2\Phi/c^2}g$, which gives $-\rho\Phi$ at weak field.
 
+   **Resolved.** In GFD $\Phi$ is not a separate scalar: it is the metric's own Newtonian potential. Minimal coupling to the metric is therefore the coupling to $\Phi$, since $-mc^2\sqrt{-g_{00}} \approx -mc^2 - m\Phi$ gives $-\rho\Phi$ in the weak field. The [quasi-static proof](../../proofs/sst-quasi-static-limit/) shows and checks this step, and docs 06 now says so. The papers' modified Poisson equation, and everything built on it (RAR, decoder, Tully–Fisher), uses exactly this source.
+
 8. **Naming.** The archive uses "the field equation" and "scalar-tensor transition" inconsistently.
    - Docs 02 calls the capacity function $f(x) = (21x+13)/(x+1)$ "the field equation".
    - Docs 02, docs 06, the rotation-curves page and Paper XIII call the quadratic $g_s = g_t^2/(a_0 + g_t)$ "the scalar-tensor transition".
