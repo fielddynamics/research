@@ -112,6 +112,12 @@ So the π walk does not perform the read step by step. Integer addition mod 8 ca
 - **The π walk and the read stay distinct.** Whether some effective operator of the π-driven dynamics reduces to R, and produces the collective determinant, is open; step by step it does not.
 - **The premises for G are unchanged.** The gain |t|² = α and the determinant source remain premises of Proof 26.
 
+## Further results
+
+Two notes take this algebra further:
+- [Finite-field reciprocity](ICHING_FINITE_FIELD_RECIPROCITY.md) writes a hexagram as a + ωb in GF(64), reads the Walsh transform as a Hermitian incidence transform, and proves a reciprocal-edge theorem for the 17 pencil directions of PG(2,16).
+- [The Frobenius reciprocal tower](FROBENIUS_RECIPROCAL_TOWER.md) splits the 273-point plane by Frobenius and inversion, and decomposes the eight trigrams by the Fano plane.
+
 ## Verify
 
 `python scripts/verify_hexagram_closure_read.py` (needs `numpy` and `mpmath`): 26 checks, output in [`scripts/verify_hexagram_closure_read_output.txt`](scripts/verify_hexagram_closure_read_output.txt). It covers:
