@@ -4,13 +4,9 @@
 
 `coupling-polynomial` `cyclotomic` `Niven` `finite-geometry` `PG(2,4)` `ovoid` `proof`
 
-[![Lean proof](https://github.com/fielddynamics/research/actions/workflows/lean-great-pyramid-gp3.yml/badge.svg)](https://github.com/fielddynamics/research/actions/workflows/lean-great-pyramid-gp3.yml)
-
-**Lean.** 24 statements machine-checked in Lean 4 / Mathlib ([`lean/`](lean/), [audit](LEAN_AUDIT.md)).
+[![Lean proof](https://github.com/fielddynamics/research/actions/workflows/lean-great-pyramid-gp3.yml/badge.svg)](https://github.com/fielddynamics/research/actions/workflows/lean-great-pyramid-gp3.yml) [![Scripted checks](https://img.shields.io/badge/scripted_checks-47_passing-2563eb.svg)](verify_output.txt) [![Lean 4](https://img.shields.io/badge/Lean_4-24_theorems-7c3aed.svg)](LEAN_AUDIT.md) [![Figures](https://img.shields.io/badge/figures-3-0d9488.svg)](figures/) [![Research status](https://img.shields.io/badge/status-exploratory-64748b.svg)](../../CORE_FRAMEWORK.md)
 
 **Status.** Theorems 1–6 are **[T]**: proved below, with every step checked by [`verify_gp3_signatures_hinge.py`](verify_gp3_signatures_hinge.py) (47 checks, [output](verify_output.txt)). They are statements about integers, polynomials and finite fields. That these numbers *carry* physical couplings is the framework's reading (llms.txt, Rules 5–6), not something proved here.
-
-**Revision 2 (27 Nov 2026, after the [referee audit](../referee-audit/)).** A shorter classification proof (Theorem 1b), unitary rigidity of the 17 + 4 grading (Theorem 6b), the complete classification of interlevel intertwiners (Theorem 7), coprimality of the **whole** fusion tower (Theorem 4b), and a caveat on the finite geometries. Point-by-point: [`../REFEREE_RESPONSE.md`](../REFEREE_RESPONSE.md).
 
 ---
 
@@ -45,7 +41,7 @@ The following are equivalent:
 
 So the three structural states are the only three non-degenerate choices. $\square$
 
-**Theorem 1b (a shorter proof, from the referee).** $s = \zeta + \bar\zeta$ is an algebraic integer. If it is rational it is an integer, and $|s| \le 2$. The endpoints $s = \pm 2$ give the reducible squares $(K \pm 1)^2$. For $s = -1, 0, +1$ the discriminants $s^2 - 4$ are $-3, -4, -3$, all negative, so the quadratics are irreducible over $\mathbb Q$. No totient search is needed. The hypothesis (an irreducible monic integer quadratic norm form of a root of unity) is still essential, and nothing here selects $K = 4$.
+**Theorem 1b (a shorter proof).** $s = \zeta + \bar\zeta$ is an algebraic integer. If it is rational it is an integer, and $|s| \le 2$. The endpoints $s = \pm 2$ give the reducible squares $(K \pm 1)^2$. For $s = -1, 0, +1$ the discriminants $s^2 - 4$ are $-3, -4, -3$, all negative, so the quadratics are irreducible over $\mathbb Q$. No totient search is needed. The hypothesis (an irreducible monic integer quadratic norm form of a root of unity) is still essential, and nothing here selects $K = 4$.
 
 ## Theorem 2 (the hinge is the only coincidence between levels)
 
@@ -118,7 +114,7 @@ On $T_K = \mathbf 1 \oplus V \oplus (V\otimes V)$ with $\dim V = K$:
 
 These identities are in README §3, and in Proof 26 Theorem 7 as grade traces. The script re-checks them with explicit projectors for $K = 2,\ldots,5$.
 
-**Theorem 6b (unitary rigidity, from the referee).** Let $J$ be a self-adjoint involution on a 21-dimensional complex (or real) Hilbert space with $\operatorname{Tr}J = 13$. Then $J$ is unitarily (orthogonally) equivalent to $I_{17} \oplus (-I_4)$, by the spectral theorem and the multiplicities above. With $P_{\rm FO} = (I+J)/2$ and $P_{\rm odd} = (I-J)/2$, the operators $A_s = P_{\rm FO} + sP_{\rm odd}$ satisfy $A_{+1} = I$, $A_0 = P_{\rm FO}$ and $A_{-1} = J$, with traces 21, 17 and 13. So the "Field Origin" is the parity-even **projection** (rank 17). TetB's 13 is a signed trace, not the dimension of a 13-dimensional space. Unitary equivalence classifies the abstract operator; it does not pick a canonical basis relative to a specific Walsh read, and it does not show that any physical transfer is $\alpha^{A_s}$.
+**Theorem 6b (unitary rigidity).** Let $J$ be a self-adjoint involution on a 21-dimensional complex (or real) Hilbert space with $\operatorname{Tr}J = 13$. Then $J$ is unitarily (orthogonally) equivalent to $I_{17} \oplus (-I_4)$, by the spectral theorem and the multiplicities above. With $P_{\rm FO} = (I+J)/2$ and $P_{\rm odd} = (I-J)/2$, the operators $A_s = P_{\rm FO} + sP_{\rm odd}$ satisfy $A_{+1} = I$, $A_0 = P_{\rm FO}$ and $A_{-1} = J$, with traces 21, 17 and 13. So the "Field Origin" is the parity-even **projection** (rank 17). TetB's 13 is a signed trace, not the dimension of a 13-dimensional space. Unitary equivalence classifies the abstract operator; it does not pick a canonical basis relative to a specific Walsh read, and it does not show that any physical transfer is $\alpha^{A_s}$.
 
 ## Theorem 7 (every exact interlevel intertwiner lives on the hinge block)
 
@@ -132,7 +128,7 @@ $$\boxed{T = P_{K+1,-}\,T\,P_{K,+},}$$
 
 and, conversely, every map supported on that block intertwines. The space of intertwiners is exactly $\operatorname{Hom}(E_{K,+}, E_{K+1,-})$. Its dimension is $\dim E_{K,+} \times \dim E_{K+1,-}$, which the script checks on 12 random multiplicity patterns. Two non-adjacent shells ($K \to K+2$) admit only $T = 0$.
 
-Two cautions. First, $T = 0$ is always an intertwiner: matching bands do not imply a nonzero transition. Second, when the eigenspaces are larger than one-dimensional, choosing a particular $T$ needs a symmetry or dynamical selection rule. This replaces the earlier "define one rank-one map and check it" argument with the complete solution space. Reading shell labels as energies is still a premise.
+Two cautions. First, $T = 0$ is always an intertwiner: matching bands do not imply a nonzero transition. Second, when the eigenspaces are larger than one-dimensional, choosing a particular $T$ needs a symmetry or dynamical selection rule. This is the complete solution space, not one chosen rank-one map. Reading shell labels as energies is still a premise.
 
 ![Allowed support of every intertwiner from level K to K + 1](figures/fig2_intertwiner_block.svg)
 

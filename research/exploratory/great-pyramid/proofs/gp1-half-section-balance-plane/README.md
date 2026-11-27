@@ -4,13 +4,9 @@
 
 `geometry` `flux` `divergence-theorem` `balance-plane` `D=3` `proof`
 
-[![Lean proof](https://github.com/fielddynamics/research/actions/workflows/lean-great-pyramid-gp1.yml/badge.svg)](https://github.com/fielddynamics/research/actions/workflows/lean-great-pyramid-gp1.yml)
-
-**Lean.** 9 statements machine-checked in Lean 4 / Mathlib ([`lean/`](lean/), [audit](LEAN_AUDIT.md)).
+[![Lean proof](https://github.com/fielddynamics/research/actions/workflows/lean-great-pyramid-gp1.yml/badge.svg)](https://github.com/fielddynamics/research/actions/workflows/lean-great-pyramid-gp1.yml) [![Scripted checks](https://img.shields.io/badge/scripted_checks-57_passing-2563eb.svg)](verify_output.txt) [![Lean 4](https://img.shields.io/badge/Lean_4-9_theorems-7c3aed.svg)](LEAN_AUDIT.md) [![Figures](https://img.shields.io/badge/figures-4-0d9488.svg)](figures/) [![Research status](https://img.shields.io/badge/status-exploratory-64748b.svg)](../../CORE_FRAMEWORK.md)
 
 **Status.** Theorems 1–5 are **[T]**: proved below, with every step checked by [`verify_gp1_half_section.py`](verify_gp1_half_section.py) (57 exact checks, [output](verify_output.txt)). Proposition 6 is a labelling, and Proposition 6b an exact but **conditional** operator realisation of it; neither is a derivation of physics. Observation 7 is **[O]**. Calling the balance plane a "local Field Origin" is **[E]** (see *Naming* below).
-
-**Revision 2 (27 Nov 2026, after the [referee audit](../referee-audit/)).** Regularity hypotheses stated; the survey comparison now uses bounded allowance intervals instead of a pseudo-σ; the look-elsewhere window is corrected; Proposition 6b (graded operator) added; figures added. The point-by-point response is in [`../REFEREE_RESPONSE.md`](../REFEREE_RESPONSE.md).
 
 ---
 
@@ -98,7 +94,7 @@ Using GP-3's grading (orthogonal projectors $P_{\rm even}$ of rank 17 and $P_{\r
 
 $$A_B(u) = P_{\rm even} + \bigl[2(1-u)^2 - 1\bigr]P_{\rm odd}.$$
 
-Then $\operatorname{Tr}A_B(u) = 13 + 8\mu_B(u)$. Also $A_B(0) = I$ (trace 21), $A_B(u^*) = P_{\rm even}$ (trace 17) and $A_B(1) = J = P_{\rm even} - P_{\rm odd}$ (trace 13). At the balance level the four-dimensional signed sector is exactly suppressed: $A_B(u^*)P_{\rm odd} = 0$. This upgrades the labelling of Proposition 6 to an operator that singles out a sector, and it was suggested by the referee. The algebra is exact. Whether any material or field dynamics realises this operator is **[E]**: it does not identify the half-flux plane with the native Field Origin, and it does not equate $\mu_B$ with the gravitational share $\mu_g$ (GP-2, Theorem 8).
+Then $\operatorname{Tr}A_B(u) = 13 + 8\mu_B(u)$. Also $A_B(0) = I$ (trace 21), $A_B(u^*) = P_{\rm even}$ (trace 17) and $A_B(1) = J = P_{\rm even} - P_{\rm odd}$ (trace 13). At the balance level the four-dimensional signed sector is exactly suppressed: $A_B(u^*)P_{\rm odd} = 0$. This upgrades the labelling of Proposition 6 to an operator that singles out a sector. The algebra is exact. Whether any material or field dynamics realises this operator is **[E]**: it does not identify the half-flux plane with the native Field Origin, and it does not equate $\mu_B$ with the gravitational share $\mu_g$ (GP-2, Theorem 8).
 
 ![Trace of the graded structural operator against height](figures/fig4_graded_trace.svg)
 
@@ -116,7 +112,7 @@ Petrie's (1883) values, each a verified row of [`../../metrics/`](../../metrics/
 | Volume-balance level | 1191.6 in, 501 in (132 allowances) from the floor |
 | Height-balance level | 2888.0 in, 1195 in (315 allowances) from the floor |
 
-The allowances are **bounds added linearly**, not independent Gaussian standard deviations. The earlier version combined them into a "σ" and quoted 186σ and 443σ exclusions; those were not justified statistical claims and are withdrawn. The defensible statement is: **the nominal half-flux prediction lies within one inch of the King's Chamber floor, well inside the reconstructed survey uncertainty.**
+The allowances are **bounds added linearly**, not independent Gaussian standard deviations. They are not a σ, so no σ-based exclusion is quoted. The defensible statement is: **the nominal half-flux prediction lies within one inch of the King's Chamber floor, well inside the reconstructed survey uncertainty.**
 
 ![Survey and model comparison with allowance intervals](figures/fig3_survey.svg)
 

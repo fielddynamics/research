@@ -4,13 +4,9 @@
 
 `flux` `centroid` `perturbation-bound` `net-field-rule` `proof`
 
-[![Lean proof](https://github.com/fielddynamics/research/actions/workflows/lean-great-pyramid-gp2.yml/badge.svg)](https://github.com/fielddynamics/research/actions/workflows/lean-great-pyramid-gp2.yml)
-
-**Lean.** 11 statements machine-checked in Lean 4 / Mathlib ([`lean/`](lean/), [audit](LEAN_AUDIT.md)).
+[![Lean proof](https://github.com/fielddynamics/research/actions/workflows/lean-great-pyramid-gp2.yml/badge.svg)](https://github.com/fielddynamics/research/actions/workflows/lean-great-pyramid-gp2.yml) [![Scripted checks](https://img.shields.io/badge/scripted_checks-52_passing-2563eb.svg)](verify_output.txt) [![Lean 4](https://img.shields.io/badge/Lean_4-11_theorems-7c3aed.svg)](LEAN_AUDIT.md) [![Figures](https://img.shields.io/badge/figures-3-0d9488.svg)](figures/) [![Research status](https://img.shields.io/badge/status-exploratory-64748b.svg)](../../CORE_FRAMEWORK.md)
 
 **Status.** Theorems 1–7 are **[T]**: proved below, with every step checked by [`verify_gp2_robustness.py`](verify_gp2_robustness.py) (52 checks, [output](verify_output.txt)). Theorems 1–4 are checked exactly; T5–T7 use 40-digit numerics. Theorem 8 is **[T]** given the net-field rule, which is itself **[T+L]** in [`proofs/net-field-rule/`](../../../../../proofs/net-field-rule/).
-
-**Revision 2 (27 Nov 2026, after the [referee audit](../referee-audit/)).** Uniqueness now holds for **every real** gradient $b$; the sharpness witnesses are properly normalised ($r(0) = 1$), with explicit existence and uniqueness hypotheses; the self-gravity bound is sharpened from 0.36 in to 0.163 in; Theorem 8 separates three shares by name. Point-by-point: [`../REFEREE_RESPONSE.md`](../REFEREE_RESPONSE.md).
 
 ---
 
@@ -49,13 +45,13 @@ So the whole effect of an affine background is **one number**: the fractional ch
 
 Let $g_b(u) = (1-u)^2(1+bu)$, the **signed** normalised section flux. For **every** $b \in \mathbb R$ there is exactly one $u \in (0,1)$ with $g_b(u) = \tfrac12$.
 
-*Proof (referee's argument, verified exactly).* Solving $g_b(u) = \tfrac12$ for $b$ gives
+*Proof (verified exactly by script).* Solving $g_b(u) = \tfrac12$ for $b$ gives
 
 $$b = B(u) = \frac{1/[2(1-u)^2] - 1}{u},\qquad B'(u) = \frac{(1-u)^3 + u^2(3-u)}{2u^2(1-u)^3} > 0 \ \text{on } (0,1),$$
 
 with $B(0^+) = -\infty$ and $B(1^-) = +\infty$. So $B$ is an increasing bijection $(0,1) \to \mathbb R$, and each $b$ has exactly one balance level. $\square$
 
-The ratio stays defined for $b \le -1$: the base flux is nonzero, and $J_z$ merely changes sign on the axis (e.g. $g_{-2}(3/4) = -1/32$). The earlier restriction to $b > -1$ is needed only if one also wants $g_b$ to be a **positive share** in $[0,1]$, which requires $b \ge -1$ (and $g_b$ exceeds 1 somewhere when $b > 2$). The Lean file proves strict monotonicity for $-1 < b \le 2$; the all-$b$ statement is checked exactly by script.
+The ratio stays defined for $b \le -1$: the base flux is nonzero, and $J_z$ merely changes sign on the axis (e.g. $g_{-2}(3/4) = -1/32$). A restriction to $b > -1$ is needed only if one also wants $g_b$ to be a **positive share** in $[0,1]$, which requires $b \ge -1$ (and $g_b$ exceeds 1 somewhere when $b > 2$). The Lean file proves strict monotonicity for $-1 < b \le 2$; the all-$b$ statement is checked exactly by script.
 
 ![The signed share for three gradients, and the bijection B(u)](figures/fig1_all_b_uniqueness.svg)
 
@@ -77,7 +73,7 @@ intersected with $[0,1]$. The half-width is $\varepsilon/(2\sqrt2) + O(\varepsil
 
 **Existence and uniqueness (hypotheses made explicit).** If the normalised section flux $(1-u)^2 r(u)$ is continuous, it runs from 1 at the base to 0 at the apex, so a root exists by the intermediate value theorem. If $r$ is differentiable and positive with $r'/r < 2/(1-u)$, then $(1-u)^2 r$ is strictly decreasing and the root is unique.
 
-**Sharpness, with properly normalised witnesses.** The earlier version used constant ratios $1 \pm \varepsilon$, which violate $r(0) = 1$. The correct witnesses are
+**Sharpness, with normalised witnesses.** Constant ratios $1 \pm \varepsilon$ would violate $r(0) = 1$. The witnesses are
 
 $$r_\pm(u) = 1 \pm \varepsilon\,\min(u/u_\pm, 1),$$
 
@@ -103,7 +99,7 @@ which is exact. Solving $\mu_B = \tfrac12$ with Petrie's base of 9068.8 in and h
 
 The self-field is *sourced* ($\nabla\cdot\mathbf J = \rho \ne 0$ inside the stone, in the normalisation $\mathbf J = \mu\nabla\Phi/4\pi G$), so the frustum balance does not hold for it: the enclosed source must be accounted for. $\mu_B$ as a ratio of section fluxes is still defined, and Theorem 5 applies.
 
-**Sharper bound by rearrangement (referee).** For mass of density at most $\rho$ filling a volume $V$, the integral $\int_B |x-y|^{-2}dy$ is largest when $B$ is the ball of equal volume centred at $x$, because the kernel decreases with distance. Hence
+**Bound by rearrangement.** For mass of density at most $\rho$ filling a volume $V$, the integral $\int_B |x-y|^{-2}dy$ is largest when $B$ is the ball of equal volume centred at $x$, because the kernel decreases with distance. Hence
 
 $$|\mathbf g_{\rm self}(x)| \le 4\pi G\rho R_{\rm eq},\qquad R_{\rm eq} = (3V/4\pi)^{1/3}.$$
 
@@ -111,7 +107,7 @@ With $V = a^2h/3$ (Petrie's $a = 230.348$ m, $h = 146.710$ m), $R_{\rm eq} = 85.
 
 $$\varepsilon_{\rm total} \le \frac{g_0\varepsilon_E + 2g_{\rm self}}{g_0 - g_{\rm self}} = 7.96\times10^{-5}.$$
 
-Theorem 5, taking the larger endpoint, then puts **the gravitational balance level within 0.163 in of $0.292893\,h$**. The earlier, cruder bound $8\pi G\rho R_c$ gave 0.36 in and remains true, but is superseded.
+Theorem 5, taking the larger endpoint, then puts **the gravitational balance level within 0.163 in of $0.292893\,h$**. (The cruder bound $8\pi G\rho R_c$, using a ball of twice the circumradius, gives 0.36 in.)
 
 ![The gravity budget against the residual and the survey allowance](figures/fig3_gravity_budget.svg)
 

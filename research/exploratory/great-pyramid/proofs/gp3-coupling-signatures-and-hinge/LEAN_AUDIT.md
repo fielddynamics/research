@@ -25,7 +25,7 @@
 | Theorem 4 | `fusion, fusion'` | `f K 1 · f K (-1) = f (K²) 1 = 1 + K² f K 0` |
 | Theorem 4 | `tower` | `f(K^(2^n),1) = f(K,1) ∏_{j<n} f(K^(2^j),-1)` |
 | Theorem 4b | `tower_factor_dvd, tower_head_dvd` | every earlier tower factor divides `A_n = f(K^(2^n), 1)` |
-| Theorem 4b | `tower_pairwise_coprime, tower_head_coprime` | `A_0, B_0, B_1, …` pairwise coprime, for every `K : ℤ` (referee's induction) |
+| Theorem 4b | `tower_pairwise_coprime, tower_head_coprime` | `A_0, B_0, B_1, …` pairwise coprime, for every `K : ℤ` (by induction) |
 | Theorem 4 | `tower_at_four` | the K = 4 values 21, 13, 17, 273, 241, 65793, … |
 | Theorem 6 | `graded_trace, involution_multiplicities` | trace form; multiplicities (17, 4) forced |
 

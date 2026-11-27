@@ -216,7 +216,7 @@ check("P6 a population spread evenly over those minima is registered (C_21 = 1) 
       abs(abs(harmonic(uni21, 21)) - 1) < TOL and abs(harmonic(uni21, 1)) < TOL)
 
 
-print("\n-- Theorem 1b (referee): the rotated polygon's harmonics carry the rotation phase")
+print("\n-- Theorem 1b: the rotated polygon's harmonics carry the rotation phase")
 ok = True
 for N in (3, 7, 21):
     th0 = mp.mpf("0.731")
@@ -227,7 +227,7 @@ for N in (3, 7, 21):
             ok = False
 check("T1b uniform rotated N-gon: m_k = e^{i k theta0} if N | k, else 0 (N = 3, 7, 21)", ok)
 
-print("\n-- Theorem 4b (referee): approximate coprime locking, C1 >= 1 - [sqrt(1-C7) + 2 sqrt(1-C3)]^2")
+print("\n-- Theorem 4b: approximate coprime locking, C1 >= 1 - [sqrt(1-C7) + 2 sqrt(1-C3)]^2")
 ok, worst = True, mp.mpf(1)
 for trial in range(3000):
     n = rng.randint(1, 8)
@@ -243,7 +243,7 @@ check("T4b 3000 random ensembles satisfy the bound", ok, f"min(C1 - bound) = {fl
 check("T4b equal stages C3 = C7 = r give C1 >= 1 - 9(1 - r): 99% per stage guarantees 91% coherence",
       abs((1 - (mp.sqrt(mp.mpf("0.01")) + 2 * mp.sqrt(mp.mpf("0.01"))) ** 2) - mp.mpf("0.91")) < 1e-40)
 
-print("\n-- Theorem 5b (referee): complementary reconstruction F21 = (2/3) F14 + (1/3) F7")
+print("\n-- Theorem 5b: complementary reconstruction F21 = (2/3) F14 + (1/3) F7")
 S7 = [k for k in range(21) if k % 3 == 0]
 F7 = filtered(S7, 21)
 check("T5b the 7 characters k = 0 mod 3: F7(d) = 1 if 7 | d, else 0",
@@ -256,7 +256,7 @@ check("T5b incoherent (intensity) addition cannot cancel the aliases: (2/3)|F14|
 check("T5b the scalar 14-filter separates a match (1) from an alias (-1/2) but not the two aliases from each other",
       abs(F14[0] - 1) < TOL and abs(F14[7] - F14[14]) < TOL and abs(F14[7] + mp.mpf(1) / 2) < TOL)
 
-print("\n-- Proposition 6b (referee): a coercive amplitude-phase potential with 21 phase minima")
+print("\n-- Proposition 6b: a coercive amplitude-phase potential with 21 phase minima")
 rho_, th_, a_, b4, c_, h_ = sp.symbols("rho theta a b c h", real=True)
 Vp = a_ * rho_ ** 2 + b4 * rho_ ** 4 + c_ * rho_ ** 22 - 2 * h_ * rho_ ** 21 * sp.cos(21 * th_)
 stiff = sp.simplify(sp.diff(Vp, th_, 2).subs(th_, 2 * sp.pi * 5 / 21))

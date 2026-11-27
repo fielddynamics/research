@@ -324,7 +324,7 @@ check("T8 within the constitutive law, mu = 1/2 requires g = a0, i.e. a field 8e
       sp.solve(sp.Eq(sp.Symbol('X') / (sp.Symbol('X') + 1), sp.Rational(1, 2)), sp.Symbol('X')) == [1])
 
 
-print("\n-- Theorem 3b (referee): the balance level is unique for EVERY real b")
+print("\n-- Theorem 3b: the balance level is unique for EVERY real b")
 uu = sp.symbols("uu", positive=True)
 Bf = (1 / (2 * (1 - uu) ** 2) - 1) / uu
 dB = sp.together(sp.diff(Bf, uu))
@@ -342,7 +342,7 @@ check("T3b exactly one root in (0,1) for b in {-1000,-50,-10,-3,-2,-1,-1/2,0,2,1
 check("T3b for b < -1 the signed ratio is defined (g(0) = 1) and turns negative near the apex: g_{-2}(3/4) = -1/32",
       g.subs({b_: -2, u_: 0}) == 1 and g.subs({b_: -2, u_: sp.Rational(3, 4)}) == sp.Rational(-1, 32))
 
-print("\n-- Theorem 5b (referee): normalised sharpness witnesses and existence/uniqueness hypotheses")
+print("\n-- Theorem 5b: normalised sharpness witnesses and existence/uniqueness hypotheses")
 ok = True
 for epsv in [mp.mpf("0.01"), mp.mpf("0.1"), mp.mpf("0.4")]:
     lo, hi = interval(epsv)
@@ -360,7 +360,7 @@ rr = sp.Function("r")
 check("T5b (1-u)^2 r(u) is strictly decreasing iff r'/r < 2/(1-u) (derivative identity)",
       sp.simplify(sp.diff((1 - x_) ** 2 * rr(x_), x_) - (1 - x_) * ((1 - x_) * sp.diff(rr(x_), x_) - 2 * rr(x_))) == 0)
 
-print("\n-- Theorem 7b (referee): sharper self-gravity bound by rearrangement, 4 pi G rho R_eq")
+print("\n-- Theorem 7b: sharper self-gravity bound by rearrangement, 4 pi G rho R_eq")
 Vpy = (SIDE ** 2) * H / 3
 R_eq = (3 * Vpy / (4 * mp.pi)) ** (mp.mpf(1) / 3)
 g_self_eq = 4 * mp.pi * G * rho * R_eq

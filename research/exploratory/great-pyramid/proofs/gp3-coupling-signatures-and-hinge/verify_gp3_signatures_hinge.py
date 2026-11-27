@@ -257,13 +257,13 @@ check("T6 an involution J with Tr I = 21, Tr J = 13 has eigenvalue multiplicitie
 check("T6 det(alpha^{I_s}) = alpha^{Tr I_s} = alpha^{17 + 4 s}: exponents 13, 17, 21", [17 + 4 * v for v in (-1, 0, 1)] == [13, 17, 21])
 
 
-print("\n-- Theorem 1b (referee): the short proof; s = zeta + conj(zeta) is an algebraic integer")
+print("\n-- Theorem 1b: the short proof; s = zeta + conj(zeta) is an algebraic integer")
 check("T1b discriminants of f(K,s) = K^2 + sK + 1 are s^2 - 4: -3, -4, -3 for s = -1, 0, 1 (all < 0: irreducible over Q)",
       [v * v - 4 for v in (-1, 0, 1)] == [-3, -4, -3])
 check("T1b a rational algebraic integer is an integer, and |zeta + conj zeta| <= 2, so s in {-2,...,2}",
       sp.Rational(1, 2).is_integer is False and all(abs(int(v)) <= 2 for v in (-2, -1, 0, 1, 2)))
 
-print("\n-- Theorem 6b (referee): unitary rigidity of the 17 + 4 grading")
+print("\n-- Theorem 6b: unitary rigidity of the 17 + 4 grading")
 import numpy as np
 rng = np.random.default_rng(7)
 ok = True
@@ -280,7 +280,7 @@ for trial in range(30):
         ok = False
 check("T6b every symmetric involution on R^21 with trace 13 is conjugate to I_17 + (-I_4); A_s = P_FO + s P_odd has traces 21, 17, 13", ok)
 
-print("\n-- Theorem 7 (referee): every exact interlevel intertwiner lives on the hinge block")
+print("\n-- Theorem 7: every exact interlevel intertwiner lives on the hinge block")
 def shell(Kv, dims):
     """Shell Hamiltonian with eigenvalues f(K,-1), f(K,0), f(K,1) of the given multiplicities."""
     return np.diag(sum(([float(f(Kv, v))] * d for v, d in zip((-1, 0, 1), dims)), []))
@@ -315,7 +315,7 @@ Zt = np.zeros((Hb.shape[0], Ha.shape[0]))
 check("T7 the zero map always intertwines: a matching band does not imply a nonzero transition",
       np.allclose(Hb @ Zt, Zt @ Ha))
 
-print("\n-- Theorem 4b (referee): the whole fusion tower is pairwise coprime (proof by induction)")
+print("\n-- Theorem 4b: the whole fusion tower is pairwise coprime (proof by induction)")
 ok = True
 for Kv in range(2, 11):
     facs = [f(Kv, 1)] + [f(Kv ** (2 ** j), -1) for j in range(5)]

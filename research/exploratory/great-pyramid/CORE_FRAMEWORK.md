@@ -2,11 +2,13 @@
 
 *What is proved, what is inherited, what is observed and what is hypothesis, in one dependency structure · Gravity Field Dynamics (GFD) · Exploratory research programme · 27 November 2026*
 
+[![Core proofs](https://img.shields.io/badge/core_proofs-5-2563eb.svg)](proofs/README.md) [![Scripted checks](https://img.shields.io/badge/scripted_checks-233_passing-2563eb.svg)](proofs/README.md) [![Lean 4](https://img.shields.io/badge/Lean_4-65_theorems-7c3aed.svg)](proofs/README.md) [![Verified metrics](https://img.shields.io/badge/metrics-112_verified-0d9488.svg)](metrics/README.md) [![Research status](https://img.shields.io/badge/status-exploratory-64748b.svg)](#layer-3--hypotheses-e-restated-against-layer-1)
+
 ---
 
 ## Purpose
 
-The Great Pyramid folder holds a large exploratory programme: about 120 notes, 1,210 passing regression tests and a Stargate hypothesis. This document picks out the part of it that is solid and arranges it as a framework with explicit layers. Each statement sits in one of four layers, and each layer may use only the layers below it. Five new proofs ([`proofs/`](proofs/), 233 checks, 65 Lean theorems; revised after a [referee audit](proofs/referee-audit/)) supply the load-bearing theorems that were previously missing, stated only in a special case, or stated without their converse.
+The Great Pyramid folder holds a large exploratory programme: about 120 notes, 1,210 passing regression tests and a Stargate hypothesis. This document picks out the part of it that is solid and arranges it as a framework with explicit layers. Each statement sits in one of four layers, and each layer may use only the layers below it. Five new proofs ([`proofs/`](proofs/), 233 checks, 65 Lean theorems) supply the load-bearing theorems that were previously missing, stated only in a special case, or stated without their converse.
 
 | Layer | Content | Tag |
 |---|---|---|
@@ -142,9 +144,9 @@ These follow from Layer 1 and the repository's own naming rules. The notes thems
 
 ---
 
-## The three missing bridges (from the referee audit)
+## The three missing bridges
 
-The five proofs are infrastructure. What turns them into a physical hypothesis is three maps, none yet derived. The referee's formulations are recorded here as the programme's central open problems.
+The five proofs are infrastructure. What turns them into a physical hypothesis is three maps, none yet derived. They are the programme's central open problems.
 
 - **Bridge A: geometry → registration.** $\mathcal A(u) = P_{17} + [2\mu_B(u) - 1]P_4$ (GP-1 P6b) is the neutral projection at the half-section plane by definition. A native transduction theorem must show that a physical coupling has this spatial dependence. It should start from the action on a bounded domain and derive the boundary functional. It must prove, not assume, that its parity-odd matrix elements vanish at structural balance. And it must keep the geometric plane, the constitutive ring $x = 1$ and the native Field Origin distinct.
 - **Bridge B: registration → phase dynamics.** $\mathcal V(\Psi) = V_{\rm radial}(|\Psi|) - 2h|\Psi|^{21}\cos 21\theta$ (GP-4 P6b). Dimension 21 does not imply a $\mathbb Z_{21}$ phase symmetry, so the actual symmetry group and its action on the order parameter must be derived. If the group acts by $e^{2\pi i/21}$, harmonic 21 is the first allowed one, but its coefficient could still vanish: the dynamics must produce it. It must also be settled whether the 3- and 7-fold stages implement registration, separate locking (which forces coherence, GP-4 T4b) or complementary selection (GP-4 T5b).

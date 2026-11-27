@@ -187,7 +187,7 @@ check("T6 with kappa = kappa_0 M_xy the coupling budget gives P(t) <= sin^2(min(
       all(math.sin(min(0.5 * m * 3.0, math.pi / 2)) ** 2 <= math.sin(min(0.5 * 3.0, math.pi / 2)) ** 2 for m in np.linspace(0, 1, 11)))
 
 
-print("\n-- Theorem 2b (referee): saturation holds up to the first complete transfer, not beyond")
+print("\n-- Theorem 2b: saturation holds up to the first complete transfer, not beyond")
 res2 = evolve([(0.0, 0.0, 0.5)] * 400, 0.025)          # resonant, k = 0.5, to t = 10 > pi/(2k)
 before = [abs(a - math.sin(bb)) < 1e-12 for a, bb in res2 if bb <= math.pi / 2]
 after = [a < 1 - 1e-3 for a, bb in res2 if bb > math.pi / 2 + 0.3]
@@ -204,7 +204,7 @@ for trial in range(200):
             okinv = False
 check("C9 the inverse bound holds on 200 random drives", okinv)
 
-print("\n-- Theorem 7 (referee): an induced coupling from an intermediate sector (Schur complement)")
+print("\n-- Theorem 7: an induced coupling from an intermediate sector (Schur complement)")
 okS = True
 for trial in range(40):
     nB = int(rng.integers(1, 5))
@@ -232,7 +232,7 @@ Heff0 = Vl @ np.linalg.inv(0.0 * np.eye(2) - HBl) @ Vl.T
 check("T7 zero-channel countermodel: block-local intermediate dynamics with disjoint supports give kappa_induced = 0 exactly",
       abs(Heff0[0, 1]) < 1e-15)
 
-print("\n-- Theorem 6b (referee): chirality must be tested inside the same relabelling")
+print("\n-- Theorem 6b: chirality must be tested inside the same relabelling")
 Fr0 = np.eye(3); Fsw = Fr0[:, [1, 0, 2]]
 chi = lambda F: int(np.sign(np.linalg.det(F)))
 G0, Gsw = Fr0.T @ Fr0, Fsw.T @ Fsw
@@ -252,7 +252,7 @@ check("T6b repaired selector (chirality x det P inside the max) is invariant und
 check("T6b caveat: with full relabelling freedom a symmetric Gram (here I_3) also admits odd automorphisms, so chirality "
       "discrimination needs intrinsically labelled axes", M_new(G0, G0, chi(Fr0), chi(Fr0)) == 1)
 
-print("\n-- Proposition 8 (referee): optimum transfer time under equal loss")
+print("\n-- Proposition 8: optimum transfer time under equal loss")
 kk_, gg_ = 0.7, 0.3
 topt = math.atan(2 * kk_ / gg_) / kk_
 Popt = 4 * kk_ ** 2 / (gg_ ** 2 + 4 * kk_ ** 2) * math.exp(-gg_ / kk_ * math.atan(2 * kk_ / gg_))

@@ -2,14 +2,14 @@
 
 *Five proofs that fix what is exact in the Great Pyramid programme, what it rests on, and what it cannot claim · Gravity Field Dynamics (GFD), exploratory*
 
+[![Licence: MIT](https://img.shields.io/badge/licence-MIT-blue.svg)](../../../../LICENSE) [![Core proofs](https://img.shields.io/badge/core_proofs-5-2563eb.svg)](#at-a-glance) [![Scripted checks](https://img.shields.io/badge/scripted_checks-233_passing-2563eb.svg)](run_all.py) [![Lean 4](https://img.shields.io/badge/Lean_4-65_theorems-7c3aed.svg)](#lean) [![Figures](https://img.shields.io/badge/figures-17-0d9488.svg)](make_figures.py) [![Research status](https://img.shields.io/badge/status-exploratory-64748b.svg)](../CORE_FRAMEWORK.md)
+
 Each folder holds:
 - a README (statement, proof, premises, necessity, scope, figures);
 - a verification script that prints PASS or FAIL for every step, with its output;
 - a Lean 4 formalisation of the algebraic and finite statements, with a `LEAN_AUDIT.md`.
 
 The framework these proofs belong to is described in [`../CORE_FRAMEWORK.md`](../CORE_FRAMEWORK.md). Every monument dimension they use is a verified row of [`../metrics/`](../metrics/).
-
-**Revision 2 (27 Nov 2026).** All five proofs were revised after a [senior referee audit](referee-audit/). Every point in it was re-derived before adoption; the [point-by-point response](REFEREE_RESPONSE.md) says what changed and where.
 
 | Proof | Result | Checks | Lean |
 |---|---|:-:|:-:|
@@ -38,4 +38,6 @@ python make_figures.py   # regenerates every figure from the verified formulas (
 
 **Status tags** follow the repository (llms.txt, Rule 11): **[T]** theorem, **[D]** derived, **[E]** exploratory, **[O]** observational.
 
-**Lean.** 65 theorems across the five `lean/` folders (Lean 4 / Mathlib v4.36.0): GP-1 9, GP-2 11, GP-3 24, GP-4 9, GP-5 12. There is no `sorry`, and every theorem uses only the standard axioms. GitHub Actions builds each one and audits its axioms on every change (`.github/workflows/lean-great-pyramid-gp*.yml`). Each `LEAN_AUDIT.md` lists what is formalised and what is checked only by script. The referee's remaining Lean targets are listed in the [response](REFEREE_RESPONSE.md#unification-and-formal-verification).
+## Lean
+
+65 theorems across the five `lean/` folders (Lean 4 / Mathlib v4.36.0): GP-1 9, GP-2 11, GP-3 24, GP-4 9, GP-5 12. There is no `sorry`, and every theorem uses only the standard axioms. GitHub Actions builds each one and audits its axioms on every change (`.github/workflows/lean-great-pyramid-gp*.yml`). Each `LEAN_AUDIT.md` lists what is formalised and what is checked only by script.

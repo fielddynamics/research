@@ -4,13 +4,9 @@
 
 `two-level-system` `Rabi` `quantum-speed-limit` `selector` `pseudometric` `proof`
 
-[![Lean proof](https://github.com/fielddynamics/research/actions/workflows/lean-great-pyramid-gp5.yml/badge.svg)](https://github.com/fielddynamics/research/actions/workflows/lean-great-pyramid-gp5.yml)
-
-**Lean.** 12 statements machine-checked in Lean 4 / Mathlib ([`lean/`](lean/), [audit](LEAN_AUDIT.md)).
+[![Lean proof](https://github.com/fielddynamics/research/actions/workflows/lean-great-pyramid-gp5.yml/badge.svg)](https://github.com/fielddynamics/research/actions/workflows/lean-great-pyramid-gp5.yml) [![Scripted checks](https://img.shields.io/badge/scripted_checks-33_passing-2563eb.svg)](verify_output.txt) [![Lean 4](https://img.shields.io/badge/Lean_4-12_theorems-7c3aed.svg)](LEAN_AUDIT.md) [![Figures](https://img.shields.io/badge/figures-4-0d9488.svg)](figures/) [![Research status](https://img.shields.io/badge/status-exploratory-64748b.svg)](../../CORE_FRAMEWORK.md)
 
 **Status.** Theorems 1, 2, 6, 6b and 7, Corollaries 3 and 9 and Propositions 4, 5 and 8 are **[T]**: proved below, with every step checked by [`verify_gp5_transfer_bound.py`](verify_gp5_transfer_bound.py) (33 checks, [output](verify_output.txt)). The closed forms are checked symbolically; the time-dependent drives use exact matrix exponentials, to tolerance $10^{-12}$. The two-site Hamiltonian is an **illustrative model**, as README §9 says, not a derived GFD action. Every statement about a portal is therefore conditional on that model, and its coupling $\kappa$ is **[E]**.
-
-**Revision 2 (27 Nov 2026, after the [referee audit](../referee-audit/)).** The saturation statement is sharpened (equality only up to the first complete transfer). The selector is repaired so that relabelling a frame cannot flip its handedness (Theorem 6b). Three results are added: a coupling **derived** from an intermediate sector (Theorem 7), the exact optimum under equal loss (Proposition 8), and an inverse bound for experiments (Corollary 9). Point-by-point: [`../REFEREE_RESPONSE.md`](../REFEREE_RESPONSE.md).
 
 ---
 
@@ -89,13 +85,13 @@ For triad Gram matrices, define $d_G(G_x, G_y) = \min_{P\in S_3}\|G_x - P^TG_yP\
   lies in $[0,1]$. It equals 1 if and only if $d_G = 0$, $\chi_x = -\chi_y$ and $\Theta_x \equiv \Theta_y \pmod{2\pi}$.
 - **A mismatch lowers the budget.** With $\kappa = \kappa_0 M_{xy}$, Theorem 2 gives $P(t) \le \sin^2(\min\{\kappa_0M_{xy}t, \pi/2\})$. A mismatch lowers this **bound**, and an exact match only restores the bare rate $\kappa_0$; matching never adds a channel that $\kappa_0$ does not already supply. It does not follow that the instantaneous probability is lower at every late time, because Rabi oscillations can reverse that ordering.
 
-**Theorem 6b (chirality inside the relabelling, from the referee).** The selector above minimises over all six permutations and tests handedness separately. That is coordinate-dependent. An odd permutation reverses a triad's orientation while leaving its Gram matrix congruent: swapping two columns of an orthonormal triad keeps $G = I_3$ but flips $\det$. In the script, relabelling the receiver changes the old selector's verdict from 1 to 0. The repaired selector tests chirality with the **same** permutation:
+**Theorem 6b (chirality must be tested inside the relabelling).** Minimising over all six permutations while testing handedness separately would be coordinate-dependent. An odd permutation reverses a triad's orientation while leaving its Gram matrix congruent: swapping two columns of an orthonormal triad keeps $G = I_3$ but flips $\det$. In the script, relabelling the receiver changes such a selector's verdict from 1 to 0. The selector must therefore test chirality with the **same** permutation:
 
 $$M_{xy} = \max_{P\in\mathcal P}\Bigl[e^{-d_P^2/2\epsilon^2}\,\tfrac{1 - \chi_x\chi_y\det P}{2}\,L_P\Bigr],\qquad d_P = \|G_x - P^TG_yP\|_F,$$
 
 with $L_P \in [0,1]$ the permutation-consistent phase factor. The script shows it is invariant under relabelling. One caveat remains. With full relabelling freedom, a symmetric Gram matrix (such as $I_3$) has odd automorphisms that undo the handedness test. So genuine chirality discrimination needs an intrinsically labelled, non-coplanar oriented frame, or a restricted relabelling group. Coplanar triads have no chirality sign, and a Gram matrix fixes relative angles, not absolute directions.
 
-## Theorem 7 (a coupling induced by an intermediate sector, from the referee)
+## Theorem 7 (a coupling induced by an intermediate sector)
 
 Rather than insert $\kappa$ by hand, let the terminals (sector $A$) talk only through an intermediate sector $B$:
 
@@ -115,7 +111,7 @@ This turns "$\kappa_0$ is unknown" into three derivable objects: $H_B$, the loca
 
 ![Exact three-mode transfer against the dispersive two-mode reduction](figures/fig4_induced_coupling.svg)
 
-## Proposition 8 (optimum transfer under equal loss, from the referee)
+## Proposition 8 (optimum transfer under equal loss)
 
 At resonance with equal loss, $P_\gamma(t) = e^{-\gamma t}\sin^2(kt)$, with $k = |\kappa|$. The first maximum is the global one:
 

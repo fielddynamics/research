@@ -36,22 +36,22 @@ GP-5  Two-site transfer bound; the mirror-address selector
 [PASS] T6 M_xy = 1 iff d_G = 0, chi_x = -chi_y and dTheta = 0 mod 2 pi
 [PASS] T6 with kappa = kappa_0 M_xy the coupling budget gives P(t) <= sin^2(min(kappa_0 M t, pi/2)): a mismatch slows transfer, it never adds a channel
 
--- Theorem 2b (referee): saturation holds up to the first complete transfer, not beyond
+-- Theorem 2b: saturation holds up to the first complete transfer, not beyond
 [PASS] T2b equality |c_y| = sin(int|kappa|) holds until pi/2; afterwards the constant drive falls back below the bound (= 1)
 [PASS] C9 inverse bound: a measured transfer P by time T needs int_0^T |kappa| >= arcsin sqrt P (P = 0.6: 0.886)
 [PASS] C9 the inverse bound holds on 200 random drives
 
--- Theorem 7 (referee): an induced coupling from an intermediate sector (Schur complement)
+-- Theorem 7: an induced coupling from an intermediate sector (Schur complement)
 [PASS] T7 every eigenvalue E of the full system is an eigenvalue of H_eff(E) = H_A + V (E - H_B)^-1 V^T (40 random systems)
 [PASS] T7 dispersive limit: one intermediate mode gives kappa = g_x g_y/(w - w_B) and self-energy shifts g^2/(w - w_B); the 3-mode peak transfer matches  -- 3-mode 0.8948 vs dispersive 0.8948
 [PASS] T7 zero-channel countermodel: block-local intermediate dynamics with disjoint supports give kappa_induced = 0 exactly
 
--- Theorem 6b (referee): chirality must be tested inside the same relabelling
+-- Theorem 6b: chirality must be tested inside the same relabelling
 [PASS] T6b old selector: relabelling the receiver (an odd swap) flips its chirality label and changes acceptance 1 -> 0
 [PASS] T6b repaired selector (chirality x det P inside the max) is invariant under relabelling the receiver
 [PASS] T6b caveat: with full relabelling freedom a symmetric Gram (here I_3) also admits odd automorphisms, so chirality discrimination needs intrinsically labelled axes
 
--- Proposition 8 (referee): optimum transfer time under equal loss
+-- Proposition 8: optimum transfer time under equal loss
 [PASS] P8 t_opt = arctan(2k/gamma)/k and P_opt = 4k^2/(gamma^2+4k^2) exp[-(gamma/k) arctan(2k/gamma)] (k = 0.7, gamma = 0.3)  -- t_opt 1.9424, P_opt 0.5339
 [PASS] P8 gamma -> 0 recovers t_opt = pi/(2k) and P_opt = 1
 
