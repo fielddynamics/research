@@ -186,13 +186,13 @@ The [proof index](proofs/README.md) links each theorem to its LaTeX source, PDF,
 | 3. Common metric | [Gram matrix](proofs/gram-matrix-tetrad-equation/) · [Hadamard frame](proofs/hadamard-cube-frame/) | [Proof 24: Intrinsic flywheel geometry](proofs/flywheel-tetrad-geometry/) |
 | 4. Convergence | [Proof 25: exact transport and intrinsic solids](proofs/tetrad-flywheel-convergence/) | [Proof 25: core incidence and current reconstruction](proofs/tetrad-flywheel-convergence/#theorem-5--core-geometry-incidence-and-collective-current) |
 | 5. Downstream geometry | [Proof 23: recursive Triforce closure](proofs/recursive-triforce-closure/) | Physical geometry selection, covariant dynamics and settlement remain open. |
-| 6. Closure response | [Proof 26 (candidate): the read, the 21 directions and G](proofs/recursive-field-closure-response/) | [Proof 26: fixed geometry, changing vortex](proofs/recursive-field-closure-response/) |
+| 6. Closure response | [Proof 26: the read, the 21 directions and G](proofs/recursive-field-closure-response/) | [Proof 26: fixed geometry, changing vortex](proofs/recursive-field-closure-response/) |
 
 [Focused convergence diagram](diagrams/gfd-tetrad-flywheel-convergence.svg) · [Visual guide and proof PDF](proofs/tetrad-flywheel-convergence/tetrad_flywheel_convergence.pdf)
 
 ### New: Proof 26 — what does a closing field have to read?
 
-**[Proof 26 (candidate): Gravity as the Response of Recursive Field Closure](proofs/recursive-field-closure-response/)** starts from one plain question. A field object closes its own accounting, but its neighbours' fields reach into it. Can it close without looking at them?
+**[Proof 26: Gravity as the Response of Recursive Field Closure](proofs/recursive-field-closure-response/)** starts from one plain question. A field object closes its own accounting, but its neighbours' fields reach into it. Can it close without looking at them?
 
 It can't. If the right settlement depends on the environment, a "blind" closure is impossible, and the object has to read *something* about its neighbours (Theorem 1). The rest of the proof follows that read and finds that it is surprisingly specific:
 
@@ -204,7 +204,7 @@ It can't. If the right settlement depends on the environment, a "blind" closure 
 
 ![Proof 26: fixed geometry, changing vortex](proofs/recursive-field-closure-response/figures/proof26_architecture.svg)
 
-What it leaves open is stated just as plainly: why the native action reads the whole frame as a determinant, what sets the per-direction gain, and the long-wave source action. Proof 26 is a candidate research draft with 532 exact checks (plus 568 in an optional projective appendix) and its finite theorems machine-checked in Lean 4 (36 theorems, standard axioms only); the physical premises and the conditional G conclusion are not formalised. [Proof](proofs/recursive-field-closure-response/proof26.pdf) · [Referee-style audit](proofs/recursive-field-closure-response/REFEREE_REVIEW.md) · [Revision notes](proofs/recursive-field-closure-response/REVISION_4.md) · [Background research](research/g_from_topology/updated-research/)
+What it leaves open is stated just as plainly: why the native action reads the whole frame as a determinant, what sets the per-direction gain, and the long-wave source action. Proof 26 has 532 exact checks (plus 568 in an optional projective appendix), and its finite theorems are machine-checked in Lean 4 (36 theorems, standard axioms only). Its G conclusion is conditional on those three premises, which are stated, not formalised. [Proof](proofs/recursive-field-closure-response/proof26.pdf) · [Referee-style audit](proofs/recursive-field-closure-response/REFEREE_REVIEW.md) · [Revision notes](proofs/recursive-field-closure-response/REVISION_4.md) · [Background research](research/g_from_topology/updated-research/)
 
 | Research pillar | Representative proof packages | Status and scope |
 |---|---|---|
@@ -213,7 +213,7 @@ What it leaves open is stated just as plainly: why the native action reads the w
 | Constitutive response | [Exchange](proofs/constitutive-law-exchange-symmetry/), [Tug of war](proofs/constitutive-law-tug-of-war/), [AQUAL energy](proofs/aqual-energy-functional/) | [T+L] within specified classes |
 | Local state readout | [Walsh modes](proofs/walsh-eigenmodes-of-the-cube/), [Vortices](proofs/vortices-of-the-stellated-octahedron/), [Proof 24](proofs/flywheel-tetrad-geometry/), [Proof 25](proofs/tetrad-flywheel-convergence/) | [T] finite-dimensional symmetric models and exact finite geometry; physical realization open |
 | Field equations | [Quasi-static SST](proofs/sst-quasi-static-limit/), [Time leg](proofs/sst-covariant-time-leg/), [Preferred frame](proofs/sst-khronon-preferred-frame/) | [T/D] specified effective action and approximations |
-| Distributed closure | [Net field](proofs/net-field-rule/), [Mountain scale](proofs/sst-mountain-scale/), [Closure surface](proofs/closure-surface/), [Proof 26 (candidate)](proofs/recursive-field-closure-response/) | [T+L/D] static ownership, nesting and Hill-model results; Proof 26 [T/D]: necessity of the read, the 21-direction Walsh read and conditional G response; general dynamics open |
+| Distributed closure | [Net field](proofs/net-field-rule/), [Mountain scale](proofs/sst-mountain-scale/), [Closure surface](proofs/closure-surface/), [Proof 26](proofs/recursive-field-closure-response/) | [T+L/D] static ownership, nesting and Hill-model results; Proof 26 [T/D]: necessity of the read, the 21-direction Walsh read and conditional G response; general dynamics open |
 | Extensions & structural algebra | [Bimetric energy](proofs/bimetric-two-potential-energy/), [Bimetric lock](proofs/bimetric-lock-constitutive-law/), [BBP ladder](proofs/bbp-coupling-polynomial-ladder/), [Null rotation](proofs/g-null-rotation/) | [T] scoped algebra; broader physical interpretations vary in status |
 
 **Status key:** [T] mathematical theorem · [L] Lean formalisation · [D] derived under stated physical premises · [O] observational comparison · [E] exploratory research. The complete result-by-result status inventory is preserved in the [research index](RESEARCH_INDEX.md#all-results-and-their-status) and [Coles Notes](GFD_COLES_NOTES.md).
@@ -248,7 +248,7 @@ The same geometry carries beyond galaxies: into the fundamental constants, cosmo
 
 $$G=\frac{17}{13}\,\alpha^{21}\,\frac{\hbar c}{m_e^2}\left(1+\frac{\alpha}{2\pi}\right),$$
 
-within 12 ppm of the measured value, inside G's own uncertainty, and unique among 1,953 alternatives of its form ([look-elsewhere test](research/g_from_topology/)). The electron mass follows from closure saturation, $a_0=K^2Gm_e/r_e^2$, to 0.1%, and the classical electron radius is the unit of gravity ([Paper III](papers/03-unit-of-gravity/)). G and $m_e$ are graded derived; their premises are one factor of $\alpha$ per coupling level and the combination rule (21 as exponent, 17/13 as ratio), which is still marked proposed. The structural reading of $\alpha$ and the Hubble-scale relation are graded exploratory. [Proof 26](proofs/recursive-field-closure-response/) (candidate) works on the other side of this formula: how read and settlement produce it, with the exponent 21 appearing as the read's invariant directions.
+within 12 ppm of the measured value, inside G's own uncertainty, and unique among 1,953 alternatives of its form ([look-elsewhere test](research/g_from_topology/)). The electron mass follows from closure saturation, $a_0=K^2Gm_e/r_e^2$, to 0.1%, and the classical electron radius is the unit of gravity ([Paper III](papers/03-unit-of-gravity/)). G and $m_e$ are graded derived; their premises are one factor of $\alpha$ per coupling level and the combination rule (21 as exponent, 17/13 as ratio), which is still marked proposed. The structural reading of $\alpha$ and the Hubble-scale relation are graded exploratory. [Proof 26](proofs/recursive-field-closure-response/) works on the other side of this formula: how read and settlement produce it, with the exponent 21 appearing as the read's invariant directions.
 
 ---
 
@@ -268,7 +268,7 @@ For formal verification, select a proof marked **+ Lean** in the [proof index](p
 
 | Repository-reported coverage | Count |
 |---|---:|
-| Formal proof packages | 26 (one candidate) |
+| Formal proof packages | 26 |
 | Scripted checks in those packages | 2,062 |
 | Lean 4 formalisations | 18 |
 
@@ -281,7 +281,7 @@ Every result states its premises, and the open problems are documented as openly
 - **Geometry to dynamics:** the [Read-Settle-Register bridge](research/read-settle-register-bridge/READ_SETTLE_REGISTER_BRIDGE.md) gives a conditional route from the Hadamard read to the action; deriving its local rate law from a conservative coupled-oscillator Hamiltonian is the next step.
 - **Closure:** the Newtonian registration theorem holds under specified ownership and settlement assumptions. The drain criterion, physical selection of the stagnation interface, drained-galaxy registration, moving interfaces and causal relativistic composition require further work.
 - **Galactic tests:** the RAR alone does not separate GFD from simple-function MOND; the separating tests are where $\mu$ acts (drainless systems) and the drive/brake map across morphologies. Photometric inputs carry their own uncertainties.
-- **Covariant completion:** the full metric and matter dynamics beyond the established leading orders, the electromagnetic coupling and clock/spectroscopy constraints remain to be resolved.
+- **Beyond leading order:** the covariant action (the SST) is complete, with every prefactor fixed. What remains is solving its metric equations beyond the established weak-field and quasi-static orders (strong fields, cosmological perturbations), deriving the matter source term $-\rho\Phi$ from $\mathcal L_{\rm matter}$ (matter itself is ordinary and minimally coupled), and testing the electromagnetic coupling against clock and spectroscopy constraints.
 - **Bimetric bridge:** the locked derivative-free Hassan–Rosen potential does not supply the required acceleration dependence; the negative result is documented, not concealed.
 - **Cosmology:** a full CMB power spectrum has not yet been computed, and the Hubble-scale relation's ±6% band does not yet discriminate between the Planck and SH0ES values.
 

@@ -42,7 +42,7 @@ Stephen Nelson · Field Dynamics Research · fielddynamics.org · Last updated 2
 | P-triforce (Proof 23) | `recursive-triforce-closure/` | 214 | yes |
 | P-flywheel (Proof 24) | `flywheel-tetrad-geometry/` | 65 | yes |
 | P-convergence (Proof 25) | `tetrad-flywheel-convergence/` | 297 | yes |
-| P-response (Proof 26, candidate) | `recursive-field-closure-response/` | 532 (+568 appendix) | yes (finite theorems) |
+| P-response (Proof 26) | `recursive-field-closure-response/` | 532 (+568 appendix) | yes (finite theorems) |
 
 The Lean formalisations import one another, so each chain is checked as a whole: P-forced → P-two-regions (half-space) → P-two-regions (scheme) → P-gram → P-walsh; P-forced → P-hadamard; P-exchange → P-aqual → (with the scheme) P-bimond; P-walsh + P-exchange → P-tugofwar → P-netfield → P-khronon → P-mountain → P-closure; P-forced → P-two-regions (half-space) → P-triforce → P-flywheel → P-convergence (all three built and axiom-audited on GitHub Actions, 26 November 2026); P-triforce → P-response (its 36 finite theorems; the physical premises are not formalised).
 
@@ -160,7 +160,7 @@ $$\boxed{S = \int d^4x\,\sqrt{-g}\left[\frac{R}{16\pi G} - \frac{a_0^2}{8\pi G}\
 - **Electromagnetic term:** $-\tfrac14e^{-2\Phi/c^2}F_{\mu\nu}F^{\mu\nu}$. The supplement assigns it no lensing role (null rays are unaffected) and a cosmological one (a redshift dependence in EM scaling relations). **Unaddressed constraint:** with $\Phi$ the Newtonian potential, this term is a dilaton-type coupling, $\alpha_{\rm eff} = \alpha\,e^{2\Phi/c^2}$, i.e. $\delta\alpha/\alpha = k_\alpha\,\delta U/c^2$ with $|k_\alpha| = 2$. Clock and spectroscopy tests of $\alpha$'s dependence on the Sun's potential (annual $\delta U/c^2 \approx 3\times10^{-10}$) bound $|k_\alpha|$ at roughly $10^{-6}$–$10^{-7}$. None of the papers discusses this.
 - **Weak field:** $g_{00} = -(1+2\Phi/c^2)$, $g_{ij} = (1-2\Phi/c^2)\delta_{ij}$; GW speed equals $c$.
 - **Split (what GFD does *not* do):** the L3 supplement describes the scalar-tensor embedding as $\nabla^2\Phi_N = 4\pi G\rho$ (40 components) plus a scalar supplement $\nabla\cdot[(\mu - 1)\nabla\Phi] = 0$ carrying its own stress–energy, and attributes the $\gamma = \mu$ lensing deficit to that decomposition; GFD keeps the single equation $\nabla\cdot[\mu\nabla\Phi] = 4\pi G\rho$.
-- **Open:** $\mathcal L_{\rm matter}$ is not specified in the papers. The source term $-\rho\Phi$ is what makes the scalar equation sourced (research/aqual docs note, check D1–D2).
+- **Open:** the action is complete and matter is ordinary and minimally coupled, but the papers do not derive the source term $-\rho\Phi$ that makes the scalar equation sourced from $\mathcal L_{\rm matter}$ (research/aqual docs note, check D1–D2).
 
 ### 3.1 The kinetic functional [T+L] (FY, P-aqual, 24 checks)
 
@@ -416,9 +416,9 @@ $= 1.3077 \times 1.338\times10^{-45}\times3.810\times10^{34} = 6.666\times10^{-1
 | Reversible three-sweep accounting; completed blocks keep their inventory as a pointer; the vortex responds while the geometry stays fixed | P-response Thms 3–6, 9–10 | [T] |
 | Gravity as the response of the vortex to keeping closure consistent: $(17/13)\alpha^{21}$ if the source is the 21-direction determinant and $|t|^2 = \alpha$ | P-response Thms 8, 11 | [D], premises stated |
 
-Read across phenomena, this is a candidate single accounting architecture: nuclear packing as retained TetB inventory [E]; atomic structure as the vortex configuration that inventory produces ([D], conditional witness in `research/g_from_topology/updated-research/ATOMIC_INVENTORY_VORTEX_BRIDGE.md`); field closure as recursive accounting and settlement [T]; gravity as the response to closure (candidate); distributed field processing as hierarchical registration of completed closures [T+L]/[T]. The value of G was already in Paper VI; what Proof 26 adds is an explicit architecture for the mechanism that could produce it. The address-space identities are exact; they are not a nuclear Hamiltonian or a new nuclear prediction.
+Read across phenomena, this is a candidate single accounting architecture: nuclear packing as retained TetB inventory [E]; atomic structure as the vortex configuration that inventory produces ([D], conditional witness in `research/g_from_topology/updated-research/ATOMIC_INVENTORY_VORTEX_BRIDGE.md`); field closure as recursive accounting and settlement [T]; gravity as the response to closure ([D], conditional); distributed field processing as hierarchical registration of completed closures [T+L]/[T]. The value of G was already in Paper VI; what Proof 26 adds is an explicit architecture for the mechanism that could produce it. The address-space identities are exact; they are not a nuclear Hamiltonian or a new nuclear prediction.
 
-*How read and settlement produce it [T/D], candidate (P-response, Proof 26).* G's construction above is the target; Proof 26 asks how closure realises it.
+*How read and settlement produce it (P-response, Proof 26; [T+L] finite theorems, conditional [D] conclusion).* G's construction above is the target; Proof 26 asks how closure realises it.
 - Closure that depends on its environment cannot be blind: a blind state exists only if all feasible sets share a point, and a read $R$ suffices exactly when $R(y) = R(z) \Rightarrow S(y) = S(z)$ (Thm 1).
 - On the 64 Triforce addresses $X = (\mathbb F_2^2)^3$ the reversible read is $W = H_4^{\otimes3}/8$, three commuting radix-4 sweeps, $W = W^{-1}$ (Thm 3). The unnormalized Hadamard factors through Sierpiński matrices, $H_{2^m} = S\,\mathrm{diag}((-2)^{|c|})\,S^T$ with $S = L^{\otimes m}$, so $H_{64}^{-1} = H_{64}/64 = 2^{-6}SDS^T$ (Thm 4).
 - The order-3 label rotation is multiplication by $\omega$ in $\mathbb F_4$; the detail spaces (dimensions 3, 12, 48) have invariant subspaces of dimensions 1, 4, 16 (Thm 5), so 21 = $(4^3-1)/(4-1)$, the points of PG(2,4).
@@ -499,8 +499,8 @@ Shell ceilings $\mathrm{CEIL} = B_{\rm Zn} + B_{\rm bdy} - \mu_b(2)[B_{\rm Zn} -
 3. $H_0$ is quoted as 69.92 and 70.21 (the same formula with the empirical and the electron-derived $a_0$) and 70.29 (70.21 with the one-loop correction); the ±6.2% cage does not discriminate Planck from SH0ES.
 4. Clusters and the Bullet Cluster: qualitative only (VII); no lensing reconstruction.
 5. CMB: one enhancement factor, no full power spectrum.
-6. $\mathcal L_{\rm matter}$ unspecified.
-7. Constants: G and $m_e$ derived given stated premises (the combination rule for G is still proposed); α's 1/28 a structural reading; look-elsewhere test included. How read and settlement produce G is a candidate (Proof 26, §8.1): the determinant read, $|t|^2 = \alpha$ and the source action are premises.
+6. The action is complete; the matter source term $-\rho\Phi$ is not yet derived from $\mathcal L_{\rm matter}$, and the metric equations are solved only to the established weak-field and quasi-static orders.
+7. Constants: G and $m_e$ derived given stated premises (the combination rule for G is still proposed); α's 1/28 a structural reading; look-elsewhere test included. How read and settlement produce G is Proof 26 (§8.1); its G conclusion is conditional: the determinant read, $|t|^2 = \alpha$ and the source action are premises.
 8. No peer-reviewed publication yet.
 
 ### 12.1 Found in the full paper-by-paper reading (Part II)
@@ -572,7 +572,7 @@ Shell ceilings $\mathrm{CEIL} = B_{\rm Zn} + B_{\rm bdy} - \mu_b(2)[B_{\rm Zn} -
 | Gram theorems | `papers/gram-matrix-of-tetrad-equation/verify_gram_theorems.py` | 32 |
 | Coupling algebra: the cube's symmetric couplings, two TetA–TetB channels, Gram/Walsh/Paper IX as elements, second root = odd leg relabelling; η as an element (time = grade 0), the connection's lower pair on the TetA–TetB links with the swap as parity | `research/coupling-algebra/verify_*.py`, `certify_first_principles.py` (exact, independent) | 50, 34, 52 |
 | 64-Tetrahedron Grid: the 64 tetrahedra as (star, spike) pairs sorted by the coupling relations; grid = large star + 24 vector-link spikes; Galeffi's counts recomputed, Table 3 corrected (16 → 40); n×n×n photon composition: 4n(n²+1) captured, 24·C(n+1,3) expelled as copies of the regular rep of S4 (proved); pixel cubes force the lattice and closure at shared corners leaves only the global root choice (proved) | `research/stellated octahedron geometry/verify_64_tetrahedron_grid.py`, `verify_photon_composition.py`, `verify_pixel_tiling.py` (exact) | 24, 14, 9 |
-| Proof 26 (candidate): closure needs a sufficient read; three-sweep Walsh read; 21 invariant contrasts (1, 4, 16); completed-block accounting; $\det(T^\dagger T)$ grade exponents; fixed-geometry vortex susceptibility; recursive registration; conditional $G_{\rm eff}$ | `proofs/recursive-field-closure-response/verify_proof26.py` (appendix: `verify_projective_pencil.py`) | 532 (+568) |
+| Proof 26: closure needs a sufficient read; three-sweep Walsh read; 21 invariant contrasts (1, 4, 16); completed-block accounting; $\det(T^\dagger T)$ grade exponents; fixed-geometry vortex susceptibility; recursive registration; conditional $G_{\rm eff}$ | `proofs/recursive-field-closure-response/verify_proof26.py` (appendix: `verify_projective_pencil.py`) | 532 (+568) |
 | Letters 1, 2, 3 | `papers/letter-*/…/Supplementary/run_all_validations.py` | 29, 52, 52 |
 | TF evolution | `papers/tully-fisher-velocity-evolution/` | 64 |
 | AQUAL algebra (§§4.5–4.7 here) | `research/aqual/verify_*.py` | 50, 48, 23 |
@@ -1555,7 +1555,7 @@ $V - E + F = 4 = 2\chi(S^2)$, two disjoint closed surfaces.
 
 ## The formal proofs (`proofs/`)
 
-*The repository now holds twenty-six proofs, one of them a candidate (index: [`proofs/README.md`](proofs/README.md); keys and Lean status in §0). The first six are summarised in detail below, as written when they were read in full (their check counts have since grown: the forced frame now has 36). P-triforce, P-flywheel, P-convergence and the candidate P-response are summarised at the end of this part (and in §2.8 and §8.1). The other sixteen are summarised in Part I: P-gram §2.3, P-walsh §2.6, P-vortex §2.7, P-bimond §9 and §13, P-tugofwar §4.8, P-netfield, P-khronon, P-mountain and P-closure §5.4, P-chiral §12 item 26, P-bbp, P-gnull, P-sst, P-timeleg and P-lock in §13, and the half-space proof §2.2. Each proof lists its premises and shows them necessary by counterexample.*
+*The repository now holds twenty-six proofs (index: [`proofs/README.md`](proofs/README.md); keys and Lean status in §0). The first six are summarised in detail below, as written when they were read in full (their check counts have since grown: the forced frame now has 36). P-triforce, P-flywheel, P-convergence and P-response are summarised at the end of this part (and in §2.8 and §8.1). The other sixteen are summarised in Part I: P-gram §2.3, P-walsh §2.6, P-vortex §2.7, P-bimond §9 and §13, P-tugofwar §4.8, P-netfield, P-khronon, P-mountain and P-closure §5.4, P-chiral §12 item 26, P-bbp, P-gnull, P-sst, P-timeleg and P-lock in §13, and the half-space proof §2.2. Each proof lists its premises and shows them necessary by counterexample.*
 
 **P-aqual — The Energy Functional of $\mu = x/(x+1)$.**
 - $\mathcal L = -(a_0^2/8\pi G)F - \rho\Phi$.
@@ -1665,7 +1665,7 @@ $V - E + F = 4 = 2\chi(S^2)$, two disjoint closed surfaces.
 - Thm 6: metric rigidity (weights recoverable from off-diagonal entries; regular iff equal) and the sharp bounds $4\min w\|q\|^2 \le q^TG_wq \le 4\max w\|q\|^2$.
 - Scope, as stated: compatible routes, not independent confirmations; no self-assembly, Lorentzian metric, gravitational normalization or physical torsion. Lean: 35 theorems, standard axioms only.
 
-**P-response — Proof 26 (candidate): Gravity as the Response of Recursive Field Closure (Revision 4).**
+**P-response — Proof 26: Gravity as the Response of Recursive Field Closure (Revision 4).**
 - Premises: (P1) field objects settle to compatible states with a sufficient read of their neighbours; (P2) the fixed Triforce register carries the relevant information; (P3) the native action selects the invariant spectral bridge and collective source; (P4) a normalised, attractive, universal scalar long-wave source in the weak drainless limit. P1 alone gives the necessity theorem; P2–P4 are not consequences of it.
 - Thms 1–2: blind closure iff $\bigcap_y C_y \ne \varnothing$; read sufficiency $S = F\circ R$; settlement susceptibility $D_yS = -H_{xx}^{-1}H_{xy}$ and the Schur complement $D_y^2E_* = H_{yy} - H_{yx}H_{xx}^{-1}H_{xy}$.
 - Thms 3–6: three-sweep Walsh read; $H = SDS^T$ with $S$ Sierpiński; invariant detail dimensions 1, 4, 16 under the $\mathbb F_4$ rotation; a completed prefix block has no nonzero-suffix Walsh coefficient, and for binary occupancy $A$: $c_0 = A$, $\sum_{a\ne0}c_a^2 = 64A - A^2$.

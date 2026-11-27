@@ -1,7 +1,7 @@
 ---
 title: "Gravity as the response of recursive field closure"
-subtitle: "Proof 26 candidate, revision 4 — fixed geometry, reversible accounting and vortex settlement"
-author: "Field Dynamics Research — research draft"
+subtitle: "Proof 26, revision 4 — fixed geometry, reversible accounting and vortex settlement"
+author: "Field Dynamics Research"
 date: "November 2026"
 geometry: margin=25mm
 fontsize: 11pt
@@ -184,4 +184,4 @@ The central idea of this work is that the geometry need not change when a field 
 
 For a reader approaching GFD for the first time, the main result is not a new numerical fit to Newton's constant. It is the explicit chain of constructions that connects a possible accounting mechanism to the earlier expression for that constant. The point at which physical input is still needed is now identifiable: the native vortex action must establish the inherited normalization, choose the gain and the complete-frame source, and supply a causal universal gravitational coupling. A successful derivation of those steps would establish much more than the agreement of structural counts. A failure of any of them would identify exactly where the candidate must be revised, without undoing the preceding geometric theorems.
 
-This is the scope of the Proof 26 candidate. The earlier numbered proofs are retained unchanged.
+This is the scope of Proof 26. The earlier numbered proofs are retained unchanged.

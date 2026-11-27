@@ -1,8 +1,8 @@
-# Proof 26 candidate — Gravity as the response of recursive field closure
+# Proof 26 — Gravity as the response of recursive field closure
 
 [![Lean proof](https://github.com/fielddynamics/research/actions/workflows/lean-recursive-field-closure-response.yml/badge.svg)](https://github.com/fielddynamics/research/actions/workflows/lean-recursive-field-closure-response.yml)
 
-**Revision 4 — referee-aware research draft.** Its finite and algebraic theorems are machine-checked in Lean 4: 36 theorems, standard axioms only, importing Proof 23 ([Lean audit](LEAN_AUDIT.md)). The physical premises and the conditional G conclusion are not formalised. The previous topology calculation of G is taken as the target, not as evidence that the physical mechanism has been independently verified. The fixed Triforce/Hadamard architecture accounts for TetB inventory; compatible settlement responds to neighbors; the vortex is the variable state. The proposed collective determinant response reproduces the existing normalization under explicit additional premises.
+**Revision 4.** Its finite and algebraic theorems are machine-checked in Lean 4: 36 theorems, standard axioms only, importing Proof 23 ([Lean audit](LEAN_AUDIT.md)). The physical premises and the conditional G conclusion are not formalised. The previous topology calculation of G is taken as the target, not as evidence that the physical mechanism has been independently verified. The fixed Triforce/Hadamard architecture accounts for TetB inventory; compatible settlement responds to neighbors; the vortex is the variable state. The proposed collective determinant response reproduces the existing normalization under explicit additional premises.
 
 ## Read in order
 
@@ -21,7 +21,7 @@
 - Theorems 7–8: signed recursive counts, inherited coupling ratio 17/13, conditional collective determinant response.
 - Theorems 9–11: exact native fixed-geometry vortex susceptibility in a specified branch, recursive registration, and a conditional Newtonian Green-action completion.
 
-Proof 23's physical pointing and pair-action obstructions are retained explicitly. The candidate is not a claim that P23, P24 or P25 already establish physical attenuation. The 21 is an invariant dimension, not a count of literal time steps or oscillators. The physical selection of the inherited ratio, gain, source vertex and long-wave action remain unproved. The [optional projective appendix](APPENDIX_PROJECTIVE_GEOMETRY.md) preserves all Revision 3 incidence and compression mathematics without requiring any of those operations in the physical model.
+Proof 23's physical pointing and pair-action obstructions are retained explicitly. Proof 26 is not a claim that P23, P24 or P25 already establish physical attenuation. The 21 is an invariant dimension, not a count of literal time steps or oscillators. The physical selection of the inherited ratio, gain, source vertex and long-wave action remain unproved. The [optional projective appendix](APPENDIX_PROJECTIVE_GEOMETRY.md) preserves all Revision 3 incidence and compression mathematics without requiring any of those operations in the physical model.
 
 ## Reproduce
 

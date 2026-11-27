@@ -11,7 +11,7 @@
 | **Reproduce** | `cd proofs/recursive-field-closure-response/lean`, then `lake exe cache get`, `lake build`, `lake env lean RecursiveFieldClosureResponse.lean`. |
 | **CI** | [`lean-recursive-field-closure-response.yml`](../../.github/workflows/lean-recursive-field-closure-response.yml) rebuilds on every change to this proof or the proofs it imports, and fails on any warning, `sorry`, missing axiom report or non-standard axiom. |
 
-**Verdict:** The finite and algebraic theorems of Proof 26 are machine-checked. The physical premises are not formalised and are not claimed: that the native action selects the collective determinant, that each invariant direction carries |t|² = α, and the long-wave source action. Proof 26 remains a candidate for how read and settlement produce G; its conditional G conclusion is not Lean-certified.
+**Verdict:** The finite and algebraic theorems of Proof 26 are machine-checked. The physical premises are not formalised and are not claimed: that the native action selects the collective determinant, that each invariant direction carries |t|² = α, and the long-wave source action. Proof 26's G conclusion is conditional on those premises and is not Lean-certified.
 
 ## Statement coverage
 
