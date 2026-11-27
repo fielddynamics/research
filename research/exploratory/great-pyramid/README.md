@@ -1,25 +1,30 @@
-# The Great Pyramid and the Field Origin
+# The Great Pyramid: A Stargate Hypothesis
 
-### Coherent field closure through macroscopic resonance
+### Two worlds. One field. A resonant interface between them.
 
-*An exploratory programme in Gravity Field Dynamics (GFD) · Field Dynamics Research*
+*Gravity Field Dynamics (GFD) · Exploratory research programme*
 
-`field-origin` `dual-tetrad` `walsh-hadamard` `cyclotomic-algebra` `resonance` `giza` `archaeoacoustics`
+![Concept illustration of two matched pyramids on distant worlds](diagrams/stargate-worlds.jpg)
 
----
+*Concept illustration — not an observation of another pyramid or an established transport channel. Each world has its own local dual-tetrad closure; the proposed link is through the TetB sector.*
 
 > “The design of the level of the King's Chamber was the halving of the vertical area of the Pyramid.”  
 > — W. M. Flinders Petrie, *The Pyramids and Temples of Gizeh* (1883), §148
 
-**What if the Great Pyramid was not designed merely to resonate with the field, but to bring the field's own closure mechanism into coherence?**
+What if the Great Pyramid is one terminal of an addressable resonant system — a structure designed not simply to radiate into space, but to couple two distant field closures through a common dual sector?
 
-In 1883, Petrie identified a striking geometrical property of the Great Pyramid: the floor of its granite King's Chamber sits at the level that divides the pyramid's vertical cross-section into two equal areas. More than a century later, Gravity Field Dynamics arrives at that same level through a model of the balance between two sectors of a bounded field closure.
+The starting point is a geometrical result. The GFD bounded-closure model locates the local Field Origin at **29.289% of the pyramid's height**. The numerical model places its half-flux plane **0.82 inches (2.08 cm) below the measured mean floor of the King's Chamber**, in a monument originally about 146.7 metres high. That is a remarkable architectural correspondence, though the survey and reconstructed height have larger uncertainties and the half-flux geometry is not unique to GFD.
 
-The Phase 0 numerical model places its half-flux plane **0.82 inches (2.1 cm) below the measured floor of the King's Chamber**. The monument is approximately 146.7 metres tall. The modelled target is within one inch of the chamber floor, without tuning a parameter to that floor.
+The Stargate hypothesis builds on this result. If the Field Origin is the interface between the observable TetA sector and its dual TetB sector, and if a physical resonator can coherently drive that interface, then two mirror-matched structures might act as transmitter and receiver. In this picture, distance in ordinary space and matching in the proposed closure address space are distinct variables. The latter is not yet a demonstrated physical channel.
 
-This is the starting point, not the conclusion. The research asks whether the geometry, materials, internal chambers and spectral response of the pyramid can be understood as components of a single apparatus — one that couples to the universal field-closure operation proposed by GFD.
+The programme has three linked questions: **where is the interface, how does it operate, and can it be addressed?** The geometry answers the first within the bounded-closure model; the graded algebra gives a candidate architecture for the second; the portal hypothesis turns the third into a testable research objective.
 
-The deeper question is not archaeological. It is physical: **can the same operation that registers matter and produces gravity be driven coherently at a macroscopic scale?**
+| Research anchor | Result |
+|---|---|
+| Location | 0.82-inch reported half-flux residual |
+| Local coupling signatures | TetB 13 · Field Origin 17 · TetA 21 |
+| Recursive matching | 21 at the K=4 upper band equals 21 at the K=5 lower band |
+| Proposed remote operation | Mirror geometry, opposite chirality, phase lock and a physical cross-sector interaction |
 
 ## 1. A chamber within one inch of the Field Origin target
 
@@ -71,7 +76,7 @@ A useful distinction: the gravitational current locates the proposed structural 
 
 Read: [Local Field Origin theorem](pyramid_portal_research/01_framework_foundations/01.6_local_field_origin_theorem.md) · [Areal closure from the action](pyramid_portal_research/01_framework_foundations/01.7_areal_closure_from_action.md) · [Phase 0 results](pyramid_portal_research/phase0/P0.1_field_model_results.md) · [King's Chamber Field Origin](pyramid_portal_research/FIELD_ORIGIN_KINGS_CHAMBER.md).
 
-## 2. The deeper thesis: one operation, three manifestations
+## 2. The Stargate principle: one operation, three regimes
 
 GFD proposes a dual-tetrad field geometry: TetA is the observable sector; TetB is its proposed dual sector. Their exchange is represented by a local Field Origin. In the exploratory model, the interaction is universal; an apparatus would not create it, but condition its coherence.
 
@@ -79,7 +84,7 @@ GFD proposes a dual-tetrad field geometry: TetA is the observable sector; TetB i
 
 These are proposed regimes of one underlying operation, not three independently established mechanisms. The research challenge is to derive all three from the same dynamics.
 
-The analogy is a laser: a laser does not invent the electromagnetic interaction. It organises existing microscopic transitions into a coherent mode. The Great Pyramid hypothesis asks whether a structure can perform an analogous conditioning of field closure.
+A laser offers the right architectural analogy, not a proof: a laser organises existing microscopic transitions into a coherent mode. A Stargate in the GFD sense would organise field closure rather than manufacture a new field. The critical leap is from local coherence to a *physical interaction between two independently addressable sites*. A coherent local cavity alone cannot make that leap.
 
 Read: [Universal vertex reframe](pyramid_portal_research/01_framework_foundations/01.5_universal_vertex_reframe.md) · [Universal vertex operator](pyramid_portal_research/06_master_equations/06.1_universal_vertex_operator.md).
 
@@ -103,11 +108,45 @@ $$\mathcal T_K=\mathbf1\oplus V\oplus(V\otimes V),\qquad \dim V=K,$$
 
 has even dimension $K^2+1$, odd dimension $K$, total dimension $K^2+K+1$ and superdimension $K^2-K+1$. Thus the same integers arise as a graded character and as degree-two cyclotomic evaluations. The polynomial also admits the norm form $f(K,s)=|K+e^{i\theta}|^2$ when $s=2\cos\theta$.
 
-But the most revealing interpretation is the **parity pushout**. Construct two sheets $A_K,B_K$ with a common core of size $C_K$ and $K$ exclusive elements each:
+### The physical signatures: 17 is the neutral Field Origin
+
+The primary dual-tetrad interpretation is the graded operator of [01.3](pyramid_portal_research/01_framework_foundations/01.3_graded_identity_operator.md), not a Venn diagram of two equal chambers. Let $P_0,P_1,P_2$ be the orthogonal projectors onto the respective $1,K,K^2$ components of $\mathcal T_K$. Write
+
+$$P_{\rm even}=P_0+P_2,\qquad P_{\rm odd}=P_1,\qquad J=P_{\rm even}-P_{\rm odd}.$$
+
+The three signatures are three reads of the same representation:
+
+$$\boxed{\mathbb I_s=P_{\rm even}+sP_{\rm odd},\qquad \operatorname{Tr}(\mathbb I_s)=17+4s\quad(K=4).}$$
+
+| Signature | Operator | Invariant contribution | Signed contribution | Trace |
+|---|---|---:|---:|---:|
+| **TetA** ($s=+1$) | $I=P_{\rm even}+P_{\rm odd}$ | 17 | +4 | **21** |
+| **Field Origin** ($s=0$) | $P_{\rm even}$ | 17 | 0 | **17** |
+| **TetB** ($s=-1$) | $J=P_{\rm even}-P_{\rm odd}$ | 17 | −4 | **13** |
+
+![TetA 21, Field Origin 17 and TetB 13: signed coupling signatures](diagrams/parity-registers.svg)
+
+The Field Origin is not merely the arithmetic midpoint. In this graded model it is exactly the parity-even projection of the two sector reads:
+
+$$\boxed{P_{\rm FO}=\frac{I+J}{2},\qquad P_{\rm odd}=\frac{I-J}{2}.}$$
+
+The invariant part has rank 17 and the signed sector has rank four. TetA retains the latter with positive sign, TetB reverses its sign, and the Field Origin projects it out. TetB's value 13 is a **signed trace**, not the rank of a 13-dimensional chamber: $J$ has full rank 21. The parity-even projection is an algebraic result; physical realization by the chamber is a hypothesis, not implied by the trace identity.
+
+The operator construction can also be expressed without choosing a basis. Since $J^2=I$, its spectrum is $\{+1,-1\}$. If $\operatorname{Tr}I=21$ and $\operatorname{Tr}J=13$, the multiplicities are uniquely determined:
+
+$$m_++m_-=21,\qquad m_+-m_-=13\quad\Longrightarrow\quad(m_+,m_-)=(17,4).$$
+
+For any $\alpha>0$, $\det(\alpha^{\mathbb I_s})=\exp(\log\alpha\,\operatorname{Tr}\mathbb I_s)=\alpha^{17+4s}$. Thus the three characters also determine the formal determinant factors $\alpha^{21},\alpha^{17},\alpha^{13}$. This is an operator identity, not a derivation of the physical choice of microscopic gain or of the observable that measures that determinant.
+
+For the pyramid, this places the King's Chamber, at the proposed half-flux plane, at the **neutral signature 17**. The reported 0.82-inch geometrical residual tests the plane's location; it does not independently measure the coupling signature or establish a physical parity filter.
+
+### A separate construction: recursive register growth
+
+The **parity pushout** of Active Work 14 gives another realization of the same three integers. Construct two abstract sheets $A_K,B_K$ with a common core of size $C_K$ and $K$ exclusive elements each. These sheets are combinatorial bookkeeping objects, not the physical TetA and TetB coupling signatures:
 
 $$|A_K|=|B_K|=E_K,\qquad |A_K\cup B_K|=U_K.$$
 
-![The 13 / 17 / 21 parity registers](diagrams/parity-registers.svg)
+![Abstract parity pushout: two 17-element sheets with a 13-element intersection and a 21-element union](diagrams/parity-pushout.svg)
 
 An explicit register realization makes the construction tangible. The shared core consists of a distinguished closure element and the $K(K-1)$ directed off-diagonal interactions of $K$ labelled frame vertices. Add two $K$-element sets of incoming and outgoing channels.
 
@@ -119,9 +158,9 @@ An explicit register realization makes the construction tangible. The shared cor
 | Second exclusive register | 4 |
 | **Complete closure register** | **21** |
 
-This is a combinatorial realization of the pushout, not yet a unique physical identification of every channel. In particular, the 13-dimensional overlap in this realization must not be confused with the 13-valued supertrace of the graded representation: their numerical equality is exact, while a dynamical correspondence requires a map.
+This is a combinatorial realization of the pushout, not yet a unique physical identification of every channel. Neither 17-element sheet is to be identified with a physical tetrad, and the 13-element shared core is not the neutral Field Origin. In particular, the 13-dimensional overlap in this realization must not be confused with the 13-valued supertrace of the graded representation: their numerical equality is exact, while a dynamical correspondence requires a map.
 
-The new interpretation is that the coupling polynomial describes not only a coupling strength, but the **organization of information being registered, reconciled and settled during closure**.
+Together these constructions motivate the interpretation that the coupling polynomial describes not only a coupling strength, but the **organization of information being registered, reconciled and settled during closure**. The signed operator governs the three coupling signatures; the pushout models how a register can grow between levels. Their numerical agreement does not identify their operators.
 
 Read: [Closure-read representation](pyramid_portal_research/01_framework_foundations/01.2_closure_read_representation.md) · [Graded identity](pyramid_portal_research/01_framework_foundations/01.3_graded_identity_operator.md) · [Parity-pushout recursion](pyramid_portal_research/active_work/14_parity_pushout_recursion.md) · [Engineering synthesis](pyramid_portal_research/99_appendices/I_coupling_polynomial_engineering_synthesis.md).
 
@@ -131,7 +170,9 @@ The adjacent-shell identity is exact for every integer $K$:
 
 $$\boxed{\Phi_3(K)=\Phi_6(K+1)}.$$
 
-| Shell | Shared core | Sheet | Complete union |
+The following table refers to the **abstract pushout cardinalities**, not physical chamber dimensions.
+
+| Shell | Shared core | Each abstract sheet | Complete union |
 |---|---:|---:|---:|
 | K=1 | 1 | 2 | 3 |
 | K=2 | 3 | 5 | 7 |
@@ -246,11 +287,11 @@ The GFD gravity expression developed in the compendium is
 
 $$\alpha_G=\frac{Gm_e^2}{\hbar c}=\frac{17}{13}\alpha^{21}\frac{g_e}{2}.$$
 
-Here 21 is the full closure character, 17 the even character, and 13 the supercharacter. The numerical agreement with measured gravity is interesting; it does not by itself establish the choice of determinant attenuation, ratio normalization, or electron spin correction as a unique physical consequence. The expression uses the fine-structure constant, electron mass and electron magnetic moment as dimensional or numerical inputs.
+Here 21 is the full closure character (TetA), 17 the even character (Field Origin), and 13 the signed supercharacter (TetB). The numerical agreement with measured gravity is interesting; it does not by itself establish the choice of determinant attenuation, ratio normalization, or electron spin correction as a unique physical consequence. The expression uses the fine-structure constant, electron mass and electron magnetic moment as dimensional or numerical inputs.
 
 Active Work 17 supplies a potentially deeper connection: it separates the spatial order-three symmetry of the node from the temporal advancement of its closure phase. The π-walk research investigates the ordered read of the stellated-octahedron's spectral state.
 
-The current working hypothesis is that standing waves and vortices hold the inventory, while the π-walk reads and settles it. Three sweeps through the resolutions 13 to 21, with the proposed 333-step π-walk, are a candidate schedule for this process. The count and ordering must be linked explicitly to the actual Walsh-Hadamard operations; this is not yet a proven equivalence.
+The working hypothesis is that standing waves and vortices hold the inventory, while a π-driven traversal schedules its read and settlement. Three sweeps through 13 → 21, each resetting directly to 13, are a candidate schedule. The I Ching computation reports 332 transitions (333 indexed positions including the initial position); it does not show that these transitions implement the Walsh read or divide into three physical sweeps. Indeed, the later hexagram note distinguishes the π traversal from the XOR rotation. The three-snapshot theorem separately requires three independently variable snapshots to span the generic 21-dimensional fixed-trace density register; three copies or three transform passes on the same snapshot do not suffice.
 
 ![The three-sweep π-walk hypothesis](diagrams/pi-walk.svg)
 
@@ -294,26 +335,73 @@ A useful next derivation is to obtain the phase dynamics and the two order param
 
 Read: [King's Chamber vertex model](pyramid_portal_research/active_work/11_kings_chamber_field_origin.md) · [Closure-core integration](pyramid_portal_research/active_work/12_closure_core_integration.md).
 
-## 9. Beyond the antenna: the portal hypothesis
+## 9. Two pyramids, one address: the Stargate hypothesis
 
-The most ambitious extension asks whether two independently driven Field Origins could exchange a state through a common address register. The compendium expresses this as
+Imagine the Great Pyramid at site $x$ on Earth and a mirror-matched resonator at site $y$ on another world. In the proposed architecture, the local TetA interface registers the state, the local Field Origin provides a parity-even coupling point, and the complementary TetB sector mediates a candidate shared address. The destination is not literally the same local TetB tetrahedron relocated to another planet. Each apparatus has its own local dual-tetrad structure. A remote apparatus would be a complementary **address partner**.
 
-$$\mathcal P_{y\leftarrow x}=\mathsf A_y^\dagger J_{4,y}^\dagger\,\mathcal M(U_x,V_y)\,\alpha_G J_{4,x}\mathsf A_x.$$
+![Source and receiver: local interfaces and proposed shared TetB channel](diagrams/mirror-transfer.svg)
 
-The apparatus operators $\mathsf A$ condition the state, $J_4$ lifts the state to the shared shell, and $\mathcal M$ is a proposed mirror-address functional with conditions on the Gram matrix, chirality and phase.
+### The transfer operator
 
-![Hypothetical mirror-matched state transfer](diagrams/mirror-transfer.svg)
+The research compendium proposes the formal composition
 
-| Proposed regime | Gravity | Coherent transfer |
+$$\boxed{\mathcal P_{y\leftarrow x}=\mathsf A_y^\dagger J_{4,y}^\dagger\,\mathcal M(U_x,V_y)\,\alpha_G J_{4,x}\mathsf A_x.}$$
+
+The source apparatus $\mathsf A_x$ conditions a state; the hinge $J_{4,x}$ lifts its label from the $K=4$ upper band to the $K=5$ lower band. The corresponding labels match exactly at 21. A mirror-address map $\mathcal M$ would then connect the source and receiver registers. The inverse hinge and the receiver apparatus recover a local state. If the addresses are represented in separate Hilbert spaces, the middle factor must be a genuine map between them: a scalar overlap alone cannot transport a state.
+
+The key identity is
+
+$$\Phi_3(4)=21=\Phi_6(5).$$
+
+It removes a mismatch in the chosen dimensionless shell model. It does **not** establish a frequency in hertz, a nonlocal interaction or a new spatial dimension. A physical Hamiltonian must supply those.
+
+### Addressing the receiver
+
+The compendium's mirror selector uses a triad Gram matrix $G$, a chirality $\chi$ and an accumulated phase $\Theta$. Its proposed match conditions are
+
+$$G_x=P^T G_y P,\qquad \chi_x=-\chi_y,\qquad \Theta_x-\Theta_y=0\pmod{2\pi},$$
+
+for a consistently ordered permutation $P$. Gram equivalence specifies intrinsic shape, not absolute orientation. A nondegenerate oriented triad and a physical phase reference must be established separately; different planets cannot simply be assumed to share an oscillator clock. The raw permutation sum in the compendium can exceed one, so a normalized overlap is needed before interpreting it as an amplitude.
+
+A useful bounded candidate, explicitly introduced here as a test model rather than a derived law, is
+
+$$M_{xy}=\exp[-d_G^2/(2\epsilon^2)]\,\frac{1-\chi_x\chi_y}{2}\,\cos^2[(\Theta_x-\Theta_y)/2],$$
+
+with $d_G$ the minimum Gram mismatch over admissible permutations. This lies in $[0,1]$, equals one at exact complementary lock, and separates measurable matching tolerances from overall coupling strength. For an ideal discrete phase address $a\in\mathbb Z_{21}$, the normalized character sum gives the sharper exact selector
+
+$$\frac1{21}\sum_{k=0}^{20}e^{2\pi i k(a-b)/21}=\delta_{ab}.$$
+
+The integer 21 provides a candidate address vocabulary, not evidence that the universe implements it. A filtered 14-character sum generally has sidelobes and is not the same Kronecker delta.
+
+### From formal matching to actual dynamics
+
+To make the Stargate hypothesis falsifiable, introduce a minimal two-site, single-excitation Hamiltonian. This is an illustrative extension of the portal programme, not a derived native GFD action:
+
+$$\frac{H}{\hbar}=\begin{pmatrix}\omega_x&\kappa\\\bar\kappa&\omega_y\end{pmatrix},\qquad \kappa=\kappa_0 M_{xy},\qquad \Delta=\omega_x-\omega_y.$$
+
+Here $\kappa_0$ has units of angular frequency. The dimensionless $\alpha_G$ cannot by itself set that timescale. For an initially localized excitation at $x$, the lossless two-mode model yields
+
+$$P_{x\to y}(t)=\frac{4|\kappa|^2}{\Delta^2+4|\kappa|^2}\sin^2\!\left(\frac{t}{2}\sqrt{\Delta^2+4|\kappa|^2}\right).$$
+
+At exact frequency lock and nonzero coupling, $P_{x\to y}(t)=\sin^2(|\kappa|t)$, and the first complete transfer occurs at $t=\pi/(2|\kappa|)$. At strong detuning, the maximum transfer is suppressed by approximately $4|\kappa|^2/\Delta^2$. Real loss and decoherence reduce the efficiency further.
+
+![Predicted response of a hypothetical coupled receiver](diagrams/transfer-response.svg)
+
+This elementary result isolates the real burden of the research. **Resonance selects a channel; it does not create the channel.** A measured nonzero $\kappa_0$ after conventional electromagnetic, acoustic, seismic and electronic paths are excluded would be the relevant anomaly. The two-mode Hamiltonian assumes a coupling and does not derive a mechanism that evades relativistic causality. Any proposed distance-independent or faster-than-light interaction requires a covariant theory and a demonstration of causal consistency.
+
+### Signal before passage
+
+The antenna letter proposes a threshold $1/\varphi^2\approx0.382$ for a bimetric-lock transition from signal to transport. This is a candidate threshold, not a measured property. The first credible milestone is reproducible remote excitation or information transfer, not passage of matter. A quantum state-transfer claim requires a complete channel and conservation accounting; a macroscopic transport claim requires a much stronger dynamical and energetic theory. Neither is established by the pyramid's location, acoustic modes or formal address match.
+
+| Necessary test | Matched prediction | Control |
 |---|---|---|
-| Character | Incoherent distributed exchange | Phase-selected exchange |
-| Kernel in the exploratory model | Spatial $1/r$ | Address functional $\mathcal M(U,V)$ |
-| Shared algebraic ingredient | $\alpha_G J_4$ | $\alpha_G J_4$ |
-| Physical status | Must recover measured gravitational laws | No demonstrated state-transfer channel |
+| Frequency sweep | A reproducible peak at a preregistered mode | Detune the receiver |
+| Chirality reversal | Change specific to the predicted handedness | Same chirality, randomized orientation |
+| Phase sweep | A reproducible dependence on relative phase | Randomized phase and blinded drive |
+| Separation and shielding | Residual response beyond calibrated conventional channels | Independent clocks, isolated electronics, sham runs |
+| Conservation | Input/output energy and timing consistent with a physical action | Full power and instrument accounting |
 
-The research investigates the pentachoron boundary, the Hopf bundle, icosahedral symmetry, $\mathrm{SU}(2)_{19}$ and the Poincaré homology sphere as possible address-space structures. These are mathematical models; equal sector counts alone do not select one unique physical topology. In particular, a continuous address manifold is not a finite set merely because its symmetry group is finite.
-
-The antenna letter also proposes a threshold at $1/\varphi^2\approx0.382$ separating signal and transport regimes. This is an exploratory interpretation of its energy-functional and bimetric-lock analysis. It does not establish transport, a physical throat or an energy budget. The transfer equation does not itself define a causal, unitary, energy-conserving communication channel. The existence of a matched second apparatus is unverified.
+The apparatus need not be an ancient monument to test the hypothesis. Two well-characterized laboratory resonators are the appropriate first experiment. A positive conventional resonance result would establish an engineering baseline; only a residual that survives these controls could support a novel interaction.
 
 Read: [Portal topology](pyramid_portal_research/03_portal_topology/) · [Transfer operator](pyramid_portal_research/06_master_equations/06.2_portal_operator.md) · [Mirror address functional](pyramid_portal_research/06_master_equations/06.3_mirror_address_functional.md) · [Two-mode operation](pyramid_portal_research/06_master_equations/06.4_two_mode_operation.md) · [Energy budget](pyramid_portal_research/08_open_questions/08.4_energy_budget.md).
 
@@ -336,7 +424,8 @@ The programme deliberately separates mathematical identities, surveyed geometry,
 | Finding | Present status |
 |---|---|
 | Graded character and cyclotomic identities | Exact in the defined representations |
-| Parity-pushout recursion and 21-channel extension | Explicit combinatorial construction |
+| Graded coupling signatures: TetA 21, Field Origin 17, TetB 13 | Exact trace and projection identities in the graded representation |
+| Parity-pushout recursion and 21-channel extension | Separate explicit combinatorial construction; not physical chamber sizes |
 | Three-phase projector and registration/coherence distinction | Exact mathematical statements |
 | King's Chamber half-area position | Survey-based geometric correspondence |
 | Phase 0 half-flux plane within 0.82 in of floor | Reported numerical model result, conditional on the sector identification |
@@ -376,7 +465,7 @@ The necessary steps are an explicit π-walk/FWHT schedule, a proof of its equiva
 
 If the operator can be established, it advances the theory independently of the historical interpretation of the pyramid. If a resonator can also drive the operator coherently, it becomes a laboratory question rather than an archaeological speculation.
 
-**The pyramid is the proposed apparatus. The closure engine is the research.**
+**The Stargate is the hypothesis. The Field Origin is the interface. The closure engine is the research.**
 
 ## Reading guide and reproduction
 

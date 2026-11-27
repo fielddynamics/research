@@ -8,84 +8,84 @@
  viewBox="0.00 0.00 357.20 574.20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(21.6 552.6)">
 <title>G</title>
-<polygon fill="#f7f9fc" stroke="transparent" points="-21.6,21.6 -21.6,-552.6 335.6,-552.6 335.6,21.6 -21.6,21.6"/>
-<text text-anchor="middle" x="157" y="-511" font-family="DejaVu Sans" font-size="20.00" fill="#1b2d42">The K=4 to K=5 closure hinge</text>
+<polygon fill="#f6f8fa" stroke="transparent" points="-21.6,21.6 -21.6,-552.6 335.6,-552.6 335.6,21.6 -21.6,21.6"/>
+<text text-anchor="middle" x="157" y="-511" font-family="DejaVu Sans" font-size="20.00" fill="#142d43">Abstract K=4 to K=5 closure hinge</text>
 <g id="clust1" class="cluster">
 <title>cluster_A</title>
-<path fill="#f7f9fc" stroke="#b5c6d6" d="M69,-265C69,-265 181,-265 181,-265 187,-265 193,-271 193,-277 193,-277 193,-481 193,-481 193,-487 187,-493 181,-493 181,-493 69,-493 69,-493 63,-493 57,-487 57,-481 57,-481 57,-277 57,-277 57,-271 63,-265 69,-265"/>
-<text text-anchor="middle" x="125" y="-473" font-family="DejaVu Sans" font-size="20.00" fill="#1b2d42">K=4 closure</text>
+<path fill="#f6f8fa" stroke="#b5c6d6" d="M69,-265C69,-265 181,-265 181,-265 187,-265 193,-271 193,-277 193,-277 193,-481 193,-481 193,-487 187,-493 181,-493 181,-493 69,-493 69,-493 63,-493 57,-487 57,-481 57,-481 57,-277 57,-277 57,-271 63,-265 69,-265"/>
+<text text-anchor="middle" x="125" y="-473" font-family="DejaVu Sans" font-size="20.00" fill="#142d43">K=4 closure</text>
 </g>
 <g id="clust2" class="cluster">
 <title>cluster_B</title>
-<path fill="#f7f9fc" stroke="#b5c6d6" d="M65,-8C65,-8 177,-8 177,-8 183,-8 189,-14 189,-20 189,-20 189,-224 189,-224 189,-230 183,-236 177,-236 177,-236 65,-236 65,-236 59,-236 53,-230 53,-224 53,-224 53,-20 53,-20 53,-14 59,-8 65,-8"/>
-<text text-anchor="middle" x="121" y="-216" font-family="DejaVu Sans" font-size="20.00" fill="#1b2d42">K=5 closure</text>
+<path fill="#f6f8fa" stroke="#b5c6d6" d="M65,-8C65,-8 177,-8 177,-8 183,-8 189,-14 189,-20 189,-20 189,-224 189,-224 189,-230 183,-236 177,-236 177,-236 65,-236 65,-236 59,-236 53,-230 53,-224 53,-224 53,-20 53,-20 53,-14 59,-8 65,-8"/>
+<text text-anchor="middle" x="121" y="-216" font-family="DejaVu Sans" font-size="20.00" fill="#142d43">K=5 closure</text>
 </g>
 <!-- C13 -->
 <g id="node1" class="node">
 <title>C13</title>
-<path fill="#e5edf6" stroke="#68839c" d="M153,-455C153,-455 89,-455 89,-455 83,-455 77,-449 77,-443 77,-443 77,-431 77,-431 77,-425 83,-419 89,-419 89,-419 153,-419 153,-419 159,-419 165,-425 165,-431 165,-431 165,-443 165,-443 165,-449 159,-455 153,-455"/>
-<text text-anchor="middle" x="121" y="-433.9" font-family="DejaVu Sans" font-size="12.00" fill="#1b2d42">13 shared</text>
+<path fill="#e5eff3" stroke="#7492a4" d="M153,-455C153,-455 89,-455 89,-455 83,-455 77,-449 77,-443 77,-443 77,-431 77,-431 77,-425 83,-419 89,-419 89,-419 153,-419 153,-419 159,-419 165,-425 165,-431 165,-431 165,-443 165,-443 165,-449 159,-455 153,-455"/>
+<text text-anchor="middle" x="121" y="-433.9" font-family="DejaVu Sans" font-size="12.00" fill="#142d43">13 shared</text>
 </g>
 <!-- E17 -->
 <g id="node2" class="node">
 <title>E17</title>
-<path fill="#e5edf6" stroke="#68839c" d="M149,-382C149,-382 93,-382 93,-382 87,-382 81,-376 81,-370 81,-370 81,-358 81,-358 81,-352 87,-346 93,-346 93,-346 149,-346 149,-346 155,-346 161,-352 161,-358 161,-358 161,-370 161,-370 161,-376 155,-382 149,-382"/>
-<text text-anchor="middle" x="121" y="-360.9" font-family="DejaVu Sans" font-size="12.00" fill="#1b2d42">17 sheet</text>
+<path fill="#e5eff3" stroke="#7492a4" d="M149,-382C149,-382 93,-382 93,-382 87,-382 81,-376 81,-370 81,-370 81,-358 81,-358 81,-352 87,-346 93,-346 93,-346 149,-346 149,-346 155,-346 161,-352 161,-358 161,-358 161,-370 161,-370 161,-376 155,-382 149,-382"/>
+<text text-anchor="middle" x="121" y="-360.9" font-family="DejaVu Sans" font-size="12.00" fill="#142d43">17 each sheet</text>
 </g>
 <!-- C13&#45;&gt;E17 -->
 <g id="edge1" class="edge">
 <title>C13&#45;&gt;E17</title>
-<path fill="none" stroke="#59758c" d="M121,-418.81C121,-410.09 121,-399.34 121,-389.75"/>
-<polygon fill="#59758c" stroke="#59758c" points="123.63,-389.53 121,-382.03 118.38,-389.53 123.63,-389.53"/>
+<path fill="none" stroke="#607f90" d="M121,-418.81C121,-410.09 121,-399.34 121,-389.75"/>
+<polygon fill="#607f90" stroke="#607f90" points="123.63,-389.53 121,-382.03 118.38,-389.53 123.63,-389.53"/>
 </g>
 <!-- U21 -->
 <g id="node3" class="node">
 <title>U21</title>
 <path fill="#d5eee6" stroke="#067d6c" d="M161,-309C161,-309 81,-309 81,-309 75,-309 69,-303 69,-297 69,-297 69,-285 69,-285 69,-279 75,-273 81,-273 81,-273 161,-273 161,-273 167,-273 173,-279 173,-285 173,-285 173,-297 173,-297 173,-303 167,-309 161,-309"/>
-<text text-anchor="middle" x="121" y="-287.9" font-family="DejaVu Sans" font-size="12.00" fill="#1b2d42">21 complete</text>
+<text text-anchor="middle" x="121" y="-287.9" font-family="DejaVu Sans" font-size="12.00" fill="#142d43">21 complete</text>
 </g>
 <!-- E17&#45;&gt;U21 -->
 <g id="edge2" class="edge">
 <title>E17&#45;&gt;U21</title>
-<path fill="none" stroke="#59758c" d="M121,-345.81C121,-337.09 121,-326.34 121,-316.75"/>
-<polygon fill="#59758c" stroke="#59758c" points="123.63,-316.53 121,-309.03 118.38,-316.53 123.63,-316.53"/>
+<path fill="none" stroke="#607f90" d="M121,-345.81C121,-337.09 121,-326.34 121,-316.75"/>
+<polygon fill="#607f90" stroke="#607f90" points="123.63,-316.53 121,-309.03 118.38,-316.53 123.63,-316.53"/>
 </g>
 <!-- C21 -->
 <g id="node4" class="node">
 <title>C21</title>
 <path fill="#d5eee6" stroke="#067d6c" d="M153,-198C153,-198 89,-198 89,-198 83,-198 77,-192 77,-186 77,-186 77,-174 77,-174 77,-168 83,-162 89,-162 89,-162 153,-162 153,-162 159,-162 165,-168 165,-174 165,-174 165,-186 165,-186 165,-192 159,-198 153,-198"/>
-<text text-anchor="middle" x="121" y="-176.9" font-family="DejaVu Sans" font-size="12.00" fill="#1b2d42">21 shared</text>
+<text text-anchor="middle" x="121" y="-176.9" font-family="DejaVu Sans" font-size="12.00" fill="#142d43">21 shared</text>
 </g>
 <!-- U21&#45;&gt;C21 -->
 <g id="edge5" class="edge">
 <title>U21&#45;&gt;C21</title>
-<path fill="none" stroke="#59758c" stroke-width="2" d="M121,-272.97C121,-255 121,-226.49 121,-205.97"/>
-<polygon fill="#59758c" stroke="#59758c" stroke-width="2" points="123.63,-205.77 121,-198.27 118.38,-205.77 123.63,-205.77"/>
-<text text-anchor="middle" x="195" y="-247" font-family="DejaVu Sans" font-size="10.00" fill="#526779">Register becomes shared core</text>
+<path fill="none" stroke="#607f90" stroke-width="2" d="M121,-272.97C121,-255 121,-226.49 121,-205.97"/>
+<polygon fill="#607f90" stroke="#607f90" stroke-width="2" points="123.63,-205.77 121,-198.27 118.38,-205.77 123.63,-205.77"/>
+<text text-anchor="middle" x="195" y="-247" font-family="DejaVu Sans" font-size="10.00" fill="#52677a">Register becomes shared core</text>
 </g>
 <!-- E26 -->
 <g id="node5" class="node">
 <title>E26</title>
-<path fill="#e5edf6" stroke="#68839c" d="M149,-125C149,-125 93,-125 93,-125 87,-125 81,-119 81,-113 81,-113 81,-101 81,-101 81,-95 87,-89 93,-89 93,-89 149,-89 149,-89 155,-89 161,-95 161,-101 161,-101 161,-113 161,-113 161,-119 155,-125 149,-125"/>
-<text text-anchor="middle" x="121" y="-103.9" font-family="DejaVu Sans" font-size="12.00" fill="#1b2d42">26 sheet</text>
+<path fill="#e5eff3" stroke="#7492a4" d="M149,-125C149,-125 93,-125 93,-125 87,-125 81,-119 81,-113 81,-113 81,-101 81,-101 81,-95 87,-89 93,-89 93,-89 149,-89 149,-89 155,-89 161,-95 161,-101 161,-101 161,-113 161,-113 161,-119 155,-125 149,-125"/>
+<text text-anchor="middle" x="121" y="-103.9" font-family="DejaVu Sans" font-size="12.00" fill="#142d43">26 each sheet</text>
 </g>
 <!-- C21&#45;&gt;E26 -->
 <g id="edge3" class="edge">
 <title>C21&#45;&gt;E26</title>
-<path fill="none" stroke="#59758c" d="M121,-161.81C121,-153.09 121,-142.34 121,-132.75"/>
-<polygon fill="#59758c" stroke="#59758c" points="123.63,-132.53 121,-125.03 118.38,-132.53 123.63,-132.53"/>
+<path fill="none" stroke="#607f90" d="M121,-161.81C121,-153.09 121,-142.34 121,-132.75"/>
+<polygon fill="#607f90" stroke="#607f90" points="123.63,-132.53 121,-125.03 118.38,-132.53 123.63,-132.53"/>
 </g>
 <!-- U31 -->
 <g id="node6" class="node">
 <title>U31</title>
-<path fill="#e5edf6" stroke="#68839c" d="M161,-52C161,-52 81,-52 81,-52 75,-52 69,-46 69,-40 69,-40 69,-28 69,-28 69,-22 75,-16 81,-16 81,-16 161,-16 161,-16 167,-16 173,-22 173,-28 173,-28 173,-40 173,-40 173,-46 167,-52 161,-52"/>
-<text text-anchor="middle" x="121" y="-30.9" font-family="DejaVu Sans" font-size="12.00" fill="#1b2d42">31 complete</text>
+<path fill="#e5eff3" stroke="#7492a4" d="M161,-52C161,-52 81,-52 81,-52 75,-52 69,-46 69,-40 69,-40 69,-28 69,-28 69,-22 75,-16 81,-16 81,-16 161,-16 161,-16 167,-16 173,-22 173,-28 173,-28 173,-40 173,-40 173,-46 167,-52 161,-52"/>
+<text text-anchor="middle" x="121" y="-30.9" font-family="DejaVu Sans" font-size="12.00" fill="#142d43">31 complete</text>
 </g>
 <!-- E26&#45;&gt;U31 -->
 <g id="edge4" class="edge">
 <title>E26&#45;&gt;U31</title>
-<path fill="none" stroke="#59758c" d="M121,-88.81C121,-80.09 121,-69.34 121,-59.75"/>
-<polygon fill="#59758c" stroke="#59758c" points="123.63,-59.53 121,-52.03 118.38,-59.53 123.63,-59.53"/>
+<path fill="none" stroke="#607f90" d="M121,-88.81C121,-80.09 121,-69.34 121,-59.75"/>
+<polygon fill="#607f90" stroke="#607f90" points="123.63,-59.53 121,-52.03 118.38,-59.53 123.63,-59.53"/>
 </g>
 </g>
 </svg>

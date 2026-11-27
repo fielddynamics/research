@@ -8,120 +8,120 @@
  viewBox="0.00 0.00 410.20 725.20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(21.6 703.6)">
 <title>G</title>
-<polygon fill="#f7f9fc" stroke="transparent" points="-21.6,21.6 -21.6,-703.6 388.6,-703.6 388.6,21.6 -21.6,21.6"/>
-<text text-anchor="middle" x="183.5" y="-662" font-family="DejaVu Sans" font-size="20.00" fill="#1b2d42">The three&#45;sweep π&#45;walk hypothesis</text>
+<polygon fill="#f6f8fa" stroke="transparent" points="-21.6,21.6 -21.6,-703.6 388.6,-703.6 388.6,21.6 -21.6,21.6"/>
+<text text-anchor="middle" x="183.5" y="-662" font-family="DejaVu Sans" font-size="20.00" fill="#142d43">The three&#45;sweep π&#45;walk hypothesis</text>
 <!-- V -->
 <g id="node1" class="node">
 <title>V</title>
-<path fill="#e5edf6" stroke="#68839c" d="M272.5,-652C272.5,-652 129.5,-652 129.5,-652 123.5,-652 117.5,-646 117.5,-640 117.5,-640 117.5,-620 117.5,-620 117.5,-614 123.5,-608 129.5,-608 129.5,-608 272.5,-608 272.5,-608 278.5,-608 284.5,-614 284.5,-620 284.5,-620 284.5,-640 284.5,-640 284.5,-646 278.5,-652 272.5,-652"/>
-<text text-anchor="middle" x="201" y="-633.4" font-family="DejaVu Sans" font-size="12.00" fill="#1b2d42">Standing&#45;wave / vortex</text>
-<text text-anchor="middle" x="201" y="-620.4" font-family="DejaVu Sans" font-size="12.00" fill="#1b2d42">inventory</text>
+<path fill="#e5eff3" stroke="#7492a4" d="M272.5,-652C272.5,-652 129.5,-652 129.5,-652 123.5,-652 117.5,-646 117.5,-640 117.5,-640 117.5,-620 117.5,-620 117.5,-614 123.5,-608 129.5,-608 129.5,-608 272.5,-608 272.5,-608 278.5,-608 284.5,-614 284.5,-620 284.5,-620 284.5,-640 284.5,-640 284.5,-646 278.5,-652 272.5,-652"/>
+<text text-anchor="middle" x="201" y="-633.4" font-family="DejaVu Sans" font-size="12.00" fill="#142d43">Standing&#45;wave / vortex</text>
+<text text-anchor="middle" x="201" y="-620.4" font-family="DejaVu Sans" font-size="12.00" fill="#142d43">inventory</text>
 </g>
 <!-- W -->
 <g id="node2" class="node">
 <title>W</title>
-<path fill="#e5edf6" stroke="#68839c" d="M207.5,-571C207.5,-571 68.5,-571 68.5,-571 62.5,-571 56.5,-565 56.5,-559 56.5,-559 56.5,-539 56.5,-539 56.5,-533 62.5,-527 68.5,-527 68.5,-527 207.5,-527 207.5,-527 213.5,-527 219.5,-533 219.5,-539 219.5,-539 219.5,-559 219.5,-559 219.5,-565 213.5,-571 207.5,-571"/>
-<text text-anchor="middle" x="138" y="-552.4" font-family="DejaVu Sans" font-size="12.00" fill="#1b2d42">Pi&#45;walk: ordered Walsh</text>
-<text text-anchor="middle" x="138" y="-539.4" font-family="DejaVu Sans" font-size="12.00" fill="#1b2d42">spectral read</text>
+<path fill="#e5eff3" stroke="#7492a4" d="M207.5,-571C207.5,-571 68.5,-571 68.5,-571 62.5,-571 56.5,-565 56.5,-559 56.5,-559 56.5,-539 56.5,-539 56.5,-533 62.5,-527 68.5,-527 68.5,-527 207.5,-527 207.5,-527 213.5,-527 219.5,-533 219.5,-539 219.5,-539 219.5,-559 219.5,-559 219.5,-565 213.5,-571 207.5,-571"/>
+<text text-anchor="middle" x="138" y="-552.4" font-family="DejaVu Sans" font-size="12.00" fill="#142d43">Pi&#45;walk: ordered Walsh</text>
+<text text-anchor="middle" x="138" y="-539.4" font-family="DejaVu Sans" font-size="12.00" fill="#142d43">spectral read</text>
 </g>
 <!-- V&#45;&gt;W -->
 <g id="edge1" class="edge">
 <title>V&#45;&gt;W</title>
-<path fill="none" stroke="#59758c" d="M184.12,-607.83C176.63,-598.44 167.73,-587.28 159.76,-577.28"/>
-<polygon fill="#59758c" stroke="#59758c" points="161.66,-575.46 154.93,-571.23 157.55,-578.73 161.66,-575.46"/>
+<path fill="none" stroke="#607f90" d="M184.12,-607.83C176.63,-598.44 167.73,-587.28 159.76,-577.28"/>
+<polygon fill="#607f90" stroke="#607f90" points="161.66,-575.46 154.93,-571.23 157.55,-578.73 161.66,-575.46"/>
 </g>
 <!-- S1 -->
 <g id="node3" class="node">
 <title>S1</title>
-<path fill="#e5edf6" stroke="#68839c" d="M212.5,-490C212.5,-490 31.5,-490 31.5,-490 25.5,-490 19.5,-484 19.5,-478 19.5,-478 19.5,-466 19.5,-466 19.5,-460 25.5,-454 31.5,-454 31.5,-454 212.5,-454 212.5,-454 218.5,-454 224.5,-460 224.5,-466 224.5,-466 224.5,-478 224.5,-478 224.5,-484 218.5,-490 212.5,-490"/>
-<text text-anchor="middle" x="122" y="-468.9" font-family="DejaVu Sans" font-size="12.00" fill="#1b2d42">Sweep 1: resolutions 13 to 21</text>
+<path fill="#e5eff3" stroke="#7492a4" d="M212.5,-490C212.5,-490 31.5,-490 31.5,-490 25.5,-490 19.5,-484 19.5,-478 19.5,-478 19.5,-466 19.5,-466 19.5,-460 25.5,-454 31.5,-454 31.5,-454 212.5,-454 212.5,-454 218.5,-454 224.5,-460 224.5,-466 224.5,-466 224.5,-478 224.5,-478 224.5,-484 218.5,-490 212.5,-490"/>
+<text text-anchor="middle" x="122" y="-468.9" font-family="DejaVu Sans" font-size="12.00" fill="#142d43">Sweep 1: resolutions 13 to 21</text>
 </g>
 <!-- W&#45;&gt;S1 -->
 <g id="edge2" class="edge">
 <title>W&#45;&gt;S1</title>
-<path fill="none" stroke="#59758c" d="M133.46,-526.71C131.52,-517.64 129.26,-507.01 127.25,-497.61"/>
-<polygon fill="#59758c" stroke="#59758c" points="129.77,-496.85 125.64,-490.06 124.64,-497.94 129.77,-496.85"/>
+<path fill="none" stroke="#607f90" d="M133.46,-526.71C131.52,-517.64 129.26,-507.01 127.25,-497.61"/>
+<polygon fill="#607f90" stroke="#607f90" points="129.77,-496.85 125.64,-490.06 124.64,-497.94 129.77,-496.85"/>
 </g>
 <!-- S2 -->
 <g id="node4" class="node">
 <title>S2</title>
-<path fill="#e5edf6" stroke="#68839c" d="M206,-417C206,-417 34,-417 34,-417 28,-417 22,-411 22,-405 22,-405 22,-385 22,-385 22,-379 28,-373 34,-373 34,-373 206,-373 206,-373 212,-373 218,-379 218,-385 218,-385 218,-405 218,-405 218,-411 212,-417 206,-417"/>
-<text text-anchor="middle" x="120" y="-398.4" font-family="DejaVu Sans" font-size="12.00" fill="#1b2d42">Sweep 2: restart at 13, read</text>
-<text text-anchor="middle" x="120" y="-385.4" font-family="DejaVu Sans" font-size="12.00" fill="#1b2d42">to 21</text>
+<path fill="#e5eff3" stroke="#7492a4" d="M206,-417C206,-417 34,-417 34,-417 28,-417 22,-411 22,-405 22,-405 22,-385 22,-385 22,-379 28,-373 34,-373 34,-373 206,-373 206,-373 212,-373 218,-379 218,-385 218,-385 218,-405 218,-405 218,-411 212,-417 206,-417"/>
+<text text-anchor="middle" x="120" y="-398.4" font-family="DejaVu Sans" font-size="12.00" fill="#142d43">Sweep 2: restart at 13, read</text>
+<text text-anchor="middle" x="120" y="-385.4" font-family="DejaVu Sans" font-size="12.00" fill="#142d43">to 21</text>
 </g>
 <!-- S1&#45;&gt;S2 -->
 <g id="edge3" class="edge">
 <title>S1&#45;&gt;S2</title>
-<path fill="none" stroke="#59758c" d="M121.55,-453.98C121.32,-445.39 121.03,-434.72 120.77,-424.89"/>
-<polygon fill="#59758c" stroke="#59758c" points="123.39,-424.67 120.57,-417.24 118.14,-424.81 123.39,-424.67"/>
+<path fill="none" stroke="#607f90" d="M121.55,-453.98C121.32,-445.39 121.03,-434.72 120.77,-424.89"/>
+<polygon fill="#607f90" stroke="#607f90" points="123.39,-424.67 120.57,-417.24 118.14,-424.81 123.39,-424.67"/>
 </g>
 <!-- S3 -->
 <g id="node5" class="node">
 <title>S3</title>
-<path fill="#e5edf6" stroke="#68839c" d="M203,-336C203,-336 31,-336 31,-336 25,-336 19,-330 19,-324 19,-324 19,-304 19,-304 19,-298 25,-292 31,-292 31,-292 203,-292 203,-292 209,-292 215,-298 215,-304 215,-304 215,-324 215,-324 215,-330 209,-336 203,-336"/>
-<text text-anchor="middle" x="117" y="-317.4" font-family="DejaVu Sans" font-size="12.00" fill="#1b2d42">Sweep 3: restart at 13, read</text>
-<text text-anchor="middle" x="117" y="-304.4" font-family="DejaVu Sans" font-size="12.00" fill="#1b2d42">to 21</text>
+<path fill="#e5eff3" stroke="#7492a4" d="M203,-336C203,-336 31,-336 31,-336 25,-336 19,-330 19,-324 19,-324 19,-304 19,-304 19,-298 25,-292 31,-292 31,-292 203,-292 203,-292 209,-292 215,-298 215,-304 215,-304 215,-324 215,-324 215,-330 209,-336 203,-336"/>
+<text text-anchor="middle" x="117" y="-317.4" font-family="DejaVu Sans" font-size="12.00" fill="#142d43">Sweep 3: restart at 13, read</text>
+<text text-anchor="middle" x="117" y="-304.4" font-family="DejaVu Sans" font-size="12.00" fill="#142d43">to 21</text>
 </g>
 <!-- S2&#45;&gt;S3 -->
 <g id="edge4" class="edge">
 <title>S2&#45;&gt;S3</title>
-<path fill="none" stroke="#59758c" d="M119.2,-372.83C118.86,-363.97 118.46,-353.54 118.1,-343.99"/>
-<polygon fill="#59758c" stroke="#59758c" points="120.71,-343.62 117.81,-336.23 115.47,-343.82 120.71,-343.62"/>
+<path fill="none" stroke="#607f90" d="M119.2,-372.83C118.86,-363.97 118.46,-353.54 118.1,-343.99"/>
+<polygon fill="#607f90" stroke="#607f90" points="120.71,-343.62 117.81,-336.23 115.47,-343.82 120.71,-343.62"/>
 </g>
 <!-- P -->
 <g id="node6" class="node">
 <title>P</title>
-<path fill="#e5edf6" stroke="#68839c" d="M209.5,-255C209.5,-255 46.5,-255 46.5,-255 40.5,-255 34.5,-249 34.5,-243 34.5,-243 34.5,-231 34.5,-231 34.5,-225 40.5,-219 46.5,-219 46.5,-219 209.5,-219 209.5,-219 215.5,-219 221.5,-225 221.5,-231 221.5,-231 221.5,-243 221.5,-243 221.5,-249 215.5,-255 209.5,-255"/>
-<text text-anchor="middle" x="128" y="-233.9" font-family="DejaVu Sans" font-size="12.00" fill="#1b2d42">Three&#45;phase reconciliation</text>
+<path fill="#e5eff3" stroke="#7492a4" d="M209.5,-255C209.5,-255 46.5,-255 46.5,-255 40.5,-255 34.5,-249 34.5,-243 34.5,-243 34.5,-231 34.5,-231 34.5,-225 40.5,-219 46.5,-219 46.5,-219 209.5,-219 209.5,-219 215.5,-219 221.5,-225 221.5,-231 221.5,-231 221.5,-243 221.5,-243 221.5,-249 215.5,-255 209.5,-255"/>
+<text text-anchor="middle" x="128" y="-233.9" font-family="DejaVu Sans" font-size="12.00" fill="#142d43">Three&#45;phase reconciliation</text>
 </g>
 <!-- S3&#45;&gt;P -->
 <g id="edge5" class="edge">
 <title>S3&#45;&gt;P</title>
-<path fill="none" stroke="#59758c" d="M120.12,-291.71C121.45,-282.64 123.01,-272.01 124.39,-262.61"/>
-<polygon fill="#59758c" stroke="#59758c" points="127.01,-262.86 125.5,-255.06 121.81,-262.1 127.01,-262.86"/>
+<path fill="none" stroke="#607f90" d="M120.12,-291.71C121.45,-282.64 123.01,-272.01 124.39,-262.61"/>
+<polygon fill="#607f90" stroke="#607f90" points="127.01,-262.86 125.5,-255.06 121.81,-262.1 127.01,-262.86"/>
 </g>
 <!-- O -->
 <g id="node7" class="node">
 <title>O</title>
 <path fill="#d5eee6" stroke="#067d6c" d="M210.5,-182C210.5,-182 53.5,-182 53.5,-182 47.5,-182 41.5,-176 41.5,-170 41.5,-170 41.5,-158 41.5,-158 41.5,-152 47.5,-146 53.5,-146 53.5,-146 210.5,-146 210.5,-146 216.5,-146 222.5,-152 222.5,-158 222.5,-158 222.5,-170 222.5,-170 222.5,-176 216.5,-182 210.5,-182"/>
-<text text-anchor="middle" x="132" y="-160.9" font-family="DejaVu Sans" font-size="12.00" fill="#1b2d42">Field Origin: axial readout</text>
+<text text-anchor="middle" x="132" y="-160.9" font-family="DejaVu Sans" font-size="12.00" fill="#142d43">Field Origin: axial readout</text>
 </g>
 <!-- P&#45;&gt;O -->
 <g id="edge6" class="edge">
 <title>P&#45;&gt;O</title>
-<path fill="none" stroke="#59758c" d="M128.97,-218.81C129.46,-210.09 130.07,-199.34 130.61,-189.75"/>
-<polygon fill="#59758c" stroke="#59758c" points="133.24,-189.66 131.04,-182.03 128,-189.37 133.24,-189.66"/>
+<path fill="none" stroke="#607f90" d="M128.97,-218.81C129.46,-210.09 130.07,-199.34 130.61,-189.75"/>
+<polygon fill="#607f90" stroke="#607f90" points="133.24,-189.66 131.04,-182.03 128,-189.37 133.24,-189.66"/>
 </g>
 <!-- R -->
 <g id="node8" class="node">
 <title>R</title>
 <path fill="#d5eee6" stroke="#067d6c" d="M211,-109C211,-109 61,-109 61,-109 55,-109 49,-103 49,-97 49,-97 49,-85 49,-85 49,-79 55,-73 61,-73 61,-73 211,-73 211,-73 217,-73 223,-79 223,-85 223,-85 223,-97 223,-97 223,-103 217,-109 211,-109"/>
-<text text-anchor="middle" x="136" y="-87.9" font-family="DejaVu Sans" font-size="12.00" fill="#1b2d42">Settlement / registration</text>
+<text text-anchor="middle" x="136" y="-87.9" font-family="DejaVu Sans" font-size="12.00" fill="#142d43">Settlement / registration</text>
 </g>
 <!-- O&#45;&gt;R -->
 <g id="edge7" class="edge">
 <title>O&#45;&gt;R</title>
-<path fill="none" stroke="#59758c" d="M132.97,-145.81C133.46,-137.09 134.07,-126.34 134.61,-116.75"/>
-<polygon fill="#59758c" stroke="#59758c" points="137.24,-116.66 135.04,-109.03 132,-116.37 137.24,-116.66"/>
+<path fill="none" stroke="#607f90" d="M132.97,-145.81C133.46,-137.09 134.07,-126.34 134.61,-116.75"/>
+<polygon fill="#607f90" stroke="#607f90" points="137.24,-116.66 135.04,-109.03 132,-116.37 137.24,-116.66"/>
 </g>
 <!-- N -->
 <g id="node9" class="node">
 <title>N</title>
-<path fill="#e5edf6" stroke="#68839c" d="M276,-36C276,-36 118,-36 118,-36 112,-36 106,-30 106,-24 106,-24 106,-12 106,-12 106,-6 112,0 118,0 118,0 276,0 276,0 282,0 288,-6 288,-12 288,-12 288,-24 288,-24 288,-30 282,-36 276,-36"/>
-<text text-anchor="middle" x="197" y="-14.9" font-family="DejaVu Sans" font-size="12.00" fill="#1b2d42">Next&#45;scale shared closure</text>
+<path fill="#e5eff3" stroke="#7492a4" d="M276,-36C276,-36 118,-36 118,-36 112,-36 106,-30 106,-24 106,-24 106,-12 106,-12 106,-6 112,0 118,0 118,0 276,0 276,0 282,0 288,-6 288,-12 288,-12 288,-24 288,-24 288,-30 282,-36 276,-36"/>
+<text text-anchor="middle" x="197" y="-14.9" font-family="DejaVu Sans" font-size="12.00" fill="#142d43">Next&#45;scale shared closure</text>
 </g>
 <!-- R&#45;&gt;N -->
 <g id="edge8" class="edge">
 <title>R&#45;&gt;N</title>
-<path fill="none" stroke="#59758c" d="M150.77,-72.81C158.78,-63.48 168.8,-51.83 177.45,-41.75"/>
-<polygon fill="#59758c" stroke="#59758c" points="179.47,-43.43 182.37,-36.03 175.49,-40.01 179.47,-43.43"/>
+<path fill="none" stroke="#607f90" d="M150.77,-72.81C158.78,-63.48 168.8,-51.83 177.45,-41.75"/>
+<polygon fill="#607f90" stroke="#607f90" points="179.47,-43.43 182.37,-36.03 175.49,-40.01 179.47,-43.43"/>
 </g>
 <!-- N&#45;&gt;V -->
 <g id="edge9" class="edge">
 <title>N&#45;&gt;V</title>
-<path fill="none" stroke="#59758c" stroke-dasharray="5,2" d="M224.74,-36.23C241.24,-48.82 259,-67.58 259,-90 259,-550 259,-550 259,-550 259,-570.13 246.62,-588.52 233.29,-602.49"/>
-<polygon fill="#59758c" stroke="#59758c" points="231.41,-600.65 227.96,-607.81 235.12,-604.37 231.41,-600.65"/>
-<text text-anchor="middle" x="303.5" y="-311.5" font-family="DejaVu Sans" font-size="10.00" fill="#526779">next closure cycle</text>
+<path fill="none" stroke="#607f90" stroke-dasharray="5,2" d="M224.74,-36.23C241.24,-48.82 259,-67.58 259,-90 259,-550 259,-550 259,-550 259,-570.13 246.62,-588.52 233.29,-602.49"/>
+<polygon fill="#607f90" stroke="#607f90" points="231.41,-600.65 227.96,-607.81 235.12,-604.37 231.41,-600.65"/>
+<text text-anchor="middle" x="303.5" y="-311.5" font-family="DejaVu Sans" font-size="10.00" fill="#52677a">next closure cycle</text>
 </g>
 </g>
 </svg>
