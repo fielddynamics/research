@@ -228,7 +228,8 @@ theorem walsh_product (a : Address) (u v w : Label → ℤ) :
         rw [Finset.mul_sum]
     _ = ∑ i, (H4 a.1 i * u i) * (∑ j, H4 a.2.1 j * v j) * ∑ k, (H4 a.2.2 k * w k) := by
         refine Finset.sum_congr rfl fun i _ => ?_
-        rw [Finset.mul_sum, Finset.sum_mul]
+        rw [show H4 a.1 i * u i * (∑ j, H4 a.2.1 j * v j) =
+            ∑ j, H4 a.1 i * u i * (H4 a.2.1 j * v j) by rw [Finset.mul_sum], Finset.sum_mul]
     _ = (∑ i, H4 a.1 i * u i) * (∑ j, H4 a.2.1 j * v j) * (∑ k, H4 a.2.2 k * w k) := by
         rw [Finset.sum_mul, Finset.sum_mul]
 
