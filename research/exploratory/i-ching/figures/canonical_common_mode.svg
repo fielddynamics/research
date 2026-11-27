@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="470" viewBox="0 0 900 470">
+<rect width="900" height="470" fill="#f8fafc"/><g font-family="Arial,sans-serif" fill="#17324d">
+<text x="36" y="43" font-size="25" font-weight="bold">Canonical common mode — no zero-address deletion</text>
+<text x="36" y="73" font-size="15">All marked-axis shared reads and their Walsh duals preserve exactly one common line.</text>
+<rect x="36" y="100" width="828" height="67" rx="7" fill="#e6edf5"/><text x="450" y="128" font-size="19" text-anchor="middle" font-weight="bold">22 invariant hexagram directions</text><text x="450" y="151" font-size="15" text-anchor="middle">1 zero orbit + 21 three-element orbits</text>
+<path d="M450 167 V187 H200 V207 M450 187 H650 V207" stroke="#607a93" stroke-width="2" fill="none"/>
+<rect x="36" y="207" width="328" height="94" rx="7" fill="#f6e6ca"/><text x="200" y="234" text-anchor="middle" font-size="19" font-weight="bold">1 common line</text><text x="200" y="258" text-anchor="middle" font-size="15">f = 1[a=0] + 1[b=0] + 1[a=b]</text><text x="200" y="281" text-anchor="middle" font-size="15">Wf = Jf = Rf = f</text>
+<rect x="400" y="207" width="464" height="94" rx="7" fill="#dbe9f7"/><text x="632" y="234" text-anchor="middle" font-size="19" font-weight="bold">21-dimensional invariant complement</text><text x="632" y="258" text-anchor="middle" font-size="15">f⊥; Walsh evolution remains reversible</text><text x="632" y="281" text-anchor="middle" font-size="15">13 interior + 8 exterior directions</text>
+<path d="M632 301 V322 H510 V342 M632 322 H755 V342" stroke="#607a93" stroke-width="2" fill="none"/>
+<rect x="400" y="342" width="218" height="70" rx="7" fill="#e6edf5"/><text x="509" y="370" text-anchor="middle" font-size="21" font-weight="bold">13</text><text x="509" y="393" text-anchor="middle" font-size="14">Shared-zone projection</text>
+<rect x="646" y="342" width="218" height="70" rx="7" fill="#dbe9f7"/><text x="755" y="370" text-anchor="middle" font-size="21" font-weight="bold">17</text><text x="755" y="393" text-anchor="middle" font-size="14">Minimal even completion</text>
+<text x="36" y="448" font-size="14">The rank ratio is exact. Physical selection of logarithmic volume work is a separate question.</text></g></svg>

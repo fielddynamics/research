@@ -118,6 +118,7 @@ Two notes take this algebra further:
 - [Finite-field reciprocity](ICHING_FINITE_FIELD_RECIPROCITY.md) writes a hexagram as a + ωb in GF(64), reads the Walsh transform as a Hermitian incidence transform, and proves a reciprocal-edge theorem for the 17 pencil directions of PG(2,16).
 - [The Frobenius reciprocal tower](FROBENIUS_RECIPROCAL_TOWER.md) splits the 273-point plane by Frobenius and inversion, and decomposes the eight trigrams by the Fano plane.
 - [The shared zone](SHARED_ZONE_HEXAGRAM_READ.md) saturates the equal-or-opposite hexagrams under R to 13 directions and builds a nested 17 ⊃ 13 register. [Its Walsh rotation](SHARED_ZONE_WALSH_ROTATION.md) characterises the 17 as the minimal even completion of the 13.
+- [The common-mode proof](COMMON_MODE_AND_SHARED_ZONE_PROOF.md) shows the shared-zone reads keep exactly one common line, so the 13 and 17 registers are genuine projections on the 21 directions orthogonal to it, with rank ratio 17/13.
 - [The coupling polynomial at the prime two](THE_COUPLING_POLYNOMIAL_AT_TWO.md) explains why R appears: it is TetA's and TetB's lattice rotation reduced mod 2, which is also why the hexagrams carry 21 but cannot tell 21 from 13.
 - [The Walsh skew channels](WALSH_SKEW_CHANNEL_ACTION.md) identify the 28 skew directions as an exact Walsh eigenspace with a symmetric weight of 1/28.
 
