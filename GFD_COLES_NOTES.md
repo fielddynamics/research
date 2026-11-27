@@ -2,7 +2,7 @@
 
 *A condensed, LLM-oriented digest of every paper, letter, proof and manuscript in this repository, with the algebra written out. Companion to [`llms.txt`](llms.txt), which holds the rules and glossary; this file holds the content.*
 
-Stephen Nelson · Field Dynamics Research · fielddynamics.org · Last updated 2026-11-22
+Stephen Nelson · Field Dynamics Research · fielddynamics.org · Last updated 2026-11-26
 
 ---
 
@@ -39,6 +39,7 @@ Stephen Nelson · Field Dynamics Research · fielddynamics.org · Last updated 2
 | P-mountain | `sst-mountain-scale/` | 36 | yes |
 | P-closure | `closure-surface/` | 16 | yes |
 | P-lock | `bimetric-lock-constitutive-law/` | 64 | — |
+| P-response (Proof 26, candidate) | `recursive-field-closure-response/` | 532 (+568 appendix) | — |
 
 The Lean formalisations import one another, so each chain is checked as a whole: P-forced → P-two-regions (half-space) → P-two-regions (scheme) → P-gram → P-walsh; P-forced → P-hadamard; P-exchange → P-aqual → (with the scheme) P-bimond; P-walsh + P-exchange → P-tugofwar → P-netfield → P-khronon → P-mountain → P-closure.
 
@@ -395,6 +396,14 @@ $$G = \frac{17}{13}\,\alpha^{21}\,\frac{\hbar c}{m_e^2} = \frac{(d+1)^2+1}{d(d+1
 
 $= 1.3077 \times 1.338\times10^{-45}\times3.810\times10^{34} = 6.666\times10^{-11}$ m³ kg⁻¹ s⁻² (0.12% tree level; 0.001% with a one-loop Schwinger correction, research/g_from_topology). Exponent 21 = coupling depth; $\alpha^{20}\approx10^{-43}$ is the gravity/EM hierarchy. A 0.001% change in $\alpha$ shifts $G$ by 0.021%.
 
+*How read and settlement produce it [T/D], candidate (P-response, Proof 26).* G's construction above is the target; Proof 26 asks how closure realises it.
+- Closure that depends on its environment cannot be blind: a blind state exists only if all feasible sets share a point, and a read $R$ suffices exactly when $R(y) = R(z) \Rightarrow S(y) = S(z)$ (Thm 1).
+- On the 64 Triforce addresses $X = (\mathbb F_2^2)^3$ the reversible read is $W = H_4^{\otimes3}/8$, three commuting radix-4 sweeps, $W = W^{-1}$ (Thm 3); the inverse is $H = S\,\mathrm{diag}((-2)^{|c|})\,S^T$ with $S = L^{\otimes m}$ the Sierpiński matrix (Thm 4).
+- The order-3 label rotation is multiplication by $\omega$ in $\mathbb F_4$; the detail spaces (dimensions 3, 12, 48) have invariant subspaces of dimensions 1, 4, 16 (Thm 5), so 21 = $(4^3-1)/(4-1)$, the points of PG(2,4).
+- With gain $t_j$ on grade $j$, $\det(T^\dagger T) = |t_1|^2|t_2|^8|t_3|^{32}$ on the invariant space (Thm 8). With the inherited ratio $\gamma_0 = f(4,0)/f(4,-1) = 17/13$, the response is $(17/13)|t|^{42}$, and $|t|^2 = \alpha$ gives $(17/13)\alpha^{21}$. A source that is degree one in each of the 21 intensities and vanishes when any is zero is forced to be their product (Proposition), but symmetry alone does not force it: $\mathrm{tr}/21$ and $\det$ are both basis-invariant and equal 1 at $T = I$, yet give $|t|^2$ and $|t|^{42}$.
+- The cube stays fixed and the vortex responds: exact susceptibility on the inherited flywheel branch (Thm 9); registration composes by partial minimisation (Thm 10); a positive isotropic long-wave action gives $G_{\rm eff} = q^2/4\pi\kappa$ (Thm 11).
+- Open: why the native action reads the determinant, what sets $|t|^2 = \alpha$, and the source action. An optional appendix keeps the projective pencil and trace-compression algebra; the main argument does not use it.
+
 ### 8.2 Fine-structure constant [E]
 
 $$\frac1\alpha = 2^d(k^2+1) + 1 + \frac{1}{k(k+d)} = 8\times17 + 1 + \frac1{28} = 137.0357\ (0.0002\%),$$
@@ -469,7 +478,7 @@ Shell ceilings $\mathrm{CEIL} = B_{\rm Zn} + B_{\rm bdy} - \mu_b(2)[B_{\rm Zn} -
 4. Clusters and the Bullet Cluster: qualitative only (VII); no lensing reconstruction.
 5. CMB: one enhancement factor, no full power spectrum.
 6. $\mathcal L_{\rm matter}$ unspecified.
-7. Constants: G and $m_e$ derived given stated premises (the combination rule for G is still proposed); α's 1/28 a structural reading; look-elsewhere test included.
+7. Constants: G and $m_e$ derived given stated premises (the combination rule for G is still proposed); α's 1/28 a structural reading; look-elsewhere test included. How read and settlement produce G is a candidate (Proof 26, §8.1): the determinant read, $|t|^2 = \alpha$ and the source action are premises.
 8. No peer-reviewed publication yet.
 
 ### 12.1 Found in the full paper-by-paper reading (Part II)
@@ -538,6 +547,7 @@ Shell ceilings $\mathrm{CEIL} = B_{\rm Zn} + B_{\rm bdy} - \mu_b(2)[B_{\rm Zn} -
 | Gram theorems | `papers/gram-matrix-of-tetrad-equation/verify_gram_theorems.py` | 32 |
 | Coupling algebra: the cube's symmetric couplings, two TetA–TetB channels, Gram/Walsh/Paper IX as elements, second root = odd leg relabelling; η as an element (time = grade 0), the connection's lower pair on the TetA–TetB links with the swap as parity | `research/coupling-algebra/verify_*.py`, `certify_first_principles.py` (exact, independent) | 50, 34, 52 |
 | 64-Tetrahedron Grid: the 64 tetrahedra as (star, spike) pairs sorted by the coupling relations; grid = large star + 24 vector-link spikes; Galeffi's counts recomputed, Table 3 corrected (16 → 40); n×n×n photon composition: 4n(n²+1) captured, 24·C(n+1,3) expelled as copies of the regular rep of S4 (proved); pixel cubes force the lattice and closure at shared corners leaves only the global root choice (proved) | `research/stellated octahedron geometry/verify_64_tetrahedron_grid.py`, `verify_photon_composition.py`, `verify_pixel_tiling.py` (exact) | 24, 14, 9 |
+| Proof 26 (candidate): closure needs a sufficient read; three-sweep Walsh read; 21 invariant contrasts (1, 4, 16); completed-block accounting; $\det(T^\dagger T)$ grade exponents; fixed-geometry vortex susceptibility; recursive registration; conditional $G_{\rm eff}$ | `proofs/recursive-field-closure-response/verify_proof26.py` (appendix: `verify_projective_pencil.py`) | 532 (+568) |
 | Letters 1, 2, 3 | `papers/letter-*/…/Supplementary/run_all_validations.py` | 29, 52, 52 |
 | TF evolution | `papers/tully-fisher-velocity-evolution/` | 64 |
 | AQUAL algebra (§§4.5–4.7 here) | `research/aqual/verify_*.py` | 50, 48, 23 |
@@ -1602,3 +1612,13 @@ $V - E + F = 4 = 2\chi(S^2)$, two disjoint closed surfaces.
 - Scope, as stated:
   - sgn$(\sigma) = \det P_\sigma$, the orientation character on leg permutations.
   - Spatial parity is not a leg permutation, and these theorems do not describe its action. So the link between the sign irrep and TetA/TetB root-blindness is by analogy, through orientation (Part I §5.3 updated).
+
+**P-response — Proof 26 (candidate): Gravity as the Response of Recursive Field Closure (Revision 4).**
+- Premises: (P1) field objects settle to compatible states with a sufficient read of their neighbours; (P2) the fixed Triforce register carries the relevant information; (P3) the native action selects the invariant spectral bridge and collective source; (P4) a normalised, attractive, universal scalar long-wave source in the weak drainless limit. P1 alone gives the necessity theorem; P2–P4 are not consequences of it.
+- Thms 1–2: blind closure iff $\bigcap_y C_y \ne \varnothing$; read sufficiency $S = F\circ R$; settlement susceptibility $D_yS = -H_{xx}^{-1}H_{xy}$ and the Schur complement $D_y^2E_* = H_{yy} - H_{yx}H_{xx}^{-1}H_{xy}$.
+- Thms 3–6: three-sweep Walsh read; $H = SDS^T$ with $S$ Sierpiński; invariant detail dimensions 1, 4, 16 under the $\mathbb F_4$ rotation; a completed prefix block has no nonzero-suffix Walsh coefficient, and for binary occupancy $A$: $c_0 = A$, $\sum_{a\ne0}c_a^2 = 64A - A^2$.
+- Thm 7: on grades $1, K, K^2$ the traces of $I$, $(I+D)/2$, $D$ give $f(K,s)$ for $s = +1, 0, -1$; capacity $1 + K^2 + K^4 = f(K,1)f(K,-1) = 1 + K^2f(K,0)$ (273). The Sierpiński blocks have 91 nonzero entries and unit determinant.
+- Thm 8: $\det(T^\dagger T) = |t_1|^2|t_2|^8|t_3|^{32}$; the response $(17/13)\det(T^\dagger T)$ is a conditional compatibility result, with 17/13 inherited, not derived as a stiffness.
+- Thms 9–11: fixed-geometry vortex susceptibility; recursive registration by partial minimisation; conditional $G_{\rm eff} = q^2/4\pi\kappa$ from a posited isotropic action.
+- Scope, as stated: P23's physical pointing obstruction is kept (its compressed spectrum is not the 17/4 depth grading, and the ordered cube-pair action has 24 invariants against the Triforce's 22). Not Lean-certified. Revision 4 moved the Revision 3 projective pencil to an optional appendix.
+

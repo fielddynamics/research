@@ -10,13 +10,13 @@ curves follow from one action and one measured scale a_0, and the same 21-channe
 derives Newton's constant and the electron mass, given stated premises, with a structural reading of the
 fine-structure constant (and readings of the neutron-lifetime discrepancy, Paper VII, and the proton mass, research/proton/).
 
-## Status at a glance (2026-11-21)
+## Status at a glance (2026-11-26)
 Status tags used throughout this file (the same as GFD_COLES_NOTES.md):
   [T] theorem: proved, with a verification script (+L: also machine-checked in Lean 4)
   [D] derived: follows from the framework's stated assumptions
   [E] exploratory: a numerical correspondence or extension, not yet a derivation
   [O] observational: a comparison with data
-Formal proofs: 25 proofs, 1,530 scripted checks, 17 machine-checked in Lean 4 (proofs/README.md).
+Formal proofs: 26 proofs (one a candidate), 2,062 scripted checks, 17 machine-checked in Lean 4 (proofs/README.md).
 Strongest results:
   - [T+L] mu(x) = x/(x+1) selected premise by premise (exchange symmetry, screening, accelerations as strengths).
   - [O] SPARC (164 galaxies, 3284 points, no per-galaxy fit): scatter 0.181 dex, median residual within
@@ -47,6 +47,8 @@ Known limitations (README.md, "Status and known limitations"):
   - Lensing, clusters (incl. the Bullet Cluster) and the CMB spectrum: qualitative or partial only.
   - L_matter is unspecified. The closure premises (registration at the stagnation surface; drained-level
     composition) are not derived from the dual-tetrad dynamics.
+  - How read and settlement produce G is a candidate (Proof 26): the collective determinant read, the
+    per-direction gain |t|^2 = alpha and the long-wave source action are stated premises, not yet derived.
 
 ## The idea in brief
 - The tetrad equation g_{mu nu} = eta_{ab} e^a_mu e^b_nu (the metric) is quadratic in the frame e:
@@ -81,6 +83,7 @@ Known limitations (README.md, "Status and known limitations"):
 - proofs/net-field-rule/ -- where mu acts: only on a field with a drain; why the solar system is exactly GR with the bare G
 - proofs/sst-mountain-scale/ -- the net-field rule from the action: the law read at each system's Jacobi radius (the mountain scale)
 - proofs/recursive-triforce-closure/ -- the tetrad's faces subdivided recursively: canonical octahedral-midpoint lattice, exact depth-two criterion, 64 paired addresses, 40/24 pointing parity, A4-equivariant map to the connection slots and the S4 obstruction (Lean)
+- proofs/recursive-field-closure-response/ -- Proof 26 (candidate): gravity as the response of recursive field closure. Closure that depends on its neighbours must read them; on the 64 Triforce addresses the read is three Walsh sweeps; the order-3 rotation leaves 21 invariant contrasts (grades 1, 4, 16, the points of PG(2,4)); the collective determinant response is (17/13)|t|^42, with 17/13 inherited from the coupling polynomial; fixed geometry, changing vortex. No Lean yet
 - proofs/closure-surface/ -- where closure sits: the field's stagnation surface is the surface matter cannot leave; snapping to a neighbouring cell only through the two stagnation points (Lean)
 - proofs/sst-khronon-preferred-frame/ -- the preferred frame: the khronon is the TetB share; stable at every acceleration; alpha_1 = alpha_2 = 0 in a star system (flat slope + drainless dimple)
 
@@ -358,6 +361,10 @@ Topology -> Eq(1-2) -> D=3, K=4 -> Tetrad Eq(3-4) -> Coupling polynomial Eq(5-6)
   topology K sqrt(G m_e/a_0), 2.82 fm; closure topology), and closure saturation a_0 = K^2 G m/r^2 with
   m = alpha hbar/(r c) gives m_e = 9.11e-31 kg (0.1%) from alpha, hbar, G, a_0 and K, with no m_e input.
 [D] Newton's constant: G = (17/13) alpha^21 hbar c/m_e^2 (1 + alpha/2 pi), 12 ppm (research/g_from_topology/).
+  Mechanism [T/D], candidate (Proof 26, proofs/recursive-field-closure-response/): the 21 is the dimension of the
+  read's invariant contrast space (grades 1 + 4 + 16); det(T^dagger T) = |t1|^2 |t2|^8 |t3|^32 on it, so a common
+  intensity |t|^2 = alpha gives alpha^21, and with the inherited ratio f(4,0)/f(4,-1) = 17/13 the response is
+  (17/13) alpha^21. That the physical source is this determinant, and that |t|^2 = alpha, are premises.
 [E] Fine-structure constant: 1/alpha = 137 + 1/28 (a geometric reading, 0.0002%).
 [D] Tully-Fisher relation: M proportional to v^4, exact within the theory (not an empirical fit).
 [D] Local systems (solar system, binaries, star clusters): see Naming, "Local systems are TetA only",
@@ -489,6 +496,9 @@ checked by GitHub on every change. The Lean chains import one another:
   constitutive law -> AQUAL energy functional -> (with tetrad scheme) BIMOND two-potential energy
   Walsh eigenmodes + constitutive law -> constitutive law as a tug of war -> net-field rule
     -> SST khronon (preferred frame) -> mountain scale -> closure surface
+Proof 26 (proofs/recursive-field-closure-response/) is a candidate research draft without Lean: 532 exact
+checks, plus 568 in an optional projective appendix. It builds on Proofs 23-25 and the background research
+in research/g_from_topology/updated-research/.
 
 ### Related papers in this repository
 - papers/letter-1-tetrad-frame-geometry/ -- Letter 1: the tetrad's coordinate-space geometry (the stellated octahedron)
@@ -550,6 +560,11 @@ Each script is self-contained; run it from its own folder.
   the closure premises are premises.
 - Describe closure with Rules 12-15: every object closes and is a pointer above its level; ownership,
   not overlap, decides; matter snaps to a neighbouring cell; scale invariance is compositional.
+- Describe Proof 26 as a candidate for how read and settlement produce G, not as a new derivation of G's
+  value; G's construction is the target. 17/13 is the coupling polynomial's ratio f(4,0)/f(4,-1) (Rule 6),
+  not a projection or a normalization. The 21 is an invariant dimension (1 + 4 + 16), not 21 time steps,
+  oscillators or particles. The geometry (the cube, the 64 addresses) stays fixed; settlement changes the
+  vortex state. Never call it Lean-certified.
 - Trace every coefficient (16, 8, 4) and every result (alpha, m_e, Tully-Fisher) back to the stellated octahedron dual tetrad structure.
 - The Mobius inverse x = mu/(1 - mu) is exact and algebraic.
 - To verify a claim, read the validation script for it: the proofs' verify_*.py scripts and Lean
