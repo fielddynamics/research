@@ -34,7 +34,7 @@ theorem closed_form_norm {Δ κ Ω θ : ℝ} (hΩ : Ω ^ 2 = Δ ^ 2 + 4 * κ ^ 2
     Real.cos θ ^ 2 + (Δ / Ω) ^ 2 * Real.sin θ ^ 2 + (4 * κ ^ 2 / Ω ^ 2) * Real.sin θ ^ 2 = 1 := by
   have h := Real.sin_sq_add_cos_sq θ
   have : (Δ / Ω) ^ 2 + 4 * κ ^ 2 / Ω ^ 2 = 1 := by
-    rw [div_pow, div_add_div_same, ← hΩ, div_self (pow_ne_zero 2 hΩ0)]
+    rw [div_pow, ← add_div, ← hΩ, div_self (pow_ne_zero 2 hΩ0)]
   nlinarith [this]
 
 /-- The peak transfer is at most one. -/
@@ -157,16 +157,16 @@ variable {G X : Type*} [Group G] [Fintype G] [MulAction G X] [PseudoMetricSpace 
 noncomputable def orbitDist (x y : X) : ℝ :=
   Finset.univ.inf' Finset.univ_nonempty (fun g : G => dist x (g • y))
 
-variable (hiso : ∀ (g : G) (a b : X), dist (g • a) (g • b) = dist a b)
-include hiso
-
 lemma orbitDist_le_of (x y : X) (g : G) : orbitDist (G := G) x y ≤ dist x (g • y) :=
   Finset.inf'_le _ (Finset.mem_univ g)
+
+variable (hiso : ∀ (g : G) (a b : X), dist (g • a) (g • b) = dist a b)
+include hiso
 
 lemma orbitDist_symm_le (x y : X) : orbitDist (G := G) y x ≤ orbitDist (G := G) x y := by
   apply Finset.le_inf'
   intro g _
-  calc orbitDist (G := G) y x ≤ dist y (g⁻¹ • x) := orbitDist_le_of hiso y x g⁻¹
+  calc orbitDist (G := G) y x ≤ dist y (g⁻¹ • x) := orbitDist_le_of y x g⁻¹
     _ = dist (g • y) (g • g⁻¹ • x) := (hiso g _ _).symm
     _ = dist x (g • y) := by rw [smul_inv_smul, dist_comm]
 
@@ -179,14 +179,14 @@ theorem orbitDist_triangle (x y z : X) :
   obtain ⟨h, -, hh⟩ := Finset.exists_mem_eq_inf' Finset.univ_nonempty (fun h : G => dist y (h • z))
   have e1 : orbitDist (G := G) x y = dist x (g • y) := hg
   have e2 : orbitDist (G := G) y z = dist y (h • z) := hh
-  calc orbitDist (G := G) x z ≤ dist x ((g * h) • z) := orbitDist_le_of hiso x z (g * h)
+  calc orbitDist (G := G) x z ≤ dist x ((g * h) • z) := orbitDist_le_of x z (g * h)
     _ ≤ dist x (g • y) + dist (g • y) ((g * h) • z) := dist_triangle _ _ _
     _ = dist x (g • y) + dist y (h • z) := by rw [mul_smul, hiso]
     _ = orbitDist (G := G) x y + orbitDist (G := G) y z := by rw [e1, e2]
 
 theorem orbitDist_self_smul (x : X) (g : G) : orbitDist (G := G) x (g • x) = 0 := by
   apply le_antisymm
-  · calc orbitDist (G := G) x (g • x) ≤ dist x (g⁻¹ • g • x) := orbitDist_le_of hiso x _ g⁻¹
+  · calc orbitDist (G := G) x (g • x) ≤ dist x (g⁻¹ • g • x) := orbitDist_le_of x _ g⁻¹
       _ = 0 := by rw [inv_smul_smul, dist_self]
   · apply Finset.le_inf'
     intro g _

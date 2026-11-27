@@ -85,14 +85,14 @@ lemma same_s {K K' s : ℤ} (hK : 1 ≤ K) (hK' : 1 ≤ K') (hs : -1 ≤ s)
 
 lemma not_square_pronic {K n : ℤ} (hK : 0 ≤ K) (hn : 1 ≤ n) : K ^ 2 ≠ n ^ 2 + n := by
   intro h
-  rcases le_or_lt K n with h1 | h1
+  rcases le_or_gt K n with h1 | h1
   · nlinarith
   · have : n + 1 ≤ K := by omega
     nlinarith
 
 lemma not_square_pronic' {K n : ℤ} (hK : 1 ≤ K) (hn : 1 ≤ n) : K ^ 2 ≠ n ^ 2 - n := by
   intro h
-  rcases le_or_lt K (n - 1) with h1 | h1
+  rcases le_or_gt K (n - 1) with h1 | h1
   · nlinarith
   · have : n ≤ K := by omega
     nlinarith
@@ -100,9 +100,9 @@ lemma not_square_pronic' {K n : ℤ} (hK : 1 ≤ K) (hn : 1 ≤ n) : K ^ 2 ≠ n
 lemma plus_minus {K K' : ℤ} (hK : 1 ≤ K) (hK' : 1 ≤ K') (h : f K 1 = f K' (-1)) :
     K' = K + 1 := by
   simp only [f] at h
-  rcases le_or_lt K' K with h1 | h1
+  rcases le_or_gt K' K with h1 | h1
   · exfalso; nlinarith
-  · rcases le_or_lt K' (K + 1) with h2 | h2
+  · rcases le_or_gt K' (K + 1) with h2 | h2
     · omega
     · exfalso
       have : K + 2 ≤ K' := by omega
@@ -117,16 +117,16 @@ theorem hinge_unique {K K' s s' : ℤ} (hK : 1 ≤ K) (hK' : 1 ≤ K')
   · exact Or.inl ⟨same_s hK hK' (by norm_num) h, rfl⟩
   · -- f K (-1) = f K' 0 : K'^2 = K^2 - K
     exfalso; simp only [f] at h
-    exact not_square_pronic' hK' hK (by linarith)
+    exact not_square_pronic' hK' hK (by linear_combination (-1 : ℤ) * h)
   · exact Or.inr (Or.inr ⟨rfl, rfl, plus_minus hK' hK h.symm⟩)
   · exfalso; simp only [f] at h
-    exact not_square_pronic' hK hK' (by linarith)
+    exact not_square_pronic' hK hK' (by linear_combination h)
   · exact Or.inl ⟨same_s hK hK' (by norm_num) h, rfl⟩
   · exfalso; simp only [f] at h
-    exact not_square_pronic (by linarith) hK' (by linarith)
+    exact not_square_pronic (by linarith) hK' (by linear_combination h)
   · exact Or.inr (Or.inl ⟨rfl, rfl, plus_minus hK hK' h⟩)
   · exfalso; simp only [f] at h
-    exact not_square_pronic (by linarith) hK (by linarith)
+    exact not_square_pronic (by linarith) hK (by linear_combination (-1 : ℤ) * h)
   · exact Or.inl ⟨same_s hK hK' (by norm_num) h, rfl⟩
 
 /-- 17 belongs to `K = 4`, `s = 0` alone. -/

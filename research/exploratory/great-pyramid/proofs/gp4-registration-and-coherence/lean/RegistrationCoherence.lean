@@ -15,7 +15,7 @@ What is formalised:
   and any reference phase `φ`,
   `∑ pᵢ (1 - cos (n (θᵢ - φ))) ≤ n² ∑ pᵢ (1 - cos (θᵢ - φ))`.
   With `φ` the mean phase and `∑ pᵢ = 1` the right side is `n² (1 - C₁)`.
-* `coprime_registration` (Theorem 4): in any field, `z³ = w³`, `z⁷ = w⁷`, `z, w ≠ 0` imply
+* `coprime_registration` (Theorem 4): in any field, `z³ = w³`, `z⁷ = w⁷`, `w ≠ 0` imply
   `z = w`: registration at the coprime orders 3 and 7 pins every phase to one value.
 * `uniform_gon_harmonic` (Theorem 1): for a primitive `N`-th root `ζ`,
   `∑_{n<N} ζ^(d n) = N` if `N ∣ d` and `0` otherwise (the exact selector of Theorem 5).
@@ -82,7 +82,7 @@ theorem ensemble_bound {ι : Type*} (s : Finset ι) (p θ : ι → ℝ) (hp : �
   nlinarith [hp i hi]
 
 /-- Theorem 4: registration at the coprime orders 3 and 7 forces a single phase. -/
-theorem coprime_registration {F : Type*} [Field F] {z w : F} (hz : z ≠ 0) (hw : w ≠ 0)
+theorem coprime_registration {F : Type*} [Field F] {z w : F} (hw : w ≠ 0)
     (h3 : z ^ 3 = w ^ 3) (h7 : z ^ 7 = w ^ 7) : z = w := by
   have ez : z ^ 7 = z * (z ^ 3) ^ 2 := by ring
   have ew : w ^ 7 = w * (w ^ 3) ^ 2 := by ring

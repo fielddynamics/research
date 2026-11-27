@@ -71,40 +71,39 @@ theorem affine_balance_unique {b u v : ℝ} (hb1 : -1 < b) (hb2 : b ≤ 2)
     (h1 : g b u = 1 / 2) (h2 : g b v = 1 / 2) : u = v :=
   (affine_share_strictAntiOn hb1 hb2).injOn hu hv (h1.trans h2.symm)
 
-/-- The partial derivatives of `g` (as polynomial identities). -/
+/-- The partial derivatives of `g` (Theorem 3 uses the first; Theorem 4 both). -/
 theorem partials (b u : ℝ) :
     HasDerivAt (fun w => g b w) (-(1 - u) * (2 - b + 3 * b * u)) u ∧
       HasDerivAt (fun c => g c u) ((1 - u) ^ 2 * u) b := by
   constructor
-  · have h : HasDerivAt (fun w : ℝ => (1 - w) ^ 2 * (1 + b * w))
-        ((2 * (1 - u) ^ 1 * (-1)) * (1 + b * u) + (1 - u) ^ 2 * (b * 1)) u := by
-      have h1 : HasDerivAt (fun w : ℝ => 1 - w) (-1) u := by
-        simpa using (hasDerivAt_id u).const_sub 1
-      have h2 : HasDerivAt (fun w : ℝ => 1 + b * w) (b * 1) u := by
-        simpa using ((hasDerivAt_id u).const_mul b).const_add 1
-      have h3 := h1.pow 2
-      simpa using h3.mul h2
-    convert h using 1; ring
-  · have h : HasDerivAt (fun c : ℝ => (1 - u) ^ 2 * (1 + c * u)) ((1 - u) ^ 2 * (1 * u)) b := by
-      have h2 : HasDerivAt (fun c : ℝ => 1 + c * u) (1 * u) b := by
-        simpa using ((hasDerivAt_id b).mul_const u).const_add 1
-      exact h2.const_mul _
-    simpa [g] using h
+  · have h1 : HasDerivAt (fun w : ℝ => 1 - w) (-1) u := by
+      simpa using (hasDerivAt_id u).const_sub 1
+    have h2 : HasDerivAt (fun w : ℝ => 1 + b * w) b u := by
+      simpa using ((hasDerivAt_id u).const_mul b).const_add 1
+    have h4 := (h1.pow 2).mul h2
+    exact h4.congr_deriv (by simp only [Nat.cast_ofNat, show (2 : ℕ) - 1 = 1 from rfl, pow_one]; ring)
+  · have h2 : HasDerivAt (fun c : ℝ => 1 + c * u) u b := by
+      simpa using ((hasDerivAt_id b).mul_const u).const_add 1
+    exact (h2.const_mul ((1 - u) ^ 2)).congr_deriv (by ring)
 
-/-- Theorem 4: `du*/db` at `b = 0` is `(√2 - 1)/4`. With `∂g/∂u = -2(1-u)` and
-`∂g/∂b = (1-u)^2 u` at `b = 0`, implicit differentiation gives `(1-u₀) u₀ / 2`. -/
-theorem shift_coefficient :
-    let u₀ := 1 - 1 / Real.sqrt 2
-    -((1 - u₀) ^ 2 * u₀) / (-(1 - u₀) * (2 - 0 + 3 * 0 * u₀)) = (Real.sqrt 2 - 1) / 4 := by
-  intro u₀
+/-- Theorem 4: `du*/db` at `b = 0`. Implicit differentiation of `g(u*(b), b) = 1/2` with
+`∂g/∂b = (1-u)^2 u` and `∂g/∂u = -2(1-u)` at `b = 0` (`partials`) gives `(1-u₀) u₀ / 2`;
+at `u₀ = 1 - 1/√2` this is `(√2 - 1)/4`. -/
+theorem shift_coefficient {u₀ : ℝ} (hu : u₀ = 1 - 1 / Real.sqrt 2) :
+    (1 - u₀) ^ 2 * u₀ / (2 * (1 - u₀)) = (Real.sqrt 2 - 1) / 4 := by
   have hs : Real.sqrt 2 ^ 2 = 2 := Real.sq_sqrt (by norm_num)
   have hspos : 0 < Real.sqrt 2 := by positivity
-  simp only [u₀]
-  field_simp
-  nlinarith [hs]
+  have hinv : 1 / Real.sqrt 2 = Real.sqrt 2 / 2 := by
+    rw [div_eq_div_iff hspos.ne' (by norm_num), one_mul]
+    exact (Real.mul_self_sqrt (by norm_num)).symm
+  rw [hinv] at hu
+  subst hu
+  have h1 : 1 - (1 - Real.sqrt 2 / 2) = Real.sqrt 2 / 2 := by ring
+  rw [h1, div_eq_iff (by positivity)]
+  linear_combination (-(Real.sqrt 2) / 8) * hs
 
 /-- Theorem 5, squared form. -/
-theorem interval_sq {ε r u : ℝ} (he0 : 0 ≤ ε) (he1 : ε < 1)
+theorem interval_sq {ε r u : ℝ} (he1 : ε < 1)
     (hr1 : 1 - ε ≤ r) (hr2 : r ≤ 1 + ε) (h : (1 - u) ^ 2 * r = 1 / 2) :
     1 / (2 * (1 + ε)) ≤ (1 - u) ^ 2 ∧ (1 - u) ^ 2 ≤ 1 / (2 * (1 - ε)) := by
   have rpos : 0 < r := by linarith
@@ -119,7 +118,7 @@ theorem interval_sq {ε r u : ℝ} (he0 : 0 ≤ ε) (he1 : ε < 1)
 theorem interval_sqrt {ε r u : ℝ} (he0 : 0 ≤ ε) (he1 : ε < 1)
     (hr1 : 1 - ε ≤ r) (hr2 : r ≤ 1 + ε) (hu : u ≤ 1) (h : (1 - u) ^ 2 * r = 1 / 2) :
     1 - 1 / Real.sqrt (2 * (1 - ε)) ≤ u ∧ u ≤ 1 - 1 / Real.sqrt (2 * (1 + ε)) := by
-  obtain ⟨hlo, hhi⟩ := interval_sq he0 he1 hr1 hr2 h
+  obtain ⟨hlo, hhi⟩ := interval_sq he1 hr1 hr2 h
   have ht : 0 ≤ 1 - u := by linarith
   have hsq : Real.sqrt ((1 - u) ^ 2) = 1 - u := Real.sqrt_sq ht
   have a : Real.sqrt (1 / (2 * (1 + ε))) ≤ 1 - u := by
@@ -153,7 +152,7 @@ theorem structural_ne_constitutive : |(1 / 2 : ℝ) - 1| = 1 / 2 := by norm_num
 
 /-- Theorem 8 (iii): for `x > 0` the TetB share `1/(1+x)` is below `1/x`. -/
 theorem tetB_share_small {x : ℝ} (hx : 0 < x) : 1 - x / (x + 1) < 1 / x := by
-  have h : 1 - x / (x + 1) = 1 / (x + 1) := by field_simp
+  have h : 1 - x / (x + 1) = 1 / (x + 1) := by field_simp; ring
   rw [h]
   exact one_div_lt_one_div_of_lt hx (by linarith)
 

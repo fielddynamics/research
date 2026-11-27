@@ -122,7 +122,7 @@ theorem canonical_levels_ordered {t₂ t₃ : ℝ} (h2 : 0 < t₂) (h3 : 0 < t�
   have t2lt1 : t₂ < 1 := by nlinarith
   have key : t₂ < t₃ := by
     by_contra hc
-    push_neg at hc
+    have hc : t₃ ≤ t₂ := not_lt.mp hc
     have : t₃ ^ 3 ≤ t₂ ^ 3 := pow_le_pow_left₀ h3.le hc 3
     have : t₂ ^ 3 = t₂ / 2 := by rw [pow_succ, e2]; ring
     nlinarith
