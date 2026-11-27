@@ -39,9 +39,12 @@ Stephen Nelson · Field Dynamics Research · fielddynamics.org · Last updated 2
 | P-mountain | `sst-mountain-scale/` | 36 | yes |
 | P-closure | `closure-surface/` | 16 | yes |
 | P-lock | `bimetric-lock-constitutive-law/` | 64 | — |
+| P-triforce (Proof 23) | `recursive-triforce-closure/` | 214 | yes |
+| P-flywheel (Proof 24) | `flywheel-tetrad-geometry/` | 65 | yes |
+| P-convergence (Proof 25) | `tetrad-flywheel-convergence/` | 297 | yes |
 | P-response (Proof 26, candidate) | `recursive-field-closure-response/` | 532 (+568 appendix) | — |
 
-The Lean formalisations import one another, so each chain is checked as a whole: P-forced → P-two-regions (half-space) → P-two-regions (scheme) → P-gram → P-walsh; P-forced → P-hadamard; P-exchange → P-aqual → (with the scheme) P-bimond; P-walsh + P-exchange → P-tugofwar → P-netfield → P-khronon → P-mountain → P-closure.
+The Lean formalisations import one another, so each chain is checked as a whole: P-forced → P-two-regions (half-space) → P-two-regions (scheme) → P-gram → P-walsh; P-forced → P-hadamard; P-exchange → P-aqual → (with the scheme) P-bimond; P-walsh + P-exchange → P-tugofwar → P-netfield → P-khronon → P-mountain → P-closure; P-forced → P-two-regions (half-space) → P-triforce → P-flywheel → P-convergence (all three built and axiom-audited on GitHub Actions, 26 November 2026).
 
 ### Notation
 
@@ -138,6 +141,13 @@ The eight Walsh functions $1, x, y, z, yz, xz, xy, xyz$ on the cube's corners ar
 ### 2.7 Vortices of the stellated octahedron [T] (P-vortex, 81 checks)
 
 For every Hamiltonian with tetrahedral symmetry on the stated graphs, where TetA and TetB couple only through the Field Origin's octahedron, each axis of that octahedron carries exactly three vortices and three antivortices: stationary states that wind about an axis on which they vanish. The circulation runs through the Field Origin around its empty centre, with current $I = (E - \Delta_f - 2h)\lvert\rho\rvert^2$ through any half-plane bounded by the axis; without the octahedron nothing circulates on that graph. A vortex is a rotating wave and a vortex plus its antivortex a standing wave. On the corners the vortices are made of the $T_2$ modes (P-walsh Corollary 1), which is why rotation and the partition $\mu$ sit in separate sectors.
+
+### 2.8 Recursive closure geometry and the flywheel frame [T+L] (P-triforce, P-flywheel, P-convergence: 214 + 65 + 297 checks)
+
+Three proofs carry the tetrad's geometry into the closure address space and the collective flywheel, and show that every route lands on the same regular tetrahedral frame.
+- **P-triforce (Proof 23).** Each tetrahedral face is subdivided by its four medial children, the central one being the first-level intersection with the other chamber. The octahedron's twelve edge midpoints generate the lattice $L = \tfrac12\{z\in\mathbb Z^3 : z_1+z_2+z_3 \text{ even}\}$, and complete dyadic subdivision stays on $L$ exactly to depth two. That gives $4^3 = 64$ paired face addresses $(i,j,k)$, on which tetrahedral symmetry acts on all three labels at once. Pointing parity $(-1)^{[j=i]+[k=i]}$ splits them 40/24 ($(4^n \pm 2^n)/2$ at depth $n$), and $1 + \mathrm{tr}(I + sQ) = 17 + 4s$. There is an explicit $A_4$-equivariant graded isomorphism from the 64 addresses to the connection slots (40 symmetric + 24 torsion), but no $S_4$-equivariant one: a transposition has characters (4, 4) on the geometry and (8, 0) on the connection. The reversible tree read has 21 readers, detail ranks 3, 12, 48, and $C_3$-invariant detail ranks 1, 4, 16. Lattice choice, depth and the torsion carrier are not physically selected.
+- **P-flywheel (Proof 24).** The oriented cycle frame on four labels satisfies $BB^T = D^TD = G = 4I - J$, and the flywheel's minimum-norm column read gives $CC^T = (2/3)G$: the same Gram, with an explicit orientation-aware isometry $L = DF^T/4$. The octahedral core's twelve bonds carry a 5-dimensional current space, split 3 + 2 by chamber inversion, and the collective phase wedge $a_{ij} = \mathrm{Im}(\bar q_iq_j)$ reconstructs the edge currents exactly. Not a stability theorem under deformation.
+- **P-convergence (Proof 25).** Defines a normalized closure frame ($X^TX = G$) and gives five realizations: abstract, spatial sign frame, cycle, column and core. Any two are joined by $U_{YX} = YX^T/4$, unique on the frame image and path-independent. The frame reconstructs the dual tetrahedra $S_\pm$ and their octahedral core $O = W\cap[-1,1]^4$ without assuming their shape. Metric rigidity: an edge-weighted Gram is a multiple of $G$ iff all six weights agree, with sharp bounds $4\min w\,\|q\|^2 \le q^TG_wq \le 4\max w\,\|q\|^2$. Compatible routes, not independent confirmations; no dynamical self-assembly is claimed.
 
 ---
 
@@ -528,6 +538,9 @@ Shell ceilings $\mathrm{CEIL} = B_{\rm Zn} + B_{\rm bdy} - \mu_b(2)[B_{\rm Zn} -
 | Walsh eigenmodes of the cube; readouts; the node's $\mu$ (+ Lean) | `proofs/walsh-eigenmodes-of-the-cube/` | 47 |
 | Vortices of the stellated octahedron | `proofs/vortices-of-the-stellated-octahedron/` | 81 |
 | Hadamard cube frame (+ Lean) | `proofs/hadamard-cube-frame/` | 25 |
+| Recursive Triforce closure: medial refinement, midpoint lattice and depth two, 64 addresses, 40/24 pointing, $A_4$ dictionary and $S_4$ obstruction, invariant ranks 1/4/16 (+ Lean) | `proofs/recursive-triforce-closure/` | 214 |
+| Flywheel tetrad geometry: cycle and column frames share $G$, oriented isometry, core 3 + 2 currents, current reconstruction (+ Lean) | `proofs/flywheel-tetrad-geometry/` | 65 |
+| Convergence of the tetrad and flywheel geometries: five realizations, path-independent transport, dual tetrahedra reconstructed, metric rigidity (+ Lean) | `proofs/tetrad-flywheel-convergence/` | 297 |
 | Torsion = regular rep of $S_4$ | `proofs/torsion-regular-representation/` | 36 |
 | Exchange symmetry → $\mu$ (+ Lean) | `proofs/constitutive-law-exchange-symmetry/` | 34 |
 | Net-field rule: drain belongs to a field; four faces ⟺ $\mu = 1$; flux involution; forced per-mass tail; sheet split (identity + rule); Jacobi edge; bare $G$ from clusters; RAR slope (+ Lean) | `proofs/net-field-rule/` (+ Lean), `research/net-field-rule/test_net_field_rule.py` | 122, 122 |
@@ -1530,7 +1543,7 @@ $V - E + F = 4 = 2\chi(S^2)$, two disjoint closed surfaces.
 
 ## The formal proofs (`proofs/`)
 
-*The repository now holds twenty-two proofs (index: [`proofs/README.md`](proofs/README.md); keys and Lean status in §0). The first six are summarised in detail below, as written when they were read in full (their check counts have since grown: the forced frame now has 36). The other sixteen are summarised in Part I: P-gram §2.3, P-walsh §2.6, P-vortex §2.7, P-bimond §9 and §13, P-tugofwar §4.8, P-netfield, P-khronon, P-mountain and P-closure §5.4, P-chiral §12 item 26, P-bbp, P-gnull, P-sst, P-timeleg and P-lock in §13, and the half-space proof §2.2. Each proof lists its premises and shows them necessary by counterexample.*
+*The repository now holds twenty-six proofs, one of them a candidate (index: [`proofs/README.md`](proofs/README.md); keys and Lean status in §0). The first six are summarised in detail below, as written when they were read in full (their check counts have since grown: the forced frame now has 36). P-triforce, P-flywheel, P-convergence and the candidate P-response are summarised at the end of this part (and in §2.8 and §8.1). The other sixteen are summarised in Part I: P-gram §2.3, P-walsh §2.6, P-vortex §2.7, P-bimond §9 and §13, P-tugofwar §4.8, P-netfield, P-khronon, P-mountain and P-closure §5.4, P-chiral §12 item 26, P-bbp, P-gnull, P-sst, P-timeleg and P-lock in §13, and the half-space proof §2.2. Each proof lists its premises and shows them necessary by counterexample.*
 
 **P-aqual — The Energy Functional of $\mu = x/(x+1)$.**
 - $\mathcal L = -(a_0^2/8\pi G)F - \rho\Phi$.
@@ -1612,6 +1625,33 @@ $V - E + F = 4 = 2\chi(S^2)$, two disjoint closed surfaces.
 - Scope, as stated:
   - sgn$(\sigma) = \det P_\sigma$, the orientation character on leg permutations.
   - Spatial parity is not a leg permutation, and these theorems do not describe its action. So the link between the sign irrep and TetA/TetB root-blindness is by analogy, through orientation (Part I §5.3 updated).
+
+**P-triforce — Proof 23: Recursive Triforce Closure of the Dual Tetrad.**
+- Thm 1: the medial maps $F_i(x) = c - (x-c)/2$ (central) and $F_j(x) = (x+v_j)/2$ (corners) partition a face into four equal-area children (determinant $+1/4$, so no change of planar orientation); $4^n$ triangles at depth $n$.
+- Thm 2: the octahedron's edge midpoints generate $L = \tfrac12\{z : \sum z \text{ even}\}$; its projection to a face is the Flower lattice; maximal complete $L$-compatible dyadic depth is two, and $L$ meets each face in exactly the 15-point quarter grid.
+- Thm 3: 64 paired addresses $X = I^3$; $S_4$ acts on all three labels simultaneously (not the ordered corner-pair action of the $\pi$ walk).
+- Thm 4: pointing counts $(4^n \pm 2^n)/2$, 40/24 on $X$; $Q = J\otimes J$ has trace 4, so $1 + \mathrm{tr}(I + sQ) = 17 + 4s$. Weighted traces, not a physical exchange or attenuation.
+- Thm 5: explicit $A_4$-equivariant graded isomorphism to $V\otimes\mathrm{Sym}^2V \oplus V\otimes\Lambda^2V$ (40 + 24); no $S_4$-equivariant one, by transposition characters (4, 4) vs (8, 0); an explicit twisted $S_4$ repair; the dictionary is not unique (regular-action freedom).
+- Thm 6: the orthogonal tree read with 21 readers and detail ranks 3, 12, 48; $C_3$-invariant prefix dimensions 1, 2, 6, 22, so invariant detail ranks 1, 4, 16. The ordered cube-pair action has 24 invariants, so no rotation-equivariant bijection. Readers, invariant contrasts and attenuation factors must not be conflated.
+- Scope, as stated: the physical lattice, depth, degrees of freedom and torsion carrier are open. Lean: 23 theorems, standard axioms only.
+
+**P-flywheel — Proof 24: The Intrinsic Tetrahedral Geometry of the Collective Flywheel.**
+- Thm 1: oriented cycle frame, $BB^T = D^TD = G$, $BD = 0$, $DD^T/4 = I_6 - B^TB/4$; equal off-diagonal Gram entries iff all six edge weights are equal.
+- Thm 2: flywheel column read $C = QP_r$ with $CC^T = (2/3)G$; the minimum-norm read.
+- Thm 3: $L = DF^T/4$ is a partial isometry with $LF = D$; it is equivariant up to $\mathrm{sgn}(p)$ (orientation).
+- Thm 4: the octahedral core's divergence-free currents ($K_{4,4}$ minus a matching) form a 5-dimensional space, split 3 (even, antisymmetric) + 2 (odd, symmetric) by chamber inversion $I \mapsto -I^T$.
+- Thm 5: the collective phase wedge $a_{ij} = x_iy_j - x_jy_i$ lies in $\ker B$ and reconstructs the currents, $Dj_0 = 4a$; in the Stage VII pattern $|v|^2 I_{i<j} = (3/4)|w|^2 Dj$.
+- Thm 6: the common Gram determines the stellated octahedron up to isometry.
+- Scope, as stated: labelled equal-norm model; not a stability theorem or a derivation of constants. Lean: 50 statements (57 axiom reports), standard axioms only.
+
+**P-convergence — Proof 25: Convergence of the Tetrad and Collective Flywheel Geometries.**
+- Thm 1: the tetrahedral circulation incidence is recognised from the graph rather than assumed.
+- Thm 2: a normalized closure frame $X^TX = G$ ($G = 4P$, $P = I - J/4$) has $X\mathbf 1 = 0$ and projector $XX^T/4$; five realizations (abstract $2P$, spatial sign frame $M$, cycle, column, core).
+- Thm 3: $U_{YX} = YX^T/4$ maps $X$ to $Y$, is unique on the image and composes path-independently.
+- Thm 4: with $a_i = Ge_i$, $S_+ = \{q\in W : q_i \ge -1\}$, $S_- = \{q_i \le 1\}$, and $O = W\cap[-1,1]^4$: the dual tetrahedra and octahedral core reconstructed.
+- Thm 5: core vertices $V = MN/2$ with $V^TV = 2I_6 + A - J_6$ and $VV^T = 2I_3$, tying the core incidence to the flywheel current.
+- Thm 6: metric rigidity (weights recoverable from off-diagonal entries; regular iff equal) and the sharp bounds $4\min w\|q\|^2 \le q^TG_wq \le 4\max w\|q\|^2$.
+- Scope, as stated: compatible routes, not independent confirmations; no self-assembly, Lorentzian metric, gravitational normalization or physical torsion. Lean: 35 theorems, standard axioms only.
 
 **P-response — Proof 26 (candidate): Gravity as the Response of Recursive Field Closure (Revision 4).**
 - Premises: (P1) field objects settle to compatible states with a sufficient read of their neighbours; (P2) the fixed Triforce register carries the relevant information; (P3) the native action selects the invariant spectral bridge and collective source; (P4) a normalised, attractive, universal scalar long-wave source in the weak drainless limit. P1 alone gives the necessity theorem; P2–P4 are not consequences of it.
