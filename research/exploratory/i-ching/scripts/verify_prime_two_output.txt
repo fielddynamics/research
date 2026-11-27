@@ -1,0 +1,29 @@
+PASS C_3 has order 3
+PASS det(K I - C_3) = Phi_3(K) = 1 + (1)K + K^2
+PASS the state label s = 1 is minus the trace of C_3
+PASS C_4 has order 4
+PASS det(K I - C_4) = Phi_4(K) = 1 + (0)K + K^2
+PASS the state label s = 0 is minus the trace of C_4
+PASS C_6 has order 6
+PASS det(K I - C_6) = Phi_6(K) = 1 + (-1)K + K^2
+PASS the state label s = -1 is minus the trace of C_6
+PASS at K = 4: 21, 17, 13
+PASS 21 = N(4 - w), 13 = N(4 + w) in Z[w]; 17 = N(4 - i) in Z[i]
+PASS (4 - w)(4 + w) = 17 + w, so 273 = N(17 + w)
+PASS 273 = Phi_6(17) = Phi_3(16)
+PASS C_6 has the sign-reversed eigenvalues of C_3 (-w and its conjugate)
+PASS Phi_3 stays irreducible mod 2: 2 is inert in Z[w], residue field F_4 (so K = 4)
+PASS Phi_4 = (t + 1)^2 mod 2: 2 ramifies in Z[i]
+PASS 2 = -i (1 + i)^2 in Z[i]
+PASS Phi_6 = Phi_3 mod 2
+PASS C_3 = R mod 2 and C_6 = R mod 2: TetA's and TetB's rotations both reduce to the I Ching read
+PASS C_3 and C_6 differ mod 4: the root sign survives in the second binary digit
+PASS C_4 = S mod 2: the Field Origin's rotation reduces to the trigram swap
+PASS S is unipotent mod 2: (S - I)^2 = 0
+PASS GL(2,2) has 6 elements
+PASS S is conjugate to the Sierpinski generator L in GL(2,2)
+PASS R and S generate all of GL(2,2) = S_3
+PASS GL(2,2) orbits on hexagrams: 1 + 7 x 3 + 7 x 6 (the Fano decomposition)
+PASS R alone: 21 orbits of 3 on the nonzero hexagrams (Proof 26's directions)
+PASS S alone fixes the 8 hexagrams with equal trigrams and pairs the rest
+28 checks passed

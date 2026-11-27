@@ -41,7 +41,8 @@ The folder holds two layers of work, written at different times.
      - an exact reciprocal channel.
 
      It also records, as conditional, that 137 + 1/28 = 3837/28 would follow if a physical action combined those counts. That value differs from the measured 1/α by about 2 ppm, and nothing is fitted; it is not a derivation of α.
-4. **The original notes.** The files in [`notes/`](notes/), [`scripts/`](scripts/) and [`interactive/`](interactive/) are the exploratory work from March 2026 that led to the result. They are kept as they were written. Some of their claims were later sharpened or corrected by testing; the [status table](#status-of-the-original-claims) below says which.
+4. **The coupling polynomial at the prime two.** [`THE_COUPLING_POLYNOMIAL_AT_TWO.md`](THE_COUPLING_POLYNOMIAL_AT_TWO.md) shows that 21, 17 and 13 are det(K·I − Cₙ) for the lattice rotations of order 3, 4 and 6. Reduced mod 2, TetA's and TetB's rotations both become the read R, because 2 stays prime in the Eisenstein integers with residue field F₄, which is where K = 4 comes from. The Field Origin's rotation becomes the trigram swap, which is conjugate to the Sierpiński generator, because 2 ramifies in the Gaussian integers. So a binary register carries G's 21 but loses the root sign that separates 21 from 13. 28 checks.
+5. **The original notes.** The files in [`notes/`](notes/), [`scripts/`](scripts/) and [`interactive/`](interactive/) are the exploratory work from March 2026 that led to the result. They are kept as they were written. Some of their claims were later sharpened or corrected by testing; the [status table](#status-of-the-original-claims) below says which.
 
 ```
 i-ching/
@@ -53,6 +54,7 @@ i-ching/
 ├── SHARED_ZONE_HEXAGRAM_READ.md        the shared zone, its 13-direction saturation, a nested 17/13
 ├── SHARED_ZONE_WALSH_ROTATION.md       Walsh rotation on the 22, the 17 as a minimal even completion
 ├── WALSH_SKEW_CHANNEL_ACTION.md        the 28 skew channels, the 1/28 average, a reciprocal channel
+├── THE_COUPLING_POLYNOMIAL_AT_TWO.md    21/17/13 as det(K I - C_n), reduced at the prime 2
 ├── figures/                      the figure for the write-up, and the script that draws it
 ├── notes/                        the original syntheses and the six-constraint derivation
 ├── scripts/                      the original verification scripts and analysis engines
