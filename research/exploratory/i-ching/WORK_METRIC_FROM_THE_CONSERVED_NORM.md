@@ -57,6 +57,16 @@ The premise is that **what is registered is occupation, not energy.** The energy
 - **The address count.** The native Stage VII model resolves 16 amplitudes per chamber. The 64-address register is Proof 23's depth-two refinement. The theorem needs only that the registered records are orthonormal coordinates in the conserved norm, but the explicit embedding of the 64 records into the native coordinates is not yet written.
 - **The rest of G.** The determinant read, the gain |t|² = α and the long-wave source action are untouched.
 
+## Correction: what the native model does and does not supply
+
+[The density register and three-snapshot theorem](DENSITY_REGISTER_AND_THREE_SNAPSHOT_THEOREM.md) shows that section 2 above goes too far in three places.
+
+1. **The 64 records are not 64 native coordinates.** The native core has eight amplitudes z. The 64 records are the Pauli operator coordinates of its density ρ = zz†. Their Euclidean metric is the Hilbert–Schmidt metric, and the flat-read theorem applies to it. But they are coherences of eight amplitudes constrained by rank, not independent occupations. So "the native norm is Euclidean in its coordinates" does not transfer to them automatically.
+2. **The core's occupation is not conserved.** The total norm ψ†ψ is conserved, but a core exchanging flux with its environment changes ‖z‖², at a rate d‖z‖²/dt = 2 Im(z†Bw).
+3. **The physical common mode is the trace, not f.** The trace direction e and the Walsh common line f overlap with c² = 3/10. Mixing the two conventions gives 29/23 instead of 17/13. The physical trace-fixed space does give ranks 17 and 13 directly, but the Walsh read does not preserve it.
+
+So the flat-read theorem stands as exact algebra for a register metric that is diagonal and preserved by the read. What remains to be derived from the native action is narrower: which register is physical, its trace convention, and how the Walsh read acts on it. Section 3's "one premise" is therefore one of several.
+
 ## 4. Where this leaves the 17/13 chain
 
 | Step | Status |
@@ -65,7 +75,7 @@ The premise is that **what is registered is occupation, not energy.** The energy
 | The 17 register forced by the Walsh dual of the dependent seed | [T], same note |
 | The weighted ratio is 17/13 exactly when a = b | [T], [work-metric rigidity](WORK_METRIC_RIGIDITY.md) |
 | a = b from independent records and a work-preserving complete read | [T], this note |
-| The native dynamics registers in exactly that metric, if registration counts occupation | [D], one stated premise |
+| The native dynamics registers in exactly that metric | Open: see the correction above (register, trace convention and Walsh action still to be derived) |
 
 ## Verify
 
