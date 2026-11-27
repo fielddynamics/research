@@ -1,0 +1,6 @@
+PASS incidence rows
+PASS column totals
+PASS reference state
+PASS distinct responses
+PASS ledger content
+5 checks in simulated DOM; not full browser rendering

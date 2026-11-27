@@ -89,4 +89,28 @@ ck('T2 Schur complement',s.simplify(s.diff(E.subs(x,xs),y,2)-(c-b*b/a))==0)
 ck('T2 moving minimum zero force',((x-y)**2).subs(x,y)==0)
 q,k,m1,m2,r=s.symbols('q k m1 m2 r',positive=True);pair=-q*q*m1*m2/(k*r)
 ck('T13 inverse square',s.simplify(-s.diff(pair,r)+q*q*m1*m2/(k*r*r))==0)
+# Referee revision: orthogonal invariance does not select the determinant.
+t=s.symbols('t',real=True)
+At=t*t*s.eye(21)
+ck('R2 normalized trace common gain',s.trace(At)/21==t*t)
+ck('R2 determinant common gain',At.det()==t**42)
+ck('R2 normalized counterexample at identity', (At.det()*(1+s.trace(At)/21)/2).subs(t,1)==1)
+ck('R2 singular counterexample vanishes', (At.det()*(1+s.trace(At)/21)/2).subs(t,0)==0)
+ck('R2 all-directions counterexample differs', (At.det()*(1+s.trace(At)/21)/2).subs(t,s.Rational(1,2))!=At.det().subs(t,s.Rational(1,2)))
+# A rational orthogonal rotation on two axes; left and right actions separately.
+O=s.eye(21); O[:2,:2]=s.Matrix([[3,-4],[4,3]])/5
+T=s.diag(*[s.Rational(i,22) for i in range(1,22)])
+ck('R2 orthogonal witness',O.T*O==s.eye(21))
+for label,U in [('left',O*T),('right',T*O),('both',O*T*O.T)]:
+    ck('R2 trace basis invariance '+label,s.trace(U.T*U)==s.trace(T.T*T))
+    ck('R2 determinant basis invariance '+label,(U.T*U).det()==(T.T*T).det())
+# Analytic witness: actual 21 variables and all coordinate hyperplanes.
+p21=s.symbols('p0:21'); prod21=s.prod(p21); S=prod21*(2+sum(p21))
+for i,pi in enumerate(p21):ck('R2 analytic blocked direction '+str(i),S.subs(pi,0)==0)
+ck('R2 analytic common gain order 21',s.expand(S.subs(dict.fromkeys(p21,z)))==2*z**21+21*z**22)
+ck('R2 trace source lower order', (sum(p21)/21).subs(dict.fromkeys(p21,z))==z)
+# The normalized constant mode retains inventory at the expected scale.
+for A in [0,1,4,16,64]:
+    bv=(np.arange(64)<A).astype(np.int64)
+    ck('R2 normalized common coefficient '+str(A), F(int((H@bv)[0]),8)==F(A,8))
 print(f'TOTAL {n} fresh exact assertions passed')

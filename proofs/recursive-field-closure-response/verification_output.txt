@@ -490,4 +490,44 @@ PASS T2 stationarity
 PASS T2 Schur complement
 PASS T2 moving minimum zero force
 PASS T13 inverse square
-TOTAL 492 fresh exact assertions passed
+PASS R2 normalized trace common gain
+PASS R2 determinant common gain
+PASS R2 normalized counterexample at identity
+PASS R2 singular counterexample vanishes
+PASS R2 all-directions counterexample differs
+PASS R2 orthogonal witness
+PASS R2 trace basis invariance left
+PASS R2 determinant basis invariance left
+PASS R2 trace basis invariance right
+PASS R2 determinant basis invariance right
+PASS R2 trace basis invariance both
+PASS R2 determinant basis invariance both
+PASS R2 analytic blocked direction 0
+PASS R2 analytic blocked direction 1
+PASS R2 analytic blocked direction 2
+PASS R2 analytic blocked direction 3
+PASS R2 analytic blocked direction 4
+PASS R2 analytic blocked direction 5
+PASS R2 analytic blocked direction 6
+PASS R2 analytic blocked direction 7
+PASS R2 analytic blocked direction 8
+PASS R2 analytic blocked direction 9
+PASS R2 analytic blocked direction 10
+PASS R2 analytic blocked direction 11
+PASS R2 analytic blocked direction 12
+PASS R2 analytic blocked direction 13
+PASS R2 analytic blocked direction 14
+PASS R2 analytic blocked direction 15
+PASS R2 analytic blocked direction 16
+PASS R2 analytic blocked direction 17
+PASS R2 analytic blocked direction 18
+PASS R2 analytic blocked direction 19
+PASS R2 analytic blocked direction 20
+PASS R2 analytic common gain order 21
+PASS R2 trace source lower order
+PASS R2 normalized common coefficient 0
+PASS R2 normalized common coefficient 1
+PASS R2 normalized common coefficient 4
+PASS R2 normalized common coefficient 16
+PASS R2 normalized common coefficient 64
+TOTAL 532 fresh exact assertions passed

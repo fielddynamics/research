@@ -1,6 +1,6 @@
 ---
 title: "Gravity as the response of recursive field closure"
-subtitle: "Proof 26 candidate — fixed geometry, reversible accounting and vortex settlement"
+subtitle: "Proof 26 candidate, revision 4 — fixed geometry, reversible accounting and vortex settlement"
 author: "Field Dynamics Research — research draft"
 date: "November 2026"
 geometry: margin=25mm
@@ -9,9 +9,13 @@ fontsize: 11pt
 
 # Abstract
 
-We join the geometric convergence of Proofs 23–25 to the earlier Sierpiński inventory and gravitational-constant calculation. Under stated closure and address-space premises, a neighboring field must supply sufficient information for settlement; a 64-address four-child Triforce ledger admits an exact reversible three-stage Walsh read; simultaneous order-three label rotation gives 21 independent invariant contrasts with grades 1, 4, 16; completed blocks cancel their finer contrasts while retaining inventory. The graded interaction capacity is 273, and a finite-field norm compression of its trace-free subspace yields the normalized response 17/13. A specified collective reconstruction observable then equals $(17/13)|t|^{42}$ for common amplitude gain $t$. We construct the conditional source and Green response giving the existing tree-level $G$ formula if $|t|^2=\alpha$ and the microscopic action selects that observable. Exact fixed-geometry vortex susceptibility demonstrates a candidate carrier of settlement. The proof establishes the algebraic architecture and a conditional mechanism, not the physical selection of the source vertex, gain, or spacetime action. Counterexamples delimit every inference from counting to dynamics.
+A field that settles in the presence of its neighbors must, when their states change its required settlement, retain enough information to distinguish those states. We ask whether the geometry already established in Gravity Field Dynamics (GFD) offers a concrete realization of this requirement. We connect the fixed Triforce addresses of Proofs 23–25 to the earlier Sierpiński inventory model, a reversible three-stage Walsh transform, and the existing topological expression for Newton's constant. The rotation-invariant nonconstant ledger has grades of dimension 1, 4 and 16; completed packing blocks cancel their finer contrasts while preserving inventory. The signed recursive counts give the existing coupling-polynomial ratio 17/13, and the determinant of a specified invariant bridge has intensity exponents 1, 4 and 16. Together these reproduce the structural factors of the existing tree-level $G$ expression under stated physical identifications. We exhibit a nonzero vortex susceptibility on an inherited fixed-geometry stationary branch and a conditional scalar Green-function completion. The physical selection of the collective source, its normalization, the elementary intensity $|t|^2=\alpha$, and a covariant microscopic action remain open. Additional projective constructions are retained separately as mathematical research, not as prerequisites of the proposed mechanism.
 
-# 1. Premises and inherited geometry
+# 1. The question and inherited geometry
+
+The question motivating this work is simple: when two fields influence one another, what must each know about the other in order to close consistently? By a *read* we mean access to information relevant to settlement, not a literal digital instruction or a measurement by an observer. By *settlement* we mean a selected compatible state (in a static model, a stationary or minimizing state). By *registration* we mean retention of the boundary response or inventory needed by the next enclosing system. None of these definitions prescribes a particular physical algorithm.
+
+There is a useful distinction between the architecture and the state it carries. In the model developed here, the geometry of the cube and its Triforce addresses stays fixed; the retained TetB inventory and the vortex configuration may change. The atomic packing work provides the motivation, while the geometric proofs supply the precise mathematical structures. We will follow the chain from information necessity to reconstruction, and only then ask what kind of source response could reproduce the existing expression for $G$.
 
 Use [Proof 23](https://github.com/fielddynamics/research/tree/e2b5cd41c63301abad76d9f1881c518dff9cb732/proofs/recursive-triforce-closure) for the fixed midpoint-lattice, depth-two refinement with 64 paired face addresses. Use [Proof 24](https://github.com/fielddynamics/research/tree/e2b5cd41c63301abad76d9f1881c518dff9cb732/proofs/flywheel-tetrad-geometry) for the oriented cycle/row-frame equivalence and actual current reconstruction, and [Proof 25](https://github.com/fielddynamics/research/tree/e2b5cd41c63301abad76d9f1881c518dff9cb732/proofs/tetrad-flywheel-convergence) for the common metric and path-independent transport. Their geometric premises are retained; in particular the regular frame on the zero-sum space has Gram $4I-\mathbf1\mathbf1^T$. Chamber coupling is registered interaction, not a spatial bond between physical TetA and TetB. The finite address ledger is a fixed mathematical model; the physical choice of refinement, independent values, and mapping to the native vortex amplitudes are still hypotheses.
 
@@ -19,7 +23,9 @@ Let $X=(\mathbb F_2^2)^3$ and $V=\mathbb R^X$ with counting inner product. Four 
 
 The earlier [G matrix synthesis](https://github.com/fielddynamics/research/blob/e2b5cd41c63301abad76d9f1881c518dff9cb732/research/g_from_topology/g_matrix_synthesis.md) already states the target normalization as a ratio of traces times a determinant. The [read-sweep synthesis](https://github.com/fielddynamics/research/blob/e2b5cd41c63301abad76d9f1881c518dff9cb732/research/g_from_topology/read_sweep_synthesis.md) also distributes the exponent as $7+7+7$. Its total agrees with $1+4+16$, but no equality of physical stagewise attenuation follows: the new decomposition refers to invariant spectral grade dimensions, and the commuting transforms do not establish clock order.
 
-The physical premises to be tested are: (P1) admissible Field Objects settle to compatible states, with a sufficient read of neighbors; (P2) the fixed Triforce register represents the relevant physical information; (P3) the specified invariant spectral bridge and collective source are selected by the native action; (P4) a normalized, attractive, universal scalar long-wave source represents the weak drainless limit. P1 is sufficient for the abstract necessity theorem; P2–P4 are not consequences of P1. All exact results below are theorems of the explicitly defined structures. The word closure does not imply equilibrium at every instant.
+The assumptions are deliberately separated. (P1) For each admissible environment there exists a compatible selected closure state; no read is assumed. (P2) The fixed Triforce register represents the relevant physical information. (P3) The native action selects the proposed invariant spectral bridge and collective source with the inherited coupling normalization. (P4) A normalized, attractive, universal scalar long-wave source represents the weak drainless limit. Under P1 the necessity of environmental information is a conclusion when the feasible sets lack a common state, or the prescribed selection is nonconstant. P2–P4 are additional physical hypotheses, not consequences of P1. All algebraic theorems concern explicitly defined mathematical structures. Closure does not imply equilibrium at every instant.
+
+For orientation, Theorems 1–2 establish what information settlement needs; Theorems 3–6 construct the reversible register; Theorems 7–8 calculate a candidate collective response; Theorems 9–11 address its possible physical carrier and macroscopic limit. A reader may accept any of these mathematical results without accepting the subsequent physical identification.
 
 ![Proof architecture: exact algebra and proposed physical connections.](figures/proof26_architecture.png){ width=92% }
 
@@ -27,9 +33,9 @@ The physical premises to be tested are: (P1) admissible Field Objects settle to 
 
 **Theorem 1 (blind closure and sufficient information).** For each admissible environment $y$ let $C_y$ be the feasible closure set of a Field Object at fixed owned inventory. A blind selection exists exactly when $\bigcap_y C_y\ne\varnothing$. If the selected state is unique, $S(y)$, a read $R(y)$ permits exact settlement precisely when $R(y)=R(z)$ implies $S(y)=S(z)$.
 
-*Proof.* A blind selection must be in every feasible set, and a point of their intersection suffices. In the unique case, a blind selection exists iff $S$ is constant. If $S=F\circ R$, equal reads have equal outputs. Conversely define $F$ on $R(Y)$ by $F(R(y))=S(y)$; the implication makes it well defined. For nonunique feasibility each read fibre must admit a common feasible state. For differentiable $S,F,R$, $DS=DF\,DR$ so $\ker DR\subseteq\ker DS$ and $\operatorname{rank}DR\ge\operatorname{rank}DS$. For linear $S$ this bound is attained by coordinates in its image. The rank is a number of continuous directions, not a count of bits. QED.
+*Proof.* A blind selection must be in every feasible set, and a point of their intersection suffices. In the unique case, a blind selection exists iff $S$ is constant. If $S=F\circ R$, equal reads have equal outputs. Conversely define $F$ on $R(Y)$ by $F(R(y))=S(y)$; the implication makes it well defined. For nonunique feasibility, each read fibre must have a nonempty intersection of feasible sets; choosing one point per fibre then defines a set-theoretic settlement rule (with choice if needed). Continuity, locality and dynamical accessibility do not follow from this construction. For differentiable $S,F,R$, $DS=DF\,DR$ so $\ker DR\subseteq\ker DS$ and $\operatorname{rank}DR\ge\operatorname{rank}DS$. For linear $S$ this bound is attained by coordinates in its image. The rank is a number of continuous directions, not a count of bits. QED.
 
-**Theorem 2 (settlement susceptibility).** If $E(x,y)$ is twice differentiable, $E_x(S(y),y)=0$ and $H_{xx}$ is nonsingular at an isolated smooth branch, then
+**Theorem 2 (settlement susceptibility).** If $E(x,y)$ is $C^2$ on an open neighborhood, $E_x(S(y),y)=0$ and $H_{xx}$ is nonsingular at an isolated smooth branch, then
 
 $$D_yS=-H_{xx}^{-1}H_{xy},\qquad D_y^2E_* = H_{yy}-H_{yx}H_{xx}^{-1}H_{xy},$$
 
@@ -37,9 +43,11 @@ where $E_*(y)=E(S(y),y)$. A positive $H_{xx}$ gives a strict local minimum; stat
 
 *Proof.* Differentiate $E_x=0$ and use the chain rule; $D_yE_*=E_y$ since $E_x=0$. For a quadratic interior energy $E=\tfrac12x^TAx+x^TCb+\tfrac12b^TDb-f^Tx$, $A>0$, the solution is $x=A^{-1}(f-Cb)$ and the minimum linear read dimension is exactly $\operatorname{rank}C$. The registered energy is $\tfrac12 b^T(D-C^TA^{-1}C)b+f^TA^{-1}Cb-\tfrac12 f^TA^{-1}f$. QED.
 
-Thus interaction-sensitive closure requires relevant information, not necessarily all microscopic records. Mere presence of $y$ in a formula does not establish nonblind closure: $(1+y^2)x=0$ has the common solution $x=0$. Nor does static dependence imply propagation speed or a literal algorithm.
+The practical lesson of these first two results is that closure need not access every microscopic degree of freedom. It needs the information that changes its settlement. A boundary register can supply that information without exposing the entire interior. Mere presence of $y$ in a formula does not establish nonblind closure: $(1+y^2)x=0$ has the common solution $x=0$. Nor does static dependence imply propagation speed or a literal algorithm.
 
 # 3. Fixed address geometry and reversible read
+
+We now have a criterion for sufficient accounting, but not an operator. The next construction uses the four-child geometry inherited from Proof 23. It answers a narrower question: if the relevant state occupies this address space, how can it be read and reconstructed without losing information?
 
 **Theorem 3 (three Walsh sweeps).** The full forward and reverse Walsh transforms are products of three commuting orthogonal radix-four stages. Let $h=H_4/2$. Then
 
@@ -57,6 +65,8 @@ $$H_{2^m}=SDS^T,\qquad H_{2^m}^{-1}=2^{-m}SDS^T.$$
 
 # 4. Invariant accounting and registration
 
+The full read has 64 coefficients. The number 21 enters only after specifying a threefold rotation and removing the constant mode. This distinction matters because the same number also occurs in the tree of local readers.
+
 **Theorem 5 (projective contrast count).** Let $g$ multiply every $\mathbb F_4$ digit by a primitive element $\omega$ of order three, fixing zero. Let $P_d$ be the orthogonal projection onto functions depending only on the first $d$ digits, $d=0,1,2,3$. The detail spaces $V_d=\operatorname{im}(P_d-P_{d-1})$ have dimensions $3,12,48$. Their invariant subspaces under $g$ have dimensions $1,4,16$.
 
 *Proof.* Prefix counts give $\operatorname{rank}P_d=4^d$. There is one fixed prefix and all other prefixes have orbits of size three. Invariant dimensions of the prefix spaces are $(4^d+2)/3=1,2,6,22$. The differences are $1,4,16$; the commuting projections give an orthogonal decomposition. In Fourier coordinates the rotation acts contragrediently (inverse transpose); it preserves the zero digit and cycles the three others. Its nonzero orbits are the projective points of $\mathrm{PG}(2,4)$, after identifying the dual digit action with scalar multiplication. The 21 orbit sums of characters are independent and have zero mean. For each orbit, the sum equals $4\mathbf1_{\Pi}-1$, where $\Pi$ is its 16-address common annihilator; each sum has squared norm 192 and distinct sums are orthogonal by character orthogonality. QED.
@@ -71,35 +81,21 @@ $$c_0=A,\qquad \sum_{a\ne0}c_a^2=64A-A^2.$$
 
 *Proof.* Character sums over each free suffix are zero unless that frequency is zero. Parseval gives $\|c\|^2=64\|b\|^2=64A$. Subtract the constant coefficient. For $k$ uniform completed cycles plus residual $r$, $H(k\mathbf1+r)=64k e_0+Hr$. A separate pointer holding completed counts produces the same common record, if the additive inventory is preserved. QED.
 
-The result holds for any ordering that completes a whole prefix block; the sequential example is not the earlier global gate-depth ordering at all occupancies. Nonconstant energy vanishes at empty and full cycles, hence cannot alone represent accumulated positive mass. The old 0/2/4 landmark score is not the same as a determinant. Nuclear mass number, signed electrical source, electron configuration and rest energy remain distinct. Binding energy must be included in the physical mass register.
+In normalized coordinates the constant coefficient is $A/8$, rather than $A$. More generally a weighted registration would preserve the weighted common record, not automatically the unweighted count. The result holds for any ordering that completes a whole prefix block; the sequential example is not the earlier global gate-depth ordering at all occupancies. Nonconstant energy vanishes at empty and full cycles, hence cannot alone represent accumulated positive mass. The old 0/2/4 landmark score is not the same as a determinant. Nuclear mass number, signed electrical source, electron configuration and rest energy remain distinct. Binding energy must be included in the physical mass register.
 
-# 5. Signed recursive counts and finite-field compression
+# 5. Signed recursive counts and the inherited normalization
 
-**Theorem 7 (graded count).** On the invariant contrast grades of sizes $1,K,K^2$, $K=4$, define the abstract depth sign $D=I_1\oplus(-I_K)\oplus I_{K^2}$. The signed trace and its even average give $f(K,s)=1+sK+K^2$, for $s=+1,0,-1$. The block matrix algebra $\mathcal A=\mathbb R\oplus M_4(\mathbb R)\oplus M_{16}(\mathbb R)$ has capacity
+The preceding dimension count gives the graded traces used in the existing coupling-polynomial calculation. We retain that structural result directly, without postulating another physical read.
+
+**Theorem 7 (graded count).** On the invariant contrast grades of sizes $1,K,K^2$, $K=4$, define the abstract depth sign $D=I_1\oplus(-I_K)\oplus I_{K^2}$. The traces of $I$, $(I+D)/2$, and $D$ give $f(K,s)=1+sK+K^2$ for $s=+1,0,-1$, respectively. The block matrix algebra $\mathcal A=\mathbb R\oplus M_4(\mathbb R)\oplus M_{16}(\mathbb R)$ has capacity
 
 $$1+K^2+K^4=f(K,1)f(K,-1)=1+K^2 f(K,0).$$
 
-*Proof.* Sum the block dimensions with the stated middle sign; multiplication cancels the odd powers. Hence 21, 17, 13, 273 and 272 occur in one algebra. A global trace constraint removes one direction, not one particular cell. The actual lower-triangular Sierpiński blocks have 91 nonzero entries (1+9+81), not 273, and unit determinant; their diagonal count is 21. The null-rotation proof's exponential identity $\det(\alpha^M)=\alpha^{\operatorname{tr}M}$ for $\alpha>0$ follows from $\det\exp B=\exp\operatorname{tr}B$; it does not identify a physical source. QED.
-
-**Theorem 8 (norm-transversal register).** Let $F=\mathbb F_4$, $E=\mathbb F_{64}$, $L=\mathbb F_{16}$, $U=\mathbb F_{4096}$. View $E$ as a 3-dimensional $F$-space and $U$ as a 3-dimensional $L$-space. Their projective point sets are $E^*/F^*$ and $U^*/L^*$. The norm $N:U^*\to E^*$ induces a surjection $\nu$ of projective point sets with fibres of size 13. The embedded $E^*/F^*$ is a norm transversal, and its 13 cosets partition the larger plane into Baer subplanes.
-
-*Proof.* The subfields intersect in $F$ (gcd of extension degrees 3 and 2). Norm is $z^{65}$, restricting to the square on $E$ and to the quadratic norm on $L$. The latter lands in $F^*$, so the quotient map is well defined. Squaring is invertible on the order-21 subgroup, proving surjectivity and the transversal property; the order ratio is 273/21=13. Multiplication by a nonzero element is an invertible $L$-linear map, so every multiplicative coset of the embedded subplane is a projective image of a Baer subplane. The embedded subplane has the usual $F$-line incidence: an $L$-line restricts to at least one nonzero $F$-vector because its one $L$-linear constraint yields at most two $F$-linear constraints on three coordinates; if it contains two independent $F$-vectors it contains their $F$-line. This supplies the Baer property. QED.
-
-Choose an $F$-basis of $E$ and $\theta\in L\setminus F$. Each projective representative of grade $d$ has last nonzero coordinate 1 in position $d$. For same-grade representatives $u,v$, map matrix-unit coordinate $(u,v)$ to $[u+\theta v]\in\mathrm{PG}(2,16)$. Divide by $1+\theta$ to set the pivot to 1; every earlier coordinate is uniquely a combination of $1/(1+\theta)$ and $\theta/(1+\theta)$ over $F$. This proves a bijection. For $u=v$ it is $[u]$. The flag and basis are choices; the map is not an algebra homomorphism or established physical incidence propagation.
-
-**Theorem 9 (trace-compressed response).** Let $M$ be the 21-by-273 norm fibre incidence matrix in the matrix-unit coordinates; let $d$ be the vector of the block identity. Then $MM^T=13I$, $Md=\mathbf1$, $d^Td=21$. Define $P=I-dd^T/21$, $R=M/\sqrt{13}$. The positive compressed operator is
-
-$$B=RPR^T=I-\frac{\mathbf1\mathbf1^T}{273}.$$
-
-*Proof.* The rows of $M$ have disjoint support of size 13; the identity is the diagonal transversal. Substitute. Its eigenvalues are 1 (multiplicity 20) and 12/13 (multiplicity 1). Thus $\operatorname{rank}P=272$, $\operatorname{tr}B=272/13$, and
-
-$$\frac{\operatorname{tr}B}{16}=\frac{17}{13}.$$
-
-The determinant of $B$ is instead 12/13. QED.
-
-The ratio is an exact result of a specified construction, not a proof of its physical uniqueness. The trace-free restriction, coisometric norm averaging and normalization by the finest grade are explicit candidate physical selections. Averaging over all 21 directions instead would yield $272/273$. The field norm does not generally preserve incidence. These qualifications prevent a numerical identity from being mistaken for dynamics.
+*Proof.* Sum the block dimensions with the stated middle sign; multiplication cancels the odd powers. Hence 21, 17, 13 and 273 occur in one algebra. The inherited ratio is $f(K,0)/f(K,-1)$. No trace constraint is needed. The actual lower-triangular Sierpiński blocks have 91 nonzero entries (1+9+81), not 273, and unit determinant; their diagonal count is 21. The null-rotation proof's exponential identity $\det(\alpha^M)=\alpha^{\operatorname{tr}M}$ for $\alpha>0$ follows from $\det\exp B=\exp\operatorname{tr}B$; it does not identify a physical source. QED.
 
 # 6. The proposed gravitational read and its exact conditional value
+
+The geometric results so far are independent of the fine-structure constant. To connect them to the earlier calculation of $G$, we must distinguish a linear read of a state from a collective read of the entire reconstruction operator. The distinction is essential: a determinant measures the volume response of a complete frame, not the amplitude of a single field configuration.
 
 Let the spectral bridge act as identity on the constant coefficient and scalar $t_j$ on each Walsh grade. In address coordinates
 
@@ -107,19 +103,33 @@ $$J=W^{-1}\Lambda W=\prod_{j=1}^3[I+(t_j-1)(P_j-P_{j-1})].$$
 
 Here the three grades receive their gain once because their projectors are disjoint. Full contrast determinant has exponents 3,12,48; the invariant contrast determinant has exponents 1,4,16. Denote the latter restriction by $T$. For complex gains use Hermitian adjoints. The bridge is not idempotent unless each gain is 0 or 1, and is not lossless unless their magnitudes are one. Distinguish the conservative paired evolution from its retained output.
 
-**Theorem 10 (collective response).** Define a formal perturbation of the complete invariant reconstruction volume,
+**Theorem 8 (collective transmission and inherited normalization).** The invariant restriction $T$ of the grade bridge satisfies
 
-$$F(\varepsilon)=\det[T^\dagger T(I+\varepsilon B/16)].$$
+$$\det(T^\dagger T)=|t_1|^2|t_2|^8|t_3|^{32}.$$
 
-Then
+*Proof.* The three invariant grade spaces have dimensions 1, 4 and 16 by Theorem 5. On each the Hermitian product is scalar with eigenvalue $|t_j|^2$. Multiplying their eigenvalues with multiplicity gives the formula, including zero gains. QED.
 
-$$F'(0)=\frac{17}{13}|t_1|^2|t_2|^8|t_3|^{32}.$$
+The existing topology calculation supplies the structural ratio $\gamma_0=f(4,0)/f(4,-1)=17/13$ (Theorem 7). If the physical source selects the inherited ratio times the collective determinant, its dimensionless response is
 
-*Proof.* Multiplicativity of determinant and Theorem 9 give $F(\varepsilon)=|\det T|^2(1+\varepsilon/16)^{20}(1+12\varepsilon/208)$. Differentiate at zero. This also holds for singular $T$ because the determinant factors even then. In the common-gain case $|t_j|^2=\alpha$, the response is $(17/13)\alpha^{21}$. QED.
+$$\mathcal C(T)=\gamma_0\det(T^\dagger T).$$
+
+If each retained intensity equals the independently specified electromagnetic $\alpha$, this is $\mathcal C(T)=(17/13)\alpha^{21}$. This is a conditional compatibility result: the algebra forces the exponent for the specified determinant, but not the choice of determinant as a physical observable, the common gain, or the appearance of the ratio in the work coupling. The coupling ratio is inherited, not newly derived as a physical stiffness. Nothing in this argument requires a projective pencil or the removal of a trace direction.
+
+A reader may ask whether a more detailed geometric representation of the ratio would explain its physical selection. The optional [projective appendix](APPENDIX_PROJECTIVE_GEOMETRY.md) preserves such constructions and their limitations; they do not supply evidence that the native vortex executes an additional projection.
 
 **Proposition (testable complete-frame source selection).** Let $p_i$ be independent retained intensities in the 21 contrast directions. If a source observable is a polynomial of degree at most one in each $p_i$, is zero whenever any $p_i=0$, and has value $c$ at all $p_i=1$, it is uniquely $c\prod_i p_i$. Indeed expansion in square-free monomials and vanishing on each coordinate hyperplane removes all monomials missing that coordinate. This is a possible physical selection criterion for the exponent, not a consequence of ordinary closure or scalar susceptibility. For instance $p_1$ is a legitimate ordinary read, and a shared common gate has joint transmission $p$ rather than $p^{21}$. Even a smooth source with all-or-nothing zeros can have extra factors unless the multi-affine condition holds. Atomicity alone is insufficient.
 
+**Proposition (symmetry does not select the collective source).** Write $A_T=T^\dagger T$ on the 21-dimensional invariant contrast space. The two functionals
+
+$$\mathcal L(T)=\frac{1}{21}\operatorname{tr}A_T,\qquad \mathcal D(T)=\det A_T$$
+
+are both invariant under independent orthogonal (or unitary) changes of input and output basis and both equal one at $T=I$. Yet for $T=tI$ they are $|t|^2$ and $|t|^{42}$ respectively. Thus even full basis symmetry and normalization do not force the determinant. In addition, the basis-invariant, all-directions-required functional $\mathcal D(T)(1+\mathcal L(T))/2$ agrees with the determinant at $T=I$ and vanishes whenever $T$ is singular, but is not equal to the determinant for general $T$. This shows why complete-frame closure alone is not sufficient: a source law must also exclude additional dependence on the gains. The preceding multi-affine proposition provides one precise sufficient condition.
+
+**Proposition (analytic test for lower-order terms).** Suppose a physical source $S(p_1,\ldots,p_{21})$ is real analytic near zero in independent intensity variables and vanishes identically whenever any one of them is zero. Its convergent power series then has a factor $\prod_i p_i$, so $S=(\prod_i p_i)A(p)$ for analytic $A$. Along $p_i=p$ the first possible nonzero order is 21; it is exactly 21 if $A(0)\ne0$. This does not determine $A(0)$ or the higher-order terms, and it does not apply if only a common gain is physically variable. The proof follows by restricting the power series to each coordinate hyperplane: uniqueness of analytic coefficients removes every monomial with a missing variable. Conversely a trace term is symmetry-allowed and has order one. This gives a concrete target for the microscopic action: derive the independent blocked-direction identities, or another source selection principle, and test for surviving lower-order terms. The prefactor still requires its own normalization.
+
 # 7. Physical carrier: fixed geometry, changing vortex
+
+The ledger and its determinant tell us how an accounting operation could be organized. They do not yet tell us what moves. The inherited vortex model allows us to test whether a response is possible without deforming the cube.
 
 The atomic inventory work and Paper XIII model TetB packing on the same four-child structure. Their bound law $x(1-\mu_b)^2=\mu_b$ and cumulative sum $\sum_{i=1}^A\mu_b(i^2)$ vary with occupancy, not the address geometry. The earlier electric-vortex model proposes outward response from retained matter; the atomic screening preregistrations failed their primary criteria, so this is motivation rather than independent validation. The occupation model's signed source $q=n_B-n_A$ is odd and total occupation $s=n_B+n_A$ even under exchange. This algebra permits neutral mass response without a signed electric monopole, but physical charge, mass energy, and the exchange action require derivation.
 
@@ -133,29 +143,31 @@ $$M_+=\begin{pmatrix}-2&1/2&-2\\-1/2&1&-1\\-5&-1&-89/10\end{pmatrix},\quad M_C=\
 
 Write $P_*=I-x_*x_*^TG_m/(x_*^TG_mx_*)$, $b_*=P_*M_Cx_*$, $A=-(M_+-\lambda_*I)+(I-P_*)$, $f=225/1232$. On the fixed-orientation branch the tangent Hessian is $-A+h f b_* b_*^TG_m$, with $h=F''(\chi_*)$. A candidate neighbor drive adds $2j u$ to the Hamiltonian, $u=\operatorname{Re}(A_{\rm ch}^\dagger C B_{\rm ch})$. Here chamber amplitudes are denoted with subscripts to avoid confusion with the tangent stiffness.
 
-**Theorem 11 (fixed-geometry response in the stated sector).** At a nonsingular point of the branch, differentiation of stationarity and normalization gives
+**Theorem 9 (fixed-geometry response in the stated sector).** At a nonsingular point of the branch, differentiation of stationarity and normalization gives
 
 $$x'(0)=\frac{A^{-1}b_*}{1-hk},\quad u'(0)=\frac{2k}{1-hk},\quad k=f b_*^TG_mA^{-1}b_*=\frac{42815}{290521}.$$
 
 *Proof.* The tangent equation is $(-A+hf b_*b_*^TG_m)x'+b_*=0$; apply the rank-one inverse formula. The inherited matrices give $A^{-1}b_*=(-430,-296,-2960)^T/11319$ by direct rational substitution. The normalized overlap derivative is $2f b_*^TG_m x'$. This proves nonzero response at unchanged geometry when $1-hk\ne0$. QED.
 
-The two unperturbed tangent eigenvalues of $M_+-\lambda_*I$ are $-33/5\pm\sqrt{22}$, both negative. A positive rank-one update preserves negative definiteness exactly for $h<1/k$ (by conjugating the positive stiffness with its inverse square root in the metric inner product). The branch is a local maximum in its specified real tangent sector below the critical curvature; no minimum-energy gravity sign is inferred from this branch. In particular the changed central coordinate is a coherent amplitude, not a proven physical throat radius. The drive $j$ is introduced, not derived from the neighbor field. A fixed Hamiltonian graph need not relax asymptotically; dissipation or energy transfer and retarded propagation require separate dynamics. The native model has no independently resolved 64-address amplitudes. No physical reconstruction operator on its full state has been derived.
+The two unperturbed tangent eigenvalues of $M_+-\lambda_*I$ are $-33/5\pm\sqrt{22}$, both negative. A positive rank-one update preserves negative definiteness exactly for $h<1/k$ (by conjugating the positive stiffness with its inverse square root in the metric inner product). The branch is a local maximum in its specified real tangent sector below the critical curvature; no minimum-energy gravity sign is inferred from this branch. In particular the changed central coordinate is a coherent amplitude, not a proven physical throat radius. The drive $j$ is introduced, not derived from the neighbor field. A fixed Hamiltonian graph need not relax asymptotically; dissipation or energy transfer and retarded propagation require separate dynamics. For a smoothly followed stationary branch at fixed norm, the envelope identity is $dH_*/dj=2u_*(j)$. If the physical neighbor coupling were a function $j(r)$ of separation, this term would give $F_r=-2u_*(j)j'(r)$. Its sign and radial dependence are not fixed by the susceptibility. The native model has no independently resolved 64-address amplitudes. No physical reconstruction operator on its full state has been derived.
 
 # 8. Hierarchical closure and the conditional G formula
 
-**Theorem 12 (recursive registration).** In a fixed decomposition with disjoint owned child interiors and admissible common traces, define $\mathcal W_D[f]=\inf_{\Phi|_{\partial D}=f}E_D[\Phi]$. The parent registered energy is the infimum of the sum of residual and child registered energies over common interface traces. This follows by decomposing and gluing admissible fields; when differentiable, variation of shared traces gives equal and opposite outward work-conjugate flux in the absence of sheet sources. For a gradient-plus-source action a common constant boundary shift changes $\mathcal W_D$ by that constant times the owned source charge. Internal charges add once, even when physical influences overlap. No independent attenuation at every hierarchical level is implied. The scalar boundary functional, not a mass alone, is generally required to encode tidal response. QED.
+A local read becomes relevant to macroscopic gravity only if completed fields can register consistently at larger scales and the same response couples to physical sources. The following two results show what that would mean in a static action, without treating the chosen action as a consequence of the finite geometry.
 
-**Theorem 13 (conditional gravitational completion).** Let $\phi$ have units of inverse length and $\rho$ be the mass density, and posit the local static long-wave action
+**Theorem 10 (recursive registration).** In a fixed decomposition with disjoint owned child interiors and admissible common traces, define $\mathcal W_D[f]=\inf_{\Phi|_{\partial D}=f}E_D[\Phi]$. The parent registered energy is the infimum of the sum of residual and child registered energies over common interface traces. This follows by decomposing and gluing admissible fields; when differentiable, variation of shared traces gives equal and opposite outward work-conjugate flux in the absence of sheet sources. For a gradient-plus-source action with source term $\int_D\rho\Phi$ and no other potential-dependent term, provided the admissible class is closed under constant shifts with the corresponding boundary shift, $\mathcal W_D[f+C]=\mathcal W_D[f]+C\int_D\rho$. This follows by the bijection $\Phi\mapsto\Phi+C$ between the two admissible classes. Internal charges add once, even when physical influences overlap. No independent attenuation at every hierarchical level is implied. The scalar boundary functional, not a mass alone, is generally required to encode tidal response. QED.
+
+**Theorem 11 (conditional gravitational completion).** Let $\phi$ have units of inverse length and $\rho$ be the mass density, and posit the local static long-wave action
 
 $$E[\phi]=\hbar c\int\left[\frac{\kappa}{8\pi}|\nabla\phi|^2+g\frac{\rho}{m_e}\phi\right]d^3x,\quad \kappa>0.$$
 
 For decaying boundary data, variation gives $\nabla^2\phi=4\pi g\rho/(\kappa m_e)$. The point-source solution (outside the source) is $-g m/(\kappa m_e r)$. Eliminating the field gives the separated pair energy $-\hbar c g^2 m_1m_2/(\kappa m_e^2r)$; divergent point self-energies may be removed by using finite disjoint sources and taking their point limit. The factor of two in the cross term cancels the one-half in the reduced energy. Thus the force is attractive and inverse-square with $G_{\rm eff}=\hbar c g^2/(\kappa m_e^2)$. QED.
 
-If the native work coupling and stiffness satisfy $g^2/\kappa=F'(0)$, and if the common bridge intensity is $\alpha$, Theorem 10 yields the existing tree-level formula
+Here $g$ is a dimensionless source coefficient, not the acceleration $\mathbf g$. For the stated normalization, the physical Newtonian potential is $\Phi=(\hbar c g/m_e)\phi$, which gives $\nabla^2\Phi=4\pi G_{\rm eff}\rho$. If the native work coupling and stiffness satisfy $g^2/\kappa=\mathcal C(T)$, and if the common bridge intensity is $\alpha$, Theorem 8 yields the existing tree-level formula
 
 $$\boxed{G_{\rm eff}=\frac{17}{13}\alpha^{21}\frac{\hbar c}{m_e^2}.}$$
 
-This is a conditional derivation of the numerical expression from the geometric response and a continuum source, not an independent demonstration of the two physical equalities. The candidate mechanism is that closure adjusts the vortex in the fixed geometry and the work-conjugate response is gravitational. The scalar $G$ is the coupling normalization; local $\mathbf g=-\nabla\Phi$ is acceleration. A Lorentz-covariant stress-energy coupling, light propagation, inertial/gravitational mass equality, drained/drainless rule and empirical validation are separate requirements. The proposed loop factor $1+\alpha/(2\pi)$ is not derived and is not used here.
+This is a conditional derivation of the numerical expression from the geometric response and a continuum source, not an independent demonstration of the physical source, normalization or gain. The candidate mechanism is that closure adjusts the vortex in the fixed geometry and the work-conjugate response is gravitational. The scalar $G$ is the coupling normalization; local $\mathbf g=-\nabla\Phi$ is acceleration. A Lorentz-covariant stress-energy coupling, light propagation, inertial/gravitational mass equality, drained/drainless rule and empirical validation are separate requirements. The proposed loop factor $1+\alpha/(2\pi)$ is not derived and is not used here.
 
 # 9. Obstructions and falsifiable next steps
 
@@ -163,7 +175,13 @@ This is a conditional derivation of the numerical expression from the geometric 
 2. A nonzero mixed Hessian proves local read dependence; it does not guarantee distance-dependent reduced energy. For example $E(x,y)=\tfrac12(x-y)^2$ has moving minima and zero reduced energy. An ordinary scalar quadratic response through $T=tI$ is proportional to $|t|^2$, not $|t|^{42}$. A complete-frame source must be derived, not presumed.
 3. The map $Q$ can discard relevant anisotropy. A fully filled cycle has no detail but retains mass inventory. Derive the physical source from the conserved energy, including binding, rather than setting mass equal to detail or bare occupancy.
 4. Translation symmetry is sufficient for Walsh diagonality but is not implied by tetrahedral symmetry. Demonstrate a native fine-address read or derive it by consistent refinement of the actual Hamiltonian. Test whether the physical symmetry selects the intended invariant sector; respect P23's representation obstructions.
-5. Extract the native source vertex by differentiating the action with respect to a registered neighbor boundary perturbation. Measure its rank, signs, stiffness, cross-mode mixing and response to each blocked direction. Check whether every lower-order source term vanishes and whether independent gain changes satisfy the complete-frame polynomial criterion. Test the 16-normalized trace rather than inserting it. Derive $|t|^2=\alpha$ or independently calibrate it electromagnetically, not by fitting measured $G$.
+5. Extract the native source vertex by differentiating the action with respect to a registered neighbor boundary perturbation. Measure its rank, signs, stiffness, cross-mode mixing and response to each blocked direction. Check whether every lower-order source term vanishes and whether independent gain changes satisfy the complete-frame polynomial criterion. Determine whether the work coupling supplies the inherited 17/13 ratio without fitting it. Compare optional projective witnesses only if the native action independently motivates them. Derive $|t|^2=\alpha$ or independently calibrate it electromagnetically, not by fitting measured $G$.
 6. Prove physical mass additivity with binding corrections and conservation; obtain the static Green limit from a causal microscopic action. Use isotopes, neutral systems and different charge states as discriminating tests. A static snapshot is not instantaneous communication.
 
-**Conclusion.** The same fixed address structure supports a packing write, reversible Walsh read, nonlinear settlement and inverse reconstruction. The geometry, invariant counting, projective normalization construction, and native example of vortex susceptibility are algebraically established under explicit premises. The physical bridge to the existing $G$ calculation is now a precise, testable candidate, rather than a claim that counting alone determines gravity. This is the scope of Proof 26 candidate; no prior proof is amended.
+# 10. Conclusion
+
+The central idea of this work is that the geometry need not change when a field closes. The same fixed address structure can organize retained inventory, read its contrasts, reconstruct a settled record and preserve completed information. The vortex is a candidate for the changing physical state. In the mathematical models presented here, environmental dependence requires sufficient information, the Walsh reconstruction is reversible, and a specified collective response reproduces the existing structural factors of $G$.
+
+For a reader approaching GFD for the first time, the main result is not a new numerical fit to Newton's constant. It is the explicit chain of constructions that connects a possible accounting mechanism to the earlier expression for that constant. The point at which physical input is still needed is now identifiable: the native vortex action must establish the inherited normalization, choose the gain and the complete-frame source, and supply a causal universal gravitational coupling. A successful derivation of those steps would establish much more than the agreement of structural counts. A failure of any of them would identify exactly where the candidate must be revised, without undoing the preceding geometric theorems.
+
+This is the scope of the Proof 26 candidate. The earlier numbered proofs are retained unchanged.

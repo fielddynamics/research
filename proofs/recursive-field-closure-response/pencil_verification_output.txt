@@ -1,0 +1,569 @@
+PASS 273 points and lines
+PASS each line and point degree 17
+PASS unique joining line and intersection for all distinct pairs
+PASS 13 Baer sectors partition
+PASS every line meets every actual Baer subplane in 1 or 5
+PASS each line secant to one Baer subplane
+PASS pencil partition centre 0
+PASS punctured Baer incidence signature 0
+PASS pencil partition centre 1
+PASS punctured Baer incidence signature 1
+PASS pencil partition centre 2
+PASS punctured Baer incidence signature 2
+PASS pencil partition centre 3
+PASS punctured Baer incidence signature 3
+PASS pencil partition centre 4
+PASS punctured Baer incidence signature 4
+PASS pencil partition centre 5
+PASS punctured Baer incidence signature 5
+PASS pencil partition centre 6
+PASS punctured Baer incidence signature 6
+PASS pencil partition centre 7
+PASS punctured Baer incidence signature 7
+PASS pencil partition centre 8
+PASS punctured Baer incidence signature 8
+PASS pencil partition centre 9
+PASS punctured Baer incidence signature 9
+PASS pencil partition centre 10
+PASS punctured Baer incidence signature 10
+PASS pencil partition centre 11
+PASS punctured Baer incidence signature 11
+PASS pencil partition centre 12
+PASS punctured Baer incidence signature 12
+PASS pencil partition centre 13
+PASS punctured Baer incidence signature 13
+PASS pencil partition centre 14
+PASS punctured Baer incidence signature 14
+PASS pencil partition centre 15
+PASS punctured Baer incidence signature 15
+PASS pencil partition centre 16
+PASS punctured Baer incidence signature 16
+PASS pencil partition centre 17
+PASS punctured Baer incidence signature 17
+PASS pencil partition centre 18
+PASS punctured Baer incidence signature 18
+PASS pencil partition centre 19
+PASS punctured Baer incidence signature 19
+PASS pencil partition centre 20
+PASS punctured Baer incidence signature 20
+PASS pencil partition centre 21
+PASS punctured Baer incidence signature 21
+PASS pencil partition centre 22
+PASS punctured Baer incidence signature 22
+PASS pencil partition centre 23
+PASS punctured Baer incidence signature 23
+PASS pencil partition centre 24
+PASS punctured Baer incidence signature 24
+PASS pencil partition centre 25
+PASS punctured Baer incidence signature 25
+PASS pencil partition centre 26
+PASS punctured Baer incidence signature 26
+PASS pencil partition centre 27
+PASS punctured Baer incidence signature 27
+PASS pencil partition centre 28
+PASS punctured Baer incidence signature 28
+PASS pencil partition centre 29
+PASS punctured Baer incidence signature 29
+PASS pencil partition centre 30
+PASS punctured Baer incidence signature 30
+PASS pencil partition centre 31
+PASS punctured Baer incidence signature 31
+PASS pencil partition centre 32
+PASS punctured Baer incidence signature 32
+PASS pencil partition centre 33
+PASS punctured Baer incidence signature 33
+PASS pencil partition centre 34
+PASS punctured Baer incidence signature 34
+PASS pencil partition centre 35
+PASS punctured Baer incidence signature 35
+PASS pencil partition centre 36
+PASS punctured Baer incidence signature 36
+PASS pencil partition centre 37
+PASS punctured Baer incidence signature 37
+PASS pencil partition centre 38
+PASS punctured Baer incidence signature 38
+PASS pencil partition centre 39
+PASS punctured Baer incidence signature 39
+PASS pencil partition centre 40
+PASS punctured Baer incidence signature 40
+PASS pencil partition centre 41
+PASS punctured Baer incidence signature 41
+PASS pencil partition centre 42
+PASS punctured Baer incidence signature 42
+PASS pencil partition centre 43
+PASS punctured Baer incidence signature 43
+PASS pencil partition centre 44
+PASS punctured Baer incidence signature 44
+PASS pencil partition centre 45
+PASS punctured Baer incidence signature 45
+PASS pencil partition centre 46
+PASS punctured Baer incidence signature 46
+PASS pencil partition centre 47
+PASS punctured Baer incidence signature 47
+PASS pencil partition centre 48
+PASS punctured Baer incidence signature 48
+PASS pencil partition centre 49
+PASS punctured Baer incidence signature 49
+PASS pencil partition centre 50
+PASS punctured Baer incidence signature 50
+PASS pencil partition centre 51
+PASS punctured Baer incidence signature 51
+PASS pencil partition centre 52
+PASS punctured Baer incidence signature 52
+PASS pencil partition centre 53
+PASS punctured Baer incidence signature 53
+PASS pencil partition centre 54
+PASS punctured Baer incidence signature 54
+PASS pencil partition centre 55
+PASS punctured Baer incidence signature 55
+PASS pencil partition centre 56
+PASS punctured Baer incidence signature 56
+PASS pencil partition centre 57
+PASS punctured Baer incidence signature 57
+PASS pencil partition centre 58
+PASS punctured Baer incidence signature 58
+PASS pencil partition centre 59
+PASS punctured Baer incidence signature 59
+PASS pencil partition centre 60
+PASS punctured Baer incidence signature 60
+PASS pencil partition centre 61
+PASS punctured Baer incidence signature 61
+PASS pencil partition centre 62
+PASS punctured Baer incidence signature 62
+PASS pencil partition centre 63
+PASS punctured Baer incidence signature 63
+PASS pencil partition centre 64
+PASS punctured Baer incidence signature 64
+PASS pencil partition centre 65
+PASS punctured Baer incidence signature 65
+PASS pencil partition centre 66
+PASS punctured Baer incidence signature 66
+PASS pencil partition centre 67
+PASS punctured Baer incidence signature 67
+PASS pencil partition centre 68
+PASS punctured Baer incidence signature 68
+PASS pencil partition centre 69
+PASS punctured Baer incidence signature 69
+PASS pencil partition centre 70
+PASS punctured Baer incidence signature 70
+PASS pencil partition centre 71
+PASS punctured Baer incidence signature 71
+PASS pencil partition centre 72
+PASS punctured Baer incidence signature 72
+PASS pencil partition centre 73
+PASS punctured Baer incidence signature 73
+PASS pencil partition centre 74
+PASS punctured Baer incidence signature 74
+PASS pencil partition centre 75
+PASS punctured Baer incidence signature 75
+PASS pencil partition centre 76
+PASS punctured Baer incidence signature 76
+PASS pencil partition centre 77
+PASS punctured Baer incidence signature 77
+PASS pencil partition centre 78
+PASS punctured Baer incidence signature 78
+PASS pencil partition centre 79
+PASS punctured Baer incidence signature 79
+PASS pencil partition centre 80
+PASS punctured Baer incidence signature 80
+PASS pencil partition centre 81
+PASS punctured Baer incidence signature 81
+PASS pencil partition centre 82
+PASS punctured Baer incidence signature 82
+PASS pencil partition centre 83
+PASS punctured Baer incidence signature 83
+PASS pencil partition centre 84
+PASS punctured Baer incidence signature 84
+PASS pencil partition centre 85
+PASS punctured Baer incidence signature 85
+PASS pencil partition centre 86
+PASS punctured Baer incidence signature 86
+PASS pencil partition centre 87
+PASS punctured Baer incidence signature 87
+PASS pencil partition centre 88
+PASS punctured Baer incidence signature 88
+PASS pencil partition centre 89
+PASS punctured Baer incidence signature 89
+PASS pencil partition centre 90
+PASS punctured Baer incidence signature 90
+PASS pencil partition centre 91
+PASS punctured Baer incidence signature 91
+PASS pencil partition centre 92
+PASS punctured Baer incidence signature 92
+PASS pencil partition centre 93
+PASS punctured Baer incidence signature 93
+PASS pencil partition centre 94
+PASS punctured Baer incidence signature 94
+PASS pencil partition centre 95
+PASS punctured Baer incidence signature 95
+PASS pencil partition centre 96
+PASS punctured Baer incidence signature 96
+PASS pencil partition centre 97
+PASS punctured Baer incidence signature 97
+PASS pencil partition centre 98
+PASS punctured Baer incidence signature 98
+PASS pencil partition centre 99
+PASS punctured Baer incidence signature 99
+PASS pencil partition centre 100
+PASS punctured Baer incidence signature 100
+PASS pencil partition centre 101
+PASS punctured Baer incidence signature 101
+PASS pencil partition centre 102
+PASS punctured Baer incidence signature 102
+PASS pencil partition centre 103
+PASS punctured Baer incidence signature 103
+PASS pencil partition centre 104
+PASS punctured Baer incidence signature 104
+PASS pencil partition centre 105
+PASS punctured Baer incidence signature 105
+PASS pencil partition centre 106
+PASS punctured Baer incidence signature 106
+PASS pencil partition centre 107
+PASS punctured Baer incidence signature 107
+PASS pencil partition centre 108
+PASS punctured Baer incidence signature 108
+PASS pencil partition centre 109
+PASS punctured Baer incidence signature 109
+PASS pencil partition centre 110
+PASS punctured Baer incidence signature 110
+PASS pencil partition centre 111
+PASS punctured Baer incidence signature 111
+PASS pencil partition centre 112
+PASS punctured Baer incidence signature 112
+PASS pencil partition centre 113
+PASS punctured Baer incidence signature 113
+PASS pencil partition centre 114
+PASS punctured Baer incidence signature 114
+PASS pencil partition centre 115
+PASS punctured Baer incidence signature 115
+PASS pencil partition centre 116
+PASS punctured Baer incidence signature 116
+PASS pencil partition centre 117
+PASS punctured Baer incidence signature 117
+PASS pencil partition centre 118
+PASS punctured Baer incidence signature 118
+PASS pencil partition centre 119
+PASS punctured Baer incidence signature 119
+PASS pencil partition centre 120
+PASS punctured Baer incidence signature 120
+PASS pencil partition centre 121
+PASS punctured Baer incidence signature 121
+PASS pencil partition centre 122
+PASS punctured Baer incidence signature 122
+PASS pencil partition centre 123
+PASS punctured Baer incidence signature 123
+PASS pencil partition centre 124
+PASS punctured Baer incidence signature 124
+PASS pencil partition centre 125
+PASS punctured Baer incidence signature 125
+PASS pencil partition centre 126
+PASS punctured Baer incidence signature 126
+PASS pencil partition centre 127
+PASS punctured Baer incidence signature 127
+PASS pencil partition centre 128
+PASS punctured Baer incidence signature 128
+PASS pencil partition centre 129
+PASS punctured Baer incidence signature 129
+PASS pencil partition centre 130
+PASS punctured Baer incidence signature 130
+PASS pencil partition centre 131
+PASS punctured Baer incidence signature 131
+PASS pencil partition centre 132
+PASS punctured Baer incidence signature 132
+PASS pencil partition centre 133
+PASS punctured Baer incidence signature 133
+PASS pencil partition centre 134
+PASS punctured Baer incidence signature 134
+PASS pencil partition centre 135
+PASS punctured Baer incidence signature 135
+PASS pencil partition centre 136
+PASS punctured Baer incidence signature 136
+PASS pencil partition centre 137
+PASS punctured Baer incidence signature 137
+PASS pencil partition centre 138
+PASS punctured Baer incidence signature 138
+PASS pencil partition centre 139
+PASS punctured Baer incidence signature 139
+PASS pencil partition centre 140
+PASS punctured Baer incidence signature 140
+PASS pencil partition centre 141
+PASS punctured Baer incidence signature 141
+PASS pencil partition centre 142
+PASS punctured Baer incidence signature 142
+PASS pencil partition centre 143
+PASS punctured Baer incidence signature 143
+PASS pencil partition centre 144
+PASS punctured Baer incidence signature 144
+PASS pencil partition centre 145
+PASS punctured Baer incidence signature 145
+PASS pencil partition centre 146
+PASS punctured Baer incidence signature 146
+PASS pencil partition centre 147
+PASS punctured Baer incidence signature 147
+PASS pencil partition centre 148
+PASS punctured Baer incidence signature 148
+PASS pencil partition centre 149
+PASS punctured Baer incidence signature 149
+PASS pencil partition centre 150
+PASS punctured Baer incidence signature 150
+PASS pencil partition centre 151
+PASS punctured Baer incidence signature 151
+PASS pencil partition centre 152
+PASS punctured Baer incidence signature 152
+PASS pencil partition centre 153
+PASS punctured Baer incidence signature 153
+PASS pencil partition centre 154
+PASS punctured Baer incidence signature 154
+PASS pencil partition centre 155
+PASS punctured Baer incidence signature 155
+PASS pencil partition centre 156
+PASS punctured Baer incidence signature 156
+PASS pencil partition centre 157
+PASS punctured Baer incidence signature 157
+PASS pencil partition centre 158
+PASS punctured Baer incidence signature 158
+PASS pencil partition centre 159
+PASS punctured Baer incidence signature 159
+PASS pencil partition centre 160
+PASS punctured Baer incidence signature 160
+PASS pencil partition centre 161
+PASS punctured Baer incidence signature 161
+PASS pencil partition centre 162
+PASS punctured Baer incidence signature 162
+PASS pencil partition centre 163
+PASS punctured Baer incidence signature 163
+PASS pencil partition centre 164
+PASS punctured Baer incidence signature 164
+PASS pencil partition centre 165
+PASS punctured Baer incidence signature 165
+PASS pencil partition centre 166
+PASS punctured Baer incidence signature 166
+PASS pencil partition centre 167
+PASS punctured Baer incidence signature 167
+PASS pencil partition centre 168
+PASS punctured Baer incidence signature 168
+PASS pencil partition centre 169
+PASS punctured Baer incidence signature 169
+PASS pencil partition centre 170
+PASS punctured Baer incidence signature 170
+PASS pencil partition centre 171
+PASS punctured Baer incidence signature 171
+PASS pencil partition centre 172
+PASS punctured Baer incidence signature 172
+PASS pencil partition centre 173
+PASS punctured Baer incidence signature 173
+PASS pencil partition centre 174
+PASS punctured Baer incidence signature 174
+PASS pencil partition centre 175
+PASS punctured Baer incidence signature 175
+PASS pencil partition centre 176
+PASS punctured Baer incidence signature 176
+PASS pencil partition centre 177
+PASS punctured Baer incidence signature 177
+PASS pencil partition centre 178
+PASS punctured Baer incidence signature 178
+PASS pencil partition centre 179
+PASS punctured Baer incidence signature 179
+PASS pencil partition centre 180
+PASS punctured Baer incidence signature 180
+PASS pencil partition centre 181
+PASS punctured Baer incidence signature 181
+PASS pencil partition centre 182
+PASS punctured Baer incidence signature 182
+PASS pencil partition centre 183
+PASS punctured Baer incidence signature 183
+PASS pencil partition centre 184
+PASS punctured Baer incidence signature 184
+PASS pencil partition centre 185
+PASS punctured Baer incidence signature 185
+PASS pencil partition centre 186
+PASS punctured Baer incidence signature 186
+PASS pencil partition centre 187
+PASS punctured Baer incidence signature 187
+PASS pencil partition centre 188
+PASS punctured Baer incidence signature 188
+PASS pencil partition centre 189
+PASS punctured Baer incidence signature 189
+PASS pencil partition centre 190
+PASS punctured Baer incidence signature 190
+PASS pencil partition centre 191
+PASS punctured Baer incidence signature 191
+PASS pencil partition centre 192
+PASS punctured Baer incidence signature 192
+PASS pencil partition centre 193
+PASS punctured Baer incidence signature 193
+PASS pencil partition centre 194
+PASS punctured Baer incidence signature 194
+PASS pencil partition centre 195
+PASS punctured Baer incidence signature 195
+PASS pencil partition centre 196
+PASS punctured Baer incidence signature 196
+PASS pencil partition centre 197
+PASS punctured Baer incidence signature 197
+PASS pencil partition centre 198
+PASS punctured Baer incidence signature 198
+PASS pencil partition centre 199
+PASS punctured Baer incidence signature 199
+PASS pencil partition centre 200
+PASS punctured Baer incidence signature 200
+PASS pencil partition centre 201
+PASS punctured Baer incidence signature 201
+PASS pencil partition centre 202
+PASS punctured Baer incidence signature 202
+PASS pencil partition centre 203
+PASS punctured Baer incidence signature 203
+PASS pencil partition centre 204
+PASS punctured Baer incidence signature 204
+PASS pencil partition centre 205
+PASS punctured Baer incidence signature 205
+PASS pencil partition centre 206
+PASS punctured Baer incidence signature 206
+PASS pencil partition centre 207
+PASS punctured Baer incidence signature 207
+PASS pencil partition centre 208
+PASS punctured Baer incidence signature 208
+PASS pencil partition centre 209
+PASS punctured Baer incidence signature 209
+PASS pencil partition centre 210
+PASS punctured Baer incidence signature 210
+PASS pencil partition centre 211
+PASS punctured Baer incidence signature 211
+PASS pencil partition centre 212
+PASS punctured Baer incidence signature 212
+PASS pencil partition centre 213
+PASS punctured Baer incidence signature 213
+PASS pencil partition centre 214
+PASS punctured Baer incidence signature 214
+PASS pencil partition centre 215
+PASS punctured Baer incidence signature 215
+PASS pencil partition centre 216
+PASS punctured Baer incidence signature 216
+PASS pencil partition centre 217
+PASS punctured Baer incidence signature 217
+PASS pencil partition centre 218
+PASS punctured Baer incidence signature 218
+PASS pencil partition centre 219
+PASS punctured Baer incidence signature 219
+PASS pencil partition centre 220
+PASS punctured Baer incidence signature 220
+PASS pencil partition centre 221
+PASS punctured Baer incidence signature 221
+PASS pencil partition centre 222
+PASS punctured Baer incidence signature 222
+PASS pencil partition centre 223
+PASS punctured Baer incidence signature 223
+PASS pencil partition centre 224
+PASS punctured Baer incidence signature 224
+PASS pencil partition centre 225
+PASS punctured Baer incidence signature 225
+PASS pencil partition centre 226
+PASS punctured Baer incidence signature 226
+PASS pencil partition centre 227
+PASS punctured Baer incidence signature 227
+PASS pencil partition centre 228
+PASS punctured Baer incidence signature 228
+PASS pencil partition centre 229
+PASS punctured Baer incidence signature 229
+PASS pencil partition centre 230
+PASS punctured Baer incidence signature 230
+PASS pencil partition centre 231
+PASS punctured Baer incidence signature 231
+PASS pencil partition centre 232
+PASS punctured Baer incidence signature 232
+PASS pencil partition centre 233
+PASS punctured Baer incidence signature 233
+PASS pencil partition centre 234
+PASS punctured Baer incidence signature 234
+PASS pencil partition centre 235
+PASS punctured Baer incidence signature 235
+PASS pencil partition centre 236
+PASS punctured Baer incidence signature 236
+PASS pencil partition centre 237
+PASS punctured Baer incidence signature 237
+PASS pencil partition centre 238
+PASS punctured Baer incidence signature 238
+PASS pencil partition centre 239
+PASS punctured Baer incidence signature 239
+PASS pencil partition centre 240
+PASS punctured Baer incidence signature 240
+PASS pencil partition centre 241
+PASS punctured Baer incidence signature 241
+PASS pencil partition centre 242
+PASS punctured Baer incidence signature 242
+PASS pencil partition centre 243
+PASS punctured Baer incidence signature 243
+PASS pencil partition centre 244
+PASS punctured Baer incidence signature 244
+PASS pencil partition centre 245
+PASS punctured Baer incidence signature 245
+PASS pencil partition centre 246
+PASS punctured Baer incidence signature 246
+PASS pencil partition centre 247
+PASS punctured Baer incidence signature 247
+PASS pencil partition centre 248
+PASS punctured Baer incidence signature 248
+PASS pencil partition centre 249
+PASS punctured Baer incidence signature 249
+PASS pencil partition centre 250
+PASS punctured Baer incidence signature 250
+PASS pencil partition centre 251
+PASS punctured Baer incidence signature 251
+PASS pencil partition centre 252
+PASS punctured Baer incidence signature 252
+PASS pencil partition centre 253
+PASS punctured Baer incidence signature 253
+PASS pencil partition centre 254
+PASS punctured Baer incidence signature 254
+PASS pencil partition centre 255
+PASS punctured Baer incidence signature 255
+PASS pencil partition centre 256
+PASS punctured Baer incidence signature 256
+PASS pencil partition centre 257
+PASS punctured Baer incidence signature 257
+PASS pencil partition centre 258
+PASS punctured Baer incidence signature 258
+PASS pencil partition centre 259
+PASS punctured Baer incidence signature 259
+PASS pencil partition centre 260
+PASS punctured Baer incidence signature 260
+PASS pencil partition centre 261
+PASS punctured Baer incidence signature 261
+PASS pencil partition centre 262
+PASS punctured Baer incidence signature 262
+PASS pencil partition centre 263
+PASS punctured Baer incidence signature 263
+PASS pencil partition centre 264
+PASS punctured Baer incidence signature 264
+PASS pencil partition centre 265
+PASS punctured Baer incidence signature 265
+PASS pencil partition centre 266
+PASS punctured Baer incidence signature 266
+PASS pencil partition centre 267
+PASS punctured Baer incidence signature 267
+PASS pencil partition centre 268
+PASS punctured Baer incidence signature 268
+PASS pencil partition centre 269
+PASS punctured Baer incidence signature 269
+PASS pencil partition centre 270
+PASS punctured Baer incidence signature 270
+PASS pencil partition centre 271
+PASS punctured Baer incidence signature 271
+PASS pencil partition centre 272
+PASS punctured Baer incidence signature 272
+PASS singleton point in selected flag
+PASS pencil normalized projector
+PASS Baer normalized projector
+PASS rank ratio
+PASS projectors differ
+PASS incidence overlap trace 12/7
+PASS point compression exact
+PASS point and trace compression differ
+PASS equal traces
+PASS point exceptional direction
+PASS trace exceptional direction
+PASS no exclusion trace
+PASS first derivatives coincide
+PASS old second derivative
+PASS pencil second derivative
+PASS second derivatives discriminate
+TOTAL 568 new exact incidence assertions passed
