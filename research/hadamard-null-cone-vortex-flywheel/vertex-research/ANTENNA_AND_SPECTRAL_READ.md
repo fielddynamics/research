@@ -4,7 +4,7 @@
 
 ## 1. What was already in the research
 
-The original [Resonant Coupling Through the Field Origin](../../antenna%20theory/resonant_coupling_field_origin.md) describes two matched tetrahedral sectors as self-similar antennas, with a feed/gate representing the Field Origin. It uses a base frequency f₀=c/(2a√ε), scale bands f_n=2ⁿf₀, three hierarchical reads, the Möbius state map s(x)=(x−1)/(x+1), f(4,s)=17+4s, and the 64-address bookkeeping. The companion [twenty antenna tests](../../antenna%20theory/twenty_antenna_tests.py) tests finite identities and proposed analogies to antenna engineering. It is not a Maxwell boundary-value simulation nor an empirical validation of TetB. Earlier chats independently emphasized phase-matched resonance, not shared spatial coordinates. The source register preserves those leads and the prior native-read results.
+The original [Resonant Coupling Through the Field Origin](../../antenna%20theory/legacy/resonant_coupling_field_origin.md) describes two matched tetrahedral sectors as self-similar antennas, with a feed/gate representing the Field Origin. It uses a base frequency f₀=c/(2a√ε), scale bands f_n=2ⁿf₀, three hierarchical reads, the Möbius state map s(x)=(x−1)/(x+1), f(4,s)=17+4s, and the 64-address bookkeeping. The companion [twenty antenna tests](../../antenna%20theory/legacy/twenty_antenna_tests.py) tests finite identities and proposed analogies to antenna engineering. It is not a Maxwell boundary-value simulation nor an empirical validation of TetB. Earlier chats independently emphasized phase-matched resonance, not shared spatial coordinates. The source register preserves those leads and the prior native-read results.
 
 ## 2. Reconcile the antenna geometry with the certified refinement [T]
 

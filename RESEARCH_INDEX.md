@@ -401,7 +401,7 @@ Most research folders follow the same pattern: a **`*_synthesis.md`** that expla
 | [`spectral/`](research/spectral/) | Walsh–Hadamard spectral kernel (PyTorch) |
 | [`3 sweep understanding/`](<research/3 sweep understanding/>) | Three-sweep understanding v3: face → channel → subchannel reads (13 → 17 → 21, immediate reset), daughter-mask rank theorem, certified π address banks, finite sweep engine with tests; original closure-algebra and Walsh-spectral syntheses kept in `legacy/` |
 | [`unified-closure-action/`](research/unified-closure-action/) | Illustrated unified closure action: weighted three-subcycle settlement (21 contrast modes, weighted boundary conservation), microscopic stiffness from the H36 spectrum with the 21/17/13 exchange traces, the π-sweep gravity bridge, and a 27-figure visual atlas with offline HTML companions (four verifiers, all re-run). Native selection of the balanced π walk, attenuation and dimensional normalization are open |
-| [`antenna theory/`](<research/antenna theory/>) | Resonant coupling through the Field Origin |
+| [`antenna theory/`](<research/antenna theory/>) | Antenna theory v2: TetA and TetB communicate through the nonlinear Field Origin by resonance, not through space (three-mode vertex model with no direct chamber term, vortex-core nonlinearity, resonance selection), a sourced review of measured Sierpiński antennas, and an audit of the original files kept in `legacy/` |
 
 ### Exploratory work — [`research/exploratory/`](research/exploratory/)
 
