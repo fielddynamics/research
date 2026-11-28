@@ -1,128 +1,112 @@
-# AQUAL
+# AQUAL in Gravity Field Dynamics
 
-*The scalar sector of the covariant action: the constitutive law, its energy functional, the field equation and the bound law · Gravity Field Dynamics (GFD) · Field Dynamics Research*
+**From two-chamber partition to gravitational energy, field equations and recursive settlement**  
+Field Dynamics Research · November 2026 · research consolidation, v2
 
-`aqual` `mond` `constitutive-law` `interpolating-function` `energy-functional` `qumond` `modified-poisson-equation` `gravity`
+> **The central idea.** AQUAL supplies the gravitational response of the field that is actually being read. The GFD constitutive law allocates that response between TetA and TetB; the energy functional makes the allocation variational; the net-field and mountain-scale results specify which part of a composite field receives the constitutive response. Local closure, settlement and registration are proposed at every scale, including galaxies.
 
-> **v2 consolidation:** [`v2/`](v2/) carries this folder forward from the two-chamber partition through the energy proof, galactic dynamics, dualities, the covariant action and time leg, the net field and recursive settlement, with eight chapters, figures and 91 tests. The files below are unchanged.
+![Research architecture](figures/01_architecture.svg)
 
----
+## 1. Start with the entire chain
 
-The GFD covariant action carries a scalar sector, $-(a_0^2/8\pi G)\,F(y)$ with $y = |\nabla\Phi|^2/a_0^2$, in the form of Bekenstein and Milgrom's AQUAL (1984). The AQUAL identity $\mu(\sqrt y) = dF/dy$ ties the energy functional $F$ to the constitutive law $\mu$. Varying the action gives the modified Poisson equation:
+Let $g_t=|\nabla\Phi|$ be the total acceleration, $g_s$ the source/Newtonian acceleration in a symmetry-reduced field, $x=g_t/a_0$, and $y=x^2$. The static AQUAL functional is
 
-$$\nabla\cdot\big[\mu(|\nabla\Phi|/a_0)\,\nabla\Phi\big] = 4\pi G\rho, \qquad \mu(x) = \frac{x}{x+1}, \qquad F(y) = y - 2\sqrt y + 2\ln(1+\sqrt y).$$
+$$\mu(x)=\frac{x}{1+x},\qquad F(y)=y-2\sqrt y+2\ln(1+\sqrt y),\qquad F'(y)=\mu(\sqrt y).$$
 
-Two statements must be kept apart:
+$$S_{\rm static}=\int d^3r\left[-\frac{a_0^2}{8\pi G}F(y)-\rho\Phi\right],\qquad \nabla\cdot[\mu(x)\nabla\Phi]=4\pi G\rho.$$
 
-- **The constitutive law** $\mu(x)$ is kinematic: the TetA share of the field at acceleration $x = g/a_0$.
-- **The spherical-static limit of the field equation**, $g_s = g_t^2/(a_0 + g_t)$, is dynamic: it comes from varying the action.
+The three equations play different roles. The first is a constitutive statement, the second fixes the energy, and the divergence equation follows by variation. **AQUAL is not the whole SST**: SST names the four-term covariant action. In the GFD reading the scalar energy represents the lapse response, and the Newtonian part of the energy is counted once, not twice. The covariant and ownership prescriptions are further model ingredients, not consequences of the integral alone.
 
-They are algebraically identical and connected by $\mu = dF/dy$. They are not the same statement.
+## 2. The three components of the coupling polynomial
 
-The AQUAL material in the archive is spread across proofs, letters, papers and research notes. This folder gathers it in one place:
+$$f(K,s)=1+sK+K^2,\qquad K=4,\qquad s\in\{-1,0,+1\}.$$
 
-- a map of where each piece already lives;
-- the work that carries the algebra further, connecting the one-directional law, its inverse, the bound law of the nuclear papers and the energy functional;
-- two verification scripts.
+| Structural component | TetB ($s=-1$) | Field Origin ($s=0$) | TetA ($s=+1$) |
+|---|---:|---:|---:|
+| Scalar / root, $1$ | 1 | 1 | 1 |
+| Linear / signed, $sK$ | −4 | 0 | +4 |
+| Quadratic / metric, $K^2$ | 16 | 16 | 16 |
+| Total character | **13** | **17** | **21** |
 
-## Terms
+The rank-one term changes sign; the other two do not. Extend the discrete character with the **continuous share difference** $\sigma(x)=2\mu(x)-1$, not a literal chamber location:
 
-| Term | Meaning | Source |
-|---|---|---|
-| TetA | The exterior: the observable disk, our spacetime, in which the baryons orbit as tracers of the flow | [Decoding-mass letter](../../papers/letter-decoding-mass-from-rotation-curves/) |
-| Deep field | The low-acceleration regime $x \ll 1$, where $\mu \to x$. A range of $x$, reached toward a galaxy's rim, in the exterior; not TetB | Paper VII; Letter 2 |
-| TetB | The interior: the subspace reached only through the Field Origin. In a galaxy it lies beyond the throat at the centre, and matter spiralling inward through the throat passes into it, so a galaxy's TetB is occupied. Only an individual unbound envelope, a tile of the long-range mesh, has an empty TetB | [Decoding-mass letter](../../papers/letter-decoding-mass-from-rotation-curves/); Paper VII; [`bound-gravity-and-packing/`](../bound-gravity-and-packing/) |
-| One-directional law | The law $x(1-\mu) = \mu$: matter sources the field and the field does not source itself. It governs a galaxy's exterior field. A galaxy is never unbound: it is a vortex whose TetB is fed through its drain | [`bound-gravity-and-packing/`](../bound-gravity-and-packing/) |
-| TetB share | $1 - \mu$, the fraction of the coupling capacity resolved through TetB; part of the quiet prediction | Paper VII, the constitutive law from detailed balance |
-| $s$ and $\sigma(x)$ | $s$ is the coupling polynomial's state label: $+1$ TetA, $0$ Field Origin, $-1$ TetB. $\sigma(x) = \mu - (1-\mu)$ is the share difference at acceleration $x$. $\sigma(x)$ takes the label values without being those states: $\sigma = 0$ on the ring $x = 1$, which is not the Field Origin, and $\sigma \to -1$ in the deep field, which is not TetB | This folder |
-| Interior's active contribution | $\Delta M_{\text{eff}} = M_{\text{phot}} - M_{\text{dec}}$: zero when the interior is quiet, otherwise drive or brake. Not the TetB share | Decoding-mass letter; [`what_is_gravity.md`](../g_from_topology/what_is_gravity.md) §7 |
+$$C(x)=17+4\sigma(x)=13+8\mu(x)=\frac{21x+13}{1+x}.$$
 
-Some archive texts equate the deep field with TetB ("the deep-field limit … is itself the TetB sector", constitutive-law letter, lines 404–411; "TetB (deep field)", galaxy interior/exterior synthesis; "Deep field (TetB dominant)", docs 02 and 03). This folder keeps the three terms separate.
+Thus $C(1/x)+C(x)=34$. A pair of exchange-related states has mean capacity 17. On the 16-dimensional tensor square the swap $\tau$ has symmetric/antisymmetric ranks 10/6. The identity $I+\sigma\tau=2[\mu P_++(1-\mu)P_-]$ yields the same character by taking its trace and adding 1. This is exact algebra; assigning the two projectors to physical chambers requires the tetrad interpretation. The discrete labels, continuous response, and Proof 26's signed recursive counts are related but not interchangeable operators.
 
-## Reading order
+![Shares and capacity](figures/02_partition.svg)
 
-1. **The archive's foundations** (see the map below). Start with the three derivations of $\mu$, then the [energy-functional proof](../../proofs/aqual-energy-functional/): closed form, convexity, ellipticity and uniqueness.
-2. [`aqual_algebra_further.md`](aqual_algebra_further.md), *The AQUAL Algebra, Taken Further*. Its sections:
+**The energy has three terms as well**, $y$, $-2\sqrt y$, and $2\ln(1+\sqrt y)$. They follow by integration, not by matching individual terms of the coupling polynomial. In the deep field the first two powers cancel against the logarithmic expansion, leaving $\frac23y^{3/2}$.
 
-| § | Result |
+![Energy cancellation](figures/03_energy.svg)
+
+## 3. The formal mathematical result
+
+The existing [AQUAL energy proof](https://github.com/fielddynamics/research/tree/3a13b00666b90bbc63d54d33094cab7cc13986c7/proofs/aqual-energy-functional) establishes the unique normalized primitive, convergent series, strict convexity, monotone flux and conditional uniqueness on bounded domains. The accompanying Lean audit records 12 standard-axiom checks; the integration-by-parts step in PDE uniqueness is cited, not kernel-formalized. This package provides an independent proof exposition and new tests; it does not claim to rerun upstream Lean CI.
+
+For $p=\nabla\Phi$, define $J(p)=\mu(|p|/a_0)p$. Its response eigenvalues are $\mu$ transverse to $p$ and $\mu+x\mu'=x(x+2)/(1+x)^2$ longitudinally. Their ratio is $2-\mu=1+(1-\mu)$. The operator degenerates at zero field but is strictly monotone. It is not uniformly elliptic throughout space. See [the complete proof exposition](chapters/02_energy_and_proof.md).
+
+![Ellipticity and screening](figures/04_response.svg)
+
+## 4. From field strength to observable velocity
+
+Under spherical symmetry, and the corresponding vanishing solenoidal correction in other sufficiently symmetric geometries, integrate the field equation:
+
+$$r^2\mu(g_t/a_0)g_t=GM(<r),\qquad g_s=\frac{g_t^2}{g_t+a_0}.$$
+
+The positive root and the mass decoder are
+
+$$g_t=\frac{g_s+\sqrt{g_s^2+4a_0g_s}}{2},\qquad M_{\rm dec}=\frac{rv^4}{G(a_0r+v^2)}.$$
+
+The quiet extra acceleration is $(1-\mu)g_t=a_0\mu$. It tends to $a_0$ at large $x$, even though its **fraction** tends to zero. At low $g_s$, $g_t\sim\sqrt{a_0g_s}$, giving the isolated baryonic Tully–Fisher relation $v^4\to GMa_0$. These are not exact pointwise mass reconstructions in a general disc; full AQUAL is nonlinear and has a divergence-free correction. The SPARC/RAR letter reports 3,284 bins in 164 galaxies, scatter 0.181 dex for its recipe; this is an archive-reported result, not a new fit or a discrimination of AQUAL from every competing model.
+
+![Acceleration relation](figures/05_radial_relation.svg)
+
+## 5. The most important development since the original AQUAL folder
+
+The scalar response alone is insufficient as a theory of local and cosmic gravity. The later proofs introduce the **covariant time leg**, then the **net-field ownership sweep**, then the **closure surface**. GFD's proposal is to apply the non-Newtonian term to the parent-level mountain field, not to the self-field residual of each completed drainless child. Strong acceleration alone cannot eliminate the self-tail.
+
+![Ownership sweep and mountain](figures/06_mountain.svg)
+
+Every field object closes: atom, asteroid, star, planetary system, galaxy, cluster. The registered boundary state is a pointer to a settled child, not merely a mass unless the monopole approximation suffices. For nested Newtonian ownership sweeps the representation composes exactly under stated containment and boundary hypotheses. A general drained-child / drained-parent nonlinear composition theorem is **still open**. A fixed spherical drained-to-Newtonian junction has a conditional current-conservation construction, described in [chapter 7](chapters/07_settlement_bridge.md).
+
+![Recursive registration](figures/07_hierarchy.svg)
+
+The two-dimensional and three-dimensional models in the mountain proof are conditional on ownership, boundary and action assumptions. They do not establish an autonomous selection of the closure radius, moving-surface junction conditions, or a full relativistic theory. The Jacobi radius is a physically motivated choice; the newer closure-surface proof gives a conditional tidal/stagnation rationale. All registered levels, including galaxies, are part of the architecture; drainless and drained internal dynamics need not be identical.
+
+## 6. Reading order — from elementary algebra to current research
+
+| Chapter | What it covers |
 |---|---|
-| 1 | The constitutive law and the field equation as one algebra in three forms; the TetB share of the field is $a_0\mu$ |
-| 2 | The bound law is the exchange image of the source form |
-| 3 | The logistic family |
-| 4 | The field equation's anisotropy equals the TetB share |
-| 5 | The logarithm in $F$ is the screening identity integrated |
-| 6 | The mean coupling of 17 follows from exchange symmetry |
-| 7 | Closed forms: the Legendre dual of the energy density (QUMOND's kinetic function), the bound kinetic function, the point-mass potential |
-| 8 | A check on the central density inferred from the TetB share |
-| 9–10 | The point mass and the bound law in one hyperbolic variable |
-| 11 | Two operations generate the laws; uniqueness within the family |
-| 12 | The partition composes like rapidities |
-| 13 | Why general relativity never meets 13, 17 and 21: the coupling polynomial is a trace over $\mathrm{Sym}^2 \oplus \Lambda^2$, the constitutive law weights the two sectors, and GR sits at the endpoint $\mu = 1$ |
+| [01 — Partition and geometry](chapters/01_partition.md) | Exchange premises; tug of war; polynomial, 40/24 split, logistic law; three-sweep distinction |
+| [02 — AQUAL energy and proof](chapters/02_energy_and_proof.md) | Derivation, source sign, limits, Hessian, ellipticity and uniqueness; Lean audit |
+| [03 — Galaxies and observations](chapters/03_galactic_dynamics.md) | Forward/inverse, radius scales, phantom density, lensing, quiet/drive/brake |
+| [04 — Dualities and bound law](chapters/04_dualities.md) | Legendre dual, QUMOND/BIMOND, bound exchange, hyperbolic variables, bimetric obstruction |
+| [05 — SST and time leg](chapters/05_covariant_sst.md) | Quasi-static action, lapse, khronon, stability, wave and coupling limits |
+| [06 — NET Field and hierarchy](chapters/06_net_field.md) | Balayage, action split, 4 ports, overlap, tidal surface, anisotropic shell and interface |
+| [07 — READ → SETTLE → REGISTER](chapters/07_settlement_bridge.md) | Walsh read, vacancy potential, exact AQUAL emergence, interface registration, Proof 26 |
+| [08 — Research audit and roadmap](chapters/08_research_audit.md) | Reconciles old notes and later proofs; separates theorems from premises and experiments |
+| [Source index](SOURCES.md) | Pinned repository paths, proof links, evidence levels and archive retrieval |
 
-3. [`docs_and_the_energy_functional.md`](docs_and_the_energy_functional.md), *The Docs and the Energy Functional*. What the documentation and the docs-site tests derive from $F$, read against this folder: what agrees, nine statements the algebra does not support, and suggested edits (not made).
+## 7. Evidence key
 
-## Map: where the AQUAL material lives
+- **T — theorem / exact identity:** follows under its stated mathematical hypotheses.
+- **C — conditional construction:** mathematically valid after imposing physical/model premises; those premises are not established by the construction.
+- **N — numerical/observational check:** supports specific statements for tested inputs only.
+- **O — open:** no derivation, general theorem or empirical validation is established here.
 
-| Topic | Where | What it establishes |
-|---|---|---|
-| $\mu$ from exchange symmetry | [`proofs/constitutive-law-exchange-symmetry/`](../../proofs/constitutive-law-exchange-symmetry/) | Endpoint, exchange closure and degree one force $x(1-\mu) = \mu$ |
-| $\mu$ by three routes | [`papers/letter-constitutive-law-tetrad-geometry/`](../../papers/letter-constitutive-law-tetrad-geometry/) | The metric read, exchange symmetry, and equilibrium closure ([detailed balance](../../papers/letter-constitutive-law-tetrad-geometry/Supplementary/supplementary_equilibrium_route.tex)) |
-| $F(y)$, convexity, uniqueness | [`proofs/aqual-energy-functional/`](../../proofs/aqual-energy-functional/) | Closed form; Hessian eigenvalues $2\mu$, $2(x\mu)'$; ellipticity; uniqueness on bounded domains |
-| $F(y)$ as a standalone result | [`papers/closed-form-aqual-energy-functional/`](../../papers/closed-form-aqual-energy-functional/) | The closed form for any AQUAL theory using this $\mu$ |
-| The action and the field equation | [Paper VII](../../papers/07-dual-tetrad-topology-field-origin/v7/), [`docs/02-gravitation/06-covariant-completion.md`](../../docs/02-gravitation/06-covariant-completion.md), [`05-poisson-scale-invariance.md`](../../docs/02-gravitation/05-poisson-scale-invariance.md) | The four-term action; the modified Poisson equation |
-| Einstein's equation as the TetA partition | [`EINSTEIN_TETA_PARTITION.md`](../../EINSTEIN_TETA_PARTITION.md), [Letter 3](../../papers/letter-3-field-closure-of-tetrad-frame/) | $\mu = 1$ recovers GR; the TetB share as the discrepancy |
-| The radial acceleration relation | [`papers/letter-radial-acceleration-relation-sparc/`](../../papers/letter-radial-acceleration-relation-sparc/) | 3,284 points in 164 SPARC galaxies, no free parameter |
-| The inverse pipeline | [`papers/letter-decoding-mass-from-rotation-curves/`](../../papers/letter-decoding-mass-from-rotation-curves/) | $M_{\text{dec}} = rv^4/[G(a_0r + v^2)]$ |
-| The bound law $x(1-\mu)^2 = \mu$ | [Paper XIII](../../papers/13-nuclear-binding-bidirectional-sst/), [Paper XI](../../papers/11-nuclear-shells-tetrahedral-packing/), [`bound-gravity-and-packing/`](../bound-gravity-and-packing/) | Nuclear binding; the golden ratio at the gate |
-| The bound law as bimetric screening | [Paper VIII](../../papers/08-gfd-and-bimetric-gravity/) | The $N = 2$ law, $\mu = (\sqrt{1+4x}-1)/(\sqrt{1+4x}+1)$; equal to $\tanh^2(\psi/2)$ of §10 here |
-| The algebraic chain to $F$ | [`algebraic_pipeline_of_reality.md`](../../papers/algebraic-papers-a-b-c/algebraic_pipeline_of_reality.md) | $D = 3$ through the partition law to $F$ and the logistic equation |
-| Suites and visualisations | [`constitutive-law-u(x)/`](<../constitutive-law-u(x)/>) | Test suites and the TetA/TetB roulette |
-| The documentation | [`docs/02-gravitation/`](../../docs/02-gravitation/), [`docs/04-galactic-dynamics/`](../../docs/04-galactic-dynamics/); site tests in [`fielddynamics/docs`](https://github.com/fielddynamics/docs) | The reader-facing account of $F$ and its consequences; read against this folder in `docs_and_the_energy_functional.md` |
-
-## What is established, and what is open
-
-| Result | Status |
-|---|---|
-| $\mu(x) = x/(x+1)$ | Derived by three routes in the archive |
-| $F(y)$, convexity, ellipticity, uniqueness | Proved in the archive |
-| The forms and identities of `aqual_algebra_further.md` | Exact; checked twice (below) |
-| Pointwise forms (1a)–(1c) beyond spherical, cylindrical and planar symmetry | Approximate in GFD's field equation, which has the AQUAL form (the curl term); exact only in QUMOND, which is a separate action |
-| The bound law as the exchange of the source form | Exact identity; its physical reading is open |
-| Letter 3's "bounded central density" | The acceleration bound holds; the density has a cusp (§8) |
-| How nested closures compose (§12) | Open; the algebra does not decide it |
-| How matter couples to $\Phi$ in the action | Not stated in the docs; needed for the scalar equation to have a source |
-| Whether $y$ is covariant, and $F$ for timelike gradients | Open; if covariant, waves along a static field travel at $c\sqrt{2-\mu}$ |
-| One relation between $a_0$ and $H$ | Two are in use, differing by $\sqrt{4/\pi}$ |
-
-## Running
+## 8. Reproduce and preserve the original folder
 
 ```bash
-pip install sympy mpmath
-python verify_aqual_algebra.py     # 50/50, each claim by its own algebra
-python verify_independent.py       # 48/48, by routes that do not reuse the closed forms
-python verify_docs_intersection.py # 23/23, the docs read against this folder
+python -m pip install -r requirements.txt
+python -m pytest -q verification/test_aqual.py
+python verification/generate_figures.py
 ```
 
-The independent script evaluates every identity at random points to 60 digits. It also:
+The new chapters, code and figures work offline. Results of the new test run are in `verification/RESULTS.txt`. The original six files and related formal proofs are pinned to commit `3a13b00666b90bbc63d54d33094cab7cc13986c7`; their original blob identifiers are preserved in `upstream/original_manifest.json`. The GitHub connection permitted inspection but the local archive environment could not download repository bytes directly. Therefore the original source binaries/text are **not asserted to be embedded byte-for-byte**; `restore_upstream.py` creates the exact source copy from a local repository (preferred) or GitHub, verifies the six original blobs, and never overwrites the new chapters. To hydrate this folder from your existing checkout:
 
-- solves the field by root-finding and quadrature;
-- computes the Legendre dual as a numerical supremum;
-- takes the Hessian by finite differences in three dimensions;
-- tests the QUMOND vector form on random non-spherical fields;
-- checks the law family for irreducibility and root counts.
+```bash
+python restore_upstream.py --repo /path/to/fielddynamics/research --proofs
+```
 
-## Contents
-
-| File | Contents |
-|---|---|
-| [`aqual_algebra_further.md`](aqual_algebra_further.md) | The AQUAL algebra carried further: twelve sections, with status and verification |
-| [`verify_aqual_algebra.py`](verify_aqual_algebra.py) | Direct verification, symbolic and exact |
-| [`verify_independent.py`](verify_independent.py) | Independent verification, numerical and symbolic by separate routes |
-| [`docs_and_the_energy_functional.md`](docs_and_the_energy_functional.md) | The documentation's account of $F$ and its consequences, read against this folder |
-| [`verify_docs_intersection.py`](verify_docs_intersection.py) | Verification for the docs note |
-
-## References
-
-- Bekenstein, J. and Milgrom, M. (1984). Does the missing mass problem signal the breakdown of Newtonian gravity? *Astrophys. J.* 286, 7.
-- Milgrom, M. (2010). Quasi-linear formulation of MOND. *Mon. Not. R. Astron. Soc.* 403, 886.
-- Babichev, E., Mukhanov, V. and Vikman, A. (2008). k-Essence, superluminal propagation, causality and emergent geometry. *J. High Energy Phys.* 2008(02), 101.
+The original repository is unchanged. No new formal Lean compilation, external empirical fit, or claim of physical completion is made in this consolidation.

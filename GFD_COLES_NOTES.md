@@ -1240,7 +1240,7 @@ $V - E + F = 4 = 2\chi(S^2)$, two disjoint closed surfaces.
 - BTFR: $\mu\approx x$ gives $v^4 = GMa_0$ in spherical symmetry.
 
 **Note against later naming.**
-- The letter's BTFR paragraph says the deep-field limit "corresponds to the TetB-dominated sector … is itself the TetB sector of the tetrad geometry". The later rule (and `research/aqual/README.md`, which cites these lines) is that the deep field is the exterior regime $x\ll1$, where the TetB *share* $1-\mu\to1$. TetB itself is the throat interior.
+- The letter's BTFR paragraph says the deep-field limit "corresponds to the TetB-dominated sector … is itself the TetB sector of the tetrad geometry". The later rule (and the [pre-consolidation AQUAL README](https://github.com/fielddynamics/research/blob/3a13b00666b90bbc63d54d33094cab7cc13986c7/research/aqual/README.md), which cites these lines) is that the deep field is the exterior regime $x\ll1$, where the TetB *share* $1-\mu\to1$. TetB itself is the throat interior.
 - The source `papers/letter-constitutive-law-tetrad-geometry/letter.tex` still carries the conflated wording.
 
 ## Letter 2 — The Other Half of Gravity: Torsion and the Two-Chamber Structure of the Tetrad Frame (v2)
