@@ -41,3 +41,11 @@ The seven older modules contain their original scripts, data, diagrams and recor
 ## Next gate
 
 Use the actual multi-cell nonlinear Hamiltonian, with physical TetA interface routing and a nonspatial vertex interaction. Find a stable circulating reference, derive its full linearized response and check whether a gapless energy-even mode couples to the core without introducing an artificial cancellation. Then derive universal clock registration and its physical normalization, with neutral hydrogen and drainless stellar closure as controls. Only after that investigate a causal horizon.
+
+## Extension: orbital recruitment and central-throat response
+
+See [new research module](research/gfd-orbital-throat-bridge/README.md). 90 passing tests, including 14 inherited throat checks and 76 new tests; not a fresh rerun of every previous module. Three diagrams, orbital benchmarks and an exact matched-port projection.
+
+## Extension: energy registration
+
+See [energy registration, phase quadratures and the circulating-background obstruction](research/energy-registration/README.md). Extends the orbital–throat bridge. 95 passing tests (81 new, 14 inherited); not a fresh rerun of every previous module.
