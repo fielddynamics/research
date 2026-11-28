@@ -1,0 +1,12 @@
+{
+  "repository": "fielddynamics/research",
+  "commit": "3a13b00666b90bbc63d54d33094cab7cc13986c7",
+  "files": [
+    {"path":"research/aqual/README.md","sha":"d9d2f67e63361091e7885d05433e6ee48916cd48","size":11574},
+    {"path":"research/aqual/aqual_algebra_further.md","sha":"a5a3dbfed5a567a3f6c64abd4cadecfaf27cd384","size":29188},
+    {"path":"research/aqual/docs_and_the_energy_functional.md","sha":"2a781879f3b71251bae97516a8850ed00c5baf62","size":12627},
+    {"path":"research/aqual/verify_aqual_algebra.py","sha":"690abfba335adf731731b88979a401f1111df8bd","size":10728},
+    {"path":"research/aqual/verify_docs_intersection.py","sha":"3dab79f225c1826ed3372bf7da8c6686d8510ffe","size":7171},
+    {"path":"research/aqual/verify_independent.py","sha":"9e78804a4d999fe3043b1494109539cad382e29c","size":17315}
+  ]
+}

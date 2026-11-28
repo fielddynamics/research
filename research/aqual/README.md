@@ -4,6 +4,8 @@
 
 `aqual` `mond` `constitutive-law` `interpolating-function` `energy-functional` `qumond` `modified-poisson-equation` `gravity`
 
+> **v2 consolidation:** [`v2/`](v2/) carries this folder forward from the two-chamber partition through the energy proof, galactic dynamics, dualities, the covariant action and time leg, the net field and recursive settlement, with eight chapters, figures and 91 tests. The files below are unchanged.
+
 ---
 
 The GFD covariant action carries a scalar sector, $-(a_0^2/8\pi G)\,F(y)$ with $y = |\nabla\Phi|^2/a_0^2$, in the form of Bekenstein and Milgrom's AQUAL (1984). The AQUAL identity $\mu(\sqrt y) = dF/dy$ ties the energy functional $F$ to the constitutive law $\mu$. Varying the action gives the modified Poisson equation:
