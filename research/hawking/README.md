@@ -1,124 +1,250 @@
 # The Universe Is Not a Goldfish
 
-*Black holes, information and the 24 forgotten components of gravity · Gravity Field Dynamics (GFD) · Field Dynamics Research*
+### On black holes, the persistence of information, and the other side of gravity
 
-`black-holes` `information-paradox` `hawking-radiation` `raychaudhuri-equation` `torsion` `einstein-cartan` `holography`
+*Gravity Field Dynamics · Field Dynamics Research*
 
 ---
 
-Folklore says a goldfish remembers for three seconds. Every lap of the bowl is a new world, and nothing it has seen survives. (Real goldfish do better. Trained to press a lever for food at a set hour, they learn the schedule, and they keep what they learn for months.)
+The universe has spent nearly fourteen billion years writing a story.
 
-Now imagine a universe built like the goldfish of the folklore.
+From an almost uniform beginning came galaxies, stars and the elements forged within them. From those elements came chemistry, living cells, consciousness, and eventually minds capable of asking how the story began.
 
-For thirteen billion years it has done expensive, improbable work. It has spent energy building structure out of uniformity: galaxies from gas, stars from galaxies, chemistry from starlight, cells, brains, books. Information has accumulated, layer upon layer of correlation and order. Then some of that structure falls into a black hole. Over an unimaginable span of time the black hole evaporates as Hawking radiation, which in the standard calculation is perfectly thermal and carries no imprint of what fell in (Hawking 1975). If that calculation is the whole story, the information is not hidden or scrambled. It is gone (Hawking 1976).
+Each chapter was written in the language of the one before it. Nothing emerged independently of what had already happened. The universe became not merely a collection of things, but a history of relationships between them.
 
-A universe like that spends energy only to forget. It would carry a firewall on information complexity, a limit on how much of what it builds can ever persist, because everything that falls through the wrong door is wiped. It would be a goldfish, circling its bowl, rebuilding what it cannot remember having built.
+Then, in 1975, Stephen Hawking discovered something extraordinary: black holes radiate. A year later, he argued that when a black hole disappears, the information that fell into it may disappear as well.
 
-Quantum mechanics forbids this. Its evolution is unitary: information can be scrambled beyond practical recovery, but never destroyed. That is the black-hole information paradox, and fifty years later it remains one of the deepest tensions between gravity and quantum theory.
+If so, nature possesses something far stranger than a mechanism of destruction. It possesses a mechanism of forgetting.
 
-## A book that loses its chapters
+Imagine a universe with the memory of the proverbial goldfish. It circles its bowl, building and rebuilding a world whose history is forever slipping away. Real goldfish, incidentally, remember far more than folklore credits them with.
 
-The goldfish forgets in moments. The universe of the paradox forgets in a way that is stranger and, for anything built over time, more destructive. Think of information the way a language builds it:
+Perhaps the universe does too.
 
-| In a book | In the universe |
-|---|---|
-| characters | elementary particles |
-| words | atoms |
-| sentences | molecules |
-| paragraphs | cells, minerals, weather |
-| chapters | organisms, planets, stars |
-| the story | the history that links them |
+> **What if information was never lost? What if our description of gravity left out the geometry in which it could be retained?**
 
-A book's meaning does not live in its letters. It lives in their arrangement, and above all in the relations between levels. A word means what it means because of the sentence around it. A sentence on page three hundred lands because of a chapter you read on page forty. The deeper a story goes, the more of it is carried by these long-range references: the callback, the foreshadowing, the character whose choice only makes sense in light of what happened two hundred pages earlier.
+This is the question explored here through Gravity Field Dynamics (GFD), the geometry of the full affine connection, and the 24 torsion components absent from the torsion-free connection of general relativity.
 
-Now imagine reading that book and finding that, partway through, chapters have begun to disappear. They have not been torn out and left on the floor, where in principle you could gather them up. They have simply ceased to exist. What remains is not a shorter story but a broken one. Every later sentence that refers back to a vanished chapter now points at nothing. Names arrive without introduction. Consequences arrive without causes. The surviving text is still made of perfectly good words, yet read as a whole it has turned into noise.
+---
 
-That is the precise sense in which Hawking radiation looks thermal. The radiation that leaves a black hole is not random in itself. In the standard picture it is entangled with partners that fell inside, the way a sentence is bound to the chapter it refers back to. If the interior, and everything that fell into it, is erased when the black hole evaporates, the radiation is left full of references to chapters that no longer exist. Its correlations point at nothing, and a state that began as a coherent story ends as featureless heat. A pure state has become a mixed one. That is the violation of unitarity, told as a book.
+## I. A book that loses its chapters
 
-**Losing chapters is not the same as scrambling them.** Shred a book, or burn it, and the information is not destroyed. It is dispersed into fragments, smoke, ash and light, and in principle, if hopelessly in practice, the text could be reconstructed. Physics permits scrambling; this is the sense in which burning a book preserves its information. It does not permit deletion. The paradox is whether a black hole is a shredder or a deleter.
+Information is more than inventory. It is arrangement, relationship and correlation.
 
-**Why a deleting universe caps its own complexity.** In a universe that deletes, every story is provisional. Structure can be built, but any of it that crosses a horizon removes its chapters from the record, and everything downstream that depended on them loses its meaning. Complexity could never accumulate past the point where its material falls through. There would be a ceiling on how long and how deep a coherent story the universe could ever tell. That is the firewall on information complexity, and the goldfish in the bowl is its emblem.
+| The architecture of a book | The architecture of nature |
+| --- | --- |
+| Letters | Elementary particles |
+| Words | Atoms |
+| Sentences | Molecules |
+| Paragraphs | Organized material structures |
+| Chapters | Organisms, planets and stars |
+| The story | The history that connects them |
 
-**The answer, if there is one, will look like recovery.** A unitary black hole behaves like a reader handed the book one scrambled fragment at a time. For the first half of the black hole's life, the fragments in the radiation look like noise, because their partners are still inside. Past the halfway point (the Page time) they begin to fit together, and by the end the whole text has been returned. This rise and fall of the radiation's entropy is the Page curve. Recovering it is the test every proposed resolution has to pass.
+A sentence on page three hundred may owe its meaning to something written on page forty. The letters alone do not contain that meaning. It lives in their relationships, including relationships across great distances in the book.
 
-### The other side of the page
+Now imagine that chapters begin to disappear. They have not been torn out and scattered across the room. They have ceased to exist. What remains is not simply a shorter story. It is a story whose references have been severed.
 
-GFD's proposal fits the book image closely. Every page has two sides. The tetrad equation has two roots, TetA and TetB, related by parity, and the metric cannot tell them apart: it reads only the front of each sheet. General relativity, by imposing the torsion-free condition, bound the book with the front sides alone. It kept the 40 components that the metric determines and discarded the 24 that carry the distinction between the roots.
+Burn a book, by contrast, and its information is dispersed into smoke, ash, light and the surrounding environment. In an ideal closed quantum description, the original information remains encoded in the resulting state, however impossible its recovery might be in practice.
 
-On this reading, nothing in the book was ever deleted. The chapters that seem to vanish into a black hole are written on the backs of the pages, in the torsion sector, a part of the field that a front-side-only theory cannot read. Restore the 24 components, and the reader can turn the pages over.
+**Scrambling is not deletion.**
 
-## Where gravity keeps its memory
+Hawking's semiclassical calculation gives outgoing radiation entangled with degrees of freedom behind the horizon. If those partners disappear at complete evaporation, without the correlations being recovered elsewhere, the radiation is left in a mixed state even though the complete initial state was pure.
 
-Gravity Field Dynamics offers a structural answer: general relativity forgot to keep the memory.
+For an initial density operator $\rho_{\mathrm{in}}$ and a unitary evolution $U$,
 
-- **The forgotten components.** The gravitational connection, the mathematical object that tells a frame how to turn from point to point, has $4^3 = 64$ components. In 1915 general relativity imposed the condition that the connection be torsion-free. That keeps 40 components and discards the other 24.
-- **What GFD says they are.** GFD identifies the discarded 24 with the second root of the tetrad equation, the TetB chamber of the stellated octahedron, and shows that the torsion-free condition is a projection, not a rewriting (Letter 3; [`EINSTEIN_TETA_PARTITION.md`](../../EINSTEIN_TETA_PARTITION.md)).
-- **Why they could hold memory.** A theory that keeps only the torsion-free 40 has nowhere geometric to keep a record. Restore the 24, and the field gains a sector with rich structure of its own:
-  - its components carry the full symmetry of the tetrahedron, every irreducible representation at full multiplicity (Paper B);
-  - they organise into eight null directions, each with three rotation planes;
-  - transport around them picks out a preferred axis.
+$$
+\rho_{\mathrm{out}}=U\rho_{\mathrm{in}}U^\dagger,
+\qquad
+S(\rho_{\mathrm{out}})=S(\rho_{\mathrm{in}}).
+$$
 
-That sector is the candidate for gravity's memory.
+The entropy of a subsystem may change. The von Neumann entropy of the complete closed system does not.
 
-## What the note shows
+This is the information paradox: can gravity erase what quantum mechanics requires it to preserve?
 
-The working note, [*Singularities, Information and Holography in GFD*](singularities-information-and-holography.md), takes the idea through four of the hardest problems in gravitational physics. It is deliberately honest about where the proposal stands.
+A universe with genuine information deletion would be a universe whose history is not fully recoverable from its final state. The concern about accumulated complexity is a motivation, not a theorem imposing a universal complexity ceiling.
 
-**Black holes sit deep on the familiar side of the field.** The partition between the two chambers depends only on field strength. At the horizon of a black hole the field is $10^{13}$ to $10^{22}$ times the transition scale, so the second chamber's share is $10^{-14}$ to $10^{-23}$. GFD therefore agrees with general relativity at horizons to that precision, which is why it sits comfortably with the Event Horizon Telescope's images and with gravitational-wave ringdowns.
+## II. The other side of the page
 
-![Where gravitating systems sit on the TetA/TetB partition](regime_map.png)
+The metric describes the geometry of spacetime. The affine connection describes how objects are transported through it.
 
-**The Raychaudhuri equation for the full connection.** The note derives the equation that governs gravitational focusing, the engine of the singularity theorems, for all 64 components. Each kind of torsion turns out to couple to one feature of the collapsing matter:
+In four dimensions its coefficients admit a simple algebraic partition:
 
-| Torsion part | Components | Couples to |
-|---|---|---|
-| Vector | 4 | expansion |
-| Axial | 4 | vorticity, the one term that resists collapse |
-| Tensor | 16 | shear and vorticity |
+$$
+\underbrace{4^3}_{64}
+=
+\underbrace{4\times10}_{40}
++
+\underbrace{4\times6}_{24}.
+$$
 
-**Memory needs more than a share of the field.** A torsion sector whose strength simply follows its share of the acceleration is too weak to stop collapse, by fourteen to twenty-three orders of magnitude. The same arithmetic says that any record kept inside a black hole must live in the *configuration* of the restored sector, not in its share of the field. What would work is torsion sourced by the spin of matter. In Einstein–Cartan theory, spin–torsion coupling produces a repulsion that grows faster than gravity at extreme density and turns a singularity into a bounce (Popławski 2012). Deriving that source from the GFD action is now a precise target.
+Equivalently,
 
-**Three more identities.**
-- **The kinetic energy of the field.** Its logarithmic term comes entirely from the second chamber, and it has the form of Shannon's channel capacity, $\log(1 + S/N)$, with the field strength in the role of signal-to-noise.
-- **A flow between two fixed points.** The constitutive law obeys $d\mu/d\ln x = \mu(1-\mu)$, the form of a renormalisation-group flow with fixed points at general relativity and at galactic dynamics.
-- **An area law for the missing mass.** The mass conventionally attributed to dark matter is exactly $a_0 r^2 \mu / G$, proportional to the area of the sphere.
+$$
+\Gamma^\lambda{}_{\mu\nu}
+=
+\Gamma^\lambda{}_{(\mu\nu)}
++\tfrac12 T^\lambda{}_{\mu\nu}.
+$$
 
-## The bar the idea has to clear
+The torsion-free condition sets $T^\lambda{}_{\mu\nu}=0$. With metric compatibility, the remaining connection is the Levi–Civita connection. This is a defining choice of general relativity, not an algebraic mistake.
 
-The folklore goldfish fails because it keeps nothing. A theory of gravitational memory fails if it cannot show three things, and the note sets them out as the programme's targets:
+GFD reopens that choice through the paired tetrad geometry developed in its [field-partition research](../../EINSTEIN_TETA_PARTITION.md). Its proposed interpretation associates the retained geometry with TetA and the restored torsion sector with TetB. In this construction, the latter carries distinctions that the metric alone does not resolve.
 
-1. **A count.** Enough states in the restored sector, per unit area, to match the Bekenstein–Hawking entropy $S = A/4\ell_P^2$.
-2. **A way out.** A channel by which the stored information returns in the radiation.
-3. **The Page curve.** The entropy of the radiation must rise and then fall back to zero as the black hole evaporates (Page 1993). Recent semiclassical calculations recover this curve through "islands" (Penington 2020; Almheiri et al. 2020), and any rival account must do the same.
+| | TetA | TetB |
+| --- | --- | --- |
+| Geometric partition | 40 symmetric connection coefficients | 24 torsion components |
+| GFD constitutive fraction | $\mu(x)$ | $1-\mu(x)$ |
+| Role in this investigation | Familiar gravitational response | Candidate information-bearing geometry |
 
-The word *firewall* has a technical meaning here too. In 2012 Almheiri, Marolf, Polchinski and Sully argued that preserving information might require a wall of high-energy quanta at the horizon, a firewall in the literal sense, at the cost of the smooth horizon that general relativity predicts. GFD's answer, if it holds, is gentler. The horizon stays smooth, because it sits deep in the familiar chamber. The memory is not a wall at the edge. It is the half of the gravitational field that general relativity set aside.
+A page has two sides. A reader permitted to see only one cannot determine what is written on the other.
 
-## Contents
+The analogy is not that general relativity has no means of encoding information. Rather, GFD asks whether the geometry excluded by its torsion-free condition supplies an additional physical channel for preserving correlations.
 
-| File | Contents |
-|---|---|
-| [`singularities-information-and-holography.md`](singularities-information-and-holography.md) | The working note: the black-hole regime, the Raychaudhuri equation for the full connection, information, renormalisation and holography, with the open problems and full references |
-| [`verify_identities.py`](verify_identities.py) | Verification: the four GFD identities (symbolic), the full-connection Raychaudhuri decomposition (numerical, over random torsion fields), and the black-hole regime; 16 checks |
-| [`regime_map.png`](regime_map.png) | The TetA/TetB partition, and where galaxies, the Earth and black-hole horizons sit on it |
+The 24 is an algebraic component count, not a count of independent propagating quantum modes. Establishing the physical state space is part of the problem.
+
+## III. The paradox within the paradox
+
+The GFD constitutive law is
+
+$$
+\mu(x)=\frac{x}{1+x},\qquad
+1-\mu(x)=\frac{1}{1+x},\qquad
+x=\frac{g}{a_0}.
+$$
+
+If the torsion sector is a candidate for gravitational memory, one might expect it to dominate precisely where the information paradox arises. The calculation says otherwise.
+
+At a Schwarzschild horizon, taking the surface gravity $\kappa=c^4/(4GM)$ as the acceleration scale in the constitutive law, the following values result:
+
+| Black hole (mass scale) | $\kappa/a_0$ | TetB fraction |
+| --- | ---: | ---: |
+| Stellar, $10M_\odot$ | $1.3\times10^{22}$ | $8\times10^{-23}$ |
+| Sagittarius A*, $4.3\times10^6M_\odot$ | $2.9\times10^{16}$ | $3\times10^{-17}$ |
+| M87*, $6.5\times10^9M_\odot$ | $2.0\times10^{13}$ | $5\times10^{-14}$ |
+
+![The TetA/TetB constitutive partition across gravitational regimes](regime_map.png)
+
+*The strong-field limit suppresses the TetB acceleration fraction. It does not, by itself, determine the number of distinguishable states in that sector.*
+
+That distinction is the heart of this investigation.
+
+A book need not grow heavier when its letters are rearranged into a different story. The energy of a signal does not, by itself, specify the information encoded in it.
+
+Likewise, a small constitutive fraction does not establish a small information capacity. Nor does it guarantee a large one. Capacity must be derived from the sector's physical states, their distinguishability and their dynamics.
+
+**The proposed memory is in the configuration, not the fraction.**
+
+The horizon calculation therefore supplies both an opportunity and a constraint: GFD approaches its familiar high-acceleration limit while leaving open the question of whether the restored geometry can carry information. It is not, on its own, a precision prediction for relativistic images, ringdowns or horizon smoothness.
+
+## IV. What the full connection changes
+
+The [companion mathematical note](singularities-information-and-holography.md) develops the Raychaudhuri equation for a metric-compatible connection with torsion. For the timelike autoparallel congruence and conventions used there,
+
+$$
+\frac{d\theta}{d\tau}=-\frac{\theta^2}{3}-\sigma_{ab}\sigma^{ab}
++\omega_{ab}\omega^{ab}-R_{ab}u^au^b
++T^d{}_{ab}u^b\nabla_du^a.
+$$
+
+The torsion term separates into three irreducible contributions:
+
+| Sector | Components | Kinematic coupling |
+| --- | ---: | --- |
+| Vector | 4 | Expansion |
+| Axial | 4 | Vorticity |
+| Tensor | 16 | Shear and vorticity |
+
+The same 24 components have an $8\times3$ organization in GFD's closed-frame construction: eight null directions and three rotation planes. The research connects this geometry to tetrahedral symmetry and chiral holonomy. These are structural clues, not yet a microscopic theory of black-hole states.
+
+The calculation also identifies a hard limit. From the constitutive law,
+
+$$
+ g(1-\mu)=a_0\mu\leq a_0.
+$$
+
+If torsion amplitude is set solely by that acceleration, its scale is bounded by $a_0/c^2$. The resulting explicit torsion term is far too small to arrest strong-field collapse at the representative horizon scales above.
+
+The possible alternative is a source that grows with the spin density of matter, as in Einstein–Cartan theory. Such coupling can produce a repulsive contribution quadratic in spin density in appropriate models. Deriving this source from the GFD action, and establishing its effect on collapse, remain open tasks.
+
+## V. Three mathematical echoes
+
+The same constitutive law produces three further identities, each pointing toward a familiar language of modern physics.
+
+| Identity | Mathematical connection | What it does not yet establish |
+| --- | --- | --- |
+| $F(y)=y-2\sqrt y+2\ln(1+\sqrt y)$ | The logarithmic term is generated by integrating the TetB fraction and resembles the Shannon–Hartley capacity formula. | A physical communication channel or its capacity. |
+| $d\mu/d\ln x=\mu(1-\mu)$ | A logistic flow between the two constitutive fixed points. | Quantum renormalizability or a quantum beta function. |
+| $M_{\mathrm{extra}}=a_0r^2\mu/G$ | Area scaling of the Newtonian-equivalent mass residual in spherical symmetry. | The black-hole entropy area law or holography. |
+
+These connections are worth investigating not because the same mathematical shapes guarantee the same physics, but because they provide precise places at which a deeper connection can be tested.
+
+## VI. The test Hawking leaves us
+
+For the proposed geometry to become a genuine resolution of the information paradox, three things must follow from the theory rather than be imposed upon it.
+
+**1. The memory must be counted.** Identify the physical, distinguishable states of the restored sector and derive the Bekenstein–Hawking entropy, including its coefficient:
+
+$$
+\frac{S_{\mathrm{BH}}}{k_B}=\frac{A}{4\ell_P^2}.
+$$
+
+**2. The memory must be returned.** Derive a dynamical channel by which information about the infalling quantum state becomes encoded in the outgoing radiation, without simply postulating a transfer.
+
+**3. The story must close.** Calculate the fine-grained entropy of the radiation over evaporation. For a pure initial state with complete unitary evaporation, it must rise and ultimately return to zero: the Page curve. Modern island and replica-wormhole results provide important benchmarks for this task.
+
+A complete theory must also address the AMPS firewall argument. A small TetB acceleration fraction does not by itself resolve the entanglement constraints or establish a smooth horizon.
+
+These are the tests that separate a candidate for gravitational memory from a theory of gravitational memory.
+
+## VII. Research and verification
+
+| Resource | Purpose |
+| --- | --- |
+| [Singularities, Information and Holography in GFD](singularities-information-and-holography.md) | Full derivations, assumptions, comparisons with established results and open problems. |
+| [Verification script](verify_identities.py) | Constitutive identities, randomized torsion contractions and horizon-scale estimates; 16 checks. |
+| [Regime map](regime_map.png) | Visualization of the TetA/TetB partition across gravitational scales. |
+| [Tetrad partition](../../EINSTEIN_TETA_PARTITION.md) | The GFD geometric interpretation of the 40/24 partition. |
+| [Tetrahedral torsion symmetry](../../papers/algebraic-papers-a-b-c/gfd_paper_b_torsion_S4.tex) | Representation-theoretic construction underlying the restored sector. |
+
+From the repository root:
 
 ```bash
 cd research/hawking
-python verify_identities.py      # 16/16 checks
+python verify_identities.py
 ```
 
-## A note on scope
+Requires NumPy and SymPy. The companion note reports 16 passing checks. These checks support the algebraic identities and numerical estimates; they do not establish the proposed quantum information mechanism.
 
-This is a working note, not a resolution. The identities are exact and verified. The Raychaudhuri result is derived, and it constrains the proposal as much as it supports it. The claim that the restored torsion sector is where gravity keeps its memory is a hypothesis with three stated tests. The universe may be no goldfish, but showing that, in the mathematics of the full connection, is the work this note begins.
+**Research status.** This is an investigation, not a claimed resolution of Hawking's paradox. The algebraic partition, the constitutive identities and the kinematic decomposition supply the foundation. The physical state count, spin-sourced dynamics, information-return channel and Page curve remain to be derived.
 
 ---
 
-**References**
+## Epilogue — The history of everything
 
-- Almheiri, A., Marolf, D., Polchinski, J. and Sully, J. (2013). Black holes: complementarity or firewalls? *JHEP* 02, 062.
-- Almheiri, A., Hartman, T., Maldacena, J., Shaghoulian, E. and Tajdini, A. (2020). Replica wormholes and the entropy of Hawking radiation. *JHEP* 05, 013.
-- Hawking, S. W. (1975). Particle creation by black holes. *Commun. Math. Phys.* 43, 199.
-- Hawking, S. W. (1976). Breakdown of predictability in gravitational collapse. *Phys. Rev. D* 14, 2460.
-- Page, D. N. (1993). Information in black hole radiation. *Phys. Rev. Lett.* 71, 3743.
-- Penington, G. (2020). Entanglement wedge reconstruction and the information paradox. *JHEP* 09, 002.
-- Popławski, N. J. (2012). Nonsingular, big-bounce cosmology from spinor-torsion coupling. *Phys. Rev. D* 85, 107502.
-- On goldfish memory: [BBC Wildlife, "Do goldfish really only have a 3-second memory?"](https://www.discoverwildlife.com/animal-facts/fish/goldfish-memory)
+Hawking taught us that a black hole is not simply the end of a star. It is a question about what nature is allowed to forget.
+
+Perhaps the geometry that carries the answer is not something we must add to gravity, but something we must learn to read in the connection we already know.
+
+A universe may burn its books. It may scatter their letters across the heavens. It may conceal their meaning beyond the reach of any observer.
+
+But if quantum mechanics is right, nature never loses the story.
+
+**The universe is not a goldfish.**
+
+The work is to show why.
+
+---
+
+### Selected references
+
+- Hawking, S. W. (1975). [Particle creation by black holes](https://doi.org/10.1007/BF02345020). *Communications in Mathematical Physics* 43, 199–220.
+- Hawking, S. W. (1976). [Breakdown of predictability in gravitational collapse](https://doi.org/10.1103/PhysRevD.14.2460). *Physical Review D* 14, 2460.
+- Bekenstein, J. D. (1973). [Black holes and entropy](https://doi.org/10.1103/PhysRevD.7.2333). *Physical Review D* 7, 2333.
+- Page, D. N. (1993). [Information in black hole radiation](https://doi.org/10.1103/PhysRevLett.71.3743). *Physical Review Letters* 71, 3743.
+- Almheiri, A., Marolf, D., Polchinski, J. and Sully, J. (2013). [Black holes: complementarity or firewalls?](https://arxiv.org/abs/1207.3123). *JHEP* 02, 062.
+- Luz, P. and Vitagliano, V. (2017). [Raychaudhuri equation in spacetimes with torsion](https://arxiv.org/abs/1709.07261). *Physical Review D* 96, 024021.
+- Popławski, N. J. (2012). [Nonsingular, big-bounce cosmology from spinor-torsion coupling](https://arxiv.org/abs/1111.4595). *Physical Review D* 85, 107502.
+- Penington, G. (2020). [Entanglement wedge reconstruction and the information paradox](https://arxiv.org/abs/1905.08255). *JHEP* 09, 002.
+- Almheiri, A. et al. (2020). [Replica wormholes and the entropy of Hawking radiation](https://arxiv.org/abs/1911.12333). *JHEP* 05, 013.
+
+The complete bibliography and mathematical conventions are in the [companion note](singularities-information-and-holography.md).
