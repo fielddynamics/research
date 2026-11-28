@@ -393,6 +393,7 @@ Most research folders follow the same pattern: a **`*_synthesis.md`** that expla
 | [`matter/`](research/matter/) | Nuclear binding (Bethe–Weizsäcker coefficients, 3-scale model, Sierpiński walk), electron configurations, particle properties |
 | [`electron-configurations/`](research/electron-configurations/) | Electron configurations: sub-shell capacities, Madelung order and the transition-metal exceptions from the coupling polynomial |
 | [`atomic-properties/`](research/atomic-properties/), [`atom-vortex-horizon/`](research/atom-vortex-horizon/) | Overdetermined atomic predictions; the vortex horizon picture of the atom |
+| [`distributed-vortex-recruitment/`](research/distributed-vortex-recruitment/) | Distributed vortex recruitment and temporal registration: a bound field excites pre-existing vortices in the surrounding unbound fields while the Hadamard processor stays fixed; AQUAL settlement, causal workload, core vortex modulation, recursive causal closure, Flower deformation (kept as a control), hydrogen recruitment, and the radial synthesis with the shared nonspatial core |
 
 ### Computation and signal processing
 
